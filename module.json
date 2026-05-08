@@ -53,6 +53,50 @@
 			"path": "lang/en.json"
 		}
 	],
+	"packs": [
+		{
+			"name": "basic-moves",
+			"label": "Basic Moves",
+			"path": "packs/basic-moves",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "playbooks",
+			"label": "Playbooks",
+			"path": "packs/playbooks",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "special-moves",
+			"label": "Special Moves",
+			"path": "packs/special-moves",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "playbook-moves",
+			"label": "Playbook Moves",
+			"path": "packs/playbook-moves",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "follower-moves",
+			"label": "Follower Moves",
+			"path": "packs/follower-moves",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "homefront-moves",
+			"label": "Homefront Moves",
+			"path": "packs/homefront-moves",
+			"type": "Item",
+			"system": "pbta"
+		}
+	],
 	"manifest": "https://raw.githubusercontent.com/aMediocreDad/stonetop/main/module.json",
 	"download": "https://github.com/aMediocreDad/stonetop/archive/refs/heads/main.zip"
 }
