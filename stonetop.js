@@ -43,17 +43,17 @@ Hooks.once("pbtaSheetConfig", () => {
 			failure: {
 				start: null,
 				end: 6,
-				label: "Miss",
+				label: game.i18n.localize("stonetop.rollResults.miss"),
 			},
 			partial: {
 				start: 7,
 				end: 9,
-				label: "Weak Hit",
+				label: game.i18n.localize("stonetop.rollResults.weakHit"),
 			},
 			success: {
 				start: 10,
 				end: 12,
-				label: "Strong Hit!",
+				label: game.i18n.localize("stonetop.rollResults.strongHit"),
 			},
 		},
 		actorTypes: {
@@ -62,17 +62,17 @@ Hooks.once("pbtaSheetConfig", () => {
 				attributes: {
 					hp: {
 						type: "Resource",
-						label: "Hit Points",
+						label: game.i18n.localize("stonetop.npc.hitPoints"),
 						position: "left",
 					},
 					armor: {
 						type: "Resource",
-						label: "Armor",
+						label: game.i18n.localize("stonetop.npc.armor"),
 						position: "left",
 					},
 					instinct: {
 						type: "Text",
-						label: "Instinct",
+						label: game.i18n.localize("stonetop.npc.instinct"),
 						position: "top",
 					},
 				},

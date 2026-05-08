@@ -1,3 +1,27 @@
 {
-	"would_be_hero": "The Would-Be Hero"
+	"stonetop": {
+		"rollResults": {
+			"miss": "Miss",
+			"weakHit": "Weak Hit",
+			"strongHit": "Strong Hit!"
+		},
+		"npc": {
+			"hitPoints": "Hit Points",
+			"armor": "Armor",
+			"instinct": "Instinct"
+		},
+		"character": {
+			"stats": {
+				"strength":  "Strength",
+				"dexterity": "Dexterity",
+				"intelligence":  "Intelligence",
+				"wisdom": "Wisdom",
+				"constitution":  "Constitution",
+				"charisma": "Charisma"
+			},
+			"moveTypes": {
+				"background": "Background"
+			}
+		}
+	}
 }

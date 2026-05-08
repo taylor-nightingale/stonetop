@@ -1,14 +1,14 @@
 export const CharacterType = {
 	stats: {
-		str: { label: "Strength", value: 0 },
-		dex: { label: "Dexterity", value: 0 },
-		int: { label: "Intelligence", value: 0 },
-		wis: { label: "Wisdom", value: 0 },
-		con: { label: "Constitution", value: 0 },
-		cha: { label: "Charisma", value: 0 },
+		str: { label: game.i18n.localize("stonetop.character.stats.strength"), value: 0 },
+		dex: { label: game.i18n.localize("stonetop.character.stats.dexterity"), value: 0 },
+		int: { label: game.i18n.localize("stonetop.character.stats.intelligence"), value: 0 },
+		wis: { label: game.i18n.localize("stonetop.character.stats.wisdom"), value: 0 },
+		con: { label: game.i18n.localize("stonetop.character.stats.constitution"), value: 0 },
+		cha: { label: game.i18n.localize("stonetop.character.stats.charisma"), value: 0 },
 	},
 	moveTypes: {
-		background: { label: "Background", moves: [] },
+		background: { label: game.i18n.localize("stonetop.character.moveTypes.background"), moves: [] },
 		basic: {
 			label: "Basic Moves",
 			creation: true,
