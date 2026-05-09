@@ -1,59 +1,13 @@
-/**
- * @typedef {Object} Status - Status color
- * @property {string} SUCCESS - Success color
- * @property {string} INFO - Info color
- * @property {string} ERROR - Error color
- */
-const Status = {
-	SUCCESS: "hsl(161, 35%, 38%)",
-	INFO: "hsl(210, 12.6%, 50.2%)",
-	ERROR: "hsl(350, 73%, 23%)",
-};
+const PREFIX = "Stonetop |";
 
-/**
- * @param {Status} status
- * @returns {function}
- */
-function log(status) {
-	/**
-	 * @param  {...string} args
-	 * @returns {void}
-	 */
-	return (...args) => {
-		return console.log(
-			`%cStonetop | %c${args.join("\n")}`,
-			`font-weight: bold; color: ${status};`,
-			"color: hsl(240, 100%, 98%);",
-		);
-	};
+function makeLogger(consoleFn, prefixColor) {
+	return (...args) => consoleFn(
+		`%c${PREFIX}%c ${args.join(" ")}`,
+		`font-weight: bold; color: ${prefixColor};`,
+		"",
+	);
 }
 
-/**
- * @param  {...string} args
- * @returns {void}
- * @example
- * error("This is an error message");
- */
-export function error(...args) {
-	return log(Status.ERROR)(...args);
-}
-
-/**
- * @param  {...string} args
- * @returns {void}
- * @example
- * success("This is an error message");
- */
-export function success(...args) {
-	return log(Status.SUCCESS)(...args);
-}
-
-/**
- * @param  {...string} args
- * @returns {void}
- * @example
- * info("This is an info message");
- */
-export function info(...args) {
-	return log(Status.INFO)(...args);
-}
+export const info = makeLogger(console.log, "hsl(210, 60%, 50%)");
+export const warn = makeLogger(console.warn, "hsl(40, 80%, 45%)");
+export const error = makeLogger(console.error, "hsl(350, 73%, 45%)");
