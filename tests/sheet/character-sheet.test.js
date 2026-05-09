@@ -32,13 +32,6 @@ describe("StonetopCharacterSheet", () => {
 		});
 	});
 
-	describe("template", () => {
-		it("returns the stonetop character sheet path", () => {
-			const sheet = new StonetopCharacterSheet();
-			expect(sheet.template).toBe("modules/stonetop/templates/actor/character-sheet.hbs");
-		});
-	});
-
 	describe("getData", () => {
 		it("returns context from super", async () => {
 			const sheet = new StonetopCharacterSheet();

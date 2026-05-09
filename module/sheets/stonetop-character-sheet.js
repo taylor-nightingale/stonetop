@@ -8,10 +8,6 @@ export function createStonetopCharacterSheetClass(BaseSheet) {
 			});
 		}
 
-		get template() {
-			return "modules/stonetop/templates/actor/character-sheet.hbs";
-		}
-
 		async getData(options = {}) {
 			const context = await super.getData(options);
 			return context;

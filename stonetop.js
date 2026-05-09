@@ -35,7 +35,6 @@ Hooks.once("init", () => {
 	});
 
 	loadTemplates([
-		"modules/stonetop/templates/actor/character-sheet.hbs",
 		"modules/stonetop/templates/actor/partials/stats.hbs",
 		"modules/stonetop/templates/actor/partials/moves.hbs",
 		"modules/stonetop/templates/actor/partials/resources.hbs",
