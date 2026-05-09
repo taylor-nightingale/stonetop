@@ -20,7 +20,7 @@ Hooks.once("init", () => {
 
 	const BasePbtaSheet = Actors.registeredSheets
 		.find(s => s.scope === "pbta" && s.types.includes("character"))?.cls
-		?? foundry.appv1.sheets.ActorSheet;
+		?? ActorSheet;
 
 	Actors.registerSheet("stonetop", createStonetopCharacterSheetClass(BasePbtaSheet), {
 		types: ["character"],
