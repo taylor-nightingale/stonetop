@@ -1,16 +1,8 @@
 import { extractPack } from "@foundryvtt/foundryvtt-cli";
 import { promises as fs } from "fs";
+import { PACKS } from "./packs.js";
 
-const packs = [
-	"playbooks",
-	"playbook-moves",
-	"basic-moves",
-	"special-moves",
-	"follower-moves",
-	"homefront-moves",
-];
-
-for (const pack of packs) {
+for (const pack of PACKS) {
 	const src = `packs/${pack}`;
 	const dest = `packs/src/${pack}`;
 	try {

@@ -1,6 +1,7 @@
 import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { promises as fs } from "fs";
 import path from "path";
+import { PACKS } from "./packs.js";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 function randomId() {
@@ -20,16 +21,7 @@ async function ensureIds(srcDir) {
 	}
 }
 
-const packs = [
-	"playbooks",
-	"playbook-moves",
-	"basic-moves",
-	"special-moves",
-	"follower-moves",
-	"homefront-moves",
-];
-
-for (const pack of packs) {
+for (const pack of PACKS) {
 	const src = `packs/src/${pack}`;
 	try {
 		await fs.access(src);
