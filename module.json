@@ -2,8 +2,8 @@
 	"$schema": "https://json.schemastore.org/foundryvtt-module-manifest.json",
 	"id": "stonetop",
 	"title": "Stonetop",
-	"description": "A module for playing Stonetop in Foundry VTT.",
-	"version": "0.1.1",
+	"description": "An unofficial module for playing Stonetop in Foundry VTT.",
+	"version": "0.2.0",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "12"
@@ -23,20 +23,24 @@
 		{
 			"name": "aMediocerDad",
 			"flags": {}
+		},
+		{
+			"name": "taylor-nightingale"
 		}
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": [
-				"css",
-				"js",
-				"json"
-			],
+			"extensions": ["css", "js", "hbs", "json"],
 			"paths": [
-				"stonetop.css",
 				"stonetop.js",
-				"scripts",
-				"lang"
+				"module",
+				"hooks",
+				"config",
+				"sheets",
+				"templates",
+				"styles",
+				"languages",
+				"utils"
 			]
 		}
 	},
@@ -44,13 +48,13 @@
 		"stonetop.js"
 	],
 	"styles": [
-		"stonetop.css"
+		"styles/stonetop.css"
 	],
 	"languages": [
 		{
 			"lang": "en",
 			"name": "English",
-			"path": "lang/en.json"
+			"path": "languages/en.json"
 		}
 	],
 	"packs": [

@@ -1,0 +1,49 @@
+{
+	"stonetop": {
+		"settings": {
+			"expandMoveDescriptions": {
+				"name": "Expand Move Descriptions",
+				"hint": "Show move descriptions expanded by default on character sheets."
+			},
+			"defaultSheetTab": {
+				"name": "Default Sheet Tab",
+				"hint": "Which tab the character sheet opens to by default.",
+				"moves": "Moves",
+				"gear": "Gear",
+				"biography": "Biography"
+			}
+		},
+		"rollResults": {
+			"miss": "Miss",
+			"weakHit": "Weak Hit",
+			"strongHit": "Strong Hit!"
+		},
+		"npc": {
+			"hitPoints": "Hit Points",
+			"armor": "Armor",
+			"instinct": "Instinct"
+		},
+		"character": {
+			"stats": {
+				"strength":  "Strength",
+				"dexterity": "Dexterity",
+				"intelligence":  "Intelligence",
+				"wisdom": "Wisdom",
+				"constitution":  "Constitution",
+				"charisma": "Charisma"
+			},
+			"attributes": {
+				"instinct": "Instinct",
+				"xp": "XP",
+				"level": "Level",
+				"stock": "Stock",
+				"favor": "Favor",
+				"omen": "Omen",
+				"resolve": "Resolve"
+			},
+			"moveTypes": {
+				"background": "Background"
+			}
+		}
+	}
+}
