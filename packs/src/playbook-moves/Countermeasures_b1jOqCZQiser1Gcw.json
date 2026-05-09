@@ -1,0 +1,11 @@
+{
+  "_id": "b1jOqCZQiser1Gcw",
+  "_key": "!items!b1jOqCZQiser1Gcw",
+  "name": "Countermeasures",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "When you witness a magical effect, you may ask the GM, \"How can this be countered or interrupted?\" and get an honest answer. You or an ally gain advantage on your next roll to act on the answer."
+  }
+}

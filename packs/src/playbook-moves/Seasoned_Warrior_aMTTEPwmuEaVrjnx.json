@@ -1,0 +1,14 @@
+{
+  "_id": "aMTTEPwmuEaVrjnx",
+  "_key": "!items!aMTTEPwmuEaVrjnx",
+  "name": "Seasoned Warrior",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "requires": "The Heavy",
+    "minLevel": 2,
+    "isRepeatable": true,
+    "description": "Take a move from the Fox, Marshal, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. (You can't pick Improved Stat or Superior Stat.)"
+  }
+}

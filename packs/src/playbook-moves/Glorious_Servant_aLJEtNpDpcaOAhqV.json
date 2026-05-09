@@ -1,0 +1,13 @@
+{
+  "_id": "aLJEtNpDpcaOAhqV",
+  "_key": "!items!aLJEtNpDpcaOAhqV",
+  "name": "Glorious Servant",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "requires": "Invoke the Sun God",
+    "minLevel": 6,
+    "description": "When you Invoke the Sun God and roll a 10+, you need not choose a consequence; on a 7-9, you choose a consequence but the GM does not."
+  }
+}

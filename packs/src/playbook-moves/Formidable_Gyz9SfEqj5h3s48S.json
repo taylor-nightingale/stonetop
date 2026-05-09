@@ -1,0 +1,27 @@
+{
+  "_id": "Gyz9SfEqj5h3s48S",
+  "_key": "!items!Gyz9SfEqj5h3s48S",
+  "name": "Formidable",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "stat": "cha",
+    "rollFormula": "2d6+@cha",
+    "description": "When you wade into battle, you can choose to roll +CHA: on a 10+, both; on a 7-9, pick 1:\n\n• Lesser foes will quail, hesitate, or flee before you.\n• Doughty foes will focus on you, seeing you as the greatest threat.\n\nOn a 6-, pick 1 but ask the GM what you've missed.",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "Both: lesser foes quail AND doughty foes focus on you."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "Pick 1: lesser foes quail/flee OR doughty foes focus on you."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "Pick 1 but ask the GM what you've missed."
+      }
+    }
+  }
+}

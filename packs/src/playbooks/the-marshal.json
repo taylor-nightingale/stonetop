@@ -1,0 +1,18 @@
+{
+  "_id": "SOzcXGFCdybiyHfO",
+  "_key": "!items!SOzcXGFCdybiyHfO",
+  "name": "The Marshal",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 20,
+      "damage": "d8"
+    }
+  },
+  "system": {
+    "slug": "the-marshal",
+    "actorType": "character",
+    "description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
+    "attributes": {}
+  }
+}

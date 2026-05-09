@@ -1,0 +1,11 @@
+{
+  "_id": "EiXEgOB7s3xWaXJM",
+  "_key": "!items!EiXEgOB7s3xWaXJM",
+  "name": "Under Your Skin",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "description": "When you engage an NPC in conversation, you can ask the GM 1 of these and get an honest answer:\n\n• What are they expecting me to do?\n• What, in general, are they trying to hide?\n• What do they want to happen?"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_id": "neGpOwh9eu4Tysvz",
+  "_key": "!items!neGpOwh9eu4Tysvz",
+  "name": "Big Game Hunter",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "When you strike at the weak spot of a large or huge creature, you deal +2 damage."
+  }
+}

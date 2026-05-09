@@ -1,0 +1,30 @@
+{
+  "_id": "RbcwUiSxq1sgau7L",
+  "_key": "!items!RbcwUiSxq1sgau7L",
+  "name": "The Blessed",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 18,
+      "damage": "d6"
+    }
+  },
+  "system": {
+    "slug": "the-blessed",
+    "actorType": "character",
+    "description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
+    "attributes": {
+      "stock": {
+        "label": "Stock",
+        "type": "Clock",
+        "value": 0,
+        "max": 3,
+        "steps": [false, false, false],
+        "choices": [],
+        "custom": false,
+        "path": "attributes",
+        "description": ""
+      }
+    }
+  }
+}

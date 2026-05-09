@@ -1,0 +1,12 @@
+{
+  "_id": "WtCBFPrCc3JBAA9x",
+  "_key": "!items!WtCBFPrCc3JBAA9x",
+  "name": "Home on the Range",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "When a journey requires you to Defy Danger or Struggle as One, treat a 6- as a 7-9."
+  }
+}

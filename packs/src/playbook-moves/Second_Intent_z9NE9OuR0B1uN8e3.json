@@ -1,0 +1,13 @@
+{
+  "_id": "z9NE9OuR0B1uN8e3",
+  "_key": "!items!z9NE9OuR0B1uN8e3",
+  "name": "Second Intent",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "requires": "Parry & Riposte, Ambush",
+    "minLevel": 6,
+    "description": "When you Defend and spend 1 Readiness to Parry & Riposte, also pick 1 option from the Ambush list."
+  }
+}

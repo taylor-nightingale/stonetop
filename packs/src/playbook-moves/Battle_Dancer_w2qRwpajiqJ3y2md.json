@@ -1,0 +1,13 @@
+{
+  "_id": "w2qRwpajiqJ3y2md",
+  "_key": "!items!w2qRwpajiqJ3y2md",
+  "name": "Battle Dancer",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "requires": "Skill at Arms",
+    "minLevel": 6,
+    "description": "When you roll +DEX to Clash, on a 12+ you deal your damage, avoid your enemy's attack, and impress/embarrass/overawe your foes."
+  }
+}

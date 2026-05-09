@@ -1,0 +1,12 @@
+{
+  "_id": "WJGspSDnBiZuCg1a",
+  "_key": "!items!WJGspSDnBiZuCg1a",
+  "name": "Superior Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "minLevel": 6,
+    "description": "Increase one of your stats by +1 (to a max of +3)."
+  }
+}

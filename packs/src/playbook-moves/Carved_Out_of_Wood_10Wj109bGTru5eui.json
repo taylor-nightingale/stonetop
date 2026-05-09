@@ -1,0 +1,11 @@
+{
+  "_id": "10Wj109bGTru5eui",
+  "_key": "!items!10Wj109bGTru5eui",
+  "name": "Carved Out of Wood",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "description": "Increase your max HP by 4."
+  }
+}

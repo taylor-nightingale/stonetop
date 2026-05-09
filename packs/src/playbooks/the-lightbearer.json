@@ -1,0 +1,18 @@
+{
+  "_id": "8OTE4Z7HMG1Os7C8",
+  "_key": "!items!8OTE4Z7HMG1Os7C8",
+  "name": "The Lightbearer",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 18,
+      "damage": "d4"
+    }
+  },
+  "system": {
+    "slug": "the-lightbearer",
+    "actorType": "character",
+    "description": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
+    "attributes": {}
+  }
+}

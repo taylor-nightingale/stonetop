@@ -1,0 +1,12 @@
+{
+  "_id": "f5RbDWq6MTNRB6Ka",
+  "_key": "!items!f5RbDWq6MTNRB6Ka",
+  "name": "Spirit Tongue",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "You can speak with beasts and spirits. You can always ask the GM, \"What spirits are active here?\" and get an honest answer."
+  }
+}

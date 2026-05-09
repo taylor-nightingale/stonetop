@@ -1,0 +1,11 @@
+{
+  "_id": "pFtnrGUmaBTMeRl6",
+  "_key": "!items!pFtnrGUmaBTMeRl6",
+  "name": "Lightning Rod",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "When you Defend while touching the earth, you can spend 1 Readiness to intercept a nearby magical attack and redirect it harmlessly into the ground."
+  }
+}

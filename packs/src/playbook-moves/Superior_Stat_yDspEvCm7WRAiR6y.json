@@ -1,0 +1,13 @@
+{
+  "_id": "yDspEvCm7WRAiR6y",
+  "_key": "!items!yDspEvCm7WRAiR6y",
+  "name": "Superior Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "requires": "All 6 marks in Potential for Greatness",
+    "minLevel": 6,
+    "description": "Increase one of your stats by +1 (to a max of +3)."
+  }
+}

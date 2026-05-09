@@ -1,0 +1,11 @@
+{
+  "_id": "LKNID0cck5DZ96aq",
+  "_key": "!items!LKNID0cck5DZ96aq",
+  "name": "Magpie",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "When you Have What You Need, you can produce something strange, specific, maybe even valuable or a little bit magical, but if you do, tell us where you got it and 2 of the following:\n\n• How it's not quite right, but maybe it'll do?\n• The trouble you caused back home by getting it\n• Why using it will draw unwanted attention\n• That it's the only thing like this that you've got, and why it'll only work the one time"
+  }
+}

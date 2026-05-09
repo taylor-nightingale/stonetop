@@ -1,0 +1,11 @@
+{
+  "_id": "pJjxxwiK9dCJ3ibx",
+  "_key": "!items!pJjxxwiK9dCJ3ibx",
+  "name": "Predator",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "When you Seek Insight, add the following to the list of questions you can ask. When acting on the answer to either question, deal an extra 1d4 damage.\n\n• Who or what here is the easiest prey?\n• How is ________ weak or vulnerable?"
+  }
+}

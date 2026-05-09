@@ -1,0 +1,12 @@
+{
+  "_id": "tBzlVJepsoDqRKgf",
+  "_key": "!items!tBzlVJepsoDqRKgf",
+  "name": "Armored",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "When you carry a shield, you suffer reduced encumbrance from it. Also, you can ignore the cumbersome tag on any armor you wear.\n\nIf you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome)."
+  }
+}

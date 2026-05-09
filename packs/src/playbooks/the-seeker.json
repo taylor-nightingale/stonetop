@@ -1,0 +1,18 @@
+{
+  "_id": "66InktII1QKAPInQ",
+  "_key": "!items!66InktII1QKAPInQ",
+  "name": "The Seeker",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 16,
+      "damage": "d6"
+    }
+  },
+  "system": {
+    "slug": "the-seeker",
+    "actorType": "character",
+    "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+    "attributes": {}
+  }
+}

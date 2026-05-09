@@ -1,0 +1,11 @@
+{
+  "_id": "323WfNSMtirlr5RR",
+  "_key": "!items!323WfNSMtirlr5RR",
+  "name": "Trackless Step",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "When you move through nature with care and patience, you make no sound, leave no trace and can ignore any hindering or treacherous terrain (briars, mire, scree, etc.). When you spend 1 Stock and mark others, they each gain this benefit so long as the mark remains. 1 Stock can mark a number of individuals up to your level +INT."
+  }
+}

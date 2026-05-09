@@ -1,0 +1,13 @@
+{
+  "_id": "6SRZw60BPjpwX7TE",
+  "_key": "!items!6SRZw60BPjpwX7TE",
+  "name": "Proof Against Detection",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "requires": "Safety First",
+    "minLevel": 6,
+    "description": "When you hold Protection, you can't be scried upon or sensed by magical means, and have advantage to Defy Danger by being stealthy."
+  }
+}

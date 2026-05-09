@@ -1,0 +1,12 @@
+{
+  "_id": "F6DL7kwC3pdZPBo4",
+  "_key": "!items!F6DL7kwC3pdZPBo4",
+  "name": "The Tower Eternal",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "minLevel": 6,
+    "description": "When you Defy Danger against magic, treat a result of 6- as a 7-9."
+  }
+}

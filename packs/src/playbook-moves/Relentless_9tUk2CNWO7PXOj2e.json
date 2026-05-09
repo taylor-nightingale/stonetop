@@ -1,0 +1,11 @@
+{
+  "_id": "9tUk2CNWO7PXOj2e",
+  "_key": "!items!9tUk2CNWO7PXOj2e",
+  "name": "Relentless",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "description": "When you Clash and your foe survives, you gain advantage the next time you Clash with them."
+  }
+}

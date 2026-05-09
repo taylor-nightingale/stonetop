@@ -1,2 +1,10 @@
 .idea/
 node_modules/
+
+# Compiled compendium packs — source of truth is packs/src/
+packs/basic-moves/
+packs/playbooks/
+packs/special-moves/
+packs/playbook-moves/
+packs/follower-moves/
+packs/homefront-moves/

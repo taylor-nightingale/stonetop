@@ -1,0 +1,11 @@
+{
+  "_id": "i1WrUcmOTM4li8Qt",
+  "_key": "!items!i1WrUcmOTM4li8Qt",
+  "name": "Up With People",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "When you converse with someone (PC or NPC) you can hold 2 Rapport with them. If you do, they hold 1 Rapport with you. During the conversation, either of you can spend 1 Rapport to ask the other player one of the following and get an honest answer.\n\n• What weighs you down or holds you back?\n• What drives you forward?\n• What lesson would you have me learn?\n• What do you think of me, truly?"
+  }
+}

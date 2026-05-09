@@ -1,0 +1,27 @@
+{
+  "_id": "OfRcEbjujQyVhOlK",
+  "_key": "!items!OfRcEbjujQyVhOlK",
+  "name": "Shake It Off",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "stat": "cha",
+    "rollFormula": "2d6+@cha",
+    "description": "When you order an ally to overcome fear, pain, doubt, or delusion, roll +CHA: on a 10+, they do it; on a 7-9, a PC gets advantage to do it; an NPC will do it, but they'll need time, they'll resent you, or they'll feel humiliated (GM decides).",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "They do it."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "A PC gets advantage to do it; an NPC does it but at a cost (GM decides)."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "The GM makes a move."
+      }
+    }
+  }
+}

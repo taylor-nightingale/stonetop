@@ -1,0 +1,12 @@
+{
+  "_id": "Zc9O0TiMFyiRsN0o",
+  "_key": "!items!Zc9O0TiMFyiRsN0o",
+  "name": "Superior Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "minLevel": 6,
+    "description": "Increase one of your stats by +1 (to a max of +3)."
+  }
+}

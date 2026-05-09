@@ -1,0 +1,11 @@
+{
+  "_id": "MyDxD5e0USjuy7eQ",
+  "_key": "!items!MyDxD5e0USjuy7eQ",
+  "name": "Many Hands Make Light Work",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "description": "When you jump in to help another character who just rolled, tell us how and ask the GM what else is required or what the consequences will be. If you accept, increase your ally's roll by +1."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_id": "lcl9yVmc6rXMpZGL",
+  "_key": "!items!lcl9yVmc6rXMpZGL",
+  "name": "Truth or Consequences",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "description": "When you look into someone's eyes and gaze upon their soul, you can ask their player, \"Are you lying or hiding something from me?\" and get an honest answer. If the answer is \"Yes,\" you have advantage on your next roll against them.\n\nWhen you lie or otherwise deceive someone through words, you have disadvantage on your next roll against them."
+  }
+}

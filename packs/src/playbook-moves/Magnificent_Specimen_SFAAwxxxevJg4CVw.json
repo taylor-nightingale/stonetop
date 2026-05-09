@@ -1,0 +1,13 @@
+{
+  "_id": "SFAAwxxxevJg4CVw",
+  "_key": "!items!SFAAwxxxevJg4CVw",
+  "name": "Magnificent Specimen",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "requires": "Animal Companion",
+    "isRepeatable": true,
+    "description": "Each time you take this move, your companion gains 2 additional options of your choice."
+  }
+}

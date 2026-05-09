@@ -1,0 +1,11 @@
+{
+  "_id": "lBhOp1aubXnwRNU6",
+  "_key": "!items!lBhOp1aubXnwRNU6",
+  "name": "A Candle Against the Dark",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "When you wield a holy light but go otherwise unarmed, you have 2 Armor."
+  }
+}

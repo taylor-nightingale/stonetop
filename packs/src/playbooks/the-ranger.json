@@ -1,0 +1,18 @@
+{
+  "_id": "t6DSdYhsVznrAXDx",
+  "_key": "!items!t6DSdYhsVznrAXDx",
+  "name": "The Ranger",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 18,
+      "damage": "d8"
+    }
+  },
+  "system": {
+    "slug": "the-ranger",
+    "actorType": "character",
+    "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+    "attributes": {}
+  }
+}

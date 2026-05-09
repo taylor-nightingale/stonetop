@@ -1,0 +1,11 @@
+{
+  "_id": "H77ulbc9LtKpNELZ",
+  "_key": "!items!H77ulbc9LtKpNELZ",
+  "name": "Rites of the Land",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "Once per season, when you oversee the sacred rites, hold 1 Favor. If you also sacrifice 1 Surplus, hold 4 Favor instead. Spend Favor in lieu of Stock, 1-for-1.\n\nWhen you publicly sacrifice something or someone much-loved, either clear a steading debility or gain advantage when the steading next rolls +Fortunes."
+  }
+}

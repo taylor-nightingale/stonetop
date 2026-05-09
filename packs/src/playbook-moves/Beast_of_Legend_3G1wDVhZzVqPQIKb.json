@@ -1,0 +1,14 @@
+{
+  "_id": "3G1wDVhZzVqPQIKb",
+  "_key": "!items!3G1wDVhZzVqPQIKb",
+  "name": "Beast of Legend",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "requires": "Magnificent Specimen",
+    "minLevel": 6,
+    "isRepeatable": true,
+    "description": "Each time you take this move, pick 1:\n\n• They are exceptional (and roll +2 instead of +1)\n• They get +4 HP and +1 armor\n• They develop some unique ability or trait"
+  }
+}

@@ -3,9 +3,12 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "pack": "node scripts/pack.js",
+    "unpack": "node scripts/unpack.js"
   },
   "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
     "vitest": "^4.1.5"
   }
 }

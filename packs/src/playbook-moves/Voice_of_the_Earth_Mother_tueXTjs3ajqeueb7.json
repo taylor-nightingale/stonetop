@@ -1,0 +1,13 @@
+{
+  "_id": "tueXTjs3ajqeueb7",
+  "_key": "!items!tueXTjs3ajqeueb7",
+  "name": "Voice of the Earth Mother",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "requires": "Spirit Tongue",
+    "minLevel": 6,
+    "description": "When you speak on behalf of Danu, natural beasts and spirits of the wild respect your authority. All but the most headstrong will do as you command, even against their instincts."
+  }
+}

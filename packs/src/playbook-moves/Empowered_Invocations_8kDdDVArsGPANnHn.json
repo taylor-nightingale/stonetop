@@ -1,0 +1,13 @@
+{
+  "_id": "8kDdDVArsGPANnHn",
+  "_key": "!items!8kDdDVArsGPANnHn",
+  "name": "Empowered Invocations",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "requires": "Invoke the Sun God",
+    "minLevel": 6,
+    "description": "When you Invoke the Sun God, you can choose an extra consequence before you roll. If you do, the Invocation has its empowered effect."
+  }
+}

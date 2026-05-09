@@ -34,13 +34,9 @@
 			"paths": [
 				"stonetop.js",
 				"module",
-				"hooks",
-				"config",
-				"sheets",
 				"templates",
 				"styles",
-				"languages",
-				"utils"
+				"languages"
 			]
 		}
 	},

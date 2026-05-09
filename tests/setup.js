@@ -9,4 +9,10 @@ global.Hooks = {
 
 global.CONFIG = {};
 
-Math.clamped = (value, min, max) => Math.min(Math.max(value, min), max);
+global.foundry = {
+	utils: {
+		mergeObject: (a, b) => ({ ...a, ...b }),
+	},
+};
+
+Math.clamp = (value, min, max) => Math.min(Math.max(value, min), max);

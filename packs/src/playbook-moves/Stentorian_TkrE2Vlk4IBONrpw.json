@@ -1,0 +1,11 @@
+{
+  "_id": "TkrE2Vlk4IBONrpw",
+  "_key": "!items!TkrE2Vlk4IBONrpw",
+  "name": "Stentorian",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "description": "When you raise your voice, it carries far and cuts through even the din of battle. When you go into battle, hold 2 Command. Spend 1 Command to shout an order or warning and pick 1:\n\n• PCs get advantage on their next roll to do as you say\n• You have advantage to Order Followers or Deploy"
+  }
+}

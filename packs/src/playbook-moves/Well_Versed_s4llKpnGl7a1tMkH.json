@@ -1,0 +1,13 @@
+{
+  "_id": "s4llKpnGl7a1tMkH",
+  "_key": "!items!s4llKpnGl7a1tMkH",
+  "name": "Well Versed",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "isRepeatable": true,
+    "description": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.\n\n• The Last Door, death, and the undead\n• The civilizations of humanity\n• The Fae and their strange ways\n• The Makers and their arts\n• The primordial powers\n• The Things Below\n• The wild world and its spirits\n\nWhen you Know Things about one of your topics, you can ask the GM a follow-up question of your choice (even on a 6-)."
+  }
+}

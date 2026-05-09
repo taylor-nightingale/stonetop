@@ -1,0 +1,41 @@
+{
+  "_id": "MlxHjzcHt0f2ACqH",
+  "_key": "!items!MlxHjzcHt0f2ACqH",
+  "name": "The Would-Be Hero",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 16,
+      "damage": "d6"
+    }
+  },
+  "system": {
+    "slug": "the-would-be-hero",
+    "actorType": "character",
+    "description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
+    "attributes": {
+      "omen": {
+        "label": "Omen",
+        "type": "Clock",
+        "value": 0,
+        "max": 3,
+        "steps": [false, false, false],
+        "choices": [],
+        "custom": false,
+        "path": "attributes",
+        "description": ""
+      },
+      "resolve": {
+        "label": "Resolve",
+        "type": "Clock",
+        "value": 0,
+        "max": 2,
+        "steps": [false, false],
+        "choices": [],
+        "custom": false,
+        "path": "attributes",
+        "description": ""
+      }
+    }
+  }
+}

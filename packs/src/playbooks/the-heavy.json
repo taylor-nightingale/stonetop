@@ -1,0 +1,18 @@
+{
+  "_id": "thDOuItwerMnLc0i",
+  "_key": "!items!thDOuItwerMnLc0i",
+  "name": "The Heavy",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 20,
+      "damage": "d10"
+    }
+  },
+  "system": {
+    "slug": "the-heavy",
+    "actorType": "character",
+    "description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
+    "attributes": {}
+  }
+}

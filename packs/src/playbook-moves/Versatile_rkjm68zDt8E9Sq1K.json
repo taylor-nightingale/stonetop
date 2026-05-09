@@ -1,0 +1,14 @@
+{
+  "_id": "rkjm68zDt8E9Sq1K",
+  "_key": "!items!rkjm68zDt8E9Sq1K",
+  "name": "Versatile",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "requires": "The Would-Be Hero",
+    "minLevel": 2,
+    "isRepeatable": true,
+    "description": "Choose a move from any other playbook, as long as you meet its requirements. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat."
+  }
+}

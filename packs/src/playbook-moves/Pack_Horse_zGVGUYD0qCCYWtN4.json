@@ -1,0 +1,11 @@
+{
+  "_id": "zGVGUYD0qCCYWtN4",
+  "_key": "!items!zGVGUYD0qCCYWtN4",
+  "name": "Pack Horse",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "You can carry up to 4 weight with a light load, 7 weight with a normal load, and 10 weight with a heavy load."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_id": "Do4Zez2vxT78gdtQ",
+  "_key": "!items!Do4Zez2vxT78gdtQ",
+  "name": "Bulwark",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "description": "When you Defend, you can spend 1 Readiness to stand fast, holding your position despite what befalls you."
+  }
+}

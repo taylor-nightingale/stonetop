@@ -1,0 +1,12 @@
+{
+  "_id": "AO32oNSm4l0H3dKv",
+  "_key": "!items!AO32oNSm4l0H3dKv",
+  "name": "Like a Dog with a Bone",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "requires": "Hound of Aratis",
+    "description": "When you attack something you know to be tainted by chaos, deal +1d6 damage."
+  }
+}

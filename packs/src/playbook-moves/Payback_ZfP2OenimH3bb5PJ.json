@@ -1,0 +1,11 @@
+{
+  "_id": "ZfP2OenimH3bb5PJ",
+  "_key": "!items!ZfP2OenimH3bb5PJ",
+  "name": "Payback",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "description": "When you deal damage to a foe that has harmed you or one of your allies, deal +1d4 damage."
+  }
+}
