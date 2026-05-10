@@ -189,3 +189,77 @@ body,
 }
 
 /* ~ Playbook colors */
+
+/* -- Creation tab -------------------------------------------- */
+
+.stonetop .tab.stonetop-creation {
+	padding: 8px;
+	overflow-y: auto;
+}
+
+.creation-section {
+	margin-bottom: 1rem;
+}
+
+.creation-section h3 {
+	margin-bottom: 4px;
+	font-size: 1rem;
+	border-bottom: 1px solid var(--color-border-light-2);
+}
+
+.creation-choose {
+	font-size: 0.75rem;
+	font-weight: normal;
+	color: var(--color-text-dark-secondary);
+	margin-left: 4px;
+}
+
+.creation-options-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 12px;
+}
+
+.creation-option {
+	display: flex;
+	align-items: baseline;
+	gap: 4px;
+	cursor: pointer;
+}
+
+.creation-option--block {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.creation-option__label {
+	font-weight: bold;
+}
+
+.creation-option__desc {
+	font-size: 0.85rem;
+	color: var(--color-text-dark-secondary);
+	margin-left: 4px;
+}
+
+.appearance-line {
+	width: 100%;
+}
+
+.creation-subchoices {
+	margin: 4px 0 8px 20px;
+	padding: 6px 8px;
+	border-left: 2px solid var(--color-border-light-2);
+}
+
+.creation-subchoices__label {
+	margin-bottom: 4px;
+	font-size: 0.85rem;
+}
+
+.creation-hint {
+	font-style: italic;
+	color: var(--color-text-dark-secondary);
+}
+
+/* ~ Creation tab */

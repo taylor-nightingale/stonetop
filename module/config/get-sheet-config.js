@@ -1,13 +1,12 @@
-import {GetCharacterConfig} from "./actors/getCharacterConfig.js";
-import {getNpcConfig} from "./actors/getNpcConfig.js";
-import {GetSteadingConfig} from "./actors/getSteadingConfig.js";
+import { StonetopCharacterActor } from "../actors/character/character-actor.js";
+import { getNpcConfig } from "./actors/getNpcConfig.js";
+import { GetSteadingConfig } from "./actors/getSteadingConfig.js";
 
 export function GetSheetConfig() {
 	return {
-
 		// -- ROLLING -------------------------------------------------
 		rollFormula: "2d6",
-		rollShifting: true, // advantage/disadvantage
+		rollShifting: true,
 		rollResults: {
 			failure: {
 				start: null,
@@ -28,12 +27,12 @@ export function GetSheetConfig() {
 
 		// -- ACTORS --------------------------------------------------
 		actorTypes: {
-			character: GetCharacterConfig(),
+			character: StonetopCharacterActor.sheetConfig(),
 			npc: getNpcConfig(),
 			steading: GetSteadingConfig(),
 		},
 		moveTypes: {
 			gm: "GM Moves",
-		}
+		},
 	};
 }

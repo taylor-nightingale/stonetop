@@ -1,5 +1,5 @@
 import { registerSettings } from "./module/settings.js";
-import { createStonetopActorClass } from "./module/actor/actor.js";
+import { createStonetopActorClass } from "./module/actors/stonetop-actor.js";
 import { createStonetopItemClass } from "./module/item/item.js";
 import { onPbtaSheetConfig } from "./module/hooks/pbta-sheet-config.js";
 import { onReady } from "./module/hooks/ready.js";
@@ -19,6 +19,7 @@ Hooks.once("init", () => {
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
 	loadTemplates([
+		"modules/stonetop/templates/actor/creation-tab.hbs",
 		"modules/stonetop/templates/actor/partials/stats.hbs",
 		"modules/stonetop/templates/actor/partials/moves.hbs",
 		"modules/stonetop/templates/actor/partials/resources.hbs",
