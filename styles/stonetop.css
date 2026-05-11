@@ -262,4 +262,231 @@ body,
 	color: var(--color-text-dark-secondary);
 }
 
-/* ~ Creation tab */
+/* Selection fields row (background, instinct, appearance, origin) */
+
+.stonetop-selections {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 20px;
+	margin: 4px 0 8px;
+}
+
+.stonetop-selection {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.stonetop-selection-label {
+	font-size: 0.7rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--color-text-dark-secondary);
+}
+
+.stonetop-selection-value {
+	background: none;
+	border: none;
+	border-bottom: 1px solid var(--color-border-light-2);
+	padding: 1px 2px;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 0.9rem;
+	color: inherit;
+	text-align: left;
+}
+
+.stonetop-selection-value:hover {
+	border-bottom-color: var(--color-text-dark-primary);
+}
+
+.stonetop-selection-empty {
+	color: var(--color-text-dark-secondary);
+	font-style: italic;
+}
+
+/* Selection picker dialogs ---------------------------------- */
+
+.selection-options {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	max-height: 400px;
+	overflow-y: auto;
+	padding: 4px 0;
+}
+
+.selection-option {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 8px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.selection-option input[type="radio"] {
+	margin-top: 3px;
+	flex-shrink: 0;
+}
+
+.selection-option:hover,
+.selection-option.selected {
+	background: rgba(0, 0, 0, 0.05);
+	border-color: var(--color-border-light-2);
+}
+
+.selection-option-body > strong {
+	display: block;
+	margin-bottom: 2px;
+}
+
+.selection-option-body p {
+	margin: 0;
+	font-size: 0.85rem;
+	color: var(--color-text-dark-secondary);
+	line-height: 1.4;
+}
+
+.selection-option-body p,
+.selection-option-body p * {
+	user-select: text;
+}
+
+/* Instinct dialog */
+
+.instinct-custom-input {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+/* Appearance dialog */
+
+.appearance-instruction {
+	margin: 0 0 8px;
+	font-style: italic;
+	font-size: 0.85rem;
+	color: var(--color-text-dark-secondary);
+}
+
+.appearance-picker {
+	display: flex;
+	flex-direction: column;
+}
+
+.appearance-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--color-border-light-2);
+}
+
+.appearance-row:last-child {
+	border-bottom: none;
+}
+
+.appearance-row-num {
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: var(--color-text-dark-secondary);
+	background: rgba(0, 0, 0, 0.06);
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.appearance-line {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 12px;
+}
+
+.appearance-radio {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+
+/* Origin dialog */
+
+.origin-picker {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	max-height: 420px;
+	overflow-y: auto;
+}
+
+.origin-option {
+	padding: 8px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.origin-option:hover,
+.origin-option.selected {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: var(--color-border-light-2);
+}
+
+.origin-region {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.95rem;
+	cursor: pointer;
+	margin-bottom: 6px;
+}
+
+.origin-names-section {
+	margin-left: 22px;
+}
+
+.origin-names-label {
+	font-size: 0.7rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-text-dark-secondary);
+	display: block;
+	margin-bottom: 4px;
+}
+
+.origin-names-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.origin-name {
+	background: none;
+	border: 1px solid var(--color-border-light-2);
+	border-radius: 3px;
+	padding: 2px 6px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.origin-name:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.origin-name.selected-name {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: var(--color-text-dark-primary);
+	font-weight: bold;
+}
+
+/* ~ Selection fields */

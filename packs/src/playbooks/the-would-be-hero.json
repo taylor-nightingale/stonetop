@@ -6,7 +6,45 @@
   "flags": {
     "stonetop": {
       "hp": 16,
-      "damage": "d6"
+      "damage": "d6",
+      "backgrounds": [
+        {
+          "slug": "impetuous-youth",
+          "label": "Impetuous Youth",
+          "description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <em>make a move and come up short</em>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
+        },
+        {
+          "slug": "driven",
+          "label": "Driven",
+          "description": "<p>You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1: a loved one was killed or abducted; someone gave their life to save you; your idol sacrificed themselves to save many; you stumbled upon a dark mystery; or you must make amends for a terrible mistake.</p><p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+        },
+        {
+          "slug": "destined",
+          "label": "Destined",
+          "description": "<p>Fate has laid her hand upon you. Choose 3-4 items to describe your destiny.</p><p>At the <em>start of a session</em>, roll +Omens: on a 7+, lose all Omens and the GM will share a vision or portent that points toward your fate; also, on a 10+, ask the GM a follow-up question and get a clear, helpful answer; on a 6-, don't mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision.</p><p><em>Until your destiny is fulfilled</em>, treat a 6- on Death's Door as a 7-9, and a 7-9 as a 10+.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Defiance", "description": "To refuse to back down, give up, give in." },
+        { "word": "Doubt", "description": "To question yourself, your actions, your worth." },
+        { "word": "Earnestness", "description": "To prove yourself, to yourself and others." },
+        { "word": "Optimism", "description": "To assume the best, and that things are simple." },
+        { "word": "Sacrifice", "description": "To put the needs/wants of others above your own." }
+      ],
+      "appearance": [
+        ["still a child", "young & beautiful", "all grown up"],
+        ["quiet voice", "earnest voice", "soft voice"],
+        ["big", "scrawny", "sinewy", "slender", "thick"],
+        ["back unbowed", "jaw firmly set", "soulful eyes"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Anwen", "Caradoc", "Dafyd", "Glenys", "Madoc", "Morwenna", "Siwan", "Wynfor"] },
+        { "region": "Barrier Pass", "names": ["Bala", "Cotota", "Ganzorig", "Gerelma", "Ibahka", "Jungshoi", "Mukhali", "Taichu"] },
+        { "region": "The Steplands (Hillfolk)", "names": ["Annie", "Cosette", "Denl", "Hugenne", "Jag", "Marc", "Oanz", "Sandre"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Bridin", "Clian", "Engis", "Fearghul", "Lan", "Neasa", "Nill", "Una"] },
+        { "region": "Lygos or some other point south", "names": ["Chara", "Davud", "Korina", "Omid", "Parvaneh", "Tamir", "Takish", "Yannis"] }
+      ]
     }
   },
   "system": {

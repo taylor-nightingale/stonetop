@@ -6,7 +6,44 @@
   "flags": {
     "stonetop": {
       "hp": 18,
-      "damage": "d4"
+      "damage": "d4",
+      "backgrounds": [
+        {
+          "slug": "auspicious-birth",
+          "label": "Auspicious Birth",
+          "description": "<p>You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?</p><p>Whatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.</p><p>When <em>one of your moves has you mark a debility</em>, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.</p>"
+        },
+        {
+          "slug": "itinerant-mystic",
+          "label": "Itinerant Mystic",
+          "description": "<p>They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.</p><p>When you <em>go off a-wandering</em>, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.</p>"
+        },
+        {
+          "slug": "soul-on-fire",
+          "label": "Soul on Fire",
+          "description": "<p>You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.</p><p>There, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.</p><p>When you <em>Persuade a group by preaching charity, mercy, and hope and roll a 7+</em>, aside from the usual effect, choose 1: your name and your message spread; or someone approaches you, now or later, eager to know more.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Charity", "description": "To go without so that others are better off." },
+        { "word": "Hope", "description": "To inspire others in the face of adversity." },
+        { "word": "Mercy", "description": "To bring relief or comfort, to give second chances." },
+        { "word": "Praise", "description": "To spread the glory and worship of Helior." },
+        { "word": "Righteousness", "description": "To refuse to suffer an injustice or a lesser evil." }
+      ],
+      "appearance": [
+        ["a youthful glow", "well-weathered", "old & merry"],
+        ["a lifting voice", "a melodious voice", "a soft voice"],
+        ["beatific", "ethereal", "intense", "jovial", "serene"],
+        ["fine robes", "threadbare cloak", "working clothes"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Dai", "Eirian", "Eurig", "Haf", "Haul", "Hefin", "Hulwen", "Tesni"] },
+        { "region": "Barrier Pass", "names": ["Alaqa", "Bat", "Dinget", "Ghoa", "Oyuun", "Sidurgu", "Temur", "Toragana"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Adfin", "Callach", "Conlad", "Eadna", "Fionntan", "Niamh", "Orlaith", "Sorsha"] },
+        { "region": "Lygos or some other point south", "names": ["Arash", "Azar", "Hafiz", "Murat", "Roshan", "Shideh", "Zara", "Zohara"] }
+      ]
     }
   },
   "system": {

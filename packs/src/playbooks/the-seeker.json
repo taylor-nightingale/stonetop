@@ -6,7 +6,45 @@
   "flags": {
     "stonetop": {
       "hp": 16,
-      "damage": "d6"
+      "damage": "d6",
+      "backgrounds": [
+        {
+          "slug": "patriot",
+          "label": "Patriot",
+          "description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        },
+        {
+          "slug": "antiquarian",
+          "label": "Antiquarian",
+          "description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        },
+        {
+          "slug": "witch-hunter",
+          "label": "Witch Hunter",
+          "description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Cunning", "description": "To scheme, manipulate, and plot." },
+        { "word": "Curiosity", "description": "To seek answers that maybe you oughtn't." },
+        { "word": "Hubris", "description": "To assume you know best, that you can't fail." },
+        { "word": "Mystery", "description": "To avoid straight answers; to keep secrets." },
+        { "word": "Vision", "description": "To think big and pursue grandiose goals." }
+      ],
+      "appearance": [
+        ["curiously young", "world-weary", "bent with years"],
+        ["haunted voice", "rich voice", "whispery"],
+        ["ink-stained fingers", "sinewy hands", "soft hands"],
+        ["bony limbed", "lean & lanky", "short", "thick-set"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Ania", "Dylan", "Eilwen", "Gelt", "Gwenda", "Macsen", "Mirgan", "Owena", "Taliesyn", "Twymor"] },
+        { "region": "Barrier Pass", "names": ["Bayanaganengri", "Chakha", "Jetei", "Moog", "Narengawa", "Ogul", "Ozbeg", "Solongo"] },
+        { "region": "The Steplands (Hillfolk)", "names": ["Anook", "Anxo", "Dors", "Jory", "Mari", "Padg", "Pons", "Silf"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Aiden", "Barrfind", "Caolan", "Ciara", "Deirbhile", "Moirin", "Tiern", "Reamann"] },
+        { "region": "Lygos or some other point south", "names": ["Dana", "Eliana", "Erez", "Fikri", "Isra", "Persefoni", "Spiro", "Vahid"] }
+      ]
     }
   },
   "system": {

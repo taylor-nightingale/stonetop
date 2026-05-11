@@ -60,7 +60,13 @@ const BLESSED_FLAGS = {
 		{ slug: "raised-by-wolves", label: "Raised by Wolves", description: "..." },
 		{ slug: "vessel", label: "Vessel", description: "..." },
 	],
-	instincts: ["Delight", "Detachment", "Nurture", "Preservation", "Reverence"],
+	instincts: [
+		{ word: "Delight", description: "To find beauty, in even the ugliest things." },
+		{ word: "Detachment", description: "To remain unmoved, to be cold as winter." },
+		{ word: "Nurture", description: "To help others grow, learn, or improve." },
+		{ word: "Preservation", description: "To protect the natural world." },
+		{ word: "Reverence", description: "To honor the spirits and give them their due." },
+	],
 	appearance: [
 		["fresh-faced", "hale & hearty", "gray & wizened"],
 		["imperious voice", "raspy voice", "soothing voice"],
@@ -83,9 +89,12 @@ describe("buildCreation", () => {
 			expect(result.backgrounds.every(b => !b.selected)).toBe(true);
 		});
 
-		it("maps all instincts, none selected", () => {
+		it("maps all instincts with word and description", () => {
 			expect(result.instincts).toHaveLength(5);
-			expect(result.instincts.every(i => !i.selected)).toBe(true);
+			expect(result.instincts[0]).toEqual({
+				word: "Delight",
+				description: "To find beauty, in even the ugliest things.",
+			});
 		});
 
 		it("maps all appearance lines with correct lineIdx", () => {
@@ -105,7 +114,6 @@ describe("buildCreation", () => {
 	describe("with saved selections", () => {
 		const saved = {
 			background: "vessel",
-			instinct: "Nurture",
 			appearance: { 0: "gray & wizened", 2: "willowy" },
 		};
 		const result = StonetopCharacterActor.buildCreation(BLESSED_FLAGS, saved);
@@ -116,10 +124,9 @@ describe("buildCreation", () => {
 			expect(result.backgrounds.filter(b => b.selected)).toHaveLength(1);
 		});
 
-		it("marks the saved instinct as selected", () => {
-			const nurture = result.instincts.find(i => i.value === "Nurture");
-			expect(nurture.selected).toBe(true);
-			expect(result.instincts.filter(i => i.selected)).toHaveLength(1);
+		it("maps instinct with word and description (no selection state)", () => {
+			const nurture = result.instincts.find(i => i.word === "Nurture");
+			expect(nurture.description).toBe("To help others grow, learn, or improve.");
 		});
 
 		it("marks selected appearance options by line index", () => {

@@ -6,7 +6,45 @@
   "flags": {
     "stonetop": {
       "hp": 20,
-      "damage": "d10"
+      "damage": "d10",
+      "backgrounds": [
+        {
+          "slug": "sheriff",
+          "label": "Sheriff",
+          "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <em>bark an order or warning</em>, roll +CHA: on a 7+, they must choose 1: do what you say; dig in/take cover/flee; or attack you. On a 10+, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+        },
+        {
+          "slug": "blood-soaked-past",
+          "label": "Blood-Soaked Past",
+          "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <em>Persuade using violence or threats against someone who knows your black reputation</em>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <em>fight to kill without mercy or hesitation</em>, you deal +1d4 damage.</p>"
+        },
+        {
+          "slug": "storm-marked",
+          "label": "Storm-Marked",
+          "description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Peace", "description": "To avoid (further) bloodshed or violence." },
+        { "word": "Pride", "description": "To maintain your dignity, to demand respect." },
+        { "word": "Recklessness", "description": "To act without thought to the consequences." },
+        { "word": "Trouble", "description": "To stick your nose in where it's unwelcome." },
+        { "word": "Violence", "description": "To solve problems by force." }
+      ],
+      "appearance": [
+        ["young & brash", "in my prime", "old & leathery"],
+        ["gravelly voice", "hearty voice", "soft-spoken"],
+        ["giant frame", "just ripped", "stocky", "wiry"],
+        ["distinctive scars", "off-broken nose", "missing bits"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Aerona", "Arthfael", "Cadmor", "Esyllt", "Pedr", "Rhonwen", "Terrwen", "Trystan"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Aengus", "Bairbre", "Bronach", "Flann", "Laughn", "Muirdoc", "Quinn", "Treasa"] },
+        { "region": "The Steplands (Hillfolk)", "names": ["Andr", "Gabel", "Kaetl", "Mael", "Maela", "Par", "Ral", "Umbert"] },
+        { "region": "The Manmarch", "names": ["Bathhilde", "Clothar", "Ganter", "Hiltrude", "Ludig", "Luise", "Modd", "Wiland"] },
+        { "region": "Lygos or some other point south", "names": ["Arihl", "Akios", "Bhadur", "Seble", "Shahnaz", "Shay", "Tisi", "Zubin"] }
+      ]
     }
   },
   "system": {

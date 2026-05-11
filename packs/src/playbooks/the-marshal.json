@@ -6,7 +6,45 @@
   "flags": {
     "stonetop": {
       "hp": 20,
-      "damage": "d8"
+      "damage": "d8",
+      "backgrounds": [
+        {
+          "slug": "scion",
+          "label": "Scion",
+          "description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <em>create your Crew</em>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
+        },
+        {
+          "slug": "penitent",
+          "label": "Penitent",
+          "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <em>draw on your bloody past to Know Things</em>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <em>create your Crew</em>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+        },
+        {
+          "slug": "luminary",
+          "label": "Luminary",
+          "description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <em>create your Crew</em>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Authority", "description": "To take charge and throw your weight around." },
+        { "word": "Caution", "description": "To keep everyone safe, to agonize over decisions." },
+        { "word": "Drive", "description": "To take on ever more responsibility." },
+        { "word": "Honor", "description": "To keep your word, to follow a moral code." },
+        { "word": "Ruthlessness", "description": "To do whatever it takes to win or survive." }
+      ],
+      "appearance": [
+        ["upstart youth", "experienced & sober", "grizzled"],
+        ["clear voice", "resonant voice", "rumbling voice"],
+        ["stern frown", "grim-set jaw", "knowing smirk"],
+        ["badge of office", "spit & polish", "timeworn gear"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Bethan", "Cadfael", "Ffraid", "Gwythyr", "Llewelyn", "Meredith", "Rhianna", "Urien"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Brigh", "Cathal", "Conn", "Donal", "Fionna", "Laith", "Talulla", "Torin"] },
+        { "region": "The Steplands (Hillfolk)", "names": ["Adl", "Aeln", "Clotild", "Judoc", "Katrn", "Mygl", "Pirn", "Sera"] },
+        { "region": "The Manmarch", "names": ["Berkhard", "Gerhild", "Hartig", "Hilde", "Sabrinne", "Ulrike", "Urrsla", "Weillem"] },
+        { "region": "Lygos or some other point south", "names": ["Ameer", "Calixta", "Hadar", "Kelila", "Sulaim", "Ursa", "Xandros"] }
+      ]
     }
   },
   "system": {

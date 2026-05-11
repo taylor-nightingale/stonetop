@@ -6,7 +6,44 @@
   "flags": {
     "stonetop": {
       "hp": 20,
-      "damage": "d6"
+      "damage": "d6",
+      "backgrounds": [
+        {
+          "slug": "legacy",
+          "label": "Legacy",
+          "description": "<p>You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.</p><p>When you <em>Know Things about the people or history of Stonetop</em>, you have advantage.</p><p>When you <em>spend days, weeks, or months poring over the Chronicle</em>, ask the GM and the GM will tell you what you learn in that time.</p>"
+        },
+        {
+          "slug": "missionary",
+          "label": "Missionary",
+          "description": "<p>You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.</p><p>When you <em>call upon the Judge of another steading for aid or information</em>, they are oathbound to give it. You are likewise oathbound to support them.</p><p>You have an aviary in addition to your usual choice of special possessions. When you <em>send a message via trained bird</em>, the GM will tell you if and when you receive a response, and what it says.</p>"
+        },
+        {
+          "slug": "prophet",
+          "label": "Prophet",
+          "description": "<p>The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.</p><p>When you <em>spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole</em>, roll +WIS: on a 7+, Aratis reveals the course of action she would have you take; on a 10+, you also hold 2 Sanction. While <em>acting on her orders</em>, spend 1 Sanction to add +1 to a roll you just made.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Ambition", "description": "To increase your status or influence." },
+        { "word": "Dispassion", "description": "To disregard emotion or sentiment." },
+        { "word": "Harmony", "description": "To seek a path that makes everyone happy." },
+        { "word": "Orthodoxy", "description": "To strictly adhere to rules and traditions." },
+        { "word": "Zeal", "description": "To judge quickly and without doubt." }
+      ],
+      "appearance": [
+        ["eager youth", "in my prime", "showing my years"],
+        ["calm voice", "booming voice", "a voice that carries"],
+        ["hard body", "powerful frame", "slim", "well-fed"],
+        ["polished gear", "robes of office", "modest clothes"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Arianrhod", "Caerwyn", "Einion", "Eleri", "Magda", "Nerys", "Trahaern", "Trefor"] },
+        { "region": "Barrier Pass", "names": ["Arinasai", "Bortachikan", "Khadagan", "Khojin", "Odval", "Usun", "Yesui", "Yul"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Briget", "Comhall", "Elnor", "Liadain", "Mirdach", "Onghus", "Somha", "Toal"] },
+        { "region": "Lygos or some other southern town", "names": ["Abrim", "Cassander", "Despina", "Hypatta", "Morecai", "Nomika", "Sofia", "Yose"] }
+      ]
     }
   },
   "system": {

@@ -25,15 +25,14 @@
 		},
 		"character": {
 			"stats": {
-				"strength":  "Strength",
+				"strength": "Strength",
 				"dexterity": "Dexterity",
-				"intelligence":  "Intelligence",
+				"intelligence": "Intelligence",
 				"wisdom": "Wisdom",
-				"constitution":  "Constitution",
+				"constitution": "Constitution",
 				"charisma": "Charisma"
 			},
 			"attributes": {
-				"instinct": "Instinct",
 				"xp": "XP",
 				"level": "Level",
 				"stock": "Stock",
@@ -43,6 +42,30 @@
 			},
 			"moveTypes": {
 				"background": "Background"
+			},
+			"selection": {
+				"select": "Select",
+				"cancel": "Cancel",
+				"choosePlaceholder": "Choose {label}…",
+				"background": {
+					"label": "Background",
+					"dialogTitle": "Choose Background"
+				},
+				"instinct": {
+					"label": "Instinct",
+					"dialogTitle": "Choose Instinct",
+					"customPlaceholder": "Write your own instinct…"
+				},
+				"appearance": {
+					"label": "Appearance",
+					"dialogTitle": "Choose Appearance",
+					"instruction": "Choose one from each row."
+				},
+				"origin": {
+					"label": "Origin",
+					"dialogTitle": "Choose Origin",
+					"namesLabel": "Names"
+				}
 			}
 		}
 	}

@@ -19,7 +19,6 @@ Hooks.once("init", () => {
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
 	loadTemplates([
-		"modules/stonetop/templates/actor/creation-tab.hbs",
 		"modules/stonetop/templates/actor/partials/stats.hbs",
 		"modules/stonetop/templates/actor/partials/moves.hbs",
 		"modules/stonetop/templates/actor/partials/resources.hbs",

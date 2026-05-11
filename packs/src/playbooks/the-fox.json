@@ -6,7 +6,44 @@
   "flags": {
     "stonetop": {
       "hp": 16,
-      "damage": "d8"
+      "damage": "d8",
+      "backgrounds": [
+        {
+          "slug": "the-natural",
+          "label": "The Natural",
+          "description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <em>Seek Insight</em>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
+        },
+        {
+          "slug": "a-life-of-crime",
+          "label": "A Life of Crime",
+          "description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.</p>"
+        },
+        {
+          "slug": "the-prodigal-returned",
+          "label": "The Prodigal Returned",
+          "description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <em>declare that you know someone outside of Stonetop</em>, someone who can help, name them and roll +CHA: on a 10+, yeah, they can help (tell us why they're willing); on a 7-9, they can help but pick 1 from the list below; on a 6-, the GM chooses 1 and then some.</p>"
+        }
+      ],
+      "instincts": [
+        { "word": "Conscience", "description": "To feel guilty, to try to do right." },
+        { "word": "Freedom", "description": "To chafe against rules, expectations, obligations." },
+        { "word": "Comfort", "description": "To enjoy yourself and avoid hardship." },
+        { "word": "Prestige", "description": "To impress others, to build a name for yourself." },
+        { "word": "Trickery", "description": "To deceive, misdirect, outthink." }
+      ],
+      "appearance": [
+        ["young pup", "\"responsible\" adult", "cagey old-timer"],
+        ["a pleasant voice", "sharp & nasally", "well-spoken"],
+        ["lithe", "heavyset", "gangly", "like a whippin stick"],
+        ["a light step", "a brisk stride", "more like a strut"]
+      ],
+      "origin": [
+        { "region": "Stonetop", "names": ["Bran", "Carwyn", "Delyth", "Elin", "Fion", "Geral", "Mair", "Rannon", "Vaughn", "Wynn"] },
+        { "region": "Barrier Pass", "names": ["Anarba", "Batu", "Bugadai", "Hujaghur", "Jigur", "Kete", "Sarantuya", "Tebengri"] },
+        { "region": "Gordin's Delve", "names": [] },
+        { "region": "Marshedge", "names": ["Comyna", "Crevan", "Fitz", "Greagir", "Maired", "Nainsi", "Naíclas", "Saraid"] },
+        { "region": "Lygos or some other point south", "names": ["Amit", "Baz", "Dafna", "Mahsa", "Parviz", "Sanaz", "Tzofiya", "Yaniv"] }
+      ]
     }
   },
   "system": {

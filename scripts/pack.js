@@ -21,16 +21,28 @@ async function ensureIds(srcDir) {
 	}
 }
 
-for (const pack of PACKS) {
-	const src = `packs/src/${pack}`;
-	try {
-		await fs.access(src);
-	} catch {
-		console.log(`Skipping ${pack} — no source directory at ${src}`);
-		continue;
+async function main() {
+	for (const pack of PACKS) {
+		const src = `packs/src/${pack}`;
+		try {
+			await fs.access(src);
+		} catch {
+			console.log(`Skipping ${pack} — no source directory at ${src}`);
+			continue;
+		}
+		await ensureIds(src);
+		const dest = `packs/${pack}`;
+		await fs.mkdir(dest, { recursive: true });
+		try {
+			await compilePack(src, dest, { nedb: false, log: true });
+		} catch (err) {
+			// Node v24 + abstract-level teardown race: iterator cleanup races with DB close.
+			// All files are written before this throws, so it's safe to ignore.
+			if (err.code !== "LEVEL_ITERATOR_NOT_OPEN") throw err;
+		}
 	}
-	await ensureIds(src);
-	const dest = `packs/${pack}`;
-	await fs.mkdir(dest, { recursive: true });
-	await compilePack(src, dest, { nedb: false, log: true });
 }
+
+// process.exit prevents a Node v24 / abstract-level teardown race where open
+// iterators are garbage-collected after the DB closes, causing a spurious crash.
+main().then(() => process.exit(0)).catch(err => { console.error(err); process.exit(1); });
