@@ -61,9 +61,12 @@ body,
 	background-color: hsl(308deg 6.5% 13%);
 }
 
-.vtt .window-header,
-.pbta.sheet .sheet-attributes .cell--stats .stat {
+.vtt .window-header {
 	background-color: slategrey;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .stat {
+	background-color: transparent;
 }
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
@@ -136,10 +139,99 @@ body,
 	font-weight: unset;
 }
 
+.pbta.sheet .sheet-attributes .cell--stats {
+	position: relative;
+	padding-top: 20px;
+	flex: 1;
+	min-width: 0;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats::before {
+	content: "Stats";
+	position: absolute;
+	top: 2px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 0.8rem;
+	letter-spacing: 0.05em;
+	color: #1a1a1a;
+}
+
 .pbta.sheet .sheet-attributes .cell--stats .stats-list {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-	margin-left: 8px;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: stretch;
+	justify-content: flex-start;
+	gap: 2px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .stat {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
+	gap: 5px;
+	padding: 2px 4px;
+	color: #1a1a1a !important;
+	flex: unset !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	text-transform: none;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .stat:hover {
+	background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .stat-value {
+	order: -1;
+	width: 26px !important;
+	height: 26px !important;
+	min-width: 26px !important;
+	border-radius: 50% !important;
+	border: 1.5px solid #555 !important;
+	text-align: center;
+	padding: 0 !important;
+	background: transparent !important;
+	color: #1a1a1a !important;
+	font-size: 0.85rem;
+	line-height: 24px;
+	flex-shrink: 0;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .cell__title {
+	width: auto !important;
+	min-width: 0 !important;
+	flex: 1 !important;
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
+	gap: 4px;
+	font-variant: small-caps;
+	font-size: 0.82rem !important;
+	color: #1a1a1a !important;
+	text-align: left !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0;
+	line-height: 1;
+}
+
+.pbta.sheet .sheet-attributes .cell--stats .stat-icon {
+	color: #1a1a1a !important;
+	font-size: 0.8rem !important;
+	line-height: 1;
+	flex-shrink: 0;
+	width: auto !important;
+	height: auto !important;
 }
 
 /* Playbook colors */

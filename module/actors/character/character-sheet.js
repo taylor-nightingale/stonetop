@@ -60,6 +60,12 @@ export function renderSelectionRow(actor, html, flags) {
 			openOriginDialog(actor, origins));
 }
 
+export function stripStatPlusSigns(html) {
+	html.find(".cell--stats .stat-value").each((_, el) => {
+		el.value = el.value.replace(/^\+/, "");
+	});
+}
+
 function selectionField(field, label, value) {
 	const placeholder = game.i18n.format("stonetop.character.selection.choosePlaceholder", { label: label.toLowerCase() });
 	return `<div class="stonetop-selection" data-field="${field}">

@@ -1,4 +1,4 @@
-import { renderSelectionRow } from "./character-sheet.js";
+import { renderSelectionRow, stripStatPlusSigns } from "./character-sheet.js";
 import { characterSheetConfig, buildCreation } from "./character-sheet-config.js";
 
 function slugify(name) {
@@ -31,6 +31,7 @@ export class StonetopCharacterActor {
 	async renderSheet(sheet, html) {
 		const flags = await this._getPlaybookFlags();
 		renderSelectionRow(this._actor, html, flags);
+		stripStatPlusSigns(html);
 	}
 
 	// -- Playbook flags ---------------------------------------------
