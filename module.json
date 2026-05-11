@@ -97,7 +97,8 @@
 			"system": "pbta"
 		}
 	],
+	"url": "https://github.com/taylor-nightingale/stonetop",
 	"license": "LICENSE",
-	"manifest": "https://raw.githubusercontent.com/aMediocreDad/stonetop/main/module.json",
-	"download": "https://github.com/aMediocreDad/stonetop/archive/refs/heads/main.zip"
+	"manifest": "https://raw.githubusercontent.com/taylor-nightingale/stonetop/main/module.json",
+	"download": "https://github.com/taylor-nightingale/stonetop/archive/refs/heads/main.zip"
 }
