@@ -97,6 +97,7 @@
 			"system": "pbta"
 		}
 	],
+	"license": "LICENSE",
 	"manifest": "https://raw.githubusercontent.com/aMediocreDad/stonetop/main/module.json",
 	"download": "https://github.com/aMediocreDad/stonetop/archive/refs/heads/main.zip"
 }
