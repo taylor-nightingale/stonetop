@@ -11,12 +11,12 @@
         {
           "slug": "sheriff",
           "label": "Sheriff",
-          "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <em>bark an order or warning</em>, roll +CHA: on a 7+, they must choose 1: do what you say; dig in/take cover/flee; or attack you. On a 10+, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+          "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
         },
         {
           "slug": "blood-soaked-past",
           "label": "Blood-Soaked Past",
-          "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <em>Persuade using violence or threats against someone who knows your black reputation</em>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <em>fight to kill without mercy or hesitation</em>, you deal +1d4 damage.</p>"
+          "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
         },
         {
           "slug": "storm-marked",

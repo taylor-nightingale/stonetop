@@ -11,17 +11,17 @@
         {
           "slug": "legacy",
           "label": "Legacy",
-          "description": "<p>You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.</p><p>When you <em>Know Things about the people or history of Stonetop</em>, you have advantage.</p><p>When you <em>spend days, weeks, or months poring over the Chronicle</em>, ask the GM and the GM will tell you what you learn in that time.</p>"
+          "description": "<p>You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.</p><p>When you <strong><em>Know Things about the people or history of Stonetop</em></strong>, you have advantage.</p><p>When you <strong><em>spend days, weeks, or months poring over the Chronicle</em></strong>, ask the GM and the GM will tell you what you learn in that time.</p>"
         },
         {
           "slug": "missionary",
           "label": "Missionary",
-          "description": "<p>You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.</p><p>When you <em>call upon the Judge of another steading for aid or information</em>, they are oathbound to give it. You are likewise oathbound to support them.</p><p>You have an aviary in addition to your usual choice of special possessions. When you <em>send a message via trained bird</em>, the GM will tell you if and when you receive a response, and what it says.</p>"
+          "description": "<p>You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.</p><p>When you <strong><em>call upon the Judge of another steading for aid or information</em></strong>, they are oathbound to give it. You are likewise oathbound to support them.</p><p>You have an aviary in addition to your usual choice of special possessions. When you <strong><em>send a message via trained bird</em></strong>, the GM will tell you if and when you receive a response, and what it says.</p>"
         },
         {
           "slug": "prophet",
           "label": "Prophet",
-          "description": "<p>The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.</p><p>When you <em>spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole</em>, roll +WIS: on a 7+, Aratis reveals the course of action she would have you take; on a 10+, you also hold 2 Sanction. While <em>acting on her orders</em>, spend 1 Sanction to add +1 to a roll you just made.</p>"
+          "description": "<p>The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.</p><p>When you <strong><em>spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole</em></strong>, roll +WIS: <strong>on a 7+</strong>, Aratis reveals the course of action she would have you take; <strong>on a 10+</strong>, you also hold 2 Sanction. While <strong><em>acting on her orders</em></strong>, spend 1 Sanction to add +1 to a roll you just made.</p>"
         }
       ],
       "instincts": [
