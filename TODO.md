@@ -18,7 +18,3 @@
 * Get move rolling to work, right now it just posts the move to chat
 * handle starting move where you get a choice (neither should be selected, example the fox)
 * unbold the background descriptions. Allow for html formatting
-* make playbook moves editable
-* toggle to turn off non-selected character options
-* Support dynamic xp 6 + level * 2
-* support xp over cap
