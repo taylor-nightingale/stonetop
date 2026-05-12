@@ -6,9 +6,14 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "requires": "Parry & Riposte, Ambush",
-    "minLevel": 6,
-    "description": "When you Defend and spend 1 Readiness to Parry & Riposte, also pick 1 option from the Ambush list."
+    "description": "When you Defend and spend 1 Readiness to Parry & Riposte, also pick 1 option from the Ambush list.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Parry & Riposte",
+        "Ambush"
+      ]
+    }
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

@@ -29,11 +29,33 @@
 				<a class="item" data-tab="details">Details</a>
 			</nav>
 
-			<section class="sheet-body">
-				{{> "stonetop.tab-moves"}}
-				{{> "pbta.actor-inventory"}}
-				{{> "stonetop.tab-details"}}
-			</section>
+			<div class="stonetop-sheet-layout">
+				<section class="sheet-body">
+					{{> "stonetop.tab-moves"}}
+					{{> "pbta.actor-inventory"}}
+					{{> "stonetop.tab-details"}}
+				</section>
+
+				<div class="stonetop-moves-sidebar">
+					<h3 class="stonetop-move-group-title">Basic Moves</h3>
+					<ol class="items-list">
+					{{#each stonetop.movelist.basicMoves}}
+						{{#if (and owned rollType)}}
+						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+						{{else}}
+						<li class="stonetop-move-item{{#unless owned}} move-unowned{{/unless}}">
+						{{/if}}
+							{{#if (and owned rollType)}}
+							<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+								<i class="fas fa-dice-d6"></i>
+							</span>
+							{{/if}}
+							<span class="stonetop-move-name">{{name}}</span>
+						</li>
+					{{/each}}
+					</ol>
+				</div>
+			</div>
 		</section>
 
 	</div>

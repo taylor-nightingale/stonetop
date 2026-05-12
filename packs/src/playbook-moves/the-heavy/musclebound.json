@@ -6,8 +6,12 @@
   "system": {
     "playbook": "The Heavy",
     "moveType": "playbook",
-    "requires": "Strength +2 or higher",
-    "description": "When you make a hand-to-hand or thrown attack, it's forceful and messy. If it would already be forceful and/or messy, it's even more so."
+    "description": "When you make a hand-to-hand or thrown attack, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.",
+    "requirement": {
+      "moves": [
+        "Strength +2 or higher"
+      ]
+    }
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

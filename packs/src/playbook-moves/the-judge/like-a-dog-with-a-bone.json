@@ -6,8 +6,12 @@
   "system": {
     "playbook": "The Judge",
     "moveType": "playbook",
-    "requires": "Hound of Aratis",
-    "description": "When you attack something you know to be tainted by chaos, deal +1d6 damage."
+    "description": "When you attack something you know to be tainted by chaos, deal +1d6 damage.",
+    "requirement": {
+      "moves": [
+        "Hound of Aratis"
+      ]
+    }
   },
   "folder": "jISe56pNVdmHJLgu"
 }

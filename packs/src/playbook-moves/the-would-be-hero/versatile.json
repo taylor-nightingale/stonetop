@@ -6,10 +6,11 @@
   "system": {
     "playbook": "The Would-Be Hero",
     "moveType": "playbook",
-    "requires": "The Would-Be Hero",
-    "minLevel": 2,
-    "isRepeatable": true,
-    "description": "Choose a move from any other playbook, as long as you meet its requirements. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat."
+    "description": "Choose a move from any other playbook, as long as you meet its requirements. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.",
+    "requirement": {
+      "level": 2,
+      "playbook": "The Would-Be Hero"
+    }
   },
   "folder": "dgktpzqUfX5DWqqE"
 }

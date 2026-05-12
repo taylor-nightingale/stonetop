@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Judge",
     "moveType": "playbook",
-    "requires": "Condemn",
-    "minLevel": 6,
-    "description": "When you Censure, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance."
+    "description": "When you Censure, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Condemn"
+      ]
+    }
   },
   "folder": "jISe56pNVdmHJLgu"
 }

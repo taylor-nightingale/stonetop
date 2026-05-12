@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "requires": "Invoke the Sun God",
-    "minLevel": 6,
-    "description": "When you Invoke the Sun God and roll a 10+, you need not choose a consequence; on a 7-9, you choose a consequence but the GM does not."
+    "description": "When you Invoke the Sun God and roll a 10+, you need not choose a consequence; on a 7-9, you choose a consequence but the GM does not.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Invoke the Sun God"
+      ]
+    }
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

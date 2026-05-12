@@ -583,17 +583,22 @@ body,
 
 /* ~ Selection fields */
 
-/* -- Moves tab -------------------------------------------- */
+/* -- Sheet layout (sidebar persists across all tabs) ------- */
 
-.stonetop-moves-layout {
+.stonetop-sheet-layout {
 	display: flex;
 	align-items: flex-start;
 	gap: 16px;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
 }
 
-.stonetop-moves-main {
+.stonetop-sheet-layout .sheet-body {
 	flex: 1;
 	min-width: 0;
+	overflow-y: auto;
+	height: 100%;
 }
 
 .stonetop-moves-sidebar {
@@ -601,6 +606,16 @@ body,
 	flex-shrink: 0;
 	border-left: 1px solid var(--color-border-light-2);
 	padding-left: 12px;
+	overflow-y: auto;
+}
+
+/* -- Moves tab -------------------------------------------- */
+
+.stonetop-moves-note {
+	font-size: 0.75rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary);
+	margin: 0 0 6px;
 }
 
 .stonetop-move-group .items-list {
@@ -663,6 +678,36 @@ body,
 
 .stonetop-move-item.move-unowned {
 	opacity: 0.5;
+}
+
+.stonetop-repeat-checks {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	flex-shrink: 0;
+}
+
+.stonetop-move-resources {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.stonetop-move-resource-check {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	border: 2px solid var(--color-text-dark-primary);
+	background: none !important;
+	padding: 0;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.stonetop-move-resource-check.is-checked {
+	background-color: var(--color-text-dark-primary) !important;
 }
 
 /* -- attrLeft header row ---------------------------------- */

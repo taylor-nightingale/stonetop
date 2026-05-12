@@ -7,8 +7,10 @@
     "playbook": "The Heavy",
     "moveType": "playbook",
     "isStartingMove": true,
-    "requires": "The Heavy",
-    "description": "When you deal your damage, you have advantage."
+    "description": "When you deal your damage, you have advantage.",
+    "requirement": {
+      "playbook": "The Heavy"
+    }
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

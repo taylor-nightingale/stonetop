@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "requires": "Ambush",
-    "minLevel": 6,
-    "description": "When you Ambush with a hand weapon, you have advantage on your damage roll."
+    "description": "When you Ambush with a hand weapon, you have advantage on your damage roll.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Ambush"
+      ]
+    }
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

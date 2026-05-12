@@ -7,6 +7,7 @@
     "stonetop": {
       "hp": 18,
       "damage": "d4",
+			"startingMovesNote": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice.",
       "backgrounds": [
         {
           "slug": "auspicious-birth",

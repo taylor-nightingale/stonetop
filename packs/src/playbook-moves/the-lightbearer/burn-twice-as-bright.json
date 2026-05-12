@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "requires": "Invoke the Sun God",
-    "minLevel": 6,
-    "description": "When you Invoke the Sun God, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations."
+    "description": "When you Invoke the Sun God, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Invoke the Sun God"
+      ]
+    }
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

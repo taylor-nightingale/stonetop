@@ -6,8 +6,12 @@
   "system": {
     "playbook": "The Would-Be Hero",
     "moveType": "playbook",
-    "requires": "Anger is a Gift",
-    "description": "When you demand that someone does what is clearly good and right, you have advantage to Persuade. If they refuse, gain +1 Resolve."
+    "description": "When you demand that someone does what is clearly good and right, you have advantage to Persuade. If they refuse, gain +1 Resolve.",
+    "requirement": {
+      "moves": [
+        "Anger is a Gift"
+      ]
+    }
   },
   "folder": "dgktpzqUfX5DWqqE"
 }

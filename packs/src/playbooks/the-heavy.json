@@ -7,6 +7,7 @@
     "stonetop": {
       "hp": 20,
       "damage": "d10",
+			"startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
       "backgrounds": [
         {
           "slug": "sheriff",

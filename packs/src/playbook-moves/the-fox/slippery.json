@@ -6,8 +6,10 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "minLevel": 6,
-    "description": "When you roll to escape being caught or controlled, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage."
+    "description": "When you roll to escape being caught or controlled, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage.",
+    "requirement": {
+      "level": 6
+    }
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

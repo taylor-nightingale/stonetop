@@ -6,8 +6,10 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "minLevel": 6,
-    "description": "When you Defy Danger, Persuade, or Interfere by being deceitful, you have advantage.\n\nWhen another move (like Seek Insight) allows a player to ask you a question, you can opt not to answer."
+    "description": "When you Defy Danger, Persuade, or Interfere by being deceitful, you have advantage.\n\nWhen another move (like Seek Insight) allows a player to ask you a question, you can opt not to answer.",
+    "requirement": {
+      "level": 6
+    }
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

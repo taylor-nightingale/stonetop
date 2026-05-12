@@ -7,6 +7,7 @@
     "stonetop": {
       "hp": 16,
       "damage": "d8",
+			"startingMovesNote": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice.",
       "backgrounds": [
         {
           "slug": "the-natural",

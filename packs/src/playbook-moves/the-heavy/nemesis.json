@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Heavy",
     "moveType": "playbook",
-    "requires": "Relentless",
-    "minLevel": 6,
-    "description": "When you Clash and your foe survives, all of your future attacks against them do +1d6 damage."
+    "description": "When you Clash and your foe survives, all of your future attacks against them do +1d6 damage.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Relentless"
+      ]
+    }
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

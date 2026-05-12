@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Judge",
     "moveType": "playbook",
-    "requires": "Censure",
-    "minLevel": 2,
-    "description": "When you Censure someone, your voice deals 1d4 damage to them (near, loud, ignores armor)."
+    "description": "When you Censure someone, your voice deals 1d4 damage to them (near, loud, ignores armor).",
+    "requirement": {
+      "level": 2,
+      "moves": [
+        "Censure"
+      ]
+    }
   },
   "folder": "jISe56pNVdmHJLgu"
 }

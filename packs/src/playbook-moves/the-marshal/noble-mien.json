@@ -6,8 +6,10 @@
   "system": {
     "playbook": "The Marshal",
     "moveType": "playbook",
-    "minLevel": 6,
-    "description": "When you lead an NPC through danger and return them to safety, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support."
+    "description": "When you lead an NPC through danger and return them to safety, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.",
+    "requirement": {
+      "level": 6
+    }
   },
   "folder": "AFEGaCzrd5eKoPuV"
 }

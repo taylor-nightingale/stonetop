@@ -1,0 +1,25 @@
+{
+  "name": "Let Fly",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "stat": "dex",
+    "description": "<p>When you <strong><em>take an easy shot with a ranged weapon</em></strong>, deal your damage. If <strong><em>the shot is tricky or you’re under pressure</em></strong>, first roll +DEX: <strong>on a 10+</strong>, you have a clear shot, deal your damage; <strong>on a 7-9</strong>, pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "You have a clear shot, deal your damage."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "<p>Pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>"
+      },
+      "failure": {
+        "label": "6-",
+        "description": "Up to GM"
+      }
+    }
+  },
+	"_id": "RktcnT4RufsMLv2D",
+	"_key": "!items!RktcnT4RufsMLv2D"
+}

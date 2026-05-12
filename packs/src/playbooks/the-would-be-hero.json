@@ -7,6 +7,7 @@
     "stonetop": {
       "hp": 16,
       "damage": "d6",
+			"startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
       "backgrounds": [
         {
           "slug": "impetuous-youth",

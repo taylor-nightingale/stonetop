@@ -35,10 +35,6 @@
 			"attributes": {
 				"xp": "XP",
 				"level": "Level",
-				"stock": "Stock",
-				"favor": "Favor",
-				"omen": "Omen",
-				"resolve": "Resolve"
 			},
 			"moveTypes": {
 				"background": "Background"

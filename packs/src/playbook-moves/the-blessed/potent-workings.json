@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Blessed",
     "moveType": "playbook",
-    "requires": "Amulets & Talismans",
-    "minLevel": 6,
-    "description": "When you craft a protective charm, you may spend 1 additional Stock to choose 1:\n\n• Name an additional type of harm\n• On a 10+, the charm retains its potency"
+    "description": "When you craft a protective charm, you may spend 1 additional Stock to choose 1:\n\n• Name an additional type of harm\n• On a 10+, the charm retains its potency",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Amulets & Talismans"
+      ]
+    }
   },
   "folder": "twBI9Q4lZycODbDk"
 }

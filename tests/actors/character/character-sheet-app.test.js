@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { buildSheetContext, buildMovelistContext, createStonetopCharacterSheetClass } from "../../../module/actors/character/character-sheet-app.js";
+import { buildSheetContext, buildMovelistContext, sortPlaybookMoves, createStonetopCharacterSheetClass } from "../../../module/actors/character/character-sheet-app.js";
 
 // -- buildSheetContext ----------------------------------------------------
 
@@ -163,8 +163,7 @@ function makeEntry(overrides = {}) {
 			description: overrides.description ?? "A test move.",
 			stat: overrides.stat ?? null,
 			isStartingMove: overrides.isStartingMove ?? false,
-			requires: overrides.requires ?? null,
-			minLevel: overrides.minLevel ?? null,
+			requirement: overrides.requirement ?? null,
 		},
 	};
 }
@@ -184,7 +183,7 @@ describe("buildMovelistContext", () => {
 	it("owned move: owned=true, ownedId set", () => {
 		const entry = makeEntry({ name: "Bulwark" });
 		const owned = { _id: "item-xyz" };
-		const [m] = buildMovelistContext([entry], new Map([["Bulwark", owned]]), new Set(), 1);
+		const [m] = buildMovelistContext([entry], new Map([["Bulwark", [owned]]]), new Set(), 1);
 		expect(m.owned).toBe(true);
 		expect(m.ownedId).toBe("item-xyz");
 	});
@@ -204,26 +203,26 @@ describe("buildMovelistContext", () => {
 	});
 
 	it("requires a move not owned: locked=true", () => {
-		const entry = makeEntry({ requires: "Glorious Servant" });
+		const entry = makeEntry({ requirement: { moves: ["Glorious Servant"] } });
 		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1);
 		expect(m.locked).toBe(true);
 	});
 
 	it("requires a move that IS owned: locked=false", () => {
-		const entry = makeEntry({ requires: "Glorious Servant" });
-		const ownedBy = new Map([["Glorious Servant", { _id: "gs-id" }]]);
+		const entry = makeEntry({ requirement: { moves: ["Glorious Servant"] } });
+		const ownedBy = new Map([["Glorious Servant", [{ _id: "gs-id" }]]]);
 		const [m] = buildMovelistContext([entry], ownedBy, new Set(), 1);
 		expect(m.locked).toBe(false);
 	});
 
 	it("minLevel above actor level: locked=true", () => {
-		const entry = makeEntry({ minLevel: 6 });
+		const entry = makeEntry({ requirement: { level: 6 } });
 		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1);
 		expect(m.locked).toBe(true);
 	});
 
 	it("minLevel at or below actor level: locked=false", () => {
-		const entry = makeEntry({ minLevel: 3 });
+		const entry = makeEntry({ requirement: { level: 3 } });
 		const [m] = buildMovelistContext([entry], new Map(), new Set(), 3);
 		expect(m.locked).toBe(false);
 	});
@@ -235,9 +234,125 @@ describe("buildMovelistContext", () => {
 	});
 
 	it("starting move with requires is NOT locked (isStarting overrides)", () => {
-		const entry = makeEntry({ isStartingMove: true, requires: "Some Move" });
+		const entry = makeEntry({ isStartingMove: true, requirement: { moves: ["Some Move"] } });
 		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1);
 		expect(m.isStarting).toBe(true);
 		expect(m.locked).toBe(false);
+	});
+
+	it("requires playbook not matching: locked=true", () => {
+		const entry = makeEntry({ requirement: { playbook: "The Blessed" } });
+		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1, "The Fox");
+		expect(m.locked).toBe(true);
+	});
+
+	it("requires playbook matching actor: locked=false", () => {
+		const entry = makeEntry({ requirement: { playbook: "The Blessed" } });
+		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1, "The Blessed");
+		expect(m.locked).toBe(false);
+	});
+
+	it("requiresLabel joins multiple moves", () => {
+		const entry = makeEntry({ requirement: { moves: ["Move A", "Move B"] } });
+		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1);
+		expect(m.requiresLabel).toBe("Move A, Move B");
+	});
+
+	it("requiresPlaybook set from requirement.playbook", () => {
+		const entry = makeEntry({ requirement: { playbook: "The Blessed" } });
+		const [m] = buildMovelistContext([entry], new Map(), new Set(), 1, "The Blessed");
+		expect(m.requiresPlaybook).toBe("The Blessed");
+	});
+});
+
+// -- sortPlaybookMoves ----------------------------------------------------
+
+function mv(name, { requires = null, minLevel = null } = {}) { return { name, requires, minLevel }; }
+function names(moves) { return moves.map(m => m.name); }
+
+describe("sortPlaybookMoves", () => {
+	it("returns empty array for empty input", () => {
+		expect(sortPlaybookMoves([])).toEqual([]);
+	});
+
+	it("single move with no requires is returned as-is", () => {
+		expect(names(sortPlaybookMoves([mv("Alpha")]))).toEqual(["Alpha"]);
+	});
+
+	it("multiple independent moves are sorted alphabetically", () => {
+		const result = names(sortPlaybookMoves([mv("Charlie"), mv("Alpha"), mv("Bravo")]));
+		expect(result).toEqual(["Alpha", "Bravo", "Charlie"]);
+	});
+
+	it("a move that requires another follows it immediately", () => {
+		const result = names(sortPlaybookMoves([mv("Child", { requires: "Parent" }), mv("Parent"), mv("Alpha")]));
+		expect(result).toEqual(["Alpha", "Parent", "Child"]);
+	});
+
+	it("multiple moves requiring the same parent are sorted alphabetically after it", () => {
+		const moves = [mv("Zeta", { requires: "Parent" }), mv("Alpha", { requires: "Parent" }), mv("Parent"), mv("Root")];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Parent", "Alpha", "Zeta", "Root"]);
+	});
+
+	it("chains: grandchild follows child follows parent", () => {
+		const moves = [mv("Grandchild", { requires: "Child" }), mv("Child", { requires: "Parent" }), mv("Parent")];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Parent", "Child", "Grandchild"]);
+	});
+
+	it("root moves stay alphabetical while dependents follow their parents", () => {
+		const moves = [
+			mv("Zeal"),
+			mv("Zeal-Child", { requires: "Zeal" }),
+			mv("Armor"),
+			mv("Armor-Child-B", { requires: "Armor" }),
+			mv("Armor-Child-A", { requires: "Armor" }),
+		];
+		expect(names(sortPlaybookMoves(moves))).toEqual([
+			"Armor", "Armor-Child-A", "Armor-Child-B",
+			"Zeal", "Zeal-Child",
+		]);
+	});
+
+	it("move requiring a non-existent parent is treated as a root", () => {
+		const moves = [mv("Orphan", { requires: "Missing Parent" }), mv("Alpha")];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Alpha", "Orphan"]);
+	});
+
+	it("circular dependency does not infinite-loop", () => {
+		const moves = [mv("A", { requires: "B" }), mv("B", { requires: "A" })];
+		expect(() => sortPlaybookMoves(moves)).not.toThrow();
+		expect(sortPlaybookMoves(moves)).toHaveLength(2);
+	});
+
+	it("level-6 moves come after all level-0 moves", () => {
+		const moves = [mv("Bravo", { minLevel: 6 }), mv("Alpha"), mv("Charlie", { minLevel: 6 })];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Alpha", "Bravo", "Charlie"]);
+	});
+
+	it("level groups are sorted ascending: 0, 2, 6", () => {
+		const moves = [
+			mv("L6", { minLevel: 6 }),
+			mv("L2", { minLevel: 2 }),
+			mv("L0"),
+		];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["L0", "L2", "L6"]);
+	});
+
+	it("within a level group, dependency chaining still applies", () => {
+		const moves = [
+			mv("Child", { minLevel: 6, requires: "Parent" }),
+			mv("Parent", { minLevel: 6 }),
+			mv("Alpha", { minLevel: 6 }),
+		];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Alpha", "Parent", "Child"]);
+	});
+
+	it("cross-level dependency is ignored: level-6 move requiring level-0 move stays in level-6 group", () => {
+		const moves = [
+			mv("Root"),
+			mv("Lv6-Child", { minLevel: 6, requires: "Root" }),
+			mv("Alpha"),
+		];
+		expect(names(sortPlaybookMoves(moves))).toEqual(["Alpha", "Root", "Lv6-Child"]);
 	});
 });

@@ -8,10 +8,7 @@ const _playbookFlagCache = new Map();
 
 export async function getPlaybookFlags(actor) {
 	const slug = actor.system?.playbook?.slug;
-	if (!slug) {
-		console.warn("Stonetop | getPlaybookFlags: no slug on actor.system.playbook:", actor.system?.playbook);
-		return null;
-	}
+	if (!slug) return null;
 
 	const cached = _playbookFlagCache.get(slug);
 	if (cached !== undefined) return cached;

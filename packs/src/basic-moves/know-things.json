@@ -1,0 +1,25 @@
+{
+  "name": "Know Things",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "stat": "str",
+    "description": "<p>When you <strong><em>consult your accumulated knowledge</em></strong>, roll +INT: <strong>on a 10+</strong>, The GM will tell you something interesting and useful about the topic at hand; <strong><em>On a 7-9</em></strong>, the GM will tell you something interesting\u2014it's on you to make it useful;<strong><em>either way</em></strong>, the GM might ask \u201chow do you know this?\u201d</p>",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "The GM will tell you something interesting and useful about the topic at hand."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "the GM will tell you something interesting\u2014it's on you to make it useful."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
+      }
+    }
+  },
+  "_id": "tLTyWFFkpaiArJLS",
+  "_key": "!items!tLTyWFFkpaiArJLS"
+}

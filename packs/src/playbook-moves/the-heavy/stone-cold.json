@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Heavy",
     "moveType": "playbook",
-    "requires": "Frosty",
-    "minLevel": 6,
-    "description": "When you Defy Danger (or Struggle as One) by keeping calm and carrying on, treat a 6- as a 7-9."
+    "description": "When you Defy Danger (or Struggle as One) by keeping calm and carrying on, treat a 6- as a 7-9.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Frosty"
+      ]
+    }
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

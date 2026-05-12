@@ -6,8 +6,10 @@
   "system": {
     "playbook": "The Ranger",
     "moveType": "playbook",
-    "minLevel": 6,
-    "description": "When you'd mark a debility, you can mark this move instead to no ill effect. Clear it as you would a debility."
+    "description": "When you'd mark a debility, you can mark this move instead to no ill effect. Clear it as you would a debility.",
+    "requirement": {
+      "level": 6
+    }
   },
   "folder": "TOPlmLzP0PF3i9CM"
 }

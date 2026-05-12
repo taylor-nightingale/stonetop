@@ -8,6 +8,7 @@
       "hp": 18,
       "damage": "d6",
       "startingPickCount": 2,
+      "startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice.",
       "backgrounds": [
         {
           "slug": "initiate",

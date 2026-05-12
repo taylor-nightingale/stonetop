@@ -6,8 +6,12 @@
   "system": {
     "playbook": "The Would-Be Hero",
     "moveType": "playbook",
-    "requires": "I Get Knocked Down",
-    "description": "When you use I Get Knocked Down, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage."
+    "description": "When you use I Get Knocked Down, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage.",
+    "requirement": {
+      "moves": [
+        "I Get Knocked Down"
+      ]
+    }
   },
   "folder": "dgktpzqUfX5DWqqE"
 }

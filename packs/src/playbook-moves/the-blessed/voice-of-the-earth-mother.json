@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Blessed",
     "moveType": "playbook",
-    "requires": "Spirit Tongue",
-    "minLevel": 6,
-    "description": "When you speak on behalf of Danu, natural beasts and spirits of the wild respect your authority. All but the most headstrong will do as you command, even against their instincts."
+    "description": "When you speak on behalf of Danu, natural beasts and spirits of the wild respect your authority. All but the most headstrong will do as you command, even against their instincts.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Spirit Tongue"
+      ]
+    }
   },
   "folder": "twBI9Q4lZycODbDk"
 }

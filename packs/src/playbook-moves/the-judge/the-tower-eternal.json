@@ -6,8 +6,10 @@
   "system": {
     "playbook": "The Judge",
     "moveType": "playbook",
-    "minLevel": 6,
-    "description": "When you Defy Danger against magic, treat a result of 6- as a 7-9."
+    "description": "When you Defy Danger against magic, treat a result of 6- as a 7-9.",
+    "requirement": {
+      "level": 6
+    }
   },
   "folder": "jISe56pNVdmHJLgu"
 }

@@ -6,10 +6,11 @@
   "system": {
     "playbook": "The Blessed",
     "moveType": "playbook",
-    "requires": "The Blessed",
-    "minLevel": 2,
-    "isRepeatable": true,
-    "description": "Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat."
+    "description": "Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.",
+    "requirement": {
+      "level": 2,
+      "playbook": "The Blessed"
+    }
   },
   "folder": "twBI9Q4lZycODbDk"
 }

@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Judge",
     "moveType": "playbook",
-    "requires": "Bear Witness",
-    "minLevel": 6,
-    "description": "When you approach an enemy to negotiate in good faith, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say."
+    "description": "When you approach an enemy to negotiate in good faith, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Bear Witness"
+      ]
+    }
   },
   "folder": "jISe56pNVdmHJLgu"
 }

@@ -33,14 +33,12 @@
 		</section>
 		{{/if}}
 
-		<div class="stonetop-moves-layout">
-
-			{{!-- Left: playbook checklist + other owned move groups --}}
-			<div class="stonetop-moves-main">
-
-				{{#if stonetop.movelist.playbookMoves.length}}
+		{{#if stonetop.movelist.playbookMoves.length}}
 				<div class="stonetop-move-group">
 					<h3 class="stonetop-move-group-title">Playbook Moves</h3>
+				{{#if stonetop.movelist.startingMovesNote}}
+				<p class="stonetop-moves-note">{{stonetop.movelist.startingMovesNote}}</p>
+				{{/if}}
 					<ol class="items-list">
 					{{#each stonetop.movelist.playbookMoves}}
 						{{#if (and owned rollType)}}
@@ -49,28 +47,50 @@
 						<li class="stonetop-move-item{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
 						{{/if}}
 							<div class="stonetop-move-header">
+								{{#if repeatable}}
+								<span class="stonetop-repeat-checks">
+									{{#each repeatChecks}}
+									<input type="checkbox" class="stonetop-repeat-check"
+									       data-compendium-id="{{../compendiumId}}"
+									       data-owned-id="{{ownedId}}"
+									       {{#if checked}}checked{{/if}}
+									       {{#if disabled}}disabled{{/if}}>
+									{{/each}}
+								</span>
+								{{else}}
 								<input type="checkbox" class="stonetop-move-check"
 								       data-compendium-id="{{compendiumId}}"
 								       data-owned-id="{{ownedId}}"
 								       {{#if owned}}checked{{/if}}
 								       {{#if (or isStarting locked)}}disabled{{/if}}>
+								{{/if}}
 								<strong class="stonetop-move-name">{{name}}</strong>
 								{{#if (and owned rollType)}}
 								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 									<i class="fas fa-dice-d6"></i>
 								</span>
 								{{/if}}
+								{{#if (and owned resourceChecks)}}
+								<span class="stonetop-move-resources">
+									{{#each resourceChecks}}
+									<button type="button" class="stonetop-move-resource-check{{#if checked}} is-checked{{/if}}"
+									        data-move-name="{{../name}}"
+									        data-index="{{@index}}"></button>
+									{{/each}}
+								</span>
+								{{/if}}
 							</div>
 							<div class="stonetop-move-description">{{{description}}}</div>
-							{{#if requires}}<p class="stonetop-move-note">Requires: {{requires}}</p>{{/if}}
+							{{#if requiresLabel}}<p class="stonetop-move-note">Requires: {{requiresLabel}}</p>{{/if}}
+							{{#if requiresPlaybook}}<p class="stonetop-move-note">Requires {{requiresPlaybook}} playbook</p>{{/if}}
 							{{#if minLevel}}<p class="stonetop-move-note">Level {{minLevel}}+</p>{{/if}}
 						</li>
 					{{/each}}
 					</ol>
 				</div>
-				{{/if}}
+			{{/if}}
 
-				{{#each stonetop.movelist.otherGroups}}
+		{{#each stonetop.movelist.otherGroups}}
 				<div class="stonetop-move-group">
 					<h3 class="stonetop-move-group-title">{{label}}</h3>
 					<ol class="items-list">
@@ -95,31 +115,6 @@
 					</ol>
 				</div>
 				{{/each}}
-
-			</div>
-
-			{{!-- Right: basic moves sidebar (always shown from compendium) --}}
-			<div class="stonetop-moves-sidebar">
-				<h3 class="stonetop-move-group-title">Basic Moves</h3>
-				<ol class="items-list">
-				{{#each stonetop.movelist.basicMoves}}
-					{{#if (and owned rollType)}}
-					<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
-					{{else}}
-					<li class="stonetop-move-item{{#unless owned}} move-unowned{{/unless}}">
-					{{/if}}
-						{{#if (and owned rollType)}}
-						<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
-							<i class="fas fa-dice-d6"></i>
-						</span>
-						{{/if}}
-						<span class="stonetop-move-name">{{name}}</span>
-					</li>
-				{{/each}}
-				</ol>
-			</div>
-
-		</div>
 
 	</section>
 </div>

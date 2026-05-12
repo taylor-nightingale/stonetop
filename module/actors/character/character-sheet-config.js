@@ -32,23 +32,6 @@ export function characterSheetConfig() {
 				label: game.i18n.localize("stonetop.character.attributes.level"),
 				value: 1,
 			},
-			stock: {
-				position: "Top",
-				type: "Clock",
-				label: game.i18n.localize("stonetop.character.attributes.stock"),
-				value: 0,
-				max: 3,
-				steps: Array.from({length: 3}, () => false),
-				playbook: "the-blessed",
-			},
-			favor: {
-				position: "Top",
-				type: "Resource",
-				label: game.i18n.localize("stonetop.character.attributes.favor"),
-				playbook: "the-judge",
-				value: 0,
-				max: 4,
-			},
 			// -- LEFT ------------------------------------------------------
 			debilities: {
 				label: "Debilities",
@@ -59,24 +42,6 @@ export function characterSheetConfig() {
 					dazed: {label: "Dazed", value: false, stat: ["int", "wis"]},
 					miserable: {label: "Miserable", value: false, stat: ["con", "cha"]},
 				},
-			},
-			omen: {
-				position: "Left",
-				type: "Clock",
-				label: game.i18n.localize("stonetop.character.attributes.omen"),
-				playbook: "the-would-be-hero",
-				value: 0,
-				max: 3,
-				steps: [false, false, false],
-			},
-			resolve: {
-				position: "Left",
-				type: "Clock",
-				label: game.i18n.localize("stonetop.character.attributes.resolve"),
-				playbook: "the-would-be-hero",
-				default: 0,
-				max: 2,
-				steps: [false, false],
 			},
 			hp: {
 				position: "Left",

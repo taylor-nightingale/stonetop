@@ -1,0 +1,25 @@
+{
+  "name": "Defend",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "stat": "con",
+    "description": "<p>When you <strong><em>take up a defensive stance or jump in to protect others</em></strong>,  roll +CON: <strong>on a 10+</strong>, hold 3 Readiness (or 4 if you bear a shield); <strong><em>On a 7-9</em></strong>, hold 1 Readiness (or 2 with a shield). You can spend Readiness 1-for-1 to:</p><ul><li>Suffer an attack\u2019s damage/effects instead of your ward</li><li>Halve an attack\u2019s effect or damage</li><li>Draw all attention from your ward to yourself</li><li>Strike back at an attacker (deal your damage, with disadvantage)</li></ul><p>When you go on the offense, cease to focus on defense, or the threat passes, lose any Readiness that you hold.</p>",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "Hold 3 Readiness (or 4 if you bear a shield)."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "Hold 1 Readiness (or 2 with a shield)."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation)."
+      }
+    }
+  },
+  "_id": "ZmGI9G0EiVXqtpP3",
+  "_key": "!items!ZmGI9G0EiVXqtpP3"
+}

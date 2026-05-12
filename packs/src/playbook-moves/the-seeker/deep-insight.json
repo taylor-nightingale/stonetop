@@ -6,9 +6,13 @@
   "system": {
     "playbook": "The Seeker",
     "moveType": "playbook",
-    "requires": "Attuned",
-    "minLevel": 6,
-    "description": "When you Seek Insight about something magical, you may ask one additional question, not limited to the list. Even on a 6-, you get to ask this question."
+    "description": "When you Seek Insight about something magical, you may ask one additional question, not limited to the list. Even on a 6-, you get to ask this question.",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Attuned"
+      ]
+    }
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

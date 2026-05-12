@@ -7,6 +7,7 @@
     "stonetop": {
       "hp": 20,
       "damage": "d8",
+			"startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
       "backgrounds": [
         {
           "slug": "scion",
