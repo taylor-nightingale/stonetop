@@ -1,6 +1,7 @@
 import { registerSettings } from "./module/settings.js";
 import { createStonetopActorClass } from "./module/actors/stonetop-actor.js";
 import { createStonetopItemClass } from "./module/item/item.js";
+import { createStonetopCharacterSheetClass } from "./module/actors/character/character-sheet-app.js";
 import { onPbtaSheetConfig } from "./module/hooks/pbta-sheet-config.js";
 import { onReady } from "./module/hooks/ready.js";
 import { onRenderActorSheet } from "./module/hooks/render-actor-sheet.js";
@@ -18,15 +19,17 @@ Hooks.once("init", () => {
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
-	loadTemplates([
-		"modules/stonetop/templates/actor/partials/stats.hbs",
-		"modules/stonetop/templates/actor/partials/moves.hbs",
-		"modules/stonetop/templates/actor/partials/resources.hbs",
-		"modules/stonetop/templates/actor/partials/debilities.hbs",
-		"modules/stonetop/templates/actor/partials/playbook-info.hbs",
-		"modules/stonetop/templates/item/move-sheet.hbs",
-		"modules/stonetop/templates/item/playbook-sheet.hbs",
-	]);
+	const StonetopCharacterSheet = createStonetopCharacterSheetClass(game.pbta.applications.actor.PbtaActorSheet);
+	Actors.registerSheet("stonetop", StonetopCharacterSheet, {
+		types: ["character"],
+		makeDefault: true,
+		label: "Stonetop Character Sheet",
+	});
+
+	loadTemplates({
+		"stonetop.tab-details": "modules/stonetop/templates/actor/partials/tab-details.hbs",
+		"stonetop.tab-moves":   "modules/stonetop/templates/actor/partials/tab-moves.hbs",
+	});
 });
 
 // -- RENDER PAUSE ----------------------------------------------

@@ -1,0 +1,12 @@
+{
+  "_id": "xzni4vWmpe9q0DS7",
+  "_key": "!items!xzni4vWmpe9q0DS7",
+  "name": "Naturalist",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "When you Know Things about beasts, natural environs, or spirits of the wild, you have advantage."
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
+}

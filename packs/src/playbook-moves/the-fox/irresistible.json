@@ -1,0 +1,12 @@
+{
+  "_id": "dHWRKGqDkx8SJFUH",
+  "_key": "!items!dHWRKGqDkx8SJFUH",
+  "name": "Irresistible",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "description": "When you interact with someone, you can ask their player if they find you attractive and get an honest answer (usually \"yes\").\n\nWhen you Persuade by using your considerable charms as leverage, you have advantage."
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
+}

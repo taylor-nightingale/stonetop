@@ -7,11 +7,13 @@
     "stonetop": {
       "hp": 18,
       "damage": "d6",
+      "startingPickCount": 2,
       "backgrounds": [
         {
           "slug": "initiate",
           "label": "Initiate",
           "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p>",
+          "moves": ["Rites of the Land"],
           "choices": {
             "label": "There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers— see the Initiates of Danu insert. Who are they?",
             "count": [2, 3],
@@ -27,11 +29,13 @@
         {
           "slug": "raised-by-wolves",
           "label": "Raised by Wolves",
+          "moves": ["Trackless Step"],
           "description": "<p>Maybe not by wolves, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?</p><p>Regardless, you get the <strong>Trackless Step</strong> move. Also, when you <em><strong>Forage</strong></em>, you have advantage.</p><p>For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when <em><strong>your wild ways offend or alienate you from someone</strong></em>, mark XP.</p>"
         },
         {
           "slug": "vessel",
           "label": "Vessel",
+          "moves": ["Danu's Grasp"],
           "description": "<p>A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the <strong>Danu's Grasp</strong> move. When you <strong><em>would spend 1 Stock from your sacred pouch</strong></em>, you may choose to lose 2d4 HP instead.</p>"
         }
       ],

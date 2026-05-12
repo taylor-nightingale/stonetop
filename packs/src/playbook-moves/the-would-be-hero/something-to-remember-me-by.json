@@ -1,0 +1,12 @@
+{
+  "_id": "vDNYfMHNsDZlsV3z",
+  "_key": "!items!vDNYfMHNsDZlsV3z",
+  "name": "Something to Remember Me By",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "When you spend Readiness (from Defend) to strike back at an attacker, you deal +1d4 damage and scar, mark, or diminish them in some way (the GM will say how, or ask you to)."
+  },
+  "folder": "dgktpzqUfX5DWqqE"
+}

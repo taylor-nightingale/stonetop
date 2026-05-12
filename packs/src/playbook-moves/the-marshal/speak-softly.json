@@ -1,0 +1,12 @@
+{
+  "_id": "YaFJvDpAdEaAVjdN",
+  "_key": "!items!YaFJvDpAdEaAVjdN",
+  "name": "Speak Softly",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "description": "When you offer peace but your enemy refuses, gain advantage on your next roll against them."
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
+}

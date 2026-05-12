@@ -43,6 +43,10 @@
 			"moveTypes": {
 				"background": "Background"
 			},
+			"moves": {
+				"pickTitle": "Choose Starting Moves",
+				"pickInstruction": "Pick up to {count} moves to start with."
+			},
 			"selection": {
 				"select": "Select",
 				"cancel": "Cancel",

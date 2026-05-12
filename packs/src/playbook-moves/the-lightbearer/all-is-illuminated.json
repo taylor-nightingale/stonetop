@@ -1,0 +1,28 @@
+{
+  "_id": "9vaR2JsZjm4XRjyG",
+  "_key": "!items!9vaR2JsZjm4XRjyG",
+  "name": "All is Illuminated",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "stat": "wis",
+    "rollFormula": "2d6+@wis",
+    "description": "When you look closely on another and see their soul laid bare, roll +WIS: on a 10+, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; on a 7-9, ask them 1 question from the list. In any case, they must answer truthfully.\n\n• Of what are they most ashamed?\n• What do they most desire or covet?\n• What hope have they abandoned?\n• Who or what is most precious to them?",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "Ask 1 question from the list plus the bonus question."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "Ask 1 question from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "The GM makes a move."
+      }
+    }
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

@@ -1,165 +1,81 @@
 const l = key => game.i18n.localize(key);
 
-export function openBackgroundDialog(actor, backgrounds) {
-	const currentSlug = actor.getFlag("stonetop", "background") ?? "";
-	const options = backgrounds.map(b =>
-		`<label class="selection-option${b.slug === currentSlug ? " selected" : ""}">
-			<input type="radio" name="pick" value="${b.slug}"${b.slug === currentSlug ? " checked" : ""}>
+export async function setupStartingMoves(actor, allBackgrounds, background, pickCount) {
+	const playbookName = actor.system?.playbook?.name;
+	if (!playbookName) return;
+
+	const pack = game.packs.get("stonetop.playbook-moves");
+	if (!pack) return;
+
+	await pack.getIndex({ fields: ["system.playbook", "system.isStartingMove", "system.requires", "system.minLevel"] });
+	const playbookEntries = pack.index.filter(e => e.system?.playbook === playbookName);
+
+	const ownedNames = new Set(actor.items.filter(i => i.type === "move").map(i => i.name));
+	const backgroundMoveNames = new Set(background?.moves ?? []);
+
+	const autoEntries = playbookEntries.filter(e =>
+		(e.system?.isStartingMove || backgroundMoveNames.has(e.name)) && !ownedNames.has(e.name)
+	);
+
+	if (autoEntries.length) {
+		const docs = await Promise.all(autoEntries.map(e => pack.getDocument(e._id)));
+		await actor.createEmbeddedDocuments("Item", docs.map(d => d.toObject()));
+		for (const e of autoEntries) ownedNames.add(e.name);
+	}
+
+	if (!pickCount) return;
+
+	const backgroundMovePool = new Set(allBackgrounds.flatMap(b => b.moves ?? []));
+	const eligibleEntries = playbookEntries.filter(e =>
+		!e.system?.isStartingMove &&
+		!e.system?.requires &&
+		(!e.system?.minLevel || e.system.minLevel <= 1) &&
+		!ownedNames.has(e.name) &&
+		!backgroundMovePool.has(e.name)
+	);
+
+	if (!eligibleEntries.length) return;
+
+	const eligibleDocs = await Promise.all(eligibleEntries.map(e => pack.getDocument(e._id)));
+	openMoveSelectionDialog(actor, eligibleDocs, pickCount);
+}
+
+export function openMoveSelectionDialog(actor, moves, count) {
+	const options = moves.map(m =>
+		`<label class="selection-option move-option">
+			<input type="checkbox" name="pick" value="${m.id}">
 			<div class="selection-option-body">
-				<strong>${b.label}</strong>
-				${b.description}
+				<strong>${m.name}</strong>
+				<p>${m.system.description ?? ""}</p>
 			</div>
 		</label>`
 	).join("");
-	openPickerDialog(l("stonetop.character.selection.background.dialogTitle"), options, async dlg => {
-		const slug = dlg.find("input[name=pick]:checked").val();
-		if (slug) await actor.setFlag("stonetop", "background", slug);
-	});
-}
-
-export function openInstinctDialog(actor, instincts) {
-	const current = actor.getFlag("stonetop", "instinct") ?? "";
-	const options = instincts.map(({ word, description }) => {
-		const value = `${word} — ${description}`;
-		return `<label class="selection-option${current === value ? " selected" : ""}">
-			<input type="radio" name="pick" value="${value}"${current === value ? " checked" : ""}>
-			<div class="selection-option-body">
-				<strong>${word}</strong>
-				<p>${description}</p>
-			</div>
-		</label>`;
-	}).join("");
 
 	new Dialog({
-		title: l("stonetop.character.selection.instinct.dialogTitle"),
+		title: game.i18n.format("stonetop.character.moves.pickTitle", { count }),
 		content: `
-			<input type="text" name="instinct-custom" class="instinct-custom-input"
-			       value="${current}" placeholder="${l("stonetop.character.selection.instinct.customPlaceholder")}">
-			<hr>
+			<p class="move-pick-instruction">
+				${game.i18n.format("stonetop.character.moves.pickInstruction", { count })}
+			</p>
 			<div class="selection-options">${options}</div>`,
 		buttons: {
-			add: { label: l("stonetop.character.selection.select"), callback: async dlg => {
-				const val = dlg.find("input[name=instinct-custom]").val().trim();
-				if (val) await actor.setFlag("stonetop", "instinct", val);
-			}},
-			cancel: { label: l("stonetop.character.selection.cancel") },
+			add: {
+				label: l("stonetop.character.selection.select"),
+				callback: async dlg => {
+					const ids = [...dlg.find("input[name=pick]:checked")].map(el => el.value);
+					if (!ids.length) return;
+					const docs = moves.filter(m => ids.includes(m.id));
+					await actor.createEmbeddedDocuments("Item", docs.map(d => d.toObject()));
+				},
+			},
+			close: { label: l("stonetop.character.selection.cancel") },
 		},
-		default: "add",
+		default: "close",
 		render: dlg => {
-			wireOptionClicks(dlg);
-			dlg.find("input[name=pick]").on("change", ev => {
-				dlg.find("input[name=instinct-custom]").val(ev.currentTarget.value);
+			dlg.find("input[name=pick]").on("change", () => {
+				const checked = dlg.find("input[name=pick]:checked").length;
+				dlg.find("input[name=pick]:not(:checked)").prop("disabled", checked >= count);
 			});
 		},
 	}).render(true);
-}
-
-export function openAppearanceDialog(actor, appearance) {
-	const saved = actor.getFlag("stonetop", "appearance") ?? {};
-	const lines = appearance.map((opts, i) => {
-		const radios = opts.map(v =>
-			`<label class="appearance-radio">
-				<input type="radio" name="line-${i}" value="${v}"${saved[i] === v ? " checked" : ""}>
-				${v}
-			</label>`
-		).join("");
-		return `<div class="appearance-row">
-			<span class="appearance-row-num">${i + 1}</span>
-			<div class="appearance-line">${radios}</div>
-		</div>`;
-	}).join("");
-	new Dialog({
-		title: l("stonetop.character.selection.appearance.dialogTitle"),
-		content: `<p class="appearance-instruction">${l("stonetop.character.selection.appearance.instruction")}</p><div class="appearance-picker">${lines}</div>`,
-		buttons: {
-			add: { label: l("stonetop.character.selection.select"), callback: async dlg => {
-				const result = {};
-				appearance.forEach((_, i) => {
-					const val = dlg.find(`input[name=line-${i}]:checked`).val();
-					if (val) result[i] = val;
-				});
-				await actor.setFlag("stonetop", "appearance", result);
-			}},
-			cancel: { label: l("stonetop.character.selection.cancel") },
-		},
-		default: "add",
-	}).render(true);
-}
-
-export function openOriginDialog(actor, origins) {
-	const currentRegion = actor.getFlag("stonetop", "origin") ?? "";
-	const namesLabel = l("stonetop.character.selection.origin.namesLabel");
-	const options = origins.map(({ region, names }) =>
-		`<div class="origin-option${region === currentRegion ? " selected" : ""}" data-region="${region}">
-			<label class="origin-region">
-				<input type="radio" name="pick" value="${region}"${region === currentRegion ? " checked" : ""}>
-				<strong>${region}</strong>
-			</label>
-			<div class="origin-names-section">
-				<span class="origin-names-label">${namesLabel}</span>
-				<div class="origin-names-list">
-					${names.map(n => `<button type="button" class="origin-name">${n}</button>`).join("")}
-				</div>
-			</div>
-		</div>`
-	).join("");
-
-	new Dialog({
-		title: l("stonetop.character.selection.origin.dialogTitle"),
-		content: `<div class="origin-picker">${options}</div>`,
-		buttons: {
-			add: { label: l("stonetop.character.selection.select"), callback: async dlg => {
-				const region = dlg.find("input[name=pick]:checked").val();
-				const name   = dlg.find(".origin-name.selected-name").text().trim();
-				if (!region) return;
-				await actor.setFlag("stonetop", "origin", region);
-				if (name) await actor.update({ name });
-			}},
-			cancel: { label: l("stonetop.character.selection.cancel") },
-		},
-		default: "add",
-		render: dlg => {
-			dlg.find(".origin-option").on("click", ev => {
-				const row = ev.currentTarget.closest(".origin-option");
-				dlg.find(".origin-option").removeClass("selected");
-				row.classList.add("selected");
-				row.querySelector("input[type=radio]").checked = true;
-			});
-			dlg.find(".origin-name").on("click", ev => {
-				ev.stopPropagation();
-				const btn = ev.currentTarget;
-				const row = btn.closest(".origin-option");
-				dlg.find(".origin-option").removeClass("selected");
-				row.classList.add("selected");
-				row.querySelector("input[type=radio]").checked = true;
-				dlg.find(".origin-name").removeClass("selected-name");
-				btn.classList.add("selected-name");
-			});
-		},
-	}).render(true);
-}
-
-export function openPickerDialog(title, optionsHtml, onAdd) {
-	new Dialog({
-		title,
-		content: `<div class="selection-options">${optionsHtml}</div>`,
-		buttons: {
-			add: { label: l("stonetop.character.selection.select"), callback: onAdd },
-			cancel: { label: l("stonetop.character.selection.cancel") },
-		},
-		default: "add",
-		render: dlg => wireOptionClicks(dlg),
-	}).render(true);
-}
-
-export function wireOptionClicks(dlg) {
-	dlg.find(".selection-option").on("click", ev => {
-		if (window.getSelection().toString()) return;
-		const opt = ev.currentTarget.closest(".selection-option");
-		dlg.find(".selection-option").removeClass("selected");
-		opt.classList.add("selected");
-		const radio = opt.querySelector("input[type=radio]");
-		radio.checked = true;
-		radio.dispatchEvent(new Event("change", { bubbles: true }));
-	});
 }

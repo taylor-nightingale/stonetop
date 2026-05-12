@@ -1,0 +1,12 @@
+{
+  "_id": "UXaZl9wsxRd0enVl",
+  "_key": "!items!UXaZl9wsxRd0enVl",
+  "name": "Armored",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "description": "When you carry a shield, you suffer reduced encumbrance from it. Also, you can ignore the cumbersome tag on any armor you wear.\n\nIf you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome)."
+  },
+  "folder": "jISe56pNVdmHJLgu"
+}

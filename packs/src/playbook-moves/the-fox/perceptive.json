@@ -1,0 +1,13 @@
+{
+  "_id": "WVrZ7CG2K2JNZLCc",
+  "_key": "!items!WVrZ7CG2K2JNZLCc",
+  "name": "Perceptive",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "When you Seek Insight, you may ask 1 additional question. Even on a 6-, you can ask 1 question (though you might not like how you learn the answer)."
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
+}

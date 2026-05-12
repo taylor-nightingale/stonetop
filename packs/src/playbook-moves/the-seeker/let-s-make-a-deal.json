@@ -1,0 +1,12 @@
+{
+  "_id": "CWNfx1weqEt9kS0g",
+  "_key": "!items!CWNfx1weqEt9kS0g",
+  "name": "Let's Make a Deal",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "When you Seek Insight, add \"What do they really want or need?\" to the list of questions. When you Persuade by offering them something that you know they want or need, treat a 7-9 as a 10+."
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
+}

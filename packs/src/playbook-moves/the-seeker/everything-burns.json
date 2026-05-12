@@ -1,0 +1,28 @@
+{
+  "_id": "4mfUZcGxLIXAVOtC",
+  "_key": "!items!4mfUZcGxLIXAVOtC",
+  "name": "Everything Burns",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "stat": "int",
+    "rollFormula": "2d6+@int",
+    "description": "When you inspect a work of artifice or magic for a fatal flaw, roll +INT: on a 7+, the GM will reveal the best way to destroy/sabotage it; on a 10+, you or an ally also gain advantage to act on the info.",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "The GM reveals the best way to destroy/sabotage it, and you or an ally gain advantage to act on the info."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "The GM reveals the best way to destroy/sabotage it."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "The GM makes a move."
+      }
+    }
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
+}

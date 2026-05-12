@@ -5,7 +5,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "pack": "node scripts/pack.js",
-    "unpack": "node scripts/unpack.js"
+    "unpack": "node scripts/unpack.js",
+    "reorganize-packs": "node scripts/reorganize-playbook-moves.js"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",

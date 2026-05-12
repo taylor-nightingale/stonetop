@@ -1,0 +1,12 @@
+{
+  "_id": "vogvBKXKC2HC91aW",
+  "_key": "!items!vogvBKXKC2HC91aW",
+  "name": "Fire Within",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "When you are in darkness, you are able to see by the light of your inner fire. When you take damage from cold or fire, reduce that damage by 2."
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

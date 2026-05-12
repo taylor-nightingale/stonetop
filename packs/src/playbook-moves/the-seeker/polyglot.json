@@ -1,0 +1,12 @@
+{
+  "_id": "9Qc040PxXiPITBd6",
+  "_key": "!items!9Qc040PxXiPITBd6",
+  "name": "Polyglot",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "When you first encounter a living language in play, describe your proficiency with it (if any) and how you came to acquire it.\n\nWhen you Know Things about any script, text, runes or symbols that you encounter, you have advantage."
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
+}

@@ -1,0 +1,12 @@
+{
+  "_id": "71dhhVqqYLOlAuwZ",
+  "_key": "!items!71dhhVqqYLOlAuwZ",
+  "name": "Iron Will",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "When you are subject to mind control or magic that affects your feelings, you can take 1d4 damage (ignoring armor) to disregard its influence."
+  },
+  "folder": "dgktpzqUfX5DWqqE"
+}

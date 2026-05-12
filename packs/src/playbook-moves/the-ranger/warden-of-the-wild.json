@@ -1,0 +1,12 @@
+{
+  "_id": "dimcng6SQV2LBLYF",
+  "_key": "!items!dimcng6SQV2LBLYF",
+  "name": "Warden of the Wild",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "When you defeat a perversion of nature, you can ask the GM 2 of the following and get a useful answer:\n\n• Will it come back? If so, how can I stop it?\n• Will its taint spread? If so, how can I contain it?\n• What useful (but grisly) bits can I harvest?\n• What else can I learn about it or its ilk?"
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
+}

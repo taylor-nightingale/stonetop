@@ -1,0 +1,28 @@
+{
+  "_id": "aGHBpr0zIvFX5DLz",
+  "_key": "!items!aGHBpr0zIvFX5DLz",
+  "name": "Amulets & Talismans",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "stat": "int",
+    "rollFormula": "2d6+@int",
+    "description": "When you craft a protective charm for someone, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When they would suffer such harm while bearing your charm, roll +INT: on a 10+, they ignore the harm entirely; on a 7-9, they suffer only half the damage or effect; on a 6-, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "They ignore the harm entirely."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "They suffer only half the damage or effect."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "They suffer the harm normally."
+      }
+    }
+  },
+  "folder": "twBI9Q4lZycODbDk"
+}

@@ -1,0 +1,12 @@
+{
+  "_id": "iv2q1JFvZ8iOmdlx",
+  "_key": "!items!iv2q1JFvZ8iOmdlx",
+  "name": "Hound of Aratis",
+  "type": "move",
+  "system": {
+    "playbook": "The Judge",
+    "moveType": "playbook",
+    "description": "When you Seek Insight, you can always ask \"What here is tainted by chaos?\" for free, even on a 6-."
+  },
+  "folder": "jISe56pNVdmHJLgu"
+}

@@ -1,0 +1,12 @@
+{
+  "_id": "0SmPOUjmjSeZaiuV",
+  "_key": "!items!0SmPOUjmjSeZaiuV",
+  "name": "Intimidating",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "description": "When you Persuade using violence or threats, you have advantage."
+  },
+  "folder": "QAZ4iqkCm6GtadAu"
+}

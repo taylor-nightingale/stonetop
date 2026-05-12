@@ -1,0 +1,28 @@
+{
+  "_id": "8V7Cl4kwyfj1uFIm",
+  "_key": "!items!8V7Cl4kwyfj1uFIm",
+  "name": "Silver Tongued",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "stat": "cha",
+    "rollFormula": "2d6+@cha",
+    "description": "When you use words to avoid suspicion or trouble, roll +CHA: on a 10+, hold 3 Nerve; on a 7-9, hold 1 Nerve. You may spend Nerve, 1-for-1, to:\n\n• Move about or maneuver unchallenged\n• Withstand direct scrutiny or questioning\n• Direct suspicion or attention elsewhere",
+    "rollResults": {
+      "success": {
+        "label": "10+",
+        "description": "Hold 3 Nerve."
+      },
+      "partial": {
+        "label": "7-9",
+        "description": "Hold 1 Nerve."
+      },
+      "failure": {
+        "label": "6-",
+        "description": "The GM makes a move."
+      }
+    }
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
+}

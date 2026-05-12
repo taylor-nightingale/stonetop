@@ -1,0 +1,83 @@
+<div class="tab details" data-group="primary" data-tab="details">
+	<section class="sheet-tab">
+
+		{{#if stonetop.backgrounds.length}}
+		<div class="details-section">
+			<h3>Background</h3>
+			{{#each stonetop.backgrounds}}
+			<label class="stonetop-background-option{{#if selected}} selected{{/if}}">
+				<input type="radio" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
+				<div class="stonetop-bg-body">
+					<strong>{{label}}</strong>
+					{{{description}}}
+				</div>
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if stonetop.hasPlaybook}}
+		<div class="details-section">
+			<h3>Instinct</h3>
+			<input type="text" class="stonetop-instinct-custom"
+			       value="{{stonetop.savedInstinct}}"
+			       placeholder="Write your own instinct…">
+			{{#if stonetop.instincts.length}}
+			<div class="stonetop-instinct-options">
+				{{#each stonetop.instincts}}
+				<label class="stonetop-instinct-option">
+					<input type="radio" name="stonetop-instinct"
+					       value="{{value}}"{{#if selected}} checked{{/if}}>
+					<div class="stonetop-instinct-body">
+						<strong>{{word}}</strong>
+						<span>{{description}}</span>
+					</div>
+				</label>
+				{{/each}}
+			</div>
+			{{/if}}
+		</div>
+		{{/if}}
+
+		{{#if stonetop.appearance.length}}
+		<div class="details-section">
+			<h3>Appearance</h3>
+			<p class="details-instruction">Choose one from each row.</p>
+			{{#each stonetop.appearance}}
+			<div class="stonetop-appearance-row">
+				{{#each options}}
+				<label class="stonetop-appearance-option">
+					<input type="radio" class="stonetop-appearance-radio"
+					       name="stonetop-appearance-{{../lineIdx}}"
+					       data-line="{{../lineIdx}}"
+					       value="{{value}}"{{#if selected}} checked{{/if}}>
+					{{value}}
+				</label>
+				{{/each}}
+			</div>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if stonetop.origins.length}}
+		<div class="details-section">
+			<h3>Origin</h3>
+			{{#each stonetop.origins}}
+			<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
+				<label class="stonetop-origin-region">
+					<input type="radio" name="stonetop-origin"
+					       value="{{region}}"{{#if selected}} checked{{/if}}>
+					<strong>{{region}}</strong>
+				</label>
+				<div class="stonetop-origin-names">
+					{{#each names}}
+					<button type="button" class="stonetop-origin-name">{{this}}</button>
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		{{/if}}
+
+	</section>
+</div>

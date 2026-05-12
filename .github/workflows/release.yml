@@ -1,9 +1,8 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types: [published]
 
 jobs:
   release:
@@ -33,7 +32,7 @@ jobs:
         run: |
           zip -r stonetop.zip \
             module.json stonetop.js LICENSE \
-            module/ styles/ templates/ languages/ assets/ \
+            module/ styles/ languages/ assets/ \
             packs/ \
             --exclude "packs/src/*"
 

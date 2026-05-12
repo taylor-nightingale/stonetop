@@ -1,0 +1,13 @@
+{
+  "_id": "lR7rI0JjOeBXBeBM",
+  "_key": "!items!lR7rI0JjOeBXBeBM",
+  "name": "Consecrated Flame",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "When you whisper words of consecration to a flame, the flame casts a holy light. Holy light is uncomfortable for creatures of darkness to look upon, but does no true harm. The holy light lasts until the flame goes out or until you consecrate another flame, whichever comes first."
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

@@ -1,0 +1,40 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="sheet-wrapper">
+
+		{{> "pbta.actor-header"}}
+
+		<section class="sheet-top flexcol">
+			<section class="sheet-attributes flexrow">
+				<div class="cell cell--image">
+					<img class="profile-img" src="{{actor.img}}" data-edit="img" />
+				</div>
+				{{> "pbta.actor-stats"}}
+			</section>
+
+			<section class="sheet-attributes-top">
+				{{~> "pbta.actor-attributes" attrs=system.attrTop cssClass="cell--attributes-top flexrow" owner=owner editable=editable~}}
+			</section>
+
+			{{#if (objLen system.attrLeft)}}
+			<section class="sheet-attributes-left">
+				{{~> "pbta.actor-attributes" attrs=system.attrLeft cssClass="cell--attributes-left flexrow" owner=owner editable=editable~}}
+			</section>
+			{{/if}}
+		</section>
+
+		<section class="sheet-main flexcol">
+			<nav class="sheet-tabs tabs" data-group="primary">
+				<a class="item" data-tab="moves">{{localize "PBTA.Moves"}}</a>
+				<a class="item" data-tab="equipment">{{localize "PBTA.Equipment"}}</a>
+				<a class="item" data-tab="details">Details</a>
+			</nav>
+
+			<section class="sheet-body">
+				{{> "stonetop.tab-moves"}}
+				{{> "pbta.actor-inventory"}}
+				{{> "stonetop.tab-details"}}
+			</section>
+		</section>
+
+	</div>
+</form>

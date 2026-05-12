@@ -1,0 +1,125 @@
+<div class="tab moves" data-group="primary" data-tab="moves">
+	<section class="sheet-tab">
+
+		{{!-- Resources row --}}
+		{{#if isCharacter}}
+		<section class="sheet-resources flexrow">
+			{{#if (not sheetSettings.hideForward)}}
+			<div class="cell cell--forward">
+				<label class="cell__title">{{localize "PBTA.Forward"}}</label>
+				<div class="cell__wrapper">
+					<button type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="resources.forward.value">-</button>
+					<input type="number" name="system.resources.forward.value" value="{{system.resources.forward.value}}" data-dtype="Number"/>
+					<button type="button" class="resource-control resource-increase" data-action="increase" data-attr="resources.forward.value">+</button>
+				</div>
+			</div>
+			{{/if}}
+			{{#if (not sheetSettings.hideOngoing)}}
+			<div class="cell cell--ongoing">
+				<label class="cell__title">{{localize "PBTA.Ongoing"}}</label>
+				<div class="cell__wrapper">
+					<button type="button" class="resource-control resource-decrease" data-action="decrease" data-attr="resources.ongoing.value">-</button>
+					<input type="number" name="system.resources.ongoing.value" value="{{system.resources.ongoing.value}}" data-dtype="Number"/>
+					<button type="button" class="resource-control resource-increase" data-action="increase" data-attr="resources.ongoing.value">+</button>
+				</div>
+			</div>
+			{{/if}}
+			{{#if (not sheetSettings.hideRollMode)}}
+			<div class="cell cell--roll-mode">
+				<label class="cell__title">{{localize "PBTA.RollMode"}}</label>
+				{{radioBoxes 'flags.pbta.rollMode' config.rollModes checked=flags.pbta.rollMode localize=true}}
+			</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		<div class="stonetop-moves-layout">
+
+			{{!-- Left: playbook checklist + other owned move groups --}}
+			<div class="stonetop-moves-main">
+
+				{{#if stonetop.movelist.playbookMoves.length}}
+				<div class="stonetop-move-group">
+					<h3 class="stonetop-move-group-title">Playbook Moves</h3>
+					<ol class="items-list">
+					{{#each stonetop.movelist.playbookMoves}}
+						{{#if (and owned rollType)}}
+						<li class="item stonetop-move-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
+						{{else}}
+						<li class="stonetop-move-item{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
+						{{/if}}
+							<div class="stonetop-move-header">
+								<input type="checkbox" class="stonetop-move-check"
+								       data-compendium-id="{{compendiumId}}"
+								       data-owned-id="{{ownedId}}"
+								       {{#if owned}}checked{{/if}}
+								       {{#if (or isStarting locked)}}disabled{{/if}}>
+								<strong class="stonetop-move-name">{{name}}</strong>
+								{{#if (and owned rollType)}}
+								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+									<i class="fas fa-dice-d6"></i>
+								</span>
+								{{/if}}
+							</div>
+							<div class="stonetop-move-description">{{{description}}}</div>
+							{{#if requires}}<p class="stonetop-move-note">Requires: {{requires}}</p>{{/if}}
+							{{#if minLevel}}<p class="stonetop-move-note">Level {{minLevel}}+</p>{{/if}}
+						</li>
+					{{/each}}
+					</ol>
+				</div>
+				{{/if}}
+
+				{{#each stonetop.movelist.otherGroups}}
+				<div class="stonetop-move-group">
+					<h3 class="stonetop-move-group-title">{{label}}</h3>
+					<ol class="items-list">
+					{{#each moves}}
+						{{#if rollType}}
+						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+						{{else}}
+						<li class="stonetop-move-item">
+						{{/if}}
+							<div class="stonetop-move-check-wrap">
+								{{#if rollType}}
+								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+									<i class="fas fa-dice-d6"></i>
+								</span>
+								{{/if}}
+							</div>
+							<div class="stonetop-move-body">
+								<strong class="stonetop-move-name">{{name}}</strong>
+							</div>
+						</li>
+					{{/each}}
+					</ol>
+				</div>
+				{{/each}}
+
+			</div>
+
+			{{!-- Right: basic moves sidebar (always shown from compendium) --}}
+			<div class="stonetop-moves-sidebar">
+				<h3 class="stonetop-move-group-title">Basic Moves</h3>
+				<ol class="items-list">
+				{{#each stonetop.movelist.basicMoves}}
+					{{#if (and owned rollType)}}
+					<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+					{{else}}
+					<li class="stonetop-move-item{{#unless owned}} move-unowned{{/unless}}">
+					{{/if}}
+						{{#if (and owned rollType)}}
+						<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+							<i class="fas fa-dice-d6"></i>
+						</span>
+						{{/if}}
+						<span class="stonetop-move-name">{{name}}</span>
+					</li>
+				{{/each}}
+				</ol>
+			</div>
+
+		</div>
+
+	</section>
+</div>
