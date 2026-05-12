@@ -17,3 +17,4 @@
 * Get HTML working for moves on the sheet and in the compendium
 * Get move rolling to work, right now it just posts the move to chat
 * handle starting move where you get a choice (neither should be selected, example the fox)
+* unbold the background descriptions. Allow for html formatting
