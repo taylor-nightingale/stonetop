@@ -45,7 +45,45 @@
         { "region": "The Steplands (Hillfolk)", "names": ["Andr", "Gabel", "Kaetl", "Mael", "Maela", "Par", "Ral", "Umbert"] },
         { "region": "The Manmarch", "names": ["Bathhilde", "Clothar", "Ganter", "Hiltrude", "Ludig", "Luise", "Modd", "Wiland"] },
         { "region": "Lygos or some other point south", "names": ["Arihl", "Akios", "Bhadur", "Seble", "Shahnaz", "Shay", "Tisi", "Zubin"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2",
+        "pickCount": 2,
+        "preselected": [],
+        "options": [
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+            "uses": 2
+          },
+          {
+            "slug": "chirurgeons-tools",
+            "label": "Chirurgeon's tools",
+            "description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
+          },
+          {
+            "slug": "husbandry-tools",
+            "label": "Husbandry tools",
+            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+          },
+          {
+            "slug": "smithy",
+            "label": "Smithy",
+            "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+          },
+          {
+            "slug": "stoneworkers-tools",
+            "label": "Stoneworker's tools",
+            "description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+          },
+          {
+            "slug": "weapons-of-war",
+            "label": "Weapons of war",
+            "description": "choose up to 3 (now or later): ◇ Sword, iron (<em>close</em>, +1 damage); ◇ Battleaxe, iron (<em>close, messy</em>); ◇ Warhammer, iron (<em>close</em>, 2 piercing); ◇ Mace or flail, iron (<em>close, forceful</em>); ◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing, ○ low ammo, ○ all out)."
+          }
+        ]
+      }
     }
   },
   "system": {

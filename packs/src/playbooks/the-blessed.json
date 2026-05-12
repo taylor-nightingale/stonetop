@@ -58,25 +58,52 @@
         { "region": "Barrier Pass", "names": ["Alagh", "Bora", "Chambui", "Enebish", "Jalakai", "Kamala", "Sechen", "Todogen"] },
         { "region": "The Steplands", "names": ["Bejn", "Decla", "Franza", "Irv", "Ivet", "Jak", "Sibl", "Yez"] },
         { "region": "The Wild", "names": ["Autumn", "Badger", "Big", "Black", "Bloody", "Brave", "Crow", "Cub", "Dark", "Doe", "Fang", "Fierce", "Flower", "Gentle", "Green", "Grim", "Hart", "Leaf", "Little", "Lonely", "Old", "Owl", "Pale", "Pup", "Quiet", "Rain", "Red", "Sharp", "Snake", "Snow", "Spring", "Summer", "Tall", "Tree", "Yellow", "White", "Wind", "Winter", "Wolf", "Whisper"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2, in addition to your sacred pouch",
+        "pickCount": 2,
+        "preselected": ["sacred-pouch"],
+        "options": [
+          {
+            "slug": "sacred-pouch",
+            "label": "Sacred pouch",
+            "description": "<em>magical</em>; doesn't take up space in your inventory. Holds up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). See back page for details.",
+            "uses": 3
+          },
+          {
+            "slug": "apiary",
+            "label": "Apiary",
+            "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat &amp; veils, etc."
+          },
+          {
+            "slug": "collected-offerings",
+            "label": "Collected offerings",
+            "description": "○○○ uses: Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+            "uses": 3
+          },
+          {
+            "slug": "goat-herd",
+            "label": "Goat herd",
+            "description": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison)."
+          },
+          {
+            "slug": "herb-garden",
+            "label": "Herb garden",
+            "description": "shears, mortars &amp; pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature)."
+          },
+          {
+            "slug": "mastiffs",
+            "label": "Mastiffs",
+            "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+          }
+        ]
+      }
     }
   },
   "system": {
     "slug": "the-blessed",
     "actorType": "character",
     "description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
-    "attributes": {
-      "stock": {
-        "label": "Stock",
-        "type": "Clock",
-        "value": 0,
-        "max": 3,
-        "steps": [false, false, false],
-        "choices": [],
-        "custom": false,
-        "path": "attributes",
-        "description": ""
-      }
-    }
+    "attributes": {}
   }
 }

@@ -44,7 +44,51 @@
         { "region": "Gordin's Delve", "names": [] },
         { "region": "Marshedge", "names": ["Comyna", "Crevan", "Fitz", "Greagir", "Maired", "Nainsi", "Naíclas", "Saraid"] },
         { "region": "Lygos or some other point south", "names": ["Amit", "Baz", "Dafna", "Mahsa", "Parviz", "Sanaz", "Tzofiya", "Yaniv"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2",
+        "pickCount": 2,
+        "preselected": [],
+        "options": [
+          {
+            "slug": "burglars-kit",
+            "label": "Burglar's kit",
+            "description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc."
+          },
+          {
+            "slug": "carpenters-tools",
+            "label": "Carpenter's tools",
+            "description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+            "uses": 2
+          },
+          {
+            "slug": "hidden-stash",
+            "label": "Hidden stash",
+            "description": "○○○ uses: each use produces valuables worth a purse of silvers (Value 2).",
+            "uses": 3
+          },
+          {
+            "slug": "mummers-kit",
+            "label": "Mummer's kit",
+            "description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
+          },
+          {
+            "slug": "scribes-tools",
+            "label": "Scribe's tools",
+            "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+          },
+          {
+            "slug": "trade-contacts",
+            "label": "Trade contacts",
+            "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+          }
+        ]
+      }
     }
   },
   "system": {
