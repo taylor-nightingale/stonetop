@@ -7,7 +7,9 @@
     "stonetop": {
       "hp": 18,
       "damage": "d8",
-			"startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice.",
+			"moves": {
+				"startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
+			},
       "backgrounds": [
         {
           "slug": "mighty-hunter",

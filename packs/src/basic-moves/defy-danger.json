@@ -5,7 +5,7 @@
     "moveType": "basic",
     "stat": "ask",
     "description": "<p>When <strong><em>danger looms, the stakes are high, and you do something chancy</em></strong>, check if another move applies. If not, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, you pull it off as well as one could hope; <strong><em>on a 7-9</em></strong>, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).</p>",
-    "rollResults": {
+    "moveResults": {
       "success": {
         "label": "10+",
         "description": "You pull it off as well as one could hope."

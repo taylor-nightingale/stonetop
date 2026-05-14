@@ -53,7 +53,13 @@ async function ensureIds(srcDir) {
 			continue;
 		}
 		if (!entry.name.endsWith(".json")) continue;
-		const doc = JSON.parse(await fs.readFile(full, "utf8"));
+		let doc;
+		try {
+			doc = JSON.parse(await fs.readFile(full, "utf8"));
+		} catch (e) {
+			throw new Error("Failed parsing " + full, { cause: e });
+		}
+
 		if (doc._id && doc._key) continue;
 		doc._id ??= randomId();
 		doc._key ??= `!items!${doc._id}`;

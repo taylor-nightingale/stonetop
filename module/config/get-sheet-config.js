@@ -1,4 +1,4 @@
-import { StonetopCharacterActor } from "../actors/character/character-actor.js";
+import {characterSheetConfig } from "../actors/character/CharacterSheetConfig.js";
 import { getNpcConfig } from "./actors/getNpcConfig.js";
 import { GetSteadingConfig } from "./actors/getSteadingConfig.js";
 
@@ -27,7 +27,7 @@ export function GetSheetConfig() {
 
 		// -- ACTORS --------------------------------------------------
 		actorTypes: {
-			character: StonetopCharacterActor.sheetConfig(),
+			character: characterSheetConfig(),
 			npc: getNpcConfig(),
 			steading: GetSteadingConfig(),
 		},

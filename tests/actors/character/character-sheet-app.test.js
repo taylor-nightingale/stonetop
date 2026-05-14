@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { buildSheetContext, buildMovelistContext, sortPlaybookMoves, createStonetopCharacterSheetClass } from "../../../module/actors/character/character-sheet-app.js";
+import { buildSheetContext, buildMovelistContext, sortPlaybookMoves, createStonetopCharacterSheetClass } from "../../../module/actors/character/StonetopCharacterSheet.js";
 
 // -- buildSheetContext ----------------------------------------------------
 

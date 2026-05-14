@@ -1,5 +1,15 @@
-import {getPlaybookFlags} from "./character-actor.js";
+import {MoveResourceButton} from "./elements/move-resource-button.js";
+import {BackgroundInputChoice} from "./elements/background-input-choice.js";
+import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
+import {StonetopFlags} from "./StonetopFlags.js";
+import {MoveResources} from "./MoveResources.js";
 
+/**
+ *
+ * @param flags {StonetopPlaybook}
+ * @param saved
+ * @return {{hasPlaybook: boolean, backgrounds: (*&{selected: boolean})[], instincts: {word: *, description: *, value: string, selected: boolean}[], savedInstinct: string|*|{type: string, label: *, position: string}, appearance: {lineIdx: *, options: *}[], origins: {region: *, names: *, selected: boolean}[], savedOrigin: *|string}|{hasPlaybook: boolean, backgrounds: *[], instincts: *[], appearance: *[], origins: *[], savedInstinct: string}}
+ */
 export function buildSheetContext(flags, saved = {}) {
 	if (!flags) return {
 		hasPlaybook: false,
@@ -148,8 +158,8 @@ async function ensureStartingMoves(actor) {
 	});
 	const ownedNames = new Set(actor.items.filter(i => i.type === "move").map(i => i.name));
 
-	const flags = await getPlaybookFlags(actor);
-	const selectedBg = actor.getFlag("stonetop", "background") ?? "";
+	const flags = actor.getStonetopPlaybook();
+	const selectedBg = actor.getFlag("background") ?? "";
 	const background = flags?.backgrounds?.find(b => b.slug === selectedBg);
 	const bgMoveNames = new Set(background?.moves ?? []);
 
@@ -168,7 +178,7 @@ export async function getMovelistContext(actor) {
 
 	const playbookName = actor.system?.playbook?.name ?? null;
 	const actorLevel = actor.system?.attributes?.level?.value ?? 1;
-	const selectedBg = actor.getFlag("stonetop", "background") ?? "";
+	const selectedBg = actor.getFlag("background") ?? "";
 
 	const ownedAllByName = new Map();
 	for (const item of actor.items.filter(i => i.type === "move")) {
@@ -176,7 +186,7 @@ export async function getMovelistContext(actor) {
 		ownedAllByName.get(item.name).push(item);
 	}
 
-	const flags = await getPlaybookFlags(actor);
+	const flags = actor.getStonetopPlaybook();
 	const background = flags?.backgrounds?.find(b => b.slug === selectedBg);
 	const bgMoveNames = new Set(background?.moves ?? []);
 
@@ -191,7 +201,7 @@ export async function getMovelistContext(actor) {
 		const entries = pack.index.filter(e => e.system?.playbook === playbookName);
 		playbookMoves = sortPlaybookMoves(buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, playbookName));
 
-		const moveResources = actor.getFlag("stonetop", "moveResources") ?? {};
+		const moveResources = actor.getFlag("moveResources") ?? {};
 		for (const move of playbookMoves) {
 			if (!move.resourceMax) continue;
 			const current = moveResources[move.name] ?? 0;
@@ -227,11 +237,18 @@ export async function getMovelistContext(actor) {
 		return acc;
 	}, []);
 
-	return {playbookMoves, basicMoves, otherGroups, startingMovesNote: flags?.startingMovesNote ?? null};
+	return {playbookMoves, basicMoves, otherGroups, startingMovesNote: flags?.moves.startingMovesNote ?? null};
 }
+
 
 export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
+		_stonetopCharacter;
+
+		constructor(...args) {
+			super(...args);
+			this._stonetopCharacter = this.actor.typedActor;
+		}
 		static get defaultOptions() {
 			return foundry.utils.mergeObject(super.defaultOptions, {
 				classes: ["pbta", "stonetop", "sheet", "actor", "character"],
@@ -245,15 +262,15 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async getData() {
 			const context = await super.getData();
-			const flags = await getPlaybookFlags(this.actor);
+			const stonetopPlaybook = await this._stonetopCharacter.playbook();
 			const saved = {
-				background: this.actor.getFlag("stonetop", "background") ?? "",
-				instinct: this.actor.getFlag("stonetop", "instinct") ?? "",
-				appearance: this.actor.getFlag("stonetop", "appearance") ?? {},
-				origin: this.actor.getFlag("stonetop", "origin") ?? "",
-				backgroundChoices: this.actor.getFlag("stonetop", "backgroundChoices") ?? {},
+				background: this._stonetopCharacter.background.name,
+				instinct: this._stonetopCharacter.instincts.selected?.word ?? "",
+				appearance: this._flags.getFlag("appearance") ?? {},
+				origin: this._flags.getFlag("origin") ?? "",
+				backgroundChoices: this._stonetopCharacter.background.choices,
 			};
-			context.stonetop = buildSheetContext(flags, saved);
+			context.stonetop = buildSheetContext(stonetopPlaybook, saved);
 			context.stonetop.movelist = await getMovelistContext(this.actor);
 			return context;
 		}
@@ -263,46 +280,46 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".cell--stats .stat-value").each((_, el) => {
 				el.value = el.value.replace(/^\+/, "");
 			});
+
 			if (!this.isEditable) return;
+
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
 			html.find("[name=stonetop-instinct]").on("change", ev => {
 				const val = ev.currentTarget.value;
 				html.find(".stonetop-instinct-custom").val(val);
-				this.actor.setFlag("stonetop", "instinct", val);
+				this.setFlag("instinct", val);
 			});
-			html.find(".stonetop-instinct-custom").on("change", ev =>
-				this.actor.setFlag("stonetop", "instinct", ev.currentTarget.value.trim()));
+			html.find(".stonetop-instinct-custom").on("change", ev => this.setFlag("instinct", ev.currentTarget.value.trim()));
 			html.find(".stonetop-appearance-radio").on("change", this._onAppearanceChange.bind(this));
-			html.find("[name=stonetop-origin]").on("change", ev =>
-				this.actor.setFlag("stonetop", "origin", ev.currentTarget.value));
+			html.find("[name=stonetop-origin]").on("change", ev => this.setFlag("origin", ev.currentTarget.value));
 			html.find(".stonetop-origin-name").on("click", this._onOriginNameClick.bind(this));
 			html.find(".stonetop-move-check").on("change", this._onMoveCheck.bind(this));
 			html.find(".stonetop-repeat-check").on("change", this._onRepeatCheck.bind(this));
 			html.find(".stonetop-bg-choice").on("change", this._onBgChoiceChange.bind(this));
 			html[0].addEventListener("click", ev => {
-				const circle = ev.target.closest(".stonetop-move-resource-check");
-				if (!circle) return;
+				const moveResourceCheckBox = ev.target.closest(".stonetop-move-resource-check");
+				if (!moveResourceCheckBox) return;
 				ev.stopPropagation();
 				ev.stopImmediatePropagation();
-				this._onMoveResourceChange({currentTarget: circle});
+				this._onMoveResourceChange({currentTarget: moveResourceCheckBox});
 			}, true);
 		}
 
 		async _onBackgroundChange(ev) {
 			const slug = ev.currentTarget.value;
-			await this.actor.setFlag("stonetop", "background", slug);
+			await this.setFlag("background", slug);
 		}
 
 		async _onAppearanceChange(ev) {
 			const el = ev.currentTarget;
 			const lineIdx = Number(el.dataset.line);
-			const saved = this.actor.getFlag("stonetop", "appearance") ?? {};
-			await this.actor.setFlag("stonetop", "appearance", {...saved, [lineIdx]: el.value});
+			const saved = this._flags.getFlag("appearance") ?? {};
+			await this.setFlag("appearance", {...saved, [lineIdx]: el.value});
 		}
 
 		async _onOriginNameClick(ev) {
 			const name = ev.currentTarget.textContent.trim();
-			await this.actor.update({name});
+			await this._stonetopCharacter.updateName(name);
 		}
 
 		async _onMoveCheck(ev) {
@@ -330,19 +347,13 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		async _onMoveResourceChange(ev) {
-			const el = ev.currentTarget;
-			const moveName = el.dataset.moveName;
-			const index = Number(el.dataset.index);
-			const isChecked = el.classList.contains("is-checked");
-			const newValue = isChecked ? index : index + 1;
-			const current = this.actor.getFlag("stonetop", "moveResources") ?? {};
-			await this.actor.setFlag("stonetop", "moveResources", {...current, [moveName]: newValue});
+			const button = new MoveResourceButton(ev);
+			await this._stonetopCharacter.moveResources.add(button);
 		}
 
 		async _onBgChoiceChange(ev) {
-			const el = ev.currentTarget;
-			const saved = this.actor.getFlag("stonetop", "backgroundChoices") ?? {};
-			await this.actor.setFlag("stonetop", "backgroundChoices", {...saved, [el.dataset.slug]: el.checked});
+			const choice = new BackgroundInputChoice(ev);
+			await this._stonetopCharacter.background.addChoice(choice);
 		}
 	};
 }

@@ -1,95 +1,192 @@
 {
-  "_id": "thDOuItwerMnLc0i",
-  "_key": "!items!thDOuItwerMnLc0i",
-  "name": "The Heavy",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 20,
-      "damage": "d10",
-			"startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
-      "backgrounds": [
-        {
-          "slug": "sheriff",
-          "label": "Sheriff",
-          "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
-        },
-        {
-          "slug": "blood-soaked-past",
-          "label": "Blood-Soaked Past",
-          "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
-        },
-        {
-          "slug": "storm-marked",
-          "label": "Storm-Marked",
-          "description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
-        }
-      ],
-      "instincts": [
-        { "word": "Peace", "description": "To avoid (further) bloodshed or violence." },
-        { "word": "Pride", "description": "To maintain your dignity, to demand respect." },
-        { "word": "Recklessness", "description": "To act without thought to the consequences." },
-        { "word": "Trouble", "description": "To stick your nose in where it's unwelcome." },
-        { "word": "Violence", "description": "To solve problems by force." }
-      ],
-      "appearance": [
-        ["young & brash", "in my prime", "old & leathery"],
-        ["gravelly voice", "hearty voice", "soft-spoken"],
-        ["giant frame", "just ripped", "stocky", "wiry"],
-        ["distinctive scars", "off-broken nose", "missing bits"]
-      ],
-      "origin": [
-        { "region": "Stonetop", "names": ["Aerona", "Arthfael", "Cadmor", "Esyllt", "Pedr", "Rhonwen", "Terrwen", "Trystan"] },
-        { "region": "Gordin's Delve", "names": [] },
-        { "region": "Marshedge", "names": ["Aengus", "Bairbre", "Bronach", "Flann", "Laughn", "Muirdoc", "Quinn", "Treasa"] },
-        { "region": "The Steplands (Hillfolk)", "names": ["Andr", "Gabel", "Kaetl", "Mael", "Maela", "Par", "Ral", "Umbert"] },
-        { "region": "The Manmarch", "names": ["Bathhilde", "Clothar", "Ganter", "Hiltrude", "Ludig", "Luise", "Modd", "Wiland"] },
-        { "region": "Lygos or some other point south", "names": ["Arihl", "Akios", "Bhadur", "Seble", "Shahnaz", "Shay", "Tisi", "Zubin"] }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2",
-        "pickCount": 2,
-        "preselected": [],
-        "options": [
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
-            "uses": 2
-          },
-          {
-            "slug": "chirurgeons-tools",
-            "label": "Chirurgeon's tools",
-            "description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
-          },
-          {
-            "slug": "husbandry-tools",
-            "label": "Husbandry tools",
-            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
-          },
-          {
-            "slug": "smithy",
-            "label": "Smithy",
-            "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
-          },
-          {
-            "slug": "stoneworkers-tools",
-            "label": "Stoneworker's tools",
-            "description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
-          },
-          {
-            "slug": "weapons-of-war",
-            "label": "Weapons of war",
-            "description": "choose up to 3 (now or later): ◇ Sword, iron (<em>close</em>, +1 damage); ◇ Battleaxe, iron (<em>close, messy</em>); ◇ Warhammer, iron (<em>close</em>, 2 piercing); ◇ Mace or flail, iron (<em>close, forceful</em>); ◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing, ○ low ammo, ○ all out)."
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-heavy",
-    "actorType": "character",
-    "description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
-    "attributes": {}
-  }
+	"_id": "thDOuItwerMnLc0i",
+	"_key": "!items!thDOuItwerMnLc0i",
+	"name": "The Heavy",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 20,
+			"damage": "d10",
+			"moves": {
+				"startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes."
+			},
+			"backgrounds": [
+				{
+					"slug": "sheriff",
+					"label": "Sheriff",
+					"description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+				},
+				{
+					"slug": "blood-soaked-past",
+					"label": "Blood-Soaked Past",
+					"description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
+				},
+				{
+					"slug": "storm-marked",
+					"label": "Storm-Marked",
+					"description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
+				}
+			],
+			"instincts": [
+				{
+					"word": "Peace",
+					"description": "To avoid (further) bloodshed or violence."
+				},
+				{
+					"word": "Pride",
+					"description": "To maintain your dignity, to demand respect."
+				},
+				{
+					"word": "Recklessness",
+					"description": "To act without thought to the consequences."
+				},
+				{
+					"word": "Trouble",
+					"description": "To stick your nose in where it's unwelcome."
+				},
+				{
+					"word": "Violence",
+					"description": "To solve problems by force."
+				}
+			],
+			"appearance": [
+				[
+					"young & brash",
+					"in my prime",
+					"old & leathery"
+				],
+				[
+					"gravelly voice",
+					"hearty voice",
+					"soft-spoken"
+				],
+				[
+					"giant frame",
+					"just ripped",
+					"stocky",
+					"wiry"
+				],
+				[
+					"distinctive scars",
+					"off-broken nose",
+					"missing bits"
+				]
+			],
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Aerona",
+						"Arthfael",
+						"Cadmor",
+						"Esyllt",
+						"Pedr",
+						"Rhonwen",
+						"Terrwen",
+						"Trystan"
+					]
+				},
+				{
+					"region": "Gordin's Delve",
+					"names": []
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Aengus",
+						"Bairbre",
+						"Bronach",
+						"Flann",
+						"Laughn",
+						"Muirdoc",
+						"Quinn",
+						"Treasa"
+					]
+				},
+				{
+					"region": "The Steplands (Hillfolk)",
+					"names": [
+						"Andr",
+						"Gabel",
+						"Kaetl",
+						"Mael",
+						"Maela",
+						"Par",
+						"Ral",
+						"Umbert"
+					]
+				},
+				{
+					"region": "The Manmarch",
+					"names": [
+						"Bathhilde",
+						"Clothar",
+						"Ganter",
+						"Hiltrude",
+						"Ludig",
+						"Luise",
+						"Modd",
+						"Wiland"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Arihl",
+						"Akios",
+						"Bhadur",
+						"Seble",
+						"Shahnaz",
+						"Shay",
+						"Tisi",
+						"Zubin"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2",
+				"pickCount": 2,
+				"preselected": [],
+				"options": [
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+						"uses": 2
+					},
+					{
+						"slug": "chirurgeons-tools",
+						"label": "Chirurgeon's tools",
+						"description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
+					},
+					{
+						"slug": "husbandry-tools",
+						"label": "Husbandry tools",
+						"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+					},
+					{
+						"slug": "smithy",
+						"label": "Smithy",
+						"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+					},
+					{
+						"slug": "stoneworkers-tools",
+						"label": "Stoneworker's tools",
+						"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+					},
+					{
+						"slug": "weapons-of-war",
+						"label": "Weapons of war",
+						"description": "choose up to 3 (now or later): ◇ Sword, iron (<em>close</em>, +1 damage); ◇ Battleaxe, iron (<em>close, messy</em>); ◇ Warhammer, iron (<em>close</em>, 2 piercing); ◇ Mace or flail, iron (<em>close, forceful</em>); ◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing, ○ low ammo, ○ all out)."
+					}
+				]
+			}
+		}
+	},
+	"system": {
+		"slug": "the-heavy",
+		"actorType": "character",
+		"description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
+		"attributes": {}
+	}
 }

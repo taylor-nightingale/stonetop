@@ -7,7 +7,9 @@
     "stonetop": {
       "hp": 16,
       "damage": "d6",
-			"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
+			"moves": {
+			"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
+		},
       "backgrounds": [
         {
           "slug": "patriot",

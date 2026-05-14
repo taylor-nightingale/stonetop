@@ -1,11 +1,11 @@
 import { registerSettings } from "./module/settings.js";
-import { createStonetopActorClass } from "./module/actors/stonetop-actor.js";
-import { createStonetopItemClass } from "./module/item/item.js";
-import { createStonetopCharacterSheetClass } from "./module/actors/character/character-sheet-app.js";
-import { onPbtaSheetConfig } from "./module/hooks/pbta-sheet-config.js";
-import { onReady } from "./module/hooks/ready.js";
-import { onRenderActorSheet } from "./module/hooks/render-actor-sheet.js";
-import { onRenderPause } from "./module/hooks/render-pause.js";
+import { createStonetopActorClass } from "./module/actors/StonetopActor.js";
+import { createStonetopItemClass } from "./module/item/StonetopItem.js";
+import { createStonetopCharacterSheetClass } from "./module/actors/character/StonetopCharacterSheet.js";
+import { onPbtaSheetConfig } from "./module/hooks/PbtaSheetConfig.js";
+import { onReady } from "./module/hooks/Ready.js";
+import { onRenderActorSheet } from "./module/hooks/RenderActorSheet.js";
+import { onRenderPause } from "./module/hooks/RenderPause.js";
 import { info } from "./module/utils/logger.js";
 
 // -- INIT ------------------------------------------------------

@@ -5,7 +5,7 @@
     "moveType": "basic",
     "stat": "cha",
     "description": "<p>When you <strong><em>press or entice an NPC</em></strong>, say what you want them to do (or not do). If they <strong><em>have reason to resist</em></strong>, roll +DEX: <strong>on a 10+</strong>, they either do as you want or reveal the easiest way to convince them;<strong>on a 7-9</strong>, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.</p>",
-    "rollResults": {
+    "moveResults": {
       "success": {
         "label": "10+",
         "description": "They either do as you want or reveal the easiest way to convince them"

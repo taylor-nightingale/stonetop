@@ -7,7 +7,9 @@
     "stonetop": {
       "hp": 20,
       "damage": "d6",
-			"startingMovesNote": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice.",
+			"moves": {
+				"startingMovesNote": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice."
+			},
       "backgrounds": [
         {
           "slug": "legacy",

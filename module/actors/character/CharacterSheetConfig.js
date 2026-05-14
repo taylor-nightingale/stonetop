@@ -77,38 +77,3 @@ export function characterSheetConfig() {
 		},
 	};
 }
-
-export function buildCreation(flags, saved = {}) {
-	if (!flags) return null;
-	const hasData = flags.backgrounds?.length || flags.instincts?.length || flags.appearance?.length;
-	if (!hasData) return null;
-	return {
-		backgrounds: (flags.backgrounds ?? []).map(b => {
-			const selected = saved.background === b.slug;
-			const result = { ...b, selected };
-			if (b.choices) {
-				const savedChoices = saved.backgroundChoices ?? {};
-				result.choices = {
-					label: b.choices.label,
-					countLabel: b.choices.count.join(" or "),
-					options: b.choices.options.map(o => ({
-						...o,
-						selected: Boolean(savedChoices[o.slug]),
-					})),
-				};
-			}
-			return result;
-		}),
-		instincts: (flags.instincts ?? []).map(v => ({
-			word: v.word,
-			description: v.description,
-		})),
-		appearance: (flags.appearance ?? []).map((line, i) => ({
-			lineIdx: i,
-			options: line.map(v => ({
-				value: v,
-				selected: (saved.appearance ?? {})[i] === v,
-			})),
-		})),
-	};
-}

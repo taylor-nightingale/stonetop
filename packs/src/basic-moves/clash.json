@@ -5,7 +5,7 @@
     "moveType": "basic",
     "stat": "str",
     "description": "<p>When you <strong><em>fight in melee or close quarters</em></strong>, roll +STR: <strong>on a 10+</strong>, your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy\u2019s attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy\u2019s attack</li></ul><p><strong><em>On a 7-9</em></strong>, your maneuver works, mostly (deal your damage), but you suffer your enemy\u2019s attack.</p>",
-    "rollResults": {
+    "moveResults": {
       "success": {
         "label": "10+",
         "description": "Your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy\u2019s attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy\u2019s attack</li></ul>"

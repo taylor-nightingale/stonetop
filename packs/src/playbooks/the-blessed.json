@@ -7,8 +7,9 @@
     "stonetop": {
       "hp": 18,
       "damage": "d6",
-      "startingPickCount": 2,
-      "startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice.",
+			"moves": {
+				"startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice."
+			},
       "backgrounds": [
         {
           "slug": "initiate",
@@ -66,8 +67,8 @@
         "options": [
           {
             "slug": "sacred-pouch",
-            "label": "Sacred pouch",
-            "description": "<em>magical</em>; doesn't take up space in your inventory. Holds up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). See back page for details.",
+            "label": "Sacred pouch (<em>magical</em>)",
+            "description": "doesn't take up space in your inventory. Holds up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). See back page for details.",
             "uses": 3
           },
           {
