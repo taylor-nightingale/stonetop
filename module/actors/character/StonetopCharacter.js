@@ -1,54 +1,240 @@
-import {StonetopPlaybook} from "../../item/StonetopPlaybook.js";
 import {MoveResources} from "./MoveResources.js";
 import {StonetopFlags} from "./StonetopFlags.js";
 import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
 import {CharacterInstincts} from "./CharacterInstincts.js";
+import {CharacterAppearance} from "./CharacterAppearance.js";
+import {CharacterOrigin} from "./CharacterOrigin.js";
+import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
+import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
+import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
+import {CharacterSheetData} from "./CharacterSheetData.js";
 
-
-const _playbookCache = new Map();
+const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
-	_actor;
-
-	/**
-	 *
-	 * @param stonetopActor {stonetopActor}
-	 */
-	constructor(stonetopActor) {
-		this._actor = stonetopActor;
-		this._moveResources = new MoveResources(new StonetopFlags(this._actor, "moves"));
-		this._background = new CharacterBackgrounds(new StonetopFlags(this._actor, "background"));
-		this._instincts = new CharacterInstincts(new StonetopFlags(this._actor, "instincts"));
+	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository) {
+		this._actor = actor;
+		this._playbookRepo = playbookRepository;
+		this._playbookMoveRepo = playbookMoveRepository;
+		this._basicMoveRepo = basicMoveRepository;
+		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
+		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
+		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
+		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"));
+		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
 	}
 
-	get type() {
-		return this._actor.type;
+	static create(actor) {
+		return new StonetopCharacter(
+			actor,
+			new FoundryPlaybookRepository(),
+			new FoundryPlaybookMoveRepository(),
+			new FoundryBasicMoveRepository(),
+		);
 	}
 
-	get background() {
-		return this._background;
-	}
-
-	get moveResources() {
-		return this._moveResources;
-	}
-
-	get instinct() {
-		return this._instincts;
-	}
+	get type() { return this._actor.type; }
+	get background() { return this._background; }
+	get instinct() { return this._instinct; }
+	get appearance() { return this._appearance; }
+	get origin() { return this._origin; }
+	get moveResources() { return this._moveResources; }
 
 	async updateName(name) {
-		await this._actor.update({name});
+		await this._actor.update({ name });
+	}
+
+	async playbook() {
+		const slug = this._actor.system?.playbook?.slug;
+		if (!slug) return null;
+		return this._playbookRepo.findBySlug(slug);
+	}
+
+	async buildSheetData() {
+		const playbookData = await this.playbook();
+		if (!playbookData) return new CharacterSheetData();
+
+		const savedBg = this._background.selectedSlug;
+		const savedInstinct = this._instinct.selectedValue;
+		const savedAppearance = this._appearance.saved;
+		const savedOrigin = this._origin.selected;
+		const savedChoices = this._background.choices;
+
+		const data = new CharacterSheetData();
+		data.hasPlaybook = true;
+		data.backgrounds = (playbookData.backgrounds ?? []).map(b => {
+			const result = { ...b, selected: b.slug === savedBg };
+			if (b.choices) {
+				result.choices = {
+					label: b.choices.label,
+					countLabel: b.choices.count.join(" or "),
+					options: b.choices.options.map(o => ({
+						...o,
+						checked: Boolean(savedChoices[o.slug]),
+					})),
+				};
+			}
+			return result;
+		});
+		data.instincts = (playbookData.instincts ?? []).map(({ word, description }) => ({
+			word,
+			description,
+			value: `${word} — ${description}`,
+			selected: `${word} — ${description}` === savedInstinct,
+		}));
+		data.savedInstinct = savedInstinct;
+		data.appearance = (playbookData.appearance ?? []).map((opts, i) => ({
+			lineIdx: i,
+			options: opts.map(v => ({ value: v, selected: savedAppearance[i] === v })),
+		}));
+		data.origins = (playbookData.origin ?? []).map(({ region, names }) => ({
+			region,
+			names,
+			selected: region === savedOrigin,
+		}));
+		data.savedOrigin = savedOrigin;
+		data.movelist = await this.getMoves();
+		return data;
+	}
+
+	async getMoves() {
+		const playbookName = this._actor.system?.playbook?.name ?? null;
+		const actorLevel = this._actor.system?.attributes?.level?.value ?? 1;
+		const ownedAllByName = this._buildOwnedMovesMap();
+
+		const playbookData = await this.playbook();
+		const background = playbookData?.backgrounds?.find(b => b.slug === this._background.selectedSlug);
+		const bgMoveNames = new Set(background?.moves ?? []);
+
+		let playbookMoves = [];
+		if (playbookName) {
+			const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookName);
+			playbookMoves = this.sortPlaybookMoves(this.buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, playbookName));
+
+			const moveResourcesMap = this._moveResources.getMoveResources();
+			for (const move of playbookMoves) {
+				if (!move.resourceMax) continue;
+				const current = moveResourcesMap[move.name] ?? 0;
+				move.resourceChecks = Array.from({ length: move.resourceMax }, (_, i) => ({
+					checked: i < current,
+				}));
+			}
+		}
+
+		const basicEntries = await this._basicMoveRepo.getAll();
+		const basicMoves = basicEntries.map(e => {
+			const instances = ownedAllByName.get(e.name) ?? [];
+			return {
+				name: e.name,
+				compendiumId: e._id,
+				ownedId: instances[0]?._id ?? null,
+				rollType: e.system?.stat ?? null,
+				owned: instances.length > 0,
+			};
+		});
+
+		const otherGroups = OTHER_MOVE_TYPES.reduce((acc, t) => {
+			const items = this._actor.items.filter(i => i.type === "move" && i.system?.moveType === t);
+			if (items.length) acc.push({
+				key: t,
+				label: t.charAt(0).toUpperCase() + t.slice(1) + " Moves",
+				moves: items.map(i => ({ name: i.name, ownedId: i._id, rollType: i.system?.stat ?? null })),
+			});
+			return acc;
+		}, []);
+
+		return { playbookMoves, basicMoves, otherGroups, startingMovesNote: playbookData?.startingMovesNote ?? null };
+	}
+
+	buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, actorPlaybook) {
+		return entries.map(e => {
+			const ownedInstances = ownedAllByName.get(e.name) ?? [];
+			const isStarting = e.system?.isStartingMove || bgMoveNames.has(e.name);
+			const req = e.system?.requirement ?? null;
+			const requiresMoves = req?.moves ?? [];
+			const requiresPlaybook = req?.playbook ?? null;
+			const minLevel = req?.level ?? null;
+			const repeatMax = e.system?.repeatMax ?? 1;
+			const repeatable = repeatMax > 1;
+			const locked = !isStarting && !!(
+				requiresMoves.some(m => !ownedAllByName.has(m)) ||
+				(requiresPlaybook && requiresPlaybook !== actorPlaybook) ||
+				(minLevel && actorLevel < minLevel)
+			);
+			const lastOwnedId = ownedInstances[ownedInstances.length - 1]?._id ?? null;
+			return {
+				name: e.name,
+				description: e.system?.description ?? "",
+				compendiumId: e._id,
+				owned: ownedInstances.length > 0,
+				ownedId: lastOwnedId,
+				rollType: e.system?.stat ?? null,
+				isStarting,
+				locked,
+				requires: requiresMoves[0] ?? null,
+				requiresLabel: requiresMoves.length > 0 ? requiresMoves.join(", ") : null,
+				requiresPlaybook,
+				minLevel,
+				repeatable,
+				repeatChecks: repeatable ? Array.from({ length: repeatMax }, (_, i) => ({
+					checked: i < ownedInstances.length,
+					ownedId: i < ownedInstances.length ? lastOwnedId : null,
+					disabled: isStarting || locked || (!(i < ownedInstances.length) && i !== ownedInstances.length),
+				})) : null,
+				resourceMax: e.system?.resourceMax ?? null,
+			};
+		});
+	}
+
+	sortPlaybookMoves(moves) {
+		const groups = new Map();
+		for (const move of moves) {
+			const key = move.minLevel ?? 0;
+			if (!groups.has(key)) groups.set(key, []);
+			groups.get(key).push(move);
+		}
+		const result = [];
+		for (const level of [...groups.keys()].sort((a, b) => a - b)) {
+			result.push(..._sortGroup(groups.get(level), new Set(groups.get(level).map(m => m.name))));
+		}
+		return result;
+	}
+
+	async ensureStartingMoves() {
+		const playbookName = this._actor.system?.playbook?.name;
+		if (!playbookName) return;
+
+		const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookName);
+		const ownedNames = new Set(this._actor.items.filter(i => i.type === "move").map(i => i.name));
+
+		const playbookData = await this.playbook();
+		const background = playbookData?.backgrounds?.find(b => b.slug === this._background.selectedSlug);
+		const bgMoveNames = new Set(background?.moves ?? []);
+
+		const missing = entries.filter(e =>
+			(e.system?.isStartingMove || bgMoveNames.has(e.name)) && !ownedNames.has(e.name)
+		);
+		if (!missing.length) return;
+		const docs = await Promise.all(missing.map(e => this._playbookMoveRepo.getDocument(e._id)));
+		await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
+	}
+
+	async addMove(compendiumId) {
+		const doc = await this._playbookMoveRepo.getDocument(compendiumId);
+		if (doc) await this._actor.createEmbeddedDocuments("Item", [doc.toObject()]);
+	}
+
+	async removeMove(ownedId) {
+		if (ownedId) await this._actor.deleteEmbeddedDocuments("Item", [ownedId]);
 	}
 
 	async _onCreateDescendantDocuments(documents) {
 		const stonetopItem = documents.find(d => d.type === "playbook");
 		if (!stonetopItem) return;
-		const stonetopPlaybook = stonetopItem.asPlaybook()
+		const stonetopPlaybook = stonetopItem.asPlaybook();
 
-		const hp = stonetopPlaybook.hp
+		const hp = stonetopPlaybook.hp;
 		const damage = stonetopPlaybook.damage;
-
 		if (!hp || !damage) return;
 		await this._actor.update({
 			"system.attributes.hp.max": hp,
@@ -57,35 +243,40 @@ export class StonetopCharacter {
 		});
 	}
 
-	async playbook() {
-		const slug = this.system?.playbook?.slug;
-		if (!slug) return null;
-
-		const cached = _playbookCache.get(slug);
-		if (cached !== undefined) return cached;
-
-		const pack = game.packs.get("stonetop.playbooks");
-		if (!pack) {
-			console.warn("Stonetop | getStonetopPlaybook: pack 'stonetop.playbooks' not found");
-			return null;
+	_buildOwnedMovesMap() {
+		const map = new Map();
+		for (const item of this._actor.items.filter(i => i.type === "move")) {
+			if (!map.has(item.name)) map.set(item.name, []);
+			map.get(item.name).push(item);
 		}
+		return map;
+	}
+}
 
-		await pack.getIndex();
-		const entry = pack.index.find(e => this.slugify(e.name) === slug);
-		if (!entry) {
-			console.warn(`Stonetop | getPlaybookFlags: no entry with slug "${slug}"`);
-			return null;
+function _sortGroup(moves, groupNames) {
+	const dependents = new Map();
+	const roots = [];
+	for (const move of moves) {
+		if (!move.requires || !groupNames.has(move.requires)) {
+			roots.push(move);
+		} else {
+			if (!dependents.has(move.requires)) dependents.set(move.requires, []);
+			dependents.get(move.requires).push(move);
 		}
+	}
+	roots.sort((a, b) => a.name.localeCompare(b.name));
+	for (const deps of dependents.values()) deps.sort((a, b) => a.name.localeCompare(b.name));
+	const result = [];
+	const visited = new Set();
 
-		const doc = await pack.getDocument(entry._id);
-		const playbook = new StonetopPlaybook(doc)
-		_playbookCache.set(slug, playbook);
-
-		return playbook;
+	function visit(move) {
+		if (visited.has(move.name)) return;
+		visited.add(move.name);
+		result.push(move);
+		for (const child of dependents.get(move.name) ?? []) visit(child);
 	}
 
-	slugify(name) {
-		return name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
-	}
-
+	for (const root of roots) visit(root);
+	moves.filter(m => !visited.has(m.name)).sort((a, b) => a.name.localeCompare(b.name)).forEach(m => result.push(m));
+	return result;
 }

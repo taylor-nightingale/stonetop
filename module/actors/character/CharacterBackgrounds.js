@@ -1,46 +1,22 @@
-class CharacterBackground {
-	label;
-	description;
-	slug;
-}
-
 export class CharacterBackgrounds {
-	_flags;
-
-	/**
-	 * @param {CharacterFlags} flags
-	 */
 	constructor(flags) {
 		this._flags = flags;
 	}
 
-	/**
-	 *
-	 * @return {CharacterBackground[]}
-	 */
+	get selectedSlug() {
+		return this._flags.getFlag("selected") ?? "";
+	}
+
 	get choices() {
 		return this._flags.getFlag("choices") ?? {};
 	}
 
-	/**
-	 * @return {string}
-	 */
-	get name() {
-		return this._flags.getFlag("selected.label");
+	async selectBackground(slug) {
+		await this._flags.setFlag("selected", slug);
 	}
 
-	/**
-	 * @param {BackgroundInputChoice} selectedChoice
-	 */
-	async select(selectedChoice) {
-		if (selectedChoice.isChecked()) {
-			for (const choice of this.choices) {
-				if (choice.slug === selectedChoice.slug) {
-					await this._flags.setFlag("selected", choice);
-				}
-			}
-		}
-
-
+	async addChoice(choice) {
+		const current = this.choices;
+		await this._flags.setFlag("choices", { ...current, [choice.slug]: choice.isChecked });
 	}
 }

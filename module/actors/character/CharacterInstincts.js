@@ -1,22 +1,13 @@
-class CharacterInstinct {
-	word;
-	description;
-}
-
 export class CharacterInstincts {
-	_flags;
-	_selected;
-
 	constructor(flags) {
 		this._flags = flags;
 	}
 
-	/**
-	 *
-	 * @return {CharacterInstinct}
-	 */
-	get selected() {
-		return this._flags.getFlag("instincts.selected");
+	get selectedValue() {
+		return this._flags.getFlag("selected") ?? "";
 	}
 
+	async select(value) {
+		await this._flags.setFlag("selected", value);
+	}
 }

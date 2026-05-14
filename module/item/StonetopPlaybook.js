@@ -6,25 +6,35 @@ export class StonetopPlaybook {
 		this._stonetopFields = this._stonetopItem.flags.stonetop;
 	}
 
-	/**
-	 * @return {number|*}
-	 */
 	get hp() {
 		return this._stonetopFields.hp;
 	}
 
-	/**
-	 * @return {string}
-	 */
 	get damage() {
 		return this._stonetopFields.damage;
 	}
 
-	/**
-	 * @return {string[][]}
-	 */
 	get appearance() {
-		return this._stonetopFields.appearance;
+		return this._stonetopFields.appearance ?? [];
 	}
 
+	get backgrounds() {
+		return this._stonetopFields.backgrounds ?? [];
+	}
+
+	get instincts() {
+		return this._stonetopFields.instincts ?? [];
+	}
+
+	get origin() {
+		return this._stonetopFields.origin ?? [];
+	}
+
+	get startingMovesNote() {
+		return this._stonetopFields.moves?.startingMovesNote ?? null;
+	}
+
+	get specialPossessions() {
+		return this._stonetopFields.specialPossessions ?? null;
+	}
 }

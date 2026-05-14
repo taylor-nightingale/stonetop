@@ -13,7 +13,7 @@ export function createStonetopActorClass(BaseActor) {
 
 			switch (this.type) {
 				case "character":
-					this._typedActor = new StonetopCharacter(this);
+					this._typedActor = StonetopCharacter.create(this);
 					break;
 				case "steading":
 					this._typedActor =  new StonetopSteading(this);
