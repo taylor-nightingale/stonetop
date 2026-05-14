@@ -134,6 +134,7 @@ export class StonetopCharacter {
 					preselectedSource,
 					disabled: isPre,
 					uses: maxUses,
+					usesLabel: opt.usesLabel ?? null,
 					usesChecks: isSelected && maxUses
 						? Array.from({ length: maxUses }, (_, i) => ({ checked: i < (usesMap[opt.slug] ?? 0) }))
 						: null,
@@ -156,6 +157,23 @@ export class StonetopCharacter {
 							};
 						}),
 					} : null,
+					choiceGroups: isSelected && opt.choiceGroups ? opt.choiceGroups.map((cg, cgIdx) => ({
+						heading: cg.heading,
+						note: cg.note ?? null,
+						subgroups: cg.subgroups.map((sg, sgIdx) => {
+							const groupId = `${opt.slug}-cg${cgIdx}-sg${sgIdx}`;
+							const slugsCsv = sg.options.map(o => o.slug).join(",");
+							return {
+								groupId,
+								slugsCsv,
+								options: sg.options.map(o => ({
+									slug: o.slug,
+									label: o.label,
+									checked: pickedSubs.includes(o.slug),
+								})),
+							};
+						}),
+					})) : null,
 				};
 			}),
 		};
@@ -166,6 +184,7 @@ export class StonetopCharacter {
 	async setPossessionUses(slug, count) { await this._possessions.setUses(slug, count); }
 	async selectSubChoice(possessionSlug, choiceSlug)   { await this._possessions.addSubChoice(possessionSlug, choiceSlug); }
 	async deselectSubChoice(possessionSlug, choiceSlug) { await this._possessions.removeSubChoice(possessionSlug, choiceSlug); }
+	async selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs) { await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs); }
 	async setSubChoiceUses(possessionSlug, choiceSlug, count) { await this._possessions.setChoiceUses(possessionSlug, choiceSlug, count); }
 
 	async getMoves() {

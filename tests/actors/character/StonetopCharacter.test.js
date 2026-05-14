@@ -517,6 +517,75 @@ describe("buildPossessionsContext", () => {
 	});
 });
 
+// -- buildPossessionsContext: usesLabel + choiceGroups -----------------------
+
+const SP_WITH_GROUPS = {
+	pickNote: "Pick 1",
+	pickCount: 1,
+	preselected: ["pouch"],
+	options: [{
+		slug: "pouch",
+		label: "Sacred pouch",
+		description: "",
+		uses: 3,
+		usesLabel: "Stock",
+		choiceGroups: [{
+			heading: "Your pouch is...",
+			note: "choose 1",
+			subgroups: [{
+				pickCount: 1,
+				options: [
+					{ slug: "origin-a", label: "Option A" },
+					{ slug: "origin-b", label: "Option B" },
+				],
+			}],
+		}],
+	}],
+};
+
+describe("buildPossessionsContext — usesLabel and choiceGroups", () => {
+	function makeChar() { return makeCharacter(makeActor()); }
+
+	it("usesLabel passes through to option context", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_GROUPS, new Set(), {}, {});
+		expect(ctx.options[0].usesLabel).toBe("Stock");
+	});
+
+	it("possession without usesLabel has usesLabel=null", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		expect(ctx.options[0].usesLabel).toBeNull();
+	});
+
+	it("choiceGroups is null when possession not selected", () => {
+		const sp = { ...SP_WITH_GROUPS, preselected: [] };
+		const ctx = makeChar().buildPossessionsContext(sp, new Set(), {}, {});
+		expect(ctx.options[0].choiceGroups).toBeNull();
+	});
+
+	it("choiceGroups renders when possession is preselected", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_GROUPS, new Set(), {}, {});
+		const cg = ctx.options[0].choiceGroups;
+		expect(cg).toHaveLength(1);
+		expect(cg[0].heading).toBe("Your pouch is...");
+		expect(cg[0].note).toBe("choose 1");
+		expect(cg[0].subgroups[0].options).toHaveLength(2);
+	});
+
+	it("choiceGroups subgroup has groupId and slugsCsv", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_GROUPS, new Set(), {}, {});
+		const sg = ctx.options[0].choiceGroups[0].subgroups[0];
+		expect(sg.groupId).toBe("pouch-cg0-sg0");
+		expect(sg.slugsCsv).toBe("origin-a,origin-b");
+	});
+
+	it("choiceGroups option checked when slug is in pickedSubs", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_GROUPS, new Set(), {}, {}, [], { pouch: ["origin-a"] });
+		const opts = ctx.options[0].choiceGroups[0].subgroups[0].options;
+		expect(opts[0].checked).toBe(true);
+		expect(opts[1].checked).toBe(false);
+	});
+});
+
 // -- buildPossessionsContext: sub-choices ------------------------------------
 
 const SP_WITH_CHOICES = {

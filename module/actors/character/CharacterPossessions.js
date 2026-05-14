@@ -38,6 +38,14 @@ export class CharacterPossessions {
 		await this._flags.setFlag("subChoices", { ...current, [possessionSlug]: existing.filter(s => s !== choiceSlug) });
 	}
 
+	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
+		const current = this.subChoices;
+		const existing = current[possessionSlug] ?? [];
+		const filtered = existing.filter(s => !exclusiveSlugs.includes(s));
+		const updated = filtered.includes(choiceSlug) ? filtered : [...filtered, choiceSlug];
+		await this._flags.setFlag("subChoices", { ...current, [possessionSlug]: updated });
+	}
+
 	async setChoiceUses(possessionSlug, choiceSlug, count) {
 		const key = `${possessionSlug}:${choiceSlug}`;
 		await this._flags.setFlag("choiceUses", { ...this.choiceUses, [key]: count });

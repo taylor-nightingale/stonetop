@@ -66,6 +66,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 			html.find(".stonetop-possession-check").on("change", this._onPossessionCheck.bind(this));
 			html.find(".stonetop-possession-sub-check").on("change", this._onPossessionSubCheck.bind(this));
+			html.find(".stonetop-possession-sub-radio").on("change", this._onPossessionSubRadio.bind(this));
 		}
 
 		async _onBackgroundChange(ev) {
@@ -138,6 +139,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			} else {
 				await this._stonetopCharacter.deselectSubChoice(possessionSlug, choiceSlug);
 			}
+		}
+
+		async _onPossessionSubRadio(ev) {
+			const { possessionSlug, choiceSlug, siblingSlugsCsv } = ev.currentTarget.dataset;
+			const exclusiveSlugs = siblingSlugsCsv ? siblingSlugsCsv.split(",") : [];
+			await this._stonetopCharacter.selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs);
 		}
 	};
 }

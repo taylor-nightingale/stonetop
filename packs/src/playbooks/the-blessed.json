@@ -68,8 +68,46 @@
           {
             "slug": "sacred-pouch",
             "label": "Sacred pouch (<em>magical</em>)",
-            "description": "doesn't take up space in your inventory. Holds up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). See back page for details.",
-            "uses": 3
+            "description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
+            "uses": 3,
+            "usesLabel": "Stock",
+            "choiceGroups": [
+              {
+                "heading": "Your sacred pouch is...",
+                "note": "choose 1 on each line",
+                "subgroups": [
+                  { "pickCount": 1, "options": [
+                    { "slug": "origin-heirloom",  "label": "an heirloom made just for you" },
+                    { "slug": "origin-own-work",   "label": "your own work" }
+                  ]},
+                  { "pickCount": 1, "options": [
+                    { "slug": "material-fur",        "label": "fur" },
+                    { "slug": "material-drakescale", "label": "drakescale" },
+                    { "slug": "material-leather",    "label": "leather" },
+                    { "slug": "material-woven",      "label": "woven" },
+                    { "slug": "material-demonflesh", "label": "demonflesh" }
+                  ]},
+                  { "pickCount": 1, "options": [
+                    { "slug": "decor-unadorned",  "label": "unadorned" },
+                    { "slug": "decor-beadwork",   "label": "beadwork" },
+                    { "slug": "decor-rich-dyes",  "label": "rich dyes" },
+                    { "slug": "decor-runes",      "label": "runes" }
+                  ]}
+                ]
+              },
+              {
+                "heading": "What remarkable trait does it possess?",
+                "note": "choose 1",
+                "subgroups": [
+                  { "pickCount": 1, "options": [
+                    { "slug": "trait-indestructible", "label": "It cannot be cut, torn, or burned by any natural means." },
+                    { "slug": "trait-unnoticed",      "label": "Unless someone is specifically searching for your pouch, they will ignore its presence." },
+                    { "slug": "trait-sealed",         "label": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world." },
+                    { "slug": "trait-unclean",        "label": "Unnatural and unclean creatures cannot bear to touch it." }
+                  ]}
+                ]
+              }
+            ]
           },
           {
             "slug": "apiary",
