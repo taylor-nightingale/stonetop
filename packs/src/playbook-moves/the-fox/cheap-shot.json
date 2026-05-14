@@ -1,18 +1,18 @@
 {
-  "_id": "VcOmrYAfzlW920BT",
-  "_key": "!items!VcOmrYAfzlW920BT",
-  "name": "Cheap Shot",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "When you Ambush with a hand weapon, you have advantage on your damage roll.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Ambush"
-      ]
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "VcOmrYAfzlW920BT",
+	"_key": "!items!VcOmrYAfzlW920BT",
+	"name": "Cheap Shot",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Ambush with a hand weapon</em></strong>, you have advantage on your damage roll.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Ambush"
+			]
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

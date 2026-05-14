@@ -1,28 +1,28 @@
 {
-  "_id": "WuRtCv5rbifk2xBH",
-  "_key": "!items!WuRtCv5rbifk2xBH",
-  "name": "Guiding Light",
-  "type": "move",
-  "system": {
-    "playbook": "The Lightbearer",
-    "moveType": "playbook",
-    "stat": "cha",
-    "rollFormula": "2d6+@cha",
-    "description": "When you lead one or more NPCs through danger, roll +CHA: on a 10+, you all make it through (Helior be praised); on a 7-9, the GM will tell you what's required to get everyone through safely.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "You all make it through."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "The GM will tell you what's required to get everyone through safely."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    }
-  },
-  "folder": "iPC15k3PnwMGDZE3"
+	"_id": "WuRtCv5rbifk2xBH",
+	"_key": "!items!WuRtCv5rbifk2xBH",
+	"name": "Guiding Light",
+	"type": "move",
+	"system": {
+		"playbook": "The Lightbearer",
+		"moveType": "playbook",
+		"stat": "cha",
+		"rollFormula": "2d6+@cha",
+		"description": "<p>When you <strong><em>lead one or more NPCs through danger</em></strong>, roll +CHA: <strong>on a 10+</strong>, you all make it through (Helior be praised); <strong><em>on a 7-9</em></strong>, the GM will tell you what's required to get everyone through safely.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "You all make it through."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "The GM will tell you what's required to get everyone through safely."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		}
+	},
+	"folder": "iPC15k3PnwMGDZE3"
 }

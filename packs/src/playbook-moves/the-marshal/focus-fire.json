@@ -1,18 +1,18 @@
 {
-  "_id": "YGHMECc6Tdl7X1u4",
-  "_key": "!items!YGHMECc6Tdl7X1u4",
-  "name": "Focus Fire",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "description": "You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Stentorian"
-      ]
-    }
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "YGHMECc6Tdl7X1u4",
+	"_key": "!items!YGHMECc6Tdl7X1u4",
+	"name": "Focus Fire",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"description": "<p>You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Stentorian"
+			]
+		}
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

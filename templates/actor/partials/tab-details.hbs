@@ -5,19 +5,22 @@
 		<div class="details-section">
 			<h3>Background</h3>
 			{{#each stonetop.backgrounds}}
-			<label class="stonetop-background-option{{#if selected}} selected{{/if}}">
-				<input type="radio" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
-				<div class="stonetop-bg-body">
-					<strong>{{label}}</strong>
-					{{{description}}}
+			<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
+				<div class="stonetop-item-header">
+					<input type="radio" class="stonetop-item-check" name="stonetop-background"
+					       value="{{slug}}"{{#if selected}} checked{{/if}}>
+					<strong class="stonetop-item-name">{{label}}</strong>
 				</div>
+				{{#if description}}
+				<div class="stonetop-item-description">{{{description}}}</div>
+				{{/if}}
 			</label>
 			{{#if (and selected choices)}}
 			<div class="stonetop-bg-choices">
 				<p class="stonetop-bg-choices-label">{{choices.label}} (choose {{choices.countLabel}})</p>
 				{{#each choices.options}}
 				<label class="stonetop-bg-choice-option">
-					<input type="checkbox" class="stonetop-bg-choice"
+					<input type="checkbox" class="stonetop-item-check stonetop-bg-choice"
 					       data-slug="{{slug}}"
 					       {{#if checked}}checked{{/if}}>
 					{{label}}
@@ -38,13 +41,13 @@
 			{{#if stonetop.instincts.length}}
 			<div class="stonetop-instinct-options">
 				{{#each stonetop.instincts}}
-				<label class="stonetop-instinct-option">
-					<input type="radio" name="stonetop-instinct"
-					       value="{{value}}"{{#if selected}} checked{{/if}}>
-					<div class="stonetop-instinct-body">
-						<strong>{{word}}</strong>
-						<span>{{description}}</span>
+				<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
+					<div class="stonetop-item-header">
+						<input type="radio" class="stonetop-item-check" name="stonetop-instinct"
+						       value="{{value}}"{{#if selected}} checked{{/if}}>
+						<strong class="stonetop-item-name">{{word}}</strong>
 					</div>
+					<div class="stonetop-item-description">{{description}}</div>
 				</label>
 				{{/each}}
 			</div>
@@ -60,7 +63,7 @@
 			<div class="stonetop-appearance-row">
 				{{#each options}}
 				<label class="stonetop-appearance-option">
-					<input type="radio" class="stonetop-appearance-radio"
+					<input type="radio" class="stonetop-item-check stonetop-appearance-radio"
 					       name="stonetop-appearance-{{../lineIdx}}"
 					       data-line="{{../lineIdx}}"
 					       value="{{value}}"{{#if selected}} checked{{/if}}>
@@ -78,7 +81,7 @@
 			{{#each stonetop.origins}}
 			<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
 				<label class="stonetop-origin-region">
-					<input type="radio" name="stonetop-origin"
+					<input type="radio" class="stonetop-item-check" name="stonetop-origin"
 					       value="{{region}}"{{#if selected}} checked{{/if}}>
 					<strong>{{region}}</strong>
 				</label>

@@ -1,13 +1,13 @@
 {
-  "_id": "lBkGJR5gEULf7Lp3",
-  "_key": "!items!lBkGJR5gEULf7Lp3",
-  "name": "Improved Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Lightbearer",
-    "moveType": "playbook",
-    "description": "Each time you take this move, increase one of your stats by 1 (to a max of +2).",
-    "repeatMax": 3
-  },
-  "folder": "iPC15k3PnwMGDZE3"
+	"_id": "lBkGJR5gEULf7Lp3",
+	"_key": "!items!lBkGJR5gEULf7Lp3",
+	"name": "Improved Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Lightbearer",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+		"repeatMax": 3
+	},
+	"folder": "iPC15k3PnwMGDZE3"
 }

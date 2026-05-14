@@ -1,28 +1,28 @@
 {
-  "_id": "C70UmxASoSAuVSF5",
-  "_key": "!items!C70UmxASoSAuVSF5",
-  "name": "Battle Joy",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "stat": "con",
-    "rollFormula": "2d6+@con",
-    "description": "When you spill blood—yours or another's—and lose yourself in battle, you ignore fear, pain, mind-control, and the effects of debilities as long as you keep fighting.\n\nWhen the action stops, roll +CON: on a 10+, that was a rush, regain 1d4 HP; on a 7-9, you're winded and out of it, but you'll be fine with a few minutes' rest; on a 6-, mark a debility but don't mark XP.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "That was a rush — regain 1d4 HP."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "You're winded and out of it, but you'll be fine with a few minutes' rest."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "Mark a debility but don't mark XP."
-      }
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "C70UmxASoSAuVSF5",
+	"_key": "!items!C70UmxASoSAuVSF5",
+	"name": "Battle Joy",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"stat": "con",
+		"rollFormula": "2d6+@con",
+		"description": "<p>When you <strong><em>spill blood—yours or another's—and lose yourself in battle</em></strong>, you ignore fear, pain, mind-control, and the effects of debilities as long as you keep fighting.</p><p>When <strong><em>the action stops</em></strong>, roll +CON: <strong>on a 10+</strong>, that was a rush, regain 1d4 HP; <strong><em>on a 7-9</em></strong>, you're winded and out of it, but you'll be fine with a few minutes' rest; on a 6-, mark a debility but don't mark XP.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "That was a rush — regain 1d4 HP."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "You're winded and out of it, but you'll be fine with a few minutes' rest."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "Mark a debility but don't mark XP."
+			}
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

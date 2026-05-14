@@ -1,31 +1,31 @@
 {
-  "_id": "gfHFqhRArEVbHK8o",
-  "_key": "!items!gfHFqhRArEVbHK8o",
-  "name": "Eye on the Door",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "stat": "int",
-    "rollFormula": "2d6+@int",
-    "description": "When you and your allies need to get out of here, name your escape route and roll +INT: on a 10+, you're gone; on a 7-9, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "You're gone."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    },
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "gfHFqhRArEVbHK8o",
+	"_key": "!items!gfHFqhRArEVbHK8o",
+	"name": "Eye on the Door",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"stat": "int",
+		"rollFormula": "2d6+@int",
+		"description": "<p>When you <strong><em>and your allies need to get out of here</em></strong>, name your escape route and roll +INT: <strong>on a 10+</strong>, you're gone; <strong><em>on a 7-9</em></strong>, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "You're gone."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		},
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

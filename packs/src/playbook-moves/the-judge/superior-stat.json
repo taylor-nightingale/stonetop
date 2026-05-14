@@ -1,15 +1,15 @@
 {
-  "_id": "tk70WRp9TDpkGjOX",
-  "_key": "!items!tk70WRp9TDpkGjOX",
-  "name": "Superior Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "Increase one of your stats by +1 (to a max of +3).",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "tk70WRp9TDpkGjOX",
+	"_key": "!items!tk70WRp9TDpkGjOX",
+	"name": "Superior Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

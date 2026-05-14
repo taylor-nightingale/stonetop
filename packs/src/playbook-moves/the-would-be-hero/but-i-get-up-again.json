@@ -1,17 +1,17 @@
 {
-  "_id": "7bca6bQFy7MnqYKB",
-  "_key": "!items!7bca6bQFy7MnqYKB",
-  "name": "But I Get Up Again",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "description": "When you use I Get Knocked Down, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage.",
-    "requirement": {
-      "moves": [
-        "I Get Knocked Down"
-      ]
-    }
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "7bca6bQFy7MnqYKB",
+	"_key": "!items!7bca6bQFy7MnqYKB",
+	"name": "But I Get Up Again",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>use I Get Knocked Down</em></strong>, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage.</p>",
+		"requirement": {
+			"moves": [
+				"I Get Knocked Down"
+			]
+		}
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

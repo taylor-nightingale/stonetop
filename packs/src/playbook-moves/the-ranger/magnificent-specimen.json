@@ -1,17 +1,17 @@
 {
-  "_id": "SFAAwxxxevJg4CVw",
-  "_key": "!items!SFAAwxxxevJg4CVw",
-  "name": "Magnificent Specimen",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "Each time you take this move, your companion gains 2 additional options of your choice.",
-    "requirement": {
-      "moves": [
-        "Animal Companion"
-      ]
-    }
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "SFAAwxxxevJg4CVw",
+	"_key": "!items!SFAAwxxxevJg4CVw",
+	"name": "Magnificent Specimen",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, your companion gains 2 additional options of your choice.</p>",
+		"requirement": {
+			"moves": [
+				"Animal Companion"
+			]
+		}
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

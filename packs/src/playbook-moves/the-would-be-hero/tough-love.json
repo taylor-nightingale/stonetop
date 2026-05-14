@@ -1,12 +1,12 @@
 {
-  "_id": "YjCn8M4gXMq825jF",
-  "_key": "!items!YjCn8M4gXMq825jF",
-  "name": "Tough Love",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "description": "When you honestly think another PC is in the wrong and call them on it, they have disadvantage on any rolls against you until you two work it out."
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "YjCn8M4gXMq825jF",
+	"_key": "!items!YjCn8M4gXMq825jF",
+	"name": "Tough Love",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>honestly think another PC is in the wrong and call them on it</em></strong>, they have disadvantage on any rolls against you until you two work it out.</p>"
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

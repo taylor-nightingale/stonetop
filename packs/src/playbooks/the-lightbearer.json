@@ -46,7 +46,52 @@
         { "region": "Gordin's Delve", "names": [] },
         { "region": "Marshedge", "names": ["Adfin", "Callach", "Conlad", "Eadna", "Fionntan", "Niamh", "Orlaith", "Sorsha"] },
         { "region": "Lygos or some other point south", "names": ["Arash", "Azar", "Hafiz", "Murat", "Roshan", "Shideh", "Zara", "Zohara"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2",
+        "pickCount": 2,
+        "preselected": [],
+        "options": [
+          {
+            "slug": "apiary",
+            "label": "Apiary",
+            "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat &amp; veils, etc."
+          },
+          {
+            "slug": "books-and-scrolls",
+            "label": "Books &amp; scrolls",
+            "description": "○○○○○ uses: a collection of religious texts and sacred histories. Mark a use to <em>Know Things about Helior, the Sun-Worshippers, or their lore</em> as if you rolled a 10+.",
+            "uses": 5
+          },
+          {
+            "slug": "chandlery",
+            "label": "Chandlery",
+            "description": "tallow, wax, wicks, dye, ◇ molds; candles, wick-holders, holy candles (<em>close, area</em>, ~1 hr), lanterns, etc."
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "○○ uses: skins of fine spirits (Value 1; grants advantage to Persuade when shared), copper tubes, malt, firkins, stills, barrels, etc.",
+            "uses": 2
+          },
+          {
+            "slug": "glassworks",
+            "label": "Glassworks",
+            "description": "sand, ash, ◇ crucibles, ◇ blowpipes; bottles, flasks, lenses, lantern glass, etc."
+          },
+          {
+            "slug": "holy-relics",
+            "label": "Holy relics",
+            "description": "○○○ uses: sacred objects of Helior's worship. Expend a use to add +1 to a roll involving the god's favor or power. Restore 1 use each season.",
+            "uses": 3
+          },
+          {
+            "slug": "luthiers-tools",
+            "label": "Luthier's tools",
+            "description": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc."
+          }
+        ]
+      }
     }
   },
   "system": {

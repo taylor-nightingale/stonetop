@@ -1,18 +1,18 @@
 {
-  "_id": "0Anwq4thCWajgrth",
-  "_key": "!items!0Anwq4thCWajgrth",
-  "name": "Like an Open Book",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "description": "When you Take the Measure of someone who fears or respects you, your second question can be anything you want. The GM might ask how you could possibly know this; tell them or ask something else.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Take the Measure"
-      ]
-    }
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "0Anwq4thCWajgrth",
+	"_key": "!items!0Anwq4thCWajgrth",
+	"name": "Like an Open Book",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Take the Measure of someone who fears or respects you</em></strong>, your second question can be anything you want. The GM might ask how you could possibly know this; tell them or ask something else.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Take the Measure"
+			]
+		}
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

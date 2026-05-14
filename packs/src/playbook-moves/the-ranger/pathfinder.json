@@ -1,12 +1,12 @@
 {
-  "_id": "RSU9hi365AvbQklT",
-  "_key": "!items!RSU9hi365AvbQklT",
-  "name": "Pathfinder",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "When you lead your people to Pull Together or Deploy beyond sight of home, you have advantage."
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "RSU9hi365AvbQklT",
+	"_key": "!items!RSU9hi365AvbQklT",
+	"name": "Pathfinder",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>lead your people to Pull Together or Deploy beyond sight of home</em></strong>, you have advantage.</p>"
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

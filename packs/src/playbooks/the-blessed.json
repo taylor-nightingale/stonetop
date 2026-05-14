@@ -79,7 +79,7 @@
           {
             "slug": "collected-offerings",
             "label": "Collected offerings",
-            "description": "○○○ uses: Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+            "description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
             "uses": 3
           },
           {

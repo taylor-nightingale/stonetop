@@ -7,4 +7,5 @@ export class CharacterSheetData {
 	origins = [];
 	savedOrigin = "";
 	movelist = null;
+	possessions = null;
 }

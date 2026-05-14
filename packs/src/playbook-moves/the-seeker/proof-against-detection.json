@@ -1,18 +1,18 @@
 {
-  "_id": "6SRZw60BPjpwX7TE",
-  "_key": "!items!6SRZw60BPjpwX7TE",
-  "name": "Proof Against Detection",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you hold Protection, you can't be scried upon or sensed by magical means, and have advantage to Defy Danger by being stealthy.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Safety First"
-      ]
-    }
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "6SRZw60BPjpwX7TE",
+	"_key": "!items!6SRZw60BPjpwX7TE",
+	"name": "Proof Against Detection",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>hold Protection</em></strong>, you can't be scried upon or sensed by magical means, and have advantage to Defy Danger by being stealthy.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Safety First"
+			]
+		}
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }

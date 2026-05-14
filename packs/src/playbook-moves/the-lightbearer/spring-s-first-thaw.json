@@ -1,28 +1,28 @@
 {
-  "_id": "C6V4HMUywhVEiFZ4",
-  "_key": "!items!C6V4HMUywhVEiFZ4",
-  "name": "Spring's First Thaw",
-  "type": "move",
-  "system": {
-    "playbook": "The Lightbearer",
-    "moveType": "playbook",
-    "stat": "cha",
-    "rollFormula": "2d6+@cha",
-    "description": "When you spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC, roll +CHA: on a 10+, you light a fire deep within them and effect a lasting change; on a 7-9, you kindle goodness in their heart for now, but they will eventually return to their old ways; on a 6-, their heart hardens and, whatever else the GM says, you can't use this move on them again.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "You light a fire deep within them and effect a lasting change."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "You kindle goodness in their heart for now, but they will eventually return to their old ways."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "Their heart hardens and you can't use this move on them again."
-      }
-    }
-  },
-  "folder": "iPC15k3PnwMGDZE3"
+	"_id": "C6V4HMUywhVEiFZ4",
+	"_key": "!items!C6V4HMUywhVEiFZ4",
+	"name": "Spring's First Thaw",
+	"type": "move",
+	"system": {
+		"playbook": "The Lightbearer",
+		"moveType": "playbook",
+		"stat": "cha",
+		"rollFormula": "2d6+@cha",
+		"description": "<p>When you <strong><em>spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC</em></strong>, roll +CHA: <strong>on a 10+</strong>, you light a fire deep within them and effect a lasting change; <strong><em>on a 7-9</em></strong>, you kindle goodness in their heart for now, but they will eventually return to their old ways; on a 6-, their heart hardens and, whatever else the GM says, you can't use this move on them again.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "You light a fire deep within them and effect a lasting change."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "You kindle goodness in their heart for now, but they will eventually return to their old ways."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "Their heart hardens and you can't use this move on them again."
+			}
+		}
+	},
+	"folder": "iPC15k3PnwMGDZE3"
 }

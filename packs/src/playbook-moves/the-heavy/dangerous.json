@@ -1,16 +1,16 @@
 {
-  "_id": "HaDlDOzZjNT2jUSb",
-  "_key": "!items!HaDlDOzZjNT2jUSb",
-  "name": "Dangerous",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "isStartingMove": true,
-    "description": "When you deal your damage, you have advantage.",
-    "requirement": {
-      "playbook": "The Heavy"
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "HaDlDOzZjNT2jUSb",
+	"_key": "!items!HaDlDOzZjNT2jUSb",
+	"name": "Dangerous",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"isStartingMove": true,
+		"description": "<p>When you <strong><em>deal your damage</em></strong>, you have advantage.</p>",
+		"requirement": {
+			"playbook": "The Heavy"
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

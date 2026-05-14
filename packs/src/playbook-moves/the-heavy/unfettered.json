@@ -1,12 +1,12 @@
 {
-  "_id": "eKFhwqCpQe28C7S7",
-  "_key": "!items!eKFhwqCpQe28C7S7",
-  "name": "Unfettered",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "When you are subject to physical or mental restraint, you may mark a debility to immediately break free of that restraint."
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "eKFhwqCpQe28C7S7",
+	"_key": "!items!eKFhwqCpQe28C7S7",
+	"name": "Unfettered",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>are subject to physical or mental restraint</em></strong>, you may mark a debility to immediately break free of that restraint.</p>"
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

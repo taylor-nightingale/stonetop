@@ -1,12 +1,12 @@
 {
-  "_id": "ltSljHfKBrI72uiz",
-  "_key": "!items!ltSljHfKBrI72uiz",
-  "name": "Conduit of Power",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you would mark a Consequence from a major arcanum, you can mark 1 box here instead, with no negative effect. (These marks never clear.)"
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "ltSljHfKBrI72uiz",
+	"_key": "!items!ltSljHfKBrI72uiz",
+	"name": "Conduit of Power",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you can mark 1 box here instead, with no negative effect. (These marks never clear.)</p>"
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }

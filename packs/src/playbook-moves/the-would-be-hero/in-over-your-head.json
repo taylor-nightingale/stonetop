@@ -1,12 +1,12 @@
 {
-  "_id": "MwKVWwhhZJBqEbyl",
-  "_key": "!items!MwKVWwhhZJBqEbyl",
-  "name": "In Over Your Head",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "description": "When another PC rescues you from danger, mark XP."
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "MwKVWwhhZJBqEbyl",
+	"_key": "!items!MwKVWwhhZJBqEbyl",
+	"name": "In Over Your Head",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"description": "<p>When <strong><em>another PC rescues you from danger</em></strong>, mark XP.</p>"
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

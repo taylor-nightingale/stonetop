@@ -47,7 +47,52 @@
         { "region": "The Steplands (Hillfolk)", "names": ["Bernd", "Elown", "Irn", "Kani", "Pol", "Nol", "Rozn", "Sterin"] },
         { "region": "The Manmarch", "names": ["Alfher", "Bertrim", "Dagmar", "Elfrida", "Hramn", "Meike", "Swanhilde", "Wulfrim"] },
         { "region": "Lygos or some other point south", "names": ["Ari", "Boriz", "Dimitra", "Gorhan", "Nitza", "Selen", "Todora", "Vasil"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2, in addition to your composite bow",
+        "pickCount": 2,
+        "preselected": ["composite-bow"],
+        "options": [
+          {
+            "slug": "composite-bow",
+            "label": "Composite bow",
+            "description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+            "uses": 2
+          },
+          {
+            "slug": "hideouts",
+            "label": "Hideouts",
+            "description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
+            "uses": 3
+          },
+          {
+            "slug": "hounds",
+            "label": "Hounds",
+            "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+          },
+          {
+            "slug": "husbandry-tools",
+            "label": "Husbandry tools",
+            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+          },
+          {
+            "slug": "lay-of-the-land",
+            "label": "Lay of the land",
+            "description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
+            "uses": 3
+          },
+          {
+            "slug": "trapping-gear",
+            "label": "Trapping gear",
+            "description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
+          }
+        ]
+      }
     }
   },
   "system": {

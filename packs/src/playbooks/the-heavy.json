@@ -177,7 +177,33 @@
 					{
 						"slug": "weapons-of-war",
 						"label": "Weapons of war",
-						"description": "choose up to 3 (now or later): ◇ Sword, iron (<em>close</em>, +1 damage); ◇ Battleaxe, iron (<em>close, messy</em>); ◇ Warhammer, iron (<em>close</em>, 2 piercing); ◇ Mace or flail, iron (<em>close, forceful</em>); ◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing, ○ low ammo, ○ all out)."
+						"description": "",
+						"choices": {
+							"pickCount": 3,
+							"options": [
+								{
+									"slug": "sword",
+									"label": "◇ Sword, iron (<em>close</em>, +1 damage)"
+								},
+								{
+									"slug": "battleaxe",
+									"label": "◇ Battleaxe, iron (<em>close, messy</em>)"
+								},
+								{
+									"slug": "warhammer",
+									"label": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
+								},
+								{
+									"slug": "mace-or-flail",
+									"label": "◇ Mace or flail, iron (<em>close, forceful</em>)"
+								},
+								{
+									"slug": "crossbow",
+									"label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)",
+									"uses": 2
+								}
+							]
+						}
 					}
 				]
 			}

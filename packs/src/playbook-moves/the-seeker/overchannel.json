@@ -1,18 +1,18 @@
 {
-  "_id": "NVLXosgPtJr4Mf0D",
-  "_key": "!items!NVLXosgPtJr4Mf0D",
-  "name": "Overchannel",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you would mark a Consequence from a major arcanum, you may mark a debility instead.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Conduit of Power"
-      ]
-    }
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "NVLXosgPtJr4Mf0D",
+	"_key": "!items!NVLXosgPtJr4Mf0D",
+	"name": "Overchannel",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you may mark a debility instead.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Conduit of Power"
+			]
+		}
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }

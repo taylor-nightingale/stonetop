@@ -1,18 +1,18 @@
 {
-  "_id": "GBZbLNvtSFHNoZlI",
-  "_key": "!items!GBZbLNvtSFHNoZlI",
-  "name": "Trailblazer",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "When a journey causes you to Defy Danger or Struggle as One, on a 10+ you also learn or discover something interesting and useful—ask the GM what.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Home on the Range"
-      ]
-    }
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "GBZbLNvtSFHNoZlI",
+	"_key": "!items!GBZbLNvtSFHNoZlI",
+	"name": "Trailblazer",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>When <strong><em>a journey causes you to Defy Danger or Struggle as One</em></strong>, <strong>on a 10+</strong> you also learn or discover something interesting and useful—ask the GM what.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Home on the Range"
+			]
+		}
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

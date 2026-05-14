@@ -1,15 +1,15 @@
 {
-  "_id": "Mo24cH3bCYVLBQAQ",
-  "_key": "!items!Mo24cH3bCYVLBQAQ",
-  "name": "Walk It Off",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "When you'd mark a debility, you can mark this move instead to no ill effect. Clear it as you would a debility.",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "Mo24cH3bCYVLBQAQ",
+	"_key": "!items!Mo24cH3bCYVLBQAQ",
+	"name": "Walk It Off",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>When <strong><em>you'd mark a debility</em></strong>, you can mark this move instead to no ill effect. Clear it as you would a debility.</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

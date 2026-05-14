@@ -204,17 +204,25 @@ describe("StonetopCharacter.buildMovelistContext", () => {
 		expect(m.ownedId).toBe("item-xyz");
 	});
 
-	it("isStartingMove: isStarting=true, locked=false", () => {
+	it("isStartingMove: isStarting=true, source=Starting, locked=false", () => {
 		const [m] = char.buildMovelistContext([makeEntry({ isStartingMove: true })], new Map(), new Set(), 1);
 		expect(m.isStarting).toBe(true);
+		expect(m.source).toBe("Starting");
 		expect(m.locked).toBe(false);
 	});
 
-	it("background move name in bgMoveNames: isStarting=true", () => {
+	it("background move name in bgMoveNames: isStarting=true, source=Background", () => {
 		const entry = makeEntry({ name: "Trackless Step" });
 		const [m] = char.buildMovelistContext([entry], new Map(), new Set(["Trackless Step"]), 1);
 		expect(m.isStarting).toBe(true);
+		expect(m.source).toBe("Background");
 		expect(m.locked).toBe(false);
+	});
+
+	it("regular move: isStarting=false, source=null", () => {
+		const [m] = char.buildMovelistContext([makeEntry({})], new Map(), new Set(), 1);
+		expect(m.isStarting).toBe(false);
+		expect(m.source).toBeNull();
 	});
 
 	it("requires a move not owned: locked=true", () => {
@@ -393,5 +401,223 @@ describe("StonetopCharacter.ensureStartingMoves", () => {
 		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository(entries));
 		await char.ensureStartingMoves();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ name: "Rites of the Land" }]);
+	});
+});
+
+// -- buildPossessionsContext --------------------------------------------------
+
+const BASE_SP = {
+	pickNote: "Pick 2",
+	pickCount: 2,
+	preselected: ["sacred-pouch"],
+	options: [
+		{ slug: "sacred-pouch", label: "Sacred pouch", description: "a magical pouch", uses: 3 },
+		{ slug: "apiary",       label: "Apiary",        description: "bees" },
+		{ slug: "mastiffs",     label: "Mastiffs",      description: "dogs" },
+		{ slug: "herb-garden",  label: "Herb garden",   description: "herbs" },
+	],
+};
+
+describe("buildPossessionsContext", () => {
+	function makeChar() {
+		return makeCharacter(makeActor());
+	}
+
+	it("returns null when specialPossessions is null", () => {
+		expect(makeChar().buildPossessionsContext(null, new Set(), {}, {})).toBeNull();
+	});
+
+	it("passes pickNote through to output", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		expect(ctx.pickNote).toBe("Pick 2");
+	});
+
+	it("preselected option is always checked and disabled, source=Starting", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		const pouch = ctx.options.find(o => o.slug === "sacred-pouch");
+		expect(pouch.checked).toBe(true);
+		expect(pouch.disabled).toBe(true);
+		expect(pouch.preselected).toBe(true);
+		expect(pouch.preselectedSource).toBe("Starting");
+	});
+
+	it("unselected non-preselected option is unchecked and enabled when under limit", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.checked).toBe(false);
+		expect(apiary.disabled).toBe(false);
+	});
+
+	it("selected option is checked and not disabled", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["apiary"]), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.checked).toBe(true);
+		expect(apiary.disabled).toBe(false);
+	});
+
+	it("unselected options stay enabled even when pickCount is reached", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["apiary", "mastiffs"]), {}, {});
+		const herb = ctx.options.find(o => o.slug === "herb-garden");
+		expect(herb.disabled).toBe(false);
+	});
+
+	it("already-selected options stay enabled even at pickCount limit", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["apiary", "mastiffs"]), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.disabled).toBe(false);
+	});
+
+	it("preselected option does not count against pickCount", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["apiary", "mastiffs"]), {}, {});
+		const pouch = ctx.options.find(o => o.slug === "sacred-pouch");
+		expect(pouch.disabled).toBe(true);
+		expect(pouch.preselected).toBe(true);
+	});
+
+	it("selected option with uses produces usesChecks array of correct length", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["sacred-pouch"]), { "sacred-pouch": 2 }, {});
+		const pouch = ctx.options.find(o => o.slug === "sacred-pouch");
+		expect(pouch.usesChecks).toHaveLength(3);
+		expect(pouch.usesChecks[0].checked).toBe(true);
+		expect(pouch.usesChecks[1].checked).toBe(true);
+		expect(pouch.usesChecks[2].checked).toBe(false);
+	});
+
+	it("unselected option with uses has usesChecks null", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.usesChecks).toBeNull();
+	});
+
+	it("option without uses field has usesChecks null even when selected", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["apiary"]), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.usesChecks).toBeNull();
+	});
+
+	it("maxUsesMap overrides base uses for circle count", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(["sacred-pouch"]), {}, { "sacred-pouch": 5 });
+		const pouch = ctx.options.find(o => o.slug === "sacred-pouch");
+		expect(pouch.usesChecks).toHaveLength(5);
+	});
+
+	it("extraPreselected slug is treated as preselected, source=Background", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {}, ["apiary"]);
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.checked).toBe(true);
+		expect(apiary.disabled).toBe(true);
+		expect(apiary.preselected).toBe(true);
+		expect(apiary.preselectedSource).toBe("Background");
+	});
+
+	it("non-preselected option has preselectedSource=null", () => {
+		const ctx = makeChar().buildPossessionsContext(BASE_SP, new Set(), {}, {});
+		const apiary = ctx.options.find(o => o.slug === "apiary");
+		expect(apiary.preselectedSource).toBeNull();
+	});
+});
+
+// -- buildPossessionsContext: sub-choices ------------------------------------
+
+const SP_WITH_CHOICES = {
+	pickNote: "Pick 2",
+	pickCount: 2,
+	preselected: [],
+	options: [
+		{
+			slug: "weapons-of-war",
+			label: "Weapons of war",
+			description: "",
+			choices: {
+				pickCount: 3,
+				options: [
+					{ slug: "sword",    label: "◇ Sword" },
+					{ slug: "crossbow", label: "◇ Crossbow", uses: 2 },
+					{ slug: "axe",      label: "◇ Axe" },
+					{ slug: "mace",     label: "◇ Mace" },
+				],
+			},
+		},
+		{ slug: "distillery", label: "Distillery", description: "whisky", uses: 2 },
+	],
+};
+
+describe("buildPossessionsContext — sub-choices", () => {
+	function makeChar() { return makeCharacter(makeActor()); }
+
+	it("choices is null when possession is not selected", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_CHOICES, new Set(), {}, {});
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		expect(war.choices).toBeNull();
+	});
+
+	it("choices is populated when possession is selected", () => {
+		const ctx = makeChar().buildPossessionsContext(SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {});
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		expect(war.choices).not.toBeNull();
+		expect(war.choices.options).toHaveLength(4);
+	});
+
+	it("picked sub-choice is checked and not disabled", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": ["sword"] }, {},
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const sword = war.choices.options.find(c => c.slug === "sword");
+		expect(sword.checked).toBe(true);
+		expect(sword.disabled).toBe(false);
+	});
+
+	it("unpicked sub-choice under limit is not disabled", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": ["sword"] }, {},
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const axe = war.choices.options.find(c => c.slug === "axe");
+		expect(axe.disabled).toBe(false);
+	});
+
+	it("unpicked sub-choice at pickCount limit is disabled", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": ["sword", "crossbow", "axe"] }, {},
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const mace = war.choices.options.find(c => c.slug === "mace");
+		expect(mace.disabled).toBe(true);
+	});
+
+	it("picked sub-choice with uses produces usesChecks of correct length", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": ["crossbow"] }, { "weapons-of-war:crossbow": 1 },
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const crossbow = war.choices.options.find(c => c.slug === "crossbow");
+		expect(crossbow.usesChecks).toHaveLength(2);
+		expect(crossbow.usesChecks[0].checked).toBe(true);
+		expect(crossbow.usesChecks[1].checked).toBe(false);
+	});
+
+	it("unpicked sub-choice with uses has usesChecks null", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": [] }, {},
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const crossbow = war.choices.options.find(c => c.slug === "crossbow");
+		expect(crossbow.usesChecks).toBeNull();
+	});
+
+	it("sub-choice without uses field has usesChecks null even when picked", () => {
+		const ctx = makeChar().buildPossessionsContext(
+			SP_WITH_CHOICES, new Set(["weapons-of-war"]), {}, {}, [],
+			{ "weapons-of-war": ["sword"] }, {},
+		);
+		const war = ctx.options.find(o => o.slug === "weapons-of-war");
+		const sword = war.choices.options.find(c => c.slug === "sword");
+		expect(sword.usesChecks).toBeNull();
 	});
 });

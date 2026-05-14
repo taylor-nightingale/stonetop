@@ -4,6 +4,7 @@ import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
 import {CharacterInstincts} from "./CharacterInstincts.js";
 import {CharacterAppearance} from "./CharacterAppearance.js";
 import {CharacterOrigin} from "./CharacterOrigin.js";
+import {CharacterPossessions} from "./CharacterPossessions.js";
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
 import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
 import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
@@ -22,6 +23,7 @@ export class StonetopCharacter {
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"));
 		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
+		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"));
 	}
 
 	static create(actor) {
@@ -39,6 +41,7 @@ export class StonetopCharacter {
 	get appearance() { return this._appearance; }
 	get origin() { return this._origin; }
 	get moveResources() { return this._moveResources; }
+	get possessions() { return this._possessions; }
 
 	async updateName(name) {
 		await this._actor.update({ name });
@@ -94,8 +97,76 @@ export class StonetopCharacter {
 		}));
 		data.savedOrigin = savedOrigin;
 		data.movelist = await this.getMoves();
+		const background = (playbookData.backgrounds ?? []).find(b => b.slug === this._background.selectedSlug);
+		const extraPreselected = background?.extraPossessions ?? [];
+		data.possessions = this.buildPossessionsContext(
+			playbookData.specialPossessions,
+			this._possessions.selected,
+			this._possessions.uses,
+			this._possessions.maxUses,
+			extraPreselected,
+			this._possessions.subChoices,
+			this._possessions.choiceUses,
+		);
 		return data;
 	}
+
+	buildPossessionsContext(specialPossessions, selectedSlugs, usesMap, maxUsesMap, extraPreselected = [], subChoicesMap = {}, choiceUsesMap = {}) {
+		if (!specialPossessions) return null;
+		const { pickNote, options } = specialPossessions;
+		const bgPreselectedSet = new Set(extraPreselected);
+		const preselectedSet = new Set([...((specialPossessions.preselected) ?? []), ...extraPreselected]);
+
+		return {
+			pickNote,
+			options: options.map(opt => {
+				const isPre = preselectedSet.has(opt.slug);
+				const isSelected = isPre || selectedSlugs.has(opt.slug);
+				const preselectedSource = isPre ? (bgPreselectedSet.has(opt.slug) ? "Background" : "Starting") : null;
+				const maxUses = maxUsesMap[opt.slug] ?? opt.uses ?? null;
+				const pickedSubs = subChoicesMap[opt.slug] ?? [];
+				return {
+					slug: opt.slug,
+					label: opt.label,
+					description: opt.description ?? "",
+					checked: isSelected,
+					preselected: isPre,
+					preselectedSource,
+					disabled: isPre,
+					uses: maxUses,
+					usesChecks: isSelected && maxUses
+						? Array.from({ length: maxUses }, (_, i) => ({ checked: i < (usesMap[opt.slug] ?? 0) }))
+						: null,
+					choices: isSelected && opt.choices ? {
+						pickCount: opt.choices.pickCount,
+						options: opt.choices.options.map(c => {
+							const picked = pickedSubs.includes(c.slug);
+							const cMaxUses = c.uses ?? null;
+							return {
+								slug: c.slug,
+								label: c.label,
+								checked: picked,
+								disabled: !picked && pickedSubs.length >= opt.choices.pickCount,
+								uses: cMaxUses,
+								usesChecks: picked && cMaxUses
+									? Array.from({ length: cMaxUses }, (_, i) => ({
+										checked: i < (choiceUsesMap[`${opt.slug}:${c.slug}`] ?? 0),
+									}))
+									: null,
+							};
+						}),
+					} : null,
+				};
+			}),
+		};
+	}
+
+	async selectPossession(slug)   { await this._possessions.select(slug); }
+	async deselectPossession(slug) { await this._possessions.deselect(slug); }
+	async setPossessionUses(slug, count) { await this._possessions.setUses(slug, count); }
+	async selectSubChoice(possessionSlug, choiceSlug)   { await this._possessions.addSubChoice(possessionSlug, choiceSlug); }
+	async deselectSubChoice(possessionSlug, choiceSlug) { await this._possessions.removeSubChoice(possessionSlug, choiceSlug); }
+	async setSubChoiceUses(possessionSlug, choiceSlug, count) { await this._possessions.setChoiceUses(possessionSlug, choiceSlug, count); }
 
 	async getMoves() {
 		const playbookName = this._actor.system?.playbook?.name ?? null;
@@ -149,7 +220,10 @@ export class StonetopCharacter {
 	buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, actorPlaybook) {
 		return entries.map(e => {
 			const ownedInstances = ownedAllByName.get(e.name) ?? [];
-			const isStarting = e.system?.isStartingMove || bgMoveNames.has(e.name);
+			const isFromPlaybook = !!e.system?.isStartingMove;
+			const isFromBackground = bgMoveNames.has(e.name);
+			const isStarting = isFromPlaybook || isFromBackground;
+			const source = isFromPlaybook ? "Starting" : isFromBackground ? "Background" : null;
 			const req = e.system?.requirement ?? null;
 			const requiresMoves = req?.moves ?? [];
 			const requiresPlaybook = req?.playbook ?? null;
@@ -170,6 +244,7 @@ export class StonetopCharacter {
 				ownedId: lastOwnedId,
 				rollType: e.system?.stat ?? null,
 				isStarting,
+				source,
 				locked,
 				requires: requiresMoves[0] ?? null,
 				requiresLabel: requiresMoves.length > 0 ? requiresMoves.join(", ") : null,

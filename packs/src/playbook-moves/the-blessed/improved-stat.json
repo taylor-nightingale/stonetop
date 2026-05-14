@@ -1,13 +1,13 @@
 {
-  "_id": "nEjSief73nqQ530K",
-  "_key": "!items!nEjSief73nqQ530K",
-  "name": "Improved Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "description": "Each time you take this move, increase one of your stats by 1 (to a max of +2).",
-    "repeatMax": 3
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "nEjSief73nqQ530K",
+	"_key": "!items!nEjSief73nqQ530K",
+	"name": "Improved Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+		"repeatMax": 3
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

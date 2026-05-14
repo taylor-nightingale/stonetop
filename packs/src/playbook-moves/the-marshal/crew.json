@@ -1,13 +1,13 @@
 {
-  "_id": "2LqULEz1AMm0Dn9p",
-  "_key": "!items!2LqULEz1AMm0Dn9p",
-  "name": "Crew",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "isStartingMove": true,
-    "description": "You've got a crew of stalwarts, six or so residents of Stonetop with some steel to them. See the Crew insert for details."
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "2LqULEz1AMm0Dn9p",
+	"_key": "!items!2LqULEz1AMm0Dn9p",
+	"name": "Crew",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"isStartingMove": true,
+		"description": "<p>You've got a crew of stalwarts, six or so residents of Stonetop with some steel to them. See the Crew insert for details.</p>"
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

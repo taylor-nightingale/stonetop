@@ -1,5 +1,6 @@
 import {MoveResourceButton} from "./elements/move-resource-button.js";
 import {BackgroundInputChoice} from "./elements/background-input-choice.js";
+import {PossessionUseButton} from "./elements/possession-use-button.js";
 
 export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
@@ -53,12 +54,18 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-repeat-check").on("change", this._onRepeatCheck.bind(this));
 			html.find(".stonetop-bg-choice").on("change", this._onBgChoiceChange.bind(this));
 			html[0].addEventListener("click", ev => {
-				const moveResourceCheckBox = ev.target.closest(".stonetop-move-resource-check");
-				if (!moveResourceCheckBox) return;
+				const btn = ev.target.closest(".stonetop-item-resource-check");
+				if (!btn) return;
 				ev.stopPropagation();
 				ev.stopImmediatePropagation();
-				this._onMoveResourceChange({ currentTarget: moveResourceCheckBox });
+				if (btn.dataset.moveName !== undefined) {
+					this._onMoveResourceChange({ currentTarget: btn });
+				} else {
+					this._onPossessionUseChange({ currentTarget: btn });
+				}
 			}, true);
+			html.find(".stonetop-possession-check").on("change", this._onPossessionCheck.bind(this));
+			html.find(".stonetop-possession-sub-check").on("change", this._onPossessionSubCheck.bind(this));
 		}
 
 		async _onBackgroundChange(ev) {
@@ -103,6 +110,34 @@ export function createStonetopCharacterSheetClass(Base) {
 		async _onBgChoiceChange(ev) {
 			const choice = new BackgroundInputChoice(ev);
 			await this._stonetopCharacter.background.addChoice(choice);
+		}
+
+		async _onPossessionCheck(ev) {
+			const { slug } = ev.currentTarget.dataset;
+			if (ev.currentTarget.checked) {
+				await this._stonetopCharacter.selectPossession(slug);
+			} else {
+				await this._stonetopCharacter.deselectPossession(slug);
+			}
+		}
+
+		async _onPossessionUseChange(ev) {
+			const btn = new PossessionUseButton(ev);
+			const newVal = btn.isChecked() ? btn.index : btn.index + 1;
+			if (btn.choiceSlug) {
+				await this._stonetopCharacter.setSubChoiceUses(btn.possessionSlug, btn.choiceSlug, newVal);
+			} else {
+				await this._stonetopCharacter.setPossessionUses(btn.possessionSlug, newVal);
+			}
+		}
+
+		async _onPossessionSubCheck(ev) {
+			const { possessionSlug, choiceSlug } = ev.currentTarget.dataset;
+			if (ev.currentTarget.checked) {
+				await this._stonetopCharacter.selectSubChoice(possessionSlug, choiceSlug);
+			} else {
+				await this._stonetopCharacter.deselectSubChoice(possessionSlug, choiceSlug);
+			}
 		}
 	};
 }

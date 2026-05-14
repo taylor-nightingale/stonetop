@@ -1,18 +1,18 @@
 {
-  "_id": "E0jVUUfpJ844ZPzj",
-  "_key": "!items!E0jVUUfpJ844ZPzj",
-  "name": "Proclamation",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Censure, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Condemn"
-      ]
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "E0jVUUfpJ844ZPzj",
+	"_key": "!items!E0jVUUfpJ844ZPzj",
+	"name": "Proclamation",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Censure</em></strong>, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Condemn"
+			]
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

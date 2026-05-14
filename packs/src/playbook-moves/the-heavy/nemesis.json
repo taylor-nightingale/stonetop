@@ -1,18 +1,18 @@
 {
-  "_id": "qeSBw9LJgFxbdZaO",
-  "_key": "!items!qeSBw9LJgFxbdZaO",
-  "name": "Nemesis",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "When you Clash and your foe survives, all of your future attacks against them do +1d6 damage.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Relentless"
-      ]
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "qeSBw9LJgFxbdZaO",
+	"_key": "!items!qeSBw9LJgFxbdZaO",
+	"name": "Nemesis",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Clash and your foe survives</em></strong>, all of your future attacks against them do +1d6 damage.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Relentless"
+			]
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

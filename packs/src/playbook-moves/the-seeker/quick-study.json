@@ -1,12 +1,12 @@
 {
-  "_id": "gXOVgpBzplsnHGdy",
-  "_key": "!items!gXOVgpBzplsnHGdy",
-  "name": "Quick Study",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you study something magical that should take months to understand, it instead takes mere weeks. If it should take weeks, it takes days. If it should take days, it takes only a few hours."
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "gXOVgpBzplsnHGdy",
+	"_key": "!items!gXOVgpBzplsnHGdy",
+	"name": "Quick Study",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>study something magical that should take months to understand</em></strong>, it instead takes mere weeks. If it should take weeks, it takes days. If it should take days, it takes only a few hours.</p>"
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }

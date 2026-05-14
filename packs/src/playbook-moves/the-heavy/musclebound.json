@@ -1,17 +1,17 @@
 {
-  "_id": "oGyDrbBHspOoVvUP",
-  "_key": "!items!oGyDrbBHspOoVvUP",
-  "name": "Musclebound",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "When you make a hand-to-hand or thrown attack, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.",
-    "requirement": {
-      "moves": [
-        "Strength +2 or higher"
-      ]
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "oGyDrbBHspOoVvUP",
+	"_key": "!items!oGyDrbBHspOoVvUP",
+	"name": "Musclebound",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>make a hand-to-hand or thrown attack</em></strong>, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.</p>",
+		"requirement": {
+			"moves": [
+				"Strength +2 or higher"
+			]
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

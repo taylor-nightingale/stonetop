@@ -1,18 +1,18 @@
 {
-  "_id": "amjhUff1NhMHmn3p",
-  "_key": "!items!amjhUff1NhMHmn3p",
-  "name": "Call the Spirits",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "isStartingMove": true,
-    "description": "When you spend 1 Stock and perform a short rite, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.",
-    "requirement": {
-      "moves": [
-        "Spirit Tongue"
-      ]
-    }
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "amjhUff1NhMHmn3p",
+	"_key": "!items!amjhUff1NhMHmn3p",
+	"name": "Call the Spirits",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"isStartingMove": true,
+		"description": "<p>When you <strong><em>spend 1 Stock and perform a short rite</em></strong>, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.</p>",
+		"requirement": {
+			"moves": [
+				"Spirit Tongue"
+			]
+		}
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

@@ -1,13 +1,13 @@
 {
-  "_id": "jwxIrxcbhxccd8XZ",
-  "_key": "!items!jwxIrxcbhxccd8XZ",
-  "name": "Skill at Arms",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "isStartingMove": true,
-    "description": "When you wield a weapon with speed and grace, roll +DEX to Clash (instead of +STR)."
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "jwxIrxcbhxccd8XZ",
+	"_key": "!items!jwxIrxcbhxccd8XZ",
+	"name": "Skill at Arms",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"isStartingMove": true,
+		"description": "<p>When you <strong><em>wield a weapon with speed and grace</em></strong>, roll +DEX to Clash (instead of +STR).</p>"
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

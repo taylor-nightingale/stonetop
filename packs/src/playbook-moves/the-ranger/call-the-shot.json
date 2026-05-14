@@ -1,28 +1,28 @@
 {
-  "_id": "qnCMIiMtAgXR9osX",
-  "_key": "!items!qnCMIiMtAgXR9osX",
-  "name": "Call the Shot",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "stat": "dex",
-    "rollFormula": "2d6+@dex",
-    "description": "When you take your time and calmly line up the perfect shot, either deal your damage or roll +DEX: on a 10+, deal your damage and pick 2; on a 7-9, deal your damage and pick 1.\n\n• Ignore armor or deal +1d4 damage (your call)\n• Stun, hobble, or hinder them\n• Make them trip or drop what they're holding\n• Do no harm; don't deal your damage after all",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "Deal your damage and pick 2."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "Deal your damage and pick 1."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    }
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "qnCMIiMtAgXR9osX",
+	"_key": "!items!qnCMIiMtAgXR9osX",
+	"name": "Call the Shot",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"stat": "dex",
+		"rollFormula": "2d6+@dex",
+		"description": "<p>When you <strong><em>take your time and calmly line up the perfect shot</em></strong>, either deal your damage or roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal your damage and pick 1.</p><ul><li>Ignore armor or deal +1d4 damage (your call)</li><li>Stun, hobble, or hinder them</li><li>Make them trip or drop what they're holding</li><li>Do no harm; don't deal your damage after all</li></ul>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "Deal your damage and pick 2."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "Deal your damage and pick 1."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		}
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

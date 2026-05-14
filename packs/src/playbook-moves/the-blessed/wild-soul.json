@@ -1,16 +1,16 @@
 {
-  "_id": "k3Gxvq9DqVfRwh4n",
-  "_key": "!items!k3Gxvq9DqVfRwh4n",
-  "name": "Wild Soul",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "description": "Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.",
-    "requirement": {
-      "level": 2,
-      "playbook": "The Blessed"
-    }
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "k3Gxvq9DqVfRwh4n",
+	"_key": "!items!k3Gxvq9DqVfRwh4n",
+	"name": "Wild Soul",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.</p>",
+		"requirement": {
+			"level": 2,
+			"playbook": "The Blessed"
+		}
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

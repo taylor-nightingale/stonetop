@@ -1,18 +1,18 @@
 {
-  "_id": "XohqPOcGI4WlQc2c",
-  "_key": "!items!XohqPOcGI4WlQc2c",
-  "name": "Shared Souls",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "description": "When you mark a beast with 1 Stock, you can direct its actions and perceive through its senses no matter the distance between you. Treat it as a follower with 3 Loyalty; when you spend its last Loyalty, the effect ends.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Into the Lion's Den"
-      ]
-    }
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "XohqPOcGI4WlQc2c",
+	"_key": "!items!XohqPOcGI4WlQc2c",
+	"name": "Shared Souls",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>mark a beast with 1 Stock</em></strong>, you can direct its actions and perceive through its senses no matter the distance between you. Treat it as a follower with 3 Loyalty; when you spend its last Loyalty, the effect ends.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Into the Lion's Den"
+			]
+		}
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

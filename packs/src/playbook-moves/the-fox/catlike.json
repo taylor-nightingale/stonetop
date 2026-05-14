@@ -1,12 +1,12 @@
 {
-  "_id": "H3vvv2gY3tqivTF1",
-  "_key": "!items!H3vvv2gY3tqivTF1",
-  "name": "Catlike",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "When you carry a light load and act with care, you move silently. When you hide in shadows or darkness, you remain unseen until you draw attention to yourself, move positions, or attack."
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "H3vvv2gY3tqivTF1",
+	"_key": "!items!H3vvv2gY3tqivTF1",
+	"name": "Catlike",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>carry a light load and act with care</em></strong>, you move silently. When you <strong><em>hide in shadows or darkness</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>"
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

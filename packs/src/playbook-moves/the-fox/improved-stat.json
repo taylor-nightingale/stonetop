@@ -1,13 +1,13 @@
 {
-  "_id": "ZhoZIdWQAuCbz9YR",
-  "_key": "!items!ZhoZIdWQAuCbz9YR",
-  "name": "Improved Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "Each time you take this move, increase one of your stats by 1 (to a max of +2).",
-    "repeatMax": 3
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "ZhoZIdWQAuCbz9YR",
+	"_key": "!items!ZhoZIdWQAuCbz9YR",
+	"name": "Improved Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+		"repeatMax": 3
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

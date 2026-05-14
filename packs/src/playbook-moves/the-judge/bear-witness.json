@@ -1,12 +1,12 @@
 {
-  "_id": "elrB8OZc6zCdvJxq",
-  "_key": "!items!elrB8OZc6zCdvJxq",
-  "name": "Bear Witness",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you speak the truth with conviction and candor, none can doubt you. They might deny what you say, but in their hearts they recognize the truth."
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "elrB8OZc6zCdvJxq",
+	"_key": "!items!elrB8OZc6zCdvJxq",
+	"name": "Bear Witness",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>speak the truth with conviction and candor</em></strong>, none can doubt you. They might deny what you say, but in their hearts they recognize the truth.</p>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

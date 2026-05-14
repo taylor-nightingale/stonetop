@@ -630,29 +630,56 @@ body,
 	column-count: 1;
 }
 
-.stonetop-move-item {
+/* -- Shared: item rows (moves + possessions + details) ----- */
+
+.stonetop-item {
 	break-inside: avoid;
 	padding: 4px 0;
 }
 
-.stonetop-move-header {
+.stonetop-item-header {
 	display: flex;
 	align-items: center;
 	gap: 6px;
 }
 
-.stonetop-move-check {
+.stonetop-item-check {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	width: 14px;
+	height: 14px;
+	border-radius: 2px !important;
+	border: 2px solid var(--color-text-dark-primary) !important;
+	background: transparent !important;
+	cursor: pointer;
 	flex-shrink: 0;
 	margin: 0;
 }
 
-.stonetop-move-name {
+.stonetop-item-check:checked {
+	background-color: var(--color-text-dark-primary) !important;
+}
+
+.stonetop-item-check:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+
+.stonetop-item-name {
 	flex: 1;
 	font-size: 0.9rem;
 	line-height: 1.3;
 }
 
-.stonetop-move-description {
+.stonetop-item-source {
+	font-size: 0.7rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary);
+	margin-left: 2px;
+	flex-shrink: 0;
+}
+
+.stonetop-item-description {
 	padding-left: 20px;
 	font-size: 0.8rem;
 	color: var(--color-text-dark-secondary);
@@ -660,7 +687,7 @@ body,
 	margin-top: 1px;
 }
 
-.stonetop-move-description p {
+.stonetop-item-description p {
 	margin: 0 0 2px;
 }
 
@@ -672,11 +699,11 @@ body,
 	margin: 0;
 }
 
-.stonetop-move-item.move-locked {
+.stonetop-item.move-locked {
 	opacity: 0.4;
 }
 
-.stonetop-move-item.move-unowned {
+.stonetop-item.move-unowned {
 	opacity: 0.5;
 }
 
@@ -687,26 +714,28 @@ body,
 	flex-shrink: 0;
 }
 
-.stonetop-move-resources {
+/* -- Shared: resource-circle row (moves + possessions) ----- */
+
+.stonetop-item-resources {
 	display: flex;
 	align-items: center;
-	gap: 3px;
+	gap: 4px;
 	margin-left: auto;
 	flex-shrink: 0;
 }
 
-.stonetop-move-resource-check {
-	width: 11px;
-	height: 11px;
-	border-radius: 50%;
-	border: 2px solid var(--color-text-dark-primary);
+.stonetop-item-resource-check {
+	width: 16px;
+	height: 16px;
+	border-radius: 50% !important;
+	border: 2px solid var(--color-text-dark-primary) !important;
 	background: none !important;
 	padding: 0;
 	cursor: pointer;
 	flex-shrink: 0;
 }
 
-.stonetop-move-resource-check.is-checked {
+.stonetop-item-resource-check.is-checked {
 	background-color: var(--color-text-dark-primary) !important;
 }
 
@@ -723,4 +752,36 @@ body,
 	flex-wrap: wrap;
 	gap: 4px 12px;
 	align-items: flex-start;
+}
+
+/* -- Equipment: Special Possessions + Sub-Choices --------- */
+
+.stonetop-possession-list {
+	padding: 0;
+	list-style: none;
+	margin: 4px 0 0;
+}
+
+/* -- Equipment: Sub-Choices ------------------------------ */
+
+.stonetop-sub-choice-list {
+	padding: 0;
+	list-style: none;
+	margin: 4px 0 0 20px;
+}
+
+.stonetop-sub-choice {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 2px 0;
+	font-size: 0.85rem;
+}
+
+.stonetop-sub-choice-label {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+	flex: 1;
 }

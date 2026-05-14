@@ -1,33 +1,33 @@
 {
-  "_id": "QuDZOteoIaKUSNqk",
-  "_key": "!items!QuDZOteoIaKUSNqk",
-  "name": "Prepare a Welcome",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "stat": "int",
-    "rollFormula": "2d6+@int",
-    "description": "When you have your allies fortify a position and lie in wait for battle, hold 1 Surprise if you're rushed or 2 Surprises if you can take your time.\n\nOnce battle is joined, spend 1 Surprise to reveal a ploy, defense, or dirty trick you prepared in advance and roll +INT: on a 10+, it works as well as can be expected, and you've still got a few tricks up your sleeve—regain 1 Surprise; on a 7-9, it works as well as can be expected.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "It works as expected, and you regain 1 Surprise."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "It works as expected."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    },
-    "requirement": {
-      "moves": [
-        "Read the Land"
-      ]
-    }
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "QuDZOteoIaKUSNqk",
+	"_key": "!items!QuDZOteoIaKUSNqk",
+	"name": "Prepare a Welcome",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"stat": "int",
+		"rollFormula": "2d6+@int",
+		"description": "<p>When you <strong><em>have your allies fortify a position and lie in wait for battle</em></strong>, hold 1 Surprise if you're rushed or 2 Surprises if you can take your time.</p><p>Once battle is joined, spend 1 Surprise to reveal a ploy, defense, or dirty trick you prepared in advance and roll +INT: <strong>on a 10+</strong>, it works as well as can be expected, and you've still got a few tricks up your sleeve—regain 1 Surprise; <strong><em>on a 7-9</em></strong>, it works as well as can be expected.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "It works as expected, and you regain 1 Surprise."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "It works as expected."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		},
+		"requirement": {
+			"moves": [
+				"Read the Land"
+			]
+		}
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

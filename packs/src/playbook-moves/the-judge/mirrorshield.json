@@ -1,18 +1,18 @@
 {
-  "_id": "9MsJ2PRpOEQBkC76",
-  "_key": "!items!9MsJ2PRpOEQBkC76",
-  "name": "Mirrorshield",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Defend with a shield, you can spend 1 Readiness to intercept a magical force and redirect it to a different target (or none).",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Aegis of Faith"
-      ]
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "9MsJ2PRpOEQBkC76",
+	"_key": "!items!9MsJ2PRpOEQBkC76",
+	"name": "Mirrorshield",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Defend with a shield</em></strong>, you can spend 1 Readiness to intercept a magical force and redirect it to a different target (or none).</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Aegis of Faith"
+			]
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

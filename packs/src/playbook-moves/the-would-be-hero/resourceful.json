@@ -1,12 +1,12 @@
 {
-  "_id": "4OMWZTjyVJsnJDHf",
-  "_key": "!items!4OMWZTjyVJsnJDHf",
-  "name": "Resourceful",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "description": "When you Defy Danger and roll a 6-, ask the GM a question from Seek Insight after they describe what happens. Gain advantage on your next roll to act on the answer."
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "4OMWZTjyVJsnJDHf",
+	"_key": "!items!4OMWZTjyVJsnJDHf",
+	"name": "Resourceful",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Defy Danger and roll a 6-</em></strong>, ask the GM a question from Seek Insight after they describe what happens. Gain advantage on your next roll to act on the answer.</p>"
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

@@ -1,18 +1,18 @@
 {
-  "_id": "mcS781Jz8M34DhJZ",
-  "_key": "!items!mcS781Jz8M34DhJZ",
-  "name": "Potent Workings",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "description": "When you craft a protective charm, you may spend 1 additional Stock to choose 1:\n\n• Name an additional type of harm\n• On a 10+, the charm retains its potency",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Amulets & Talismans"
-      ]
-    }
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "mcS781Jz8M34DhJZ",
+	"_key": "!items!mcS781Jz8M34DhJZ",
+	"name": "Potent Workings",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>craft a protective charm</em></strong>, you may spend 1 additional Stock to choose 1:</p><ul><li>Name an additional type of harm</li><li><strong>On a 10+</strong>, the charm retains its potency</li></ul>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Amulets & Talismans"
+			]
+		}
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

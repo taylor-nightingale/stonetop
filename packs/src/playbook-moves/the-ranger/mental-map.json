@@ -1,12 +1,12 @@
 {
-  "_id": "Ip3LS7VT6yQczlh0",
-  "_key": "!items!Ip3LS7VT6yQczlh0",
-  "name": "Mental Map",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "You can always retrace your steps and can accurately gauge distances and directions. You might not know the way forward but can always find your way back.\n\nWhen you think back on a place you've been, you can Seek Insight retroactively, as if you were still there."
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "Ip3LS7VT6yQczlh0",
+	"_key": "!items!Ip3LS7VT6yQczlh0",
+	"name": "Mental Map",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>You can always retrace your steps and can accurately gauge distances and directions. You might not know the way forward but can always find your way back.</p><p>When you <strong><em>think back on a place you've been</em></strong>, you can Seek Insight retroactively, as if you were still there.</p>"
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

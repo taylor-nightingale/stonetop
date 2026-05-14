@@ -1,12 +1,12 @@
 {
-  "_id": "UUeb7pJzGvgvwTtk",
-  "_key": "!items!UUeb7pJzGvgvwTtk",
-  "name": "For the Greater Good",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Persuade someone to act in defense of their community or civilization at large, you have advantage."
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "UUeb7pJzGvgvwTtk",
+	"_key": "!items!UUeb7pJzGvgvwTtk",
+	"name": "For the Greater Good",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Persuade someone to act in defense of their community or civilization at large</em></strong>, you have advantage.</p>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

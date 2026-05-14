@@ -1,13 +1,13 @@
 {
-  "_id": "MOzUO2QGbfaRFQAT",
-  "_key": "!items!MOzUO2QGbfaRFQAT",
-  "name": "Censure",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "isStartingMove": true,
-    "description": "When you first denounce an individual in your presence as an agent of chaos or anathema to civilization, they pick 1:\n\n• They are ashamed, and act accordingly\n• They are doubtful, and hesitate, pause\n• They are afraid, and seek to escape\n• They are enraged, and lash out predictably (the next roll against them has advantage)"
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "MOzUO2QGbfaRFQAT",
+	"_key": "!items!MOzUO2QGbfaRFQAT",
+	"name": "Censure",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"isStartingMove": true,
+		"description": "<p>When you <strong><em>first denounce an individual in your presence as an agent of chaos or anathema to civilization</em></strong>, they pick 1:</p><ul><li>They are ashamed, and act accordingly</li><li>They are doubtful, and hesitate, pause</li><li>They are afraid, and seek to escape</li><li>They are enraged, and lash out predictably (the next roll against them has advantage)</li></ul>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

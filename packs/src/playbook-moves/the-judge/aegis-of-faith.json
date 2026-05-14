@@ -1,12 +1,12 @@
 {
-  "_id": "4SOx8I1meuwKd4q9",
-  "_key": "!items!4SOx8I1meuwKd4q9",
-  "name": "Aegis of Faith",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you wield a shield, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows."
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "4SOx8I1meuwKd4q9",
+	"_key": "!items!4SOx8I1meuwKd4q9",
+	"name": "Aegis of Faith",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>wield a shield</em></strong>, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows.</p>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

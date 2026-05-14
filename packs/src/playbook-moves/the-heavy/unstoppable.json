@@ -1,17 +1,17 @@
 {
-  "_id": "8y1VU6xTwuJ5FX95",
-  "_key": "!items!8y1VU6xTwuJ5FX95",
-  "name": "Unstoppable",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "When you are reduced to 0 HP in battle, you can keep fighting. Each time you take damage while at 0 HP, mark 1. If you would regain HP while fighting, clear one mark instead.\n\nWhen you stop fighting, roll for Death's Door with a -1 penalty for each circle marked. If you survive, clear all your circles.",
-    "requirement": {
-      "moves": [
-        "Hard to Kill"
-      ]
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "8y1VU6xTwuJ5FX95",
+	"_key": "!items!8y1VU6xTwuJ5FX95",
+	"name": "Unstoppable",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>are reduced to 0 HP in battle</em></strong>, you can keep fighting. Each time you take damage while at 0 HP, mark 1. If you would regain HP while fighting, clear one mark instead.</p><p>When you <strong><em>stop fighting</em></strong>, roll for Death's Door with a -1 penalty for each circle marked. If you survive, clear all your circles.</p>",
+		"requirement": {
+			"moves": [
+				"Hard to Kill"
+			]
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

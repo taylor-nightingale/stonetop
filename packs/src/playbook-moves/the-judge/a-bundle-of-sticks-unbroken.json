@@ -1,17 +1,17 @@
 {
-  "_id": "92hjysJMCuuRFrry",
-  "_key": "!items!92hjysJMCuuRFrry",
-  "name": "A Bundle of Sticks Unbroken",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Struggle as One, you and one ally of your choice have advantage.",
-    "requirement": {
-      "moves": [
-        "Many Hands Make Light Work"
-      ]
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "92hjysJMCuuRFrry",
+	"_key": "!items!92hjysJMCuuRFrry",
+	"name": "A Bundle of Sticks Unbroken",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Struggle as One</em></strong>, you and one ally of your choice have advantage.</p>",
+		"requirement": {
+			"moves": [
+				"Many Hands Make Light Work"
+			]
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

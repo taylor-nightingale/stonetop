@@ -1,13 +1,13 @@
 {
-  "_id": "IWCVS4eWhMtWD8Ry",
-  "_key": "!items!IWCVS4eWhMtWD8Ry",
-  "name": "Big Magic",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "description": "Each time you take this move, choose an additional remarkable trait for your sacred pouch and increase your max Stock by 2.",
-    "repeatMax": 2
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "IWCVS4eWhMtWD8Ry",
+	"_key": "!items!IWCVS4eWhMtWD8Ry",
+	"name": "Big Magic",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, choose an additional remarkable trait for your sacred pouch and increase your max Stock by 2.</p>",
+		"repeatMax": 2
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

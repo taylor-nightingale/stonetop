@@ -1,18 +1,18 @@
 {
-  "_id": "qNgmBPFXTI5apdh8",
-  "_key": "!items!qNgmBPFXTI5apdh8",
-  "name": "Armistice",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you approach an enemy to negotiate in good faith, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Bear Witness"
-      ]
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "qNgmBPFXTI5apdh8",
+	"_key": "!items!qNgmBPFXTI5apdh8",
+	"name": "Armistice",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>approach an enemy to negotiate in good faith</em></strong>, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Bear Witness"
+			]
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

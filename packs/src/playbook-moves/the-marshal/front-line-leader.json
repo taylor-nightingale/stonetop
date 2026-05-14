@@ -1,12 +1,12 @@
 {
-  "_id": "ndKDbZu2HBCLBYlO",
-  "_key": "!items!ndKDbZu2HBCLBYlO",
-  "name": "Front Line Leader",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "description": "When you lead your crew into battle, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them)."
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "ndKDbZu2HBCLBYlO",
+	"_key": "!items!ndKDbZu2HBCLBYlO",
+	"name": "Front Line Leader",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>lead your crew into battle</em></strong>, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them).</p>"
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

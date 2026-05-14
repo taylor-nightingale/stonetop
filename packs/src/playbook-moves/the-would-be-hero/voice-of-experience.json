@@ -1,16 +1,16 @@
 {
-  "_id": "amB7jTLdiV8kS5n0",
-  "_key": "!items!amB7jTLdiV8kS5n0",
-  "name": "Voice of Experience",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "replaces": "Inquiring Minds",
-    "description": "When another PC comes to you for advice and you tell them what you think is best, they have advantage on their first roll to follow your advice.\n\nWhen you Seek Insight, you can always ask, \"What is about to happen?\" for free, even on a 6-. (Replaces Inquiring Minds. First use crosses off \"Would-be\" on the front page.)",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "amB7jTLdiV8kS5n0",
+	"_key": "!items!amB7jTLdiV8kS5n0",
+	"name": "Voice of Experience",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"replaces": "Inquiring Minds",
+		"description": "<p>When <strong><em>another PC comes to you for advice and you tell them what you think is best</em></strong>, they have advantage on their first roll to follow your advice.</p><p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What is about to happen?\" for free, even on a 6-. (Replaces Inquiring Minds. First use crosses off \"Would-be\" on the front page.)</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

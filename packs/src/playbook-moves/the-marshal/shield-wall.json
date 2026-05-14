@@ -1,12 +1,12 @@
 {
-  "_id": "HygfXt5IKoz27IIv",
-  "_key": "!items!HygfXt5IKoz27IIv",
-  "name": "Shield Wall",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "description": "When you have your crew form a shield wall, they Defend with advantage and on a 7+ they hold +2 Readiness (instead of the usual +1 for shields). As long as they maintain formation, they can go on the offensive without losing Readiness."
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "HygfXt5IKoz27IIv",
+	"_key": "!items!HygfXt5IKoz27IIv",
+	"name": "Shield Wall",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>have your crew form a shield wall</em></strong>, they Defend with advantage and <strong><em>on a 7+</em></strong> they hold +2 Readiness (instead of the usual +1 for shields). As long as they maintain formation, they can go on the offensive without losing Readiness.</p>"
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

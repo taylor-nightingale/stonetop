@@ -1,12 +1,12 @@
 {
-  "_id": "VWdXUBBBlRm8BMaE",
-  "_key": "!items!VWdXUBBBlRm8BMaE",
-  "name": "Knowledge is Power",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you roll 10+ to Know Things, you or an ally gain advantage on the next roll to act on what you learn."
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "VWdXUBBBlRm8BMaE",
+	"_key": "!items!VWdXUBBBlRm8BMaE",
+	"name": "Knowledge is Power",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>roll 10+ to Know Things</em></strong>, you or an ally gain advantage on the next roll to act on what you learn.</p>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

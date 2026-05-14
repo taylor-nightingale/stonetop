@@ -1,18 +1,18 @@
 {
-  "_id": "YZjJH1cVngAt9Lpr",
-  "_key": "!items!YZjJH1cVngAt9Lpr",
-  "name": "Condemn",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Censure someone, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Censure"
-      ]
-    }
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "YZjJH1cVngAt9Lpr",
+	"_key": "!items!YZjJH1cVngAt9Lpr",
+	"name": "Condemn",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Censure someone</em></strong>, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Censure"
+			]
+		}
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

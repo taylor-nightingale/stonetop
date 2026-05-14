@@ -1,12 +1,12 @@
 {
-  "_id": "u1pWwmVhFAQKpk2w",
-  "_key": "!items!u1pWwmVhFAQKpk2w",
-  "name": "Read the Land",
-  "type": "move",
-  "system": {
-    "playbook": "The Marshal",
-    "moveType": "playbook",
-    "description": "When you first take a moment to survey the terrain, ask the GM one of the following; gain advantage on your next roll to act on the answer.\n\n• What's the best way in, out, through, or past?\n• Where's the best spot for a trap or an ambush?\n• Where's the most defensible position?\n• What here is out of place?"
-  },
-  "folder": "AFEGaCzrd5eKoPuV"
+	"_id": "u1pWwmVhFAQKpk2w",
+	"_key": "!items!u1pWwmVhFAQKpk2w",
+	"name": "Read the Land",
+	"type": "move",
+	"system": {
+		"playbook": "The Marshal",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>first take a moment to survey the terrain</em></strong>, ask the GM one of the following; gain advantage on your next roll to act on the answer.</p><ul><li>What's the best way in, out, through, or past?</li><li>Where's the best spot for a trap or an ambush?</li><li>Where's the most defensible position?</li><li>What here is out of place?</li></ul>"
+	},
+	"folder": "AFEGaCzrd5eKoPuV"
 }

@@ -47,7 +47,51 @@
         { "region": "Gordin's Delve", "names": [] },
         { "region": "Marshedge", "names": ["Aiden", "Barrfind", "Caolan", "Ciara", "Deirbhile", "Moirin", "Tiern", "Reamann"] },
         { "region": "Lygos or some other point south", "names": ["Dana", "Eliana", "Erez", "Fikri", "Isra", "Persefoni", "Spiro", "Vahid"] }
-      ]
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2, in addition to your scribe's tools",
+        "pickCount": 2,
+        "preselected": ["scribes-tools"],
+        "options": [
+          {
+            "slug": "scribes-tools",
+            "label": "Scribe's tools",
+            "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+          },
+          {
+            "slug": "books-and-scrolls",
+            "label": "Books &amp; scrolls",
+            "description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
+            "uses": 5
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "(○○ uses) alchemical distillation equipment, reagents, solvents, tubes, flasks; also produces fine spirits (Value 1).",
+            "uses": 2
+          },
+          {
+            "slug": "engineers-tools",
+            "label": "Engineer's tools",
+            "description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+          },
+          {
+            "slug": "laboratory",
+            "label": "Laboratory",
+            "description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
+          },
+          {
+            "slug": "paraphernalia",
+            "label": "Paraphernalia",
+            "description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
+          },
+          {
+            "slug": "trade-contacts",
+            "label": "Trade contacts",
+            "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+          }
+        ]
+      }
     }
   },
   "system": {

@@ -1,15 +1,15 @@
 {
-  "_id": "atAXBUvL5QvA5W4X",
-  "_key": "!items!atAXBUvL5QvA5W4X",
-  "name": "Superior Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "Increase one of your stats by +1 (to a max of +3).",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "atAXBUvL5QvA5W4X",
+	"_key": "!items!atAXBUvL5QvA5W4X",
+	"name": "Superior Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

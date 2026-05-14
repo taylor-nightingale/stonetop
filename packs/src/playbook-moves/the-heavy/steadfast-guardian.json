@@ -1,18 +1,18 @@
 {
-  "_id": "T55Yc4AOq4v4Vr1L",
-  "_key": "!items!T55Yc4AOq4v4Vr1L",
-  "name": "Steadfast Guardian",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Guardian"
-      ]
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "T55Yc4AOq4v4Vr1L",
+	"_key": "!items!T55Yc4AOq4v4Vr1L",
+	"name": "Steadfast Guardian",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.</p>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Guardian"
+			]
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

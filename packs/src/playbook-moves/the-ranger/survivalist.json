@@ -1,12 +1,12 @@
 {
-  "_id": "nx8sG4nnyJvAxi9q",
-  "_key": "!items!nx8sG4nnyJvAxi9q",
-  "name": "Survivalist",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "When you Forage, pick 1 extra choice (even on a 6-, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options."
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "nx8sG4nnyJvAxi9q",
+	"_key": "!items!nx8sG4nnyJvAxi9q",
+	"name": "Survivalist",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Forage</em></strong>, pick 1 extra choice (even on a 6-, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options.</p>"
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

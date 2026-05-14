@@ -1,16 +1,16 @@
 {
-  "_id": "1MldFLfHyiXe6Vvv",
-  "_key": "!items!1MldFLfHyiXe6Vvv",
-  "name": "Dabbler",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "Each time you take this move, choose a move from the Heavy, Marshal, Ranger, or Seeker playbooks for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)",
-    "requirement": {
-      "level": 2,
-      "playbook": "The Fox"
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "1MldFLfHyiXe6Vvv",
+	"_key": "!items!1MldFLfHyiXe6Vvv",
+	"name": "Dabbler",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>Each time you take this move, choose a move from the Heavy, Marshal, Ranger, or Seeker playbooks for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)</p>",
+		"requirement": {
+			"level": 2,
+			"playbook": "The Fox"
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

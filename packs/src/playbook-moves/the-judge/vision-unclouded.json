@@ -1,12 +1,12 @@
 {
-  "_id": "PoIWU6Qdplkm9Dd0",
-  "_key": "!items!PoIWU6Qdplkm9Dd0",
-  "name": "Vision Unclouded",
-  "type": "move",
-  "system": {
-    "playbook": "The Judge",
-    "moveType": "playbook",
-    "description": "When you Seek Insight, you can always ask \"What here is hidden by illusion or magic?\" for free, even on a 6-."
-  },
-  "folder": "jISe56pNVdmHJLgu"
+	"_id": "PoIWU6Qdplkm9Dd0",
+	"_key": "!items!PoIWU6Qdplkm9Dd0",
+	"name": "Vision Unclouded",
+	"type": "move",
+	"system": {
+		"playbook": "The Judge",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask \"What here is hidden by illusion or magic?\" for free, even on a 6-.</p>"
+	},
+	"folder": "jISe56pNVdmHJLgu"
 }

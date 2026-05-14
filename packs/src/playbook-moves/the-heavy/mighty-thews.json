@@ -1,18 +1,18 @@
 {
-  "_id": "BOqUT1pEWftUJjJt",
-  "_key": "!items!BOqUT1pEWftUJjJt",
-  "name": "Mighty Thews",
-  "type": "move",
-  "system": {
-    "playbook": "The Heavy",
-    "moveType": "playbook",
-    "description": "When you perform a feat of extraordinary strength (bursting chains, smashing through a wall, heaving a boulder, etc.), you do it (OH YEAH!) but pick 1:\n\n• It takes a while\n• You cause unwanted damage or harm\n• It takes a toll (mark a debility)",
-    "requirement": {
-      "level": 6,
-      "moves": [
-        "Musclebound"
-      ]
-    }
-  },
-  "folder": "QAZ4iqkCm6GtadAu"
+	"_id": "BOqUT1pEWftUJjJt",
+	"_key": "!items!BOqUT1pEWftUJjJt",
+	"name": "Mighty Thews",
+	"type": "move",
+	"system": {
+		"playbook": "The Heavy",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>perform a feat of extraordinary strength (bursting chains, smashing through a wall, heaving a boulder, etc.)</em></strong>, you do it (OH YEAH!) but pick 1:</p><ul><li>It takes a while</li><li>You cause unwanted damage or harm</li><li>It takes a toll (mark a debility)</li></ul>",
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Musclebound"
+			]
+		}
+	},
+	"folder": "QAZ4iqkCm6GtadAu"
 }

@@ -42,15 +42,15 @@
 					<ol class="items-list">
 					{{#each stonetop.movelist.playbookMoves}}
 						{{#if (and owned rollType)}}
-						<li class="item stonetop-move-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
+						<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 						{{else}}
-						<li class="stonetop-move-item{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
+						<li class="stonetop-item{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
 						{{/if}}
-							<div class="stonetop-move-header">
+							<div class="stonetop-item-header">
 								{{#if repeatable}}
 								<span class="stonetop-repeat-checks">
 									{{#each repeatChecks}}
-									<input type="checkbox" class="stonetop-repeat-check"
+									<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
 									       data-compendium-id="{{../compendiumId}}"
 									       data-owned-id="{{ownedId}}"
 									       {{#if checked}}checked{{/if}}
@@ -58,29 +58,30 @@
 									{{/each}}
 								</span>
 								{{else}}
-								<input type="checkbox" class="stonetop-move-check"
+								<input type="checkbox" class="stonetop-item-check stonetop-move-check"
 								       data-compendium-id="{{compendiumId}}"
 								       data-owned-id="{{ownedId}}"
 								       {{#if owned}}checked{{/if}}
 								       {{#if (or isStarting locked)}}disabled{{/if}}>
 								{{/if}}
-								<strong class="stonetop-move-name">{{name}}</strong>
+								<strong class="stonetop-item-name">{{name}}</strong>
+								{{#if source}}<span class="stonetop-item-source">{{source}}</span>{{/if}}
 								{{#if (and owned rollType)}}
 								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 									<i class="fas fa-dice-d6"></i>
 								</span>
 								{{/if}}
 								{{#if (and owned resourceChecks)}}
-								<span class="stonetop-move-resources">
+								<span class="stonetop-item-resources">
 									{{#each resourceChecks}}
-									<button type="button" class="stonetop-move-resource-check{{#if checked}} is-checked{{/if}}"
+									<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
 									        data-move-name="{{../name}}"
 									        data-index="{{@index}}"></button>
 									{{/each}}
 								</span>
 								{{/if}}
 							</div>
-							<div class="stonetop-move-description">{{{description}}}</div>
+							<div class="stonetop-item-description">{{{description}}}</div>
 							{{#if requiresLabel}}<p class="stonetop-move-note">Requires: {{requiresLabel}}</p>{{/if}}
 							{{#if requiresPlaybook}}<p class="stonetop-move-note">Requires {{requiresPlaybook}} playbook</p>{{/if}}
 							{{#if minLevel}}<p class="stonetop-move-note">Level {{minLevel}}+</p>{{/if}}
@@ -96,19 +97,17 @@
 					<ol class="items-list">
 					{{#each moves}}
 						{{#if rollType}}
-						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+						<li class="item stonetop-item" data-item-id="{{ownedId}}">
 						{{else}}
-						<li class="stonetop-move-item">
+						<li class="stonetop-item">
 						{{/if}}
-							<div class="stonetop-move-check-wrap">
+							<div class="stonetop-item-header">
 								{{#if rollType}}
 								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 									<i class="fas fa-dice-d6"></i>
 								</span>
 								{{/if}}
-							</div>
-							<div class="stonetop-move-body">
-								<strong class="stonetop-move-name">{{name}}</strong>
+								<strong class="stonetop-item-name">{{name}}</strong>
 							</div>
 						</li>
 					{{/each}}

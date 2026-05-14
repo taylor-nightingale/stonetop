@@ -1,12 +1,12 @@
 {
-  "_id": "JNA1F4i37RPxn4lt",
-  "_key": "!items!JNA1F4i37RPxn4lt",
-  "name": "Inquiring Minds",
-  "type": "move",
-  "system": {
-    "playbook": "The Would-Be Hero",
-    "moveType": "playbook",
-    "description": "When you seek out and receive honest advice, gain advantage on your next roll to follow that advice."
-  },
-  "folder": "dgktpzqUfX5DWqqE"
+	"_id": "JNA1F4i37RPxn4lt",
+	"_key": "!items!JNA1F4i37RPxn4lt",
+	"name": "Inquiring Minds",
+	"type": "move",
+	"system": {
+		"playbook": "The Would-Be Hero",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>seek out and receive honest advice</em></strong>, gain advantage on your next roll to follow that advice.</p>"
+	},
+	"folder": "dgktpzqUfX5DWqqE"
 }

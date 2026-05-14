@@ -1,15 +1,15 @@
 {
-  "_id": "DbAN6W9aHkgejOqf",
-  "_key": "!items!DbAN6W9aHkgejOqf",
-  "name": "Superior Stat",
-  "type": "move",
-  "system": {
-    "playbook": "The Ranger",
-    "moveType": "playbook",
-    "description": "Increase one of your stats by +1 (to a max of +3).",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "TOPlmLzP0PF3i9CM"
+	"_id": "DbAN6W9aHkgejOqf",
+	"_key": "!items!DbAN6W9aHkgejOqf",
+	"name": "Superior Stat",
+	"type": "move",
+	"system": {
+		"playbook": "The Ranger",
+		"moveType": "playbook",
+		"description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "TOPlmLzP0PF3i9CM"
 }

@@ -1,15 +1,15 @@
 {
-  "_id": "H7WxKSfZDGArjTrX",
-  "_key": "!items!H7WxKSfZDGArjTrX",
-  "name": "Slippery",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "description": "When you roll to escape being caught or controlled, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage.",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "H7WxKSfZDGArjTrX",
+	"_key": "!items!H7WxKSfZDGArjTrX",
+	"name": "Slippery",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>roll to escape being caught or controlled</em></strong>, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage.</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

@@ -1,12 +1,12 @@
 {
-  "_id": "CSu0g2BVmxnhndtH",
-  "_key": "!items!CSu0g2BVmxnhndtH",
-  "name": "Attuned",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you Seek Insight, you can always ask, \"What here is infused with magic?\" for free, even on a 6-."
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "CSu0g2BVmxnhndtH",
+	"_key": "!items!CSu0g2BVmxnhndtH",
+	"name": "Attuned",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What here is infused with magic?\" for free, even on a 6-.</p>"
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }

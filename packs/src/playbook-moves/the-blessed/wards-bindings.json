@@ -1,28 +1,28 @@
 {
-  "_id": "0USAQRNUfWPsfLpN",
-  "_key": "!items!0USAQRNUfWPsfLpN",
-  "name": "Wards & Bindings",
-  "type": "move",
-  "system": {
-    "playbook": "The Blessed",
-    "moveType": "playbook",
-    "stat": "int",
-    "rollFormula": "2d6+@int",
-    "description": "When you mark a boundary with sacred signs, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen your wards or bindings are first tested, roll +INT.",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "They will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "They hold for now but may be overcome through might or will."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    }
-  },
-  "folder": "twBI9Q4lZycODbDk"
+	"_id": "0USAQRNUfWPsfLpN",
+	"_key": "!items!0USAQRNUfWPsfLpN",
+	"name": "Wards & Bindings",
+	"type": "move",
+	"system": {
+		"playbook": "The Blessed",
+		"moveType": "playbook",
+		"stat": "int",
+		"rollFormula": "2d6+@int",
+		"description": "<p>When you <strong><em>mark a boundary with sacred signs</em></strong>, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.</p><p>When <strong><em>your wards or bindings are first tested</em></strong>, roll +INT.</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "They will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "They hold for now but may be overcome through might or will."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		}
+	},
+	"folder": "twBI9Q4lZycODbDk"
 }

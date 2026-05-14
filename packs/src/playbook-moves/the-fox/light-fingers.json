@@ -1,28 +1,28 @@
 {
-  "_id": "XExKIdtw8pn4pimC",
-  "_key": "!items!XExKIdtw8pn4pimC",
-  "name": "Light Fingers",
-  "type": "move",
-  "system": {
-    "playbook": "The Fox",
-    "moveType": "playbook",
-    "stat": "dex",
-    "rollFormula": "2d6+@dex",
-    "description": "When you perform sleight of hand on an unwary mark, you succeed and no one's the wiser. If you're being watched, roll +DEX: on a 10+, you succeed and no one's the wiser; on a 7-9, you succeed OR no one's the wiser (your choice).",
-    "rollResults": {
-      "success": {
-        "label": "10+",
-        "description": "You succeed and no one's the wiser."
-      },
-      "partial": {
-        "label": "7-9",
-        "description": "You succeed OR no one's the wiser (your choice)."
-      },
-      "failure": {
-        "label": "6-",
-        "description": "The GM makes a move."
-      }
-    }
-  },
-  "folder": "xnEoWIXTKWl4oAJz"
+	"_id": "XExKIdtw8pn4pimC",
+	"_key": "!items!XExKIdtw8pn4pimC",
+	"name": "Light Fingers",
+	"type": "move",
+	"system": {
+		"playbook": "The Fox",
+		"moveType": "playbook",
+		"stat": "dex",
+		"rollFormula": "2d6+@dex",
+		"description": "<p>When you <strong><em>perform sleight of hand on an unwary mark</em></strong>, you succeed and no one's the wiser. If you're being watched, roll +DEX: <strong>on a 10+</strong>, you succeed and no one's the wiser; <strong><em>on a 7-9</em></strong>, you succeed OR no one's the wiser (your choice).</p>",
+		"rollResults": {
+			"success": {
+				"label": "10+",
+				"description": "You succeed and no one's the wiser."
+			},
+			"partial": {
+				"label": "7-9",
+				"description": "You succeed OR no one's the wiser (your choice)."
+			},
+			"failure": {
+				"label": "6-",
+				"description": "The GM makes a move."
+			}
+		}
+	},
+	"folder": "xnEoWIXTKWl4oAJz"
 }

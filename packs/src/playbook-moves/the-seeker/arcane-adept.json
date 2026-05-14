@@ -1,15 +1,15 @@
 {
-  "_id": "Ds3f9bqRWmAi9LIW",
-  "_key": "!items!Ds3f9bqRWmAi9LIW",
-  "name": "Arcane Adept",
-  "type": "move",
-  "system": {
-    "playbook": "The Seeker",
-    "moveType": "playbook",
-    "description": "When you wish to invent a spell or magical effect, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative.",
-    "requirement": {
-      "level": 6
-    }
-  },
-  "folder": "Xq0anhaGDBnO4A5B"
+	"_id": "Ds3f9bqRWmAi9LIW",
+	"_key": "!items!Ds3f9bqRWmAi9LIW",
+	"name": "Arcane Adept",
+	"type": "move",
+	"system": {
+		"playbook": "The Seeker",
+		"moveType": "playbook",
+		"description": "<p>When you <strong><em>wish to invent a spell or magical effect</em></strong>, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative.</p>",
+		"requirement": {
+			"level": 6
+		}
+	},
+	"folder": "Xq0anhaGDBnO4A5B"
 }
