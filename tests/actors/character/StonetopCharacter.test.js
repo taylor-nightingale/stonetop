@@ -404,6 +404,62 @@ describe("StonetopCharacter.ensureStartingMoves", () => {
 	});
 });
 
+// -- computePossessionMaxUses -------------------------------------------------
+
+const SP_BONUS = {
+	options: [{
+		slug: "sacred-pouch",
+		uses: 3,
+		usesBonus: {
+			evenLevelBonus: 1,
+			moveBonus: [{ moveName: "Big Magic", perInstance: 2 }],
+		},
+	}],
+};
+
+describe("StonetopCharacter.computePossessionMaxUses", () => {
+	function makeChar() { return makeCharacter(makeActor()); }
+
+	it("no moves owned, level 1 → no entry (base uses unchanged)", () => {
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, new Map(), 1);
+		expect(result["sacred-pouch"]).toBeUndefined();
+	});
+
+	it("level 2 → +1 from even level", () => {
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, new Map(), 2);
+		expect(result["sacred-pouch"]).toBe(4);
+	});
+
+	it("level 4 → +2 from two even levels", () => {
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, new Map(), 4);
+		expect(result["sacred-pouch"]).toBe(5);
+	});
+
+	it("Big Magic owned once → +2", () => {
+		const owned = new Map([["Big Magic", [{ _id: "bm1" }]]]);
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, owned, 1);
+		expect(result["sacred-pouch"]).toBe(5);
+	});
+
+	it("Big Magic owned twice → +4", () => {
+		const owned = new Map([["Big Magic", [{ _id: "bm1" }, { _id: "bm2" }]]]);
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, owned, 1);
+		expect(result["sacred-pouch"]).toBe(7);
+	});
+
+	it("Big Magic once + level 4 → +2 move + +2 level = base 3 + 4", () => {
+		const owned = new Map([["Big Magic", [{ _id: "bm1" }]]]);
+		const result = makeChar().computePossessionMaxUses(SP_BONUS, owned, 4);
+		expect(result["sacred-pouch"]).toBe(7);
+	});
+
+	it("possession without usesBonus is not affected", () => {
+		const sp = { options: [{ slug: "apiary", uses: 0 }] };
+		const result = makeChar().computePossessionMaxUses(sp, new Map(), 10);
+		expect(result["apiary"]).toBeUndefined();
+	});
+});
+
 // -- buildPossessionsContext --------------------------------------------------
 
 const BASE_SP = {
