@@ -1,5 +1,6 @@
 export class CharacterSheetData {
 	hasPlaybook = false;
+	description = null;
 	backgrounds = [];
 	instincts = [];
 	savedInstinct = "";
@@ -8,4 +9,5 @@ export class CharacterSheetData {
 	savedOrigin = "";
 	movelist = null;
 	possessions = null;
+	statsNote = null;
 }

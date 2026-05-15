@@ -1,9 +1,4 @@
-* Character creation flow: stat assignment (assigning +2/+1/+1/0/-1 to stats from the playbook's array) -- just add a note next to the stats.
 * Other move types: special moves, follower moves, homefront moves content population and display
-* Handle moves that can be selected multiple times.
-* Handle inline resource tracking on moves. For example Rites of the Land
-* Add special possessions from playbook
-* Add inline resource tracking on those special possessions
 * Support extra selections from backgrounds
 * Support playbook specific lore things like "the earth mother"
 * Support for followers

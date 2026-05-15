@@ -33,6 +33,9 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".cell--stats .stat-value").each((_, el) => {
 				el.value = el.value.replace(/^\+/, "");
 			});
+			html.find(".cell--stats .stat[data-stat]").each((_, el) => {
+				$(el).append(`<span class="stonetop-stat-abbr">(${el.dataset.stat.toUpperCase()})</span>`);
+			});
 
 			if (!this.isEditable) return;
 

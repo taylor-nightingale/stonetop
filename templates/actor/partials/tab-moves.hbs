@@ -35,10 +35,7 @@
 
 		{{#if stonetop.movelist.playbookMoves.length}}
 				<div class="stonetop-move-group">
-					<h3 class="stonetop-move-group-title">Playbook Moves</h3>
-				{{#if stonetop.movelist.startingMovesNote}}
-				<p class="stonetop-moves-note">{{stonetop.movelist.startingMovesNote}}</p>
-				{{/if}}
+					{{> "stonetop.section-heading" title=(localize "stonetop.character.moves.playbookMoves") note=stonetop.movelist.startingMovesNote}}
 					<ol class="items-list">
 					{{#each stonetop.movelist.playbookMoves}}
 						{{#if (and owned rollType)}}

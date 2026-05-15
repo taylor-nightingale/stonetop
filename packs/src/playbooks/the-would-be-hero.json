@@ -203,7 +203,8 @@
 						"description": "(or access to it): hides, pelts, alum, salt, ◇ frames, ◇ knives; leather goods, straps, armor, etc."
 					}
 				]
-			}
+			},
+			"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1"
 		}
 	},
 	"system": {

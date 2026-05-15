@@ -1,5 +1,10 @@
 {
 	"stonetop": {
+		"sheet": {
+			"tabs": {
+				"details": "Details"
+			}
+		},
 		"settings": {
 			"expandMoveDescriptions": {
 				"name": "Expand Move Descriptions",
@@ -25,6 +30,7 @@
 		},
 		"character": {
 			"stats": {
+				"sectionTitle": "Stats",
 				"strength": "Strength",
 				"dexterity": "Dexterity",
 				"intelligence": "Intelligence",
@@ -34,19 +40,25 @@
 			},
 			"attributes": {
 				"xp": "XP",
-				"level": "Level",
+				"level": "Level"
+			},
+			"gear": {
+				"specialPossessions": "Special Possessions"
 			},
 			"moveTypes": {
 				"background": "Background"
 			},
 			"moves": {
 				"pickTitle": "Choose Starting Moves",
-				"pickInstruction": "Pick up to {count} moves to start with."
+				"pickInstruction": "Pick up to {count} moves to start with.",
+				"playbookMoves": "Playbook Moves",
+				"basicMoves": "Basic Moves"
 			},
 			"selection": {
 				"select": "Select",
 				"cancel": "Cancel",
 				"choosePlaceholder": "Choose {label}…",
+				"chooseOne": "(Choose 1)",
 				"background": {
 					"label": "Background",
 					"dialogTitle": "Choose Background"
@@ -59,12 +71,13 @@
 				"appearance": {
 					"label": "Appearance",
 					"dialogTitle": "Choose Appearance",
-					"instruction": "Choose one from each row."
+					"instruction": "Choose 1 on each line, or make something up:"
 				},
 				"origin": {
 					"label": "Origin",
 					"dialogTitle": "Choose Origin",
-					"namesLabel": "Names"
+					"namesLabel": "Names",
+					"instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
 				}
 			}
 		}

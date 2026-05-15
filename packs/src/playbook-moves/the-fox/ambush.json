@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"isStartingMove": true,
+		"isStartingMove": false,
 		"stat": "dex",
 		"rollFormula": "2d6+@dex",
 		"description": "<p>When you <strong><em>get the drop on a nearby foe</em></strong>, you can deal your damage or opt to roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal damage and pick 1:</p><ul><li>Deal +1d4 damage</li><li>Stop them from making noise/raising an alarm</li><li>Slip away before they can react</li><li>Create an opportunity; you or an ally gains advantage on the next move to act on it</li></ul>",

@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"isStartingMove": true,
+		"isStartingMove": false,
 		"stat": "int",
 		"rollFormula": "2d6+@int",
 		"description": "<p>You can always ask the GM, \"Is there an ambush or trap here?\" If they say \"yes,\" roll +INT: <strong>on a 10+</strong>, ask the GM both of the questions below; <strong><em>on a 7-9</em></strong>, ask 1; either way, gain advantage on your next roll to act on the answer(s).</p><ul><li>What will trigger the ambush or trap?</li><li>What will happen once it's triggered?</li></ul><p>On a 6-, don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.</p>",

@@ -746,3 +746,75 @@ describe("buildPossessionsContext — sub-choices", () => {
 		expect(sword.usesChecks).toBeNull();
 	});
 });
+
+// -- applyDebilityRollMode ----------------------------------------------------
+
+function makeDebilityActor({ weakened = false, dazed = false, miserable = false } = {}) {
+	return makeActor({
+		system: {
+			attributes: {
+				debilities: {
+					options: {
+						weakened:  { value: weakened,  stat: ["str", "dex"] },
+						dazed:     { value: dazed,     stat: ["int", "wis"] },
+						miserable: { value: miserable, stat: ["con", "cha"] },
+					},
+				},
+			},
+		},
+	});
+}
+
+describe("applyDebilityRollMode", () => {
+	it("no debility active — passes rollMode def through unchanged", () => {
+		const char = makeCharacter(makeDebilityActor());
+		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "def" });
+	});
+
+	it("no debility active — passes rollMode adv through unchanged", () => {
+		const char = makeCharacter(makeDebilityActor());
+		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "adv" });
+	});
+
+	it("debility active, stat affected, rollMode def → dis", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "dis" });
+	});
+
+	it("debility active, stat affected, rollMode adv → def (cancel)", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "def" });
+	});
+
+	it("debility active, stat affected, rollMode dis → dis (unchanged)", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		expect(char.applyDebilityRollMode("str", { rollMode: "dis" })).toEqual({ rollMode: "dis" });
+	});
+
+	it("debility active but for a different stat — passes through unchanged", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		expect(char.applyDebilityRollMode("int", { rollMode: "def" })).toEqual({ rollMode: "def" });
+	});
+
+	it("debility value false (unchecked) — passes through unchanged", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: false }));
+		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "def" });
+	});
+
+	it("two debilities active, one covers stat, rollMode adv → def", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true, dazed: true }));
+		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "def" });
+	});
+
+	it("dazed covers int and wis, rollMode def → dis for int", () => {
+		const char = makeCharacter(makeDebilityActor({ dazed: true }));
+		expect(char.applyDebilityRollMode("int", { rollMode: "def" })).toEqual({ rollMode: "dis" });
+		expect(char.applyDebilityRollMode("wis", { rollMode: "def" })).toEqual({ rollMode: "dis" });
+	});
+
+	it("preserves other options fields while changing rollMode", () => {
+		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const result = char.applyDebilityRollMode("str", { rollMode: "adv", extra: "value" });
+		expect(result).toEqual({ rollMode: "def", extra: "value" });
+	});
+});

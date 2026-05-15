@@ -1,104 +1,210 @@
 {
-  "_id": "t6DSdYhsVznrAXDx",
-  "_key": "!items!t6DSdYhsVznrAXDx",
-  "name": "The Ranger",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 18,
-      "damage": "d8",
+	"_id": "t6DSdYhsVznrAXDx",
+	"_key": "!items!t6DSdYhsVznrAXDx",
+	"name": "The Ranger",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 18,
+			"damage": "d8",
 			"moves": {
 				"startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
 			},
-      "backgrounds": [
-        {
-          "slug": "mighty-hunter",
-          "label": "Mighty Hunter",
-          "description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
-        },
-        {
-          "slug": "wide-wanderer",
-          "label": "Wide Wanderer",
-          "description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
-        },
-        {
-          "slug": "beast-bonded",
-          "label": "Beast-Bonded",
-          "description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
-        }
-      ],
-      "instincts": [
-        { "word": "Adventure", "description": "To test yourself, to experience new things." },
-        { "word": "Independence", "description": "To refuse help and push others away." },
-        { "word": "Stewardship", "description": "To value beasts and natural places over people." },
-        { "word": "Tenacity", "description": "To be stubborn, to persist." },
-        { "word": "Wonder", "description": "To marvel at beauty, magnificence, splendor." }
-      ],
-      "appearance": [
-        ["fledgling", "prime specimen", "long in the tooth"],
-        ["barking voice", "growling voice", "sing-song voice"],
-        ["compact & sturdy", "long & lean", "wolfish"],
-        ["shaggy", "threadbare", "well-groomed"]
-      ],
-      "origin": [
-        { "region": "Stonetop", "names": ["Aran", "Bledyn", "Branwen", "Deryn", "Ifur", "Meinir", "Rhys", "Teagan"] },
-        { "region": "Barrier Pass", "names": ["Anarba", "Arslan", "Bolormaa", "Cirina", "Nergui", "Nomolun", "Saran", "Shigi-Qutuqu"] },
-        { "region": "Marshedge", "names": ["Asling", "Conar", "Enna", "Flannan", "Macha", "Mave", "Proinsias", "Rowen"] },
-        { "region": "The Steplands (Hillfolk)", "names": ["Bernd", "Elown", "Irn", "Kani", "Pol", "Nol", "Rozn", "Sterin"] },
-        { "region": "The Manmarch", "names": ["Alfher", "Bertrim", "Dagmar", "Elfrida", "Hramn", "Meike", "Swanhilde", "Wulfrim"] },
-        { "region": "Lygos or some other point south", "names": ["Ari", "Boriz", "Dimitra", "Gorhan", "Nitza", "Selen", "Todora", "Vasil"] }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2, in addition to your composite bow",
-        "pickCount": 2,
-        "preselected": ["composite-bow"],
-        "options": [
-          {
-            "slug": "composite-bow",
-            "label": "Composite bow",
-            "description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
-          },
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
-            "uses": 2
-          },
-          {
-            "slug": "hideouts",
-            "label": "Hideouts",
-            "description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
-            "uses": 3
-          },
-          {
-            "slug": "hounds",
-            "label": "Hounds",
-            "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
-          },
-          {
-            "slug": "husbandry-tools",
-            "label": "Husbandry tools",
-            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
-          },
-          {
-            "slug": "lay-of-the-land",
-            "label": "Lay of the land",
-            "description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
-            "uses": 3
-          },
-          {
-            "slug": "trapping-gear",
-            "label": "Trapping gear",
-            "description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-ranger",
-    "actorType": "character",
-    "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
-    "attributes": {}
-  }
+			"backgrounds": [
+				{
+					"slug": "mighty-hunter",
+					"label": "Mighty Hunter",
+					"description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
+				},
+				{
+					"slug": "wide-wanderer",
+					"label": "Wide Wanderer",
+					"description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
+				},
+				{
+					"slug": "beast-bonded",
+					"label": "Beast-Bonded",
+					"description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
+				}
+			],
+			"instincts": [
+				{
+					"word": "Adventure",
+					"description": "To test yourself, to experience new things."
+				},
+				{
+					"word": "Independence",
+					"description": "To refuse help and push others away."
+				},
+				{
+					"word": "Stewardship",
+					"description": "To value beasts and natural places over people."
+				},
+				{
+					"word": "Tenacity",
+					"description": "To be stubborn, to persist."
+				},
+				{
+					"word": "Wonder",
+					"description": "To marvel at beauty, magnificence, splendor."
+				}
+			],
+			"appearance": [
+				[
+					"fledgling",
+					"prime specimen",
+					"long in the tooth"
+				],
+				[
+					"barking voice",
+					"growling voice",
+					"sing-song voice"
+				],
+				[
+					"compact & sturdy",
+					"long & lean",
+					"wolfish"
+				],
+				[
+					"shaggy",
+					"threadbare",
+					"well-groomed"
+				]
+			],
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Aran",
+						"Bledyn",
+						"Branwen",
+						"Deryn",
+						"Ifur",
+						"Meinir",
+						"Rhys",
+						"Teagan"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Anarba",
+						"Arslan",
+						"Bolormaa",
+						"Cirina",
+						"Nergui",
+						"Nomolun",
+						"Saran",
+						"Shigi-Qutuqu"
+					]
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Asling",
+						"Conar",
+						"Enna",
+						"Flannan",
+						"Macha",
+						"Mave",
+						"Proinsias",
+						"Rowen"
+					]
+				},
+				{
+					"region": "The Steplands (Hillfolk)",
+					"names": [
+						"Bernd",
+						"Elown",
+						"Irn",
+						"Kani",
+						"Pol",
+						"Nol",
+						"Rozn",
+						"Sterin"
+					]
+				},
+				{
+					"region": "The Manmarch",
+					"names": [
+						"Alfher",
+						"Bertrim",
+						"Dagmar",
+						"Elfrida",
+						"Hramn",
+						"Meike",
+						"Swanhilde",
+						"Wulfrim"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Ari",
+						"Boriz",
+						"Dimitra",
+						"Gorhan",
+						"Nitza",
+						"Selen",
+						"Todora",
+						"Vasil"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2, in addition to your composite bow",
+				"pickCount": 2,
+				"preselected": [
+					"composite-bow"
+				],
+				"options": [
+					{
+						"slug": "composite-bow",
+						"label": "Composite bow",
+						"description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
+					},
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+						"uses": 2
+					},
+					{
+						"slug": "hideouts",
+						"label": "Hideouts",
+						"description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
+						"uses": 3
+					},
+					{
+						"slug": "hounds",
+						"label": "Hounds",
+						"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+					},
+					{
+						"slug": "husbandry-tools",
+						"label": "Husbandry tools",
+						"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+					},
+					{
+						"slug": "lay-of-the-land",
+						"label": "Lay of the land",
+						"description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
+						"uses": 3
+					},
+					{
+						"slug": "trapping-gear",
+						"label": "Trapping gear",
+						"description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+		}
+	},
+	"system": {
+		"slug": "the-ranger",
+		"actorType": "character",
+		"description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+		"attributes": {}
+	}
 }

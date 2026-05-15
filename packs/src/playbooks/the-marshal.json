@@ -204,7 +204,8 @@
 						}
 					}
 				]
-			}
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
 		}
 	},
 	"system": {

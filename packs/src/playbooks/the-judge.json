@@ -191,7 +191,8 @@
 						"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
 					}
 				]
-			}
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
 		}
 	},
 	"system": {

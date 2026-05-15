@@ -3,10 +3,7 @@
 {{#if stonetop.possessions}}
 <div class="tab equipment" data-group="primary" data-tab="equipment">
 	<div class="tab-section tab-section--possessions">
-		<h3>Special Possessions</h3>
-		{{#if stonetop.possessions.pickNote}}
-		<p class="details-instruction">{{stonetop.possessions.pickNote}}</p>
-		{{/if}}
+		{{> "stonetop.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.possessions.pickNote}}
 		<ol class="stonetop-possession-list">
 		{{#each stonetop.possessions.options}}
 			<li class="stonetop-item{{#if checked}} is-checked{{/if}}">

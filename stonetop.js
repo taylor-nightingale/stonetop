@@ -27,9 +27,10 @@ Hooks.once("init", () => {
 	});
 
 	loadTemplates({
-		"stonetop.tab-details":    "modules/stonetop/templates/actor/partials/tab-details.hbs",
-		"stonetop.tab-moves":      "modules/stonetop/templates/actor/partials/tab-moves.hbs",
-		"stonetop.tab-equipment":  "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
+		"stonetop.tab-details":      "modules/stonetop/templates/actor/partials/tab-details.hbs",
+		"stonetop.tab-moves":        "modules/stonetop/templates/actor/partials/tab-moves.hbs",
+		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
+		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
 	});
 });
 

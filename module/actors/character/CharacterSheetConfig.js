@@ -1,12 +1,12 @@
 export function characterSheetConfig() {
 	return {
 		stats: {
-			str: {label: game.i18n.localize("stonetop.character.stats.strength"), value: 0},
-			dex: {label: game.i18n.localize("stonetop.character.stats.dexterity"), value: 0},
+			str: {label: game.i18n.localize("stonetop.character.stats.strength"),     value: 0},
+			dex: {label: game.i18n.localize("stonetop.character.stats.dexterity"),    value: 0},
 			int: {label: game.i18n.localize("stonetop.character.stats.intelligence"), value: 0},
-			wis: {label: game.i18n.localize("stonetop.character.stats.wisdom"), value: 0},
+			wis: {label: game.i18n.localize("stonetop.character.stats.wisdom"),       value: 0},
 			con: {label: game.i18n.localize("stonetop.character.stats.constitution"), value: 0},
-			cha: {label: game.i18n.localize("stonetop.character.stats.charisma"), value: 0},
+			cha: {label: game.i18n.localize("stonetop.character.stats.charisma"),     value: 0},
 		},
 		moveTypes: {
 			background: {label: game.i18n.localize("stonetop.character.moveTypes.background"), moves: []},
@@ -35,7 +35,7 @@ export function characterSheetConfig() {
 			// -- LEFT ------------------------------------------------------
 			debilities: {
 				label: "Debilities",
-				type: "LabeledCheckboxes",
+				type: "ListMany",
 				condition: true,
 				options: {
 					weakened: {label: "Weakened", value: false, stat: ["str", "dex"]},
@@ -72,8 +72,6 @@ export function characterSheetConfig() {
 			},
 		},
 		equipmentTypes: {
-			special: {label: "Special Possessions", items: []},
-			gear: {label: "Gear", items: []},
 		},
 	};
 }

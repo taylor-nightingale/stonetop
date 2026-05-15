@@ -6,6 +6,14 @@ export class StonetopPlaybook {
 		this._stonetopFields = this._stonetopItem.flags.stonetop;
 	}
 
+	get description() {
+		return this._stonetopItem.system?.description ?? null;
+	}
+
+	get statsNote() {
+		return this._stonetopFields.statsNote ?? null;
+	}
+
 	get hp() {
 		return this._stonetopFields.hp;
 	}

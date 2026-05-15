@@ -1,103 +1,203 @@
 {
-  "_id": "66InktII1QKAPInQ",
-  "_key": "!items!66InktII1QKAPInQ",
-  "name": "The Seeker",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 16,
-      "damage": "d6",
+	"_id": "66InktII1QKAPInQ",
+	"_key": "!items!66InktII1QKAPInQ",
+	"name": "The Seeker",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 16,
+			"damage": "d6",
 			"moves": {
-			"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
-		},
-      "backgrounds": [
-        {
-          "slug": "patriot",
-          "label": "Patriot",
-          "description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        },
-        {
-          "slug": "antiquarian",
-          "label": "Antiquarian",
-          "description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        },
-        {
-          "slug": "witch-hunter",
-          "label": "Witch Hunter",
-          "description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        }
-      ],
-      "instincts": [
-        { "word": "Cunning", "description": "To scheme, manipulate, and plot." },
-        { "word": "Curiosity", "description": "To seek answers that maybe you oughtn't." },
-        { "word": "Hubris", "description": "To assume you know best, that you can't fail." },
-        { "word": "Mystery", "description": "To avoid straight answers; to keep secrets." },
-        { "word": "Vision", "description": "To think big and pursue grandiose goals." }
-      ],
-      "appearance": [
-        ["curiously young", "world-weary", "bent with years"],
-        ["haunted voice", "rich voice", "whispery"],
-        ["ink-stained fingers", "sinewy hands", "soft hands"],
-        ["bony limbed", "lean & lanky", "short", "thick-set"]
-      ],
-      "origin": [
-        { "region": "Stonetop", "names": ["Ania", "Dylan", "Eilwen", "Gelt", "Gwenda", "Macsen", "Mirgan", "Owena", "Taliesyn", "Twymor"] },
-        { "region": "Barrier Pass", "names": ["Bayanaganengri", "Chakha", "Jetei", "Moog", "Narengawa", "Ogul", "Ozbeg", "Solongo"] },
-        { "region": "The Steplands (Hillfolk)", "names": ["Anook", "Anxo", "Dors", "Jory", "Mari", "Padg", "Pons", "Silf"] },
-        { "region": "Gordin's Delve", "names": [] },
-        { "region": "Marshedge", "names": ["Aiden", "Barrfind", "Caolan", "Ciara", "Deirbhile", "Moirin", "Tiern", "Reamann"] },
-        { "region": "Lygos or some other point south", "names": ["Dana", "Eliana", "Erez", "Fikri", "Isra", "Persefoni", "Spiro", "Vahid"] }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2, in addition to your scribe's tools",
-        "pickCount": 2,
-        "preselected": ["scribes-tools"],
-        "options": [
-          {
-            "slug": "scribes-tools",
-            "label": "Scribe's tools",
-            "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
-          },
-          {
-            "slug": "books-and-scrolls",
-            "label": "Books &amp; scrolls",
-            "description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
-            "uses": 5
-          },
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "(○○ uses) alchemical distillation equipment, reagents, solvents, tubes, flasks; also produces fine spirits (Value 1).",
-            "uses": 2
-          },
-          {
-            "slug": "engineers-tools",
-            "label": "Engineer's tools",
-            "description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
-          },
-          {
-            "slug": "laboratory",
-            "label": "Laboratory",
-            "description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
-          },
-          {
-            "slug": "paraphernalia",
-            "label": "Paraphernalia",
-            "description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
-          },
-          {
-            "slug": "trade-contacts",
-            "label": "Trade contacts",
-            "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-seeker",
-    "actorType": "character",
-    "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
-    "attributes": {}
-  }
+				"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
+			},
+			"backgrounds": [
+				{
+					"slug": "patriot",
+					"label": "Patriot",
+					"description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				},
+				{
+					"slug": "antiquarian",
+					"label": "Antiquarian",
+					"description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				},
+				{
+					"slug": "witch-hunter",
+					"label": "Witch Hunter",
+					"description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				}
+			],
+			"instincts": [
+				{
+					"word": "Cunning",
+					"description": "To scheme, manipulate, and plot."
+				},
+				{
+					"word": "Curiosity",
+					"description": "To seek answers that maybe you oughtn't."
+				},
+				{
+					"word": "Hubris",
+					"description": "To assume you know best, that you can't fail."
+				},
+				{
+					"word": "Mystery",
+					"description": "To avoid straight answers; to keep secrets."
+				},
+				{
+					"word": "Vision",
+					"description": "To think big and pursue grandiose goals."
+				}
+			],
+			"appearance": [
+				[
+					"curiously young",
+					"world-weary",
+					"bent with years"
+				],
+				[
+					"haunted voice",
+					"rich voice",
+					"whispery"
+				],
+				[
+					"ink-stained fingers",
+					"sinewy hands",
+					"soft hands"
+				],
+				[
+					"bony limbed",
+					"lean & lanky",
+					"short",
+					"thick-set"
+				]
+			],
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Ania",
+						"Dylan",
+						"Eilwen",
+						"Gelt",
+						"Gwenda",
+						"Macsen",
+						"Mirgan",
+						"Owena",
+						"Taliesyn",
+						"Twymor"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Bayanaganengri",
+						"Chakha",
+						"Jetei",
+						"Moog",
+						"Narengawa",
+						"Ogul",
+						"Ozbeg",
+						"Solongo"
+					]
+				},
+				{
+					"region": "The Steplands (Hillfolk)",
+					"names": [
+						"Anook",
+						"Anxo",
+						"Dors",
+						"Jory",
+						"Mari",
+						"Padg",
+						"Pons",
+						"Silf"
+					]
+				},
+				{
+					"region": "Gordin's Delve",
+					"names": []
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Aiden",
+						"Barrfind",
+						"Caolan",
+						"Ciara",
+						"Deirbhile",
+						"Moirin",
+						"Tiern",
+						"Reamann"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Dana",
+						"Eliana",
+						"Erez",
+						"Fikri",
+						"Isra",
+						"Persefoni",
+						"Spiro",
+						"Vahid"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2, in addition to your scribe's tools",
+				"pickCount": 2,
+				"preselected": [
+					"scribes-tools"
+				],
+				"options": [
+					{
+						"slug": "scribes-tools",
+						"label": "Scribe's tools",
+						"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					},
+					{
+						"slug": "books-and-scrolls",
+						"label": "Books &amp; scrolls",
+						"description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
+						"uses": 5
+					},
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "(○○ uses) alchemical distillation equipment, reagents, solvents, tubes, flasks; also produces fine spirits (Value 1).",
+						"uses": 2
+					},
+					{
+						"slug": "engineers-tools",
+						"label": "Engineer's tools",
+						"description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+					},
+					{
+						"slug": "laboratory",
+						"label": "Laboratory",
+						"description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
+					},
+					{
+						"slug": "paraphernalia",
+						"label": "Paraphernalia",
+						"description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
+					},
+					{
+						"slug": "trade-contacts",
+						"label": "Trade contacts",
+						"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+		}
+	},
+	"system": {
+		"slug": "the-seeker",
+		"actorType": "character",
+		"description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+		"attributes": {}
+	}
 }

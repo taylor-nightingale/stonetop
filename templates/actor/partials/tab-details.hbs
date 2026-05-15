@@ -3,7 +3,7 @@
 
 		{{#if stonetop.backgrounds.length}}
 		<div class="details-section">
-			<h3>Background</h3>
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.background.label") note=(localize "stonetop.character.selection.chooseOne")}}
 			{{#each stonetop.backgrounds}}
 			<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
@@ -34,10 +34,10 @@
 
 		{{#if stonetop.hasPlaybook}}
 		<div class="details-section">
-			<h3>Instinct</h3>
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.instinct.label") note=(localize "stonetop.character.selection.chooseOne")}}
 			<input type="text" class="stonetop-instinct-custom"
 			       value="{{stonetop.savedInstinct}}"
-			       placeholder="Write your own instinct…">
+			       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
 			{{#if stonetop.instincts.length}}
 			<div class="stonetop-instinct-options">
 				{{#each stonetop.instincts}}
@@ -57,8 +57,7 @@
 
 		{{#if stonetop.appearance.length}}
 		<div class="details-section">
-			<h3>Appearance</h3>
-			<p class="details-instruction">Choose one from each row.</p>
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
 			{{#each stonetop.appearance}}
 			<div class="stonetop-appearance-row">
 				{{#each options}}
@@ -77,7 +76,7 @@
 
 		{{#if stonetop.origins.length}}
 		<div class="details-section">
-			<h3>Origin</h3>
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.origin.label") note=(localize "stonetop.character.selection.origin.instruction")}}
 			{{#each stonetop.origins}}
 			<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
 				<label class="stonetop-origin-region">

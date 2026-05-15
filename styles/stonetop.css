@@ -140,31 +140,16 @@ body,
 }
 
 .pbta.sheet .sheet-attributes .cell--stats {
-	position: relative;
-	padding-top: 20px;
 	flex: 1;
 	min-width: 0;
 }
 
-.pbta.sheet .sheet-attributes .cell--stats::before {
-	content: "Stats";
-	position: absolute;
-	top: 2px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	font-variant: small-caps;
-	font-weight: bold;
-	font-size: 0.8rem;
-	letter-spacing: 0.05em;
-	color: #1a1a1a;
-}
-
 .pbta.sheet .sheet-attributes .cell--stats .stats-list {
 	display: flex !important;
-	flex-direction: column !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
 	align-items: stretch;
-	justify-content: flex-start;
+	justify-content: space-between;
 	gap: 2px;
 	margin: 0;
 	padding: 0;
@@ -173,17 +158,17 @@ body,
 
 .pbta.sheet .sheet-attributes .cell--stats .stat {
 	display: flex !important;
-	flex-direction: row !important;
-	flex-wrap: nowrap !important;
+	flex-direction: column !important;
 	align-items: center !important;
-	justify-content: flex-start !important;
-	gap: 5px;
-	padding: 2px 4px;
+	justify-content: center !important;
+	gap: 2px;
+	padding: 2px;
 	color: #1a1a1a !important;
-	flex: unset !important;
+	flex: 1 !important;
 	border-radius: 0 !important;
 	background: transparent !important;
 	text-transform: none;
+	text-align: center;
 }
 
 .pbta.sheet .sheet-attributes .cell--stats .stat:hover {
@@ -191,37 +176,44 @@ body,
 }
 
 .pbta.sheet .sheet-attributes .cell--stats .stat-value {
-	order: -1;
-	width: 26px !important;
-	height: 26px !important;
-	min-width: 26px !important;
-	border-radius: 50% !important;
-	border: 1.5px solid #555 !important;
+	order: 0;
+	width: 44px !important;
+	height: 44px !important;
+	min-width: 44px !important;
+	border-radius: 4px !important;
+	border: 2px solid #555 !important;
 	text-align: center;
 	padding: 0 !important;
 	background: transparent !important;
 	color: #1a1a1a !important;
-	font-size: 0.85rem;
-	line-height: 24px;
+	font-size: 1.1rem;
+	line-height: 42px;
 	flex-shrink: 0;
 }
 
 .pbta.sheet .sheet-attributes .cell--stats .cell__title {
-	width: auto !important;
+	width: 100% !important;
 	min-width: 0 !important;
-	flex: 1 !important;
+	flex: unset !important;
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
-	justify-content: flex-start !important;
-	gap: 4px;
+	justify-content: center !important;
+	gap: 3px;
 	font-variant: small-caps;
 	font-size: 0.82rem !important;
 	color: #1a1a1a !important;
-	text-align: left !important;
+	text-align: center !important;
 	padding: 0 !important;
 	margin: 0 !important;
 	border: 0;
+	line-height: 1;
+}
+
+.stonetop-stat-abbr {
+	font-size: 0.75rem;
+	font-variant: small-caps;
+	color: var(--color-text-dark-secondary);
 	line-height: 1;
 }
 
@@ -232,6 +224,73 @@ body,
 	flex-shrink: 0;
 	width: auto !important;
 	height: auto !important;
+}
+
+.stonetop-playbook-description {
+	font-size: 0.75rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary);
+	margin: 0 0 4px;
+	line-height: 1.4;
+}
+
+.stonetop-playbook-divider {
+	border: none;
+	border-top: 1px solid var(--color-border-light-tertiary, #ccc);
+	margin: 0 0 6px;
+}
+
+.pbta.sheet .cell--debilities {
+	display: none !important;
+}
+
+.stonetop-debilities {
+	display: flex;
+	width: 100%;
+	padding: 0;
+}
+
+.stonetop-debility {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.stonetop-debility-bracket {
+	display: block;
+	align-self: stretch;
+	height: 8px;
+	border: 1.5px solid #888;
+	border-top: none;
+	border-radius: 0 0 6px 6px;
+	margin: 0 6px 4px;
+}
+
+.stonetop-debility-control {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3px;
+	cursor: pointer;
+	font-size: 0.7rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary);
+}
+
+.stonetop-debility input[type="checkbox"] {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	width: 14px;
+	height: 14px;
+	border-radius: 50% !important;
+	border: 1.5px solid #555 !important;
+	background: transparent !important;
+	cursor: pointer;
+}
+
+.stonetop-debility input[type="checkbox"]:checked {
+	background-color: #555 !important;
 }
 
 /* Playbook colors */
@@ -616,6 +675,13 @@ body,
 	font-style: italic;
 	color: var(--color-text-dark-secondary);
 	margin: 0 0 6px;
+}
+
+.stonetop-section-note {
+	font-size: 0.7em;
+	font-style: italic;
+	font-weight: normal;
+	color: var(--color-text-dark-secondary);
 }
 
 .stonetop-move-group .items-list {

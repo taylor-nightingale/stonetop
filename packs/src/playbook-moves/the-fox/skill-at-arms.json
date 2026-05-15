@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"isStartingMove": true,
+		"isStartingMove": false,
 		"description": "<p>When you <strong><em>wield a weapon with speed and grace</em></strong>, roll +DEX to Clash (instead of +STR).</p>"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"

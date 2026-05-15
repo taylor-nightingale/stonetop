@@ -4,12 +4,44 @@
 		{{> "pbta.actor-header"}}
 
 		<section class="sheet-top flexcol">
+			{{#if stonetop.description}}
+			<p class="stonetop-playbook-description">{{stonetop.description}}</p>
+			{{/if}}
+
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.statsNote}}
+
 			<section class="sheet-attributes flexrow">
-				<div class="cell cell--image">
-					<img class="profile-img" src="{{actor.img}}" data-edit="img" />
-				</div>
 				{{> "pbta.actor-stats"}}
 			</section>
+			<div class="stonetop-debilities">
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.weakened.value"
+						       {{#if system.attributes.debilities.options.weakened.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">weakened</span>
+					</label>
+				</div>
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.dazed.value"
+						       {{#if system.attributes.debilities.options.dazed.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">dazed</span>
+					</label>
+				</div>
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.miserable.value"
+						       {{#if system.attributes.debilities.options.miserable.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">miserable</span>
+					</label>
+				</div>
+			</div>
 
 			<section class="sheet-attributes-top">
 				{{~> "pbta.actor-attributes" attrs=system.attrTop cssClass="cell--attributes-top flexrow" owner=owner editable=editable~}}
@@ -26,7 +58,7 @@
 			<nav class="sheet-tabs tabs" data-group="primary">
 				<a class="item" data-tab="moves">{{localize "PBTA.Moves"}}</a>
 				<a class="item" data-tab="equipment">{{localize "PBTA.Equipment"}}</a>
-				<a class="item" data-tab="details">Details</a>
+				<a class="item" data-tab="details">{{localize "stonetop.sheet.tabs.details"}}</a>
 			</nav>
 
 			<div class="stonetop-sheet-layout">
@@ -37,7 +69,7 @@
 				</section>
 
 				<div class="stonetop-moves-sidebar">
-					<h3 class="stonetop-move-group-title">Basic Moves</h3>
+					{{> "stonetop.section-heading" title=(localize "stonetop.character.moves.basicMoves")}}
 					<ol class="items-list">
 					{{#each stonetop.movelist.basicMoves}}
 						{{#if (and owned rollType)}}
