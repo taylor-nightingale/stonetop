@@ -6,10 +6,15 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"stat": "wis",
-		"rollFormula": "2d6+@wis",
 		"description": "<p>When you <strong><em>draw a malady from a patient's body, mind, or soul</em></strong>, spend 1 Stock and roll +WIS.</p>",
-		"rollResults": {
+		"requirement": {
+			"level": 6,
+			"moves": [
+				"Healer's Arts"
+			]
+		},
+		"rollType": "wis",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
@@ -22,12 +27,6 @@
 				"label": "6-",
 				"description": "The GM makes a move."
 			}
-		},
-		"requirement": {
-			"level": 6,
-			"moves": [
-				"Healer's Arts"
-			]
 		}
 	},
 	"folder": "twBI9Q4lZycODbDk"

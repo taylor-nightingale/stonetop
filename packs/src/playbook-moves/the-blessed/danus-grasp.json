@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"stat": "wis",
-		"rollFormula": "2d6+@wis",
 		"description": "<p>When you <strong><em>call on the world itself to bind a spirit or a perversion of nature</em></strong>, spend 1 Stock and roll +WIS: <strong><em>on a 7+</em></strong>, roots, vines, and earth pull at them, and they pick 1; <strong>on a 10+</strong>, as a 7-9, but both apply.</p><ul><li>They're restrained, unable to act freely until your focus slips or they tear their way free</li><li>They take 2d4 damage (ignores armor)</li></ul><p>If this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.</p>",
-		"rollResults": {
+		"rollType": "wis",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "As 7-9, but both apply."

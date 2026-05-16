@@ -175,7 +175,7 @@ function makeEntry(overrides = {}) {
 		name: overrides.name ?? "Test Move",
 		system: {
 			description: overrides.description ?? "A test move.",
-			stat: overrides.stat ?? null,
+			rollType: overrides.rollType ?? null,
 			isStartingMove: overrides.isStartingMove ?? false,
 			requirement: overrides.requirement ?? null,
 		},
@@ -250,8 +250,8 @@ describe("StonetopCharacter.buildMovelistContext", () => {
 		expect(m.locked).toBe(false);
 	});
 
-	it("stat field maps to rollType", () => {
-		const [m] = char.buildMovelistContext([makeEntry({ stat: "con" })], new Map(), new Set(), 1);
+	it("rollType passes through", () => {
+		const [m] = char.buildMovelistContext([makeEntry({ rollType: "con" })], new Map(), new Set(), 1);
 		expect(m.rollType).toBe("con");
 	});
 

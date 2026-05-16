@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"stat": "wis",
-		"rollFormula": "2d6+@wis",
 		"description": "<p>When you <strong><em>stare into the sun long enough to lose your vision</em></strong>, name a person or place that you know and roll +WIS: <strong>on a 10+</strong>, you briefly glimpse your subject as if from a great height, and choose 2 from the list below; <strong><em>on a 7-9</em></strong>, you briefly glimpse your subject as if from a great height, and choose 1.</p><ul><li>The glimpse lasts as long as you wish</li><li>Your point of view shifts to very close range</li><li>You recover your vision quickly</li></ul>",
-		"rollResults": {
+		"rollType": "wis",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "You briefly glimpse your subject from a great height — choose 2."

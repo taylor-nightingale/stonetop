@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"stat": "cha",
-		"rollFormula": "2d6+@cha",
 		"description": "<p>When you <strong><em>draw attention to yourself by word or deed</em></strong>, roll +CHA: <strong>on a 10+</strong>, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; <strong><em>on a 7-9</em></strong>, everyone turns and looks.</p>",
-		"rollResults": {
+		"rollType": "cha",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look."

@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"stat": "int",
-		"rollFormula": "2d6+@int",
 		"description": "<p>When you <strong><em>mark a boundary with sacred signs</em></strong>, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.</p><p>When <strong><em>your wards or bindings are first tested</em></strong>, roll +INT.</p>",
-		"rollResults": {
+		"rollType": "int",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "They will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly."

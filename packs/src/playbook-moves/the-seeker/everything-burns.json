@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"stat": "int",
-		"rollFormula": "2d6+@int",
 		"description": "<p>When you <strong><em>inspect a work of artifice or magic for a fatal flaw</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, the GM will reveal the best way to destroy/sabotage it; <strong>on a 10+</strong>, you or an ally also gain advantage to act on the info.</p>",
-		"rollResults": {
+		"rollType": "int",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "The GM reveals the best way to destroy/sabotage it, and you or an ally gain advantage to act on the info."

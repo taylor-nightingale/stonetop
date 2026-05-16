@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"stat": "dex",
-		"rollFormula": "2d6+@dex",
 		"description": "<p>When you <strong><em>perform sleight of hand on an unwary mark</em></strong>, you succeed and no one's the wiser. If you're being watched, roll +DEX: <strong>on a 10+</strong>, you succeed and no one's the wiser; <strong><em>on a 7-9</em></strong>, you succeed OR no one's the wiser (your choice).</p>",
-		"rollResults": {
+		"rollType": "dex",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "You succeed and no one's the wiser."

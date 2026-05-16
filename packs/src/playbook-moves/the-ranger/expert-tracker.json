@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"stat": "wis",
-		"rollFormula": "2d6+@wis",
 		"description": "<p>When you <strong><em>Seek Insight by searching for or studying the signs left by passing creatures</em></strong>, you can ask \"What happened here recently?\" for free, even on a 6-.</p><p>When you <strong><em>follow a creature's trail</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong> you follow it to a significant change in terrain or activity; <strong>on a 10+</strong>, you can ask the GM a reasonable question about your quarry and get a useful answer.</p>",
-		"rollResults": {
+		"rollType": "wis",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "Follow the trail to a significant change and ask a reasonable question about your quarry."

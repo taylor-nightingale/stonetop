@@ -10,6 +10,14 @@ export function onPbtaSheetConfig() {
 
 	game.pbta.sheetConfig = GetSheetConfig();
 	_migrateActorLabels().catch(console.error);
+	_ensureAllCharacterMoves().catch(console.error);
+}
+
+async function _ensureAllCharacterMoves() {
+	for (const actor of game.actors) {
+		if (actor.type !== "character") continue;
+		await actor.typedActor.ensureStartingMoves();
+	}
 }
 
 async function _migrateActorLabels() {

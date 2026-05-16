@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"stat": "cha",
-		"rollFormula": "2d6+@cha",
 		"description": "<p>When you <strong><em>lead one or more NPCs through danger</em></strong>, roll +CHA: <strong>on a 10+</strong>, you all make it through (Helior be praised); <strong><em>on a 7-9</em></strong>, the GM will tell you what's required to get everyone through safely.</p>",
-		"rollResults": {
+		"rollType": "cha",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "You all make it through."

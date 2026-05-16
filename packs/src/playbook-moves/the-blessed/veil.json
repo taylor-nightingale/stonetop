@@ -6,10 +6,9 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"stat": "int",
-		"rollFormula": "2d6+@int",
 		"description": "<p>When you <strong><em>wrap yourself or another in a subtle veil</em></strong>, spend 1 Stock and choose 1:</p><ul><li>A type of being you name (including \"people\") will tend to ignore your presence</li><li>People will perceive you as someone else, though you must wear something of an individual's in order to impersonate them</li></ul><p>When <strong><em>your deception comes under scrutiny</em></strong>, roll +INT.</p>",
-		"rollResults": {
+		"rollType": "int",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "The veil holds, and no one is the wiser."

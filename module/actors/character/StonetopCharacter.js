@@ -1,3 +1,4 @@
+import {PlaybookMoveEntry} from "./PlaybookMoveEntry.js";
 import {MoveResources} from "./MoveResources.js";
 import {StonetopFlags} from "./StonetopFlags.js";
 import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
@@ -240,7 +241,7 @@ export class StonetopCharacter {
 				name: e.name,
 				compendiumId: e._id,
 				ownedId: instances[0]?._id ?? null,
-				rollType: e.system?.stat ?? null,
+				rollType: e.system?.rollType ?? null,
 				owned: instances.length > 0,
 			};
 		});
@@ -250,7 +251,7 @@ export class StonetopCharacter {
 			if (items.length) acc.push({
 				key: t,
 				label: t.charAt(0).toUpperCase() + t.slice(1) + " Moves",
-				moves: items.map(i => ({ name: i.name, ownedId: i._id, rollType: i.system?.stat ?? null })),
+				moves: items.map(i => ({ name: i.name, ownedId: i._id, rollType: i.system?.rollType ?? null })),
 			});
 			return acc;
 		}, []);
@@ -259,47 +260,9 @@ export class StonetopCharacter {
 	}
 
 	buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, actorPlaybook) {
-		return entries.map(e => {
-			const ownedInstances = ownedAllByName.get(e.name) ?? [];
-			const isFromPlaybook = !!e.system?.isStartingMove;
-			const isFromBackground = bgMoveNames.has(e.name);
-			const isStarting = isFromPlaybook || isFromBackground;
-			const source = isFromPlaybook ? "Starting" : isFromBackground ? "Background" : null;
-			const req = e.system?.requirement ?? null;
-			const requiresMoves = req?.moves ?? [];
-			const requiresPlaybook = req?.playbook ?? null;
-			const minLevel = req?.level ?? null;
-			const repeatMax = e.system?.repeatMax ?? 1;
-			const repeatable = repeatMax > 1;
-			const locked = !isStarting && !!(
-				requiresMoves.some(m => !ownedAllByName.has(m)) ||
-				(requiresPlaybook && requiresPlaybook !== actorPlaybook) ||
-				(minLevel && actorLevel < minLevel)
-			);
-			const lastOwnedId = ownedInstances[ownedInstances.length - 1]?._id ?? null;
-			return {
-				name: e.name,
-				description: e.system?.description ?? "",
-				compendiumId: e._id,
-				owned: ownedInstances.length > 0,
-				ownedId: lastOwnedId,
-				rollType: e.system?.stat ?? null,
-				isStarting,
-				source,
-				locked,
-				requires: requiresMoves[0] ?? null,
-				requiresLabel: requiresMoves.length > 0 ? requiresMoves.join(", ") : null,
-				requiresPlaybook,
-				minLevel,
-				repeatable,
-				repeatChecks: repeatable ? Array.from({ length: repeatMax }, (_, i) => ({
-					checked: i < ownedInstances.length,
-					ownedId: i < ownedInstances.length ? lastOwnedId : null,
-					disabled: isStarting || locked || (!(i < ownedInstances.length) && i !== ownedInstances.length),
-				})) : null,
-				resourceMax: e.system?.resourceMax ?? null,
-			};
-		});
+		return entries.map(e =>
+			new PlaybookMoveEntry(e, ownedAllByName.get(e.name) ?? [], bgMoveNames, ownedAllByName, actorLevel, actorPlaybook)
+		);
 	}
 
 	sortPlaybookMoves(moves) {
@@ -330,9 +293,17 @@ export class StonetopCharacter {
 		const missing = entries.filter(e =>
 			(e.system?.isStartingMove || bgMoveNames.has(e.name)) && !ownedNames.has(e.name)
 		);
-		if (!missing.length) return;
-		const docs = await Promise.all(missing.map(e => this._playbookMoveRepo.getDocument(e._id)));
-		await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
+		if (missing.length) {
+			const docs = await Promise.all(missing.map(e => this._playbookMoveRepo.getDocument(e._id)));
+			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
+		}
+
+		const basicEntries = await this._basicMoveRepo.getAll();
+		const missingBasic = basicEntries.filter(e => !ownedNames.has(e.name));
+		if (missingBasic.length) {
+			const docs = await Promise.all(missingBasic.map(e => this._basicMoveRepo.getDocument(e._id)));
+			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
+		}
 	}
 
 	async addMove(compendiumId) {
@@ -351,12 +322,14 @@ export class StonetopCharacter {
 
 		const hp = stonetopPlaybook.hp;
 		const damage = stonetopPlaybook.damage;
-		if (!hp || !damage) return;
-		await this._actor.update({
-			"system.attributes.hp.max": hp,
-			"system.attributes.hp.value": hp,
-			"system.attributes.damage.value": damage,
-		});
+		if (hp && damage) {
+			await this._actor.update({
+				"system.attributes.hp.max": hp,
+				"system.attributes.hp.value": hp,
+				"system.attributes.damage.value": damage,
+			});
+		}
+		await this.ensureStartingMoves();
 	}
 
 	applyDebilityRollMode(stat, options) {

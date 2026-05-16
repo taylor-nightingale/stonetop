@@ -6,10 +6,14 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"stat": "wis",
-		"rollFormula": "2d6+@wis",
 		"description": "<p>When <strong><em>a spirit or beast loans you power</em></strong>, ask the GM for one of its tags or moves. Store it in your pouch in place of 1 Stock. When you <strong><em>use the borrowed tag or move</em></strong>, roll +WIS.</p>",
-		"rollResults": {
+		"requirement": {
+			"moves": [
+				"Spirit Tongue"
+			]
+		},
+		"rollType": "wis",
+		"moveResults": {
 			"success": {
 				"label": "10+",
 				"description": "You do it and can use the power again."
@@ -22,11 +26,6 @@
 				"label": "6-",
 				"description": "The GM makes a move."
 			}
-		},
-		"requirement": {
-			"moves": [
-				"Spirit Tongue"
-			]
 		}
 	},
 	"folder": "twBI9Q4lZycODbDk"
