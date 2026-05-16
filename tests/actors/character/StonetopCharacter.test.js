@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { StonetopCharacter } from "../../../module/actors/character/StonetopCharacter.js";
 
 // -- Fake repositories --------------------------------------------------------
@@ -816,5 +816,103 @@ describe("applyDebilityRollMode", () => {
 		const char = makeCharacter(makeDebilityActor({ weakened: true }));
 		const result = char.applyDebilityRollMode("str", { rollMode: "adv", extra: "value" });
 		expect(result).toEqual({ rollMode: "def", extra: "value" });
+	});
+});
+
+// -- onRoll -------------------------------------------------------------------
+
+function makeRollableItem({ id = "item-1", rollType = "str", type = "move", rollFormula = null } = {}) {
+	return {
+		_id: id,
+		type,
+		system: { rollType, rollFormula },
+		roll: vi.fn(),
+	};
+}
+
+function makeItemEvent({ itemId = "item-1", showDescription = false, hasItemEl = true } = {}) {
+	return {
+		currentTarget: {
+			closest: (sel) => sel === ".item" && hasItemEl ? { dataset: { itemId } } : null,
+			getAttribute: (attr) => attr === "data-show" && showDescription ? "description" : null,
+			classList: { contains: () => false },
+			dataset: {},
+		},
+	};
+}
+
+function makeOnRollActor(item, { pbtaRollMode = "def", debilities = {} } = {}) {
+	const actor = makeDebilityActor(debilities);
+	const itemsArr = item ? [item] : [];
+	itemsArr.get = (id) => itemsArr.find(i => i._id === id) ?? null;
+	actor.items = itemsArr;
+	actor.flags.pbta = { rollMode: pbtaRollMode };
+	return actor;
+}
+
+describe("StonetopCharacter.onRoll", () => {
+	beforeEach(() => { game.settings = { get: vi.fn(() => false) }; });
+	afterEach(() => { delete game.settings; });
+
+	it("returns false when event has no item element", async () => {
+		const char = makeCharacter(makeOnRollActor(null));
+		expect(await char.onRoll(makeItemEvent({ hasItemEl: false }))).toBe(false);
+	});
+
+	it("returns false when item has no rollType", async () => {
+		const item = makeRollableItem({ rollType: null });
+		const char = makeCharacter(makeOnRollActor(item));
+		expect(await char.onRoll(makeItemEvent())).toBe(false);
+		expect(item.roll).not.toHaveBeenCalled();
+	});
+
+	it("returns true and calls item.roll when item has a rollType", async () => {
+		const item = makeRollableItem({ rollType: "str" });
+		const char = makeCharacter(makeOnRollActor(item));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledOnce();
+	});
+
+	it("passes rollMode from actor pbta flag", async () => {
+		const item = makeRollableItem({ rollType: "str" });
+		const char = makeCharacter(makeOnRollActor(item, { pbtaRollMode: "adv" }));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "adv" }));
+	});
+
+	it("sets descriptionOnly when data-show=description", async () => {
+		const item = makeRollableItem({ rollType: "str" });
+		const char = makeCharacter(makeOnRollActor(item));
+		expect(await char.onRoll(makeItemEvent({ showDescription: true }))).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ descriptionOnly: true }));
+	});
+
+	it("sets descriptionOnly for npcMove with no rollFormula", async () => {
+		const item = makeRollableItem({ rollType: "str", type: "npcMove", rollFormula: null });
+		const char = makeCharacter(makeOnRollActor(item));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ descriptionOnly: true }));
+	});
+
+	it("applies disadvantage when relevant debility is active", async () => {
+		const item = makeRollableItem({ rollType: "str" });
+		const char = makeCharacter(makeOnRollActor(item, { debilities: { weakened: true } }));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "dis" }));
+	});
+
+	it("does not apply disadvantage when debility covers a different stat", async () => {
+		const item = makeRollableItem({ rollType: "wis" });
+		const char = makeCharacter(makeOnRollActor(item, { debilities: { weakened: true } }));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "def" }));
+	});
+
+	it("omits rollMode from options when hideRollMode is true", async () => {
+		game.settings.get.mockReturnValue(true);
+		const item = makeRollableItem({ rollType: "str" });
+		const char = makeCharacter(makeOnRollActor(item, { pbtaRollMode: "adv" }));
+		expect(await char.onRoll(makeItemEvent())).toBe(true);
+		expect(item.roll).toHaveBeenCalledWith({ descriptionOnly: false });
 	});
 });

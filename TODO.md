@@ -3,7 +3,6 @@
 * Support playbook specific lore things like "the earth mother"
 * Support for followers
 * support for steading
-* add weakened, dazed, and miserable debilities that give disadvantage on the stats
 * populate the playbook compendium with all info associated with the playbook
 * moves that let you select from another playbook should let you pick from the other playbook's moves. Perhaps allowing moves to be dragged into the sheet as "custom moves"
 * playbook inserts
@@ -14,4 +13,3 @@
 * toggle to turn off non-selected character options
 * Support dynamic xp 6 + level * 2
 * support xp over cap
-* debilities should affect move rolls as well

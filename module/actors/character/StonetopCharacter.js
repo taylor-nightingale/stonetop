@@ -333,6 +333,23 @@ export class StonetopCharacter {
 		await this.ensureStartingMoves();
 	}
 
+	async onRoll(event) {
+		const itemId = event.currentTarget.closest(".item")?.dataset.itemId;
+		if (!itemId) return false;
+		const item = this._actor.items.get(itemId);
+		const stat = item?.system?.rollType ?? null;
+		if (!stat) return false;
+
+		const isDescription = event.currentTarget.getAttribute("data-show") === "description";
+		const descriptionOnly = isDescription || (item.type === "npcMove" && !item.system.rollFormula);
+		const options = {};
+		if (!game.settings.get("pbta", "hideRollMode")) {
+			options.rollMode = this._actor.flags?.pbta?.rollMode;
+		}
+		await item.roll({ ...this.applyDebilityRollMode(stat, options), descriptionOnly });
+		return true;
+	}
+
 	applyDebilityRollMode(stat, options) {
 		const debilityOptions = this._actor.system.attributes?.debilities?.options ?? {};
 		const hasActiveDebility = Object.values(debilityOptions).some(

@@ -26,6 +26,14 @@ export function createStonetopActorClass(BaseActor) {
 
 		// -- Lifecycle ---------------------------------------------
 		// Method names can not change, they are called by pbta system
+		async _onRoll(event) {
+			if (this.type === "character") {
+				const handled = await this.typedActor.onYdRoll(event);
+				if (handled) return;
+			}
+			return super._onRoll(event);
+		}
+
 		async _onRollStat(stat, label, options = {}) {
 			if (this.type === "character") {
 				options = this.typedActor.applyDebilityRollMode(stat, options);
