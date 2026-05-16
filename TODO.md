@@ -9,11 +9,9 @@
 * playbook inserts
 * forward, and ongoing should be removed. roll mode should be moved out of moves tab.
 * handle labeled resources on moves -- all in the wrist should have [] a few left [] out
-* Get HTML working for moves on the sheet and in the compendium
-* Get move rolling to work, right now it just posts the move to chat
-* handle starting move where you get a choice (neither should be selected, example the fox)
 * unbold the background descriptions. Allow for html formatting
 * make playbook moves editable
 * toggle to turn off non-selected character options
 * Support dynamic xp 6 + level * 2
 * support xp over cap
+* debilities should affect move rolls as well

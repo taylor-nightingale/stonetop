@@ -64,12 +64,19 @@
 					<div class="stonetop-choice-subgroup">
 						{{#each options}}
 						<label class="stonetop-choice-option-label">
+							{{#if ../multiSelect}}
+							<input type="checkbox" class="stonetop-item-check stonetop-possession-sub-check"
+							       data-possession-slug="{{../../../slug}}"
+							       data-choice-slug="{{slug}}"
+							       {{#if checked}}checked{{/if}}>
+							{{else}}
 							<input type="radio" class="stonetop-possession-sub-radio"
 							       name="stonetop-{{../groupId}}"
 							       data-possession-slug="{{../../../slug}}"
 							       data-choice-slug="{{slug}}"
 							       data-sibling-slugs-csv="{{../slugsCsv}}"
 							       {{#if checked}}checked{{/if}}>
+							{{/if}}
 							{{{label}}}
 						</label>
 						{{/each}}

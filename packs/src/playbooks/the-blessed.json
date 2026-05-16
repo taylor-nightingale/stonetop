@@ -290,7 +290,7 @@
 								"note": "choose 1",
 								"subgroups": [
 									{
-										"pickCount": 1,
+										"multiSelect": true,
 										"options": [
 											{
 												"slug": "trait-indestructible",

@@ -661,11 +661,25 @@ body,
 }
 
 .stonetop-moves-sidebar {
-	width: 180px;
+	width: 220px;
 	flex-shrink: 0;
 	border-left: 1px solid var(--color-border-light-2);
 	padding-left: 12px;
 	overflow-y: auto;
+}
+
+.stonetop-moves-sidebar li {
+	border-radius: 3px;
+	padding: 2px 4px;
+	cursor: pointer;
+}
+
+.stonetop-moves-sidebar li:hover {
+	background: rgba(0, 0, 0, 0.06);
+}
+
+.stonetop-move-name {
+	cursor: pointer;
 }
 
 /* -- Moves tab -------------------------------------------- */
@@ -783,7 +797,7 @@ body,
 	-webkit-appearance: none !important;
 	width: 14px;
 	height: 14px;
-	border-radius: 50% !important;
+	border-radius: 2px !important;
 	border: 2px solid var(--color-text-dark-primary) !important;
 	background: transparent !important;
 	cursor: pointer;

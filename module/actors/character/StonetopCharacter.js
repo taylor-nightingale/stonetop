@@ -172,6 +172,7 @@ export class StonetopCharacter {
 							return {
 								groupId,
 								slugsCsv,
+								multiSelect: !!sg.multiSelect,
 								options: sg.options.map(o => ({
 									slug: o.slug,
 									label: o.label,

@@ -70,6 +70,13 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-possession-check").on("change", this._onPossessionCheck.bind(this));
 			html.find(".stonetop-possession-sub-check").on("change", this._onPossessionSubCheck.bind(this));
 			html.find(".stonetop-possession-sub-radio").on("change", this._onPossessionSubRadio.bind(this));
+			html.find(".stonetop-basic-move-open").on("click", async ev => {
+				const { compendiumId } = ev.currentTarget.dataset;
+				const pack = game.packs.get("stonetop.basic-moves");
+				if (!pack || !compendiumId) return;
+				const doc = await pack.getDocument(compendiumId);
+				if (doc) doc.sheet.render(true);
+			});
 		}
 
 		async _onBackgroundChange(ev) {
