@@ -920,3 +920,15 @@ body,
 	cursor: pointer;
 	flex: 1;
 }
+
+.stonetop-other-move-delete {
+	display: none;
+	margin-left: auto;
+	color: var(--color-text-dark-secondary);
+	cursor: pointer;
+	font-size: 0.75em;
+}
+
+.stonetop-item:hover .stonetop-other-move-delete {
+	display: inline;
+}

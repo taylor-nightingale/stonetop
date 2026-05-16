@@ -52,7 +52,10 @@
 				"pickTitle": "Choose Starting Moves",
 				"pickInstruction": "Pick up to {count} moves to start with.",
 				"playbookMoves": "Playbook Moves",
-				"basicMoves": "Basic Moves"
+				"basicMoves": "Basic Moves",
+				"otherMoves": "Other Moves",
+				"addMove": "Add Move",
+				"removeMove": "Remove Move"
 			},
 			"selection": {
 				"select": "Select",

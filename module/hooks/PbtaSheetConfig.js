@@ -1,4 +1,4 @@
-import { info } from "../utils/logger.js";
+import { info, error } from "../utils/logger.js";
 import { GetSheetConfig } from "../config/get-sheet-config.js"
 
 export function onPbtaSheetConfig() {
@@ -9,8 +9,8 @@ export function onPbtaSheetConfig() {
 	game.settings.set("pbta", "sheetConfigOverride", true);
 
 	game.pbta.sheetConfig = GetSheetConfig();
-	_migrateActorLabels().catch(console.error);
-	_ensureAllCharacterMoves().catch(console.error);
+	_migrateActorLabels().catch(error);
+	_ensureAllCharacterMoves().catch(error);
 }
 
 async function _ensureAllCharacterMoves() {

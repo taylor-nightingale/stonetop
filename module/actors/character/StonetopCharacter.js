@@ -56,7 +56,11 @@ export class StonetopCharacter {
 
 	async buildSheetData() {
 		const playbookData = await this.playbook();
-		if (!playbookData) return new CharacterSheetData();
+		if (!playbookData) {
+			const data = new CharacterSheetData();
+			data.movelist = await this.getMoves();
+			return data;
+		}
 
 		const savedBg = this._background.selectedSlug;
 		const savedInstinct = this._instinct.selectedValue;
@@ -257,7 +261,17 @@ export class StonetopCharacter {
 			return acc;
 		}, []);
 
-		return { playbookMoves, basicMoves, otherGroups, startingMovesNote: playbookData?.startingMovesNote ?? null };
+		const playbookMoveNameSet = new Set(playbookMoves.map(m => m.name));
+		const otherMoves = this._actor.items
+			.filter(i => {
+				if (i.type !== "move") return false;
+				if (i.system?.moveType === "other") return true;
+				if (i.system?.moveType === "playbook" && !playbookMoveNameSet.has(i.name)) return true;
+				return false;
+			})
+			.map(i => ({ name: i.name, ownedId: i._id, rollType: i.system?.rollType ?? null, description: i.system?.description ?? null }));
+
+		return { playbookMoves, basicMoves, otherGroups, otherMoves, startingMovesNote: playbookData?.startingMovesNote ?? null };
 	}
 
 	buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, actorPlaybook) {
@@ -347,6 +361,20 @@ export class StonetopCharacter {
 			options.rollMode = this._actor.flags?.pbta?.rollMode;
 		}
 		await item.roll({ ...this.applyDebilityRollMode(stat, options), descriptionOnly });
+		return true;
+	}
+
+	async onDropMove(itemData) {
+		const alreadyOwned = !!this._actor.items.find(i => i.type === "move" && i.name === itemData.name);
+		if (alreadyOwned) return false;
+
+		const actorPlaybook = this._actor.system?.playbook?.name ?? null;
+		const itemPlaybook = itemData.system?.playbook ?? null;
+		if (itemData.system?.moveType === "playbook" && itemPlaybook && itemPlaybook !== actorPlaybook) {
+			itemData = { ...itemData, system: { ...itemData.system, moveType: "other" } };
+		}
+
+		await this._actor.createEmbeddedDocuments("Item", [itemData]);
 		return true;
 	}
 

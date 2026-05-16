@@ -28,7 +28,7 @@ export function createStonetopActorClass(BaseActor) {
 		// Method names can not change, they are called by pbta system
 		async _onRoll(event) {
 			if (this.type === "character") {
-				const handled = await this.typedActor.onYdRoll(event);
+				const handled = await this.typedActor.onRoll(event);
 				if (handled) return;
 			}
 			return super._onRoll(event);

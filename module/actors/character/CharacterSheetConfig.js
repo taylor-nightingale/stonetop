@@ -16,6 +16,7 @@ export function characterSheetConfig() {
 			follower: {label: "Follower Moves", creation: true, moves: []},
 			expedition: {label: "Expedition Moves", creation: true, moves: []},
 			homefront: {label: "Homefront Moves", creation: true, moves: []},
+			other: {label: game.i18n.localize("stonetop.character.moves.otherMoves"), creation: true, moves: []},
 		},
 		attributes: {
 			// -- TOP -------------------------------------------------------

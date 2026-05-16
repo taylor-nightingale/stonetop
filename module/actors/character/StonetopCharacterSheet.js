@@ -15,6 +15,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			return foundry.utils.mergeObject(super.defaultOptions, {
 				classes: ["pbta", "stonetop", "sheet", "actor", "character"],
 				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }],
+				dragDrop: [{ dragSelector: ".items-list .item" }],
 			});
 		}
 
@@ -30,6 +31,12 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		activateListeners(html) {
 			super.activateListeners(html);
+			html[0].addEventListener("dragover", (ev) => ev.preventDefault());
+			html[0].addEventListener("drop", (ev) => {
+				ev.stopImmediatePropagation();
+				const data = TextEditor.getDragEventData(ev);
+				if (data?.type === "Item") this._onDropItem(ev, data);
+			}, true);
 			html.find(".cell--stats .stat-value").each((_, el) => {
 				el.value = el.value.replace(/^\+/, "");
 			});
@@ -77,6 +84,22 @@ export function createStonetopCharacterSheetClass(Base) {
 				const doc = await pack.getDocument(compendiumId);
 				if (doc) doc.sheet.render(true);
 			});
+			html.find(".stonetop-other-move-delete").on("click", async ev => {
+				const { itemId } = ev.currentTarget.dataset;
+				await this._stonetopCharacter.removeMove(itemId);
+			});
+		}
+
+		async _onDropItemCreate(itemData) {
+			const items = Array.isArray(itemData) ? itemData : [itemData];
+			const moves = items.filter(i => i.type === "move");
+			const others = items.filter(i => i.type !== "move");
+			let anyAdded = false;
+			for (const item of moves) {
+				if (await this._stonetopCharacter.onDropMove(item)) anyAdded = true;
+			}
+			if (others.length) await super._onDropItemCreate(others);
+			if (anyAdded) this.render(false);
 		}
 
 		async _onBackgroundChange(ev) {
