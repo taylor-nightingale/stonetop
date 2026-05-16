@@ -19,13 +19,33 @@ export function characterSheetConfig() {
 			other: {label: game.i18n.localize("stonetop.character.moves.otherMoves"), creation: true, moves: []},
 		},
 		attributes: {
-			// -- TOP -------------------------------------------------------
+			// -- TOP (left-to-right order) ---------------------------------
+			damage: {
+				position: "Top",
+				type: "Roll",
+				label: game.i18n.localize("stonetop.character.attributes.damage"),
+				value: "d4",
+			},
+			hp: {
+				position: "Top",
+				type: "Resource",
+				label: "HP",
+				value: 16,
+				max: 16,
+				min: 0,
+			},
+			armour: {
+				position: "Top",
+				type: "Number",
+				label: game.i18n.localize("stonetop.character.attributes.armour"),
+				value: 0,
+			},
 			xp: {
 				position: "Top",
-				type: "Xp",
+				type: "Resource",
 				label: game.i18n.localize("stonetop.character.attributes.xp"),
-				max: 20,
-				steps: Array.from({length: 20}, () => false),
+				value: 0,
+				max: 8,
 			},
 			level: {
 				position: "Top",
@@ -33,7 +53,7 @@ export function characterSheetConfig() {
 				label: game.i18n.localize("stonetop.character.attributes.level"),
 				value: 1,
 			},
-			// -- LEFT ------------------------------------------------------
+			// -- NO POSITION (rendered manually in template) ---------------
 			debilities: {
 				label: "Debilities",
 				type: "ListMany",
@@ -43,33 +63,6 @@ export function characterSheetConfig() {
 					dazed: {label: "Dazed", value: false, stat: ["int", "wis"]},
 					miserable: {label: "Miserable", value: false, stat: ["con", "cha"]},
 				},
-			},
-			hp: {
-				position: "Left",
-				type: "Resource",
-				label: "HP",
-				value: 16,
-				max: 16,
-				min: 0,
-			},
-			armour: {
-				type: "Number",
-				label: "Armour",
-				position: "Left",
-				value: 0,
-			},
-			damage: {
-				position: "Left",
-				type: "Roll",
-				label: "Damage",
-				description: "The damage your character deals.",
-				value: "d4",
-			},
-			load: {
-				position: "Left",
-				type: "ListOne",
-				label: "Load",
-				options: [{label: "Light", value: 3}, {label: "Normal", value: 6}, {label: "Heavy", value: 9}],
 			},
 		},
 		equipmentTypes: {

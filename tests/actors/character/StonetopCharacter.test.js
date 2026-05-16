@@ -884,6 +884,45 @@ describe("StonetopCharacter.getMoves otherMoves", () => {
 	});
 });
 
+// -- getMoves resourceChecks --------------------------------------------------
+
+describe("StonetopCharacter.getMoves resourceChecks", () => {
+	function makeBlessedActor() {
+		return makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
+	}
+
+	it("builds resourceChecks with label: null when move has resourceMax only", async () => {
+		const entry = { _id: "rc1", name: "Favor Move", system: { moveType: "playbook", isStartingMove: false, resourceMax: 3 } };
+		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const result = await char.getMoves();
+		const move = result.playbookMoves.find(m => m.name === "Favor Move");
+		expect(move.resourceChecks).toEqual([
+			{ checked: false, label: null },
+			{ checked: false, label: null },
+			{ checked: false, label: null },
+		]);
+	});
+
+	it("builds resourceChecks with labels when move has resourceLabels", async () => {
+		const entry = { _id: "rc2", name: "Blade Move", system: { moveType: "playbook", isStartingMove: false, resourceLabels: ["a few left", "out"] } };
+		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const result = await char.getMoves();
+		const move = result.playbookMoves.find(m => m.name === "Blade Move");
+		expect(move.resourceChecks).toEqual([
+			{ checked: false, label: "a few left" },
+			{ checked: false, label: "out" },
+		]);
+	});
+
+	it("derives resourceMax from resourceLabels length", async () => {
+		const entry = { _id: "rc3", name: "State Move", system: { moveType: "playbook", isStartingMove: false, resourceLabels: ["fresh", "spent", "gone"] } };
+		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const result = await char.getMoves();
+		const move = result.playbookMoves.find(m => m.name === "State Move");
+		expect(move.resourceChecks).toHaveLength(3);
+	});
+});
+
 // -- onRoll -------------------------------------------------------------------
 
 function makeRollableItem({ id = "item-1", rollType = "str", type = "move", rollFormula = null } = {}) {

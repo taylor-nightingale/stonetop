@@ -32,7 +32,8 @@ export class PlaybookMoveEntry {
 				disabled: this.isStarting || this.locked || (!(i < ownedInstances.length) && i !== ownedInstances.length),
 			}))
 			: null;
-		this.resourceMax = entry.system?.resourceMax ?? null;
+		this.resourceLabels = entry.system?.resourceLabels ?? null;
+		this.resourceMax = this.resourceLabels?.length ?? entry.system?.resourceMax ?? null;
 		this.resourceChecks = null;
 	}
 }

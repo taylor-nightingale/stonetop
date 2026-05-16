@@ -235,6 +235,7 @@ export class StonetopCharacter {
 				const current = moveResourcesMap[move.name] ?? 0;
 				move.resourceChecks = Array.from({ length: move.resourceMax }, (_, i) => ({
 					checked: i < current,
+					label: move.resourceLabels?.[i] ?? null,
 				}));
 			}
 		}

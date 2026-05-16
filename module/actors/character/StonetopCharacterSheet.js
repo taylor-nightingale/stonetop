@@ -25,6 +25,10 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async getData() {
 			const context = await super.getData();
+			const level = context.system.attributes?.level?.value ?? 1;
+			if (context.system.attributes?.xp) {
+				context.system.attributes.xp.max = 6 + level * 2;
+			}
 			context.stonetop = await this._stonetopCharacter.buildSheetData();
 			return context;
 		}

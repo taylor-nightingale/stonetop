@@ -118,16 +118,37 @@ body,
 	justify-self: unset;
 }
 
-.pbta.sheet input[type=radio].attr-xp {
-	width: 20px;
-	height: 20px;
-	margin: 2px 6px;
-	flex: none;
+/* Inline attributes row */
+.sheet-attributes-top .cell--attributes-top {
+	gap: 6px;
+	align-items: stretch;
+	flex-wrap: nowrap;
 }
 
+.sheet-attributes-top .cell--attributes-top .cell {
+	border: 2px solid var(--color-border-dark, #888);
+	border-radius: 6px;
+	padding: 4px 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 0 0 auto;
+	min-width: 60px;
+}
 
-.pbta.sheet .sheet-wrapper .sheet-top .sheet-attributes-top .cell--attributes-top .cell.cell--attr-level {
-	flex: 0 1 auto;
+.sheet-attributes-top .cell--attributes-top .cell .cell__title {
+	font-size: 0.7em;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+/* XP max is derived from level — prevent editing it directly */
+.cell--attr-xp .cell__max input {
+	pointer-events: none;
+	background: transparent;
+	border: none;
+	color: inherit;
 }
 
 .pbta.sheet .sheet-header__fields .view-playbook {

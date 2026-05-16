@@ -39,6 +39,8 @@
 				"charisma": "Charisma"
 			},
 			"attributes": {
+				"damage": "Damage",
+				"armour": "Armor",
 				"xp": "XP",
 				"level": "Level"
 			},
