@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "They either do as you want or reveal the easiest way to convince them"
+				"value": "They either do as you want or reveal the easiest way to convince them"
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful."
+				"value": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Up to GM"
+				"value": "Up to GM"
 			}
 		},
 		"rollType": "cha"

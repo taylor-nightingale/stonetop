@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy's attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack</li></ul>"
+				"value": "Your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy's attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack</li></ul>"
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Your maneuver works, mostly (deal your damage), but you suffer your enemy's attack."
+				"value": "Your maneuver works, mostly (deal your damage), but you suffer your enemy's attack."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
+				"value": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
 			}
 		},
 		"rollType": "str"

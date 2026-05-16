@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "They ignore the harm entirely."
+				"value": "They ignore the harm entirely."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "They suffer only half the damage or effect."
+				"value": "They suffer only half the damage or effect."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "They suffer the harm normally."
+				"value": "They suffer the harm normally."
 			}
 		}
 	},

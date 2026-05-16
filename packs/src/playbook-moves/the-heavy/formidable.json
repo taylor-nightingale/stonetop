@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Both: lesser foes quail AND doughty foes focus on you."
+				"value": "Both: lesser foes quail AND doughty foes focus on you."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Pick 1: lesser foes quail/flee OR doughty foes focus on you."
+				"value": "Pick 1: lesser foes quail/flee OR doughty foes focus on you."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Pick 1 but ask the GM what you've missed."
+				"value": "Pick 1 but ask the GM what you've missed."
 			}
 		}
 	},

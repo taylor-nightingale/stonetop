@@ -4,7 +4,6 @@
 * Support for followers
 * support for steading
 * populate the playbook compendium with all info associated with the playbook
-* moves that let you select from another playbook should let you pick from the other playbook's moves. Perhaps allowing moves to be dragged into the sheet as "custom moves"
 * playbook inserts
 * forward, and ongoing should be removed. roll mode should be moved out of moves tab.
 * handle labeled resources on moves -- all in the wrist should have [] a few left [] out

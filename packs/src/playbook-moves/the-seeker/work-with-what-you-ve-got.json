@@ -12,15 +12,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Pick 2."
+				"value": "Pick 2."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Pick 1."
+				"value": "Pick 1."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "The GM makes a move."
+				"value": "The GM makes a move."
 			}
 		}
 	},

@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Hold 3 Readiness (or 4 if you bear a shield)."
+				"value": "Hold 3 Readiness (or 4 if you bear a shield)."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Hold 1 Readiness (or 2 with a shield)."
+				"value": "Hold 1 Readiness (or 2 with a shield)."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation)."
+				"value": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation)."
 			}
 		},
 		"rollType": "con"

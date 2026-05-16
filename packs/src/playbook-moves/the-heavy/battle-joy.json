@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "That was a rush — regain 1d4 HP."
+				"value": "That was a rush — regain 1d4 HP."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "You're winded and out of it, but you'll be fine with a few minutes' rest."
+				"value": "You're winded and out of it, but you'll be fine with a few minutes' rest."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Mark a debility but don't mark XP."
+				"value": "Mark a debility but don't mark XP."
 			}
 		}
 	},

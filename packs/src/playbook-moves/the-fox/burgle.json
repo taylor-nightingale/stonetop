@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "You make it back. Pick 2 from the list."
+				"value": "You make it back. Pick 2 from the list."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "You make it back. Pick 1 from the list."
+				"value": "You make it back. Pick 1 from the list."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "You either make it back but with trouble in tow, or you're missing in action (your call)."
+				"value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
 			}
 		}
 	},

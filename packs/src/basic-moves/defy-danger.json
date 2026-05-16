@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "You pull it off as well as one could hope."
+				"value": "You pull it off as well as one could hope."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "You can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down)."
+				"value": "You can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down)."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Things get bad... things burn. (Up to GM interpretation)"
+				"value": "Things get bad... things burn. (Up to GM interpretation)"
 			}
 		},
 		"rollType": "ask"

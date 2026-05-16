@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them."
+				"value": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like)."
+				"value": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like)."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Up to GM"
+				"value": "Up to GM"
 			}
 		},
 		"rollType": "cha"

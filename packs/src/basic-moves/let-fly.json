@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "You have a clear shot, deal your damage."
+				"value": "You have a clear shot, deal your damage."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "<p>Pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>"
+				"value": "<p>Pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>"
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Up to GM"
+				"value": "Up to GM"
 			}
 		},
 		"rollType": "dex"

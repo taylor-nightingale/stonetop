@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Ask 1 question from the list plus the bonus question."
+				"value": "Ask 1 question from the list plus the bonus question."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Ask 1 question from the list."
+				"value": "Ask 1 question from the list."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "The GM makes a move."
+				"value": "The GM makes a move."
 			}
 		}
 	},

@@ -16,15 +16,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "The attack is deflected and the attacker (if in range) is briefly blinded."
+				"value": "The attack is deflected and the attacker (if in range) is briefly blinded."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "The attack is deflected but your holy light flickers and dims, threatening to go out."
+				"value": "The attack is deflected but your holy light flickers and dims, threatening to go out."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Your light snuffs out and the attack is unimpeded."
+				"value": "Your light snuffs out and the attack is unimpeded."
 			}
 		}
 	},

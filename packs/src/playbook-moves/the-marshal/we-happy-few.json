@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Each ally holds 2 Inspiration."
+				"value": "Each ally holds 2 Inspiration."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Each ally holds 1 Inspiration."
+				"value": "Each ally holds 1 Inspiration."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else."
+				"value": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else."
 			}
 		}
 	},

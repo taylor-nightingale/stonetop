@@ -12,15 +12,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Ask both questions."
+				"value": "Ask both questions."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Ask 1 question."
+				"value": "Ask 1 question."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
+				"value": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
 			}
 		}
 	},

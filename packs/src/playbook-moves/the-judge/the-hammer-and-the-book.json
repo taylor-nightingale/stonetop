@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "Deal your damage and choose 1 from the list."
+				"value": "Deal your damage and choose 1 from the list."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "Deal damage and choose 1, but you also expose yourself to harm or unwanted attention."
+				"value": "Deal damage and choose 1, but you also expose yourself to harm or unwanted attention."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "The GM makes a move."
+				"value": "The GM makes a move."
 			}
 		}
 	},

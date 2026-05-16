@@ -17,15 +17,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
+				"value": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard."
+				"value": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "The GM makes a move."
+				"value": "The GM makes a move."
 			}
 		}
 	},

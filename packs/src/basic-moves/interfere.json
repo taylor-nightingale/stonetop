@@ -7,15 +7,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "They pick 1 from the list."
+				"value": "They pick 1 from the list."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable."
+				"value": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "Makes a hard GM move (Up to GM interpretation)."
+				"value": "Makes a hard GM move (Up to GM interpretation)."
 			}
 		},
 		"rollType": "ask"

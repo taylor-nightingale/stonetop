@@ -11,15 +11,15 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"description": "You succeed and no one's the wiser."
+				"value": "You succeed and no one's the wiser."
 			},
 			"partial": {
 				"label": "7-9",
-				"description": "You succeed OR no one's the wiser (your choice)."
+				"value": "You succeed OR no one's the wiser (your choice)."
 			},
 			"failure": {
 				"label": "6-",
-				"description": "The GM makes a move."
+				"value": "The GM makes a move."
 			}
 		}
 	},
