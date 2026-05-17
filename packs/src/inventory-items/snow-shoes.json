@@ -1,0 +1,14 @@
+{
+	"_id": "eNo41eoPni6JDWYl",
+	"_key": "!items!eNo41eoPni6JDWYl",
+	"name": "Snow-shoes",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "snow-shoes",
+		"inventoryColumn": "regular",
+		"sortOrder": 11,
+		"weight": 1,
+		"twoCol": true
+	}
+}

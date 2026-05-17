@@ -1,0 +1,13 @@
+{
+	"_id": "oRRCQ5WMO5AHO4Ze",
+	"_key": "!items!oRRCQ5WMO5AHO4Ze",
+	"name": "Gloves",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "gloves",
+		"inventoryColumn": "small",
+		"sortOrder": 17,
+		"smallGrid": true
+	}
+}

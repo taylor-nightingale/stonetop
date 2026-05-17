@@ -1,0 +1,12 @@
+{
+	"_id": "VxUZpfbH9vOWOU6m",
+	"_key": "!items!VxUZpfbH9vOWOU6m",
+	"name": "Handful of coppers",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "coppers",
+		"inventoryColumn": "small",
+		"sortOrder": 6
+	}
+}

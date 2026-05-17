@@ -1,0 +1,13 @@
+{
+	"_id": "AwFv0Yg7NZRBT7qY",
+	"_key": "!items!AwFv0Yg7NZRBT7qY",
+	"name": "Bowstring",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "bowstring",
+		"inventoryColumn": "small",
+		"sortOrder": 9,
+		"smallGrid": true
+	}
+}

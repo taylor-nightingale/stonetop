@@ -1,6 +1,7 @@
 {
 	"_id": "66InktII1QKAPInQ",
 	"_key": "!items!66InktII1QKAPInQ",
+	"img": "modules/stonetop/assets/playbooks/the-seeker.svg",
 	"name": "The Seeker",
 	"type": "playbook",
 	"flags": {

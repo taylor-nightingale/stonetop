@@ -1,0 +1,22 @@
+{
+	"_id": "H8xIZM1JRcoreogr",
+	"_key": "!items!H8xIZM1JRcoreogr",
+	"name": "Even more supplies",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "even-more-supplies",
+		"inventoryColumn": "regular",
+		"sortOrder": 3,
+		"note": "4+Prosperity uses",
+		"weight": 1,
+		"resourceLabels": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	}
+}

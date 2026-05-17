@@ -1,6 +1,7 @@
 {
 	"_id": "thDOuItwerMnLc0i",
 	"_key": "!items!thDOuItwerMnLc0i",
+	"img": "modules/stonetop/assets/playbooks/the-heavy.svg",
 	"name": "The Heavy",
 	"type": "playbook",
 	"flags": {

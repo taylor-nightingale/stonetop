@@ -1,0 +1,13 @@
+{
+	"_id": "9sMLT6mnOjkeaBKs",
+	"_key": "!items!9sMLT6mnOjkeaBKs",
+	"name": "Extra socks",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "extra-socks",
+		"inventoryColumn": "small",
+		"sortOrder": 16,
+		"smallGrid": true
+	}
+}

@@ -1,8 +1,32 @@
 {
+	"PBTA_OTHER": "Other (animals, kits, stashed items, etc.)",
 	"stonetop": {
 		"sheet": {
 			"tabs": {
-				"details": "Details"
+				"details": "Details",
+				"inventory": "Inventory"
+			}
+		},
+		"inventory": {
+			"regularItems": "Items",
+			"regularItemsNote": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items.",
+			"smallItems": "Small Items",
+			"smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
+			"addItem": "Add item",
+			"addSmallItem": "Add small item",
+			"addItemName": "Name",
+			"addItemWeight": "Weight",
+			"addItemConfirm": "Add",
+			"removeItem": "Remove",
+			"regularUndefinedPoolLabel": "Undefined",
+			"regularUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to ◇ below.",
+			"smallUndefinedPoolLabel": "Undefined",
+			"smallUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to items below, or expend supplies to mark an additional ◇.",
+			"outfit": {
+				"heading": "When you <em><strong>Outfit</strong><em>, mark a number of ◇ below on specific items or as a group.",
+				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
+				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
+				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
 			}
 		},
 		"settings": {

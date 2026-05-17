@@ -1,0 +1,14 @@
+{
+	"_id": "AraVNqTIAae24HZK",
+	"_key": "!items!AraVNqTIAae24HZK",
+	"name": "Staff",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "staff",
+		"inventoryColumn": "regular",
+		"sortOrder": 19,
+		"note": "<em>close</em>",
+		"weight": 1
+	}
+}

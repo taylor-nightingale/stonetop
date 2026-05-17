@@ -19,6 +19,10 @@ class FakeBasicMoveRepository {
 	async getAll() { return this._moves; }
 }
 
+class FakeInventoryRepository {
+	async getAll() { return []; }
+}
+
 // -- Fake actor ---------------------------------------------------------------
 
 function makeActor({ system = {}, flags = {}, items = [] } = {}) {
@@ -46,6 +50,7 @@ function makeCharacter(actor, playbookRepo, playbookMoveRepo, basicMoveRepo) {
 		playbookRepo ?? new FakePlaybookRepository(null),
 		playbookMoveRepo ?? new FakePlaybookMoveRepository(),
 		basicMoveRepo ?? new FakeBasicMoveRepository(),
+		new FakeInventoryRepository(),
 	);
 }
 

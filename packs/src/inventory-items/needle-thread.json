@@ -1,0 +1,12 @@
+{
+	"_id": "zkChMbyIbNiCdxnu",
+	"_key": "!items!zkChMbyIbNiCdxnu",
+	"name": "Needle & thread",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "needle-thread",
+		"inventoryColumn": "small",
+		"sortOrder": 5
+	}
+}

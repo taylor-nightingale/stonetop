@@ -4,6 +4,9 @@
 		{{> "pbta.actor-header"}}
 
 		<section class="sheet-top flexcol">
+			{{#if stonetop.playbookImg}}
+			<img class="stonetop-playbook-icon" src="{{stonetop.playbookImg}}" alt="">
+			{{/if}}
 			{{#if stonetop.description}}
 			<p class="stonetop-playbook-description">{{stonetop.description}}</p>
 			{{/if}}
@@ -58,7 +61,7 @@
 		<section class="sheet-main flexcol">
 			<nav class="sheet-tabs tabs" data-group="primary">
 				<a class="item" data-tab="moves">{{localize "PBTA.Moves"}}</a>
-				<a class="item" data-tab="equipment">{{localize "PBTA.Equipment"}}</a>
+				<a class="item" data-tab="inventory">{{localize "stonetop.sheet.tabs.inventory"}}</a>
 				<a class="item" data-tab="details">{{localize "stonetop.sheet.tabs.details"}}</a>
 			</nav>
 

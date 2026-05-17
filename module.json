@@ -95,6 +95,13 @@
 			"path": "packs/homefront-moves",
 			"type": "Item",
 			"system": "pbta"
+		},
+		{
+			"name": "inventory-items",
+			"label": "Inventory Items",
+			"path": "packs/inventory-items",
+			"type": "Item",
+			"system": "pbta"
 		}
 	],
 	"url": "https://github.com/taylor-nightingale/stonetop",

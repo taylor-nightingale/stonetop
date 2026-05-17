@@ -6,6 +6,8 @@ import {CharacterInstincts} from "./CharacterInstincts.js";
 import {CharacterAppearance} from "./CharacterAppearance.js";
 import {CharacterOrigin} from "./CharacterOrigin.js";
 import {CharacterPossessions} from "./CharacterPossessions.js";
+import {CharacterInventory} from "./CharacterInventory.js";
+import {FoundryInventoryRepository} from "./repositories/FoundryInventoryRepository.js";
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
 import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
 import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
@@ -14,17 +16,19 @@ import {CharacterSheetData} from "./CharacterSheetData.js";
 const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
-	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository) {
+	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository, inventoryRepository) {
 		this._actor = actor;
 		this._playbookRepo = playbookRepository;
 		this._playbookMoveRepo = playbookMoveRepository;
 		this._basicMoveRepo = basicMoveRepository;
+		this._inventoryRepo = inventoryRepository;
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"));
 		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"));
+		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"));
 	}
 
 	static create(actor) {
@@ -33,6 +37,7 @@ export class StonetopCharacter {
 			new FoundryPlaybookRepository(),
 			new FoundryPlaybookMoveRepository(),
 			new FoundryBasicMoveRepository(),
+			new FoundryInventoryRepository(),
 		);
 	}
 
@@ -59,6 +64,7 @@ export class StonetopCharacter {
 		if (!playbookData) {
 			const data = new CharacterSheetData();
 			data.movelist = await this.getMoves();
+			data.inventory = await this.buildInventoryContext();
 			return data;
 		}
 
@@ -70,6 +76,7 @@ export class StonetopCharacter {
 
 		const data = new CharacterSheetData();
 		data.hasPlaybook = true;
+		data.playbookImg = playbookData.img ?? null;
 		data.description = playbookData?.description ?? null;
 		data.backgrounds = (playbookData.backgrounds ?? []).map(b => {
 			const result = { ...b, selected: b.slug === savedBg };
@@ -104,6 +111,7 @@ export class StonetopCharacter {
 		data.savedOrigin = savedOrigin;
 		data.statsNote = playbookData?.statsNote ?? null;
 		data.movelist = await this.getMoves();
+		data.inventory = await this.buildInventoryContext();
 		const background = (playbookData.backgrounds ?? []).find(b => b.slug === this._background.selectedSlug);
 		const extraPreselected = background?.extraPossessions ?? [];
 		const ownedAllByName = this._buildOwnedMovesMap();
@@ -119,6 +127,113 @@ export class StonetopCharacter {
 			this._possessions.choiceUses,
 		);
 		return data;
+	}
+
+	async buildInventoryContext() {
+		const checked = this._inventory.checked;
+		const resources = this._inventory.resources;
+		const loadLevel = this._inventory.loadLevel;
+		const rPool = this._inventory.regularPool;
+		const sPool = this._inventory.smallPool;
+		const allItems = await this._inventoryRepo.getAll();
+
+		const mapCompendium = item => ({
+			slug: item.system.slug,
+			label: item.name,
+			note: item.system.note ?? null,
+			isCustom: false,
+			ownedId: null,
+			checked: checked[item.system.slug] ?? false,
+			breakBefore: item.system.breakBefore ?? false,
+			smallGrid: item.system.smallGrid ?? false,
+			twoCol: item.system.twoCol ?? false,
+			resourceChecks: item.system.resourceLabels?.length
+				? item.system.resourceLabels.map((label, i) => ({
+					label: label || null,
+					checked: i < (resources[item.system.slug] ?? 0),
+				}))
+				: null,
+			weightSlots: Array.from({ length: item.system.weight ?? 0 }, (_, i) => i),
+		});
+
+		const mapCustom = item => ({
+			slug: item._id,
+			label: item.name,
+			note: null,
+			isCustom: true,
+			ownedId: item._id,
+			checked: checked[item._id] ?? false,
+			breakBefore: false,
+			smallGrid: false,
+			twoCol: false,
+			resourceChecks: null,
+			weightSlots: Array.from({ length: item.system.weight ?? 1 }, (_, i) => i),
+		});
+
+		const customItems = this._actor.items.filter(i =>
+			i.type === "move" && i.system?.moveType === "inventory-custom"
+		);
+
+		const allRegular = allItems.filter(i => i.system.inventoryColumn === "regular");
+		const allSmall   = allItems.filter(i => i.system.inventoryColumn === "small");
+
+		const flatRegular = [
+			...allRegular.map(mapCompendium),
+			...customItems.filter(i => i.system.inventoryColumn === "regular").map(mapCustom),
+		];
+
+		return {
+			regularItems: flatRegular,
+			regularSegments: _segmentByTwoCol(flatRegular),
+			smallItems: allSmall.filter(i => !i.system.smallGrid).map(mapCompendium).concat(
+				customItems.filter(i => i.system.inventoryColumn === "small").map(mapCustom)
+			),
+			smallGridItems: allSmall.filter(i => i.system.smallGrid).map(mapCompendium),
+			loadLevel,
+			loadLevelLight:  loadLevel === "light",
+			loadLevelNormal: loadLevel === "normal",
+			loadLevelHeavy:  loadLevel === "heavy",
+			regularPool: {
+				groups: [
+					Array.from({ length: 3 }, (_, i) => ({ checked: i < rPool, index: i })),
+					Array.from({ length: 3 }, (_, i) => ({ checked: (i + 3) < rPool, index: i + 3 })),
+					Array.from({ length: 3 }, (_, i) => ({ checked: (i + 6) < rPool, index: i + 6 })),
+				],
+			},
+			smallPool: {
+				groups: [
+					Array.from({ length: 3 }, (_, i) => ({ checked: i < sPool, index: i })),
+					Array.from({ length: 3 }, (_, i) => ({ checked: (i + 3) < sPool, index: i + 3 })),
+					Array.from({ length: 3 }, (_, i) => ({ checked: (i + 6) < sPool, index: i + 6 })),
+				],
+			},
+		};
+	}
+
+	async setInventoryItemChecked(slug, isChecked) { await this._inventory.setItemChecked(slug, isChecked); }
+	async setInventoryResource(slug, count)         { await this._inventory.setResource(slug, count); }
+	async setInventoryLoadLevel(level)              { await this._inventory.setLoadLevel(level); }
+	async setInventoryRegularPool(count)            { await this._inventory.setRegularPool(count); }
+	async setInventorySmallPool(count)              { await this._inventory.setSmallPool(count); }
+
+	async addCustomInventoryItem(name, weight) {
+		await this._actor.createEmbeddedDocuments("Item", [{
+			name,
+			type: "move",
+			system: { moveType: "inventory-custom", inventoryColumn: "regular", weight: Math.max(1, weight) },
+		}]);
+	}
+
+	async addCustomSmallItem(name) {
+		await this._actor.createEmbeddedDocuments("Item", [{
+			name,
+			type: "move",
+			system: { moveType: "inventory-custom", inventoryColumn: "small" },
+		}]);
+	}
+
+	async removeCustomInventoryItem(itemId) {
+		await this._actor.deleteEmbeddedDocuments("Item", [itemId]);
 	}
 
 	buildPossessionsContext(specialPossessions, selectedSlugs, usesMap, maxUsesMap, extraPreselected = [], subChoicesMap = {}, choiceUsesMap = {}) {
@@ -398,6 +513,20 @@ export class StonetopCharacter {
 		}
 		return map;
 	}
+}
+
+function _segmentByTwoCol(items) {
+	const segments = [];
+	let current = null;
+	for (const item of items) {
+		const type = item.twoCol ? "grid" : "list";
+		if (!current || current.type !== type) {
+			current = { type, isGrid: type === "grid", segmentBreak: item.breakBefore ?? false, items: [] };
+			segments.push(current);
+		}
+		current.items.push(item);
+	}
+	return segments;
 }
 
 function _sortGroup(moves, groupNames) {

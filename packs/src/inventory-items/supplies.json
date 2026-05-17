@@ -1,0 +1,22 @@
+{
+	"_id": "NbrnTP3fAbnFbmOH",
+	"_key": "!items!NbrnTP3fAbnFbmOH",
+	"name": "Supplies",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "supplies",
+		"inventoryColumn": "regular",
+		"sortOrder": 1,
+		"note": "4+Prosperity uses",
+		"weight": 1,
+		"resourceLabels": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	}
+}

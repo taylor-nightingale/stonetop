@@ -1,6 +1,7 @@
 {
 	"_id": "msKRM8oHy6qghCF9",
 	"_key": "!items!msKRM8oHy6qghCF9",
+	"img": "modules/stonetop/assets/playbooks/the-fox.svg",
 	"name": "The Fox",
 	"type": "playbook",
 	"flags": {
@@ -150,13 +151,13 @@
 					{
 						"slug": "distillery",
 						"label": "Distillery",
-						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+						"description": "skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
 						"uses": 2
 					},
 					{
 						"slug": "hidden-stash",
 						"label": "Hidden stash",
-						"description": "○○○ uses: each use produces valuables worth a purse of silvers (Value 2).",
+						"description": "each use produces valuables worth a purse of silvers (Value 2).",
 						"uses": 3
 					},
 					{

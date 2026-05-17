@@ -1,0 +1,19 @@
+{
+	"_id": "6h8l7qgATtLFxJpR",
+	"_key": "!items!6h8l7qgATtLFxJpR",
+	"name": "Extra arrows",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "extra-arrows",
+		"inventoryColumn": "regular",
+		"sortOrder": 23,
+		"note": "x <em>piercing</em>",
+		"weight": 1,
+		"resourceLabels": [
+			"plenty left",
+			"low ammo",
+			"all out"
+		]
+	}
+}

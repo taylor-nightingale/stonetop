@@ -1,0 +1,13 @@
+{
+	"_id": "8IRh1E2JDBld6DYy",
+	"_key": "!items!8IRh1E2JDBld6DYy",
+	"name": "Comb",
+	"type": "move",
+	"system": {
+		"moveType": "inventory",
+		"slug": "comb",
+		"inventoryColumn": "small",
+		"sortOrder": 14,
+		"smallGrid": true
+	}
+}
