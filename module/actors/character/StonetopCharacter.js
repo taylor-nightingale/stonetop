@@ -11,8 +11,6 @@ import {FoundryInventoryRepository} from "./repositories/FoundryInventoryReposit
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
 import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
 import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
-import {CharacterSheetData} from "./CharacterSheetData.js";
-
 const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
@@ -60,73 +58,188 @@ export class StonetopCharacter {
 	}
 
 	async buildSheetData() {
+		return _adaptSnapshotForSheet(await this.buildSnapshot());
+	}
+
+	async buildSnapshot() {
+		const actor = this._actor;
+		const actorLevel = actor.system?.attributes?.level?.value ?? 1;
 		const playbookData = await this.playbook();
-		if (!playbookData) {
-			const data = new CharacterSheetData();
-			data.movelist = await this.getMoves();
-			data.inventory = await this.buildInventoryContext();
-			return data;
+		const ownedAllByName = this._buildOwnedMovesMap();
+		return {
+			name:      actor.name,
+			playbook:  playbookData ? _buildPlaybookSection(playbookData, this._background, this._instinct, this._appearance, this._origin) : null,
+			debilities: _buildDebilitiesSection(actor),
+			stats:     _buildStatsSection(actor),
+			vitals:    _buildVitalsSection(actor, playbookData),
+			moves:     await this._buildMovesSection(playbookData, ownedAllByName, actorLevel),
+			inventory: await this._buildInventorySection(playbookData, ownedAllByName, actorLevel),
+			rollMode:  actor.flags?.pbta?.rollMode ?? "normal",
+		};
+	}
+
+	async _buildMovesSection(playbookData, ownedAllByName, actorLevel) {
+		const categories = [];
+
+		if (playbookData) {
+			const background = playbookData.backgrounds?.find(b => b.slug === this._background.selectedSlug);
+			const bgMoveNames = new Set(background?.moves ?? []);
+			const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookData.name);
+			if (entries.length > 0) {
+				const sorted = this.sortPlaybookMoves(
+					this.buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, playbookData.name)
+				);
+				const moveResourcesMap = this._moveResources.getMoveResources();
+				const source = { type: "playbook", slug: playbookData.slug };
+				categories.push({
+					key:   "playbook",
+					title: `${playbookData.name} Moves`,
+					note:  playbookData.startingMovesNote ?? null,
+					moves: sorted.map(m => _buildMoveEntry(m, source, moveResourcesMap)),
+				});
+			}
 		}
 
-		const savedBg = this._background.selectedSlug;
-		const savedInstinct = this._instinct.selectedValue;
-		const savedAppearance = this._appearance.saved;
-		const savedOrigin = this._origin.selected;
-		const savedChoices = this._background.choices;
+		const basicEntries = await this._basicMoveRepo.getAll();
+		if (basicEntries.length > 0) {
+			categories.push({
+				key:   "basic",
+				title: "Basic Moves",
+				note:  null,
+				moves: basicEntries.map(e => {
+					const instances = ownedAllByName.get(e.name) ?? [];
+					return {
+						id:          e._id,
+						name:        e.name,
+						description: e.system?.description ?? "",
+						rollType:    e.system?.rollType ?? null,
+						isStarting:  false,
+						source:      { type: "basic" },
+						owned:       instances.length > 0,
+						ownedIds:    instances.map(i => i._id),
+						locked:      false,
+						requirement: null,
+						resource:    null,
+						repeat:      null,
+					};
+				}),
+			});
+		}
 
-		const data = new CharacterSheetData();
-		data.hasPlaybook = true;
-		data.playbookImg = playbookData.img ?? null;
-		data.description = playbookData?.description ?? null;
-		data.backgrounds = (playbookData.backgrounds ?? []).map(b => {
-			const result = { ...b, selected: b.slug === savedBg };
-			if (b.choices) {
-				result.choices = {
-					label: b.choices.label,
-					countLabel: b.choices.count.join(" or "),
-					options: b.choices.options.map(o => ({
-						...o,
-						checked: Boolean(savedChoices[o.slug]),
+		for (const moveType of OTHER_MOVE_TYPES) {
+			const items = this._actor.items.filter(i => i.type === "move" && i.system?.moveType === moveType);
+			if (items.length > 0) {
+				categories.push({
+					key:   moveType,
+					title: moveType.charAt(0).toUpperCase() + moveType.slice(1) + " Moves",
+					note:  null,
+					moves: items.map(i => ({
+						id:          i._id,
+						name:        i.name,
+						description: i.system?.description ?? "",
+						rollType:    i.system?.rollType ?? null,
+						isStarting:  false,
+						source:      { type: moveType },
+						owned:       true,
+						ownedIds:    [i._id],
+						locked:      false,
+						requirement: null,
+						resource:    null,
+						repeat:      null,
 					})),
-				};
+				});
 			}
-			return result;
+		}
+
+		return categories;
+	}
+
+	async _buildInventorySection(playbookData, ownedAllByName, actorLevel) {
+		const checked   = this._inventory.checked;
+		const resources = this._inventory.resources;
+		const rPool     = this._inventory.regularPool;
+		const sPool     = this._inventory.smallPool;
+		const loadLevel = this._inventory.loadLevel;
+		const allItems  = await this._inventoryRepo.getAll();
+
+		const mapItem = item => ({
+			slug:        item.system.slug,
+			name:        item.name,
+			note:        item.system.note ?? null,
+			weight:      item.system.weight ?? 0,
+			checked:     checked[item.system.slug] ?? false,
+			resource:    item.system.resource
+				? { current: resources[item.system.slug] ?? 0, max: item.system.resource.max, title: item.system.resource.title ?? null, labels: item.system.resource.labels ?? [] }
+				: null,
+			isCustom:    false,
+			twoCol:      item.system.twoCol ?? false,
+			breakBefore: item.system.breakBefore ?? false,
 		});
-		data.instincts = (playbookData.instincts ?? []).map(({ word, description }) => ({
-			word,
-			description,
-			value: `${word} — ${description}`,
-			selected: `${word} — ${description}` === savedInstinct,
-		}));
-		data.savedInstinct = savedInstinct;
-		data.appearance = (playbookData.appearance ?? []).map((opts, i) => ({
-			lineIdx: i,
-			options: opts.map(v => ({ value: v, selected: savedAppearance[i] === v })),
-		}));
-		data.origins = (playbookData.origin ?? []).map(({ region, names }) => ({
-			region,
-			names,
-			selected: region === savedOrigin,
-		}));
-		data.savedOrigin = savedOrigin;
-		data.statsNote = playbookData?.statsNote ?? null;
-		data.movelist = await this.getMoves();
-		data.inventory = await this.buildInventoryContext();
-		const background = (playbookData.backgrounds ?? []).find(b => b.slug === this._background.selectedSlug);
-		const extraPreselected = background?.extraPossessions ?? [];
-		const ownedAllByName = this._buildOwnedMovesMap();
-		const actorLevel = this._actor.system?.attributes?.level?.value ?? 1;
-		const maxUsesMap = this.computePossessionMaxUses(playbookData?.specialPossessions, ownedAllByName, actorLevel);
-		data.possessions = this.buildPossessionsContext(
-			playbookData.specialPossessions,
-			this._possessions.selected,
-			this._possessions.uses,
-			maxUsesMap,
-			extraPreselected,
-			this._possessions.subChoices,
-			this._possessions.choiceUses,
-		);
-		return data;
+
+		const allSmall = allItems.filter(i => i.system.inventoryColumn === "small");
+
+		let possessions = null;
+		if (playbookData?.specialPossessions) {
+			const maxUsesMap = this.computePossessionMaxUses(playbookData.specialPossessions, ownedAllByName, actorLevel);
+			possessions = this._buildPossessionsSnapshot(playbookData.specialPossessions, maxUsesMap);
+		}
+
+		const other = this._actor.items
+			.filter(i => i.type === "move" && i.system?.moveType === "other")
+			.map(i => ({ id: i._id, name: i.name, description: i.system?.description ?? null, moveType: i.system?.moveType ?? null }));
+
+		return {
+			outfit: {
+				load: {
+					instruction: _loc("stonetop.inventory.outfit.heading"),
+					selected:    loadLevel ?? null,
+					options: [
+						{ slug: "light",  label: "Light",  note: _loc("stonetop.inventory.outfit.light") },
+						{ slug: "normal", label: "Normal", note: _loc("stonetop.inventory.outfit.normal") },
+						{ slug: "heavy",  label: "Heavy",  note: _loc("stonetop.inventory.outfit.heavy") },
+					],
+				},
+				regularItems: allItems.filter(i => i.system.inventoryColumn === "regular").map(mapItem),
+				regularPool:  { current: rPool, max: 9, title: null, labels: [] },
+				smallItems:   allSmall.filter(i => !i.system.smallGrid).map(mapItem),
+				smallGridItems: allSmall.filter(i => i.system.smallGrid).map(mapItem),
+				smallPool:    { current: sPool, max: 9, title: null, labels: [] },
+			},
+			possessions,
+			other,
+		};
+	}
+
+	_buildPossessionsSnapshot(specialPossessions, maxUsesMap) {
+		const { pickNote, pickCount, preselected = [], options } = specialPossessions;
+		const selectedSlugs = this._possessions.selected;
+		const usesMap = this._possessions.uses;
+		const preselectedSet = new Set(preselected);
+
+		return {
+			pickCount,
+			pickNote,
+			items: options.map(opt => {
+				const isPre = preselectedSet.has(opt.slug);
+				const isSelected = isPre || selectedSlugs.has(opt.slug);
+				const maxUses = maxUsesMap[opt.slug] ?? opt.resource?.max ?? null;
+				const currentUses = isSelected ? (usesMap[opt.slug] ?? 0) : 0;
+				const resourceDef = opt.resource ?? null;
+				return {
+					slug:        opt.slug,
+					label:       opt.label,
+					description: opt.description ?? "",
+					selected:    isSelected,
+					disabled:    isPre,
+					preselected: isPre,
+					resource:    resourceDef
+						? { current: currentUses, max: maxUses ?? resourceDef.max, title: resourceDef.title ?? null, labels: resourceDef.labels ?? [] }
+						: null,
+					choices:      null,
+					choiceGroups: null,
+				};
+			}),
+		};
 	}
 
 	async buildInventoryContext() {
@@ -147,8 +260,8 @@ export class StonetopCharacter {
 			breakBefore: item.system.breakBefore ?? false,
 			smallGrid: item.system.smallGrid ?? false,
 			twoCol: item.system.twoCol ?? false,
-			resourceChecks: item.system.resourceLabels?.length
-				? item.system.resourceLabels.map((label, i) => ({
+			resourceChecks: item.system.resource?.max
+				? item.system.resource.labels.map((label, i) => ({
 					label: label || null,
 					checked: i < (resources[item.system.slug] ?? 0),
 				}))
@@ -248,7 +361,7 @@ export class StonetopCharacter {
 				const isPre = preselectedSet.has(opt.slug);
 				const isSelected = isPre || selectedSlugs.has(opt.slug);
 				const preselectedSource = isPre ? (bgPreselectedSet.has(opt.slug) ? "Background" : "Starting") : null;
-				const maxUses = maxUsesMap[opt.slug] ?? opt.uses ?? null;
+				const maxUses = maxUsesMap[opt.slug] ?? opt.resource?.max ?? null;
 				const pickedSubs = subChoicesMap[opt.slug] ?? [];
 				return {
 					slug: opt.slug,
@@ -259,7 +372,7 @@ export class StonetopCharacter {
 					preselectedSource,
 					disabled: isPre,
 					uses: maxUses,
-					usesLabel: opt.usesLabel ?? null,
+					usesLabel: opt.resource?.title ?? null,
 					usesChecks: isSelected && maxUses
 						? Array.from({ length: maxUses }, (_, i) => ({ checked: i < (usesMap[opt.slug] ?? 0) }))
 						: null,
@@ -267,7 +380,7 @@ export class StonetopCharacter {
 						pickCount: opt.choices.pickCount,
 						options: opt.choices.options.map(c => {
 							const picked = pickedSubs.includes(c.slug);
-							const cMaxUses = c.uses ?? null;
+							const cMaxUses = c.resource?.max ?? null;
 							return {
 								slug: c.slug,
 								label: c.label,
@@ -317,7 +430,7 @@ export class StonetopCharacter {
 				const instances = ownedAllByName.get(mb.moveName)?.length ?? 0;
 				bonus += instances * mb.perInstance;
 			}
-			if (bonus > 0) result[opt.slug] = (opt.uses ?? 0) + bonus;
+			if (bonus > 0) result[opt.slug] = (opt.resource?.max ?? 0) + bonus;
 		}
 		return result;
 	}
@@ -346,11 +459,10 @@ export class StonetopCharacter {
 
 			const moveResourcesMap = this._moveResources.getMoveResources();
 			for (const move of playbookMoves) {
-				if (!move.resourceMax) continue;
-				const current = moveResourcesMap[move.name] ?? 0;
-				move.resourceChecks = Array.from({ length: move.resourceMax }, (_, i) => ({
-					checked: i < current,
-					label: move.resourceLabels?.[i] ?? null,
+				if (!move.resource) continue;
+				move.resourceChecks = Array.from({ length: move.resource.max }, (_, i) => ({
+					checked: i < (moveResourcesMap[move.name] ?? 0),
+					label: move.resource.labels?.[i] ?? null,
 				}));
 			}
 		}
@@ -513,6 +625,302 @@ export class StonetopCharacter {
 		}
 		return map;
 	}
+}
+
+// ── Snapshot helpers ──────────────────────────────────────────────────────────
+
+function _loc(key) {
+	return typeof game !== "undefined" ? game.i18n.localize(key) : key;
+}
+
+function _toSlug(name) {
+	return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+const _STAT_DEFS = {
+	str: { name: "Strength",     abbr: "STR" },
+	dex: { name: "Dexterity",    abbr: "DEX" },
+	con: { name: "Constitution", abbr: "CON" },
+	int: { name: "Intelligence", abbr: "INT" },
+	wis: { name: "Wisdom",       abbr: "WIS" },
+	cha: { name: "Charisma",     abbr: "CHA" },
+};
+
+const _DEBILITY_DEFS = [
+	{ key: "weakened",  name: "Weakened",  stats: ["str", "dex"] },
+	{ key: "dazed",     name: "Dazed",     stats: ["int", "wis"] },
+	{ key: "miserable", name: "Miserable", stats: ["con", "cha"] },
+];
+
+function _buildStatsSection(actor) {
+	const rawStats = actor.system?.stats ?? {};
+	return Object.fromEntries(
+		Object.entries(_STAT_DEFS).map(([key, { name, abbr }]) => [
+			key,
+			{ value: rawStats[key]?.value ?? 0, name, abbr },
+		])
+	);
+}
+
+function _buildDebilitiesSection(actor) {
+	const opts = actor.system?.attributes?.debilities?.options ?? {};
+	return _DEBILITY_DEFS.map(({ key, name, stats }) => ({
+		key, name, stats,
+		active: !!(opts[key]?.value),
+	}));
+}
+
+function _buildVitalsSection(actor, playbookData) {
+	const attrs = actor.system?.attributes ?? {};
+	const level = attrs.level?.value ?? 1;
+	return {
+		hp:     playbookData ? { value: attrs.hp?.value ?? 0, max: playbookData.hp ?? 0 } : { value: 0, max: 0 },
+		damage: playbookData?.damage ?? null,
+		armor:  attrs.armour?.value ?? 0,
+		level,
+		xp:     { value: attrs.xp?.value ?? 0, max: 6 + level * 2 },
+	};
+}
+
+function _buildPlaybookSection(playbookData, background, instinct, appearance, origin) {
+	const savedBg      = background.selectedSlug || null;
+	const savedChoices = background.choices;
+	const savedInstinct = instinct.selectedValue || null;
+	const savedAppearance = appearance.saved;
+	const savedOrigin  = origin.selected || null;
+
+	return {
+		slug:        playbookData.slug,
+		name:        playbookData.name,
+		img:         playbookData.img ?? null,
+		description: playbookData.description ?? null,
+		statsNote:   playbookData.statsNote ?? null,
+		background: {
+			selected: savedBg,
+			options: (playbookData.backgrounds ?? []).map(b => ({
+				slug:        b.slug,
+				label:       b.label,
+				description: b.description ?? "",
+				selected:    b.slug === savedBg,
+				moves:       (b.moves ?? []).map(_toSlug),
+				choices:     b.choices ? {
+					label:   b.choices.label,
+					count:   b.choices.count,
+					options: b.choices.options.map(o => ({ slug: o.slug, label: o.label })),
+					saved:   savedChoices,
+				} : null,
+			})),
+		},
+		instinct: {
+			selected: savedInstinct,
+			options: (playbookData.instincts ?? []).map(({ word, description }) => ({ word, description })),
+		},
+		appearance: {
+			saved:   savedAppearance,
+			options: playbookData.appearance ?? [],
+		},
+		origin: {
+			selected: savedOrigin,
+			options: (playbookData.origin ?? []).map(({ region, names }) => ({ region, names })),
+		},
+	};
+}
+
+function _buildMoveEntry(entry, source, moveResourcesMap) {
+	const resourceDef = entry.resource;
+	const resource = resourceDef
+		? { current: moveResourcesMap[entry.name] ?? 0, max: resourceDef.max, title: resourceDef.title ?? null, labels: resourceDef.labels ?? [] }
+		: null;
+	const repeat = entry.repeatable
+		? { max: entry.repeatChecks.length, current: entry.ownedIds.length }
+		: null;
+	const requirement = entry.requiresLabel
+		? { label: entry.requiresLabel, met: !entry.locked }
+		: null;
+	return {
+		id:          entry.compendiumId,
+		name:        entry.name,
+		description: entry.description,
+		rollType:    entry.rollType,
+		isStarting:  entry.isStarting,
+		source,
+		owned:       entry.owned,
+		ownedIds:    entry.ownedIds,
+		locked:      entry.locked,
+		requirement,
+		resource,
+		repeat,
+	};
+}
+
+// ── Sheet rendering adapter ───────────────────────────────────────────────────
+
+function _makePoolGroups(current) {
+	return [
+		Array.from({ length: 3 }, (_, i) => ({ checked: i < current, index: i })),
+		Array.from({ length: 3 }, (_, i) => ({ checked: (i + 3) < current, index: i + 3 })),
+		Array.from({ length: 3 }, (_, i) => ({ checked: (i + 6) < current, index: i + 6 })),
+	];
+}
+
+function _makeRepeatChecks(move) {
+	const { max, current } = move.repeat;
+	const lastOwnedId = move.ownedIds[move.ownedIds.length - 1] ?? null;
+	return Array.from({ length: max }, (_, i) => ({
+		checked: i < current,
+		ownedId: i < current ? lastOwnedId : null,
+		disabled: move.isStarting || move.locked || (!(i < current) && i !== current),
+	}));
+}
+
+function _makeResourceCheckList(resource) {
+	const { current, max, labels } = resource;
+	return Array.from({ length: max }, (_, i) => ({
+		checked: i < current,
+		label: labels[i] || null,
+	}));
+}
+
+function _adaptInventoryItemForSheet(item) {
+	return {
+		slug:        item.slug,
+		label:       item.name,
+		note:        item.note,
+		isCustom:    item.isCustom,
+		ownedId:     null,
+		checked:     item.checked,
+		breakBefore: item.breakBefore,
+		twoCol:      item.twoCol,
+		weightSlots: Array.from({ length: item.weight ?? 0 }, (_, i) => i),
+		resourceChecks: item.resource ? _makeResourceCheckList(item.resource) : null,
+	};
+}
+
+function _adaptSnapshotForSheet(snap) {
+	const hasPlaybook = snap.playbook !== null;
+	let playbookImg = null, description = null, statsNote = null;
+	let backgrounds = [], instincts = [], savedInstinct = "", appearance = [], origins = [], savedOrigin = "";
+	let bgSlugs = new Set();
+
+	if (hasPlaybook) {
+		const pb = snap.playbook;
+		playbookImg   = pb.img;
+		description   = pb.description;
+		statsNote     = pb.statsNote;
+		savedInstinct = pb.instinct.selected ?? "";
+		savedOrigin   = pb.origin.selected ?? "";
+		bgSlugs       = new Set(pb.background.options.find(b => b.selected)?.moves ?? []);
+
+		backgrounds = pb.background.options.map(b => ({
+			slug: b.slug, label: b.label, description: b.description, selected: b.selected,
+			choices: b.choices ? {
+				label:      b.choices.label,
+				countLabel: b.choices.count.join(" or "),
+				options:    b.choices.options.map(o => ({
+					slug: o.slug, label: o.label, checked: !!(b.choices.saved?.[o.slug]),
+				})),
+			} : null,
+		}));
+
+		instincts = pb.instinct.options.map(o => {
+			const value = `${o.word} — ${o.description}`;
+			return { word: o.word, description: o.description, value, selected: pb.instinct.selected === value };
+		});
+
+		appearance = pb.appearance.options.map((opts, i) => ({
+			lineIdx: i,
+			options: opts.map(v => ({ value: v, selected: (pb.appearance.saved?.[i]) === v })),
+		}));
+
+		origins = pb.origin.options.map(o => ({
+			region: o.region, names: o.names, selected: o.region === pb.origin.selected,
+		}));
+	}
+
+	const adaptPlaybookMove = move => ({
+		compendiumId:    move.id,
+		ownedId:         move.ownedIds[0] ?? null,
+		owned:           move.owned,
+		rollType:        move.rollType,
+		isStarting:      move.isStarting,
+		locked:          move.locked,
+		name:            move.name,
+		description:     move.description,
+		source:          move.isStarting ? (bgSlugs.has(_toSlug(move.name)) ? "Background" : "Starting") : null,
+		repeatable:      move.repeat !== null,
+		repeatChecks:    move.repeat ? _makeRepeatChecks(move) : null,
+		resourceChecks:  move.resource ? _makeResourceCheckList(move.resource) : null,
+		requiresLabel:   move.requirement?.label ?? null,
+		requiresPlaybook: null,
+		minLevel:        null,
+	});
+
+	const playbookCategory = snap.moves.find(c => c.key === "playbook");
+	const basicCategory    = snap.moves.find(c => c.key === "basic");
+	const otherCategories  = snap.moves.filter(c => c.key !== "basic" && c.key !== "playbook");
+
+	const regularItems = snap.inventory.outfit.regularItems.map(_adaptInventoryItemForSheet);
+
+	let possessionsCtx = null;
+	if (snap.inventory.possessions) {
+		const pos = snap.inventory.possessions;
+		possessionsCtx = {
+			pickNote: pos.pickNote,
+			options:  pos.items.map(item => {
+				const maxUses     = item.resource?.max ?? null;
+				const currentUses = item.resource?.current ?? 0;
+				return {
+					slug:              item.slug,
+					label:             item.label,
+					description:       item.description,
+					checked:           item.selected,
+					preselected:       item.preselected,
+					preselectedSource: item.preselected ? "Starting" : null,
+					disabled:          item.disabled,
+					uses:              maxUses,
+					usesLabel:         item.resource?.title ?? null,
+					usesChecks:        item.selected && maxUses
+						? Array.from({ length: maxUses }, (_, i) => ({ checked: i < currentUses }))
+						: null,
+					choices:           item.choices ?? null,
+					choiceGroups:      item.choiceGroups ?? null,
+				};
+			}),
+		};
+	}
+
+	const outfit = snap.inventory.outfit;
+	return {
+		hasPlaybook, playbookImg, description, statsNote,
+		backgrounds, instincts, savedInstinct, appearance, origins, savedOrigin,
+		movelist: {
+			playbookMoves:     playbookCategory?.moves.map(adaptPlaybookMove) ?? [],
+			basicMoves:        (basicCategory?.moves ?? []).map(m => ({
+				compendiumId: m.id, ownedId: m.ownedIds[0] ?? null, owned: m.owned, rollType: m.rollType, name: m.name,
+			})),
+			otherGroups:       otherCategories.map(cat => ({
+				key:   cat.key,
+				label: cat.title,
+				moves: cat.moves.map(m => ({ ownedId: m.ownedIds[0] ?? null, rollType: m.rollType, name: m.name })),
+			})),
+			otherMoves:        snap.inventory.other.map(i => ({
+				ownedId: i.id, rollType: null, name: i.name, description: i.description,
+			})),
+			startingMovesNote: playbookCategory?.note ?? null,
+		},
+		possessions: possessionsCtx,
+		inventory: {
+			loadLevelLight:   outfit.load.selected === "light",
+			loadLevelNormal:  outfit.load.selected === "normal",
+			loadLevelHeavy:   outfit.load.selected === "heavy",
+			regularPool:      { groups: _makePoolGroups(outfit.regularPool.current) },
+			regularSegments:  _segmentByTwoCol(regularItems),
+			regularItems,
+			smallPool:        { groups: _makePoolGroups(outfit.smallPool.current) },
+			smallItems:       outfit.smallItems.map(_adaptInventoryItemForSheet),
+			smallGridItems:   outfit.smallGridItems.map(_adaptInventoryItemForSheet),
+		},
+	};
 }
 
 function _segmentByTwoCol(items) {

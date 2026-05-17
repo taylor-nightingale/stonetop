@@ -424,7 +424,7 @@ describe("StonetopCharacter.ensureStartingMoves", () => {
 const SP_BONUS = {
 	options: [{
 		slug: "sacred-pouch",
-		uses: 3,
+		resource: { max: 3, title: "Stock", labels: [] },
 		usesBonus: {
 			evenLevelBonus: 1,
 			moveBonus: [{ moveName: "Big Magic", perInstance: 2 }],
@@ -469,7 +469,7 @@ describe("StonetopCharacter.computePossessionMaxUses", () => {
 	});
 
 	it("possession without usesBonus is not affected", () => {
-		const sp = { options: [{ slug: "apiary", uses: 0 }] };
+		const sp = { options: [{ slug: "apiary" }] };
 		const result = makeChar().computePossessionMaxUses(sp, new Map(), 10);
 		expect(result["apiary"]).toBeUndefined();
 	});
@@ -482,7 +482,7 @@ const BASE_SP = {
 	pickCount: 2,
 	preselected: ["sacred-pouch"],
 	options: [
-		{ slug: "sacred-pouch", label: "Sacred pouch", description: "a magical pouch", uses: 3 },
+		{ slug: "sacred-pouch", label: "Sacred pouch", description: "a magical pouch", resource: { max: 3, title: null, labels: [] } },
 		{ slug: "apiary",       label: "Apiary",        description: "bees" },
 		{ slug: "mastiffs",     label: "Mastiffs",      description: "dogs" },
 		{ slug: "herb-garden",  label: "Herb garden",   description: "herbs" },
@@ -598,8 +598,7 @@ const SP_WITH_GROUPS = {
 		slug: "pouch",
 		label: "Sacred pouch",
 		description: "",
-		uses: 3,
-		usesLabel: "Stock",
+		resource: { max: 3, title: "Stock", labels: [] },
 		choiceGroups: [{
 			heading: "Your pouch is...",
 			note: "choose 1",
@@ -672,13 +671,13 @@ const SP_WITH_CHOICES = {
 				pickCount: 3,
 				options: [
 					{ slug: "sword",    label: "◇ Sword" },
-					{ slug: "crossbow", label: "◇ Crossbow", uses: 2 },
+					{ slug: "crossbow", label: "◇ Crossbow", resource: { max: 2, title: null, labels: [] } },
 					{ slug: "axe",      label: "◇ Axe" },
 					{ slug: "mace",     label: "◇ Mace" },
 				],
 			},
 		},
-		{ slug: "distillery", label: "Distillery", description: "whisky", uses: 2 },
+		{ slug: "distillery", label: "Distillery", description: "whisky", resource: { max: 2, title: null, labels: [] } },
 	],
 };
 
@@ -896,8 +895,8 @@ describe("StonetopCharacter.getMoves resourceChecks", () => {
 		return makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
 	}
 
-	it("builds resourceChecks with label: null when move has resourceMax only", async () => {
-		const entry = { _id: "rc1", name: "Favor Move", system: { moveType: "playbook", isStartingMove: false, resourceMax: 3 } };
+	it("builds resourceChecks with label: null when move has resource with empty labels", async () => {
+		const entry = { _id: "rc1", name: "Favor Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 3, title: null, labels: [] } } };
 		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "Favor Move");
@@ -908,8 +907,8 @@ describe("StonetopCharacter.getMoves resourceChecks", () => {
 		]);
 	});
 
-	it("builds resourceChecks with labels when move has resourceLabels", async () => {
-		const entry = { _id: "rc2", name: "Blade Move", system: { moveType: "playbook", isStartingMove: false, resourceLabels: ["a few left", "out"] } };
+	it("builds resourceChecks with labels when move has resource.labels", async () => {
+		const entry = { _id: "rc2", name: "Blade Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 2, title: null, labels: ["a few left", "out"] } } };
 		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "Blade Move");
@@ -919,8 +918,8 @@ describe("StonetopCharacter.getMoves resourceChecks", () => {
 		]);
 	});
 
-	it("derives resourceMax from resourceLabels length", async () => {
-		const entry = { _id: "rc3", name: "State Move", system: { moveType: "playbook", isStartingMove: false, resourceLabels: ["fresh", "spent", "gone"] } };
+	it("resource.max determines resourceChecks length", async () => {
+		const entry = { _id: "rc3", name: "State Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 3, title: null, labels: ["fresh", "spent", "gone"] } } };
 		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "State Move");

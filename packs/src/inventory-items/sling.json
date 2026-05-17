@@ -9,9 +9,13 @@
 		"inventoryColumn": "small",
 		"sortOrder": 2,
 		"note": "<em>near</em>, <em>reload</em>, <em>awkward</em>",
-		"resourceLabels": [
-			"low ammo",
-			"all out"
-		]
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		}
 	}
 }

@@ -209,8 +209,6 @@
 						"slug": "sacred-pouch",
 						"label": "Sacred pouch (<em>magical</em>)",
 						"description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
-						"uses": 3,
-						"usesLabel": "Stock",
 						"usesBonus": {
 							"evenLevelBonus": 1,
 							"moveBonus": [
@@ -313,7 +311,12 @@
 									}
 								]
 							}
-						]
+						],
+						"resource": {
+							"max": 3,
+							"title": "Stock",
+							"labels": []
+						}
 					},
 					{
 						"slug": "apiary",
@@ -324,7 +327,11 @@
 						"slug": "collected-offerings",
 						"label": "Collected offerings",
 						"description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
-						"uses": 3
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "goat-herd",

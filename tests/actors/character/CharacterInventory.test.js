@@ -59,6 +59,7 @@ function makeCharacter(actor, inventoryItems = []) {
 }
 
 function makeCompendiumItem(overrides = {}) {
+	const labels = overrides.resourceLabels ?? null;
 	return {
 		_id: overrides._id ?? "abc123",
 		name: overrides.name ?? "Test Item",
@@ -68,7 +69,7 @@ function makeCompendiumItem(overrides = {}) {
 			sortOrder: overrides.sortOrder ?? 1,
 			weight: overrides.weight ?? 1,
 			note: overrides.note ?? null,
-			resourceLabels: overrides.resourceLabels ?? null,
+			resource: labels != null ? { max: labels.length, title: null, labels } : (overrides.resource ?? null),
 			breakBefore: overrides.breakBefore ?? false,
 			smallGrid: overrides.smallGrid ?? false,
 		},
@@ -127,14 +128,14 @@ describe("StonetopCharacter.buildInventoryContext", () => {
 		expect(ctx.regularItems[0].checked).toBe(true);
 	});
 
-	it("resourceChecks is null for items with no resourceLabels", async () => {
+	it("resourceChecks is null for items with no resource", async () => {
 		const actor = makeActor();
-		const char = makeCharacter(actor, [makeCompendiumItem({ resourceLabels: null })]);
+		const char = makeCharacter(actor, [makeCompendiumItem({ resource: null })]);
 		const ctx = await char.buildInventoryContext();
 		expect(ctx.regularItems[0].resourceChecks).toBeNull();
 	});
 
-	it("resourceChecks array length matches resourceLabels length", async () => {
+	it("resourceChecks array length matches resource.max", async () => {
 		const actor = makeActor();
 		const char = makeCharacter(actor, [makeCompendiumItem({ resourceLabels: ["low ammo", "all out"] })]);
 		const ctx = await char.buildInventoryContext();

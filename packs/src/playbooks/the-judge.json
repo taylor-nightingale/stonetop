@@ -156,12 +156,20 @@
 								{
 									"slug": "brace-of-knives",
 									"label": "◇ Brace of knives (<em>hand, thrown</em>)",
-									"uses": 2
+									"resource": {
+										"max": 2,
+										"title": null,
+										"labels": []
+									}
 								},
 								{
 									"slug": "crossbow",
 									"label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>)",
-									"uses": 2
+									"resource": {
+										"max": 2,
+										"title": null,
+										"labels": []
+									}
 								}
 							]
 						}

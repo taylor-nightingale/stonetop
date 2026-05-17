@@ -10,10 +10,14 @@
 		"sortOrder": 13,
 		"note": "<em>close</em>, <em>area</em>, <em>crude</em>",
 		"weight": 1,
-		"resourceLabels": [
-			"",
-			"",
-			"hours"
-		]
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"hours"
+			]
+		}
 	}
 }

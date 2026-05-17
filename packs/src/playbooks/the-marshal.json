@@ -156,7 +156,11 @@
 						"slug": "distillery",
 						"label": "Distillery",
 						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
-						"uses": 2
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "engineers-tools",
@@ -199,7 +203,11 @@
 								{
 									"slug": "crossbow",
 									"label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>)",
-									"uses": 2
+									"resource": {
+										"max": 2,
+										"title": null,
+										"labels": []
+									}
 								}
 							]
 						}

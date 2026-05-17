@@ -146,7 +146,11 @@
 						"slug": "books-and-scrolls",
 						"label": "Books &amp; scrolls",
 						"description": "○○○○○ uses: a collection of religious texts and sacred histories. Mark a use to <em>Know Things about Helior, the Sun-Worshippers, or their lore</em> as if you rolled a 10+.",
-						"uses": 5
+						"resource": {
+							"max": 5,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "chandlery",
@@ -157,7 +161,11 @@
 						"slug": "distillery",
 						"label": "Distillery",
 						"description": "○○ uses: skins of fine spirits (Value 1; grants advantage to Persuade when shared), copper tubes, malt, firkins, stills, barrels, etc.",
-						"uses": 2
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "glassworks",
@@ -168,7 +176,11 @@
 						"slug": "holy-relics",
 						"label": "Holy relics",
 						"description": "○○○ uses: sacred objects of Helior's worship. Expend a use to add +1 to a roll involving the god's favor or power. Restore 1 use each season.",
-						"uses": 3
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "luthiers-tools",

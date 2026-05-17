@@ -12,6 +12,7 @@ export class PlaybookMoveEntry {
 		this.compendiumId = entry._id;
 		this.owned = ownedInstances.length > 0;
 		this.ownedId = lastOwnedId;
+		this.ownedIds = ownedInstances.map(i => i._id);
 		this.rollType = entry.system?.rollType ?? null;
 		this.isStarting = isFromPlaybook || isFromBackground;
 		this.source = isFromPlaybook ? "Starting" : isFromBackground ? "Background" : null;
@@ -32,8 +33,7 @@ export class PlaybookMoveEntry {
 				disabled: this.isStarting || this.locked || (!(i < ownedInstances.length) && i !== ownedInstances.length),
 			}))
 			: null;
-		this.resourceLabels = entry.system?.resourceLabels ?? null;
-		this.resourceMax = this.resourceLabels?.length ?? entry.system?.resourceMax ?? null;
+		this.resource = entry.system?.resource ?? null;
 		this.resourceChecks = null;
 	}
 }

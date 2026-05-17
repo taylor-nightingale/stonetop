@@ -162,13 +162,21 @@
 						"slug": "books-and-scrolls",
 						"label": "Books &amp; scrolls",
 						"description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
-						"uses": 5
+						"resource": {
+							"max": 5,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "distillery",
 						"label": "Distillery",
 						"description": "(○○ uses) alchemical distillation equipment, reagents, solvents, tubes, flasks; also produces fine spirits (Value 1).",
-						"uses": 2
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "engineers-tools",

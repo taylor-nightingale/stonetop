@@ -168,13 +168,21 @@
 						"slug": "distillery",
 						"label": "Distillery",
 						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
-						"uses": 2
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "hideouts",
 						"label": "Hideouts",
 						"description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
-						"uses": 3
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "hounds",
@@ -190,7 +198,11 @@
 						"slug": "lay-of-the-land",
 						"label": "Lay of the land",
 						"description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
-						"uses": 3
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
 					},
 					{
 						"slug": "trapping-gear",

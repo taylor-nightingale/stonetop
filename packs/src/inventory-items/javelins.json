@@ -10,8 +10,12 @@
 		"sortOrder": 24,
 		"note": "<em>thrown</em>, x <em>piercing</em>, +1 damage",
 		"weight": 1,
-		"resourceLabels": [
-			"all out"
-		]
+		"resource": {
+			"max": 1,
+			"title": null,
+			"labels": [
+				"all out"
+			]
+		}
 	}
 }

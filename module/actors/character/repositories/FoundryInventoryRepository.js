@@ -7,7 +7,7 @@ export class FoundryInventoryRepository {
 		if (!pack) return [];
 		await pack.getIndex({ fields: [
 			"system.slug", "system.inventoryColumn", "system.sortOrder",
-			"system.weight", "system.note", "system.resourceLabels",
+			"system.weight", "system.note", "system.resource",
 			"system.breakBefore", "system.smallGrid", "system.twoCol",
 		]});
 		_cache = [...pack.index].sort((a, b) =>

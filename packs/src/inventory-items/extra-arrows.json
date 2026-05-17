@@ -10,10 +10,14 @@
 		"sortOrder": 23,
 		"note": "x <em>piercing</em>",
 		"weight": 1,
-		"resourceLabels": [
-			"plenty left",
-			"low ammo",
-			"all out"
-		]
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"plenty left",
+				"low ammo",
+				"all out"
+			]
+		}
 	}
 }

@@ -10,11 +10,15 @@
 		"sortOrder": 14,
 		"note": "for lamp/lantern, useless as a weapon",
 		"weight": 1,
-		"resourceLabels": [
-			"",
-			"",
-			"",
-			"hours"
-		]
+		"resource": {
+			"max": 4,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"hours"
+			]
+		}
 	}
 }

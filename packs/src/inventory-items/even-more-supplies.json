@@ -10,13 +10,17 @@
 		"sortOrder": 3,
 		"note": "4+Prosperity uses",
 		"weight": 1,
-		"resourceLabels": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
+		"resource": {
+			"max": 6,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		}
 	}
 }

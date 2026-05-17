@@ -179,7 +179,11 @@
 								{
 									"slug": "lucky-charm",
 									"label": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)",
-									"uses": 1
+									"resource": {
+										"max": 1,
+										"title": null,
+										"labels": []
+									}
 								},
 								{
 									"slug": "trophy",

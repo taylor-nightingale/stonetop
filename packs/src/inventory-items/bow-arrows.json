@@ -10,9 +10,13 @@
 		"sortOrder": 22,
 		"note": "<em>near</em>, x <em>piercing</em>",
 		"weight": 1,
-		"resourceLabels": [
-			"low ammo",
-			"all out"
-		]
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		}
 	}
 }
