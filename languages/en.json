@@ -4,8 +4,14 @@
 		"sheet": {
 			"tabs": {
 				"details": "Details",
-				"inventory": "Inventory"
+				"inventory": "Inventory",
+				"arcana": "Arcana"
 			}
+		},
+		"arcana": {
+			"empty": "Drag arcana here from the Arcana compendium.",
+			"showFront": "Show Front",
+			"showBack": "Reveal Back"
 		},
 		"inventory": {
 			"regularItems": "Items",

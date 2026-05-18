@@ -1,0 +1,84 @@
+<div class="tab arcana" data-group="primary" data-tab="arcana">
+
+	{{#unless stonetop.arcana.minor.hasOwned}}
+	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
+	{{/unless}}
+
+	<div class="stonetop-arcana-grid">
+	{{#each stonetop.arcana.minor.items}}
+	{{#if owned}}
+	<div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}">
+
+		{{#if flipped}}
+		{{!-- Back side --}}
+		<div class="stonetop-arcanum-header">
+			<span class="stonetop-arcanum-title">{{back.title}}</span>
+			{{#if back.note}}<span class="stonetop-arcanum-note">({{back.note}})</span>{{/if}}
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{back.description}}}
+			{{#if back.move}}
+			<p class="stonetop-arcanum-move-trigger"><strong><em>{{back.move.name}}</em></strong></p>
+			{{{back.move.description}}}
+			{{/if}}
+			{{#if back.resource}}
+			<div class="stonetop-arcanum-resource">
+				<span class="stonetop-arcanum-resource-title">{{back.resource.title}}</span>
+				<span class="stonetop-arcanum-resource-boxes">
+					{{#each (resourceChecks back.resource)}}
+					<button type="button"
+					        class="stonetop-arcanum-resource-btn{{#if checked}} is-checked{{/if}}"
+					        data-slug="{{../slug}}"
+					        data-index="{{@index}}"></button>
+					{{#if label}}<span class="stonetop-arcanum-resource-label">{{label}}</span>{{/if}}
+					{{/each}}
+				</span>
+			</div>
+			{{/if}}
+		</div>
+
+		{{else}}
+		{{!-- Front side --}}
+		<div class="stonetop-arcanum-header">
+			<span class="stonetop-arcanum-title">{{front.title}}</span>
+			{{#if front.note}}<span class="stonetop-arcanum-note">({{front.note}})</span>{{/if}}
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{front.description}}}
+			<p class="stonetop-arcanum-unlock-lead">{{{front.unlock.description}}}</p>
+			<ul class="stonetop-arcanum-unlock-list">
+				{{#each front.unlock.requirements}}
+				{{#if (eq type "text")}}
+				<li class="stonetop-arcanum-unlock-text">{{{content}}}</li>
+				{{else}}
+				<li class="stonetop-arcanum-unlock-option">
+					<span class="stonetop-arcanum-unlock-checks">
+						{{#each (times max)}}
+						<input type="checkbox" class="stonetop-arcanum-unlock-check"
+						       data-arcanum-slug="{{../../slug}}"
+						       data-option-slug="{{../slug}}"
+						       data-index="{{@index}}"
+						       {{#if (lt @index ../count)}}checked{{/if}}>
+						{{/each}}
+					</span>
+					<span class="stonetop-arcanum-unlock-desc">{{{description}}}</span>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
+
+		<div class="stonetop-arcanum-footer">
+			<button type="button" class="stonetop-arcanum-flip-btn"
+			        data-slug="{{slug}}" data-flipped="{{flipped}}">
+				{{#if flipped}}{{localize "stonetop.arcana.showFront"}}{{else}}{{localize "stonetop.arcana.showBack"}}{{/if}}
+			</button>
+		</div>
+
+	</div>
+	{{/if}}
+	{{/each}}
+	</div>
+
+</div>

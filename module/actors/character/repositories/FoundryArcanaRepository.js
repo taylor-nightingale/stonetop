@@ -5,11 +5,11 @@ export class FoundryArcanaRepository {
 		if (_cache.has(slug)) return _cache.get(slug);
 		const pack = game.packs.get("stonetop.arcana");
 		if (!pack) return null;
-		await pack.getIndex({ fields: ["system.slug"] });
-		const entry = pack.index.find(e => e.system?.slug === slug);
+		await pack.getIndex({ fields: ["flags.stonetop.slug"] });
+		const entry = pack.index.find(e => e.flags?.stonetop?.slug === slug);
 		if (!entry) return null;
 		const doc = await pack.getDocument(entry._id);
-		const data = doc.system;
+		const data = doc.flags.stonetop;
 		_cache.set(slug, data);
 		return data;
 	}

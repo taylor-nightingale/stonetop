@@ -1211,3 +1211,151 @@ body,
 	display: block;
 }
 
+/* -- Arcana tab ----------------------------------------------- */
+.stonetop-arcana-empty {
+	padding: 16px;
+	color: var(--color-text-dark-secondary, #666);
+	font-style: italic;
+	text-align: center;
+}
+
+.stonetop-arcana-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	padding: 8px;
+	align-items: start;
+}
+
+.stonetop-arcanum-card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--color-border-dark);
+	border-radius: 3px;
+	background: #fff;
+	min-height: 260px;
+}
+
+.stonetop-arcanum-header {
+	background: var(--stonetop-bg);
+	padding: 5px 8px;
+	border-bottom: 1px solid var(--color-border-dark);
+	border-radius: 3px 3px 0 0;
+}
+
+.stonetop-arcanum-title {
+	font-weight: bold;
+	font-size: 0.9em;
+	display: block;
+}
+
+.stonetop-arcanum-note {
+	font-size: 0.78em;
+	color: var(--color-text-dark-secondary, #666);
+	font-style: italic;
+}
+
+.stonetop-arcanum-body {
+	flex: 1;
+	padding: 6px 8px;
+	font-size: 0.8em;
+	overflow-y: auto;
+}
+
+.stonetop-arcanum-body p { margin: 0 0 4px; }
+.stonetop-arcanum-body ul { margin: 0 0 4px; padding-left: 1.2em; }
+
+.stonetop-arcanum-footer {
+	padding: 4px 6px;
+	border-top: 1px solid var(--color-border-dark);
+	display: flex;
+	justify-content: center;
+}
+
+.stonetop-arcanum-flip-btn {
+	font-size: 0.75em;
+	padding: 2px 10px;
+	width: 100%;
+}
+
+.stonetop-arcanum-unlock-lead {
+	margin: 0 0 4px;
+}
+
+.stonetop-arcanum-unlock-list {
+	margin: 0;
+	padding-left: 1em;
+	list-style: none;
+}
+
+.stonetop-arcanum-unlock-option {
+	margin-bottom: 3px;
+	display: flex;
+	align-items: flex-start;
+	gap: 4px;
+	flex-wrap: nowrap;
+}
+
+.stonetop-arcanum-unlock-checks {
+	flex-shrink: 0;
+	display: flex;
+	gap: 2px;
+	padding-top: 2px;
+}
+
+.stonetop-arcanum-unlock-check {
+	flex-shrink: 0;
+}
+
+.stonetop-arcanum-unlock-desc {
+	flex: 1;
+	min-width: 0;
+	overflow-wrap: break-word;
+}
+
+.stonetop-arcanum-resource {
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+.stonetop-arcanum-resource-title {
+	font-size: 0.85em;
+	font-weight: bold;
+	margin-right: 4px;
+}
+
+.stonetop-arcanum-resource-boxes {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	flex-wrap: wrap;
+}
+
+.stonetop-arcanum-resource-btn {
+	appearance: none;
+	width: 14px;
+	height: 14px;
+	border: 1px solid var(--color-border-dark);
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+}
+
+.stonetop-arcanum-resource-btn.is-checked {
+	background: currentColor;
+}
+
+.stonetop-arcanum-resource-label {
+	font-size: 0.78em;
+	color: var(--color-text-dark-secondary, #666);
+	margin-right: 4px;
+}
+
+.stonetop-arcanum-move-trigger {
+	margin: 6px 0 2px;
+}
+

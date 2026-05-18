@@ -72,6 +72,16 @@ describe("pack source files", () => {
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
+	it("arcana items have flags.stonetop.slug, front, and back", () => {
+		const arcana = allDocs.filter(({ doc }) => doc.system?.moveType === "arcanum");
+		const bad = arcana.filter(({ doc }) =>
+			!doc.flags?.stonetop?.slug ||
+			!doc.flags?.stonetop?.front ||
+			!doc.flags?.stonetop?.back
+		);
+		expect(bad.map(b => b.file)).toEqual([]);
+	});
+
 	it("HTML descriptions have balanced tags", () => {
 		const issues = [];
 		for (const { file, doc } of allDocs) {

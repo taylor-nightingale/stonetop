@@ -28,9 +28,9 @@ export class ArcanaUnlockOptionSnapshotBuilder {
 }
 
 export class ArcanumUnlockSection {
-	constructor(description, items) {
-		this.description = description;
-		this.items       = items;
+	constructor(description, requirements) {
+		this.description  = description;
+		this.requirements = requirements;
 	}
 }
 
@@ -135,6 +135,8 @@ export class ArcanaSectionSnapshot {
 		this.title = title;
 		this.items = items;
 	}
+
+	get hasOwned() { return this.items.some(i => i.owned); }
 }
 
 export class ArcanaSnapshot {

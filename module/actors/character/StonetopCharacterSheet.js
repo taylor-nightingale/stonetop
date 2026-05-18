@@ -108,13 +108,51 @@ export function createStonetopCharacterSheetClass(Base) {
 				const { itemId } = ev.currentTarget.dataset;
 				await this._stonetopCharacter.removeMove(itemId);
 			});
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-arcanum-flip-btn");
+				if (!btn) return;
+				ev.stopPropagation();
+				const { slug, flipped } = btn.dataset;
+				if (flipped === "true") {
+					this._stonetopCharacter.unflipArcanum(slug).then(() => this.render(false));
+				} else {
+					this._stonetopCharacter.flipArcanum(slug).then(() => this.render(false));
+				}
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-arcanum-resource-btn");
+				if (!btn) return;
+				ev.stopPropagation();
+				const { slug, index } = btn.dataset;
+				const isChecked = btn.classList.contains("is-checked");
+				const newVal = isChecked ? Number(index) : Number(index) + 1;
+				this._stonetopCharacter.setArcanumResource(slug, newVal).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const cb = ev.target.closest(".stonetop-arcanum-unlock-check");
+				if (!cb) return;
+				const { arcanumSlug, optionSlug, index } = cb.dataset;
+				const newCount = cb.checked ? Number(index) + 1 : Number(index);
+				this._stonetopCharacter.setArcanumUnlockCount(arcanumSlug, optionSlug, newCount);
+			}, true);
 		}
 
 		async _onDropItemCreate(itemData) {
-			const items = Array.isArray(itemData) ? itemData : [itemData];
-			const moves = items.filter(i => i.type === "move");
+			const items  = Array.isArray(itemData) ? itemData : [itemData];
+			const arcana = items.filter(i => i.type === "move" && i.system?.moveType === "arcanum");
+			const moves  = items.filter(i => i.type === "move" && i.system?.moveType !== "arcanum");
 			const others = items.filter(i => i.type !== "move");
 			let anyAdded = false;
+			for (const item of arcana) {
+				const slug = item.flags?.stonetop?.slug;
+				if (slug) {
+					await this._stonetopCharacter.addArcanum(slug);
+					anyAdded = true;
+				}
+			}
 			for (const item of moves) {
 				if (await this._stonetopCharacter.onDropMove(item)) anyAdded = true;
 			}
