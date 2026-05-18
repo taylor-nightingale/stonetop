@@ -7,23 +7,23 @@
 		<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
 		<ul class="stonetop-outfit-loads">
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.loadLevelLight}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelLight}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="light" {{#if stonetop.inventory.loadLevelLight}}checked{{/if}}>
+					       value="light" {{#if stonetop.inventory.outfit.load.loadLevelLight}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
 				</label>
 			</li>
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.loadLevelNormal}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelNormal}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="normal" {{#if stonetop.inventory.loadLevelNormal}}checked{{/if}}>
+					       value="normal" {{#if stonetop.inventory.outfit.load.loadLevelNormal}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
 				</label>
 			</li>
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.loadLevelHeavy}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="heavy" {{#if stonetop.inventory.loadLevelHeavy}}checked{{/if}}>
+					       value="heavy" {{#if stonetop.inventory.outfit.load.loadLevelHeavy}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
 				</label>
 			</li>
@@ -40,7 +40,7 @@
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.regularUndefinedPoolLabel"}}</strong></span>
 				<span class="stonetop-supplies-pool-diamonds">
-					{{#each stonetop.inventory.regularPool.groups}}
+					{{#each (poolGroups stonetop.inventory.outfit.regularPool)}}
 					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
 					{{#each this}}
 					<input type="checkbox"
@@ -54,20 +54,20 @@
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
 			<hr class="stonetop-inv-separator">
-			{{#each stonetop.inventory.regularSegments}}
+			{{#each stonetop.inventory.outfit.regularSegments}}
 			{{#if isGrid}}
 			{{#if segmentBreak}}<hr class="stonetop-inv-separator">{{/if}}
 			<div class="stonetop-inv-twocol-grid">
 				{{#each items}}
 				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
 					<span class="stonetop-inv-diamonds">
-						{{#each weightSlots}}
+						{{#each (times weight)}}
 						<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
 						       data-slug="{{../slug}}"
 						       {{#if ../checked}}checked{{/if}}>
 						{{/each}}
 					</span>
-					<span class="stonetop-inv-label">{{label}}
+					<span class="stonetop-inv-label">{{name}}
 						{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
 					</span>
 					{{#if isCustom}}
@@ -81,18 +81,18 @@
 			{{#if breakBefore}}<hr class="stonetop-inv-separator">{{/if}}
 			<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
 				<span class="stonetop-inv-diamonds">
-					{{#each weightSlots}}
+					{{#each (times weight)}}
 					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
 					       data-slug="{{../slug}}"
 					       {{#if ../checked}}checked{{/if}}>
 					{{/each}}
 				</span>
-				<span class="stonetop-inv-label">{{label}}
+				<span class="stonetop-inv-label">{{name}}
 					{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
 				</span>
-				{{#if resourceChecks}}
+				{{#if resource}}
 				<span class="stonetop-inv-resources">
-					{{#each resourceChecks}}
+					{{#each (resourceChecks resource)}}
 					<span class="stonetop-inv-resource-item">
 						<button type="button"
 						        class="stonetop-inv-resource-btn stonetop-inventory-resource-btn{{#if checked}} is-checked{{/if}}"
@@ -124,7 +124,7 @@
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.smallUndefinedPoolLabel"}}</strong></span>
 				<span class="stonetop-supplies-pool-diamonds">
-					{{#each stonetop.inventory.smallPool.groups}}
+					{{#each (poolGroups stonetop.inventory.outfit.smallPool)}}
 					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
 					{{#each this}}
 					<input type="checkbox"
@@ -137,18 +137,18 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
 			<hr class="stonetop-inv-separator">
-			{{#each stonetop.inventory.smallItems}}
+			{{#each stonetop.inventory.outfit.smallItems}}
 			{{#if breakBefore}}<hr class="stonetop-inv-separator">{{/if}}
 			<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
 				<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
 				       data-slug="{{slug}}"
 				       {{#if checked}}checked{{/if}}>
-				<span class="stonetop-inv-label">{{label}}
+				<span class="stonetop-inv-label">{{name}}
 					{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
 				</span>
-				{{#if resourceChecks}}
+				{{#if resource}}
 				<span class="stonetop-inv-resources">
-					{{#each resourceChecks}}
+					{{#each (resourceChecks resource)}}
 					<span class="stonetop-inv-resource-item">
 						<button type="button"
 						        class="stonetop-inv-resource-btn stonetop-inventory-resource-btn{{#if checked}} is-checked{{/if}}"
@@ -164,15 +164,15 @@
 				{{/if}}
 			</label>
 			{{/each}}
-			{{#if stonetop.inventory.smallGridItems.length}}
+			{{#if stonetop.inventory.outfit.smallGridItems.length}}
 			<hr class="stonetop-inv-separator">
 			<div class="stonetop-inv-grid">
-				{{#each stonetop.inventory.smallGridItems}}
+				{{#each stonetop.inventory.outfit.smallGridItems}}
 				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
 					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
 					       data-slug="{{slug}}"
 					       {{#if checked}}checked{{/if}}>
-					<span class="stonetop-inv-label">{{label}}</span>
+					<span class="stonetop-inv-label">{{name}}</span>
 				</label>
 				{{/each}}
 			</div>
@@ -185,11 +185,11 @@
 	</section>
 	{{/if}}
 
-	{{#if stonetop.possessions}}
+	{{#if stonetop.inventory.possessions}}
 	<div class="tab-section tab-section--possessions">
-		{{> "stonetop.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.possessions.pickNote}}
+		{{> "stonetop.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.inventory.possessions.pickNote}}
 		<ol class="stonetop-possession-list">
-		{{#each stonetop.possessions.options}}
+		{{#each stonetop.inventory.possessions.items}}
 			<li class="stonetop-item{{#if checked}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
 					<input type="checkbox" class="stonetop-item-check stonetop-possession-check"
@@ -198,10 +198,10 @@
 					       {{#if disabled}}disabled{{/if}}>
 					<strong class="stonetop-item-name">{{{label}}}</strong>
 					{{#if preselectedSource}}<span class="stonetop-item-source">{{preselectedSource}}</span>{{/if}}
-					{{#if (and checked usesChecks)}}
+					{{#if (and checked resource)}}
 					<span class="stonetop-item-resources">
 						{{#if usesLabel}}<span class="stonetop-uses-label">{{usesLabel}}</span>{{/if}}
-						{{#each usesChecks}}
+						{{#each (resourceChecks resource)}}
 						<button type="button"
 						        class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
 						        data-possession-slug="{{../slug}}"
@@ -225,9 +225,9 @@
 							       {{#if disabled}}disabled{{/if}}>
 							{{{label}}}
 						</label>
-						{{#if (and checked usesChecks)}}
+						{{#if (and checked resource)}}
 						<span class="stonetop-item-resources">
-							{{#each usesChecks}}
+							{{#each (resourceChecks resource)}}
 							<button type="button"
 							        class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
 							        data-possession-slug="{{../../slug}}"

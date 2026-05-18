@@ -29,7 +29,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			if (context.system.attributes?.xp) {
 				context.system.attributes.xp.max = 6 + level * 2;
 			}
-			context.stonetop = await this._stonetopCharacter.buildSheetData();
+			context.stonetop = await this._stonetopCharacter.buildSnapshot();
 			return context;
 		}
 

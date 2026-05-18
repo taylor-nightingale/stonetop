@@ -4,14 +4,14 @@
 		{{> "pbta.actor-header"}}
 
 		<section class="sheet-top flexcol">
-			{{#if stonetop.playbookImg}}
-			<img class="stonetop-playbook-icon" src="{{stonetop.playbookImg}}" alt="">
+			{{#if stonetop.playbook.img}}
+			<img class="stonetop-playbook-icon" src="{{stonetop.playbook.img}}" alt="">
 			{{/if}}
-			{{#if stonetop.description}}
-			<p class="stonetop-playbook-description">{{stonetop.description}}</p>
+			{{#if stonetop.playbook.description}}
+			<p class="stonetop-playbook-description">{{stonetop.playbook.description}}</p>
 			{{/if}}
 
-			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.statsNote}}
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
 
 			<section class="sheet-attributes flexrow">
 				{{> "pbta.actor-stats"}}

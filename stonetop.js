@@ -16,6 +16,35 @@ Hooks.once("init", () => {
 
 	registerSettings();
 
+	Handlebars.registerHelper("resourceChecks", resource => {
+		if (!resource) return [];
+		const { current, max, labels } = resource;
+		return Array.from({ length: max }, (_, i) => ({ checked: i < current, label: labels[i] || null }));
+	});
+
+	Handlebars.registerHelper("poolGroups", pool => {
+		if (!pool) return [];
+		const { current } = pool;
+		return [
+			Array.from({ length: 3 }, (_, i) => ({ checked: i < current, index: i })),
+			Array.from({ length: 3 }, (_, i) => ({ checked: (i + 3) < current, index: i + 3 })),
+			Array.from({ length: 3 }, (_, i) => ({ checked: (i + 6) < current, index: i + 6 })),
+		];
+	});
+
+	Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) => i));
+
+	Handlebars.registerHelper("repeatChecks", move => {
+		if (!move?.repeat) return [];
+		const { max, current } = move.repeat;
+		const lastOwnedId = move.ownedIds[move.ownedIds.length - 1] ?? null;
+		return Array.from({ length: max }, (_, i) => ({
+			checked:  i < current,
+			ownedId:  i < current ? lastOwnedId : null,
+			disabled: move.isStarting || move.locked || (!(i < current) && i !== current),
+		}));
+	});
+
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 

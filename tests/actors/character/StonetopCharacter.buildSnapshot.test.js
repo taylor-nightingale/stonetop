@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { StonetopCharacter } from "../../../module/actors/character/StonetopCharacter.js";
+import { CharacterSnapshot } from "../../../module/model/CharacterSnapshot.js";
 
 // -- Fake repositories --------------------------------------------------------
 
@@ -134,6 +135,15 @@ function makeHeavyActor(overrides = {}) {
 	});
 }
 
+// ── CharacterSnapshot class ───────────────────────────────────────────────────
+
+describe("buildSnapshot — type", () => {
+	it("returns a CharacterSnapshot instance", async () => {
+		const snap = await makeCharacter(makeActor()).buildSnapshot();
+		expect(snap).toBeInstanceOf(CharacterSnapshot);
+	});
+});
+
 // ── name ─────────────────────────────────────────────────────────────────────
 
 describe("buildSnapshot — name", () => {
@@ -219,25 +229,33 @@ describe("buildSnapshot — playbook section", () => {
 		expect(snap.playbook.instinct.selected).toBe("Paranoia — You see threats everywhere.");
 	});
 
-	it("instinct.options has word and description but NO value field", async () => {
+	it("instinct.options has word, description, value, and selected", async () => {
 		const snap = await buildSnap();
 		const opt = snap.playbook.instinct.options[0];
 		expect(opt.word).toBe("Paranoia");
 		expect(opt.description).toBe("You see threats everywhere.");
-		expect(opt).not.toHaveProperty("value");
+		expect(opt.value).toBe("Paranoia — You see threats everywhere.");
+		expect(opt.selected).toBe(false);
 	});
 
-	it("appearance.options is array-of-arrays of strings (no lineIdx field)", async () => {
+	it("instinct.options[n].selected is true when instinct matches saved", async () => {
+		const snap = await buildSnap({}, { "instinct.selected": "Paranoia — You see threats everywhere." });
+		expect(snap.playbook.instinct.options[0].selected).toBe(true);
+		expect(snap.playbook.instinct.options[1].selected).toBe(false);
+	});
+
+	it("appearance.options is array of {lineIdx, options} objects", async () => {
 		const snap = await buildSnap();
 		expect(snap.playbook.appearance.options).toHaveLength(2);
-		expect(Array.isArray(snap.playbook.appearance.options[0])).toBe(true);
-		expect(snap.playbook.appearance.options[0]).toEqual(["tall and broad", "lean and wiry", "slight"]);
-		expect(snap.playbook.appearance.options[0][0]).not.toHaveProperty("lineIdx");
+		expect(snap.playbook.appearance.options[0].lineIdx).toBe(0);
+		expect(snap.playbook.appearance.options[1].lineIdx).toBe(1);
+		expect(snap.playbook.appearance.options[0].options[0]).toMatchObject({ value: "tall and broad", selected: false });
 	});
 
-	it("appearance.saved reflects saved selections", async () => {
+	it("appearance.options[n].options[n].selected is true when saved", async () => {
 		const snap = await buildSnap({}, { "appearance.selected": { 0: "tall and broad", 1: "scarred" } });
-		expect(snap.playbook.appearance.saved).toEqual({ 0: "tall and broad", 1: "scarred" });
+		expect(snap.playbook.appearance.options[0].options.find(o => o.value === "tall and broad").selected).toBe(true);
+		expect(snap.playbook.appearance.options[1].options.find(o => o.value === "scarred").selected).toBe(true);
 	});
 
 	it("origin.selected is null when none saved", async () => {
@@ -351,7 +369,7 @@ describe("buildSnapshot — vitals", () => {
 
 	it("hp is {value:0, max:0} when no playbook", async () => {
 		const snap = await makeCharacter(makeActor()).buildSnapshot();
-		expect(snap.vitals.hp).toEqual({ value: 0, max: 0 });
+		expect(snap.vitals.hp).toMatchObject({ value: 0, max: 0 });
 	});
 
 	it("damage from playbook when playbook present", async () => {
@@ -510,7 +528,7 @@ describe("buildSnapshot — moves", () => {
 		flags["moves.backgroundChoices"] = { "Resource Move": 2 };
 		const snap = await char.buildSnapshot();
 		const move = snap.moves.find(c => c.key === "playbook").moves[0];
-		expect(move.resource).toEqual({ current: 2, max: 4, title: "Favor", labels: [] });
+		expect(move.resource).toMatchObject({ current: 2, max: 4, title: "Favor", labels: [] });
 	});
 
 	it("move without resource has resource=null", async () => {
@@ -583,13 +601,13 @@ describe("buildSnapshot — inventory.outfit", () => {
 	it("regularPool has unified resource shape with checked=current", async () => {
 		const actor = makeActor({ flags: { "inventory.regularPool": 3 } });
 		const snap = await makeCharacter(actor).buildSnapshot();
-		expect(snap.inventory.outfit.regularPool).toEqual({ current: 3, max: 9, title: null, labels: [] });
+		expect(snap.inventory.outfit.regularPool).toMatchObject({ current: 3, max: 9, title: null, labels: [] });
 	});
 
 	it("smallPool has unified resource shape", async () => {
 		const actor = makeActor({ flags: { "inventory.smallPool": 0 } });
 		const snap = await makeCharacter(actor).buildSnapshot();
-		expect(snap.inventory.outfit.smallPool).toEqual({ current: 0, max: 9, title: null, labels: [] });
+		expect(snap.inventory.outfit.smallPool).toMatchObject({ current: 0, max: 9, title: null, labels: [] });
 	});
 
 	it("regularItems from inventory repo have resource shape when defined", async () => {
@@ -606,7 +624,7 @@ describe("buildSnapshot — inventory.outfit", () => {
 		const snap = await makeCharacter(makeActor(), { inventoryRepo: new FakeInventoryRepository([item]) }).buildSnapshot();
 		const ri = snap.inventory.outfit.regularItems[0];
 		expect(ri.slug).toBe("bow-arrows");
-		expect(ri.resource).toEqual({ current: 0, max: 2, title: null, labels: ["low ammo", "all out"] });
+		expect(ri.resource).toMatchObject({ current: 0, max: 2, title: null, labels: ["low ammo", "all out"] });
 	});
 
 	it("inventory item with no resource has resource=null", async () => {

@@ -78,69 +78,65 @@ const BLESSED_PLAYBOOK = {
 	startingMovesNote: null,
 };
 
-// -- buildSheetData -----------------------------------------------------------
+// -- buildSnapshot (playbook display fields) ----------------------------------
 
-describe("StonetopCharacter.buildSheetData", () => {
-	it("returns hasPlaybook=false with empty arrays when no playbook", async () => {
+describe("StonetopCharacter.buildSnapshot — playbook display fields", () => {
+	it("returns playbook=null with empty movelist when no playbook", async () => {
 		const actor = makeActor();
 		const char = makeCharacter(actor);
-		const data = await char.buildSheetData();
-		expect(data.hasPlaybook).toBe(false);
-		expect(data.backgrounds).toHaveLength(0);
-		expect(data.instincts).toHaveLength(0);
-		expect(data.appearance).toHaveLength(0);
-		expect(data.origins).toHaveLength(0);
-		expect(data.savedInstinct).toBe("");
+		const data = await char.buildSnapshot();
+		expect(data.playbook).toBeNull();
+		expect(data.movelist.playbookMoves).toHaveLength(0);
+		expect(data.movelist.basicMoves).toHaveLength(0);
 	});
 
 	it("returns movelist with otherMoves even when no playbook", async () => {
 		const move = { _id: "m1", type: "move", name: "Custom Move", system: { moveType: "other", rollType: null } };
 		const actor = makeActor({ items: [move] });
 		const char = makeCharacter(actor);
-		const data = await char.buildSheetData();
-		expect(data.movelist).not.toBeNull();
+		const data = await char.buildSnapshot();
 		expect(data.movelist.otherMoves).toHaveLength(1);
 		expect(data.movelist.otherMoves[0].name).toBe("Custom Move");
 	});
 
-	it("returns hasPlaybook=true when playbook present", async () => {
+	it("returns playbook object when playbook present", async () => {
 		const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
 		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK));
-		const data = await char.buildSheetData();
-		expect(data.hasPlaybook).toBe(true);
+		const data = await char.buildSnapshot();
+		expect(data.playbook).not.toBeNull();
 	});
 
 	describe("with no saved selections", () => {
 		async function buildCtx() {
 			const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
-			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSheetData();
+			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSnapshot();
 		}
 
 		it("maps backgrounds, none selected", async () => {
 			const data = await buildCtx();
-			expect(data.backgrounds).toHaveLength(3);
-			expect(data.backgrounds.every(b => !b.selected)).toBe(true);
+			expect(data.playbook.background.options).toHaveLength(3);
+			expect(data.playbook.background.options.every(b => !b.selected)).toBe(true);
 		});
 
 		it("maps instincts with value field and none selected", async () => {
 			const data = await buildCtx();
-			expect(data.instincts).toHaveLength(3);
-			expect(data.instincts[0].value).toBe("Delight — To find beauty, in even the ugliest things.");
-			expect(data.instincts.every(i => !i.selected)).toBe(true);
+			expect(data.playbook.instinct.options).toHaveLength(3);
+			expect(data.playbook.instinct.options[0].value).toBe("Delight — To find beauty, in even the ugliest things.");
+			expect(data.playbook.instinct.options.every(i => !i.selected)).toBe(true);
 		});
 
 		it("maps appearance lines with lineIdx and no selections", async () => {
 			const data = await buildCtx();
-			expect(data.appearance).toHaveLength(2);
-			expect(data.appearance[0].lineIdx).toBe(0);
-			expect(data.appearance[0].options.every(o => !o.selected)).toBe(true);
+			expect(data.playbook.appearance.options).toHaveLength(2);
+			expect(data.playbook.appearance.options[0].lineIdx).toBe(0);
+			expect(data.playbook.appearance.options[0].options.every(o => !o.selected)).toBe(true);
 		});
 
 		it("maps origins with none selected", async () => {
 			const data = await buildCtx();
-			expect(data.origins).toHaveLength(2);
-			expect(data.origins.every(o => !o.selected)).toBe(true);
-			expect(data.origins[0].region).toBe("Stonetop");
+			expect(data.playbook.origin.options).toHaveLength(2);
+			expect(data.playbook.origin.options.every(o => !o.selected)).toBe(true);
+			expect(data.playbook.origin.options[0].region).toBe("Stonetop");
 		});
 	});
 
@@ -155,29 +151,29 @@ describe("StonetopCharacter.buildSheetData", () => {
 					"origin.selected": "Barrier Pass",
 				},
 			});
-			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSheetData();
+			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSnapshot();
 		}
 
 		it("marks the saved background as selected", async () => {
 			const data = await buildCtx();
-			expect(data.backgrounds.find(b => b.slug === "vessel").selected).toBe(true);
-			expect(data.backgrounds.filter(b => b.selected)).toHaveLength(1);
+			expect(data.playbook.background.options.find(b => b.slug === "vessel").selected).toBe(true);
+			expect(data.playbook.background.options.filter(b => b.selected)).toHaveLength(1);
 		});
 
-		it("marks the matching instinct as selected and sets savedInstinct", async () => {
+		it("marks the matching instinct as selected", async () => {
 			const data = await buildCtx();
-			expect(data.savedInstinct).toBe("Delight — To find beauty, in even the ugliest things.");
-			expect(data.instincts.find(i => i.word === "Delight").selected).toBe(true);
+			expect(data.playbook.instinct.selected).toBe("Delight — To find beauty, in even the ugliest things.");
+			expect(data.playbook.instinct.options.find(i => i.word === "Delight").selected).toBe(true);
 		});
 
 		it("marks saved appearance option as selected", async () => {
 			const data = await buildCtx();
-			expect(data.appearance[0].options.find(o => o.value === "gray & wizened").selected).toBe(true);
+			expect(data.playbook.appearance.options[0].options.find(o => o.value === "gray & wizened").selected).toBe(true);
 		});
 
 		it("marks the saved origin as selected", async () => {
 			const data = await buildCtx();
-			expect(data.origins.find(o => o.region === "Barrier Pass").selected).toBe(true);
+			expect(data.playbook.origin.options.find(o => o.region === "Barrier Pass").selected).toBe(true);
 		});
 	});
 });

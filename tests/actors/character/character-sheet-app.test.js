@@ -29,7 +29,7 @@ function makeCharacterMock(actor) {
 		addMove: vi.fn(),
 		removeMove: vi.fn(),
 		moveResources: { add: vi.fn() },
-		buildSheetData: vi.fn(async () => ({})),
+		buildSnapshot: vi.fn(async () => ({})),
 	};
 }
 

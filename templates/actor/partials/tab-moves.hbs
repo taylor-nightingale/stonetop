@@ -26,7 +26,7 @@
 							<div class="stonetop-item-header">
 								{{#if repeatable}}
 								<span class="stonetop-repeat-checks">
-									{{#each repeatChecks}}
+									{{#each (repeatChecks this)}}
 									<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
 									       data-compendium-id="{{../compendiumId}}"
 									       data-owned-id="{{ownedId}}"
@@ -42,15 +42,15 @@
 								       {{#if (or isStarting locked)}}disabled{{/if}}>
 								{{/if}}
 								<strong class="stonetop-item-name">{{name}}</strong>
-								{{#if source}}<span class="stonetop-item-source">{{source}}</span>{{/if}}
+								{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 								{{#if (and owned rollType)}}
 								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 									<i class="fas fa-dice-d6"></i>
 								</span>
 								{{/if}}
-								{{#if (and owned resourceChecks)}}
+								{{#if (and owned resource)}}
 								<span class="stonetop-item-resources">
-									{{#each resourceChecks}}
+									{{#each (resourceChecks resource)}}
 									<span class="stonetop-item-resource-entry">
 										<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
 										        data-move-name="{{../name}}"
