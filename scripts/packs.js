@@ -6,4 +6,5 @@ export const PACKS = [
 	"follower-moves",
 	"homefront-moves",
 	"inventory-items",
+	"arcana",
 ];

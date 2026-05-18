@@ -756,7 +756,8 @@ export class StonetopCharacter {
 			const backResource = item.back.resource
 				? new ResourceBuilder()
 					.withCurrent(resourceCounts[item.slug] ?? 0)
-					.withMax(item.back.resource.max)
+					.withMax(item.back.resource.max ?? null)
+					.withMaxStat(item.back.resource.maxStat ?? null)
 					.withTitle(item.back.resource.title ?? null)
 					.withLabels(item.back.resource.labels ?? [])
 					.build()

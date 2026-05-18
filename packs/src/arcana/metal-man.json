@@ -1,0 +1,42 @@
+{
+	"_id": "AR3PUU5UYZ7ZzABc",
+	"_key": "!items!AR3PUU5UYZ7ZzABc",
+	"name": "A metal man",
+	"type": "move",
+	"system": {
+		"moveType": "arcanum",
+		"slug": "metal-man",
+		"front": {
+			"title": "A metal man",
+			"weight": null,
+			"note": "magical, fragile",
+			"description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
+			"unlock": {
+				"description": "This is clearly no mere statue, but to unlock its mysteries you need to…",
+				"items": [
+					{ "type": "option", "slug": "repair-body", "description": "… repair the body, taking a full season for an exceptional smith (Value 3)." },
+					{ "type": "option", "slug": "repair-runes", "description": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable." },
+					{ "type": "option", "slug": "convince-spirit", "description": "… convince your own hearth's spirit to inhabit the stove and animate the construct." }
+				]
+			}
+		},
+		"back": {
+			"title": "Bronze Protector",
+			"weight": null,
+			"note": null,
+			"description": "<p>As long as <strong><em>fire burns in in the stove-like chest</em></strong>, the hearth spirit will animate the construct. Treat it as a follower.</p><p><strong>Bronze protector</strong><br><em>Construct, spirit, durable, vigilant, overbearing, mute, gullible</em><br><strong>HP</strong> 13; <strong>Armor</strong> 3 (metal)<br><strong>Damage</strong> pummel 1d8 (<em>band</em>)<br><strong>Special qualities</strong> fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP<br><strong>Instinct</strong> to be overzealous in guarding you<br>▶ Loom menacingly, belching smoke<br>▶ Start fires, cause collateral damage<br>▶ Run low on fuel<br><strong>Cost</strong> profuse gratitude (Loyalty: ○○○)</p>",
+			"resource": {
+				"max": 4,
+				"maxStat": null,
+				"title": "Readiness",
+				"labels": []
+			},
+			"move": {
+				"name": "As long as fire burns in the stove-like chest",
+				"rollType": null,
+				"description": "<p>The hearth spirit will animate the construct. Treat it as a follower.</p>"
+			},
+			"options": []
+		}
+	}
+}

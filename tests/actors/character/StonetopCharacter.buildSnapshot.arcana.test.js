@@ -87,7 +87,7 @@ function makeCharacter(actor, playbookRepo = null, arcanaRepo = null) {
 // -- Arcana fixture -----------------------------------------------------------
 
 const FFYRNIG_SPHERE = {
-	slug: "ffyrnig-sphere",
+	slug: "huge-wooden-sphere",
 	front: {
 		title: "A Huge Wooden Sphere",
 		weight: null,
@@ -136,7 +136,7 @@ const PLAYBOOK_WITH_ARCANA = {
 	arcana: {
 		minor: {
 			title: "Minor Arcana",
-			items: ["ffyrnig-sphere"],
+			items: ["huge-wooden-sphere"],
 		},
 		major: {
 			title: "Major Arcana",
@@ -215,7 +215,7 @@ describe("buildSnapshot() — arcana", () => {
 
 		it("has correct slug", async () => {
 			const item = await buildWithFlags();
-			expect(item.slug).toBe("ffyrnig-sphere");
+			expect(item.slug).toBe("huge-wooden-sphere");
 		});
 
 		it("front is a MinorArcanumFrontSnapshot with correct fields", async () => {
@@ -272,7 +272,7 @@ describe("buildSnapshot() — arcana", () => {
 		});
 
 		it("unlock option count and selected reflect saved flags", async () => {
-			const item = await buildWithFlags({ unlock: { "ffyrnig-sphere:dig-sphere": 1 } });
+			const item = await buildWithFlags({ unlock: { "huge-wooden-sphere:dig-sphere": 1 } });
 			const opt  = item.front.unlock.items[1];
 			expect(opt.count).toBe(1);
 			expect(opt.selected).toBe(true);
@@ -293,7 +293,7 @@ describe("buildSnapshot() — arcana", () => {
 		});
 
 		it("back.resource.current reflects saved flag", async () => {
-			const item = await buildWithFlags({ resources: { "ffyrnig-sphere": 2 } });
+			const item = await buildWithFlags({ resources: { "huge-wooden-sphere": 2 } });
 			expect(item.back.resource.current).toBe(2);
 		});
 
@@ -339,7 +339,7 @@ describe("buildSnapshot() — arcana", () => {
 		});
 
 		it("owned is true when slug is in owned flag", async () => {
-			const item = await buildWithFlags({ owned: ["ffyrnig-sphere"] });
+			const item = await buildWithFlags({ owned: ["huge-wooden-sphere"] });
 			expect(item.owned).toBe(true);
 		});
 
@@ -349,7 +349,7 @@ describe("buildSnapshot() — arcana", () => {
 		});
 
 		it("flipped is true when slug is in flipped flag", async () => {
-			const item = await buildWithFlags({ flipped: ["ffyrnig-sphere"] });
+			const item = await buildWithFlags({ flipped: ["huge-wooden-sphere"] });
 			expect(item.flipped).toBe(true);
 		});
 	});
