@@ -30,6 +30,16 @@ export {
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,
 	InventorySnapshot,
 } from "./InventorySnapshot.js";
+export {
+	ArcanaSnapshot, ArcanaSectionSnapshot,
+	MinorArcanumSnapshot, MinorArcanumSnapshotBuilder,
+	MinorArcanumFrontSnapshot, MinorArcanumFrontSnapshotBuilder,
+	MinorArcanumBackSnapshot, MinorArcanumBackSnapshotBuilder,
+	ArcanumUnlockSection, ArcanaUnlockTextItem,
+	ArcanaUnlockOptionSnapshot, ArcanaUnlockOptionSnapshotBuilder,
+	ArcanaBackOptionSnapshot, ArcanaBackOptionSnapshotBuilder,
+	ArcanumBackMoveSnapshot,
+} from "./ArcanaSnapshot.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.
@@ -45,6 +55,7 @@ export {
  * @property {MoveCategorySnapshot[]} moves - only categories with ≥1 move included
  * @property {Movelist} movelist
  * @property {InventorySnapshot} inventory
+ * @property {ArcanaSnapshot} arcana
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
@@ -57,6 +68,7 @@ export class CharacterSnapshot {
 		this.moves      = b._moves;
 		this.movelist   = b._movelist;
 		this.inventory  = b._inventory;
+		this.arcana     = b._arcana;
 		this.rollMode   = b._rollMode;
 	}
 }
@@ -70,6 +82,7 @@ export class CharacterSnapshotBuilder {
 	withMoves(v)      { this._moves      = v; return this; }
 	withMovelist(v)   { this._movelist   = v; return this; }
 	withInventory(v)  { this._inventory  = v; return this; }
+	withArcana(v)     { this._arcana     = v; return this; }
 	withRollMode(v)   { this._rollMode   = v; return this; }
 	build()           { return new CharacterSnapshot(this); }
 }

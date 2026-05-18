@@ -1,5 +1,8 @@
 import {
 	AppearanceLineSnapshot, AppearanceOptionSnapshot, AppearanceSection,
+	ArcanaBackOptionSnapshotBuilder, ArcanaSnapshot, ArcanaSectionSnapshot,
+	ArcanaUnlockOptionSnapshotBuilder, ArcanaUnlockTextItem,
+	ArcanumBackMoveSnapshot, ArcanumUnlockSection,
 	BackgroundChoiceOptionSnapshot, BackgroundChoicesSnapshotBuilder,
 	BackgroundOptionSnapshotBuilder, BackgroundSection,
 	CharacterSnapshot, CharacterSnapshotBuilder,
@@ -7,6 +10,8 @@ import {
 	InstinctOptionSnapshotBuilder, InstinctSection,
 	InventoryItemSnapshotBuilder, InventorySegmentSnapshot, InventorySnapshot,
 	LoadOptionSnapshot, LoadSnapshotBuilder,
+	MinorArcanumBackSnapshotBuilder, MinorArcanumFrontSnapshotBuilder,
+	MinorArcanumSnapshotBuilder,
 	MoveCategorySnapshotBuilder, MoveGroupSnapshot, MoveSnapshotBuilder, Movelist, MovelistBuilder,
 	OriginOptionSnapshot, OriginSection,
 	OtherItemSnapshotBuilder,
@@ -26,19 +31,22 @@ import {CharacterAppearance} from "./CharacterAppearance.js";
 import {CharacterOrigin} from "./CharacterOrigin.js";
 import {CharacterPossessions} from "./CharacterPossessions.js";
 import {CharacterInventory} from "./CharacterInventory.js";
+import {CharacterArcana} from "./CharacterArcana.js";
 import {FoundryInventoryRepository} from "./repositories/FoundryInventoryRepository.js";
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
 import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
 import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
+import {FoundryArcanaRepository} from "./repositories/FoundryArcanaRepository.js";
 const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
-	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository, inventoryRepository) {
+	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository, inventoryRepository, arcanaRepository) {
 		this._actor = actor;
 		this._playbookRepo = playbookRepository;
 		this._playbookMoveRepo = playbookMoveRepository;
 		this._basicMoveRepo = basicMoveRepository;
 		this._inventoryRepo = inventoryRepository;
+		this._arcanaRepo = arcanaRepository;
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
@@ -46,6 +54,7 @@ export class StonetopCharacter {
 		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"));
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"));
+		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"));
 	}
 
 	static create(actor) {
@@ -55,6 +64,7 @@ export class StonetopCharacter {
 			new FoundryPlaybookMoveRepository(),
 			new FoundryBasicMoveRepository(),
 			new FoundryInventoryRepository(),
+			new FoundryArcanaRepository(),
 		);
 	}
 
@@ -92,6 +102,7 @@ export class StonetopCharacter {
 			.withMoves(moves)
 			.withMovelist(_buildMovelist(moves, inventory.other))
 			.withInventory(inventory)
+			.withArcana(await this._buildArcanaSection(playbookData))
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
 	}
@@ -695,6 +706,106 @@ export class StonetopCharacter {
 		if (options.rollMode === "dis") return options;
 		return { ...options, rollMode: "dis" };
 	}
+
+	async _buildArcanaSection(playbookData) {
+		const arcanaData       = playbookData?.arcana ?? null;
+		const ownedSlugs       = this._arcana.ownedSlugs;
+		const flippedSlugs     = this._arcana.flippedSlugs;
+		const unlockCounts     = this._arcana.unlockCounts;
+		const backOptionCounts = this._arcana.backOptionCounts;
+		const resourceCounts   = this._arcana.resources;
+
+		const minorSlugs = arcanaData?.minor?.items ?? [];
+		const fetchedMinor = await this._arcanaRepo.findBySlugs(minorSlugs);
+
+		const buildMinorItems = (items) => items.map(item => {
+			const owned   = ownedSlugs.has(item.slug);
+			const flipped = flippedSlugs.has(item.slug);
+
+			const unlockItems = item.front.unlock.items.map(li => {
+				if (li.type === "text") return new ArcanaUnlockTextItem(li.content);
+				const count = unlockCounts[`${item.slug}:${li.slug}`] ?? 0;
+				return new ArcanaUnlockOptionSnapshotBuilder()
+					.withSlug(li.slug)
+					.withDescription(li.description)
+					.withCount(count)
+					.withMax(li.max ?? 1)
+					.withSelected(count > 0)
+					.build();
+			});
+
+			const front = new MinorArcanumFrontSnapshotBuilder()
+				.withTitle(item.front.title)
+				.withWeight(item.front.weight ?? null)
+				.withNote(item.front.note ?? null)
+				.withDescription(item.front.description)
+				.withUnlock(new ArcanumUnlockSection(item.front.unlock.description, unlockItems))
+				.build();
+
+			const backOpts = (item.back.options ?? []).map(o => {
+				const count = backOptionCounts[`${item.slug}:${o.slug}`] ?? 0;
+				return new ArcanaBackOptionSnapshotBuilder()
+					.withSlug(o.slug)
+					.withDescription(o.description)
+					.withCount(count)
+					.withMax(o.max ?? 1)
+					.withSelected(count > 0)
+					.build();
+			});
+
+			const backResource = item.back.resource
+				? new ResourceBuilder()
+					.withCurrent(resourceCounts[item.slug] ?? 0)
+					.withMax(item.back.resource.max)
+					.withTitle(item.back.resource.title ?? null)
+					.withLabels(item.back.resource.labels ?? [])
+					.build()
+				: null;
+
+			const backMove = item.back.move
+				? new ArcanumBackMoveSnapshot(
+					item.back.move.name,
+					item.back.move.rollType ?? null,
+					item.back.move.description)
+				: null;
+
+			const back = new MinorArcanumBackSnapshotBuilder()
+				.withTitle(item.back.title)
+				.withWeight(item.back.weight ?? null)
+				.withNote(item.back.note ?? null)
+				.withDescription(item.back.description)
+				.withResource(backResource)
+				.withMove(backMove)
+				.withOptions(backOpts)
+				.build();
+
+			return new MinorArcanumSnapshotBuilder()
+				.withSlug(item.slug)
+				.withFront(front)
+				.withBack(back)
+				.withOwned(owned)
+				.withFlipped(flipped)
+				.build();
+		});
+
+		const minor = new ArcanaSectionSnapshot(
+			arcanaData?.minor?.title ?? "Minor Arcana",
+			buildMinorItems(fetchedMinor)
+		);
+		const major = new ArcanaSectionSnapshot(
+			arcanaData?.major?.title ?? "Major Arcana",
+			[]
+		);
+		return new ArcanaSnapshot(minor, major);
+	}
+
+	async addArcanum(slug)    { await this._arcana.addArcanum(slug); }
+	async removeArcanum(slug) { await this._arcana.removeArcanum(slug); }
+	async flipArcanum(slug)   { await this._arcana.flipArcanum(slug); }
+	async unflipArcanum(slug) { await this._arcana.unflipArcanum(slug); }
+	async setArcanumUnlockCount(arcanumSlug, optionSlug, count)     { await this._arcana.setUnlockCount(arcanumSlug, optionSlug, count); }
+	async setArcanumBackOptionCount(arcanumSlug, optionSlug, count) { await this._arcana.setBackOptionCount(arcanumSlug, optionSlug, count); }
+	async setArcanumResource(slug, count)                           { await this._arcana.setResource(slug, count); }
 
 	_buildOwnedMovesMap() {
 		const map = new Map();

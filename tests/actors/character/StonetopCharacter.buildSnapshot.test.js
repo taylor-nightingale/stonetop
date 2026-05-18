@@ -26,6 +26,11 @@ class FakeInventoryRepository {
 	async getAll() { return this._items; }
 }
 
+class FakeArcanaRepository {
+	async findBySlug() { return null; }
+	async findBySlugs() { return []; }
+}
+
 // -- Fake actor ---------------------------------------------------------------
 
 function makeActor({ name = "Brakken", system = {}, flags = {}, items = [] } = {}) {
@@ -75,6 +80,7 @@ function makeCharacter(actor, {
 		moveRepo      ?? new FakePlaybookMoveRepository(),
 		basicMoveRepo ?? new FakeBasicMoveRepository(),
 		inventoryRepo ?? new FakeInventoryRepository(),
+		new FakeArcanaRepository(),
 	);
 }
 

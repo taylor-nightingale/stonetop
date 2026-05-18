@@ -5,7 +5,7 @@
 	"description": "An unofficial module for playing Stonetop in Foundry VTT.",
 	"version": "0.6.0",
 	"compatibility": {
-		"minimum": "11",
+		"minimum": "12",
 		"verified": "12"
 	},
 	"relationships": {
