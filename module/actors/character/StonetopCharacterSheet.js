@@ -145,6 +145,21 @@ export function createStonetopCharacterSheetClass(Base) {
 				const newCount = cb.checked ? Number(index) + 1 : Number(index);
 				this._stonetopCharacter.setArcanumUnlockCount(arcanumSlug, optionSlug, newCount);
 			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const cb = ev.target.closest(".stonetop-lore-option-check");
+				if (!cb) return;
+				const { loreSlug, optionSlug, idx } = cb.dataset;
+				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
+				this._stonetopCharacter.setLoreOptionCount(loreSlug, optionSlug, newCount);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const ta = ev.target.closest(".stonetop-lore-option-text");
+				if (!ta) return;
+				const { loreSlug, optionSlug } = ta.dataset;
+				this._stonetopCharacter.setLoreOptionText(loreSlug, optionSlug, ta.value);
+			}, true);
 		}
 
 		async _onDropItemCreate(itemData) {

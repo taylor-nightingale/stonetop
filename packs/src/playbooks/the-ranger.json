@@ -211,7 +211,35 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "wicked-threat",
+					"title": "Something Wicked This Way Comes",
+					"description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>",
+					"options": [
+						{ "slug": "great-wood",   "description": "A dark, unwholesome presence lurking in the Great Wood.",              "max": 1 },
+						{ "slug": "ruined-tower", "description": "A strange, furtive figure seen near the Ruined Tower.",                "max": 1 },
+						{ "slug": "foothills",    "description": "Something big & savage stalking the northern foothills.",              "max": 1 },
+						{ "slug": "suarachan",    "description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.", "max": 1 },
+						{ "slug": "hillfolk",     "description": "That of which the Hillfolk refuse to speak.",                         "max": 1 }
+					]
+				},
+				{
+					"slug": "wicked-questions",
+					"title": "Answer At Least 3 of the Following",
+					"description": "",
+					"options": [
+						{ "slug": "what-is-it",     "description": "What, exactly, do you think it is?",                                "type": "text" },
+						{ "slug": "what-saw",       "description": "What did you see, and how close did you have to get to see it?",   "type": "text" },
+						{ "slug": "what-lost",      "description": "Whom or what have you lost to it?",                                "type": "text" },
+						{ "slug": "left-behind",    "description": "What did it leave behind?",                                        "type": "text" },
+						{ "slug": "what-wants",     "description": "What do you think it wants?",                                      "type": "text" },
+						{ "slug": "disbeliever",    "description": "Who refuses to believe you?",                                      "type": "text" },
+						{ "slug": "who-knows-more", "description": "Who can tell you more, if you can only convince them?",            "type": "text" }
+					]
+				}
+			]
 		}
 	},
 	"system": {

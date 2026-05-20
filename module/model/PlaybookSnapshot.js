@@ -152,6 +152,57 @@ export class BackgroundSection {
 	}
 }
 
+// ── Lore ──────────────────────────────────────────────────────────────────────
+
+export class LoreOptionSnapshot {
+	constructor(b) {
+		this.slug        = b._slug;
+		this.description = b._description;
+		this.type        = b._type ?? "checkbox";
+		this.max         = this.type === "text" ? 0 : (b._max ?? 1);
+		this.count       = this.type === "text" ? 0 : (b._count ?? 0);
+		this.checks      = this.type === "text" ? [] : Array.from({ length: this.max }, (_, i) => i < this.count);
+		this.textValue   = this.type === "text" ? (b._textValue ?? "") : null;
+	}
+}
+
+export class LoreOptionSnapshotBuilder {
+	withSlug(v)        { this._slug        = v; return this; }
+	withDescription(v) { this._description = v; return this; }
+	withType(v)        { this._type        = v; return this; }
+	withMax(v)         { this._max         = v; return this; }
+	withCount(v)       { this._count       = v; return this; }
+	withTextValue(v)   { this._textValue   = v; return this; }
+	build()            { return new LoreOptionSnapshot(this); }
+}
+
+export class LoreEntrySnapshot {
+	constructor(b) {
+		this.slug        = b._slug;
+		this.title       = b._title;
+		this.description = b._description;
+		this.options     = b._options;
+	}
+}
+
+export class LoreEntrySnapshotBuilder {
+	withSlug(v)        { this._slug        = v; return this; }
+	withTitle(v)       { this._title       = v; return this; }
+	withDescription(v) { this._description = v; return this; }
+	withOptions(v)     { this._options     = v; return this; }
+	build()            { return new LoreEntrySnapshot(this); }
+}
+
+export class LoreSection {
+	constructor(entries) {
+		this.entries = entries;
+	}
+
+	get hasEntries() {
+		return this.entries.length > 0;
+	}
+}
+
 // ── Playbook ──────────────────────────────────────────────────────────────────
 
 /**
@@ -160,6 +211,7 @@ export class BackgroundSection {
  * @property {string|null} img
  * @property {string|null} description
  * @property {string|null} statsNote
+ * @property {LoreSection} lore
  * @property {BackgroundSection} background
  * @property {InstinctSection} instinct
  * @property {AppearanceSection} appearance
@@ -172,6 +224,7 @@ export class PlaybookSnapshot {
 		this.img         = b._img;
 		this.description = b._description;
 		this.statsNote   = b._statsNote;
+		this.lore        = b._lore;
 		this.background  = b._background;
 		this.instinct    = b._instinct;
 		this.appearance  = b._appearance;
@@ -185,6 +238,7 @@ export class PlaybookSnapshotBuilder {
 	withImg(v)         { this._img         = v; return this; }
 	withDescription(v) { this._description = v; return this; }
 	withStatsNote(v)   { this._statsNote   = v; return this; }
+	withLore(v)        { this._lore        = v; return this; }
 	withBackground(v)  { this._background  = v; return this; }
 	withInstinct(v)    { this._instinct    = v; return this; }
 	withAppearance(v)  { this._appearance  = v; return this; }

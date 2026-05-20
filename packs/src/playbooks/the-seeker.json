@@ -200,7 +200,68 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "collection",
+					"title": "Collection",
+					"description": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+				},
+				{
+					"slug": "arcana-major",
+					"title": "Major Arcanum",
+					"description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>",
+					"options": [
+						{
+							"slug": "where-acquired",
+							"description": "Where did you acquire it?",
+							"type": "text"
+						},
+						{
+							"slug": "wrested-from",
+							"description": "From whose grasp did you wrest it?",
+							"type": "text"
+						},
+						{
+							"slug": "who-else-wants",
+							"description": "Who else wants it?",
+							"type": "text"
+						},
+						{
+							"slug": "what-cost",
+							"description": "What did it cost you?",
+							"type": "text"
+						},
+						{
+							"slug": "when-unlocked",
+							"description": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>",
+							"type": "text"
+						}
+					]
+				},
+				{
+					"slug": "arcana-minor",
+					"title": "Minor Arcana",
+					"description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>",
+					"options": [
+						{
+							"slug": "mastered-location",
+							"description": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?",
+							"type": "text"
+						},
+						{
+							"slug": "found-location",
+							"description": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?",
+							"type": "text"
+						},
+						{
+							"slug": "sought-notes",
+							"description": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?",
+							"type": "text"
+						}
+					]
+				}
+			]
 		}
 	},
 	"system": {

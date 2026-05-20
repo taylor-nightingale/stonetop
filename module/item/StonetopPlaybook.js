@@ -57,4 +57,8 @@ export class StonetopPlaybook {
 	get specialPossessions() {
 		return this._stonetopFields.specialPossessions ?? null;
 	}
+
+	get lore() {
+		return this._stonetopFields.lore ?? [];
+	}
 }

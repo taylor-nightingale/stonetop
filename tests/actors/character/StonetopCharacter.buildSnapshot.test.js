@@ -719,6 +719,149 @@ describe("buildSnapshot — inventory.other", () => {
 	});
 });
 
+// ── lore ──────────────────────────────────────────────────────────────────────
+
+describe("buildSnapshot — lore section", () => {
+	const LORE_PLAYBOOK = {
+		...HEAVY_PLAYBOOK,
+		lore: [
+			{
+				slug: "the-earth-mother",
+				title: "The Earth Mother",
+				description: "<p>Danu text</p>",
+				options: [
+					{ slug: "shrine-loved",  description: "... loved.",    max: 1 },
+					{ slug: "shrine-berth",  description: "... berth.",    max: 1 },
+				],
+			},
+			{
+				slug: "danu-offerings",
+				title: "Offerings to Danu",
+				description: "<p>Offerings text</p>",
+				options: [
+					{ slug: "fruits", description: "Fruits of harvest", max: 3 },
+				],
+			},
+		],
+	};
+
+	async function buildSnap(flags = {}) {
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-heavy", "The Heavy")
+			.withFlags(flags)
+			.build();
+		return new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(LORE_PLAYBOOK))
+			.build().buildSnapshot();
+	}
+
+	it("lore.hasEntries is true when playbook has lore", async () => {
+		const snap = await buildSnap();
+		expect(snap.playbook.lore.hasEntries).toBe(true);
+	});
+
+	it("lore.hasEntries is false when playbook has no lore", async () => {
+		const actor = new FakeActorBuilder().withPlaybook("the-heavy", "The Heavy").build();
+		const snap = await new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(HEAVY_PLAYBOOK))
+			.build().buildSnapshot();
+		expect(snap.playbook.lore.hasEntries).toBe(false);
+	});
+
+	it("lore.entries has correct length", async () => {
+		const snap = await buildSnap();
+		expect(snap.playbook.lore.entries).toHaveLength(2);
+	});
+
+	it("lore entry has slug, title, description", async () => {
+		const snap = await buildSnap();
+		const entry = snap.playbook.lore.entries[0];
+		expect(entry.slug).toBe("the-earth-mother");
+		expect(entry.title).toBe("The Earth Mother");
+		expect(entry.description).toBe("<p>Danu text</p>");
+	});
+
+	it("lore entry options have slug, description, max", async () => {
+		const snap = await buildSnap();
+		const opt = snap.playbook.lore.entries[0].options[0];
+		expect(opt.slug).toBe("shrine-loved");
+		expect(opt.description).toBe("... loved.");
+		expect(opt.max).toBe(1);
+	});
+
+	it("lore option count is 0 when no flag saved", async () => {
+		const snap = await buildSnap();
+		expect(snap.playbook.lore.entries[0].options[0].count).toBe(0);
+	});
+
+	it("lore option count reflects saved flag", async () => {
+		const snap = await buildSnap({ "lore.counts": { "the-earth-mother:shrine-loved": 1 } });
+		expect(snap.playbook.lore.entries[0].options[0].count).toBe(1);
+	});
+
+	it("lore option checks has length equal to max", async () => {
+		const snap = await buildSnap();
+		const opt = snap.playbook.lore.entries[1].options[0];
+		expect(opt.checks).toHaveLength(3);
+	});
+
+	it("lore option checks are all false when count is 0", async () => {
+		const snap = await buildSnap();
+		const opt = snap.playbook.lore.entries[0].options[0];
+		expect(opt.checks).toEqual([false]);
+	});
+
+	it("lore option checks reflect count correctly", async () => {
+		const snap = await buildSnap({ "lore.counts": { "danu-offerings:fruits": 2 } });
+		const opt = snap.playbook.lore.entries[1].options[0];
+		expect(opt.checks).toEqual([true, true, false]);
+	});
+
+	const TEXT_LORE_PLAYBOOK = {
+		...HEAVY_PLAYBOOK,
+		lore: [
+			{
+				slug: "questions",
+				title: "Questions",
+				description: "",
+				options: [
+					{ slug: "q-one", description: "What happened?", type: "text" },
+				],
+			},
+		],
+	};
+
+	async function buildSnapWithText(flags = {}) {
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-heavy", "The Heavy")
+			.withFlags(flags)
+			.build();
+		return new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(TEXT_LORE_PLAYBOOK))
+			.build().buildSnapshot();
+	}
+
+	it("text-type option has type === 'text'", async () => {
+		const snap = await buildSnapWithText();
+		expect(snap.playbook.lore.entries[0].options[0].type).toBe("text");
+	});
+
+	it("text-type option has checks === []", async () => {
+		const snap = await buildSnapWithText();
+		expect(snap.playbook.lore.entries[0].options[0].checks).toEqual([]);
+	});
+
+	it("text-type option textValue is empty string when no flag saved", async () => {
+		const snap = await buildSnapWithText();
+		expect(snap.playbook.lore.entries[0].options[0].textValue).toBe("");
+	});
+
+	it("text-type option textValue reflects saved flag", async () => {
+		const snap = await buildSnapWithText({ "lore.texts": { "questions:q-one": "it was chaos" } });
+		expect(snap.playbook.lore.entries[0].options[0].textValue).toBe("it was chaos");
+	});
+});
+
 // ── rollMode ──────────────────────────────────────────────────────────────────
 
 describe("buildSnapshot — rollMode", () => {

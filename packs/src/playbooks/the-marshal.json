@@ -214,7 +214,37 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "war-stories-action",
+					"title": "The Last Time the Militia Saw Serious Action, It Was…",
+					"description": "<p><em>(pick 1)</em></p>",
+					"options": [
+						{ "slug": "crinwin-raid",  "description": "… to repel a nighttime raid by crinwin from the Great Wood.",                               "max": 1 },
+						{ "slug": "bandits",       "description": "… to drive off bandits who'd taken up near the Ruined Tower.",                              "max": 1 },
+						{ "slug": "hillfolk",      "description": "… to fend off Hillfolk pursuing a blood feud.",                                             "max": 1 },
+						{ "slug": "brennan-claws", "description": "… against Brennan and his Claws, before they settled in Marshedge.",                        "max": 1 },
+						{ "slug": "hagr",          "description": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",                    "max": 1 },
+						{ "slug": "beasts",        "description": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.", "max": 1 }
+					]
+				},
+				{
+					"slug": "war-stories-questions",
+					"title": "Answer At Least 3 of the Following",
+					"description": "",
+					"options": [
+						{ "slug": "when",       "description": "When exactly did it happen?",                                           "type": "text" },
+						{ "slug": "who-died",   "description": "Who lost their life, and who mourns them?",                            "type": "text" },
+						{ "slug": "who-maimed", "description": "Who from Stonetop was maimed, and how?",                               "type": "text" },
+						{ "slug": "saved-day",  "description": "Who saved the day, and how?",                                          "type": "text" },
+						{ "slug": "enemy-away", "description": "How did the enemy get away, and whom do you still blame for it?",      "type": "text" },
+						{ "slug": "honor",      "description": "Who comported themselves with honor?",                                 "type": "text" },
+						{ "slug": "bugging",    "description": "What's been bugging you about it ever since?",                         "type": "text" },
+						{ "slug": "worried",    "description": "What's got you even more worried now?",                                "type": "text" }
+					]
+				}
+			]
 		}
 	},
 	"system": {

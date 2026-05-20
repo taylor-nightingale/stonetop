@@ -209,7 +209,50 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "fear-and-anger-fears",
+					"title": "What Do You Fear Most?",
+					"description": "<p><em>(choose 1, maybe 2)</em></p>",
+					"options": [
+						{ "slug": "fire",        "description": "Fire, burning, the smell of charred flesh.",   "max": 1 },
+						{ "slug": "not-serious", "description": "That they won't take you seriously.",          "max": 1 },
+						{ "slug": "not-cut-out", "description": "That you really aren't cut out for this.",    "max": 1 },
+						{ "slug": "loved-ones",  "description": "The death of your family or loved ones.",     "max": 1 },
+						{ "slug": "alone",       "description": "Being alone and helpless.",                   "max": 1 },
+						{ "slug": "violence",    "description": "Violence, bloodshed, and pain.",              "max": 1 },
+						{ "slug": "monsters",    "description": "Monsters.",                                   "max": 1 },
+						{ "slug": "capable-of",  "description": "What you're capable of.",                    "max": 1 },
+						{ "slug": "must-do",     "description": "What you must do.",                          "max": 1 }
+					]
+				},
+				{
+					"slug": "fear-and-anger-anger",
+					"title": "What Makes You Burn with Righteous Anger?",
+					"description": "<p><em>(choose 2, maybe 3)</em></p>",
+					"options": [
+						{ "slug": "bullying",    "description": "Bullying, slavery, and oppression.",               "max": 1 },
+						{ "slug": "cruelty",     "description": "Wanton cruelty and unnecessary suffering.",        "max": 1 },
+						{ "slug": "injustice",   "description": "Injustice and inequality.",                        "max": 1 },
+						{ "slug": "cowardice",   "description": "Cowardice, treachery, and selfishness.",          "max": 1 },
+						{ "slug": "despoiling",  "description": "The despoiling of beauty and innocence.",         "max": 1 },
+						{ "slug": "loved-ones",  "description": "Threats to your loved ones.",                     "max": 1 },
+						{ "slug": "innocents",   "description": "Violence to children, animals, the innocent.",    "max": 1 },
+						{ "slug": "perversions", "description": "Perversions of nature.",                          "max": 1 }
+					]
+				},
+				{
+					"slug": "fear-and-anger-story",
+					"title": "When Did Your Fear or Anger Last Cause You Trouble?",
+					"description": "",
+					"options": [
+						{ "slug": "when-trouble", "description": "When did your fear or anger last cause you trouble?", "type": "text" },
+						{ "slug": "what-did",     "description": "What did you do?",                                    "type": "text" },
+						{ "slug": "how-turned",   "description": "How did it turn out?",                               "type": "text" }
+					]
+				}
+			]
 		}
 	},
 	"system": {

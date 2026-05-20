@@ -1,4 +1,7 @@
 import {
+	LoreOptionSnapshotBuilder,
+	LoreEntrySnapshotBuilder,
+	LoreSection,
 	AppearanceLineSnapshot,
 	AppearanceOptionSnapshot,
 	AppearanceSection,
@@ -42,6 +45,7 @@ import {CharacterOrigin} from "./CharacterOrigin.js";
 import {CharacterPossessions} from "./CharacterPossessions.js";
 import {CharacterInventory} from "./CharacterInventory.js";
 import {CharacterArcana} from "./CharacterArcana.js";
+import {CharacterLore} from "./CharacterLore.js";
 import {FoundryOutfitItemRepository} from "./repositories/FoundryOutfitItemRepository.js";
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
 import {FoundryMoveRepository} from "./repositories/FoundryMoveRepository.js";
@@ -63,6 +67,7 @@ export class StonetopCharacter {
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"));
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"));
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), arcanaRepository);
+		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
 	}
 
 	static create(actor) {
@@ -104,7 +109,7 @@ export class StonetopCharacter {
 		const armor = this._inventory.calculateArmor(allOutfitItems);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
-			.withPlaybook(playbookData ? _buildPlaybookSection(playbookData, this._background, this._instinct, this._appearance, this._origin) : null)
+			.withPlaybook(playbookData ? _buildPlaybookSection(playbookData, this._background, this._instinct, this._appearance, this._origin, this._lore) : null)
 			.withDebilities(_buildDebilitiesSection(actor))
 			.withStats(_buildStatsSection(actor))
 			.withVitals(_buildVitalsSection(actor, playbookData, armor))
@@ -725,6 +730,8 @@ export class StonetopCharacter {
 	async setArcanumUnlockCount(arcanumSlug, optionSlug, count)     { await this._arcana.setUnlockCount(arcanumSlug, optionSlug, count); }
 	async setArcanumBackOptionCount(arcanumSlug, optionSlug, count) { await this._arcana.setBackOptionCount(arcanumSlug, optionSlug, count); }
 	async setArcanumResource(slug, count)                           { await this._inventory.setResource(slug, count); }
+	async setLoreOptionCount(loreSlug, optionSlug, count)           { await this._lore.setCount(loreSlug, optionSlug, count); }
+	async setLoreOptionText(loreSlug, optionSlug, value)            { await this._lore.setText(loreSlug, optionSlug, value); }
 
 	_buildOwnedMovesMap() {
 		const map = new Map();
@@ -796,7 +803,7 @@ function _buildVitalsSection(actor, playbookData, armorValue) {
 		.build();
 }
 
-function _buildPlaybookSection(playbookData, background, instinct, appearance, origin) {
+function _buildPlaybookSection(playbookData, background, instinct, appearance, origin, lore) {
 	const savedBg      = background.selectedSlug || null;
 	const savedChoices = background.choices;
 	const savedInstinct = instinct.selectedValue || null;
@@ -843,12 +850,33 @@ function _buildPlaybookSection(playbookData, background, instinct, appearance, o
 		new OriginOptionSnapshot(region, names, region === savedOrigin)
 	);
 
+	const loreEntries = (playbookData.lore ?? []).map(entry => {
+		const options = (entry.options ?? []).map(opt => {
+			const isText = (opt.type ?? "checkbox") === "text";
+			return new LoreOptionSnapshotBuilder()
+				.withSlug(opt.slug)
+				.withDescription(opt.description)
+				.withType(opt.type ?? "checkbox")
+				.withMax(isText ? 0 : (opt.max ?? 1))
+				.withCount(isText ? 0 : lore.getCount(entry.slug, opt.slug))
+				.withTextValue(isText ? lore.getText(entry.slug, opt.slug) : null)
+				.build();
+		});
+		return new LoreEntrySnapshotBuilder()
+			.withSlug(entry.slug)
+			.withTitle(entry.title)
+			.withDescription(entry.description ?? "")
+			.withOptions(options)
+			.build();
+	});
+
 	return new PlaybookSnapshotBuilder()
 		.withSlug(playbookData.slug)
 		.withName(playbookData.name)
 		.withImg(playbookData.img ?? null)
 		.withDescription(playbookData.description ?? null)
 		.withStatsNote(playbookData.statsNote ?? null)
+		.withLore(new LoreSection(loreEntries))
 		.withBackground(new BackgroundSection(savedBg, bgOptions))
 		.withInstinct(new InstinctSection(savedInstinct, instinctOptions))
 		.withAppearance(new AppearanceSection(appearanceOptions))

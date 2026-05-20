@@ -3,6 +3,9 @@ export { StatSnapshot } from "./StatSnapshot.js";
 export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
+	LoreOptionSnapshot, LoreOptionSnapshotBuilder,
+	LoreEntrySnapshot, LoreEntrySnapshotBuilder,
+	LoreSection,
 	AppearanceOptionSnapshot, AppearanceLineSnapshot, AppearanceSection,
 	InstinctOptionSnapshot, InstinctOptionSnapshotBuilder, InstinctSection,
 	OriginOptionSnapshot, OriginSection,

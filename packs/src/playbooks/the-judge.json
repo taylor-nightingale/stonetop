@@ -201,7 +201,59 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "chronicle-plus",
+					"title": "The Chronicle",
+					"description": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>",
+					"options": [
+						{ "slug": "sturdy-vault",       "description": "… is a sturdy vault from the time of the Makers.", "max": 1 },
+						{ "slug": "room-to-grow",       "description": "… has plenty of room to grow.",                    "max": 1 },
+						{ "slug": "hidden-underground", "description": "… is hidden underground.",                         "max": 1 },
+						{ "slug": "one-entrance",       "description": "… has but one entrance, magically sealed.",        "max": 1 },
+						{ "slug": "minor-magics",       "description": "… bears minor magics to preserve its contents.",  "max": 1 },
+						{ "slug": "warded",             "description": "… is warded against spirits and magic.",           "max": 1 },
+						{ "slug": "living-quarters",    "description": "… includes your living quarters & office.",        "max": 1 }
+					]
+				},
+				{
+					"slug": "chronicle-minus",
+					"title": "But Alas, It…",
+					"description": "<p><em>(choose 2)</em></p>",
+					"options": [
+						{ "slug": "outskirts",           "description": "… sits on the outskirts, near the Old Wall.",  "max": 1 },
+						{ "slug": "cramped",             "description": "… is cramped, chaotic, and overflowing.",      "max": 1 },
+						{ "slug": "crude-cellar",        "description": "… is little more than a crude cellar.",        "max": 1 },
+						{ "slug": "haunted",             "description": "… seems to be haunted.",                       "max": 1 },
+						{ "slug": "dangerous-artifacts", "description": "… contains a few dangerous artifacts.",        "max": 1 }
+					]
+				},
+				{
+					"slug": "lawkeeper-shrine",
+					"title": "The Lawkeeper",
+					"description": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>",
+					"options": [
+						{ "slug": "shrine-hub",          "description": "… a hub of the community, a place of frequent rites, petitions, and celebrations.", "max": 1 },
+						{ "slug": "shrine-high-holiday", "description": "… used only on high holidays, for each home keeps its own shrine above the hearth.", "max": 1 },
+						{ "slug": "shrine-neglected",    "description": "… neglected by most, tended only by you and a handful of believers.",               "max": 1 },
+						{ "slug": "shrine-grim",         "description": "… a grim place of judgement and punishment, shunned by all but her chosen.",        "max": 1 },
+						{ "slug": "shrine-new",          "description": "… newly established, cramped and spare.",                                           "max": 1 }
+					]
+				},
+				{
+					"slug": "lawkeeper-demands",
+					"title": "Of Her True Disciples, Aratis Demands…",
+					"description": "<p><em>(choose 3)</em></p>",
+					"options": [
+						{ "slug": "truth",       "description": "… truth, honesty, and forthrightness.",                 "max": 1 },
+						{ "slug": "hospitality", "description": "… hospitality, freely given to all who ask for it.",   "max": 1 },
+						{ "slug": "punishment",  "description": "… the punishment of thieves & oathbreakers.",          "max": 1 },
+						{ "slug": "diet-dress",  "description": "… adherence to strict rules of diet and dress.",       "max": 1 },
+						{ "slug": "authority",   "description": "… respect for authority, property, and rank.",         "max": 1 }
+					]
+				}
+			]
 		}
 	},
 	"system": {

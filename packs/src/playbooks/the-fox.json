@@ -185,7 +185,56 @@
 					}
 				]
 			},
-			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1"
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "tall-tales-beginning",
+					"title": "There Was That Time You…",
+					"description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>",
+					"options": [
+						{ "slug": "lost-great-wood",   "description": "… got lost in the Great Wood.",                           "max": 2 },
+						{ "slug": "lost-flats",        "description": "… got lost in the Flats.",                               "max": 2 },
+						{ "slug": "lost-steplands",    "description": "… got lost in the Steplands.",                           "max": 2 },
+						{ "slug": "lost-ferrers-fen",  "description": "… got lost in Ferrier's Fen.",                           "max": 2 },
+						{ "slug": "lost-foothills",    "description": "… got lost in the Foothills.",                           "max": 2 },
+						{ "slug": "lost-huffel-peaks", "description": "… got lost in the Huffel Peaks.",                        "max": 2 },
+						{ "slug": "crinwin-raid",      "description": "… were on watch when the crinwin raided.",               "max": 2 },
+						{ "slug": "ruined-tower",      "description": "… dared each other to explore the Ruined Tower.",        "max": 2 },
+						{ "slug": "hillfolk",          "description": "… managed to rile up a small band of Hillfolk.",         "max": 2 },
+						{ "slug": "labyrinth",         "description": "… braved the Labyrinth, just a little.",                 "max": 2 },
+						{ "slug": "old-mans-book",     "description": "… stole that crazy old man's book.",                     "max": 2 },
+						{ "slug": "barrow-mounds",     "description": "… went poking about the old Barrow Mounds.",            "max": 2 }
+					]
+				},
+				{
+					"slug": "tall-tales-ending",
+					"title": "And You Ended Up…",
+					"description": "<p><em>(choose 1 or 2 per tale)</em></p>",
+					"options": [
+						{ "slug": "running",          "description": "… running for your life from something.",                                 "max": 2 },
+						{ "slug": "well-placed-blow", "description": "… landing a well-placed blow.",                                          "max": 2 },
+						{ "slug": "strange-gather",   "description": "… interrupting a strange, creepy gathering.",                            "max": 2 },
+						{ "slug": "big-beast",        "description": "… stumbling on a beast, bigger'n anything.",                             "max": 2 },
+						{ "slug": "treasure",         "description": "… with a sack full of treasure.",                                        "max": 2 },
+						{ "slug": "someone-fight",    "description": "… getting someone to fight them for you.",                               "max": 2 },
+						{ "slug": "ghost",            "description": "… face to face with a ghost/Fae/demon.",                                 "max": 2 },
+						{ "slug": "strange-runes",    "description": "… finding those strange old runes.",                                     "max": 2 },
+						{ "slug": "fine-looking",     "description": "… getting to know that fine-looking fellow/lady/person/couple.",         "max": 2 }
+					]
+				},
+				{
+					"slug": "tall-tales-legacy",
+					"title": "But All You've Got Left to Show for It Is…",
+					"description": "",
+					"options": [
+						{ "slug": "story-no-one-believes", "description": "… a story no one believes.",             "max": 1 },
+						{ "slug": "nasty-scar",            "description": "… a nasty scar; wanna see?",             "max": 1 },
+						{ "slug": "nightmares",            "description": "… the occasional nightmare.",             "max": 1 },
+						{ "slug": "map-with-runes",        "description": "… this map with runes no one can read.", "max": 1 },
+						{ "slug": "mystery-key",           "description": "… this key that opens who-knows-what.",  "max": 1 }
+					]
+				}
+			]
 		}
 	},
 	"system": {

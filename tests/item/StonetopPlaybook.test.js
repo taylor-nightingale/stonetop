@@ -67,4 +67,13 @@ describe("StonetopPlaybook", () => {
 	it("specialPossessions defaults to null", () => {
 		expect(new StonetopPlaybook(makeItem()).specialPossessions).toBeNull();
 	});
+
+	it("lore returns the lore array", () => {
+		const lore = [{ slug: "the-earth-mother", title: "The Earth Mother", description: "", options: [] }];
+		expect(new StonetopPlaybook(makeItem({ lore })).lore).toEqual(lore);
+	});
+
+	it("lore defaults to empty array", () => {
+		expect(new StonetopPlaybook(makeItem()).lore).toEqual([]);
+	});
 });
