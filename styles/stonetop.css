@@ -1391,3 +1391,58 @@ body,
 	margin: 6px 0 2px;
 }
 
+/* -- Lore section (Details + Post-Death tabs) ------------------- */
+.stonetop-lore-entry {
+	margin-bottom: 8px;
+}
+
+.stonetop-lore-description {
+	font-size: 0.9em;
+	font-style: normal;
+	margin: 0 0 4px;
+}
+
+.stonetop-lore-option {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	margin-bottom: 4px;
+}
+
+.stonetop-lore-option-checks {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	padding-top: 2px;
+}
+
+.stonetop-lore-option-check {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	width: 14px;
+	height: 14px;
+	border-radius: 2px !important;
+	border: 2px solid var(--color-text-dark-primary) !important;
+	background: transparent !important;
+	cursor: pointer;
+	flex-shrink: 0;
+	margin: 0;
+}
+
+.stonetop-lore-option-check:checked {
+	background-color: var(--color-text-dark-primary) !important;
+}
+
+.stonetop-lore-option-desc {
+	flex: 1;
+	font-style: normal;
+	font-size: 0.85rem;
+	min-width: 0;
+}
+
+.stonetop-lore-option-desc p {
+	margin: 0 0 2px;
+	line-height: 1.4;
+}
+

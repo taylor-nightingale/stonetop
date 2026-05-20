@@ -35,6 +35,7 @@ export {
 } from "./InventorySnapshot.js";
 export {
 	PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder,
+	PostDeathSectionSnapshot, PostDeathSectionSnapshotBuilder,
 } from "./PostDeathInsertSnapshot.js";
 export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
@@ -62,33 +63,36 @@ export {
  * @property {Movelist} movelist
  * @property {InventorySnapshot} inventory
  * @property {ArcanaSnapshot} arcana
+ * @property {PostDeathSectionSnapshot} postDeathInsert
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
 	constructor(b) {
-		this.name       = b._name;
-		this.playbook   = b._playbook;
-		this.debilities = b._debilities;
-		this.stats      = b._stats;
-		this.vitals     = b._vitals;
-		this.moves      = b._moves;
-		this.movelist   = b._movelist;
-		this.inventory  = b._inventory;
-		this.arcana     = b._arcana;
-		this.rollMode   = b._rollMode;
+		this.name            = b._name;
+		this.playbook        = b._playbook;
+		this.debilities      = b._debilities;
+		this.stats           = b._stats;
+		this.vitals          = b._vitals;
+		this.moves           = b._moves;
+		this.movelist        = b._movelist;
+		this.inventory       = b._inventory;
+		this.arcana          = b._arcana;
+		this.postDeathInsert = b._postDeathInsert;
+		this.rollMode        = b._rollMode;
 	}
 }
 
 export class CharacterSnapshotBuilder {
-	withName(v)       { this._name       = v; return this; }
-	withPlaybook(v)   { this._playbook   = v; return this; }
-	withDebilities(v) { this._debilities = v; return this; }
-	withStats(v)      { this._stats      = v; return this; }
-	withVitals(v)     { this._vitals     = v; return this; }
-	withMoves(v)      { this._moves      = v; return this; }
-	withMovelist(v)   { this._movelist   = v; return this; }
-	withInventory(v)  { this._inventory  = v; return this; }
-	withArcana(v)     { this._arcana     = v; return this; }
-	withRollMode(v)   { this._rollMode   = v; return this; }
-	build()           { return new CharacterSnapshot(this); }
+	withName(v)            { this._name            = v; return this; }
+	withPlaybook(v)        { this._playbook        = v; return this; }
+	withDebilities(v)      { this._debilities      = v; return this; }
+	withStats(v)           { this._stats           = v; return this; }
+	withVitals(v)          { this._vitals          = v; return this; }
+	withMoves(v)           { this._moves           = v; return this; }
+	withMovelist(v)        { this._movelist        = v; return this; }
+	withInventory(v)       { this._inventory       = v; return this; }
+	withArcana(v)          { this._arcana          = v; return this; }
+	withPostDeathInsert(v) { this._postDeathInsert = v; return this; }
+	withRollMode(v)        { this._rollMode        = v; return this; }
+	build()                { return new CharacterSnapshot(this); }
 }

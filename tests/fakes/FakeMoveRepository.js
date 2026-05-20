@@ -1,9 +1,10 @@
 import {MoveDefinition} from "../../module/model/MoveDefinition.js";
 
 export class FakeMoveRepository {
-	constructor(playbookMoves = [], basicMoves = []) {
-		this._playbookMoves = playbookMoves;
-		this._basicMoves = basicMoves;
+	constructor(playbookMoves = [], basicMoves = [], postDeathMoves = []) {
+		this._playbookMoves  = playbookMoves;
+		this._basicMoves     = basicMoves;
+		this._postDeathMoves = postDeathMoves;
 	}
 
 	async getPlaybookMoves() {
@@ -28,6 +29,18 @@ export class FakeMoveRepository {
 
 	addPlaybook(move) {
 		this._playbookMoves.push(move);
+	}
+
+	async getPostDeathMoves() {
+		return this._postDeathMoves.map(m => new MoveDefinition(m));
+	}
+
+	async getPostDeathMoveDocument(id) {
+		return this._postDeathMoves.find(m => m._id === id) ?? null;
+	}
+
+	addPostDeath(move) {
+		this._postDeathMoves.push(move);
 	}
 }
 

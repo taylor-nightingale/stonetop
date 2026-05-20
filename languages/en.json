@@ -5,8 +5,15 @@
 			"tabs": {
 				"details": "Details",
 				"inventory": "Inventory",
-				"arcana": "Arcana"
+				"arcana": "Arcana",
+				"postDeath": "Post-Death"
 			}
+		},
+		"postDeath": {
+			"chooseFate": "Choose Your Fate",
+			"removeInsert": "Remove",
+			"instinct": "Instinct",
+			"moves": "Granted Moves"
 		},
 		"arcana": {
 			"empty": "Drag arcana here from the Arcana compendium.",

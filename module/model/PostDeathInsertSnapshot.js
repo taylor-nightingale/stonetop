@@ -19,6 +19,21 @@ export class PostDeathInsertSnapshot {
 	}
 }
 
+export class PostDeathSectionSnapshot {
+	constructor(b) {
+		this.activeSlug       = b._activeSlug;
+		this.activeInsert     = b._activeInsert;
+		this.availableInserts = b._availableInserts;
+	}
+}
+
+export class PostDeathSectionSnapshotBuilder {
+	withActiveSlug(v)       { this._activeSlug       = v; return this; }
+	withActiveInsert(v)     { this._activeInsert     = v; return this; }
+	withAvailableInserts(v) { this._availableInserts = v; return this; }
+	build()                 { return new PostDeathSectionSnapshot(this); }
+}
+
 export class PostDeathInsertSnapshotBuilder {
 	withSlug(v)        { this._slug        = v; return this; }
 	withName(v)        { this._name        = v; return this; }

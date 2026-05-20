@@ -1,66 +1,63 @@
-import {StonetopCharacter} from "../../module/actors/character/StonetopCharacter.js";
-import {FakePlaybookRepository} from "./FakePlaybookRepository.js";
-import {FakeMoveRepository} from "./FakeMoveRepository.js";
-import {FakeInventoryRepository} from "./FakeInventoryRepository.js";
-import {FakeArcanaRepository} from "./FakeArcanaRepository.js";
+import { StonetopCharacter } from "../../module/actors/character/StonetopCharacter.js";
+import { FakeRepositoryFactory } from "./FakeRepositoryFactory.js";
 
 export class TestCharacterBuilder {
-	_actor;
-	_playbookRepo = new FakePlaybookRepository();
-	_moveRepo = new FakeMoveRepository();
-	_inventoryRepo = new FakeInventoryRepository();
-	_arcanaRepo = new FakeArcanaRepository();
-
 	constructor(actor) {
 		this._actor = actor;
+		this._repos = new FakeRepositoryFactory();
 	}
 
 	withPlaybookRepo(repo) {
-		this._playbookRepo = repo ?? this._playbookRepo;
+		this._repos.playbook = repo ?? this._repos.playbook;
 		return this;
 	}
 
 	addPlaybook(playbook) {
-		this._playbookRepo.add(playbook);
-		return	this;
+		this._repos.playbook.add(playbook);
+		return this;
 	}
 
 	withMoveRepo(repo) {
-		this._moveRepo = repo ?? this._moveRepo;
+		this._repos.moves = repo ?? this._repos.moves;
 		return this;
 	}
+
 	addPlaybookMove(move) {
-		this._moveRepo.addPlaybook(move);
+		this._repos.moves.addPlaybook(move);
 		return this;
 	}
 
 	addBasicMove(move) {
-		this._moveRepo.addBasic(move);
+		this._repos.moves.addBasic(move);
+		return this;
+	}
+
+	addPostDeathMove(move) {
+		this._repos.moves.addPostDeath(move);
 		return this;
 	}
 
 	withInventoryRepo(repo) {
-		this._inventoryRepo = repo ?? this._inventoryRepo;
+		this._repos.inventory = repo ?? this._repos.inventory;
 		return this;
 	}
 
 	withArcanaRepo(repo) {
-		this._arcanaRepo = repo ?? this._arcanaRepo;
+		this._repos.arcana = repo ?? this._repos.arcana;
 		return this;
 	}
 
 	addArcanum(arcanum) {
-		this._arcanaRepo.add(arcanum);
+		this._repos.arcana.add(arcanum);
+		return this;
+	}
+
+	withPostDeathInsertRepo(repo) {
+		this._repos.postDeathInsert = repo ?? this._repos.postDeathInsert;
 		return this;
 	}
 
 	build() {
-		return new StonetopCharacter(
-			this._actor,
-			this._playbookRepo,
-			this._moveRepo,
-			this._inventoryRepo,
-			this._arcanaRepo,
-		);
+		return new StonetopCharacter(this._actor, this._repos);
 	}
 }

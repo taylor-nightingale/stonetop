@@ -1,0 +1,64 @@
+<div class="tab post-death" data-group="primary" data-tab="post-death">
+	<section class="sheet-tab">
+
+		{{#if stonetop.postDeathInsert.activeInsert}}
+
+		<div class="stonetop-pdi-header">
+			<h3 class="stonetop-pdi-name">{{stonetop.postDeathInsert.activeInsert.name}}</h3>
+			<button type="button" class="stonetop-pdi-remove">
+				{{localize "stonetop.postDeath.removeInsert"}}
+			</button>
+		</div>
+
+		{{#if stonetop.postDeathInsert.activeInsert.description}}
+		<div class="stonetop-pdi-description">
+			{{{stonetop.postDeathInsert.activeInsert.description}}}
+		</div>
+		{{/if}}
+
+		{{! Lore sections: Terrible Purpose, Consequences, etc. }}
+		<div data-pdi="lore">
+			{{> "stonetop.lore-section" lore=stonetop.postDeathInsert.activeInsert.lore}}
+		</div>
+
+		{{! Instinct }}
+		{{#if stonetop.postDeathInsert.activeInsert.instinct.options.length}}
+		<div class="details-section">
+			{{> "stonetop.section-heading"
+			    title=(localize "stonetop.postDeath.instinct")
+			    note=(localize "stonetop.character.selection.chooseOne")}}
+			<div class="stonetop-instinct-options">
+				{{#each stonetop.postDeathInsert.activeInsert.instinct.options}}
+				<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
+					<div class="stonetop-item-header">
+						<input type="radio" class="stonetop-item-check stonetop-pdi-instinct"
+						       name="stonetop-pdi-instinct"
+						       value="{{value}}"
+						       {{#if selected}}checked{{/if}}>
+						<strong class="stonetop-item-name">{{word}}</strong>
+					</div>
+					<div class="stonetop-item-description">{{description}}</div>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+		{{/if}}
+
+		{{else}}
+
+		{{! No active insert — choose one }}
+		<div class="details-section">
+			{{> "stonetop.section-heading" title=(localize "stonetop.postDeath.chooseFate")}}
+			<div class="stonetop-pdi-available">
+				{{#each stonetop.postDeathInsert.availableInserts}}
+				<button type="button" class="stonetop-pdi-activate" data-slug="{{slug}}">
+					{{name}}
+				</button>
+				{{/each}}
+			</div>
+		</div>
+
+		{{/if}}
+
+	</section>
+</div>

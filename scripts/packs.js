@@ -7,4 +7,6 @@ export const PACKS = [
 	"homefront-moves",
 	"inventory-items",
 	"arcana",
+	"post-death-inserts",
+	"post-death-moves",
 ];

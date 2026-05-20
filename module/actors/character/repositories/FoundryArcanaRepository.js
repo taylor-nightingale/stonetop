@@ -1,18 +1,19 @@
 import { MinorArcanum } from "../../../model/MinorArcanum.js";
-
-const _cache = new Map();
+import { FoundryPackStore } from "./FoundryPackStore.js";
 
 export class FoundryArcanaRepository {
+	constructor() {
+		this._store = new FoundryPackStore("stonetop.arcana", ["flags.stonetop.slug"]);
+		this._cache = new Map();
+	}
+
 	async findBySlug(slug) {
-		if (_cache.has(slug)) return _cache.get(slug);
-		const pack = game.packs.get("stonetop.arcana");
-		if (!pack) return null;
-		await pack.getIndex({ fields: ["flags.stonetop.slug"] });
-		const entry = pack.index.find(e => e.flags?.stonetop?.slug === slug);
+		if (this._cache.has(slug)) return this._cache.get(slug);
+		const entry = await this._store.findEntry(e => e.flags?.stonetop?.slug === slug);
 		if (!entry) return null;
-		const doc = await pack.getDocument(entry._id);
+		const doc    = await this._store.getDocument(entry._id);
 		const arcanum = new MinorArcanum(doc.flags.stonetop);
-		_cache.set(slug, arcanum);
+		this._cache.set(slug, arcanum);
 		return arcanum;
 	}
 

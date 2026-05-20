@@ -1,12 +1,12 @@
 {
-  "_id": "pDiRevenant00001",
-  "_key": "!items!pDiRevenant00001",
-  "name": "Revenant",
+  "_id": "pDiGhost00001",
+  "_key": "!items!pDiGhost00001",
+  "name": "Ghost",
   "type": "playbook",
   "img": "icons/svg/skull.svg",
   "system": {
-    "slug": "revenant",
-    "description": "<p>When you <em>die but cling stubbornly to your body</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",
+    "slug": "ghost",
+    "description": "<p>When you <em>die but your soul lingers</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",
     "actorType": "character",
     "attributes": {}
   },

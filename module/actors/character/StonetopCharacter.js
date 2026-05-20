@@ -46,19 +46,18 @@ import {CharacterPossessions} from "./CharacterPossessions.js";
 import {CharacterInventory} from "./CharacterInventory.js";
 import {CharacterArcana} from "./CharacterArcana.js";
 import {CharacterLore} from "./CharacterLore.js";
-import {FoundryOutfitItemRepository} from "./repositories/FoundryOutfitItemRepository.js";
-import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
-import {FoundryMoveRepository} from "./repositories/FoundryMoveRepository.js";
-import {FoundryArcanaRepository} from "./repositories/FoundryArcanaRepository.js";
+import {CharacterPostDeath, buildLoreSection} from "./CharacterPostDeath.js";
+import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 
 const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
-	constructor(actor, playbookRepository, moveRepository, inventoryRepository, arcanaRepository) {
+	constructor(actor, repos) {
 		this._actor = actor;
-		this._playbookRepo = playbookRepository;
-		this._moveRepo = moveRepository;
-		this._inventoryRepo = inventoryRepository;
+		this._playbookRepo        = repos.playbook;
+		this._moveRepo            = repos.moves;
+		this._inventoryRepo       = repos.inventory;
+		this._postDeathInsertRepo = repos.postDeathInsert;
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
@@ -66,18 +65,19 @@ export class StonetopCharacter {
 		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"));
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"));
-		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), arcanaRepository);
+		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana);
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
+		this._postDeath = new CharacterPostDeath(
+			new StonetopFlags(actor, "postDeathInsert"),
+			new CharacterInstincts(new StonetopFlags(actor, "postDeathInstinct")),
+			new CharacterLore(new StonetopFlags(actor, "postDeathLore")),
+			repos.postDeathInsert,
+			repos.moves,
+		);
 	}
 
 	static create(actor) {
-		return new StonetopCharacter(
-			actor,
-			new FoundryPlaybookRepository(),
-			new FoundryMoveRepository(),
-			new FoundryOutfitItemRepository(),
-			new FoundryArcanaRepository(),
-		);
+		return new StonetopCharacter(actor, new FoundryRepositoryFactory());
 	}
 
 	get type() { return this._actor.type; }
@@ -107,6 +107,8 @@ export class StonetopCharacter {
 		const inventory = await this._buildInventorySection(playbookData, ownedAllByName, actorLevel);
 		const allOutfitItems = await this._inventoryRepo.getAll();
 		const armor = this._inventory.calculateArmor(allOutfitItems);
+		const postDeath = await this._postDeath.buildSnapshot();
+		const pdiLabel  = postDeath.activeInsert?.name ?? null;
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbookData ? _buildPlaybookSection(playbookData, this._background, this._instinct, this._appearance, this._origin, this._lore) : null)
@@ -114,9 +116,10 @@ export class StonetopCharacter {
 			.withStats(_buildStatsSection(actor))
 			.withVitals(_buildVitalsSection(actor, playbookData, armor))
 			.withMoves(moves)
-			.withMovelist(_buildMovelist(moves, inventory.other))
+			.withMovelist(_buildMovelist(moves, inventory.other, pdiLabel))
 			.withInventory(inventory)
 			.withArcana(await this._arcana.buildSnapshot(actor.system.stats ?? {}, this._inventory.checked, this._inventory.resources))
+			.withPostDeathInsert(postDeath)
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
 	}
@@ -207,6 +210,36 @@ export class StonetopCharacter {
 					.build()
 				);
 			}
+		}
+
+		const postDeathItems = this._actor.items.filter(i => i.type === "move" && i.system?.moveType === "post-death");
+		if (postDeathItems.length > 0) {
+			categories.push(new MoveCategorySnapshotBuilder()
+				.withKey("post-death")
+				.withTitle("Post-Death Moves")
+				.withNote(null)
+				.withMoves(postDeathItems.map(i => new MoveSnapshotBuilder()
+					.withId(i._id)
+					.withCompendiumId(i._id)
+					.withOwnedId(i._id)
+					.withName(i.name)
+					.withDescription(i.system?.description ?? "")
+					.withRollType(i.system?.rollType ?? null)
+					.withIsStarting(true)
+					.withSource({ type: "post-death" })
+					.withSourceLabel(null)
+					.withOwned(true)
+					.withOwnedIds([i._id])
+					.withLocked(false)
+					.withRequirement(null)
+					.withRequiresLabel(null)
+					.withResource(null)
+					.withRepeat(null)
+					.withRepeatable(false)
+					.build()
+				))
+				.build()
+			);
 		}
 
 		return categories;
@@ -429,6 +462,27 @@ export class StonetopCharacter {
 			},
 		};
 	}
+
+	async setPostDeathInsert(slug) {
+		const toRemove = this._actor.items
+			.filter(i => i.type === "move" && i.system?.moveType === "post-death")
+			.map(i => i._id);
+		if (toRemove.length > 0) {
+			await this._actor.deleteEmbeddedDocuments("Item", toRemove);
+		}
+		await this._postDeath.setActiveSlug(slug);
+		if (slug) {
+			const entries = await this._moveRepo.getPostDeathMoves(slug);
+			await this._actor.createEmbeddedDocuments("Item", entries.map(m => ({
+				name: m.name,
+				type: "move",
+				system: { moveType: "post-death", rollType: m.rollType ?? "", description: m.description ?? "" },
+			})));
+		}
+	}
+	async setPostDeathInstinct(value)                    { await this._postDeath.instinct.select(value); }
+	async setPostDeathLoreCount(loreSlug, optSlug, n)    { await this._postDeath.lore.setCount(loreSlug, optSlug, n); }
+	async setPostDeathLoreText(loreSlug, optSlug, value) { await this._postDeath.lore.setText(loreSlug, optSlug, value); }
 
 	async setInventoryItemChecked(slug, isChecked) { await this._inventory.setItemChecked(slug, isChecked); }
 	async setInventoryResource(slug, count)         { await this._inventory.setResource(slug, count); }
@@ -850,33 +904,13 @@ function _buildPlaybookSection(playbookData, background, instinct, appearance, o
 		new OriginOptionSnapshot(region, names, region === savedOrigin)
 	);
 
-	const loreEntries = (playbookData.lore ?? []).map(entry => {
-		const options = (entry.options ?? []).map(opt => {
-			const isText = (opt.type ?? "checkbox") === "text";
-			return new LoreOptionSnapshotBuilder()
-				.withSlug(opt.slug)
-				.withDescription(opt.description)
-				.withType(opt.type ?? "checkbox")
-				.withMax(isText ? 0 : (opt.max ?? 1))
-				.withCount(isText ? 0 : lore.getCount(entry.slug, opt.slug))
-				.withTextValue(isText ? lore.getText(entry.slug, opt.slug) : null)
-				.build();
-		});
-		return new LoreEntrySnapshotBuilder()
-			.withSlug(entry.slug)
-			.withTitle(entry.title)
-			.withDescription(entry.description ?? "")
-			.withOptions(options)
-			.build();
-	});
-
 	return new PlaybookSnapshotBuilder()
 		.withSlug(playbookData.slug)
 		.withName(playbookData.name)
 		.withImg(playbookData.img ?? null)
 		.withDescription(playbookData.description ?? null)
 		.withStatsNote(playbookData.statsNote ?? null)
-		.withLore(new LoreSection(loreEntries))
+		.withLore(buildLoreSection(playbookData.lore ?? [], lore))
 		.withBackground(new BackgroundSection(savedBg, bgOptions))
 		.withInstinct(new InstinctSection(savedInstinct, instinctOptions))
 		.withAppearance(new AppearanceSection(appearanceOptions))
@@ -922,16 +956,21 @@ function _buildMoveEntry(entry, source, moveResourcesMap, bgSlugs = new Set()) {
 
 // ── Snapshot helpers ──────────────────────────────────────────────────────────
 
-function _buildMovelist(categories, other) {
-	const playbookCat = categories.find(c => c.key === "playbook");
-	const basicCat    = categories.find(c => c.key === "basic");
-	const otherCats   = categories.filter(c => c.key !== "basic" && c.key !== "playbook");
+function _buildMovelist(categories, other, pdiLabel = null) {
+	const playbookCat  = categories.find(c => c.key === "playbook");
+	const basicCat     = categories.find(c => c.key === "basic");
+	const postDeathCat = categories.find(c => c.key === "post-death");
+	const otherCats    = categories.filter(c => !["basic", "playbook", "post-death"].includes(c.key));
+	const postDeathGroup = postDeathCat && pdiLabel
+		? { label: pdiLabel, moves: postDeathCat.moves }
+		: null;
 	return new MovelistBuilder()
 		.withPlaybookMoves(playbookCat?.moves ?? [])
 		.withBasicMoves(basicCat?.moves ?? [])
 		.withOtherGroups(otherCats.map(cat => new MoveGroupSnapshot(cat.key, cat.title, cat.moves)))
 		.withOtherMoves(other)
 		.withStartingMovesNote(playbookCat?.note ?? null)
+		.withPostDeathGroup(postDeathGroup)
 		.build();
 }
 

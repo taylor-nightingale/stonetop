@@ -1,4 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
+import { FoundryArcanaRepository } from "../../../../module/actors/character/repositories/FoundryArcanaRepository.js";
+import { MinorArcanum } from "../../../../module/model/MinorArcanum.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
@@ -39,20 +41,7 @@ function stubGameNoPack() {
 // -- Tests --------------------------------------------------------------------
 
 describe("FoundryArcanaRepository", () => {
-	let FoundryArcanaRepository;
-	let MinorArcanum;
-
-	beforeEach(async () => {
-		vi.resetModules();
-		[{ FoundryArcanaRepository }, { MinorArcanum }] = await Promise.all([
-			import("../../../../module/actors/character/repositories/FoundryArcanaRepository.js"),
-			import("../../../../module/model/MinorArcanum.js"),
-		]);
-	});
-
-	afterEach(() => {
-		vi.unstubAllGlobals();
-	});
+	afterEach(() => vi.unstubAllGlobals());
 
 	describe("findBySlug", () => {
 		it("returns null when pack is not registered", async () => {

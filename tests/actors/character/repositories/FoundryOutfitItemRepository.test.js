@@ -1,4 +1,5 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
+import { FoundryOutfitItemRepository } from "../../../../module/actors/character/repositories/FoundryOutfitItemRepository.js";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -28,18 +29,7 @@ function stubGameNoPack() {
 // -- Tests --------------------------------------------------------------------
 
 describe("FoundryOutfitItemRepository", () => {
-	let FoundryOutfitItemRepository;
-
-	beforeEach(async () => {
-		vi.resetModules();
-		({ FoundryOutfitItemRepository } = await import(
-			"../../../../module/actors/character/repositories/FoundryOutfitItemRepository.js"
-		));
-	});
-
-	afterEach(() => {
-		vi.unstubAllGlobals();
-	});
+	afterEach(() => vi.unstubAllGlobals());
 
 	it("returns [] when the pack is missing", async () => {
 		stubGameNoPack();

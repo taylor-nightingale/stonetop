@@ -5,6 +5,7 @@ import {FakePlaybookRepository} from "../../fakes/FakePlaybookRepository.js";
 import {FakeInventoryRepository} from "../../fakes/FakeInventoryRepository.js";
 import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
 import {FakeMoveRepository} from "../../fakes/FakeMoveRepository.js";
+import {FakePostDeathInsertRepository} from "../../fakes/FakePostDeathInsertRepository.js";
 import {MoveDefinition} from "../../../module/model/MoveDefinition.js";
 import {FakeActorBuilder, FakeStatBuilder} from "../../fakes/FakeActorBuilder.js";
 
@@ -859,6 +860,71 @@ describe("buildSnapshot — lore section", () => {
 	it("text-type option textValue reflects saved flag", async () => {
 		const snap = await buildSnapWithText({ "lore.texts": { "questions:q-one": "it was chaos" } });
 		expect(snap.playbook.lore.entries[0].options[0].textValue).toBe("it was chaos");
+	});
+});
+
+// ── movelist: post-death moves ────────────────────────────────────────────────
+
+const REVENANT_INSERT = {
+	_id: "pDiRevenant00001",
+	name: "Revenant",
+	img: null,
+	system: { slug: "revenant", description: "<p>When you die…</p>" },
+	flags: { stonetop: { instincts: [], lore: [] } },
+};
+
+const REVENANT_MOVE = {
+	_id: "pdMove001",
+	name: "Undying",
+	system: { rollType: "str", description: "You refuse to stay down." },
+};
+
+const REVENANT_ACTOR_MOVE = {
+	_id: "pdMove001Own",
+	name: "Undying",
+	type: "move",
+	system: { moveType: "post-death", rollType: "str", description: "You refuse to stay down." },
+};
+
+describe("buildSnapshot — movelist / post-death moves", () => {
+	it("postDeathGroup is null when no active insert", async () => {
+		const actor = new FakeActorBuilder().build();
+		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
+		expect(snap.movelist.postDeathGroup).toBeNull();
+		expect(snap.movelist.otherGroups.find(g => g.key === "post-death")).toBeUndefined();
+	});
+
+	it("postDeathGroup is set to insert name and owned PDI moves", async () => {
+		const actor = new FakeActorBuilder()
+			.withFlag("postDeathInsert.slug", "revenant")
+			.addItem(REVENANT_ACTOR_MOVE)
+			.build();
+		const pdiRepo = new FakePostDeathInsertRepository([REVENANT_INSERT]);
+		const snap = await new TestCharacterBuilder(actor)
+			.withPostDeathInsertRepo(pdiRepo)
+			.build()
+			.buildSnapshot();
+		expect(snap.movelist.postDeathGroup).not.toBeNull();
+		expect(snap.movelist.postDeathGroup.label).toBe("Revenant");
+		expect(snap.movelist.postDeathGroup.moves).toHaveLength(1);
+	});
+
+	it("PDI group moves have source.type 'post-death', real ownedId, owned and isStarting true", async () => {
+		const actor = new FakeActorBuilder()
+			.withFlag("postDeathInsert.slug", "revenant")
+			.addItem(REVENANT_ACTOR_MOVE)
+			.build();
+		const pdiRepo = new FakePostDeathInsertRepository([REVENANT_INSERT]);
+		const snap = await new TestCharacterBuilder(actor)
+			.withPostDeathInsertRepo(pdiRepo)
+			.build()
+			.buildSnapshot();
+		const move = snap.movelist.postDeathGroup.moves[0];
+		expect(move.source.type).toBe("post-death");
+		expect(move.ownedId).toBe("pdMove001Own");
+		expect(move.owned).toBe(true);
+		expect(move.isStarting).toBe(true);
+		expect(move.name).toBe("Undying");
 	});
 });
 

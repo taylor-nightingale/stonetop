@@ -60,6 +60,9 @@ Hooks.once("init", () => {
 		"stonetop.tab-moves":        "modules/stonetop/templates/actor/partials/tab-moves.hbs",
 		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
 		"stonetop.tab-arcana":       "modules/stonetop/templates/actor/partials/tab-arcana.hbs",
+		"stonetop.tab-post-death":   "modules/stonetop/templates/actor/partials/tab-post-death.hbs",
+		"stonetop.move-group":       "modules/stonetop/templates/actor/partials/move-group.hbs",
+		"stonetop.lore-section":     "modules/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.resource-track":   "modules/stonetop/templates/actor/partials/resource-track.hbs",
 	});

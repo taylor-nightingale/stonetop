@@ -1,40 +1,7 @@
 <div class="tab details" data-group="primary" data-tab="details">
 	<section class="sheet-tab">
 
-		{{#if stonetop.playbook.lore.hasEntries}}
-	<div class="details-section">
-		{{#each stonetop.playbook.lore.entries}}
-		<div class="stonetop-lore-entry">
-			{{> "stonetop.section-heading" title=title}}
-			{{#if description}}
-			<div class="stonetop-lore-description">{{{description}}}</div>
-			{{/if}}
-			{{#each options}}
-			<div class="stonetop-lore-option">
-				{{#if (eq type "text")}}
-				<label class="stonetop-lore-option-desc">{{{description}}}</label>
-				<textarea class="stonetop-lore-option-text"
-				          data-lore-slug="{{../../slug}}"
-				          data-option-slug="{{slug}}"
-				          >{{textValue}}</textarea>
-				{{else}}
-				<span class="stonetop-lore-option-checks">
-					{{#each checks}}
-					<input type="checkbox" class="stonetop-lore-option-check"
-					       data-lore-slug="{{../../../slug}}"
-					       data-option-slug="{{../../slug}}"
-					       data-idx="{{@index}}"
-					       {{#if this}}checked{{/if}}>
-					{{/each}}
-				</span>
-				<span class="stonetop-lore-option-desc">{{{description}}}</span>
-				{{/if}}
-			</div>
-			{{/each}}
-		</div>
-		{{/each}}
-	</div>
-	{{/if}}
+		{{> "stonetop.lore-section" lore=stonetop.playbook.lore}}
 
 	{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">

@@ -148,7 +148,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html[0].addEventListener("change", ev => {
 				const cb = ev.target.closest(".stonetop-lore-option-check");
-				if (!cb) return;
+				if (!cb || ev.target.closest("[data-pdi='lore']")) return;
 				const { loreSlug, optionSlug, idx } = cb.dataset;
 				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
 				this._stonetopCharacter.setLoreOptionCount(loreSlug, optionSlug, newCount);
@@ -156,9 +156,46 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html[0].addEventListener("change", ev => {
 				const ta = ev.target.closest(".stonetop-lore-option-text");
-				if (!ta) return;
+				if (!ta || ev.target.closest("[data-pdi='lore']")) return;
 				const { loreSlug, optionSlug } = ta.dataset;
 				this._stonetopCharacter.setLoreOptionText(loreSlug, optionSlug, ta.value);
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-pdi-activate");
+				if (!btn) return;
+				ev.stopPropagation();
+				this._stonetopCharacter.setPostDeathInsert(btn.dataset.slug).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-pdi-remove");
+				if (!btn) return;
+				ev.stopPropagation();
+				this._stonetopCharacter.setPostDeathInsert(null).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const radio = ev.target.closest(".stonetop-pdi-instinct");
+				if (!radio) return;
+				this._stonetopCharacter.setPostDeathInstinct(radio.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				if (!ev.target.closest("[data-pdi='lore']")) return;
+				const cb = ev.target.closest(".stonetop-lore-option-check");
+				if (!cb) return;
+				const { loreSlug, optionSlug, idx } = cb.dataset;
+				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
+				this._stonetopCharacter.setPostDeathLoreCount(loreSlug, optionSlug, newCount);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				if (!ev.target.closest("[data-pdi='lore']")) return;
+				const ta = ev.target.closest(".stonetop-lore-option-text");
+				if (!ta) return;
+				const { loreSlug, optionSlug } = ta.dataset;
+				this._stonetopCharacter.setPostDeathLoreText(loreSlug, optionSlug, ta.value);
 			}, true);
 		}
 

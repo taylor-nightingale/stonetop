@@ -1,16 +1,18 @@
-const _cache = new Map();
+import { FoundryPackStore } from "./FoundryPackStore.js";
 
 export class FoundryPlaybookRepository {
+	constructor() {
+		this._store = new FoundryPackStore("stonetop.playbooks", ["system.slug"]);
+		this._cache = new Map();
+	}
+
 	async findBySlug(slug) {
-		if (_cache.has(slug)) return _cache.get(slug);
-		const pack = game.packs.get("stonetop.playbooks");
-		if (!pack) return null;
-		await pack.getIndex({ fields: ["system.slug"] });
-		const entry = pack.index.find(e => e.system?.slug === slug);
+		if (this._cache.has(slug)) return this._cache.get(slug);
+		const entry = await this._store.findEntry(e => e.system?.slug === slug);
 		if (!entry) return null;
-		const doc = await pack.getDocument(entry._id);
-		const pb = doc.asPlaybook();
-		_cache.set(slug, pb);
+		const doc = await this._store.getDocument(entry._id);
+		const pb  = doc.asPlaybook();
+		this._cache.set(slug, pb);
 		return pb;
 	}
 }
