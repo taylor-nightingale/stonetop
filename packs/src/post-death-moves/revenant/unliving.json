@@ -1,0 +1,12 @@
+{
+  "_id": "pDmUnliving00001",
+  "_key": "!items!pDmUnliving00001",
+  "name": "Unliving",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "revenant",
+    "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
+    "rollType": null
+  }
+}

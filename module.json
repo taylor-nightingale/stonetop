@@ -109,6 +109,20 @@
 			"path": "packs/arcana",
 			"type": "Item",
 			"system": "pbta"
+		},
+		{
+			"name": "post-death-inserts",
+			"label": "Post-Death Inserts",
+			"path": "packs/post-death-inserts",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "post-death-moves",
+			"label": "Post-Death Moves",
+			"path": "packs/post-death-moves",
+			"type": "Item",
+			"system": "pbta"
 		}
 	],
 	"url": "https://github.com/taylor-nightingale/stonetop",

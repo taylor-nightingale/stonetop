@@ -163,6 +163,7 @@ export class LoreOptionSnapshot {
 		this.count       = this.type === "text" ? 0 : (b._count ?? 0);
 		this.checks      = this.type === "text" ? [] : Array.from({ length: this.max }, (_, i) => i < this.count);
 		this.textValue   = this.type === "text" ? (b._textValue ?? "") : null;
+		this.requires    = b._requires ?? null;
 	}
 }
 
@@ -173,6 +174,7 @@ export class LoreOptionSnapshotBuilder {
 	withMax(v)         { this._max         = v; return this; }
 	withCount(v)       { this._count       = v; return this; }
 	withTextValue(v)   { this._textValue   = v; return this; }
+	withRequires(v)    { this._requires    = v; return this; }
 	build()            { return new LoreOptionSnapshot(this); }
 }
 

@@ -34,6 +34,9 @@ export {
 	InventorySnapshot,
 } from "./InventorySnapshot.js";
 export {
+	PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder,
+} from "./PostDeathInsertSnapshot.js";
+export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	MinorArcanumSnapshot, MinorArcanumSnapshotBuilder,
 	MinorArcanumFrontSnapshot, MinorArcanumFrontSnapshotBuilder,
