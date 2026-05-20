@@ -1,9 +1,7 @@
 {
-  "_id": "pDiRevenant00001",
-  "_key": "!items!pDiRevenant00001",
   "name": "Revenant",
   "type": "playbook",
-  "img": "icons/svg/skull.svg",
+  "img": "assets/post-death-inserts/revenant.svg",
   "system": {
     "slug": "revenant",
     "description": "<p>When you <em>die but cling stubbornly to your body</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",
@@ -13,9 +11,18 @@
   "flags": {
     "stonetop": {
       "instincts": [
-        { "word": "Denial",    "description": "To refuse to accept that you are dead." },
-        { "word": "Obsession", "description": "To pursue your Terrible Purpose no matter what." },
-        { "word": "Ennui",     "description": "To bemoan your condition, to wish for release." }
+        {
+          "word": "Denial",
+          "description": "To refuse to accept that you are dead."
+        },
+        {
+          "word": "Obsession",
+          "description": "To pursue your Terrible Purpose no matter what."
+        },
+        {
+          "word": "Ennui",
+          "description": "To bemoan your condition, to wish for release."
+        }
       ],
       "lore": [
         {
@@ -109,5 +116,7 @@
         }
       ]
     }
-  }
+  },
+  "_id": "7Dfeu35drOu1VYyA",
+  "_key": "!items!7Dfeu35drOu1VYyA"
 }

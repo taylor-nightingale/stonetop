@@ -1,9 +1,7 @@
 {
-  "_id": "pDiGhost00001",
-  "_key": "!items!pDiGhost00001",
   "name": "Ghost",
   "type": "playbook",
-  "img": "icons/svg/skull.svg",
+  "img": "assets/post-death-inserts/ghost.svg",
   "system": {
     "slug": "ghost",
     "description": "<p>When you <em>die but your soul lingers</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",
@@ -13,9 +11,18 @@
   "flags": {
     "stonetop": {
       "instincts": [
-        { "word": "Denial",    "description": "To refuse to accept that you are dead." },
-        { "word": "Obsession", "description": "To pursue your Terrible Purpose no matter what." },
-        { "word": "Ennui",     "description": "To bemoan your condition, to wish for release." }
+        {
+          "word": "Denial",
+          "description": "To refuse to accept that you are dead."
+        },
+        {
+          "word": "Obsession",
+          "description": "To pursue your Terrible Purpose no matter what."
+        },
+        {
+          "word": "Ennui",
+          "description": "To bemoan your condition, to wish for release."
+        }
       ],
       "lore": [
         {
@@ -109,5 +116,7 @@
         }
       ]
     }
-  }
+  },
+  "_id": "tVh4S7MbvLoaywlL",
+  "_key": "!items!tVh4S7MbvLoaywlL"
 }
