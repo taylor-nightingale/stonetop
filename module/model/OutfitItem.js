@@ -9,6 +9,7 @@ export class OutfitItem {
 		this.twoCol          = b._twoCol;
 		this.smallGrid       = b._smallGrid;
 		this.breakBefore     = b._breakBefore;
+		this.armor           = b._armor ?? null;
 	}
 }
 
@@ -22,5 +23,6 @@ export class OutfitItemBuilder {
 	withTwoCol(v)          { this._twoCol          = v; return this; }
 	withSmallGrid(v)       { this._smallGrid       = v; return this; }
 	withBreakBefore(v)     { this._breakBefore     = v; return this; }
+	withArmor(v)           { this._armor           = v; return this; }
 	build()                { return new OutfitItem(this); }
 }

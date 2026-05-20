@@ -100,20 +100,18 @@ export class StonetopCharacter {
 		const ownedAllByName = this._buildOwnedMovesMap();
 		const moves    = await this._buildMovesSection(playbookData, ownedAllByName, actorLevel);
 		const inventory = await this._buildInventorySection(playbookData, ownedAllByName, actorLevel);
+		const allOutfitItems = await this._inventoryRepo.getAll();
+		const armor = this._inventory.calculateArmor(allOutfitItems);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbookData ? _buildPlaybookSection(playbookData, this._background, this._instinct, this._appearance, this._origin) : null)
 			.withDebilities(_buildDebilitiesSection(actor))
 			.withStats(_buildStatsSection(actor))
-			.withVitals(_buildVitalsSection(actor, playbookData))
+			.withVitals(_buildVitalsSection(actor, playbookData, armor))
 			.withMoves(moves)
 			.withMovelist(_buildMovelist(moves, inventory.other))
 			.withInventory(inventory)
-			.withArcana(await this._arcana.buildSnapshot(
-			actor.system.stats ?? {},
-			this._inventory.checked,
-			this._inventory.resources
-		))
+			.withArcana(await this._arcana.buildSnapshot(actor.system.stats ?? {}, this._inventory.checked, this._inventory.resources))
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
 	}
@@ -785,13 +783,14 @@ function _buildDebilitiesSection(actor) {
 	);
 }
 
-function _buildVitalsSection(actor, playbookData) {
+
+function _buildVitalsSection(actor, playbookData, armorValue) {
 	const attrs = actor.system?.attributes ?? {};
 	const level = attrs.level?.value ?? 1;
 	return new VitalsSnapshotBuilder()
 		.withHp(playbookData ? new ValueMax(attrs.hp?.value ?? 0, playbookData.hp ?? 0) : new ValueMax(0, 0))
 		.withDamage(playbookData?.damage ?? null)
-		.withArmor(attrs.armour?.value ?? 0)
+		.withArmor(armorValue)
 		.withLevel(level)
 		.withXp(new ValueMax(attrs.xp?.value ?? 0, 6 + level * 2))
 		.build();

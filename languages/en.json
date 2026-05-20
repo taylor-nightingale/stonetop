@@ -71,7 +71,7 @@
 			},
 			"attributes": {
 				"damage": "Damage",
-				"armour": "Armor",
+				"armor": "Armor",
 				"xp": "XP",
 				"level": "Level"
 			},

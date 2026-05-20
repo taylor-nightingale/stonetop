@@ -66,6 +66,68 @@ describe("CharacterInventory", () => {
 	});
 });
 
+// -- CharacterInventory.calculateArmor ----------------------------------------
+
+function makeArmorItem(slug, armor) {
+	return new OutfitItemBuilder()
+		.withSlug(slug)
+		.withName(slug)
+		.withWeight(1)
+		.withNote(null)
+		.withInventoryColumn("regular")
+		.withResource(null)
+		.withTwoCol(false)
+		.withSmallGrid(false)
+		.withBreakBefore(false)
+		.withArmor(armor)
+		.build();
+}
+
+describe("CharacterInventory.calculateArmor", () => {
+	it("returns 0 when no items are checked", () => {
+		const ci = new CharacterInventory(makeFlags());
+		expect(ci.calculateArmor([makeArmorItem("thick-hides", { base: 1 })])).toBe(0);
+	});
+
+	it("returns the base value of a single equipped base-armor item", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "thick-hides": true } }));
+		expect(ci.calculateArmor([makeArmorItem("thick-hides", { base: 1 })])).toBe(1);
+	});
+
+	it("uses the highest base when multiple base-armor items are equipped", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "light-armor": true, "heavy-armor": true } }));
+		const items = [
+			makeArmorItem("light-armor", { base: 1 }),
+			makeArmorItem("heavy-armor", { base: 3 }),
+		];
+		expect(ci.calculateArmor(items)).toBe(3);
+	});
+
+	it("adds modifier to base when a modifier item is also equipped", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "thick-hides": true, "shield": true } }));
+		const items = [
+			makeArmorItem("thick-hides", { base: 1 }),
+			makeArmorItem("shield",      { modifier: 1 }),
+		];
+		expect(ci.calculateArmor(items)).toBe(2);
+	});
+
+	it("returns modifier alone when no base item is equipped", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "shield": true } }));
+		expect(ci.calculateArmor([makeArmorItem("shield", { modifier: 1 })])).toBe(1);
+	});
+
+	it("ignores unchecked items", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "thick-hides": false } }));
+		expect(ci.calculateArmor([makeArmorItem("thick-hides", { base: 1 })])).toBe(0);
+	});
+
+	it("ignores items with no armor", () => {
+		const ci = new CharacterInventory(makeFlags({ checked: { "cloak": true } }));
+		expect(ci.calculateArmor([makeArmorItem("cloak", null)])).toBe(0);
+	});
+});
+
 // -- StonetopCharacter.buildInventoryContext ----------------------------------
 
 describe("StonetopCharacter.buildInventoryContext", () => {

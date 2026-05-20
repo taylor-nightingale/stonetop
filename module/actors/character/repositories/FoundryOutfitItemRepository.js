@@ -11,6 +11,7 @@ export class FoundryOutfitItemRepository {
 			"flags.stonetop.slug", "flags.stonetop.inventoryColumn", "flags.stonetop.sortOrder",
 			"flags.stonetop.weight", "flags.stonetop.note", "flags.stonetop.resource",
 			"flags.stonetop.breakBefore", "flags.stonetop.smallGrid", "flags.stonetop.twoCol",
+			"flags.stonetop.armor",
 		]});
 		_cache = [...pack.index]
 			.sort((a, b) => (a.flags?.stonetop?.sortOrder ?? 0) - (b.flags?.stonetop?.sortOrder ?? 0))
@@ -26,6 +27,7 @@ export class FoundryOutfitItemRepository {
 					.withTwoCol(st.twoCol ?? false)
 					.withSmallGrid(st.smallGrid ?? false)
 					.withBreakBefore(st.breakBefore ?? false)
+					.withArmor(st.armor ?? null)
 					.build();
 			});
 		return _cache;

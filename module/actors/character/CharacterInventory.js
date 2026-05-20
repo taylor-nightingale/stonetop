@@ -28,4 +28,12 @@ export class CharacterInventory {
 	async setSmallPool(count) {
 		await this._flags.setFlag("smallPool", count);
 	}
+
+	calculateArmor(allItems) {
+		const equipped  = allItems.filter(item => this.checked[item.slug] && item.armor);
+		const bases     = equipped.filter(i => i.armor.base     != null).map(i => i.armor.base);
+		const modifiers = equipped.filter(i => i.armor.modifier != null).map(i => i.armor.modifier);
+		const base = bases.length > 0 ? Math.max(...bases) : 0;
+		return base + modifiers.reduce((s, m) => s + m, 0);
+	}
 }

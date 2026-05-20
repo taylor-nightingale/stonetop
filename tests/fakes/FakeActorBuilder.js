@@ -29,7 +29,7 @@ export class FakeActorBuilder {
 	_name         = "Brakken";
 	_items        = [];
 	_level        = 1;
-	_armour       = 0;
+	_armor        = 0;
 	_xp           = {value: 0, max: 8};
 	_hp           = {value: 8, max: 8};
 	_statBuilder  = new FakeStatBuilder();
@@ -45,7 +45,7 @@ export class FakeActorBuilder {
 	withHp(current, max)      { this._hp = {value: current, max}; return this; }
 	withXp(current, max)      { this._xp = {value: current, max}; return this; }
 	withLevel(level)          { this._level = level; return this; }
-	withArmour(armour)        { this._armour = armour; return this; }
+	withArmor(armor)          { this._armor  = armor;  return this; }
 	withItems(items)          { this._items = items; return this; }
 	withRollMode(rollMode)    { this._pbtaRollMode = rollMode; return this; }
 
@@ -84,7 +84,7 @@ export class FakeActorBuilder {
 				attributes: {
 					level:   {value: this._level},
 					hp:      this._hp,
-					armour:  {value: this._armour},
+					armor:   {value: this._armor},
 					xp:      this._xp,
 					damage:  {value: "d4"},
 					debilities: {options: {...this._debilities}},

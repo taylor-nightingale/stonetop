@@ -19,6 +19,7 @@ function makeOutfitItem(overrides = {}) {
 		.withTwoCol(overrides.twoCol ?? false)
 		.withSmallGrid(overrides.smallGrid ?? false)
 		.withBreakBefore(overrides.breakBefore ?? false)
+		.withArmor(overrides.armor ?? null)
 		.build();
 }
 
@@ -327,12 +328,17 @@ describe("buildSnapshot — vitals", () => {
 		expect(snap.vitals.damage).toBeNull();
 	});
 
-	it("armor is a plain number from system.attributes.armour.value", async () => {
-		const actor = new FakeActorBuilder().withLevel(4).withArmour(3).build();
+	it("armor is derived from checked inventory items", async () => {
+		const actor = new FakeActorBuilder()
+			.withFlag("inventory.checked", {"thick-hides": true, "shield": true})
+			.build();
 		const snap = await new TestCharacterBuilder(actor)
+			.withInventoryRepo(new FakeInventoryRepository([
+				makeOutfitItem({ slug: "thick-hides", armor: { base: 1 } }),
+				makeOutfitItem({ slug: "shield",      armor: { modifier: 1 } }),
+			]))
 			.build().buildSnapshot();
-		expect(snap.vitals.armor).toBe(3);
-		expect(typeof snap.vitals.armor).toBe("number");
+		expect(snap.vitals.armor).toBe(2);
 	});
 
 	it("level is a plain number", async () => {

@@ -34,10 +34,10 @@ export function characterSheetConfig() {
 				max: 16,
 				min: 0,
 			},
-			armour: {
+			armor: {
 				position: "Top",
 				type: "Number",
-				label: game.i18n.localize("stonetop.character.attributes.armour"),
+				label: game.i18n.localize("stonetop.character.attributes.armor"),
 				value: 0,
 			},
 			xp: {

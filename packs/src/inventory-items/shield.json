@@ -13,7 +13,8 @@
 			"sortOrder": 25,
 			"note": "+1 armor, +1 Readiness on 7+ to Defend",
 			"weight": 2,
-			"breakBefore": true
+			"breakBefore": true,
+			"armor": { "modifier": 1 }
 		}
 	}
 }

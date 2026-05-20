@@ -12,7 +12,8 @@
 			"inventoryColumn": "regular",
 			"sortOrder": 26,
 			"note": "1 armor, <em>warm</em>",
-			"weight": 1
+			"weight": 1,
+			"armor": { "base": 1 }
 		}
 	}
 }
