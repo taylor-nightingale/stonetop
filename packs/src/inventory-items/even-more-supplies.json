@@ -4,23 +4,27 @@
 	"name": "Even more supplies",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "even-more-supplies",
-		"inventoryColumn": "regular",
-		"sortOrder": 3,
-		"note": "4+Prosperity uses",
-		"weight": 1,
-		"resource": {
-			"max": 6,
-			"title": null,
-			"labels": [
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
-			]
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "even-more-supplies",
+			"inventoryColumn": "regular",
+			"sortOrder": 3,
+			"note": "4+Prosperity uses",
+			"weight": 1,
+			"resource": {
+				"max": 6,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				]
+			}
 		}
 	}
 }

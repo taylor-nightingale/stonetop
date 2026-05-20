@@ -11,8 +11,12 @@
 			"slug": "mummified-hand",
 			"front": {
 				"title": "A mummified hand",
-				"weight": 1,
-				"note": "magical, fragile",
+				"item": {
+					"name": "A mummified hand",
+					"weight": 1,
+					"note": "<em>magical, fragile</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>Found in an engraved lead box, this grisly relic is adorned with three golden rings (Value 2). Each ring has an empty setting, as though it was meant to hold a stone. Only dark, rust-like flakes remain.</p><p>The hand still thrums with unholy vitality.</p>",
 				"unlock": {
 					"description": "To unlock its mysteries, you must…",
@@ -37,8 +41,7 @@
 			},
 			"back": {
 				"title": "Hand of Aals Sannan",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you (and only you) <strong><em>touch the hand and speak the name of Aals Sannan</em></strong>, all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:</p><ul><li>○ Part of your look changes, to be more like Aals Sannan.</li><li>○ Your instinct changes, to something more cynical/manipulative/ambitious.</li><li>○ Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat.</li></ul><p>When <strong><em>all three have been marked</em></strong>, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can't use this arcanum.</p>",
 				"resource": null,
 				"move": {

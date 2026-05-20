@@ -4,11 +4,15 @@
 	"name": "Spear, iron",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "spear",
-		"inventoryColumn": "regular",
-		"sortOrder": 20,
-		"note": "<em>close</em>, <em>thrown</em>, x <em>piercing</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "spear",
+			"inventoryColumn": "regular",
+			"sortOrder": 20,
+			"note": "<em>close</em>, <em>thrown</em>, x <em>piercing</em>",
+			"weight": 1
+		}
 	}
 }

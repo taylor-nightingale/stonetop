@@ -4,11 +4,15 @@
 	"name": "Cloak",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "cloak",
-		"inventoryColumn": "regular",
-		"sortOrder": 27,
-		"note": "<em>warm</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "cloak",
+			"inventoryColumn": "regular",
+			"sortOrder": 27,
+			"note": "<em>warm</em>",
+			"weight": 1
+		}
 	}
 }

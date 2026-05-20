@@ -11,8 +11,12 @@
 			"slug": "runic-branding-iron",
 			"front": {
 				"title": "A runic branding iron",
-				"weight": 1,
-				"note": "magical",
+				"item": {
+					"name": "A runic branding iron",
+					"weight": 1,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.</p>",
 				"unlock": {
 					"description": "To unlock the mysteries of this iron and claim its power as your own, you must…",
@@ -42,8 +46,7 @@
 			},
 			"back": {
 				"title": "Searing Touch",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>call up the fire from your soul and pour it into your hands</em></strong>, roll +CON: <strong>on a 7+</strong>, your hands blaze like white-hot iron (see below); <strong>but on a 10+</strong>, first pick 1; <strong>and on a 7-9</strong>, first pick 2:</p><ul><li>It takes minutes of intense focus</li><li>It burns your life force; lose 2d4 HP</li><li>The pain is terrible; mark a debility</li></ul><p><strong>On a 6-</strong>, whatever else the GM says, you cannot do this and must Convalesce.</p><p>While your <strong><em>hands are ablaze</em></strong>, your touch deals 1d10 damage (<em>band, messy, dangerous</em>, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection. Be careful.</p><p>Your hands blaze as long as you maintain your focus, up to a minute or maybe two.</p>",
 				"resource": null,
 				"move": {

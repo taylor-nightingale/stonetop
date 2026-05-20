@@ -1,93 +1,64 @@
-import { describe, it, expect, vi } from "vitest";
-import { StonetopCharacter } from "../../../module/actors/character/StonetopCharacter.js";
+import { describe, it, expect } from "vitest";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	MinorArcanumSnapshot,
 } from "../../../module/model/CharacterSnapshot.js";
-
-// -- Fake repositories --------------------------------------------------------
-
-class FakePlaybookRepository {
-	async findBySlug() { return null; }
-}
-
-class FakePlaybookMoveRepository {
-	async getMovesForPlaybook() { return []; }
-}
-
-class FakeBasicMoveRepository {
-	async getAll() { return []; }
-}
-
-class FakeInventoryRepository {
-	async getAll() { return []; }
-}
-
-class FakeArcanaRepository {
-	constructor(arcana = []) { this._arcana = arcana; }
-	async findBySlug(slug) { return this._arcana.find(a => a.slug === slug) ?? null; }
-	async findBySlugs(slugs) {
-		return (await Promise.all(slugs.map(s => this.findBySlug(s)))).filter(Boolean);
-	}
-}
-
-// -- Fake actor ---------------------------------------------------------------
-
-function makeActor({ name = "Tara", system = {}, flags = {}, items = [] } = {}) {
-	const flagStore = { stonetop: { ...flags }, pbta: {} };
-	return {
-		name,
-		type: "character",
-		system: {
-			playbook: { slug: null, name: null },
-			stats: {
-				str: { value: 0 }, dex: { value: 0 },
-				con: { value: 0 }, int: { value: 0 },
-				wis: { value: 0 }, cha: { value: 0 },
-			},
-			attributes: {
-				level:   { value: 1 },
-				hp:      { value: 10, max: 10 },
-				armour:  { value: 0 },
-				xp:      { value: 0, max: 8 },
-				damage:  { value: "d6" },
-				debilities: { options: {
-					weakened:  { value: false, stat: ["str", "dex"] },
-					dazed:     { value: false, stat: ["int", "wis"] },
-					miserable: { value: false, stat: ["con", "cha"] },
-				}},
-			},
-			...system,
-		},
-		items,
-		flags: flagStore,
-		getFlag:  (scope, key) => flagStore[scope]?.[key] ?? null,
-		setFlag:  vi.fn(async (scope, key, val) => { flagStore[scope] ??= {}; flagStore[scope][key] = val; }),
-		update:   vi.fn(),
-		createEmbeddedDocuments: vi.fn(),
-		deleteEmbeddedDocuments: vi.fn(),
-	};
-}
+import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
+import {FakeActorBuilder, FakeStatBuilder} from "../../fakes/FakeActorBuilder.js";
 
 function makeCharacter(actor, arcanaRepo = null) {
-	return new StonetopCharacter(
-		actor,
-		new FakePlaybookRepository(),
-		new FakePlaybookMoveRepository(),
-		new FakeBasicMoveRepository(),
-		new FakeInventoryRepository(),
-		arcanaRepo ?? new FakeArcanaRepository(),
-	);
+	return new TestCharacterBuilder(actor).withArcanaRepo(arcanaRepo).build();
 }
 
-// -- Arcana fixture -----------------------------------------------------------
+// -- Arcana fixtures ----------------------------------------------------------
+
+const CARVINGS_IN_A_CAVE = {
+	slug: "carvings-in-a-cave",
+	front: {
+		title: "Carvings in a Cave",
+		item: null,
+		description: "<p>Strange carvings.</p>",
+		unlock: { description: "Unlock by…", requirements: [] },
+	},
+	back: {
+		title: "Shell Game of Souls",
+		item: null,
+		description: "<p>You may contain souls.</p>",
+		resource: { max: null, maxStat: "con", title: "Souls", labels: [] },
+		move: null,
+		options: [],
+	},
+};
+
+const BOW_WITH_NO_STRING = {
+	slug: "bow-with-no-string",
+	front: {
+		title: "A Bow with No String",
+		item: { name: "A Bow with No String", weight: 1, note: null, inventoryColumn: "regular" },
+		description: "<p>An ancient bow.</p>",
+		unlock: { description: "Unlock by…", requirements: [] },
+	},
+	back: {
+		title: "Thunderbolt Bow",
+		item: {
+			name: "Thunderbolt Bow",
+			weight: 1,
+			note: "<em>magical</em>",
+			inventoryColumn: "regular",
+			resource: { max: 3, maxStat: null, title: "Ammo", labels: ["plenty left", "low ammo", "all out"] },
+		},
+		description: "<p>A crackling bow of lightning.</p>",
+		resource: null,
+		move: null,
+		options: [],
+	},
+};
 
 const FFYRNIG_SPHERE = {
 	slug: "huge-wooden-sphere",
 	front: {
 		title: "A Huge Wooden Sphere",
-		weight: null,
-		note: "immobile",
+		item: { name: "A Huge Wooden Sphere", weight: null, note: "immobile", inventoryColumn: null },
 		description: "<p>Half-buried and largely overgrown.</p>",
 		unlock: {
 			description: "The pictograms depict some sort of recipe, which you can learn but you must…",
@@ -102,10 +73,9 @@ const FFYRNIG_SPHERE = {
 	},
 	back: {
 		title: "Ffyrnig Tonic",
-		weight: 1,
-		note: "magical",
+		item: { name: "Ffyrnig Tonic", weight: 1, note: "magical", inventoryColumn: "regular" },
 		description: "<p>When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).</p>",
-		resource: { max: 3, title: "Ffyrnig Tonic", labels: [] },
+		resource: { max: 3, maxStat: null, title: "Ffyrnig Tonic", labels: [] },
 		move: {
 			name: "When you take a draught of ffyrnig tonic",
 			rollType: null,
@@ -119,23 +89,23 @@ const FFYRNIG_SPHERE = {
 
 describe("buildSnapshot() — arcana (integration)", () => {
 	it("arcana is always present even with no owned items", async () => {
-		const snap = await makeCharacter(makeActor()).buildSnapshot();
+		const snap = await makeCharacter(new FakeActorBuilder().build()).buildSnapshot();
 		expect(snap.arcana).toBeInstanceOf(ArcanaSnapshot);
 	});
 
 	it("arcana.minor and arcana.major are ArcanaSectionSnapshot instances", async () => {
-		const snap = await makeCharacter(makeActor()).buildSnapshot();
+		const snap = await makeCharacter(new FakeActorBuilder().build()).buildSnapshot();
 		expect(snap.arcana.minor).toBeInstanceOf(ArcanaSectionSnapshot);
 		expect(snap.arcana.major).toBeInstanceOf(ArcanaSectionSnapshot);
 	});
 
 	it("arcana.minor.items is [] when no owned slugs", async () => {
-		const snap = await makeCharacter(makeActor()).buildSnapshot();
+		const snap = await makeCharacter(new FakeActorBuilder().build()).buildSnapshot();
 		expect(snap.arcana.minor.items).toEqual([]);
 	});
 
 	it("arcana.minor.title is 'Minor Arcana'", async () => {
-		const snap = await makeCharacter(makeActor()).buildSnapshot();
+		const snap = await makeCharacter(new FakeActorBuilder().build()).buildSnapshot();
 		expect(snap.arcana.minor.title).toBe("Minor Arcana");
 	});
 
@@ -144,8 +114,8 @@ describe("buildSnapshot() — arcana (integration)", () => {
 			const flatFlags = Object.fromEntries(
 				Object.entries(arcanaFlags).map(([k, v]) => [`arcana.${k}`, v])
 			);
-			const actor = makeActor({ flags: flatFlags });
-			const char  = makeCharacter(actor, new FakeArcanaRepository([FFYRNIG_SPHERE]));
+			const actor = new FakeActorBuilder().withFlags(flatFlags).build();
+			const char  = new TestCharacterBuilder(actor).addArcanum(FFYRNIG_SPHERE).build();
 			return char.buildSnapshot();
 		}
 
@@ -170,6 +140,68 @@ describe("buildSnapshot() — arcana (integration)", () => {
 				flipped: ["huge-wooden-sphere"],
 			});
 			expect(snap.arcana.minor.items[0].flipped).toBe(true);
+		});
+	});
+
+	describe("arcana resource reads from inventory flag", () => {
+		it("back.resource.current reflects inventory.resources flag", async () => {
+			const actor = new FakeActorBuilder()
+				.withFlags({
+					"arcana.owned":          ["huge-wooden-sphere"],
+					"inventory.resources":   { "huge-wooden-sphere": 2 },
+				})
+				.build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(FFYRNIG_SPHERE).build().buildSnapshot();
+			expect(snap.arcana.minor.items[0].back.resource.current).toBe(2);
+		});
+
+		it("back.resource.current defaults to 0 when not in inventory.resources", async () => {
+			const actor = new FakeActorBuilder().withFlag("arcana.owned", ["huge-wooden-sphere"]).build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(FFYRNIG_SPHERE).build().buildSnapshot();
+			expect(snap.arcana.minor.items[0].back.resource.current).toBe(0);
+		});
+
+		it("maxStat resolves to actor's stat value", async () => {
+			const actor = new FakeActorBuilder()
+				.withFlag("arcana.owned", ["carvings-in-a-cave"])
+				.withStats(new FakeStatBuilder().withCon(5))
+				.build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(CARVINGS_IN_A_CAVE).build().buildSnapshot();
+			expect(snap.arcana.minor.items[0].back.resource.max).toBe(5);
+		});
+
+		it("back.item.resource is a resolved Resource on the OutfitItem snapshot", async () => {
+			const actor = new FakeActorBuilder()
+				.withFlags({
+					"arcana.owned":        ["bow-with-no-string"],
+					"inventory.resources": { "bow-with-no-string": 1 },
+				})
+				.build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(BOW_WITH_NO_STRING).build().buildSnapshot();
+			const resource = snap.arcana.minor.items[0].back.item.resource;
+			expect(resource).not.toBeNull();
+			expect(resource.current).toBe(1);
+			expect(resource.max).toBe(3);
+			expect(resource.title).toBe("Ammo");
+		});
+	});
+
+	describe("arcana checked state", () => {
+		it("checked defaults to false", async () => {
+			const actor = new FakeActorBuilder().withFlag("arcana.owned", ["huge-wooden-sphere"]).build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(FFYRNIG_SPHERE).build().buildSnapshot();
+			expect(snap.arcana.minor.items[0].checked).toBe(false);
+		});
+
+		it("checked is true when slug is in inventory.checked flag", async () => {
+			const actor = new FakeActorBuilder()
+				.withFlags({
+					"arcana.owned":       ["huge-wooden-sphere"],
+					"inventory.checked":  { "huge-wooden-sphere": true },
+				})
+				.build();
+			const snap = await new TestCharacterBuilder(actor).addArcanum(FFYRNIG_SPHERE).build().buildSnapshot();
+			expect(snap.arcana.minor.items[0].checked).toBe(true);
 		});
 	});
 });

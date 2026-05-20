@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopCharacterSheetClass } from "../../../module/actors/character/StonetopCharacterSheet.js";
+import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -35,15 +36,8 @@ function makeCharacterMock(actor) {
 	};
 }
 
-function makeActor(flags = {}, updates = []) {
-	const flagStore = { stonetop: { ...flags } };
-	const actor = {
-		updates,
-		flags: flagStore,
-		getFlag: (scope, key) => flagStore[scope]?.[key] ?? null,
-		setFlag: vi.fn(async (scope, key, val) => { flagStore[scope] ??= {}; flagStore[scope][key] = val; }),
-		update: vi.fn(async data => updates.push(data)),
-	};
+function makeActor() {
+	const actor = new FakeActorBuilder().build();
 	actor.typedActor = makeCharacterMock(actor);
 	return actor;
 }

@@ -11,8 +11,12 @@
 			"slug": "disturbing-mask",
 			"front": {
 				"title": "A disturbing mask",
-				"weight": 1,
-				"note": "magical",
+				"item": {
+					"name": "A disturbing mask",
+					"weight": 1,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.</p><p><em>Note: weight 1 only when stowed; it weighs nothing when worn.</em></p>",
 				"unlock": {
 					"description": "There's more to this mask than meets the eye. To unlock its secrets, you must…",
@@ -42,8 +46,7 @@
 			},
 			"back": {
 				"title": "Fetch's Mask",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>wear the mask and eat someone's hair, blood, fingernail, etc.</em></strong>, you and the mask become their flawless double until the next sunrise or until you remove the mask.</p><p>When you <strong><em>interact with an NPC known to whoever's visage you wear</em></strong>, roll +CHA: <strong>on a 10+</strong>, hold 3 Ken; <strong>on a 7-9</strong>, hold 1 Ken; <strong>on a 6-</strong>, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:</p><ul><li>What do they expect me to do/say?</li><li>What do they hope/want from me?</li><li>What secret do I keep from them?</li></ul><p>When you <strong><em>remove the mask after wearing someone's visage</em></strong>, roll +CON: <strong>on a 10+</strong>, it hurts but comes off okay; <strong>on a 7-9</strong>, your face is raw and painful, mark a debility; <strong>on a 6-</strong>, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.</p>",
 				"resource": {
 					"max": 3,

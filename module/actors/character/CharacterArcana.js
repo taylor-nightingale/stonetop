@@ -6,6 +6,21 @@ import {
 	MinorArcanumSnapshotBuilder,
 	ResourceBuilder,
 } from "../../model/CharacterSnapshot.js";
+import { OutfitItemBuilder } from "../../model/OutfitItem.js";
+
+function _buildOutfitItem(slug, itemData, resolvedResource = undefined) {
+	if (!itemData) return null;
+	return new OutfitItemBuilder()
+		.withSlug(slug)
+		.withName(itemData.name)
+		.withWeight(itemData.weight ?? null)
+		.withNote(itemData.note ?? null)
+		.withInventoryColumn(itemData.inventoryColumn ?? null)
+		.withResource(resolvedResource !== undefined ? resolvedResource : (itemData.resource ?? null))
+		.withTwoCol(false)
+		.withBreakBefore(false)
+		.build();
+}
 
 export class CharacterArcana {
 	constructor(flags, arcanaRepo) {
@@ -17,14 +32,12 @@ export class CharacterArcana {
 	get flippedSlugs()    { return new Set(this._flags.getFlag("flipped") ?? []); }
 	get unlockCounts()    { return this._flags.getFlag("unlock") ?? {}; }
 	get backOptionCounts(){ return this._flags.getFlag("backOptions") ?? {}; }
-	get resources()       { return this._flags.getFlag("resources") ?? {}; }
 
-	async buildSnapshot() {
+	async buildSnapshot(stats = {}, checkedMap = {}, inventoryResources = {}) {
 		const ownedSlugs       = this.ownedSlugs;
 		const flippedSlugs     = this.flippedSlugs;
 		const unlockCounts     = this.unlockCounts;
 		const backOptionCounts = this.backOptionCounts;
-		const resourceCounts   = this.resources;
 
 		const fetchedItems = await this._arcanaRepo.findBySlugs([...ownedSlugs]);
 
@@ -45,8 +58,7 @@ export class CharacterArcana {
 
 			const front = new MinorArcanumFrontSnapshotBuilder()
 				.withTitle(item.front.title)
-				.withWeight(item.front.weight ?? null)
-				.withNote(item.front.note ?? null)
+				.withItem(_buildOutfitItem(item.slug, item.front.item))
 				.withDescription(item.front.description)
 				.withUnlock(new ArcanumUnlockSection(item.front.unlock.description, unlockItems))
 				.build();
@@ -64,11 +76,26 @@ export class CharacterArcana {
 
 			const backResource = item.back.resource
 				? new ResourceBuilder()
-					.withCurrent(resourceCounts[item.slug] ?? 0)
-					.withMax(item.back.resource.max ?? null)
+					.withCurrent(inventoryResources[item.slug] ?? 0)
+					.withMax(item.back.resource.maxStat
+						? (stats[item.back.resource.maxStat]?.value ?? 0)
+						: item.back.resource.max)
 					.withMaxStat(item.back.resource.maxStat ?? null)
 					.withTitle(item.back.resource.title ?? null)
 					.withLabels(item.back.resource.labels ?? [])
+					.build()
+				: null;
+
+			const backItemResourceDef = item.back.item?.resource ?? null;
+			const backItemResource = backItemResourceDef
+				? new ResourceBuilder()
+					.withCurrent(inventoryResources[item.slug] ?? 0)
+					.withMax(backItemResourceDef.maxStat
+						? (stats[backItemResourceDef.maxStat]?.value ?? 0)
+						: backItemResourceDef.max)
+					.withMaxStat(backItemResourceDef.maxStat ?? null)
+					.withTitle(backItemResourceDef.title ?? null)
+					.withLabels(backItemResourceDef.labels ?? [])
 					.build()
 				: null;
 
@@ -81,8 +108,7 @@ export class CharacterArcana {
 
 			const back = new MinorArcanumBackSnapshotBuilder()
 				.withTitle(item.back.title)
-				.withWeight(item.back.weight ?? null)
-				.withNote(item.back.note ?? null)
+				.withItem(_buildOutfitItem(item.slug, item.back.item, backItemResource))
 				.withDescription(item.back.description)
 				.withResource(backResource)
 				.withMove(backMove)
@@ -95,6 +121,7 @@ export class CharacterArcana {
 				.withBack(back)
 				.withOwned(true)
 				.withFlipped(flipped)
+				.withChecked(checkedMap[item.slug] ?? false)
 				.build();
 		});
 
@@ -137,7 +164,25 @@ export class CharacterArcana {
 		await this._flags.setFlag("backOptions", { ...this.backOptionCounts, [key]: count });
 	}
 
-	async setResource(slug, count) {
-		await this._flags.setFlag("resources", { ...this.resources, [slug]: count });
+	async weightedInventoryItems() {
+		const ownedSlugs   = this.ownedSlugs;
+		const flippedSlugs = this.flippedSlugs;
+		const items = await this._arcanaRepo.findBySlugs([...ownedSlugs]);
+		return items.flatMap(item => {
+			const flipped  = flippedSlugs.has(item.slug);
+			const sideItem = flipped ? item.back.item : item.front.item;
+			if (!sideItem?.inventoryColumn) return [];
+			return [new OutfitItemBuilder()
+				.withSlug(item.slug)
+				.withName(sideItem.name)
+				.withWeight(sideItem.weight ?? 0)
+				.withNote(sideItem.note ?? null)
+				.withInventoryColumn(sideItem.inventoryColumn)
+				.withResource(sideItem.resource ?? null)
+				.withTwoCol(false)
+				.withBreakBefore(false)
+				.build()
+			];
+		});
 	}
 }

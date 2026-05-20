@@ -4,11 +4,15 @@
 	"name": "Change of clothes",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "change-clothes",
-		"inventoryColumn": "regular",
-		"sortOrder": 7,
-		"weight": 1,
-		"twoCol": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "change-clothes",
+			"inventoryColumn": "regular",
+			"sortOrder": 7,
+			"weight": 1,
+			"twoCol": true
+		}
 	}
 }

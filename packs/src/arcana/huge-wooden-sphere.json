@@ -11,8 +11,7 @@
 			"slug": "huge-wooden-sphere",
 			"front": {
 				"title": "A huge wooden sphere",
-				"weight": null,
-				"note": "immobile",
+				"note": "<em>immobile</em>",
 				"description": "<p>Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.</p>",
 				"unlock": {
 					"description": "The pictograms depict some sort of recipe, which you can learn but you must…",
@@ -55,8 +54,12 @@
 			},
 			"back": {
 				"title": "Ffyrnig Tonic",
-				"weight": 1,
-				"note": "magical",
+				"item": {
+					"name": "Ffyrnig Tonic",
+					"weight": 1,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).</p>",
 				"resource": {
 					"max": 3,

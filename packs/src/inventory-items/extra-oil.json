@@ -4,21 +4,25 @@
 	"name": "Extra oil",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "extra-oil",
-		"inventoryColumn": "regular",
-		"sortOrder": 14,
-		"note": "for lamp/lantern, useless as a weapon",
-		"weight": 1,
-		"resource": {
-			"max": 4,
-			"title": null,
-			"labels": [
-				"",
-				"",
-				"",
-				"hours"
-			]
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "extra-oil",
+			"inventoryColumn": "regular",
+			"sortOrder": 14,
+			"note": "for lamp/lantern, useless as a weapon",
+			"weight": 1,
+			"resource": {
+				"max": 4,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"",
+					"hours"
+				]
+			}
 		}
 	}
 }

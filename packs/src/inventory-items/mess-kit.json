@@ -4,12 +4,16 @@
 	"name": "Mess kit",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "mess-kit",
-		"inventoryColumn": "regular",
-		"sortOrder": 4,
-		"note": "requires fire & water; makes Supplies last longer",
-		"weight": 1,
-		"breakBefore": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "mess-kit",
+			"inventoryColumn": "regular",
+			"sortOrder": 4,
+			"note": "requires fire & water; makes Supplies last longer",
+			"weight": 1,
+			"breakBefore": true
+		}
 	}
 }

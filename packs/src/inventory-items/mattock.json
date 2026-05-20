@@ -4,11 +4,15 @@
 	"name": "Mattock, iron and/or wood",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "mattock",
-		"inventoryColumn": "regular",
-		"sortOrder": 17,
-		"note": "<em>hand</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "mattock",
+			"inventoryColumn": "regular",
+			"sortOrder": 17,
+			"note": "<em>hand</em>",
+			"weight": 1
+		}
 	}
 }

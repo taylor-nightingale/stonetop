@@ -4,19 +4,23 @@
 	"name": "Bow & iron arrows",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "bow-arrows",
-		"inventoryColumn": "regular",
-		"sortOrder": 22,
-		"note": "<em>near</em>, x <em>piercing</em>",
-		"weight": 1,
-		"resource": {
-			"max": 2,
-			"title": null,
-			"labels": [
-				"low ammo",
-				"all out"
-			]
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "bow-arrows",
+			"inventoryColumn": "regular",
+			"sortOrder": 22,
+			"note": "<em>near</em>, x <em>piercing</em>",
+			"weight": 1,
+			"resource": {
+				"max": 2,
+				"title": null,
+				"labels": [
+					"low ammo",
+					"all out"
+				]
+			}
 		}
 	}
 }

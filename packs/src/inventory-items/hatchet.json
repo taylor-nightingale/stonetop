@@ -4,12 +4,16 @@
 	"name": "Hatchet, iron",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "hatchet",
-		"inventoryColumn": "regular",
-		"sortOrder": 16,
-		"note": "<em>hand</em>, <em>thrown</em>, x <em>piercing</em>",
-		"weight": 1,
-		"breakBefore": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "hatchet",
+			"inventoryColumn": "regular",
+			"sortOrder": 16,
+			"note": "<em>hand</em>, <em>thrown</em>, x <em>piercing</em>",
+			"weight": 1,
+			"breakBefore": true
+		}
 	}
 }

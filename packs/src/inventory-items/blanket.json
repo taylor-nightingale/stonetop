@@ -4,12 +4,16 @@
 	"name": "Blanket",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "blanket",
-		"inventoryColumn": "regular",
-		"sortOrder": 6,
-		"note": "<em>warm</em>",
-		"weight": 1,
-		"twoCol": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "blanket",
+			"inventoryColumn": "regular",
+			"sortOrder": 6,
+			"note": "<em>warm</em>",
+			"weight": 1,
+			"twoCol": true
+		}
 	}
 }

@@ -4,12 +4,16 @@
 	"name": "Shield",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "shield",
-		"inventoryColumn": "regular",
-		"sortOrder": 25,
-		"note": "+1 armor, +1 Readiness on 7+ to Defend",
-		"weight": 2,
-		"breakBefore": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "shield",
+			"inventoryColumn": "regular",
+			"sortOrder": 25,
+			"note": "+1 armor, +1 Readiness on 7+ to Defend",
+			"weight": 2,
+			"breakBefore": true
+		}
 	}
 }

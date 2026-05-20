@@ -92,15 +92,7 @@
 				</span>
 				{{#if resource}}
 				<span class="stonetop-inv-resources">
-					{{#each (resourceChecks resource)}}
-					<span class="stonetop-inv-resource-item">
-						<button type="button"
-						        class="stonetop-inv-resource-btn stonetop-inventory-resource-btn{{#if checked}} is-checked{{/if}}"
-						        data-slug="{{../slug}}"
-						        data-index="{{@index}}"></button>
-						{{#if label}}<span class="stonetop-inv-resource-label">{{label}}</span>{{/if}}
-					</span>
-					{{/each}}
+					{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
 				</span>
 				{{/if}}
 				{{#if isCustom}}
@@ -148,15 +140,7 @@
 				</span>
 				{{#if resource}}
 				<span class="stonetop-inv-resources">
-					{{#each (resourceChecks resource)}}
-					<span class="stonetop-inv-resource-item">
-						<button type="button"
-						        class="stonetop-inv-resource-btn stonetop-inventory-resource-btn{{#if checked}} is-checked{{/if}}"
-						        data-slug="{{../slug}}"
-						        data-index="{{@index}}"></button>
-						{{#if label}}<span class="stonetop-inv-resource-label">{{label}}</span>{{/if}}
-					</span>
-					{{/each}}
+					{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
 				</span>
 				{{/if}}
 				{{#if isCustom}}
@@ -201,12 +185,7 @@
 					{{#if (and checked resource)}}
 					<span class="stonetop-item-resources">
 						{{#if usesLabel}}<span class="stonetop-uses-label">{{usesLabel}}</span>{{/if}}
-						{{#each (resourceChecks resource)}}
-						<button type="button"
-						        class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
-						        data-possession-slug="{{../slug}}"
-						        data-index="{{@index}}"></button>
-						{{/each}}
+						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=slug}}
 					</span>
 					{{/if}}
 				</div>
@@ -227,13 +206,7 @@
 						</label>
 						{{#if (and checked resource)}}
 						<span class="stonetop-item-resources">
-							{{#each (resourceChecks resource)}}
-							<button type="button"
-							        class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
-							        data-possession-slug="{{../../slug}}"
-							        data-choice-slug="{{../slug}}"
-							        data-index="{{@index}}"></button>
-							{{/each}}
+							{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=../slug choiceSlug=slug}}
 						</span>
 						{{/if}}
 					</li>

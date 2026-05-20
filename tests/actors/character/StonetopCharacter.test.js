@@ -1,95 +1,15 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { StonetopCharacter } from "../../../module/actors/character/StonetopCharacter.js";
-
-// -- Fake repositories --------------------------------------------------------
-
-class FakePlaybookRepository {
-	constructor(playbook) { this._playbook = playbook; }
-	async findBySlug() { return this._playbook; }
-}
-
-class FakePlaybookMoveRepository {
-	constructor(moves = []) { this._moves = moves; }
-	async getMovesForPlaybook() { return this._moves; }
-	async getDocument(id) { return this._moves.find(m => m._id === id) ?? null; }
-}
-
-class FakeBasicMoveRepository {
-	constructor(moves = []) { this._moves = moves; }
-	async getAll() { return this._moves; }
-}
-
-class FakeInventoryRepository {
-	async getAll() { return []; }
-}
-
-class FakeArcanaRepository {
-	async findBySlug() { return null; }
-	async findBySlugs() { return []; }
-}
-
-// -- Fake actor ---------------------------------------------------------------
-
-function makeActor({ system = {}, flags = {}, items = [] } = {}) {
-	const flagStore = { stonetop: { ...flags } };
-	return {
-		type: "character",
-		system: {
-			playbook: { slug: null, name: null },
-			attributes: { level: { value: 1 } },
-			...system,
-		},
-		items,
-		flags: flagStore,
-		getFlag: (scope, key) => flagStore[scope]?.[key] ?? null,
-		setFlag: vi.fn(async (scope, key, val) => { flagStore[scope] ??= {}; flagStore[scope][key] = val; }),
-		update: vi.fn(),
-		createEmbeddedDocuments: vi.fn(),
-		deleteEmbeddedDocuments: vi.fn(),
-	};
-}
-
-function makeCharacter(actor, playbookRepo, playbookMoveRepo, basicMoveRepo) {
-	return new StonetopCharacter(
-		actor,
-		playbookRepo ?? new FakePlaybookRepository(null),
-		playbookMoveRepo ?? new FakePlaybookMoveRepository(),
-		basicMoveRepo ?? new FakeBasicMoveRepository(),
-		new FakeInventoryRepository(),
-		new FakeArcanaRepository(),
-	);
-}
-
-// -- Playbook fixture ---------------------------------------------------------
-
-const BLESSED_PLAYBOOK = {
-	backgrounds: [
-		{ slug: "initiate",         label: "Initiate",         description: "<p>Initiate desc.</p>", moves: ["Rites of the Land"] },
-		{ slug: "raised-by-wolves", label: "Raised by Wolves", description: "<p>Wolves desc.</p>",   moves: ["Trackless Step"] },
-		{ slug: "vessel",           label: "Vessel",           description: "<p>Vessel desc.</p>",   moves: ["Danu's Grasp"] },
-	],
-	instincts: [
-		{ word: "Delight",      description: "To find beauty, in even the ugliest things." },
-		{ word: "Detachment",   description: "To remain unmoved, to be cold as winter." },
-		{ word: "Preservation", description: "To protect the natural world." },
-	],
-	appearance: [
-		["fresh-faced", "hale & hearty", "gray & wizened"],
-		["curvy", "strapping", "rail-thin"],
-	],
-	origin: [
-		{ region: "Stonetop",      names: ["Arwel", "Blodwen"] },
-		{ region: "Barrier Pass",  names: ["Alagh", "Bora"] },
-	],
-	startingMovesNote: null,
-};
+import {afterEach, beforeEach, describe, expect, it, vi} from "vitest";
+import {FakeMoveRepository} from "../../fakes/FakeMoveRepository.js";
+import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
+import {BLESSED_PLAYBOOK, FakePlaybookRepository} from "../../fakes/FakePlaybookRepository.js";
+import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
+import {MoveDefinition} from "../../../module/model/MoveDefinition.js";
 
 // -- buildSnapshot (playbook display fields) ----------------------------------
 
 describe("StonetopCharacter.buildSnapshot — playbook display fields", () => {
 	it("returns playbook=null with empty movelist when no playbook", async () => {
-		const actor = makeActor();
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 		const data = await char.buildSnapshot();
 		expect(data.playbook).toBeNull();
 		expect(data.movelist.playbookMoves).toHaveLength(0);
@@ -98,49 +18,48 @@ describe("StonetopCharacter.buildSnapshot — playbook display fields", () => {
 
 	it("returns movelist with otherMoves even when no playbook", async () => {
 		const move = { _id: "m1", type: "move", name: "Custom Move", system: { moveType: "other", rollType: null } };
-		const actor = makeActor({ items: [move] });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().withItems([move]).build()).build();
 		const data = await char.buildSnapshot();
 		expect(data.movelist.otherMoves).toHaveLength(1);
 		expect(data.movelist.otherMoves[0].name).toBe("Custom Move");
 	});
 
 	it("returns playbook object when playbook present", async () => {
-		const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK));
+		const actor = new FakeActorBuilder().withPlaybook("the-blessed", "The Blessed").build();
+		const char = new TestCharacterBuilder(actor).addPlaybook(BLESSED_PLAYBOOK).build();
 		const data = await char.buildSnapshot();
 		expect(data.playbook).not.toBeNull();
 	});
 
 	describe("with no saved selections", () => {
-		async function buildCtx() {
-			const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
-			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSnapshot();
+		async function buildCharacterSnapshot() {
+			const actor = new FakeActorBuilder().withPlaybook("the-blessed", "The Blessed").build();
+			return new TestCharacterBuilder(actor).addPlaybook(BLESSED_PLAYBOOK).build().buildSnapshot();
 		}
 
 		it("maps backgrounds, none selected", async () => {
-			const data = await buildCtx();
+			const data = await buildCharacterSnapshot();
 			expect(data.playbook.background.options).toHaveLength(3);
 			expect(data.playbook.background.options.every(b => !b.selected)).toBe(true);
 		});
 
 		it("maps instincts with value field and none selected", async () => {
-			const data = await buildCtx();
-			expect(data.playbook.instinct.options).toHaveLength(3);
+			const data = await buildCharacterSnapshot();
+			expect(data.playbook.instinct.options).toHaveLength(5);
 			expect(data.playbook.instinct.options[0].value).toBe("Delight — To find beauty, in even the ugliest things.");
 			expect(data.playbook.instinct.options.every(i => !i.selected)).toBe(true);
 		});
 
 		it("maps appearance lines with lineIdx and no selections", async () => {
-			const data = await buildCtx();
-			expect(data.playbook.appearance.options).toHaveLength(2);
+			const data = await buildCharacterSnapshot();
+			expect(data.playbook.appearance.options).toHaveLength(4);
 			expect(data.playbook.appearance.options[0].lineIdx).toBe(0);
 			expect(data.playbook.appearance.options[0].options.every(o => !o.selected)).toBe(true);
 		});
 
 		it("maps origins with none selected", async () => {
-			const data = await buildCtx();
-			expect(data.playbook.origin.options).toHaveLength(2);
+			const data = await buildCharacterSnapshot();
+			expect(data.playbook.origin.options).toHaveLength(4);
 			expect(data.playbook.origin.options.every(o => !o.selected)).toBe(true);
 			expect(data.playbook.origin.options[0].region).toBe("Stonetop");
 		});
@@ -148,16 +67,14 @@ describe("StonetopCharacter.buildSnapshot — playbook display fields", () => {
 
 	describe("with saved selections", () => {
 		async function buildCtx() {
-			const actor = makeActor({
-				system: { playbook: { slug: "the-blessed", name: "The Blessed" } },
-				flags: {
-					"background.selected": "vessel",
-					"instinct.selected": "Delight — To find beauty, in even the ugliest things.",
-					"appearance.selected": { 0: "gray & wizened" },
-					"origin.selected": "Barrier Pass",
-				},
-			});
-			return makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK)).buildSnapshot();
+			const actor = new FakeActorBuilder()
+				.withPlaybook("the-blessed", "The Blessed")
+				.withFlag("background.selected", "vessel")
+				.withFlag("instinct.selected", "Delight — To find beauty, in even the ugliest things.")
+				.withFlag("appearance.selected", { 0: "gray & wizened" })
+				.withFlag("origin.selected", "Barrier Pass")
+				.build();
+			return new TestCharacterBuilder(actor).addPlaybook(BLESSED_PLAYBOOK).build().buildSnapshot();
 		}
 
 		it("marks the saved background as selected", async () => {
@@ -187,7 +104,7 @@ describe("StonetopCharacter.buildSnapshot — playbook display fields", () => {
 // -- buildMovelistContext -----------------------------------------------------
 
 function makeEntry(overrides = {}) {
-	return {
+	return new MoveDefinition({
 		_id: overrides._id ?? "abc123",
 		name: overrides.name ?? "Test Move",
 		system: {
@@ -196,11 +113,14 @@ function makeEntry(overrides = {}) {
 			isStartingMove: overrides.isStartingMove ?? false,
 			requirement: overrides.requirement ?? null,
 		},
-	};
+	});
 }
 
 describe("StonetopCharacter.buildMovelistContext", () => {
-	const char = makeCharacter(makeActor());
+	const char = new TestCharacterBuilder(new FakeActorBuilder().build())
+		.withPlaybookRepo(undefined)
+		.withMoveRepo(undefined)
+		.build();
 
 	it("returns empty array for empty entries", () => {
 		expect(char.buildMovelistContext([], new Map(), new Set(), 1)).toHaveLength(0);
@@ -310,7 +230,10 @@ function mv(name, { requires = null, minLevel = null } = {}) { return { name, re
 function names(moves) { return moves.map(m => m.name); }
 
 describe("StonetopCharacter.sortPlaybookMoves", () => {
-	const char = makeCharacter(makeActor());
+	const char = new TestCharacterBuilder(new FakeActorBuilder().build())
+		.withPlaybookRepo(undefined)
+		.withMoveRepo(undefined)
+		.build();
 
 	it("returns empty array for empty input", () => {
 		expect(char.sortPlaybookMoves([])).toEqual([]);
@@ -384,38 +307,46 @@ describe("StonetopCharacter.ensureStartingMoves", () => {
 	}
 
 	it("does nothing when no playbook set", async () => {
-		const actor = makeActor();
-		const char = makeCharacter(actor);
+		const actor = new FakeActorBuilder().build();
+		const char = new TestCharacterBuilder(actor).build();
 		await char.ensureStartingMoves();
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
 	});
 
 	it("adds missing starting moves", async () => {
-		const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
-		const entries = [makeMoveEntry("Rites of the Land", true, "id1")];
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository(entries));
+		const actor = new FakeActorBuilder().withPlaybook("the-blessed", "The Blessed").build();
+		const char = new TestCharacterBuilder(actor)
+			.addPlaybook(BLESSED_PLAYBOOK)
+			.addPlaybookMove(makeMoveEntry("Rites of the Land", true, "id1"))
+			.build();
 		await char.ensureStartingMoves();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ name: "Rites of the Land" }]);
 	});
 
 	it("does not add moves the actor already owns", async () => {
-		const actor = makeActor({
-			system: { playbook: { slug: "the-blessed", name: "The Blessed" } },
-			items: [{ type: "move", name: "Rites of the Land" }],
-		});
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-blessed", "The Blessed")
+			.withItems([{ type: "move", name: "Rites of the Land" }])
+			.build();
 		const entries = [makeMoveEntry("Rites of the Land", true, "id1")];
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository(entries));
+		const char = new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository(entries, []))
+			.build();
 		await char.ensureStartingMoves();
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
 	});
 
 	it("adds background-specific moves based on selected background", async () => {
-		const actor = makeActor({
-			system: { playbook: { slug: "the-blessed", name: "The Blessed" } },
-			flags: { "background.selected": "initiate" },
-		});
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-blessed", "The Blessed")
+			.withFlag("background.selected", "initiate")
+			.build();
 		const entries = [makeMoveEntry("Rites of the Land", false, "id1")];
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository(entries));
+		const char = new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository(entries, []))
+			.build();
 		await char.ensureStartingMoves();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ name: "Rites of the Land" }]);
 	});
@@ -435,7 +366,12 @@ const SP_BONUS = {
 };
 
 describe("StonetopCharacter.computePossessionMaxUses", () => {
-	function makeChar() { return makeCharacter(makeActor()); }
+	function makeChar() {
+		return new TestCharacterBuilder(new FakeActorBuilder().build())
+			.withPlaybookRepo(undefined)
+			.withMoveRepo(undefined)
+			.build();
+	}
 
 	it("no moves owned, level 1 → no entry (base uses unchanged)", () => {
 		const result = makeChar().computePossessionMaxUses(SP_BONUS, new Map(), 1);
@@ -493,7 +429,7 @@ const BASE_SP = {
 
 describe("buildPossessionsContext", () => {
 	function makeChar() {
-		return makeCharacter(makeActor());
+		return new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 	}
 
 	it("returns null when specialPossessions is null", () => {
@@ -616,7 +552,12 @@ const SP_WITH_GROUPS = {
 };
 
 describe("buildPossessionsContext — usesLabel and choiceGroups", () => {
-	function makeChar() { return makeCharacter(makeActor()); }
+	function makeChar() {
+		return new TestCharacterBuilder(new FakeActorBuilder().build())
+			.withPlaybookRepo(undefined)
+			.withMoveRepo(undefined)
+			.build();
+	}
 
 	it("usesLabel passes through to option context", () => {
 		const ctx = makeChar().buildPossessionsContext(SP_WITH_GROUPS, new Set(), {}, {});
@@ -684,7 +625,12 @@ const SP_WITH_CHOICES = {
 };
 
 describe("buildPossessionsContext — sub-choices", () => {
-	function makeChar() { return makeCharacter(makeActor()); }
+	function makeChar() {
+		return new TestCharacterBuilder(new FakeActorBuilder().build())
+			.withPlaybookRepo(undefined)
+			.withMoveRepo(undefined)
+			.build();
+	}
 
 	it("choices is null when possession is not selected", () => {
 		const ctx = makeChar().buildPossessionsContext(SP_WITH_CHOICES, new Set(), {}, {});
@@ -766,70 +712,62 @@ describe("buildPossessionsContext — sub-choices", () => {
 // -- applyDebilityRollMode ----------------------------------------------------
 
 function makeDebilityActor({ weakened = false, dazed = false, miserable = false } = {}) {
-	return makeActor({
-		system: {
-			attributes: {
-				debilities: {
-					options: {
-						weakened:  { value: weakened,  stat: ["str", "dex"] },
-						dazed:     { value: dazed,     stat: ["int", "wis"] },
-						miserable: { value: miserable, stat: ["con", "cha"] },
-					},
-				},
-			},
-		},
-	});
+	return new FakeActorBuilder()
+		.withDebility("weakened", weakened)
+		.withDebility("dazed", dazed)
+		.withDebility("miserable", miserable)
+		.build();
 }
 
 describe("applyDebilityRollMode", () => {
 	it("no debility active — passes rollMode def through unchanged", () => {
-		const char = makeCharacter(makeDebilityActor());
+		const char = new TestCharacterBuilder(makeDebilityActor()).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "def" });
 	});
 
 	it("no debility active — passes rollMode adv through unchanged", () => {
-		const char = makeCharacter(makeDebilityActor());
+		const char = new TestCharacterBuilder(makeDebilityActor()).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "adv" });
 	});
 
 	it("debility active, stat affected, rollMode def → dis", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true})).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "dis" });
 	});
 
 	it("debility active, stat affected, rollMode adv → def (cancel)", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true})).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "def" });
 	});
 
 	it("debility active, stat affected, rollMode dis → dis (unchanged)", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true})).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "dis" })).toEqual({ rollMode: "dis" });
 	});
 
 	it("debility active but for a different stat — passes through unchanged", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true})).build();
 		expect(char.applyDebilityRollMode("int", { rollMode: "def" })).toEqual({ rollMode: "def" });
 	});
 
 	it("debility value false (unchecked) — passes through unchanged", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: false }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: false})).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "def" })).toEqual({ rollMode: "def" });
 	});
 
 	it("two debilities active, one covers stat, rollMode adv → def", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true, dazed: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true, dazed: true})).build();
 		expect(char.applyDebilityRollMode("str", { rollMode: "adv" })).toEqual({ rollMode: "def" });
 	});
 
 	it("dazed covers int and wis, rollMode def → dis for int", () => {
-		const char = makeCharacter(makeDebilityActor({ dazed: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({dazed: true})).build();
 		expect(char.applyDebilityRollMode("int", { rollMode: "def" })).toEqual({ rollMode: "dis" });
 		expect(char.applyDebilityRollMode("wis", { rollMode: "def" })).toEqual({ rollMode: "dis" });
 	});
 
 	it("preserves other options fields while changing rollMode", () => {
-		const char = makeCharacter(makeDebilityActor({ weakened: true }));
+		const char = new TestCharacterBuilder(makeDebilityActor({weakened: true})).build();
 		const result = char.applyDebilityRollMode("str", { rollMode: "adv", extra: "value" });
 		expect(result).toEqual({ rollMode: "def", extra: "value" });
 	});
@@ -839,52 +777,57 @@ describe("applyDebilityRollMode", () => {
 
 describe("StonetopCharacter.getMoves otherMoves", () => {
 	it("returns otherMoves: [] when no moves have moveType 'other'", async () => {
-		const actor = makeActor();
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 		const result = await char.getMoves();
 		expect(result.otherMoves).toEqual([]);
 	});
 
 	it("returns otherMoves populated with items that have moveType 'other'", async () => {
 		const move = { _id: "m1", type: "move", name: "Custom Move", system: { moveType: "other", rollType: "str", description: "<p>Do a thing.</p>" } };
-		const actor = makeActor({ items: [move] });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().withItems([move]).build()).build();
 		const result = await char.getMoves();
 		expect(result.otherMoves).toEqual([{ name: "Custom Move", ownedId: "m1", rollType: "str", description: "<p>Do a thing.</p>" }]);
 	});
 
 	it("does not include items with other moveTypes in otherMoves", async () => {
 		const move = { _id: "m2", type: "move", name: "Special Move", system: { moveType: "special", rollType: null } };
-		const actor = makeActor({ items: [move] });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().withItems([move]).build()).build();
 		const result = await char.getMoves();
 		expect(result.otherMoves).toEqual([]);
 	});
 
 	it("includes cross-playbook moves (name not in current playbook) in otherMoves", async () => {
-		// "Fox Move" is owned but not in the Blessed playbook repo → cross-playbook orphan
 		const move = { _id: "m4", type: "move", name: "Fox Move", system: { moveType: "playbook", rollType: null, description: null } };
-		const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } }, items: [move] });
-		// Blessed repo has no moves named "Fox Move"
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([]));
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-blessed", "The Blessed")
+			.withItems([move])
+			.build();
+		const char = new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository([], []))
+			.build();
 		const result = await char.getMoves();
 		expect(result.otherMoves).toEqual([{ name: "Fox Move", ownedId: "m4", rollType: null, description: null }]);
 	});
 
 	it("does not include same-playbook moves in otherMoves", async () => {
-		// "Blessed Move" is in both the actor's items AND the current playbook repo → Playbook Moves, not Other Moves
 		const move = { _id: "m5", type: "move", name: "Blessed Move", system: { moveType: "playbook", rollType: null } };
 		const playbookEntry = { _id: "pm1", name: "Blessed Move", system: { moveType: "playbook", isStartingMove: false } };
-		const actor = makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } }, items: [move] });
-		const char = makeCharacter(actor, new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([playbookEntry]));
+		const actor = new FakeActorBuilder()
+			.withPlaybook("the-blessed", "The Blessed")
+			.withItems([move])
+			.build();
+		const char = new TestCharacterBuilder(actor)
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository([playbookEntry], []))
+			.build();
 		const result = await char.getMoves();
 		expect(result.otherMoves).toEqual([]);
 	});
 
 	it("includes description: null when item has no description", async () => {
 		const move = { _id: "m3", type: "move", name: "Bare Move", system: { moveType: "other", rollType: null } };
-		const actor = makeActor({ items: [move] });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(new FakeActorBuilder().withItems([move]).build()).build();
 		const result = await char.getMoves();
 		expect(result.otherMoves[0].description).toBeNull();
 	});
@@ -894,12 +837,15 @@ describe("StonetopCharacter.getMoves otherMoves", () => {
 
 describe("StonetopCharacter.getMoves resourceChecks", () => {
 	function makeBlessedActor() {
-		return makeActor({ system: { playbook: { slug: "the-blessed", name: "The Blessed" } } });
+		return new FakeActorBuilder().withPlaybook("the-blessed", "The Blessed").build();
 	}
 
 	it("builds resourceChecks with label: null when move has resource with empty labels", async () => {
 		const entry = { _id: "rc1", name: "Favor Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 3, title: null, labels: [] } } };
-		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const char = new TestCharacterBuilder(makeBlessedActor())
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository([entry], []))
+			.build();
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "Favor Move");
 		expect(move.resourceChecks).toEqual([
@@ -911,7 +857,10 @@ describe("StonetopCharacter.getMoves resourceChecks", () => {
 
 	it("builds resourceChecks with labels when move has resource.labels", async () => {
 		const entry = { _id: "rc2", name: "Blade Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 2, title: null, labels: ["a few left", "out"] } } };
-		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const char = new TestCharacterBuilder(makeBlessedActor())
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository([entry], []))
+			.build();
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "Blade Move");
 		expect(move.resourceChecks).toEqual([
@@ -922,7 +871,10 @@ describe("StonetopCharacter.getMoves resourceChecks", () => {
 
 	it("resource.max determines resourceChecks length", async () => {
 		const entry = { _id: "rc3", name: "State Move", system: { moveType: "playbook", isStartingMove: false, resource: { max: 3, title: null, labels: ["fresh", "spent", "gone"] } } };
-		const char = makeCharacter(makeBlessedActor(), new FakePlaybookRepository(BLESSED_PLAYBOOK), new FakePlaybookMoveRepository([entry]));
+		const char = new TestCharacterBuilder(makeBlessedActor())
+			.withPlaybookRepo(new FakePlaybookRepository(BLESSED_PLAYBOOK))
+			.withMoveRepo(new FakeMoveRepository([entry], []))
+			.build();
 		const result = await char.getMoves();
 		const move = result.playbookMoves.find(m => m.name === "State Move");
 		expect(move.resourceChecks).toHaveLength(3);
@@ -952,25 +904,32 @@ function makeItemEvent({ itemId = "item-1", showDescription = false, hasItemEl =
 }
 
 function makeOnRollActor(item, { pbtaRollMode = "def", debilities = {} } = {}) {
-	const actor = makeDebilityActor(debilities);
+	const actor = new FakeActorBuilder()
+		.withDebility("weakened",  debilities.weakened  ?? false)
+		.withDebility("dazed",     debilities.dazed     ?? false)
+		.withDebility("miserable", debilities.miserable ?? false)
+		.withRollMode(pbtaRollMode)
+		.build();
 	const itemsArr = item ? [item] : [];
 	itemsArr.get = (id) => itemsArr.find(i => i._id === id) ?? null;
 	actor.items = itemsArr;
-	actor.flags.pbta = { rollMode: pbtaRollMode };
 	return actor;
 }
 
 // -- onDropMove ---------------------------------------------------------------
 
 function makeDropMoveActor({ items = [], playbook = null } = {}) {
-	return makeActor({ items, system: { playbook: { name: playbook } } });
+	return new FakeActorBuilder()
+		.withPlaybook(null, playbook)
+		.withItems(items)
+		.build();
 }
 
 describe("StonetopCharacter.onDropMove", () => {
 	it("returns false and skips creation when a move with the same name is already owned", async () => {
 		const existing = { type: "move", name: "Barkskin" };
 		const actor = makeDropMoveActor({ items: [existing] });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(actor).build();
 		const result = await char.onDropMove({ name: "Barkskin", type: "move", system: { moveType: "playbook", playbook: "The Blessed" } });
 		expect(result).toBe(false);
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
@@ -978,7 +937,7 @@ describe("StonetopCharacter.onDropMove", () => {
 
 	it("returns true and creates same-playbook move as-is", async () => {
 		const actor = makeDropMoveActor({ playbook: "The Blessed" });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(actor).build();
 		const itemData = { name: "Barkskin", type: "move", system: { moveType: "playbook", playbook: "The Blessed" } };
 		const result = await char.onDropMove(itemData);
 		expect(result).toBe(true);
@@ -989,7 +948,7 @@ describe("StonetopCharacter.onDropMove", () => {
 
 	it("returns true and changes moveType to 'other' for cross-playbook moves", async () => {
 		const actor = makeDropMoveActor({ playbook: "The Fox" });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(actor).build();
 		const itemData = { name: "Barkskin", type: "move", system: { moveType: "playbook", playbook: "The Blessed" } };
 		const result = await char.onDropMove(itemData);
 		expect(result).toBe(true);
@@ -1000,7 +959,7 @@ describe("StonetopCharacter.onDropMove", () => {
 
 	it("returns true and creates other-moveType moves without changing moveType", async () => {
 		const actor = makeDropMoveActor({ playbook: "The Fox" });
-		const char = makeCharacter(actor);
+		const char = new TestCharacterBuilder(actor).build();
 		const itemData = { name: "Some Follower Move", type: "move", system: { moveType: "follower", playbook: null } };
 		const result = await char.onDropMove(itemData);
 		expect(result).toBe(true);
@@ -1015,55 +974,55 @@ describe("StonetopCharacter.onRoll", () => {
 	afterEach(() => { delete game.settings; });
 
 	it("returns false when event has no item element", async () => {
-		const char = makeCharacter(makeOnRollActor(null));
+		const char = new TestCharacterBuilder(makeOnRollActor(null)).build();
 		expect(await char.onRoll(makeItemEvent({ hasItemEl: false }))).toBe(false);
 	});
 
 	it("returns false when item has no rollType", async () => {
 		const item = makeRollableItem({ rollType: null });
-		const char = makeCharacter(makeOnRollActor(item));
+		const char = new TestCharacterBuilder(makeOnRollActor(item)).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(false);
 		expect(item.roll).not.toHaveBeenCalled();
 	});
 
 	it("returns true and calls item.roll when item has a rollType", async () => {
 		const item = makeRollableItem({ rollType: "str" });
-		const char = makeCharacter(makeOnRollActor(item));
+		const char = new TestCharacterBuilder(makeOnRollActor(item)).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledOnce();
 	});
 
 	it("passes rollMode from actor pbta flag", async () => {
 		const item = makeRollableItem({ rollType: "str" });
-		const char = makeCharacter(makeOnRollActor(item, { pbtaRollMode: "adv" }));
+		const char = new TestCharacterBuilder(makeOnRollActor(item, {pbtaRollMode: "adv"})).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "adv" }));
 	});
 
 	it("sets descriptionOnly when data-show=description", async () => {
 		const item = makeRollableItem({ rollType: "str" });
-		const char = makeCharacter(makeOnRollActor(item));
+		const char = new TestCharacterBuilder(makeOnRollActor(item)).build();
 		expect(await char.onRoll(makeItemEvent({ showDescription: true }))).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ descriptionOnly: true }));
 	});
 
 	it("sets descriptionOnly for npcMove with no rollFormula", async () => {
 		const item = makeRollableItem({ rollType: "str", type: "npcMove", rollFormula: null });
-		const char = makeCharacter(makeOnRollActor(item));
+		const char = new TestCharacterBuilder(makeOnRollActor(item)).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ descriptionOnly: true }));
 	});
 
 	it("applies disadvantage when relevant debility is active", async () => {
 		const item = makeRollableItem({ rollType: "str" });
-		const char = makeCharacter(makeOnRollActor(item, { debilities: { weakened: true } }));
+		const char = new TestCharacterBuilder(makeOnRollActor(item, {debilities: {weakened: true}})).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "dis" }));
 	});
 
 	it("does not apply disadvantage when debility covers a different stat", async () => {
 		const item = makeRollableItem({ rollType: "wis" });
-		const char = makeCharacter(makeOnRollActor(item, { debilities: { weakened: true } }));
+		const char = new TestCharacterBuilder(makeOnRollActor(item, {debilities: {weakened: true}})).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "def" }));
 	});
@@ -1071,7 +1030,7 @@ describe("StonetopCharacter.onRoll", () => {
 	it("omits rollMode from options when hideRollMode is true", async () => {
 		game.settings.get.mockReturnValue(true);
 		const item = makeRollableItem({ rollType: "str" });
-		const char = makeCharacter(makeOnRollActor(item, { pbtaRollMode: "adv" }));
+		const char = new TestCharacterBuilder(makeOnRollActor(item, {pbtaRollMode: "adv"})).build();
 		expect(await char.onRoll(makeItemEvent())).toBe(true);
 		expect(item.roll).toHaveBeenCalledWith({ descriptionOnly: false });
 	});

@@ -4,11 +4,15 @@
 	"name": "Shovel",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "shovel",
-		"inventoryColumn": "regular",
-		"sortOrder": 9,
-		"weight": 1,
-		"twoCol": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "shovel",
+			"inventoryColumn": "regular",
+			"sortOrder": 9,
+			"weight": 1,
+			"twoCol": true
+		}
 	}
 }

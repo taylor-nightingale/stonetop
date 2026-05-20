@@ -11,8 +11,7 @@
 			"slug": "carvings-in-a-cave",
 			"front": {
 				"title": "Carvings in a cave",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.</p>",
 				"unlock": {
 					"description": "You can study the runes and learn the secrets they contain, but…",
@@ -42,8 +41,7 @@
 			},
 			"back": {
 				"title": "Shell Game of Souls",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>Your flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:</p><p>When you <strong><em>roll a 6- on Death's Door</em></strong>, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.</p>",
 				"resource": {
 					"max": null,

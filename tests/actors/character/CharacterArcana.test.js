@@ -7,6 +7,8 @@ import {
 	MinorArcanumSnapshot, MinorArcanumFrontSnapshot, MinorArcanumBackSnapshot,
 	ArcanumUnlockSection,
 } from "../../../module/model/CharacterSnapshot.js";
+import { MinorArcanum } from "../../../module/model/MinorArcanum.js";
+import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -18,13 +20,6 @@ function makeFlags(store = {}) {
 	};
 }
 
-class FakeArcanaRepository {
-	constructor(arcana = []) { this._arcana = arcana; }
-	async findBySlug(slug) { return this._arcana.find(a => a.slug === slug) ?? null; }
-	async findBySlugs(slugs) {
-		return (await Promise.all(slugs.map(s => this.findBySlug(s)))).filter(Boolean);
-	}
-}
 
 // -- Fixture ------------------------------------------------------------------
 
@@ -32,8 +27,7 @@ const FFYRNIG_SPHERE = {
 	slug: "huge-wooden-sphere",
 	front: {
 		title: "A Huge Wooden Sphere",
-		weight: null,
-		note: "immobile",
+		item: { name: "A Huge Wooden Sphere", weight: null, note: "immobile", inventoryColumn: null },
 		description: "<p>Half-buried and largely overgrown.</p>",
 		unlock: {
 			description: "The pictograms depict some sort of recipe, which you can learn but you must…",
@@ -48,8 +42,7 @@ const FFYRNIG_SPHERE = {
 	},
 	back: {
 		title: "Ffyrnig Tonic",
-		weight: 1,
-		note: "magical",
+		item: { name: "Ffyrnig Tonic", weight: 1, note: "magical", inventoryColumn: "regular" },
 		description: "<p>When you pickle fresh ffyrnig root…</p>",
 		resource: { max: 3, maxStat: null, title: "Ffyrnig Tonic", labels: [] },
 		move: {
@@ -65,15 +58,13 @@ const ARCANUM_WITH_BACK_OPTS = {
 	slug: "test-arcanum",
 	front: {
 		title: "Test Arcanum (front)",
-		weight: null,
-		note: null,
+		item: null,
 		description: "<p>Test.</p>",
 		unlock: { description: "Unlock by…", requirements: [] },
 	},
 	back: {
 		title: "Test Arcanum (back)",
-		weight: null,
-		note: null,
+		item: null,
 		description: "<p>Test.</p>",
 		resource: null,
 		move: null,
@@ -181,11 +172,11 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).front).toBeInstanceOf(MinorArcanumFrontSnapshot);
 		});
 
-		it("front has correct title, weight, note, description", async () => {
+		it("front has correct title, item, description", async () => {
 			const { front } = await getItem();
 			expect(front.title).toBe("A Huge Wooden Sphere");
-			expect(front.weight).toBeNull();
-			expect(front.note).toBe("immobile");
+			expect(front.item?.weight).toBeNull();
+			expect(front.item?.note).toBe("immobile");
 			expect(front.description).toContain("Half-buried");
 		});
 
@@ -244,11 +235,11 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).back).toBeInstanceOf(MinorArcanumBackSnapshot);
 		});
 
-		it("back has correct title, weight, note, description", async () => {
+		it("back has correct title, item, description", async () => {
 			const { back } = await getItem();
 			expect(back.title).toBe("Ffyrnig Tonic");
-			expect(back.weight).toBe(1);
-			expect(back.note).toBe("magical");
+			expect(back.item?.weight).toBe(1);
+			expect(back.item?.note).toBe("magical");
 			expect(back.description).toContain("pickle fresh ffyrnig root");
 		});
 
@@ -256,8 +247,12 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).back.resource).toMatchObject({ current: 0, max: 3, title: "Ffyrnig Tonic" });
 		});
 
-		it("back.resource.current reflects saved flag", async () => {
-			expect((await getItem({ resources: { "huge-wooden-sphere": 2 } })).back.resource.current).toBe(2);
+		it("back.resource.current reflects inventoryResources param", async () => {
+			const item = await (async () => {
+				const arcana = makeArcana({ owned: ["huge-wooden-sphere"] });
+				return (await arcana.buildSnapshot({}, {}, { "huge-wooden-sphere": 2 })).minor.items[0];
+			})();
+			expect(item.back.resource.current).toBe(2);
 		});
 
 		it("back.resource is null when absent in JSON", async () => {
@@ -362,11 +357,173 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(flags.setFlag).toHaveBeenCalledWith("unlock", { "huge-wooden-sphere:dig-sphere": 1 });
 		});
 
-		it("setResource stores count under slug key", async () => {
-			const flags = makeFlags();
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
-			await arcana.setResource("huge-wooden-sphere", 2);
-			expect(flags.setFlag).toHaveBeenCalledWith("resources", { "huge-wooden-sphere": 2 });
-		});
+	});
+});
+
+// -- Additional fixtures -------------------------------------------------------
+
+const CARVINGS_IN_A_CAVE = {
+	slug: "carvings-in-a-cave",
+	front: {
+		title: "Carvings in a Cave",
+		item: null,
+		description: "<p>Strange carvings.</p>",
+		unlock: { description: "Unlock by…", requirements: [] },
+	},
+	back: {
+		title: "Shell Game of Souls",
+		item: null,
+		description: "<p>You may contain souls.</p>",
+		resource: { max: null, maxStat: "con", title: "Souls", labels: [] },
+		move: null,
+		options: [],
+	},
+};
+
+const BOW_WITH_NO_STRING = {
+	slug: "bow-with-no-string",
+	front: {
+		title: "A Bow with No String",
+		item: { name: "A Bow with No String", weight: 1, note: null, inventoryColumn: "regular" },
+		description: "<p>An ancient bow.</p>",
+		unlock: { description: "Unlock by…", requirements: [] },
+	},
+	back: {
+		title: "Thunderbolt Bow",
+		item: {
+			name: "Thunderbolt Bow",
+			weight: 1,
+			note: "<em>magical</em>",
+			inventoryColumn: "regular",
+			resource: { max: 3, maxStat: null, title: "Ammo", labels: ["plenty left", "low ammo", "all out"] },
+		},
+		description: "<p>The bow crackles with lightning.</p>",
+		resource: null,
+		move: null,
+		options: [],
+	},
+};
+
+describe("CharacterArcana.buildSnapshot() — inventoryResources param", () => {
+	it("back.resource uses inventoryResources current for back.resource arcana", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot({}, {}, { "huge-wooden-sphere": 2 })).minor.items[0];
+		expect(item.back.resource.current).toBe(2);
+	});
+
+	it("back.resource defaults to current 0 when not in inventoryResources", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot()).minor.items[0];
+		expect(item.back.resource.current).toBe(0);
+	});
+
+	it("back.item.resource is a resolved Resource on the OutfitItem snapshot", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["bow-with-no-string"] }),
+			new FakeArcanaRepository([BOW_WITH_NO_STRING]),
+		);
+		const item = (await arcana.buildSnapshot({}, {}, { "bow-with-no-string": 1 })).minor.items[0];
+		expect(item.back.item.resource).not.toBeNull();
+		expect(item.back.item.resource.current).toBe(1);
+		expect(item.back.item.resource.max).toBe(3);
+		expect(item.back.item.resource.title).toBe("Ammo");
+	});
+
+	it("back.item.resource defaults to current 0 when not in inventoryResources", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["bow-with-no-string"] }),
+			new FakeArcanaRepository([BOW_WITH_NO_STRING]),
+		);
+		const item = (await arcana.buildSnapshot()).minor.items[0];
+		expect(item.back.item.resource.current).toBe(0);
+	});
+
+	it("back.resource is null for arcana whose resource lives on the item", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["bow-with-no-string"] }),
+			new FakeArcanaRepository([BOW_WITH_NO_STRING]),
+		);
+		expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
+	});
+
+	it("back.item.resource is null for arcana with a standalone resource", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		expect((await arcana.buildSnapshot()).minor.items[0].back.item.resource).toBeNull();
+	});
+
+	it("back.resource is null when neither back.resource nor back.item.resource defined", async () => {
+		const noResource = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, resource: null } };
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([noResource]),
+		);
+		expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
+	});
+});
+
+describe("CharacterArcana.buildSnapshot() — maxStat resolution", () => {
+	it("maxStat resolves to stat value from stats param", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["carvings-in-a-cave"] }),
+			new FakeArcanaRepository([CARVINGS_IN_A_CAVE]),
+		);
+		const item = (await arcana.buildSnapshot({ con: { value: 3 } })).minor.items[0];
+		expect(item.back.resource.max).toBe(3);
+	});
+
+	it("maxStat resolves to 0 when stat is missing", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["carvings-in-a-cave"] }),
+			new FakeArcanaRepository([CARVINGS_IN_A_CAVE]),
+		);
+		const item = (await arcana.buildSnapshot({})).minor.items[0];
+		expect(item.back.resource.max).toBe(0);
+	});
+
+	it("fixed max is used unchanged when maxStat is null", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot()).minor.items[0];
+		expect(item.back.resource.max).toBe(3);
+	});
+});
+
+describe("CharacterArcana.buildSnapshot() — checked state", () => {
+	it("checked defaults to false when not in checkedMap", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot()).minor.items[0];
+		expect(item.checked).toBe(false);
+	});
+
+	it("checked is true when slug is in checkedMap", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot({}, { "huge-wooden-sphere": true })).minor.items[0];
+		expect(item.checked).toBe(true);
+	});
+
+	it("checked is false when slug is not in checkedMap", async () => {
+		const arcana = new CharacterArcana(
+			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			new FakeArcanaRepository([FFYRNIG_SPHERE]),
+		);
+		const item = (await arcana.buildSnapshot({}, { "other-slug": true })).minor.items[0];
+		expect(item.checked).toBe(false);
 	});
 });

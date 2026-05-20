@@ -4,10 +4,14 @@
 	"name": "Charcoal",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "charcoal",
-		"inventoryColumn": "small",
-		"sortOrder": 11,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "charcoal",
+			"inventoryColumn": "small",
+			"sortOrder": 11,
+			"smallGrid": true
+		}
 	}
 }

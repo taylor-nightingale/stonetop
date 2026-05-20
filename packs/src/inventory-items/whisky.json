@@ -4,17 +4,21 @@
 	"name": "Whisky, skin",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "whisky",
-		"inventoryColumn": "small",
-		"sortOrder": 7,
-		"resource": {
-			"max": 2,
-			"title": null,
-			"labels": [
-				"",
-				""
-			]
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "whisky",
+			"inventoryColumn": "small",
+			"sortOrder": 7,
+			"resource": {
+				"max": 2,
+				"title": null,
+				"labels": [
+					"",
+					""
+				]
+			}
 		}
 	}
 }

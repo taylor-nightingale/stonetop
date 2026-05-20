@@ -11,8 +11,12 @@
 			"slug": "beautiful-scroll",
 			"front": {
 				"title": "A beautiful scroll",
-				"weight": null,
-				"note": "beautiful, fragile",
+				"item": {
+					"name": "A beautiful scroll",
+					"weight": null,
+					"note": "<em>beautiful, fragile</em>",
+					"inventoryColumn": null
+				},
 				"description": "<p>Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?</p>",
 				"unlock": {
 					"description": "To unlock the mysteries of this scroll, you must…",
@@ -47,8 +51,7 @@
 			},
 			"back": {
 				"title": "Little Friend",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.</p><p><strong>Tulpa</strong><br><em>Spirit, construct, tiny, naive,</em> □ <em>eager</em><br>□ <em>fierce</em> □ <em>kind</em> □ <em>sly</em> □ <em>timid</em> □ <em>willful</em><br><strong>HP</strong> 8; <strong>Armor</strong> 0<br><strong>Damage</strong> 1d4 (if that)<br><strong>Instinct</strong> □ to play □ to learn □ to flaunt<br>▶ Manifest a form of dust/snow/vapor<br>▶ Produce light (<em>area, reach</em>)<br>▶ Carry/manipulate a ◇ item<br>▶ Deliver a message<br>▶ Spy on someone/something<br><strong>Cost</strong> □ respect given □ new experiences □ comfort/compassion (Loyalty: ○○○)</p>",
 				"resource": null,
 				"move": null,

@@ -68,8 +68,7 @@ export class ArcanaBackOptionSnapshotBuilder {
 export class MinorArcanumFrontSnapshot {
 	constructor(b) {
 		this.title       = b._title;
-		this.weight      = b._weight;
-		this.note        = b._note;
+		this.item        = b._item;
 		this.description = b._description;
 		this.unlock      = b._unlock;
 	}
@@ -77,8 +76,7 @@ export class MinorArcanumFrontSnapshot {
 
 export class MinorArcanumFrontSnapshotBuilder {
 	withTitle(v)       { this._title       = v; return this; }
-	withWeight(v)      { this._weight      = v; return this; }
-	withNote(v)        { this._note        = v; return this; }
+	withItem(v)        { this._item        = v; return this; }
 	withDescription(v) { this._description = v; return this; }
 	withUnlock(v)      { this._unlock      = v; return this; }
 	build()            { return new MinorArcanumFrontSnapshot(this); }
@@ -87,8 +85,7 @@ export class MinorArcanumFrontSnapshotBuilder {
 export class MinorArcanumBackSnapshot {
 	constructor(b) {
 		this.title       = b._title;
-		this.weight      = b._weight;
-		this.note        = b._note;
+		this.item        = b._item;
 		this.description = b._description;
 		this.resource    = b._resource;
 		this.move        = b._move;
@@ -98,8 +95,7 @@ export class MinorArcanumBackSnapshot {
 
 export class MinorArcanumBackSnapshotBuilder {
 	withTitle(v)       { this._title       = v; return this; }
-	withWeight(v)      { this._weight      = v; return this; }
-	withNote(v)        { this._note        = v; return this; }
+	withItem(v)        { this._item        = v; return this; }
 	withDescription(v) { this._description = v; return this; }
 	withResource(v)    { this._resource    = v; return this; }
 	withMove(v)        { this._move        = v; return this; }
@@ -116,6 +112,7 @@ export class MinorArcanumSnapshot {
 		this.back    = b._back;
 		this.owned   = b._owned;
 		this.flipped = b._flipped;
+		this.checked = b._checked;
 	}
 }
 
@@ -125,6 +122,7 @@ export class MinorArcanumSnapshotBuilder {
 	withBack(v)    { this._back    = v; return this; }
 	withOwned(v)   { this._owned   = v; return this; }
 	withFlipped(v) { this._flipped = v; return this; }
+	withChecked(v) { this._checked = v; return this; }
 	build()        { return new MinorArcanumSnapshot(this); }
 }
 

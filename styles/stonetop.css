@@ -1035,7 +1035,7 @@ body,
 	padding: 0;
 }
 
-.stonetop-inv-resource-btn.stonetop-inventory-resource-btn.is-checked { background: currentColor; }
+.stonetop-inv-resource-btn.stonetop-inventory-resource-btn.is-checked { background-color: var(--color-text-dark-primary) !important; }
 
 .stonetop-inv-resource-label {
 	font-size: 0.75em;
@@ -1241,6 +1241,25 @@ body,
 	padding: 5px 8px;
 	border-bottom: 1px solid var(--color-border-dark);
 	border-radius: 3px 3px 0 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.stonetop-arcanum-header-left {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.stonetop-arcanum-header-resource {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2px;
+	flex-shrink: 0;
+	padding-top: 2px;
 }
 
 .stonetop-arcanum-title {
@@ -1249,10 +1268,16 @@ body,
 	display: block;
 }
 
+.stonetop-arcanum-weight-note-row {
+	display: inline-flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 3px;
+}
+
 .stonetop-arcanum-note {
 	font-size: 0.78em;
 	color: var(--color-text-dark-secondary, #666);
-	font-style: italic;
 }
 
 .stonetop-arcanum-body {
@@ -1270,12 +1295,20 @@ body,
 	border-top: 1px solid var(--color-border-dark);
 	display: flex;
 	justify-content: center;
+	align-items: center;
+}
+
+.stonetop-arcanum-delete {
+	font-size: 0.75em;
+	padding: 2px 0;
+	width: 20%;
+	cursor: pointer;
 }
 
 .stonetop-arcanum-flip-btn {
 	font-size: 0.75em;
-	padding: 2px 10px;
-	width: 100%;
+	padding: 2px 0;
+	width: 80%;
 }
 
 .stonetop-arcanum-unlock-lead {
@@ -1314,7 +1347,6 @@ body,
 }
 
 .stonetop-arcanum-resource {
-	margin-top: 8px;
 	display: flex;
 	align-items: center;
 	gap: 4px;
@@ -1346,7 +1378,7 @@ body,
 }
 
 .stonetop-arcanum-resource-btn.is-checked {
-	background: currentColor;
+	background-color: var(--color-text-dark-primary) !important;
 }
 
 .stonetop-arcanum-resource-label {

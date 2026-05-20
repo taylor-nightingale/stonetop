@@ -11,7 +11,8 @@
 		"arcana": {
 			"empty": "Drag arcana here from the Arcana compendium.",
 			"showFront": "Show Front",
-			"showBack": "Reveal Back"
+			"showBack": "Reveal Back",
+			"removeArcanum": "Remove"
 		},
 		"inventory": {
 			"regularItems": "Items",

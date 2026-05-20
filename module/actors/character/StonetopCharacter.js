@@ -42,20 +42,18 @@ import {CharacterOrigin} from "./CharacterOrigin.js";
 import {CharacterPossessions} from "./CharacterPossessions.js";
 import {CharacterInventory} from "./CharacterInventory.js";
 import {CharacterArcana} from "./CharacterArcana.js";
-import {FoundryInventoryRepository} from "./repositories/FoundryInventoryRepository.js";
+import {FoundryOutfitItemRepository} from "./repositories/FoundryOutfitItemRepository.js";
 import {FoundryPlaybookRepository} from "./repositories/FoundryPlaybookRepository.js";
-import {FoundryPlaybookMoveRepository} from "./repositories/FoundryPlaybookMoveRepository.js";
-import {FoundryBasicMoveRepository} from "./repositories/FoundryBasicMoveRepository.js";
+import {FoundryMoveRepository} from "./repositories/FoundryMoveRepository.js";
 import {FoundryArcanaRepository} from "./repositories/FoundryArcanaRepository.js";
 
 const OTHER_MOVE_TYPES = ["background", "special", "follower", "expedition", "homefront"];
 
 export class StonetopCharacter {
-	constructor(actor, playbookRepository, playbookMoveRepository, basicMoveRepository, inventoryRepository, arcanaRepository) {
+	constructor(actor, playbookRepository, moveRepository, inventoryRepository, arcanaRepository) {
 		this._actor = actor;
 		this._playbookRepo = playbookRepository;
-		this._playbookMoveRepo = playbookMoveRepository;
-		this._basicMoveRepo = basicMoveRepository;
+		this._moveRepo = moveRepository;
 		this._inventoryRepo = inventoryRepository;
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
@@ -71,9 +69,8 @@ export class StonetopCharacter {
 		return new StonetopCharacter(
 			actor,
 			new FoundryPlaybookRepository(),
-			new FoundryPlaybookMoveRepository(),
-			new FoundryBasicMoveRepository(),
-			new FoundryInventoryRepository(),
+			new FoundryMoveRepository(),
+			new FoundryOutfitItemRepository(),
 			new FoundryArcanaRepository(),
 		);
 	}
@@ -112,7 +109,11 @@ export class StonetopCharacter {
 			.withMoves(moves)
 			.withMovelist(_buildMovelist(moves, inventory.other))
 			.withInventory(inventory)
-			.withArcana(await this._arcana.buildSnapshot())
+			.withArcana(await this._arcana.buildSnapshot(
+			actor.system.stats ?? {},
+			this._inventory.checked,
+			this._inventory.resources
+		))
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
 	}
@@ -124,7 +125,7 @@ export class StonetopCharacter {
 			const background = playbookData.backgrounds?.find(b => b.slug === this._background.selectedSlug);
 			const bgMoveNames = new Set(background?.moves ?? []);
 			const bgSlugs = new Set([...bgMoveNames].map(_toSlug));
-			const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookData.name);
+			const entries = await this._moveRepo.getPlaybookMoves(playbookData.name);
 			if (entries.length > 0) {
 				const sorted = this.sortPlaybookMoves(
 					this.buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, playbookData.name)
@@ -141,7 +142,7 @@ export class StonetopCharacter {
 			}
 		}
 
-		const basicEntries = await this._basicMoveRepo.getAll();
+		const basicEntries = await this._moveRepo.getBasicMoves();
 		if (basicEntries.length > 0) {
 			categories.push(new MoveCategorySnapshotBuilder()
 				.withKey("basic")
@@ -150,12 +151,12 @@ export class StonetopCharacter {
 				.withMoves(basicEntries.map(e => {
 					const instances = ownedAllByName.get(e.name) ?? [];
 					return new MoveSnapshotBuilder()
-						.withId(e._id)
-						.withCompendiumId(e._id)
+						.withId(e.id)
+						.withCompendiumId(e.id)
 						.withOwnedId(instances[0]?._id ?? null)
 						.withName(e.name)
-						.withDescription(e.system?.description ?? "")
-						.withRollType(e.system?.rollType ?? null)
+						.withDescription(e.description ?? "")
+						.withRollType(e.rollType)
 						.withIsStarting(false)
 						.withSource({ type: "basic" })
 						.withSourceLabel(null)
@@ -216,24 +217,24 @@ export class StonetopCharacter {
 		const loadLevel = this._inventory.loadLevel;
 		const allItems  = await this._inventoryRepo.getAll();
 
-		const mapItem = item => {
-			const res = item.system.resource;
+		const mapItem = (outfitItem) => {
+			const res = outfitItem.resource;
 			return new InventoryItemSnapshotBuilder()
-				.withSlug(item.system.slug)
-				.withName(item.name)
-				.withNote(item.system.note ?? null)
-				.withWeight(item.system.weight ?? 0)
-				.withChecked(checked[item.system.slug] ?? false)
+				.withSlug(outfitItem.slug)
+				.withName(outfitItem.name)
+				.withNote(outfitItem.note)
+				.withWeight(outfitItem.weight)
+				.withChecked(checked[outfitItem.slug] ?? false)
 				.withResource(res ? new ResourceBuilder()
-					.withCurrent(resources[item.system.slug] ?? 0)
+					.withCurrent(resources[outfitItem.slug] ?? 0)
 					.withMax(res.max)
 					.withTitle(res.title ?? null)
 					.withLabels(res.labels ?? [])
 					.build() : null)
 				.withIsCustom(false)
 				.withOwnedId(null)
-				.withTwoCol(item.system.twoCol ?? false)
-				.withBreakBefore(item.system.breakBefore ?? false)
+				.withTwoCol(outfitItem.twoCol)
+				.withBreakBefore(outfitItem.breakBefore)
 				.build();
 		};
 
@@ -253,10 +254,12 @@ export class StonetopCharacter {
 			.withBreakBefore(false)
 			.build();
 
-		const allSmall = allItems.filter(i => i.system.inventoryColumn === "small");
+		const arcanaItems = await this._arcana.weightedInventoryItems();
+		const allSmall = allItems.filter(i => i.inventoryColumn === "small");
 		const flatRegular = [
-			...allItems.filter(i => i.system.inventoryColumn === "regular").map(mapItem),
+			...allItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
 			...customItems.filter(i => i.system.inventoryColumn === "regular").map(mapCustomItem),
+			...arcanaItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
 		];
 
 		let possessions = null;
@@ -295,10 +298,11 @@ export class StonetopCharacter {
 			.withRegularSegments(_segmentByTwoCol(flatRegular))
 			.withRegularPool(new ResourceBuilder().withCurrent(rPool).withMax(9).withTitle(null).withLabels([]).build())
 			.withSmallItems([
-				...allSmall.filter(i => !i.system.smallGrid).map(mapItem),
+				...allSmall.filter(i => !i.smallGrid).map(mapItem),
 				...customItems.filter(i => i.system.inventoryColumn === "small").map(mapCustomItem),
+				...arcanaItems.filter(i => i.inventoryColumn === "small").map(mapItem),
 			])
-			.withSmallGridItems(allSmall.filter(i => i.system.smallGrid).map(mapItem))
+			.withSmallGridItems(allSmall.filter(i => i.smallGrid).map(mapItem))
 			.withSmallPool(new ResourceBuilder().withCurrent(sPool).withMax(9).withTitle(null).withLabels([]).build())
 			.build();
 
@@ -350,23 +354,23 @@ export class StonetopCharacter {
 		const sPool = this._inventory.smallPool;
 		const allItems = await this._inventoryRepo.getAll();
 
-		const mapCompendium = item => ({
-			slug: item.system.slug,
-			label: item.name,
-			note: item.system.note ?? null,
+		const mapCompendium = (outfitItem) => ({
+			slug: outfitItem.slug,
+			label: outfitItem.name,
+			note: outfitItem.note,
 			isCustom: false,
 			ownedId: null,
-			checked: checked[item.system.slug] ?? false,
-			breakBefore: item.system.breakBefore ?? false,
-			smallGrid: item.system.smallGrid ?? false,
-			twoCol: item.system.twoCol ?? false,
-			resourceChecks: item.system.resource?.max
-				? item.system.resource.labels.map((label, i) => ({
+			checked: checked[outfitItem.slug] ?? false,
+			breakBefore: outfitItem.breakBefore,
+			smallGrid: false,
+			twoCol: outfitItem.twoCol,
+			resourceChecks: outfitItem.resource?.max
+				? outfitItem.resource.labels.map((label, i) => ({
 					label: label || null,
-					checked: i < (resources[item.system.slug] ?? 0),
+					checked: i < (resources[outfitItem.slug] ?? 0),
 				}))
 				: null,
-			weightSlots: Array.from({ length: item.system.weight ?? 0 }, (_, i) => i),
+			weightSlots: Array.from({ length: outfitItem.weight ?? 0 }, (_, i) => i),
 		});
 
 		const mapCustom = item => ({
@@ -387,8 +391,8 @@ export class StonetopCharacter {
 			i.type === "move" && i.system?.moveType === "inventory-custom"
 		);
 
-		const allRegular = allItems.filter(i => i.system.inventoryColumn === "regular");
-		const allSmall   = allItems.filter(i => i.system.inventoryColumn === "small");
+		const allRegular = allItems.filter(i => i.inventoryColumn === "regular");
+		const allSmall   = allItems.filter(i => i.inventoryColumn === "small");
 
 		const flatRegular = [
 			...allRegular.map(mapCompendium),
@@ -398,10 +402,10 @@ export class StonetopCharacter {
 		return {
 			regularItems: flatRegular,
 			regularSegments: _segmentByTwoCol(flatRegular),
-			smallItems: allSmall.filter(i => !i.system.smallGrid).map(mapCompendium).concat(
+			smallItems: allSmall.filter(i => !i.smallGrid).map(mapCompendium).concat(
 				customItems.filter(i => i.system.inventoryColumn === "small").map(mapCustom)
 			),
-			smallGridItems: allSmall.filter(i => i.system.smallGrid).map(mapCompendium),
+			smallGridItems: allSmall.filter(i => i.smallGrid).map(mapCompendium),
 			loadLevel,
 			loadLevelLight:  loadLevel === "light",
 			loadLevelNormal: loadLevel === "normal",
@@ -554,7 +558,7 @@ export class StonetopCharacter {
 
 		let playbookMoves = [];
 		if (playbookName) {
-			const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookName);
+			const entries = await this._moveRepo.getPlaybookMoves(playbookName);
 			playbookMoves = this.sortPlaybookMoves(this.buildMovelistContext(entries, ownedAllByName, bgMoveNames, actorLevel, playbookName));
 
 			const moveResourcesMap = this._moveResources.getMoveResources();
@@ -567,14 +571,14 @@ export class StonetopCharacter {
 			}
 		}
 
-		const basicEntries = await this._basicMoveRepo.getAll();
+		const basicEntries = await this._moveRepo.getBasicMoves();
 		const basicMoves = basicEntries.map(e => {
 			const instances = ownedAllByName.get(e.name) ?? [];
 			return {
 				name: e.name,
-				compendiumId: e._id,
+				compendiumId: e.id,
 				ownedId: instances[0]?._id ?? null,
-				rollType: e.system?.rollType ?? null,
+				rollType: e.rollType,
 				owned: instances.length > 0,
 			};
 		});
@@ -626,7 +630,7 @@ export class StonetopCharacter {
 		const playbookName = this._actor.system?.playbook?.name;
 		if (!playbookName) return;
 
-		const entries = await this._playbookMoveRepo.getMovesForPlaybook(playbookName);
+		const entries = await this._moveRepo.getPlaybookMoves(playbookName);
 		const ownedNames = new Set(this._actor.items.filter(i => i.type === "move").map(i => i.name));
 
 		const playbookData = await this.playbook();
@@ -634,23 +638,23 @@ export class StonetopCharacter {
 		const bgMoveNames = new Set(background?.moves ?? []);
 
 		const missing = entries.filter(e =>
-			(e.system?.isStartingMove || bgMoveNames.has(e.name)) && !ownedNames.has(e.name)
+			(e.isStarting || bgMoveNames.has(e.name)) && !ownedNames.has(e.name)
 		);
 		if (missing.length) {
-			const docs = await Promise.all(missing.map(e => this._playbookMoveRepo.getDocument(e._id)));
+			const docs = await Promise.all(missing.map(e => this._moveRepo.getPlaybookMoveDocument(e.id)));
 			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
 		}
 
-		const basicEntries = await this._basicMoveRepo.getAll();
+		const basicEntries = await this._moveRepo.getBasicMoves();
 		const missingBasic = basicEntries.filter(e => !ownedNames.has(e.name));
 		if (missingBasic.length) {
-			const docs = await Promise.all(missingBasic.map(e => this._basicMoveRepo.getDocument(e._id)));
+			const docs = await Promise.all(missingBasic.map(e => this._moveRepo.getBasicMoveDocument(e.id)));
 			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
 		}
 	}
 
 	async addMove(compendiumId) {
-		const doc = await this._playbookMoveRepo.getDocument(compendiumId);
+		const doc = await this._moveRepo.getPlaybookMoveDocument(compendiumId);
 		if (doc) await this._actor.createEmbeddedDocuments("Item", [doc.toObject()]);
 	}
 
@@ -722,7 +726,7 @@ export class StonetopCharacter {
 	async unflipArcanum(slug) { await this._arcana.unflipArcanum(slug); }
 	async setArcanumUnlockCount(arcanumSlug, optionSlug, count)     { await this._arcana.setUnlockCount(arcanumSlug, optionSlug, count); }
 	async setArcanumBackOptionCount(arcanumSlug, optionSlug, count) { await this._arcana.setBackOptionCount(arcanumSlug, optionSlug, count); }
-	async setArcanumResource(slug, count)                           { await this._arcana.setResource(slug, count); }
+	async setArcanumResource(slug, count)                           { await this._inventory.setResource(slug, count); }
 
 	_buildOwnedMovesMap() {
 		const map = new Map();

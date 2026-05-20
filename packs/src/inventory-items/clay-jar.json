@@ -4,10 +4,14 @@
 	"name": "Clay jar",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "clay-jar",
-		"inventoryColumn": "small",
-		"sortOrder": 12,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "clay-jar",
+			"inventoryColumn": "small",
+			"sortOrder": 12,
+			"smallGrid": true
+		}
 	}
 }

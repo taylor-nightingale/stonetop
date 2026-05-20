@@ -4,10 +4,14 @@
 	"name": "Rushlight",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "rushlight",
-		"inventoryColumn": "small",
-		"sortOrder": 3,
-		"note": "lasts ~15-30 min, <em>hand</em>, <em>crude</em>"
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "rushlight",
+			"inventoryColumn": "small",
+			"sortOrder": 3,
+			"note": "lasts ~15-30 min, <em>hand</em>, <em>crude</em>"
+		}
 	}
 }

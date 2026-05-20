@@ -4,10 +4,14 @@
 	"name": "Cup",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "cup",
-		"inventoryColumn": "small",
-		"sortOrder": 15,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "cup",
+			"inventoryColumn": "small",
+			"sortOrder": 15,
+			"smallGrid": true
+		}
 	}
 }

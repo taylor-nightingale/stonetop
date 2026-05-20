@@ -11,8 +11,12 @@
 			"slug": "stone-idol",
 			"front": {
 				"title": "A stone idol",
-				"weight": 1,
-				"note": "crude, magical",
+				"item": {
+					"name": "A stone idol",
+					"weight": 1,
+					"note": "<em>crude, magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum's sneering face, a thorny tail, and flowers for its ears.</p><p>The idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol.</p>",
 				"unlock": {
 					"description": "To unlock its \"mysteries\" and benefit from its patronage, you must…",
@@ -37,8 +41,7 @@
 			},
 			"back": {
 				"title": "The Angry Little God",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>put the idol in a prominent place and beseech it to attend its humble servant</em></strong>, it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.</p><p><strong>All-mighty Thistlewik</strong><br><em>Fae, tiny, magical, devious, arrogant</em><br><strong>HP</strong> 15; <strong>Armor</strong> 6 (stone, resilience), 2 vs. iron<br><strong>Special qualities</strong> inert; indistinguishable voice<br><strong>Instinct</strong> to heap abuse on its worshippers<br>▶ Make unreasonable demands<br>▶ Consume the essence of foodstuffs<br>▶ Sense one's idle thoughts/memories<br>▶ Weave powerful illusions and hallucinations (<em>near, area</em>)<br>▶ Grow bored/huffy and go to sleep<br><strong>Cost</strong> obeisance and ever-larger offerings of food (Loyalty: ○○○)</p>",
 				"resource": null,
 				"move": {

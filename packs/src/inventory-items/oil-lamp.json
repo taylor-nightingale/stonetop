@@ -4,20 +4,24 @@
 	"name": "Oil lamp",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "oil-lamp",
-		"inventoryColumn": "regular",
-		"sortOrder": 13,
-		"note": "<em>close</em>, <em>area</em>, <em>crude</em>",
-		"weight": 1,
-		"resource": {
-			"max": 3,
-			"title": null,
-			"labels": [
-				"",
-				"",
-				"hours"
-			]
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "oil-lamp",
+			"inventoryColumn": "regular",
+			"sortOrder": 13,
+			"note": "<em>close</em>, <em>area</em>, <em>crude</em>",
+			"weight": 1,
+			"resource": {
+				"max": 3,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"hours"
+				]
+			}
 		}
 	}
 }

@@ -4,10 +4,14 @@
 	"name": "Chalk",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "chalk",
-		"inventoryColumn": "small",
-		"sortOrder": 10,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "chalk",
+			"inventoryColumn": "small",
+			"sortOrder": 10,
+			"smallGrid": true
+		}
 	}
 }

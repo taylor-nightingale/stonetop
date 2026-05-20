@@ -1,4 +1,4 @@
-export { Resource, ResourceBuilder } from "./Resource.js";
+export { ResourceDef, Resource, ResourceBuilder } from "./Resource.js";
 export { StatSnapshot } from "./StatSnapshot.js";
 export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";

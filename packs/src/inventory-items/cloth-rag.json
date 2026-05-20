@@ -4,10 +4,14 @@
 	"name": "Cloth/rag",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "cloth-rag",
-		"inventoryColumn": "small",
-		"sortOrder": 13,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "cloth-rag",
+			"inventoryColumn": "small",
+			"sortOrder": 13,
+			"smallGrid": true
+		}
 	}
 }

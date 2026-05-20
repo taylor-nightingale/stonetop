@@ -16,6 +16,15 @@
  * // Arcanum Shell Game of Souls
  * { current: 0, max: null, maxStat: "con", title: "Souls", labels: [] }
  */
+export class ResourceDef {
+	constructor(data) {
+		this.max     = data.max     ?? null;
+		this.maxStat = data.maxStat ?? null;
+		this.title   = data.title   ?? null;
+		this.labels  = data.labels  ?? [];
+	}
+}
+
 export class Resource {
 	constructor(b) {
 		this.current = b._current;

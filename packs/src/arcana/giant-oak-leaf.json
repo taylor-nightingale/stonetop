@@ -11,8 +11,12 @@
 			"slug": "giant-oak-leaf",
 			"front": {
 				"title": "A giant oak leaf",
-				"weight": 1,
-				"note": "magical",
+				"item": {
+					"name": "A giant oak leaf",
+					"weight": 1,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?</p>",
 				"unlock": {
 					"description": "You can turn the leaf into a wondrous cloak, but to do so you must…",
@@ -37,8 +41,12 @@
 			},
 			"back": {
 				"title": "Goldleaf Cloak",
-				"weight": null,
-				"note": null,
+				"item": {
+					"name": "Goldleaf Cloak",
+					"weight": 1,
+					"note": "<em>warm, magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>When you <strong><em>wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements</em></strong>, then all of these are true:</p><ul><li>You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.</li><li>You are immune to effects that calm or dampen your emotions.</li><li>You are surrounded by a constant golden glow (<em>band, area</em>), making it nearly impossible to hide.</li></ul><p>When you <strong><em>die and are buried in the earth, wrapped in your goldleaf cloak</em></strong>, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.</p>",
 				"resource": null,
 				"move": {

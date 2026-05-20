@@ -4,11 +4,15 @@
 	"name": "Mallet, iron and/or wood",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "mallet",
-		"inventoryColumn": "regular",
-		"sortOrder": 18,
-		"note": "<em>hand</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "mallet",
+			"inventoryColumn": "regular",
+			"sortOrder": 18,
+			"note": "<em>hand</em>",
+			"weight": 1
+		}
 	}
 }

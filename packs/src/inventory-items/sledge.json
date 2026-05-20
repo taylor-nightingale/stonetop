@@ -4,11 +4,15 @@
 	"name": "Sledge/litter/travois, roll-out",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "sledge",
-		"inventoryColumn": "regular",
-		"sortOrder": 10,
-		"weight": 2,
-		"twoCol": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sledge",
+			"inventoryColumn": "regular",
+			"sortOrder": 10,
+			"weight": 2,
+			"twoCol": true
+		}
 	}
 }

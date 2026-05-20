@@ -4,10 +4,14 @@
 	"name": "Little box",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "little-box",
-		"inventoryColumn": "small",
-		"sortOrder": 18,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "little-box",
+			"inventoryColumn": "small",
+			"sortOrder": 18,
+			"smallGrid": true
+		}
 	}
 }

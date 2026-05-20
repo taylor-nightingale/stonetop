@@ -4,11 +4,15 @@
 	"name": "Staff",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "staff",
-		"inventoryColumn": "regular",
-		"sortOrder": 19,
-		"note": "<em>close</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "staff",
+			"inventoryColumn": "regular",
+			"sortOrder": 19,
+			"note": "<em>close</em>",
+			"weight": 1
+		}
 	}
 }

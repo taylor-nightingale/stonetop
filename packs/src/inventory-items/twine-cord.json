@@ -4,10 +4,14 @@
 	"name": "Twine/cord",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "twine-cord",
-		"inventoryColumn": "small",
-		"sortOrder": 22,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "twine-cord",
+			"inventoryColumn": "small",
+			"sortOrder": 22,
+			"smallGrid": true
+		}
 	}
 }

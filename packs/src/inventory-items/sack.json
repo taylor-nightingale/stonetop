@@ -4,10 +4,14 @@
 	"name": "Sack (empty)",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "sack",
-		"inventoryColumn": "small",
-		"sortOrder": 19,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sack",
+			"inventoryColumn": "small",
+			"sortOrder": 19,
+			"smallGrid": true
+		}
 	}
 }

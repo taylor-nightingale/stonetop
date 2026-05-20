@@ -11,8 +11,12 @@
 			"slug": "copper-banded-staff",
 			"front": {
 				"title": "A copper-banded staff",
-				"weight": 1,
-				"note": "magical",
+				"item": {
+					"name": "A copper-banded staff",
+					"weight": 1,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>A short staff, about 4 feet tall, tapering toward the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.</p>",
 				"unlock": {
 					"description": "The staff still tingles with power. To unlock its mysteries you must…",
@@ -42,8 +46,7 @@
 			},
 			"back": {
 				"title": "Staff of Magnetism",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When <strong><em>lightning courses through the staff</em></strong>, it holds 3 Charge (max 3).</p><p>When <strong><em>the staff holds Charge and you focus your will and senses through it</em></strong>, you can sense iron, steel, cobalt, and nickel within <em>near</em> range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.</p><p>When you <strong><em>tap into the power stored within the staff</em></strong>, pick 1:</p><ul><li>Extend its effects up to <em>far</em> range</li><li>Move items quickly and suddenly, fast enough to attack or defend (<em>dangerous</em>)</li><li>Manipulate an object of considerable mass, as much as you could deadlift</li></ul><p>Each time you tap into the staff's power, roll 1d6. If you roll higher than the staff's current Charge, it loses 1 Charge.</p>",
 				"resource": {
 					"max": 3,

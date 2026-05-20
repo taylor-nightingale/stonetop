@@ -4,10 +4,14 @@
 	"name": "Sawdust",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "sawdust",
-		"inventoryColumn": "small",
-		"sortOrder": 20,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sawdust",
+			"inventoryColumn": "small",
+			"sortOrder": 20,
+			"smallGrid": true
+		}
 	}
 }

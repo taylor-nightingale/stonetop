@@ -11,8 +11,12 @@
 			"slug": "humble-broom",
 			"front": {
 				"title": "A humble broom",
-				"weight": 1,
-				"note": "magical, crude",
+				"item": {
+					"name": "A humble broom",
+					"weight": 1,
+					"note": "<em>magical, crude</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn't give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.</p><p>Clearly, there is more to this broom than meets the eye.</p>",
 				"unlock": {
 					"description": "To unlock its mysteries, you must…",
@@ -42,8 +46,12 @@
 			},
 			"back": {
 				"title": "The Broom's Lullaby",
-				"weight": null,
-				"note": null,
+				"item": {
+					"name": "The Broom's Lullaby",
+					"weight": 1,
+					"note": "<em>magical, area, near</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>When you <strong><em>start sweeping an area as you softly sing the lullaby</em></strong>, roll +CHA: <strong>on a 7+</strong>, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. <strong>Also, on a 10+</strong>, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.</p><p>When you <strong><em>sing the full lullaby, sweeping all the while</em></strong>, roll +CHA: <strong>on a 10+</strong>, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; <strong>on a 7-9</strong>, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; <strong>on a 6-</strong>, at least one of your audience snaps to and realizes just how weird all this is.</p>",
 				"resource": null,
 				"move": {

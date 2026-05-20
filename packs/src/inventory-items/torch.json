@@ -4,12 +4,16 @@
 	"name": "Torch",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "torch",
-		"inventoryColumn": "regular",
-		"sortOrder": 12,
-		"note": "lasts ~1 hour; <em>reach</em>, <em>area</em>, <em>dangerous</em>",
-		"weight": 1,
-		"breakBefore": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "torch",
+			"inventoryColumn": "regular",
+			"sortOrder": 12,
+			"note": "lasts ~1 hour; <em>reach</em>, <em>area</em>, <em>dangerous</em>",
+			"weight": 1,
+			"breakBefore": true
+		}
 	}
 }

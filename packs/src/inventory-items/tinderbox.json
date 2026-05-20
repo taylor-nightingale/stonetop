@@ -4,10 +4,14 @@
 	"name": "Tinderbox",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "tinderbox",
-		"inventoryColumn": "small",
-		"sortOrder": 4,
-		"note": "slow"
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "tinderbox",
+			"inventoryColumn": "small",
+			"sortOrder": 4,
+			"note": "slow"
+		}
 	}
 }

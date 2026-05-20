@@ -131,6 +131,14 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setArcanumResource(slug, newVal).then(() => this.render(false));
 			}, true);
 
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-arcanum-delete");
+				if (!btn) return;
+				ev.stopPropagation();
+				const { slug } = btn.dataset;
+				this._stonetopCharacter.removeArcanum(slug).then(() => this.render(true));
+			}, true);
+
 			html[0].addEventListener("change", ev => {
 				const cb = ev.target.closest(".stonetop-arcanum-unlock-check");
 				if (!cb) return;

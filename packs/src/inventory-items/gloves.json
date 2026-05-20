@@ -4,10 +4,14 @@
 	"name": "Gloves",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "gloves",
-		"inventoryColumn": "small",
-		"sortOrder": 17,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "gloves",
+			"inventoryColumn": "small",
+			"sortOrder": 17,
+			"smallGrid": true
+		}
 	}
 }

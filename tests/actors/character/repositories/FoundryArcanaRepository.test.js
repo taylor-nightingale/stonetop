@@ -4,14 +4,14 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 const ARCANUM_FLAGS = {
 	slug: "huge-wooden-sphere",
-	front: { title: "A Huge Wooden Sphere" },
-	back:  { title: "Ffyrnig Tonic" },
+	front: { title: "A Huge Wooden Sphere", item: null, description: "", unlock: { description: "", requirements: [] } },
+	back:  { title: "Ffyrnig Tonic", item: null, description: "", resource: null, move: null, options: [] },
 };
 
 const OTHER_FLAGS = {
 	slug: "humble-broom",
-	front: { title: "A Humble Broom" },
-	back:  { title: "Broom of Sweeping" },
+	front: { title: "A Humble Broom", item: null, description: "", unlock: { description: "", requirements: [] } },
+	back:  { title: "Broom of Sweeping", item: null, description: "", resource: null, move: null, options: [] },
 };
 
 // -- Helpers ------------------------------------------------------------------
@@ -40,12 +40,14 @@ function stubGameNoPack() {
 
 describe("FoundryArcanaRepository", () => {
 	let FoundryArcanaRepository;
+	let MinorArcanum;
 
 	beforeEach(async () => {
 		vi.resetModules();
-		({ FoundryArcanaRepository } = await import(
-			"../../../../module/actors/character/repositories/FoundryArcanaRepository.js"
-		));
+		[{ FoundryArcanaRepository }, { MinorArcanum }] = await Promise.all([
+			import("../../../../module/actors/character/repositories/FoundryArcanaRepository.js"),
+			import("../../../../module/model/MinorArcanum.js"),
+		]);
 	});
 
 	afterEach(() => {
@@ -65,7 +67,7 @@ describe("FoundryArcanaRepository", () => {
 			expect(await repo.findBySlug("huge-wooden-sphere")).toBeNull();
 		});
 
-		it("returns doc.flags.stonetop when slug is found", async () => {
+		it("returns a MinorArcanum when slug is found", async () => {
 			const pack = makePack(
 				[{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } }],
 				{ "huge-wooden-sphere": ARCANUM_FLAGS },
@@ -73,7 +75,10 @@ describe("FoundryArcanaRepository", () => {
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
 			const result = await repo.findBySlug("huge-wooden-sphere");
-			expect(result).toEqual(ARCANUM_FLAGS);
+			expect(result).toBeInstanceOf(MinorArcanum);
+			expect(result.slug).toBe("huge-wooden-sphere");
+			expect(result.front.title).toBe("A Huge Wooden Sphere");
+			expect(result.back.title).toBe("Ffyrnig Tonic");
 		});
 
 		it("calls getIndex with flags.stonetop.slug field", async () => {
@@ -98,7 +103,7 @@ describe("FoundryArcanaRepository", () => {
 	});
 
 	describe("findBySlugs", () => {
-		it("returns all matching arcana", async () => {
+		it("returns MinorArcanum instances for all matching arcana", async () => {
 			const pack = makePack(
 				[
 					{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } },
@@ -110,8 +115,10 @@ describe("FoundryArcanaRepository", () => {
 			const repo = new FoundryArcanaRepository();
 			const results = await repo.findBySlugs(["huge-wooden-sphere", "humble-broom"]);
 			expect(results).toHaveLength(2);
-			expect(results[0]).toEqual(ARCANUM_FLAGS);
-			expect(results[1]).toEqual(OTHER_FLAGS);
+			expect(results[0]).toBeInstanceOf(MinorArcanum);
+			expect(results[0].slug).toBe("huge-wooden-sphere");
+			expect(results[1]).toBeInstanceOf(MinorArcanum);
+			expect(results[1].slug).toBe("humble-broom");
 		});
 
 		it("filters out slugs not in index", async () => {
@@ -123,7 +130,8 @@ describe("FoundryArcanaRepository", () => {
 			const repo = new FoundryArcanaRepository();
 			const results = await repo.findBySlugs(["huge-wooden-sphere", "nonexistent"]);
 			expect(results).toHaveLength(1);
-			expect(results[0]).toEqual(ARCANUM_FLAGS);
+			expect(results[0]).toBeInstanceOf(MinorArcanum);
+			expect(results[0].slug).toBe("huge-wooden-sphere");
 		});
 
 		it("returns [] for empty slugs array", async () => {

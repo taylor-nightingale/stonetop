@@ -4,11 +4,15 @@
 	"name": "Long spear, iron",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "long-spear",
-		"inventoryColumn": "regular",
-		"sortOrder": 21,
-		"note": "<em>reach</em>, x <em>piercing</em>",
-		"weight": 1
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "long-spear",
+			"inventoryColumn": "regular",
+			"sortOrder": 21,
+			"note": "<em>reach</em>, x <em>piercing</em>",
+			"weight": 1
+		}
 	}
 }

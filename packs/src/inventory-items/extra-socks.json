@@ -4,10 +4,14 @@
 	"name": "Extra socks",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "extra-socks",
-		"inventoryColumn": "small",
-		"sortOrder": 16,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "extra-socks",
+			"inventoryColumn": "small",
+			"sortOrder": 16,
+			"smallGrid": true
+		}
 	}
 }

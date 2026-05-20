@@ -4,11 +4,15 @@
 	"name": "Firewood",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "firewood",
-		"inventoryColumn": "regular",
-		"sortOrder": 15,
-		"note": "enough to last 1 full night; <em>reach</em>, <em>area</em>",
-		"weight": 2
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "firewood",
+			"inventoryColumn": "regular",
+			"sortOrder": 15,
+			"note": "enough to last 1 full night; <em>reach</em>, <em>area</em>",
+			"weight": 2
+		}
 	}
 }

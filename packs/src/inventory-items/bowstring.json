@@ -4,10 +4,14 @@
 	"name": "Bowstring",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "bowstring",
-		"inventoryColumn": "small",
-		"sortOrder": 9,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "bowstring",
+			"inventoryColumn": "small",
+			"sortOrder": 9,
+			"smallGrid": true
+		}
 	}
 }

@@ -61,6 +61,7 @@ Hooks.once("init", () => {
 		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
 		"stonetop.tab-arcana":       "modules/stonetop/templates/actor/partials/tab-arcana.hbs",
 		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
+		"stonetop.resource-track":   "modules/stonetop/templates/actor/partials/resource-track.hbs",
 	});
 });
 

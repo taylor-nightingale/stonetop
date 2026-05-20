@@ -11,8 +11,12 @@
 			"slug": "stretched-vellum",
 			"front": {
 				"title": "A stretched vellum",
-				"weight": 2,
-				"note": "fragile",
+				"item": {
+					"name": "A stretched vellum",
+					"weight": 2,
+					"note": "<em>fragile</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.</p>",
 				"unlock": {
 					"description": "To unlock its mysteries and learn the spell, you must…",
@@ -37,8 +41,7 @@
 			},
 			"back": {
 				"title": "Chimeric Transmogrification",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>hold forth a bit of one beast (fur, bone, etc.) and speak the words of chimeric transmogrification upon another</em></strong>, roll +INT: <strong>on a 10+</strong>, the spell works; <strong>on a 7-9</strong>, the spell works but you must mark a debility.</p><p>When <strong><em>the spell works</em></strong>, roll 1d10+CON. If your roll <strong><em>equals or exceeds the target's current HP</em></strong>, name a feature of the beast you hold—the target's form twists and buckles, gaining that feature until they sleep for a few hours. <strong>If you roll less than the target's current HP</strong>, their form twists and buckles, but they fight off the transformation. <strong>Either way</strong>, the bit of the beast you hold is lost, shriveling away to nothing.</p>",
 				"resource": null,
 				"move": {

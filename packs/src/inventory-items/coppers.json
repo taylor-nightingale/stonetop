@@ -4,9 +4,13 @@
 	"name": "Handful of coppers",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "coppers",
-		"inventoryColumn": "small",
-		"sortOrder": 6
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "coppers",
+			"inventoryColumn": "small",
+			"sortOrder": 6
+		}
 	}
 }

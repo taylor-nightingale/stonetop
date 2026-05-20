@@ -11,8 +11,12 @@
 			"slug": "patch-of-rainbow-moss",
 			"front": {
 				"title": "A patch of rainbow moss",
-				"weight": null,
-				"note": "magical",
+				"item": {
+					"name": "A patch of rainbow moss",
+					"weight": null,
+					"note": "<em>magical</em>",
+					"inventoryColumn": null
+				},
 				"description": "<p>In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.</p>",
 				"unlock": {
 					"description": "To unlock the mysteries of this place, you must…",
@@ -37,8 +41,7 @@
 			},
 			"back": {
 				"title": "The Sylvan Web",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>lie down in the rainbow moss and cast your mind into the Great Wood</em></strong>, say what you are looking for and roll +WIS: <strong>on a 10+</strong>, pick 3; <strong>on a 7-9</strong>, pick 1.</p><ul><li>You learn the location of your quarry</li><li>You get a sense of your quarry's recent activities, or the activity surrounding it</li><li>You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)</li><li>You spend only an hour or so adrift (else, you spend all day)</li></ul><p>Whatever you learn, it is limited by and filtered through the senses the forest.</p>",
 				"resource": null,
 				"move": {

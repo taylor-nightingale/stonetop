@@ -4,10 +4,14 @@
 	"name": "Knife or dagger, iron",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "knife-dagger",
-		"inventoryColumn": "small",
-		"sortOrder": 1,
-		"note": "<em>hand</em>"
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "knife-dagger",
+			"inventoryColumn": "small",
+			"sortOrder": 1,
+			"note": "<em>hand</em>"
+		}
 	}
 }

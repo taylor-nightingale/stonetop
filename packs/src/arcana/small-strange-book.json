@@ -11,8 +11,12 @@
 			"slug": "small-strange-book",
 			"front": {
 				"title": "A small, strange book",
-				"weight": null,
-				"note": "fragile",
+				"item": {
+					"name": "A small, strange book",
+					"weight": null,
+					"note": "<em>fragile</em>",
+					"inventoryColumn": null
+				},
 				"description": "<p>A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.</p>",
 				"unlock": {
 					"description": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…",
@@ -36,8 +40,7 @@
 			},
 			"back": {
 				"title": "Old Mother's Wine",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>sacrifice a memory to a berry-laden elder tree</em></strong>, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.</p><p>When you <strong><em>harvest the berries and spend a season making wine from them</em></strong>, gain a skin of Old Mother's Wine (5 uses, magical).</p>",
 				"resource": {
 					"max": 6,

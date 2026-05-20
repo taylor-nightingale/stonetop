@@ -4,11 +4,15 @@
 	"name": "Awl",
 	"type": "move",
 	"system": {
-		"moveType": "inventory",
-		"slug": "awl",
-		"inventoryColumn": "small",
-		"sortOrder": 8,
-		"breakBefore": true,
-		"smallGrid": true
+		"moveType": "inventory"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "awl",
+			"inventoryColumn": "small",
+			"sortOrder": 8,
+			"breakBefore": true,
+			"smallGrid": true
+		}
 	}
 }

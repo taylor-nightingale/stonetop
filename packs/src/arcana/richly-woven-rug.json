@@ -11,8 +11,12 @@
 			"slug": "richly-woven-rug",
 			"front": {
 				"title": "A richly woven rug",
-				"weight": 2,
-				"note": "magical",
+				"item": {
+					"name": "A richly woven rug",
+					"weight": 2,
+					"note": "<em>magical</em>",
+					"inventoryColumn": "regular"
+				},
 				"description": "<p>About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power.</p>",
 				"unlock": {
 					"description": "You can unlock the secrets of this rug, but you must first…",
@@ -37,8 +41,7 @@
 			},
 			"back": {
 				"title": "Fear of the Flame",
-				"weight": null,
-				"note": null,
+				"item": null,
 				"description": "<p>When you <strong><em>spend an hour or so on the rug, meditating on the fear of fire that all natural things possess</em></strong>, you hold Terror and mark 1 Heat.</p><p><strong>○ Terror</strong>: When you <strong><em>unleash the Terror you hold</em></strong>, all who see you fear you as they would fear the flame primeval, until you dismiss the effect.</p><p>When you <strong><em>dismiss the effect</em></strong>, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc.</p><p>When <strong><em>a season passes without you unleashing Terror</em></strong>, reduce your Heat by 1.</p>",
 				"resource": {
 					"max": 6,

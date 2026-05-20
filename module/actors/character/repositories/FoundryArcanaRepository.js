@@ -1,3 +1,5 @@
+import { MinorArcanum } from "../../../model/MinorArcanum.js";
+
 const _cache = new Map();
 
 export class FoundryArcanaRepository {
@@ -9,9 +11,9 @@ export class FoundryArcanaRepository {
 		const entry = pack.index.find(e => e.flags?.stonetop?.slug === slug);
 		if (!entry) return null;
 		const doc = await pack.getDocument(entry._id);
-		const data = doc.flags.stonetop;
-		_cache.set(slug, data);
-		return data;
+		const arcanum = new MinorArcanum(doc.flags.stonetop);
+		_cache.set(slug, arcanum);
+		return arcanum;
 	}
 
 	async findBySlugs(slugs) {
