@@ -152,7 +152,15 @@
 					{
 						"slug": "distillery",
 						"label": "Distillery",
-						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+						"outfitItems": [
+							{
+								"slug": "distillery-firkins",
+								"name": "Firkins",
+								"weight": 2,
+								"inventoryColumn": "regular"
+							}
+						],
 						"resource": {
 							"max": 2,
 							"title": null,

@@ -141,7 +141,38 @@
 					{
 						"slug": "burglars-kit",
 						"label": "Burglar's kit",
-						"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc."
+						"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
+						"outfitItems": [
+							{
+								"slug": "burglar-prybars",
+								"name": "Prybars",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "burglar-hacksaws",
+								"name": "Hacksaws",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "burglar-lantern",
+								"name": "Lantern",
+								"weight": 1,
+								"inventoryColumn": "regular",
+								"note": "<em>close, area</em>",
+								"resource": {
+									"max": 5,
+									"labels": ["", "", "", "", "hours"]
+								}
+							},
+							{
+								"slug": "burglar-grappling-hook",
+								"name": "Grappling hook",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
 					},
 					{
 						"slug": "carpenters-tools",
@@ -151,7 +182,15 @@
 					{
 						"slug": "distillery",
 						"label": "Distillery",
-						"description": "skins of fine whisky (grants advantage to Persuade), copper tubes, malt, firkins, stills, barrels, etc.",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+						"outfitItems": [
+							{
+								"slug": "distillery-firkins",
+								"name": "Firkins",
+								"weight": 2,
+								"inventoryColumn": "regular"
+							}
+						],
 						"resource": {
 							"max": 2,
 							"title": null,
