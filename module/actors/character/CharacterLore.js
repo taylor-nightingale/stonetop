@@ -2,7 +2,7 @@ import {
 	LoreEntrySnapshotBuilder,
 	LoreOptionSnapshotBuilder,
 	LoreSection,
-} from "../../model/CharacterSnapshot.js";
+} from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterLore {
 	constructor(flags) {
@@ -13,26 +13,26 @@ export class CharacterLore {
 		return this._flags.getFlag("counts") ?? {};
 	}
 
-	getCount(loreSlug, optionSlug) {
-		return this.counts[`${loreSlug}:${optionSlug}`] ?? 0;
+	getCount(entrySlug, optionSlug) {
+		return this.counts[entrySlug]?.[optionSlug] ?? 0;
 	}
 
-	async setCount(loreSlug, optionSlug, count) {
-		const key = `${loreSlug}:${optionSlug}`;
-		await this._flags.setFlag("counts", { ...this.counts, [key]: count });
+	async setCount(entrySlug, optionSlug, count) {
+		const c = this.counts;
+		await this._flags.setFlag("counts", { ...c, [entrySlug]: { ...(c[entrySlug] ?? {}), [optionSlug]: count } });
 	}
 
 	get texts() {
 		return this._flags.getFlag("texts") ?? {};
 	}
 
-	getText(loreSlug, optionSlug) {
-		return this.texts[`${loreSlug}:${optionSlug}`] ?? "";
+	getText(entrySlug, optionSlug) {
+		return this.texts[entrySlug]?.[optionSlug] ?? "";
 	}
 
-	async setText(loreSlug, optionSlug, value) {
-		const key = `${loreSlug}:${optionSlug}`;
-		await this._flags.setFlag("texts", { ...this.texts, [key]: value });
+	async setText(entrySlug, optionSlug, value) {
+		const t = this.texts;
+		await this._flags.setFlag("texts", { ...t, [entrySlug]: { ...(t[entrySlug] ?? {}), [optionSlug]: value } });
 	}
 
 	buildSnapshot(loreData) {

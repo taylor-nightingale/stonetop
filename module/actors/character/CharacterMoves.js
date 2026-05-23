@@ -1,106 +1,235 @@
 import {
-	MoveGroupSnapshot,
+	MoveCategorySnapshotBuilder,
 	MoveSnapshotBuilder,
 	MovelistBuilder,
-	OtherItemSnapshotBuilder,
-} from "../../model/CharacterSnapshot.js";
-
-const OTHER_MOVE_TYPES = new Map([
-	["background", "Background Moves"],
-	["special",    "Special Moves"],
-	["follower",   "Follower Moves"],
-	["expedition", "Expedition Moves"],
-	["homefront",  "Homefront Moves"],
-]);
+	RequirementSnapshot,
+	ResourceBuilder,
+} from "../../model/snapshot/character/CharacterSnapshot.js";
+import {ValueMax} from "../../model/snapshot/character/VitalsSnapshot.js";
 
 export class CharacterMoves {
-	constructor(moveRepo, moveResources, actor, playbook) {
-		this._moveRepo            = moveRepo;
-		this._moveResources       = moveResources;
-		this._actor               = actor;
-		this._playbook            = playbook;
-		this._additionalCategories = new Map();
+	constructor(moveRepo, flags, actor) {
+		this._moveRepo = moveRepo;
+		this._flags = flags;
+		this._actor = actor;
 	}
 
-	addCategory(moveType, label) {
-		this._additionalCategories.set(moveType, label);
+	_getCategories() {
+		return this._flags?.getFlag("categories") ?? [];
 	}
 
-	buildOwnedMovesMap() {
-		const map = new Map();
-		for (const item of this._actor.items.filter(i => i.type === "move")) {
-			if (!map.has(item.name)) map.set(item.name, []);
-			map.get(item.name).push(item);
+	async _setCategories(cats) {
+		await this._flags?.setFlag("categories", cats);
+	}
+
+	_findCategory(key) {
+		return this._getCategories().find(c => c.key === key) ?? null;
+	}
+
+	async _updateCategory(key, fn) {
+		await this._setCategories(this._getCategories().map(c => c.key === key ? fn(c) : c));
+	}
+
+	async initBasicMoves() {
+		if (this._findCategory("basic")) return;
+		const entries = await this._moveRepo.getBasicMoves();
+		const flagMoves = entries.map(m => _toFlagMove(m, true));
+		const docs = await Promise.all(entries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
+		const created = await this._actor.createEmbeddedDocuments("Item",
+			docs.filter(Boolean).map(d => _withMoveType(d.toObject(), "basic"))
+		);
+		_assignOwnedIds(flagMoves, created);
+		await this._setCategories([
+			...this._getCategories(),
+			{
+				key: "basic",
+				label: "Basic Moves",
+				renderStyle: "side-bar",
+				allowAdditional: false,
+				note: null,
+				moves: flagMoves
+			},
+		]);
+	}
+
+	async initPlaybookCategory(playbookData) {
+		const existing = this._getCategories().find(c => c.key.startsWith("playbook-"));
+		if (existing) await this.removeCategory(existing.key);
+		const entries = await this._moveRepo.getPlaybookMoves(playbookData.name);
+		const sorted = this.sortPlaybookMoves(entries);
+		const catKey = `playbook-${playbookData.slug}`;
+		const flagMoves = sorted.map(m => _toFlagMove(m, m.isStarting));
+		const startingEntries = sorted.filter(m => m.isStarting);
+		let created = [];
+		if (startingEntries.length) {
+			const docs = await Promise.all(startingEntries.map(e => this._moveRepo.getPlaybookMoveDocument(e.id)));
+			created = await this._actor.createEmbeddedDocuments("Item",
+				docs.filter(Boolean).map(d => _withMoveType(d.toObject(), catKey))
+			);
 		}
-		return map;
+		_assignOwnedIds(flagMoves, created);
+		const filtered = this._getCategories().filter(c => !c.key.startsWith("playbook-"));
+		await this._setCategories([
+			{
+				key: catKey,
+				label: playbookData.name,
+				renderStyle: "standard",
+				allowAdditional: false,
+				note: playbookData.startingMovesNote ?? null,
+				moves: flagMoves
+			},
+			...filtered,
+		]);
+	}
+
+	async addCategory(key, label, slug) {
+		if (this._findCategory(key)) return;
+		const entries = await this._moveRepo.getPostDeathMoves(slug);
+		const flagMoves = entries.map(m => _toFlagMove(m, true));
+		const created = await this._addCategoryMoves(key, entries);
+		_assignOwnedIds(flagMoves, created);
+		await this._setCategories([
+			...this._getCategories(),
+			{key, label, renderStyle: "standard", allowAdditional: false, note: null, moves: flagMoves},
+		]);
+	}
+
+	async removeCategory(key) {
+		const cat = this._findCategory(key);
+		if (!cat) return;
+		const ids = cat.moves.flatMap(m => m.ownedIds ?? []);
+		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
+		await this._setCategories(this._getCategories().filter(c => c.key !== key));
+	}
+
+	async incrementMove(categoryKey, moveName) {
+		const cat = this._findCategory(categoryKey);
+		const move = cat?.moves.find(m => m.name === moveName);
+		if (!move || move.selection.value >= move.selection.max) return;
+		const created = await this._actor.createEmbeddedDocuments("Item", [{
+			name: moveName, type: "move",
+			system: {moveType: categoryKey, rollType: move.rollType ?? "", description: move.description ?? ""},
+		}]);
+		const newId = created[0]?._id ?? null;
+		await this._updateCategory(categoryKey, c => ({
+			...c,
+			moves: c.moves.map(m => m.name !== moveName ? m : {
+				...m,
+				selection: {...m.selection, value: m.selection.value + 1},
+				ownedIds: newId ? [...(m.ownedIds ?? []), newId] : (m.ownedIds ?? []),
+			}),
+		}));
+	}
+
+	async decrementMove(categoryKey, moveName) {
+		const cat = this._findCategory(categoryKey);
+		const move = cat?.moves.find(m => m.name === moveName);
+		if (!move || move.selection.value === 0) return;
+		if (move.isStarting && move.selection.value <= 1) return;
+		const ownedIds = move.ownedIds ?? [];
+		const idToRemove = ownedIds.at(-1) ?? null;
+		if (idToRemove) await this._actor.deleteEmbeddedDocuments("Item", [idToRemove]);
+		await this._updateCategory(categoryKey, c => ({
+			...c,
+			moves: c.moves.map(m => m.name !== moveName ? m : {
+				...m,
+				selection: {...m.selection, value: m.selection.value - 1},
+				ownedIds: ownedIds.slice(0, -1),
+			}),
+		}));
+	}
+
+	async addMoveToOther(moveData) {
+		let cats = this._getCategories();
+		let otherCat = cats.find(c => c.key === "other");
+		if (!otherCat) {
+			otherCat = {
+				key: "other",
+				label: "Other Moves",
+				renderStyle: "standard",
+				allowAdditional: true,
+				note: null,
+				moves: []
+			};
+			cats = [...cats, otherCat];
+		}
+		if (otherCat.moves.some(m => m.name === moveData.name)) return false;
+		const created = await this._actor.createEmbeddedDocuments("Item", [{
+			name: moveData.name, type: "move",
+			system: {
+				moveType: "other",
+				rollType: moveData.system?.rollType ?? "",
+				description: moveData.system?.description ?? ""
+			},
+		}]);
+		const newId = created[0]?._id ?? null;
+		const flagMove = {
+			name: moveData.name, compendiumId: null,
+			rollType: moveData.system?.rollType ?? null,
+			description: moveData.system?.description ?? "",
+			isStarting: false, requirement: null,
+			selection: {max: 1, value: 1},
+			ownedIds: newId ? [newId] : [],
+			resource: null,
+		};
+		await this._setCategories(cats.map(c => c.key !== "other" ? c : {...c, moves: [...c.moves, flagMove]}));
+		return true;
+	}
+
+	async deleteMove(moveName) {
+		const cat = this._findCategory("other");
+		const move = cat?.moves.find(m => m.name === moveName);
+		if (!move) return;
+		const ids = move.ownedIds ?? [];
+		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
+		await this._updateCategory("other", c => ({...c, moves: c.moves.filter(m => m.name !== moveName)}));
+	}
+
+	async setMoveResourceCurrent(categoryKey, moveName, current) {
+		await this._updateCategory(categoryKey, c => ({
+			...c,
+			moves: c.moves.map(m => !m.resource || m.name !== moveName ? m : {...m, resource: {...m.resource, current}}),
+		}));
+	}
+
+	buildSnapshot() {
+		const cats = this._getCategories();
+		const level = this._actor.system?.attributes?.level?.value ?? 1;
+		const acquiredByName = _acquiredNames(cats);
+		const categories = cats.map(cat => new MoveCategorySnapshotBuilder()
+			.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
+			.withAllowAdditional(cat.allowAdditional).withNote(cat.note ?? null)
+			.withMoves(cat.moves.map(m => _buildMoveSnapshot(m, cat.key, _computeSelectable(m, level, acquiredByName))))
+			.build()
+		);
+		return new MovelistBuilder().withCategories(categories).build();
 	}
 
 	countOwnedByName(moveName) {
-		return this._actor.items.filter(i => i.type === "move" && i.name === moveName).length;
+		const move = this._getCategories().flatMap(c => c.moves).find(m => m.name === moveName);
+		return move?.selection.value ?? 0;
 	}
 
-	async buildSnapshot(bgSelectedSlug) {
-		const playbookData   = await this._playbook.getData();
-		const actorLevel     = this._actor.system?.attributes?.level?.value ?? 1;
-		const ownedAllByName = this.buildOwnedMovesMap();
-		const actorItems     = [...this._actor.items];
+	getMoveSnapshotsForCategory(key) {
+		const cat = this._findCategory(key);
+		if (!cat) return [];
+		const level = this._actor.system?.attributes?.level?.value ?? 1;
+		const acquiredByName = _acquiredNames(this._getCategories());
+		return cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m, level, acquiredByName)));
+	}
 
-		// ── Playbook moves ───────────────────────────────────────────────────
-		let playbookMoves    = [];
-		let startingMovesNote = null;
-		if (playbookData) {
-			const background  = playbookData.backgrounds?.find(b => b.slug === bgSelectedSlug);
-			const bgMoveNames = new Set(background?.moves ?? []);
-			const entries     = await this._moveRepo.getPlaybookMoves(playbookData.name);
-			if (entries.length > 0) {
-				const contexted       = entries.map(e =>
-					e.withPlaybookContext(ownedAllByName.get(e.name) ?? [], bgMoveNames, ownedAllByName, actorLevel, playbookData.name)
-				);
-				const sorted          = this.sortPlaybookMoves(contexted);
-				const moveResourcesMap = this._moveResources.getMoveResources();
-				const source          = { type: "playbook", slug: playbookData.slug };
-				playbookMoves         = sorted.map(m => m.toSnapshot(source, moveResourcesMap));
-				startingMovesNote     = playbookData.startingMovesNote ?? null;
+	async onDropMove(itemData) {
+		for (const cat of this._getCategories()) {
+			const existing = cat.moves.find(m => m.name === itemData.name);
+			if (existing) {
+				if (existing.selection.value < existing.selection.max) {
+					await this.incrementMove(cat.key, itemData.name);
+					return true;
+				}
+				return false;
 			}
 		}
-
-		// ── Basic moves ──────────────────────────────────────────────────────
-		const basicEntries = await this._moveRepo.getBasicMoves();
-		const basicMoves   = basicEntries.map(e =>
-			e.withInstances(ownedAllByName.get(e.name) ?? []).toSnapshot({ type: "basic" })
-		);
-
-		// ── Other groups (hardcoded + registered) ────────────────────────────
-		const otherGroups = [];
-		for (const [moveType, label] of [...OTHER_MOVE_TYPES, ...this._additionalCategories]) {
-			const items = actorItems.filter(i => i.type === "move" && i.system?.moveType === moveType);
-			if (items.length > 0) {
-				otherGroups.push(new MoveGroupSnapshot(
-					moveType, label,
-					items.map(i => _actorItemSnapshot(i, { type: moveType }))
-				));
-			}
-		}
-
-		// ── Free-form "other" items ──────────────────────────────────────────
-		const otherMoves = actorItems
-			.filter(i => i.type === "move" && i.system?.moveType === "other")
-			.map(i => new OtherItemSnapshotBuilder()
-				.withId(i._id)
-				.withName(i.name)
-				.withDescription(i.system?.description ?? null)
-				.withMoveType(i.system?.moveType ?? null)
-				.withOwnedId(i._id)
-				.build()
-			);
-
-		return new MovelistBuilder()
-			.withPlaybookMoves(playbookMoves)
-			.withBasicMoves(basicMoves)
-			.withOtherGroups(otherGroups)
-			.withOtherMoves(otherMoves)
-			.withStartingMovesNote(startingMovesNote)
-			.build();
+		return this.addMoveToOther(itemData);
 	}
 
 	sortPlaybookMoves(moves) {
@@ -117,94 +246,109 @@ export class CharacterMoves {
 		return result;
 	}
 
-	async addMove(compendiumId) {
-		const doc = await this._moveRepo.getPlaybookMoveDocument(compendiumId);
-		if (doc) await this._actor.createEmbeddedDocuments("Item", [doc.toObject()]);
-	}
-
-	async removeMove(ownedId) {
-		if (ownedId) await this._actor.deleteEmbeddedDocuments("Item", [ownedId]);
-	}
-
-	async onDropMove(itemData) {
-		const alreadyOwned = !!this._actor.items.find(i => i.type === "move" && i.name === itemData.name);
-		if (alreadyOwned) return false;
-
-		const actorPlaybook = this._actor.system?.playbook?.name ?? null;
-		const itemPlaybook  = itemData.system?.playbook ?? null;
-		if (itemData.system?.moveType === "playbook" && itemPlaybook && itemPlaybook !== actorPlaybook) {
-			itemData = { ...itemData, system: { ...itemData.system, moveType: "other" } };
-		}
-
-		await this._actor.createEmbeddedDocuments("Item", [itemData]);
-		return true;
-	}
-
-	async ensureStartingMoves(bgSelectedSlug) {
-		const playbookData = await this._playbook.getData();
-		if (!playbookData) return;
-
-		const entries    = await this._moveRepo.getPlaybookMoves(playbookData.name);
-		const ownedNames = new Set(this._actor.items.filter(i => i.type === "move").map(i => i.name));
-
-		const background  = playbookData.backgrounds?.find(b => b.slug === bgSelectedSlug);
-		const bgMoveNames = new Set(background?.moves ?? []);
-
-		const missing = entries.filter(e =>
-			(e.isStarting || bgMoveNames.has(e.name)) && !ownedNames.has(e.name)
-		);
-		if (missing.length) {
-			const docs = await Promise.all(missing.map(e => this._moveRepo.getPlaybookMoveDocument(e.id)));
-			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
-		}
-
-		const basicEntries  = await this._moveRepo.getBasicMoves();
-		const missingBasic  = basicEntries.filter(e => !ownedNames.has(e.name));
-		if (missingBasic.length) {
-			const docs = await Promise.all(missingBasic.map(e => this._moveRepo.getBasicMoveDocument(e.id)));
-			await this._actor.createEmbeddedDocuments("Item", docs.filter(Boolean).map(d => d.toObject()));
-		}
+	async _addCategoryMoves(moveType, entries) {
+		if (!entries.length) return [];
+		return this._actor.createEmbeddedDocuments("Item", entries.map(m => ({
+			name: m.name, type: "move",
+			system: {moveType, rollType: m.rollType ?? "", description: m.description ?? ""},
+		})));
 	}
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────
 
-function _actorItemSnapshot(item, source) {
+function _toFlagMove(move, selected) {
+	return {
+		name: move.name, compendiumId: move.id ?? null,
+		rollType: move.rollType ?? null, description: move.description ?? "",
+		isStarting: selected,
+		requirement: move.requirement ? {
+			moves: move.requirement.moves ?? [],
+			level: move.requirement.level ?? null,
+			playbook: move.requirement.playbook ?? null,
+		} : null,
+		selection: {max: move.repeatMax ?? 1, value: selected ? 1 : 0},
+		ownedIds: [],
+		resource: move.resource ? {
+			max: move.resource.max,
+			title: move.resource.title ?? null,
+			labels: move.resource.labels ?? [],
+			current: 0,
+		} : null,
+	};
+}
+
+function _withMoveType(obj, moveType) {
+	return {...obj, system: {...obj.system, moveType}};
+}
+
+function _assignOwnedIds(flagMoves, createdDocs) {
+	const idsByName = new Map();
+	for (const doc of (createdDocs ?? [])) {
+		if (!idsByName.has(doc.name)) idsByName.set(doc.name, []);
+		idsByName.get(doc.name).push(doc._id);
+	}
+	for (const m of flagMoves) {
+		const ids = idsByName.get(m.name);
+		if (ids?.length) m.ownedIds = ids;
+	}
+}
+
+function _acquiredNames(cats) {
+	return new Set(cats.flatMap(c => c.moves).filter(m => m.selection.value > 0).map(m => m.name));
+}
+
+function _computeSelectable(move, level, acquiredByName) {
+	if (move.selection.value >= move.selection.max) return false;
+	const req = move.requirement;
+	if (!req) return true;
+	if (req.level && level < req.level) return false;
+	if ((req.moves ?? []).some(name => !acquiredByName.has(name))) return false;
+	return true;
+}
+
+function _buildMoveSnapshot(move, categoryKey, selectable) {
+	const resource = move.resource
+		? new ResourceBuilder()
+			.withCurrent(move.resource.current).withMax(move.resource.max)
+			.withTitle(move.resource.title ?? null).withLabels(move.resource.labels ?? [])
+			.build()
+		: null;
+	const req = move.requirement;
+	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
+	const requirement = reqParts.length
+		? new RequirementSnapshot(reqParts.join(", "), selectable)
+		: null;
 	return new MoveSnapshotBuilder()
-		.withId(item._id)
-		.withCompendiumId(item._id)
-		.withOwnedId(item._id)
-		.withName(item.name)
-		.withDescription(item.system?.description ?? "")
-		.withRollType(item.system?.rollType ?? null)
-		.withIsStarting(false)
-		.withSource(source)
+		.withId(move.compendiumId ?? null)
+		.withOwnedId((move.ownedIds ?? []).at(-1) ?? null)
+		.withName(move.name)
+		.withDescription(move.description ?? "")
+		.withRollType(move.rollType ?? null)
+		.withIsStarting(move.isStarting)
+		.withSource({type: categoryKey})
 		.withSourceLabel(null)
-		.withOwned(true)
-		.withOwnedIds([item._id])
-		.withLocked(false)
-		.withRequirement(null)
-		.withRequiresLabel(null)
-		.withResource(null)
-		.withRepeat(null)
-		.withRepeatable(false)
+		.withSelection(new ValueMax(move.selection.value, move.selection.max))
+		.withSelectable(selectable)
+		.withRequirement(requirement)
+		.withRequiresLabel(requirement?.label ?? null)
+		.withResource(resource)
 		.build();
 }
 
 function _sortGroup(moves, groupNames) {
 	const dependents = new Map();
-	const roots      = [];
+	const roots = [];
 	for (const move of moves) {
-		if (!move.requires || !groupNames.has(move.requires)) {
-			roots.push(move);
-		} else {
+		if (!move.requires || !groupNames.has(move.requires)) roots.push(move);
+		else {
 			if (!dependents.has(move.requires)) dependents.set(move.requires, []);
 			dependents.get(move.requires).push(move);
 		}
 	}
 	roots.sort((a, b) => a.name.localeCompare(b.name));
 	for (const deps of dependents.values()) deps.sort((a, b) => a.name.localeCompare(b.name));
-	const result  = [];
+	const result = [];
 	const visited = new Set();
 
 	function visit(move) {

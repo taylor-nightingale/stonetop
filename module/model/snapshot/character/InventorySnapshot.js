@@ -52,7 +52,7 @@ export class LoadSnapshotBuilder {
  * @property {boolean} twoCol
  * @property {boolean} breakBefore
  */
-export class InventoryItemSnapshot {
+export class OutfitItemSnapshot {
 	constructor(b) {
 		this.slug        = b._slug;
 		this.name        = b._name;
@@ -67,7 +67,7 @@ export class InventoryItemSnapshot {
 	}
 }
 
-export class InventoryItemSnapshotBuilder {
+export class OutfitItemSnapshotBuilder {
 	withSlug(v)        { this._slug        = v; return this; }
 	withName(v)        { this._name        = v; return this; }
 	withNote(v)        { this._note        = v; return this; }
@@ -78,7 +78,7 @@ export class InventoryItemSnapshotBuilder {
 	withOwnedId(v)     { this._ownedId     = v; return this; }
 	withTwoCol(v)      { this._twoCol      = v; return this; }
 	withBreakBefore(v) { this._breakBefore = v; return this; }
-	build()            { return new InventoryItemSnapshot(this); }
+	build()            { return new OutfitItemSnapshot(this); }
 }
 
 /** One contiguous block of grid or list items in OutfitSnapshot.regularSegments. */
@@ -94,11 +94,11 @@ export class InventorySegmentSnapshot {
 
 /**
  * @property {LoadSnapshot} load
- * @property {InventoryItemSnapshot[]} regularItems
+ * @property {OutfitItemSnapshot[]} regularItems
  * @property {InventorySegmentSnapshot[]} regularSegments
  * @property {Resource} regularPool
- * @property {InventoryItemSnapshot[]} smallItems
- * @property {InventoryItemSnapshot[]} smallGridItems
+ * @property {OutfitItemSnapshot[]} smallItems
+ * @property {OutfitItemSnapshot[]} smallGridItems
  * @property {Resource} smallPool
  */
 export class OutfitSnapshot {

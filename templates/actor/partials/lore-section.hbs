@@ -7,7 +7,7 @@
 		<div class="stonetop-lore-description">{{{description}}}</div>
 		{{/if}}
 		{{#each options}}
-		<div class="stonetop-lore-option">
+		<div class="stonetop-lore-option{{#if (eq type "text")}} stonetop-lore-option--text{{/if}}">
 			{{#if (eq type "text")}}
 			<label class="stonetop-lore-option-desc">{{{description}}}</label>
 			<textarea class="stonetop-lore-option-text"

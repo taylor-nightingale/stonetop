@@ -1,8 +1,8 @@
-export { Resource } from "./data/Resource.js";
-export { ResourceSnapshot, ResourceBuilder } from "./snapshot/ResourceSnapshot.js";
-export { StatSnapshot } from "./snapshot/StatSnapshot.js";
-export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./snapshot/VitalsSnapshot.js";
-export { DebilitySnapshot, DebilitySnapshotBuilder } from "./snapshot/DebilitySnapshot.js";
+export { Resource } from "../../data/Resource.js";
+export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
+export { StatSnapshot } from "./StatSnapshot.js";
+export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
+export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
 	LoreOptionSnapshot, LoreOptionSnapshotBuilder,
 	LoreEntrySnapshot, LoreEntrySnapshotBuilder,
@@ -15,30 +15,28 @@ export {
 	BackgroundOptionSnapshot, BackgroundOptionSnapshotBuilder, BackgroundSection,
 	SelectableOptionSnapshot,
 	PlaybookSnapshot, PlaybookSnapshotBuilder,
-} from "./snapshot/PlaybookSnapshot.js";
+} from "./PlaybookSnapshot.js";
 export {
 	RequirementSnapshot,
 	MoveSnapshot, MoveSnapshotBuilder,
 	MoveCategorySnapshot, MoveCategorySnapshotBuilder,
-	MoveGroupSnapshot,
-} from "./snapshot/MoveSnapshot.js";
+} from "./MoveSnapshot.js";
 export {
-	OtherItemSnapshot, OtherItemSnapshotBuilder,
 	Movelist, MovelistBuilder,
-} from "./snapshot/Movelist.js";
+} from "./Movelist.js";
 export {
 	LoadOptionSnapshot, LoadSnapshot, LoadSnapshotBuilder,
-	InventoryItemSnapshot, InventoryItemSnapshotBuilder,
+	OutfitItemSnapshot, OutfitItemSnapshotBuilder,
 	InventorySegmentSnapshot,
 	OutfitSnapshot, OutfitSnapshotBuilder,
 	PossessionsSnapshot,
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,
 	InventorySnapshot,
-} from "./snapshot/InventorySnapshot.js";
+} from "./InventorySnapshot.js";
 export {
 	PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder,
 	PostDeathSectionSnapshot, PostDeathSectionSnapshotBuilder,
-} from "./snapshot/PostDeathInsertSnapshot.js";
+} from "./PostDeathInsertSnapshot.js";
 export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	MinorArcanumSnapshot, MinorArcanumSnapshotBuilder,
@@ -47,7 +45,7 @@ export {
 	ArcanumUnlockSection, ArcanaUnlockTextItem,
 	ArcanaUnlockOptionSnapshot, ArcanaUnlockOptionSnapshotBuilder,
 	ArcanumBackMoveSnapshot,
-} from "./snapshot/ArcanaSnapshot.js";
+} from "./ArcanaSnapshot.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.

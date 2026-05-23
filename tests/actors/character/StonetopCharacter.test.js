@@ -82,26 +82,22 @@ describe("StonetopCharacter.onDropItems", () => {
 // -- selectBackground ---------------------------------------------------------
 
 describe("StonetopCharacter.selectBackground", () => {
-	it("calls background.selectBackground then ensureStartingMoves", async () => {
+	it("calls background.selectBackground with the slug", async () => {
 		const char = new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 		const selectBg = vi.spyOn(char.background, "selectBackground").mockResolvedValue();
-		const ensureStarting = vi.spyOn(char, "ensureStartingMoves").mockResolvedValue();
 
 		await char.selectBackground("vessel");
 
 		expect(selectBg).toHaveBeenCalledWith("vessel");
-		expect(ensureStarting).toHaveBeenCalled();
 	});
 
-	it("calls ensureStartingMoves after selectBackground", async () => {
-		const callOrder = [];
+	it("passes the slug through to background.selectBackground", async () => {
 		const char = new TestCharacterBuilder(new FakeActorBuilder().build()).build();
-		vi.spyOn(char.background, "selectBackground").mockImplementation(async () => { callOrder.push("bg"); });
-		vi.spyOn(char, "ensureStartingMoves").mockImplementation(async () => { callOrder.push("ensure"); });
+		const selectBg = vi.spyOn(char.background, "selectBackground").mockResolvedValue();
 
-		await char.selectBackground("vessel");
+		await char.selectBackground("initiate");
 
-		expect(callOrder).toEqual(["bg", "ensure"]);
+		expect(selectBg).toHaveBeenCalledWith("initiate");
 	});
 });
 

@@ -1,0 +1,173 @@
+{
+	"fortunes": {
+		"title": "Fortunes",
+		"note": "Starts at +1",
+		"options": {
+			"current": 3,
+			"labels": [
+				"-1",
+				"+0",
+				"+1",
+				"+2",
+				"+3"
+			]
+		}
+	},
+	"surplus": {
+		"title": "Surplus",
+		"note": "Starts at 1",
+		"current": "1"
+	},
+	"attributes": [
+		{
+			"title": "Size",
+			"note": "Starts at <em>village</em>",
+			"options": {
+				"current": 2,
+				"labels": [
+					"<em>hamlet</em  (<50 people)",
+					"<em>village</em  (150-350 people)",
+					"<em>town</em  (500-1500 people)",
+					"<em>city</em  (2500+ people)"
+				]
+			}
+		},
+		{
+			"title": "Population",
+			"note": "Starts at +0",
+			"options": {
+				"current": 2,
+				"labels": [
+					"-1",
+					"+0",
+					"+1",
+					"+2",
+					"+3"
+				]
+			}
+		},
+		{
+			"title": "Prosperity",
+			"note": "Starts at +0",
+			"options": {
+				"current": 2,
+				"labels": [
+					"-1",
+					"+0",
+					"+1",
+					"+2",
+					"+3"
+				]
+			},
+			"resources": {
+				"title": "Resources",
+				"values": [
+					"Farming (beans, potatoes, oats, barley)",
+					"Hunting/trapping (fur, meat, hides)",
+					"Distilling (whisky)",
+					"Stone (collected from the Old Wall)",
+					"Cistern (filled with rain, snow)",
+					"Tradesfolk (midwife, potter, publican, smith, tanner)",
+					"Trade: Gordin’s Delve (metal, tools)",
+					"Trade: Marshedge (textiles, herbs, glass)"
+				]
+			}
+		},
+		{
+			"title": "Defenses",
+			"note": "Starts at +0",
+			"options": {
+				"current": 2,
+				"labels": [
+					"-1 <em>feeble</em>",
+					"+0 <em>mediocre</em>",
+					"+1 <em>strong</em>",
+					"+2 <em>formidable</em>",
+					"+3 <em>legendary</em>"
+				]
+			},
+			"resources": {
+				"title": "Fortifications, etc.",
+				"values": [
+					"Village militia",
+					"The Ringwall (low, stone)",
+					"3 watchtowers",
+					"Some bows"
+				]
+			}
+		}
+	],
+	"placesOrInterest": [
+		{
+			"key": "A",
+			"title": "The Stone"
+		},
+		{
+			"key": "B",
+			"title": "The Granary"
+		},
+		{
+			"key": "C",
+			"title": "Public House & Stables"
+		},
+		{
+			"key": "D",
+			"title": "Cistern"
+		},
+		{
+			"key": "E",
+			"title": "Pavilion of the Gods"
+		},
+		{
+			"key": "F",
+			"title": "Watchtowers"
+		}
+	],
+	"debilities": [
+		{
+			"slug": "diminished",
+			"description": "<em>diminished</em>, by injury/sicknes/doubt",
+			"note": "disadvantage to Deploy, Muster, or Pull Together",
+			"active": false
+		},
+		{
+			"slug": "lacking",
+			"description": "<em>lacking</em>, due to shortages/hoarding/distrust ",
+			"note": "treat Prosperity as if it’s 1 lower than it is",
+			"active": false
+		},
+		{
+			"slug": "malcontent",
+			"description": "<em>malcontent</em>, from fear/anger/despair",
+			"note": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual",
+			"active": false
+		}
+	],
+	"notes": "free form note text",
+	"content": {
+		"excludedContent": [
+			"excluded 1"
+		],
+		"veiledContent": [
+			"veiled 1"
+		],
+		"specialHandling": [
+			"special 1"
+		]
+	},
+//		not in json, but the sheet will have this:
+//	"title": "Content",
+//	"description": "<p>Keep this in sync with the GM playbook. Review it at the start of each session.</p><p>When <strong><em>anyone calls “time out,”</em></strong> play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.</p><p>If <strong><em>content was included that shouldn’t have been</emm></strong>, acknowledge the mistake, fix the fiction, and move on.</p><p>If <strong><em>someone realizes they need content to be excluded, veiled, or handled in a particular way,</em></strong> then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s). When everyone is ready, move on.",
+//		"excluded": {
+//			"title": "Excluded content",
+//			"note": "(Not part of the game, on-camera or off)"
+//		},
+//		"veiled": {
+//			"title": "Veiled content",
+//			"note": "(Not part of the game, on-camera or off)"
+//		},
+//		"specia": {
+//			"title": "Special handling"
+//		}
+
+}

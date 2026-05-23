@@ -1,7 +1,7 @@
 {
 	"_id": "t6DSdYhsVznrAXDx",
 	"_key": "!items!t6DSdYhsVznrAXDx",
-	"img": "modules/stonetop/assets/playbooks/the-ranger.svg",
+	"img": "modules/stonetop/assets/playbooks/the-ranger.png",
 	"name": "The Ranger",
 	"type": "playbook",
 	"flags": {

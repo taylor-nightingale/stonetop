@@ -2,41 +2,44 @@
 	{{> "stonetop.section-heading" title=title note=note}}
 	<ol class="items-list">
 	{{#each moves}}
-		{{#if (and owned rollType)}}
+		{{#if (and ownedId rollType)}}
 		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 		{{else}}
-		<li class="stonetop-item{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
+		<li class="stonetop-item{{#if (and (not ownedId) (not selectable))}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
 		{{/if}}
 			<div class="stonetop-item-header">
-				{{#if repeatable}}
+				{{#if (gt selection.max 1)}}
 				<span class="stonetop-repeat-checks">
 					{{#each (repeatChecks this)}}
 					<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
-					       data-compendium-id="{{../compendiumId}}"
-					       data-owned-id="{{ownedId}}"
+					       data-category-key="{{../../categoryKey}}"
+					       data-move-name="{{../name}}"
+					       data-owned-id="{{../ownedId}}"
 					       {{#if checked}}checked{{/if}}
 					       {{#if disabled}}disabled{{/if}}>
 					{{/each}}
 				</span>
 				{{else}}
 				<input type="checkbox" class="stonetop-item-check stonetop-move-check"
-				       data-compendium-id="{{compendiumId}}"
+				       data-category-key="{{../categoryKey}}"
+				       data-move-name="{{name}}"
 				       data-owned-id="{{ownedId}}"
-				       {{#if owned}}checked{{/if}}
-				       {{#if (or isStarting locked)}}disabled{{/if}}>
+				       {{#if ownedId}}checked{{/if}}
+				       {{#if (or isStarting (and (not ownedId) (not selectable)))}}disabled{{/if}}>
 				{{/if}}
 				<strong class="stonetop-item-name">{{name}}</strong>
 				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
-				{{#if (and owned rollType)}}
+				{{#if (and ownedId rollType)}}
 				<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 					<i class="fas fa-dice-d6"></i>
 				</span>
 				{{/if}}
-				{{#if (and owned resource)}}
+				{{#if (and ownedId resource)}}
 				<span class="stonetop-item-resources">
 					{{#each (resourceChecks resource)}}
 					<span class="stonetop-item-resource-entry">
 						<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
+						        data-category-key="{{../../categoryKey}}"
 						        data-move-name="{{../name}}"
 						        data-index="{{@index}}"></button>
 						{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
@@ -44,11 +47,14 @@
 					{{/each}}
 				</span>
 				{{/if}}
+				{{#if ../allowAdditional}}
+				<a class="stonetop-other-move-delete" data-move-name="{{name}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
+					<i class="fas fa-trash"></i>
+				</a>
+				{{/if}}
 			</div>
 			<div class="stonetop-item-description">{{{description}}}</div>
-			{{#if requiresLabel}}<p class="stonetop-move-note">Requires: {{requiresLabel}}</p>{{/if}}
-			{{#if requiresPlaybook}}<p class="stonetop-move-note">Requires {{requiresPlaybook}} playbook</p>{{/if}}
-			{{#if minLevel}}<p class="stonetop-move-note">Level {{minLevel}}+</p>{{/if}}
+			{{#if requiresLabel}}<p class="stonetop-move-note">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}</p>{{/if}}
 		</li>
 	{{/each}}
 	</ol>

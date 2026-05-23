@@ -1,5 +1,5 @@
-import { StatSnapshot, DebilitySnapshotBuilder } from "../../model/CharacterSnapshot.js";
-import { Stats } from "../../model/data/Stats.js";
+import { StatSnapshot, DebilitySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { Stats } from "../../model/data/character/Stats.js";
 
 const _STAT_DEFS = {
 	str: { name: "Strength",     abbr: "STR" },

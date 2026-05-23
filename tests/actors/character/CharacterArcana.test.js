@@ -1,13 +1,13 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../module/actors/character/CharacterArcana.js";
-import { Stats } from "../../../module/model/data/Stats.js";
+import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanaUnlockTextItem, ArcanaUnlockOptionSnapshot,
 	MinorArcanumSnapshot, MinorArcanumFrontSnapshot, MinorArcanumBackSnapshot,
 	ArcanumUnlockSection,
-} from "../../../module/model/CharacterSnapshot.js";
-import { MinorArcanum } from "../../../module/model/data/MinorArcanum.js";
+} from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import { MinorArcanum } from "../../../module/model/data/character/MinorArcanum.js";
 import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
 
 // -- Helpers ------------------------------------------------------------------
@@ -82,7 +82,7 @@ function makeFakeStats(values = {}) {
 }
 
 function makeFakeInventory({ checked = {}, resources = {} } = {}) {
-	return { checked, resources };
+	return { checked, resources, setArcanaItems: vi.fn(async () => {}) };
 }
 
 function makeArcana(flagStore = {}, arcana = [FFYRNIG_SPHERE], fakeStats = null, fakeInventory = null) {
@@ -557,5 +557,54 @@ describe("CharacterArcana.buildSnapshot() — checked state", () => {
 		);
 		const item = (await arcana.buildSnapshot()).minor.items[0];
 		expect(item.checked).toBe(false);
+	});
+});
+
+describe("CharacterArcana — inventory.setArcanaItems injection", () => {
+	it("buildSnapshot calls inventory.setArcanaItems for page-load sync", async () => {
+		const inv = makeFakeInventory();
+		const arcana = makeArcana({}, [FFYRNIG_SPHERE], null, inv);
+		await arcana.buildSnapshot();
+		expect(inv.setArcanaItems).toHaveBeenCalled();
+	});
+
+	it("addArcanum calls inventory.setArcanaItems with outfit items after mutation", async () => {
+		const inv = makeFakeInventory();
+		const arcana = makeArcana({}, [BOW_WITH_NO_STRING], null, inv);
+		await arcana.addArcanum("bow-with-no-string");
+		expect(inv.setArcanaItems).toHaveBeenCalled();
+		const items = inv.setArcanaItems.mock.calls[0][0];
+		expect(items.some(i => i.slug === "bow-with-no-string")).toBe(true);
+	});
+
+	it("removeArcanum calls inventory.setArcanaItems after removing", async () => {
+		const inv = makeFakeInventory();
+		const arcana = makeArcana({ owned: ["bow-with-no-string"] }, [BOW_WITH_NO_STRING], null, inv);
+		await arcana.removeArcanum("bow-with-no-string");
+		expect(inv.setArcanaItems).toHaveBeenCalled();
+		const items = inv.setArcanaItems.mock.calls[0][0];
+		expect(items.some(i => i.slug === "bow-with-no-string")).toBe(false);
+	});
+
+	it("flipArcanum calls inventory.setArcanaItems with updated items", async () => {
+		const inv = makeFakeInventory();
+		const arcana = makeArcana({ owned: ["bow-with-no-string"] }, [BOW_WITH_NO_STRING], null, inv);
+		await arcana.flipArcanum("bow-with-no-string");
+		expect(inv.setArcanaItems).toHaveBeenCalled();
+	});
+
+	it("unflipArcanum calls inventory.setArcanaItems with updated items", async () => {
+		const inv = makeFakeInventory();
+		const arcana = makeArcana(
+			{ owned: ["bow-with-no-string"], flipped: ["bow-with-no-string"] },
+			[BOW_WITH_NO_STRING], null, inv,
+		);
+		await arcana.unflipArcanum("bow-with-no-string");
+		expect(inv.setArcanaItems).toHaveBeenCalled();
+	});
+
+	it("does not throw when inventory is null", async () => {
+		const arcana = new CharacterArcana(makeFlags({}), new FakeArcanaRepository([BOW_WITH_NO_STRING]));
+		await expect(arcana.addArcanum("bow-with-no-string")).resolves.not.toThrow();
 	});
 });

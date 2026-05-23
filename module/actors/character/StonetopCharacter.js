@@ -1,5 +1,4 @@
-import {CharacterSnapshotBuilder} from "../../model/CharacterSnapshot.js";
-import {MoveResources} from "./MoveResources.js";
+import {CharacterSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {CharacterMoves} from "./CharacterMoves.js";
 import {StonetopFlags} from "./StonetopFlags.js";
 import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
@@ -19,28 +18,30 @@ import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.
 export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
+		this._stats = new CharacterStats(actor);
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"), actor);
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
-		this._stats = new CharacterStats(actor);
-		this._playbook = new CharacterPlaybook(actor, repos.playbook);
-		this._moveResources = new MoveResources(new StonetopFlags(actor, "moves"));
-		this._moves = new CharacterMoves(repos.moves, this._moveResources, actor, this._playbook);
+
+		this._playbook = new CharacterPlaybook(actor, repos.playbook,
+			this._background, this._instinct, this._appearance, this._origin, this._lore);
+		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves);
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, actor, this._playbook);
+		this._vitals = new CharacterVitals(actor, this._inventory);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, this._inventory);
-		this._vitals = new CharacterVitals(actor, this._playbook, this._inventory);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
 			new CharacterInstincts(new StonetopFlags(actor, "postDeathInstinct")),
 			new CharacterLore(new StonetopFlags(actor, "postDeathLore")),
 			repos.postDeathInsert,
-			repos.moves,
 			this._moves,
-			actor,
 		);
+		this._inventory.setVitals(this._vitals);
+		this._playbook.setVitals(this._vitals);
+		this._playbook.setMoves(this._moves);
 	}
 
 	static create(actor) {
@@ -67,29 +68,29 @@ export class StonetopCharacter {
 		return this._origin;
 	}
 
-	get possessions() {
-		return this._possessions;
-	}
-
 	async playbook() {
 		return this._playbook.getData();
 	}
 
 	async buildSnapshot() {
+		await this._moves.initBasicMoves();
 		const actor = this._actor;
-		const actorItems = [...actor.items];
-		const arcanaItems = await this._arcana.weightedInventoryItems();
-		const inventory = await this._inventory.buildSnapshot(actorItems, arcanaItems);
-		const postDeath = await this._postDeath.buildSnapshot();
+		const [arcana, inventory, postDeath, playbook, vitals] = await Promise.all([
+			this._arcana.buildSnapshot(),
+			this._inventory.buildSnapshot(),
+			this._postDeath.buildSnapshot(),
+			this._playbook.buildPlaybookSnapshot(),
+			this._vitals.buildVitalsSnapshot(),
+		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
-			.withPlaybook(await this._playbook.buildPlaybookSnapshot(this._background, this._instinct, this._appearance, this._origin, this._lore))
+			.withPlaybook(playbook)
 			.withDebilities(this._stats.buildDebilitiesSnapshot())
 			.withStats(this._stats.buildStatsSnapshot())
-			.withVitals(await this._vitals.buildVitalsSnapshot())
-			.withMoves(await this._moves.buildSnapshot(this._background.selectedSlug))
+			.withVitals(vitals)
+			.withMoves(this._moves.buildSnapshot())
 			.withInventory(inventory)
-			.withArcana(await this._arcana.buildSnapshot())
+			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
@@ -131,8 +132,8 @@ export class StonetopCharacter {
 		await this._inventory.setSmallPool(count);
 	}
 
-	async addMoveResource(button) {
-		await this._moveResources.add(button);
+	async setMoveResourceCurrent(categoryKey, moveName, current) {
+		await this._moves.setMoveResourceCurrent(categoryKey, moveName, current);
 	}
 
 	async addCustomInventoryItem(name, weight) {
@@ -176,12 +177,7 @@ export class StonetopCharacter {
 	}
 
 	async selectBackground(slug) {
-		await this._background.selectBackground(slug);
-		await this.ensureStartingMoves();
-	}
-
-	async ensureStartingMoves() {
-		await this._moves.ensureStartingMoves(this._background.selectedSlug);
+		await this._playbook.selectBackground(slug);
 	}
 
 	async onDropItems(items) {
@@ -202,29 +198,22 @@ export class StonetopCharacter {
 		return {anyAdded, others};
 	}
 
-	async addMove(compendiumId) {
-		await this._moves.addMove(compendiumId);
+	async incrementMove(categoryKey, moveName) {
+		await this._moves.incrementMove(categoryKey, moveName);
 	}
 
-	async removeMove(ownedId) {
-		await this._moves.removeMove(ownedId);
+	async decrementMove(categoryKey, moveName) {
+		await this._moves.decrementMove(categoryKey, moveName);
+	}
+
+	async deleteMove(moveName) {
+		await this._moves.deleteMove(moveName);
 	}
 
 	async _onCreateDescendantDocuments(documents) {
 		const stonetopItem = documents.find(d => d.type === "playbook");
 		if (!stonetopItem) return;
-		const stonetopPlaybook = stonetopItem.asPlaybook();
-
-		const hp = stonetopPlaybook.hp;
-		const damage = stonetopPlaybook.damage;
-		if (hp && damage) {
-			await this._actor.update({
-				"system.attributes.hp.max": hp,
-				"system.attributes.hp.value": hp,
-				"system.attributes.damage.value": damage,
-			});
-		}
-		await this.ensureStartingMoves();
+		await this._playbook.selectPlaybook(stonetopItem.asPlaybook());
 	}
 
 	async onRoll(event) {

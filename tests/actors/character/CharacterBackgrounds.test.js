@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterBackgrounds } from "../../../module/actors/character/CharacterBackgrounds.js";
-import { BackgroundSection } from "../../../module/model/CharacterSnapshot.js";
+import { BackgroundSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 function makeFlags(store = {}) {
 	return {

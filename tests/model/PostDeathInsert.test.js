@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { PostDeathInsert } from "../../module/model/data/PostDeathInsert.js";
+import { PostDeathInsert } from "../../module/model/data/character/PostDeathInsert.js";
 
 // -- Helpers ------------------------------------------------------------------
 
 function makeDoc(overrides = {}) {
 	return {
 		name:   "Revenant",
-		img:    "icons/svg/skull.svg",
+		img:    "icons/svg/skull.png",
 		system: {
 			slug:        "revenant",
 			description: "<p>When you die...</p>",
@@ -33,7 +33,7 @@ describe("PostDeathInsert", () => {
 	});
 
 	it("reads img from doc.img", () => {
-		expect(new PostDeathInsert(makeDoc()).img).toBe("icons/svg/skull.svg");
+		expect(new PostDeathInsert(makeDoc()).img).toBe("icons/svg/skull.png");
 	});
 
 	it("reads description from system.description", () => {

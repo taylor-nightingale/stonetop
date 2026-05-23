@@ -1,7 +1,7 @@
 {
   "name": "Thrall",
   "type": "equipment",
-  "img": "assets/post-death-inserts/Thrall.svg",
+  "img": "assets/post-death-inserts/Thrall.png",
   "system": {
     "slug": "thrall",
     "description": "<p>When you <em>die but call one of the Things Below by name and beseech them to intercede</em>, they do. Death is averted, but you gain this insert and 1 Mark.</p>",

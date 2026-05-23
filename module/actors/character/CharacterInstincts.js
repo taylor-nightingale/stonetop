@@ -1,4 +1,4 @@
-import { InstinctOptionSnapshotBuilder, InstinctSection } from "../../model/CharacterSnapshot.js";
+import { InstinctOptionSnapshotBuilder, InstinctSection } from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterInstincts {
 	constructor(flags) {

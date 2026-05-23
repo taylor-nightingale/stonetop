@@ -13,64 +13,16 @@
 		{{/if}}
 		{{/if}}
 
-		{{#if stonetop.moves.playbookMoves.length}}
-		{{> "stonetop.move-group"
-		    title=(localize "stonetop.character.moves.playbookMoves")
-		    note=stonetop.moves.startingMovesNote
-		    moves=stonetop.moves.playbookMoves}}
+		{{#each stonetop.moves.categories}}
+		{{#if (eq renderStyle "standard")}}
+		{{> "stonetop.move-group" title=label note=note moves=moves categoryKey=key allowAdditional=allowAdditional}}
+		{{#if allowAdditional}}
+		<button type="button" class="item-control item-create" data-type="move" data-move-type="{{key}}" title="{{localize 'stonetop.character.moves.addMove'}}">
+			<i class="fas fa-plus"></i>
+		</button>
 		{{/if}}
-
-		{{#each stonetop.moves.otherGroups}}
-				<div class="stonetop-move-group">
-					<h3 class="stonetop-move-group-title">{{label}}</h3>
-					<ol class="items-list">
-					{{#each moves}}
-						{{#if rollType}}
-						<li class="item stonetop-item" data-item-id="{{ownedId}}">
-						{{else}}
-						<li class="stonetop-item">
-						{{/if}}
-							<div class="stonetop-item-header">
-								{{#if rollType}}
-								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
-									<i class="fas fa-dice-d6"></i>
-								</span>
-								{{/if}}
-								<strong class="stonetop-item-name">{{name}}</strong>
-								<a class="stonetop-other-move-delete" data-item-id="{{ownedId}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
-									<i class="fas fa-trash"></i>
-								</a>
-							</div>
-						</li>
-					{{/each}}
-					</ol>
-				</div>
-				{{/each}}
-
-			<div class="stonetop-move-group">
-				{{> "stonetop.section-heading" title=(localize "stonetop.character.moves.otherMoves")}}
-				<ol class="items-list">
-				{{#each stonetop.moves.otherMoves}}
-					<li class="item stonetop-item" data-item-id="{{ownedId}}">
-						<div class="stonetop-item-header">
-							{{#if rollType}}
-							<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
-								<i class="fas fa-dice-d6"></i>
-							</span>
-							{{/if}}
-							<strong class="stonetop-item-name">{{name}}</strong>
-							<a class="stonetop-other-move-delete" data-item-id="{{ownedId}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
-								<i class="fas fa-trash"></i>
-							</a>
-						</div>
-						{{#if description}}<div class="stonetop-item-description">{{{description}}}</div>{{/if}}
-					</li>
-				{{/each}}
-				</ol>
-				<button type="button" class="item-control item-create" data-type="move" data-move-type="other" title="{{localize 'stonetop.character.moves.addMove'}}">
-					<i class="fas fa-plus"></i>
-				</button>
-			</div>
+		{{/if}}
+		{{/each}}
 
 	</section>
 </div>

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { FoundryArcanaRepository } from "../../../../module/actors/character/repositories/FoundryArcanaRepository.js";
-import { MinorArcanum } from "../../../../module/model/data/MinorArcanum.js";
+import { MinorArcanum } from "../../../../module/model/data/character/MinorArcanum.js";
 
 // -- Fixtures -----------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterAppearance } from "../../../module/actors/character/CharacterAppearance.js";
-import { AppearanceSection } from "../../../module/model/CharacterSnapshot.js";
+import { AppearanceSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 function makeFlags(selected = {}) {
 	const store = { selected };

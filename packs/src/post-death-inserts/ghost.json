@@ -1,7 +1,7 @@
 {
   "name": "Ghost",
   "type": "equipment",
-  "img": "assets/post-death-inserts/ghost.svg",
+  "img": "assets/post-death-inserts/ghost.png",
   "system": {
     "slug": "ghost",
     "description": "<p>When you <em>die but your soul lingers</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",

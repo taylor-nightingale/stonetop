@@ -1,7 +1,7 @@
 {
 	"_id": "thDOuItwerMnLc0i",
 	"_key": "!items!thDOuItwerMnLc0i",
-	"img": "modules/stonetop/assets/playbooks/the-heavy.svg",
+	"img": "modules/stonetop/assets/playbooks/the-heavy.png",
 	"name": "The Heavy",
 	"type": "playbook",
 	"flags": {
@@ -177,7 +177,7 @@
 					{
 						"slug": "stoneworkers-tools",
 						"label": "Stoneworker's tools",
-						"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+						"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc."
 					},
 					{
 						"slug": "weapons-of-war",

@@ -5,8 +5,8 @@ import {
 	MinorArcanumBackSnapshotBuilder, MinorArcanumFrontSnapshotBuilder,
 	MinorArcanumSnapshotBuilder,
 	ResourceBuilder,
-} from "../../model/CharacterSnapshot.js";
-import { OutfitItemBuilder } from "../../model/data/OutfitItem.js";
+} from "../../model/snapshot/character/CharacterSnapshot.js";
+import { OutfitItemBuilder } from "../../model/data/character/OutfitItem.js";
 
 function _buildOutfitItem(slug, itemData, resolvedResource = undefined) {
 	if (!itemData) return null;
@@ -36,6 +36,7 @@ export class CharacterArcana {
 	get backOptionCounts(){ return this._flags.getFlag("backOptions") ?? {}; }
 
 	async buildSnapshot() {
+		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 		const stats              = this._stats?.getStats() ?? {};
 		const checkedMap         = this._inventory?.checked ?? {};
 		const inventoryResources = this._inventory?.resources ?? {};
@@ -138,24 +139,28 @@ export class CharacterArcana {
 		const slugsWeHae = this.ownedSlugs;
 		slugsWeHae.add(slug);
 		await this._flags.setFlag("owned", [...slugsWeHae]);
+		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 	}
 
 	async removeArcanum(slug) {
 		const s = this.ownedSlugs;
 		s.delete(slug);
 		await this._flags.setFlag("owned", [...s]);
+		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 	}
 
 	async flipArcanum(slug) {
 		const s = this.flippedSlugs;
 		s.add(slug);
 		await this._flags.setFlag("flipped", [...s]);
+		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 	}
 
 	async unflipArcanum(slug) {
 		const s = this.flippedSlugs;
 		s.delete(slug);
 		await this._flags.setFlag("flipped", [...s]);
+		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 	}
 
 	async setUnlockCount(arcanumSlug, optionSlug, count) {

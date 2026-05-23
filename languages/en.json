@@ -95,7 +95,8 @@
 				"basicMoves": "Basic Moves",
 				"otherMoves": "Other Moves",
 				"addMove": "Add Move",
-				"removeMove": "Remove Move"
+				"removeMove": "Remove Move",
+				"requires": "Requires"
 			},
 			"selection": {
 				"select": "Select",

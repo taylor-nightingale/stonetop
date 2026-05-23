@@ -3,7 +3,7 @@ import {
 	BackgroundChoicesSnapshotBuilder,
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
-} from "../../model/CharacterSnapshot.js";
+} from "../../model/snapshot/character/CharacterSnapshot.js";
 
 function _toSlug(name) {
 	return name.toLowerCase()

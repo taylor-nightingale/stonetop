@@ -302,8 +302,9 @@ body,
 .stonetop-debility input[type="checkbox"] {
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px;
-	height: 14px;
+	width: 14px !important;
+	height: 14px !important;
+	flex: 0 0 14px !important;
 	border-radius: 50% !important;
 	border: 1.5px solid #555 !important;
 	background: transparent !important;
@@ -661,6 +662,29 @@ body,
 	font-weight: bold;
 }
 
+.stonetop-origin-names {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 4px;
+	margin-top: 4px;
+}
+
+.stonetop-origin-name {
+	background: none;
+	border: 1px solid var(--color-border-light-2);
+	border-radius: 3px;
+	padding: 2px 6px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	font-family: inherit;
+	width: fit-content;
+}
+
+.stonetop-origin-name:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
 /* ~ Selection fields */
 
 /* -- Sheet layout (sidebar persists across all tabs) ------- */
@@ -748,13 +772,13 @@ body,
 .stonetop-item-check {
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px;
-	height: 14px;
+	width: 14px !important;
+	height: 14px !important;
+	flex: 0 0 14px !important;
 	border-radius: 2px !important;
 	border: 2px solid var(--color-text-dark-primary) !important;
 	background: transparent !important;
 	cursor: pointer;
-	flex-shrink: 0;
 	margin: 0;
 }
 
@@ -817,13 +841,13 @@ body,
 .stonetop-possession-sub-radio {
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px;
-	height: 14px;
+	width: 14px !important;
+	height: 14px !important;
+	flex: 0 0 14px !important;
 	border-radius: 2px !important;
 	border: 2px solid var(--color-text-dark-primary) !important;
 	background: transparent !important;
 	cursor: pointer;
-	flex-shrink: 0;
 	margin: 0;
 }
 
@@ -1092,20 +1116,33 @@ body,
 }
 
 /* -- Playbook icon -------------------------------------------- */
-.stonetop-playbook-icon {
+.stonetop-playbook-header {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.stonetop-playbook-header-left {
+	flex: 1;
+	min-width: 0;
+}
+
+.stonetop-playbook-title-img {
 	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 0 auto 6px;
+	height: 56px;
+	width: auto;
+	margin-bottom: 4px;
+	border: none;
+}
+
+.stonetop-playbook-icon {
+	width: 100px;
+	height: 100px;
+	flex-shrink: 0;
 	object-fit: contain;
 	opacity: 0.85;
-}
-/* When moved into the header alongside the playbook dropdown */
-.sheet-playbook .stonetop-playbook-icon {
-	width: 28px;
-	height: 28px;
-	margin: 0;
-	flex-shrink: 0;
+	border: none;
 }
 
 /* -- Hide PBTA advancement controls on Stonetop sheets -------- */
@@ -1409,6 +1446,16 @@ body,
 	margin-bottom: 4px;
 }
 
+.stonetop-lore-option--text {
+	flex-direction: column;
+}
+
+.stonetop-lore-option-text {
+	width: 100%;
+	min-height: 60px;
+	resize: vertical;
+}
+
 .stonetop-lore-option-checks {
 	flex-shrink: 0;
 	display: flex;
@@ -1420,13 +1467,13 @@ body,
 .stonetop-lore-option-check {
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px;
-	height: 14px;
+	width: 14px !important;
+	height: 14px !important;
+	flex: 0 0 14px !important;
 	border-radius: 2px !important;
 	border: 2px solid var(--color-text-dark-primary) !important;
 	background: transparent !important;
 	cursor: pointer;
-	flex-shrink: 0;
 	margin: 0;
 }
 

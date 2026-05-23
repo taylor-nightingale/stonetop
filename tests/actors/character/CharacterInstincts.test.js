@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterInstincts } from "../../../module/actors/character/CharacterInstincts.js";
-import { InstinctSection } from "../../../module/model/CharacterSnapshot.js";
+import { InstinctSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 function makeFlags(selected = "") {
 	const store = { selected };

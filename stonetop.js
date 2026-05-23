@@ -33,15 +33,15 @@ Hooks.once("init", () => {
 	});
 
 	Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) => i));
+	Handlebars.registerHelper("gt", (a, b) => a > b);
+	Handlebars.registerHelper("eq", (a, b) => a === b);
 
 	Handlebars.registerHelper("repeatChecks", move => {
-		if (!move?.repeat) return [];
-		const { max, current } = move.repeat;
-		const lastOwnedId = move.ownedIds[move.ownedIds.length - 1] ?? null;
-		return Array.from({ length: max }, (_, i) => ({
-			checked:  i < current,
-			ownedId:  i < current ? lastOwnedId : null,
-			disabled: move.isStarting || move.locked || (!(i < current) && i !== current),
+		const sel = move?.selection;
+		if (!sel || sel.max <= 1) return [];
+		return Array.from({ length: sel.max }, (_, i) => ({
+			checked:  i < sel.value,
+			disabled: i < sel.value ? move.isStarting : (!move.selectable || i !== sel.value),
 		}));
 	});
 

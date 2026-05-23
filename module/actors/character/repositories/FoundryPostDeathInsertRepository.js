@@ -1,4 +1,4 @@
-import { PostDeathInsert } from "../../../model/data/PostDeathInsert.js";
+import { PostDeathInsert } from "../../../model/data/character/PostDeathInsert.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 export class FoundryPostDeathInsertRepository {

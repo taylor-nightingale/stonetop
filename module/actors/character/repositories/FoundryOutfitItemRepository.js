@@ -1,4 +1,4 @@
-import { OutfitItemBuilder } from "../../../model/data/OutfitItem.js";
+import { OutfitItemBuilder } from "../../../model/data/character/OutfitItem.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 const FIELDS = [

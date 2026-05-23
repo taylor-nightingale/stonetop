@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterOrigin } from "../../../module/actors/character/CharacterOrigin.js";
-import { OriginSection } from "../../../module/model/CharacterSnapshot.js";
+import { OriginSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Helpers ------------------------------------------------------------------
 

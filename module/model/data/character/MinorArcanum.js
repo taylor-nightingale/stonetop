@@ -1,4 +1,4 @@
-import { Resource } from "./Resource.js";
+import { Resource } from "../Resource.js";
 
 export class MinorArcanumItem {
 	constructor(data) {

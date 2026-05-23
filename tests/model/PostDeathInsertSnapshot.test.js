@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../module/model/snapshot/PostDeathInsertSnapshot.js";
-import { LoreOptionSnapshotBuilder, LoreEntrySnapshotBuilder, LoreSection } from "../../module/model/snapshot/PlaybookSnapshot.js";
-import { InstinctSection, InstinctOptionSnapshotBuilder } from "../../module/model/snapshot/PlaybookSnapshot.js";
+import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../module/model/snapshot/character/PostDeathInsertSnapshot.js";
+import { LoreOptionSnapshotBuilder, LoreEntrySnapshotBuilder, LoreSection } from "../../module/model/snapshot/character/PlaybookSnapshot.js";
+import { InstinctSection, InstinctOptionSnapshotBuilder } from "../../module/model/snapshot/character/PlaybookSnapshot.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
@@ -42,7 +42,7 @@ const buildSnapshot = () =>
 	new PostDeathInsertSnapshotBuilder()
 		.withSlug("revenant")
 		.withName("Revenant")
-		.withImg("icons/svg/skull.svg")
+		.withImg("icons/svg/skull.png")
 		.withDescription("<p>When you die...</p>")
 		.withInstinct(INSTINCT_SECTION)
 		.withMoves([])
@@ -56,7 +56,7 @@ describe("PostDeathInsertSnapshot", () => {
 		const snap = buildSnapshot();
 		expect(snap.slug).toBe("revenant");
 		expect(snap.name).toBe("Revenant");
-		expect(snap.img).toBe("icons/svg/skull.svg");
+		expect(snap.img).toBe("icons/svg/skull.png");
 		expect(snap.description).toBe("<p>When you die...</p>");
 	});
 

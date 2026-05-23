@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterPossessions } from "../../../module/actors/character/CharacterPossessions.js";
-import { PossessionsSnapshot } from "../../../module/model/CharacterSnapshot.js";
+import { PossessionsSnapshot } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 function makeFlags(store = {}) {
 	return {

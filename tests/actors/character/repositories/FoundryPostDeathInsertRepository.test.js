@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { FoundryPostDeathInsertRepository } from "../../../../module/actors/character/repositories/FoundryPostDeathInsertRepository.js";
-import { PostDeathInsert } from "../../../../module/model/data/PostDeathInsert.js";
+import { PostDeathInsert } from "../../../../module/model/data/character/PostDeathInsert.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
 const INSERT_DOC = {
 	name:   "Revenant",
-	img:    "icons/svg/skull.svg",
+	img:    "icons/svg/skull.png",
 	system: { slug: "revenant", description: "<p>When you die...</p>" },
 	flags:  { stonetop: { instincts: [{ word: "Denial" }], lore: [] } },
 };

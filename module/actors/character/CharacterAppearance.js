@@ -1,4 +1,4 @@
-import { AppearanceLineSnapshot, AppearanceOptionSnapshot, AppearanceSection } from "../../model/CharacterSnapshot.js";
+import { AppearanceLineSnapshot, AppearanceOptionSnapshot, AppearanceSection } from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterAppearance {
 	constructor(flags) {

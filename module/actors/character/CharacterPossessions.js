@@ -2,7 +2,7 @@ import {
 	PossessionItemSnapshotBuilder,
 	PossessionsSnapshot,
 	ResourceBuilder,
-} from "../../model/CharacterSnapshot.js";
+} from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterPossessions {
 	constructor(flags, moves) {

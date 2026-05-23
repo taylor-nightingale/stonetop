@@ -1,21 +1,28 @@
 import {
-	InventoryItemSnapshotBuilder,
+	OutfitItemSnapshotBuilder,
 	InventorySegmentSnapshot,
 	InventorySnapshot,
 	LoadOptionSnapshot,
 	LoadSnapshotBuilder,
 	OutfitSnapshotBuilder,
 	ResourceBuilder,
-} from "../../model/CharacterSnapshot.js";
+} from "../../model/snapshot/character/CharacterSnapshot.js";
+import { OutfitItemBuilder } from "../../model/data/character/OutfitItem.js";
 
 export class CharacterInventory {
 	constructor(flags, inventoryRepo, possessions, actor, playbook) {
-		this._flags       = flags;
-		this._repo        = inventoryRepo;
-		this._possessions = possessions;
-		this._actor       = actor;
-		this._playbook    = playbook;
+		this._flags          = flags;
+		this._repo           = inventoryRepo;
+		this._possessions    = possessions;
+		this._actor          = actor;
+		this._playbook       = playbook;
+		this._itemsBySource  = new Map();
 	}
+
+	setVitals(vitals)     { this._vitals = vitals; }
+	setArcanaItems(items) { this._itemsBySource.set("arcana", items); }
+
+	get _additionalItems() { return [...this._itemsBySource.values()].flat(); }
 
 	get checked()      { return this._flags.getFlag("checked") ?? {}; }
 	get resources()    { return this._flags.getFlag("resources") ?? {}; }
@@ -76,19 +83,34 @@ export class CharacterInventory {
 		return this.calculateArmor(allItems);
 	}
 
-	async buildSnapshot(actorItems, arcanaItems = []) {
-		const playbookData = await this._playbook.getData();
-		const actorLevel = this._actor.system?.attributes?.level?.value ?? 1;
-		const checked   = this.checked;
-		const resources = this.resources;
-		const rPool     = this.regularPool;
-		const sPool     = this.smallPool;
-		const loadLevel = this.loadLevel;
-		const allItems  = await this._repo.getAll();
+	async buildSnapshot() {
+		const customItems = [...(this._actor.items ?? [])]
+			.filter(i => i.type === "equipment" && i.system?.equipmentType === "inventory-custom")
+			.map(i => new OutfitItemBuilder()
+				.withSlug(i._id)
+				.withName(i.name)
+				.withWeight(i.system.weight ?? 1)
+				.withNote(null)
+				.withInventoryColumn(i.system.inventoryColumn)
+				.withResource(null)
+				.withTwoCol(false)
+				.withBreakBefore(false)
+				.withOwnedId(i._id)
+				.build());
+		this._itemsBySource.set("custom", customItems);
+		const playbookData    = await this._playbook.getData();
+		const actorLevel      = this._vitals?.level ?? 1;
+		const checked         = this.checked;
+		const resources       = this.resources;
+		const rPool           = this.regularPool;
+		const sPool           = this.smallPool;
+		const loadLevel       = this.loadLevel;
+		const allItems        = await this._repo.getAll();
+		const additionalItems = this._additionalItems;
 
 		const mapItem = (outfitItem) => {
 			const res = outfitItem.resource;
-			return new InventoryItemSnapshotBuilder()
+			return new OutfitItemSnapshotBuilder()
 				.withSlug(outfitItem.slug)
 				.withName(outfitItem.name)
 				.withNote(outfitItem.note)
@@ -100,34 +122,18 @@ export class CharacterInventory {
 					.withTitle(res.title ?? null)
 					.withLabels(res.labels ?? [])
 					.build() : null)
-				.withIsCustom(false)
-				.withOwnedId(null)
+				.withIsCustom(outfitItem.ownedId != null)
+				.withOwnedId(outfitItem.ownedId ?? null)
 				.withTwoCol(outfitItem.twoCol)
 				.withBreakBefore(outfitItem.breakBefore)
 				.build();
 		};
 
-		const customItems = actorItems.filter(i =>
-			i.type === "equipment" && i.system?.equipmentType === "inventory-custom"
-		);
-		const mapCustomItem = item => new InventoryItemSnapshotBuilder()
-			.withSlug(item._id)
-			.withName(item.name)
-			.withNote(null)
-			.withWeight(item.system.weight ?? 1)
-			.withChecked(checked[item._id] ?? false)
-			.withResource(null)
-			.withIsCustom(true)
-			.withOwnedId(item._id)
-			.withTwoCol(false)
-			.withBreakBefore(false)
-			.build();
-
-		const allSmall = allItems.filter(i => i.inventoryColumn === "small");
+		const allSmall   = allItems.filter(i => i.inventoryColumn === "small");
+		const addlSmall  = additionalItems.filter(i => i.inventoryColumn === "small");
 		const flatRegular = [
 			...allItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
-			...customItems.filter(i => i.system.inventoryColumn === "regular").map(mapCustomItem),
-			...arcanaItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
+			...additionalItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
 		];
 
 		const possessions = this._possessions.buildSnapshot(
@@ -154,10 +160,12 @@ export class CharacterInventory {
 			.withRegularPool(new ResourceBuilder().withCurrent(rPool).withMax(9).withTitle(null).withLabels([]).build())
 			.withSmallItems([
 				...allSmall.filter(i => !i.smallGrid).map(mapItem),
-				...customItems.filter(i => i.system.inventoryColumn === "small").map(mapCustomItem),
-				...arcanaItems.filter(i => i.inventoryColumn === "small").map(mapItem),
+				...addlSmall.filter(i => !i.smallGrid).map(mapItem),
 			])
-			.withSmallGridItems(allSmall.filter(i => i.smallGrid).map(mapItem))
+			.withSmallGridItems([
+				...allSmall.filter(i => i.smallGrid).map(mapItem),
+				...addlSmall.filter(i => i.smallGrid).map(mapItem),
+			])
 			.withSmallPool(new ResourceBuilder().withCurrent(sPool).withMax(9).withTitle(null).withLabels([]).build())
 			.build();
 

@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>carry a shield</em></strong>, you suffer reduced encumbrance from it. Also, you can ignore the cumbersome tag on any armor you wear.</p><p>If you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome).</p>"
+		"description": "<p>When you <strong><em>carry a shield</em></strong>, mark only ◆ (instead of ◆◆). Also, you can ignore the <em>cumbersome</em> tag on any armor you wear.</p><p>If you take this move at the start of play, add an ◇◇ iron hauberk, ◇◇ bronze cuirass, or ◇◇ scale coat to your inventory (all are 2 armor, warm, cumbersome).</p>"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

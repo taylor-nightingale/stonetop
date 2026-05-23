@@ -1,4 +1,3 @@
-import {MoveResourceButton} from "./elements/move-resource-button.js";
 import {BackgroundInputChoice} from "./elements/background-input-choice.js";
 import {PossessionUseButton} from "./elements/possession-use-button.js";
 
@@ -46,11 +45,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".cell--stats .stat[data-stat]").each((_, el) => {
 				$(el).append(`<span class="stonetop-stat-abbr">(${el.dataset.stat.toUpperCase()})</span>`);
 			});
-
-			// Move playbook icon into header alongside playbook dropdown
-			const icon = html[0].querySelector(".stonetop-playbook-icon");
-			const playbookDiv = html[0].querySelector(".sheet-playbook");
-			if (icon && playbookDiv) playbookDiv.insertBefore(icon, playbookDiv.firstChild);
 
 			if (!this.isEditable) return;
 
@@ -103,8 +97,8 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (doc) doc.sheet.render(true);
 			});
 			html.find(".stonetop-other-move-delete").on("click", async ev => {
-				const { itemId } = ev.currentTarget.dataset;
-				await this._stonetopCharacter.removeMove(itemId);
+				const { moveName } = ev.currentTarget.dataset;
+				await this._stonetopCharacter.deleteMove(moveName);
 			});
 
 			html[0].addEventListener("click", ev => {
@@ -220,16 +214,19 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onMoveCheck(ev) {
 			const el = ev.currentTarget;
+			const { categoryKey, moveName } = el.dataset;
 			if (el.checked) {
-				await this._stonetopCharacter.addMove(el.dataset.compendiumId);
+				await this._stonetopCharacter.incrementMove(categoryKey, moveName);
 			} else {
-				await this._stonetopCharacter.removeMove(el.dataset.ownedId);
+				await this._stonetopCharacter.decrementMove(categoryKey, moveName);
 			}
 		}
 
 		async _onMoveResourceChange(ev) {
-			const button = new MoveResourceButton(ev);
-			await this._stonetopCharacter.addMoveResource(button);
+			const { categoryKey, moveName, index } = ev.currentTarget.dataset;
+			const isChecked = ev.currentTarget.classList.contains("is-checked");
+			const current = isChecked ? Number(index) : Number(index) + 1;
+			await this._stonetopCharacter.setMoveResourceCurrent(categoryKey, moveName, current);
 		}
 
 		async _onBgChoiceChange(ev) {

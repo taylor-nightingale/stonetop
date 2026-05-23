@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
 	MinorArcanum, MinorArcanumFront, MinorArcanumBack,
 	MinorArcanumItem,
-} from "../../module/model/data/MinorArcanum.js";
+} from "../../module/model/data/character/MinorArcanum.js";
 import { Resource } from "../../module/model/data/Resource.js";
 
 // -- Fixtures -----------------------------------------------------------------

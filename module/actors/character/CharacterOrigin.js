@@ -1,4 +1,4 @@
-import { OriginOptionSnapshot, OriginSection } from "../../model/CharacterSnapshot.js";
+import { OriginOptionSnapshot, OriginSection } from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterOrigin {
 	constructor(flags, actor) {

@@ -10,6 +10,7 @@ export class OutfitItem {
 		this.smallGrid       = b._smallGrid;
 		this.breakBefore     = b._breakBefore;
 		this.armor           = b._armor ?? null;
+		this.ownedId         = b._ownedId ?? null;
 	}
 }
 
@@ -24,5 +25,6 @@ export class OutfitItemBuilder {
 	withSmallGrid(v)       { this._smallGrid       = v; return this; }
 	withBreakBefore(v)     { this._breakBefore     = v; return this; }
 	withArmor(v)           { this._armor           = v; return this; }
+	withOwnedId(v)         { this._ownedId         = v; return this; }
 	build()                { return new OutfitItem(this); }
 }
