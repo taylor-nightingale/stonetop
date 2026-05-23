@@ -169,28 +169,30 @@
 						"slug": "personal-token",
 						"label": "Personal token",
 						"description": "something that marks your place as a would-be hero.",
-						"choices": {
-							"pickCount": 1,
-							"options": [
-								{
-									"slug": "family-heirloom",
-									"label": "A family heirloom (reroll one failed roll per session)"
-								},
-								{
-									"slug": "lucky-charm",
-									"label": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)",
-									"resource": {
-										"max": 1,
-										"title": null,
-										"labels": []
+						"choices": [
+							{
+								"pickCount": 1,
+								"options": [
+									{
+										"slug": "family-heirloom",
+										"label": "A family heirloom (reroll one failed roll per session)"
+									},
+									{
+										"slug": "lucky-charm",
+										"label": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)",
+										"resource": {
+											"max": 1,
+											"title": null,
+											"labels": []
+										}
+									},
+									{
+										"slug": "trophy",
+										"label": "A trophy from a past victory"
 									}
-								},
-								{
-									"slug": "trophy",
-									"label": "A trophy from a past victory"
-								}
-							]
-						}
+								]
+							}
+						]
 					},
 					{
 						"slug": "smithy",

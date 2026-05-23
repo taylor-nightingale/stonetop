@@ -58,8 +58,7 @@
 					"name": "When lightning courses through the staff",
 					"rollType": null,
 					"description": "<p>It holds 3 Charge (max 3). While the staff holds Charge and you focus your will through it, you can sense and slowly move iron, steel, cobalt, and nickel within near range. Tap into the power to extend range, move items quickly enough to attack, or manipulate heavy objects. Each tap: roll 1d6; if higher than current Charge, lose 1 Charge.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

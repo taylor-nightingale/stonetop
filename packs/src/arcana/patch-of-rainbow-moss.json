@@ -48,8 +48,7 @@
 					"name": "When you lie down in the rainbow moss and cast your mind into the Great Wood",
 					"rollType": "wis",
 					"description": "<p>Say what you are looking for and roll +WIS: <strong>on a 10+</strong>, pick 3; <strong>on a 7-9</strong>, pick 1: you learn the location of your quarry; you get a sense of their recent activities; you discover something unexpected about the forest; you spend only an hour adrift (else, you spend all day).</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

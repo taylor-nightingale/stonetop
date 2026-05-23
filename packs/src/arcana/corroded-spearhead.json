@@ -63,8 +63,7 @@
 					"name": "When you Clash with the aetherium spear and get a 7+",
 					"rollType": null,
 					"description": "<p>You can mark a debility to blast your foe with lightning, dealing +1d6 damage (<em>forceful, loud</em>). When you point the spear at your foes and bellow a thunderous warcry, mark a debility and unleash a blast of lightning (<em>far, area, forceful, loud, dangerous</em>), rolling +STR to Let Fly.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

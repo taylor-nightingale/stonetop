@@ -53,8 +53,7 @@
 					"name": "When you channel the storm primeval and utter a thunderous bellow",
 					"rollType": "con",
 					"description": "<p>Take 1d6 damage (ignores armor) and roll +CON. <strong>On a 10+</strong>, everyone nearby (except you) must choose 2; <strong>on a 7-9</strong>, everyone nearby (except you) must choose 1:</p><ul><li>Drop what they're carrying and cover their ears</li><li>Be deafened and disoriented for a few moments</li><li>Stagger a few steps away from you</li></ul>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

@@ -48,8 +48,7 @@
 					"name": "When you mark an object with the sigil of sanctification",
 					"rollType": "int",
 					"description": "<p>It repels beings of darkness, chaos, and death. Each time you place the mark, part of you becomes paler. When a being of darkness, chaos, or death first tests the power of your mark, roll +INT: <strong>on a 10+</strong>, all such creatures are kept at bay so long as your mark remains inviolate; <strong>on a 7-9</strong>, such creatures feel the urge to flee and are held back for now.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

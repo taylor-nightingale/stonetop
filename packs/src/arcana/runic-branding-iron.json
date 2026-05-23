@@ -53,8 +53,7 @@
 					"name": "When you call up the fire from your soul and pour it into your hands",
 					"rollType": "con",
 					"description": "<p>Roll +CON: <strong>on a 7+</strong>, your hands blaze like white-hot iron; <strong>on a 10+</strong>, first pick 1; <strong>on a 7-9</strong>, first pick 2: takes minutes of focus; costs 2d4 HP; marks a debility. While blazing, your touch deals 1d10 damage (band, messy, dangerous, 1 piercing) and sets fire to wood, boils water, heats metal.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

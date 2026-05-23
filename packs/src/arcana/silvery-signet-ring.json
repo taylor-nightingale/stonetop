@@ -58,8 +58,7 @@
 					"name": "When you Strengthen Your Bond with a member of your community",
 					"rollType": null,
 					"description": "<p>You can choose to hold +1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you remove the ring, lose all Authority. While holding Authority, you have advantage on Persuade. Spend Authority 1-for-1 to: wrap yourself in majesty; will someone to do as you wish; have a follower suffer an attack on your behalf.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

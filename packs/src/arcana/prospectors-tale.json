@@ -57,8 +57,7 @@
 					"name": "When you spend supplies (Value 2) and a full season a-crafting, chanting the Sublime Words all the while",
 					"rollType": "wis",
 					"description": "<p>No matter what, you've damaged your voice and made a thing of true beauty (Value 4). <strong>On a 10+</strong>, pick 1: beauty persists through the ages; eases pain and lifts grief; inspires others to better themselves. <strong>On a 7-9</strong>, pick 1 and further damage your voice. <strong>On a 6-</strong>, it stokes greed and fear.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

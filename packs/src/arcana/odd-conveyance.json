@@ -53,8 +53,7 @@
 					"name": "When you grasp the tiller and focus",
 					"rollType": null,
 					"description": "<p>You can adjust how much the craft's aetherium repels the earth. When properly adjusted, it hovers a few feet above the earth and can sail across the landscape.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

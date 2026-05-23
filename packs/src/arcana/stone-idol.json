@@ -48,8 +48,7 @@
 					"name": "When you put the idol in a prominent place and beseech it to attend its humble servant",
 					"rollType": null,
 					"description": "<p>It wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

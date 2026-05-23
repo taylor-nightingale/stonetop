@@ -67,8 +67,7 @@
 					"name": "When you speak the secret word and wear the aetherium glove and grasp where the string should be",
 					"rollType": null,
 					"description": "<p>A crackling line of lightning appears between the horns. Draw back the lightning to form a thunderbolt arrow. You must charge the bow with lightning to replenish ammo. Drawing back for at least ten deep breaths lets you deplete ammo for a more powerful shot (+1d4, +area, +dangerous).</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

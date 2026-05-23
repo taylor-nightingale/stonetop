@@ -48,8 +48,7 @@
 					"name": "When you will dark ice to form",
 					"rollType": "con",
 					"description": "<p>Lose 1 HP, +1 HP for each quality you desire (enough to encase a person, hard as stone, solid to spirits). Then roll +CON: <strong>on a 10+</strong>, pick 2; <strong>on a 7-9</strong>, pick 1, or pick 2 and lose 2 more HP: it forms quickly; it forms at up to <em>near</em> range; its shape is as intricate as you can imagine.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

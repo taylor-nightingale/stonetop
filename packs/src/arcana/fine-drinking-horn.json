@@ -53,8 +53,7 @@
 					"name": "When you get yourself good and drunk from the horn",
 					"rollType": null,
 					"description": "<p>Mark a debility. You call up a storm, centered on your location. Roll four d4s (one extra per additional debility marked). Assign one d4 each to: Onset (1=next day, 4=within the hour); Intensity (1=dangerous to be out, 4=damages sturdy structures); Reach (1=a mile, 4=scores of miles); Duration (1=under an hour, 4=a day). Until the storm passes, you can't clear debilities.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

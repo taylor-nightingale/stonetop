@@ -43,8 +43,7 @@
 					"name": "When you stand among dool trees and play the proper tune on a flute of a murderer's bone",
 					"rollType": "cha",
 					"description": "<p>You summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

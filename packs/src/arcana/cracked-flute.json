@@ -39,8 +39,7 @@
 					"name": "When you play a tune to make the wind itself dance",
 					"rollType": "cha",
 					"description": "<p>The andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you dismiss the spirit while it holds no Loyalty, the flute splits and falls apart; the andalau is set free.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

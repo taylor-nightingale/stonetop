@@ -58,8 +58,7 @@
 					"name": "When you wear the mask and eat someone's hair, blood, fingernail, etc.",
 					"rollType": "cha",
 					"description": "<p>You and the mask become their flawless double until the next sunrise or until you remove the mask. When interacting with someone who knows your subject, roll +CHA: <strong>on a 10+</strong>, hold 3 Ken; <strong>on a 7-9</strong>, hold 1 Ken; <strong>on a 6-</strong>, they are deeply suspicious.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

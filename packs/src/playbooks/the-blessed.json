@@ -218,105 +218,101 @@
 								}
 							]
 						},
-						"choiceGroups": [
+						"resource": {
+							"max": 3,
+							"title": "Stock",
+							"labels": []
+						},
+						"choices": [
 							{
 								"heading": "Your sacred pouch is...",
-								"note": "choose 1 on each line",
-								"subgroups": [
+								"note": "choose 1 on each line"
+							},
+							{
+								"pickCount": 1,
+								"options": [
 									{
-										"pickCount": 1,
-										"options": [
-											{
-												"slug": "origin-heirloom",
-												"label": "an heirloom made just for you"
-											},
-											{
-												"slug": "origin-own-work",
-												"label": "your own work"
-											}
-										]
+										"slug": "origin-heirloom",
+										"label": "an heirloom made just for you"
 									},
 									{
-										"pickCount": 1,
-										"options": [
-											{
-												"slug": "material-fur",
-												"label": "fur"
-											},
-											{
-												"slug": "material-drakescale",
-												"label": "drakescale"
-											},
-											{
-												"slug": "material-leather",
-												"label": "leather"
-											},
-											{
-												"slug": "material-woven",
-												"label": "woven"
-											},
-											{
-												"slug": "material-demonflesh",
-												"label": "demonflesh"
-											}
-										]
+										"slug": "origin-own-work",
+										"label": "your own work"
+									}
+								]
+							},
+							{
+								"pickCount": 1,
+								"options": [
+									{
+										"slug": "material-fur",
+										"label": "fur"
 									},
 									{
-										"pickCount": 1,
-										"options": [
-											{
-												"slug": "decor-unadorned",
-												"label": "unadorned"
-											},
-											{
-												"slug": "decor-beadwork",
-												"label": "beadwork"
-											},
-											{
-												"slug": "decor-rich-dyes",
-												"label": "rich dyes"
-											},
-											{
-												"slug": "decor-runes",
-												"label": "runes"
-											}
-										]
+										"slug": "material-drakescale",
+										"label": "drakescale"
+									},
+									{
+										"slug": "material-leather",
+										"label": "leather"
+									},
+									{
+										"slug": "material-woven",
+										"label": "woven"
+									},
+									{
+										"slug": "material-demonflesh",
+										"label": "demonflesh"
+									}
+								]
+							},
+							{
+								"pickCount": 1,
+								"options": [
+									{
+										"slug": "decor-unadorned",
+										"label": "unadorned"
+									},
+									{
+										"slug": "decor-beadwork",
+										"label": "beadwork"
+									},
+									{
+										"slug": "decor-rich-dyes",
+										"label": "rich dyes"
+									},
+									{
+										"slug": "decor-runes",
+										"label": "runes"
 									}
 								]
 							},
 							{
 								"heading": "What remarkable trait does it possess?",
-								"note": "choose 1",
-								"subgroups": [
+								"note": "choose 1"
+							},
+							{
+								"pickCount": 1,
+								"options": [
 									{
-										"multiSelect": true,
-										"options": [
-											{
-												"slug": "trait-indestructible",
-												"label": "It cannot be cut, torn, or burned by any natural means."
-											},
-											{
-												"slug": "trait-unnoticed",
-												"label": "Unless someone is specifically searching for your pouch, they will ignore its presence."
-											},
-											{
-												"slug": "trait-sealed",
-												"label": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
-											},
-											{
-												"slug": "trait-unclean",
-												"label": "Unnatural and unclean creatures cannot bear to touch it."
-											}
-										]
+										"slug": "trait-indestructible",
+										"label": "It cannot be cut, torn, or burned by any natural means."
+									},
+									{
+										"slug": "trait-unnoticed",
+										"label": "Unless someone is specifically searching for your pouch, they will ignore its presence."
+									},
+									{
+										"slug": "trait-sealed",
+										"label": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
+									},
+									{
+										"slug": "trait-unclean",
+										"label": "Unnatural and unclean creatures cannot bear to touch it."
 									}
 								]
 							}
-						],
-						"resource": {
-							"max": 3,
-							"title": "Stock",
-							"labels": []
-						}
+						]
 					},
 					{
 						"slug": "apiary",
@@ -379,19 +375,70 @@
 					"title": "The Earth Mother",
 					"description": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>",
 					"options": [
-						{ "slug": "shrine-loved",     "description": "... loved, well-used, dripping with offerings and petitions.", "max": 1 },
-						{ "slug": "shrine-token",     "description": "... little more than a token of respect, for her holy places are anywhere but here.", "max": 1 },
-						{ "slug": "shrine-berth",     "description": "... given wide berth by most, and approached only with care and propitiation.", "max": 1 },
-						{ "slug": "shrine-neglected", "description": "... neglected and all but forgotten, except by a few.", "max": 1 },
-						{ "slug":  "danu-offerings", "description":  "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"},
-						{ "slug": "fruits-of-harvest", "description": "Fruits of harvest",    "max": 1 },
-						{ "slug": "figurines",         "description": "Figurines/effigies",   "max": 1 },
-						{ "slug": "whisky",            "description": "Whisky/spirits",        "max": 1 },
-						{ "slug": "salt",              "description": "Salt/crystals",          "max": 1 },
-						{ "slug": "rain-water",        "description": "Pure rain water",        "max": 1 },
-						{ "slug": "metal-nails",       "description": "Metal nails/tools",      "max": 1 },
-						{ "slug": "blood",             "description": "Blood/burnt flesh",      "max": 1 },
-						{ "slug": "incense",           "description": "Incense/sage bark",      "max": 1 }
+						{
+							"slug": "shrine-loved",
+							"description": "... loved, well-used, dripping with offerings and petitions.",
+							"max": 1
+						},
+						{
+							"slug": "shrine-token",
+							"description": "... little more than a token of respect, for her holy places are anywhere but here.",
+							"max": 1
+						},
+						{
+							"slug": "shrine-berth",
+							"description": "... given wide berth by most, and approached only with care and propitiation.",
+							"max": 1
+						},
+						{
+							"slug": "shrine-neglected",
+							"description": "... neglected and all but forgotten, except by a few.",
+							"max": 1
+						},
+						{
+							"slug": "danu-offerings",
+							"description": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
+						},
+						{
+							"slug": "fruits-of-harvest",
+							"description": "Fruits of harvest",
+							"max": 1
+						},
+						{
+							"slug": "figurines",
+							"description": "Figurines/effigies",
+							"max": 1
+						},
+						{
+							"slug": "whisky",
+							"description": "Whisky/spirits",
+							"max": 1
+						},
+						{
+							"slug": "salt",
+							"description": "Salt/crystals",
+							"max": 1
+						},
+						{
+							"slug": "rain-water",
+							"description": "Pure rain water",
+							"max": 1
+						},
+						{
+							"slug": "metal-nails",
+							"description": "Metal nails/tools",
+							"max": 1
+						},
+						{
+							"slug": "blood",
+							"description": "Blood/burnt flesh",
+							"max": 1
+						},
+						{
+							"slug": "incense",
+							"description": "Incense/sage bark",
+							"max": 1
+						}
 					]
 				}
 			]

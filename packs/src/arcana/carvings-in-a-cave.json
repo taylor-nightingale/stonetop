@@ -53,8 +53,7 @@
 					"name": "When you touch a dying, intelligent being, speaking their name and words of binding",
 					"rollType": "int",
 					"description": "<p>Roll +INT: <strong>on a 10+</strong>, you bind their soul to your flesh; <strong>on a 7-9</strong>, you bind their soul but weaken yours—reduce your max HP by 1d4+1.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

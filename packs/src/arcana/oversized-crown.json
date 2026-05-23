@@ -63,8 +63,7 @@
 					"name": "When you touch the crown and speak the Words of Being",
 					"rollType": null,
 					"description": "<p>The spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you touch the crown and chant the Words of Unbeing, the spirit can return to the void—if it wants.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

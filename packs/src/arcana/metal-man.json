@@ -53,8 +53,7 @@
 					"name": "As long as fire burns in the stove-like chest",
 					"rollType": null,
 					"description": "<p>The hearth spirit will animate the construct. Treat it as a follower.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

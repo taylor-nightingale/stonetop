@@ -87,10 +87,13 @@ export class CharacterPossessions {
 				items.push(_buildPossessionOutfitItem(item));
 			}
 			const selected = new Set(subChoicesMap[opt.slug] ?? []);
-			for (const choice of opt.choices?.options ?? []) {
-				if (!selected.has(choice.slug)) continue;
-				for (const item of choice.outfitItems ?? []) {
-					items.push(_buildPossessionOutfitItem(item));
+			for (const row of (opt.choices ?? [])) {
+				if (!row.options) continue;
+				for (const choice of row.options) {
+					if (!selected.has(choice.slug)) continue;
+					for (const item of choice.outfitItems ?? []) {
+						items.push(_buildPossessionOutfitItem(item));
+					}
 				}
 			}
 		}
@@ -128,8 +131,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(null)
-				.withChoiceGroups(null)
+				.withChoices(isSelected ? _buildChoicesSnapshot(opt, this.subChoices[opt.slug] ?? []) : null)
 				.build();
 		});
 
@@ -138,6 +140,24 @@ export class CharacterPossessions {
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────
+
+function _buildChoicesSnapshot(opt, selectedSlugs) {
+	if (!opt.choices?.length) return null;
+	const sel = new Set(selectedSlugs);
+	return opt.choices.map((row, rowIdx) => {
+		if (row.heading != null) return { heading: row.heading, note: row.note ?? null };
+		return {
+			groupId:  `${opt.slug}-row-${rowIdx}`,
+			slugsCsv: (row.options ?? []).map(o => o.slug).join(","),
+			radio:    (row.pickCount ?? 1) === 1,
+			options:  (row.options ?? []).map(o => ({
+				slug:    o.slug,
+				label:   o.label,
+				checked: sel.has(o.slug),
+			})),
+		};
+	});
+}
 
 function _buildPossessionOutfitItem(data) {
 	return new OutfitItemBuilder()

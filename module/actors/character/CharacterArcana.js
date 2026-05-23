@@ -30,20 +30,18 @@ export class CharacterArcana {
 		this._inventory  = inventory;
 	}
 
-	get ownedSlugs()      { return new Set(this._flags.getFlag("owned") ?? []); }
-	get flippedSlugs()    { return new Set(this._flags.getFlag("flipped") ?? []); }
-	get unlockCounts()    { return this._flags.getFlag("unlock") ?? {}; }
-	get backOptionCounts(){ return this._flags.getFlag("backOptions") ?? {}; }
+	get ownedSlugs()   { return new Set(this._flags.getFlag("owned") ?? []); }
+	get flippedSlugs() { return new Set(this._flags.getFlag("flipped") ?? []); }
+	get unlockCounts() { return this._flags.getFlag("unlock") ?? {}; }
 
 	async buildSnapshot() {
 		await this._inventory?.setArcanaItems(await this.weightedInventoryItems());
 		const stats              = this._stats?.getStats() ?? {};
 		const checkedMap         = this._inventory?.checked ?? {};
 		const inventoryResources = this._inventory?.resources ?? {};
-		const ownedSlugs       = this.ownedSlugs;
-		const flippedSlugs     = this.flippedSlugs;
-		const unlockCounts     = this.unlockCounts;
-		const backOptionCounts = this.backOptionCounts;
+		const ownedSlugs   = this.ownedSlugs;
+		const flippedSlugs = this.flippedSlugs;
+		const unlockCounts = this.unlockCounts;
 
 		const fetchedItems = await this._arcanaRepo.findBySlugs([...ownedSlugs]);
 
@@ -51,7 +49,7 @@ export class CharacterArcana {
 			const flipped = flippedSlugs.has(item.slug);
 
 			const unlockItems = item.front.unlock.requirements.map(li => {
-				if (li.type === "text") return new ArcanaUnlockTextItem(li.content);
+				if (li.type === "text") return new ArcanaUnlockTextItem(li.description);
 				const count = unlockCounts[`${item.slug}:${li.slug}`] ?? 0;
 				return new ArcanaUnlockOptionSnapshotBuilder()
 					.withSlug(li.slug)
@@ -68,17 +66,6 @@ export class CharacterArcana {
 				.withDescription(item.front.description)
 				.withUnlock(new ArcanumUnlockSection(item.front.unlock.description, unlockItems))
 				.build();
-
-			const backOpts = (item.back.options ?? []).map(o => {
-				const count = backOptionCounts[`${item.slug}:${o.slug}`] ?? 0;
-				return new ArcanaUnlockOptionSnapshotBuilder()
-					.withSlug(o.slug)
-					.withDescription(o.description)
-					.withCount(count)
-					.withMax(o.max ?? 1)
-					.withSelected(count > 0)
-					.build();
-			});
 
 			const backResource = item.back.resource
 				? new ResourceBuilder()
@@ -117,7 +104,6 @@ export class CharacterArcana {
 				.withDescription(item.back.description)
 				.withResource(backResource)
 				.withMove(backMove)
-				.withOptions(backOpts)
 				.build();
 
 			return new MinorArcanumSnapshotBuilder()
@@ -166,11 +152,6 @@ export class CharacterArcana {
 	async setUnlockCount(arcanumSlug, optionSlug, count) {
 		const key = `${arcanumSlug}:${optionSlug}`;
 		await this._flags.setFlag("unlock", { ...this.unlockCounts, [key]: count });
-	}
-
-	async setBackOptionCount(arcanumSlug, optionSlug, count) {
-		const key = `${arcanumSlug}:${optionSlug}`;
-		await this._flags.setFlag("backOptions", { ...this.backOptionCounts, [key]: count });
 	}
 
 	async weightedInventoryItems() {

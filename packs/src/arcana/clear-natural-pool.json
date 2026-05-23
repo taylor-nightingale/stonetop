@@ -23,7 +23,7 @@
 						},
 						{
 							"type": "text",
-							"content": "or…"
+							"description": "or…"
 						},
 						{
 							"type": "option",
@@ -47,8 +47,7 @@
 					"name": "When you cut yourself with iron or steel and toss the bladed metal into the pool",
 					"rollType": null,
 					"description": "<p>You form a bond with the waters. So long as you carry a vial of the pool's water on your person, you are protected by the ward of still waters.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

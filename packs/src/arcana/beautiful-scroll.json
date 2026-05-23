@@ -54,8 +54,7 @@
 				"item": null,
 				"description": "<p>You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.</p><p><strong>Tulpa</strong><br><em>Spirit, construct, tiny, naive,</em> □ <em>eager</em><br>□ <em>fierce</em> □ <em>kind</em> □ <em>sly</em> □ <em>timid</em> □ <em>willful</em><br><strong>HP</strong> 8; <strong>Armor</strong> 0<br><strong>Damage</strong> 1d4 (if that)<br><strong>Instinct</strong> □ to play □ to learn □ to flaunt<br>▶ Manifest a form of dust/snow/vapor<br>▶ Produce light (<em>area, reach</em>)<br>▶ Carry/manipulate a ◇ item<br>▶ Deliver a message<br>▶ Spy on someone/something<br><strong>Cost</strong> □ respect given □ new experiences □ comfort/compassion (Loyalty: ○○○)</p>",
 				"resource": null,
-				"move": null,
-				"options": []
+				"move": null
 			}
 		}
 	}

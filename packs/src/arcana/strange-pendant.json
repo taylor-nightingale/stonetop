@@ -53,8 +53,7 @@
 					"name": "When you lean over a dying person, suck out their final breath, and breathe it into the pendant",
 					"rollType": "con",
 					"description": "<p>Roll +CON: <strong>on a 10+</strong>, hold +1 Breath; <strong>on a 7-9</strong>, pick 1: hold 1 Breath but mark miserable and suffer a nasty coughing fit, or the pendant gains no benefit for you.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

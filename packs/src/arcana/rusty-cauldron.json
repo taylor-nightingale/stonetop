@@ -53,8 +53,7 @@
 					"name": "When you boil the bones of beasts in the cauldron and stir in your own fresh blood",
 					"rollType": null,
 					"description": "<p>Mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower. For each debility marked, pick 1: it is stable (else falls apart in a day); it is not clumsy; replace its instinct with \"to shun light.\"</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

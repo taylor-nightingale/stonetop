@@ -43,8 +43,7 @@
 					"name": "When you mark a place with the peacebond glyphs",
 					"rollType": "wis",
 					"description": "<p>Violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. When you attempt to commit violence within a peacebonded area and will yourself to continue, lose 1d4 HP and roll +WIS: <strong>on a 10+</strong>, go for it; <strong>on a 7-9</strong>, you act but with disadvantage on violence rolls; <strong>on a 6-</strong>, you fail and mark <em>dazed</em>.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

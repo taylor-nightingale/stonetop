@@ -63,8 +63,7 @@
 					"name": "When you spend a night beneath the full moon",
 					"rollType": null,
 					"description": "<p>Directing its light into the moonstone, it gains 1 hour of light (max 5). Hold aloft in darkness and utter a sacred word: shines with pale white light (area, near) revealing undead and masked entities. Shout the proper word when it's your only light: blazes, all undead in range take 1d6 damage per hour remaining. Then goes dark until recharged.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

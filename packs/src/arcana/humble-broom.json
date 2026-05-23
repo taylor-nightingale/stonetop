@@ -58,8 +58,7 @@
 					"name": "When you start sweeping an area as you softly sing the lullaby",
 					"rollType": "cha",
 					"description": "<p>Roll +CHA: <strong>on a 7+</strong>, those who see and hear you stop to watch and listen, entranced. <strong>On a 10+</strong>, you can hold their attention for the length of the lullaby. When you sing the full lullaby while sweeping, roll +CHA: <strong>on a 10+</strong>, all who hear fall into a deep sleep; <strong>on a 7-9</strong>, they nod off but will remember; <strong>on a 6-</strong>, at least one snaps to.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

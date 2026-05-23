@@ -53,8 +53,7 @@
 					"name": "When you spend the better part of a day wearing the ring and worshipping Helior in full sunlight",
 					"rollType": null,
 					"description": "<p>Hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

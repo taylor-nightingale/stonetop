@@ -28,7 +28,7 @@
 						},
 						{
 							"type": "text",
-							"content": "or…"
+							"description": "or…"
 						},
 						{
 							"type": "option",
@@ -47,8 +47,7 @@
 					"name": "When you make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull",
 					"rollType": null,
 					"description": "<p>It manifests before you in shadows. The shade knows much about ancient times, the Green Lords, and their workings. It will demand the right to \"ride\" you before answering questions.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

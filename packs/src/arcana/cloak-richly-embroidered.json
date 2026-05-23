@@ -48,8 +48,7 @@
 					"name": "When you wear the cloak and speak the word of command",
 					"rollType": null,
 					"description": "<p>The storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

@@ -43,8 +43,7 @@
 					"name": "When you precisely inscribe the flowing runes of the fiery veil along the outside of an area",
 					"rollType": null,
 					"description": "<p>The area is warded for as long as the runes remain intact. When anyone tries to scry on the warded area from afar, or view it from the spirit realm, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

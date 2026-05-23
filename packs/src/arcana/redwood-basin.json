@@ -38,7 +38,7 @@
 						},
 						{
 							"type": "text",
-							"content": "When you mark the last requirement and unlock this arcanum, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
+							"description": "When you mark the last requirement and unlock this arcanum, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
 						}
 					]
 				}
@@ -61,8 +61,7 @@
 					"name": "When you fill the basin with a few years of your life",
 					"rollType": null,
 					"description": "<p>It becomes a draught of honey and regret. Either mark the next age (and update your look), or mark one: your mood shifts dramatically; you see the Last Door; reduce STR, DEX, or CON by 1; you have less than a year to live. When someone drinks it all, they pick 1: regain all HP and clear debilities; purge poison/disease; fully recover from a permanent injury by next season.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

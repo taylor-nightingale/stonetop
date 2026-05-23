@@ -48,8 +48,7 @@
 					"name": "When you strike the chime forcefully and will yourself to maintain your grip upon it",
 					"rollType": "con",
 					"description": "<p>Mark a debility and roll +CON. <strong>On a 10+</strong>, you maintain control: while the chime rings (about a minute), any stone, crystal, or glass you touch becomes soft and malleable. <strong>On a 7-9</strong>, pick 1: maintain control but mark another debility; or dampen the chime before it causes harm.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

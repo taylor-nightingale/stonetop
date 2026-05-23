@@ -166,7 +166,6 @@ export class PossessionItemSnapshot {
 		this.resource          = b._resource;
 		this.usesLabel         = b._usesLabel;
 		this.choices           = b._choices;
-		this.choiceGroups      = b._choiceGroups;
 	}
 }
 
@@ -182,7 +181,6 @@ export class PossessionItemSnapshotBuilder {
 	withResource(v)          { this._resource          = v; return this; }
 	withUsesLabel(v)         { this._usesLabel         = v; return this; }
 	withChoices(v)           { this._choices           = v; return this; }
-	withChoiceGroups(v)      { this._choiceGroups      = v; return this; }
 	build()                  { return new PossessionItemSnapshot(this); }
 }
 

@@ -64,8 +64,7 @@
 					"name": "When you call on the fire spirit within",
 					"rollType": null,
 					"description": "<p>The blade erupts in flames (+magical, +dangerous) and casts light (reach, area). When you Clash with the Flaming Sword, increase the Blaze die one step. Roll to make a move while wielding: take damage equal to the Blaze die (ignores armor). Deal damage: add the Blaze die. Sheathe: fire goes out, cannot relit until Blaze is nil. Reduce Blaze die once each hour.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

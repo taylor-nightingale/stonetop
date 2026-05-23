@@ -48,8 +48,7 @@
 					"name": "When you touch the hand and speak the name of Aals Sannan",
 					"rollType": null,
 					"description": "<p>All three crystals dim and the power of the long-dead sorcerer infuses you. Reset HP to max, clear debilities, heal problematic wounds. Also mark one of three permanent changes (look, instinct, heart). When all three marked, crystals crumble to dust; the arcanum is disabled until you replace them.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

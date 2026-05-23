@@ -48,8 +48,7 @@
 					"name": "When you trace the runes along the inside of a room or container",
 					"rollType": "con",
 					"description": "<p>They gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each additional quality you choose. Then roll +CON: <strong>on a 10+</strong>, you regain the lost HP normally; <strong>on a 7-9</strong>, you can't regain the lost HP until a season passes or the effect ends; <strong>on a 6-</strong>, you can't regain the lost HP until the effect ends and a season passes.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

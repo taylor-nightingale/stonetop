@@ -43,8 +43,7 @@
 					"name": "When you howl at the rising moon, face smeared in blood and wearing only the pelt",
 					"rollType": null,
 					"description": "<p>You take on the aspect of a wolf and call a pack to your side. Name your quarry and roll (+1 if you have their scent, +1 if they are alone/-1 if not, -1 if they would not fear a pack). On 7+, you corner your prey and deal 2d6+4 damage (messy) before dispersing. On 6+, also pick 1; on 7-9, also pick 2 from: pack savages innocents; you suffer 2d6+4 messy damage; your instinct becomes wolflike until Level Up. On 6-, your prey eludes you and you still pick 2.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

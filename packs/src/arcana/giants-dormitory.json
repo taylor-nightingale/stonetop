@@ -48,8 +48,7 @@
 					"name": "When you sing a rumbling note and focus your will upon a point of earth or stone",
 					"rollType": "int",
 					"description": "<p>Mark a debility and roll +INT. <strong>On a 10+</strong>, the earth or stone beneath crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. <strong>On a 7-9</strong>, as above, but mark another debility and take 2d4 damage (ignores armor).</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

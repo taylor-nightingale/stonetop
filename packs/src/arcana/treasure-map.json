@@ -82,8 +82,7 @@
 					"name": "When you jingle the silver branch",
 					"rollType": "cha",
 					"description": "<p>All who hear it (reach, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: <strong>on a 10+</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, all 3: the branch starts to fade (if already fading, it goes bare); some are blissed out for days or weeks; some become obsessed with hearing it again.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

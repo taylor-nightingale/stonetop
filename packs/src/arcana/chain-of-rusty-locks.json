@@ -53,8 +53,7 @@
 					"name": "When you smear the blood of the dying onto an open Lock of Sajua and then close the lock",
 					"rollType": "con",
 					"description": "<p>Roll +CON: <strong>on a 10+</strong>, their soul is bound in the lock; <strong>on a 7-9</strong>, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

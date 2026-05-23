@@ -58,8 +58,7 @@
 					"name": "When you pour water, a pinch of blood, and special reagents into the urn and sing over it for a full day and night",
 					"rollType": null,
 					"description": "<p>The urn gains 1 use (3 uses max) of plaster. Use the plaster to join two or more pieces of stone, rock, or crystal; let set for a few hours and the pieces fuse together seamlessly.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

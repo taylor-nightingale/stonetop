@@ -48,8 +48,7 @@
 					"name": "When you feed the satchel 1 Surplus of freshly harvested foodstuffs",
 					"rollType": null,
 					"description": "<p>It fits even though it should not. Until next autumn's harvest, the satchel will provide 1 use of provisions each day. Drawing more than 1 use per day provides up to 10 uses total but produces no more until next year.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

@@ -32,10 +32,10 @@ const FFYRNIG_SPHERE = {
 		unlock: {
 			description: "The pictograms depict some sort of recipe, which you can learn but you must…",
 			requirements: [
-				{ type: "text",   content: "Some context text." },
+				{ type: "text",   description: "Some context text." },
 				{ type: "option", slug: "dig-sphere",   description: "… first dig up and clean the sphere." },
 				{ type: "option", slug: "study-glyphs", description: "… spend weeks studying the glyphs." },
-				{ type: "text",   content: "And then…" },
+				{ type: "text",   description: "And then…" },
 				{ type: "option", slug: "risk-recipe",  description: "… risk getting the recipe wrong.", max: 3 },
 			],
 		},
@@ -50,28 +50,6 @@ const FFYRNIG_SPHERE = {
 			rollType: null,
 			description: "<p>pick 1: regain HP or clear a debility.</p>",
 		},
-		options: [],
-	},
-};
-
-const ARCANUM_WITH_BACK_OPTS = {
-	slug: "test-arcanum",
-	front: {
-		title: "Test Arcanum (front)",
-		item: null,
-		description: "<p>Test.</p>",
-		unlock: { description: "Unlock by…", requirements: [] },
-	},
-	back: {
-		title: "Test Arcanum (back)",
-		item: null,
-		description: "<p>Test.</p>",
-		resource: null,
-		move: null,
-		options: [
-			{ slug: "opt-a", description: "<p>Option A.</p>", max: 1 },
-			{ slug: "opt-b", description: "<p>Option B.</p>", max: 2 },
-		],
 	},
 };
 
@@ -294,45 +272,6 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await arcana.buildSnapshot()).minor.items[0].back.move).toBeNull();
 		});
 
-		it("back.options is [] when none defined", async () => {
-			expect((await getItem()).back.options).toEqual([]);
-		});
-	});
-
-	describe("back options", () => {
-		function makeWithOpts(flagStore = {}) {
-			return new CharacterArcana(
-				makeFlags({ owned: ["test-arcanum"], ...flagStore }),
-				new FakeArcanaRepository([ARCANUM_WITH_BACK_OPTS]),
-			);
-		}
-
-		async function getItem(flagStore = {}) {
-			return (await makeWithOpts(flagStore).buildSnapshot()).minor.items[0];
-		}
-
-		it("back.options are ArcanaUnlockOptionSnapshot instances", async () => {
-			const { options } = (await getItem()).back;
-			expect(options).toHaveLength(2);
-			expect(options[0]).toBeInstanceOf(ArcanaUnlockOptionSnapshot);
-		});
-
-		it("back option has correct slug, description, max", async () => {
-			const opt = (await getItem()).back.options[0];
-			expect(opt.slug).toBe("opt-a");
-			expect(opt.description).toBe("<p>Option A.</p>");
-			expect(opt.max).toBe(1);
-		});
-
-		it("back option max > 1 reflects JSON value", async () => {
-			expect((await getItem()).back.options[1].max).toBe(2);
-		});
-
-		it("back option count and selected reflect saved flags", async () => {
-			const opt = (await getItem({ backOptions: { "test-arcanum:opt-a": 1 } })).back.options[0];
-			expect(opt.count).toBe(1);
-			expect(opt.selected).toBe(true);
-		});
 	});
 
 	describe("mutation methods", () => {

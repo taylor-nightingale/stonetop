@@ -58,8 +58,7 @@
 					"name": "When you burn a Wishing Candle and utter the ugly incantation",
 					"rollType": null,
 					"description": "<p>Say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

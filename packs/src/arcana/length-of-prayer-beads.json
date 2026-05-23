@@ -53,8 +53,7 @@
 					"name": "When you Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads",
 					"rollType": null,
 					"description": "<p>Hold Preparation (as per the Bolster move). While you hold at least 1 Preparation, you require only an hour of sleep, can endure cold without warm clothing, and need not consume supplies while traveling. Spend 1 Preparation to: add +1 to any roll; clear or refuse a debility; perform a feat of extreme endurance; ignore elemental harm.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

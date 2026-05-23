@@ -28,7 +28,7 @@
 						},
 						{
 							"type": "text",
-							"content": "or…"
+							"description": "or…"
 						},
 						{
 							"type": "option",
@@ -52,8 +52,7 @@
 					"name": "When you tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle",
 					"rollType": null,
 					"description": "<p>Hold 3 Sway over them. Spend 1 Sway while speaking their true name to: twist their senses; plague them with nightmares; or cause an overwhelming emotion. If they break the bottle, you suffer all torments you've inflicted.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

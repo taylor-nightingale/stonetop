@@ -43,8 +43,7 @@
 					"name": "When you carve the shattering words of Aalz Childric into stone or rock",
 					"rollType": "con",
 					"description": "<p>Designate a key word or phrase. When you or another speaks the key word or phrase and wills the spell to trigger, roll +CON: <strong>on a 10+</strong>, the rune-carved stone shatters and is immediately reduced to rubble; <strong>on a 7-9</strong>, the stone cracks and buckles, slowly breaking apart into a number of pieces.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

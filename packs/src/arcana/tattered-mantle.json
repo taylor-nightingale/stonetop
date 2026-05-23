@@ -43,8 +43,7 @@
 					"name": "When you let slip the wraiths tethered to the mantle",
 					"rollType": null,
 					"description": "<p>Treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

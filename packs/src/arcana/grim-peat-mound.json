@@ -38,8 +38,7 @@
 					"name": "When you use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime",
 					"rollType": null,
 					"description": "<p>You can place a geas upon them. Phrase it as one of the following:</p><ul><li>You must never again ____.</li><li>Henceforth, you must always seek to ____ when you have the chance.</li></ul><p>Should they <strong><em>fail to follow the geas</em></strong>, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they <strong><em>prove themselves innocent to the tomb-bog spirit</em></strong>, your life is forfeit instead.</p>"
-				},
-				"options": []
+				}
 			}
 		}
 	}

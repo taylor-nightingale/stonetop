@@ -28,7 +28,7 @@
 						},
 						{
 							"type": "text",
-							"content": "or…"
+							"description": "or…"
 						},
 						{
 							"type": "option",
@@ -52,8 +52,7 @@
 					"name": "When you get tipsy on Old Mother's Wine",
 					"rollType": null,
 					"description": "<p>Expend a use. For a night and a day, your eyes are open to Fae magic, meaning:</p><ul><li>You see the truth behind Fae illusions and glamours</li><li>You are immune to Fae enchantments</li><li>You can freely enter Fae domains and walk the Fae paths</li><li>Time passes normally for you while in Fae domains</li></ul>"
-				},
-				"options": []
+				}
 			}
 		}
 	}
