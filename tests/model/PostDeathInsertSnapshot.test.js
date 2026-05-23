@@ -1,7 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../module/model/snapshot/character/PostDeathInsertSnapshot.js";
-import { LoreOptionSnapshotBuilder, LoreEntrySnapshotBuilder, LoreSection } from "../../module/model/snapshot/character/PlaybookSnapshot.js";
 import { InstinctSection, InstinctOptionSnapshotBuilder } from "../../module/model/snapshot/character/PlaybookSnapshot.js";
+import {
+	LoreEntrySnapshotBuilder,
+	OptionSnapshotBuilder,
+	LoreSection
+} from "../../module/model/snapshot/character/LoreSnapshot.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
@@ -13,7 +17,7 @@ const INSTINCT_SECTION = new InstinctSection(
 	]
 );
 
-const CONSEQUENCE_OPTION_BREAKDOWN = new LoreOptionSnapshotBuilder()
+const CONSEQUENCE_OPTION_BREAKDOWN = new OptionSnapshotBuilder()
 	.withSlug("breakdown")
 	.withDescription("<p>You lash out...</p>")
 	.withMax(1)
@@ -21,7 +25,7 @@ const CONSEQUENCE_OPTION_BREAKDOWN = new LoreOptionSnapshotBuilder()
 	.withRequires(null)
 	.build();
 
-const CONSEQUENCE_OPTION_UNSTABLE = new LoreOptionSnapshotBuilder()
+const CONSEQUENCE_OPTION_UNSTABLE = new OptionSnapshotBuilder()
 	.withSlug("unstable")
 	.withDescription("<p>You are prone...</p>")
 	.withMax(1)
@@ -83,7 +87,7 @@ describe("LoreOptionSnapshot.requires", () => {
 	});
 
 	it("defaults requires to null when builder omits withRequires", () => {
-		const opt = new LoreOptionSnapshotBuilder()
+		const opt = new OptionSnapshotBuilder()
 			.withSlug("quarry")
 			.withDescription("<p>The Pale Hunter...</p>")
 			.withMax(1)

@@ -268,3 +268,117 @@ describe("CharacterPossessions.buildSnapshot", () => {
 		expect(pouch.resource.max).toBe(5);
 	});
 });
+
+// ── getOutfitItems ────────────────────────────────────────────────────────────
+
+const SP_OUTFIT = {
+	preselected: [],
+	options: [
+		{
+			slug: "smithy",
+			label: "Smithy",
+			outfitItems: [
+				{ slug: "smithy-tongs",   name: "Tongs",   weight: 1, inventoryColumn: "regular" },
+				{ slug: "smithy-bellows", name: "Bellows", weight: 1, inventoryColumn: "regular" },
+			],
+		},
+		{
+			slug: "weapons-of-war",
+			label: "Weapons of War",
+			choices: {
+				options: [
+					{
+						slug: "mace",
+						label: "Mace",
+						outfitItems: [{ slug: "mace", name: "Mace", weight: 1, inventoryColumn: "regular", note: "close, forceful" }],
+					},
+					{
+						slug: "crossbow",
+						label: "Crossbow",
+						outfitItems: [{
+							slug: "crossbow",
+							name: "Crossbow",
+							weight: 1,
+							inventoryColumn: "regular",
+							note: "far",
+							resource: { max: 2, title: null, labels: ["low ammo", "all out"] },
+						}],
+					},
+				],
+			},
+		},
+		{
+			slug: "apiary",
+			label: "Apiary",
+		},
+	],
+};
+
+describe("CharacterPossessions.getOutfitItems", () => {
+	function makeCp(flagStore = {}) {
+		return new CharacterPossessions(makeFlags(flagStore), makeFakeMoves());
+	}
+
+	it("returns [] when specialPossessions is null", () => {
+		expect(makeCp().getOutfitItems(null)).toEqual([]);
+	});
+
+	it("returns possession-level outfit items when possession is selected", () => {
+		const cp = makeCp({ selected: ["smithy"] });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(2);
+		expect(items.map(i => i.slug)).toEqual(["smithy-tongs", "smithy-bellows"]);
+	});
+
+	it("returns possession-level outfit items for preselected possessions", () => {
+		const sp = { ...SP_OUTFIT, preselected: ["smithy"] };
+		const items = makeCp().getOutfitItems(sp);
+		expect(items).toHaveLength(2);
+		expect(items[0].slug).toBe("smithy-tongs");
+	});
+
+	it("does not return outfit items for unselected possessions", () => {
+		const items = makeCp().getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(0);
+	});
+
+	it("returns choice-level outfit item when sub-choice is selected", () => {
+		const cp = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["mace"] } });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(1);
+		expect(items[0].slug).toBe("mace");
+		expect(items[0].name).toBe("Mace");
+	});
+
+	it("does not return choice-level outfit item when sub-choice is not selected", () => {
+		const cp = makeCp({ selected: ["weapons-of-war"] });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(0);
+	});
+
+	it("returns resource-bearing outfit item from a choice", () => {
+		const cp = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["crossbow"] } });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(1);
+		const xbow = items[0];
+		expect(xbow.slug).toBe("crossbow");
+		expect(xbow.resource).not.toBeNull();
+		expect(xbow.resource.max).toBe(2);
+		expect(xbow.resource.labels).toEqual(["low ammo", "all out"]);
+	});
+
+	it("items have correct inventoryColumn and weight", () => {
+		const cp = makeCp({ selected: ["smithy"] });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		for (const item of items) {
+			expect(item.inventoryColumn).toBe("regular");
+			expect(item.weight).toBe(1);
+		}
+	});
+
+	it("possession without outfitItems does not contribute items even if selected", () => {
+		const cp = makeCp({ selected: ["apiary"] });
+		const items = cp.getOutfitItems(SP_OUTFIT);
+		expect(items).toHaveLength(0);
+	});
+});

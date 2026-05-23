@@ -140,7 +140,21 @@
 					{
 						"slug": "apiary",
 						"label": "Apiary",
-						"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat &amp; veils, etc."
+						"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+						"outfitItems": [
+							{
+								"slug": "apiary-bee-smokers",
+								"name": "Bee smokers",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "apiary-hat-veils",
+								"name": "Hat & veils",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
 					},
 					{
 						"slug": "books-and-scrolls",

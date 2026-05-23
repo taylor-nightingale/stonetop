@@ -1450,6 +1450,19 @@ body,
 	flex-direction: column;
 }
 
+.stonetop-lore-option--heading {
+	margin-top: 6px;
+	margin-bottom: 2px;
+}
+
+.stonetop-lore-option-heading {
+	font-style: italic;
+}
+
+.stonetop-lore-option-heading p {
+	margin: 0;
+}
+
 .stonetop-lore-option-text {
 	width: 100%;
 	min-height: 60px;

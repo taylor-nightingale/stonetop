@@ -3,6 +3,7 @@ import {
 	PossessionsSnapshot,
 	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { OutfitItemBuilder } from "../../model/data/character/OutfitItem.js";
 
 export class CharacterPossessions {
 	constructor(flags, moves) {
@@ -74,6 +75,28 @@ export class CharacterPossessions {
 		return result;
 	}
 
+	getOutfitItems(specialPossessions) {
+		if (!specialPossessions) return [];
+		const selectedSlugs = this.selected;
+		const preselected   = new Set(specialPossessions.preselected ?? []);
+		const subChoicesMap = this.subChoices;
+		const items = [];
+		for (const opt of specialPossessions.options ?? []) {
+			if (!preselected.has(opt.slug) && !selectedSlugs.has(opt.slug)) continue;
+			for (const item of opt.outfitItems ?? []) {
+				items.push(_buildPossessionOutfitItem(item));
+			}
+			const selected = new Set(subChoicesMap[opt.slug] ?? []);
+			for (const choice of opt.choices?.options ?? []) {
+				if (!selected.has(choice.slug)) continue;
+				for (const item of choice.outfitItems ?? []) {
+					items.push(_buildPossessionOutfitItem(item));
+				}
+			}
+		}
+		return items;
+	}
+
 	buildSnapshot(specialPossessions, actorLevel) {
 		if (!specialPossessions) return null;
 		const { pickNote, pickCount, preselected = [], options } = specialPossessions;
@@ -112,4 +135,20 @@ export class CharacterPossessions {
 
 		return new PossessionsSnapshot(pickCount, pickNote, items);
 	}
+}
+
+// ── Private helpers ───────────────────────────────────────────────────────────
+
+function _buildPossessionOutfitItem(data) {
+	return new OutfitItemBuilder()
+		.withSlug(data.slug)
+		.withName(data.name)
+		.withWeight(data.weight ?? 1)
+		.withNote(data.note ?? null)
+		.withInventoryColumn(data.inventoryColumn ?? "regular")
+		.withResource(data.resource ?? null)
+		.withTwoCol(data.twoCol ?? false)
+		.withBreakBefore(data.breakBefore ?? false)
+		.withOwnedId(null)
+		.build();
 }

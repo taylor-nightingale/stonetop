@@ -98,9 +98,9 @@
 			"system": "pbta"
 		},
 		{
-			"name": "inventory-items",
+			"name": "outfit-items",
 			"label": "Inventory Items",
-			"path": "packs/inventory-items",
+			"path": "packs/outfit-items",
 			"type": "Item",
 			"system": "pbta"
 		},

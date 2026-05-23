@@ -39,8 +39,11 @@ function makeFakePlaybook(data = null) {
 	return { getData: async () => data };
 }
 
-function makePossessionsFake(snapshot = null) {
-	return { buildSnapshot: () => snapshot };
+function makePossessionsFake(snapshot = null, outfitItems = []) {
+	return {
+		buildSnapshot: () => snapshot,
+		getOutfitItems: () => outfitItems,
+	};
 }
 
 function makeActor(items = []) {
@@ -390,5 +393,20 @@ describe("CharacterInventory.removeCustomItem", () => {
 		const ci = makeCi({}, null, null, actor);
 		await ci.removeCustomItem("item-42");
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["item-42"]);
+	});
+});
+
+describe("CharacterInventory possession outfit items", () => {
+	it("possession outfit item in regular column appears in outfit.regularItems", async () => {
+		const possItem = makeOutfitItem({ slug: "smithy-tongs", name: "Tongs", inventoryColumn: "regular" });
+		const playbookData = { specialPossessions: { pickCount: 1, pickNote: "Pick 1", options: [] } };
+		const possessions = makePossessionsFake(null, [possItem]);
+		const snap = await makeCi({}, makeRepo(), possessions, null, makeFakePlaybook(playbookData)).buildSnapshot();
+		expect(snap.outfit.regularItems.some(i => i.slug === "smithy-tongs")).toBe(true);
+	});
+
+	it("possession outfit items do not appear when possessions returns []", async () => {
+		const snap = await makeCi().buildSnapshot();
+		expect(snap.outfit.regularItems).toHaveLength(0);
 	});
 });

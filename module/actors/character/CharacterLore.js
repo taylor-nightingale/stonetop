@@ -1,6 +1,6 @@
 import {
 	LoreEntrySnapshotBuilder,
-	LoreOptionSnapshotBuilder,
+	OptionSnapshotBuilder,
 	LoreSection,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 
@@ -38,13 +38,15 @@ export class CharacterLore {
 	buildSnapshot(loreData) {
 		const entries = (loreData ?? []).map(entry => {
 			const options = (entry.options ?? []).map(opt => {
-				const isText = (opt.type ?? "checkbox") === "text";
-				return new LoreOptionSnapshotBuilder()
+				const type = opt.type ?? (opt.max == null ? "heading" : "checkbox");
+				const isText    = type === "text";
+				const isHeading = type === "heading";
+				return new OptionSnapshotBuilder()
 					.withSlug(opt.slug)
 					.withDescription(opt.description)
-					.withType(opt.type ?? "checkbox")
-					.withMax(isText ? 0 : (opt.max ?? 1))
-					.withCount(isText ? 0 : this.getCount(entry.slug, opt.slug))
+					.withType(type)
+					.withMax(isText || isHeading ? 0 : (opt.max ?? 1))
+					.withCount(isText || isHeading ? 0 : this.getCount(entry.slug, opt.slug))
 					.withTextValue(isText ? this.getText(entry.slug, opt.slug) : null)
 					.build();
 			});

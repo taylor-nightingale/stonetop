@@ -321,7 +321,21 @@
 					{
 						"slug": "apiary",
 						"label": "Apiary",
-						"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat &amp; veils, etc."
+						"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+						"outfitItems": [
+							{
+								"slug": "apiary-bee-smokers",
+								"name": "Bee smokers",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "apiary-hat-veils",
+								"name": "Hat & veils",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
 					},
 					{
 						"slug": "collected-offerings",
@@ -360,14 +374,8 @@
 						{ "slug": "shrine-loved",     "description": "... loved, well-used, dripping with offerings and petitions.", "max": 1 },
 						{ "slug": "shrine-token",     "description": "... little more than a token of respect, for her holy places are anywhere but here.", "max": 1 },
 						{ "slug": "shrine-berth",     "description": "... given wide berth by most, and approached only with care and propitiation.", "max": 1 },
-						{ "slug": "shrine-neglected", "description": "... neglected and all but forgotten, except by a few.", "max": 1 }
-					]
-				},
-				{
-					"slug": "danu-offerings",
-					"title": "Offerings to Danu",
-					"description": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>",
-					"options": [
+						{ "slug": "shrine-neglected", "description": "... neglected and all but forgotten, except by a few.", "max": 1 },
+						{ "slug":  "danu-offerings", "description":  "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"},
 						{ "slug": "fruits-of-harvest", "description": "Fruits of harvest",    "max": 1 },
 						{ "slug": "figurines",         "description": "Figurines/effigies",   "max": 1 },
 						{ "slug": "whisky",            "description": "Whisky/spirits",        "max": 1 },

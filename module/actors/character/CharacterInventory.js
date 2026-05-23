@@ -99,6 +99,7 @@ export class CharacterInventory {
 				.build());
 		this._itemsBySource.set("custom", customItems);
 		const playbookData    = await this._playbook.getData();
+		this._itemsBySource.set("possessions", this._possessions.getOutfitItems(playbookData?.specialPossessions ?? null));
 		const actorLevel      = this._vitals?.level ?? 1;
 		const checked         = this.checked;
 		const resources       = this.resources;

@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"isStartingMove": true,
+		"isStartingMove": false,
 		"description": "<p>When you <strong><em>are unarmored and carrying a normal or light load</em></strong>, you impose disadvantage on any damage you take that you could dodge or roll with.</p>"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"

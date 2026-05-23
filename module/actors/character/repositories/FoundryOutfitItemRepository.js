@@ -10,7 +10,7 @@ const FIELDS = [
 
 export class FoundryOutfitItemRepository {
 	constructor() {
-		this._store = new FoundryPackStore("stonetop.inventory-items", FIELDS);
+		this._store = new FoundryPackStore("stonetop.outfit-items", FIELDS);
 		this._cache = null;
 	}
 

@@ -4,16 +4,12 @@ export { StatSnapshot } from "./StatSnapshot.js";
 export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
-	LoreOptionSnapshot, LoreOptionSnapshotBuilder,
-	LoreEntrySnapshot, LoreEntrySnapshotBuilder,
-	LoreSection,
 	AppearanceOptionSnapshot, AppearanceLineSnapshot, AppearanceSection,
 	InstinctOptionSnapshot, InstinctOptionSnapshotBuilder, InstinctSection,
 	OriginOptionSnapshot, OriginSection,
 	BackgroundChoiceOptionSnapshot,
 	BackgroundChoicesSnapshot, BackgroundChoicesSnapshotBuilder,
 	BackgroundOptionSnapshot, BackgroundOptionSnapshotBuilder, BackgroundSection,
-	SelectableOptionSnapshot,
 	PlaybookSnapshot, PlaybookSnapshotBuilder,
 } from "./PlaybookSnapshot.js";
 export {
@@ -46,6 +42,12 @@ export {
 	ArcanaUnlockOptionSnapshot, ArcanaUnlockOptionSnapshotBuilder,
 	ArcanumBackMoveSnapshot,
 } from "./ArcanaSnapshot.js";
+export {SelectableOptionSnapshot} from "./LoreSnapshot.js";
+export {LoreSection} from "./LoreSnapshot.js";
+export {LoreEntrySnapshotBuilder} from "./LoreSnapshot.js";
+export {LoreEntrySnapshot} from "./LoreSnapshot.js";
+export {OptionSnapshotBuilder} from "./LoreSnapshot.js";
+export {LoreOptionSnapshot} from "./LoreSnapshot.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.

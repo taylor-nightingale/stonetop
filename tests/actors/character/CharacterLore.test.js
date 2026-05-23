@@ -17,9 +17,10 @@ const LORE_DATA = [
 	{
 		slug: "earth", title: "The Earth", description: "<p>The earth knows.</p>",
 		options: [
-			{ slug: "opt-a", description: "Option A" },
+			{ slug: "opt-a", description: "Option A", max: 1 },
 			{ slug: "opt-b", description: "Option B", max: 3 },
 			{ slug: "opt-text", description: "A text question", type: "text" },
+			{ slug: "opt-heading", description: "<p>A heading with no max</p>" },
 		],
 	},
 ];
@@ -140,7 +141,7 @@ describe("CharacterLore.buildSnapshot", () => {
 	});
 
 	it("entry includes all options", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA).entries[0].options).toHaveLength(3);
+		expect(makeLore().buildSnapshot(LORE_DATA).entries[0].options).toHaveLength(4);
 	});
 
 	it("checkbox option count comes from getCount", () => {
@@ -167,5 +168,36 @@ describe("CharacterLore.buildSnapshot", () => {
 
 	it("returns empty entries when loreData is empty", () => {
 		expect(makeLore().buildSnapshot([]).entries).toHaveLength(0);
+	});
+
+	it("option without max and without type gets type='heading'", () => {
+		const snap = makeLore().buildSnapshot(LORE_DATA);
+		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
+		expect(heading.type).toBe("heading");
+	});
+
+	it("heading option has max=0 and count=0", () => {
+		const snap = makeLore({ earth: { "opt-heading": 5 } }).buildSnapshot(LORE_DATA);
+		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
+		expect(heading.max).toBe(0);
+		expect(heading.count).toBe(0);
+	});
+
+	it("heading option preserves description", () => {
+		const snap = makeLore().buildSnapshot(LORE_DATA);
+		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
+		expect(heading.description).toBe("<p>A heading with no max</p>");
+	});
+
+	it("option with explicit type='text' is still text even if max is absent", () => {
+		const snap = makeLore().buildSnapshot(LORE_DATA);
+		const text = snap.entries[0].options.find(o => o.slug === "opt-text");
+		expect(text.type).toBe("text");
+	});
+
+	it("option with max defined stays as checkbox type", () => {
+		const snap = makeLore().buildSnapshot(LORE_DATA);
+		const cb = snap.entries[0].options.find(o => o.slug === "opt-a");
+		expect(cb.type).toBe("checkbox");
 	});
 });
