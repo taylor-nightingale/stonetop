@@ -4,8 +4,6 @@ export { StatSnapshot } from "./StatSnapshot.js";
 export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
-	AppearanceOptionSnapshot, AppearanceLineSnapshot, AppearanceSection,
-	InstinctOptionSnapshot, InstinctOptionSnapshotBuilder, InstinctSection,
 	OriginOptionSnapshot, OriginSection,
 	BackgroundChoiceOptionSnapshot,
 	BackgroundChoicesSnapshot, BackgroundChoicesSnapshotBuilder,
@@ -38,16 +36,10 @@ export {
 	MinorArcanumSnapshot, MinorArcanumSnapshotBuilder,
 	MinorArcanumFrontSnapshot, MinorArcanumFrontSnapshotBuilder,
 	MinorArcanumBackSnapshot, MinorArcanumBackSnapshotBuilder,
-	ArcanumUnlockSection, ArcanaUnlockTextItem,
-	ArcanaUnlockOptionSnapshot, ArcanaUnlockOptionSnapshotBuilder,
 	ArcanumBackMoveSnapshot,
 } from "./ArcanaSnapshot.js";
-export {SelectableOptionSnapshot} from "./LoreSnapshot.js";
-export {LoreSection} from "./LoreSnapshot.js";
-export {LoreEntrySnapshotBuilder} from "./LoreSnapshot.js";
-export {LoreEntrySnapshot} from "./LoreSnapshot.js";
-export {OptionSnapshotBuilder} from "./LoreSnapshot.js";
-export {LoreOptionSnapshot} from "./LoreSnapshot.js";
+export { FollowerSnapshot, FollowerSnapshotBuilder } from "./FollowerSnapshot.js";
+export { ChoiceOption, ChoiceRow, HeadingRow, TextRow, ChoiceGroup, ChoiceValues } from "./ChoiceGroup.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.
@@ -64,6 +56,7 @@ export {LoreOptionSnapshot} from "./LoreSnapshot.js";
  * @property {InventorySnapshot} inventory
  * @property {ArcanaSnapshot} arcana
  * @property {PostDeathSectionSnapshot} postDeathInsert
+ * @property {FollowerSnapshot[]} followers
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
@@ -77,6 +70,7 @@ export class CharacterSnapshot {
 		this.inventory       = b._inventory;
 		this.arcana          = b._arcana;
 		this.postDeathInsert = b._postDeathInsert;
+		this.followers       = b._followers ?? [];
 		this.rollMode        = b._rollMode;
 	}
 }
@@ -91,6 +85,7 @@ export class CharacterSnapshotBuilder {
 	withInventory(v)       { this._inventory       = v; return this; }
 	withArcana(v)          { this._arcana          = v; return this; }
 	withPostDeathInsert(v) { this._postDeathInsert = v; return this; }
+	withFollowers(v)       { this._followers       = v; return this; }
 	withRollMode(v)        { this._rollMode        = v; return this; }
 	build()                { return new CharacterSnapshot(this); }
 }

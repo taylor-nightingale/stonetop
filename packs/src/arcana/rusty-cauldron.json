@@ -19,27 +19,35 @@
 				},
 				"description": "<p>Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that's rust.</p><p>The thing has a sinister feel, and you can sense its power.</p>",
 				"unlock": {
-					"description": "To unlock the cauldron's mysteries, you must…",
-					"requirements": [
+					"slug": "rusty-cauldron",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the cauldron's mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "scrub-rust",
-							"description": "… thoroughly scrub the rust from the cauldron."
+							"description": "… thoroughly scrub the rust from the cauldron.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "sleep-seven-nights",
-							"description": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time."
+							"description": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "boil-bones",
-							"description": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood."
+							"description": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "bring-creature",
-							"description": "… bring the wretched thing that arises under your control."
+							"description": "… bring the wretched thing that arises under your control.",
+							"max": 1
 						}
 					]
 				}

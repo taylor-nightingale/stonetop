@@ -20,7 +20,7 @@ interface Resource {
 
 ### `OutfitItem` (inline, not a compendium item)
 
-Used inside `specialPossessions.options[].outfitItems` and `specialPossessions.options[].choices[].options[].outfitItems`.
+Used inside `specialPossessions.options[].outfitItems` and `specialPossessions.options[].choices.list[].options[].outfitItems`.
 
 ```typescript
 interface OutfitItem {
@@ -33,33 +33,60 @@ interface OutfitItem {
 }
 ```
 
-### `ChoiceRow` and `ChoiceHeading`
+### `ChoiceRow` and `ChoiceHeading` (follower description choices)
 
-`choices` is always a flat array of rows. Each row is either a heading separator or a set of selectable options.
+Used in `followers[].description[]` only. Each row is either a display heading or a set of selectable options.
 
 ```typescript
 type ChoiceHeadingRow = {
   heading: string;          // display text (not selectable)
-  note?:   string | null;   // shown in parentheses after heading
 };
 
 type ChoiceOptionRow = {
-  pickCount: number;        // how many options may be selected; 1 = radio buttons, >1 = checkboxes
-  options: {
-    slug:         string;
-    label:        string;           // HTML
-    outfitItems?: OutfitItem[];     // items added to inventory when this option is chosen
-  }[];
+  inline:  true;
+  options: { slug: string; label: string }[];
 };
 
 type ChoiceRow = ChoiceHeadingRow | ChoiceOptionRow;
+```
+
+### `ChoiceGroup` (arcana unlock / lore / possession choices)
+
+Used in `arcana.front.unlock`, playbook/post-death-insert `lore[]`, and `specialPossessions.options[].choices`. A named group with a flat list of typed items dispatched by `type`.
+
+```typescript
+interface ChoiceGroup {
+  slug: string;             // identifies this group for state storage
+  list: ChoiceListItem[];   // first item is always type "heading"
+}
+
+type ChoiceListItem =
+  | { type: "heading"; title?: string | null; description?: string | null; note?: string | null }
+  // Non-interactive label. `title` as section heading, `description` as body, `note` in parentheses.
+
+  | { type: "track"; slug: string; description: string; max: number }
+  // Trackable checkbox track. `max` checkboxes; checked count persisted per (group slug, item slug).
+  // Used in arcana unlock and lore.
+
+  | { type: "text"; slug: string; description: string }
+  // Free-text input. Value persisted per (group slug, item slug). Used in lore only.
+
+  | { type: "pick"; pickCount: number; options: PickOption[]; inline?: boolean }
+  // Pick-mode row. pickCount=1 → radio (exclusive); pickCount>1 → multi-select checkboxes.
+  // Used in possession choices.
+
+type PickOption = {
+  slug:         string;
+  label:        string;
+  outfitItems?: OutfitItem[];   // items added to inventory when this option is chosen
+};
 ```
 
 ---
 
 ## Arcana (`packs/src/arcana/`)
 
-FoundryVTT item type: `move`, `system.moveType = "arcanum"`.
+FoundryVTT item type: `equipment`, `system.equipmentType = "arcana"`.
 
 ```typescript
 interface MinorArcanum {
@@ -69,10 +96,7 @@ interface MinorArcanum {
     title:       string;
     item:        ArcanaItem | null;
     description: string;   // HTML
-    unlock: {
-      description:  string;   // HTML lead-in for the unlock section
-      requirements: UnlockRequirement[];
-    };
+    unlock: ChoiceGroup;   // slug = the arcanum's own slug
   };
 
   back: {
@@ -92,10 +116,6 @@ interface ArcanaItem {
   resource?:       Resource;       // only present when item has a resource track
 }
 
-type UnlockRequirement =
-  | { type: "text";   description: string }         // display-only HTML paragraph
-  | { type: "option"; slug: string; description: string; max?: number };  // trackable checkbox; max defaults to 1
-
 interface ArcanaMove {
   name:        string;
   rollType:    string | null;
@@ -107,7 +127,7 @@ interface ArcanaMove {
 
 ## Outfit Items (`packs/src/outfit-items/`)
 
-FoundryVTT item type: `equipment`, `system.equipmentType = "inventory"`.
+FoundryVTT item type: `equipment`, `system.equipmentType = "outfit"`.
 
 ```typescript
 interface OutfitItemRecord {
@@ -138,14 +158,14 @@ interface Playbook {
 
   backgrounds: Background[];
   instincts:   Instinct[];
-  appearance:  string[][];  // outer array = rows; inner array = options per row
+  appearance:  AppearanceRow[];  // one row per display line; each row has inline options with slugs
   origin:      OriginRegion[];
 
   specialPossessions: SpecialPossessions | null;
 
   statsNote: string;  // displayed beneath the stats block
 
-  lore: LoreEntry[] | null;
+  lore: ChoiceGroup[] | null;
 }
 
 interface Background {
@@ -157,6 +177,11 @@ interface Background {
 interface Instinct {
   word:        string;
   description: string;
+}
+
+interface AppearanceRow {
+  inline:  true;               // always true; options render on one horizontal line
+  options: { slug: string; label: string }[];
 }
 
 interface OriginRegion {
@@ -182,7 +207,7 @@ interface PossessionOption {
   outfitItems?: OutfitItem[]; // items always added to inventory when this possession is selected
   resource?:   Resource;      // tracked resource on the possession itself
   usesBonus?:  UsesBonus;     // scales resource.max with level / owned moves
-  choices?:    ChoiceRow[];   // see ChoiceRow above
+  choices?:    ChoiceGroup;   // see ChoiceGroup above; type "pick" rows only
 }
 
 interface UsesBonus {
@@ -192,22 +217,6 @@ interface UsesBonus {
     perInstance: number;      // added once per owned move of this name
   }[];
 }
-```
-
-### `LoreEntry`
-
-```typescript
-interface LoreEntry {
-  slug:        string;
-  title:       string;
-  description: string;        // HTML, shown above the options
-  options:     LoreOption[];
-}
-
-type LoreOption =
-  | { slug: string; description: string; max: number }        // checkbox track; type = "checkbox"
-  | { slug: string; description: string; type: "text" }       // free-text input
-  | { slug: string; description: string }                     // display-only heading; no max, no type
 ```
 
 ---
@@ -243,6 +252,70 @@ FoundryVTT item type: `class`.
 ```typescript
 interface PostDeathInsert {
   instincts: Instinct[];   // same shape as Playbook.instincts
-  lore:      LoreEntry[];  // same shape as Playbook.lore
+  lore:      ChoiceGroup[];  // same shape as Playbook.lore
+}
+```
+
+---
+
+## Followers (`packs/src/followers/`)
+
+FoundryVTT item type: `equipment`, `system.equipmentType = "follower"`.
+
+Followers are referenced by slug in actor flags (same pattern as arcana) — they are **not** embedded documents. When a follower is dropped onto the sheet its slug is appended to `actor.flags.stonetop.followers.owned`.
+
+```typescript
+interface Follower {
+  slug:     string;
+  note:     string | null;    // trait keywords shown under the name, e.g. "Bird-wise, innocent"
+  hp:       { max: number };
+  armor:    number;
+  damage:   string | null;    // e.g. "bronze knife d4 (hand)"
+  instinct: FollowerInstinct | null;
+  cost:     string | null;    // display text, e.g. "knowledge, secret lore; Loyalty"
+  loyalty:  { max: number };
+  description: FollowerDescriptionRow[];
+}
+```
+
+### Instinct (three formats — distinguished by shape)
+
+```typescript
+// Static: one main text plus a bullet list of sub-options (display-only)
+type StaticInstinct  = { text: string; options: string[] };
+
+// Pick-one: choose one from a short list
+type ChoicesInstinct = { choices: { slug: string; label: string }[] };
+
+// Custom: free-text entry
+type CustomInstinct  = null;
+
+type FollowerInstinct = StaticInstinct | ChoicesInstinct | CustomInstinct;
+```
+
+### Description rows
+
+Uses the `ChoiceRow` model. Each row is either a display heading or a set of inline selectable options.
+
+```typescript
+type FollowerDescriptionRow =
+  | { heading: string }                                      // display-only heading
+  | { inline: true; options: { slug: string; label: string }[] };  // choose one from this line
+```
+
+### Actor flags storage
+
+```typescript
+actor.flags.stonetop.followers = {
+  owned: string[],          // follower slugs, in the order they were added
+  state: {
+    [slug: string]: {
+      hp:              number | null,    // null → use hp.max from pack item
+      loyalty:         number | null,    // null → use loyalty.max from pack item
+      descriptionSlugs: string[],        // one selected slug per choice row (by rowIdx)
+      instinctSlug:    string | null,    // for choices-type instincts
+      instinctCustom:  string,           // for null/custom instincts
+    }
+  }
 }
 ```

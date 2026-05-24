@@ -1,6 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterAppearance } from "../../../module/actors/character/CharacterAppearance.js";
-import { AppearanceSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 function makeFlags(selected = {}) {
 	const store = { selected };
@@ -15,8 +14,16 @@ function makeAppearance(saved = {}) {
 }
 
 const APPEARANCE_DATA = [
-	["fresh-faced", "hale & hearty", "gray & wizened"],
-	["imperious voice", "raspy voice", "soothing voice"],
+	{ inline: true, options: [
+		{ slug: "fresh-faced",   label: "fresh-faced" },
+		{ slug: "hale-and-hearty", label: "hale & hearty" },
+		{ slug: "gray-and-wizened", label: "gray & wizened" },
+	]},
+	{ inline: true, options: [
+		{ slug: "imperious-voice", label: "imperious voice" },
+		{ slug: "raspy-voice",     label: "raspy voice" },
+		{ slug: "soothing-voice",  label: "soothing voice" },
+	]},
 ];
 
 describe("CharacterAppearance — existing behaviour", () => {
@@ -25,60 +32,67 @@ describe("CharacterAppearance — existing behaviour", () => {
 	});
 
 	it("saved returns the stored selections", () => {
-		expect(makeAppearance({ 0: "gray & wizened" }).saved).toEqual({ 0: "gray & wizened" });
+		expect(makeAppearance({ 0: "gray-and-wizened" }).saved).toEqual({ 0: "gray-and-wizened" });
 	});
 
 	it("select merges new selection into saved state", async () => {
 		const flags = makeFlags({ 0: "fresh-faced" });
 		const ap = new CharacterAppearance(flags);
-		await ap.select(1, "raspy voice");
-		expect(flags.setFlag).toHaveBeenCalledWith("selected", { 0: "fresh-faced", 1: "raspy voice" });
+		await ap.select(1, "raspy-voice");
+		expect(flags.setFlag).toHaveBeenCalledWith("selected", { 0: "fresh-faced", 1: "raspy-voice" });
 	});
 });
 
 describe("CharacterAppearance.buildSnapshot", () => {
-	it("returns an AppearanceSection", () => {
-		expect(makeAppearance().buildSnapshot(APPEARANCE_DATA)).toBeInstanceOf(AppearanceSection);
+	it("returns an array", () => {
+		expect(Array.isArray(makeAppearance().buildSnapshot(APPEARANCE_DATA))).toBe(true);
 	});
 
-	it("includes one line per array entry", () => {
-		expect(makeAppearance().buildSnapshot(APPEARANCE_DATA).options).toHaveLength(2);
+	it("includes one row per array entry", () => {
+		expect(makeAppearance().buildSnapshot(APPEARANCE_DATA)).toHaveLength(2);
 	});
 
-	it("each line has the correct lineIdx", () => {
+	it("each row has the correct rowKey", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
-		expect(snap.options[0].lineIdx).toBe(0);
-		expect(snap.options[1].lineIdx).toBe(1);
+		expect(snap[0].rowKey).toBe(0);
+		expect(snap[1].rowKey).toBe(1);
 	});
 
-	it("each line option has the correct value", () => {
+	it("each row has inline: true", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
-		expect(snap.options[0].options[0].value).toBe("fresh-faced");
-		expect(snap.options[0].options[2].value).toBe("gray & wizened");
+		expect(snap[0].inline).toBe(true);
+		expect(snap[1].inline).toBe(true);
 	});
 
-	it("saved option is marked selected", () => {
-		const snap = makeAppearance({ 0: "gray & wizened" }).buildSnapshot(APPEARANCE_DATA);
-		expect(snap.options[0].options.find(o => o.value === "gray & wizened").selected).toBe(true);
+	it("each row option has slug and label", () => {
+		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
+		expect(snap[0].options[0].slug).toBe("fresh-faced");
+		expect(snap[0].options[0].label).toBe("fresh-faced");
+		expect(snap[0].options[2].slug).toBe("gray-and-wizened");
 	});
 
-	it("unsaved options are not selected", () => {
+	it("saved option is marked checked", () => {
+		const snap = makeAppearance({ 0: "gray-and-wizened" }).buildSnapshot(APPEARANCE_DATA);
+		expect(snap[0].options.find(o => o.slug === "gray-and-wizened").checked).toBe(true);
+	});
+
+	it("unsaved options are not checked", () => {
 		const snap = makeAppearance({}).buildSnapshot(APPEARANCE_DATA);
-		expect(snap.options[0].options.every(o => !o.selected)).toBe(true);
+		expect(snap[0].options.every(o => !o.checked)).toBe(true);
 	});
 
 	it("selections on different lines are independent", () => {
-		const snap = makeAppearance({ 0: "fresh-faced", 1: "soothing voice" }).buildSnapshot(APPEARANCE_DATA);
-		expect(snap.options[0].options.find(o => o.value === "fresh-faced").selected).toBe(true);
-		expect(snap.options[1].options.find(o => o.value === "soothing voice").selected).toBe(true);
-		expect(snap.options[0].options.find(o => o.value === "hale & hearty").selected).toBe(false);
+		const snap = makeAppearance({ 0: "fresh-faced", 1: "soothing-voice" }).buildSnapshot(APPEARANCE_DATA);
+		expect(snap[0].options.find(o => o.slug === "fresh-faced").checked).toBe(true);
+		expect(snap[1].options.find(o => o.slug === "soothing-voice").checked).toBe(true);
+		expect(snap[0].options.find(o => o.slug === "hale-and-hearty").checked).toBe(false);
 	});
 
-	it("returns empty options when appearanceData is absent", () => {
-		expect(makeAppearance().buildSnapshot(undefined).options).toHaveLength(0);
+	it("returns empty array when appearanceData is absent", () => {
+		expect(makeAppearance().buildSnapshot(undefined)).toHaveLength(0);
 	});
 
-	it("returns empty options when appearanceData is empty", () => {
-		expect(makeAppearance().buildSnapshot([]).options).toHaveLength(0);
+	it("returns empty array when appearanceData is empty", () => {
+		expect(makeAppearance().buildSnapshot([])).toHaveLength(0);
 	});
 });

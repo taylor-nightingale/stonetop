@@ -19,22 +19,29 @@
 				},
 				"description": "<p>Secreted away in some Maker's trove is a gleaming white thing, like a key, I guess, but not a specific key, more like the <em>idea</em> of keyness. Hurts to look right at it; makes you aware of your own dying flesh.</p><p>You don't unlock this key's mysteries, so much as it unlocks you. But only if you…</p>",
 				"unlock": {
-					"description": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…",
-					"requirements": [
+					"slug": "the-key",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…"
+						},
+						{
+							"type": "track",
 							"slug": "master-fear",
-							"description": "… master your fear and force yourself to touch it."
+							"description": "… master your fear and force yourself to touch it.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "hold-tight",
-							"description": "… hold tight as it wracks your mind and soul, refusing to let go."
+							"description": "… hold tight as it wracks your mind and soul, refusing to let go.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-migraines",
-							"description": "… spend a few weeks dealing with terrible migraines and flashes of color, learning to calm and control your mind's new eye."
+							"description": "… spend a few weeks dealing with terrible migraines and flashes of color, learning to calm and control your mind's new eye.",
+							"max": 1
 						}
 					]
 				}

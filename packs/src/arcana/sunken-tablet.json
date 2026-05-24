@@ -19,32 +19,41 @@
 				},
 				"description": "<p>A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Maker-runes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.</p>",
 				"unlock": {
-					"description": "The tablet reveals the workings for a ritual, which you can learn if you…",
-					"requirements": [
+					"slug": "sunken-tablet",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "The tablet reveals the workings for a ritual, which you can learn if you…"
+						},
+						{
+							"type": "track",
 							"slug": "extract-tablet",
-							"description": "… extract the tablet from the muck."
+							"description": "… extract the tablet from the muck.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "carefully-clean",
-							"description": "… carefully clean it."
+							"description": "… carefully clean it.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "decipher-runes",
-							"description": "… decipher the Maker-runes."
+							"description": "… decipher the Maker-runes.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "study-runes",
-							"description": "… study the runes for a few weeks."
+							"description": "… study the runes for a few weeks.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "practice-spell",
-							"description": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth."
+							"description": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth.",
+							"max": 1
 						}
 					]
 				}

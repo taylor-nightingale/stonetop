@@ -14,21 +14,27 @@
 				"item": null,
 				"description": "<p>High in the hills, a stream of snowmelt fills a deep pool in the rocks before flowing on. At the bottom of the pool is a large deposit of lodestone. Rusted old blades (many sized for giants) can be seen clinging to the lodestone.</p>",
 				"unlock": {
-					"description": "There is magic here; to unlock its secrets, either…",
-					"requirements": [
+					"slug": "clear-natural-pool",
+					"list": [
 						{
-							"type": "option",
-							"slug": "experiment-at-pool",
-							"description": "… spend a week or so experimenting at the pool, then roll +INT: on a 10+, you figure it out; on a 7-9, no luck; on a 6-, you are interrupted by danger;"
+							"type": "heading",
+							"description": "There is magic here; to unlock its secrets, either…"
 						},
 						{
-							"type": "text",
+							"type": "track",
+							"slug": "experiment-at-pool",
+							"description": "… spend a week or so experimenting at the pool, then roll +INT: on a 10+, you figure it out; on a 7-9, no luck; on a 6-, you are interrupted by danger;",
+							"max": 1
+						},
+						{
+							"type": "heading",
 							"description": "or…"
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "firsthand-account",
-							"description": "… get a firsthand account of the pool's powers in use."
+							"description": "… get a firsthand account of the pool's powers in use.",
+							"max": 1
 						}
 					]
 				}

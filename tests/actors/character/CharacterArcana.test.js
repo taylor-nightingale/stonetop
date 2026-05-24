@@ -3,9 +3,8 @@ import { CharacterArcana } from "../../../module/actors/character/CharacterArcan
 import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
-	ArcanaUnlockTextItem, ArcanaUnlockOptionSnapshot,
 	MinorArcanumSnapshot, MinorArcanumFrontSnapshot, MinorArcanumBackSnapshot,
-	ArcanumUnlockSection,
+	ChoiceGroup, ChoiceRow, HeadingRow,
 } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 import { MinorArcanum } from "../../../module/model/data/character/MinorArcanum.js";
 import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
@@ -30,13 +29,14 @@ const FFYRNIG_SPHERE = {
 		item: { name: "A Huge Wooden Sphere", weight: null, note: "immobile", inventoryColumn: null },
 		description: "<p>Half-buried and largely overgrown.</p>",
 		unlock: {
-			description: "The pictograms depict some sort of recipe, which you can learn but you must…",
-			requirements: [
-				{ type: "text",   description: "Some context text." },
-				{ type: "option", slug: "dig-sphere",   description: "… first dig up and clean the sphere." },
-				{ type: "option", slug: "study-glyphs", description: "… spend weeks studying the glyphs." },
-				{ type: "text",   description: "And then…" },
-				{ type: "option", slug: "risk-recipe",  description: "… risk getting the recipe wrong.", max: 3 },
+			slug: "huge-wooden-sphere",
+			list: [
+				{ type: "heading", description: "The pictograms depict some sort of recipe, which you can learn but you must…" },
+				{ type: "heading", description: "Some context text." },
+				{ type: "track",   slug: "dig-sphere",   description: "… first dig up and clean the sphere.", max: 1 },
+				{ type: "track",   slug: "study-glyphs", description: "… spend weeks studying the glyphs.", max: 1 },
+				{ type: "heading", description: "And then…" },
+				{ type: "track",   slug: "risk-recipe",  description: "… risk getting the recipe wrong.", max: 3 },
 			],
 		},
 	},
@@ -171,49 +171,51 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(front.description).toContain("Half-buried");
 		});
 
-		it("front.unlock is an ArcanumUnlockSection", async () => {
-			expect((await getItem()).front.unlock).toBeInstanceOf(ArcanumUnlockSection);
+		it("front.unlock is a ChoiceGroup", async () => {
+			expect((await getItem()).front.unlock).toBeInstanceOf(ChoiceGroup);
 		});
 
-		it("front.unlock.description is set", async () => {
-			const { front } = await getItem();
-			expect(front.unlock.description).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
+		it("front.unlock.slug is the arcanum slug", async () => {
+			expect((await getItem()).front.unlock.slug).toBe("huge-wooden-sphere");
 		});
 
-		it("front.unlock.requirements has text and option nodes in order", async () => {
-			const { requirements } = (await getItem()).front.unlock;
-			expect(requirements).toHaveLength(5);
-			expect(requirements[0]).toBeInstanceOf(ArcanaUnlockTextItem);
-			expect(requirements[1]).toBeInstanceOf(ArcanaUnlockOptionSnapshot);
-			expect(requirements[2]).toBeInstanceOf(ArcanaUnlockOptionSnapshot);
-			expect(requirements[3]).toBeInstanceOf(ArcanaUnlockTextItem);
-			expect(requirements[4]).toBeInstanceOf(ArcanaUnlockOptionSnapshot);
+		it("front.unlock.list first item is a HeadingRow with the unlock description", async () => {
+			const row = (await getItem()).front.unlock.list[0];
+			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row.description).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
 		});
 
-		it("unlock option has slug and description", async () => {
-			const opt = (await getItem()).front.unlock.requirements[1];
-			expect(opt.slug).toBe("dig-sphere");
-			expect(opt.description).toBe("… first dig up and clean the sphere.");
+		it("front.unlock.list has heading and choice nodes in order", async () => {
+			const { list } = (await getItem()).front.unlock;
+			expect(list).toHaveLength(6);
+			expect(list[0].type).toBe("heading");
+			expect(list[1].type).toBe("heading");
+			expect(list[2].type).toBe("choice");
+			expect(list[3].type).toBe("choice");
+			expect(list[4].type).toBe("heading");
+			expect(list[5].type).toBe("choice");
 		});
 
-		it("unlock option defaults to count 0 and selected false", async () => {
-			const opt = (await getItem()).front.unlock.requirements[1];
-			expect(opt.count).toBe(0);
-			expect(opt.selected).toBe(false);
+		it("choice row has correct option slug and description", async () => {
+			const row = (await getItem()).front.unlock.list[2];
+			expect(row).toBeInstanceOf(ChoiceRow);
+			expect(row.options[0].slug).toBe("dig-sphere");
+			expect(row.options[0].description).toBe("… first dig up and clean the sphere.");
 		});
 
-		it("unlock option max defaults to 1", async () => {
-			expect((await getItem()).front.unlock.requirements[1].max).toBe(1);
+		it("choice row defaults checks to all false when no count saved", async () => {
+			const row = (await getItem()).front.unlock.list[2];
+			expect(row.options[0].checks).toEqual([false]);
 		});
 
-		it("unlock option with explicit max reflects JSON value", async () => {
-			expect((await getItem()).front.unlock.requirements[4].max).toBe(3);
+		it("choice row with explicit max has checks array of that length", async () => {
+			const row = (await getItem()).front.unlock.list[5];
+			expect(row.options[0].checks).toHaveLength(3);
 		});
 
-		it("unlock option count and selected reflect saved flags", async () => {
-			const opt = (await getItem({ unlock: { "huge-wooden-sphere:dig-sphere": 1 } })).front.unlock.requirements[1];
-			expect(opt.count).toBe(1);
-			expect(opt.selected).toBe(true);
+		it("choice row checks reflect saved flag values", async () => {
+			const row = (await getItem({ unlock: { "huge-wooden-sphere": { "dig-sphere": 1 } } })).front.unlock.list[2];
+			expect(row.options[0].checks).toEqual([true]);
 		});
 	});
 
@@ -303,11 +305,11 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(flags.setFlag).toHaveBeenCalledWith("flipped", []);
 		});
 
-		it("setUnlockCount stores the count under arcanumSlug:optionSlug key", async () => {
+		it("setUnlockCount stores the count nested by arcanumSlug then optionSlug", async () => {
 			const flags = makeFlags();
 			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
 			await arcana.setUnlockCount("huge-wooden-sphere", "dig-sphere", 1);
-			expect(flags.setFlag).toHaveBeenCalledWith("unlock", { "huge-wooden-sphere:dig-sphere": 1 });
+			expect(flags.setFlag).toHaveBeenCalledWith("unlock", { "huge-wooden-sphere": { "dig-sphere": 1 } });
 		});
 
 	});

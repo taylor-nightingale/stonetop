@@ -19,22 +19,29 @@
 				},
 				"description": "<p>A strange charm on a simple leather cord, like a scale of some shimmering material. It's cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.</p>",
 				"unlock": {
-					"description": "To unlock the secrets of the pendant…",
-					"requirements": [
+					"slug": "strange-pendant",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the secrets of the pendant…"
+						},
+						{
+							"type": "track",
 							"slug": "wear-lunar-cycle",
-							"description": "… wear it ceaselessly for a lunar cycle, answering its questions honestly."
+							"description": "… wear it ceaselessly for a lunar cycle, answering its questions honestly.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "hold-underwater",
-							"description": "… hold yourself underwater until you risk drowning."
+							"description": "… hold yourself underwater until you risk drowning.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "drown-another",
-							"description": "… drown another person, and offer their last gasps to the pendant."
+							"description": "… drown another person, and offer their last gasps to the pendant.",
+							"max": 1
 						}
 					]
 				}

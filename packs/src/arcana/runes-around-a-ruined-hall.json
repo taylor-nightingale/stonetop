@@ -19,17 +19,23 @@
 				},
 				"description": "<p>In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.</p>",
 				"unlock": {
-					"description": "The runes repeat themselves and can be copied, but…",
-					"requirements": [
+					"slug": "runes-around-a-ruined-hall",
+					"list": [
 						{
-							"type": "option",
-							"slug": "careful-work",
-							"description": "… it takes a few hours of careful work."
+							"type": "heading",
+							"description": "The runes repeat themselves and can be copied, but…"
 						},
 						{
-							"type": "option",
+							"type": "track",
+							"slug": "careful-work",
+							"description": "… it takes a few hours of careful work.",
+							"max": 1
+						},
+						{
+							"type": "track",
 							"slug": "risk-transcription",
-							"description": "… you risk a transcription error, but to what effect?"
+							"description": "… you risk a transcription error, but to what effect?",
+							"max": 1
 						}
 					]
 				}

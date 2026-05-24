@@ -19,22 +19,29 @@
 				},
 				"description": "<p>An oversized, highly decorated lamp, more like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.</p><p>It's worth a fortune (Value 4), but there's more to this lamp than meets the eye.</p>",
 				"unlock": {
-					"description": "To unlock its secrets, you must…",
-					"requirements": [
+					"slug": "gold-butter-lamp",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its secrets, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "consult-disciple",
-							"description": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to get the recipe and mantra that makes the lamp work."
+							"description": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to get the recipe and mantra that makes the lamp work.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-ingredients",
-							"description": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1)."
+							"description": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-wraiths",
-							"description": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation."
+							"description": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation.",
+							"max": 1
 						}
 					]
 				}

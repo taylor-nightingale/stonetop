@@ -872,6 +872,16 @@ body,
 	margin: 0 0 2px;
 }
 
+.stonetop-choice-rows {
+	padding-left: 20px;
+}
+
+.stonetop-choice-row--inline {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 12px;
+}
+
 .stonetop-move-note {
 	padding-left: 20px;
 	font-size: 0.75rem;
@@ -1504,5 +1514,217 @@ body,
 .stonetop-lore-option-desc p {
 	margin: 0 0 2px;
 	line-height: 1.4;
+}
+
+/* ── Followers tab ─────────────────────────────────────────────────────────── */
+
+.stonetop-followers-empty {
+	padding: 16px;
+	color: var(--color-text-dark-secondary, #666);
+	font-style: italic;
+	text-align: center;
+}
+
+.stonetop-followers-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	padding: 8px;
+	align-items: start;
+}
+
+.stonetop-follower-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	border: 1px solid var(--color-border-dark);
+	border-radius: 3px;
+	padding: 8px;
+	font-size: 0.85rem;
+}
+
+.stonetop-follower-name {
+	display: block;
+	padding-right: 20px;
+	font-size: 0.95rem;
+}
+
+.stonetop-follower-note {
+	display: block;
+	padding-right: 20px;
+	color: var(--color-text-dark-secondary, #666);
+	font-style: italic;
+}
+
+.stonetop-follower-delete {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #666);
+	line-height: 1;
+	padding: 2px 4px;
+}
+
+.stonetop-follower-delete:hover { color: var(--color-level-error, #c00); }
+
+.stonetop-follower-attrs {
+	display: flex;
+	gap: 2px;
+	align-items: flex-start;
+}
+
+.stonetop-follower-attr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+}
+
+.stonetop-follower-attr input {
+	width: 44px;
+	height: 44px;
+	border: 2px solid #555;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 1.1rem;
+	line-height: 42px;
+	background: transparent;
+	padding: 0;
+	color: #1a1a1a;
+}
+
+.stonetop-follower-hp-resource {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.stonetop-follower-hp-resource .stonetop-follower-hp {
+	width: 36px;
+}
+
+.stonetop-follower-hp-sep {
+	font-size: 1rem;
+	color: var(--color-text-dark-secondary, #555);
+	line-height: 1;
+}
+
+.stonetop-follower-hp-max {
+	font-size: 0.9rem;
+	color: var(--color-text-dark-secondary, #555);
+	line-height: 1;
+	min-width: 12px;
+}
+
+.stonetop-follower-damage {
+	width: 120px !important;
+	height: 44px !important;
+	font-size: 0.8rem !important;
+	line-height: 1.2 !important;
+	white-space: normal;
+	word-break: break-word;
+}
+
+.stonetop-follower-attr-label {
+	font-size: 0.82rem;
+	font-variant: small-caps;
+	color: var(--color-text-dark-secondary, #555);
+	text-align: center;
+}
+
+.stonetop-follower-loyalty {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.stonetop-follower-loyalty-label {
+	font-weight: bold;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop-follower-loyalty-pips {
+	display: flex;
+	gap: 4px;
+}
+
+.stonetop-follower-loyalty-pip {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 1px solid var(--color-border-dark);
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+}
+
+.stonetop-follower-loyalty-pip.is-checked {
+	background: var(--color-text-dark-primary, #333);
+}
+
+.stonetop-follower-instinct {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.stonetop-follower-instinct-label {
+	font-weight: bold;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop-follower-instinct-options {
+	margin: 0;
+	padding-left: 18px;
+}
+
+.stonetop-follower-instinct-choices {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.stonetop-follower-instinct-choice {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.stonetop-follower-instinct-custom {
+	width: 100%;
+}
+
+.stonetop-follower-cost {
+	display: flex;
+	gap: 4px;
+	align-items: baseline;
+}
+
+.stonetop-follower-cost-label {
+	font-weight: bold;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: var(--color-text-dark-secondary, #555);
+	flex-shrink: 0;
+}
+
+.stonetop-follower-description {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.stonetop-follower-desc-heading {
+	margin: 0;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
 }
 

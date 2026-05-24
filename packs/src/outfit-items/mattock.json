@@ -4,7 +4,7 @@
 	"name": "Mattock, iron and/or wood",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {

@@ -14,40 +14,49 @@
 				"note": "<em>immobile</em>",
 				"description": "<p>Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.</p>",
 				"unlock": {
-					"description": "The pictograms depict some sort of recipe, which you can learn but you must…",
-					"requirements": [
+					"slug": "huge-wooden-sphere",
+					"list": [
 						{
-							"type": "text",
+							"type": "heading",
 							"description": "The pictograms depict some sort of recipe, which you can learn but you must…"
 						},
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "The pictograms depict some sort of recipe, which you can learn but you must…"
+						},
+						{
+							"type": "track",
 							"slug": "dig-up-clean",
-							"description": "… first dig up and clean the sphere."
+							"description": "… first dig up and clean the sphere.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "study-glyphs",
-							"description": "… spend weeks studying the glyphs."
+							"description": "… spend weeks studying the glyphs.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-ffyrnig-root",
-							"description": "… acquire some fresh ffyrnig root."
+							"description": "… acquire some fresh ffyrnig root.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-boar-bile",
-							"description": "… acquire the bile of a wild boar."
+							"description": "… acquire the bile of a wild boar.",
+							"max": 1
 						},
 						{
-							"type": "text",
+							"type": "heading",
 							"description": "And then…"
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-recipe",
-							"description": "… you risk getting the recipe wrong, and lethally so."
+							"description": "… you risk getting the recipe wrong, and lethally so.",
+							"max": 1
 						}
 					]
 				}

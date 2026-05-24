@@ -19,17 +19,23 @@
 				},
 				"description": "<p>Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.</p>",
 				"unlock": {
-					"description": "You can unlock the power of this mantle by…",
-					"requirements": [
+					"slug": "tattered-mantle",
+					"list": [
 						{
-							"type": "option",
-							"slug": "wear-through-nightmares",
-							"description": "… wearing it for three days and three long, long nights, suffering through the nightmares."
+							"type": "heading",
+							"description": "You can unlock the power of this mantle by…"
 						},
 						{
-							"type": "option",
+							"type": "track",
+							"slug": "wear-through-nightmares",
+							"description": "… wearing it for three days and three long, long nights, suffering through the nightmares.",
+							"max": 1
+						},
+						{
+							"type": "track",
 							"slug": "bring-to-heel",
-							"description": "… bringing to heel the slavering wraiths that are tethered to it."
+							"description": "… bringing to heel the slavering wraiths that are tethered to it.",
+							"max": 1
 						}
 					]
 				}

@@ -4,7 +4,7 @@
 	"name": "Bowstring",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {

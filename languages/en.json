@@ -6,8 +6,20 @@
 				"details": "Details",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
+				"followers": "Followers",
 				"postDeath": "Post-Death"
 			}
+		},
+		"followers": {
+			"empty": "Drag followers here from the Followers compendium.",
+			"remove": "Remove",
+			"hp": "HP",
+			"armor": "Armor",
+			"damage": "Damage",
+			"loyalty": "Loyalty",
+			"instinct": "Instinct",
+			"instinctCustomPlaceholder": "Enter instinct…",
+			"cost": "Cost"
 		},
 		"postDeath": {
 			"chooseFate": "Choose Your Fate",

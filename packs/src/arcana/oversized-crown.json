@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A circlet of black, glossy metal set with eight spires of aetherium. It's sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.</p><p>When you <strong><em>touch the crown with bare flesh and open your mind</em></strong>, you can speak to the primordial spirit to which the crown is attuned.</p>",
 				"unlock": {
-					"description": "But to fully unlock the mysteries of this crown, you must…",
-					"requirements": [
+					"slug": "oversized-crown",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "But to fully unlock the mysteries of this crown, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "risk-sense-of-self",
-							"description": "… risk your sense of self as you commune with this spirit of the void."
+							"description": "… risk your sense of self as you commune with this spirit of the void.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "learn-words-of-being",
-							"description": "… learn the Words of Being, which will force the spirit to manifest."
+							"description": "… learn the Words of Being, which will force the spirit to manifest.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "learn-words-of-unbeing",
-							"description": "… learn the Words of Unbeing, which will send the spirit home."
+							"description": "… learn the Words of Unbeing, which will send the spirit home.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-manifest",
-							"description": "… convince the spirit to manifest and then successfully dismiss it."
+							"description": "… convince the spirit to manifest and then successfully dismiss it.",
+							"max": 1
 						}
 					]
 				}

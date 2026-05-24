@@ -42,46 +42,43 @@ describe("CharacterPossessions — top-level", () => {
 	});
 });
 
-describe("CharacterPossessions — subChoices", () => {
-	it("subChoices returns empty object when nothing saved", () => {
-		const cp = new CharacterPossessions(makeFlags(), makeFakeMoves());
-		expect(cp.subChoices).toEqual({});
-	});
-
-	it("addSubChoice stores the choiceSlug in the possession's array", async () => {
+describe("CharacterPossessions — pickValues", () => {
+	it("addSubChoice stores the choiceSlug with value 1", async () => {
 		const store = {};
 		const cp = new CharacterPossessions(makeFlags(store), makeFakeMoves());
 		await cp.addSubChoice("weapons-of-war", "sword");
-		expect(store.subChoices).toEqual({ "weapons-of-war": ["sword"] });
+		expect(store.pickValues).toEqual({ "weapons-of-war": { "sword": 1 } });
 	});
 
-	it("addSubChoice is idempotent — calling twice does not duplicate", async () => {
+	it("addSubChoice is idempotent — calling twice keeps value 1", async () => {
 		const store = {};
 		const cp = new CharacterPossessions(makeFlags(store), makeFakeMoves());
 		await cp.addSubChoice("weapons-of-war", "sword");
 		await cp.addSubChoice("weapons-of-war", "sword");
-		expect(store.subChoices["weapons-of-war"]).toHaveLength(1);
+		expect(store.pickValues["weapons-of-war"]["sword"]).toBe(1);
 	});
 
-	it("addSubChoice appends to an existing array", async () => {
-		const store = { subChoices: { "weapons-of-war": ["sword"] } };
+	it("addSubChoice merges with existing pickValues", async () => {
+		const store = { pickValues: { "weapons-of-war": { "sword": 1 } } };
 		const cp = new CharacterPossessions(makeFlags(store), makeFakeMoves());
 		await cp.addSubChoice("weapons-of-war", "crossbow");
-		expect(store.subChoices["weapons-of-war"]).toEqual(["sword", "crossbow"]);
+		expect(store.pickValues["weapons-of-war"]).toEqual({ "sword": 1, "crossbow": 1 });
 	});
 
-	it("removeSubChoice removes the choiceSlug from the array", async () => {
-		const store = { subChoices: { "weapons-of-war": ["sword", "crossbow"] } };
+	it("removeSubChoice sets the choiceSlug to 0", async () => {
+		const store = { pickValues: { "weapons-of-war": { "sword": 1, "crossbow": 1 } } };
 		const cp = new CharacterPossessions(makeFlags(store), makeFakeMoves());
 		await cp.removeSubChoice("weapons-of-war", "sword");
-		expect(store.subChoices["weapons-of-war"]).toEqual(["crossbow"]);
+		expect(store.pickValues["weapons-of-war"]["sword"]).toBe(0);
+		expect(store.pickValues["weapons-of-war"]["crossbow"]).toBe(1);
 	});
 
-	it("removeSubChoice is safe when slug not in array", async () => {
-		const store = { subChoices: { "weapons-of-war": ["sword"] } };
+	it("removeSubChoice is safe when slug not previously set", async () => {
+		const store = { pickValues: { "weapons-of-war": { "sword": 1 } } };
 		const cp = new CharacterPossessions(makeFlags(store), makeFakeMoves());
 		await cp.removeSubChoice("weapons-of-war", "battleaxe");
-		expect(store.subChoices["weapons-of-war"]).toEqual(["sword"]);
+		expect(store.pickValues["weapons-of-war"]["sword"]).toBe(1);
+		expect(store.pickValues["weapons-of-war"]["battleaxe"]).toBe(0);
 	});
 });
 
@@ -285,27 +282,30 @@ const SP_OUTFIT = {
 		{
 			slug: "weapons-of-war",
 			label: "Weapons of War",
-			choices: [
-				{ pickCount: 1, options: [
-					{
-						slug: "mace",
-						label: "Mace",
-						outfitItems: [{ slug: "mace", name: "Mace", weight: 1, inventoryColumn: "regular", note: "close, forceful" }],
-					},
-					{
-						slug: "crossbow",
-						label: "Crossbow",
-						outfitItems: [{
+			choices: {
+				slug: "weapons-of-war",
+				list: [
+					{ type: "pick", pickCount: 1, options: [
+						{
+							slug: "mace",
+							label: "Mace",
+							outfitItems: [{ slug: "mace", name: "Mace", weight: 1, inventoryColumn: "regular", note: "close, forceful" }],
+						},
+						{
 							slug: "crossbow",
-							name: "Crossbow",
-							weight: 1,
-							inventoryColumn: "regular",
-							note: "far",
-							resource: { max: 2, title: null, labels: ["low ammo", "all out"] },
-						}],
-					},
-				]},
-			],
+							label: "Crossbow",
+							outfitItems: [{
+								slug: "crossbow",
+								name: "Crossbow",
+								weight: 1,
+								inventoryColumn: "regular",
+								note: "far",
+								resource: { max: 2, title: null, labels: ["low ammo", "all out"] },
+							}],
+						},
+					]},
+				],
+			},
 		},
 		{
 			slug: "apiary",
@@ -343,7 +343,7 @@ describe("CharacterPossessions.getOutfitItems", () => {
 	});
 
 	it("returns choice-level outfit item when sub-choice is selected", () => {
-		const cp = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["mace"] } });
+		const cp = makeCp({ selected: ["weapons-of-war"], pickValues: { "weapons-of-war": { "mace": 1 } } });
 		const items = cp.getOutfitItems(SP_OUTFIT);
 		expect(items).toHaveLength(1);
 		expect(items[0].slug).toBe("mace");
@@ -357,7 +357,7 @@ describe("CharacterPossessions.getOutfitItems", () => {
 	});
 
 	it("returns resource-bearing outfit item from a choice", () => {
-		const cp = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["crossbow"] } });
+		const cp = makeCp({ selected: ["weapons-of-war"], pickValues: { "weapons-of-war": { "crossbow": 1 } } });
 		const items = cp.getOutfitItems(SP_OUTFIT);
 		expect(items).toHaveLength(1);
 		const xbow = items[0];
@@ -382,8 +382,8 @@ describe("CharacterPossessions.getOutfitItems", () => {
 		expect(items).toHaveLength(0);
 	});
 
-	it("returns choice-level outfit items from array-format choices when sub-choice is selected", () => {
-		const cp = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["mace"] } });
+	it("returns choice-level outfit items when sub-choice is selected", () => {
+		const cp = makeCp({ selected: ["weapons-of-war"], pickValues: { "weapons-of-war": { "mace": 1 } } });
 		const items = cp.getOutfitItems(SP_OUTFIT);
 		expect(items).toHaveLength(1);
 		expect(items[0].slug).toBe("mace");
@@ -401,18 +401,21 @@ const SP_WITH_CHOICES = {
 			slug: "weapons-of-war",
 			label: "Weapons of War",
 			description: "War stuff",
-			choices: [
-				{ heading: "Choose your weapon", note: "pick 1" },
-				{ pickCount: 1, options: [
-					{ slug: "sword", label: "◇ Sword" },
-					{ slug: "axe",   label: "◇ Axe" },
-				]},
-				{ pickCount: 2, options: [
-					{ slug: "shield",  label: "Shield" },
-					{ slug: "quiver",  label: "Quiver" },
-					{ slug: "hauberk", label: "Hauberk" },
-				]},
-			],
+			choices: {
+				slug: "weapons-of-war",
+				list: [
+					{ type: "heading", title: "Choose your weapon", note: "pick 1" },
+					{ type: "pick", pickCount: 1, options: [
+						{ slug: "sword", label: "◇ Sword" },
+						{ slug: "axe",   label: "◇ Axe" },
+					]},
+					{ type: "pick", pickCount: 2, options: [
+						{ slug: "shield",  label: "Shield" },
+						{ slug: "quiver",  label: "Quiver" },
+						{ slug: "hauberk", label: "Hauberk" },
+					]},
+				],
+			},
 		},
 		{
 			slug: "apiary",
@@ -445,61 +448,61 @@ describe("CharacterPossessions.buildSnapshot — choices", () => {
 		expect(wow.choices).not.toBeNull();
 	});
 
-	it("heading row passes through with heading and note, no options", () => {
+	it("heading row is a HeadingRow with title and note", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		const headingRow = wow.choices[0];
-		expect(headingRow.heading).toBe("Choose your weapon");
+		const headingRow = wow.choices.list[0];
+		expect(headingRow.type).toBe("heading");
+		expect(headingRow.title).toBe("Choose your weapon");
 		expect(headingRow.note).toBe("pick 1");
-		expect(headingRow.options).toBeUndefined();
 	});
 
 	it("options row with pickCount 1 has radio=true", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		expect(wow.choices[1].radio).toBe(true);
+		expect(wow.choices.list[1].radio).toBe(true);
 	});
 
 	it("options row with pickCount > 1 has radio=false", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		expect(wow.choices[2].radio).toBe(false);
+		expect(wow.choices.list[2].radio).toBe(false);
 	});
 
-	it("options row has groupId based on possession slug and row index", () => {
+	it("options row has rowKey based on possession slug and row index", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		expect(wow.choices[1].groupId).toBe("weapons-of-war-row-1");
+		expect(wow.choices.list[1].rowKey).toBe("weapons-of-war-row-1");
 	});
 
-	it("options row has slugsCsv listing all option slugs", () => {
+	it("options row has siblingSlugsCsv listing all option slugs", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		expect(wow.choices[1].slugsCsv).toBe("sword,axe");
+		expect(wow.choices.list[1].siblingSlugsCsv).toBe("sword,axe");
 	});
 
-	it("option checked=true when slug is in subChoices", () => {
-		const snap = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["sword"] } })
+	it("option checked=true when slug is in pickValues", () => {
+		const snap = makeCp({ selected: ["weapons-of-war"], pickValues: { "weapons-of-war": { "sword": 1 } } })
 			.buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		const sword = wow.choices[1].options.find(o => o.slug === "sword");
+		const sword = wow.choices.list[1].options.find(o => o.slug === "sword");
 		expect(sword.checked).toBe(true);
 	});
 
-	it("option checked=false when slug is not in subChoices", () => {
-		const snap = makeCp({ selected: ["weapons-of-war"], subChoices: { "weapons-of-war": ["sword"] } })
+	it("option checked=false when slug is not in pickValues", () => {
+		const snap = makeCp({ selected: ["weapons-of-war"], pickValues: { "weapons-of-war": { "sword": 1 } } })
 			.buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		const axe = wow.choices[1].options.find(o => o.slug === "axe");
+		const axe = wow.choices.list[1].options.find(o => o.slug === "axe");
 		expect(axe.checked).toBe(false);
 	});
 
 	it("all rows appear in correct order", () => {
 		const snap = makeCp({ selected: ["weapons-of-war"] }).buildSnapshot(SP_WITH_CHOICES, 1);
 		const wow = snap.items.find(i => i.slug === "weapons-of-war");
-		expect(wow.choices).toHaveLength(3);
-		expect(wow.choices[0].heading).toBeDefined();
-		expect(wow.choices[1].options).toHaveLength(2);
-		expect(wow.choices[2].options).toHaveLength(3);
+		expect(wow.choices.list).toHaveLength(3);
+		expect(wow.choices.list[0].type).toBe("heading");
+		expect(wow.choices.list[1].options).toHaveLength(2);
+		expect(wow.choices.list[2].options).toHaveLength(3);
 	});
 });

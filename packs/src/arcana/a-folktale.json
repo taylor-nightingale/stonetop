@@ -14,17 +14,23 @@
 				"item": null,
 				"description": "<p>There's this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does.</p>",
 				"unlock": {
-					"description": "You can learn the secret of the enchanted seedpods, but need one of the following:",
-					"requirements": [
+					"slug": "a-folktale",
+					"list": [
 						{
-							"type": "option",
-							"slug": "herbalist-teacher",
-							"description": "A Marshedge herbalist, steeped in lore, to teach you the ritual"
+							"type": "heading",
+							"description": "You can learn the secret of the enchanted seedpods, but need one of the following:"
 						},
 						{
-							"type": "option",
+							"type": "track",
+							"slug": "herbalist-teacher",
+							"description": "A Marshedge herbalist, steeped in lore, to teach you the ritual",
+							"max": 1
+						},
+						{
+							"type": "track",
 							"slug": "gwir-nettle-spirit",
-							"description": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth"
+							"description": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth",
+							"max": 1
 						}
 					]
 				}

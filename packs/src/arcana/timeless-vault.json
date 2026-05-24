@@ -19,22 +19,29 @@
 				},
 				"description": "<p>High in the hills or mountains, a pair of massive stone doors are set into the hillside. The markings outside are faded and covered in lichen. The doors aren't locked; one lies a bit ajar. Inside, the vault and its contents are untouched by time, free of dust or mold. Clearly some magic is afoot.</p>",
 				"unlock": {
-					"description": "To unlock the secrets of this place's stasis…",
-					"requirements": [
+					"slug": "timeless-vault",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the secrets of this place's stasis…"
+						},
+						{
+							"type": "track",
 							"slug": "find-runes",
-							"description": "… find and reveal the hidden runes that anchor the magic."
+							"description": "… find and reveal the hidden runes that anchor the magic.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "copy-runes",
-							"description": "… spend a few hours copying them, risking an error."
+							"description": "… spend a few hours copying them, risking an error.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "trace-runes",
-							"description": "… spend weeks tracing the runes on objects, until they gleam silver and vanish."
+							"description": "… spend weeks tracing the runes on objects, until they gleam silver and vanish.",
+							"max": 1
 						}
 					]
 				}

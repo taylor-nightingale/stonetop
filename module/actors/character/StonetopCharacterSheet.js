@@ -50,12 +50,13 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
 			html.find("[name=stonetop-instinct]").on("change", ev => {
-				const val = ev.currentTarget.value;
-				html.find(".stonetop-instinct-custom").val(val);
-				this._stonetopCharacter.instinct.select(val);
+				const radio = ev.currentTarget;
+				const { choiceSlug, siblingSlugsCsv, displayLabel } = radio.dataset;
+				html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
+				this._stonetopCharacter.instinct.selectOption(choiceSlug, siblingSlugsCsv);
 			});
 			html.find(".stonetop-instinct-custom").on("change", ev =>
-				this._stonetopCharacter.instinct.select(ev.currentTarget.value.trim())
+				this._stonetopCharacter.instinct.selectCustom(ev.currentTarget.value.trim())
 			);
 			html.find(".stonetop-appearance-radio").on("change", this._onAppearanceChange.bind(this));
 			html.find("[name=stonetop-origin]").on("change", ev =>
@@ -134,24 +135,27 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const cb = ev.target.closest(".stonetop-arcanum-unlock-check");
 				if (!cb) return;
-				const { arcanumSlug, optionSlug, index } = cb.dataset;
-				const newCount = cb.checked ? Number(index) + 1 : Number(index);
+				const arcanumSlug = ev.target.closest("[data-slug]").dataset.slug;
+				const { optionSlug, idx } = cb.dataset;
+				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
 				this._stonetopCharacter.setArcanumUnlockCount(arcanumSlug, optionSlug, newCount);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
 				const cb = ev.target.closest(".stonetop-lore-option-check");
 				if (!cb || ev.target.closest("[data-pdi='lore']")) return;
-				const { loreSlug, optionSlug, idx } = cb.dataset;
+				const { optionSlug, idx } = cb.dataset;
+				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
 				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
-				this._stonetopCharacter.setLoreOptionCount(loreSlug, optionSlug, newCount);
+				this._stonetopCharacter.setLoreOptionCount(entrySlug, optionSlug, newCount);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
 				const ta = ev.target.closest(".stonetop-lore-option-text");
 				if (!ta || ev.target.closest("[data-pdi='lore']")) return;
-				const { loreSlug, optionSlug } = ta.dataset;
-				this._stonetopCharacter.setLoreOptionText(loreSlug, optionSlug, ta.value);
+				const { optionSlug } = ta.dataset;
+				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
+				this._stonetopCharacter.setLoreOptionText(entrySlug, optionSlug, ta.value);
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -171,24 +175,91 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const radio = ev.target.closest(".stonetop-pdi-instinct");
 				if (!radio) return;
-				this._stonetopCharacter.setPostDeathInstinct(radio.value);
+				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
+				this._stonetopCharacter.setPostDeathInstinct(choiceSlug, siblingSlugsCsv);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
 				if (!ev.target.closest("[data-pdi='lore']")) return;
 				const cb = ev.target.closest(".stonetop-lore-option-check");
 				if (!cb) return;
-				const { loreSlug, optionSlug, idx } = cb.dataset;
+				const { optionSlug, idx } = cb.dataset;
+				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
 				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
-				this._stonetopCharacter.setPostDeathLoreCount(loreSlug, optionSlug, newCount);
+				this._stonetopCharacter.setPostDeathLoreCount(entrySlug, optionSlug, newCount);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
 				if (!ev.target.closest("[data-pdi='lore']")) return;
 				const ta = ev.target.closest(".stonetop-lore-option-text");
 				if (!ta) return;
-				const { loreSlug, optionSlug } = ta.dataset;
-				this._stonetopCharacter.setPostDeathLoreText(loreSlug, optionSlug, ta.value);
+				const { optionSlug } = ta.dataset;
+				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
+				this._stonetopCharacter.setPostDeathLoreText(entrySlug, optionSlug, ta.value);
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-follower-delete");
+				if (!btn) return;
+				ev.stopPropagation();
+				this._stonetopCharacter.removeFollower(btn.dataset.slug).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-hp");
+				if (!input) return;
+				const hp = Math.max(0, Math.min(Number(input.value), Number(input.max)));
+				this._stonetopCharacter.setFollowerHp(input.dataset.slug, hp);
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-follower-loyalty-pip");
+				if (!btn) return;
+				ev.stopPropagation();
+				const { slug, index } = btn.dataset;
+				const isChecked = btn.classList.contains("is-checked");
+				const newVal = isChecked ? Number(index) : Number(index) + 1;
+				this._stonetopCharacter.setFollowerLoyalty(slug, newVal).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const radio = ev.target.closest(".stonetop-follower-desc-radio");
+				if (!radio) return;
+				const card = ev.target.closest(".stonetop-follower-card");
+				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
+				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "options", choiceSlug, siblingSlugsCsv);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const radio = ev.target.closest(".stonetop-follower-instinct-radio");
+				if (!radio) return;
+				const card = ev.target.closest(".stonetop-follower-card");
+				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
+				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "instinct", choiceSlug, siblingSlugsCsv);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-instinct-text");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerInstinctText(input.dataset.slug, input.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-instinct-custom");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerInstinctCustom(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-armor");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerArmor(input.dataset.slug, Number(input.value));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-damage");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerDamage(input.dataset.slug, input.value.trim());
 			}, true);
 		}
 
@@ -205,7 +276,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onAppearanceChange(ev) {
 			const el = ev.currentTarget;
-			await this._stonetopCharacter.appearance.select(Number(el.dataset.line), el.value);
+			await this._stonetopCharacter.appearance.select(Number(el.dataset.rowKey), el.dataset.choiceSlug);
 		}
 
 		async _onOriginNameClick(ev) {

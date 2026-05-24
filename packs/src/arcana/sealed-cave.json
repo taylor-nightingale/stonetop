@@ -19,17 +19,23 @@
 				},
 				"description": "<p>High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.</p><p>Indeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything.</p>",
 				"unlock": {
-					"description": "You can learn their mysteries, but…",
-					"requirements": [
+					"slug": "sealed-cave",
+					"list": [
 						{
-							"type": "option",
-							"slug": "careful-transcription",
-							"description": "… it'll take days of careful transcription, haunted by morose shades."
+							"type": "heading",
+							"description": "You can learn their mysteries, but…"
 						},
 						{
-							"type": "option",
+							"type": "track",
+							"slug": "careful-transcription",
+							"description": "… it'll take days of careful transcription, haunted by morose shades.",
+							"max": 1
+						},
+						{
+							"type": "track",
 							"slug": "risk-ennui",
-							"description": "… you risk succumbing to the ennui of the place."
+							"description": "… you risk succumbing to the ennui of the place.",
+							"max": 1
 						}
 					]
 				}

@@ -19,21 +19,27 @@
 				},
 				"description": "<p>A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.</p>",
 				"unlock": {
-					"description": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…",
-					"requirements": [
+					"slug": "small-strange-book",
+					"list": [
 						{
-							"type": "option",
-							"slug": "fae-help",
-							"description": "… need help from a Fae poet, or perhaps one of the Forest Folk;"
+							"type": "heading",
+							"description": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
 						},
 						{
-							"type": "text",
+							"type": "track",
+							"slug": "fae-help",
+							"description": "… need help from a Fae poet, or perhaps one of the Forest Folk;",
+							"max": 1
+						},
+						{
+							"type": "heading",
 							"description": "or…"
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-recipe",
-							"description": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew."
+							"description": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew.",
+							"max": 1
 						}
 					]
 				}

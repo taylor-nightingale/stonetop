@@ -19,32 +19,41 @@
 				},
 				"description": "<p>Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?</p>",
 				"unlock": {
-					"description": "To unlock the mysteries of this scroll, you must…",
-					"requirements": [
+					"slug": "beautiful-scroll",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the mysteries of this scroll, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "talent-magic",
-							"description": "… have some talent for magic."
+							"description": "… have some talent for magic.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "decipher-glyphs",
-							"description": "… decipher the Rime Lord glyphs."
+							"description": "… decipher the Rime Lord glyphs.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "months-practice",
-							"description": "… spend a few months practicing the meditative techniques it describes."
+							"description": "… spend a few months practicing the meditative techniques it describes.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "describe-tulpa",
-							"description": "… describe and name the tiny spirit-construct that you wish to create:"
+							"description": "… describe and name the tiny spirit-construct that you wish to create:",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "sacrifice-hp",
-							"description": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\""
+							"description": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\"",
+							"max": 1
 						}
 					]
 				}

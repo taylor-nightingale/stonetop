@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It's dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?</p>",
 				"unlock": {
-					"description": "The plate contains the workings of a spell, which you can learn but…",
-					"requirements": [
+					"slug": "half-buried-plaque",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "The plate contains the workings of a spell, which you can learn but…"
+						},
+						{
+							"type": "track",
 							"slug": "dig-up-clean",
-							"description": "… you must first dig up & clean the plate."
+							"description": "… you must first dig up & clean the plate.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "decipher-runes",
-							"description": "… you must decipher the Maker-runes."
+							"description": "… you must decipher the Maker-runes.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-of-study",
-							"description": "… it'll take a few weeks of study."
+							"description": "… it'll take a few weeks of study.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-voice",
-							"description": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice."
+							"description": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice.",
+							"max": 1
 						}
 					]
 				}

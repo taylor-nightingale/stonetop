@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course.</p>",
 				"unlock": {
-					"description": "To unlock the ring's mysteries, you must…",
-					"requirements": [
+					"slug": "silvery-signet-ring",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the ring's mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "season-wearing",
-							"description": "… spend a season wearing the ring and contemplating the glyph."
+							"description": "… spend a season wearing the ring and contemplating the glyph.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "get-used-headaches",
-							"description": "… get used to the headaches & nausea that come from wearing the ring."
+							"description": "… get used to the headaches & nausea that come from wearing the ring.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "spend-follower-loyalty",
-							"description": "… spend 1 of your follower's Loyalty to charge the ring."
+							"description": "… spend 1 of your follower's Loyalty to charge the ring.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "influence-follower",
-							"description": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s)."
+							"description": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s).",
+							"max": 1
 						}
 					]
 				}

@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A short flatbow made of pale blue metal, rigid and gracefully curved even though it's unstrung. There aren't even hooks where you could attach a string.</p><p>It seems to be of little use, but there is more to this bow than meets the eye.</p>",
 				"unlock": {
-					"description": "To unlock its mysteries, you must…",
-					"requirements": [
+					"slug": "bow-with-no-string",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "acquire-glove",
-							"description": "… acquire a glove of aetherium, properly attuned to the bow."
+							"description": "… acquire a glove of aetherium, properly attuned to the bow.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "learn-secret-word",
-							"description": "… learn the secret word that activates the bow."
+							"description": "… learn the secret word that activates the bow.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "charge-with-lightning",
-							"description": "… charge the bow with lightning, risking harm to the bow or yourself."
+							"description": "… charge the bow with lightning, risking harm to the bow or yourself.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-practice",
-							"description": "… spend a few weeks practicing, risking all manner of collateral damage in the process."
+							"description": "… spend a few weeks practicing, risking all manner of collateral damage in the process.",
+							"max": 1
 						}
 					]
 				}

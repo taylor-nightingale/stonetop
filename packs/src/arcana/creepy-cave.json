@@ -14,22 +14,29 @@
 				"item": null,
 				"description": "<p>There's a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.</p><p>The cave bears the lingering taint of a Thing Below, but has been cut off from its power.</p>",
 				"unlock": {
-					"description": "To unlock its secrets, you must…",
-					"requirements": [
+					"slug": "creepy-cave",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its secrets, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "learn-thing-below",
-							"description": "… learn the name of the Thing Below that once corrupted this place."
+							"description": "… learn the name of the Thing Below that once corrupted this place.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "absolute-darkness",
-							"description": "… stay here in absolute darkness for at least a full day, despite the nightmares and hallucinations that try your soul."
+							"description": "… stay here in absolute darkness for at least a full day, despite the nightmares and hallucinations that try your soul.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "bring-warm-being",
-							"description": "… bring a still-living, warm-blooded being to the cave and spill its life's blood on the stones while intoning the name of the Thing Below that once touched this unholy place."
+							"description": "… bring a still-living, warm-blooded being to the cave and spill its life's blood on the stones while intoning the name of the Thing Below that once touched this unholy place.",
+							"max": 1
 						}
 					]
 				}

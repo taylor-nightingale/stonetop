@@ -19,32 +19,41 @@
 				},
 				"description": "<p>A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.</p>",
 				"unlock": {
-					"description": "To unlock its mysteries, you must…",
-					"requirements": [
+					"slug": "metal-puzzle-box",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "roll-to-open",
-							"description": "… roll +INT to open the box: on a 10+, it takes a few days of fiddling; on a 7-9, it takes a few obsessive weeks; on a 6-, it's beyond you."
+							"description": "… roll +INT to open the box: on a 10+, it takes a few days of fiddling; on a 7-9, it takes a few obsessive weeks; on a 6-, it's beyond you.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "season-deciphering",
-							"description": "… spend a season deciphering the symbols etched along the inside."
+							"description": "… spend a season deciphering the symbols etched along the inside.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-mental-quirk",
-							"description": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so."
+							"description": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "commune-spirit",
-							"description": "… commune with a primordial spirit and learn the Silent Words from it."
+							"description": "… commune with a primordial spirit and learn the Silent Words from it.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "days-practice",
-							"description": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage."
+							"description": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage.",
+							"max": 1
 						}
 					]
 				}

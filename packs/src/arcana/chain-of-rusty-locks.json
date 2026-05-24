@@ -19,22 +19,29 @@
 				},
 				"description": "<p>A chain, six links long, each link hung with a corroded bronze padlock. 1d4+1 locks bear a stylized face, frozen in a rusty grimace. The keys to these locks are lost to the ages.</p><p>When you <strong><em>hold one of the face-adorned locks and look into its eyes</em></strong>, you can hear the voice of the departed soul bound within: hateful, desperate, pleading to be set free.</p>",
 				"unlock": {
-					"description": "You can master the locks by…",
-					"requirements": [
+					"slug": "chain-of-rusty-locks",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can master the locks by…"
+						},
+						{
+							"type": "track",
 							"slug": "convince-shade-capture",
-							"description": "… convincing one of the shades to reveal how it was captured."
+							"description": "… convincing one of the shades to reveal how it was captured.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-shade-opened",
-							"description": "… convincing a shade to reveal what happens when a lock is opened."
+							"description": "… convincing a shade to reveal what happens when a lock is opened.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "open-locks",
-							"description": "… finding a way to open the locks."
+							"description": "… finding a way to open the locks.",
+							"max": 1
 						}
 					]
 				}

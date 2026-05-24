@@ -19,22 +19,29 @@
 				},
 				"description": "<p>In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.</p>",
 				"unlock": {
-					"description": "To unlock the mysteries of this place, you must…",
-					"requirements": [
+					"slug": "patch-of-rainbow-moss",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the mysteries of this place, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "lie-in-moss",
-							"description": "… lie down in the moss and let its tendrils fuse with your skin."
+							"description": "… lie down in the moss and let its tendrils fuse with your skin.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "drift-consciousness",
-							"description": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits."
+							"description": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-visiting",
-							"description": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest's senses."
+							"description": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest's senses.",
+							"max": 1
 						}
 					]
 				}

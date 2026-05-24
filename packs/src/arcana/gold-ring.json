@@ -19,22 +19,29 @@
 				},
 				"description": "<p>This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.</p>",
 				"unlock": {
-					"description": "You can unlock the secrets of this ring, but must first…",
-					"requirements": [
+					"slug": "gold-ring",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can unlock the secrets of this ring, but must first…"
+						},
+						{
+							"type": "track",
 							"slug": "wear-40-days",
-							"description": "… wear the ring continuously for 40 days, witnessing the sunrise each day."
+							"description": "… wear the ring continuously for 40 days, witnessing the sunrise each day.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "act-of-charity",
-							"description": "… perform an act of charity while wearing the ring, one that changes the recipient's life."
+							"description": "… perform an act of charity while wearing the ring, one that changes the recipient's life.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "worship-helior",
-							"description": "… participate in the devout and proper worship of Helior."
+							"description": "… participate in the devout and proper worship of Helior.",
+							"max": 1
 						}
 					]
 				}

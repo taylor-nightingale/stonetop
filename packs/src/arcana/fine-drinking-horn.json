@@ -19,27 +19,35 @@
 				},
 				"description": "<p>You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.</p><p>Since then, the horn has seemed to call to you, daring you to drink heavily from it.</p>",
 				"unlock": {
-					"description": "To unlock its mysteries, you must…",
-					"requirements": [
+					"slug": "fine-drinking-horn",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "fill-whisky",
-							"description": "… fill it with whisky or a similarly potent spirit."
+							"description": "… fill it with whisky or a similarly potent spirit.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "drink-single-pull",
-							"description": "… drink the contents in a single pull (mark dazed)."
+							"description": "… drink the contents in a single pull (mark dazed).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-blacking-out",
-							"description": "… risk blacking out, acting the fool, or at least marking more debilities."
+							"description": "… risk blacking out, acting the fool, or at least marking more debilities.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "survive-storm",
-							"description": "… survive the storm you summon as a result (see reverse)."
+							"description": "… survive the storm you summon as a result (see reverse).",
+							"max": 1
 						}
 					]
 				}

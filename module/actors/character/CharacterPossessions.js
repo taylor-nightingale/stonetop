@@ -4,6 +4,7 @@ import {
 	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { OutfitItemBuilder } from "../../model/data/character/OutfitItem.js";
+import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 
 export class CharacterPossessions {
 	constructor(flags, moves) {
@@ -11,11 +12,11 @@ export class CharacterPossessions {
 		this._moves = moves;
 	}
 
-	get selected()    { return new Set(this._flags.getFlag("selected") ?? []); }
-	get uses()        { return this._flags.getFlag("uses") ?? {}; }
-	get maxUses()     { return this._flags.getFlag("maxUses") ?? {}; }
-	get subChoices()  { return this._flags.getFlag("subChoices") ?? {}; }
-	get choiceUses()  { return this._flags.getFlag("choiceUses") ?? {}; }
+	get selected()      { return new Set(this._flags.getFlag("selected") ?? []); }
+	get uses()          { return this._flags.getFlag("uses") ?? {}; }
+	get maxUses()       { return this._flags.getFlag("maxUses") ?? {}; }
+	get _pickValues()   { return new ChoiceValues(this._flags.getFlag("pickValues") ?? {}); }
+	get choiceUses()    { return this._flags.getFlag("choiceUses") ?? {}; }
 
 	async select(slug) {
 		const s = this.selected;
@@ -34,24 +35,17 @@ export class CharacterPossessions {
 	}
 
 	async addSubChoice(possessionSlug, choiceSlug) {
-		const current = this.subChoices;
-		const existing = current[possessionSlug] ?? [];
-		if (existing.includes(choiceSlug)) return;
-		await this._flags.setFlag("subChoices", { ...current, [possessionSlug]: [...existing, choiceSlug] });
+		await this._flags.setFlag("pickValues", this._pickValues.set(possessionSlug, choiceSlug, 1).toRaw());
 	}
 
 	async removeSubChoice(possessionSlug, choiceSlug) {
-		const current = this.subChoices;
-		const existing = current[possessionSlug] ?? [];
-		await this._flags.setFlag("subChoices", { ...current, [possessionSlug]: existing.filter(s => s !== choiceSlug) });
+		await this._flags.setFlag("pickValues", this._pickValues.set(possessionSlug, choiceSlug, 0).toRaw());
 	}
 
 	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
-		const current = this.subChoices;
-		const existing = current[possessionSlug] ?? [];
-		const filtered = existing.filter(s => !exclusiveSlugs.includes(s));
-		const updated = filtered.includes(choiceSlug) ? filtered : [...filtered, choiceSlug];
-		await this._flags.setFlag("subChoices", { ...current, [possessionSlug]: updated });
+		let cv = this._pickValues;
+		for (const s of exclusiveSlugs) cv = cv.set(possessionSlug, s, 0);
+		await this._flags.setFlag("pickValues", cv.set(possessionSlug, choiceSlug, 1).toRaw());
 	}
 
 	async setChoiceUses(possessionSlug, choiceSlug, count) {
@@ -79,18 +73,17 @@ export class CharacterPossessions {
 		if (!specialPossessions) return [];
 		const selectedSlugs = this.selected;
 		const preselected   = new Set(specialPossessions.preselected ?? []);
-		const subChoicesMap = this.subChoices;
+		const cv            = this._pickValues;
 		const items = [];
 		for (const opt of specialPossessions.options ?? []) {
 			if (!preselected.has(opt.slug) && !selectedSlugs.has(opt.slug)) continue;
 			for (const item of opt.outfitItems ?? []) {
 				items.push(_buildPossessionOutfitItem(item));
 			}
-			const selected = new Set(subChoicesMap[opt.slug] ?? []);
-			for (const row of (opt.choices ?? [])) {
-				if (!row.options) continue;
-				for (const choice of row.options) {
-					if (!selected.has(choice.slug)) continue;
+			for (const row of (opt.choices?.list ?? [])) {
+				if (row.type !== "pick") continue;
+				for (const choice of row.options ?? []) {
+					if (cv.getCount(opt.slug, choice.slug) === 0) continue;
 					for (const item of choice.outfitItems ?? []) {
 						items.push(_buildPossessionOutfitItem(item));
 					}
@@ -131,7 +124,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(isSelected ? _buildChoicesSnapshot(opt, this.subChoices[opt.slug] ?? []) : null)
+				.withChoices(isSelected && opt.choices ? ChoiceGroup.fromPackData(opt.choices, this._pickValues) : null)
 				.build();
 		});
 
@@ -140,24 +133,6 @@ export class CharacterPossessions {
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────
-
-function _buildChoicesSnapshot(opt, selectedSlugs) {
-	if (!opt.choices?.length) return null;
-	const sel = new Set(selectedSlugs);
-	return opt.choices.map((row, rowIdx) => {
-		if (row.heading != null) return { heading: row.heading, note: row.note ?? null };
-		return {
-			groupId:  `${opt.slug}-row-${rowIdx}`,
-			slugsCsv: (row.options ?? []).map(o => o.slug).join(","),
-			radio:    (row.pickCount ?? 1) === 1,
-			options:  (row.options ?? []).map(o => ({
-				slug:    o.slug,
-				label:   o.label,
-				checked: sel.has(o.slug),
-			})),
-		};
-	});
-}
 
 function _buildPossessionOutfitItem(data) {
 	return new OutfitItemBuilder()

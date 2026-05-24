@@ -19,22 +19,29 @@
 				},
 				"description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
 				"unlock": {
-					"description": "This is clearly no mere statue, but to unlock its mysteries you need to…",
-					"requirements": [
+					"slug": "metal-man",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "This is clearly no mere statue, but to unlock its mysteries you need to…"
+						},
+						{
+							"type": "track",
 							"slug": "repair-body",
-							"description": "… repair the body, taking a full season for an exceptional smith (Value 3)."
+							"description": "… repair the body, taking a full season for an exceptional smith (Value 3).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "repair-runes",
-							"description": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable."
+							"description": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-spirit",
-							"description": "… convince your own hearth's spirit to inhabit the stove and animate the construct."
+							"description": "… convince your own hearth's spirit to inhabit the stove and animate the construct.",
+							"max": 1
 						}
 					]
 				}

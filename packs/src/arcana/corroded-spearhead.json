@@ -19,32 +19,41 @@
 				},
 				"description": "<p>Hidden away in some vault or cave or Maker-ruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those faint traces of runes?</p>",
 				"unlock": {
-					"description": "To unlock the secrets of this ancient weapon, you must…",
-					"requirements": [
+					"slug": "corroded-spearhead",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the secrets of this ancient weapon, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "clean-corrosion",
-							"description": "… carefully clean away the corrosion with proper chemics, without destroying the runes as you do so."
+							"description": "… carefully clean away the corrosion with proper chemics, without destroying the runes as you do so.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "decipher-runes",
-							"description": "… decipher the runes and how they are meant to be charged."
+							"description": "… decipher the runes and how they are meant to be charged.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "infuse-lightning",
-							"description": "… infuse the restored spearhead with lightning."
+							"description": "… infuse the restored spearhead with lightning.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "mount-shaft",
-							"description": "… mount the spearhead on a shaft of birchwood."
+							"description": "… mount the spearhead on a shaft of birchwood.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "soak-blood",
-							"description": "… soak the spearhead in your own blood, to claim its power as yours."
+							"description": "… soak the spearhead in your own blood, to claim its power as yours.",
+							"max": 1
 						}
 					]
 				}

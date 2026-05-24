@@ -19,21 +19,27 @@
 				},
 				"description": "<p>About 10 inches tall, tapered at the top, made of old warped glass that's shot through with silvery streaks, like the trails that slugs leave. The patterns in the glass seem different each time you look, almost shifting as you watch. It makes you eyes water, your head spin.</p>",
 				"unlock": {
-					"description": "You can unlock the secrets of this old glass bottle, but you must either…",
-					"requirements": [
+					"slug": "silvery-glass-bottle",
+					"list": [
 						{
-							"type": "option",
-							"slug": "find-teacher",
-							"description": "… find one who knows its workings, and get them to teach you;"
+							"type": "heading",
+							"description": "You can unlock the secrets of this old glass bottle, but you must either…"
 						},
 						{
-							"type": "text",
+							"type": "track",
+							"slug": "find-teacher",
+							"description": "… find one who knows its workings, and get them to teach you;",
+							"max": 1
+						},
+						{
+							"type": "heading",
 							"description": "or…"
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "fill-and-drink",
-							"description": "… fill the bottle with spring-water and hallucinogenic mushrooms, and let it steep in the dark for a fortnight, drink the contents and risk learning nothing as you suffer through the sickness and the nightmares."
+							"description": "… fill the bottle with spring-water and hallucinogenic mushrooms, and let it steep in the dark for a fortnight, drink the contents and risk learning nothing as you suffer through the sickness and the nightmares.",
+							"max": 1
 						}
 					]
 				}

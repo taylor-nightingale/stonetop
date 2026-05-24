@@ -4,7 +4,7 @@
 	"name": "Clay jar",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {

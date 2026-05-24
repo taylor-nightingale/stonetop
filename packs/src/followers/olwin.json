@@ -1,0 +1,55 @@
+{
+  "_id": "nGXhJJXLcLNHUDWa",
+  "_key": "!items!nGXhJJXLcLNHUDWa",
+  "name": "Olwin, Your Anointed Lover",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "olwin",
+      "note": "Fates-wise, beautiful, passionate, magical",
+      "hp": { "max": 6 },
+      "armor": 1,
+      "damage": "iron spear d6 (close, thrown)",
+      "instinct": {
+        "slug": "instinct",
+        "list": [
+          { "type": "text", "slug": "value", "description": "", "default": "to lack discretion\n-Perform a divination\n-Speak a (dire) prophecy\n-Make a big deal about something" }
+        ]
+      },
+      "cost": "tenderness, respect; Loyalty",
+      "loyalty": { "max": 3 },
+      "options": {
+        "slug": "options",
+        "list": [
+          { "type": "heading", "title": "Pick 1 on each line" },
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "he", "label": "he" },
+            { "slug": "she", "label": "she" },
+            { "slug": "they", "label": "they" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "betrothed", "label": "betrothed" },
+            { "slug": "true-love", "label": "true love" },
+            { "slug": "ceremonial", "label": "ceremonial" },
+            { "slug": "complicated", "label": "complicated" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "contrary", "label": "contrary" },
+            { "slug": "dramatic", "label": "dramatic" },
+            { "slug": "passionate", "label": "passionate" },
+            { "slug": "tormented", "label": "tormented" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "rites-of-blood", "label": "rites of... blood" },
+            { "slug": "rites-of-fire", "label": "rites of... fire" },
+            { "slug": "rites-of-sacred-union", "label": "rites of... sacred union" }
+          ]}
+        ]
+      }
+    }
+  }
+}

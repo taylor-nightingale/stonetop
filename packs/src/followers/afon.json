@@ -1,0 +1,53 @@
+{
+  "_id": "AUcGUCtuZs1Z0pRE",
+  "_key": "!items!AUcGUCtuZs1Z0pRE",
+  "name": "Afon, a Fellow Initiate",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "afon",
+      "note": "Fae-wise, devious, magical, self-sufficient, stealthy",
+      "hp": { "max": 8 },
+      "armor": 2,
+      "damage": "bronze hatchet d6 (hand)",
+      "instinct": {
+        "slug": "instinct",
+        "list": [
+          { "type": "text", "slug": "value", "description": "", "default": "to act impulsively\n-Weave a minor glamor\n-Appear or disappear unexpectedly\n-Speak an uncomfortable truth" }
+        ]
+      },
+      "cost": "wonder, joy; Loyalty",
+      "loyalty": { "max": 3 },
+      "options": {
+        "slug": "options",
+        "list": [
+          { "type": "heading", "title": "Pick 1 on each line" },
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "he", "label": "he" },
+            { "slug": "she", "label": "she" },
+            { "slug": "they", "label": "they" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "comes-and-goes", "label": "comes and goes" },
+            { "slug": "in-the-wood", "label": "in the Wood" },
+            { "slug": "a-hut-near-town", "label": "a hut near town" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "aloof", "label": "aloof" },
+            { "slug": "bawdy-and-lewd", "label": "bawdy and lewd" },
+            { "slug": "unnerving", "label": "unnerving" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "rites-of-ecstasy", "label": "rites of... ecstasy" },
+            { "slug": "rites-of-intoxication", "label": "rites of... intoxication" },
+            { "slug": "rites-of-moonlight", "label": "rites of... moonlight" }
+          ]}
+        ]
+      }
+    }
+  }
+}

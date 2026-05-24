@@ -19,27 +19,35 @@
 				},
 				"description": "<p>It's like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They're linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.</p><p>You suspect this is some sort of vehicle, but to unlock its mysteries you…</p>",
 				"unlock": {
-					"description": "You suspect this is some sort of vehicle, but to unlock its mysteries you…",
-					"requirements": [
+					"slug": "odd-conveyance",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
+						},
+						{
+							"type": "track",
 							"slug": "skilled-carpenter",
-							"description": "… need a skilled carpenter, good timber (Value 2), a new sail (Value 1), and a season on repairs."
+							"description": "… need a skilled carpenter, good timber (Value 2), a new sail (Value 1), and a season on repairs.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-damage",
-							"description": "… risk damaging it further, and/or having it/the aetherium float away."
+							"description": "… risk damaging it further, and/or having it/the aetherium float away.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "attune-aetherium",
-							"description": "… must attune to the aetherium, so as to control how much it hovers."
+							"description": "… must attune to the aetherium, so as to control how much it hovers.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "learn-to-sail",
-							"description": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft."
+							"description": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft.",
+							"max": 1
 						}
 					]
 				}

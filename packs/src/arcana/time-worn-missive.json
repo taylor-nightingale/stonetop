@@ -19,32 +19,41 @@
 				},
 				"description": "<p>A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"</p>",
 				"unlock": {
-					"description": "To unlock the mysteries of these portals, you must…",
-					"requirements": [
+					"slug": "time-worn-missive",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the mysteries of these portals, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "translate-dialect",
-							"description": "… translate the archaic dialect."
+							"description": "… translate the archaic dialect.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "find-portal",
-							"description": "… find a portal (other than the one depicted in the missive)."
+							"description": "… find a portal (other than the one depicted in the missive).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "axiom-contagion",
-							"description": "… determine how to \"invoke the axiom of local contagion.\""
+							"description": "… determine how to \"invoke the axiom of local contagion.\"",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-cinnabar",
-							"description": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2)."
+							"description": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-miscasting",
-							"description": "… attempt casting the spell the first time, and risk miscasting it."
+							"description": "… attempt casting the spell the first time, and risk miscasting it.",
+							"max": 1
 						}
 					]
 				}

@@ -4,7 +4,7 @@
 	"name": "Javelins, a few, iron",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {

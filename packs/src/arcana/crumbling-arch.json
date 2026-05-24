@@ -19,22 +19,29 @@
 				},
 				"description": "<p>On a rare dry spot in Ferrier's Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.</p>",
 				"unlock": {
-					"description": "You can learn the secrets of the sanctifying mark, but to do so you must…",
-					"requirements": [
+					"slug": "crumbling-arch",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can learn the secrets of the sanctifying mark, but to do so you must…"
+						},
+						{
+							"type": "track",
 							"slug": "purify-yourself",
-							"description": "… purify yourself in fresh, clean water."
+							"description": "… purify yourself in fresh, clean water.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "gaze-and-roll",
-							"description": "… calm your mind, gaze upon the sigil, and roll +WIS: on a 10+, the sigil becomes clear; on a 7-9, the sigil will become clear after a few more days in contemplation; on a 6-, the sigil is beyond your ability to learn."
+							"description": "… calm your mind, gaze upon the sigil, and roll +WIS: on a 10+, the sigil becomes clear; on a 7-9, the sigil will become clear after a few more days in contemplation; on a 6-, the sigil is beyond your ability to learn.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "memorize-sigil",
-							"description": "… spend a few days memorizing and practicing the sigil."
+							"description": "… spend a few days memorizing and practicing the sigil.",
+							"max": 1
 						}
 					]
 				}

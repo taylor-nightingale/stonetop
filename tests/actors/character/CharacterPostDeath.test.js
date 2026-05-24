@@ -80,7 +80,7 @@ describe("CharacterPostDeath.setInsert", () => {
 
 	it("calls removeCategory for old and addCategory for new when switching", async () => {
 		const insertRepo = makeInsertRepo([
-			{ slug: "revenant", name: "Revenant", img: null, description: "", instincts: [], lore: [] },
+			{ slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] },
 		]);
 		const fakeMoves = makeFakeMoves();
 		const pd = makePostDeath({ flags: makeFlags({ slug: "ghost" }), insertRepo, moves: fakeMoves });
@@ -103,7 +103,7 @@ describe("CharacterPostDeath.setInsert", () => {
 
 	it("calls moves.addCategory with moveType, insert name, and slug", async () => {
 		const insertRepo = makeInsertRepo([
-			{ slug: "revenant", name: "Revenant", img: null, description: "", instincts: [], lore: [] },
+			{ slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] },
 		]);
 		const fakeMoves = makeFakeMoves();
 		const pd = makePostDeath({ insertRepo, moves: fakeMoves });
@@ -126,7 +126,7 @@ describe("CharacterPostDeath.buildSnapshot", () => {
 	});
 
 	it("activeInsert.moves come from moves.getMoveSnapshotsForCategory", async () => {
-		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instincts: [], lore: [] };
+		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
 		const fakeMoves = makeFakeMoves();
 		fakeMoves.getMoveSnapshotsForCategory.mockReturnValue([{ name: "Haunt" }]);
 		const pd = makePostDeath({
@@ -141,7 +141,7 @@ describe("CharacterPostDeath.buildSnapshot", () => {
 	});
 
 	it("activeInsert.moves is empty when getMoveSnapshotsForCategory returns []", async () => {
-		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instincts: [], lore: [] };
+		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
 		const snap = await makePostDeath({
 			flags: makeFlags({ slug: "revenant" }),
 			insertRepo: makeInsertRepo([insert]),
@@ -150,7 +150,7 @@ describe("CharacterPostDeath.buildSnapshot", () => {
 	});
 
 	it("does not call moves.addCategory during buildSnapshot", async () => {
-		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instincts: [], lore: [] };
+		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
 		const fakeMoves = makeFakeMoves();
 		const pd = makePostDeath({
 			flags: makeFlags({ slug: "revenant" }),

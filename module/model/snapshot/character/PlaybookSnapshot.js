@@ -1,62 +1,3 @@
-// ── Appearance ────────────────────────────────────────────────────────────────
-
-/** One selectable option within an appearance line. */
-export class AppearanceOptionSnapshot {
-	constructor(value, selected) {
-		this.value    = value;
-		this.selected = selected;
-	}
-}
-
-/** One line of appearance options (e.g. "tall and broad / lean and wiry / slight"). */
-export class AppearanceLineSnapshot {
-	constructor(lineIdx, options) {
-		this.lineIdx = lineIdx;
-		this.options = options;
-	}
-}
-
-/** The full appearance section on PlaybookSnapshot. */
-export class AppearanceSection {
-	constructor(options) {
-		this.options = options;
-	}
-}
-
-// ── Instinct ──────────────────────────────────────────────────────────────────
-
-/**
- * One instinct option.
- * @property {string} word
- * @property {string} description
- * @property {string} value  - composite "word — description" used as the saved value
- * @property {boolean} selected
- */
-export class InstinctOptionSnapshot {
-	constructor(b) {
-		this.word        = b._word;
-		this.description = b._description;
-		this.value       = b._value;
-		this.selected    = b._selected;
-	}
-}
-
-export class InstinctOptionSnapshotBuilder {
-	withWord(v)        { this._word        = v; return this; }
-	withDescription(v) { this._description = v; return this; }
-	withValue(v)       { this._value       = v; return this; }
-	withSelected(v)    { this._selected    = v; return this; }
-	build()            { return new InstinctOptionSnapshot(this); }
-}
-
-/** The instinct section on PlaybookSnapshot. */
-export class InstinctSection {
-	constructor(selected, options) {
-		this.selected = selected;
-		this.options  = options;
-	}
-}
-
 // ── Origin ────────────────────────────────────────────────────────────────────
 
 /** One origin region option. */
@@ -164,7 +105,7 @@ export class BackgroundSection {
  * @property {LoreSection} lore
  * @property {BackgroundSection} background
  * @property {InstinctSection} instinct
- * @property {AppearanceSection} appearance
+ * @property {Object[]} appearance
  * @property {OriginSection} origin
  */
 export class PlaybookSnapshot {

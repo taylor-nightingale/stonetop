@@ -1,39 +1,3 @@
-// ── Unlock section items ──────────────────────────────────────────────────────
-
-export class ArcanaUnlockTextItem {
-	constructor(description) {
-		this.type        = "text";
-		this.description = description;
-	}
-}
-
-export class ArcanaUnlockOptionSnapshot {
-	constructor(b) {
-		this.type        = "option";
-		this.slug        = b._slug;
-		this.description = b._description;
-		this.count       = b._count;
-		this.max         = b._max;
-		this.selected    = b._selected;
-	}
-}
-
-export class ArcanaUnlockOptionSnapshotBuilder {
-	withSlug(v)        { this._slug        = v; return this; }
-	withDescription(v) { this._description = v; return this; }
-	withCount(v)       { this._count       = v; return this; }
-	withMax(v)         { this._max         = v; return this; }
-	withSelected(v)    { this._selected    = v; return this; }
-	build()            { return new ArcanaUnlockOptionSnapshot(this); }
-}
-
-export class ArcanumUnlockSection {
-	constructor(description, requirements) {
-		this.description  = description;
-		this.requirements = requirements;
-	}
-}
-
 // ── Back side ─────────────────────────────────────────────────────────────────
 
 export class ArcanumBackMoveSnapshot {

@@ -3,6 +3,11 @@ import { PostDeathInsert } from "../../module/model/data/character/PostDeathInse
 
 // -- Helpers ------------------------------------------------------------------
 
+const INSTINCT_DATA = {
+	slug: "instinct",
+	list: [{ type: "pick", pickCount: 1, options: [{ slug: "denial", label: "Denial", description: "To refuse to accept that you are dead." }] }],
+};
+
 function makeDoc(overrides = {}) {
 	return {
 		name:   "Revenant",
@@ -13,8 +18,8 @@ function makeDoc(overrides = {}) {
 		},
 		flags: {
 			stonetop: {
-				instincts: [{ word: "Denial", description: "To refuse to accept that you are dead." }],
-				lore:      [{ slug: "terrible-purpose", title: "Terrible Purpose", description: "", options: [] }],
+				instinct: INSTINCT_DATA,
+				lore:     [{ slug: "terrible-purpose", title: "Terrible Purpose", description: "", options: [] }],
 			},
 		},
 		...overrides,
@@ -40,10 +45,9 @@ describe("PostDeathInsert", () => {
 		expect(new PostDeathInsert(makeDoc()).description).toBe("<p>When you die...</p>");
 	});
 
-	it("reads instincts from flags.stonetop.instincts", () => {
+	it("reads instinct from flags.stonetop.instinct", () => {
 		const data = new PostDeathInsert(makeDoc());
-		expect(data.instincts).toHaveLength(1);
-		expect(data.instincts[0].word).toBe("Denial");
+		expect(data.instinct).toBe(INSTINCT_DATA);
 	});
 
 	it("reads lore from flags.stonetop.lore", () => {
@@ -68,17 +72,17 @@ describe("PostDeathInsert", () => {
 		expect(new PostDeathInsert({ system: {}, flags: {} }).description).toBeNull();
 	});
 
-	it("defaults instincts to [] when missing", () => {
-		expect(new PostDeathInsert({ system: {}, flags: { stonetop: {} } }).instincts).toEqual([]);
+	it("defaults instinct to null when missing", () => {
+		expect(new PostDeathInsert({ system: {}, flags: { stonetop: {} } }).instinct).toBeNull();
 	});
 
 	it("defaults lore to [] when missing", () => {
 		expect(new PostDeathInsert({ system: {}, flags: { stonetop: {} } }).lore).toEqual([]);
 	});
 
-	it("defaults instincts and lore to [] when flags.stonetop is absent", () => {
+	it("defaults instinct and lore when flags.stonetop is absent", () => {
 		const data = new PostDeathInsert({ system: {}, flags: {} });
-		expect(data.instincts).toEqual([]);
+		expect(data.instinct).toBeNull();
 		expect(data.lore).toEqual([]);
 	});
 });

@@ -19,22 +19,29 @@
 				},
 				"description": "<p>In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.</p><p>When you <strong><em>enter the dormitory</em></strong>, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…</p>",
 				"unlock": {
-					"description": "When you enter the dormitory, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…",
-					"requirements": [
+					"slug": "giants-dormitory",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "When you enter the dormitory, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…"
+						},
+						{
+							"type": "track",
 							"slug": "talent-for-magic",
-							"description": "… you must have some talent for magic."
+							"description": "… you must have some talent for magic.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "repeated-exposure",
-							"description": "… it will take weeks of repeated exposure and study."
+							"description": "… it will take weeks of repeated exposure and study.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-physique",
-							"description": "… you risk lasting harm to your physique and health."
+							"description": "… you risk lasting harm to your physique and health.",
+							"max": 1
 						}
 					]
 				}

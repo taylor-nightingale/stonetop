@@ -19,27 +19,35 @@
 				},
 				"description": "<p>Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.</p>",
 				"unlock": {
-					"description": "To unlock its secrets, you must…",
-					"requirements": [
+					"slug": "whispering-word",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its secrets, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "master-fear-touch",
-							"description": "… master your fear, forcing yourself to grasp it and take it inside of you."
+							"description": "… master your fear, forcing yourself to grasp it and take it inside of you.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "hold-tight-soul",
-							"description": "… hold tight as it wracks your body and soul, attempting to unmake you (2d6 damage, messy, ignores armor)."
+							"description": "… hold tight as it wracks your body and soul, attempting to unmake you (2d6 damage, messy, ignores armor).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-isolation",
-							"description": "… spend weeks in isolation, wrapping your mind around the dread word that now lives in your head."
+							"description": "… spend weeks in isolation, wrapping your mind around the dread word that now lives in your head.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-locale",
-							"description": "… risk corrupting your locale and destroying your possessions or anything else nearby as you practice speaking the dread word aloud."
+							"description": "… risk corrupting your locale and destroying your possessions or anything else nearby as you practice speaking the dread word aloud.",
+							"max": 1
 						}
 					]
 				}

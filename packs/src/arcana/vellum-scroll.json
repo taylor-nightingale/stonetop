@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?</p>",
 				"unlock": {
-					"description": "To unlock the secrets of this scroll, you must…",
-					"requirements": [
+					"slug": "vellum-scroll",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the secrets of this scroll, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "determine-origin",
-							"description": "… determine the scroll's origin and be able to read the author's language."
+							"description": "… determine the scroll's origin and be able to read the author's language.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "break-cipher",
-							"description": "… break the cipher in which the recipe is encoded."
+							"description": "… break the cipher in which the recipe is encoded.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-ingredients",
-							"description": "… acquire the recipe's unusual and unsavory ingredients (Value 1)."
+							"description": "… acquire the recipe's unusual and unsavory ingredients (Value 1).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "practice-incantation",
-							"description": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results."
+							"description": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results.",
+							"max": 1
 						}
 					]
 				}

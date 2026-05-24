@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it's clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.</p>",
 				"unlock": {
-					"description": "To unlock the secrets of the urn, you must…",
-					"requirements": [
+					"slug": "fine-ceramic-urn",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the secrets of the urn, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "commune-spirit",
-							"description": "… commune with the chthonic spirit that dwells within (Instinct to hoard secrets)."
+							"description": "… commune with the chthonic spirit that dwells within (Instinct to hoard secrets).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-recipe",
-							"description": "… convince it to teach you both the secret recipe and song required to make its magic work."
+							"description": "… convince it to teach you both the secret recipe and song required to make its magic work.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-reagents",
-							"description": "… acquire the reagents required for the recipe (Value 1)."
+							"description": "… acquire the reagents required for the recipe (Value 1).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "sing-secret-song",
-							"description": "… manage to sing the secret song for a day and night, without pause."
+							"description": "… manage to sing the secret song for a day and night, without pause.",
+							"max": 1
 						}
 					]
 				}

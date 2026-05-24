@@ -19,22 +19,29 @@
 				},
 				"description": "<p>A book, about 2 feet by 3 feet, just over 6 inches tall when closed. The cover is made of silvery cedarwood planks. The sheets are made of fine vellum, stretched from the hides of some enormous beast.</p><p>The pages are full of calligraphy, large and precise, with many diagrams showing meditative poses and strange geometric patterns related to heat, water, and ice.</p>",
 				"unlock": {
-					"description": "To unlock the codex's mysteries, you must…",
-					"requirements": [
+					"slug": "oversized-codex",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the codex's mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "decipher-text",
-							"description": "… decipher the text, written in a form of the Rime Lord's alphabet."
+							"description": "… decipher the text, written in a form of the Rime Lord's alphabet.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "months-study",
-							"description": "… spend months studying the text and practicing the techniques therein."
+							"description": "… spend months studying the text and practicing the techniques therein.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-health",
-							"description": "… risk permanently damaging your health as you master them."
+							"description": "… risk permanently damaging your health as you master them.",
+							"max": 1
 						}
 					]
 				}

@@ -4,7 +4,7 @@
 	"name": "Snow-shoes",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {

@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A short staff, about 4 feet tall, tapering toward the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.</p>",
 				"unlock": {
-					"description": "The staff still tingles with power. To unlock its mysteries you must…",
-					"requirements": [
+					"slug": "copper-banded-staff",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "The staff still tingles with power. To unlock its mysteries you must…"
+						},
+						{
+							"type": "track",
 							"slug": "figure-runes",
-							"description": "… figure out the shape of the missing and damaged runes."
+							"description": "… figure out the shape of the missing and damaged runes.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "replace-bands",
-							"description": "… replace the bands with new ones of rune-embossed aetherium."
+							"description": "… replace the bands with new ones of rune-embossed aetherium.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "hold-fast",
-							"description": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go)."
+							"description": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "days-practice",
-							"description": "… spend a few days practicing with the charged-up staff."
+							"description": "… spend a few days practicing with the charged-up staff.",
+							"max": 1
 						}
 					]
 				}

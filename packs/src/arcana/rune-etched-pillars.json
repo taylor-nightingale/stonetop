@@ -14,22 +14,29 @@
 				"note": "<em>magical</em>",
 				"description": "<p>Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.</p><p>Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…</p>",
 				"unlock": {
-					"description": "You can unlock their secrets, but…",
-					"requirements": [
+					"slug": "rune-etched-pillars",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can unlock their secrets, but…"
+						},
+						{
+							"type": "track",
 							"slug": "study-runes",
-							"description": "… you must spend a few days studying the runes and memorizing their sequence."
+							"description": "… you must spend a few days studying the runes and memorizing their sequence.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "meditate",
-							"description": "… you must meditate for a few weeks on the magic that infuses them."
+							"description": "… you must meditate for a few weeks on the magic that infuses them.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-collapse",
-							"description": "… you risk triggering the spell contained in the runes, and collapsing the entire structure."
+							"description": "… you risk triggering the spell contained in the runes, and collapsing the entire structure.",
+							"max": 1
 						}
 					]
 				}

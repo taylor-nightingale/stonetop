@@ -19,27 +19,35 @@
 				},
 				"description": "<p>Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn't give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.</p><p>Clearly, there is more to this broom than meets the eye.</p>",
 				"unlock": {
-					"description": "To unlock its mysteries, you must…",
-					"requirements": [
+					"slug": "humble-broom",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "find-fae",
-							"description": "… find a Fae who can hear the broom's song in its entirety."
+							"description": "… find a Fae who can hear the broom's song in its entirety.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-teach",
-							"description": "… convince them to teach you the broom's song in full."
+							"description": "… convince them to teach you the broom's song in full.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "use-daily",
-							"description": "… use the broom at least once a day for a whole season, singing the lullaby as you do."
+							"description": "… use the broom at least once a day for a whole season, singing the lullaby as you do.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-timeless-sleep",
-							"description": "… risk falling into a lasting, timeless sleep as you practice the lullaby."
+							"description": "… risk falling into a lasting, timeless sleep as you practice the lullaby.",
+							"max": 1
 						}
 					]
 				}

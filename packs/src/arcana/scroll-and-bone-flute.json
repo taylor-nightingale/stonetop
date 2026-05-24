@@ -19,17 +19,23 @@
 				},
 				"description": "<p>A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a bone flute (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.</p>",
 				"unlock": {
-					"description": "You can unlock the secrets of the scroll and flute, but…",
-					"requirements": [
+					"slug": "scroll-and-bone-flute",
+					"list": [
 						{
-							"type": "option",
-							"slug": "decipher-notes",
-							"description": "… you must first decipher the notes, which will take a few weeks of effort."
+							"type": "heading",
+							"description": "You can unlock the secrets of the scroll and flute, but…"
 						},
 						{
-							"type": "option",
+							"type": "track",
+							"slug": "decipher-notes",
+							"description": "… you must first decipher the notes, which will take a few weeks of effort.",
+							"max": 1
+						},
+						{
+							"type": "track",
 							"slug": "risk-music",
-							"description": "… the first time you use the flute, you risk getting the music wrong and aggravating the dool spirit."
+							"description": "… the first time you use the flute, you risk getting the music wrong and aggravating the dool spirit.",
+							"max": 1
 						}
 					]
 				}

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterLore } from "../../../module/actors/character/CharacterLore.js";
-import { LoreSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceValues, ChoiceGroup, ChoiceRow, HeadingRow, TextRow } from "../../../module/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
 	return {
@@ -9,195 +9,175 @@ function makeFlags(store = {}) {
 	};
 }
 
-function makeLore(counts = {}, texts = {}) {
-	return new CharacterLore(makeFlags({ counts, texts }));
+function makeLore(values = {}) {
+	return new CharacterLore(makeFlags({ values }));
 }
 
 const LORE_DATA = [
 	{
-		slug: "earth", title: "The Earth", description: "<p>The earth knows.</p>",
-		options: [
-			{ slug: "opt-a", description: "Option A", max: 1 },
-			{ slug: "opt-b", description: "Option B", max: 3 },
-			{ slug: "opt-text", description: "A text question", type: "text" },
-			{ slug: "opt-heading", description: "<p>A heading with no max</p>" },
+		slug: "earth",
+		list: [
+			{ type: "heading", title: "The Earth", description: "<p>The earth knows.</p>" },
+			{ type: "track",   slug: "opt-a", description: "Option A", max: 1 },
+			{ type: "track",   slug: "opt-b", description: "Option B", max: 3 },
+			{ type: "text",    slug: "opt-text", description: "A text question" },
+			{ type: "heading", description: "<p>A heading with no max</p>" },
 		],
 	},
 ];
 
+// -- ChoiceValues -------------------------------------------------------------
+
+describe("ChoiceValues", () => {
+	it("getCount returns 0 when no value stored", () => {
+		expect(new ChoiceValues().getCount("earth", "opt-a")).toBe(0);
+	});
+
+	it("getCount returns stored number", () => {
+		expect(new ChoiceValues({ earth: { "opt-a": 2 } }).getCount("earth", "opt-a")).toBe(2);
+	});
+
+	it("getText returns empty string when no value stored", () => {
+		expect(new ChoiceValues().getText("earth", "opt-text")).toBe("");
+	});
+
+	it("getText returns stored string", () => {
+		expect(new ChoiceValues({ earth: { "opt-text": "answer" } }).getText("earth", "opt-text")).toBe("answer");
+	});
+
+	it("set returns a new ChoiceValues with the value nested by group then slug", () => {
+		const result = new ChoiceValues().set("earth", "opt-a", 1);
+		expect(result).toBeInstanceOf(ChoiceValues);
+		expect(result.getCount("earth", "opt-a")).toBe(1);
+	});
+
+	it("set merges new slug into existing group", () => {
+		const result = new ChoiceValues({ earth: { "opt-a": 1 } }).set("earth", "opt-b", 2);
+		expect(result.getCount("earth", "opt-a")).toBe(1);
+		expect(result.getCount("earth", "opt-b")).toBe(2);
+	});
+
+	it("set merges new group alongside existing group", () => {
+		const result = new ChoiceValues({ earth: { "opt-a": 1 } }).set("sky", "opt-c", 3);
+		expect(result.getCount("earth", "opt-a")).toBe(1);
+		expect(result.getCount("sky", "opt-c")).toBe(3);
+	});
+
+	it("set overwrites an existing value", () => {
+		const result = new ChoiceValues({ earth: { "opt-a": 1 } }).set("earth", "opt-a", 0);
+		expect(result.getCount("earth", "opt-a")).toBe(0);
+	});
+
+	it("set does not mutate the original", () => {
+		const original = new ChoiceValues({ earth: { "opt-a": 1 } });
+		original.set("earth", "opt-a", 99);
+		expect(original.getCount("earth", "opt-a")).toBe(1);
+	});
+
+	it("toRaw returns the underlying plain object", () => {
+		const data = { earth: { "opt-a": 1 } };
+		expect(new ChoiceValues(data).toRaw()).toBe(data);
+	});
+});
+
+// -- CharacterLore ------------------------------------------------------------
+
 describe("CharacterLore", () => {
-	it("counts returns empty object when no flag saved", () => {
-		expect(new CharacterLore(makeFlags()).counts).toEqual({});
+	it("values returns an empty ChoiceValues when no flag saved", () => {
+		const lore = new CharacterLore(makeFlags());
+		expect(lore.values).toBeInstanceOf(ChoiceValues);
+		expect(lore.values.getCount("earth", "opt-a")).toBe(0);
 	});
 
-	it("counts returns saved counts object", () => {
-		const lore = new CharacterLore(makeFlags({ counts: { earth: { "opt-a": 1 } } }));
-		expect(lore.counts).toEqual({ earth: { "opt-a": 1 } });
+	it("values returns a ChoiceValues wrapping the saved flag", () => {
+		const lore = makeLore({ earth: { "opt-a": 2 } });
+		expect(lore.values.getCount("earth", "opt-a")).toBe(2);
 	});
 
-	it("getCount returns 0 when no count saved for that key", () => {
-		expect(new CharacterLore(makeFlags()).getCount("earth", "opt-a")).toBe(0);
-	});
-
-	it("getCount returns the stored count for the given slugs", () => {
-		const lore = new CharacterLore(makeFlags({ counts: { earth: { "opt-a": 2 } } }));
-		expect(lore.getCount("earth", "opt-a")).toBe(2);
-	});
-
-	it("getCount returns 0 for a different option even when other options exist", () => {
-		const lore = new CharacterLore(makeFlags({ counts: { earth: { "opt-a": 1 } } }));
-		expect(lore.getCount("earth", "opt-b")).toBe(0);
-	});
-
-	it("setCount stores nested by entry then option slug", async () => {
+	it("set stores the updated values under the 'values' flag key", async () => {
 		const flags = makeFlags();
-		await new CharacterLore(flags).setCount("earth", "opt-a", 1);
-		expect(flags.setFlag).toHaveBeenCalledWith("counts", { earth: { "opt-a": 1 } });
+		await new CharacterLore(flags).set("earth", "opt-a", 1);
+		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-a": 1 } });
 	});
 
-	it("setCount merges new option into existing entry", async () => {
-		const store = { counts: { earth: { "opt-a": 1 } } };
+	it("set merges new value into existing data", async () => {
+		const store = { values: { earth: { "opt-a": 1 } } };
 		const flags = makeFlags(store);
-		await new CharacterLore(flags).setCount("earth", "opt-b", 1);
-		expect(flags.setFlag).toHaveBeenCalledWith("counts", { earth: { "opt-a": 1, "opt-b": 1 } });
+		await new CharacterLore(flags).set("earth", "opt-b", 2);
+		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-a": 1, "opt-b": 2 } });
 	});
 
-	it("setCount merges new entry alongside existing entry", async () => {
-		const store = { counts: { earth: { "opt-a": 1 } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).setCount("sky", "opt-c", 2);
-		expect(flags.setFlag).toHaveBeenCalledWith("counts", { earth: { "opt-a": 1 }, sky: { "opt-c": 2 } });
-	});
-
-	it("setCount overwrites an existing option value", async () => {
-		const store = { counts: { earth: { "opt-a": 1 } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).setCount("earth", "opt-a", 0);
-		expect(flags.setFlag).toHaveBeenCalledWith("counts", { earth: { "opt-a": 0 } });
+	it("set works for text values", async () => {
+		const flags = makeFlags();
+		await new CharacterLore(flags).set("earth", "opt-text", "my answer");
+		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-text": "my answer" } });
 	});
 });
 
-describe("CharacterLore — text values", () => {
-	it("texts returns empty object when no flag saved", () => {
-		expect(new CharacterLore(makeFlags()).texts).toEqual({});
-	});
-
-	it("texts returns saved texts object", () => {
-		const lore = new CharacterLore(makeFlags({ texts: { earth: { "q-one": "answer" } } }));
-		expect(lore.texts).toEqual({ earth: { "q-one": "answer" } });
-	});
-
-	it("getText returns empty string when no value saved for that key", () => {
-		expect(new CharacterLore(makeFlags()).getText("earth", "q-one")).toBe("");
-	});
-
-	it("getText returns the stored string for the given slugs", () => {
-		const lore = new CharacterLore(makeFlags({ texts: { earth: { "q-one": "some answer" } } }));
-		expect(lore.getText("earth", "q-one")).toBe("some answer");
-	});
-
-	it("setText stores nested by entry then option slug", async () => {
-		const flags = makeFlags();
-		await new CharacterLore(flags).setText("earth", "q-one", "my answer");
-		expect(flags.setFlag).toHaveBeenCalledWith("texts", { earth: { "q-one": "my answer" } });
-	});
-
-	it("setText merges new option into existing entry", async () => {
-		const store = { texts: { earth: { "q-one": "first" } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).setText("earth", "q-two", "second");
-		expect(flags.setFlag).toHaveBeenCalledWith("texts", { earth: { "q-one": "first", "q-two": "second" } });
-	});
-
-	it("setText merges new entry alongside existing entry", async () => {
-		const store = { texts: { earth: { "q-one": "first" } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).setText("sky", "q-two", "second");
-		expect(flags.setFlag).toHaveBeenCalledWith("texts", { earth: { "q-one": "first" }, sky: { "q-two": "second" } });
-	});
-
-	it("setText overwrites an existing option value", async () => {
-		const store = { texts: { earth: { "q-one": "old" } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).setText("earth", "q-one", "new");
-		expect(flags.setFlag).toHaveBeenCalledWith("texts", { earth: { "q-one": "new" } });
-	});
-});
+// -- CharacterLore.buildSnapshot ----------------------------------------------
 
 describe("CharacterLore.buildSnapshot", () => {
-	it("returns a LoreSection", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA)).toBeInstanceOf(LoreSection);
+	it("returns an array of ChoiceGroup", () => {
+		const result = makeLore().buildSnapshot(LORE_DATA);
+		expect(Array.isArray(result)).toBe(true);
+		expect(result[0]).toBeInstanceOf(ChoiceGroup);
 	});
 
-	it("includes one entry per lore entry", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA).entries).toHaveLength(1);
+	it("includes one ChoiceGroup per lore entry", () => {
+		expect(makeLore().buildSnapshot(LORE_DATA)).toHaveLength(1);
 	});
 
-	it("entry has slug, title, and description", () => {
-		const snap = makeLore().buildSnapshot(LORE_DATA);
-		expect(snap.entries[0].slug).toBe("earth");
-		expect(snap.entries[0].title).toBe("The Earth");
-		expect(snap.entries[0].description).toBe("<p>The earth knows.</p>");
+	it("ChoiceGroup has the entry slug", () => {
+		expect(makeLore().buildSnapshot(LORE_DATA)[0].slug).toBe("earth");
 	});
 
-	it("entry includes all options", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA).entries[0].options).toHaveLength(4);
+	it("returns empty array when loreData is absent", () => {
+		expect(makeLore().buildSnapshot(undefined)).toHaveLength(0);
 	});
 
-	it("checkbox option count comes from getCount", () => {
+	it("returns empty array when loreData is empty", () => {
+		expect(makeLore().buildSnapshot([])).toHaveLength(0);
+	});
+
+	it("first list item is a HeadingRow with entry title and description", () => {
+		const row = makeLore().buildSnapshot(LORE_DATA)[0].list[0];
+		expect(row).toBeInstanceOf(HeadingRow);
+		expect(row.type).toBe("heading");
+		expect(row.title).toBe("The Earth");
+		expect(row.description).toBe("<p>The earth knows.</p>");
+	});
+
+	it("choice option becomes a ChoiceRow with checks array reflecting stored count", () => {
 		const snap = makeLore({ earth: { "opt-a": 1 } }).buildSnapshot(LORE_DATA);
-		expect(snap.entries[0].options[0].count).toBe(1);
+		const row = snap[0].list.find(r => r.type === "choice" && r.options[0].slug === "opt-a");
+		expect(row).toBeInstanceOf(ChoiceRow);
+		expect(row.options[0].checks).toEqual([true]);
 	});
 
-	it("checkbox option count defaults to 0 when not saved", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA).entries[0].options[0].count).toBe(0);
-	});
-
-	it("text option textValue comes from getText", () => {
-		const snap = makeLore({}, { earth: { "opt-text": "my answer" } }).buildSnapshot(LORE_DATA);
-		expect(snap.entries[0].options[2].textValue).toBe("my answer");
-	});
-
-	it("text option textValue defaults to empty string when not saved", () => {
-		expect(makeLore().buildSnapshot(LORE_DATA).entries[0].options[2].textValue).toBe("");
-	});
-
-	it("returns empty entries when loreData is absent", () => {
-		expect(makeLore().buildSnapshot(undefined).entries).toHaveLength(0);
-	});
-
-	it("returns empty entries when loreData is empty", () => {
-		expect(makeLore().buildSnapshot([]).entries).toHaveLength(0);
-	});
-
-	it("option without max and without type gets type='heading'", () => {
+	it("choice option checks default to all false when count is 0", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
-		expect(heading.type).toBe("heading");
+		const row = snap[0].list.find(r => r.type === "choice" && r.options[0].slug === "opt-b");
+		expect(row.options[0].checks).toEqual([false, false, false]);
 	});
 
-	it("heading option has max=0 and count=0", () => {
-		const snap = makeLore({ earth: { "opt-heading": 5 } }).buildSnapshot(LORE_DATA);
-		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
-		expect(heading.max).toBe(0);
-		expect(heading.count).toBe(0);
+	it("text option becomes a TextRow with value from stored values", () => {
+		const snap = makeLore({ earth: { "opt-text": "my answer" } }).buildSnapshot(LORE_DATA);
+		const row = snap[0].list.find(r => r.type === "text");
+		expect(row).toBeInstanceOf(TextRow);
+		expect(row.textValue).toBe("my answer");
 	});
 
-	it("heading option preserves description", () => {
+	it("text option TextRow defaults textValue to empty string when not saved", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const heading = snap.entries[0].options.find(o => o.slug === "opt-heading");
-		expect(heading.description).toBe("<p>A heading with no max</p>");
+		const row = snap[0].list.find(r => r.type === "text");
+		expect(row.textValue).toBe("");
 	});
 
-	it("option with explicit type='text' is still text even if max is absent", () => {
+	it("option-level heading becomes a HeadingRow with null title", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const text = snap.entries[0].options.find(o => o.slug === "opt-text");
-		expect(text.type).toBe("text");
-	});
-
-	it("option with max defined stays as checkbox type", () => {
-		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const cb = snap.entries[0].options.find(o => o.slug === "opt-a");
-		expect(cb.type).toBe("checkbox");
+		const rows = snap[0].list.filter(r => r.type === "heading");
+		const optHeading = rows.find(r => r.title === null);
+		expect(optHeading).toBeInstanceOf(HeadingRow);
+		expect(optHeading.description).toBe("<p>A heading with no max</p>");
 	});
 });

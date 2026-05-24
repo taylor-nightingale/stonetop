@@ -19,27 +19,35 @@
 				},
 				"description": "<p>Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.</p>",
 				"unlock": {
-					"description": "To unlock the mysteries of this iron and claim its power as your own, you must…",
-					"requirements": [
+					"slug": "runic-branding-iron",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the mysteries of this iron and claim its power as your own, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "decipher-runes",
-							"description": "… decipher the meaning of the runes, and identify the missing ones."
+							"description": "… decipher the meaning of the runes, and identify the missing ones.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "finish-etchings",
-							"description": "… finish the etchings, risking an error that will make the next step fail."
+							"description": "… finish the etchings, risking an error that will make the next step fail.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "heat-and-brand",
-							"description": "… heat the iron red-hot and let yourself be branded (lose 3d6 HP), the runes fading from the iron and searing themselves upon your soul."
+							"description": "… heat the iron red-hot and let yourself be branded (lose 3d6 HP), the runes fading from the iron and searing themselves upon your soul.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "allow-heal",
-							"description": "… allow the wound to heal and scar, without the aid of any magic."
+							"description": "… allow the wound to heal and scar, without the aid of any magic.",
+							"max": 1
 						}
 					]
 				}

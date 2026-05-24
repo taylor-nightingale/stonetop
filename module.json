@@ -124,6 +124,13 @@
 			"path": "packs/post-death-moves",
 			"type": "Item",
 			"system": "pbta"
+		},
+		{
+			"name": "followers",
+			"label": "Followers",
+			"path": "packs/followers",
+			"type": "Item",
+			"system": "pbta"
 		}
 	],
 	"url": "https://github.com/taylor-nightingale/stonetop",

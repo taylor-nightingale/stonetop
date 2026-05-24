@@ -19,22 +19,29 @@
 				},
 				"description": "<p>A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.</p>",
 				"unlock": {
-					"description": "The chime is a powerful tool, if you can unlock its secrets. To do so…",
-					"requirements": [
+					"slug": "makerglass-chime",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
+						},
+						{
+							"type": "track",
 							"slug": "grasp-and-roll",
-							"description": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: on a 10+, you've got it; on a 7-9, mark a debility and you'll need to try again; on a 6-, ask the GM what goes terribly wrong."
+							"description": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: on a 10+, you've got it; on a 7-9, mark a debility and you'll need to try again; on a 6-, ask the GM what goes terribly wrong.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-control",
-							"description": "… spend a week or so learning to control the ringing chime."
+							"description": "… spend a week or so learning to control the ringing chime.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-hearing",
-							"description": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice."
+							"description": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice.",
+							"max": 1
 						}
 					]
 				}

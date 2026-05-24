@@ -1,0 +1,54 @@
+{
+  "_id": "VdpSGoAvfGEdIYKD",
+  "_key": "!items!VdpSGoAvfGEdIYKD",
+  "name": "Gwendyl, Your Mentor",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "gwendyl",
+      "note": "Herb-wise, gossipy, tireless, healer, magical",
+      "hp": { "max": 6 },
+      "armor": 0,
+      "damage": "iron knife d6 (hand)",
+      "instinct": {
+        "slug": "instinct",
+        "list": [
+          { "type": "text", "slug": "value", "description": "", "default": "to take offense\n-Tend to the sick, injured, women in labor\n-Weave a talisman of fertility or good luck\n-Point out a flaw in a person or plan" }
+        ]
+      },
+      "cost": "consideration, affection; Loyalty",
+      "loyalty": { "max": 3 },
+      "options": {
+        "slug": "options",
+        "list": [
+          { "type": "heading", "title": "Pick 1 on each line" },
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "he", "label": "he" },
+            { "slug": "she", "label": "she" },
+            { "slug": "they", "label": "they" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "a-big-family", "label": "a big family" },
+            { "slug": "has-taken-you-in", "label": "has taken you in" },
+            { "slug": "lives-alone", "label": "lives alone" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "blunt", "label": "blunt" },
+            { "slug": "demanding", "label": "demanding" },
+            { "slug": "put-upon", "label": "put upon" },
+            { "slug": "suffers-no-fools", "label": "suffers no fools" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "rites-of-earth-and-soil", "label": "rites of... earth & soil" },
+            { "slug": "rites-of-mourning", "label": "rites of... mourning" },
+            { "slug": "rites-of-petition", "label": "rites of... petition" }
+          ]}
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "_id": "gxUFykyDSMMwcsxS",
+  "_key": "!items!gxUFykyDSMMwcsxS",
+  "name": "Seren the Eldest",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "seren-the-eldest",
+      "note": "Exceptional, story-wise, insightful, frail, magical",
+      "hp": { "max": 3 },
+      "armor": 0,
+      "damage": "walking stick d4 (close)",
+      "instinct": {
+        "slug": "instinct",
+        "list": [
+          { "type": "text", "slug": "value", "description": "", "default": "to hew to tradition\n-Consult the spirits, or abjure them\n-Spin a tale to make a point\n-Use shame and guilt as leverage" }
+        ]
+      },
+      "cost": "deference, good sense shown; Loyalty",
+      "loyalty": { "max": 3 },
+      "options": {
+        "slug": "options",
+        "list": [
+          { "type": "heading", "title": "Pick 1 on each line" },
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "he", "label": "he" },
+            { "slug": "she", "label": "she" },
+            { "slug": "they", "label": "they" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "dismissed", "label": "dismissed" },
+            { "slug": "pitied", "label": "pitied" },
+            { "slug": "feared", "label": "feared" },
+            { "slug": "venerated", "label": "venerated" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "cagey", "label": "cagey" },
+            { "slug": "friendly-but-firm", "label": "friendly but firm" },
+            { "slug": "imperious", "label": "imperious" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "rites-of-iron", "label": "rites of... iron" },
+            { "slug": "rites-of-secret-naming", "label": "rites of... secret naming" },
+            { "slug": "rites-of-winter", "label": "rites of... winter" }
+          ]}
+        ]
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ export class PostDeathInsert {
 		this.name        = doc.name         ?? "";
 		this.img         = doc.img          ?? null;
 		this.description = doc.system?.description ?? null;
-		this.instincts   = flags.instincts  ?? [];
+		this.instinct    = flags.instinct   ?? null;
 		this.lore        = flags.lore       ?? [];
 	}
 }

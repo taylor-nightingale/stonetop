@@ -2,10 +2,6 @@ import {
 	PostDeathInsertSnapshotBuilder,
 	PostDeathSectionSnapshotBuilder,
 } from "../../model/snapshot/character/PostDeathInsertSnapshot.js";
-import {
-	InstinctOptionSnapshotBuilder,
-	InstinctSection,
-} from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterPostDeath {
 	constructor(insertFlags, instinct, lore, insertRepo, moves) {
@@ -59,7 +55,7 @@ export class CharacterPostDeath {
 					.withName(data.name)
 					.withImg(data.img)
 					.withDescription(data.description)
-					.withInstinct(_buildInstinctSection(data.instincts, this._instinct.selectedValue))
+					.withInstinct(this._instinct.buildSnapshot(data.instinct))
 					.withLore(this._lore.buildSnapshot(data.lore))
 					.withMoves(this._moves.getMoveSnapshotsForCategory(moveType))
 					.build();
@@ -73,15 +69,3 @@ export class CharacterPostDeath {
 	}
 }
 
-function _buildInstinctSection(instincts, selectedValue) {
-	const options = (instincts ?? []).map(({word, description}) => {
-		const value = `${word} — ${description}`;
-		return new InstinctOptionSnapshotBuilder()
-			.withWord(word)
-			.withDescription(description)
-			.withValue(value)
-			.withSelected(selectedValue === value)
-			.build();
-	});
-	return new InstinctSection(selectedValue || null, options);
-}

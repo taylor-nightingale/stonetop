@@ -76,27 +76,15 @@
 		</div>
 		<div class="stonetop-arcanum-body">
 			{{{front.description}}}
-			<p class="stonetop-arcanum-unlock-lead">{{{front.unlock.description}}}</p>
-			<ul class="stonetop-arcanum-unlock-list">
-				{{#each front.unlock.requirements}}
-				{{#if (eq type "text")}}
-				<li class="stonetop-arcanum-unlock-text">{{{description}}}</li>
+			<div class="stonetop-arcanum-unlock">
+				{{#each front.unlock.list}}
+				{{#if (eq type "heading")}}
+				<p class="stonetop-arcanum-unlock-lead">{{{description}}}</p>
 				{{else}}
-				<li class="stonetop-arcanum-unlock-option">
-					<span class="stonetop-arcanum-unlock-checks">
-						{{#each (times max)}}
-						<input type="checkbox" class="stonetop-arcanum-unlock-check"
-						       data-arcanum-slug="{{../../slug}}"
-						       data-option-slug="{{../slug}}"
-						       data-index="{{@index}}"
-						       {{#if (lt @index ../count)}}checked{{/if}}>
-						{{/each}}
-					</span>
-					<span class="stonetop-arcanum-unlock-desc">{{{description}}}</span>
-				</li>
+				{{> "stonetop.choice-row" inputClass="stonetop-arcanum-unlock-check"}}
 				{{/if}}
 				{{/each}}
-			</ul>
+			</div>
 		</div>
 		{{/if}}
 

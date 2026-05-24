@@ -70,7 +70,7 @@ export class CharacterPlaybook {
 			.withStatsNote(data.statsNote ?? null)
 			.withLore(this._lore.buildSnapshot(data.lore ?? []))
 			.withBackground(this._background.buildSnapshot(data.backgrounds ?? []))
-			.withInstinct(this._instinct.buildSnapshot(data.instincts ?? []))
+			.withInstinct(this._instinct.buildSnapshot(data.instinct ?? null))
 			.withAppearance(this._appearance.buildSnapshot(data.appearance ?? []))
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))
 			.build();

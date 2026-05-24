@@ -19,22 +19,29 @@
 				},
 				"description": "<p>It was clearly once a fine, fine blade. The steel holds a pattern of rustle-sworls, at least where the rust hasn't taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it's been left out for hours in the summer sun.</p>",
 				"unlock": {
-					"description": "To unlock the mysteries of this weapon, you must…",
-					"requirements": [
+					"slug": "rusty-steel-blade",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the mysteries of this weapon, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "restore-blade",
-							"description": "… restore the blade, which requires access to a smithy, a few weeks of work, and no small amount of skill."
+							"description": "… restore the blade, which requires access to a smithy, a few weeks of work, and no small amount of skill.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "commune-fire",
-							"description": "… commune with the spirit of fire within the steel (Instinct to seek glory), and convince it that you are worthy to wield the blade."
+							"description": "… commune with the spirit of fire within the steel (Instinct to seek glory), and convince it that you are worthy to wield the blade.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "acquire-scabbard",
-							"description": "… acquire a scabbard that can withstand the fire and heat of a forge."
+							"description": "… acquire a scabbard that can withstand the fire and heat of a forge.",
+							"max": 1
 						}
 					]
 				}

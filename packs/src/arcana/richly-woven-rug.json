@@ -19,22 +19,29 @@
 				},
 				"description": "<p>About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power.</p>",
 				"unlock": {
-					"description": "You can unlock the secrets of this rug, but you must first…",
-					"requirements": [
+					"slug": "richly-woven-rug",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can unlock the secrets of this rug, but you must first…"
+						},
+						{
+							"type": "track",
 							"slug": "marked-by-fire",
-							"description": "… be marked by fire, losing yourself to the panic or pain of burning."
+							"description": "… be marked by fire, losing yourself to the panic or pain of burning.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "weeks-meditation",
-							"description": "… then, spend weeks in meditation upon the rug and studying the now-clear runes."
+							"description": "… then, spend weeks in meditation upon the rug and studying the now-clear runes.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "burned-by-flame",
-							"description": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear."
+							"description": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear.",
+							"max": 1
 						}
 					]
 				}

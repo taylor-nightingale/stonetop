@@ -19,27 +19,35 @@
 				},
 				"description": "<p>Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.</p>",
 				"unlock": {
-					"description": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…",
-					"requirements": [
+					"slug": "vein-of-milky-crystal",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…"
+						},
+						{
+							"type": "track",
 							"slug": "extract-crystal",
-							"description": "… personally extract a large ◇ hunk of crystal (Value 1) from the vein."
+							"description": "… personally extract a large ◇ hunk of crystal (Value 1) from the vein.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "shape-sphere",
-							"description": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job)."
+							"description": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "learn-sacred-words",
-							"description": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth."
+							"description": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "speak-under-moon",
-							"description": "… on three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month."
+							"description": "… on three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month.",
+							"max": 1
 						}
 					]
 				}

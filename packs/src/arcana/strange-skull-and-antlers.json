@@ -19,21 +19,27 @@
 				},
 				"description": "<p>A skull, the size of a horse's head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.</p>",
 				"unlock": {
-					"description": "To unlock the secrets of this relic, you…",
-					"requirements": [
+					"slug": "strange-skull-and-antlers",
+					"list": [
 						{
-							"type": "option",
-							"slug": "learn-name",
-							"description": "… must learn the name of the shade whose skull this was;"
+							"type": "heading",
+							"description": "To unlock the secrets of this relic, you…"
 						},
 						{
-							"type": "text",
+							"type": "track",
+							"slug": "learn-name",
+							"description": "… must learn the name of the shade whose skull this was;",
+							"max": 1
+						},
+						{
+							"type": "heading",
 							"description": "or…"
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "call-spirits",
-							"description": "… use the Blessed's Call the Spirits move to call up the shade."
+							"description": "… use the Blessed's Call the Spirits move to call up the shade.",
+							"max": 1
 						}
 					]
 				}

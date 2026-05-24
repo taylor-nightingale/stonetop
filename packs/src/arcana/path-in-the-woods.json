@@ -14,22 +14,29 @@
 				"item": null,
 				"description": "<p>Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.</p><p>If you <strong><em>set forth upon the trail at midsummer</em></strong>, you can unlock its mysteries, but you must…</p>",
 				"unlock": {
-					"description": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…",
-					"requirements": [
+					"slug": "path-in-the-woods",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
+						},
+						{
+							"type": "track",
 							"slug": "follow-paths",
-							"description": "… follow the twisting paths in silence, until you spy the White Hart."
+							"description": "… follow the twisting paths in silence, until you spy the White Hart.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "chase-hart",
-							"description": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth."
+							"description": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "wrestle-serpent",
-							"description": "… wrestle the strange serpent that lives in the tree (Book II, page 371), crushing the life from it and eating its still-warm heart."
+							"description": "… wrestle the strange serpent that lives in the tree (Book II, page 371), crushing the life from it and eating its still-warm heart.",
+							"max": 1
 						}
 					]
 				}

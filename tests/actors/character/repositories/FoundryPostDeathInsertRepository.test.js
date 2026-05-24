@@ -8,14 +8,14 @@ const INSERT_DOC = {
 	name:   "Revenant",
 	img:    "icons/svg/skull.png",
 	system: { slug: "revenant", description: "<p>When you die...</p>" },
-	flags:  { stonetop: { instincts: [{ word: "Denial" }], lore: [] } },
+	flags:  { stonetop: { instinct: { slug: "instinct", list: [] }, lore: [] } },
 };
 
 const OTHER_DOC = {
 	name:   "Ghost",
 	img:    null,
 	system: { slug: "ghost", description: "<p>When your soul lingers...</p>" },
-	flags:  { stonetop: { instincts: [], lore: [] } },
+	flags:  { stonetop: { instinct: null, lore: [] } },
 };
 
 // -- Helpers ------------------------------------------------------------------
@@ -94,7 +94,7 @@ describe("FoundryPostDeathInsertRepository", () => {
 			expect(result).toBeInstanceOf(PostDeathInsert);
 			expect(result.slug).toBe("revenant");
 			expect(result.name).toBe("Revenant");
-			expect(result.instincts).toHaveLength(1);
+			expect(result.instinct).not.toBeNull();
 		});
 
 		it("calls getIndex with system.slug field", async () => {

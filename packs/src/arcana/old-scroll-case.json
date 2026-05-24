@@ -19,27 +19,35 @@
 				},
 				"description": "<p>A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It's a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.</p>",
 				"unlock": {
-					"description": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…",
-					"requirements": [
+					"slug": "old-scroll-case",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
+						},
+						{
+							"type": "track",
 							"slug": "translate-letter",
-							"description": "… you must translate the letter."
+							"description": "… you must translate the letter.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "dedicated-study",
-							"description": "… it'll take a few weeks of dedicated study."
+							"description": "… it'll take a few weeks of dedicated study.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "use-aetherium",
-							"description": "… you'll use up one of the aetherium ingots (or another source of aetherium)."
+							"description": "… you'll use up one of the aetherium ingots (or another source of aetherium).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-electrocution",
-							"description": "… you risk electrocuting yourself and/or using up the other ingot."
+							"description": "… you risk electrocuting yourself and/or using up the other ingot.",
+							"max": 1
 						}
 					]
 				}

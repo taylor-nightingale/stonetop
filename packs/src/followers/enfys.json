@@ -1,0 +1,54 @@
+{
+  "_id": "9410O8O9uaLDj4SZ",
+  "_key": "!items!9410O8O9uaLDj4SZ",
+  "name": "Enfys, the Acolyte",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "enfys",
+      "note": "Bird-wise, innocent, magical, well-informed",
+      "hp": { "max": 6 },
+      "armor": 0,
+      "damage": "bronze knife d4 (hand)",
+      "instinct": {
+        "slug": "instinct",
+        "list": [
+          { "type": "text", "slug": "value", "description": "", "default": "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off" }
+        ]
+      },
+      "cost": "knowledge, secret lore; Loyalty",
+      "loyalty": { "max": 3 },
+      "options": {
+        "slug": "options",
+        "list": [
+          { "type": "heading", "title": "Pick 1 on each line" },
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "he", "label": "he" },
+            { "slug": "she", "label": "she" },
+            { "slug": "they", "label": "they" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "just-a-child", "label": "just a child" },
+            { "slug": "on-the-cusp", "label": "on the cusp" },
+            { "slug": "a-young-adult", "label": "a young adult" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "carefully-chosen", "label": "carefully chosen" },
+            { "slug": "marked-by-danu", "label": "marked by Danu" },
+            { "slug": "orphaned", "label": "orphaned" }
+          ]},
+          { "type": "pick", "pickCount": 1, "inline": true, "options": [
+            { "slug": "carefree", "label": "carefree" },
+            { "slug": "curious", "label": "curious" },
+            { "slug": "moody", "label": "moody" },
+            { "slug": "secretive", "label": "secretive" }
+          ]}
+        ]
+      }
+    }
+  }
+}

@@ -84,11 +84,11 @@ describe("StonetopCharacterSheet event handlers", () => {
 		expect(actor.typedActor.selectBackground).toHaveBeenCalledWith("vessel");
 	});
 
-	it("_onAppearanceChange calls appearance.select with lineIdx and value", async () => {
+	it("_onAppearanceChange calls appearance.select with rowKey and value", async () => {
 		const actor = makeActor();
 		const sheet = makeSheet(actor);
-		await sheet._onAppearanceChange({ currentTarget: { dataset: { line: "0" }, value: "gray & wizened" } });
-		expect(actor.typedActor.appearance.select).toHaveBeenCalledWith(0, "gray & wizened");
+		await sheet._onAppearanceChange({ currentTarget: { dataset: { rowKey: "0", choiceSlug: "gray-and-wizened" } } });
+		expect(actor.typedActor.appearance.select).toHaveBeenCalledWith(0, "gray-and-wizened");
 	});
 
 	it("_onOriginNameClick calls origin.selectName with trimmed text", async () => {

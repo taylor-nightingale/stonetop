@@ -10,6 +10,7 @@ import {CharacterInventory} from "./CharacterInventory.js";
 import {CharacterArcana} from "./CharacterArcana.js";
 import {CharacterLore} from "./CharacterLore.js";
 import {CharacterPostDeath} from "./CharacterPostDeath.js";
+import {CharacterFollowers} from "./CharacterFollowers.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
@@ -39,6 +40,7 @@ export class StonetopCharacter {
 			repos.postDeathInsert,
 			this._moves,
 		);
+		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
 		this._inventory.setVitals(this._vitals);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
@@ -75,12 +77,13 @@ export class StonetopCharacter {
 	async buildSnapshot() {
 		await this._moves.initBasicMoves();
 		const actor = this._actor;
-		const [arcana, inventory, postDeath, playbook, vitals] = await Promise.all([
+		const [arcana, inventory, postDeath, playbook, vitals, followers] = await Promise.all([
 			this._arcana.buildSnapshot(),
 			this._inventory.buildSnapshot(),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
+			this._followers.buildSnapshot(),
 		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
@@ -92,6 +95,7 @@ export class StonetopCharacter {
 			.withInventory(inventory)
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
+			.withFollowers(followers)
 			.withRollMode(actor.flags?.pbta?.rollMode ?? "normal")
 			.build();
 	}
@@ -100,16 +104,16 @@ export class StonetopCharacter {
 		await this._postDeath.setInsert(slug);
 	}
 
-	async setPostDeathInstinct(value) {
-		await this._postDeath.instinct.select(value);
+	async setPostDeathInstinct(slug, siblingSlugsCsv) {
+		await this._postDeath.instinct.selectOption(slug, siblingSlugsCsv);
 	}
 
 	async setPostDeathLoreCount(loreSlug, optSlug, n) {
-		await this._postDeath.lore.setCount(loreSlug, optSlug, n);
+		await this._postDeath.lore.set(loreSlug, optSlug, n);
 	}
 
 	async setPostDeathLoreText(loreSlug, optSlug, value) {
-		await this._postDeath.lore.setText(loreSlug, optSlug, value);
+		await this._postDeath.lore.set(loreSlug, optSlug, value);
 	}
 
 	async setInventoryItemChecked(slug, isChecked) {
@@ -181,16 +185,22 @@ export class StonetopCharacter {
 	}
 
 	async onDropItems(items) {
-		const arcana = items.filter(i => i.type === "move" && i.system?.moveType === "arcanum");
-		const moves = items.filter(i => i.type === "move" && i.system?.moveType !== "arcanum");
-		const others = items.filter(i => i.type !== "move");
+		const arcana    = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "arcana");
+		const followers = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "follower");
+		const moves     = items.filter(i => i.type === "move");
+		const others    = items.filter(i =>
+			i.type !== "move" &&
+			i.system?.equipmentType !== "arcana" &&
+			i.system?.equipmentType !== "follower"
+		);
 		let anyAdded = false;
 		for (const item of arcana) {
 			const slug = item.flags?.stonetop?.slug;
-			if (slug) {
-				await this.addArcanum(slug);
-				anyAdded = true;
-			}
+			if (slug) { await this.addArcanum(slug); anyAdded = true; }
+		}
+		for (const item of followers) {
+			const slug = item.flags?.stonetop?.slug;
+			if (slug) { await this._followers.addFollower(slug); anyAdded = true; }
 		}
 		for (const item of moves) {
 			if (await this.onDropMove(item)) anyAdded = true;
@@ -253,10 +263,42 @@ export class StonetopCharacter {
 	}
 
 	async setLoreOptionCount(loreSlug, optionSlug, count) {
-		await this._lore.setCount(loreSlug, optionSlug, count);
+		await this._lore.set(loreSlug, optionSlug, count);
 	}
 
 	async setLoreOptionText(loreSlug, optionSlug, value) {
-		await this._lore.setText(loreSlug, optionSlug, value);
+		await this._lore.set(loreSlug, optionSlug, value);
+	}
+
+	async removeFollower(slug) {
+		await this._followers.removeFollower(slug);
+	}
+
+	async setFollowerHp(slug, hp) {
+		await this._followers.setHp(slug, hp);
+	}
+
+	async setFollowerLoyalty(slug, loyalty) {
+		await this._followers.setLoyalty(slug, loyalty);
+	}
+
+	async setFollowerChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
+		await this._followers.setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv);
+	}
+
+	async setFollowerInstinctCustom(slug, value) {
+		await this._followers.setInstinctCustom(slug, value);
+	}
+
+	async setFollowerInstinctText(slug, text) {
+		await this._followers.setInstinctText(slug, text);
+	}
+
+	async setFollowerArmor(slug, armor) {
+		await this._followers.setArmor(slug, armor);
+	}
+
+	async setFollowerDamage(slug, damage) {
+		await this._followers.setDamage(slug, damage);
 	}
 }

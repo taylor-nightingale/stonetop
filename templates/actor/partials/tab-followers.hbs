@@ -1,0 +1,98 @@
+<div class="tab followers" data-group="primary" data-tab="followers">
+
+	{{#unless stonetop.followers.length}}
+	<p class="stonetop-followers-empty">{{localize "stonetop.followers.empty"}}</p>
+	{{/unless}}
+
+	<div class="stonetop-followers-grid">
+	{{#each stonetop.followers}}
+	<div class="stonetop-follower-card" data-slug="{{slug}}">
+
+		<button type="button" class="stonetop-follower-delete" data-slug="{{slug}}"
+		        title="{{localize 'stonetop.followers.remove'}}">
+			<i class="fas fa-times"></i>
+		</button>
+
+		<strong class="stonetop-follower-name">{{name}}</strong>
+		{{#if note}}<span class="stonetop-follower-note">{{note}}</span>{{/if}}
+
+		<div class="stonetop-follower-attrs">
+			<div class="stonetop-follower-attr">
+				<div class="stonetop-follower-hp-resource">
+					<input type="number" class="stonetop-follower-hp" min="0" max="{{hpMax}}"
+					       value="{{hp}}" data-slug="{{slug}}">
+					<span class="stonetop-follower-hp-sep">/</span>
+					<span class="stonetop-follower-hp-max">{{hpMax}}</span>
+				</div>
+				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.hp"}}</span>
+			</div>
+			<div class="stonetop-follower-attr">
+				<input type="number" class="stonetop-follower-armor" min="0"
+				       value="{{armor}}" data-slug="{{slug}}">
+				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.armor"}}</span>
+			</div>
+			{{#if damage}}
+			<div class="stonetop-follower-attr">
+				<input type="text" class="stonetop-follower-damage"
+				       value="{{damage}}" data-slug="{{slug}}">
+				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.damage"}}</span>
+			</div>
+			{{/if}}
+		</div>
+
+		<div class="stonetop-follower-loyalty">
+			<span class="stonetop-follower-loyalty-label">{{localize "stonetop.followers.loyalty"}}</span>
+			<div class="stonetop-follower-loyalty-pips">
+				{{#each (times loyaltyMax)}}
+				<button type="button"
+				        class="stonetop-follower-loyalty-pip{{#if (lt @index ../loyalty)}} is-checked{{/if}}"
+				        data-slug="{{../slug}}"
+				        data-index="{{@index}}"></button>
+				{{/each}}
+			</div>
+		</div>
+
+		{{#if instinct}}
+		<div class="stonetop-follower-instinct">
+			<span class="stonetop-follower-instinct-label">{{localize "stonetop.followers.instinct"}}</span>
+			{{#if (eq instinct.type "text")}}
+			<textarea class="stonetop-follower-instinct-text" data-slug="{{slug}}">{{instinct.group.list.[0].textValue}}</textarea>
+			{{else if (eq instinct.type "choices")}}
+			<div class="stonetop-follower-instinct-choices">
+				{{#each instinct.group.list}}
+				{{> "stonetop.choice-row" inputClass="stonetop-follower-instinct-radio" namePrefix="stonetop-follower-instinct" entitySlug=../slug}}
+				{{/each}}
+			</div>
+			{{else}}
+			<input type="text" class="stonetop-follower-instinct-custom"
+			       value="{{instinctCustom}}"
+			       data-slug="{{slug}}"
+			       placeholder="{{localize 'stonetop.followers.instinctCustomPlaceholder'}}">
+			{{/if}}
+		</div>
+		{{/if}}
+
+		{{#if cost}}
+		<div class="stonetop-follower-cost">
+			<span class="stonetop-follower-cost-label">{{localize "stonetop.followers.cost"}}</span>
+			<span class="stonetop-follower-cost-value">{{cost}}</span>
+		</div>
+		{{/if}}
+
+		{{#if options}}
+		<div class="stonetop-follower-options">
+			{{#each options.list}}
+			{{#if (eq type "heading")}}
+			<p class="stonetop-follower-options-heading">{{title}}</p>
+			{{else}}
+			{{> "stonetop.choice-row" inputClass="stonetop-follower-desc-radio" namePrefix="stonetop-follower-desc" entitySlug=../slug}}
+			{{/if}}
+			{{/each}}
+		</div>
+		{{/if}}
+
+	</div>
+	{{/each}}
+	</div>
+
+</div>

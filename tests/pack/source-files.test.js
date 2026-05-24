@@ -73,7 +73,7 @@ describe("pack source files", () => {
 	});
 
 	it("arcana items have flags.stonetop.slug, front, and back", () => {
-		const arcana = allDocs.filter(({ doc }) => doc.system?.moveType === "arcanum");
+		const arcana = allDocs.filter(({ doc }) => doc.system?.equipmentType === "arcana");
 		const bad = arcana.filter(({ doc }) =>
 			!doc.flags?.stonetop?.slug ||
 			!doc.flags?.stonetop?.front ||

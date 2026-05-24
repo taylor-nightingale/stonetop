@@ -19,27 +19,35 @@
 				},
 				"description": "<p>30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear.</p><p><strong>If the jar is opened</strong>, all its magic is lost.</p>",
 				"unlock": {
-					"description": "To unlock the jar's mysteries, you must…",
-					"requirements": [
+					"slug": "large-wooden-jar",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the jar's mysteries, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "wash-surface",
-							"description": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility)."
+							"description": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility).",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "commune-spirit",
-							"description": "… commune with the spirit of the haughty Green Lord to whom this jar is bound."
+							"description": "… commune with the spirit of the haughty Green Lord to whom this jar is bound.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "use-crystals",
-							"description": "… learn to use the red crystals to torment the Green Lord's spirit."
+							"description": "… learn to use the red crystals to torment the Green Lord's spirit.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "convince-lord",
-							"description": "… convince the bound Green Lord spirit to change your form."
+							"description": "… convince the bound Green Lord spirit to change your form.",
+							"max": 1
 						}
 					]
 				}

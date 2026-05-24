@@ -19,22 +19,29 @@
 				},
 				"description": "<p>Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.</p>",
 				"unlock": {
-					"description": "To unlock its mysteries and learn the spell, you must…",
-					"requirements": [
+					"slug": "stretched-vellum",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock its mysteries and learn the spell, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "decipher-glyphs",
-							"description": "… decipher the Green Lords' glyphs."
+							"description": "… decipher the Green Lords' glyphs.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "study-ponder",
-							"description": "… spend a few weeks studying and pondering them."
+							"description": "… spend a few weeks studying and pondering them.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "experiment-beast",
-							"description": "… experiment on a beast of at least small size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad."
+							"description": "… experiment on a beast of at least small size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad.",
+							"max": 1
 						}
 					]
 				}

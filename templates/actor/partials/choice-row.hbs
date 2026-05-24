@@ -1,0 +1,32 @@
+<div class="stonetop-choice-row{{#if inline}} stonetop-choice-row--inline{{/if}}">
+    {{#each options}}
+    {{#if checks}}
+    {{! Count mode: N anonymous checkboxes + description (lore) }}
+    <div class="stonetop-choice-option-count">
+        <span class="stonetop-choice-checks">
+            {{#each checks}}
+            <input type="checkbox"
+                   class="stonetop-item-check {{../../inputClass}}"
+                   data-option-slug="{{../slug}}"
+                   data-idx="{{@index}}"
+                   {{#if this}}checked{{/if}}>
+            {{/each}}
+        </span>
+        <span class="stonetop-choice-option-desc">{{{description}}}</span>
+    </div>
+    {{else}}
+    {{! Pick mode: single radio or checkbox per option }}
+    <label class="stonetop-choice-option-label">
+        <input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
+               class="stonetop-item-check {{../inputClass}}"
+               {{#if ../radio}}name="{{../namePrefix}}{{#if ../entitySlug}}-{{../entitySlug}}{{/if}}-{{../rowKey}}"{{/if}}
+               {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
+               {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
+               {{#if ../rowKey}}data-row-key="{{../rowKey}}"{{/if}}
+               data-choice-slug="{{slug}}"
+               {{#if checked}}checked{{/if}}>
+        {{label}}
+    </label>
+    {{/if}}
+    {{/each}}
+</div>

@@ -14,6 +14,8 @@
   increasing your total XP by 1.
 * Add prosperity to inventory tab
 * Update all of our compendium items to include the json structure for adding outfit items
+* lore entry and choice should be the same data model.
+* other inventory section is missing, and adding outfit items still doesn't work
 
 == bugs
 * adding outfit items adds them to the other section

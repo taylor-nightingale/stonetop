@@ -19,22 +19,29 @@
 				},
 				"description": "<p>The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill.</p><p>When you <strong><em>don the cloak</em></strong>, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.</p>",
 				"unlock": {
-					"description": "There's more to this cloak, for sure. To unlock its secrets, you must…",
-					"requirements": [
+					"slug": "ragged-fur-cloak",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "There's more to this cloak, for sure. To unlock its secrets, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "wear-seven-nights",
-							"description": "… wear it continuously for seven days and seven nights."
+							"description": "… wear it continuously for seven days and seven nights.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "stalk-beast",
-							"description": "… stalk a warm-blooded beast on a moonless night, smearing its blood on the fur."
+							"description": "… stalk a warm-blooded beast on a moonless night, smearing its blood on the fur.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "grievous-wound",
-							"description": "… suffer (or self-inflict) a grievous wound while wearing the fur, drenching it in your own fresh blood."
+							"description": "… suffer (or self-inflict) a grievous wound while wearing the fur, drenching it in your own fresh blood.",
+							"max": 1
 						}
 					]
 				}

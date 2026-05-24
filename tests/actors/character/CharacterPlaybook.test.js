@@ -42,7 +42,7 @@ const PLAYBOOK = {
 		{ slug: "herbalist", moves: ["Healing Touch"] },
 		{ slug: "vessel",    moves: ["Channel"] },
 	],
-	instincts:      [{ word: "Pious", description: "Devout." }],
+	instinct:       { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [{ slug: "pious", label: "Pious", description: "Devout." }] }] },
 	appearance:     [["tall", "short"]],
 	origin:         [{ region: "The Reach", names: ["Aldric"] }],
 };
@@ -110,10 +110,10 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(subs.background.buildSnapshot).toHaveBeenCalledWith(PLAYBOOK.backgrounds);
 	});
 
-	it("delegates to instinct.buildSnapshot with playbook.instincts", async () => {
+	it("delegates to instinct.buildSnapshot with playbook.instinct", async () => {
 		const subs = makeSubs();
 		await makePlaybook(makeActor(), makeRepo(PLAYBOOK), subs).buildPlaybookSnapshot();
-		expect(subs.instinct.buildSnapshot).toHaveBeenCalledWith(PLAYBOOK.instincts);
+		expect(subs.instinct.buildSnapshot).toHaveBeenCalledWith(PLAYBOOK.instinct);
 	});
 
 	it("delegates to appearance.buildSnapshot with playbook.appearance", async () => {
@@ -150,7 +150,7 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		const subs = makeSubs();
 		await makePlaybook(makeActor(), makeRepo(minimal), subs).buildPlaybookSnapshot();
 		expect(subs.background.buildSnapshot).toHaveBeenCalledWith([]);
-		expect(subs.instinct.buildSnapshot).toHaveBeenCalledWith([]);
+		expect(subs.instinct.buildSnapshot).toHaveBeenCalledWith(null);
 		expect(subs.appearance.buildSnapshot).toHaveBeenCalledWith([]);
 		expect(subs.origin.buildSnapshot).toHaveBeenCalledWith([]);
 		expect(subs.lore.buildSnapshot).toHaveBeenCalledWith([]);

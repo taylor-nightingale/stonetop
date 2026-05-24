@@ -19,42 +19,53 @@
 				},
 				"description": "<p>A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.</p>",
 				"unlock": {
-					"description": "To unlock the map's mysteries and claim the prize at the end, you must…",
-					"requirements": [
+					"slug": "treasure-map",
+					"list": [
 						{
-							"type": "option",
+							"type": "heading",
+							"description": "To unlock the map's mysteries and claim the prize at the end, you must…"
+						},
+						{
+							"type": "track",
 							"slug": "find-standing-stones",
-							"description": "… find the standing stones that mark the start of the path."
+							"description": "… find the standing stones that mark the start of the path.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "follow-map",
-							"description": "… follow the map to the waterfall."
+							"description": "… follow the map to the waterfall.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "enter-fae-domain",
-							"description": "… enter the Fae domain beyond."
+							"description": "… enter the Fae domain beyond.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "navigate-sword-forest",
-							"description": "… navigate the sword-tree forest."
+							"description": "… navigate the sword-tree forest.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "risk-soporific",
-							"description": "… risk falling under the soporific spell of the silver tree."
+							"description": "… risk falling under the soporific spell of the silver tree.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "claim-branch",
-							"description": "… claim a branch from the silver tree."
+							"description": "… claim a branch from the silver tree.",
+							"max": 1
 						},
 						{
-							"type": "option",
+							"type": "track",
 							"slug": "make-it-home",
-							"description": "… make it home again."
+							"description": "… make it home again.",
+							"max": 1
 						}
 					]
 				}

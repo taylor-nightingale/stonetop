@@ -4,7 +4,7 @@
 	"name": "Thick hides",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "inventory"
+		"equipmentType": "outfit"
 	},
 	"flags": {
 		"stonetop": {
@@ -12,7 +12,7 @@
 			"inventoryColumn": "regular",
 			"sortOrder": 26,
 			"note": "1 armor, <em>warm</em>",
-			"weight": 1,
+			"weight": 2,
 			"armor": { "base": 1 }
 		}
 	}
