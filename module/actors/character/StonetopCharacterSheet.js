@@ -49,7 +49,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			if (!this.isEditable) return;
 
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
-			html.find("[name=stonetop-instinct]").on("change", ev => {
+			html.find(".stonetop-playbook-instinct").on("change", ev => {
 				const radio = ev.currentTarget;
 				const { choiceSlug, siblingSlugsCsv, displayLabel } = radio.dataset;
 				html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
@@ -142,7 +142,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const cb = ev.target.closest(".stonetop-lore-option-check");
+				const cb = ev.target.closest(".stonetop-option-check");
 				if (!cb || ev.target.closest("[data-pdi='lore']")) return;
 				const { optionSlug, idx } = cb.dataset;
 				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
@@ -151,7 +151,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const ta = ev.target.closest(".stonetop-lore-option-text");
+				const ta = ev.target.closest(".stonetop-option-text");
 				if (!ta || ev.target.closest("[data-pdi='lore']")) return;
 				const { optionSlug } = ta.dataset;
 				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
@@ -181,7 +181,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html[0].addEventListener("change", ev => {
 				if (!ev.target.closest("[data-pdi='lore']")) return;
-				const cb = ev.target.closest(".stonetop-lore-option-check");
+				const cb = ev.target.closest(".stonetop-option-check");
 				if (!cb) return;
 				const { optionSlug, idx } = cb.dataset;
 				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
@@ -191,7 +191,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html[0].addEventListener("change", ev => {
 				if (!ev.target.closest("[data-pdi='lore']")) return;
-				const ta = ev.target.closest(".stonetop-lore-option-text");
+				const ta = ev.target.closest(".stonetop-option-text");
 				if (!ta) return;
 				const { optionSlug } = ta.dataset;
 				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
@@ -208,8 +208,28 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-follower-hp");
 				if (!input) return;
-				const hp = Math.max(0, Math.min(Number(input.value), Number(input.max)));
+				const card = ev.target.closest(".stonetop-follower-card");
+				const hpMax = Number(card?.querySelector(".stonetop-follower-hp-max")?.value ?? input.max);
+				const hp = Math.max(0, Math.min(Number(input.value), hpMax));
 				this._stonetopCharacter.setFollowerHp(input.dataset.slug, hp);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-hp-max");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerHpMax(input.dataset.slug, Number(input.value));
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-name-input");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerName(input.dataset.slug, input.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-note-input");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerNote(input.dataset.slug, input.value);
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -223,31 +243,18 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const radio = ev.target.closest(".stonetop-follower-desc-radio");
+				const radio = ev.target.closest(".stonetop-follower-choice-radio");
 				if (!radio) return;
 				const card = ev.target.closest(".stonetop-follower-card");
 				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
-				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "options", choiceSlug, siblingSlugsCsv);
+				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "choices", choiceSlug, siblingSlugsCsv);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const radio = ev.target.closest(".stonetop-follower-instinct-radio");
-				if (!radio) return;
+				const ta = ev.target.closest(".stonetop-follower-choice-text");
+				if (!ta) return;
 				const card = ev.target.closest(".stonetop-follower-card");
-				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
-				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "instinct", choiceSlug, siblingSlugsCsv);
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				const input = ev.target.closest(".stonetop-follower-instinct-text");
-				if (!input) return;
-				this._stonetopCharacter.setFollowerInstinctText(input.dataset.slug, input.value);
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				const input = ev.target.closest(".stonetop-follower-instinct-custom");
-				if (!input) return;
-				this._stonetopCharacter.setFollowerInstinctCustom(input.dataset.slug, input.value.trim());
+				this._stonetopCharacter.setFollowerChoiceText(card.dataset.slug, ta.dataset.optionSlug, ta.value);
 			}, true);
 
 			html[0].addEventListener("change", ev => {

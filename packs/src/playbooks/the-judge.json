@@ -132,7 +132,6 @@
                   "options": [
                     {
                       "slug": "authority-black-iron-maul",
-                      "label": "◇◇ Black iron maul",
                       "description": "utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)",
                       "outfitItems": [
                         {
@@ -142,11 +141,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close, forceful, awkward</em>, +1 damage"
                         }
-                      ]
+                      ],
+                      "text": "◇◇ Black iron maul"
                     },
                     {
                       "slug": "authority-makerglass-shield",
-                      "label": "◇◇ Makerglass shield",
                       "description": "etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)",
                       "outfitItems": [
                         {
@@ -159,12 +158,13 @@
                             "modifier": 1
                           }
                         }
-                      ]
+                      ],
+                      "text": "◇◇ Makerglass shield"
                     },
                     {
                       "slug": "authority-helm",
-                      "label": "Helm",
-                      "description": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic."
+                      "description": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
+                      "text": "Helm"
                     }
                   ]
                 }
@@ -398,28 +398,28 @@
             "options": [
               {
                 "slug": "ambition",
-                "label": "Ambition",
-                "description": "To increase your status or influence."
+                "description": "To increase your status or influence.",
+                "text": "Ambition"
               },
               {
                 "slug": "dispassion",
-                "label": "Dispassion",
-                "description": "To disregard emotion or sentiment."
+                "description": "To disregard emotion or sentiment.",
+                "text": "Dispassion"
               },
               {
                 "slug": "harmony",
-                "label": "Harmony",
-                "description": "To seek a path that makes everyone happy."
+                "description": "To seek a path that makes everyone happy.",
+                "text": "Harmony"
               },
               {
                 "slug": "orthodoxy",
-                "label": "Orthodoxy",
-                "description": "To strictly adhere to rules and traditions."
+                "description": "To strictly adhere to rules and traditions.",
+                "text": "Orthodoxy"
               },
               {
                 "slug": "zeal",
-                "label": "Zeal",
-                "description": "To judge quickly and without doubt."
+                "description": "To judge quickly and without doubt.",
+                "text": "Zeal"
               }
             ]
           }

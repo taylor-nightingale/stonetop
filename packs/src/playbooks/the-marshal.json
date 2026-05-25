@@ -176,7 +176,6 @@
                   "options": [
                     {
                       "slug": "sword",
-                      "label": "◇ Sword, iron (<em>close</em>, +1 damage)",
                       "outfitItems": [
                         {
                           "slug": "sword",
@@ -185,11 +184,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close</em>, +1 damage"
                         }
-                      ]
+                      ],
+                      "text": "◇ Sword, iron (<em>close</em>, +1 damage)"
                     },
                     {
                       "slug": "battleaxe",
-                      "label": "◇ Battleaxe, iron (<em>close, messy</em>)",
                       "outfitItems": [
                         {
                           "slug": "battleaxe",
@@ -198,11 +197,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close, messy</em>"
                         }
-                      ]
+                      ],
+                      "text": "◇ Battleaxe, iron (<em>close, messy</em>)"
                     },
                     {
                       "slug": "warhammer",
-                      "label": "◇ Warhammer, iron (<em>close</em>, 2 piercing)",
                       "outfitItems": [
                         {
                           "slug": "warhammer",
@@ -211,11 +210,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close</em>, 2 piercing"
                         }
-                      ]
+                      ],
+                      "text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
                     },
                     {
                       "slug": "mace-or-flail",
-                      "label": "◇ Mace or flail, iron (<em>close, forceful</em>)",
                       "outfitItems": [
                         {
                           "slug": "mace-or-flail",
@@ -224,11 +223,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close, forceful</em>"
                         }
-                      ]
+                      ],
+                      "text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
                     },
                     {
                       "slug": "crossbow",
-                      "label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>)",
                       "outfitItems": [
                         {
                           "slug": "crossbow",
@@ -245,7 +244,8 @@
                             ]
                           }
                         }
-                      ]
+                      ],
+                      "text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>)"
                     }
                   ]
                 }
@@ -311,44 +311,44 @@
               "description": ""
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "when",
-              "description": "When exactly did it happen?"
+              "text": "When exactly did it happen?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "who-died",
-              "description": "Who lost their life, and who mourns them?"
+              "text": "Who lost their life, and who mourns them?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "who-maimed",
-              "description": "Who from Stonetop was maimed, and how?"
+              "text": "Who from Stonetop was maimed, and how?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "saved-day",
-              "description": "Who saved the day, and how?"
+              "text": "Who saved the day, and how?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "enemy-away",
-              "description": "How did the enemy get away, and whom do you still blame for it?"
+              "text": "How did the enemy get away, and whom do you still blame for it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "honor",
-              "description": "Who comported themselves with honor?"
+              "text": "Who comported themselves with honor?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "bugging",
-              "description": "What's been bugging you about it ever since?"
+              "text": "What's been bugging you about it ever since?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "worried",
-              "description": "What's got you even more worried now?"
+              "text": "What's got you even more worried now?"
             }
           ]
         }
@@ -362,28 +362,28 @@
             "options": [
               {
                 "slug": "authority",
-                "label": "Authority",
-                "description": "To take charge and throw your weight around."
+                "description": "To take charge and throw your weight around.",
+                "text": "Authority"
               },
               {
                 "slug": "caution",
-                "label": "Caution",
-                "description": "To keep everyone safe, to agonize over decisions."
+                "description": "To keep everyone safe, to agonize over decisions.",
+                "text": "Caution"
               },
               {
                 "slug": "drive",
-                "label": "Drive",
-                "description": "To take on ever more responsibility."
+                "description": "To take on ever more responsibility.",
+                "text": "Drive"
               },
               {
                 "slug": "honor",
-                "label": "Honor",
-                "description": "To keep your word, to follow a moral code."
+                "description": "To keep your word, to follow a moral code.",
+                "text": "Honor"
               },
               {
                 "slug": "ruthlessness",
-                "label": "Ruthlessness",
-                "description": "To do whatever it takes to win or survive."
+                "description": "To do whatever it takes to win or survive.",
+                "text": "Ruthlessness"
               }
             ]
           }

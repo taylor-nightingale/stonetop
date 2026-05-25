@@ -20,9 +20,9 @@
               "description": "<p>The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.</p>"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "name",
-              "description": "Name your master here, along with any titles that you know:"
+              "text": "Name your master here, along with any titles that you know:"
             }
           ]
         },
@@ -250,18 +250,18 @@
             "options": [
               {
                 "slug": "fascination",
-                "label": "Fascination",
-                "description": "To explore your powers, your master, your new existence."
+                "description": "To explore your powers, your master, your new existence.",
+                "text": "Fascination"
               },
               {
                 "slug": "resistance",
-                "label": "Resistance",
-                "description": "To struggle against your master and cling to your humanity."
+                "description": "To struggle against your master and cling to your humanity.",
+                "text": "Resistance"
               },
               {
                 "slug": "shame",
-                "label": "Shame",
-                "description": "To hide and deny your true nature."
+                "description": "To hide and deny your true nature.",
+                "text": "Shame"
               }
             ]
           }

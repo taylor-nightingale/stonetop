@@ -17,7 +17,7 @@ export class CharacterAppearance {
 	buildSnapshot(appearanceData) {
 		const saved = this.saved;
 		return (appearanceData ?? []).map((row, i) => new ChoiceRow(
-			(row.options ?? []).map(o => new ChoiceOption(o.slug, { label: o.label, checked: saved?.[i] === o.slug })),
+			(row.options ?? []).map(o => new ChoiceOption(o.slug, { text: o.text, checked: saved?.[i] === o.slug })),
 			{ inline: row.inline ?? true, rowKey: i, radio: true },
 		));
 	}

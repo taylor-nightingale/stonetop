@@ -1,9 +1,21 @@
+{{#if (eq type "heading")}}
+{{! Heading row }}
+{{#if title}}{{> "stonetop.section-heading" title=title}}{{/if}}
+{{#if description}}<div class="stonetop-choice-description">{{{description}}}</div>{{/if}}
+{{else if (eq type "input")}}
+{{! Text input row (textarea) }}
+<div class="stonetop-choice-option stonetop-choice-option--text">
+    {{#if text}}<label class="stonetop-option-desc">{{{text}}}</label>{{/if}}
+    <textarea class="{{#if textClass}}{{textClass}}{{else}}stonetop-option-text{{/if}}" data-option-slug="{{slug}}">{{value}}</textarea>
+</div>
+{{else}}
+{{! Pick or track row (type="choice") }}
 <div class="stonetop-choice-row{{#if inline}} stonetop-choice-row--inline{{/if}}">
     {{#each options}}
     {{#if checks}}
-    {{! Count mode: N anonymous checkboxes + description (lore) }}
-    <div class="stonetop-choice-option-count">
-        <span class="stonetop-choice-checks">
+    {{! Track mode: N checkboxes + description }}
+    <div class="stonetop-choice-option">
+        <span class="stonetop-option-checks">
             {{#each checks}}
             <input type="checkbox"
                    class="stonetop-item-check {{../../inputClass}}"
@@ -12,21 +24,46 @@
                    {{#if this}}checked{{/if}}>
             {{/each}}
         </span>
-        <span class="stonetop-choice-option-desc">{{{description}}}</span>
+        <span class="stonetop-option-desc">{{{description}}}</span>
     </div>
+    {{else if description}}
+    {{! Pick mode — card layout when option has a description }}
+    <label class="stonetop-item{{#if checked}} is-checked{{/if}}">
+        <div class="stonetop-item-header">
+            <input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
+                   class="stonetop-item-check {{../inputClass}}"
+                   {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
+                   {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
+                   {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
+                   data-row-key="{{../rowKey}}"
+                   data-choice-slug="{{slug}}"
+                   data-display-label="{{text}} — {{description}}"
+                   {{#if checked}}checked{{/if}}>
+            <strong class="stonetop-item-name">{{text}}</strong>
+        </div>
+        <div class="stonetop-item-description">{{description}}</div>
+    </label>
     {{else}}
-    {{! Pick mode: single radio or checkbox per option }}
-    <label class="stonetop-choice-option-label">
+    {{! Pick mode — inline (no description) }}
+    <label class="stonetop-choice-option-label{{#if checked}} is-checked{{/if}}">
         <input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
                class="stonetop-item-check {{../inputClass}}"
-               {{#if ../radio}}name="{{../namePrefix}}{{#if ../entitySlug}}-{{../entitySlug}}{{/if}}-{{../rowKey}}"{{/if}}
+               {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
                {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
                {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
-               {{#if ../rowKey}}data-row-key="{{../rowKey}}"{{/if}}
+               data-row-key="{{../rowKey}}"
                data-choice-slug="{{slug}}"
                {{#if checked}}checked{{/if}}>
-        {{label}}
+        {{#if (eq type "input")}}
+        <input type="text"
+               class="{{#if ../textClass}}{{../textClass}}{{else}}stonetop-option-text{{/if}}"
+               data-option-slug="{{slug}}-fill"
+               value="{{fillValue}}">
+        {{else}}
+        {{text}}
+        {{/if}}
     </label>
     {{/if}}
     {{/each}}
 </div>
+{{/if}}

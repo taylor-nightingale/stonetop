@@ -1,23 +1,11 @@
-{{#if lore.length}}
+{{#if groups.length}}
 <div class="details-section">
-	{{#each lore}}
-	<div class="stonetop-lore-entry" data-slug="{{slug}}">
-		{{#each list}}
-		{{#if (eq type "heading")}}
-		{{#if title}}{{> "stonetop.section-heading" title=title}}{{/if}}
-		{{#if description}}<div class="stonetop-lore-description">{{{description}}}</div>{{/if}}
-		{{else if (eq type "text")}}
-		<div class="stonetop-lore-option stonetop-lore-option--text">
-			<label class="stonetop-lore-option-desc">{{{description}}}</label>
-			<textarea class="stonetop-lore-option-text"
-			          data-option-slug="{{slug}}"
-			          >{{textValue}}</textarea>
-		</div>
-		{{else}}
-		{{> "stonetop.choice-row" inputClass="stonetop-lore-option-check"}}
-		{{/if}}
-		{{/each}}
-	</div>
-	{{/each}}
+    {{#each groups}}
+    <div class="stonetop-choice-entry" data-slug="{{slug}}">
+        {{#each list}}
+        {{> "stonetop.choice-row" inputClass="stonetop-option-check"}}
+        {{/each}}
+    </div>
+    {{/each}}
 </div>
 {{/if}}

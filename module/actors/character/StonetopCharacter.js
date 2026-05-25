@@ -282,16 +282,24 @@ export class StonetopCharacter {
 		await this._followers.setLoyalty(slug, loyalty);
 	}
 
+	async setFollowerHpMax(slug, hpMax) {
+		await this._followers.setHpMax(slug, hpMax);
+	}
+
+	async setFollowerName(slug, name) {
+		await this._followers.setName(slug, name);
+	}
+
+	async setFollowerNote(slug, note) {
+		await this._followers.setNote(slug, note);
+	}
+
 	async setFollowerChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
 		await this._followers.setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv);
 	}
 
-	async setFollowerInstinctCustom(slug, value) {
-		await this._followers.setInstinctCustom(slug, value);
-	}
-
-	async setFollowerInstinctText(slug, text) {
-		await this._followers.setInstinctText(slug, text);
+	async setFollowerChoiceText(followerSlug, optionSlug, text) {
+		await this._followers.setChoiceText(followerSlug, optionSlug, text);
 	}
 
 	async setFollowerArmor(slug, armor) {

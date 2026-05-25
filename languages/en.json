@@ -17,9 +17,7 @@
 			"armor": "Armor",
 			"damage": "Damage",
 			"loyalty": "Loyalty",
-			"instinct": "Instinct",
-			"instinctCustomPlaceholder": "Enter instinct…",
-			"cost": "Cost"
+			"notePlaceholder": "Notes…"
 		},
 		"postDeath": {
 			"chooseFate": "Choose Your Fate",

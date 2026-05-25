@@ -15,14 +15,14 @@ function makeAppearance(saved = {}) {
 
 const APPEARANCE_DATA = [
 	{ inline: true, options: [
-		{ slug: "fresh-faced",   label: "fresh-faced" },
-		{ slug: "hale-and-hearty", label: "hale & hearty" },
-		{ slug: "gray-and-wizened", label: "gray & wizened" },
+		{ slug: "fresh-faced",   text: "fresh-faced" },
+		{ slug: "hale-and-hearty", text: "hale & hearty" },
+		{ slug: "gray-and-wizened", text: "gray & wizened" },
 	]},
 	{ inline: true, options: [
-		{ slug: "imperious-voice", label: "imperious voice" },
-		{ slug: "raspy-voice",     label: "raspy voice" },
-		{ slug: "soothing-voice",  label: "soothing voice" },
+		{ slug: "imperious-voice", text: "imperious voice" },
+		{ slug: "raspy-voice",     text: "raspy voice" },
+		{ slug: "soothing-voice",  text: "soothing voice" },
 	]},
 ];
 
@@ -67,7 +67,7 @@ describe("CharacterAppearance.buildSnapshot", () => {
 	it("each row option has slug and label", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options[0].slug).toBe("fresh-faced");
-		expect(snap[0].options[0].label).toBe("fresh-faced");
+		expect(snap[0].options[0].text).toBe("fresh-faced");
 		expect(snap[0].options[2].slug).toBe("gray-and-wizened");
 	});
 

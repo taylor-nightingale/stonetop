@@ -156,20 +156,20 @@
                   "options": [
                     {
                       "slug": "family-heirloom",
-                      "label": "A family heirloom (reroll one failed roll per session)"
+                      "text": "A family heirloom (reroll one failed roll per session)"
                     },
                     {
                       "slug": "lucky-charm",
-                      "label": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)",
                       "resource": {
                         "max": 1,
                         "title": null,
                         "labels": []
-                      }
+                      },
+                      "text": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)"
                     },
                     {
                       "slug": "trophy",
-                      "label": "A trophy from a past victory"
+                      "text": "A trophy from a past victory"
                     }
                   ]
                 }
@@ -342,19 +342,19 @@
               "description": ""
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "when-trouble",
-              "description": "When did your fear or anger last cause you trouble?"
+              "text": "When did your fear or anger last cause you trouble?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-did",
-              "description": "What did you do?"
+              "text": "What did you do?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "how-turned",
-              "description": "How did it turn out?"
+              "text": "How did it turn out?"
             }
           ]
         }
@@ -368,28 +368,28 @@
             "options": [
               {
                 "slug": "defiance",
-                "label": "Defiance",
-                "description": "To refuse to back down, give up, give in."
+                "description": "To refuse to back down, give up, give in.",
+                "text": "Defiance"
               },
               {
                 "slug": "doubt",
-                "label": "Doubt",
-                "description": "To question yourself, your actions, your worth."
+                "description": "To question yourself, your actions, your worth.",
+                "text": "Doubt"
               },
               {
                 "slug": "earnestness",
-                "label": "Earnestness",
-                "description": "To prove yourself, to yourself and others."
+                "description": "To prove yourself, to yourself and others.",
+                "text": "Earnestness"
               },
               {
                 "slug": "optimism",
-                "label": "Optimism",
-                "description": "To assume the best, and that things are simple."
+                "description": "To assume the best, and that things are simple.",
+                "text": "Optimism"
               },
               {
                 "slug": "sacrifice",
-                "label": "Sacrifice",
-                "description": "To put the needs/wants of others above your own."
+                "description": "To put the needs/wants of others above your own.",
+                "text": "Sacrifice"
               }
             ]
           }

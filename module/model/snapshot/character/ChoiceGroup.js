@@ -1,40 +1,42 @@
 export class ChoiceOption {
-	constructor(slug, {label = null, description = null, checked = false, checks = null, requires = null} = {}) {
-		this.slug = slug;
-		this.label = label;
+	constructor(slug, {text = null, description = null, checked = false, checks = null, requires = null, type = null, fillValue = ""} = {}) {
+		this.slug        = slug;
+		this.text        = text;
 		this.description = description;
-		this.checked = checked;
-		this.checks = checks;      // non-null = count mode (array of bool)
-		this.requires = requires;
+		this.checked     = checked;
+		this.checks      = checks;      // non-null = count mode (array of bool)
+		this.requires    = requires;
+		this.type        = type;        // null | "input" (fill-in blank)
+		this.fillValue   = fillValue;
 	}
 }
 
 export class ChoiceRow {
 	constructor(options, {inline = false, rowKey = null, radio = true, siblingSlugsCsv = null} = {}) {
-		this.type = "choice";
-		this.options = options;   // ChoiceOption[]
-		this.inline = inline;
-		this.rowKey = rowKey;
-		this.radio = radio;
+		this.type           = "choice";
+		this.options        = options;   // ChoiceOption[]
+		this.inline         = inline;
+		this.rowKey         = rowKey;
+		this.radio          = radio;
 		this.siblingSlugsCsv = siblingSlugsCsv;
 	}
 }
 
 export class HeadingRow {
 	constructor(title, description = null, note = null) {
-		this.type = "heading";
-		this.title = title;
+		this.type        = "heading";
+		this.title       = title;
 		this.description = description;
-		this.note = note;
+		this.note        = note;
 	}
 }
 
 export class TextRow {
-	constructor(slug, description, textValue) {
-		this.type = "text";
-		this.slug = slug;
-		this.description = description;
-		this.textValue = textValue;
+	constructor(slug, text, value) {
+		this.type  = "input";
+		this.slug  = slug;
+		this.text  = text;
+		this.value = value;
 	}
 }
 
@@ -81,10 +83,8 @@ export class ChoiceGroup {
 
 	static buildRow(item, values, es, idx) {
 		if (item.type === "heading") return this.buildHeadingRow(item);
-		if (item.type === "text") return this.buildTextRow(item, values, es);
-		if (item.type === "track") {
-			return this.buildTrackRow(values, es, item);
-		}
+		if (item.type === "input")   return this.buildTextRow(item, values, es);
+		if (item.type === "track")   return this.buildTrackRow(values, es, item);
 		return this.buildPickRow(item, es, idx, values);
 	}
 
@@ -94,30 +94,32 @@ export class ChoiceGroup {
 
 	static buildTextRow(item, values, es) {
 		const saved = values.getText(es, item.slug);
-		return new TextRow(item.slug, item.description, saved || (item.default ?? ""));
+		return new TextRow(item.slug, item.text, saved || (item.default ?? ""));
 	}
 
 	static buildPickRow(item, es, idx, values) {
-		const radio = (item.pickCount ?? 1) === 1;
-		const rowKey = `${es}-row-${idx}`;
+		const radio          = (item.pickCount ?? 1) === 1;
+		const rowKey         = `${es}-row-${idx}`;
 		const siblingSlugsCsv = radio ? (item.options ?? []).map(o => o.slug).join(",") : null;
 		return new ChoiceRow(
 			(item.options ?? []).map(o => new ChoiceOption(o.slug, {
-				label: o.label,
+				text:        o.text,
 				description: o.description ?? null,
-				checked: values.getCount(es, o.slug) > 0
+				checked:     values.getCount(es, o.slug) > 0,
+				type:        o.type ?? null,
+				fillValue:   o.type === "input" ? values.getText(es, o.slug + "-fill") : "",
 			})),
 			{inline: item.inline ?? false, rowKey, radio, siblingSlugsCsv},
 		);
 	}
 
 	static buildTrackRow(values, es, item) {
-		const count = values.getCount(es, item.slug);
+		const count  = values.getCount(es, item.slug);
 		const checks = Array.from({length: item.max ?? 1}, (_, i) => i < count);
 		return new ChoiceRow([new ChoiceOption(item.slug, {
 			description: item.description,
 			checks,
-			requires: item.requires ?? null
+			requires:    item.requires ?? null,
 		})]);
 	}
 }

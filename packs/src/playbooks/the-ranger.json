@@ -248,39 +248,39 @@
               "description": ""
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-is-it",
-              "description": "What, exactly, do you think it is?"
+              "text": "What, exactly, do you think it is?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-saw",
-              "description": "What did you see, and how close did you have to get to see it?"
+              "text": "What did you see, and how close did you have to get to see it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-lost",
-              "description": "Whom or what have you lost to it?"
+              "text": "Whom or what have you lost to it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "left-behind",
-              "description": "What did it leave behind?"
+              "text": "What did it leave behind?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-wants",
-              "description": "What do you think it wants?"
+              "text": "What do you think it wants?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "disbeliever",
-              "description": "Who refuses to believe you?"
+              "text": "Who refuses to believe you?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "who-knows-more",
-              "description": "Who can tell you more, if you can only convince them?"
+              "text": "Who can tell you more, if you can only convince them?"
             }
           ]
         }
@@ -294,28 +294,28 @@
             "options": [
               {
                 "slug": "adventure",
-                "label": "Adventure",
-                "description": "To test yourself, to experience new things."
+                "description": "To test yourself, to experience new things.",
+                "text": "Adventure"
               },
               {
                 "slug": "independence",
-                "label": "Independence",
-                "description": "To refuse help and push others away."
+                "description": "To refuse help and push others away.",
+                "text": "Independence"
               },
               {
                 "slug": "stewardship",
-                "label": "Stewardship",
-                "description": "To value beasts and natural places over people."
+                "description": "To value beasts and natural places over people.",
+                "text": "Stewardship"
               },
               {
                 "slug": "tenacity",
-                "label": "Tenacity",
-                "description": "To be stubborn, to persist."
+                "description": "To be stubborn, to persist.",
+                "text": "Tenacity"
               },
               {
                 "slug": "wonder",
-                "label": "Wonder",
-                "description": "To marvel at beauty, magnificence, splendor."
+                "description": "To marvel at beauty, magnificence, splendor.",
+                "text": "Wonder"
               }
             ]
           }

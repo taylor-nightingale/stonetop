@@ -20,7 +20,7 @@ const LORE_DATA = [
 			{ type: "heading", title: "The Earth", description: "<p>The earth knows.</p>" },
 			{ type: "track",   slug: "opt-a", description: "Option A", max: 1 },
 			{ type: "track",   slug: "opt-b", description: "Option B", max: 3 },
-			{ type: "text",    slug: "opt-text", description: "A text question" },
+			{ type: "input",   slug: "opt-text", text: "A text question" },
 			{ type: "heading", description: "<p>A heading with no max</p>" },
 		],
 	},
@@ -162,15 +162,15 @@ describe("CharacterLore.buildSnapshot", () => {
 
 	it("text option becomes a TextRow with value from stored values", () => {
 		const snap = makeLore({ earth: { "opt-text": "my answer" } }).buildSnapshot(LORE_DATA);
-		const row = snap[0].list.find(r => r.type === "text");
+		const row = snap[0].list.find(r => r.type === "input");
 		expect(row).toBeInstanceOf(TextRow);
-		expect(row.textValue).toBe("my answer");
+		expect(row.value).toBe("my answer");
 	});
 
-	it("text option TextRow defaults textValue to empty string when not saved", () => {
+	it("text option TextRow defaults value to empty string when not saved", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const row = snap[0].list.find(r => r.type === "text");
-		expect(row.textValue).toBe("");
+		const row = snap[0].list.find(r => r.type === "input");
+		expect(row.value).toBe("");
 	});
 
 	it("option-level heading becomes a HeadingRow with null title", () => {

@@ -406,28 +406,28 @@
             "options": [
               {
                 "slug": "conscience",
-                "label": "Conscience",
-                "description": "To feel guilty, to try to do right."
+                "description": "To feel guilty, to try to do right.",
+                "text": "Conscience"
               },
               {
                 "slug": "freedom",
-                "label": "Freedom",
-                "description": "To chafe against rules, expectations, obligations."
+                "description": "To chafe against rules, expectations, obligations.",
+                "text": "Freedom"
               },
               {
                 "slug": "comfort",
-                "label": "Comfort",
-                "description": "To enjoy yourself and avoid hardship."
+                "description": "To enjoy yourself and avoid hardship.",
+                "text": "Comfort"
               },
               {
                 "slug": "prestige",
-                "label": "Prestige",
-                "description": "To impress others, to build a name for yourself."
+                "description": "To impress others, to build a name for yourself.",
+                "text": "Prestige"
               },
               {
                 "slug": "trickery",
-                "label": "Trickery",
-                "description": "To deceive, misdirect, outthink."
+                "description": "To deceive, misdirect, outthink.",
+                "text": "Trickery"
               }
             ]
           }

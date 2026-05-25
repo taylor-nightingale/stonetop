@@ -19,8 +19,8 @@ const INSTINCT_DATA = {
 		type: "pick",
 		pickCount: 1,
 		options: [
-			{ slug: "delight",    label: "Delight",    description: "To find beauty, in even the ugliest things." },
-			{ slug: "detachment", label: "Detachment", description: "To remain unmoved, to be cold as winter." },
+			{ slug: "delight",    text: "Delight",    description: "To find beauty, in even the ugliest things." },
+			{ slug: "detachment", text: "Detachment", description: "To remain unmoved, to be cold as winter." },
 		],
 	}],
 };
@@ -82,7 +82,7 @@ describe("CharacterInstincts.buildSnapshot", () => {
 		const opts = snap.group.list[0].options;
 		expect(opts).toHaveLength(2);
 		expect(opts[0].slug).toBe("delight");
-		expect(opts[0].label).toBe("Delight");
+		expect(opts[0].text).toBe("Delight");
 		expect(opts[0].description).toBe("To find beauty, in even the ugliest things.");
 	});
 

@@ -207,29 +207,29 @@
               "description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "where-acquired",
-              "description": "Where did you acquire it?"
+              "text": "Where did you acquire it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "wrested-from",
-              "description": "From whose grasp did you wrest it?"
+              "text": "From whose grasp did you wrest it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "who-else-wants",
-              "description": "Who else wants it?"
+              "text": "Who else wants it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "what-cost",
-              "description": "What did it cost you?"
+              "text": "What did it cost you?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "when-unlocked",
-              "description": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+              "text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
             }
           ]
         },
@@ -242,19 +242,19 @@
               "description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "mastered-location",
-              "description": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+              "text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "found-location",
-              "description": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+              "text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
             },
             {
-              "type": "text",
+              "type": "input",
               "slug": "sought-notes",
-              "description": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+              "text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
             }
           ]
         }
@@ -268,28 +268,28 @@
             "options": [
               {
                 "slug": "cunning",
-                "label": "Cunning",
-                "description": "To scheme, manipulate, and plot."
+                "description": "To scheme, manipulate, and plot.",
+                "text": "Cunning"
               },
               {
                 "slug": "curiosity",
-                "label": "Curiosity",
-                "description": "To seek answers that maybe you oughtn't."
+                "description": "To seek answers that maybe you oughtn't.",
+                "text": "Curiosity"
               },
               {
                 "slug": "hubris",
-                "label": "Hubris",
-                "description": "To assume you know best, that you can't fail."
+                "description": "To assume you know best, that you can't fail.",
+                "text": "Hubris"
               },
               {
                 "slug": "mystery",
-                "label": "Mystery",
-                "description": "To avoid straight answers; to keep secrets."
+                "description": "To avoid straight answers; to keep secrets.",
+                "text": "Mystery"
               },
               {
                 "slug": "vision",
-                "label": "Vision",
-                "description": "To think big and pursue grandiose goals."
+                "description": "To think big and pursue grandiose goals.",
+                "text": "Vision"
               }
             ]
           }

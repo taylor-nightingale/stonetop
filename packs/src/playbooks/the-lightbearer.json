@@ -431,28 +431,28 @@
             "options": [
               {
                 "slug": "charity",
-                "label": "Charity",
-                "description": "To go without so that others are better off."
+                "description": "To go without so that others are better off.",
+                "text": "Charity"
               },
               {
                 "slug": "hope",
-                "label": "Hope",
-                "description": "To inspire others in the face of adversity."
+                "description": "To inspire others in the face of adversity.",
+                "text": "Hope"
               },
               {
                 "slug": "mercy",
-                "label": "Mercy",
-                "description": "To bring relief or comfort, to give second chances."
+                "description": "To bring relief or comfort, to give second chances.",
+                "text": "Mercy"
               },
               {
                 "slug": "praise",
-                "label": "Praise",
-                "description": "To spread the glory and worship of Helior."
+                "description": "To spread the glory and worship of Helior.",
+                "text": "Praise"
               },
               {
                 "slug": "righteousness",
-                "label": "Righteousness",
-                "description": "To refuse to suffer an injustice or a lesser evil."
+                "description": "To refuse to suffer an injustice or a lesser evil.",
+                "text": "Righteousness"
               }
             ]
           }

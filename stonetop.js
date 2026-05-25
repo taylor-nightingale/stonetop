@@ -64,7 +64,7 @@ Hooks.once("init", () => {
 		"stonetop.tab-post-death":   "modules/stonetop/templates/actor/partials/tab-post-death.hbs",
 		"stonetop.move-group":       "modules/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-row":       "modules/stonetop/templates/actor/partials/choice-row.hbs",
-		"stonetop.lore-section":     "modules/stonetop/templates/actor/partials/lore-section.hbs",
+		"stonetop.choice-section":   "modules/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.resource-track":   "modules/stonetop/templates/actor/partials/resource-track.hbs",
 	});

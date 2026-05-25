@@ -215,11 +215,11 @@
                   "options": [
                     {
                       "slug": "origin-heirloom",
-                      "label": "an heirloom made just for you"
+                      "text": "an heirloom made just for you"
                     },
                     {
                       "slug": "origin-own-work",
-                      "label": "your own work"
+                      "text": "your own work"
                     }
                   ]
                 },
@@ -229,23 +229,23 @@
                   "options": [
                     {
                       "slug": "material-fur",
-                      "label": "fur"
+                      "text": "fur"
                     },
                     {
                       "slug": "material-drakescale",
-                      "label": "drakescale"
+                      "text": "drakescale"
                     },
                     {
                       "slug": "material-leather",
-                      "label": "leather"
+                      "text": "leather"
                     },
                     {
                       "slug": "material-woven",
-                      "label": "woven"
+                      "text": "woven"
                     },
                     {
                       "slug": "material-demonflesh",
-                      "label": "demonflesh"
+                      "text": "demonflesh"
                     }
                   ]
                 },
@@ -255,19 +255,19 @@
                   "options": [
                     {
                       "slug": "decor-unadorned",
-                      "label": "unadorned"
+                      "text": "unadorned"
                     },
                     {
                       "slug": "decor-beadwork",
-                      "label": "beadwork"
+                      "text": "beadwork"
                     },
                     {
                       "slug": "decor-rich-dyes",
-                      "label": "rich dyes"
+                      "text": "rich dyes"
                     },
                     {
                       "slug": "decor-runes",
-                      "label": "runes"
+                      "text": "runes"
                     }
                   ]
                 },
@@ -282,19 +282,19 @@
                   "options": [
                     {
                       "slug": "trait-indestructible",
-                      "label": "It cannot be cut, torn, or burned by any natural means."
+                      "text": "It cannot be cut, torn, or burned by any natural means."
                     },
                     {
                       "slug": "trait-unnoticed",
-                      "label": "Unless someone is specifically searching for your pouch, they will ignore its presence."
+                      "text": "Unless someone is specifically searching for your pouch, they will ignore its presence."
                     },
                     {
                       "slug": "trait-sealed",
-                      "label": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
+                      "text": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
                     },
                     {
                       "slug": "trait-unclean",
-                      "label": "Unnatural and unclean creatures cannot bear to touch it."
+                      "text": "Unnatural and unclean creatures cannot bear to touch it."
                     }
                   ]
                 }
@@ -453,28 +453,28 @@
             "options": [
               {
                 "slug": "delight",
-                "label": "Delight",
-                "description": "To find beauty, in even the ugliest things."
+                "description": "To find beauty, in even the ugliest things.",
+                "text": "Delight"
               },
               {
                 "slug": "detachment",
-                "label": "Detachment",
-                "description": "To remain unmoved, to be cold as winter."
+                "description": "To remain unmoved, to be cold as winter.",
+                "text": "Detachment"
               },
               {
                 "slug": "nurture",
-                "label": "Nurture",
-                "description": "To help others grow, learn, or improve."
+                "description": "To help others grow, learn, or improve.",
+                "text": "Nurture"
               },
               {
                 "slug": "preservation",
-                "label": "Preservation",
-                "description": "To protect the natural world."
+                "description": "To protect the natural world.",
+                "text": "Preservation"
               },
               {
                 "slug": "reverence",
-                "label": "Reverence",
-                "description": "To honor the spirits and give them their due."
+                "description": "To honor the spirits and give them their due.",
+                "text": "Reverence"
               }
             ]
           }

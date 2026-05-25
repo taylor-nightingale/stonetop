@@ -224,7 +224,6 @@
                   "options": [
                     {
                       "slug": "sword",
-                      "label": "◇ Sword, iron (<em>close</em>, +1 damage)",
                       "outfitItems": [
                         {
                           "slug": "sword",
@@ -233,11 +232,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close</em>, +1 damage"
                         }
-                      ]
+                      ],
+                      "text": "◇ Sword, iron (<em>close</em>, +1 damage)"
                     },
                     {
                       "slug": "battleaxe",
-                      "label": "◇ Battleaxe, iron (<em>close, messy</em>)",
                       "outfitItems": [
                         {
                           "slug": "battleaxe",
@@ -246,11 +245,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close, messy</em>"
                         }
-                      ]
+                      ],
+                      "text": "◇ Battleaxe, iron (<em>close, messy</em>)"
                     },
                     {
                       "slug": "warhammer",
-                      "label": "◇ Warhammer, iron (<em>close</em>, 2 piercing)",
                       "outfitItems": [
                         {
                           "slug": "warhammer",
@@ -259,11 +258,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close</em>, 2 piercing"
                         }
-                      ]
+                      ],
+                      "text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
                     },
                     {
                       "slug": "mace-or-flail",
-                      "label": "◇ Mace or flail, iron (<em>close, forceful</em>)",
                       "outfitItems": [
                         {
                           "slug": "mace-or-flail",
@@ -272,11 +271,11 @@
                           "inventoryColumn": "regular",
                           "note": "<em>close, forceful</em>"
                         }
-                      ]
+                      ],
+                      "text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
                     },
                     {
                       "slug": "crossbow",
-                      "label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)",
                       "outfitItems": [
                         {
                           "slug": "crossbow",
@@ -293,7 +292,8 @@
                             ]
                           }
                         }
-                      ]
+                      ],
+                      "text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)"
                     }
                   ]
                 }
@@ -464,28 +464,28 @@
             "options": [
               {
                 "slug": "peace",
-                "label": "Peace",
-                "description": "To avoid (further) bloodshed or violence."
+                "description": "To avoid (further) bloodshed or violence.",
+                "text": "Peace"
               },
               {
                 "slug": "pride",
-                "label": "Pride",
-                "description": "To maintain your dignity, to demand respect."
+                "description": "To maintain your dignity, to demand respect.",
+                "text": "Pride"
               },
               {
                 "slug": "recklessness",
-                "label": "Recklessness",
-                "description": "To act without thought to the consequences."
+                "description": "To act without thought to the consequences.",
+                "text": "Recklessness"
               },
               {
                 "slug": "trouble",
-                "label": "Trouble",
-                "description": "To stick your nose in where it's unwelcome."
+                "description": "To stick your nose in where it's unwelcome.",
+                "text": "Trouble"
               },
               {
                 "slug": "violence",
-                "label": "Violence",
-                "description": "To solve problems by force."
+                "description": "To solve problems by force.",
+                "text": "Violence"
               }
             ]
           }

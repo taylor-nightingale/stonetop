@@ -11,7 +11,7 @@ export class CharacterFollowers {
 	get _state()     { return this._flags.getFlag("state") ?? {}; }
 
 	_stateFor(slug) {
-		return this._state[slug] ?? { hp: null, loyalty: null, values: {}, instinctCustom: "" };
+		return this._state[slug] ?? { hp: null, loyalty: null, values: {} };
 	}
 
 	async addFollower(slug) {
@@ -29,6 +29,18 @@ export class CharacterFollowers {
 
 	async setHp(slug, hp) {
 		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), hp } });
+	}
+
+	async setHpMax(slug, hpMax) {
+		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), hpMax } });
+	}
+
+	async setName(slug, name) {
+		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), name } });
+	}
+
+	async setNote(slug, note) {
+		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), note } });
 	}
 
 	async setLoyalty(slug, loyalty) {
@@ -55,15 +67,11 @@ export class CharacterFollowers {
 		await this._flags.setFlag("state", { ...this._state, [slug]: { ...state, values: values.toRaw() } });
 	}
 
-	async setInstinctCustom(slug, value) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), instinctCustom: value } });
-	}
-
-	async setInstinctText(slug, text) {
-		const state = this._stateFor(slug);
+	async setChoiceText(followerSlug, optionSlug, text) {
+		const state = this._stateFor(followerSlug);
 		let values = new ChoiceValues(state.values ?? {});
-		values = values.set("instinct", "value", text);
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...state, values: values.toRaw() } });
+		values = values.set("choices", optionSlug, text);
+		await this._flags.setFlag("state", { ...this._state, [followerSlug]: { ...state, values: values.toRaw() } });
 	}
 
 	async buildSnapshot() {
@@ -77,36 +85,24 @@ export class CharacterFollowers {
 		const state   = this._stateFor(follower.slug);
 		const values  = new ChoiceValues(state.values ?? {});
 		const hp      = state.hp      ?? follower.hp.max;
+		const hpMax   = state.hpMax   ?? follower.hp.max;
+		const name    = state.name    ?? follower.name;
+		const note    = state.note    ?? follower.note;
 		const loyalty = state.loyalty ?? 0;
 		const armor   = state.armor   ?? follower.armor;
 		const damage  = state.damage  ?? follower.damage;
 
 		return new FollowerSnapshotBuilder()
 			.withSlug(follower.slug)
-			.withName(follower.name)
-			.withNote(follower.note)
+			.withName(name)
+			.withNote(note)
 			.withHp(hp)
-			.withHpMax(follower.hp.max)
+			.withHpMax(hpMax)
 			.withArmor(armor)
 			.withDamage(damage)
-			.withInstinct(this._buildInstinctSnapshot(follower, values))
-			.withCost(follower.cost)
 			.withLoyalty(loyalty)
 			.withLoyaltyMax(follower.loyalty.max)
-			.withOptions(follower.options ? ChoiceGroup.fromPackData(follower.options, values) : null)
-			.withInstinctCustom(state.instinctCustom ?? "")
+			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
 			.build();
-	}
-
-	_buildInstinctSnapshot(follower, values) {
-		const raw = follower.instinct;
-		if (!raw) return { type: "custom" };
-		if (raw.slug && raw.list) {
-			const group = ChoiceGroup.fromPackData(raw, values);
-			return raw.list[0]?.type === "text"
-				? { type: "text", group }
-				: { type: "choices", group };
-		}
-		return { type: "custom" };
 	}
 }

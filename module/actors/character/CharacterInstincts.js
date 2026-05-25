@@ -28,7 +28,7 @@ export class CharacterInstincts {
 		const group = ChoiceGroup.fromPackData(instinctData, this._values);
 		const checkedOption = group.list[0]?.options?.find(o => o.checked) ?? null;
 		const selected = checkedOption
-			? `${checkedOption.label} — ${checkedOption.description}`
+			? `${checkedOption.text} — ${checkedOption.description}`
 			: (this._custom || null);
 		return { group, selected };
 	}

@@ -119,18 +119,18 @@
             "options": [
               {
                 "slug": "denial",
-                "label": "Denial",
-                "description": "To refuse to accept that you are dead."
+                "description": "To refuse to accept that you are dead.",
+                "text": "Denial"
               },
               {
                 "slug": "obsession",
-                "label": "Obsession",
-                "description": "To pursue your Terrible Purpose no matter what."
+                "description": "To pursue your Terrible Purpose no matter what.",
+                "text": "Obsession"
               },
               {
                 "slug": "ennui",
-                "label": "Ennui",
-                "description": "To bemoan your condition, to wish for release."
+                "description": "To bemoan your condition, to wish for release.",
+                "text": "Ennui"
               }
             ]
           }

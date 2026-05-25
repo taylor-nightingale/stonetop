@@ -13,31 +13,30 @@
 			<i class="fas fa-times"></i>
 		</button>
 
-		<strong class="stonetop-follower-name">{{name}}</strong>
-		{{#if note}}<span class="stonetop-follower-note">{{note}}</span>{{/if}}
+		<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
+		<input type="text" class="stonetop-follower-note-input" value="{{note}}" data-slug="{{slug}}"
+		       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
 
 		<div class="stonetop-follower-attrs">
-			<div class="stonetop-follower-attr">
-				<div class="stonetop-follower-hp-resource">
-					<input type="number" class="stonetop-follower-hp" min="0" max="{{hpMax}}"
-					       value="{{hp}}" data-slug="{{slug}}">
-					<span class="stonetop-follower-hp-sep">/</span>
-					<span class="stonetop-follower-hp-max">{{hpMax}}</span>
-				</div>
-				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.hp"}}</span>
-			</div>
-			<div class="stonetop-follower-attr">
-				<input type="number" class="stonetop-follower-armor" min="0"
-				       value="{{armor}}" data-slug="{{slug}}">
-				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.armor"}}</span>
-			</div>
 			{{#if damage}}
-			<div class="stonetop-follower-attr">
-				<input type="text" class="stonetop-follower-damage"
-				       value="{{damage}}" data-slug="{{slug}}">
-				<span class="stonetop-follower-attr-label">{{localize "stonetop.followers.damage"}}</span>
+			<div class="cell cell--damage cell--Roll">
+				<span class="cell__title">{{localize "stonetop.followers.damage"}}</span>
+				<span class="attr-rollable rollable" data-roll="{{damage}}"><i class="fas fa-dice-d6"></i></span>
+				<input type="text" class="stonetop-follower-damage" value="{{damage}}" data-slug="{{slug}}">
 			</div>
 			{{/if}}
+			<div class="cell cell--hp cell--Resource">
+				<span class="cell__title">{{localize "stonetop.followers.hp"}}</span>
+				<div class="cell__counter">
+					<input type="number" class="stonetop-follower-hp" min="0" value="{{hp}}" data-slug="{{slug}}">
+					<span>/</span>
+					<input type="number" class="stonetop-follower-hp-max" min="0" value="{{hpMax}}" data-slug="{{slug}}">
+				</div>
+			</div>
+			<div class="cell cell--armor cell--Number">
+				<span class="cell__title">{{localize "stonetop.followers.armor"}}</span>
+				<input type="number" class="stonetop-follower-armor" min="0" value="{{armor}}" data-slug="{{slug}}">
+			</div>
 		</div>
 
 		<div class="stonetop-follower-loyalty">
@@ -52,41 +51,10 @@
 			</div>
 		</div>
 
-		{{#if instinct}}
-		<div class="stonetop-follower-instinct">
-			<span class="stonetop-follower-instinct-label">{{localize "stonetop.followers.instinct"}}</span>
-			{{#if (eq instinct.type "text")}}
-			<textarea class="stonetop-follower-instinct-text" data-slug="{{slug}}">{{instinct.group.list.[0].textValue}}</textarea>
-			{{else if (eq instinct.type "choices")}}
-			<div class="stonetop-follower-instinct-choices">
-				{{#each instinct.group.list}}
-				{{> "stonetop.choice-row" inputClass="stonetop-follower-instinct-radio" namePrefix="stonetop-follower-instinct" entitySlug=../slug}}
-				{{/each}}
-			</div>
-			{{else}}
-			<input type="text" class="stonetop-follower-instinct-custom"
-			       value="{{instinctCustom}}"
-			       data-slug="{{slug}}"
-			       placeholder="{{localize 'stonetop.followers.instinctCustomPlaceholder'}}">
-			{{/if}}
-		</div>
-		{{/if}}
-
-		{{#if cost}}
-		<div class="stonetop-follower-cost">
-			<span class="stonetop-follower-cost-label">{{localize "stonetop.followers.cost"}}</span>
-			<span class="stonetop-follower-cost-value">{{cost}}</span>
-		</div>
-		{{/if}}
-
-		{{#if options}}
-		<div class="stonetop-follower-options">
-			{{#each options.list}}
-			{{#if (eq type "heading")}}
-			<p class="stonetop-follower-options-heading">{{title}}</p>
-			{{else}}
-			{{> "stonetop.choice-row" inputClass="stonetop-follower-desc-radio" namePrefix="stonetop-follower-desc" entitySlug=../slug}}
-			{{/if}}
+		{{#if choices}}
+		<div class="stonetop-follower-choices">
+			{{#each choices.list}}
+			{{> "stonetop.choice-row" inputClass="stonetop-follower-choice-radio" textClass="stonetop-follower-choice-text" namePrefix=../slug}}
 			{{/each}}
 		</div>
 		{{/if}}

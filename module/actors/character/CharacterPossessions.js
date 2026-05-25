@@ -115,7 +115,7 @@ export class CharacterPossessions {
 				.build() : null;
 			return new PossessionItemSnapshotBuilder()
 				.withSlug(opt.slug)
-				.withLabel(opt.label)
+				.withLabel(opt.text)
 				.withDescription(opt.description ?? "")
 				.withSelected(isSelected)
 				.withChecked(isSelected)
