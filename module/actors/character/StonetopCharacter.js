@@ -15,6 +15,7 @@ import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
+import {ActorOutfitItems} from "./ActorOutfitItems.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -29,10 +30,11 @@ export class StonetopCharacter {
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor);
-		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves);
-		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, actor, this._playbook);
+		const outfitItems = new ActorOutfitItems(actor);
+		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
+		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems);
 		this._vitals = new CharacterVitals(actor, this._inventory);
-		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, this._inventory);
+		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
 			new CharacterInstincts(new StonetopFlags(actor, "postDeathInstinct")),
@@ -41,7 +43,6 @@ export class StonetopCharacter {
 			this._moves,
 		);
 		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
-		this._inventory.setVitals(this._vitals);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 	}
@@ -76,10 +77,12 @@ export class StonetopCharacter {
 
 	async buildSnapshot() {
 		await this._moves.initBasicMoves();
+		const level = this._vitals.level;
+		const { checked, resources } = this._inventory;
 		const actor = this._actor;
 		const [arcana, inventory, postDeath, playbook, vitals, followers] = await Promise.all([
-			this._arcana.buildSnapshot(),
-			this._inventory.buildSnapshot(),
+			this._arcana.buildSnapshot(checked, resources),
+			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
@@ -153,7 +156,8 @@ export class StonetopCharacter {
 	}
 
 	async selectPossession(slug) {
-		await this._possessions.select(slug);
+		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
+		await this._possessions.select(slug, sp);
 	}
 
 	async deselectPossession(slug) {
@@ -165,15 +169,18 @@ export class StonetopCharacter {
 	}
 
 	async selectSubChoice(possessionSlug, choiceSlug) {
-		await this._possessions.addSubChoice(possessionSlug, choiceSlug);
+		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
+		await this._possessions.addSubChoice(possessionSlug, choiceSlug, sp);
 	}
 
 	async deselectSubChoice(possessionSlug, choiceSlug) {
-		await this._possessions.removeSubChoice(possessionSlug, choiceSlug);
+		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
+		await this._possessions.removeSubChoice(possessionSlug, choiceSlug, sp);
 	}
 
 	async selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
-		await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs);
+		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
+		await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs, sp);
 	}
 
 	async setSubChoiceUses(possessionSlug, choiceSlug, count) {
@@ -223,7 +230,12 @@ export class StonetopCharacter {
 	async _onCreateDescendantDocuments(documents) {
 		const stonetopItem = documents.find(d => d.type === "playbook");
 		if (!stonetopItem) return;
-		await this._playbook.selectPlaybook(stonetopItem.asPlaybook());
+		const playbookData = stonetopItem.asPlaybook();
+		await this._playbook.selectPlaybook(playbookData);
+		const sp = playbookData.specialPossessions;
+		for (const slug of sp?.preselected ?? []) {
+			await this._possessions.syncPossessionItems(slug, sp);
+		}
 	}
 
 	async onRoll(event) {
@@ -268,6 +280,10 @@ export class StonetopCharacter {
 
 	async setLoreOptionText(loreSlug, optionSlug, value) {
 		await this._lore.set(loreSlug, optionSlug, value);
+	}
+
+	async addCustomFollower() {
+		await this._followers.addCustomFollower();
 	}
 
 	async removeFollower(slug) {

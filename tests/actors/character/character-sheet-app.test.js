@@ -26,7 +26,6 @@ function makeCharacterMock(actor) {
 		appearance,
 		origin,
 		selectBackground: vi.fn(),
-		ensureStartingMoves: vi.fn(),
 		onDropItems: vi.fn(async () => ({ anyAdded: false, others: [] })),
 		updateName: vi.fn(async name => actor.update({ name })),
 		addMove: vi.fn(),

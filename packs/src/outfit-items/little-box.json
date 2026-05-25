@@ -11,7 +11,7 @@
 			"slug": "little-box",
 			"inventoryColumn": "small",
 			"sortOrder": 18,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

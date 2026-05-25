@@ -11,7 +11,7 @@
 			"slug": "sack",
 			"inventoryColumn": "small",
 			"sortOrder": 19,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

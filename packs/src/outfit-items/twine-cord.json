@@ -11,7 +11,7 @@
 			"slug": "twine-cord",
 			"inventoryColumn": "small",
 			"sortOrder": 22,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

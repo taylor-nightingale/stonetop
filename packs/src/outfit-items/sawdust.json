@@ -11,7 +11,7 @@
 			"slug": "sawdust",
 			"inventoryColumn": "small",
 			"sortOrder": 20,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

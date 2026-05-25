@@ -11,7 +11,7 @@
 			"slug": "comb",
 			"inventoryColumn": "small",
 			"sortOrder": 14,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

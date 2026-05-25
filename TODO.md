@@ -15,7 +15,9 @@
 * Add prosperity to inventory tab
 * Update all of our compendium items to include the json structure for adding outfit items
 * lore entry and choice should be the same data model.
-* other inventory section is missing, and adding outfit items still doesn't work
+* other inventory section is missing
+* dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
+* Don't bold the options in special possessions.
 
 == bugs
 * adding outfit items adds them to the other section

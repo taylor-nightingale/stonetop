@@ -217,11 +217,16 @@
                       "slug": "origin-heirloom",
                       "text": "an heirloom made just for you"
                     },
+										{
+											"slug": "origin-made-just-for-you",
+											"text": "made just for you"
+										},
                     {
                       "slug": "origin-own-work",
                       "text": "your own work"
                     }
-                  ]
+                  ],
+                  "inline": true
                 },
                 {
                   "type": "pick",
@@ -247,7 +252,8 @@
                       "slug": "material-demonflesh",
                       "text": "demonflesh"
                     }
-                  ]
+                  ],
+                  "inline": true
                 },
                 {
                   "type": "pick",
@@ -269,7 +275,8 @@
                       "slug": "decor-runes",
                       "text": "runes"
                     }
-                  ]
+                  ],
+                  "inline": true
                 },
                 {
                   "type": "heading",

@@ -17,7 +17,8 @@
 			"armor": "Armor",
 			"damage": "Damage",
 			"loyalty": "Loyalty",
-			"notePlaceholder": "Notes…"
+			"notePlaceholder": "Tags…",
+			"add": "Add Follower"
 		},
 		"postDeath": {
 			"chooseFate": "Choose Your Fate",

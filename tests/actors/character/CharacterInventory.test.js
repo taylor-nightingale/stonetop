@@ -25,7 +25,6 @@ function makeOutfitItem(overrides = {}) {
 		.withInventoryColumn(overrides.inventoryColumn ?? "regular")
 		.withResource(labels != null ? { max: labels.length, title: null, labels } : (overrides.resource ?? null))
 		.withTwoCol(overrides.twoCol ?? false)
-		.withSmallGrid(overrides.smallGrid ?? false)
 		.withBreakBefore(overrides.breakBefore ?? false)
 		.withOwnedId(overrides.ownedId ?? null)
 		.build();
@@ -35,32 +34,44 @@ function makeRepo(items = []) {
 	return new FakeInventoryRepository(items);
 }
 
-function makeFakePlaybook(data = null) {
-	return { getData: async () => data };
+function makePossessionsFake(snapshot = null) {
+	return { buildSnapshot: async () => snapshot };
 }
 
-function makePossessionsFake(snapshot = null, outfitItems = []) {
+function makeRawEmbeddedItem(overrides = {}) {
 	return {
-		buildSnapshot: () => snapshot,
-		getOutfitItems: () => outfitItems,
+		_id:    overrides._id    ?? "emb-1",
+		type:   "equipment",
+		name:   overrides.name   ?? "Embedded Item",
+		system: { equipmentType: "outfit", weight: overrides.weight ?? 1 },
+		flags:  { stonetop: {
+			slug:            overrides.slug            ?? null,
+			inventoryColumn: overrides.inventoryColumn ?? "regular",
+			note:            overrides.note            ?? null,
+			resource:        overrides.resource        ?? null,
+			twoCol:          overrides.twoCol          ?? false,
+			breakBefore:     overrides.breakBefore     ?? false,
+			source:          overrides.source          ?? null,
+		}},
 	};
 }
 
-function makeActor(items = []) {
+function makeActorOutfitItems(items = []) {
 	return {
-		items,
-		createEmbeddedDocuments: vi.fn(async () => []),
-		deleteEmbeddedDocuments: vi.fn(async () => []),
+		getAll:        () => items,
+		create:        vi.fn(async () => []),
+		deleteById:    vi.fn(async () => []),
+		deleteBySource: vi.fn(async () => []),
+		sync:          vi.fn(async () => []),
 	};
 }
 
-function makeCi(flagStore = {}, repo = null, possessions = null, actor = null, playbook = null) {
+function makeCi(flagStore = {}, repo = null, possessions = null, outfitItems = null) {
 	return new CharacterInventory(
 		makeFlags(flagStore),
 		repo ?? makeRepo(),
 		possessions ?? makePossessionsFake(),
-		actor ?? makeActor(),
-		playbook ?? makeFakePlaybook(),
+		outfitItems ?? makeActorOutfitItems(),
 	);
 }
 
@@ -108,7 +119,6 @@ function makeArmorItem(slug, armor) {
 		.withInventoryColumn("regular")
 		.withResource(null)
 		.withTwoCol(false)
-		.withSmallGrid(false)
 		.withBreakBefore(false)
 		.withArmor(armor)
 		.build();
@@ -176,110 +186,168 @@ describe("CharacterInventory.getArmor", () => {
 
 describe("CharacterInventory.buildSnapshot", () => {
 	it("returns an InventorySnapshot", async () => {
-		const snap = await makeCi().buildSnapshot();
+		const snap = await makeCi().buildSnapshot(1);
 		expect(snap).toBeInstanceOf(InventorySnapshot);
 	});
 
 	it("regular item from repo appears in outfit.regularItems", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.regularItems).toHaveLength(1);
 		expect(snap.outfit.regularItems[0].slug).toBe("knife");
 	});
 
 	it("checked flag sets item.checked to true", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
-		const snap = await makeCi({ checked: { knife: true } }, repo).buildSnapshot();
+		const snap = await makeCi({ checked: { knife: true } }, repo).buildSnapshot(1);
 		expect(snap.outfit.regularItems[0].checked).toBe(true);
 	});
 
 	it("unchecked item defaults to false", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.regularItems[0].checked).toBe(false);
 	});
 
 	it("resource.current reflects inventory resources flag", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "bow-arrows", inventoryColumn: "regular", resourceLabels: ["low", "out"] })]);
-		const snap = await makeCi({ resources: { "bow-arrows": 1 } }, repo).buildSnapshot();
+		const snap = await makeCi({ resources: { "bow-arrows": 1 } }, repo).buildSnapshot(1);
 		expect(snap.outfit.regularItems[0].resource.current).toBe(1);
 	});
 
 	it("item without resource has resource=null", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular", resource: null })]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.regularItems[0].resource).toBeNull();
 	});
 
-	it("custom regular item from actor.items appears in outfit.regularItems", async () => {
-		const actorItem = { _id: "custom-1", type: "equipment", name: "Custom Item",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "regular", weight: 2 } };
-		const snap = await makeCi({}, null, null, makeActor([actorItem])).buildSnapshot();
+	it("embedded regular item (no source) appears in outfit.regularItems as custom", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "custom-1", name: "Custom Item", weight: 2 });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		expect(snap.outfit.regularItems.some(i => i.slug === "custom-1")).toBe(true);
 	});
 
-	it("custom item has isCustom=true and ownedId set", async () => {
-		const actorItem = { _id: "custom-1", type: "equipment", name: "Custom Item",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "regular", weight: 2 } };
-		const snap = await makeCi({}, null, null, makeActor([actorItem])).buildSnapshot();
+	it("embedded item with no source has isCustom=true and ownedId set", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "custom-1", name: "Custom Item" });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		const item = snap.outfit.regularItems.find(i => i.slug === "custom-1");
 		expect(item.isCustom).toBe(true);
 		expect(item.ownedId).toBe("custom-1");
 	});
 
-	it("arcana regular item injected via setArcanaItems appears in outfit.regularItems", async () => {
-		const ci = makeCi({}, makeRepo());
-		ci.setArcanaItems([makeOutfitItem({ slug: "arcanum-1", inventoryColumn: "regular" })]);
-		const snap = await ci.buildSnapshot();
+	it("embedded item with source has isCustom=false and ownedId=null", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		const item = snap.outfit.regularItems.find(i => i.slug === "arcanum-1");
+		expect(item.isCustom).toBe(false);
+		expect(item.ownedId).toBeNull();
+	});
+
+	it("embedded item uses flags.stonetop.slug as slug when present", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "smithy-tongs", source: "possession:smithy" });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		expect(snap.outfit.regularItems.some(i => i.slug === "smithy-tongs")).toBe(true);
+	});
+
+	it("embedded item falls back to _id as slug when no stonetop slug", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "c-2", slug: null });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		expect(snap.outfit.regularItems.some(i => i.slug === "c-2")).toBe(true);
+	});
+
+	it("embedded item in small column appears in outfit.smallItems", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "c-3", inventoryColumn: "small" });
+		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		expect(snap.outfit.smallItems.some(i => i.slug === "c-3")).toBe(true);
+	});
+
+	it("embedded arcana item appears in outfit.regularItems", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "emb-arc", slug: "arcanum-1", source: "arcana:arcanum-1" });
+		const snap = await makeCi({}, makeRepo(), null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		expect(snap.outfit.regularItems.some(i => i.slug === "arcanum-1")).toBe(true);
 	});
 
+	it("embedded possession item appears in outfit.regularItems", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "emb-pos", slug: "smithy-tongs", source: "possession:smithy" });
+		const snap = await makeCi({}, makeRepo(), null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		expect(snap.outfit.regularItems.some(i => i.slug === "smithy-tongs")).toBe(true);
+	});
+
 	it("small items appear in outfit.smallItems", async () => {
-		const repo = makeRepo([makeOutfitItem({ slug: "chalk", inventoryColumn: "small", smallGrid: false })]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+		const repo = makeRepo([makeOutfitItem({ slug: "chalk", inventoryColumn: "small", twoCol: false })]);
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.smallItems).toHaveLength(1);
 		expect(snap.outfit.smallItems[0].slug).toBe("chalk");
 	});
 
-	it("smallGrid items appear in outfit.smallGridItems", async () => {
-		const repo = makeRepo([makeOutfitItem({ slug: "coins", inventoryColumn: "small", smallGrid: true })]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+	it("twoCol small items appear in outfit.smallGridItems", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "coins", inventoryColumn: "small", twoCol: true })]);
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.smallGridItems).toHaveLength(1);
 		expect(snap.outfit.smallGridItems[0].slug).toBe("coins");
 	});
 
+	it("embedded item appears after repo items in regularItems", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
+		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
+		const snap = await makeCi({}, repo, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		const slugs = snap.outfit.regularItems.map(i => i.slug);
+		expect(slugs.indexOf("knife")).toBeLessThan(slugs.indexOf("arcanum-1"));
+	});
+
+	it("first embedded item gets breakBefore=true when repo items exist above it", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
+		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
+		const snap = await makeCi({}, repo, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		const item = snap.outfit.regularItems.find(i => i.slug === "arcanum-1");
+		expect(item.breakBefore).toBe(true);
+	});
+
+	it("embedded item has breakBefore=false when it is the only item", async () => {
+		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
+		const snap = await makeCi({}, makeRepo(), null, makeActorOutfitItems([embedded])).buildSnapshot(1);
+		const item = snap.outfit.regularItems.find(i => i.slug === "arcanum-1");
+		expect(item.breakBefore).toBe(false);
+	});
+
+	it("custom item gets breakBefore=true when repo items exist above it", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
+		const custom = makeRawEmbeddedItem({ _id: "custom-1", source: null });
+		const snap = await makeCi({}, repo, null, makeActorOutfitItems([custom])).buildSnapshot(1);
+		const item = snap.outfit.regularItems.find(i => i.slug === "custom-1");
+		expect(item.breakBefore).toBe(true);
+	});
+
 	it("possessions comes from possessions.buildSnapshot", async () => {
 		const possSnap = new PossessionsSnapshot(2, "Pick 2", []);
-		const playbookData = { specialPossessions: { pickCount: 2, pickNote: "Pick 2", options: [] } };
-		const snap = await makeCi({}, makeRepo(), makePossessionsFake(possSnap), null, makeFakePlaybook(playbookData))
-			.buildSnapshot();
+		const snap = await makeCi({}, makeRepo(), makePossessionsFake(possSnap)).buildSnapshot(1);
 		expect(snap.possessions).toBe(possSnap);
 	});
 
 	it("possessions is null when playbookData is null", async () => {
-		const snap = await makeCi().buildSnapshot();
+		const snap = await makeCi().buildSnapshot(1);
 		expect(snap.possessions).toBeNull();
 	});
 
 	it("load level is null when not set", async () => {
-		const snap = await makeCi().buildSnapshot();
+		const snap = await makeCi().buildSnapshot(1);
 		expect(snap.outfit.load.selected).toBeNull();
 	});
 
 	it("load level reflects loadLevel flag", async () => {
-		const snap = await makeCi({ loadLevel: "light" }).buildSnapshot();
+		const snap = await makeCi({ loadLevel: "light" }).buildSnapshot(1);
 		expect(snap.outfit.load.loadLevelLight).toBe(true);
 		expect(snap.outfit.load.loadLevelNormal).toBe(false);
 		expect(snap.outfit.load.loadLevelHeavy).toBe(false);
 	});
 
 	it("regularPool.current reflects regularPool flag", async () => {
-		const snap = await makeCi({ regularPool: 3 }).buildSnapshot();
+		const snap = await makeCi({ regularPool: 3 }).buildSnapshot(1);
 		expect(snap.outfit.regularPool.current).toBe(3);
 	});
 
 	it("smallPool.current reflects smallPool flag", async () => {
-		const snap = await makeCi({ smallPool: 5 }).buildSnapshot();
+		const snap = await makeCi({ smallPool: 5 }).buildSnapshot(1);
 		expect(snap.outfit.smallPool.current).toBe(5);
 	});
 
@@ -288,125 +356,63 @@ describe("CharacterInventory.buildSnapshot", () => {
 			makeOutfitItem({ slug: "a", inventoryColumn: "regular", twoCol: false }),
 			makeOutfitItem({ slug: "b", inventoryColumn: "regular", twoCol: true }),
 		]);
-		const snap = await makeCi({}, repo).buildSnapshot();
+		const snap = await makeCi({}, repo).buildSnapshot(1);
 		expect(snap.outfit.regularSegments).toHaveLength(2);
 	});
 });
 
-describe("CharacterInventory.setArcanaItems", () => {
-	it("injected arcana item appears in outfit.regularItems", async () => {
-		const ci = makeCi();
-		ci.setArcanaItems([makeOutfitItem({ slug: "arc-1", inventoryColumn: "regular" })]);
-		const snap = await ci.buildSnapshot();
-		expect(snap.outfit.regularItems.some(i => i.slug === "arc-1")).toBe(true);
-	});
-
-	it("calling setArcanaItems with [] clears previous arcana items", async () => {
-		const ci = makeCi();
-		ci.setArcanaItems([makeOutfitItem({ slug: "arc-1", inventoryColumn: "regular" })]);
-		ci.setArcanaItems([]);
-		const snap = await ci.buildSnapshot();
-		expect(snap.outfit.regularItems.some(i => i.slug === "arc-1")).toBe(false);
-	});
-
-	it("arcana items have ownedId null and isCustom false", async () => {
-		const ci = makeCi();
-		ci.setArcanaItems([makeOutfitItem({ slug: "arc-1", inventoryColumn: "regular" })]);
-		const snap = await ci.buildSnapshot();
-		const item = snap.outfit.regularItems.find(i => i.slug === "arc-1");
-		expect(item.ownedId).toBeNull();
-		expect(item.isCustom).toBe(false);
-	});
-
-	it("injected arcana item in small column appears in outfit.smallItems", async () => {
-		const ci = makeCi();
-		ci.setArcanaItems([makeOutfitItem({ slug: "arc-small", inventoryColumn: "small" })]);
-		const snap = await ci.buildSnapshot();
-		expect(snap.outfit.smallItems.some(i => i.slug === "arc-small")).toBe(true);
-	});
-});
-
-describe("CharacterInventory custom items from actor.items", () => {
-	const actorItem = (id, col = "regular") => ({
-		_id: id, type: "equipment", name: "Item " + id,
-		system: { equipmentType: "inventory-custom", inventoryColumn: col, weight: 1 },
-	});
-
-	it("custom item appears in outfit.regularItems", async () => {
-		const snap = await makeCi({}, null, null, makeActor([actorItem("c-1")])).buildSnapshot();
-		expect(snap.outfit.regularItems.some(i => i.slug === "c-1")).toBe(true);
-	});
-
-	it("custom item has isCustom=true and ownedId set", async () => {
-		const snap = await makeCi({}, null, null, makeActor([actorItem("c-1")])).buildSnapshot();
-		const item = snap.outfit.regularItems.find(i => i.slug === "c-1");
-		expect(item.isCustom).toBe(true);
-		expect(item.ownedId).toBe("c-1");
-	});
-
-	it("non-custom equipment items are not included", async () => {
-		const nonCustom = { _id: "sword", type: "equipment", name: "Sword",
-			system: { equipmentType: "weapon", inventoryColumn: "regular", weight: 1 } };
-		const snap = await makeCi({}, null, null, makeActor([nonCustom])).buildSnapshot();
-		expect(snap.outfit.regularItems.some(i => i.slug === "sword")).toBe(false);
-	});
-});
+// -- CharacterInventory.addCustomItem -----------------------------------------
 
 describe("CharacterInventory.addCustomItem", () => {
-	it("creates a regular-column equipment item with the given name and weight", async () => {
-		const actor = makeActor();
-		const ci = makeCi({}, null, null, actor);
+	it("calls outfitItems.create with a regular-column item with the given name and weight", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const ci = makeCi({}, null, null, outfitItems);
 		await ci.addCustomItem("Rope", 2);
-		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{
-			name: "Rope",
-			type: "equipment",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "regular", weight: 2 },
-		}]);
+		expect(outfitItems.create).toHaveBeenCalledWith([
+			expect.objectContaining({
+				name: "Rope",
+				type: "equipment",
+				system: expect.objectContaining({ equipmentType: "outfit", weight: 2 }),
+				flags: expect.objectContaining({ stonetop: expect.objectContaining({ inventoryColumn: "regular", source: null }) }),
+			}),
+		]);
 	});
 
 	it("clamps weight to minimum 1", async () => {
-		const actor = makeActor();
-		const ci = makeCi({}, null, null, actor);
+		const outfitItems = makeActorOutfitItems();
+		const ci = makeCi({}, null, null, outfitItems);
 		await ci.addCustomItem("Pebble", 0);
-		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [
+		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({ system: expect.objectContaining({ weight: 1 }) }),
 		]);
 	});
 });
 
+// -- CharacterInventory.addCustomSmallItem ------------------------------------
+
 describe("CharacterInventory.addCustomSmallItem", () => {
-	it("creates a small-column equipment item with the given name", async () => {
-		const actor = makeActor();
-		const ci = makeCi({}, null, null, actor);
+	it("calls outfitItems.create with a small-column item with the given name", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const ci = makeCi({}, null, null, outfitItems);
 		await ci.addCustomSmallItem("Coin");
-		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{
-			name: "Coin",
-			type: "equipment",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "small" },
-		}]);
+		expect(outfitItems.create).toHaveBeenCalledWith([
+			expect.objectContaining({
+				name: "Coin",
+				type: "equipment",
+				system: expect.objectContaining({ equipmentType: "outfit" }),
+				flags: expect.objectContaining({ stonetop: expect.objectContaining({ inventoryColumn: "small", source: null }) }),
+			}),
+		]);
 	});
 });
+
+// -- CharacterInventory.removeCustomItem --------------------------------------
 
 describe("CharacterInventory.removeCustomItem", () => {
-	it("deletes the embedded document by id", async () => {
-		const actor = makeActor();
-		const ci = makeCi({}, null, null, actor);
+	it("calls outfitItems.deleteById with the item id", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const ci = makeCi({}, null, null, outfitItems);
 		await ci.removeCustomItem("item-42");
-		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["item-42"]);
-	});
-});
-
-describe("CharacterInventory possession outfit items", () => {
-	it("possession outfit item in regular column appears in outfit.regularItems", async () => {
-		const possItem = makeOutfitItem({ slug: "smithy-tongs", name: "Tongs", inventoryColumn: "regular" });
-		const playbookData = { specialPossessions: { pickCount: 1, pickNote: "Pick 1", options: [] } };
-		const possessions = makePossessionsFake(null, [possItem]);
-		const snap = await makeCi({}, makeRepo(), possessions, null, makeFakePlaybook(playbookData)).buildSnapshot();
-		expect(snap.outfit.regularItems.some(i => i.slug === "smithy-tongs")).toBe(true);
-	});
-
-	it("possession outfit items do not appear when possessions returns []", async () => {
-		const snap = await makeCi().buildSnapshot();
-		expect(snap.outfit.regularItems).toHaveLength(0);
+		expect(outfitItems.deleteById).toHaveBeenCalledWith("item-42");
 	});
 });

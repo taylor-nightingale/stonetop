@@ -11,7 +11,7 @@
 			"slug": "charcoal",
 			"inventoryColumn": "small",
 			"sortOrder": 11,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

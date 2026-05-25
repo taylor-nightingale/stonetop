@@ -11,7 +11,7 @@
 			"slug": "tallow",
 			"inventoryColumn": "small",
 			"sortOrder": 21,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

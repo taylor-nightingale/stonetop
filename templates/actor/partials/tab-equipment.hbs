@@ -184,7 +184,6 @@
 					{{#if preselectedSource}}<span class="stonetop-item-source">{{preselectedSource}}</span>{{/if}}
 					{{#if (and checked resource)}}
 					<span class="stonetop-item-resources">
-						{{#if usesLabel}}<span class="stonetop-uses-label">{{usesLabel}}</span>{{/if}}
 						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=slug}}
 					</span>
 					{{/if}}

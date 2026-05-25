@@ -11,7 +11,7 @@
 			"slug": "cloth-rag",
 			"inventoryColumn": "small",
 			"sortOrder": 13,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

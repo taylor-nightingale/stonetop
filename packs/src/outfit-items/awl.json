@@ -12,7 +12,7 @@
 			"inventoryColumn": "small",
 			"sortOrder": 8,
 			"breakBefore": true,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

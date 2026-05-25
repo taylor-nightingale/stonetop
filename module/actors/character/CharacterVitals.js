@@ -37,16 +37,20 @@ export class CharacterVitals {
 	}
 
 	async setDamage(damage) {
-		await Promise.all([this._flags.setFlag("damage", damage),
-			this._actor.update("system.attributes.damage.value", damage)]);
+		await Promise.all([
+			this._flags.setFlag("damage", damage),
+			this._actor.update({ "system.attributes.damage.value": damage }),
+		]);
 	}
 
 	async setMaxHP(maxHp) {
-		await Promise.all([this._flags.setFlag("maxHP", maxHp),
-			this._actor.update("system.attributes.maxHp.value", maxHp)]);
+		await Promise.all([
+			this._flags.setFlag("maxHP", maxHp),
+			this._actor.update({ "system.attributes.maxHp.value": maxHp }),
+		]);
 	}
 
 	async setHP(hp) {
-		await this._actor.update("system.attributes.hp.value", hp);
+		await this._actor.update({ "system.attributes.hp.value": hp });
 	}
 }

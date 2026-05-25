@@ -11,7 +11,7 @@
 			"slug": "gloves",
 			"inventoryColumn": "small",
 			"sortOrder": 17,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

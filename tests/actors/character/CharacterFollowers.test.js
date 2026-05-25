@@ -390,3 +390,98 @@ describe("CharacterFollowers — choices snapshot", () => {
 		expect(pronounRow.options.find(o => o.slug === "he").checked).toBe(false);
 	});
 });
+
+// -- Fixtures: blank follower -------------------------------------------------
+
+const BLANK_DATA = {
+	slug:    "blank",
+	name:    "New Follower",
+	note:    null,
+	hp:      { max: 6 },
+	armor:   0,
+	damage:  "d6",
+	loyalty: { max: 3 },
+	choices: {
+		slug: "choices",
+		list: [
+			{ type: "input", slug: "damage",   text: "Damage",   default: "" },
+			{ type: "input", slug: "instinct", text: "Instinct", default: "" },
+			{ type: "input", slug: "cost",     text: "Cost",     default: "" },
+			{ type: "input", slug: "notes",    text: "Notes",    default: "" },
+		],
+	},
+};
+
+const BLANK = new Follower(BLANK_DATA);
+
+// -- Tests: addCustomFollower -------------------------------------------------
+
+describe("CharacterFollowers — addCustomFollower", () => {
+	it("throws if blank follower not in repo", async () => {
+		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo());
+		await expect(cf.addCustomFollower()).rejects.toThrow("Blank follower not found in compendium");
+	});
+
+	it("adds a custom- slug to owned", async () => {
+		const store = {};
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		await cf.addCustomFollower();
+		expect(store.owned).toHaveLength(1);
+		expect(store.owned[0]).toMatch(/^custom-/);
+	});
+
+	it("sets initial state from blank follower values", async () => {
+		const store = {};
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		await cf.addCustomFollower();
+		const slug = store.owned[0];
+		expect(store.state[slug].name).toBe("New Follower");
+		expect(store.state[slug].hp).toBe(6);
+		expect(store.state[slug].hpMax).toBe(6);
+		expect(store.state[slug].armor).toBe(0);
+		expect(store.state[slug].damage).toBe("d6");
+		expect(store.state[slug].loyalty).toBe(0);
+	});
+});
+
+// -- Tests: custom follower snapshot ------------------------------------------
+
+describe("CharacterFollowers — custom follower snapshot", () => {
+	it("buildSnapshot returns a snapshot for a custom slug", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "My Guy", hp: 6, hpMax: 6, armor: 0, damage: "d6", loyalty: 0, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		const snaps = await cf.buildSnapshot();
+		expect(snaps).toHaveLength(1);
+		expect(snaps[0].slug).toBe("custom-1");
+		expect(snaps[0].name).toBe("My Guy");
+	});
+
+	it("custom snapshot uses blank follower choices as template", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "My Guy", hp: 6, hpMax: 6, armor: 0, damage: "d6", loyalty: 0, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.choices).not.toBeNull();
+		expect(snap.choices.list.find(r => r.slug === "instinct")).toBeDefined();
+	});
+
+	it("custom snapshot has null choices when blank not available", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "My Guy", hp: 6, hpMax: 6, armor: 0, damage: "d6", loyalty: 0, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.choices).toBeNull();
+	});
+
+	it("loyalty max is always 3 for custom followers", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "X", hp: 4, hpMax: 4, armor: 0, damage: "d6", loyalty: 1, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.loyaltyMax).toBe(3);
+	});
+
+	it("loyalty max is always 3 for compendium followers", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.loyaltyMax).toBe(3);
+	});
+});

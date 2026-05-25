@@ -1,41 +1,35 @@
 import {
-	OutfitItemSnapshotBuilder,
 	InventorySegmentSnapshot,
 	InventorySnapshot,
 	LoadOptionSnapshot,
 	LoadSnapshotBuilder,
+	OutfitItemSnapshotBuilder,
 	OutfitSnapshotBuilder,
 	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import { OutfitItemBuilder } from "../../model/data/character/OutfitItem.js";
+import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
+import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 
 export class CharacterInventory {
-	constructor(flags, inventoryRepo, possessions, actor, playbook) {
-		this._flags          = flags;
-		this._repo           = inventoryRepo;
-		this._possessions    = possessions;
-		this._actor          = actor;
-		this._playbook       = playbook;
-		this._itemsBySource  = new Map();
+constructor(flags, inventoryRepo, possessions, outfitItems) {
+		this._flags = flags;
+		this._repo = inventoryRepo;
+		this._possessions = possessions;
+		this._outfitItems = outfitItems;
 	}
 
-	setVitals(vitals)     { this._vitals = vitals; }
-	setArcanaItems(items) { this._itemsBySource.set("arcana", items); }
-
-	get _additionalItems() { return [...this._itemsBySource.values()].flat(); }
-
-	get checked()      { return this._flags.getFlag("checked") ?? {}; }
-	get resources()    { return this._flags.getFlag("resources") ?? {}; }
-	get loadLevel()    { return this._flags.getFlag("loadLevel") ?? null; }
-	get regularPool()  { return this._flags.getFlag("regularPool") ?? 0; }
-	get smallPool()    { return this._flags.getFlag("smallPool") ?? 0; }
+	get checked()     { return this._flags.getFlag("checked") ?? {}; }
+	get resources()   { return this._flags.getFlag("resources") ?? {}; }
+	get loadLevel()   { return this._flags.getFlag("loadLevel") ?? null; }
+	get regularPool() { return this._flags.getFlag("regularPool") ?? 0; }
+	get smallPool()   { return this._flags.getFlag("smallPool") ?? 0; }
 
 	async setItemChecked(slug, isChecked) {
-		await this._flags.setFlag("checked", { ...this.checked, [slug]: isChecked });
+		await this._flags.setFlag("checked", {...this.checked, [slug]: isChecked});
 	}
 
 	async setResource(slug, count) {
-		await this._flags.setFlag("resources", { ...this.resources, [slug]: count });
+		await this._flags.setFlag("resources", {...this.resources, [slug]: count});
 	}
 
 	async setLoadLevel(level) {
@@ -51,28 +45,27 @@ export class CharacterInventory {
 	}
 
 	async addCustomItem(name, weight) {
-		await this._actor.createEmbeddedDocuments("Item", [{
-			name,
-			type: "equipment",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "regular", weight: Math.max(1, weight) },
-		}]);
+		await this._outfitItems.create([new EmbeddedOutfitItemBuilder()
+			.withName(name)
+			.withWeight(Math.max(1, weight))
+			.withInventoryColumn("regular")
+			.build()]);
 	}
 
 	async addCustomSmallItem(name) {
-		await this._actor.createEmbeddedDocuments("Item", [{
-			name,
-			type: "equipment",
-			system: { equipmentType: "inventory-custom", inventoryColumn: "small" },
-		}]);
+		await this._outfitItems.create([new EmbeddedOutfitItemBuilder()
+			.withName(name)
+			.withInventoryColumn("small")
+			.build()]);
 	}
 
 	async removeCustomItem(itemId) {
-		await this._actor.deleteEmbeddedDocuments("Item", [itemId]);
+		await this._outfitItems.deleteById(itemId);
 	}
 
 	calculateArmor(allItems) {
-		const equipped  = allItems.filter(item => this.checked[item.slug] && item.armor);
-		const bases     = equipped.filter(i => i.armor.base     != null).map(i => i.armor.base);
+		const equipped = allItems.filter(item => this.checked[item.slug] && item.armor);
+		const bases = equipped.filter(i => i.armor.base != null).map(i => i.armor.base);
 		const modifiers = equipped.filter(i => i.armor.modifier != null).map(i => i.armor.modifier);
 		const base = bases.length > 0 ? Math.max(...bases) : 0;
 		return base + modifiers.reduce((s, m) => s + m, 0);
@@ -83,31 +76,9 @@ export class CharacterInventory {
 		return this.calculateArmor(allItems);
 	}
 
-	async buildSnapshot() {
-		const customItems = [...(this._actor.items ?? [])]
-			.filter(i => i.type === "equipment" && i.system?.equipmentType === "inventory-custom")
-			.map(i => new OutfitItemBuilder()
-				.withSlug(i._id)
-				.withName(i.name)
-				.withWeight(i.system.weight ?? 1)
-				.withNote(null)
-				.withInventoryColumn(i.system.inventoryColumn)
-				.withResource(null)
-				.withTwoCol(false)
-				.withBreakBefore(false)
-				.withOwnedId(i._id)
-				.build());
-		this._itemsBySource.set("custom", customItems);
-		const playbookData    = await this._playbook.getData();
-		this._itemsBySource.set("possessions", this._possessions.getOutfitItems(playbookData?.specialPossessions ?? null));
-		const actorLevel      = this._vitals?.level ?? 1;
-		const checked         = this.checked;
-		const resources       = this.resources;
-		const rPool           = this.regularPool;
-		const sPool           = this.smallPool;
-		const loadLevel       = this.loadLevel;
-		const allItems        = await this._repo.getAll();
-		const additionalItems = this._additionalItems;
+	async buildSnapshot(level) {
+		const checked = this.checked;
+		const resources = this.resources;
 
 		const mapItem = (outfitItem) => {
 			const res = outfitItem.resource;
@@ -130,17 +101,62 @@ export class CharacterInventory {
 				.build();
 		};
 
-		const allSmall   = allItems.filter(i => i.inventoryColumn === "small");
-		const addlSmall  = additionalItems.filter(i => i.inventoryColumn === "small");
-		const flatRegular = [
-			...allItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
-			...additionalItems.filter(i => i.inventoryColumn === "regular").map(mapItem),
-		];
+		// Embedded items: arcana, possessions, and user-created custom items
+		const embeddedItems = this._outfitItems.getAll().map(i => {
+			const st = i.flags?.stonetop ?? {};
+			const source = st.source ?? null;
+			return new OutfitItemBuilder()
+				.withSlug(st.slug ?? i._id)
+				.withName(i.name)
+				.withWeight(i.system?.weight ?? st.weight ?? 1)
+				.withNote(st.note ?? null)
+				.withInventoryColumn(st.inventoryColumn ?? "regular")
+				.withResource(st.resource ?? null)
+				.withTwoCol(st.twoCol ?? false)
+				.withBreakBefore(st.breakBefore ?? false)
+				.withOwnedId(source == null ? i._id : null)
+				.build();
+		});
 
-		const possessions = this._possessions.buildSnapshot(
-			playbookData?.specialPossessions ?? null, actorLevel
-		);
+		const rPool = this.regularPool;
+		const sPool = this.smallPool;
+		const loadLevel = this.loadLevel;
+		const repoItems = await this._repo.getAll();
 
+		const repoRegular     = repoItems.filter(i => i.inventoryColumn === "regular");
+		const embeddedRegular = embeddedItems.filter(i => i.inventoryColumn === "regular");
+
+		if (embeddedRegular.length > 0 && repoRegular.length > 0) {
+			embeddedRegular[0].breakBefore = true;
+		}
+
+		const flatRegular = [...repoRegular, ...embeddedRegular].map(mapItem);
+
+		const repoSmall = repoItems.filter(i => i.inventoryColumn === "small");
+		const embeddedSmall = embeddedItems.filter(i => i.inventoryColumn === "small");
+		if (embeddedSmall.length > 0 && repoSmall.length > 0) {
+			embeddedSmall[0].breakBefore = true;
+		}
+		const allSmall = [...repoSmall, ...embeddedSmall];
+
+		const outfit = new OutfitSnapshotBuilder()
+			.withLoad(this.buildLoadSnapshot(loadLevel))
+			.withRegularItems(flatRegular)
+			.withRegularSegments(_segmentByTwoCol(flatRegular))
+			.withRegularPool(new ResourceBuilder().withCurrent(rPool).withMax(9).withTitle(null).withLabels([]).build())
+			.withSmallItems([
+				...allSmall.filter(i => !i.twoCol).map(mapItem),
+			])
+			.withSmallGridItems([
+				...allSmall.filter(i => i.twoCol).map(mapItem),
+			])
+			.withSmallPool(new ResourceBuilder().withCurrent(sPool).withMax(9).withTitle(null).withLabels([]).build())
+			.build();
+
+		return new InventorySnapshot(outfit, await this._possessions.buildSnapshot(level ?? 1));
+	}
+
+	buildLoadSnapshot(loadLevel) {
 		const load = new LoadSnapshotBuilder()
 			.withInstruction(_loc("stonetop.inventory.outfit.heading"))
 			.withSelected(loadLevel ?? null)
@@ -148,29 +164,12 @@ export class CharacterInventory {
 			.withLoadLevelNormal(loadLevel === "normal")
 			.withLoadLevelHeavy(loadLevel === "heavy")
 			.withOptions([
-				new LoadOptionSnapshot("light",  "Light",  _loc("stonetop.inventory.outfit.light")),
+				new LoadOptionSnapshot("light", "Light", _loc("stonetop.inventory.outfit.light")),
 				new LoadOptionSnapshot("normal", "Normal", _loc("stonetop.inventory.outfit.normal")),
-				new LoadOptionSnapshot("heavy",  "Heavy",  _loc("stonetop.inventory.outfit.heavy")),
+				new LoadOptionSnapshot("heavy", "Heavy", _loc("stonetop.inventory.outfit.heavy")),
 			])
 			.build();
-
-		const outfit = new OutfitSnapshotBuilder()
-			.withLoad(load)
-			.withRegularItems(flatRegular)
-			.withRegularSegments(_segmentByTwoCol(flatRegular))
-			.withRegularPool(new ResourceBuilder().withCurrent(rPool).withMax(9).withTitle(null).withLabels([]).build())
-			.withSmallItems([
-				...allSmall.filter(i => !i.smallGrid).map(mapItem),
-				...addlSmall.filter(i => !i.smallGrid).map(mapItem),
-			])
-			.withSmallGridItems([
-				...allSmall.filter(i => i.smallGrid).map(mapItem),
-				...addlSmall.filter(i => i.smallGrid).map(mapItem),
-			])
-			.withSmallPool(new ResourceBuilder().withCurrent(sPool).withMax(9).withTitle(null).withLabels([]).build())
-			.build();
-
-		return new InventorySnapshot(outfit, possessions);
+		return load;
 	}
 }
 

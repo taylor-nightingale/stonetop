@@ -92,3 +92,23 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 		expect(snap.damage).toBeNull();
 	});
 });
+
+describe("CharacterVitals.setHP / setDamage / setMaxHP", () => {
+	it("setHP calls actor.update with object form", async () => {
+		const actor = makeActor();
+		await new CharacterVitals(actor, makeInventory()).setHP(14);
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.hp.value": 14 });
+	});
+
+	it("setMaxHP calls actor.update with object form", async () => {
+		const actor = makeActor();
+		await new CharacterVitals(actor, makeInventory()).setMaxHP(20);
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.maxHp.value": 20 });
+	});
+
+	it("setDamage calls actor.update with object form", async () => {
+		const actor = makeActor();
+		await new CharacterVitals(actor, makeInventory()).setDamage("d8");
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.value": "d8" });
+	});
+});

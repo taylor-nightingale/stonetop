@@ -11,7 +11,7 @@
 			"slug": "whistle",
 			"inventoryColumn": "small",
 			"sortOrder": 25,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

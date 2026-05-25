@@ -199,6 +199,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-follower-add");
+				if (!btn) return;
+				this._stonetopCharacter.addCustomFollower().then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("click", ev => {
 				const btn = ev.target.closest(".stonetop-follower-delete");
 				if (!btn) return;
 				ev.stopPropagation();

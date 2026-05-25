@@ -7,7 +7,6 @@ export class OutfitItem {
 		this.inventoryColumn = b._inventoryColumn;
 		this.resource        = b._resource;
 		this.twoCol          = b._twoCol;
-		this.smallGrid       = b._smallGrid;
 		this.breakBefore     = b._breakBefore;
 		this.armor           = b._armor ?? null;
 		this.ownedId         = b._ownedId ?? null;
@@ -22,7 +21,6 @@ export class OutfitItemBuilder {
 	withInventoryColumn(v) { this._inventoryColumn = v; return this; }
 	withResource(v)        { this._resource        = v; return this; }
 	withTwoCol(v)          { this._twoCol          = v; return this; }
-	withSmallGrid(v)       { this._smallGrid       = v; return this; }
 	withBreakBefore(v)     { this._breakBefore     = v; return this; }
 	withArmor(v)           { this._armor           = v; return this; }
 	withOwnedId(v)         { this._ownedId         = v; return this; }

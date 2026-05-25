@@ -11,7 +11,7 @@
 			"slug": "extra-socks",
 			"inventoryColumn": "small",
 			"sortOrder": 16,
-			"smallGrid": true
+			"twoCol": true
 		}
 	}
 }

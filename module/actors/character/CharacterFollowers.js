@@ -74,11 +74,41 @@ export class CharacterFollowers {
 		await this._flags.setFlag("state", { ...this._state, [followerSlug]: { ...state, values: values.toRaw() } });
 	}
 
+	async addCustomFollower() {
+		const [blank] = await this._followerRepo.findBySlugs(["blank"]);
+		if (!blank) throw new Error("Blank follower not found in compendium");
+		const slug = `custom-${Date.now()}`;
+		await this._flags.setFlag("state", {
+			...this._state,
+			[slug]: {
+				name:     blank.name,
+				note:     blank.note,
+				hp:       blank.hp.max,
+				hpMax:    blank.hp.max,
+				armor:    blank.armor,
+				damage:   blank.damage,
+				loyalty:  0,
+				values:   {},
+			},
+		});
+		await this.addFollower(slug);
+	}
+
 	async buildSnapshot() {
 		const slugs = this.ownedSlugs;
 		if (!slugs.length) return [];
-		const followers = await this._followerRepo.findBySlugs(slugs);
-		return followers.map(f => this._buildFollowerSnapshot(f));
+		const found  = await this._followerRepo.findBySlugs(slugs);
+		const bySlug = Object.fromEntries(found.map(f => [f.slug, f]));
+
+		const hasCustom = slugs.some(s => !bySlug[s]);
+		const blank     = hasCustom ? (await this._followerRepo.findBySlugs(["blank"]))[0] ?? null : null;
+
+		return slugs.map(slug => {
+			const follower = bySlug[slug];
+			return follower
+				? this._buildFollowerSnapshot(follower)
+				: this._buildCustomFollowerSnapshot(slug, blank);
+		});
 	}
 
 	_buildFollowerSnapshot(follower) {
@@ -101,8 +131,25 @@ export class CharacterFollowers {
 			.withArmor(armor)
 			.withDamage(damage)
 			.withLoyalty(loyalty)
-			.withLoyaltyMax(follower.loyalty.max)
+			.withLoyaltyMax(3)
 			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
+			.build();
+	}
+
+	_buildCustomFollowerSnapshot(slug, blank) {
+		const state   = this._stateFor(slug);
+		const values  = new ChoiceValues(state.values ?? {});
+		return new FollowerSnapshotBuilder()
+			.withSlug(slug)
+			.withName(state.name     ?? "New Follower")
+			.withNote(state.note     ?? null)
+			.withHp(state.hp         ?? 6)
+			.withHpMax(state.hpMax   ?? 6)
+			.withArmor(state.armor   ?? 0)
+			.withDamage(state.damage ?? "d6")
+			.withLoyalty(state.loyalty ?? 0)
+			.withLoyaltyMax(3)
+			.withChoices(blank?.choices ? ChoiceGroup.fromPackData(blank.choices, values) : null)
 			.build();
 	}
 }
