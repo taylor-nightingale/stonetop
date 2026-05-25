@@ -1,0 +1,28 @@
+{
+  "name": "Mill",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "mill",
+      "sortOrder": 10,
+      "choices": {
+        "slug": "mill",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Mill",
+            "description": "<p>We’ve got our pick of millstones. With a mill, we’d have better bread and more time for other crafts.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "NlzvIrCFNvf3RI8P",
+  "_key": "!items!NlzvIrCFNvf3RI8P"
+}

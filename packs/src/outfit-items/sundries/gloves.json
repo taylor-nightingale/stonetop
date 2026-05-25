@@ -1,0 +1,18 @@
+{
+  "_id": "oRRCQ5WMO5AHO4Ze",
+  "_key": "!items!oRRCQ5WMO5AHO4Ze",
+  "name": "Gloves",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "gloves",
+      "inventoryColumn": "small",
+      "sortOrder": 14,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

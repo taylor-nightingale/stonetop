@@ -1,0 +1,28 @@
+{
+  "name": "Additional Housing",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "additional-housing",
+      "sortOrder": 1,
+      "choices": {
+        "slug": "additional-housing",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Additional Housing",
+            "description": "<p>It's getting crowded! We need more room to live.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "61BXem3kTIsk4JvJ",
+  "_key": "!items!61BXem3kTIsk4JvJ"
+}

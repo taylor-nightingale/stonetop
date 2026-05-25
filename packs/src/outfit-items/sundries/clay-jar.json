@@ -1,0 +1,18 @@
+{
+  "_id": "fnQsKDGAUuRqphlh",
+  "_key": "!items!fnQsKDGAUuRqphlh",
+  "name": "Clay jar",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "clay-jar",
+      "inventoryColumn": "small",
+      "sortOrder": 3,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

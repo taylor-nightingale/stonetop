@@ -1,0 +1,28 @@
+{
+  "name": "Aurochs Hunting",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "aurochs-hunting",
+      "sortOrder": 2,
+      "choices": {
+        "slug": "aurochs-hunting",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Aurochs Hunting",
+            "description": "<p>Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "Ai81Nq5WZvoKglDj",
+  "_key": "!items!Ai81Nq5WZvoKglDj"
+}

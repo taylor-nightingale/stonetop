@@ -54,6 +54,11 @@
 			"path": "languages/en.json"
 		}
 	],
+	"documentTypes": {
+		"Actor": {
+			"steading": {}
+		}
+	},
 	"packs": [
 		{
 			"name": "basic-moves",
@@ -129,6 +134,13 @@
 			"name": "followers",
 			"label": "Followers",
 			"path": "packs/followers",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "steading-improvements",
+			"label": "Steading Improvements",
+			"path": "packs/steading-improvements",
 			"type": "Item",
 			"system": "pbta"
 		}

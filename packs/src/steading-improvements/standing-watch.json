@@ -1,0 +1,28 @@
+{
+  "name": "Standing Watch",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "standing-watch",
+      "sortOrder": 13,
+      "choices": {
+        "slug": "standing-watch",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Standing Watch",
+            "description": "<p>Some full-time warriors would make us all safer, no?</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "v0ygB3sfvACkWFZr",
+  "_key": "!items!v0ygB3sfvACkWFZr"
+}

@@ -1,0 +1,18 @@
+{
+  "_id": "AwFv0Yg7NZRBT7qY",
+  "_key": "!items!AwFv0Yg7NZRBT7qY",
+  "name": "Bowstring",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "bowstring",
+      "inventoryColumn": "small",
+      "sortOrder": 10,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

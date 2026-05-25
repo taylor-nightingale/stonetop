@@ -1,0 +1,28 @@
+{
+  "name": "Harnessing the Stream",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "harnessing-the-stream",
+      "sortOrder": 5,
+      "choices": {
+        "slug": "harnessing-the-stream",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Harnessing the Stream",
+            "description": "<p>A shallow creek flows just below the town. If only it could be harnessed!</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "7Gc4D6MgwoYoHbk2",
+  "_key": "!items!7Gc4D6MgwoYoHbk2"
+}

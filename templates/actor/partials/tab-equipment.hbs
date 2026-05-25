@@ -54,9 +54,10 @@
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
 			<hr class="stonetop-inv-separator">
-			{{#each stonetop.inventory.outfit.regularSegments}}
+			{{#each stonetop.inventory.outfit.regularSections}}
+			{{#unless @first}}<hr class="stonetop-inv-separator">{{/unless}}
+			{{#each (outfitSegments items)}}
 			{{#if isGrid}}
-			{{#if segmentBreak}}<hr class="stonetop-inv-separator">{{/if}}
 			<div class="stonetop-inv-twocol-grid">
 				{{#each items}}
 				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
@@ -78,7 +79,6 @@
 			</div>
 			{{else}}
 			{{#each items}}
-			{{#if breakBefore}}<hr class="stonetop-inv-separator">{{/if}}
 			<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
 				<span class="stonetop-inv-diamonds">
 					{{#each (times weight)}}
@@ -101,6 +101,7 @@
 			</div>
 			{{/each}}
 			{{/if}}
+			{{/each}}
 			{{/each}}
 			<button type="button" class="stonetop-inv-add-btn" data-column="regular">
 				<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addItem"}}
@@ -129,8 +130,22 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
 			<hr class="stonetop-inv-separator">
-			{{#each stonetop.inventory.outfit.smallItems}}
-			{{#if breakBefore}}<hr class="stonetop-inv-separator">{{/if}}
+			{{#each stonetop.inventory.outfit.smallSections}}
+			{{#unless @first}}<hr class="stonetop-inv-separator">{{/unless}}
+			{{#each (outfitSegments items)}}
+			{{#if isGrid}}
+			<div class="stonetop-inv-grid">
+				{{#each items}}
+				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
+					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
+					       data-slug="{{slug}}"
+					       {{#if checked}}checked{{/if}}>
+					<span class="stonetop-inv-label">{{name}}</span>
+				</label>
+				{{/each}}
+			</div>
+			{{else}}
+			{{#each items}}
 			<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
 				<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
 				       data-slug="{{slug}}"
@@ -148,19 +163,9 @@
 				{{/if}}
 			</label>
 			{{/each}}
-			{{#if stonetop.inventory.outfit.smallGridItems.length}}
-			<hr class="stonetop-inv-separator">
-			<div class="stonetop-inv-grid">
-				{{#each stonetop.inventory.outfit.smallGridItems}}
-				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
-					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
-					       data-slug="{{slug}}"
-					       {{#if checked}}checked{{/if}}>
-					<span class="stonetop-inv-label">{{name}}</span>
-				</label>
-				{{/each}}
-			</div>
 			{{/if}}
+			{{/each}}
+			{{/each}}
 			<button type="button" class="stonetop-inv-add-btn" data-column="small">
 				<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addSmallItem"}}
 			</button>

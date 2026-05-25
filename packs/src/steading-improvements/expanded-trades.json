@@ -1,0 +1,28 @@
+{
+  "name": "Expanded Trades",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "expanded-trades",
+      "sortOrder": 3,
+      "choices": {
+        "slug": "expanded-trades",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Expanded Trades",
+            "description": "<p>Specialization is the key to prosperity!</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "Rbctcz2sMbc9wGLB",
+  "_key": "!items!Rbctcz2sMbc9wGLB"
+}

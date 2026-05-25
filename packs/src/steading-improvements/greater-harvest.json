@@ -1,0 +1,28 @@
+{
+  "name": "Greater Harvest",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "greater-harvest",
+      "sortOrder": 4,
+      "choices": {
+        "slug": "greater-harvest",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Greater Harvest",
+            "description": "<p>Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "nGxlsJhmQhR61BsI",
+  "_key": "!items!nGxlsJhmQhR61BsI"
+}

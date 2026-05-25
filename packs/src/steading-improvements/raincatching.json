@@ -1,0 +1,28 @@
+{
+  "name": "Raincatching",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "raincatching",
+      "sortOrder": 12,
+      "choices": {
+        "slug": "raincatching",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Raincatching",
+            "description": "<p>Filling the cistern takes so much work. Surely, we can do better!</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "OoDfv0tH2yTLWez0",
+  "_key": "!items!OoDfv0tH2yTLWez0"
+}

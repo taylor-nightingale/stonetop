@@ -1,0 +1,28 @@
+{
+  "name": "Market",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "market",
+      "sortOrder": 9,
+      "choices": {
+        "slug": "market",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Market",
+            "description": "<p>Stonetop is at most an afterthought for traders in the region. We need to change that.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "BqPBZ9ExSPulTLPn",
+  "_key": "!items!BqPBZ9ExSPulTLPn"
+}

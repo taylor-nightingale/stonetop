@@ -21,7 +21,7 @@ export {
 export {
 	LoadOptionSnapshot, LoadSnapshot, LoadSnapshotBuilder,
 	OutfitItemSnapshot, OutfitItemSnapshotBuilder,
-	InventorySegmentSnapshot,
+	OutfitSection,
 	OutfitSnapshot, OutfitSnapshotBuilder,
 	PossessionsSnapshot,
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,

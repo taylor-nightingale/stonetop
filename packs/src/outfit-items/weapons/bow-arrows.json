@@ -1,0 +1,27 @@
+{
+  "_id": "nYCsXoblu17rNy8H",
+  "_key": "!items!nYCsXoblu17rNy8H",
+  "name": "Bow & iron arrows",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "bow-arrows",
+      "inventoryColumn": "regular",
+      "sortOrder": 22,
+      "note": "<em>near</em>, x <em>piercing</em>",
+      "weight": 1,
+      "resource": {
+        "max": 2,
+        "title": null,
+        "labels": [
+          "low ammo",
+          "all out"
+        ]
+      }
+    }
+  },
+  "folder": "StOnEtOpWpn0001X"
+}

@@ -1,0 +1,18 @@
+{
+  "_id": "9sMLT6mnOjkeaBKs",
+  "_key": "!items!9sMLT6mnOjkeaBKs",
+  "name": "Extra socks",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "extra-socks",
+      "inventoryColumn": "small",
+      "sortOrder": 5,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "dKF0j7elKPoh3pKM",
+  "_key": "!items!dKF0j7elKPoh3pKM",
+  "name": "Firewood",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "firewood",
+      "inventoryColumn": "regular",
+      "sortOrder": 15,
+      "note": "enough to last 1 full night; <em>reach</em>, <em>area</em>",
+      "weight": 2
+    }
+  },
+  "folder": "StOnEtOpWrm0001X"
+}

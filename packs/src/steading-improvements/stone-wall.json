@@ -1,0 +1,28 @@
+{
+  "name": "Stone Wall",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "stone-wall",
+      "sortOrder": 14,
+      "choices": {
+        "slug": "stone-wall",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Stone Wall",
+            "description": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all…</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "DAnVjHBZDg9VPkFg",
+  "_key": "!items!DAnVjHBZDg9VPkFg"
+}

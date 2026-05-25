@@ -11,10 +11,11 @@ function makeEntry(slug, flags = {}) {
 	};
 }
 
-function makePack(entries = []) {
+function makePack(entries = [], folders = []) {
 	return {
 		getIndex: vi.fn(async () => {}),
 		index: entries,
+		folders,
 	};
 }
 
@@ -56,6 +57,22 @@ describe("FoundryOutfitItemRepository", () => {
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
 		expect(items[0].armor).toEqual({ modifier: 1 });
+	});
+
+	it("resolves folder id to group name", async () => {
+		const entry = { ...makeEntry("knife"), folder: "folder-1" };
+		const pack = makePack([entry], [{ _id: "folder-1", name: "Weapons" }]);
+		stubGame(pack);
+		const repo = new FoundryOutfitItemRepository();
+		const items = await repo.getAll();
+		expect(items[0].group).toBe("Weapons");
+	});
+
+	it("sets group to null when item has no folder", async () => {
+		stubGame(makePack([makeEntry("cloak")]));
+		const repo = new FoundryOutfitItemRepository();
+		const items = await repo.getAll();
+		expect(items[0].group).toBeNull();
 	});
 
 	it("caches results — getIndex is not called a second time", async () => {

@@ -1,0 +1,28 @@
+{
+  "name": "Inn",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "inn",
+      "sortOrder": 8,
+      "choices": {
+        "slug": "inn",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Inn",
+            "description": "<p>The public house offers a common room and shelter for a few horses, but it’s hardly a proper inn.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "9IdOSSVM6Z9vNZ0t",
+  "_key": "!items!9IdOSSVM6Z9vNZ0t"
+}

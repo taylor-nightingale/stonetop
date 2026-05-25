@@ -1,0 +1,28 @@
+{
+  "name": "Palisade",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "palisade",
+      "sortOrder": 11,
+      "choices": {
+        "slug": "palisade",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Palisade",
+            "description": "<p>A wall of sharpened logs, 10’ tall, to keep evil at bay.</p>"
+          },
+          {
+            "type": "track",
+            "slug": "done",
+            "description": "Completed",
+            "max": 1
+          }
+        ]
+      }
+    }
+  },
+  "_id": "nuIJXiG6zisn95MG",
+  "_key": "!items!nuIJXiG6zisn95MG"
+}

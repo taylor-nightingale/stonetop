@@ -1,0 +1,26 @@
+{
+  "_id": "a5HSUPwePut0Sstz",
+  "_key": "!items!a5HSUPwePut0Sstz",
+  "name": "Javelins, a few, iron",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "javelins",
+      "inventoryColumn": "regular",
+      "sortOrder": 24,
+      "note": "<em>thrown</em>, x <em>piercing</em>, +1 damage",
+      "weight": 1,
+      "resource": {
+        "max": 1,
+        "title": null,
+        "labels": [
+          "all out"
+        ]
+      }
+    }
+  },
+  "folder": "StOnEtOpWpn0001X"
+}
