@@ -1,5 +1,6 @@
-import { describe, it, expect, vi } from "vitest";
-import { ActorOutfitItems } from "../../../module/actors/character/ActorOutfitItems.js";
+import {describe, expect, it} from "vitest";
+import {ActorOutfitItems} from "../../../module/actors/character/ActorOutfitItems.js";
+import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 
 function makeRawItem(overrides = {}) {
 	return {
@@ -11,16 +12,8 @@ function makeRawItem(overrides = {}) {
 	};
 }
 
-function makeActor(items = []) {
-	return {
-		items,
-		createEmbeddedDocuments: vi.fn(async () => []),
-		deleteEmbeddedDocuments: vi.fn(async () => []),
-	};
-}
-
 function make(items = []) {
-	return new ActorOutfitItems(makeActor(items));
+	return new ActorOutfitItems(new FakeActorBuilder().withItems(items).build());
 }
 
 describe("ActorOutfitItems.getAll", () => {
@@ -40,7 +33,7 @@ describe("ActorOutfitItems.getAll", () => {
 	});
 
 	it("returns empty array when actor has no items", () => {
-		expect(new ActorOutfitItems(makeActor([])).getAll()).toHaveLength(0);
+		expect(new ActorOutfitItems(new FakeActorBuilder().withItems([]).build()).getAll()).toHaveLength(0);
 	});
 });
 
@@ -67,7 +60,7 @@ describe("ActorOutfitItems.getBySource", () => {
 
 describe("ActorOutfitItems.create", () => {
 	it("calls createEmbeddedDocuments with the given items", async () => {
-		const actor = makeActor();
+		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
 		const data = [{ name: "X", type: "equipment" }];
 		await aoi.create(data);
@@ -75,7 +68,7 @@ describe("ActorOutfitItems.create", () => {
 	});
 
 	it("is a no-op when items array is empty", async () => {
-		const actor = makeActor();
+		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.create([]);
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
@@ -84,17 +77,17 @@ describe("ActorOutfitItems.create", () => {
 
 describe("ActorOutfitItems.deleteBySource", () => {
 	it("deletes all items with the matching source", async () => {
-		const actor = makeActor([
-			makeRawItem({ _id: "a", source: "arcana:sword" }),
-			makeRawItem({ _id: "b", source: "arcana:sword" }),
-		]);
+		const actor = new FakeActorBuilder().withItems([
+			makeRawItem({_id: "a", source: "arcana:sword"}),
+			makeRawItem({_id: "b", source: "arcana:sword"}),
+		]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.deleteBySource("arcana:sword");
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["a", "b"]);
 	});
 
 	it("is a no-op when no items match", async () => {
-		const actor = makeActor([makeRawItem({ source: "arcana:bow" })]);
+		const actor = new FakeActorBuilder().withItems([makeRawItem({source: "arcana:bow"})]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.deleteBySource("arcana:sword");
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();
@@ -103,7 +96,7 @@ describe("ActorOutfitItems.deleteBySource", () => {
 
 describe("ActorOutfitItems.deleteById", () => {
 	it("deletes the single item with the given id", async () => {
-		const actor = makeActor();
+		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.deleteById("item-42");
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["item-42"]);
@@ -112,7 +105,7 @@ describe("ActorOutfitItems.deleteById", () => {
 
 describe("ActorOutfitItems.sync", () => {
 	it("deletes existing items with the source then creates the new ones", async () => {
-		const actor = makeActor([makeRawItem({ _id: "old", source: "arcana:sword" })]);
+		const actor = new FakeActorBuilder().withItems([makeRawItem({_id: "old", source: "arcana:sword"})]).build();
 		const aoi = new ActorOutfitItems(actor);
 		const newData = [{ name: "New Sword", type: "equipment" }];
 		await aoi.sync("arcana:sword", newData);
@@ -121,7 +114,7 @@ describe("ActorOutfitItems.sync", () => {
 	});
 
 	it("skips create when new items array is empty", async () => {
-		const actor = makeActor([makeRawItem({ _id: "old", source: "arcana:sword" })]);
+		const actor = new FakeActorBuilder().withItems([makeRawItem({_id: "old", source: "arcana:sword"})]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.sync("arcana:sword", []);
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalled();
@@ -129,7 +122,7 @@ describe("ActorOutfitItems.sync", () => {
 	});
 
 	it("skips delete when no existing items match source", async () => {
-		const actor = makeActor([]);
+		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
 		await aoi.sync("arcana:sword", [{ name: "Sword", type: "equipment" }]);
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();

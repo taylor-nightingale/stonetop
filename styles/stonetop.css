@@ -1706,6 +1706,8 @@ body,
 	height: 38px;
 	width: auto;
 	flex-shrink: 0;
+	border: none !important;
+	border-radius: 0 !important;
 }
 
 .st-name {
@@ -1726,6 +1728,8 @@ body,
 .st-stat-box {
 	display: flex;
 	flex-direction: column;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 4px;
 	overflow: hidden;
 	flex-shrink: 0;
 }
@@ -1736,6 +1740,8 @@ body,
 	max-height: 64px;
 	object-fit: cover;
 	object-position: center top;
+	border: none !important;
+	border-radius: 0 !important;
 }
 
 .st-stat-content {
@@ -2176,5 +2182,51 @@ body,
 /* Improvements */
 .stonetop-choice-entry {
 	margin-bottom: 4px;
+}
+
+/* Content + Improvements side-by-side */
+.st-content-improvements-row {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+	border-top: 1px solid var(--color-border-light-primary, #ccc);
+	padding-top: 8px;
+}
+
+.st-content-sidebar {
+	flex: 0 0 260px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.st-content-desc {
+	font-size: 0.74rem;
+	color: var(--color-text-dark-secondary, #555);
+	font-style: italic;
+	line-height: 1.4;
+	margin-bottom: 6px;
+}
+
+.st-content-desc p {
+	margin: 0 0 5px;
+}
+
+.st-content-desc p:last-child {
+	margin-bottom: 0;
+}
+
+.st-content-note {
+	font-size: 0.71rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+	font-weight: normal;
+}
+
+.st-improvements-col {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 }
 

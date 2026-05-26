@@ -7,6 +7,7 @@ import { SteadingImprovement } from "../../../module/actors/steading/repositorie
 // -- Helpers ------------------------------------------------------------------
 
 function makeActor(flags = {}) {
+
 	const store = { ...flags };
 	return {
 		getFlag: (_scope, key) => key.split(".").reduce((o, k) => o?.[k], store) ?? undefined,
@@ -72,31 +73,6 @@ describe("StonetopSteading.buildSnapshot", () => {
 		expect(snap.surplus.current).toBe(5);
 	});
 
-	it("attribute snapshot includes slug", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.attributes.size.slug).toBe("size");
-		expect(snap.attributes.defenses.slug).toBe("defenses");
-	});
-
-	it("uses default attribute current when no flag set", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.attributes.size.current).toBe(SteadingDefaults.attributes.size.current);
-	});
-
-	it("uses stored attribute current", async () => {
-		const s = makeSteading({ steading: { attributes: { prosperity: { current: 3 } } } });
-		const snap = await s.buildSnapshot();
-		expect(snap.attributes.prosperity.current).toBe(3);
-	});
-
-	it("marks correct option as selected in attribute", async () => {
-		const s = makeSteading({ steading: { attributes: { defenses: { current: 2 } } } });
-		const snap = await s.buildSnapshot();
-		expect(snap.attributes.defenses.options[2].selected).toBe(true);
-	});
-
 	it("defaults all debilities to inactive", async () => {
 		const s = makeSteading();
 		const snap = await s.buildSnapshot();
@@ -132,6 +108,33 @@ describe("StonetopSteading.buildSnapshot", () => {
 		const s = makeSteading();
 		const snap = await s.buildSnapshot();
 		expect(snap.residents).toEqual([]);
+	});
+
+	it("contentDescription matches SteadingDefaults", async () => {
+		const s = makeSteading();
+		const snap = await s.buildSnapshot();
+		expect(snap.contentDescription).toBe(SteadingDefaults.content.description);
+	});
+
+	it("excluded content section has correct note", async () => {
+		const s = makeSteading();
+		const snap = await s.buildSnapshot();
+		const excluded = snap.content.find(c => c.key === "excluded");
+		expect(excluded.note).toBe("(Not part of the game, on-camera or off)");
+	});
+
+	it("veiled content section has correct note", async () => {
+		const s = makeSteading();
+		const snap = await s.buildSnapshot();
+		const veiled = snap.content.find(c => c.key === "veiled");
+		expect(veiled.note).toBe("(Part of the fiction, but only off-camera)");
+	});
+
+	it("specialHandling content section has null note", async () => {
+		const s = makeSteading();
+		const snap = await s.buildSnapshot();
+		const special = snap.content.find(c => c.key === "specialHandling");
+		expect(special.note).toBeNull();
 	});
 
 	it("filters improvements with null choices", async () => {

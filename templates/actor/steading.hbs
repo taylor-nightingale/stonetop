@@ -16,11 +16,11 @@
 				<p class="st-stat-title">{{{stonetop.fortunes.title}}}</p>
 				<p class="st-stat-note">{{{stonetop.fortunes.note}}}</p>
 				{{#each stonetop.fortunes.options}}
-				<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
-					<input type="radio" class="stonetop-item-check stonetop-fortunes-radio"
-					       name="stonetop-fortunes" value="{{index}}" {{#if selected}}checked{{/if}}>
-					<span>{{{label}}}</span>
-				</label>
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-fortunes-radio"
+						       name="stonetop-fortunes" value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
 				{{/each}}
 			</div>
 		</div>
@@ -42,12 +42,12 @@
 				<p class="st-stat-title">{{{stonetop.attributes.size.title}}}</p>
 				<p class="st-stat-note">{{{stonetop.attributes.size.note}}}</p>
 				{{#each stonetop.attributes.size.options}}
-				<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
-					<input type="radio" class="stonetop-item-check stonetop-attr-radio"
-					       data-attr="size" name="stonetop-attr-size"
-					       value="{{index}}" {{#if selected}}checked{{/if}}>
-					<span>{{{label}}}</span>
-				</label>
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="size" name="stonetop-attr-size"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
 				{{/each}}
 			</div>
 			<div class="st-stat-divider"></div>
@@ -55,12 +55,12 @@
 				<p class="st-stat-title">{{{stonetop.attributes.population.title}}}</p>
 				<p class="st-stat-note">{{{stonetop.attributes.population.note}}}</p>
 				{{#each stonetop.attributes.population.options}}
-				<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
-					<input type="radio" class="stonetop-item-check stonetop-attr-radio"
-					       data-attr="population" name="stonetop-attr-population"
-					       value="{{index}}" {{#if selected}}checked{{/if}}>
-					<span>{{{label}}}</span>
-				</label>
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="population" name="stonetop-attr-population"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
 				{{/each}}
 			</div>
 		</div>
@@ -76,29 +76,24 @@
 				<p class="st-stat-title">{{{stonetop.attributes.prosperity.title}}}</p>
 				<p class="st-stat-note">{{{stonetop.attributes.prosperity.note}}}</p>
 				{{#each stonetop.attributes.prosperity.options}}
-				<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
-					<input type="radio" class="stonetop-item-check stonetop-attr-radio"
-					       data-attr="prosperity" name="stonetop-attr-prosperity"
-					       value="{{index}}" {{#if selected}}checked{{/if}}>
-					<span>{{{label}}}</span>
-				</label>
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="prosperity" name="stonetop-attr-prosperity"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
 				{{/each}}
 			</div>
 			<div class="st-item-list">
 				<p class="st-item-list-title">Resources</p>
-				<ul>
-					{{#each stonetop.attributes.prosperity.resources}}
-					<li>{{{this}}}</li>
-					{{/each}}
-				</ul>
-				{{#each stonetop.attributes.prosperity.extraItems}}
-				<div class="st-extra-row">
-					<input type="text" class="stonetop-attr-extra"
-					       data-attr="prosperity" data-index="{{@index}}" value="{{this}}">
-					<a class="stonetop-attr-extra-remove" data-attr="prosperity" data-index="{{@index}}">
-						<i class="fas fa-times"></i>
-					</a>
-				</div>
+				{{#each stonetop.attributes.prosperity.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-attr-extra"
+						       data-attr="prosperity" data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-attr-extra-remove" data-attr="prosperity" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
 				{{/each}}
 				<button type="button" class="stonetop-attr-extra-add" data-attr="prosperity">
 					<i class="fas fa-plus"></i>
@@ -112,29 +107,24 @@
 				<p class="st-stat-title">{{{stonetop.attributes.defenses.title}}}</p>
 				<p class="st-stat-note">{{{stonetop.attributes.defenses.note}}}</p>
 				{{#each stonetop.attributes.defenses.options}}
-				<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
-					<input type="radio" class="stonetop-item-check stonetop-attr-radio"
-					       data-attr="defenses" name="stonetop-attr-defenses"
-					       value="{{index}}" {{#if selected}}checked{{/if}}>
-					<span>{{{label}}}</span>
-				</label>
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="defenses" name="stonetop-attr-defenses"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
 				{{/each}}
 			</div>
 			<div class="st-item-list">
 				<p class="st-item-list-title">Fortifications, etc.</p>
-				<ul>
-					{{#each stonetop.attributes.defenses.resources}}
-					<li>{{{this}}}</li>
-					{{/each}}
-				</ul>
-				{{#each stonetop.attributes.defenses.extraItems}}
-				<div class="st-extra-row">
-					<input type="text" class="stonetop-attr-extra"
-					       data-attr="defenses" data-index="{{@index}}" value="{{this}}">
-					<a class="stonetop-attr-extra-remove" data-attr="defenses" data-index="{{@index}}">
-						<i class="fas fa-times"></i>
-					</a>
-				</div>
+				{{#each stonetop.attributes.defenses.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-attr-extra"
+						       data-attr="defenses" data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-attr-extra-remove" data-attr="defenses" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
 				{{/each}}
 				<button type="button" class="stonetop-attr-extra-add" data-attr="defenses">
 					<i class="fas fa-plus"></i>
@@ -152,18 +142,10 @@
 			<p class="st-section-title">Places of Interest</p>
 			<div class="st-places-grid">
 				{{#each stonetop.placesOfInterest}}
-				<div class="st-place">
-					<span class="st-place-key">{{key}}.</span>
-					{{#if isDefault}}
-					<span class="st-place-title">{{{title}}}</span>
-					{{else}}
-					<input type="text" class="stonetop-place-field"
-					       data-index="{{extraIndex}}" value="{{title}}">
-					<a class="stonetop-place-remove" data-index="{{extraIndex}}">
-						<i class="fas fa-times"></i>
-					</a>
-					{{/if}}
-				</div>
+					<div class="st-place">
+						<span class="st-place-key">{{key}}.</span>
+						<input type="text" class="stonetop-place-field" data-index="{{index}}" value="{{value}}">
+					</div>
 				{{/each}}
 			</div>
 			<button type="button" class="stonetop-place-add">
@@ -175,14 +157,14 @@
 		<div class="st-debilities-col">
 			<p class="st-section-title">Debilities</p>
 			{{#each stonetop.debilities}}
-			<div class="stonetop-debility{{#if active}} is-active{{/if}}">
-				<input type="checkbox" class="stonetop-debility-check"
-				       data-slug="{{slug}}" {{#if active}}checked{{/if}}>
-				<div class="st-debility-text">
-					<span class="st-debility-desc">{{{description}}}</span>
-					<span class="st-debility-note">{{note}}</span>
+				<div class="stonetop-debility{{#if active}} is-active{{/if}}">
+					<input type="checkbox" class="stonetop-debility-check"
+					       data-slug="{{slug}}" {{#if active}}checked{{/if}}>
+					<div class="st-debility-text">
+						<span class="st-debility-desc">{{{description}}}</span>
+						<span class="st-debility-note">{{note}}</span>
+					</div>
 				</div>
-			</div>
 			{{/each}}
 		</div>
 
@@ -194,48 +176,25 @@
 
 	</div>{{!-- /st-bottom-row --}}
 
-	{{!-- Content --}}
-	<section class="stonetop-steading-section">
-		{{> "stonetop.section-heading" title="Content"}}
-		{{#each stonetop.content}}
-		<div class="stonetop-steading-content-group">
-			<strong>{{label}}</strong>
-			{{#each items}}
-			<div class="stonetop-steading-content-row">
-				<input type="text" class="stonetop-content-item"
-				       data-type="{{../key}}" data-index="{{@index}}"
-				       value="{{this}}">
-				<a class="stonetop-content-remove" data-type="{{../key}}" data-index="{{@index}}">
-					<i class="fas fa-times"></i>
-				</a>
-			</div>
-			{{/each}}
-			<button type="button" class="stonetop-content-add" data-type="{{key}}">
-				<i class="fas fa-plus"></i> Add
-			</button>
-		</div>
-		{{/each}}
-	</section>
-
 	{{!-- Assets / Coinage --}}
 	<section class="stonetop-steading-section">
 		{{> "stonetop.section-heading" title="Assets"}}
 		{{#each stonetop.assets.coinage}}
-		<div class="stonetop-steading-coinage">
-			<span class="stonetop-coinage-title">{{title}}</span>
-			<label>Purses
-				<input type="number" class="stonetop-coinage-input" min="0"
-				       data-index="{{@index}}" data-field="purses" value="{{purses}}">
-			</label>
-			<label>Handfuls
-				<input type="number" class="stonetop-coinage-input" min="0"
-				       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
-			</label>
-			<label>Coins
-				<input type="number" class="stonetop-coinage-input" min="0"
-				       data-index="{{@index}}" data-field="coins" value="{{coins}}">
-			</label>
-		</div>
+			<div class="stonetop-steading-coinage">
+				<span class="stonetop-coinage-title">{{title}}</span>
+				<label>Purses
+					<input type="number" class="stonetop-coinage-input" min="0"
+					       data-index="{{@index}}" data-field="purses" value="{{purses}}">
+				</label>
+				<label>Handfuls
+					<input type="number" class="stonetop-coinage-input" min="0"
+					       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
+				</label>
+				<label>Coins
+					<input type="number" class="stonetop-coinage-input" min="0"
+					       data-index="{{@index}}" data-field="coins" value="{{coins}}">
+				</label>
+			</div>
 		{{/each}}
 	</section>
 
@@ -243,20 +202,25 @@
 	<section class="stonetop-steading-section">
 		{{> "stonetop.section-heading" title="Residents"}}
 		<table class="stonetop-steading-table">
-			<thead><tr>
-				<th>Name</th><th>Occupation</th><th>Notes</th><th></th>
-			</tr></thead>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Occupation</th>
+				<th>Notes</th>
+				<th></th>
+			</tr>
+			</thead>
 			<tbody>
 			{{#each stonetop.residents}}
-			<tr>
-				<td><input type="text" class="stonetop-resident-field"
-				           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-				<td><input type="text" class="stonetop-resident-field"
-				           data-id="{{id}}" data-field="occupation" value="{{occupation}}"></td>
-				<td><input type="text" class="stonetop-resident-field"
-				           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
-				<td><a class="stonetop-resident-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
-			</tr>
+				<tr>
+					<td><input type="text" class="stonetop-resident-field"
+					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
+					<td><input type="text" class="stonetop-resident-field"
+					           data-id="{{id}}" data-field="occupation" value="{{occupation}}"></td>
+					<td><input type="text" class="stonetop-resident-field"
+					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
+					<td><a class="stonetop-resident-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+				</tr>
 			{{/each}}
 			</tbody>
 		</table>
@@ -271,18 +235,25 @@
 
 		<p><strong>People</strong></p>
 		<table class="stonetop-steading-table">
-			<thead><tr><th>Name</th><th>Home</th><th>Notes</th><th></th></tr></thead>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Home</th>
+				<th>Notes</th>
+				<th></th>
+			</tr>
+			</thead>
 			<tbody>
 			{{#each stonetop.neighbors.people}}
-			<tr>
-				<td><input type="text" class="stonetop-neighbor-person-field"
-				           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-				<td><input type="text" class="stonetop-neighbor-person-field"
-				           data-id="{{id}}" data-field="home" value="{{home}}"></td>
-				<td><input type="text" class="stonetop-neighbor-person-field"
-				           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
-				<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
-			</tr>
+				<tr>
+					<td><input type="text" class="stonetop-neighbor-person-field"
+					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-field"
+					           data-id="{{id}}" data-field="home" value="{{home}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-field"
+					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
+					<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+				</tr>
 			{{/each}}
 			</tbody>
 		</table>
@@ -292,16 +263,22 @@
 
 		<p><strong>Places</strong></p>
 		<table class="stonetop-steading-table">
-			<thead><tr><th>Name</th><th>Notes</th><th></th></tr></thead>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Notes</th>
+				<th></th>
+			</tr>
+			</thead>
 			<tbody>
 			{{#each stonetop.neighbors.places}}
-			<tr>
-				<td><input type="text" class="stonetop-neighbor-place-field"
-				           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-				<td><input type="text" class="stonetop-neighbor-place-field"
-				           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
-				<td><a class="stonetop-neighbor-place-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
-			</tr>
+				<tr>
+					<td><input type="text" class="stonetop-neighbor-place-field"
+					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
+					<td><input type="text" class="stonetop-neighbor-place-field"
+					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
+					<td><a class="stonetop-neighbor-place-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+				</tr>
 			{{/each}}
 			</tbody>
 		</table>
@@ -310,16 +287,45 @@
 		</button>
 	</section>
 
-	{{!-- Improvements --}}
-	<section class="stonetop-steading-section">
-		{{> "stonetop.section-heading" title="Improvements"}}
-		{{#each stonetop.improvements}}
-		<div class="stonetop-choice-entry" data-slug="{{slug}}">
-			{{#each list}}
-			{{> "stonetop.choice-row" inputClass="stonetop-improvement-track"}}
+	{{!-- Content + Improvements (side by side) --}}
+	<div class="st-content-improvements-row">
+
+		{{!-- Content sidebar --}}
+		<div class="st-content-sidebar">
+			{{> "stonetop.section-heading" title="Content"}}
+			<div class="st-content-desc">{{{stonetop.contentDescription}}}</div>
+			{{#each stonetop.content}}
+				<div class="stonetop-steading-content-group">
+					<strong>{{label}}</strong>{{#if note}} <span class="st-content-note">{{note}}</span>{{/if}}
+					{{#each items}}
+						<div class="stonetop-steading-content-row">
+							<input type="text" class="stonetop-content-item"
+							       data-type="{{../key}}" data-index="{{@index}}"
+							       value="{{this}}">
+							<a class="stonetop-content-remove" data-type="{{../key}}" data-index="{{@index}}">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+					{{/each}}
+					<button type="button" class="stonetop-content-add" data-type="{{key}}">
+						<i class="fas fa-plus"></i>
+					</button>
+				</div>
 			{{/each}}
 		</div>
-		{{/each}}
-	</section>
+
+		{{!-- Improvements --}}
+		<div class="st-improvements-col">
+			{{> "stonetop.section-heading" title="Improvements"}}
+			{{#each stonetop.improvements}}
+				<div class="stonetop-choice-entry" data-slug="{{slug}}">
+					{{#each list}}
+						{{> "stonetop.choice-row" inputClass="stonetop-improvement-track"}}
+					{{/each}}
+				</div>
+			{{/each}}
+		</div>
+
+	</div>{{!-- /st-content-improvements-row --}}
 
 </form>

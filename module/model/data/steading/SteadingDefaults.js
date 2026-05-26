@@ -33,7 +33,7 @@ export const SteadingDefaults = {
 			note:    "Starts at +0",
 			current: 1,
 			options: ["-1", "+0", "+1", "+2", "+3"],
-			resources: [
+			items: [
 				"Farming (beans, potatoes, oats, barley)",
 				"Hunting/trapping (fur, meat, hides)",
 				"Distilling (whisky)",
@@ -55,7 +55,7 @@ export const SteadingDefaults = {
 				"+2 <em>formidable</em>",
 				"+3 <em>legendary</em>",
 			],
-			resources: [
+			items: [
 				"Village militia",
 				"The Ringwall (low, stone)",
 				"3 watchtowers",
@@ -81,14 +81,21 @@ export const SteadingDefaults = {
 		},
 	],
 	placesOfInterest: [
-		{ key: "A", title: "The Stone" },
-		{ key: "B", title: "The Granary" },
-		{ key: "C", title: "Public House & Stables" },
-		{ key: "D", title: "Cistern" },
-		{ key: "E", title: "Pavilion of the Gods" },
-		{ key: "F", title: "Watchtowers" },
+		"The Stone",
+		"The Granary",
+		"Public House & Stables",
+		"Cistern",
+		"Pavilion of the Gods",
+		"Watchtowers",
 	],
 	assets: {
 		coinage: [{ title: "silver", purses: 0, handfuls: 0, coins: 0 }],
+	},
+	content: {
+		description:
+			"<p>Keep this in sync with the GM playbook. Review it at the start of each session.</p>" +
+			"<p>When <strong><em>anyone calls “time out,”</em></strong> play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.</p>" +
+			"<p>If <strong><em>content was included that shouldn’t have been</em></strong>, acknowledge the mistake, fix the fiction, and move on.</p>" +
+			"<p>If <strong><em>someone realizes they need content to be excluded, veiled, or handled in a particular way,</em></strong> then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s). When everyone is ready, move on.</p>",
 	},
 };

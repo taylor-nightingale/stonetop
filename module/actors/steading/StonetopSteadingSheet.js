@@ -1,20 +1,5 @@
 import { SteadingDefaults } from "../../model/data/steading/SteadingDefaults.js";
 
-function _nextPlaceKey(allPlaces) {
-	const used = new Set(allPlaces.map(p => p.key));
-	for (let i = 0; i < 26; i++) {
-		const k = String.fromCharCode(65 + i);
-		if (!used.has(k)) return k;
-	}
-	for (let i = 0; i < 26; i++) {
-		for (let j = 0; j < 26; j++) {
-			const k = String.fromCharCode(65 + i) + String.fromCharCode(65 + j);
-			if (!used.has(k)) return k;
-		}
-	}
-	return "?";
-}
-
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
 		constructor(...args) {
@@ -27,6 +12,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				classes: ["stonetop", "sheet", "actor", "steading"],
 				width:   800,
 				height:  900,
+				scrollY: [".stonetop-steading-sheet"],
 			});
 		}
 
@@ -57,7 +43,20 @@ export function createStonetopSteadingSheetClass(Base) {
 			// Attributes
 			html.find(".stonetop-attr-radio").on("change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
-				await this._stonetopSteading.setAttributeCurrent(attr, parseInt(ev.currentTarget.value));
+				await this._stonetopSteading.attributes.setCurrentSelection(attr, parseInt(ev.currentTarget.value));
+			});
+			// Attribute items (prosperity resources, defense fortifications)
+			html.find(".stonetop-attr-extra-add").on("click", async ev => {
+				const { attr } = ev.currentTarget.dataset;
+				await this._stonetopSteading.attributes.addNewItemToAttribute(attr)
+			});
+			html.find(".stonetop-attr-extra-remove").on("click", async ev => {
+				const { attr, index } = ev.currentTarget.dataset;
+				await this._stonetopSteading.attributes.removeItemFromAttribute(attr, index);
+			});
+			html.find(".stonetop-attr-extra").on("change", async ev => {
+				const { attr, index } = ev.currentTarget.dataset;
+				await this._stonetopSteading.attributes.updateItemOnAttribute(attr, index, ev.currentTarget.value);
 			});
 
 			// Debilities
@@ -155,47 +154,14 @@ export function createStonetopSteadingSheetClass(Base) {
 				await this._stonetopSteading.setNeighbors({ ...nb, places });
 			});
 
-			// Extra attribute items (prosperity resources, defense fortifications)
-			html.find(".stonetop-attr-extra-add").on("click", async ev => {
-				const { attr } = ev.currentTarget.dataset;
-				const items = [...(this._stonetopSteading.attributeState[attr]?.extra ?? []), ""];
-				await this._stonetopSteading.setAttributeExtra(attr, items);
-			});
-			html.find(".stonetop-attr-extra-remove").on("click", async ev => {
-				const { attr, index } = ev.currentTarget.dataset;
-				const items = [...(this._stonetopSteading.attributeState[attr]?.extra ?? [])];
-				items.splice(parseInt(index), 1);
-				await this._stonetopSteading.setAttributeExtra(attr, items);
-			});
-			html.find(".stonetop-attr-extra").on("change", async ev => {
-				const { attr, index } = ev.currentTarget.dataset;
-				const items = [...(this._stonetopSteading.attributeState[attr]?.extra ?? [])];
-				items[parseInt(index)] = ev.currentTarget.value;
-				await this._stonetopSteading.setAttributeExtra(attr, items);
-			});
-
-			// Extra places of interest
+			// Places of Interest
 			html.find(".stonetop-place-add").on("click", async () => {
-				const key = _nextPlaceKey([
-					...SteadingDefaults.placesOfInterest,
-					...this._stonetopSteading.extraPlaces,
-				]);
-				await this._stonetopSteading.setExtraPlaces([
-					...this._stonetopSteading.extraPlaces,
-					{ key, title: "" },
-				]);
-			});
-			html.find(".stonetop-place-remove").on("click", async ev => {
-				const idx = parseInt(ev.currentTarget.dataset.index);
-				const places = this._stonetopSteading.extraPlaces.filter((_, i) => i !== idx);
-				await this._stonetopSteading.setExtraPlaces(places);
+				await this._stonetopSteading.placesOfInterest.addBlankPlace();
 			});
 			html.find(".stonetop-place-field").on("change", async ev => {
 				const idx = parseInt(ev.currentTarget.dataset.index);
-				const places = this._stonetopSteading.extraPlaces.map((p, i) =>
-					i === idx ? { ...p, title: ev.currentTarget.value } : p
-				);
-				await this._stonetopSteading.setExtraPlaces(places);
+				let value = ev.currentTarget.value;
+				await this._stonetopSteading.placesOfInterest.setPlaceValue(idx, value);
 			});
 
 			// Improvements

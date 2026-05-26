@@ -10,6 +10,6 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.7"
   }
 }
