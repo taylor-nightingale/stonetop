@@ -7,8 +7,8 @@ Requires the [Powered by the Apocalypse](https://foundryvtt.com/packages/pbta) s
 
 ## Prerequisites
 
-- Foundry VTT v12
-- [Powered by the Apocalypse](https://foundryvtt.com/packages/pbta) system v1.1.1+
+- Foundry VTT v14
+- [Powered by the Apocalypse](https://foundryvtt.com/packages/pbta) system v1.2.0+
 
 ## Installation
 

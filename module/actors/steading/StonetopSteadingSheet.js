@@ -43,7 +43,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			// Attributes
 			html.find(".stonetop-attr-radio").on("change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
-				await this._stonetopSteading.attributes.setCurrentSelection(attr, parseInt(ev.currentTarget.value));
+				await this._stonetopSteading.attributes.setCurrent(attr, parseInt(ev.currentTarget.value));
 			});
 			// Attribute items (prosperity resources, defense fortifications)
 			html.find(".stonetop-attr-extra-add").on("click", async ev => {

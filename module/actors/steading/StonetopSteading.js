@@ -103,22 +103,18 @@ export class StonetopSteading {
 		await this._flags.setFlag("assets", data);
 	}
 
-	async setExtraPlaces(list) {
-		await this._flags.setFlag("extraPlaces", list);
-	}
-
 	async setImprovementTrack(groupSlug, optionSlug, count) {
 		const cv = this._improvementValues.set(groupSlug, optionSlug, count);
 		await this._impFlags.setFlag("pickValues", cv.toRaw());
 	}
-
-	// -- Snapshot ---------------------------------------------------------
 
 	async buildSnapshot() {
 		const allImprovements = await this._improvementsRepo.getAll();
 		const improvements = allImprovements
 			.filter(imp => imp.choices != null)
 			.map(imp => ChoiceGroup.fromPackData(imp.choices, this._improvementValues));
+
+		const attributesSnapshot = await this.attributes.buildSnapshot();
 
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
@@ -128,7 +124,7 @@ export class StonetopSteading {
 			surplus: new SurplusSnapshot(
 				SteadingDefaults.surplus.title, SteadingDefaults.surplus.note, this.surplusCurrent,
 			),
-			attributes: this.attributes.buildSnapshot(),
+			attributes: attributesSnapshot,
 			debilities: SteadingDefaults.debilities.map(def => new DebilitySnapshot(
 				def.slug, def.description, def.note, (this.debilityState)[def.slug] ?? false,
 			)),
