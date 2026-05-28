@@ -1,201 +1,81 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import { StonetopSteading } from "../../../module/actors/steading/StonetopSteading.js";
 import { SteadingDefaults } from "../../../module/model/data/steading/SteadingDefaults.js";
 import { SteadingSnapshot } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
-import { SteadingImprovement } from "../../../module/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
-// -- Helpers ------------------------------------------------------------------
+const fakeRepo = {getAll: async () => []};
 
-function makeActor(flags = {}) {
-
-	const store = { ...flags };
-	return {
-		getFlag: (_scope, key) => key.split(".").reduce((o, k) => o?.[k], store) ?? undefined,
-		setFlag: vi.fn(async (scope, key, value) => {
-			const parts = key.split(".");
-			let obj = store;
-			for (let i = 0; i < parts.length - 1; i++) {
-				obj[parts[i]] ??= {};
-				obj = obj[parts[i]];
-			}
-			obj[parts[parts.length - 1]] = value;
-		}),
-	};
+function make() {
+	return new StonetopSteading(new FakeActorBuilder().build(), fakeRepo);
 }
-
-function makeRepo(improvements = []) {
-	return { getAll: async () => improvements };
-}
-
-function makeSteading(flags = {}, improvements = []) {
-	const actor = makeActor(flags);
-	const steading = new StonetopSteading(actor);
-	steading.__repo = makeRepo(improvements);
-	return steading;
-}
-
-// -- Tests --------------------------------------------------------------------
 
 describe("StonetopSteading.buildSnapshot", () => {
 	it("returns a SteadingSnapshot", async () => {
-		const s = makeSteading();
-		expect(await s.buildSnapshot()).toBeInstanceOf(SteadingSnapshot);
+		expect(await make().buildSnapshot()).toBeInstanceOf(SteadingSnapshot);
 	});
 
-	it("uses default fortunes current when no flag set", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
+	it("uses default fortunes when no value set", async () => {
+		const snap = await make().buildSnapshot();
 		expect(snap.fortunes.current).toBe(SteadingDefaults.fortunes.current);
 	});
 
-	it("uses stored fortunes current", async () => {
-		const s = makeSteading({ steading: { fortunes: 4 } });
-		const snap = await s.buildSnapshot();
-		expect(snap.fortunes.current).toBe(4);
-	});
-
-	it("marks correct option as selected in fortunes", async () => {
-		const s = makeSteading({ steading: { fortunes: 3 } });
-		const snap = await s.buildSnapshot();
-		expect(snap.fortunes.options[3].selected).toBe(true);
-		expect(snap.fortunes.options[0].selected).toBe(false);
-	});
-
-	it("uses default surplus when no flag set", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
+	it("uses default surplus when no value set", async () => {
+		const snap = await make().buildSnapshot();
 		expect(snap.surplus.current).toBe(SteadingDefaults.surplus.current);
 	});
 
-	it("uses stored surplus", async () => {
-		const s = makeSteading({ steading: { surplus: 5 } });
-		const snap = await s.buildSnapshot();
-		expect(snap.surplus.current).toBe(5);
-	});
-
-	it("defaults all debilities to inactive", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.debilities.every(d => !d.active)).toBe(true);
-	});
-
-	it("reads active debility from flags", async () => {
-		const s = makeSteading({ steading: { debilities: { lacking: true } } });
-		const snap = await s.buildSnapshot();
-		const lacking = snap.debilities.find(d => d.slug === "lacking");
-		expect(lacking.active).toBe(true);
-	});
-
-	it("returns all three debility slugs", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.debilities.map(d => d.slug)).toEqual(["diminished", "lacking", "malcontent"]);
-	});
-
 	it("defaults notes to empty string", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.notes).toBe("");
+		expect((await make().buildSnapshot()).notes).toBe("");
 	});
 
-	it("reads stored notes", async () => {
-		const s = makeSteading({ steading: { notes: "hello world" } });
-		const snap = await s.buildSnapshot();
-		expect(snap.notes).toBe("hello world");
+	it("snapshot includes debilities from SteadingDebilities", async () => {
+		expect((await make().buildSnapshot()).debilities).toHaveLength(3);
 	});
 
-	it("defaults residents to empty array", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.residents).toEqual([]);
+	it("snapshot includes residents from SteadingResidents", async () => {
+		expect((await make().buildSnapshot()).residents).toEqual([]);
 	});
 
-	it("contentDescription matches SteadingDefaults", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		expect(snap.contentDescription).toBe(SteadingDefaults.content.description);
+	it("snapshot includes neighbors from SteadingNeighbors", async () => {
+		const snap = await make().buildSnapshot();
+		expect(snap.neighbors.people).toEqual([]);
+		expect(snap.neighbors.places).toEqual([]);
 	});
 
-	it("excluded content section has correct note", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		const excluded = snap.content.find(c => c.key === "excluded");
-		expect(excluded.note).toBe("(Not part of the game, on-camera or off)");
-	});
-
-	it("veiled content section has correct note", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		const veiled = snap.content.find(c => c.key === "veiled");
-		expect(veiled.note).toBe("(Part of the fiction, but only off-camera)");
-	});
-
-	it("specialHandling content section has null note", async () => {
-		const s = makeSteading();
-		const snap = await s.buildSnapshot();
-		const special = snap.content.find(c => c.key === "specialHandling");
-		expect(special.note).toBeNull();
-	});
-
-	it("filters improvements with null choices", async () => {
-		const improvements = [
-			new SteadingImprovement("inn", { slug: "inn", list: [] }),
-			new SteadingImprovement("mill", null),
-		];
-		const s = makeSteading({}, improvements);
-		const snap = await s.buildSnapshot();
-		expect(snap.improvements).toHaveLength(1);
-		expect(snap.improvements[0].slug).toBe("inn");
-	});
-
-	it("builds ChoiceGroup from improvement choices", async () => {
-		const choices = {
-			slug: "palisade",
-			list: [
-				{ type: "track", slug: "done", description: "Completed", max: 1 },
-			],
-		};
-		const s = makeSteading({}, [new SteadingImprovement("palisade", choices)]);
-		const snap = await s.buildSnapshot();
-		expect(snap.improvements[0].slug).toBe("palisade");
-	});
-
-	it("reflects checked improvement track from stored pickValues", async () => {
-		const choices = {
-			slug: "palisade",
-			list: [{ type: "track", slug: "done", description: "Completed", max: 1 }],
-		};
-		const s = makeSteading(
-			{ improvements: { pickValues: { palisade: { done: 1 } } } },
-			[new SteadingImprovement("palisade", choices)],
-		);
-		const snap = await s.buildSnapshot();
-		const trackRow = snap.improvements[0].list[0];
-		expect(trackRow.options[0].checks[0]).toBe(true);
+	it("snapshot includes content sections from SteadingContent", async () => {
+		expect((await make().buildSnapshot()).content).toHaveLength(3);
 	});
 });
 
-describe("StonetopSteading mutations", () => {
-	it("setFortunes updates the flag", async () => {
-		const actor = makeActor();
-		const s = new StonetopSteading(actor);
+describe("StonetopSteading — fortunes", () => {
+	it("setFortunes is reflected in snapshot", async () => {
+		const s = make();
 		await s.setFortunes(4);
-		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "steading.fortunes", 4);
+		expect((await s.buildSnapshot()).fortunes.current).toBe(4);
 	});
 
-	it("setSurplus updates the flag", async () => {
-		const actor = makeActor();
-		const s = new StonetopSteading(actor);
-		await s.setSurplus(3);
-		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "steading.surplus", 3);
+	it("marks correct option as selected after setFortunes", async () => {
+		const s = make();
+		await s.setFortunes(3);
+		const options = (await s.buildSnapshot()).fortunes.options;
+		expect(options[3].selected).toBe(true);
+		expect(options[0].selected).toBe(false);
 	});
+});
 
-	it("setDebility updates the debilities flag", async () => {
-		const actor = makeActor();
-		const s = new StonetopSteading(actor);
-		await s.setDebility("diminished", true);
-		expect(actor.setFlag).toHaveBeenCalledWith(
-			"stonetop", "steading.debilities", { diminished: true },
-		);
+describe("StonetopSteading — surplus", () => {
+	it("setSurplus is reflected in snapshot", async () => {
+		const s = make();
+		await s.setSurplus(5);
+		expect((await s.buildSnapshot()).surplus.current).toBe(5);
+	});
+});
+
+describe("StonetopSteading — notes", () => {
+	it("setNotes is reflected in snapshot", async () => {
+		const s = make();
+		await s.setNotes("hello world");
+		expect((await s.buildSnapshot()).notes).toBe("hello world");
 	});
 });

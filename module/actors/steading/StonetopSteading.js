@@ -1,38 +1,32 @@
 import {StonetopFlags} from "../character/StonetopFlags.js";
-import {FoundrySteadingImprovementRepository} from "./repositories/FoundrySteadingImprovementRepository.js";
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
-import {
-	ContentSection,
-	DebilitySnapshot,
-	FortunesSnapshot,
-	SteadingSnapshot,
-	SurplusSnapshot,
-} from "../../model/snapshot/steading/SteadingSnapshot.js";
-import {ChoiceGroup, ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
+import {FortunesSnapshot, SurplusSnapshot, SteadingSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
 import {PlacesOfInterest} from "./PlacesOfInterest.js";
 import {SteadingAttributes} from "./SteadingAttributes.js";
+import {SteadingDebilities} from "./SteadingDebilities.js";
+import {Residents} from "./Residents.js";
+import {NeighborPeople} from "./NeighborPeople.js";
+import {NeighborPlaces} from "./NeighborPlaces.js";
+import {SteadingContent} from "./SteadingContent.js";
+import {SteadingAssets} from "./SteadingAssets.js";
+import {SteadingImprovements} from "./SteadingImprovements.js";
 
 export class StonetopSteading {
-	constructor(actor) {
-		this._actor = actor;
+	constructor(actor, improvementsRepo) {
+		this._flags           = new StonetopFlags(actor, "steading");
 		this.placesOfInterest = new PlacesOfInterest(actor);
-		this.attributes = new SteadingAttributes(actor);
+		this.attributes       = new SteadingAttributes(actor);
+		this.debilities       = new SteadingDebilities(actor);
+		this.residents        = new Residents(actor);
+		this.neighborPeople   = new NeighborPeople(actor);
+		this.neighborPlaces   = new NeighborPlaces(actor);
+		this.content          = new SteadingContent(actor);
+		this.assets           = new SteadingAssets(actor);
+		this.improvements     = new SteadingImprovements(actor, improvementsRepo);
 	}
 
 	get type() {
 		return "steading";
-	}
-
-	get _flags() {
-		return this.__flags ??= new StonetopFlags(this._actor, "steading");
-	}
-
-	get _impFlags() {
-		return this.__impFlags ??= new StonetopFlags(this._actor, "improvements");
-	}
-
-	get _improvementsRepo() {
-		return this.__repo ??= new FoundrySteadingImprovementRepository();
 	}
 
 	get fortunesCurrent() {
@@ -43,32 +37,8 @@ export class StonetopSteading {
 		return this._flags.getFlag("surplus") ?? SteadingDefaults.surplus.current;
 	}
 
-	get debilityState() {
-		return this._flags.getFlag("debilities") ?? {};
-	}
-
 	get notes() {
 		return this._flags.getFlag("notes") ?? "";
-	}
-
-	get residents() {
-		return this._flags.getFlag("residents") ?? [];
-	}
-
-	get neighbors() {
-		return this._flags.getFlag("neighbors") ?? {people: [], places: []};
-	}
-
-	get contentState() {
-		return this._flags.getFlag("content") ?? {};
-	}
-
-	get assetsState() {
-		return this._flags.getFlag("assets") ?? {};
-	}
-
-	get _improvementValues() {
-		return new ChoiceValues(this._impFlags.getFlag("pickValues") ?? {});
 	}
 
 	async setFortunes(index) {
@@ -79,43 +49,11 @@ export class StonetopSteading {
 		await this._flags.setFlag("surplus", value);
 	}
 
-	async setDebility(slug, active) {
-		await this._flags.setFlag("debilities", {...this.debilityState, [slug]: active});
-	}
-
 	async setNotes(value) {
 		await this._flags.setFlag("notes", value);
 	}
 
-	async setResidents(list) {
-		await this._flags.setFlag("residents", list);
-	}
-
-	async setNeighbors(data) {
-		await this._flags.setFlag("neighbors", data);
-	}
-
-	async setContent(data) {
-		await this._flags.setFlag("content", data);
-	}
-
-	async setAssets(data) {
-		await this._flags.setFlag("assets", data);
-	}
-
-	async setImprovementTrack(groupSlug, optionSlug, count) {
-		const cv = this._improvementValues.set(groupSlug, optionSlug, count);
-		await this._impFlags.setFlag("pickValues", cv.toRaw());
-	}
-
 	async buildSnapshot() {
-		const allImprovements = await this._improvementsRepo.getAll();
-		const improvements = allImprovements
-			.filter(imp => imp.choices != null)
-			.map(imp => ChoiceGroup.fromPackData(imp.choices, this._improvementValues));
-
-		const attributesSnapshot = await this.attributes.buildSnapshot();
-
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
 				SteadingDefaults.fortunes.title, SteadingDefaults.fortunes.note,
@@ -124,27 +62,19 @@ export class StonetopSteading {
 			surplus: new SurplusSnapshot(
 				SteadingDefaults.surplus.title, SteadingDefaults.surplus.note, this.surplusCurrent,
 			),
-			attributes: attributesSnapshot,
-			debilities: SteadingDefaults.debilities.map(def => new DebilitySnapshot(
-				def.slug, def.description, def.note, (this.debilityState)[def.slug] ?? false,
-			)),
-			placesOfInterest: await this.placesOfInterest.buildSnapshot(),
-			notes: this.notes,
-			residents: this.residents,
-			neighbors: this.neighbors,
-			contentDescription: SteadingDefaults.content.description,
-			content: [
-				new ContentSection("excluded", "Excluded Content", "(Not part of the game, on-camera or off)", this.contentState.excluded ?? []),
-				new ContentSection("veiled", "Veiled Content", "(Part of the fiction, but only off-camera)", this.contentState.veiled ?? []),
-				new ContentSection("specialHandling", "Special Handling", null, this.contentState.specialHandling ?? []),
-			],
-			assets: {
-				coinage: this.assetsState.coinage ?? SteadingDefaults.assets.coinage,
+			attributes:         await this.attributes.buildSnapshot(),
+			debilities:         this.debilities.buildSnapshot(),
+			placesOfInterest:   await this.placesOfInterest.buildSnapshot(),
+			notes:              this.notes,
+			residents:          this.residents.buildSnapshot(),
+			neighbors: {
+				people: this.neighborPeople.buildSnapshot(),
+				places: this.neighborPlaces.buildSnapshot(),
 			},
-			improvements,
+			contentDescription: SteadingDefaults.content.description,
+			content:            this.content.buildSnapshot(),
+			assets:             this.assets.buildSnapshot(),
+			improvements:       await this.improvements.buildSnapshot(),
 		});
 	}
-
 }
-
-

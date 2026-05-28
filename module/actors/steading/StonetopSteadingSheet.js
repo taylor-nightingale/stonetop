@@ -1,5 +1,3 @@
-import { SteadingDefaults } from "../../model/data/steading/SteadingDefaults.js";
-
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
 		constructor(...args) {
@@ -45,10 +43,8 @@ export function createStonetopSteadingSheetClass(Base) {
 				const { attr } = ev.currentTarget.dataset;
 				await this._stonetopSteading.attributes.setCurrent(attr, parseInt(ev.currentTarget.value));
 			});
-			// Attribute items (prosperity resources, defense fortifications)
 			html.find(".stonetop-attr-extra-add").on("click", async ev => {
-				const { attr } = ev.currentTarget.dataset;
-				await this._stonetopSteading.attributes.addNewItemToAttribute(attr)
+				await this._stonetopSteading.attributes.addNewItemToAttribute(ev.currentTarget.dataset.attr);
 			});
 			html.find(".stonetop-attr-extra-remove").on("click", async ev => {
 				const { attr, index } = ev.currentTarget.dataset;
@@ -61,8 +57,7 @@ export function createStonetopSteadingSheetClass(Base) {
 
 			// Debilities
 			html.find(".stonetop-debility-check").on("change", async ev => {
-				const { slug } = ev.currentTarget.dataset;
-				await this._stonetopSteading.setDebility(slug, ev.currentTarget.checked);
+				await this._stonetopSteading.debilities.setDebility(ev.currentTarget.dataset.slug, ev.currentTarget.checked);
 			});
 
 			// Notes
@@ -70,88 +65,83 @@ export function createStonetopSteadingSheetClass(Base) {
 				await this._stonetopSteading.setNotes(ev.currentTarget.value);
 			});
 
-			// Content lists
+			// Content
 			html.find(".stonetop-content-add").on("click", async ev => {
-				const { type } = ev.currentTarget.dataset;
-				const con = this._stonetopSteading.contentState;
-				const list = [...(con[type] ?? []), ""];
-				await this._stonetopSteading.setContent({ ...con, [type]: list });
+				await this._stonetopSteading.content.addItem(ev.currentTarget.dataset.type);
 			});
 			html.find(".stonetop-content-remove").on("click", async ev => {
 				const { type, index } = ev.currentTarget.dataset;
-				const con  = this._stonetopSteading.contentState;
-				const list = [...(con[type] ?? [])];
-				list.splice(parseInt(index), 1);
-				await this._stonetopSteading.setContent({ ...con, [type]: list });
+				await this._stonetopSteading.content.removeItem(type, parseInt(index));
 			});
 			html.find(".stonetop-content-item").on("change", async ev => {
 				const { type, index } = ev.currentTarget.dataset;
-				const con  = this._stonetopSteading.contentState;
-				const list = [...(con[type] ?? [])];
-				list[parseInt(index)] = ev.currentTarget.value;
-				await this._stonetopSteading.setContent({ ...con, [type]: list });
+				await this._stonetopSteading.content.updateItem(type, parseInt(index), ev.currentTarget.value);
 			});
 
 			// Coinage
 			html.find(".stonetop-coinage-input").on("change", async ev => {
 				const { index, field } = ev.currentTarget.dataset;
-				const assets  = this._stonetopSteading.assetsState;
-				const coinage = [...(assets.coinage ?? SteadingDefaults.assets.coinage)];
-				coinage[parseInt(index)] = { ...coinage[parseInt(index)], [field]: parseInt(ev.currentTarget.value) || 0 };
-				await this._stonetopSteading.setAssets({ ...assets, coinage });
+				await this._stonetopSteading.assets.updateCoinageEntry(parseInt(index), field, parseInt(ev.currentTarget.value) || 0);
 			});
 
 			// Residents
 			html.find(".stonetop-resident-add").on("click", async () => {
-				const list = [...this._stonetopSteading.residents, { id: _uid(), name: "", occupation: "", notes: "" }];
-				await this._stonetopSteading.setResidents(list);
+				await this._stonetopSteading.residents.add();
 			});
 			html.find(".stonetop-resident-remove").on("click", async ev => {
-				const { id } = ev.currentTarget.dataset;
-				await this._stonetopSteading.setResidents(this._stonetopSteading.residents.filter(r => r.id !== id));
+				await this._stonetopSteading.residents.remove(ev.currentTarget.dataset.id);
 			});
-			html.find(".stonetop-resident-field").on("change", async ev => {
-				const { id, field } = ev.currentTarget.dataset;
-				const list = this._stonetopSteading.residents.map(r =>
-					r.id === id ? { ...r, [field]: ev.currentTarget.value } : r
-				);
-				await this._stonetopSteading.setResidents(list);
+			html.find(".stonetop-resident-name").on("change", async ev => {
+				await this._stonetopSteading.residents.updateName(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			html.find(".stonetop-resident-occupation").on("change", async ev => {
+				await this._stonetopSteading.residents.updateOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			html.find(".stonetop-resident-traits").on("change", async ev => {
+				await this._stonetopSteading.residents.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
 			// Neighbors — people
 			html.find(".stonetop-neighbor-person-add").on("click", async () => {
-				const nb = this._stonetopSteading.neighbors;
-				const people = [...(nb.people ?? []), { id: _uid(), name: "", home: "", notes: "" }];
-				await this._stonetopSteading.setNeighbors({ ...nb, people });
+				await this._stonetopSteading.neighborPeople.add();
 			});
 			html.find(".stonetop-neighbor-person-remove").on("click", async ev => {
-				const { id } = ev.currentTarget.dataset;
-				const nb = this._stonetopSteading.neighbors;
-				await this._stonetopSteading.setNeighbors({ ...nb, people: nb.people.filter(p => p.id !== id) });
+				await this._stonetopSteading.neighborPeople.remove(ev.currentTarget.dataset.id);
 			});
-			html.find(".stonetop-neighbor-person-field").on("change", async ev => {
-				const { id, field } = ev.currentTarget.dataset;
-				const nb = this._stonetopSteading.neighbors;
-				const people = nb.people.map(p => p.id === id ? { ...p, [field]: ev.currentTarget.value } : p);
-				await this._stonetopSteading.setNeighbors({ ...nb, people });
+			html.find(".stonetop-neighbor-person-name").on("change", async ev => {
+				await this._stonetopSteading.neighborPeople.updateName(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			html.find(".stonetop-neighbor-person-occupation").on("change", async ev => {
+				await this._stonetopSteading.neighborPeople.updateOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			html.find(".stonetop-neighbor-person-traits").on("change", async ev => {
+				await this._stonetopSteading.neighborPeople.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			html.find(".stonetop-neighbor-person-home").on("change", async ev => {
+				await this._stonetopSteading.neighborPeople.updateHome(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
 			// Neighbors — places
 			html.find(".stonetop-neighbor-place-add").on("click", async () => {
-				const nb = this._stonetopSteading.neighbors;
-				const places = [...(nb.places ?? []), { id: _uid(), name: "", notes: "" }];
-				await this._stonetopSteading.setNeighbors({ ...nb, places });
+				await this._stonetopSteading.neighborPlaces.addPlace();
 			});
 			html.find(".stonetop-neighbor-place-remove").on("click", async ev => {
-				const { id } = ev.currentTarget.dataset;
-				const nb = this._stonetopSteading.neighbors;
-				await this._stonetopSteading.setNeighbors({ ...nb, places: nb.places.filter(p => p.id !== id) });
+				await this._stonetopSteading.neighborPlaces.removePlace(ev.currentTarget.dataset.id);
 			});
 			html.find(".stonetop-neighbor-place-field").on("change", async ev => {
 				const { id, field } = ev.currentTarget.dataset;
-				const nb = this._stonetopSteading.neighbors;
-				const places = nb.places.map(p => p.id === id ? { ...p, [field]: ev.currentTarget.value } : p);
-				await this._stonetopSteading.setNeighbors({ ...nb, places });
+				await this._stonetopSteading.neighborPlaces.updatePlace(id, field, ev.currentTarget.value);
+			});
+			html.find(".stonetop-neighbor-place-name-add").on("click", async ev => {
+				await this._stonetopSteading.neighborPlaces.addName(ev.currentTarget.dataset.placeId);
+			});
+			html.find(".stonetop-neighbor-place-name-remove").on("click", async ev => {
+				const { placeId, nameIndex } = ev.currentTarget.dataset;
+				await this._stonetopSteading.neighborPlaces.removeName(placeId, parseInt(nameIndex));
+			});
+			html.find(".stonetop-neighbor-place-name-field").on("change", async ev => {
+				const { placeId, nameIndex } = ev.currentTarget.dataset;
+				await this._stonetopSteading.neighborPlaces.updateName(placeId, parseInt(nameIndex), ev.currentTarget.value);
 			});
 
 			// Places of Interest
@@ -159,9 +149,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				await this._stonetopSteading.placesOfInterest.addBlankPlace();
 			});
 			html.find(".stonetop-place-field").on("change", async ev => {
-				const idx = parseInt(ev.currentTarget.dataset.index);
-				let value = ev.currentTarget.value;
-				await this._stonetopSteading.placesOfInterest.setPlaceValue(idx, value);
+				await this._stonetopSteading.placesOfInterest.setPlaceValue(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
 
 			// Improvements
@@ -170,12 +158,8 @@ export function createStonetopSteadingSheetClass(Base) {
 				const groupSlug = ev.currentTarget.closest("[data-slug]")?.dataset.slug;
 				if (!groupSlug) return;
 				const count = ev.currentTarget.checked ? parseInt(idx) + 1 : parseInt(idx);
-				await this._stonetopSteading.setImprovementTrack(groupSlug, optionSlug, count);
+				await this._stonetopSteading.improvements.setTrack(groupSlug, optionSlug, count);
 			});
 		}
 	};
-}
-
-function _uid() {
-	return Math.random().toString(36).slice(2, 10);
 }

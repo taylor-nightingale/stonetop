@@ -40,8 +40,8 @@ export class DebilitySnapshot {
 }
 
 export class ContentSection {
-	constructor(key, label, note, items) {
-		this.key = key;
+	constructor(slug, label, note, items) {
+		this.slug = slug;
 		this.label = label;
 		this.note = note;
 		this.items = items;

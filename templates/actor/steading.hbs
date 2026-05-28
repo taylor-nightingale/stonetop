@@ -206,19 +206,16 @@
 			<tr>
 				<th>Name</th>
 				<th>Occupation</th>
-				<th>Notes</th>
+				<th>Traits</th>
 				<th></th>
 			</tr>
 			</thead>
 			<tbody>
 			{{#each stonetop.residents}}
 				<tr>
-					<td><input type="text" class="stonetop-resident-field"
-					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-					<td><input type="text" class="stonetop-resident-field"
-					           data-id="{{id}}" data-field="occupation" value="{{occupation}}"></td>
-					<td><input type="text" class="stonetop-resident-field"
-					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
+					<td><input type="text" class="stonetop-resident-name" data-id="{{id}}" value="{{name}}"></td>
+					<td><input type="text" class="stonetop-resident-occupation" data-id="{{id}}" value="{{occupation}}"></td>
+					<td><input type="text" class="stonetop-resident-traits" data-id="{{id}}" value="{{traits}}"></td>
 					<td><a class="stonetop-resident-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
 				</tr>
 			{{/each}}
@@ -238,20 +235,19 @@
 			<thead>
 			<tr>
 				<th>Name</th>
+				<th>Occupation</th>
+				<th>Traits</th>
 				<th>Home</th>
-				<th>Notes</th>
 				<th></th>
 			</tr>
 			</thead>
 			<tbody>
 			{{#each stonetop.neighbors.people}}
 				<tr>
-					<td><input type="text" class="stonetop-neighbor-person-field"
-					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-					<td><input type="text" class="stonetop-neighbor-person-field"
-					           data-id="{{id}}" data-field="home" value="{{home}}"></td>
-					<td><input type="text" class="stonetop-neighbor-person-field"
-					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}"></td>
+					<td><input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}"></td>
 					<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
 				</tr>
 			{{/each}}
@@ -262,26 +258,38 @@
 		</button>
 
 		<p><strong>Places</strong></p>
-		<table class="stonetop-steading-table">
-			<thead>
-			<tr>
-				<th>Name</th>
-				<th>Notes</th>
-				<th></th>
-			</tr>
-			</thead>
-			<tbody>
-			{{#each stonetop.neighbors.places}}
-				<tr>
-					<td><input type="text" class="stonetop-neighbor-place-field"
-					           data-id="{{id}}" data-field="name" value="{{name}}"></td>
-					<td><input type="text" class="stonetop-neighbor-place-field"
-					           data-id="{{id}}" data-field="notes" value="{{notes}}"></td>
-					<td><a class="stonetop-neighbor-place-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
-				</tr>
-			{{/each}}
-			</tbody>
-		</table>
+		{{#each stonetop.neighbors.places}}
+			<div class="stonetop-neighbor-place-entry">
+				<div class="stonetop-neighbor-place-row">
+					<input type="text" class="stonetop-neighbor-place-field"
+					       data-id="{{id}}" data-field="name" value="{{name}}"
+					       placeholder="Place name">
+					<input type="text" class="stonetop-neighbor-place-field"
+					       data-id="{{id}}" data-field="note" value="{{note}}"
+					       placeholder="Note">
+					<a class="stonetop-neighbor-place-remove" data-id="{{id}}">
+						<i class="fas fa-times"></i>
+					</a>
+				</div>
+				<div class="stonetop-neighbor-place-names">
+					{{#each names}}
+						<div class="stonetop-neighbor-place-name-row">
+							<input type="text" class="stonetop-neighbor-place-name-field"
+							       data-place-id="{{../id}}" data-name-index="{{@index}}"
+							       value="{{this}}">
+							<a class="stonetop-neighbor-place-name-remove"
+							   data-place-id="{{../id}}" data-name-index="{{@index}}">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+					{{/each}}
+					<button type="button" class="stonetop-neighbor-place-name-add"
+					        data-place-id="{{id}}">
+						<i class="fas fa-plus"></i> Add Name
+					</button>
+				</div>
+			</div>
+		{{/each}}
 		<button type="button" class="stonetop-neighbor-place-add">
 			<i class="fas fa-plus"></i> Add Place
 		</button>
@@ -300,14 +308,14 @@
 					{{#each items}}
 						<div class="stonetop-steading-content-row">
 							<input type="text" class="stonetop-content-item"
-							       data-type="{{../key}}" data-index="{{@index}}"
+							       data-type="{{../slug}}" data-index="{{@index}}"
 							       value="{{this}}">
-							<a class="stonetop-content-remove" data-type="{{../key}}" data-index="{{@index}}">
+							<a class="stonetop-content-remove" data-type="{{../slug}}" data-index="{{@index}}">
 								<i class="fas fa-times"></i>
 							</a>
 						</div>
 					{{/each}}
-					<button type="button" class="stonetop-content-add" data-type="{{key}}">
+					<button type="button" class="stonetop-content-add" data-type="{{slug}}">
 						<i class="fas fa-plus"></i>
 					</button>
 				</div>
