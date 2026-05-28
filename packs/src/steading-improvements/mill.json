@@ -11,13 +11,45 @@
           {
             "type": "heading",
             "title": "Mill",
-            "description": "<p>We’ve got our pick of millstones. With a mill, we’d have better bread and more time for other crafts.</p>"
+            "description": "<p>We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p>Requires all of the following:</p>"
           },
           {
             "type": "track",
-            "slug": "done",
-            "description": "Completed",
+            "slug": "engineer-foreman",
+            "description": "An exceptional engineer/foreman",
             "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "power-source",
+            "description": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "building-site",
+            "description": "A building site able to harness that power source",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "pull-together",
+            "description": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)",
+            "max": 2
+          },
+          {
+            "type": "track",
+            "slug": "full-time-miller",
+            "description": "A full-time miller",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you meet the requirements, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.</p><p>Henceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.</p>"
           }
         ]
       }

@@ -69,12 +69,14 @@ export class StonetopSteading {
 			residents:          this.residents.buildSnapshot(),
 			neighbors: {
 				people: this.neighborPeople.buildSnapshot(),
-				places: this.neighborPlaces.buildSnapshot(),
+				places: await this.neighborPlaces.buildSnapshot(),
 			},
 			contentDescription: SteadingDefaults.content.description,
 			content:            this.content.buildSnapshot(),
 			assets:             this.assets.buildSnapshot(),
 			improvements:       await this.improvements.buildSnapshot(),
+			residentNames:      SteadingDefaults.residentNames,
+			residentTraits:     SteadingDefaults.residentTraits,
 		});
 	}
 }

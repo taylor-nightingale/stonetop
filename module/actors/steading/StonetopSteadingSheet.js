@@ -122,26 +122,11 @@ export function createStonetopSteadingSheetClass(Base) {
 			});
 
 			// Neighbors — places
-			html.find(".stonetop-neighbor-place-add").on("click", async () => {
-				await this._stonetopSteading.neighborPlaces.addPlace();
+			html.find(".stonetop-neighbor-place-note").on("change", async ev => {
+				await this._stonetopSteading.neighborPlaces.updateNote(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
-			html.find(".stonetop-neighbor-place-remove").on("click", async ev => {
-				await this._stonetopSteading.neighborPlaces.removePlace(ev.currentTarget.dataset.id);
-			});
-			html.find(".stonetop-neighbor-place-field").on("change", async ev => {
-				const { id, field } = ev.currentTarget.dataset;
-				await this._stonetopSteading.neighborPlaces.updatePlace(id, field, ev.currentTarget.value);
-			});
-			html.find(".stonetop-neighbor-place-name-add").on("click", async ev => {
-				await this._stonetopSteading.neighborPlaces.addName(ev.currentTarget.dataset.placeId);
-			});
-			html.find(".stonetop-neighbor-place-name-remove").on("click", async ev => {
-				const { placeId, nameIndex } = ev.currentTarget.dataset;
-				await this._stonetopSteading.neighborPlaces.removeName(placeId, parseInt(nameIndex));
-			});
-			html.find(".stonetop-neighbor-place-name-field").on("change", async ev => {
-				const { placeId, nameIndex } = ev.currentTarget.dataset;
-				await this._stonetopSteading.neighborPlaces.updateName(placeId, parseInt(nameIndex), ev.currentTarget.value);
+			html.find(".stonetop-neighbor-place-names").on("change", async ev => {
+				await this._stonetopSteading.neighborPlaces.updateNames(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
 			// Places of Interest

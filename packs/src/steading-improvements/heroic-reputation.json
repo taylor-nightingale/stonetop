@@ -11,13 +11,51 @@
           {
             "type": "heading",
             "title": "Heroic Reputation",
-            "description": "<p>Few have heard of Stonetop’s heroes. Yet.</p>"
+            "description": "<p>Few have heard of Stonetop's heroes. Yet.</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p>Requires any 3 of the following:</p>"
           },
           {
             "type": "track",
-            "slug": "done",
-            "description": "Completed",
+            "slug": "impress-hillfolk",
+            "description": "Impressing a band of Hillfolk",
             "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "brave-lake",
+            "description": "Braving a lake and coming back with proof",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "save-marshedge",
+            "description": "Saving many Marshedge residents' lives",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "save-gordins-delve",
+            "description": "Saving many Gordin's Delve residents' lives",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "save-beyond-marshedge",
+            "description": "Saving someone from beyond Marshedge",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "hire-minstrel",
+            "description": "Hiring a minstrel to tell your tales (Value 2)",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you meet the requirements, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: on a 10+, say what they've heard about you or Stonetop, and gain advantage on your next move against them; on a 7-9, say what they've heard; on a 6-, the GM decides what they've heard.</p>"
           }
         ]
       }

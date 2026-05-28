@@ -40,7 +40,7 @@ describe("StonetopSteading.buildSnapshot", () => {
 	it("snapshot includes neighbors from SteadingNeighbors", async () => {
 		const snap = await make().buildSnapshot();
 		expect(snap.neighbors.people).toEqual([]);
-		expect(snap.neighbors.places).toEqual([]);
+		expect(snap.neighbors.places).toHaveLength(5);
 	});
 
 	it("snapshot includes content sections from SteadingContent", async () => {

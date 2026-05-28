@@ -14,10 +14,30 @@
             "description": "<p>Filling the cistern takes so much work. Surely, we can do better!</p>"
           },
           {
+            "type": "heading",
+            "description": "<p>Requires all of the following, in order:</p>"
+          },
+          {
             "type": "track",
-            "slug": "done",
-            "description": "Completed",
+            "slug": "engineer-foreman",
+            "description": "An exceptional engineer/foreman, to design a cunning system of roofs, gutters, and conduits",
             "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "slate-terracotta",
+            "description": "Enough slate/terracotta to roof all the buildings and construct the gutters and conduits (Value 3)",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "pull-together",
+            "description": "Pulling Together 3 times, each requiring 1 season and 1 Surplus",
+            "max": 3
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you meet the requirements, increase Fortunes by 1, add \"Raincatching\" to the Resources list.</p><p>Henceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
           }
         ]
       }

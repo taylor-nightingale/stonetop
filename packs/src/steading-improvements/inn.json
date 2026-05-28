@@ -11,13 +11,45 @@
           {
             "type": "heading",
             "title": "Inn",
-            "description": "<p>The public house offers a common room and shelter for a few horses, but it’s hardly a proper inn.</p>"
+            "description": "<p>The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p>Requires all of the following, in order:</p>"
           },
           {
             "type": "track",
-            "slug": "done",
-            "description": "Completed",
+            "slug": "building-site",
+            "description": "A designated building site",
             "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "engineer-foreman",
+            "description": "A competent engineer/foreman",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "furnishings",
+            "description": "Furnishings, equipment, and material (Value 3)",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "pull-together",
+            "description": "Pulling Together 2 times, each requiring 1 season, 1 Surplus, and timber/supplies (Value 2)",
+            "max": 2
+          },
+          {
+            "type": "track",
+            "slug": "staff",
+            "description": "A small, devoted staff (innkeep, cook, ostler, etc.)",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you meet the requirements, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.</p><p>Henceforth, when the seasons change, whoever is friendliest rolls +Fortunes: on a 10+, ask the GM 3 questions about the wider world; on a 7-9, ask 1 question; on a 6-, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.</p><p>Once per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities.</p>"
           }
         ]
       }

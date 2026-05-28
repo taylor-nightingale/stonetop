@@ -53,6 +53,7 @@ export class SteadingSnapshot {
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, residents, neighbors,
 								contentDescription, content, assets, improvements,
+								residentNames, residentTraits,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -66,5 +67,7 @@ export class SteadingSnapshot {
 		this.content = content;
 		this.assets = assets;
 		this.improvements = improvements;
+		this.residentNames = residentNames;
+		this.residentTraits = residentTraits;
 	}
 }

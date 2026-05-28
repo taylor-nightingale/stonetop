@@ -11,13 +11,39 @@
           {
             "type": "heading",
             "title": "Stone Wall",
-            "description": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all…</p>"
+            "description": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all...</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p>Requires all of the following, in order:</p>"
           },
           {
             "type": "track",
-            "slug": "done",
-            "description": "Completed",
+            "slug": "engineer-foreman",
+            "description": "An exceptional engineer/foreman",
             "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "stonecutter",
+            "description": "A stonecutter with an able crew",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "equipment-tools",
+            "description": "Equipment, tools, and material (Value 3)",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "pull-together",
+            "description": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)",
+            "max": 4
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you meet the requirements, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.</p><p>Henceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.</p>"
           }
         ]
       }

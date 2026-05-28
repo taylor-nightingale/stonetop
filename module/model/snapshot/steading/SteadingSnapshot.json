@@ -635,38 +635,6 @@
 
 		},
 		"places": {
-			// name, notes and sample names
-//			Marshedge, names:
-//			Abben, Ailen, Brin, Brogan,
-			//Catlin, Coln, Daedre, Dermos,
-			//Ennin, Finnen, Gilor, Isbeal,
-			//Kiran, Lile, Lim, Mathuin,
-			//Mirne, Noren, Owan, Ragan,
-			//Renan, Seadha, Seann,
-			//Tierney, Ulliam
-
-//			Gordin's Delve NAMES
-			//Choose from other lists;
-			//everyone comes to Gordin’s
-			//Delve from somewhere else.
-
-//    The Steplands (Hillfolk) NAMES
-			//Adm, Blej, Cirl, Davth, Elst,
-			//Gwilm, Gwenl, Henri, Ines,
-			//Jenfir, Jown, Juda, Kiln, Laurl,
-			//Loic, Merrn, Maikl, Nanzl,
-			//Nolwn, Quent, Reegn, Ropr,
-			//Sabi, Stren, Yanz
-
-//			Lygos (and other points south) NAMES
-			//Agatte, Aref, Alix, Baraz,
-			//Canan, Darya, Demetra, Elene,
-			//Elios, Fotios, Faruza, Golza,
-			//Iasos, Iona, Kyriakos, Marika,
-			//Maayan, Osher, Natasa, Nivola,
-			//Rinat, Stamat, Thecla, Zhaleh
-
-//			Other places (Barrier Pass, the Manmarch, etc.) Names is blank
 		}
 	}
 }
