@@ -7,6 +7,7 @@
 		"playbook": "The Marshal",
 		"moveType": "playbook",
 		"description": "<p>Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.</p><ul><li>Select 2 new tags for your Crew</li><li>Increase their damage die from d6 to d8</li><li>Increase their max HP by 2 each</li></ul>",
+		"repeatMax": 2,
 		"requirement": {
 			"moves": [
 				"Crew"

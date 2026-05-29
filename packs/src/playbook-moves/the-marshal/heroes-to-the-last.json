@@ -7,6 +7,7 @@
 		"playbook": "The Marshal",
 		"moveType": "playbook",
 		"description": "<p>Each time you take this move, pick 1:</p><ul><li>They are exceptional (and roll +2 instead of +1)</li><li>They are inured to terror & horror</li><li>Increase their max HP by 4 each</li><li>Increase their damage die one size (max d10)</li></ul>",
+		"repeatMax": 2,
 		"requirement": {
 			"level": 6,
 			"moves": [

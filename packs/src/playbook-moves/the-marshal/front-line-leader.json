@@ -6,7 +6,11 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>lead your crew into battle</em></strong>, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them).</p>"
+		"description": "<p>When you <strong><em>lead your crew into battle</em></strong>, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them).</p>",
+		"resource": {
+			"title": "Presence",
+			"max": 2
+		}
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

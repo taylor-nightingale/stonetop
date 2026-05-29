@@ -7,6 +7,10 @@
 		"playbook": "The Fox",
 		"moveType": "playbook",
 		"description": "<p>When you <strong><em>use words to avoid suspicion or trouble</em></strong>, roll +CHA: <strong>on a 10+</strong>, hold 3 Nerve; <strong><em>on a 7-9</em></strong>, hold 1 Nerve. You may spend Nerve, 1-for-1, to:</p><ul><li>Move about or maneuver unchallenged</li><li>Withstand direct scrutiny or questioning</li><li>Direct suspicion or attention elsewhere</li></ul>",
+		"resource": {
+			"max": 3,
+			"title": "Nerve"
+		},
 		"rollType": "cha",
 		"moveResults": {
 			"success": {

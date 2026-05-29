@@ -6,7 +6,10 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you can mark 1 box here instead, with no negative effect. (These marks never clear.)</p>"
+		"description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you can mark 1 box here instead, with no negative effect. (These marks never clear.)</p>",
+		"resource": {
+			"max": 3
+		}
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

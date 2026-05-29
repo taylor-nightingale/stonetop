@@ -6,7 +6,11 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>select and prepare the party's camp site</em></strong>, hold 1 Precaution, or 2 Precaution if you are well-versed with this area and its dangers.</p><p>If trouble finds your camp site, you can spend 1 Precaution to reveal a simple defense, warning, or trick that you prepared in advance. If you do, tell us how you knew to make that specific preparation.</p>"
+		"description": "<p>When you <strong><em>select and prepare the party's camp site</em></strong>, hold 1 Precaution, or 2 Precaution if you are well-versed with this area and its dangers.</p><p>If trouble finds your camp site, you can spend 1 Precaution to reveal a simple defense, warning, or trick that you prepared in advance. If you do, tell us how you knew to make that specific preparation.</p>",
+		"resource": {
+			"title": "Precaution",
+			"max": 2
+		}
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

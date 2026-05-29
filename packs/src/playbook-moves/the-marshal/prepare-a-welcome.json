@@ -7,6 +7,10 @@
 		"playbook": "The Marshal",
 		"moveType": "playbook",
 		"description": "<p>When you <strong><em>have your allies fortify a position and lie in wait for battle</em></strong>, hold 1 Surprise if you're rushed or 2 Surprises if you can take your time.</p><p>Once battle is joined, spend 1 Surprise to reveal a ploy, defense, or dirty trick you prepared in advance and roll +INT: <strong>on a 10+</strong>, it works as well as can be expected, and you've still got a few tricks up your sleeve—regain 1 Surprise; <strong><em>on a 7-9</em></strong>, it works as well as can be expected.</p>",
+		"resource": {
+			"title": "Surprise",
+			"max": 2
+		},
 		"requirement": {
 			"moves": [
 				"Read the Land"

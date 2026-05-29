@@ -7,6 +7,9 @@
 		"playbook": "The Heavy",
 		"moveType": "playbook",
 		"description": "<p>When you <strong><em>are reduced to 0 HP in battle</em></strong>, you can keep fighting. Each time you take damage while at 0 HP, mark 1. If you would regain HP while fighting, clear one mark instead.</p><p>When you <strong><em>stop fighting</em></strong>, roll for Death's Door with a -1 penalty for each circle marked. If you survive, clear all your circles.</p>",
+		"resource": {
+			"max": 5
+		},
 		"requirement": {
 			"moves": [
 				"Hard to Kill"

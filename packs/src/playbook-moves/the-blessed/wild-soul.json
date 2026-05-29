@@ -7,6 +7,7 @@
 		"playbook": "The Blessed",
 		"moveType": "playbook",
 		"description": "<p>Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.</p>",
+		"repeatMax": 3,
 		"requirement": {
 			"level": 2,
 			"playbook": "The Blessed"
