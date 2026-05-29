@@ -180,6 +180,7 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item" data-tab="overview">Overview</a>
 		<a class="item" data-tab="residents">Residents</a>
+		<a class="item" data-tab="neighbors">Neighbors</a>
 		<a class="item" data-tab="improvements">Improvements</a>
 	</nav>
 
@@ -208,69 +209,6 @@
 						</label>
 					</div>
 				{{/each}}
-			</section>
-
-			{{!-- Neighbors --}}
-			<section class="stonetop-steading-section">
-				<div class="st-section-heading">
-					<h2 class="st-section-title">Notable Neighbors of Stonetop</h2>
-					<span class="st-section-subtitle">Add NPCs from neighboring areas when instructed by a playbook, or as needed.</span>
-				</div>
-
-				<div class="st-neighbors-layout">
-
-					{{!-- Left: People --}}
-					<div class="st-neighbor-people-col">
-						<table class="stonetop-steading-table">
-							<thead>
-							<tr>
-								<th>Name</th>
-								<th>Occupation</th>
-								<th>Traits</th>
-								<th>Home</th>
-								<th></th>
-							</tr>
-							</thead>
-							<tbody>
-							{{#each stonetop.neighbors.people}}
-								<tr>
-									<td><input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}"></td>
-									<td><input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}"></td>
-									<td><input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}"></td>
-									<td><input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}"></td>
-									<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
-								</tr>
-							{{/each}}
-							</tbody>
-						</table>
-						<button type="button" class="stonetop-neighbor-person-add">
-							<i class="fas fa-plus"></i> Add Person
-						</button>
-					</div>
-
-					{{!-- Right: Place boxes --}}
-					<div class="st-neighbor-places-col">
-						{{#each stonetop.neighbors.places}}
-							<div class="st-neighbor-place-box">
-								<div class="st-neighbor-place-header">
-									<span class="st-neighbor-place-name">{{name}}</span>
-									{{#if subtitle}}<span class="st-neighbor-place-subtitle">{{subtitle}}</span>{{/if}}
-								</div>
-								<div class="st-neighbor-place-body">
-									<textarea class="stonetop-neighbor-place-note"
-									          data-id="{{id}}"
-									          placeholder="Notes">{{note}}</textarea>
-									<div class="st-neighbor-place-names-col">
-										<p class="st-neighbor-names-label">Names</p>
-										<textarea class="stonetop-neighbor-place-names"
-										          data-id="{{id}}">{{names}}</textarea>
-									</div>
-								</div>
-							</div>
-						{{/each}}
-					</div>
-
-				</div>
 			</section>
 
 			{{!-- Content --}}
@@ -361,6 +299,72 @@
 			</section>
 
 		</div>{{!-- /tab residents --}}
+
+		{{!-- Neighbors tab --}}
+		<div class="tab neighbors" data-group="primary" data-tab="neighbors">
+			<section class="stonetop-steading-section">
+				<div class="st-section-heading">
+					<h2 class="st-section-title">Notable Neighbors of Stonetop</h2>
+					<span class="st-section-subtitle">Add NPCs from neighboring areas when instructed by a playbook, or as needed.</span>
+				</div>
+
+				<div class="st-neighbors-layout">
+
+					{{!-- Left: People (2/3) --}}
+					<div class="st-neighbor-people-col">
+						<table class="stonetop-steading-table">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Occupation</th>
+								<th>Traits</th>
+								<th>Home</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
+							{{#each stonetop.neighbors.people}}
+								<tr>
+									<td><input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}"></td>
+									<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+								</tr>
+							{{/each}}
+							</tbody>
+						</table>
+						<button type="button" class="stonetop-neighbor-person-add">
+							<i class="fas fa-plus"></i> Add Person
+						</button>
+					</div>
+
+					{{!-- Right: Place boxes (1/3) --}}
+					<div class="st-neighbor-places-col">
+						{{#each stonetop.neighbors.places}}
+							<div class="st-neighbor-place-box">
+								<div class="st-neighbor-place-header">
+									<span class="st-neighbor-place-name">{{name}}</span>
+									{{#if subtitle}}<span class="st-neighbor-place-subtitle">{{subtitle}}</span>{{/if}}
+								</div>
+								<div class="st-neighbor-place-body">
+									<textarea class="stonetop-neighbor-place-note"
+									          data-id="{{id}}"
+									          placeholder="Notes">{{note}}</textarea>
+									{{#if names}}
+										<div class="st-neighbor-place-names-col">
+											<p class="st-neighbor-names-label">Names</p>
+											<p class="st-neighbor-place-names-text">{{names}}</p>
+										</div>
+									{{/if}}
+								</div>
+							</div>
+						{{/each}}
+					</div>
+
+				</div>
+			</section>
+		</div>{{!-- /tab neighbors --}}
 
 		{{!-- Improvements tab --}}
 		<div class="tab improvements" data-group="primary" data-tab="improvements">

@@ -126,9 +126,6 @@ export function createStonetopSteadingSheetClass(Base) {
 			html.find(".stonetop-neighbor-place-note").on("change", async ev => {
 				await this._stonetopSteading.neighborPlaces.updateNote(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
-			html.find(".stonetop-neighbor-place-names").on("change", async ev => {
-				await this._stonetopSteading.neighborPlaces.updateNames(ev.currentTarget.dataset.id, ev.currentTarget.value);
-			});
 
 			// Places of Interest
 			html.find(".stonetop-place-add").on("click", async () => {
