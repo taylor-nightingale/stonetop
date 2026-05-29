@@ -65,6 +65,45 @@
 			</div>
 		</div>
 
+		{{!-- Assets --}}
+		<div class="st-stat-box st-stat-box--assets">
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">Assets</h3>
+				<p class="st-stat-note">Owned by the residents of Stonetop in common. To take them on an expedition or otherwise put them at risk, you must Requisition.</p>
+				{{#each stonetop.assets.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-asset-item stonetop-attr-extra"
+						       data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-asset-item-remove stonetop-attr-extra-remove" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
+				{{/each}}
+				<button type="button" class="stonetop-asset-item-add stonetop-attr-extra-add">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+			<div class="st-asset-coinage">
+				{{#each stonetop.assets.coinage}}
+					<div class="stonetop-steading-coinage">
+						<span class="stonetop-coinage-title">{{title}}</span>
+						<label>Purses
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="purses" value="{{purses}}">
+						</label>
+						<label>Handfuls
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
+						</label>
+						<label>Coins
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="coins" value="{{coins}}">
+						</label>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+
 	</div>{{!-- /st-top-row --}}
 
 	{{!-- Middle: Prosperity + Resources | Defenses + Fortifications --}}
@@ -178,7 +217,7 @@
 
 	{{!-- Tab navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item" data-tab="overview">Overview</a>
+		<a class="item" data-tab="content">Content</a>
 		<a class="item" data-tab="residents">Residents</a>
 		<a class="item" data-tab="neighbors">Neighbors</a>
 		<a class="item" data-tab="improvements">Improvements</a>
@@ -186,30 +225,8 @@
 
 	<section class="sheet-body">
 
-		{{!-- Overview tab --}}
-		<div class="tab overview" data-group="primary" data-tab="overview">
-
-			{{!-- Assets / Coinage --}}
-			<section class="stonetop-steading-section">
-				{{> "stonetop.section-heading" title="Assets"}}
-				{{#each stonetop.assets.coinage}}
-					<div class="stonetop-steading-coinage">
-						<span class="stonetop-coinage-title">{{title}}</span>
-						<label>Purses
-							<input type="number" class="stonetop-coinage-input" min="0"
-							       data-index="{{@index}}" data-field="purses" value="{{purses}}">
-						</label>
-						<label>Handfuls
-							<input type="number" class="stonetop-coinage-input" min="0"
-							       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
-						</label>
-						<label>Coins
-							<input type="number" class="stonetop-coinage-input" min="0"
-							       data-index="{{@index}}" data-field="coins" value="{{coins}}">
-						</label>
-					</div>
-				{{/each}}
-			</section>
+		{{!-- content tab --}}
+		<div class="tab content" data-group="primary" data-tab="content">
 
 			{{!-- Content --}}
 			<section class="stonetop-steading-section st-content-section">
@@ -235,7 +252,7 @@
 				{{/each}}
 			</section>
 
-		</div>{{!-- /tab overview --}}
+		</div>{{!-- /tab content --}}
 
 		{{!-- Residents tab --}}
 		<div class="tab residents" data-group="primary" data-tab="residents">

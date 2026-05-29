@@ -89,7 +89,16 @@ export const SteadingDefaults = {
 		"Watchtowers",
 	],
 	assets: {
-		coinage: [{ title: "silver", purses: 0, handfuls: 0, coins: 0 }],
+		items: [
+			"A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
+			"A pair of horse-drawn plows, iron",
+			"A pair of carts (plus horse harness)",
+			"A wagon (plus horse harness)",
+		],
+		coinage: [
+			{ title: "silver", purses: 0, handfuls: 0, coins: 0 },
+			{ title: "gold",   purses: 0, handfuls: 0, coins: 0 },
+		],
 	},
 	residentNames: "Aderyn, Aeronwen, Afanen, Afon, Alun, Andras, Aneirin, Awstin, Bedwyr, Berwyn, Betrys, Braith, Briallen, Bronwen, Bryn, Cadi, Cadoc, Cadwygan, Caron, Cefin, Ceinwen, Ceridwyn, Cerys, Colwyn, Deiniol, Dilwen, Dylis, Eifion, Eirlys, Eluned, Emrys, Enfys, Eurwen, Gaenor, Garet, Gethin, Glyndir, Heledd, Hywel, Ifan, Iorwerth, Iwan, Lewela, Leuca, Linos, Mado, Maldwyn, Malon, Mared, Marged, Martyn, Meirion, Menwen, Mererid, Neirin, Nia, Ofydd, Olwyn, Owain, Padrig, Parry, Pryce, Pryder, Rheinal, Rhisiart, Rhosyn, Rydderch, Sawyl, Siana, Sioned, Talfryn, Tegid, Tiwlip, Tomos, Tudyr, Winifred, Yorath",
 	residentTraits: [

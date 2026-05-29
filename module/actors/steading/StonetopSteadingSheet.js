@@ -11,7 +11,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				width:   800,
 				height:  900,
 				scrollY: [".window-content"],
-				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "overview" }],
+				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "content" }],
 			});
 		}
 
@@ -77,6 +77,17 @@ export function createStonetopSteadingSheetClass(Base) {
 			html.find(".stonetop-content-item").on("change", async ev => {
 				const { type, index } = ev.currentTarget.dataset;
 				await this._stonetopSteading.content.updateItem(type, parseInt(index), ev.currentTarget.value);
+			});
+
+			// Asset items
+			html.find(".stonetop-asset-item-add").on("click", async () => {
+				await this._stonetopSteading.assets.addItem();
+			});
+			html.find(".stonetop-asset-item-remove").on("click", async ev => {
+				await this._stonetopSteading.assets.removeItem(parseInt(ev.currentTarget.dataset.index));
+			});
+			html.find(".stonetop-asset-item").on("change", async ev => {
+				await this._stonetopSteading.assets.updateItem(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
 
 			// Coinage

@@ -11,6 +11,65 @@ describe("SteadingAssets.buildSnapshot", () => {
 	it("returns default coinage when no changes made", () => {
 		expect(make().buildSnapshot().coinage).toEqual(SteadingDefaults.assets.coinage);
 	});
+
+	it("returns default items when no changes made", () => {
+		expect(make().buildSnapshot().items).toEqual(SteadingDefaults.assets.items);
+	});
+});
+
+describe("SteadingAssets.addItem", () => {
+	it("appends a blank item to the list", async () => {
+		const a = make();
+		await a.addItem();
+		const items = a.buildSnapshot().items;
+		expect(items).toHaveLength(SteadingDefaults.assets.items.length + 1);
+		expect(items.at(-1)).toBe("");
+	});
+
+	it("preserves existing items", async () => {
+		const a = make();
+		await a.addItem();
+		const items = a.buildSnapshot().items;
+		expect(items.slice(0, -1)).toEqual(SteadingDefaults.assets.items);
+	});
+});
+
+describe("SteadingAssets.removeItem", () => {
+	it("removes the item at the given index", async () => {
+		const a = make();
+		const before = a.buildSnapshot().items;
+		await a.removeItem(0);
+		expect(a.buildSnapshot().items).toEqual(before.slice(1));
+	});
+
+	it("removes from the middle without affecting other items", async () => {
+		const a = make();
+		const before = a.buildSnapshot().items;
+		await a.removeItem(1);
+		const after = a.buildSnapshot().items;
+		expect(after).toHaveLength(before.length - 1);
+		expect(after[0]).toBe(before[0]);
+		expect(after[1]).toBe(before[2]);
+	});
+});
+
+describe("SteadingAssets.updateItem", () => {
+	it("updates the value at the given index", async () => {
+		const a = make();
+		await a.updateItem(0, "A new thing");
+		expect(a.buildSnapshot().items[0]).toBe("A new thing");
+	});
+
+	it("does not affect other items", async () => {
+		const a = make();
+		const before = a.buildSnapshot().items;
+		await a.updateItem(2, "Changed");
+		const after = a.buildSnapshot().items;
+		expect(after[0]).toBe(before[0]);
+		expect(after[1]).toBe(before[1]);
+		expect(after[2]).toBe("Changed");
+		expect(after[3]).toBe(before[3]);
+	});
 });
 
 describe("SteadingAssets.updateCoinageEntry", () => {
