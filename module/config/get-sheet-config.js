@@ -29,7 +29,7 @@ export function GetSheetConfig() {
 		actorTypes: {
 			character: characterSheetConfig(),
 			npc: getNpcConfig(),
-			steading: GetSteadingConfig(),
+			"stonetop.steading": GetSteadingConfig(),
 		},
 		moveTypes: {
 			gm: "GM Moves",

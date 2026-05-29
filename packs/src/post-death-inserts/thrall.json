@@ -217,7 +217,7 @@
             {
               "type": "track",
               "slug": "red-wrath",
-              "description": "<p><strong>RED WRATH</strong> — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.</p><p>When you let your fury fly and lash out at someone (<em>hand, close</em>), spend 1–3 Favor and roll +Favor spent: on a 10+, deal 2d8 damage (<em>messy, forceful</em>) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.</p>",
+              "description": "<p><strong>RED WRATH</strong> — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.</p><p>When you let your fury fly and lash out at someone (<em>hand, close</em>), spend 1–3 Favor and roll +Favor spent: <strong>on a 10+</strong>, deal 2d8 damage (<em>messy, forceful</em>) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.</p>",
               "max": 1
             },
             {
@@ -235,7 +235,7 @@
             {
               "type": "track",
               "slug": "torments-blessing",
-              "description": "<p><strong>TORMENT'S BLESSING</strong> — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.</p><p>When you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: on a 10+, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.</p>",
+              "description": "<p><strong>TORMENT'S BLESSING</strong> — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.</p><p>When you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: <strong>on a 10+</strong>, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.</p>",
               "max": 1
             }
           ]

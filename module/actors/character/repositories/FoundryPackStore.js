@@ -38,4 +38,10 @@ export class FoundryPackStore {
 		if (!pack) return null;
 		return pack.getDocument(id);
 	}
+
+	async getFolders() {
+		const pack = await this._ensureIndexed();
+		if (!pack) return new Map();
+		return new Map([...pack.folders].map(f => [f._id, f.name]));
+	}
 }

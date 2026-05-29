@@ -1,4 +1,5 @@
 {
+	"name": "Stonetop",
 	"fortunes": {
 		"title": "Fortunes",
 		"note": "Starts at +1",
@@ -155,19 +156,17 @@
 			"special 1"
 		]
 	},
-//		not in json, but the sheet will have this:
-//	"title": "Content",
-//	"description": "<p>Keep this in sync with the GM playbook. Review it at the start of each session.</p><p>When <strong><em>anyone calls “time out,”</em></strong> play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.</p><p>If <strong><em>content was included that shouldn’t have been</emm></strong>, acknowledge the mistake, fix the fiction, and move on.</p><p>If <strong><em>someone realizes they need content to be excluded, veiled, or handled in a particular way,</em></strong> then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s). When everyone is ready, move on.",
-//		"excluded": {
-//			"title": "Excluded content",
-//			"note": "(Not part of the game, on-camera or off)"
-//		},
-//		"veiled": {
-//			"title": "Veiled content",
-//			"note": "(Not part of the game, on-camera or off)"
-//		},
-//		"specia": {
-//			"title": "Special handling"
-//		}
-
+	//	"title": "Content",
+	//	"description": "<p>Keep this in sync with the GM playbook. Review it at the start of each session.</p><p>When <strong><em>anyone calls “time out,”</em></strong> play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.</p><p>If <strong><em>content was included that shouldn’t have been</emm></strong>, acknowledge the mistake, fix the fiction, and move on.</p><p>If <strong><em>someone realizes they need content to be excluded, veiled, or handled in a particular way,</em></strong> then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s). When everyone is ready, move on.",
+	//		"excluded": {
+	//			"title": "Excluded content",
+	//			"note": "(Not part of the game, on-camera or off)"
+	//		},
+	//		"veiled": {
+	//			"title": "Veiled content",
+	//			"note": "(Not part of the game, on-camera or off)"
+	//		},
+	//		"specia": {
+	//			"title": "Special handling"
+	//		}
 }

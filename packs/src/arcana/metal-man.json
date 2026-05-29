@@ -28,7 +28,7 @@
 						{
 							"type": "track",
 							"slug": "repair-body",
-							"description": "… repair the body, taking a full season for an exceptional smith (Value 3).",
+							"description": "… repair the body, taking a full season for an <em>exceptional</em> smith (Value 3).",
 							"max": 1
 						},
 						{

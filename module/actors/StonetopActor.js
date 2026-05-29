@@ -1,4 +1,5 @@
 import {StonetopCharacter} from "./character/StonetopCharacter.js";
+import {StonetopSteading} from "./steading/StonetopSteading.js";
 
 export function createStonetopActorClass(BaseActor) {
 	return class StonetopActor extends BaseActor {
@@ -15,8 +16,8 @@ export function createStonetopActorClass(BaseActor) {
 				case "character":
 					this._typedActor = StonetopCharacter.create(this);
 					break;
-				case "steading":
-					this._typedActor =  new StonetopSteading(this);
+				case "stonetop.steading":
+					this._typedActor = new StonetopSteading(this);
 					break;
 			}
 

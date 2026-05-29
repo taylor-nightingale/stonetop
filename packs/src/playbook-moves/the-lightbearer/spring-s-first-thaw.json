@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC</em></strong>, roll +CHA: <strong>on a 10+</strong>, you light a fire deep within them and effect a lasting change; <strong><em>on a 7-9</em></strong>, you kindle goodness in their heart for now, but they will eventually return to their old ways; on a 6-, their heart hardens and, whatever else the GM says, you can't use this move on them again.</p>",
+		"description": "<p>When you <strong><em>spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC</em></strong>, roll +CHA: <strong>on a 10+</strong>, you light a fire deep within them and effect a lasting change; <strong><em>on a 7-9</em></strong>, you kindle goodness in their heart for now, but they will eventually return to their old ways; <strong>on a 6-</strong>, their heart hardens and, whatever else the GM says, you can't use this move on them again.</p>",
 		"rollType": "cha",
 		"moveResults": {
 			"success": {

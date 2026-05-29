@@ -1681,3 +1681,731 @@ body,
 	font-size: 0.85rem;
 }
 
+/* ===== Steading Sheet ===== */
+
+.stonetop-steading-sheet {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+/* Header */
+.st-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+.st-logo {
+	height: 38px;
+	width: auto;
+	flex-shrink: 0;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+.st-name {
+	flex: 1;
+	font-size: 1.1rem;
+	border: none;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+	background: transparent;
+}
+
+/* Top row: Fortunes | Surplus | Size+Pop */
+.st-top-row {
+	display: flex;
+	gap: 8px;
+	align-items: stretch;
+}
+
+.st-stat-box {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 4px;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.st-stat-icon {
+	width: 100%;
+	display: block;
+	max-height: 64px;
+	object-fit: cover;
+	object-position: center top;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+.st-stat-content {
+	padding: 5px 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.st-stat-title {
+	font-weight: bold;
+	font-size: 0.8rem;
+	margin: 0;
+}
+
+.st-stat-note {
+	font-size: 0.7rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+	margin: 0 0 3px;
+}
+
+.st-radio-label {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	padding: 1px 0;
+}
+
+.st-radio-label.is-selected {
+	font-weight: bold;
+}
+
+/* Surplus number input */
+.stonetop-surplus-input {
+	width: 64px;
+	font-size: 1.4rem;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	padding: 2px 4px;
+	text-align: center;
+	background: transparent;
+	margin-top: 4px;
+}
+
+/* Size + Population divided box fills remaining space */
+.st-stat-box--divided {
+	flex: 1;
+}
+
+.st-stat-box--assets {
+	flex: 2;
+}
+
+.st-asset-coinage {
+	padding: 5px 8px;
+	border-top: 1px solid var(--color-border-light-primary, #ccc);
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.st-stat-divider {
+	height: 1px;
+	background: var(--color-border-light-primary, #ccc);
+	margin: 2px 8px;
+}
+
+/* Mid row: Prosperity | Defenses */
+.st-mid-row {
+	display: flex;
+	gap: 8px;
+}
+
+.st-mid-block {
+	flex: 1;
+	display: flex;
+	gap: 10px;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 4px;
+	padding: 6px 8px;
+}
+
+.st-mid-stat {
+	flex-shrink: 0;
+	min-width: 110px;
+}
+
+.st-item-list {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.st-item-list-title {
+	font-weight: bold;
+	font-size: 0.8rem;
+	margin: 0 0 3px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+.st-item-list ul {
+	list-style: none;
+	padding-left: 0;
+	margin: 0 0 4px;
+}
+
+.st-item-list ul li {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.78rem;
+	line-height: 1.4;
+}
+
+/* Bullet image — editable rows and plain lists (not checkbox lists) */
+.st-extra-row::before,
+.st-item-list ul li::before,
+.st-resident-traits-list li::before {
+	content: '';
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: url('/modules/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
+	flex-shrink: 0;
+}
+
+.st-extra-row {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+.stonetop-attr-extra {
+	flex: 1;
+	font-size: 0.78rem;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	padding: 1px 4px;
+}
+
+.stonetop-attr-extra:focus {
+	border-color: var(--color-border-light-primary, #ccc);
+	background: white;
+}
+
+.stonetop-attr-extra-remove {
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+	opacity: 0.5;
+	line-height: 1;
+	font-size: 0.7rem;
+}
+
+.stonetop-attr-extra-remove:hover {
+	opacity: 1;
+	color: var(--color-level-error, #c00);
+}
+
+.stonetop-attr-extra-add {
+	align-self: flex-start;
+	font-size: 0.72rem;
+	padding: 1px 5px;
+	background: transparent;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+	margin-top: 2px;
+}
+
+.stonetop-attr-extra-add:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+/* Bottom row: Places | Debilities | Notes */
+.st-bottom-row {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.st-section-title {
+	font-weight: bold;
+	font-size: 1.1rem;
+	margin: 0 0 5px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+/* Inline heading row: title + subtitle on one line */
+.st-section-heading {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.st-section-heading .st-section-title {
+	margin: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+	flex-shrink: 0;
+}
+
+.st-section-subtitle {
+	font-size: 0.82rem;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--color-text-dark-primary, #111);
+}
+
+/* Places of Interest */
+.st-places {
+	flex: 1.2;
+	display: flex;
+	flex-direction: column;
+}
+
+.st-places-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3px 10px;
+	margin-bottom: 5px;
+}
+
+.st-place {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.8rem;
+}
+
+.st-place-key {
+	font-weight: bold;
+	flex-shrink: 0;
+	min-width: 18px;
+}
+
+.st-place-title {
+	flex: 1;
+}
+
+.stonetop-place-field {
+	flex: 1;
+	font-size: 0.8rem;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	padding: 1px 3px;
+}
+
+.stonetop-place-field:focus {
+	border-color: var(--color-border-light-primary, #ccc);
+	background: white;
+}
+
+.stonetop-place-remove {
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+	opacity: 0.5;
+	line-height: 1;
+	font-size: 0.7rem;
+}
+
+.stonetop-place-remove:hover {
+	opacity: 1;
+	color: var(--color-level-error, #c00);
+}
+
+.stonetop-place-add {
+	align-self: flex-start;
+	font-size: 0.72rem;
+	padding: 1px 5px;
+	background: transparent;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop-place-add:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+/* Debilities column */
+.st-debilities-col {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* Override character-sheet centering for the steading row layout */
+.stonetop-steading-sheet .stonetop-debility {
+	flex: unset;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.st-debility-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.st-debility-desc {
+	font-size: 0.8rem;
+	line-height: 1.3;
+}
+
+.st-debility-note {
+	font-size: 0.71rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+/* Notes column */
+.st-notes-col {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.st-notes-textarea {
+	flex: 1;
+	min-height: 110px;
+	resize: vertical;
+	font-size: 0.8rem;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	padding: 4px;
+	background: transparent;
+}
+
+/* Lower sections: Content, Assets, Residents, Neighbors, Improvements */
+.stonetop-steading-section {
+	border-top: 1px solid var(--color-border-light-primary, #ccc);
+	padding-top: 8px;
+}
+
+.stonetop-steading-content-group {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin-bottom: 8px;
+}
+
+.stonetop-steading-content-group strong {
+	font-size: 0.8rem;
+}
+
+.stonetop-steading-content-row {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.stonetop-content-item {
+	flex: 1;
+	font-size: 0.8rem;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	padding: 1px 4px;
+}
+
+.stonetop-content-item:focus {
+	border-color: var(--color-border-light-primary, #ccc);
+	background: white;
+}
+
+.stonetop-content-remove,
+.stonetop-resident-remove,
+.stonetop-neighbor-person-remove,
+.stonetop-neighbor-place-remove {
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+	opacity: 0.5;
+	font-size: 0.75rem;
+}
+
+.stonetop-content-remove:hover,
+.stonetop-resident-remove:hover,
+.stonetop-neighbor-person-remove:hover,
+.stonetop-neighbor-place-remove:hover {
+	opacity: 1;
+	color: var(--color-level-error, #c00);
+}
+
+.stonetop-content-add,
+.stonetop-resident-add,
+.stonetop-neighbor-person-add,
+.stonetop-neighbor-place-add {
+	font-size: 0.72rem;
+	padding: 1px 5px;
+	background: transparent;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	cursor: pointer;
+	color: var(--color-text-dark-secondary, #555);
+	margin-top: 3px;
+}
+
+.stonetop-content-add:hover,
+.stonetop-resident-add:hover,
+.stonetop-neighbor-person-add:hover,
+.stonetop-neighbor-place-add:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+/* Coinage */
+.stonetop-steading-coinage {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 6px;
+	font-size: 0.82rem;
+}
+
+.stonetop-coinage-title {
+	font-weight: bold;
+	min-width: 56px;
+	text-transform: capitalize;
+}
+
+.stonetop-steading-coinage label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.stonetop-coinage-input {
+	width: 56px;
+	font-size: 0.82rem;
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 3px;
+	padding: 2px 4px;
+	text-align: right;
+	background: transparent;
+}
+
+/* Residents / Neighbors tables */
+.stonetop-steading-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.82rem;
+	margin-bottom: 4px;
+}
+
+.stonetop-steading-table th {
+	text-align: left;
+	font-size: 0.74rem;
+	color: #444;
+	background: #f0ede8;
+	text-shadow: none;
+	padding: 2px 4px;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+.stonetop-steading-table td {
+	padding: 1px 2px;
+}
+
+.stonetop-steading-table td input[type="text"] {
+	width: 100%;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	padding: 2px 4px;
+	font-size: 0.82rem;
+}
+
+.stonetop-steading-table td input[type="text"]:focus {
+	border-color: var(--color-border-light-primary, #ccc);
+	background: white;
+}
+
+.stonetop-steading-table td a {
+	cursor: pointer;
+}
+
+/* Neighbors tab */
+.st-neighbors-layout {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.st-neighbor-people-col {
+	flex: 2 1 0;
+	min-width: 0;
+}
+
+.st-neighbor-places-col {
+	flex: 1 1 0;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.st-neighbor-place-box {
+	border: 1px solid var(--color-border-light-primary, #ccc);
+	border-radius: 4px;
+	padding: 6px 8px;
+}
+
+.st-neighbor-place-header {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	padding-bottom: 3px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+.st-neighbor-place-name {
+	font-weight: bold;
+	font-size: 0.85rem;
+}
+
+.st-neighbor-place-subtitle {
+	font-size: 0.74rem;
+	color: var(--color-text-dark-secondary, #555);
+	font-style: italic;
+}
+
+.st-neighbor-place-body {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.stonetop-neighbor-place-note {
+	width: 100%;
+	resize: vertical;
+	min-height: 3em;
+	font-size: 0.82rem;
+	padding: 2px 4px;
+	box-sizing: border-box;
+}
+
+.st-neighbor-place-names-col {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.st-neighbor-names-label {
+	font-size: 0.72rem;
+	font-weight: bold;
+	color: var(--color-text-dark-secondary, #555);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin: 0;
+}
+
+.st-neighbor-place-names-text {
+	font-size: 0.82rem;
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* Residents tab */
+.st-residents-layout {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.st-residents-col {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+.st-residents-sidebar {
+	flex: 0 0 250px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.st-sidebar-label {
+	font-size: 0.72rem;
+	font-weight: bold;
+	color: var(--color-text-dark-secondary, #555);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin: 0;
+}
+
+.st-resident-names-list {
+	font-size: 0.74rem;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.st-residents-sidebar img {
+	width: 100%;
+	border-radius: 3px;
+	display: block;
+}
+
+/* NPC Traits — dynamic multi-column */
+.st-resident-traits-list li {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.st-resident-traits-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	column-count: 6;
+	column-width: 130px;
+	column-fill: auto;
+	max-height: calc(14 * 1.6em);
+	overflow: hidden;
+	font-size: 0.82rem;
+	line-height: 1.6;
+}
+
+/* Improvements */
+.stonetop-choice-entry {
+	margin-bottom: 4px;
+}
+
+.st-content-desc {
+	font-size: 0.74rem;
+	color: var(--color-text-dark-secondary, #555);
+	line-height: 1.4;
+	margin-bottom: 6px;
+}
+
+.st-content-desc p {
+	margin: 0 0 5px;
+}
+
+.st-content-desc p:last-child {
+	margin-bottom: 0;
+}
+
+.st-content-note {
+	font-size: 0.71rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+	font-weight: normal;
+}
+
+/* Improvements — multi-column like character sheet moves */
+.st-improvements-list {
+	column-count: 2;
+	column-gap: 16px;
+	margin-top: 4px;
+}
+
+.st-improvements-list .stonetop-choice-entry {
+	break-inside: avoid;
+	margin-bottom: 4px;
+}
+

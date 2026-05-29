@@ -7,7 +7,7 @@
 		"playbook": "The Fox",
 		"moveType": "playbook",
 		"isStartingMove": false,
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you may ask 1 additional question. Even on a 6-, you can ask 1 question (though you might not like how you learn the answer).</p>"
+		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you may ask 1 additional question. Even <strong>on a 6-</strong>, you can ask 1 question (though you might not like how you learn the answer).</p>"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

@@ -1,0 +1,18 @@
+{
+  "_id": "h8LojIIf94ChZESF",
+  "_key": "!items!h8LojIIf94ChZESF",
+  "name": "Twine/cord",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "twine-cord",
+      "inventoryColumn": "small",
+      "sortOrder": 8,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "tP7ySeQMgV0Lh8Wv",
+  "_key": "!items!tP7ySeQMgV0Lh8Wv",
+  "name": "Awl",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "awl",
+      "inventoryColumn": "small",
+      "sortOrder": 1,
+      "breakBefore": true,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

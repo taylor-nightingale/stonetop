@@ -1,0 +1,18 @@
+{
+  "_id": "qZ8pIx5F21rWz5FY",
+  "_key": "!items!qZ8pIx5F21rWz5FY",
+  "name": "Waterskin",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "waterskin",
+      "inventoryColumn": "small",
+      "sortOrder": 17,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

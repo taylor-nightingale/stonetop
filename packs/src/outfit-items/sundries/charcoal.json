@@ -1,0 +1,18 @@
+{
+  "_id": "nXv2Rra6fSEVQOEX",
+  "_key": "!items!nXv2Rra6fSEVQOEX",
+  "name": "Charcoal",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "charcoal",
+      "inventoryColumn": "small",
+      "sortOrder": 11,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

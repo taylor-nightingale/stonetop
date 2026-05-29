@@ -1,5 +1,12 @@
 {
 	"PBTA_OTHER": "Other (animals, kits, stashed items, etc.)",
+	"TYPES": {
+		"Actor": {
+			"stonetop": {
+				"steading": "Steading"
+			}
+		}
+	},
 	"stonetop": {
 		"sheet": {
 			"tabs": {

@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight about something magical</em></strong>, you may ask one additional question, not limited to the list. Even on a 6-, you get to ask this question.</p>",
+		"description": "<p>When you <strong><em>Seek Insight about something magical</em></strong>, you may ask one additional question, not limited to the list. Even <strong>on a 6-</strong>, you get to ask this question.</p>",
 		"requirement": {
 			"level": 6,
 			"moves": [

@@ -1,0 +1,64 @@
+{
+  "name": "Market",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "market",
+      "sortOrder": 9,
+      "choices": {
+        "slug": "market",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Market",
+            "description": "<p>Stonetop is at most an afterthought for traders in the region. We need to change that.</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p><strong>Requires</strong> 1 of the following:</p>"
+          },
+          {
+            "type": "track",
+            "slug": "compelling-good",
+            "description": "A compelling good/service, exclusive to Stonetop",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "other-reason",
+            "description": "Establishing some other reason to visit Stonetop (place of pilgrimage, etc.)",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>And these:</p>"
+          },
+          {
+            "type": "track",
+            "slug": "market-site",
+            "description": "A dedicated market site (add it to the map)",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "arbiter",
+            "description": "A trusted arbiter, able to enforce their own rulings on matters of trade",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "four-seasons",
+            "description": "Four seasons in operation without notable incidents of violence, banditry, theft, etc.",
+            "max": 4
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p><p>When the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus.</p>"
+          }
+        ]
+      }
+    }
+  },
+  "_id": "BqPBZ9ExSPulTLPn",
+  "_key": "!items!BqPBZ9ExSPulTLPn"
+}

@@ -1,0 +1,407 @@
+<form class="stonetop-steading-sheet" autocomplete="off">
+
+	{{!-- Title + Name --}}
+	<div class="st-header">
+		<img class="st-logo" src="modules/stonetop/assets/steading/stonetop.png" alt="Stonetop">
+		<input class="st-name" type="text" name="name" value="{{actor.name}}">
+	</div>
+
+	{{!-- Top stats: Fortunes | Surplus | Size+Population --}}
+	<div class="st-top-row">
+
+		{{!-- Fortunes --}}
+		<div class="st-stat-box">
+			<img class="st-stat-icon" src="modules/stonetop/assets/steading/fortunes.png" alt="">
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">{{{stonetop.fortunes.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.fortunes.note}}}</p>
+				{{#each stonetop.fortunes.options}}
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-fortunes-radio"
+						       name="stonetop-fortunes" value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
+				{{/each}}
+			</div>
+		</div>
+
+		{{!-- Surplus --}}
+		<div class="st-stat-box">
+			<img class="st-stat-icon" src="modules/stonetop/assets/steading/surplus.png" alt="">
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">{{{stonetop.surplus.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.surplus.note}}}</p>
+				<input class="stonetop-surplus-input" type="number" min="0"
+				       value="{{stonetop.surplus.current}}">
+			</div>
+		</div>
+
+		{{!-- Size + Population (stacked in one box) --}}
+		<div class="st-stat-box st-stat-box--divided">
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">{{{stonetop.attributes.size.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.attributes.size.note}}}</p>
+				{{#each stonetop.attributes.size.options}}
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="size" name="stonetop-attr-size"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
+				{{/each}}
+			</div>
+			<div class="st-stat-divider"></div>
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">{{{stonetop.attributes.population.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.attributes.population.note}}}</p>
+				{{#each stonetop.attributes.population.options}}
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="population" name="stonetop-attr-population"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
+				{{/each}}
+			</div>
+		</div>
+
+		{{!-- Assets --}}
+		<div class="st-stat-box st-stat-box--assets">
+			<div class="st-stat-content">
+				<h3 class="st-stat-title">Assets</h3>
+				<p class="st-stat-note">Owned by the residents of Stonetop in common. To take them on an expedition or otherwise put them at risk, you must Requisition.</p>
+				{{#each stonetop.assets.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-asset-item stonetop-attr-extra"
+						       data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-asset-item-remove stonetop-attr-extra-remove" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
+				{{/each}}
+				<button type="button" class="stonetop-asset-item-add stonetop-attr-extra-add">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+			<div class="st-asset-coinage">
+				{{#each stonetop.assets.coinage}}
+					<div class="stonetop-steading-coinage">
+						<span class="stonetop-coinage-title">{{title}}</span>
+						<label>Purses
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="purses" value="{{purses}}">
+						</label>
+						<label>Handfuls
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
+						</label>
+						<label>Coins
+							<input type="number" class="stonetop-coinage-input" min="0"
+							       data-index="{{@index}}" data-field="coins" value="{{coins}}">
+						</label>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+
+	</div>{{!-- /st-top-row --}}
+
+	{{!-- Middle: Prosperity + Resources | Defenses + Fortifications --}}
+	<div class="st-mid-row">
+
+		{{!-- Prosperity --}}
+		<div class="st-mid-block">
+			<div class="st-stat-content st-mid-stat">
+				<h3 class="st-stat-title">{{{stonetop.attributes.prosperity.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.attributes.prosperity.note}}}</p>
+				{{#each stonetop.attributes.prosperity.options}}
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="prosperity" name="stonetop-attr-prosperity"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
+				{{/each}}
+			</div>
+			<div class="st-item-list">
+				<h3 class="st-item-list-title">Resources</h3>
+				{{#each stonetop.attributes.prosperity.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-attr-extra"
+						       data-attr="prosperity" data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-attr-extra-remove" data-attr="prosperity" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
+				{{/each}}
+				<button type="button" class="stonetop-attr-extra-add" data-attr="prosperity">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+		</div>
+
+		{{!-- Defenses --}}
+		<div class="st-mid-block">
+			<div class="st-stat-content st-mid-stat">
+				<h3 class="st-stat-title">{{{stonetop.attributes.defenses.title}}}</h3>
+				<p class="st-stat-note">{{{stonetop.attributes.defenses.note}}}</p>
+				{{#each stonetop.attributes.defenses.options}}
+					<label class="st-radio-label{{#if selected}} is-selected{{/if}}">
+						<input type="radio" class="stonetop-item-check stonetop-attr-radio"
+						       data-attr="defenses" name="stonetop-attr-defenses"
+						       value="{{index}}" {{#if selected}}checked{{/if}}>
+						<span>{{{label}}}</span>
+					</label>
+				{{/each}}
+			</div>
+			<div class="st-item-list">
+				<h3 class="st-item-list-title">Fortifications, etc.</h3>
+				{{#each stonetop.attributes.defenses.items}}
+					<div class="st-extra-row">
+						<input type="text" class="stonetop-attr-extra"
+						       data-attr="defenses" data-index="{{@index}}" value="{{this}}">
+						<a class="stonetop-attr-extra-remove" data-attr="defenses" data-index="{{@index}}">
+							<i class="fas fa-times"></i>
+						</a>
+					</div>
+				{{/each}}
+				<button type="button" class="stonetop-attr-extra-add" data-attr="defenses">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+		</div>
+
+	</div>{{!-- /st-mid-row --}}
+
+	{{!-- Bottom: Places | Debilities | Notes --}}
+	<div class="st-bottom-row">
+
+		{{!-- Places of Interest --}}
+		<div class="st-places">
+			<h2 class="st-section-title">Places of Interest</h2>
+			<div class="st-places-grid">
+				{{#each stonetop.placesOfInterest}}
+					<div class="st-place">
+						<span class="st-place-key">{{key}}.</span>
+						<input type="text" class="stonetop-place-field" data-index="{{index}}" value="{{value}}">
+					</div>
+				{{/each}}
+			</div>
+			<button type="button" class="stonetop-place-add">
+				<i class="fas fa-plus"></i> Add
+			</button>
+		</div>
+
+		{{!-- Debilities --}}
+		<div class="st-debilities-col">
+			<h2 class="st-section-title">Debilities</h2>
+			{{#each stonetop.debilities}}
+				<div class="stonetop-debility{{#if active}} is-active{{/if}}">
+					<input type="checkbox" class="stonetop-debility-check"
+					       data-slug="{{slug}}" {{#if active}}checked{{/if}}>
+					<div class="st-debility-text">
+						<span class="st-debility-desc">{{{description}}}</span>
+						<span class="st-debility-note">{{note}}</span>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+
+		{{!-- Notes --}}
+		<div class="st-notes-col">
+			<h2 class="st-section-title">Notes</h2>
+			<textarea class="stonetop-notes st-notes-textarea">{{stonetop.notes}}</textarea>
+		</div>
+
+	</div>{{!-- /st-bottom-row --}}
+
+	{{!-- Tab navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item" data-tab="content">Content</a>
+		<a class="item" data-tab="residents">Residents</a>
+		<a class="item" data-tab="neighbors">Neighbors</a>
+		<a class="item" data-tab="improvements">Improvements</a>
+	</nav>
+
+	<section class="sheet-body">
+
+		{{!-- content tab --}}
+		<div class="tab content" data-group="primary" data-tab="content">
+
+			{{!-- Content --}}
+			<section class="stonetop-steading-section st-content-section">
+				{{> "stonetop.section-heading" title="Content"}}
+				<div class="st-content-desc">{{{stonetop.contentDescription}}}</div>
+				{{#each stonetop.content}}
+					<div class="stonetop-steading-content-group">
+						<strong>{{label}}</strong>{{#if note}} <span class="st-content-note">{{note}}</span>{{/if}}
+						{{#each items}}
+							<div class="stonetop-steading-content-row">
+								<input type="text" class="stonetop-content-item"
+								       data-type="{{../slug}}" data-index="{{@index}}"
+								       value="{{this}}">
+								<a class="stonetop-content-remove" data-type="{{../slug}}" data-index="{{@index}}">
+									<i class="fas fa-times"></i>
+								</a>
+							</div>
+						{{/each}}
+						<button type="button" class="stonetop-content-add" data-type="{{slug}}">
+							<i class="fas fa-plus"></i>
+						</button>
+					</div>
+				{{/each}}
+			</section>
+
+		</div>{{!-- /tab content --}}
+
+		{{!-- Residents tab --}}
+		<div class="tab residents" data-group="primary" data-tab="residents">
+
+			{{!-- Top: table + sidebar --}}
+			<section class="stonetop-steading-section">
+				<div class="st-section-heading">
+					<h2 class="st-section-title">Residents of Stonetop</h2>
+					<span class="st-section-subtitle">Add each NPC that is named during introductions or play. Give each an occupation (even if just farmer or homemaker) and at least 1 trait.</span>
+				</div>
+				<div class="st-residents-layout">
+
+					{{!-- Left: NPC table --}}
+					<div class="st-residents-col">
+						<table class="stonetop-steading-table">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Occupation</th>
+								<th>Traits</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
+							{{#each stonetop.residents}}
+								<tr>
+									<td><input type="text" class="stonetop-resident-name" data-id="{{id}}" value="{{name}}"></td>
+									<td><input type="text" class="stonetop-resident-occupation" data-id="{{id}}" value="{{occupation}}"></td>
+									<td><input type="text" class="stonetop-resident-traits" data-id="{{id}}" value="{{traits}}"></td>
+									<td><a class="stonetop-resident-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+								</tr>
+							{{/each}}
+							</tbody>
+						</table>
+						<button type="button" class="stonetop-resident-add">
+							<i class="fas fa-plus"></i> Add Resident
+						</button>
+					</div>
+
+					{{!-- Right: example names + reference image --}}
+					<div class="st-residents-sidebar">
+						<p class="st-sidebar-label">Example names</p>
+						<p class="st-resident-names-list">{{stonetop.residentNames}}</p>
+						<img src="modules/stonetop/assets/steading/residents.png" alt="Resident reference">
+					</div>
+
+				</div>
+			</section>
+
+			{{!-- Bottom: NPC Traits full-width --}}
+			<section class="stonetop-steading-section">
+				<div class="st-section-heading">
+					<h2 class="st-section-title">NPC Traits</h2>
+					<span class="st-section-subtitle">Assign as needed; choose from this list or make up your own.</span>
+				</div>
+				<ul class="st-resident-traits-list">
+					{{#each stonetop.residentTraits}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+			</section>
+
+		</div>{{!-- /tab residents --}}
+
+		{{!-- Neighbors tab --}}
+		<div class="tab neighbors" data-group="primary" data-tab="neighbors">
+			<section class="stonetop-steading-section">
+				<div class="st-section-heading">
+					<h2 class="st-section-title">Notable Neighbors of Stonetop</h2>
+					<span class="st-section-subtitle">Add NPCs from neighboring areas when instructed by a playbook, or as needed.</span>
+				</div>
+
+				<div class="st-neighbors-layout">
+
+					{{!-- Left: People (2/3) --}}
+					<div class="st-neighbor-people-col">
+						<table class="stonetop-steading-table">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Occupation</th>
+								<th>Traits</th>
+								<th>Home</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
+							{{#each stonetop.neighbors.people}}
+								<tr>
+									<td><input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}"></td>
+									<td><input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}"></td>
+									<td><a class="stonetop-neighbor-person-remove" data-id="{{id}}"><i class="fas fa-times"></i></a></td>
+								</tr>
+							{{/each}}
+							</tbody>
+						</table>
+						<button type="button" class="stonetop-neighbor-person-add">
+							<i class="fas fa-plus"></i> Add Person
+						</button>
+					</div>
+
+					{{!-- Right: Place boxes (1/3) --}}
+					<div class="st-neighbor-places-col">
+						{{#each stonetop.neighbors.places}}
+							<div class="st-neighbor-place-box">
+								<div class="st-neighbor-place-header">
+									<span class="st-neighbor-place-name">{{name}}</span>
+									{{#if subtitle}}<span class="st-neighbor-place-subtitle">{{subtitle}}</span>{{/if}}
+								</div>
+								<div class="st-neighbor-place-body">
+									<textarea class="stonetop-neighbor-place-note"
+									          data-id="{{id}}"
+									          placeholder="Notes">{{note}}</textarea>
+									{{#if names}}
+										<div class="st-neighbor-place-names-col">
+											<p class="st-neighbor-names-label">Names</p>
+											<p class="st-neighbor-place-names-text">{{names}}</p>
+										</div>
+									{{/if}}
+								</div>
+							</div>
+						{{/each}}
+					</div>
+
+				</div>
+			</section>
+		</div>{{!-- /tab neighbors --}}
+
+		{{!-- Improvements tab --}}
+		<div class="tab improvements" data-group="primary" data-tab="improvements">
+			<section class="stonetop-steading-section">
+				<div class="st-section-heading">
+					<h2 class="st-section-title">Steading Improvements</h2>
+					<span class="st-section-subtitle">Known, available improvements you can make to Stonetop. The GM may present others.</span>
+				</div>
+				<div class="st-improvements-list">
+					{{#each stonetop.improvements}}
+						<div class="stonetop-choice-entry" data-slug="{{slug}}">
+							{{#each list}}
+								{{> "stonetop.choice-row" inputClass="stonetop-improvement-track"}}
+							{{/each}}
+						</div>
+					{{/each}}
+				</div>
+			</section>
+		</div>{{!-- /tab improvements --}}
+
+	</section>{{!-- /sheet-body --}}
+
+</form>

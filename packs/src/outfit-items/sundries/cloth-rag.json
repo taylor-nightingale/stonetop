@@ -1,0 +1,18 @@
+{
+  "_id": "HVlnES8GrgmolaHr",
+  "_key": "!items!HVlnES8GrgmolaHr",
+  "name": "Cloth/rag",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "cloth-rag",
+      "inventoryColumn": "small",
+      "sortOrder": 12,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpSnd0001X"
+}

@@ -2,6 +2,7 @@ import { registerSettings } from "./module/settings.js";
 import { createStonetopActorClass } from "./module/actors/StonetopActor.js";
 import { createStonetopItemClass } from "./module/item/StonetopItem.js";
 import { createStonetopCharacterSheetClass } from "./module/actors/character/StonetopCharacterSheet.js";
+import { createStonetopSteadingSheetClass } from "./module/actors/steading/StonetopSteadingSheet.js";
 import { onPbtaSheetConfig } from "./module/hooks/PbtaSheetConfig.js";
 import { onReady } from "./module/hooks/Ready.js";
 import { onRenderActorSheet } from "./module/hooks/RenderActorSheet.js";
@@ -33,6 +34,19 @@ Hooks.once("init", () => {
 	});
 
 	Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) => i));
+
+	Handlebars.registerHelper("outfitSegments", items => {
+		const segments = [];
+		let current = null;
+		for (const item of (items ?? [])) {
+			if (!current || current.isGrid !== item.twoCol) {
+				current = { isGrid: item.twoCol, items: [] };
+				segments.push(current);
+			}
+			current.items.push(item);
+		}
+		return segments;
+	});
 	Handlebars.registerHelper("gt", (a, b) => a > b);
 	Handlebars.registerHelper("eq", (a, b) => a === b);
 
@@ -49,13 +63,20 @@ Hooks.once("init", () => {
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
 	const StonetopCharacterSheet = createStonetopCharacterSheetClass(game.pbta.applications.actor.PbtaActorSheet);
-	Actors.registerSheet("stonetop", StonetopCharacterSheet, {
+	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopCharacterSheet, {
 		types: ["character"],
 		makeDefault: true,
 		label: "Stonetop Character Sheet",
 	});
 
-	loadTemplates({
+	const StonetopSteadingSheet = createStonetopSteadingSheetClass(foundry.appv1.sheets.ActorSheet);
+	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopSteadingSheet, {
+		types: ["stonetop.steading"],
+		makeDefault: true,
+		label: "Stonetop Steading Sheet",
+	});
+
+	foundry.applications.handlebars.loadTemplates({
 		"stonetop.tab-details":      "modules/stonetop/templates/actor/partials/tab-details.hbs",
 		"stonetop.tab-moves":        "modules/stonetop/templates/actor/partials/tab-moves.hbs",
 		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
@@ -67,6 +88,7 @@ Hooks.once("init", () => {
 		"stonetop.choice-section":   "modules/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.resource-track":   "modules/stonetop/templates/actor/partials/resource-track.hbs",
+		"stonetop.steading":         "modules/stonetop/templates/actor/steading.hbs",
 	});
 });
 

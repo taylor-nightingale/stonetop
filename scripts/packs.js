@@ -10,4 +10,5 @@ export const PACKS = [
 	"followers",
 	"post-death-inserts",
 	"post-death-moves",
+	"steading-improvements",
 ];

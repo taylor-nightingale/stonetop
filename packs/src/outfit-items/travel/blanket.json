@@ -1,0 +1,20 @@
+{
+  "_id": "IqK3yn9FfcgMXAdx",
+  "_key": "!items!IqK3yn9FfcgMXAdx",
+  "name": "Blanket",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "blanket",
+      "inventoryColumn": "regular",
+      "sortOrder": 6,
+      "note": "<em>warm</em>",
+      "weight": 1,
+      "twoCol": true
+    }
+  },
+  "folder": "StOnEtOpTrv0001X"
+}

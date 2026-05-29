@@ -1,0 +1,42 @@
+{
+  "name": "Harnessing the Stream",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "harnessing-the-stream",
+      "sortOrder": 5,
+      "choices": {
+        "slug": "harnessing-the-stream",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Harnessing the Stream",
+            "description": "<p>A shallow creek flows just below the town. If only it could be harnessed!</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p><strong>Requires</strong> 2 of the following:</p>"
+          },
+          {
+            "type": "track",
+            "slug": "reservoir",
+            "description": "A reservoir for the Stream to pool in, and some way for water to flow uphill",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "aqueducts",
+            "description": "A series of aqueducts, from the Stream's source to Stonetop",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
+          }
+        ]
+      }
+    }
+  },
+  "_id": "7Gc4D6MgwoYoHbk2",
+  "_key": "!items!7Gc4D6MgwoYoHbk2"
+}

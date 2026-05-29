@@ -4,8 +4,8 @@ import { FoundryPackStore } from "./FoundryPackStore.js";
 const FIELDS = [
 	"flags.stonetop.slug", "flags.stonetop.inventoryColumn", "flags.stonetop.sortOrder",
 	"flags.stonetop.weight", "flags.stonetop.note", "flags.stonetop.resource",
-	"flags.stonetop.breakBefore", "flags.stonetop.twoCol",
-	"flags.stonetop.armor",
+	"flags.stonetop.twoCol", "flags.stonetop.armor",
+	"folder",
 ];
 
 export class FoundryOutfitItemRepository {
@@ -17,6 +17,7 @@ export class FoundryOutfitItemRepository {
 	async getAll() {
 		if (this._cache) return this._cache;
 		const entries = await this._store.getAll();
+		const folders = await this._store.getFolders();
 		this._cache = entries
 			.sort((a, b) => (a.flags?.stonetop?.sortOrder ?? 0) - (b.flags?.stonetop?.sortOrder ?? 0))
 			.map(item => {
@@ -29,7 +30,7 @@ export class FoundryOutfitItemRepository {
 					.withInventoryColumn(st.inventoryColumn ?? null)
 					.withResource(st.resource ?? null)
 					.withTwoCol(st.twoCol ?? false)
-					.withBreakBefore(st.breakBefore ?? false)
+					.withGroup(folders.get(item.folder) ?? null)
 					.withArmor(st.armor ?? null)
 					.build();
 			});

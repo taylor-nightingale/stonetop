@@ -3,7 +3,7 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial module for playing Stonetop in Foundry VTT.",
-	"version": "0.7.0",
+	"version": "0.8.0",
 	"compatibility": {
 		"minimum": "12",
 		"verified": "14"
@@ -54,6 +54,11 @@
 			"path": "languages/en.json"
 		}
 	],
+	"documentTypes": {
+		"Actor": {
+			"steading": {}
+		}
+	},
 	"packs": [
 		{
 			"name": "basic-moves",
@@ -129,6 +134,13 @@
 			"name": "followers",
 			"label": "Followers",
 			"path": "packs/followers",
+			"type": "Item",
+			"system": "pbta"
+		},
+		{
+			"name": "steading-improvements",
+			"label": "Steading Improvements",
+			"path": "packs/steading-improvements",
 			"type": "Item",
 			"system": "pbta"
 		}

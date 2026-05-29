@@ -50,43 +50,39 @@ export class LoadSnapshotBuilder {
  * @property {boolean} isCustom
  * @property {string|null} ownedId
  * @property {boolean} twoCol
- * @property {boolean} breakBefore
  */
 export class OutfitItemSnapshot {
 	constructor(b) {
-		this.slug        = b._slug;
-		this.name        = b._name;
-		this.note        = b._note;
-		this.weight      = b._weight;
-		this.checked     = b._checked;
-		this.resource    = b._resource;
-		this.isCustom    = b._isCustom;
-		this.ownedId     = b._ownedId;
-		this.twoCol      = b._twoCol;
-		this.breakBefore = b._breakBefore;
+		this.slug     = b._slug;
+		this.name     = b._name;
+		this.note     = b._note;
+		this.weight   = b._weight;
+		this.checked  = b._checked;
+		this.resource = b._resource;
+		this.isCustom = b._isCustom;
+		this.ownedId  = b._ownedId;
+		this.twoCol   = b._twoCol;
 	}
 }
 
 export class OutfitItemSnapshotBuilder {
-	withSlug(v)        { this._slug        = v; return this; }
-	withName(v)        { this._name        = v; return this; }
-	withNote(v)        { this._note        = v; return this; }
-	withWeight(v)      { this._weight      = v; return this; }
-	withChecked(v)     { this._checked     = v; return this; }
-	withResource(v)    { this._resource    = v; return this; }
-	withIsCustom(v)    { this._isCustom    = v; return this; }
-	withOwnedId(v)     { this._ownedId     = v; return this; }
-	withTwoCol(v)      { this._twoCol      = v; return this; }
-	withBreakBefore(v) { this._breakBefore = v; return this; }
-	build()            { return new OutfitItemSnapshot(this); }
+	withSlug(v)     { this._slug     = v; return this; }
+	withName(v)     { this._name     = v; return this; }
+	withNote(v)     { this._note     = v; return this; }
+	withWeight(v)   { this._weight   = v; return this; }
+	withChecked(v)  { this._checked  = v; return this; }
+	withResource(v) { this._resource = v; return this; }
+	withIsCustom(v) { this._isCustom = v; return this; }
+	withOwnedId(v)  { this._ownedId  = v; return this; }
+	withTwoCol(v)   { this._twoCol   = v; return this; }
+	build()         { return new OutfitItemSnapshot(this); }
 }
 
-/** One contiguous block of grid or list items in OutfitSnapshot.regularSegments. */
-export class InventorySegmentSnapshot {
-	constructor(isGrid, segmentBreak, items) {
-		this.isGrid       = isGrid;
-		this.segmentBreak = segmentBreak;
-		this.items        = items;
+/** A named group of outfit items within a column (maps to a compendium folder). */
+export class OutfitSection {
+	constructor(name, items) {
+		this.name  = name;
+		this.items = items;
 	}
 }
 
@@ -94,32 +90,26 @@ export class InventorySegmentSnapshot {
 
 /**
  * @property {LoadSnapshot} load
- * @property {OutfitItemSnapshot[]} regularItems
- * @property {InventorySegmentSnapshot[]} regularSegments
+ * @property {OutfitSection[]} regularSections
  * @property {Resource} regularPool
- * @property {OutfitItemSnapshot[]} smallItems
- * @property {OutfitItemSnapshot[]} smallGridItems
+ * @property {OutfitSection[]} smallSections
  * @property {Resource} smallPool
  */
 export class OutfitSnapshot {
 	constructor(b) {
-		this.load            = b._load;
-		this.regularItems    = b._regularItems;
-		this.regularSegments = b._regularSegments;
-		this.regularPool     = b._regularPool;
-		this.smallItems      = b._smallItems;
-		this.smallGridItems  = b._smallGridItems;
-		this.smallPool       = b._smallPool;
+		this.load             = b._load;
+		this.regularSections  = b._regularSections;
+		this.regularPool      = b._regularPool;
+		this.smallSections    = b._smallSections;
+		this.smallPool        = b._smallPool;
 	}
 }
 
 export class OutfitSnapshotBuilder {
 	withLoad(v)            { this._load            = v; return this; }
-	withRegularItems(v)    { this._regularItems    = v; return this; }
-	withRegularSegments(v) { this._regularSegments = v; return this; }
+	withRegularSections(v) { this._regularSections = v; return this; }
 	withRegularPool(v)     { this._regularPool     = v; return this; }
-	withSmallItems(v)      { this._smallItems      = v; return this; }
-	withSmallGridItems(v)  { this._smallGridItems  = v; return this; }
+	withSmallSections(v)   { this._smallSections   = v; return this; }
 	withSmallPool(v)       { this._smallPool       = v; return this; }
 	build()                { return new OutfitSnapshot(this); }
 }
@@ -151,7 +141,6 @@ export class PossessionsSnapshot {
  * @property {Resource|null} resource
  * @property {string|null} usesLabel
  * @property {Object|null} choices
- * @property {Object|null} choiceGroups
  */
 export class PossessionItemSnapshot {
 	constructor(b) {

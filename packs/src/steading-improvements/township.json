@@ -1,0 +1,60 @@
+{
+  "name": "Township",
+  "type": "move",
+  "flags": {
+    "stonetop": {
+      "slug": "township",
+      "sortOrder": 15,
+      "choices": {
+        "slug": "township",
+        "list": [
+          {
+            "type": "heading",
+            "title": "Township",
+            "description": "<p>Will this ever be more than a backwater village?</p>"
+          },
+          {
+            "type": "heading",
+            "description": "<p><strong>Requires</strong> all of the following:</p>"
+          },
+          {
+            "type": "track",
+            "slug": "population-plus3",
+            "description": "Population +3 for 4 consecutive seasons",
+            "max": 4
+          },
+          {
+            "type": "track",
+            "slug": "additional-housing",
+            "description": "Additional Housing",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "water-source",
+            "description": "Raincatching OR Harnessing the Stream",
+            "max": 1
+          },
+          {
+            "type": "track",
+            "slug": "other-improvements",
+            "description": "At least 4 other improvements",
+            "max": 4
+          },
+          {
+            "type": "track",
+            "slug": "formal-government",
+            "description": "A formal government of some sort",
+            "max": 1
+          },
+          {
+            "type": "heading",
+            "description": "<p>When you mark all of the requirements, change Size to town and its Population to +0.</p><p>Henceforth: When you Muster, Pull Together, or Trade &amp; Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population.</p>"
+          }
+        ]
+      }
+    }
+  },
+  "_id": "bDHGwo8FMAtirOKw",
+  "_key": "!items!bDHGwo8FMAtirOKw"
+}

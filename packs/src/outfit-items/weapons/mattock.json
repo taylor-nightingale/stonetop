@@ -1,0 +1,19 @@
+{
+  "_id": "enq522wjZRL9OaYs",
+  "_key": "!items!enq522wjZRL9OaYs",
+  "name": "Mattock, iron and/or wood",
+  "type": "equipment",
+  "system": {
+    "equipmentType": "outfit"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mattock",
+      "inventoryColumn": "regular",
+      "sortOrder": 17,
+      "note": "<em>hand</em>",
+      "weight": 1
+    }
+  },
+  "folder": "StOnEtOpWpn0001X"
+}

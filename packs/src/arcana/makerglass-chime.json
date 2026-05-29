@@ -28,7 +28,7 @@
 						{
 							"type": "track",
 							"slug": "grasp-and-roll",
-							"description": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: on a 10+, you've got it; on a 7-9, mark a debility and you'll need to try again; on a 6-, ask the GM what goes terribly wrong.",
+							"description": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: <strong>on a 10+</strong>, you've got it; <strong>on a 7-9</strong>, mark a debility and you'll need to try again; <strong>on a 6-</strong>, ask the GM what goes terribly wrong.",
 							"max": 1
 						},
 						{
