@@ -43,7 +43,7 @@ const PLAYBOOK = {
 		{ slug: "vessel",    moves: ["Channel"] },
 	],
 	instinct:       { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [{ slug: "pious", label: "Pious", description: "Devout." }] }] },
-	appearance:     [["tall", "short"]],
+	appearance:     { slug: "appearance", list: [{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "tall", text: "tall" }, { slug: "short", text: "short" }] }] },
 	origin:         [{ region: "The Reach", names: ["Aldric"] }],
 };
 
@@ -151,7 +151,7 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		await makePlaybook(makeActor(), makeRepo(minimal), subs).buildPlaybookSnapshot();
 		expect(subs.background.buildSnapshot).toHaveBeenCalledWith([]);
 		expect(subs.instinct.buildSnapshot).toHaveBeenCalledWith(null);
-		expect(subs.appearance.buildSnapshot).toHaveBeenCalledWith([]);
+		expect(subs.appearance.buildSnapshot).toHaveBeenCalledWith(null);
 		expect(subs.origin.buildSnapshot).toHaveBeenCalledWith([]);
 		expect(subs.lore.buildSnapshot).toHaveBeenCalledWith([]);
 	});

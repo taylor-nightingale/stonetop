@@ -13,11 +13,7 @@ function makeCharacterMock(actor) {
 	};
 	const instinct = { select: vi.fn(), selectedValue: "" };
 	const appearance = {
-		select: vi.fn(async (lineIdx, value) => {
-			const saved = actor.getFlag("stonetop", "appearance.selected") ?? {};
-			actor.setFlag("stonetop", "appearance.selected", { ...saved, [lineIdx]: value });
-		}),
-		saved: actor.getFlag("stonetop", "appearance.selected") ?? {},
+		selectOption: vi.fn(),
 	};
 	const origin = { select: vi.fn(), selectName: vi.fn() };
 	return {
@@ -83,11 +79,11 @@ describe("StonetopCharacterSheet event handlers", () => {
 		expect(actor.typedActor.selectBackground).toHaveBeenCalledWith("vessel");
 	});
 
-	it("_onAppearanceChange calls appearance.select with rowKey and value", async () => {
+	it("_onAppearanceChange calls appearance.selectOption with slug and siblingSlugsCsv", async () => {
 		const actor = makeActor();
 		const sheet = makeSheet(actor);
-		await sheet._onAppearanceChange({ currentTarget: { dataset: { rowKey: "0", choiceSlug: "gray-and-wizened" } } });
-		expect(actor.typedActor.appearance.select).toHaveBeenCalledWith(0, "gray-and-wizened");
+		await sheet._onAppearanceChange({ currentTarget: { dataset: { choiceSlug: "gray-and-wizened", siblingSlugsCsv: "fresh-faced,hale-and-hearty,gray-and-wizened" } } });
+		expect(actor.typedActor.appearance.selectOption).toHaveBeenCalledWith("gray-and-wizened", "fresh-faced,hale-and-hearty,gray-and-wizened");
 	});
 
 	it("_onOriginNameClick calls origin.selectName with trimmed text", async () => {

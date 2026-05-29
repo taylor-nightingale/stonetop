@@ -14,13 +14,13 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem({ damage: "d6" })).damage).toBe("d6");
 	});
 
-	it("appearance returns appearance array", () => {
-		const opts = [["a", "b"], ["c", "d"]];
-		expect(new StonetopPlaybook(makeItem({ appearance: opts })).appearance).toEqual(opts);
+	it("appearance returns the appearance ChoiceGroup", () => {
+		const group = { slug: "appearance", list: [] };
+		expect(new StonetopPlaybook(makeItem({ appearance: group })).appearance).toEqual(group);
 	});
 
-	it("appearance defaults to empty array", () => {
-		expect(new StonetopPlaybook(makeItem()).appearance).toEqual([]);
+	it("appearance defaults to null", () => {
+		expect(new StonetopPlaybook(makeItem()).appearance).toBeNull();
 	});
 
 	it("backgrounds returns the backgrounds array", () => {
@@ -32,13 +32,13 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem()).backgrounds).toEqual([]);
 	});
 
-	it("instincts returns the instincts array", () => {
-		const ins = [{ word: "Delight", description: "..." }];
-		expect(new StonetopPlaybook(makeItem({ instincts: ins })).instincts).toEqual(ins);
+	it("instinct returns the instinct ChoiceGroup", () => {
+		const inst = { slug: "instinct", list: [] };
+		expect(new StonetopPlaybook(makeItem({ instinct: inst })).instinct).toEqual(inst);
 	});
 
-	it("instincts defaults to empty array", () => {
-		expect(new StonetopPlaybook(makeItem()).instincts).toEqual([]);
+	it("instinct defaults to null", () => {
+		expect(new StonetopPlaybook(makeItem()).instinct).toBeNull();
 	});
 
 	it("origin returns the origin array", () => {

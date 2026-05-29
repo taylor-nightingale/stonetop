@@ -1,306 +1,368 @@
 {
-  "_id": "66InktII1QKAPInQ",
-  "_key": "!items!66InktII1QKAPInQ",
-  "img": "modules/stonetop/assets/playbooks/the-seeker.png",
-  "name": "The Seeker",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 16,
-      "damage": "d6",
-      "moves": {
-        "startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
-      },
-      "backgrounds": [
-        {
-          "slug": "patriot",
-          "label": "Patriot",
-          "description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        },
-        {
-          "slug": "antiquarian",
-          "label": "Antiquarian",
-          "description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        },
-        {
-          "slug": "witch-hunter",
-          "label": "Witch Hunter",
-          "description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
-        }
-      ],
-      "appearance": [
-        [
-          "curiously young",
-          "world-weary",
-          "bent with years"
-        ],
-        [
-          "haunted voice",
-          "rich voice",
-          "whispery"
-        ],
-        [
-          "ink-stained fingers",
-          "sinewy hands",
-          "soft hands"
-        ],
-        [
-          "bony limbed",
-          "lean & lanky",
-          "short",
-          "thick-set"
-        ]
-      ],
-      "origin": [
-        {
-          "region": "Stonetop",
-          "names": [
-            "Ania",
-            "Dylan",
-            "Eilwen",
-            "Gelt",
-            "Gwenda",
-            "Macsen",
-            "Mirgan",
-            "Owena",
-            "Taliesyn",
-            "Twymor"
-          ]
-        },
-        {
-          "region": "Barrier Pass",
-          "names": [
-            "Bayanaganengri",
-            "Chakha",
-            "Jetei",
-            "Moog",
-            "Narengawa",
-            "Ogul",
-            "Ozbeg",
-            "Solongo"
-          ]
-        },
-        {
-          "region": "The Steplands (Hillfolk)",
-          "names": [
-            "Anook",
-            "Anxo",
-            "Dors",
-            "Jory",
-            "Mari",
-            "Padg",
-            "Pons",
-            "Silf"
-          ]
-        },
-        {
-          "region": "Gordin's Delve",
-          "names": []
-        },
-        {
-          "region": "Marshedge",
-          "names": [
-            "Aiden",
-            "Barrfind",
-            "Caolan",
-            "Ciara",
-            "Deirbhile",
-            "Moirin",
-            "Tiern",
-            "Reamann"
-          ]
-        },
-        {
-          "region": "Lygos or some other point south",
-          "names": [
-            "Dana",
-            "Eliana",
-            "Erez",
-            "Fikri",
-            "Isra",
-            "Persefoni",
-            "Spiro",
-            "Vahid"
-          ]
-        }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2, in addition to your scribe's tools",
-        "pickCount": 2,
-        "preselected": [
-          "scribes-tools"
-        ],
-        "options": [
-          {
-            "slug": "scribes-tools",
-            "label": "Scribe's tools",
-            "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
-          },
-          {
-            "slug": "books-and-scrolls",
-            "label": "Books &amp; scrolls",
-            "description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
-            "resource": {
-              "max": 5,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-            "outfitItems": [
-              {
-                "slug": "distillery-firkins",
-                "name": "Firkins",
-                "weight": 2,
-                "inventoryColumn": "regular"
-              }
-            ],
-            "resource": {
-              "max": 2,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "engineers-tools",
-            "label": "Engineer's tools",
-            "description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
-          },
-          {
-            "slug": "laboratory",
-            "label": "Laboratory",
-            "description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
-          },
-          {
-            "slug": "paraphernalia",
-            "label": "Paraphernalia",
-            "description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
-          },
-          {
-            "slug": "trade-contacts",
-            "label": "Trade contacts",
-            "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
-          }
-        ]
-      },
-      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "lore": [
-        {
-          "slug": "collection",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Collection",
-              "description": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
-            }
-          ]
-        },
-        {
-          "slug": "arcana-major",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Major Arcanum",
-              "description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
-            },
-            {
-              "type": "input",
-              "slug": "where-acquired",
-              "text": "Where did you acquire it?"
-            },
-            {
-              "type": "input",
-              "slug": "wrested-from",
-              "text": "From whose grasp did you wrest it?"
-            },
-            {
-              "type": "input",
-              "slug": "who-else-wants",
-              "text": "Who else wants it?"
-            },
-            {
-              "type": "input",
-              "slug": "what-cost",
-              "text": "What did it cost you?"
-            },
-            {
-              "type": "input",
-              "slug": "when-unlocked",
-              "text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
-            }
-          ]
-        },
-        {
-          "slug": "arcana-minor",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Minor Arcana",
-              "description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
-            },
-            {
-              "type": "input",
-              "slug": "mastered-location",
-              "text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
-            },
-            {
-              "type": "input",
-              "slug": "found-location",
-              "text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
-            },
-            {
-              "type": "input",
-              "slug": "sought-notes",
-              "text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
-            }
-          ]
-        }
-      ],
-      "instinct": {
-        "slug": "instinct",
-        "list": [
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "cunning",
-                "description": "To scheme, manipulate, and plot.",
-                "text": "Cunning"
-              },
-              {
-                "slug": "curiosity",
-                "description": "To seek answers that maybe you oughtn't.",
-                "text": "Curiosity"
-              },
-              {
-                "slug": "hubris",
-                "description": "To assume you know best, that you can't fail.",
-                "text": "Hubris"
-              },
-              {
-                "slug": "mystery",
-                "description": "To avoid straight answers; to keep secrets.",
-                "text": "Mystery"
-              },
-              {
-                "slug": "vision",
-                "description": "To think big and pursue grandiose goals.",
-                "text": "Vision"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-seeker",
-    "actorType": "character",
-    "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
-    "attributes": {}
-  }
+	"_id": "66InktII1QKAPInQ",
+	"_key": "!items!66InktII1QKAPInQ",
+	"img": "modules/stonetop/assets/playbooks/the-seeker.png",
+	"name": "The Seeker",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 16,
+			"damage": "d6",
+			"moves": {
+				"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
+			},
+			"backgrounds": [
+				{
+					"slug": "patriot",
+					"label": "Patriot",
+					"description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				},
+				{
+					"slug": "antiquarian",
+					"label": "Antiquarian",
+					"description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				},
+				{
+					"slug": "witch-hunter",
+					"label": "Witch Hunter",
+					"description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
+				}
+			],
+			"appearance": {
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "curiously-young",
+								"text": "curiously young"
+							},
+							{
+								"slug": "world-weary",
+								"text": "world-weary"
+							},
+							{
+								"slug": "bent-with-years",
+								"text": "bent with years"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "haunted-voice",
+								"text": "haunted voice"
+							},
+							{
+								"slug": "rich-voice",
+								"text": "rich voice"
+							},
+							{
+								"slug": "whispery",
+								"text": "whispery"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "ink-stained-fingers",
+								"text": "ink-stained fingers"
+							},
+							{
+								"slug": "sinewy-hands",
+								"text": "sinewy hands"
+							},
+							{
+								"slug": "soft-hands",
+								"text": "soft hands"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "bony-limbed",
+								"text": "bony limbed"
+							},
+							{
+								"slug": "lean-and-lanky",
+								"text": "lean & lanky"
+							},
+							{
+								"slug": "short",
+								"text": "short"
+							},
+							{
+								"slug": "thick-set",
+								"text": "thick-set"
+							}
+						]
+					}
+				]
+			},
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Ania",
+						"Dylan",
+						"Eilwen",
+						"Gelt",
+						"Gwenda",
+						"Macsen",
+						"Mirgan",
+						"Owena",
+						"Taliesyn",
+						"Twymor"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Bayanaganengri",
+						"Chakha",
+						"Jetei",
+						"Moog",
+						"Narengawa",
+						"Ogul",
+						"Ozbeg",
+						"Solongo"
+					]
+				},
+				{
+					"region": "The Steplands (Hillfolk)",
+					"names": [
+						"Anook",
+						"Anxo",
+						"Dors",
+						"Jory",
+						"Mari",
+						"Padg",
+						"Pons",
+						"Silf"
+					]
+				},
+				{
+					"region": "Gordin's Delve",
+					"names": []
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Aiden",
+						"Barrfind",
+						"Caolan",
+						"Ciara",
+						"Deirbhile",
+						"Moirin",
+						"Tiern",
+						"Reamann"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Dana",
+						"Eliana",
+						"Erez",
+						"Fikri",
+						"Isra",
+						"Persefoni",
+						"Spiro",
+						"Vahid"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2, in addition to your scribe's tools",
+				"pickCount": 2,
+				"preselected": [
+					"scribes-tools"
+				],
+				"options": [
+					{
+						"slug": "scribes-tools",
+						"label": "Scribe's tools",
+						"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					},
+					{
+						"slug": "books-and-scrolls",
+						"label": "Books &amp; scrolls",
+						"description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
+						"resource": {
+							"max": 5,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+						"outfitItems": [
+							{
+								"slug": "distillery-firkins",
+								"name": "Firkins",
+								"weight": 2,
+								"inventoryColumn": "regular"
+							}
+						],
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "engineers-tools",
+						"label": "Engineer's tools",
+						"description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+					},
+					{
+						"slug": "laboratory",
+						"label": "Laboratory",
+						"description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
+					},
+					{
+						"slug": "paraphernalia",
+						"label": "Paraphernalia",
+						"description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
+					},
+					{
+						"slug": "trade-contacts",
+						"label": "Trade contacts",
+						"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "collection",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Collection",
+							"description": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+						}
+					]
+				},
+				{
+					"slug": "arcana-major",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Major Arcanum",
+							"description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
+						},
+						{
+							"type": "input",
+							"slug": "where-acquired",
+							"text": "Where did you acquire it?"
+						},
+						{
+							"type": "input",
+							"slug": "wrested-from",
+							"text": "From whose grasp did you wrest it?"
+						},
+						{
+							"type": "input",
+							"slug": "who-else-wants",
+							"text": "Who else wants it?"
+						},
+						{
+							"type": "input",
+							"slug": "what-cost",
+							"text": "What did it cost you?"
+						},
+						{
+							"type": "input",
+							"slug": "when-unlocked",
+							"text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+						}
+					]
+				},
+				{
+					"slug": "arcana-minor",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Minor Arcana",
+							"description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
+						},
+						{
+							"type": "input",
+							"slug": "mastered-location",
+							"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+						},
+						{
+							"type": "input",
+							"slug": "found-location",
+							"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+						},
+						{
+							"type": "input",
+							"slug": "sought-notes",
+							"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+						}
+					]
+				}
+			],
+			"instinct": {
+				"slug": "instinct",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"options": [
+							{
+								"slug": "cunning",
+								"description": "To scheme, manipulate, and plot.",
+								"text": "Cunning"
+							},
+							{
+								"slug": "curiosity",
+								"description": "To seek answers that maybe you oughtn't.",
+								"text": "Curiosity"
+							},
+							{
+								"slug": "hubris",
+								"description": "To assume you know best, that you can't fail.",
+								"text": "Hubris"
+							},
+							{
+								"slug": "mystery",
+								"description": "To avoid straight answers; to keep secrets.",
+								"text": "Mystery"
+							},
+							{
+								"slug": "vision",
+								"description": "To think big and pursue grandiose goals.",
+								"text": "Vision"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"system": {
+		"slug": "the-seeker",
+		"actorType": "character",
+		"description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+		"attributes": {}
+	}
 }

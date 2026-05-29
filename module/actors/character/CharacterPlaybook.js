@@ -71,7 +71,7 @@ export class CharacterPlaybook {
 			.withLore(this._lore.buildSnapshot(data.lore ?? []))
 			.withBackground(this._background.buildSnapshot(data.backgrounds ?? []))
 			.withInstinct(this._instinct.buildSnapshot(data.instinct ?? null))
-			.withAppearance(this._appearance.buildSnapshot(data.appearance ?? []))
+			.withAppearance(this._appearance.buildSnapshot(data.appearance ?? null))
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))
 			.build();
 	}

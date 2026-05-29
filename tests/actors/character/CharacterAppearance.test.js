@@ -1,70 +1,73 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CharacterAppearance } from "../../../module/actors/character/CharacterAppearance.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/FakeFlags.js";
 
-function makeFlags(selected = {}) {
-	const store = { selected };
-	return {
-		getFlag: key => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
-	};
+function makeAppearance(stored = {}) {
+	const actor = new FakeFlags();
+	for (const [key, value] of Object.entries(stored)) {
+		actor.setFlagNonAsync("stonetop", `appearance.${key}`, value);
+	}
+	return new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 }
 
-function makeAppearance(saved = {}) {
-	return new CharacterAppearance(makeFlags(saved));
-}
+const APPEARANCE_DATA = {
+	slug: "appearance",
+	list: [
+		{ type: "pick", pickCount: 1, inline: true, options: [
+			{ slug: "fresh-faced",      text: "fresh-faced" },
+			{ slug: "hale-and-hearty",  text: "hale & hearty" },
+			{ slug: "gray-and-wizened", text: "gray & wizened" },
+		]},
+		{ type: "pick", pickCount: 1, inline: true, options: [
+			{ slug: "imperious-voice", text: "imperious voice" },
+			{ slug: "raspy-voice",     text: "raspy voice" },
+			{ slug: "soothing-voice",  text: "soothing voice" },
+		]},
+	],
+};
 
-const APPEARANCE_DATA = [
-	{ inline: true, options: [
-		{ slug: "fresh-faced",   text: "fresh-faced" },
-		{ slug: "hale-and-hearty", text: "hale & hearty" },
-		{ slug: "gray-and-wizened", text: "gray & wizened" },
-	]},
-	{ inline: true, options: [
-		{ slug: "imperious-voice", text: "imperious voice" },
-		{ slug: "raspy-voice",     text: "raspy voice" },
-		{ slug: "soothing-voice",  text: "soothing voice" },
-	]},
-];
+// -- selectOption -------------------------------------------------------------
 
-describe("CharacterAppearance — existing behaviour", () => {
-	it("saved returns empty object when no flag stored", () => {
-		expect(makeAppearance().saved).toEqual({});
+describe("CharacterAppearance — selectOption", () => {
+	it("stores the chosen slug in values under the appearance group", async () => {
+		const ap = makeAppearance();
+		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
+		expect(ap._controller._flags.getFlag("values").appearance["raspy-voice"]).toBe(1);
 	});
 
-	it("saved returns the stored selections", () => {
-		expect(makeAppearance({ 0: "gray-and-wizened" }).saved).toEqual({ 0: "gray-and-wizened" });
-	});
-
-	it("select merges new selection into saved state", async () => {
-		const flags = makeFlags({ 0: "fresh-faced" });
-		const ap = new CharacterAppearance(flags);
-		await ap.select(1, "raspy-voice");
-		expect(flags.setFlag).toHaveBeenCalledWith("selected", { 0: "fresh-faced", 1: "raspy-voice" });
+	it("zeroes sibling slugs when selecting an option", async () => {
+		const ap = makeAppearance();
+		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
+		expect(ap._controller._flags.getFlag("values").appearance["imperious-voice"]).toBe(0);
+		expect(ap._controller._flags.getFlag("values").appearance["soothing-voice"]).toBe(0);
 	});
 });
 
+// -- buildSnapshot ------------------------------------------------------------
+
 describe("CharacterAppearance.buildSnapshot", () => {
-	it("returns an array", () => {
+	it("returns an array of rows", () => {
 		expect(Array.isArray(makeAppearance().buildSnapshot(APPEARANCE_DATA))).toBe(true);
 	});
 
-	it("includes one row per array entry", () => {
+	it("includes one row per list entry", () => {
 		expect(makeAppearance().buildSnapshot(APPEARANCE_DATA)).toHaveLength(2);
 	});
 
 	it("each row has the correct rowKey", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
-		expect(snap[0].rowKey).toBe(0);
-		expect(snap[1].rowKey).toBe(1);
+		expect(snap[0].rowKey).toBe("appearance-row-0");
+		expect(snap[1].rowKey).toBe("appearance-row-1");
 	});
 
-	it("each row has inline: true", () => {
+	it("each row is inline", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].inline).toBe(true);
 		expect(snap[1].inline).toBe(true);
 	});
 
-	it("each row option has slug and label", () => {
+	it("each row option has slug and text", () => {
 		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options[0].slug).toBe("fresh-faced");
 		expect(snap[0].options[0].text).toBe("fresh-faced");
@@ -72,27 +75,23 @@ describe("CharacterAppearance.buildSnapshot", () => {
 	});
 
 	it("saved option is marked checked", () => {
-		const snap = makeAppearance({ 0: "gray-and-wizened" }).buildSnapshot(APPEARANCE_DATA);
+		const snap = makeAppearance({ values: { appearance: { "gray-and-wizened": 1 } } }).buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.find(o => o.slug === "gray-and-wizened").checked).toBe(true);
 	});
 
 	it("unsaved options are not checked", () => {
-		const snap = makeAppearance({}).buildSnapshot(APPEARANCE_DATA);
+		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.every(o => !o.checked)).toBe(true);
 	});
 
-	it("selections on different lines are independent", () => {
-		const snap = makeAppearance({ 0: "fresh-faced", 1: "soothing-voice" }).buildSnapshot(APPEARANCE_DATA);
+	it("selections on different rows are independent", () => {
+		const snap = makeAppearance({ values: { appearance: { "fresh-faced": 1, "soothing-voice": 1 } } }).buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.find(o => o.slug === "fresh-faced").checked).toBe(true);
 		expect(snap[1].options.find(o => o.slug === "soothing-voice").checked).toBe(true);
 		expect(snap[0].options.find(o => o.slug === "hale-and-hearty").checked).toBe(false);
 	});
 
-	it("returns empty array when appearanceData is absent", () => {
-		expect(makeAppearance().buildSnapshot(undefined)).toHaveLength(0);
-	});
-
-	it("returns empty array when appearanceData is empty", () => {
-		expect(makeAppearance().buildSnapshot([])).toHaveLength(0);
+	it("returns empty array when groupData is null", () => {
+		expect(makeAppearance().buildSnapshot(null)).toHaveLength(0);
 	});
 });

@@ -1,444 +1,506 @@
 {
-  "_id": "msKRM8oHy6qghCF9",
-  "_key": "!items!msKRM8oHy6qghCF9",
-  "img": "modules/stonetop/assets/playbooks/the-fox.png",
-  "name": "The Fox",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 16,
-      "damage": "d8",
-      "moves": {
-        "startingMovesNote": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice."
-      },
-      "backgrounds": [
-        {
-          "slug": "the-natural",
-          "label": "The Natural",
-          "description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <strong><em>Seek Insight</em></strong>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
-        },
-        {
-          "slug": "a-life-of-crime",
-          "label": "A Life of Crime",
-          "description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.</p>"
-        },
-        {
-          "slug": "the-prodigal-returned",
-          "label": "The Prodigal Returned",
-          "description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <strong><em>declare that you know someone outside of Stonetop</em></strong>, someone who can help, name them and roll +CHA: <strong>on a 10+</strong>, yeah, they can help (tell us why they're willing); <strong>on a 7-9</strong>, they can help but pick 1 from the list below; <strong>on a 6-</strong>, the GM chooses 1 and then some.</p>"
-        }
-      ],
-      "appearance": [
-        [
-          "young pup",
-          "\"responsible\" adult",
-          "cagey old-timer"
-        ],
-        [
-          "a pleasant voice",
-          "sharp & nasally",
-          "well-spoken"
-        ],
-        [
-          "lithe",
-          "heavyset",
-          "gangly",
-          "like a whippin stick"
-        ],
-        [
-          "a light step",
-          "a brisk stride",
-          "more like a strut"
-        ]
-      ],
-      "origin": [
-        {
-          "region": "Stonetop",
-          "names": [
-            "Bran",
-            "Carwyn",
-            "Delyth",
-            "Elin",
-            "Fion",
-            "Geral",
-            "Mair",
-            "Rannon",
-            "Vaughn",
-            "Wynn"
-          ]
-        },
-        {
-          "region": "Barrier Pass",
-          "names": [
-            "Anarba",
-            "Batu",
-            "Bugadai",
-            "Hujaghur",
-            "Jigur",
-            "Kete",
-            "Sarantuya",
-            "Tebengri"
-          ]
-        },
-        {
-          "region": "Gordin's Delve",
-          "names": []
-        },
-        {
-          "region": "Marshedge",
-          "names": [
-            "Comyna",
-            "Crevan",
-            "Fitz",
-            "Greagir",
-            "Maired",
-            "Nainsi",
-            "Naíclas",
-            "Saraid"
-          ]
-        },
-        {
-          "region": "Lygos or some other point south",
-          "names": [
-            "Amit",
-            "Baz",
-            "Dafna",
-            "Mahsa",
-            "Parviz",
-            "Sanaz",
-            "Tzofiya",
-            "Yaniv"
-          ]
-        }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2",
-        "pickCount": 2,
-        "preselected": [],
-        "options": [
-          {
-            "slug": "burglars-kit",
-            "label": "Burglar's kit",
-            "description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
-            "outfitItems": [
-              {
-                "slug": "burglar-prybars",
-                "name": "Prybars",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              },
-              {
-                "slug": "burglar-hacksaws",
-                "name": "Hacksaws",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              },
-              {
-                "slug": "burglar-lantern",
-                "name": "Lantern",
-                "weight": 1,
-                "inventoryColumn": "regular",
-                "note": "<em>close, area</em>",
-                "resource": {
-                  "max": 5,
-                  "labels": [
-                    "",
-                    "",
-                    "",
-                    "",
-                    "hours"
-                  ]
-                }
-              },
-              {
-                "slug": "burglar-grappling-hook",
-                "name": "Grappling hook",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              }
-            ]
-          },
-          {
-            "slug": "carpenters-tools",
-            "label": "Carpenter's tools",
-            "description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
-          },
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-            "outfitItems": [
-              {
-                "slug": "distillery-firkins",
-                "name": "Firkins",
-                "weight": 2,
-                "inventoryColumn": "regular"
-              }
-            ],
-            "resource": {
-              "max": 2,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "hidden-stash",
-            "label": "Hidden stash",
-            "description": "each use produces valuables worth a purse of silvers (Value 2).",
-            "resource": {
-              "max": 3,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "mummers-kit",
-            "label": "Mummer's kit",
-            "description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
-          },
-          {
-            "slug": "scribes-tools",
-            "label": "Scribe's tools",
-            "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
-          },
-          {
-            "slug": "trade-contacts",
-            "label": "Trade contacts",
-            "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
-          }
-        ]
-      },
-      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "lore": [
-        {
-          "slug": "tall-tales-beginning",
-          "list": [
-            {
-              "type": "heading",
-              "title": "There Was That Time You…",
-              "description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
-            },
-            {
-              "type": "track",
-              "slug": "lost-great-wood",
-              "description": "… got lost in the Great Wood.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "lost-flats",
-              "description": "… got lost in the Flats.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "lost-steplands",
-              "description": "… got lost in the Steplands.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "lost-ferrers-fen",
-              "description": "… got lost in Ferrier's Fen.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "lost-foothills",
-              "description": "… got lost in the Foothills.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "lost-huffel-peaks",
-              "description": "… got lost in the Huffel Peaks.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "crinwin-raid",
-              "description": "… were on watch when the crinwin raided.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "ruined-tower",
-              "description": "… dared each other to explore the Ruined Tower.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "hillfolk",
-              "description": "… managed to rile up a small band of Hillfolk.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "labyrinth",
-              "description": "… braved the Labyrinth, just a little.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "old-mans-book",
-              "description": "… stole that crazy old man's book.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "barrow-mounds",
-              "description": "… went poking about the old Barrow Mounds.",
-              "max": 2
-            }
-          ]
-        },
-        {
-          "slug": "tall-tales-ending",
-          "list": [
-            {
-              "type": "heading",
-              "title": "And You Ended Up…",
-              "description": "<p><em>(choose 1 or 2 per tale)</em></p>"
-            },
-            {
-              "type": "track",
-              "slug": "running",
-              "description": "… running for your life from something.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "well-placed-blow",
-              "description": "… landing a well-placed blow.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "strange-gather",
-              "description": "… interrupting a strange, creepy gathering.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "big-beast",
-              "description": "… stumbling on a beast, bigger'n anything.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "treasure",
-              "description": "… with a sack full of treasure.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "someone-fight",
-              "description": "… getting someone to fight them for you.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "ghost",
-              "description": "… face to face with a ghost/Fae/demon.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "strange-runes",
-              "description": "… finding those strange old runes.",
-              "max": 2
-            },
-            {
-              "type": "track",
-              "slug": "fine-looking",
-              "description": "… getting to know that fine-looking fellow/lady/person/couple.",
-              "max": 2
-            }
-          ]
-        },
-        {
-          "slug": "tall-tales-legacy",
-          "list": [
-            {
-              "type": "heading",
-              "title": "But All You've Got Left to Show for It Is…",
-              "description": ""
-            },
-            {
-              "type": "track",
-              "slug": "story-no-one-believes",
-              "description": "… a story no one believes.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "nasty-scar",
-              "description": "… a nasty scar; wanna see?",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "nightmares",
-              "description": "… the occasional nightmare.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "map-with-runes",
-              "description": "… this map with runes no one can read.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "mystery-key",
-              "description": "… this key that opens who-knows-what.",
-              "max": 1
-            }
-          ]
-        }
-      ],
-      "instinct": {
-        "slug": "instinct",
-        "list": [
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "conscience",
-                "description": "To feel guilty, to try to do right.",
-                "text": "Conscience"
-              },
-              {
-                "slug": "freedom",
-                "description": "To chafe against rules, expectations, obligations.",
-                "text": "Freedom"
-              },
-              {
-                "slug": "comfort",
-                "description": "To enjoy yourself and avoid hardship.",
-                "text": "Comfort"
-              },
-              {
-                "slug": "prestige",
-                "description": "To impress others, to build a name for yourself.",
-                "text": "Prestige"
-              },
-              {
-                "slug": "trickery",
-                "description": "To deceive, misdirect, outthink.",
-                "text": "Trickery"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-fox",
-    "actorType": "character",
-    "description": "The elders tell a story about Fox, who knows lots of tricks, and Hedgehog, who knows one: how to curl up into a ball when there's danger. Fox can't eat Hedgehog when he's all curled up, so in the story Fox goes hungry. But you're not that Fox, and this is no story. You want that Hedgehog? Go get a knife.",
-    "attributes": {}
-  }
+	"_id": "msKRM8oHy6qghCF9",
+	"_key": "!items!msKRM8oHy6qghCF9",
+	"img": "modules/stonetop/assets/playbooks/the-fox.png",
+	"name": "The Fox",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 16,
+			"damage": "d8",
+			"moves": {
+				"startingMovesNote": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice."
+			},
+			"backgrounds": [
+				{
+					"slug": "the-natural",
+					"label": "The Natural",
+					"description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <strong><em>Seek Insight</em></strong>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
+				},
+				{
+					"slug": "a-life-of-crime",
+					"label": "A Life of Crime",
+					"description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.</p>"
+				},
+				{
+					"slug": "the-prodigal-returned",
+					"label": "The Prodigal Returned",
+					"description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <strong><em>declare that you know someone outside of Stonetop</em></strong>, someone who can help, name them and roll +CHA: <strong>on a 10+</strong>, yeah, they can help (tell us why they're willing); <strong>on a 7-9</strong>, they can help but pick 1 from the list below; <strong>on a 6-</strong>, the GM chooses 1 and then some.</p>"
+				}
+			],
+			"appearance": {
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "young-pup",
+								"text": "young pup"
+							},
+							{
+								"slug": "responsible-adult",
+								"text": "\"responsible\" adult"
+							},
+							{
+								"slug": "cagey-old-timer",
+								"text": "cagey old-timer"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-pleasant-voice",
+								"text": "a pleasant voice"
+							},
+							{
+								"slug": "sharp-and-nasally",
+								"text": "sharp & nasally"
+							},
+							{
+								"slug": "well-spoken",
+								"text": "well-spoken"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "lithe",
+								"text": "lithe"
+							},
+							{
+								"slug": "heavyset",
+								"text": "heavyset"
+							},
+							{
+								"slug": "gangly",
+								"text": "gangly"
+							},
+							{
+								"slug": "like-a-whippin-stick",
+								"text": "like a whippin stick"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-light-step",
+								"text": "a light step"
+							},
+							{
+								"slug": "a-brisk-stride",
+								"text": "a brisk stride"
+							},
+							{
+								"slug": "more-like-a-strut",
+								"text": "more like a strut"
+							}
+						]
+					}
+				]
+			},
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Bran",
+						"Carwyn",
+						"Delyth",
+						"Elin",
+						"Fion",
+						"Geral",
+						"Mair",
+						"Rannon",
+						"Vaughn",
+						"Wynn"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Anarba",
+						"Batu",
+						"Bugadai",
+						"Hujaghur",
+						"Jigur",
+						"Kete",
+						"Sarantuya",
+						"Tebengri"
+					]
+				},
+				{
+					"region": "Gordin's Delve",
+					"names": []
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Comyna",
+						"Crevan",
+						"Fitz",
+						"Greagir",
+						"Maired",
+						"Nainsi",
+						"Naíclas",
+						"Saraid"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Amit",
+						"Baz",
+						"Dafna",
+						"Mahsa",
+						"Parviz",
+						"Sanaz",
+						"Tzofiya",
+						"Yaniv"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2",
+				"pickCount": 2,
+				"preselected": [],
+				"options": [
+					{
+						"slug": "burglars-kit",
+						"label": "Burglar's kit",
+						"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
+						"outfitItems": [
+							{
+								"slug": "burglar-prybars",
+								"name": "Prybars",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "burglar-hacksaws",
+								"name": "Hacksaws",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "burglar-lantern",
+								"name": "Lantern",
+								"weight": 1,
+								"inventoryColumn": "regular",
+								"note": "<em>close, area</em>",
+								"resource": {
+									"max": 5,
+									"labels": [
+										"",
+										"",
+										"",
+										"",
+										"hours"
+									]
+								}
+							},
+							{
+								"slug": "burglar-grappling-hook",
+								"name": "Grappling hook",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
+					},
+					{
+						"slug": "carpenters-tools",
+						"label": "Carpenter's tools",
+						"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
+					},
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+						"outfitItems": [
+							{
+								"slug": "distillery-firkins",
+								"name": "Firkins",
+								"weight": 2,
+								"inventoryColumn": "regular"
+							}
+						],
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "hidden-stash",
+						"label": "Hidden stash",
+						"description": "each use produces valuables worth a purse of silvers (Value 2).",
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "mummers-kit",
+						"label": "Mummer's kit",
+						"description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
+					},
+					{
+						"slug": "scribes-tools",
+						"label": "Scribe's tools",
+						"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					},
+					{
+						"slug": "trade-contacts",
+						"label": "Trade contacts",
+						"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "tall-tales-beginning",
+					"list": [
+						{
+							"type": "heading",
+							"title": "There Was That Time You…",
+							"description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
+						},
+						{
+							"type": "track",
+							"slug": "lost-great-wood",
+							"description": "… got lost in the Great Wood.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "lost-flats",
+							"description": "… got lost in the Flats.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "lost-steplands",
+							"description": "… got lost in the Steplands.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "lost-ferrers-fen",
+							"description": "… got lost in Ferrier's Fen.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "lost-foothills",
+							"description": "… got lost in the Foothills.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "lost-huffel-peaks",
+							"description": "… got lost in the Huffel Peaks.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "crinwin-raid",
+							"description": "… were on watch when the crinwin raided.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "ruined-tower",
+							"description": "… dared each other to explore the Ruined Tower.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "hillfolk",
+							"description": "… managed to rile up a small band of Hillfolk.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "labyrinth",
+							"description": "… braved the Labyrinth, just a little.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "old-mans-book",
+							"description": "… stole that crazy old man's book.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "barrow-mounds",
+							"description": "… went poking about the old Barrow Mounds.",
+							"max": 2
+						}
+					]
+				},
+				{
+					"slug": "tall-tales-ending",
+					"list": [
+						{
+							"type": "heading",
+							"title": "And You Ended Up…",
+							"description": "<p><em>(choose 1 or 2 per tale)</em></p>"
+						},
+						{
+							"type": "track",
+							"slug": "running",
+							"description": "… running for your life from something.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "well-placed-blow",
+							"description": "… landing a well-placed blow.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "strange-gather",
+							"description": "… interrupting a strange, creepy gathering.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "big-beast",
+							"description": "… stumbling on a beast, bigger'n anything.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "treasure",
+							"description": "… with a sack full of treasure.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "someone-fight",
+							"description": "… getting someone to fight them for you.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "ghost",
+							"description": "… face to face with a ghost/Fae/demon.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "strange-runes",
+							"description": "… finding those strange old runes.",
+							"max": 2
+						},
+						{
+							"type": "track",
+							"slug": "fine-looking",
+							"description": "… getting to know that fine-looking fellow/lady/person/couple.",
+							"max": 2
+						}
+					]
+				},
+				{
+					"slug": "tall-tales-legacy",
+					"list": [
+						{
+							"type": "heading",
+							"title": "But All You've Got Left to Show for It Is…",
+							"description": ""
+						},
+						{
+							"type": "track",
+							"slug": "story-no-one-believes",
+							"description": "… a story no one believes.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "nasty-scar",
+							"description": "… a nasty scar; wanna see?",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "nightmares",
+							"description": "… the occasional nightmare.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "map-with-runes",
+							"description": "… this map with runes no one can read.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "mystery-key",
+							"description": "… this key that opens who-knows-what.",
+							"max": 1
+						}
+					]
+				}
+			],
+			"instinct": {
+				"slug": "instinct",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"options": [
+							{
+								"slug": "conscience",
+								"description": "To feel guilty, to try to do right.",
+								"text": "Conscience"
+							},
+							{
+								"slug": "freedom",
+								"description": "To chafe against rules, expectations, obligations.",
+								"text": "Freedom"
+							},
+							{
+								"slug": "comfort",
+								"description": "To enjoy yourself and avoid hardship.",
+								"text": "Comfort"
+							},
+							{
+								"slug": "prestige",
+								"description": "To impress others, to build a name for yourself.",
+								"text": "Prestige"
+							},
+							{
+								"slug": "trickery",
+								"description": "To deceive, misdirect, outthink.",
+								"text": "Trickery"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"system": {
+		"slug": "the-fox",
+		"actorType": "character",
+		"description": "The elders tell a story about Fox, who knows lots of tricks, and Hedgehog, who knows one: how to curl up into a ball when there's danger. Fox can't eat Hedgehog when he's all curled up, so in the story Fox goes hungry. But you're not that Fox, and this is no story. You want that Hedgehog? Go get a knife.",
+		"attributes": {}
+	}
 }

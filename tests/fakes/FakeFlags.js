@@ -18,7 +18,7 @@ export class FakeFlags {
 		//
 		// 	if (!isPOJO || hasMethods) {
 		// 		throw new Error(
-		// 			`❌ FakeFlags Error: Cannot save non-POJO to flag '${key}'. ` +
+		// 			`FakeFlags Error: Cannot save non-POJO to flag '${key}'. ` +
 		// 			`Received: ${value.constructor?.name || 'Unknown'} (with methods: ${hasMethods}). ` +
 		// 			`Did you forget to convert the class instance to a plain object?`
 		// 		);

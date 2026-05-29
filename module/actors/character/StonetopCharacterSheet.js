@@ -289,7 +289,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onAppearanceChange(ev) {
 			const el = ev.currentTarget;
-			await this._stonetopCharacter.appearance.select(Number(el.dataset.rowKey), el.dataset.choiceSlug);
+			await this._stonetopCharacter.appearance.selectOption(el.dataset.choiceSlug, el.dataset.siblingSlugsCsv);
 		}
 
 		async _onOriginNameClick(ev) {

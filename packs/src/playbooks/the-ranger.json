@@ -1,332 +1,391 @@
 {
-  "_id": "t6DSdYhsVznrAXDx",
-  "_key": "!items!t6DSdYhsVznrAXDx",
-  "img": "modules/stonetop/assets/playbooks/the-ranger.png",
-  "name": "The Ranger",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 18,
-      "damage": "d8",
-      "moves": {
-        "startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
-      },
-      "backgrounds": [
-        {
-          "slug": "mighty-hunter",
-          "label": "Mighty Hunter",
-          "description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
-        },
-        {
-          "slug": "wide-wanderer",
-          "label": "Wide Wanderer",
-          "description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
-        },
-        {
-          "slug": "beast-bonded",
-          "label": "Beast-Bonded",
-          "description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
-        }
-      ],
-      "appearance": [
-        [
-          "fledgling",
-          "prime specimen",
-          "long in the tooth"
-        ],
-        [
-          "barking voice",
-          "growling voice",
-          "sing-song voice"
-        ],
-        [
-          "compact & sturdy",
-          "long & lean",
-          "wolfish"
-        ],
-        [
-          "shaggy",
-          "threadbare",
-          "well-groomed"
-        ]
-      ],
-      "origin": [
-        {
-          "region": "Stonetop",
-          "names": [
-            "Aran",
-            "Bledyn",
-            "Branwen",
-            "Deryn",
-            "Ifur",
-            "Meinir",
-            "Rhys",
-            "Teagan"
-          ]
-        },
-        {
-          "region": "Barrier Pass",
-          "names": [
-            "Anarba",
-            "Arslan",
-            "Bolormaa",
-            "Cirina",
-            "Nergui",
-            "Nomolun",
-            "Saran",
-            "Shigi-Qutuqu"
-          ]
-        },
-        {
-          "region": "Marshedge",
-          "names": [
-            "Asling",
-            "Conar",
-            "Enna",
-            "Flannan",
-            "Macha",
-            "Mave",
-            "Proinsias",
-            "Rowen"
-          ]
-        },
-        {
-          "region": "The Steplands (Hillfolk)",
-          "names": [
-            "Bernd",
-            "Elown",
-            "Irn",
-            "Kani",
-            "Pol",
-            "Nol",
-            "Rozn",
-            "Sterin"
-          ]
-        },
-        {
-          "region": "The Manmarch",
-          "names": [
-            "Alfher",
-            "Bertrim",
-            "Dagmar",
-            "Elfrida",
-            "Hramn",
-            "Meike",
-            "Swanhilde",
-            "Wulfrim"
-          ]
-        },
-        {
-          "region": "Lygos or some other point south",
-          "names": [
-            "Ari",
-            "Boriz",
-            "Dimitra",
-            "Gorhan",
-            "Nitza",
-            "Selen",
-            "Todora",
-            "Vasil"
-          ]
-        }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2, in addition to your composite bow",
-        "pickCount": 2,
-        "preselected": [
-          "composite-bow"
-        ],
-        "options": [
-          {
-            "slug": "composite-bow",
-            "label": "Composite bow",
-            "description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
-          },
-          {
-            "slug": "distillery",
-            "label": "Distillery",
-            "description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-            "outfitItems": [
-              {
-                "slug": "distillery-firkins",
-                "name": "Firkins",
-                "weight": 2,
-                "inventoryColumn": "regular"
-              }
-            ],
-            "resource": {
-              "max": 2,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "hideouts",
-            "label": "Hideouts",
-            "description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
-            "resource": {
-              "max": 3,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "hounds",
-            "label": "Hounds",
-            "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
-          },
-          {
-            "slug": "husbandry-tools",
-            "label": "Husbandry tools",
-            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
-          },
-          {
-            "slug": "lay-of-the-land",
-            "label": "Lay of the land",
-            "description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
-            "resource": {
-              "max": 3,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "trapping-gear",
-            "label": "Trapping gear",
-            "description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
-          }
-        ]
-      },
-      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "lore": [
-        {
-          "slug": "wicked-threat",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Something Wicked This Way Comes",
-              "description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
-            },
-            {
-              "type": "track",
-              "slug": "great-wood",
-              "description": "A dark, unwholesome presence lurking in the Great Wood.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "ruined-tower",
-              "description": "A strange, furtive figure seen near the Ruined Tower.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "foothills",
-              "description": "Something big & savage stalking the northern foothills.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "suarachan",
-              "description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "hillfolk",
-              "description": "That of which the Hillfolk refuse to speak.",
-              "max": 1
-            }
-          ]
-        },
-        {
-          "slug": "wicked-questions",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Answer At Least 3 of the Following",
-              "description": ""
-            },
-            {
-              "type": "input",
-              "slug": "what-is-it",
-              "text": "What, exactly, do you think it is?"
-            },
-            {
-              "type": "input",
-              "slug": "what-saw",
-              "text": "What did you see, and how close did you have to get to see it?"
-            },
-            {
-              "type": "input",
-              "slug": "what-lost",
-              "text": "Whom or what have you lost to it?"
-            },
-            {
-              "type": "input",
-              "slug": "left-behind",
-              "text": "What did it leave behind?"
-            },
-            {
-              "type": "input",
-              "slug": "what-wants",
-              "text": "What do you think it wants?"
-            },
-            {
-              "type": "input",
-              "slug": "disbeliever",
-              "text": "Who refuses to believe you?"
-            },
-            {
-              "type": "input",
-              "slug": "who-knows-more",
-              "text": "Who can tell you more, if you can only convince them?"
-            }
-          ]
-        }
-      ],
-      "instinct": {
-        "slug": "instinct",
-        "list": [
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "adventure",
-                "description": "To test yourself, to experience new things.",
-                "text": "Adventure"
-              },
-              {
-                "slug": "independence",
-                "description": "To refuse help and push others away.",
-                "text": "Independence"
-              },
-              {
-                "slug": "stewardship",
-                "description": "To value beasts and natural places over people.",
-                "text": "Stewardship"
-              },
-              {
-                "slug": "tenacity",
-                "description": "To be stubborn, to persist.",
-                "text": "Tenacity"
-              },
-              {
-                "slug": "wonder",
-                "description": "To marvel at beauty, magnificence, splendor.",
-                "text": "Wonder"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-ranger",
-    "actorType": "character",
-    "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
-    "attributes": {}
-  }
+	"_id": "t6DSdYhsVznrAXDx",
+	"_key": "!items!t6DSdYhsVznrAXDx",
+	"img": "modules/stonetop/assets/playbooks/the-ranger.png",
+	"name": "The Ranger",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 18,
+			"damage": "d8",
+			"moves": {
+				"startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
+			},
+			"backgrounds": [
+				{
+					"slug": "mighty-hunter",
+					"label": "Mighty Hunter",
+					"description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
+				},
+				{
+					"slug": "wide-wanderer",
+					"label": "Wide Wanderer",
+					"description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
+				},
+				{
+					"slug": "beast-bonded",
+					"label": "Beast-Bonded",
+					"description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
+				}
+			],
+			"appearance": {
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "fledgling",
+								"text": "fledgling"
+							},
+							{
+								"slug": "prime-specimen",
+								"text": "prime specimen"
+							},
+							{
+								"slug": "long-in-the-tooth",
+								"text": "long in the tooth"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "barking-voice",
+								"text": "barking voice"
+							},
+							{
+								"slug": "growling-voice",
+								"text": "growling voice"
+							},
+							{
+								"slug": "sing-song-voice",
+								"text": "sing-song voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "compact-and-sturdy",
+								"text": "compact & sturdy"
+							},
+							{
+								"slug": "long-and-lean",
+								"text": "long & lean"
+							},
+							{
+								"slug": "wolfish",
+								"text": "wolfish"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "shaggy",
+								"text": "shaggy"
+							},
+							{
+								"slug": "threadbare",
+								"text": "threadbare"
+							},
+							{
+								"slug": "well-groomed",
+								"text": "well-groomed"
+							}
+						]
+					}
+				]
+			},
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Aran",
+						"Bledyn",
+						"Branwen",
+						"Deryn",
+						"Ifur",
+						"Meinir",
+						"Rhys",
+						"Teagan"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Anarba",
+						"Arslan",
+						"Bolormaa",
+						"Cirina",
+						"Nergui",
+						"Nomolun",
+						"Saran",
+						"Shigi-Qutuqu"
+					]
+				},
+				{
+					"region": "Marshedge",
+					"names": [
+						"Asling",
+						"Conar",
+						"Enna",
+						"Flannan",
+						"Macha",
+						"Mave",
+						"Proinsias",
+						"Rowen"
+					]
+				},
+				{
+					"region": "The Steplands (Hillfolk)",
+					"names": [
+						"Bernd",
+						"Elown",
+						"Irn",
+						"Kani",
+						"Pol",
+						"Nol",
+						"Rozn",
+						"Sterin"
+					]
+				},
+				{
+					"region": "The Manmarch",
+					"names": [
+						"Alfher",
+						"Bertrim",
+						"Dagmar",
+						"Elfrida",
+						"Hramn",
+						"Meike",
+						"Swanhilde",
+						"Wulfrim"
+					]
+				},
+				{
+					"region": "Lygos or some other point south",
+					"names": [
+						"Ari",
+						"Boriz",
+						"Dimitra",
+						"Gorhan",
+						"Nitza",
+						"Selen",
+						"Todora",
+						"Vasil"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2, in addition to your composite bow",
+				"pickCount": 2,
+				"preselected": [
+					"composite-bow"
+				],
+				"options": [
+					{
+						"slug": "composite-bow",
+						"label": "Composite bow",
+						"description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
+					},
+					{
+						"slug": "distillery",
+						"label": "Distillery",
+						"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+						"outfitItems": [
+							{
+								"slug": "distillery-firkins",
+								"name": "Firkins",
+								"weight": 2,
+								"inventoryColumn": "regular"
+							}
+						],
+						"resource": {
+							"max": 2,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "hideouts",
+						"label": "Hideouts",
+						"description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "hounds",
+						"label": "Hounds",
+						"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+					},
+					{
+						"slug": "husbandry-tools",
+						"label": "Husbandry tools",
+						"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+					},
+					{
+						"slug": "lay-of-the-land",
+						"label": "Lay of the land",
+						"description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "trapping-gear",
+						"label": "Trapping gear",
+						"description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "wicked-threat",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Something Wicked This Way Comes",
+							"description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
+						},
+						{
+							"type": "track",
+							"slug": "great-wood",
+							"description": "A dark, unwholesome presence lurking in the Great Wood.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "ruined-tower",
+							"description": "A strange, furtive figure seen near the Ruined Tower.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "foothills",
+							"description": "Something big & savage stalking the northern foothills.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "suarachan",
+							"description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "hillfolk",
+							"description": "That of which the Hillfolk refuse to speak.",
+							"max": 1
+						}
+					]
+				},
+				{
+					"slug": "wicked-questions",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Answer At Least 3 of the Following",
+							"description": ""
+						},
+						{
+							"type": "input",
+							"slug": "what-is-it",
+							"text": "What, exactly, do you think it is?"
+						},
+						{
+							"type": "input",
+							"slug": "what-saw",
+							"text": "What did you see, and how close did you have to get to see it?"
+						},
+						{
+							"type": "input",
+							"slug": "what-lost",
+							"text": "Whom or what have you lost to it?"
+						},
+						{
+							"type": "input",
+							"slug": "left-behind",
+							"text": "What did it leave behind?"
+						},
+						{
+							"type": "input",
+							"slug": "what-wants",
+							"text": "What do you think it wants?"
+						},
+						{
+							"type": "input",
+							"slug": "disbeliever",
+							"text": "Who refuses to believe you?"
+						},
+						{
+							"type": "input",
+							"slug": "who-knows-more",
+							"text": "Who can tell you more, if you can only convince them?"
+						}
+					]
+				}
+			],
+			"instinct": {
+				"slug": "instinct",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"options": [
+							{
+								"slug": "adventure",
+								"description": "To test yourself, to experience new things.",
+								"text": "Adventure"
+							},
+							{
+								"slug": "independence",
+								"description": "To refuse help and push others away.",
+								"text": "Independence"
+							},
+							{
+								"slug": "stewardship",
+								"description": "To value beasts and natural places over people.",
+								"text": "Stewardship"
+							},
+							{
+								"slug": "tenacity",
+								"description": "To be stubborn, to persist.",
+								"text": "Tenacity"
+							},
+							{
+								"slug": "wonder",
+								"description": "To marvel at beauty, magnificence, splendor.",
+								"text": "Wonder"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"system": {
+		"slug": "the-ranger",
+		"actorType": "character",
+		"description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+		"attributes": {}
+	}
 }

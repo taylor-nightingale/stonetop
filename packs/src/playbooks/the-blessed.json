@@ -1,498 +1,563 @@
 {
-  "_id": "RbcwUiSxq1sgau7L",
-  "_key": "!items!RbcwUiSxq1sgau7L",
-  "img": "modules/stonetop/assets/playbooks/the-blessed.png",
-  "name": "The Blessed",
-  "type": "playbook",
-  "flags": {
-    "stonetop": {
-      "hp": 18,
-      "damage": "d6",
-      "moves": {
-        "startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice."
-      },
-      "backgrounds": [
-        {
-          "slug": "initiate",
-          "label": "Initiate",
-          "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p>",
-          "moves": [
-            "Rites of the Land"
-          ],
-          "choices": {
-            "label": "There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers— see the Initiates of Danu insert. Who are they?",
-            "count": [
-              2,
-              3
-            ],
-            "options": [
-              {
-                "slug": "enfys",
-                "label": "Enfys, your acolyte, beloved by birds"
-              },
-              {
-                "slug": "afon",
-                "label": "Afon, strange and Fae-touched"
-              },
-              {
-                "slug": "gwendyl",
-                "label": "Gwendyl, your mentor, a talented healer"
-              },
-              {
-                "slug": "olwin",
-                "label": "Olwin, your anointed lover, seer of fates"
-              },
-              {
-                "slug": "seren",
-                "label": "Seren the Eldest, wise and hard as winter"
-              }
-            ]
-          }
-        },
-        {
-          "slug": "raised-by-wolves",
-          "label": "Raised by Wolves",
-          "moves": [
-            "Trackless Step"
-          ],
-          "description": "<p>Maybe not by wolves, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?</p><p>Regardless, you get the <strong>Trackless Step</strong> move. Also, when you <em><strong>Forage</strong></em>, you have advantage.</p><p>For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when <em><strong>your wild ways offend or alienate you from someone</strong></em>, mark XP.</p>"
-        },
-        {
-          "slug": "vessel",
-          "label": "Vessel",
-          "moves": [
-            "Danu's Grasp"
-          ],
-          "description": "<p>A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the <strong>Danu's Grasp</strong> move. When you <strong><em>would spend 1 Stock from your sacred pouch</strong></em>, you may choose to lose 2d4 HP instead.</p>"
-        }
-      ],
-      "appearance": [
-        [
-          "fresh-faced",
-          "hale & hearty",
-          "gray & wizened"
-        ],
-        [
-          "imperious voice",
-          "raspy voice",
-          "soothing voice"
-        ],
-        [
-          "curvy",
-          "strapping",
-          "rail-thin",
-          "solid",
-          "willowy"
-        ],
-        [
-          "ceremonial robes",
-          "furs, leather",
-          "work clothes"
-        ]
-      ],
-      "origin": [
-        {
-          "region": "Stonetop",
-          "names": [
-            "Arwel",
-            "Blodwen",
-            "Brynmor",
-            "Celyn",
-            "Fflur",
-            "Gwynn",
-            "Tegwen",
-            "Winned"
-          ]
-        },
-        {
-          "region": "Barrier Pass",
-          "names": [
-            "Alagh",
-            "Bora",
-            "Chambui",
-            "Enebish",
-            "Jalakai",
-            "Kamala",
-            "Sechen",
-            "Todogen"
-          ]
-        },
-        {
-          "region": "The Steplands",
-          "names": [
-            "Bejn",
-            "Decla",
-            "Franza",
-            "Irv",
-            "Ivet",
-            "Jak",
-            "Sibl",
-            "Yez"
-          ]
-        },
-        {
-          "region": "The Wild",
-          "names": [
-            "Autumn",
-            "Badger",
-            "Big",
-            "Black",
-            "Bloody",
-            "Brave",
-            "Crow",
-            "Cub",
-            "Dark",
-            "Doe",
-            "Fang",
-            "Fierce",
-            "Flower",
-            "Gentle",
-            "Green",
-            "Grim",
-            "Hart",
-            "Leaf",
-            "Little",
-            "Lonely",
-            "Old",
-            "Owl",
-            "Pale",
-            "Pup",
-            "Quiet",
-            "Rain",
-            "Red",
-            "Sharp",
-            "Snake",
-            "Snow",
-            "Spring",
-            "Summer",
-            "Tall",
-            "Tree",
-            "Yellow",
-            "White",
-            "Wind",
-            "Winter",
-            "Wolf",
-            "Whisper"
-          ]
-        }
-      ],
-      "specialPossessions": {
-        "pickNote": "Pick 2, in addition to your sacred pouch",
-        "pickCount": 2,
-        "preselected": [
-          "sacred-pouch"
-        ],
-        "options": [
-          {
-            "slug": "sacred-pouch",
-            "label": "Sacred pouch (<em>magical</em>)",
-            "description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
-            "usesBonus": {
-              "evenLevelBonus": 1,
-              "moveBonus": [
-                {
-                  "moveName": "Big Magic",
-                  "perInstance": 2
-                }
-              ]
-            },
-            "resource": {
-              "max": 3,
-              "title": "Stock",
-              "labels": []
-            },
-            "choices": {
-              "slug": "sacred-pouch",
-              "list": [
-                {
-                  "type": "heading",
-                  "note": "choose 1 on each line",
-                  "title": "Your sacred pouch is..."
-                },
-                {
-                  "type": "pick",
-                  "pickCount": 1,
-                  "options": [
-                    {
-                      "slug": "origin-heirloom",
-                      "text": "an heirloom made just for you"
-                    },
+	"_id": "RbcwUiSxq1sgau7L",
+	"_key": "!items!RbcwUiSxq1sgau7L",
+	"img": "modules/stonetop/assets/playbooks/the-blessed.png",
+	"name": "The Blessed",
+	"type": "playbook",
+	"flags": {
+		"stonetop": {
+			"hp": 18,
+			"damage": "d6",
+			"moves": {
+				"startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice."
+			},
+			"backgrounds": [
+				{
+					"slug": "initiate",
+					"label": "Initiate",
+					"description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p>",
+					"moves": [
+						"Rites of the Land"
+					],
+					"choices": {
+						"label": "There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers— see the Initiates of Danu insert. Who are they?",
+						"count": [
+							2,
+							3
+						],
+						"options": [
+							{
+								"slug": "enfys",
+								"label": "Enfys, your acolyte, beloved by birds"
+							},
+							{
+								"slug": "afon",
+								"label": "Afon, strange and Fae-touched"
+							},
+							{
+								"slug": "gwendyl",
+								"label": "Gwendyl, your mentor, a talented healer"
+							},
+							{
+								"slug": "olwin",
+								"label": "Olwin, your anointed lover, seer of fates"
+							},
+							{
+								"slug": "seren",
+								"label": "Seren the Eldest, wise and hard as winter"
+							}
+						]
+					}
+				},
+				{
+					"slug": "raised-by-wolves",
+					"label": "Raised by Wolves",
+					"moves": [
+						"Trackless Step"
+					],
+					"description": "<p>Maybe not by wolves, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?</p><p>Regardless, you get the <strong>Trackless Step</strong> move. Also, when you <em><strong>Forage</strong></em>, you have advantage.</p><p>For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when <em><strong>your wild ways offend or alienate you from someone</strong></em>, mark XP.</p>"
+				},
+				{
+					"slug": "vessel",
+					"label": "Vessel",
+					"moves": [
+						"Danu's Grasp"
+					],
+					"description": "<p>A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the <strong>Danu's Grasp</strong> move. When you <strong><em>would spend 1 Stock from your sacred pouch</strong></em>, you may choose to lose 2d4 HP instead.</p>"
+				}
+			],
+			"appearance": {
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "fresh-faced",
+								"text": "fresh-faced"
+							},
+							{
+								"slug": "hale-and-hearty",
+								"text": "hale & hearty"
+							},
+							{
+								"slug": "gray-and-wizened",
+								"text": "gray & wizened"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "imperious-voice",
+								"text": "imperious voice"
+							},
+							{
+								"slug": "raspy-voice",
+								"text": "raspy voice"
+							},
+							{
+								"slug": "soothing-voice",
+								"text": "soothing voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "curvy",
+								"text": "curvy"
+							},
+							{
+								"slug": "strapping",
+								"text": "strapping"
+							},
+							{
+								"slug": "rail-thin",
+								"text": "rail-thin"
+							},
+							{
+								"slug": "solid",
+								"text": "solid"
+							},
+							{
+								"slug": "willowy",
+								"text": "willowy"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "ceremonial-robes",
+								"text": "ceremonial robes"
+							},
+							{
+								"slug": "furs-leather",
+								"text": "furs, leather"
+							},
+							{
+								"slug": "work-clothes",
+								"text": "work clothes"
+							}
+						]
+					}
+				]
+			},
+			"origin": [
+				{
+					"region": "Stonetop",
+					"names": [
+						"Arwel",
+						"Blodwen",
+						"Brynmor",
+						"Celyn",
+						"Fflur",
+						"Gwynn",
+						"Tegwen",
+						"Winned"
+					]
+				},
+				{
+					"region": "Barrier Pass",
+					"names": [
+						"Alagh",
+						"Bora",
+						"Chambui",
+						"Enebish",
+						"Jalakai",
+						"Kamala",
+						"Sechen",
+						"Todogen"
+					]
+				},
+				{
+					"region": "The Steplands",
+					"names": [
+						"Bejn",
+						"Decla",
+						"Franza",
+						"Irv",
+						"Ivet",
+						"Jak",
+						"Sibl",
+						"Yez"
+					]
+				},
+				{
+					"region": "The Wild",
+					"names": [
+						"Autumn",
+						"Badger",
+						"Big",
+						"Black",
+						"Bloody",
+						"Brave",
+						"Crow",
+						"Cub",
+						"Dark",
+						"Doe",
+						"Fang",
+						"Fierce",
+						"Flower",
+						"Gentle",
+						"Green",
+						"Grim",
+						"Hart",
+						"Leaf",
+						"Little",
+						"Lonely",
+						"Old",
+						"Owl",
+						"Pale",
+						"Pup",
+						"Quiet",
+						"Rain",
+						"Red",
+						"Sharp",
+						"Snake",
+						"Snow",
+						"Spring",
+						"Summer",
+						"Tall",
+						"Tree",
+						"Yellow",
+						"White",
+						"Wind",
+						"Winter",
+						"Wolf",
+						"Whisper"
+					]
+				}
+			],
+			"specialPossessions": {
+				"pickNote": "Pick 2, in addition to your sacred pouch",
+				"pickCount": 2,
+				"preselected": [
+					"sacred-pouch"
+				],
+				"options": [
+					{
+						"slug": "sacred-pouch",
+						"label": "Sacred pouch (<em>magical</em>)",
+						"description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
+						"usesBonus": {
+							"evenLevelBonus": 1,
+							"moveBonus": [
+								{
+									"moveName": "Big Magic",
+									"perInstance": 2
+								}
+							]
+						},
+						"resource": {
+							"max": 3,
+							"title": "Stock",
+							"labels": []
+						},
+						"choices": {
+							"slug": "sacred-pouch",
+							"list": [
+								{
+									"type": "heading",
+									"note": "choose 1 on each line",
+									"title": "Your sacred pouch is..."
+								},
+								{
+									"type": "pick",
+									"pickCount": 1,
+									"options": [
+										{
+											"slug": "origin-heirloom",
+											"text": "an heirloom made just for you"
+										},
 										{
 											"slug": "origin-made-just-for-you",
 											"text": "made just for you"
 										},
-                    {
-                      "slug": "origin-own-work",
-                      "text": "your own work"
-                    }
-                  ],
-                  "inline": true
-                },
-                {
-                  "type": "pick",
-                  "pickCount": 1,
-                  "options": [
-                    {
-                      "slug": "material-fur",
-                      "text": "fur"
-                    },
-                    {
-                      "slug": "material-drakescale",
-                      "text": "drakescale"
-                    },
-                    {
-                      "slug": "material-leather",
-                      "text": "leather"
-                    },
-                    {
-                      "slug": "material-woven",
-                      "text": "woven"
-                    },
-                    {
-                      "slug": "material-demonflesh",
-                      "text": "demonflesh"
-                    }
-                  ],
-                  "inline": true
-                },
-                {
-                  "type": "pick",
-                  "pickCount": 1,
-                  "options": [
-                    {
-                      "slug": "decor-unadorned",
-                      "text": "unadorned"
-                    },
-                    {
-                      "slug": "decor-beadwork",
-                      "text": "beadwork"
-                    },
-                    {
-                      "slug": "decor-rich-dyes",
-                      "text": "rich dyes"
-                    },
-                    {
-                      "slug": "decor-runes",
-                      "text": "runes"
-                    }
-                  ],
-                  "inline": true
-                },
-                {
-                  "type": "heading",
-                  "note": "choose 1",
-                  "title": "What remarkable trait does it possess?"
-                },
-                {
-                  "type": "pick",
-                  "pickCount": 1,
-                  "options": [
-                    {
-                      "slug": "trait-indestructible",
-                      "text": "It cannot be cut, torn, or burned by any natural means."
-                    },
-                    {
-                      "slug": "trait-unnoticed",
-                      "text": "Unless someone is specifically searching for your pouch, they will ignore its presence."
-                    },
-                    {
-                      "slug": "trait-sealed",
-                      "text": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
-                    },
-                    {
-                      "slug": "trait-unclean",
-                      "text": "Unnatural and unclean creatures cannot bear to touch it."
-                    }
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "slug": "apiary",
-            "label": "Apiary",
-            "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
-            "outfitItems": [
-              {
-                "slug": "apiary-bee-smokers",
-                "name": "Bee smokers",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              },
-              {
-                "slug": "apiary-hat-veils",
-                "name": "Hat & veils",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              }
-            ]
-          },
-          {
-            "slug": "collected-offerings",
-            "label": "Collected offerings",
-            "description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
-            "resource": {
-              "max": 3,
-              "title": null,
-              "labels": []
-            }
-          },
-          {
-            "slug": "goat-herd",
-            "label": "Goat herd",
-            "description": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison)."
-          },
-          {
-            "slug": "herb-garden",
-            "label": "Herb garden",
-            "description": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature).",
-            "outfitItems": [
-              {
-                "slug": "herb-spades",
-                "name": "Spades",
-                "weight": 1,
-                "inventoryColumn": "regular"
-              }
-            ]
-          },
-          {
-            "slug": "mastiffs",
-            "label": "Mastiffs",
-            "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
-          }
-        ]
-      },
-      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "lore": [
-        {
-          "slug": "the-earth-mother",
-          "list": [
-            {
-              "type": "heading",
-              "title": "The Earth Mother",
-              "description": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>"
-            },
-            {
-              "type": "track",
-              "slug": "shrine-loved",
-              "description": "... loved, well-used, dripping with offerings and petitions.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "shrine-token",
-              "description": "... little more than a token of respect, for her holy places are anywhere but here.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "shrine-berth",
-              "description": "... given wide berth by most, and approached only with care and propitiation.",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "shrine-neglected",
-              "description": "... neglected and all but forgotten, except by a few.",
-              "max": 1
-            },
-            {
-              "type": "heading",
-              "description": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
-            },
-            {
-              "type": "track",
-              "slug": "fruits-of-harvest",
-              "description": "Fruits of harvest",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "figurines",
-              "description": "Figurines/effigies",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "whisky",
-              "description": "Whisky/spirits",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "salt",
-              "description": "Salt/crystals",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "rain-water",
-              "description": "Pure rain water",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "metal-nails",
-              "description": "Metal nails/tools",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "blood",
-              "description": "Blood/burnt flesh",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "incense",
-              "description": "Incense/sage bark",
-              "max": 1
-            }
-          ]
-        }
-      ],
-      "instinct": {
-        "slug": "instinct",
-        "list": [
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "delight",
-                "description": "To find beauty, in even the ugliest things.",
-                "text": "Delight"
-              },
-              {
-                "slug": "detachment",
-                "description": "To remain unmoved, to be cold as winter.",
-                "text": "Detachment"
-              },
-              {
-                "slug": "nurture",
-                "description": "To help others grow, learn, or improve.",
-                "text": "Nurture"
-              },
-              {
-                "slug": "preservation",
-                "description": "To protect the natural world.",
-                "text": "Preservation"
-              },
-              {
-                "slug": "reverence",
-                "description": "To honor the spirits and give them their due.",
-                "text": "Reverence"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "system": {
-    "slug": "the-blessed",
-    "actorType": "character",
-    "description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
-    "attributes": {}
-  }
+										{
+											"slug": "origin-own-work",
+											"text": "your own work"
+										}
+									],
+									"inline": true
+								},
+								{
+									"type": "pick",
+									"pickCount": 1,
+									"options": [
+										{
+											"slug": "material-fur",
+											"text": "fur"
+										},
+										{
+											"slug": "material-drakescale",
+											"text": "drakescale"
+										},
+										{
+											"slug": "material-leather",
+											"text": "leather"
+										},
+										{
+											"slug": "material-woven",
+											"text": "woven"
+										},
+										{
+											"slug": "material-demonflesh",
+											"text": "demonflesh"
+										}
+									],
+									"inline": true
+								},
+								{
+									"type": "pick",
+									"pickCount": 1,
+									"options": [
+										{
+											"slug": "decor-unadorned",
+											"text": "unadorned"
+										},
+										{
+											"slug": "decor-beadwork",
+											"text": "beadwork"
+										},
+										{
+											"slug": "decor-rich-dyes",
+											"text": "rich dyes"
+										},
+										{
+											"slug": "decor-runes",
+											"text": "runes"
+										}
+									],
+									"inline": true
+								},
+								{
+									"type": "heading",
+									"note": "choose 1",
+									"title": "What remarkable trait does it possess?"
+								},
+								{
+									"type": "pick",
+									"pickCount": 1,
+									"options": [
+										{
+											"slug": "trait-indestructible",
+											"text": "It cannot be cut, torn, or burned by any natural means."
+										},
+										{
+											"slug": "trait-unnoticed",
+											"text": "Unless someone is specifically searching for your pouch, they will ignore its presence."
+										},
+										{
+											"slug": "trait-sealed",
+											"text": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
+										},
+										{
+											"slug": "trait-unclean",
+											"text": "Unnatural and unclean creatures cannot bear to touch it."
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						"slug": "apiary",
+						"label": "Apiary",
+						"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+						"outfitItems": [
+							{
+								"slug": "apiary-bee-smokers",
+								"name": "Bee smokers",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							},
+							{
+								"slug": "apiary-hat-veils",
+								"name": "Hat & veils",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
+					},
+					{
+						"slug": "collected-offerings",
+						"label": "Collected offerings",
+						"description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+						"resource": {
+							"max": 3,
+							"title": null,
+							"labels": []
+						}
+					},
+					{
+						"slug": "goat-herd",
+						"label": "Goat herd",
+						"description": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison)."
+					},
+					{
+						"slug": "herb-garden",
+						"label": "Herb garden",
+						"description": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature).",
+						"outfitItems": [
+							{
+								"slug": "herb-spades",
+								"name": "Spades",
+								"weight": 1,
+								"inventoryColumn": "regular"
+							}
+						]
+					},
+					{
+						"slug": "mastiffs",
+						"label": "Mastiffs",
+						"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+					}
+				]
+			},
+			"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+			"lore": [
+				{
+					"slug": "the-earth-mother",
+					"list": [
+						{
+							"type": "heading",
+							"title": "The Earth Mother",
+							"description": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>"
+						},
+						{
+							"type": "track",
+							"slug": "shrine-loved",
+							"description": "... loved, well-used, dripping with offerings and petitions.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "shrine-token",
+							"description": "... little more than a token of respect, for her holy places are anywhere but here.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "shrine-berth",
+							"description": "... given wide berth by most, and approached only with care and propitiation.",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "shrine-neglected",
+							"description": "... neglected and all but forgotten, except by a few.",
+							"max": 1
+						},
+						{
+							"type": "heading",
+							"description": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
+						},
+						{
+							"type": "track",
+							"slug": "fruits-of-harvest",
+							"description": "Fruits of harvest",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "figurines",
+							"description": "Figurines/effigies",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "whisky",
+							"description": "Whisky/spirits",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "salt",
+							"description": "Salt/crystals",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "rain-water",
+							"description": "Pure rain water",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "metal-nails",
+							"description": "Metal nails/tools",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "blood",
+							"description": "Blood/burnt flesh",
+							"max": 1
+						},
+						{
+							"type": "track",
+							"slug": "incense",
+							"description": "Incense/sage bark",
+							"max": 1
+						}
+					]
+				}
+			],
+			"instinct": {
+				"slug": "instinct",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"options": [
+							{
+								"slug": "delight",
+								"description": "To find beauty, in even the ugliest things.",
+								"text": "Delight"
+							},
+							{
+								"slug": "detachment",
+								"description": "To remain unmoved, to be cold as winter.",
+								"text": "Detachment"
+							},
+							{
+								"slug": "nurture",
+								"description": "To help others grow, learn, or improve.",
+								"text": "Nurture"
+							},
+							{
+								"slug": "preservation",
+								"description": "To protect the natural world.",
+								"text": "Preservation"
+							},
+							{
+								"slug": "reverence",
+								"description": "To honor the spirits and give them their due.",
+								"text": "Reverence"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"system": {
+		"slug": "the-blessed",
+		"actorType": "character",
+		"description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
+		"attributes": {}
+	}
 }

@@ -3,7 +3,7 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial module for playing Stonetop in Foundry VTT.",
-	"version": "0.8.0",
+	"version": "0.8.1",
 	"compatibility": {
 		"minimum": "12",
 		"verified": "14"

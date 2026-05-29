@@ -35,15 +35,15 @@ export class StonetopPlaybook {
 	}
 
 	get appearance() {
-		return this._stonetopFields.appearance ?? [];
+		return this._stonetopFields.appearance ?? null;
 	}
 
 	get backgrounds() {
 		return this._stonetopFields.backgrounds ?? [];
 	}
 
-	get instincts() {
-		return this._stonetopFields.instincts ?? [];
+	get instinct() {
+		return this._stonetopFields.instinct ?? null;
 	}
 
 	get origin() {
