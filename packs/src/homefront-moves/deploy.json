@@ -1,0 +1,26 @@
+{
+    "_id": "iCR5iJn24QmshuE1",
+    "_key": "!items!iCR5iJn24QmshuE1",
+    "name": "Deploy",
+    "type": "move",
+    "system": {
+        "playbook": "Stonetop",
+        "moveType": "homefront",
+        "description": "<p>When you <strong><em>send a steading's people into danger or rally them against an attack</em></strong>, roll +Defenses: <strong>on a 10+</strong>, it goes as well as can be expected; <strong>on a 7-9</strong>, it works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.<ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul></p>",
+        "rollType": "defenses",
+        "moveResults": {
+            "success": {
+                "label": "10+",
+                "value": "It goes as well as can be expected."
+            },
+            "partial": {
+                "label": "7-9",
+                "value": "It works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.<ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul>"
+            },
+            "failure": {
+                "label": "6-",
+                "value": "Establish badness"
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "_id": "yRJcV9Le2sCBGNnM",
+    "_key": "!items!yRJcV9Le2sCBGNnM",
+    "name": "Convalesce",
+    "type": "move",
+    "system": {
+        "playbook": "Stonetop",
+        "moveType": "homefront",
+        "description": "<p>When you <strong><em>rest for a few days, in safety and comfort</em></strong>, recover all your HP and clear all your debilities. When you <strong><em>rest for a few weeks under the care of a healer</em></strong>, heal any problematic wounds that can heal. If you <strong><em>have suffered a permanent injury or impairment</em></strong>, either retire or Make a Plan to adapt to it.</p>"
+    }
+}
