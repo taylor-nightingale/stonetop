@@ -5,7 +5,7 @@
 		{{#if (and ownedId rollType)}}
 		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 		{{else}}
-		<li class="stonetop-item{{#if (and (not ownedId) (not selectable))}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
+		<li class="stonetop-item{{#if isStarting}} move-starting{{/if}}">
 		{{/if}}
 			<div class="stonetop-item-header">
 				{{#if (gt selection.max 1)}}
@@ -28,6 +28,7 @@
 				       {{#if (or isStarting (and (not ownedId) (not selectable)))}}disabled{{/if}}>
 				{{/if}}
 				<strong class="stonetop-item-name">{{name}}</strong>
+				{{#if requirement}}<span class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</span>{{/if}}
 				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 				{{#if (and ownedId rollType)}}
 				<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
@@ -54,7 +55,6 @@
 				{{/if}}
 			</div>
 			<div class="stonetop-item-description">{{{description}}}</div>
-			{{#if requiresLabel}}<p class="stonetop-move-note">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}</p>{{/if}}
 		</li>
 	{{/each}}
 	</ol>

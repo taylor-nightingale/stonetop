@@ -114,7 +114,8 @@
 				"otherMoves": "Other Moves",
 				"addMove": "Add Move",
 				"removeMove": "Remove Move",
-				"requires": "Requires"
+				"requires": "Requires",
+				"notMet": "Not Met"
 			},
 			"selection": {
 				"select": "Select",

@@ -283,40 +283,48 @@ describe("CharacterMoves.buildSnapshot — selectable computation", () => {
 		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].selectable).toBe(true);
 	});
 
-	it("selectable=false when level requirement exceeds actor level", () => {
+	it("selectable=true but requirement.met=false when level requirement exceeds actor level", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 6, playbook: null } })] }),
 		]});
 		const actor = makeActor(1);
-		expect(makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0].selectable).toBe(false);
+		const move = makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0];
+		expect(move.selectable).toBe(true);
+		expect(move.requirement.met).toBe(false);
 	});
 
-	it("selectable=true when level requirement equals actor level", () => {
+	it("selectable=true and requirement.met=true when level requirement equals actor level", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 3, playbook: null } })] }),
 		]});
 		const actor = makeActor(3);
-		expect(makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0].selectable).toBe(true);
+		const move = makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0];
+		expect(move.selectable).toBe(true);
+		expect(move.requirement.met).toBe(true);
 	});
 
-	it("selectable=false when required move not yet acquired", () => {
+	it("selectable=true but requirement.met=false when required move not yet acquired", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [
 				makeFlagMove("Parent"),
 				makeFlagMove("Child", { requirement: { moves: ["Parent"], level: null, playbook: null } }),
 			]}),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[1].selectable).toBe(false);
+		const move = makeMoves({ flags }).buildSnapshot().categories[0].moves[1];
+		expect(move.selectable).toBe(true);
+		expect(move.requirement.met).toBe(false);
 	});
 
-	it("selectable=true when required move is acquired", () => {
+	it("selectable=true and requirement.met=true when required move is acquired", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [
 				makeFlagMove("Parent", { selection: { max: 1, value: 1 } }),
 				makeFlagMove("Child", { requirement: { moves: ["Parent"], level: null, playbook: null } }),
 			]}),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[1].selectable).toBe(true);
+		const move = makeMoves({ flags }).buildSnapshot().categories[0].moves[1];
+		expect(move.selectable).toBe(true);
+		expect(move.requirement.met).toBe(true);
 	});
 });
 

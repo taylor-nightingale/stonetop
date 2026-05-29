@@ -199,7 +199,7 @@ export class CharacterMoves {
 		const categories = cats.map(cat => new MoveCategorySnapshotBuilder()
 			.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
 			.withAllowAdditional(cat.allowAdditional).withNote(cat.note ?? null)
-			.withMoves(cat.moves.map(m => _buildMoveSnapshot(m, cat.key, _computeSelectable(m, level, acquiredByName))))
+			.withMoves(cat.moves.map(m => _buildMoveSnapshot(m, cat.key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName))))
 			.build()
 		);
 		return new MovelistBuilder().withCategories(categories).build();
@@ -215,7 +215,7 @@ export class CharacterMoves {
 		if (!cat) return [];
 		const level = this._actor.system?.attributes?.level?.value ?? 1;
 		const acquiredByName = _acquiredNames(this._getCategories());
-		return cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m, level, acquiredByName)));
+		return cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName)));
 	}
 
 	async onDropMove(itemData) {
@@ -298,8 +298,11 @@ function _acquiredNames(cats) {
 	return new Set(cats.flatMap(c => c.moves).filter(m => m.selection.value > 0).map(m => m.name));
 }
 
-function _computeSelectable(move, level, acquiredByName) {
-	if (move.selection.value >= move.selection.max) return false;
+function _computeSelectable(move) {
+	return move.selection.value < move.selection.max;
+}
+
+function _requirementsMet(move, level, acquiredByName) {
 	const req = move.requirement;
 	if (!req) return true;
 	if (req.level && level < req.level) return false;
@@ -307,7 +310,7 @@ function _computeSelectable(move, level, acquiredByName) {
 	return true;
 }
 
-function _buildMoveSnapshot(move, categoryKey, selectable) {
+function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet) {
 	const resource = move.resource
 		? new ResourceBuilder()
 			.withCurrent(move.resource.current).withMax(move.resource.max)
@@ -317,7 +320,7 @@ function _buildMoveSnapshot(move, categoryKey, selectable) {
 	const req = move.requirement;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
 	const requirement = reqParts.length
-		? new RequirementSnapshot(reqParts.join(", "), selectable)
+		? new RequirementSnapshot(reqParts.join(", "), requirementsMet)
 		: null;
 	return new MoveSnapshotBuilder()
 		.withId(move.compendiumId ?? null)

@@ -882,12 +882,14 @@ body,
 	gap: 2px 12px;
 }
 
-.stonetop-move-note {
-	padding-left: 20px;
+.stonetop-item-requirement {
 	font-size: 0.75rem;
 	font-style: italic;
 	color: var(--color-text-dark-secondary);
-	margin: 0;
+}
+
+.stonetop-item-requirement--unmet {
+	color: var(--color-level-warning, #b45309);
 }
 
 .stonetop-item.move-locked {
