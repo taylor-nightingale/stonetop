@@ -55,7 +55,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you meet the requirements, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: on a 10+, say what they've heard about you or Stonetop, and gain advantage on your next move against them; on a 7-9, say what they've heard; on a 6-, the GM decides what they've heard.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: <strong>on a 10+</strong>, say what they've heard about you or Stonetop, and gain advantage on your next move against them; <strong>on a 7-9</strong>, say what they've heard; <strong>on a 6-</strong>, the GM decides what they've heard.</p>"
           }
         ]
       }

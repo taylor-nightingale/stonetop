@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defend</em></strong>, hold 1 extra Readiness. Even on a 6-, hold 1 Readiness (plus whatever the GM says).</p>"
+		"description": "<p>When you <strong><em>Defend</em></strong>, hold 1 extra Readiness. Even <strong>on a 6-</strong>, hold 1 Readiness (plus whatever the GM says).</p>"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

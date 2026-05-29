@@ -1904,10 +1904,32 @@ body,
 
 .st-section-title {
 	font-weight: bold;
-	font-size: 0.82rem;
+	font-size: 1.1rem;
 	margin: 0 0 5px;
 	padding-bottom: 2px;
 	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+}
+
+/* Inline heading row: title + subtitle on one line */
+.st-section-heading {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.st-section-heading .st-section-title {
+	margin: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+	flex-shrink: 0;
+}
+
+.st-section-subtitle {
+	font-size: 0.82rem;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--color-text-dark-primary, #111);
 }
 
 /* Places of Interest */
@@ -2179,25 +2201,63 @@ body,
 	cursor: pointer;
 }
 
+/* Residents tab */
+.st-residents-layout {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.st-residents-col {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+.st-residents-sidebar {
+	flex: 0 0 160px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.st-sidebar-label {
+	font-size: 0.72rem;
+	font-weight: bold;
+	color: var(--color-text-dark-secondary, #555);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin: 0;
+}
+
+.st-resident-names-list {
+	font-size: 0.74rem;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.st-residents-sidebar img {
+	width: 100%;
+	border-radius: 3px;
+	display: block;
+}
+
+/* NPC Traits — dynamic multi-column */
+.st-resident-traits-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	column-count: 6;
+	column-width: 130px;
+	column-fill: auto;
+	max-height: calc(14 * 1.6em);
+	overflow: hidden;
+	font-size: 0.82rem;
+	line-height: 1.6;
+}
+
 /* Improvements */
 .stonetop-choice-entry {
 	margin-bottom: 4px;
-}
-
-/* Content + Improvements side-by-side */
-.st-content-improvements-row {
-	display: flex;
-	gap: 16px;
-	align-items: flex-start;
-	border-top: 1px solid var(--color-border-light-primary, #ccc);
-	padding-top: 8px;
-}
-
-.st-content-sidebar {
-	flex: 0 0 260px;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
 }
 
 .st-content-desc {
@@ -2223,10 +2283,15 @@ body,
 	font-weight: normal;
 }
 
-.st-improvements-col {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+/* Improvements — multi-column like character sheet moves */
+.st-improvements-list {
+	column-count: 2;
+	column-gap: 16px;
+	margin-top: 4px;
+}
+
+.st-improvements-list .stonetop-choice-entry {
+	break-inside: avoid;
+	margin-bottom: 4px;
 }
 

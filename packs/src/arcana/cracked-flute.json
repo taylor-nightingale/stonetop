@@ -23,7 +23,7 @@
 					"list": [
 						{
 							"type": "heading",
-							"description": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: on a 10+, mark 1 circle; on a 7-9, mark 1 circle but you summon an irate zephyr spirit; on a 6-, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
+							"description": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: <strong>on a 10+</strong>, mark 1 circle; <strong>on a 7-9</strong>, mark 1 circle but you summon an irate zephyr spirit; <strong>on a 6-</strong>, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
 						},
 						{
 							"type": "track",

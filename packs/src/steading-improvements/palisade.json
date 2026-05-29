@@ -41,7 +41,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you meet the requirements, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.</p><p>Henceforth, when you take advantage of the palisade, you have advantage to Deploy.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.</p><p>Henceforth, when you take advantage of the palisade, you have advantage to Deploy.</p>"
           }
         ]
       }

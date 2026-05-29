@@ -77,7 +77,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you meet the requirements, increase Prosperity by 1. If you cease to meet the requirements, decrease Prosperity by 1.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you cease to <strong><em>meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
           }
         ]
       }

@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can ask, \"What here stinks of the unnatural?\" for free, even on a 6-.</p>"
+		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can ask, \"What here stinks of the unnatural?\" for free, even <strong>on a 6-</strong>.</p>"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

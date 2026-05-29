@@ -173,7 +173,7 @@
 		// "Known, available improvements you can make to Stonetop. The GM may present others."
 		// Choice Group very similar to the unlock field in arcana. Some of these have moves and should be rollable.
 		// should allow for additional improvements to be added.
-		// "meet the requirements" is bolded and itallics. "on a 10+", etc. is bolded. "requires" is bolded
+		// "<strong><em>meet the requirements</em></strong>" is bolded and itallics. "on a 10+", etc. is bolded. "requires" is bolded
 
 //	[]	 ADDITIONAL HOUSING
 		//It’s getting crowded! We need more room to live.
@@ -186,7 +186,7 @@
 		//Pulling together 5 times, each requiring
 		//		 1 season, 1 Surplus, and a wagonload of timber
 		//		 and other supplies (Value 2), to (re)build homes.
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1 and add any new homes to the map.
 		//Henceforth, when you consume Surplus in winter,
 		//consider Population to be 1 lower than it is.
@@ -201,10 +201,10 @@
 		//[]		 A cunning plan
 		//And then:
 		//[]		 A successful first hunt (played out in detail)
-		//When you meet the requirements, add “Aurochs
+		//When you <strong><em>meet the requirements</em></strong>, add “Aurochs
 		//hunting (meat, hide, horn)” to the Resources list.
 		//Henceforth, when you lead the aurochs hunt in spring,
-		//roll +Defenses: on a 10+, gain 1d4 Surplus; on a 7-9,
+		//roll +Defenses: <strong>on a 10+</strong>, gain 1d4 Surplus; <strong>on a 7-9</strong>,
 		//gain 1d4 Surplus but pick 1 from the list below; on a
 		//6-, pick 1 from the list below, or pick 2 and gain
 		//1d4 Surplus.
@@ -237,8 +237,8 @@
 		//			(Value 3)
 		//[]		 Some other exceptional tradesperson, with the
 		//			 appropriate tools and supplies (Value 2 or 3)
-		//When you meet the requirements, increase Prosperity
-		//by 1. If you cease to meet the requirements, decrease
+		//When you <strong><em>meet the requirements</em></strong>, increase Prosperity
+		//by 1. If you cease to <strong><em>meet the requirements</em></strong>, decrease
 		//Prosperity by 1.
 
 //[]		 GREATER HARVEST
@@ -247,7 +247,7 @@
 		//Requires 1 of the following:
 		//[]		 Doubling the yield of crops inside the Old Wall
 		//[]		 Clearing/taming new fields beyond the Old Wall
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1.
 		//Henceforth, when the autumn harvest is complete,
 		//gain +1d4 Surplus.
@@ -260,7 +260,7 @@
 		//way for water to flow uphill
 		//[]		 A series of aqueducts, from the Stream’s source
 		//to Stonetop
-		//When you meet the requirements, add them to the
+		//When you <strong><em>meet the requirements</em></strong>, add them to the
 		//Resources list and increase Fortunes by 1.
 		//Henceforth, you when spring breaks forth and you roll
 		//a 7+ with Fortunes, the steading generates 1 Surplus.
@@ -280,7 +280,7 @@
 		//[]		 Pulling Together to have a couple dozen villagers
 		//			 learn to ride, requiring a season and 1 Surplus.
 		//		 Someone to mind the herd and stable, full time
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1 and replace “a pair of sturdy draft horses” with “a
 		//herd of horses” on the Assets list. Make a note of its
 		//size. Henceforth:
@@ -305,13 +305,13 @@
 		//[]		 Saving many Gordin’s Delve residents’ lives
 		//[]		 Saving someone from beyond Marshedge
 		//[]		 Hiring a minstrel to tell your tales (Value 2)
-		//When you meet the requirements, gain the following
+		//When you <strong><em>meet the requirements</em></strong>, gain the following
 		//move:
 		//When you first meet someone from beyond Stonetop,
-		//roll +Fortunes: on a 10+, say what they’ve heard
+		//roll +Fortunes: <strong>on a 10+</strong>, say what they’ve heard
 		//about you or Stonetop, and gain advantage on your
-		//next move against them; on a 7-9, say what they’ve
-		//heard; on a 6-, the GM decides what they’ve heard.
+		//next move against them; <strong>on a 7-9</strong>, say what they’ve
+		//heard; <strong>on a 6-</strong>, the GM decides what they’ve heard.
 
 //[]			 INN
 		//The public house offers a common room and shelter
@@ -323,13 +323,13 @@
 		//[][]	 Pulling Together 2 times, each requiring 1
 		//			 season, 1 Surplus, and timber/supplies (Value 2)
 		//[]		 A small, devoted staff (innkeep, cook, ostler, etc.)
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1. Name the inn, add it to both the Resources list
 		//and map.
 		//Henceforth, when the seasons change, whoever is
-		//friendliest rolls +Fortunes: on a 10+, ask the GM 3
-		//questions about the wider world; on a 7-9, ask 1 ques-
-		//tion; on a 6-, ask 1 question, but the GM describes
+		//friendliest rolls +Fortunes: <strong>on a 10+</strong>, ask the GM 3
+		//questions about the wider world; <strong>on a 7-9</strong>, ask 1 ques-
+		//tion; <strong>on a 6-</strong>, ask 1 question, but the GM describes
 		//some trouble that stems from the inn or its guests.
 		//Once per season, when you expend 1 Surplus and
 		//bring folks together at the inn (to talk, to celebrate, to
@@ -348,8 +348,8 @@
 		//			 rulings on matters of trade
 		//[][][][] Four seasons in operation without notable
 		//			 incidents of violence, banditry, theft, etc.
-		//When you meet the requirements, increase Prosperity
-		//by 1. If you cease to meet the requirements, decrease
+		//When you <strong><em>meet the requirements</em></strong>, increase Prosperity
+		//by 1. If you cease to <strong><em>meet the requirements</em></strong>, decrease
 		//Prosperity by 1.
 		//When the Seasons Change to spring, summer, or
 		//autumn and the market is active, and Population is +1
@@ -367,7 +367,7 @@
 		//			 season, 1 Surplus, a wagonload of timber (Value
 		//			 2), and a bunch of rope and supplies (Value 2)
 		//[]		 A full-time miller
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1, add “Mill” to the Resources list and draw it on
 		//the map.
 		//Henceforth, when the autumn harvest is complete,
@@ -382,7 +382,7 @@
 		//[]		 A competent engineer/foreman
 		//[]		 Lots of rope, nails, pitch, etc. (Value 2)
 		//Pulling Together, costing a month and 1 Surplus
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1, add “Palisade” to the Fortifications list and draw
 		//it on the map.
 		//Henceforth, when you take advantage of the palisade,
@@ -398,7 +398,7 @@
 		//			 and construct the gutters and conduits (Value 3)
 		//[][][]  Pulling Together 3 times, each requiring 1
 		//			 season and 1 Surplus
-		//When you meet the requirements, increase Fortunes
+		//When you <strong><em>meet the requirements</em></strong>, increase Fortunes
 		//by 1, add “Raincatching” to the Resources list.
 		//Henceforth, when summer comes and you roll a 7+
 		//with Fortunes, the steading generates 1 Surplus.
@@ -410,7 +410,7 @@
 		//		 At least 6 warriors, well-equipped and willing
 		//		 The village leaders agreeing to support warriors
 		//			 who train and keep watch full-time
-		//When you meet the requirements, add “standing
+		//When you <strong><em>meet the requirements</em></strong>, add “standing
 		//watch” to the Fortifications list. At the start of each
 		//season, the watch consumes 1 Surplus or it disbands.
 		//When you specifically involve the watch in a move,
@@ -425,7 +425,7 @@
 		//[]		 Equipment, tools, and material (Value 3)
 		//[][][][] Pulling Together 4 times, each costing
 		//			 1 season, 1 Surplus, and supplies (Value 2)
-		//When you meet the requirements, add “Stone Wall”
+		//When you <strong><em>meet the requirements</em></strong>, add “Stone Wall”
 		//to the Fortifications list (erase “Palisade” if you had
 		//it) and draw it on the map. Henceforth:
 		//When you take advantage of the stone wall, you have
@@ -464,7 +464,7 @@
 		//[]		 A veteran warrior, able to command a crowd
 		//[] Pulling Together to train the militia with these
 		//			 new weapons, requiring a season and 1 Surplus
-		//When you meet the requirements, increase Defenses
+		//When you <strong><em>meet the requirements</em></strong>, increase Defenses
 		//by 1 and add “Weapons of War” to the Fortifications
 		//list. Each spring, the village must expend 1 Surplus to
 		//maintain and replace the town’s weapons.
@@ -490,7 +490,7 @@
 		//[]		 Skirmishing: ambushes, harassing, hit-and-run
 		//When you Deploy using one of the militia’s trained
 		//tactics, you are likely acting from a position of strength
-		//(you pick the consequence on a 7-9, not the GM).
+		//(you pick the consequence <strong>on a 7-9</strong>, not the GM).
 		//When the militia has trained in 2+ tactics, increase
 		//Defenses by 1.
 		//Each summer, the militia must spend 1 Surplus and

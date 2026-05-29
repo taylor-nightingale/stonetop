@@ -28,7 +28,7 @@
 						{
 							"type": "track",
 							"slug": "roll-to-open",
-							"description": "… roll +INT to open the box: on a 10+, it takes a few days of fiddling; on a 7-9, it takes a few obsessive weeks; on a 6-, it's beyond you.",
+							"description": "… roll +INT to open the box: <strong>on a 10+</strong>, it takes a few days of fiddling; <strong>on a 7-9</strong>, it takes a few obsessive weeks; <strong>on a 6-</strong>, it's beyond you.",
 							"max": 1
 						},
 						{

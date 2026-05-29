@@ -59,7 +59,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM).</p><p>When the militia has trained in 2+ tactics, increase Defenses by 1.</p><p>Each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.</p>"
+            "description": "<p>When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence <strong>on a 7-9</strong>, not the GM).</p><p>When the militia has trained in 2+ tactics, increase Defenses by 1.</p><p>Each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.</p>"
           }
         ]
       }

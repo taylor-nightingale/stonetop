@@ -15,12 +15,12 @@
           },
           {
             "type": "heading",
-            "description": "<p>Requires either one of these:</p>"
+            "description": "<p><strong>Requires</strong> either one of these:</p>"
           },
           {
             "type": "track",
             "slug": "engineer-foreman",
-            "description": "An exceptional engineer/foreman, to design much roomier houses on the current land",
+            "description": "An <em>exceptional</em> engineer/foreman, to design much roomier houses on the current land",
             "max": 1
           },
           {
@@ -35,7 +35,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you meet the requirements, increase Fortunes by 1 and add any new homes to the map. Henceforth, when you consume Surplus in winter, consider Population to be 1 lower than it is.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1 and add any new homes to the map. Henceforth, <strong><em>when you consume Surplus in winter,</em></strong> consider Population to be 1 lower than it is.</p>"
           }
         ]
       }

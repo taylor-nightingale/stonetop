@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>craft a protective charm for someone</em></strong>, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When <strong><em>they would suffer such harm while bearing your charm</em></strong>, roll +INT: <strong>on a 10+</strong>, they ignore the harm entirely; <strong><em>on a 7-9</em></strong>, they suffer only half the damage or effect; on a 6-, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.</p>",
+		"description": "<p>When you <strong><em>craft a protective charm for someone</em></strong>, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When <strong><em>they would suffer such harm while bearing your charm</em></strong>, roll +INT: <strong>on a 10+</strong>, they ignore the harm entirely; <strong><em>on a 7-9</em></strong>, they suffer only half the damage or effect; <strong>on a 6-</strong>, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.</p>",
 		"rollType": "int",
 		"moveResults": {
 			"success": {

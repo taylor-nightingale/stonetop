@@ -23,7 +23,7 @@
 						{
 							"type": "track",
 							"slug": "experiment-at-pool",
-							"description": "… spend a week or so experimenting at the pool, then roll +INT: on a 10+, you figure it out; on a 7-9, no luck; on a 6-, you are interrupted by danger;",
+							"description": "… spend a week or so experimenting at the pool, then roll +INT: <strong>on a 10+</strong>, you figure it out; <strong>on a 7-9</strong>, no luck; <strong>on a 6-</strong>, you are interrupted by danger;",
 							"max": 1
 						},
 						{

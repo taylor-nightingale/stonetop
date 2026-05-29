@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What here is infused with magic?\" for free, even on a 6-.</p>"
+		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What here is infused with magic?\" for free, even <strong>on a 6-</strong>.</p>"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

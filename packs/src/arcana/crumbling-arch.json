@@ -34,7 +34,7 @@
 						{
 							"type": "track",
 							"slug": "gaze-and-roll",
-							"description": "… calm your mind, gaze upon the sigil, and roll +WIS: on a 10+, the sigil becomes clear; on a 7-9, the sigil will become clear after a few more days in contemplation; on a 6-, the sigil is beyond your ability to learn.",
+							"description": "… calm your mind, gaze upon the sigil, and roll +WIS: <strong>on a 10+</strong>, the sigil becomes clear; <strong>on a 7-9</strong>, the sigil will become clear after a few more days in contemplation; <strong>on a 6-</strong>, the sigil is beyond your ability to learn.",
 							"max": 1
 						},
 						{
