@@ -132,8 +132,8 @@ body,
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	flex: 0 0 auto;
-	min-width: 60px;
+	flex: 1;
+	min-width: 0;
 }
 
 .sheet-attributes-top .cell--attributes-top .cell .cell__title {
