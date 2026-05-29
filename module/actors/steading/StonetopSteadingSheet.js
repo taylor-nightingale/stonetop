@@ -10,7 +10,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				classes: ["stonetop", "sheet", "actor", "steading"],
 				width:   800,
 				height:  900,
-				scrollY: [".stonetop-steading-sheet"],
+				scrollY: [".window-content"],
 				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "overview" }],
 			});
 		}

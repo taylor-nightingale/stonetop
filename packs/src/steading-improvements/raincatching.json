@@ -15,12 +15,12 @@
           },
           {
             "type": "heading",
-            "description": "<p>Requires all of the following, in order:</p>"
+            "description": "<p><strong>Requires</strong> all of the following, in order:</p>"
           },
           {
             "type": "track",
             "slug": "engineer-foreman",
-            "description": "An exceptional engineer/foreman, to design a cunning system of roofs, gutters, and conduits",
+            "description": "An <em>exceptional</em> engineer/foreman, to design a cunning system of roofs, gutters, and conduits",
             "max": 1
           },
           {

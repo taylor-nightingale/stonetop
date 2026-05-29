@@ -15,7 +15,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>Requires 1 of the following:</p>"
+            "description": "<p><strong>Requires</strong> 1 of the following:</p>"
           },
           {
             "type": "track",
@@ -31,7 +31,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when the autumn harvest is complete, gain +1d4 Surplus.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when <strong><em>the autumn harvest is complete</em></strong>, gain +1d4 Surplus.</p>"
           }
         ]
       }

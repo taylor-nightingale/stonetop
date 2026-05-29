@@ -15,12 +15,12 @@
           },
           {
             "type": "heading",
-            "description": "<p>Requires all of the following:</p>"
+            "description": "<p><strong>Requires</strong> all of the following:</p>"
           },
           {
             "type": "track",
             "slug": "engineer-foreman",
-            "description": "An exceptional engineer/foreman",
+            "description": "An <em>exceptional</em> engineer/foreman",
             "max": 1
           },
           {

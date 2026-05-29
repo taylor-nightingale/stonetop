@@ -15,7 +15,7 @@
           },
           {
             "type": "heading",
-            "description": "<p>Requires one of the following improvements, to free up enough time to support more tradesfolk:</p>"
+            "description": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
           },
           {
             "type": "track",
@@ -54,30 +54,30 @@
           {
             "type": "track",
             "slug": "weaver",
-            "description": "An exceptional weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
+            "description": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
             "max": 1
           },
           {
             "type": "track",
             "slug": "potter",
-            "description": "An exceptional potter with good tools (Value 2) and a reliable source of excellent clay",
+            "description": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay",
             "max": 1
           },
           {
             "type": "track",
             "slug": "smith",
-            "description": "An exceptional smith with a newer, hotter forge (Value 3)",
+            "description": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)",
             "max": 1
           },
           {
             "type": "track",
             "slug": "other-tradesperson",
-            "description": "Some other exceptional tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
+            "description": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
             "max": 1
           },
           {
             "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you cease to <strong><em>meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
+            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
           }
         ]
       }

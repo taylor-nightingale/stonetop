@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>Each time you take this move, pick 1:</p><ul><li>They are exceptional (and roll +2 instead of +1)</li><li>They get +4 HP and +1 armor</li><li>They develop some unique ability or trait</li></ul>",
+		"description": "<p>Each time you take this move, pick 1:</p><ul><li>They are <em>exceptional</em> (and roll +2 instead of +1)</li><li>They get +4 HP and +1 armor</li><li>They develop some unique ability or trait</li></ul>",
 		"requirement": {
 			"level": 6,
 			"moves": [
