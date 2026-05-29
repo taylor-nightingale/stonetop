@@ -36,7 +36,12 @@ async function ensureFolders(srcDir) {
 		const files = (await fs.readdir(moveDir)).filter(f => f.endsWith(".json"));
 		for (const file of files) {
 			const filepath = path.join(moveDir, file);
-			const doc = JSON.parse(await fs.readFile(filepath, "utf8"));
+			let doc;
+			try {
+				doc = JSON.parse(await fs.readFile(filepath, "utf8"));
+			} catch (e) {
+				throw new Error("Failed parsing " + filepath, { cause: e });
+			}
 			if (doc.folder === folderId) continue;
 			doc.folder = folderId;
 			await fs.writeFile(filepath, JSON.stringify(doc, null, 2));
