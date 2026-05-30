@@ -44,6 +44,8 @@
 			"regularItemsNote": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items.",
 			"smallItems": "Small Items",
 			"smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
+			"otherItems": "Other Items",
+			"otherItemsNote":"(animals, kits, stashed items, etc.)",
 			"addItem": "Add item",
 			"addSmallItem": "Add small item",
 			"addItemName": "Name",

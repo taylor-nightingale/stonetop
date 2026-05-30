@@ -5,17 +5,19 @@ import {
 	OutfitItemSnapshotBuilder,
 	OutfitSection,
 	OutfitSnapshotBuilder,
+	OtherItemsSnapshotBuilder,
 	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 
 export class CharacterInventory {
-	constructor(flags, inventoryRepo, possessions, outfitItems) {
+	constructor(flags, inventoryRepo, possessions, outfitItems, otherItems) {
 		this._flags = flags;
 		this._repo = inventoryRepo;
 		this._possessions = possessions;
 		this._outfitItems = outfitItems;
+		this._otherItems = otherItems;
 	}
 
 	get checked()     { return this._flags.getFlag("checked") ?? {}; }
@@ -23,6 +25,7 @@ export class CharacterInventory {
 	get loadLevel()   { return this._flags.getFlag("loadLevel") ?? null; }
 	get regularPool() { return this._flags.getFlag("regularPool") ?? 0; }
 	get smallPool()   { return this._flags.getFlag("smallPool") ?? 0; }
+	get otherItems()  { return this._flags.getFlag("otherItems") ?? null; }
 
 	async setItemChecked(slug, isChecked) {
 		await this._flags.setFlag("checked", {...this.checked, [slug]: isChecked});
@@ -42,6 +45,10 @@ export class CharacterInventory {
 
 	async setSmallPool(count) {
 		await this._flags.setFlag("smallPool", count);
+	}
+
+	async setOtherItems(value) {
+		await this._flags.setFlag("otherItems", value)
 	}
 
 	async addCustomItem(name, weight) {
@@ -125,7 +132,11 @@ export class CharacterInventory {
 			.withSmallPool(new ResourceBuilder().withCurrent(this.smallPool).withMax(9).withTitle(null).withLabels([]).build())
 			.build();
 
-		return new InventorySnapshot(outfit, await this._possessions.buildSnapshot(level ?? 1));
+		const other = new OtherItemsSnapshotBuilder()
+			.withOther(this.otherItems)
+			.build();
+
+		return new InventorySnapshot(outfit, await this._possessions.buildSnapshot(level ?? 1), other);
 	}
 
 	buildLoadSnapshot(loadLevel) {
