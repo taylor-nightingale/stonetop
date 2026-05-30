@@ -23,7 +23,6 @@ export {
 	OutfitItemSnapshot, OutfitItemSnapshotBuilder,
 	OutfitSection,
 	OutfitSnapshot, OutfitSnapshotBuilder,
-	OtherItemsSnapshot, OtherItemsSnapshotBuilder,
 	PossessionsSnapshot,
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,
 	InventorySnapshot,

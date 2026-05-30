@@ -86,23 +86,6 @@ export class OutfitSection {
 	}
 }
 
-// ── Other ─────────────────────────────────────────────────────────────────────
-
-/**
- * @property {string} other
- */
-export class OtherItemsSnapshot {
-	constructor(other) {
-		this.other = other;
-	}
-}
-
-export class OtherItemsSnapshotBuilder {
-	withOther(v)            { this._other        = v; return this; }
-	build()                 { return new OtherItemsSnapshot(this); }
-}
-
-
 // ── Outfit ────────────────────────────────────────────────────────────────────
 
 /**
@@ -195,7 +178,7 @@ export class PossessionItemSnapshotBuilder {
 /**
  * @property {OutfitSnapshot} outfit
  * @property {PossessionsSnapshot|null} possessions
- * @property {OtherItemsSnapshot} otherItems
+ * @property {string} otherItems
  */
 export class InventorySnapshot {
 	constructor(outfit, possessions, otherItems) {

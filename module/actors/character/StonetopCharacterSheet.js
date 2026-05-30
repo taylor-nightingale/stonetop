@@ -90,6 +90,9 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-possession-sub-radio").on("change", this._onPossessionSubRadio.bind(this));
 			html.find(".stonetop-regular-pool-btn").on("change", this._onRegularPool.bind(this));
 			html.find(".stonetop-small-pool-btn").on("change", this._onSmallPool.bind(this));
+			html.find(".stonetop-notes").on("change", async ev => {
+				await this._stonetopCharacter.setInventoryOtherItems(ev.currentTarget.value);
+			});
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
 				const pack = game.packs.get("stonetop.basic-moves");

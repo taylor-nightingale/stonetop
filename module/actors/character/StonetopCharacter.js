@@ -32,8 +32,7 @@ export class StonetopCharacter {
 		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
-		const otherItems = new String;
-		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems, otherItems);
+		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems);
 		this._vitals = new CharacterVitals(actor, this._inventory);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems);
 		this._postDeath = new CharacterPostDeath(
