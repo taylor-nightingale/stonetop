@@ -79,13 +79,6 @@ describe("StonetopCharacterSheet event handlers", () => {
 		expect(actor.typedActor.selectBackground).toHaveBeenCalledWith("vessel");
 	});
 
-	it("_onAppearanceChange calls appearance.selectOption with slug and siblingSlugsCsv", async () => {
-		const actor = makeActor();
-		const sheet = makeSheet(actor);
-		await sheet._onAppearanceChange({ currentTarget: { dataset: { choiceSlug: "gray-and-wizened", siblingSlugsCsv: "fresh-faced,hale-and-hearty,gray-and-wizened" } } });
-		expect(actor.typedActor.appearance.selectOption).toHaveBeenCalledWith("gray-and-wizened", "fresh-faced,hale-and-hearty,gray-and-wizened");
-	});
-
 	it("_onOriginNameClick calls origin.selectName with trimmed text", async () => {
 		const actor = makeActor();
 		const sheet = makeSheet(actor);

@@ -49,16 +49,9 @@ export function createStonetopCharacterSheetClass(Base) {
 			if (!this.isEditable) return;
 
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
-			html.find(".stonetop-playbook-instinct").on("change", ev => {
-				const radio = ev.currentTarget;
-				const { choiceSlug, siblingSlugsCsv, displayLabel } = radio.dataset;
-				html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
-				this._stonetopCharacter.instinct.selectOption(choiceSlug, siblingSlugsCsv);
-			});
 			html.find(".stonetop-instinct-custom").on("change", ev =>
 				this._stonetopCharacter.instinct.selectCustom(ev.currentTarget.value.trim())
 			);
-			html.find(".stonetop-appearance-radio").on("change", this._onAppearanceChange.bind(this));
 			html.find("[name=stonetop-origin]").on("change", ev =>
 				this._stonetopCharacter.origin.select(ev.currentTarget.value)
 			);
@@ -136,29 +129,37 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const cb = ev.target.closest(".stonetop-arcanum-unlock-check");
-				if (!cb) return;
-				const arcanumSlug = ev.target.closest("[data-slug]").dataset.slug;
-				const { optionSlug, idx } = cb.dataset;
-				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
-				this._stonetopCharacter.setArcanumUnlockCount(arcanumSlug, optionSlug, newCount);
+				const el = ev.target.closest(".stonetop-cg-track");
+				if (!el) return;
+				const { cgContext, cgGroup, cgOption, cgIndex } = el.dataset;
+				const count = el.checked ? Number(cgIndex) + 1 : Number(cgIndex);
+				this._stonetopCharacter.setChoiceCount(cgContext, cgGroup, cgOption, count);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const cb = ev.target.closest(".stonetop-option-check");
-				if (!cb || ev.target.closest("[data-pdi='lore']")) return;
-				const { optionSlug, idx } = cb.dataset;
-				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
-				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
-				this._stonetopCharacter.setLoreOptionCount(entrySlug, optionSlug, newCount);
+				const el = ev.target.closest(".stonetop-cg-pick");
+				if (!el?.dataset.cgContext) return;
+				const { cgContext, cgGroup, cgOption, cgSiblings, displayLabel } = el.dataset;
+				if (cgContext === "instinct") {
+					html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
+				}
+				this._stonetopCharacter.setChoicePick(cgContext, cgGroup, cgOption, cgSiblings ?? null);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
-				const ta = ev.target.closest(".stonetop-option-text");
-				if (!ta || ev.target.closest("[data-pdi='lore']")) return;
-				const { optionSlug } = ta.dataset;
-				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
-				this._stonetopCharacter.setLoreOptionText(entrySlug, optionSlug, ta.value);
+				const el = ev.target.closest(".stonetop-cg-text");
+				if (!el?.dataset.cgContext) return;
+				const { cgContext, cgGroup, cgOption } = el.dataset;
+				this._stonetopCharacter.setChoiceText(cgContext, cgGroup, cgOption, el.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const el = ev.target.closest(".stonetop-arcanum-follower-check");
+				if (!el) return;
+				const { slug: arcanumSlug, option: followerSlug, index } = el.dataset;
+				const count = el.checked ? Number(index) + 1 : Number(index);
+				this._stonetopCharacter.setArcanumBackChoiceValue(arcanumSlug, followerSlug, count)
+					.then(() => this.render(false));
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -173,32 +174,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (!btn) return;
 				ev.stopPropagation();
 				this._stonetopCharacter.setPostDeathInsert(null).then(() => this.render(false));
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				const radio = ev.target.closest(".stonetop-pdi-instinct");
-				if (!radio) return;
-				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
-				this._stonetopCharacter.setPostDeathInstinct(choiceSlug, siblingSlugsCsv);
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				if (!ev.target.closest("[data-pdi='lore']")) return;
-				const cb = ev.target.closest(".stonetop-option-check");
-				if (!cb) return;
-				const { optionSlug, idx } = cb.dataset;
-				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
-				const newCount = cb.checked ? Number(idx) + 1 : Number(idx);
-				this._stonetopCharacter.setPostDeathLoreCount(entrySlug, optionSlug, newCount);
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				if (!ev.target.closest("[data-pdi='lore']")) return;
-				const ta = ev.target.closest(".stonetop-option-text");
-				if (!ta) return;
-				const { optionSlug } = ta.dataset;
-				const entrySlug = ev.target.closest("[data-slug]").dataset.slug;
-				this._stonetopCharacter.setPostDeathLoreText(entrySlug, optionSlug, ta.value);
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -251,20 +226,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setFollowerLoyalty(slug, newVal).then(() => this.render(false));
 			}, true);
 
-			html[0].addEventListener("change", ev => {
-				const radio = ev.target.closest(".stonetop-follower-choice-radio");
-				if (!radio) return;
-				const card = ev.target.closest(".stonetop-follower-card");
-				const { choiceSlug, siblingSlugsCsv } = radio.dataset;
-				this._stonetopCharacter.setFollowerChoiceValue(card.dataset.slug, "choices", choiceSlug, siblingSlugsCsv);
-			}, true);
-
-			html[0].addEventListener("change", ev => {
-				const ta = ev.target.closest(".stonetop-follower-choice-text");
-				if (!ta) return;
-				const card = ev.target.closest(".stonetop-follower-card");
-				this._stonetopCharacter.setFollowerChoiceText(card.dataset.slug, ta.dataset.optionSlug, ta.value);
-			}, true);
 
 			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-follower-armor");
@@ -288,11 +249,6 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onBackgroundChange(ev) {
 			await this._stonetopCharacter.selectBackground(ev.currentTarget.value);
-		}
-
-		async _onAppearanceChange(ev) {
-			const el = ev.currentTarget;
-			await this._stonetopCharacter.appearance.selectOption(el.dataset.choiceSlug, el.dataset.siblingSlugsCsv);
 		}
 
 		async _onOriginNameClick(ev) {

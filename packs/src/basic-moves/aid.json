@@ -1,10 +1,10 @@
 {
-  "name": "Aid",
-  "type": "move",
-  "system": {
-    "moveType": "basic",
-    "description": "<p>When you <strong><em>help someone who has not yet rolled</em></strong>, the GM picks 1:</p><p><ul><li>They can accomplish more than they could alone</li><li>They gain advantage on their roll</li></ul></p><p>Either way, you are exposed to any risk, cost, or consequence associated with their roll.</p>"
-  },
-  "_id": "L3QH1rp2s7LSwP2p",
-  "_key": "!items!L3QH1rp2s7LSwP2p"
+	"name": "Aid",
+	"type": "move",
+	"system": {
+		"moveType": "basic",
+		"description": "<p>When you <strong><em>help someone who has not yet rolled</em></strong>, the GM picks 1:</p><p><ul><li>They can accomplish more than they could alone</li><li>They gain advantage on their roll</li></ul></p><p>Either way, you are exposed to any risk, cost, or consequence associated with their roll.</p>"
+	},
+	"_id": "L3QH1rp2s7LSwP2p",
+	"_key": "!items!L3QH1rp2s7LSwP2p"
 }

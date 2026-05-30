@@ -34,6 +34,7 @@ export class MinorArcanumBackSnapshot {
 		this.description = b._description;
 		this.resource    = b._resource;
 		this.move        = b._move;
+		this.choices     = b._choices ?? null;
 	}
 }
 
@@ -43,6 +44,7 @@ export class MinorArcanumBackSnapshotBuilder {
 	withDescription(v) { this._description = v; return this; }
 	withResource(v)    { this._resource    = v; return this; }
 	withMove(v)        { this._move        = v; return this; }
+	withChoices(v)     { this._choices     = v; return this; }
 	build()            { return new MinorArcanumBackSnapshot(this); }
 }
 

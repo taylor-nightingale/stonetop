@@ -1,18 +1,18 @@
 {
-  "_id": "f7ZJ69PqcUDO4lKN",
-  "_key": "!items!f7ZJ69PqcUDO4lKN",
-  "name": "Sack (empty)",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "sack",
-      "inventoryColumn": "small",
-      "sortOrder": 15,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "f7ZJ69PqcUDO4lKN",
+	"_key": "!items!f7ZJ69PqcUDO4lKN",
+	"name": "Sack (empty)",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sack",
+			"inventoryColumn": "small",
+			"sortOrder": 15,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

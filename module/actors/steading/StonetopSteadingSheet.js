@@ -147,13 +147,13 @@ export function createStonetopSteadingSheetClass(Base) {
 			});
 
 			// Improvements
-			html.find(".stonetop-improvement-track").on("change", async ev => {
-				const { optionSlug, idx } = ev.currentTarget.dataset;
-				const groupSlug = ev.currentTarget.closest("[data-slug]")?.dataset.slug;
-				if (!groupSlug) return;
-				const count = ev.currentTarget.checked ? parseInt(idx) + 1 : parseInt(idx);
-				await this._stonetopSteading.improvements.setTrack(groupSlug, optionSlug, count);
-			});
+			html[0].addEventListener("change", async ev => {
+				const el = ev.target.closest(".stonetop-cg-track");
+				if (!el || el.dataset.cgContext !== "improvement") return;
+				const { cgGroup, cgOption, cgIndex } = el.dataset;
+				const count = el.checked ? parseInt(cgIndex) + 1 : parseInt(cgIndex);
+				await this._stonetopSteading.improvements.setTrack(cgGroup, cgOption, count);
+			}, true);
 		}
 	};
 }

@@ -281,76 +281,100 @@
 							"description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-great-wood",
 							"description": "… got lost in the Great Wood.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-flats",
 							"description": "… got lost in the Flats.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-steplands",
 							"description": "… got lost in the Steplands.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-ferrers-fen",
 							"description": "… got lost in Ferrier's Fen.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-foothills",
 							"description": "… got lost in the Foothills.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lost-huffel-peaks",
 							"description": "… got lost in the Huffel Peaks.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "crinwin-raid",
 							"description": "… were on watch when the crinwin raided.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ruined-tower",
 							"description": "… dared each other to explore the Ruined Tower.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hillfolk",
 							"description": "… managed to rile up a small band of Hillfolk.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "labyrinth",
 							"description": "… braved the Labyrinth, just a little.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "old-mans-book",
 							"description": "… stole that crazy old man's book.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "barrow-mounds",
 							"description": "… went poking about the old Barrow Mounds.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						}
 					]
 				},
@@ -363,58 +387,76 @@
 							"description": "<p><em>(choose 1 or 2 per tale)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "running",
 							"description": "… running for your life from something.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "well-placed-blow",
 							"description": "… landing a well-placed blow.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "strange-gather",
 							"description": "… interrupting a strange, creepy gathering.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "big-beast",
 							"description": "… stumbling on a beast, bigger'n anything.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "treasure",
 							"description": "… with a sack full of treasure.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "someone-fight",
 							"description": "… getting someone to fight them for you.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ghost",
 							"description": "… face to face with a ghost/Fae/demon.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "strange-runes",
 							"description": "… finding those strange old runes.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "fine-looking",
 							"description": "… getting to know that fine-looking fellow/lady/person/couple.",
-							"max": 2
+							"track": {
+								"max": 2
+							}
 						}
 					]
 				},
@@ -427,34 +469,44 @@
 							"description": ""
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "story-no-one-believes",
 							"description": "… a story no one believes.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "nasty-scar",
 							"description": "… a nasty scar; wanna see?",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "nightmares",
 							"description": "… the occasional nightmare.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "map-with-runes",
 							"description": "… this map with runes no one can read.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "mystery-key",
 							"description": "… this key that opens who-knows-what.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				}

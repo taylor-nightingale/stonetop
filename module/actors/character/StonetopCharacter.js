@@ -34,7 +34,8 @@ export class StonetopCharacter {
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems);
 		this._vitals = new CharacterVitals(actor, this._inventory);
-		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems);
+		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
+		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
 			new CharacterInstincts(new StonetopFlags(actor, "postDeathInstinct")),
@@ -42,7 +43,6 @@ export class StonetopCharacter {
 			repos.postDeathInsert,
 			this._moves,
 		);
-		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 	}
@@ -80,13 +80,13 @@ export class StonetopCharacter {
 		const level = this._vitals.level;
 		const { checked, resources } = this._inventory;
 		const actor = this._actor;
-		const [arcana, inventory, postDeath, playbook, vitals, followers] = await Promise.all([
+		const followers = await this._followers.buildSnapshot();
+		const [arcana, inventory, postDeath, playbook, vitals] = await Promise.all([
 			this._arcana.buildSnapshot(checked, resources),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
-			this._followers.buildSnapshot(),
 		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
@@ -196,12 +196,11 @@ export class StonetopCharacter {
 	}
 
 	async onDropItems(items) {
-		const arcana    = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "arcana");
+		const arcana    = items.filter(i => i.type === "move"      && i.system?.moveType      === "arcanum");
 		const followers = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "follower");
-		const moves     = items.filter(i => i.type === "move");
+		const moves     = items.filter(i => i.type === "move"      && i.system?.moveType      !== "arcanum");
 		const others    = items.filter(i =>
 			i.type !== "move" &&
-			i.system?.equipmentType !== "arcana" &&
 			i.system?.equipmentType !== "follower"
 		);
 		let anyAdded = false;
@@ -270,8 +269,33 @@ export class StonetopCharacter {
 		await this._arcana.setUnlockCount(arcanumSlug, optionSlug, count);
 	}
 
-	async setArcanumBackOptionCount(arcanumSlug, optionSlug, count) {
-		await this._arcana.setBackOptionCount(arcanumSlug, optionSlug, count);
+	async setArcanumBackChoiceValue(arcanumSlug, optionSlug, count) {
+		await this._arcana.setBackChoiceValue(arcanumSlug, optionSlug, count);
+	}
+
+	async setChoiceCount(context, group, option, count) {
+		switch (context) {
+			case "arcana-unlock": return this.setArcanumUnlockCount(group, option, count);
+			case "lore":          return this.setLoreOptionCount(group, option, count);
+			case "pdi-lore":      return this.setPostDeathLoreCount(group, option, count);
+		}
+	}
+
+	async setChoicePick(context, group, option, siblingsCsv) {
+		switch (context) {
+			case "instinct":     return this.instinct.selectOption(option, siblingsCsv);
+			case "pdi-instinct": return this.setPostDeathInstinct(option, siblingsCsv);
+			case "appearance":   return this.appearance.selectOption(option, siblingsCsv);
+			case "follower":     return this.setFollowerChoiceValue(group, "choices", option, siblingsCsv);
+		}
+	}
+
+	async setChoiceText(context, group, option, value) {
+		switch (context) {
+			case "lore":     return this.setLoreOptionText(group, option, value);
+			case "pdi-lore": return this.setPostDeathLoreText(group, option, value);
+			case "follower": return this.setFollowerChoiceText(group, option, value);
+		}
 	}
 
 	async setArcanumResource(slug, count) {

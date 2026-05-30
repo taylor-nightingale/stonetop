@@ -6,60 +6,7 @@
 
 	<div class="stonetop-followers-grid">
 	{{#each stonetop.followers}}
-	<div class="stonetop-follower-card" data-slug="{{slug}}">
-
-		<button type="button" class="stonetop-follower-delete" data-slug="{{slug}}"
-		        title="{{localize 'stonetop.followers.remove'}}">
-			<i class="fas fa-times"></i>
-		</button>
-
-		<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
-		<input type="text" class="stonetop-follower-note-input" value="{{note}}" data-slug="{{slug}}"
-		       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
-
-		<div class="stonetop-follower-attrs">
-			{{#if damage}}
-			<div class="cell cell--damage cell--Roll">
-				<span class="cell__title">{{localize "stonetop.followers.damage"}}</span>
-				<span class="attr-rollable rollable" data-roll="{{damage}}"><i class="fas fa-dice-d6"></i></span>
-				<input type="text" class="stonetop-follower-damage" value="{{damage}}" data-slug="{{slug}}">
-			</div>
-			{{/if}}
-			<div class="cell cell--hp cell--Resource">
-				<span class="cell__title">{{localize "stonetop.followers.hp"}}</span>
-				<div class="cell__counter">
-					<input type="number" class="stonetop-follower-hp" min="0" value="{{hp}}" data-slug="{{slug}}">
-					<span>/</span>
-					<input type="number" class="stonetop-follower-hp-max" min="0" value="{{hpMax}}" data-slug="{{slug}}">
-				</div>
-			</div>
-			<div class="cell cell--armor cell--Number">
-				<span class="cell__title">{{localize "stonetop.followers.armor"}}</span>
-				<input type="number" class="stonetop-follower-armor" min="0" value="{{armor}}" data-slug="{{slug}}">
-			</div>
-		</div>
-
-		<div class="stonetop-follower-loyalty">
-			<span class="stonetop-follower-loyalty-label">{{localize "stonetop.followers.loyalty"}}</span>
-			<div class="stonetop-follower-loyalty-pips">
-				{{#each (times loyaltyMax)}}
-				<button type="button"
-				        class="stonetop-follower-loyalty-pip{{#if (lt @index ../loyalty)}} is-checked{{/if}}"
-				        data-slug="{{../slug}}"
-				        data-index="{{@index}}"></button>
-				{{/each}}
-			</div>
-		</div>
-
-		{{#if choices}}
-		<div class="stonetop-follower-choices">
-			{{#each choices.list}}
-			{{> "stonetop.choice-row" inputClass="stonetop-follower-choice-radio" textClass="stonetop-follower-choice-text" namePrefix=../slug}}
-			{{/each}}
-		</div>
-		{{/if}}
-
-	</div>
+	{{> "stonetop.follower-card" this}}
 	{{/each}}
 	</div>
 

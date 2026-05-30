@@ -22,6 +22,7 @@ export class MinorArcanumFront {
 export class MinorArcanumBack {
 	constructor(data) {
 		this.title       = data.title;
+		this.choices     = data.choices ?? null;
 		this.item        = data.item ? new MinorArcanumItem(data.item) : null;
 		this.description = data.description;
 		this.resource    = data.resource ? new Resource(data.resource) : null;

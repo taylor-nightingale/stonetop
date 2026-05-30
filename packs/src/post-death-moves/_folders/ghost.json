@@ -1,12 +1,12 @@
 {
-  "name": "ghost",
-  "type": "Item",
-  "description": "",
-  "folder": null,
-  "sorting": "a",
-  "sort": 0,
-  "color": null,
-  "flags": {},
-  "_id": "BtHFabNAHptzsned",
-  "_key": "!items!BtHFabNAHptzsned"
+	"name": "ghost",
+	"type": "Item",
+	"description": "",
+	"folder": null,
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {},
+	"_id": "BtHFabNAHptzsned",
+	"_key": "!items!BtHFabNAHptzsned"
 }

@@ -265,34 +265,44 @@
 							"description": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ancient-widespread",
 							"description": "… ancient, widespread, and well-known.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lygos-south",
 							"description": "… most common in Lygos and the south.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "new-thing",
 							"description": "… a new thing, still unheard of by many.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "old-forgotten",
 							"description": "… an old thing, forgotten by most.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "persecuted",
 							"description": "… widely persecuted.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -305,52 +315,68 @@
 							"description": "<p><em>(choose 1 or 2)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "solemn-hymns",
 							"description": "… solemn hymns.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "meditation",
 							"description": "… serene meditation.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "joyful-song",
 							"description": "… joyful song.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ascetic-denial",
 							"description": "… ascetic denial.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "dancing",
 							"description": "… fervent dancing.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ceremonies",
 							"description": "… formal ceremonies.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "drugs",
 							"description": "… drugs & intoxicants.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "pain-sacrifice",
 							"description": "… pain & sacrifice.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -363,28 +389,36 @@
 							"description": "<p><em>(choose 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "highest-honor",
 							"description": "… the place of highest honor, even if Tor is more popular.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "well-tended",
 							"description": "… been well-tended and given due respect.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "recently-restored",
 							"description": "… recently been restored/established, perhaps by you.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "seen-better-days",
 							"description": "… seen better days, for certain.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -397,52 +431,68 @@
 							"description": "<p><em>(choose 2 or 3)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lived-long-ago",
 							"description": "… lived long ago, a figure of legend.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "martyred",
 							"description": "… was martyred for their faith.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "died-facing",
 							"description": "… died facing a mighty sorcerer or demon.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "wrote-works",
 							"description": "… wrote many works of sublime beauty.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "things-below",
 							"description": "… faced one of the Things Below.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "died-peacefully",
 							"description": "… died in their bed, peacefully.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ascended",
 							"description": "… ascended bodily into the heavens.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "reincarnated",
 							"description": "… was reincarnated—as you.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -455,34 +505,44 @@
 							"description": "<p><em>(choose 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "years-study",
 							"description": "… through years of study and devotion.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "predecessor",
 							"description": "… when your predecessor passed them on.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "sudden",
 							"description": "… suddenly, at a moment of great need.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "visitation",
 							"description": "… after a visitation from Helior or one of his servants.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "first-sight",
 							"description": "… when you first laid eyes upon the _______.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				}

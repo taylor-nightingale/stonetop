@@ -1,0 +1,49 @@
+{
+	"name": "Dool spirit",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "dool-spirit",
+			"arcanaSlug": "scroll-and-bone-flute",
+			"note": "Spirit, terrifying, stealthy, devious",
+			"hp": {
+				"max": 13
+			},
+			"armor": 1,
+			"damage": "d6",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "feast on fear d6 (hand, close, ignores armor, disadvantage)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to take things too far\n-powerless in bright light\n-Sense a victim's doubt and worries\n-Shape sound and shadow to unnerve and frighten\n-Manifest as its victim's fears (harmed only by one who masters their fear)"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "new, exquisite fears (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "z2vdq9bCYNSh1V22",
+	"_key": "!items!z2vdq9bCYNSh1V22"
+}

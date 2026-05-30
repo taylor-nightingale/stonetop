@@ -5,7 +5,7 @@ import path from "path";
 const LORE_DIRS    = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
 const ARCANA_DIR   = path.resolve("packs/src/arcana");
 const PLAYBOOK_DIR = path.resolve("packs/src/playbooks");
-const VALID_TYPES  = new Set(["heading", "input", "track"]);
+const VALID_TYPES  = new Set(["heading", "input"]);
 
 describe("Pack possession choices use the ChoiceGroup format", () => {
 	let entries;
@@ -93,13 +93,20 @@ async function loadPlaybookChoices() {
 
 async function loadArcanaFiles() {
 	const files = [];
-	const entries = await fs.readdir(ARCANA_DIR);
-	for (const name of entries.filter(n => n.endsWith(".json"))) {
-		const full = path.join(ARCANA_DIR, name);
-		const data = JSON.parse(await fs.readFile(full, "utf8"));
-		const unlock = data.flags?.stonetop?.front?.unlock;
-		if (unlock) files.push({ name, unlock });
+	async function scanDir(dir) {
+		const entries = await fs.readdir(dir, { withFileTypes: true });
+		for (const entry of entries) {
+			const full = path.join(dir, entry.name);
+			if (entry.isDirectory() && !entry.name.startsWith("_")) {
+				await scanDir(full);
+			} else if (entry.name.endsWith(".json")) {
+				const data = JSON.parse(await fs.readFile(full, "utf8"));
+				const unlock = data.flags?.stonetop?.front?.unlock;
+				if (unlock) files.push({ name: entry.name, unlock });
+			}
+		}
 	}
+	await scanDir(ARCANA_DIR);
 	return files;
 }
 
@@ -126,23 +133,22 @@ describe("Pack arcana unlock entries use the list format", () => {
 		}
 	});
 
-	it("each list item has an explicit type of heading or track", () => {
+	it("each list item has an explicit type of heading or follower", () => {
 		for (const { name, unlock } of files) {
 			for (const item of unlock.list ?? []) {
 				expect(
-					item.type === "heading" || item.type === "track",
-					`${name}: unlock item type "${item.type}" must be heading or track`,
+					item.type === "heading" || item.type === "follower",
+					`${name}: unlock item type "${item.type}" must be heading or follower`,
 				).toBe(true);
 			}
 		}
 	});
 
-	it("track items have slug, description, and max", () => {
+	it("heading items with track have slug and max", () => {
 		for (const { name, unlock } of files) {
-			for (const item of (unlock.list ?? []).filter(i => i.type === "track")) {
-				expect(item.slug,        `${name}: track item missing slug`).toBeDefined();
-				expect(item.description, `${name}/${item.slug}: track missing description`).toBeDefined();
-				expect(item.max,         `${name}/${item.slug}: track missing max`).toBeDefined();
+			for (const item of (unlock.list ?? []).filter(i => i.type === "heading" && i.track)) {
+				expect(item.slug,        `${name}: heading+track item missing slug`).toBeDefined();
+				expect(item.track.max,   `${name}/${item.slug}: heading+track missing max`).toBeDefined();
 			}
 		}
 	});
@@ -182,7 +188,7 @@ describe("Pack lore entries use the list format", () => {
 				for (const item of entry.list ?? []) {
 					expect(
 						VALID_TYPES.has(item.type),
-						`${name}/${entry.slug}: item type "${item.type}" must be heading, input, or track`,
+						`${name}/${entry.slug}: item type "${item.type}" must be heading or input`,
 					).toBe(true);
 				}
 			}
@@ -198,13 +204,12 @@ describe("Pack lore entries use the list format", () => {
 		}
 	});
 
-	it("track items have slug, description, and max", () => {
+	it("heading items with track have slug and max", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
-				for (const item of (entry.list ?? []).filter(i => i.type === "track")) {
-					expect(item.slug,        `${name}/${entry.slug}: track item missing slug`).toBeDefined();
-					expect(item.description, `${name}/${entry.slug}/${item.slug}: track missing description`).toBeDefined();
-					expect(item.max,         `${name}/${entry.slug}/${item.slug}: track missing max`).toBeDefined();
+				for (const item of (entry.list ?? []).filter(i => i.type === "heading" && i.track)) {
+					expect(item.slug,       `${name}/${entry.slug}: heading+track item missing slug`).toBeDefined();
+					expect(item.track.max,  `${name}/${entry.slug}/${item.slug}: heading+track missing max`).toBeDefined();
 				}
 			}
 		}

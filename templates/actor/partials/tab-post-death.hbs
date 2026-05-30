@@ -18,7 +18,7 @@
 
 		{{! Lore sections: Terrible Purpose, Consequences, etc. }}
 		<div data-pdi="lore">
-			{{> "stonetop.choice-section" groups=stonetop.postDeathInsert.activeInsert.lore}}
+			{{> "stonetop.choice-section" groups=stonetop.postDeathInsert.activeInsert.lore cgContext="pdi-lore"}}
 		</div>
 
 		{{! Instinct }}
@@ -29,7 +29,7 @@
 			    note=(localize "stonetop.character.selection.chooseOne")}}
 			<div class="stonetop-instinct-options">
 				{{#each stonetop.postDeathInsert.activeInsert.instinct.group.list}}
-				{{> "stonetop.choice-row" radio=true namePrefix="stonetop-pdi-instinct" inputClass="stonetop-pdi-instinct"}}
+				{{> "stonetop.choice-row" radio=true namePrefix="stonetop-pdi-instinct" cgContext="pdi-instinct"}}
 				{{/each}}
 			</div>
 		</div>

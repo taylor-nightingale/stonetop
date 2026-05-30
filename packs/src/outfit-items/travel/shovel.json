@@ -1,19 +1,19 @@
 {
-  "_id": "2Ztd26fEeVVhDIq2",
-  "_key": "!items!2Ztd26fEeVVhDIq2",
-  "name": "Shovel",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "shovel",
-      "inventoryColumn": "regular",
-      "sortOrder": 9,
-      "weight": 1,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpTrv0001X"
+	"_id": "2Ztd26fEeVVhDIq2",
+	"_key": "!items!2Ztd26fEeVVhDIq2",
+	"name": "Shovel",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "shovel",
+			"inventoryColumn": "regular",
+			"sortOrder": 9,
+			"weight": 1,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpTrv0001X"
 }

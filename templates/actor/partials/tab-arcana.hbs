@@ -50,6 +50,13 @@
 			<p class="stonetop-arcanum-move-trigger"><strong><em>{{back.move.name}}</em></strong></p>
 			{{{back.move.description}}}
 			{{/if}}
+			{{#if back.choices}}
+			<div class="stonetop-arcanum-back-choices">
+				{{#each back.choices.list}}
+				{{> "stonetop.choice-row" cgContext="arcana-back" cgGroup=../slug}}
+				{{/each}}
+			</div>
+			{{/if}}
 		</div>
 
 		{{else}}
@@ -78,11 +85,7 @@
 			{{{front.description}}}
 			<div class="stonetop-arcanum-unlock">
 				{{#each front.unlock.list}}
-				{{#if (eq type "heading")}}
-				<p class="stonetop-arcanum-unlock-lead">{{{description}}}</p>
-				{{else}}
-				{{> "stonetop.choice-row" inputClass="stonetop-arcanum-unlock-check"}}
-				{{/if}}
+				{{> "stonetop.choice-row" cgContext="arcana-unlock" cgGroup=../slug}}
 				{{/each}}
 			</div>
 		</div>

@@ -12,7 +12,7 @@ describe("StonetopCharacter.onDropItems", () => {
 	it("routes arcanum move to addArcanum and returns anyAdded=true", async () => {
 		const char = makeChar();
 		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "equipment", system: { equipmentType: "arcana" }, flags: { stonetop: { slug: "shell-game" } } };
+		const item = { type: "move", system: { moveType: "arcanum" }, flags: { stonetop: { slug: "shell-game" } } };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
@@ -24,7 +24,7 @@ describe("StonetopCharacter.onDropItems", () => {
 	it("skips arcanum item with no slug and returns anyAdded=false", async () => {
 		const char = makeChar();
 		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "equipment", system: { equipmentType: "arcana" }, flags: {} };
+		const item = { type: "move", system: { moveType: "arcanum" }, flags: {} };
 
 		const { anyAdded } = await char.onDropItems([item]);
 
@@ -68,7 +68,7 @@ describe("StonetopCharacter.onDropItems", () => {
 		const char = makeChar();
 		vi.spyOn(char, "addArcanum").mockResolvedValue();
 		vi.spyOn(char, "onDropMove").mockResolvedValue(false);
-		const arcanum = { type: "equipment", system: { equipmentType: "arcana" }, flags: { stonetop: { slug: "eye" } } };
+		const arcanum = { type: "move", system: { moveType: "arcanum" }, flags: { stonetop: { slug: "eye" } } };
 		const move = { type: "move", system: { moveType: "basic" } };
 		const other = { type: "equipment" };
 

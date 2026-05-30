@@ -375,46 +375,60 @@
 							"description": "<p><em>(pick 1 or 2)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "thunder-drake",
 							"description": "… drove off a thunder drake that got too close to town.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hagr",
 							"description": "… killed that hagr in the Foothills.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "crinwin-dozen",
 							"description": "… slew a dozen crinwin in one battle.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "adventurers",
 							"description": "… tossed those adventurers out of town.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ivan",
 							"description": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "bleeding",
 							"description": "… dragged yourself (and another?) into town, bleeding from a dozen wounds.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "lightning",
 							"description": "… were struck by lightning and woke up covered in these marks.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -427,40 +441,52 @@
 							"description": "<p><em>(pick 1 or 2)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "blood-look",
 							"description": "… the look in your eye when you spilled all that blood.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hard-cases",
 							"description": "… those hard cases who showed up looking for you.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "shouting",
 							"description": "… the shouting matches between you and your love.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "claws",
 							"description": "… the time you spent as one of Brennan's Claws.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "urbgen",
 							"description": "… what happened to Urbgen, even if he did have it coming.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "seizures",
 							"description": "… your uncontrollable seizures, where you claw those weird marks in the dirt.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -473,46 +499,60 @@
 							"description": "<p><em>(pick 1 or 2)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "temper",
 							"description": "That thrice-damned temper of yours.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "someone-coming",
 							"description": "The worry that someone's coming after you.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "crinwin-bolder",
 							"description": "The feeling that the crinwin are getting bolder.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "brennan",
 							"description": "Wondering what Brennan's up to, now that he's the marshal of Marshedge.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "dark-visions",
 							"description": "Dark visions of things moving in the earth, restless, whispering, and hungry.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "family",
 							"description": "The question of who'll look after your family when you get yourself killed.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "truth",
 							"description": "The worry that they'll all learn the truth about you, sooner or later.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				}

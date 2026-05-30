@@ -1,28 +1,28 @@
 {
-  "_id": "p5B1Id9Z850kEnyd",
-  "_key": "!items!p5B1Id9Z850kEnyd",
-  "name": "Oil lamp",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "oil-lamp",
-      "inventoryColumn": "regular",
-      "sortOrder": 13,
-      "note": "<em>close</em>, <em>area</em>, <em>crude</em>",
-      "weight": 1,
-      "resource": {
-        "max": 3,
-        "title": null,
-        "labels": [
-          "",
-          "",
-          "hours"
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpWrm0001X"
+	"_id": "p5B1Id9Z850kEnyd",
+	"_key": "!items!p5B1Id9Z850kEnyd",
+	"name": "Oil lamp",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "oil-lamp",
+			"inventoryColumn": "regular",
+			"sortOrder": 13,
+			"note": "<em>close</em>, <em>area</em>, <em>crude</em>",
+			"weight": 1,
+			"resource": {
+				"max": 3,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"hours"
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpWrm0001X"
 }

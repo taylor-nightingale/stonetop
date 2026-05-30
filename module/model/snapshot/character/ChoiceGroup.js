@@ -23,11 +23,12 @@ export class ChoiceRow {
 }
 
 export class HeadingRow {
-	constructor(title, description = null, note = null) {
+	constructor(title, description = null, note = null, track = null) {
 		this.type        = "heading";
 		this.title       = title;
 		this.description = description;
 		this.note        = note;
+		this.track       = track;   // null | { slug, checks: bool[], requires? }
 	}
 }
 
@@ -37,6 +38,16 @@ export class TextRow {
 		this.slug  = slug;
 		this.text  = text;
 		this.value = value;
+	}
+}
+
+export class FollowerRow {
+	constructor(slug, followerSlug, follower, track) {
+		this.type         = "follower";
+		this.slug         = slug;
+		this.followerSlug = followerSlug;
+		this.follower     = follower;   // FollowerSnapshot | null
+		this.track        = track;      // null | { slug, checks: bool[] } — null means no checkbox
 	}
 }
 
@@ -66,30 +77,35 @@ export class ChoiceValues {
 	}
 }
 
-/** A slugged group of choice/heading/text rows. */
 export class ChoiceGroup {
 	constructor(slug, list) {
 		this.slug = slug;
 		this.list = list;
 	}
 
-	static fromPackData(entry, values = new ChoiceValues()) {
+	static fromPackData(entry, values = new ChoiceValues(), followersBySlug = {}) {
 		const es = entry.slug;
 		const list = (entry.list ?? []).map((item, idx) => {
-			return this.buildRow(item, values, es, idx);
+			return this.buildRow(item, values, es, idx, followersBySlug);
 		});
 		return new ChoiceGroup(es, list);
 	}
 
-	static buildRow(item, values, es, idx) {
-		if (item.type === "heading") return this.buildHeadingRow(item);
-		if (item.type === "input")   return this.buildTextRow(item, values, es);
-		if (item.type === "track")   return this.buildTrackRow(values, es, item);
+	static buildRow(item, values, es, idx, followersBySlug = {}) {
+		if (item.type === "heading")  return this.buildHeadingRow(item, values, es);
+		if (item.type === "input")    return this.buildTextRow(item, values, es);
+		if (item.type === "follower") return this.buildFollowerRow(item, values, es, followersBySlug);
 		return this.buildPickRow(item, es, idx, values);
 	}
 
-	static buildHeadingRow(item) {
-		return new HeadingRow(item.title ?? null, item.description ?? null, item.note ?? null);
+	static buildHeadingRow(item, values, es) {
+		let track = null;
+		if (item.track && item.slug) {
+			const count  = values.getCount(es, item.slug);
+			const checks = Array.from({length: item.track.max ?? 1}, (_, i) => i < count);
+			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
+		}
+		return new HeadingRow(item.title ?? null, item.description ?? null, item.note ?? null, track);
 	}
 
 	static buildTextRow(item, values, es) {
@@ -113,13 +129,19 @@ export class ChoiceGroup {
 		);
 	}
 
-	static buildTrackRow(values, es, item) {
-		const count  = values.getCount(es, item.slug);
-		const checks = Array.from({length: item.max ?? 1}, (_, i) => i < count);
-		return new ChoiceRow([new ChoiceOption(item.slug, {
-			description: item.description,
-			checks,
-			requires:    item.requires ?? null,
-		})]);
+	static buildFollowerRow(item, values, es, followersBySlug) {
+		const track = item.track
+			? {
+				slug:   item.slug,
+				checks: Array.from({length: item.track.max ?? 1}, (_, i) =>
+					i < values.getCount(es, item.slug)),
+			}
+			: null;
+		return new FollowerRow(
+			item.slug,
+			item.followerSlug,
+			followersBySlug[item.followerSlug] ?? null,
+			track,
+		);
 	}
 }

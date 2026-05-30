@@ -1,42 +1,46 @@
 {
-  "name": "Greater Harvest",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "greater-harvest",
-      "sortOrder": 4,
-      "choices": {
-        "slug": "greater-harvest",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Greater Harvest",
-            "description": "<p>Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> 1 of the following:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "double-yield",
-            "description": "Doubling the yield of crops inside the Old Wall",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "clear-fields",
-            "description": "Clearing/taming new fields beyond the Old Wall",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when <strong><em>the autumn harvest is complete</em></strong>, gain +1d4 Surplus.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "nGxlsJhmQhR61BsI",
-  "_key": "!items!nGxlsJhmQhR61BsI"
+	"name": "Greater Harvest",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "greater-harvest",
+			"sortOrder": 4,
+			"choices": {
+				"slug": "greater-harvest",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Greater Harvest",
+						"description": "<p>Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> 1 of the following:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "double-yield",
+						"description": "Doubling the yield of crops inside the Old Wall",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "clear-fields",
+						"description": "Clearing/taming new fields beyond the Old Wall",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when <strong><em>the autumn harvest is complete</em></strong>, gain +1d4 Surplus.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "nGxlsJhmQhR61BsI",
+	"_key": "!items!nGxlsJhmQhR61BsI"
 }

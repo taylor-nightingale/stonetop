@@ -1,19 +1,19 @@
 {
-  "_id": "0Wobtqn62tOy4Cqp",
-  "_key": "!items!0Wobtqn62tOy4Cqp",
-  "name": "Bedroll",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "bedroll",
-      "inventoryColumn": "regular",
-      "sortOrder": 5,
-      "note": "recover 1d6 extra HP when you Make Camp",
-      "weight": 1
-    }
-  },
-  "folder": "StOnEtOpTrv0001X"
+	"_id": "0Wobtqn62tOy4Cqp",
+	"_key": "!items!0Wobtqn62tOy4Cqp",
+	"name": "Bedroll",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "bedroll",
+			"inventoryColumn": "regular",
+			"sortOrder": 5,
+			"note": "recover 1d6 extra HP when you Make Camp",
+			"weight": 1
+		}
+	},
+	"folder": "StOnEtOpTrv0001X"
 }

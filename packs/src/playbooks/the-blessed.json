@@ -438,80 +438,104 @@
 							"description": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "shrine-loved",
 							"description": "... loved, well-used, dripping with offerings and petitions.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "shrine-token",
 							"description": "... little more than a token of respect, for her holy places are anywhere but here.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "shrine-berth",
 							"description": "... given wide berth by most, and approached only with care and propitiation.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "shrine-neglected",
 							"description": "... neglected and all but forgotten, except by a few.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
 							"type": "heading",
 							"description": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "fruits-of-harvest",
 							"description": "Fruits of harvest",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "figurines",
 							"description": "Figurines/effigies",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "whisky",
 							"description": "Whisky/spirits",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "salt",
 							"description": "Salt/crystals",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "rain-water",
 							"description": "Pure rain water",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "metal-nails",
 							"description": "Metal nails/tools",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "blood",
 							"description": "Blood/burnt flesh",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "incense",
 							"description": "Incense/sage bark",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				}

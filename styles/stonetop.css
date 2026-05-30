@@ -836,6 +836,7 @@ body,
 	gap: 4px;
 	font-size: 0.8rem;
 	cursor: pointer;
+	font-weight: normal;
 }
 
 .stonetop-possession-sub-radio {
@@ -1279,10 +1280,11 @@ body,
 .stonetop-arcanum-card {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid var(--color-border-dark);
-	border-radius: 3px;
 	background: #fff;
 	min-height: 260px;
+	border-width: 14px;
+	border-style: solid;
+	border-image: url('/modules/stonetop/assets/arcana/arcana-card-border.png') 40 / 14px stretch;
 }
 
 .stonetop-arcanum-header {
@@ -1438,6 +1440,15 @@ body,
 
 .stonetop-arcanum-move-trigger {
 	margin: 6px 0 2px;
+}
+
+.stonetop-arcanum-follower {
+	margin-top: 6px;
+}
+
+.stonetop-arcanum-follower .stonetop-follower-card {
+	box-shadow: none;
+	border: 1px solid var(--color-border-dark);
 }
 
 /* -- Choice sections (Details + Post-Death tabs) ---------------- */

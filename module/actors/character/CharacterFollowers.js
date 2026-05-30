@@ -94,21 +94,32 @@ export class CharacterFollowers {
 		await this.addFollower(slug);
 	}
 
-	async buildSnapshot() {
+	async buildSnapshot(extraSlugs = []) {
+		const ownedSet = new Set(this.ownedSlugs);
 		const slugs = this.ownedSlugs;
-		if (!slugs.length) return [];
-		const found  = await this._followerRepo.findBySlugs(slugs);
+		const staticSlugs = extraSlugs.filter(s => !ownedSet.has(s));
+
+		if (!slugs.length && !staticSlugs.length) return [];
+
+		const found  = await this._followerRepo.findBySlugs([...new Set([...slugs, ...staticSlugs])]);
 		const bySlug = Object.fromEntries(found.map(f => [f.slug, f]));
 
 		const hasCustom = slugs.some(s => !bySlug[s]);
 		const blank     = hasCustom ? (await this._followerRepo.findBySlugs(["blank"]))[0] ?? null : null;
 
-		return slugs.map(slug => {
+		const result = slugs.map(slug => {
 			const follower = bySlug[slug];
 			return follower
 				? this._buildFollowerSnapshot(follower)
 				: this._buildCustomFollowerSnapshot(slug, blank);
 		});
+
+		for (const slug of staticSlugs) {
+			const follower = bySlug[slug];
+			if (follower) result.push(this._buildFollowerSnapshot(follower));
+		}
+
+		return result;
 	}
 
 	_buildFollowerSnapshot(follower) {
@@ -133,6 +144,7 @@ export class CharacterFollowers {
 			.withLoyalty(loyalty)
 			.withLoyaltyMax(3)
 			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
+			.withArcanaSlug(follower.arcanaSlug)
 			.build();
 	}
 

@@ -44,6 +44,10 @@ export class FakeFlags {
 		return this.storage[scope][key] ?? null;
 	}
 
+	toRaw() {
+		return JSON.parse(JSON.stringify(this.storage));
+	}
+
 	clear() {
 		this.storage = {};
 	}

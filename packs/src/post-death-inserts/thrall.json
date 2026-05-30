@@ -1,274 +1,332 @@
 {
-  "name": "Thrall",
-  "type": "equipment",
-  "img": "assets/post-death-inserts/Thrall.png",
-  "system": {
-    "slug": "thrall",
-    "description": "<p>When you <em>die but call one of the Things Below by name and beseech them to intercede</em>, they do. Death is averted, but you gain this insert and 1 Mark.</p>",
-    "actorType": "character",
-    "attributes": {}
-  },
-  "flags": {
-    "stonetop": {
-      "lore": [
-        {
-          "slug": "your-master",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Your Master",
-              "description": "<p>The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.</p>"
-            },
-            {
-              "type": "input",
-              "slug": "name",
-              "text": "Name your master here, along with any titles that you know:"
-            }
-          ]
-        },
-        {
-          "slug": "impulse",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Impulse",
-              "description": "<p>Ask the GM to choose 1, to represent your master's nature and will:</p>"
-            },
-            {
-              "type": "track",
-              "slug": "stoke-conflict",
-              "description": "Stoke conflict, confusion, distrust",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "erode-hope",
-              "description": "Erode hope/faith/honor/self-image",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "hide-bury",
-              "description": "Hide/bury/smother things or ideas",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "deprive",
-              "description": "Deprive others of what they need",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "inflict-harm",
-              "description": "Inflict harm, cruelly and unnecessarily",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "desecrate",
-              "description": "Desecrate/mutilate/ruin things of value",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "shock-terrify",
-              "description": "Shock/terrify/horrify others",
-              "max": 1
-            }
-          ]
-        },
-        {
-          "slug": "terrible-purpose",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Terrible Purpose",
-              "description": "<p>Choose 1:</p>"
-            },
-            {
-              "type": "track",
-              "slug": "longing",
-              "description": "<p><strong>LONGING</strong> — Name the person or persons you refuse to let go of.</p><p>When you <em>spend the night watching them</em>, regain all your HP or clear all your debilities.</p><p>When they <em>genuinely return your affections</em>, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>rebuff you or recoil from you</em>, mark a consequence.</p><p>When they <em>die peacefully and pass through the Last Door</em>, so do you.</p><p>Should they be <em>taken from you violently</em>, mark the Final Consequence.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "vengeance",
-              "description": "<p><strong>VENGEANCE</strong> — Name the person or persons who must pay.</p><p>When you <em>spend the night wailing, howling, and raging in a lonely place</em>, regain all your HP or clear all your debilities.</p><p>When you <em>make one of them pay and ensure they know why</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>defeat or escape you</em>, mark a consequence.</p><p>When you <em>kill the last of them</em>, pass through the Last Door.</p><p>Should they <em>die before you're finished with them</em>, mark the Final Consequence.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "duty",
-              "description": "<p><strong>DUTY</strong> — Name the task you refuse to leave undone.</p><p>When you <em>spend the night working on your task</em>, regain all your HP or clear all your debilities.</p><p>When you <em>achieve a significant milestone towards your task</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When you <em>fail to perform your task or suffer a material setback</em>, mark a consequence.</p><p>When the <em>task is finally complete</em>, pass through the Last Door.</p><p>Should the <em>task become impossible to perform</em>, mark the Final Consequence.</p>",
-              "max": 1
-            }
-          ]
-        },
-        {
-          "slug": "consequences",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Consequences",
-              "description": "<p>When you first take this insert, choose 1. Choose another whenever a move tells you to do so.</p>"
-            },
-            {
-              "type": "track",
-              "slug": "breakdown",
-              "description": "<p><strong>BREAKDOWN</strong> — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "unstable",
-              "description": "<p><strong>UNSTABLE</strong> <em>(Requires Breakdown)</em> — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you <em>roll a 6-</em>, the GM can choose to have you enter such a rage.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "carrion-stench",
-              "description": "<p><strong>CARRION STENCH</strong> — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "deathly-visage",
-              "description": "<p><strong>DEATHLY VISAGE</strong> — It's clear to all who look upon you that you are dead. When you <em>use intimidation and your sinister appearance to Persuade</em>, you have advantage.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "home-to-vermin",
-              "description": "<p><strong>HOME TO VERMIN</strong> — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: <em>group, tiny, gross, meek, stealthy</em>; HP 1 each; Instinct: to get distracted; Cost: genuine affection.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "nightkin",
-              "description": "<p><strong>NIGHTKIN</strong> — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "quarry",
-              "description": "<p><strong>QUARRY</strong> — The Pale Hunter has caught your scent. Expect a visit, soon.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "strange-appetites",
-              "description": "<p><strong>STRANGE APPETITES</strong> — Pick 1: <em>still-warm blood</em> / <em>dying breaths</em> / <em>brains</em> / <em>bone &amp; marrow</em> / <em>rotting meat</em> / <em>eyes</em></p><p>When you <em>consume your special fare</em>, heal damage equal to half your max HP or clear a debility.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "insatiable",
-              "description": "<p><strong>INSATIABLE</strong> <em>(Requires Strange Appetites)</em> — When you <em>have the opportunity to indulge your Strange Appetites</em>, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "final-consequence",
-              "description": "<p><strong>THE FINAL CONSEQUENCE</strong> — Your tenuous connection to humanity is lost and you become a monster under the GM's control.</p>",
-              "max": 1
-            }
-          ]
-        },
-        {
-          "slug": "marks",
-          "list": [
-            {
-              "type": "heading",
-              "title": "Marks",
-              "description": "<p>When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.</p>"
-            },
-            {
-              "type": "track",
-              "slug": "festering-rot",
-              "description": "<p><strong>A FESTERING ROT</strong> — You are unharmed by poison, disease, caustic substances, and vermin bites. Things in your presence rot, crack, corrode, and spoil.</p><p>When you roll doubles, something on your person is ruined. The GM will tell you what, and how.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "child-of-the-deeps",
-              "description": "<p><strong>CHILD OF THE DEEPS</strong> — Reduce your max HP by 2.</p><p>You can breathe water and suffer no harm from cold or pressure. Your skin becomes squamous. When you go a day without bathing, mark a debility.</p><p>While near a body of water, you can spend 1 Favor to call forth a slimy tentacle to do your bidding. Treat it as a follower: <em>stealthy, relentless</em>; HP 6; Damage d10 (<em>reach, forceful, grabby</em>); Instinct: to squeeze the life from things; Cost: lives drowned.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "death-mask",
-              "description": "<p><strong>DEATH MASK</strong> — You find or craft a horrid mask. When you do not wear your mask, you have disadvantage on all rolls. When you wear your mask, undead treat you as one of their own.</p><p>When you wear your mask, you can spend 1 Favor to fill any living thing that sees you with dread. They must choose: flee, cower, or stand fast. If they stand fast, you have advantage on your first roll against them.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "quicksilver-dreams",
-              "description": "<p><strong>QUICKSILVER DREAMS</strong> — Reduce your max HP by 2.</p><p>When you Make Camp, everyone with you suffers nightmares and has disadvantage on their next roll.</p><p>You can spend 1 Favor to inflict false sensations upon someone, as long as you can see them.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "ravenous",
-              "description": "<p><strong>RAVENOUS</strong> — You are filled with unending hunger. Gain an extra impulse: &quot;Wantonly devour flesh.&quot;</p><p>When you Make Camp, consume an extra 1d4 provisions or uses of supplies.</p><p>You can spend 1 Favor to:</p><ul><li>Touch something. For as long as you hold it, everyone who sees it desires it.</li><li>Gain a horrid, iron-rending maw (<em>hand, 3 piercing, messy</em>) for as long as you wish, and with it the ability to eat and digest anything.</li></ul>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "red-wrath",
-              "description": "<p><strong>RED WRATH</strong> — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.</p><p>When you let your fury fly and lash out at someone (<em>hand, close</em>), spend 1–3 Favor and roll +Favor spent: <strong>on a 10+</strong>, deal 2d8 damage (<em>messy, forceful</em>) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "shadows-cold-embrace",
-              "description": "<p><strong>SHADOW'S COLD EMBRACE</strong> — Reduce your max HP by 2. You cast no shadow and no reflection.</p><p>When you are exposed to sunlight or holy light, you cannot spend Favor (for any reason).</p><p>Otherwise you can spend 1 Favor to:</p><ul><li>Remain unnoticed, even when under scrutiny or after doing something to draw attention.</li><li>Leave no trace of your comings or goings.</li><li>Pass off a lie as an obvious, evident truth.</li></ul>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "speak-truth",
-              "description": "<p><strong>SPEAK TRUTH, WHISPER SECRETS</strong> — Reduce your max HP by 2. Your tongue grows unusually long and your teeth become stained and jagged.</p><p>You can spend 1 Favor to look someone in the eye and learn (pick 1):</p><ul><li>What do they desire above all else?</li><li>What secret shame do they bear?</li><li>What is their greatest fear?</li><li>What is their worst memory?</li></ul><p>When you use the answer against them, you have advantage.</p>",
-              "max": 1
-            },
-            {
-              "type": "track",
-              "slug": "torments-blessing",
-              "description": "<p><strong>TORMENT'S BLESSING</strong> — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.</p><p>When you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: <strong>on a 10+</strong>, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.</p>",
-              "max": 1
-            }
-          ]
-        }
-      ],
-      "instinct": {
-        "slug": "instinct",
-        "list": [
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "fascination",
-                "description": "To explore your powers, your master, your new existence.",
-                "text": "Fascination"
-              },
-              {
-                "slug": "resistance",
-                "description": "To struggle against your master and cling to your humanity.",
-                "text": "Resistance"
-              },
-              {
-                "slug": "shame",
-                "description": "To hide and deny your true nature.",
-                "text": "Shame"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "_id": "19UwDQOGthndDunk",
-  "_key": "!items!19UwDQOGthndDunk"
+	"name": "Thrall",
+	"type": "equipment",
+	"img": "assets/post-death-inserts/Thrall.png",
+	"system": {
+		"slug": "thrall",
+		"description": "<p>When you <em>die but call one of the Things Below by name and beseech them to intercede</em>, they do. Death is averted, but you gain this insert and 1 Mark.</p>",
+		"actorType": "character",
+		"attributes": {}
+	},
+	"flags": {
+		"stonetop": {
+			"lore": [
+				{
+					"slug": "your-master",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Your Master",
+							"description": "<p>The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.</p>"
+						},
+						{
+							"type": "input",
+							"slug": "name",
+							"text": "Name your master here, along with any titles that you know:"
+						}
+					]
+				},
+				{
+					"slug": "impulse",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Impulse",
+							"description": "<p>Ask the GM to choose 1, to represent your master's nature and will:</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "stoke-conflict",
+							"description": "Stoke conflict, confusion, distrust",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "erode-hope",
+							"description": "Erode hope/faith/honor/self-image",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "hide-bury",
+							"description": "Hide/bury/smother things or ideas",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "deprive",
+							"description": "Deprive others of what they need",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "inflict-harm",
+							"description": "Inflict harm, cruelly and unnecessarily",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "desecrate",
+							"description": "Desecrate/mutilate/ruin things of value",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "shock-terrify",
+							"description": "Shock/terrify/horrify others",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				{
+					"slug": "terrible-purpose",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Terrible Purpose",
+							"description": "<p>Choose 1:</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "longing",
+							"description": "<p><strong>LONGING</strong> — Name the person or persons you refuse to let go of.</p><p>When you <em>spend the night watching them</em>, regain all your HP or clear all your debilities.</p><p>When they <em>genuinely return your affections</em>, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>rebuff you or recoil from you</em>, mark a consequence.</p><p>When they <em>die peacefully and pass through the Last Door</em>, so do you.</p><p>Should they be <em>taken from you violently</em>, mark the Final Consequence.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "vengeance",
+							"description": "<p><strong>VENGEANCE</strong> — Name the person or persons who must pay.</p><p>When you <em>spend the night wailing, howling, and raging in a lonely place</em>, regain all your HP or clear all your debilities.</p><p>When you <em>make one of them pay and ensure they know why</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>defeat or escape you</em>, mark a consequence.</p><p>When you <em>kill the last of them</em>, pass through the Last Door.</p><p>Should they <em>die before you're finished with them</em>, mark the Final Consequence.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "duty",
+							"description": "<p><strong>DUTY</strong> — Name the task you refuse to leave undone.</p><p>When you <em>spend the night working on your task</em>, regain all your HP or clear all your debilities.</p><p>When you <em>achieve a significant milestone towards your task</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When you <em>fail to perform your task or suffer a material setback</em>, mark a consequence.</p><p>When the <em>task is finally complete</em>, pass through the Last Door.</p><p>Should the <em>task become impossible to perform</em>, mark the Final Consequence.</p>",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Consequences",
+							"description": "<p>When you first take this insert, choose 1. Choose another whenever a move tells you to do so.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "breakdown",
+							"description": "<p><strong>BREAKDOWN</strong> — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "unstable",
+							"description": "<p><strong>UNSTABLE</strong> <em>(Requires Breakdown)</em> — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you <em>roll a 6-</em>, the GM can choose to have you enter such a rage.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "carrion-stench",
+							"description": "<p><strong>CARRION STENCH</strong> — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "deathly-visage",
+							"description": "<p><strong>DEATHLY VISAGE</strong> — It's clear to all who look upon you that you are dead. When you <em>use intimidation and your sinister appearance to Persuade</em>, you have advantage.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "home-to-vermin",
+							"description": "<p><strong>HOME TO VERMIN</strong> — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: <em>group, tiny, gross, meek, stealthy</em>; HP 1 each; Instinct: to get distracted; Cost: genuine affection.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "nightkin",
+							"description": "<p><strong>NIGHTKIN</strong> — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "quarry",
+							"description": "<p><strong>QUARRY</strong> — The Pale Hunter has caught your scent. Expect a visit, soon.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "strange-appetites",
+							"description": "<p><strong>STRANGE APPETITES</strong> — Pick 1: <em>still-warm blood</em> / <em>dying breaths</em> / <em>brains</em> / <em>bone &amp; marrow</em> / <em>rotting meat</em> / <em>eyes</em></p><p>When you <em>consume your special fare</em>, heal damage equal to half your max HP or clear a debility.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "insatiable",
+							"description": "<p><strong>INSATIABLE</strong> <em>(Requires Strange Appetites)</em> — When you <em>have the opportunity to indulge your Strange Appetites</em>, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "final-consequence",
+							"description": "<p><strong>THE FINAL CONSEQUENCE</strong> — Your tenuous connection to humanity is lost and you become a monster under the GM's control.</p>",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				{
+					"slug": "marks",
+					"list": [
+						{
+							"type": "heading",
+							"title": "Marks",
+							"description": "<p>When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "festering-rot",
+							"description": "<p><strong>A FESTERING ROT</strong> — You are unharmed by poison, disease, caustic substances, and vermin bites. Things in your presence rot, crack, corrode, and spoil.</p><p>When you roll doubles, something on your person is ruined. The GM will tell you what, and how.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "child-of-the-deeps",
+							"description": "<p><strong>CHILD OF THE DEEPS</strong> — Reduce your max HP by 2.</p><p>You can breathe water and suffer no harm from cold or pressure. Your skin becomes squamous. When you go a day without bathing, mark a debility.</p><p>While near a body of water, you can spend 1 Favor to call forth a slimy tentacle to do your bidding. Treat it as a follower: <em>stealthy, relentless</em>; HP 6; Damage d10 (<em>reach, forceful, grabby</em>); Instinct: to squeeze the life from things; Cost: lives drowned.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "death-mask",
+							"description": "<p><strong>DEATH MASK</strong> — You find or craft a horrid mask. When you do not wear your mask, you have disadvantage on all rolls. When you wear your mask, undead treat you as one of their own.</p><p>When you wear your mask, you can spend 1 Favor to fill any living thing that sees you with dread. They must choose: flee, cower, or stand fast. If they stand fast, you have advantage on your first roll against them.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "quicksilver-dreams",
+							"description": "<p><strong>QUICKSILVER DREAMS</strong> — Reduce your max HP by 2.</p><p>When you Make Camp, everyone with you suffers nightmares and has disadvantage on their next roll.</p><p>You can spend 1 Favor to inflict false sensations upon someone, as long as you can see them.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "ravenous",
+							"description": "<p><strong>RAVENOUS</strong> — You are filled with unending hunger. Gain an extra impulse: &quot;Wantonly devour flesh.&quot;</p><p>When you Make Camp, consume an extra 1d4 provisions or uses of supplies.</p><p>You can spend 1 Favor to:</p><ul><li>Touch something. For as long as you hold it, everyone who sees it desires it.</li><li>Gain a horrid, iron-rending maw (<em>hand, 3 piercing, messy</em>) for as long as you wish, and with it the ability to eat and digest anything.</li></ul>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "red-wrath",
+							"description": "<p><strong>RED WRATH</strong> — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.</p><p>When you let your fury fly and lash out at someone (<em>hand, close</em>), spend 1–3 Favor and roll +Favor spent: <strong>on a 10+</strong>, deal 2d8 damage (<em>messy, forceful</em>) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "shadows-cold-embrace",
+							"description": "<p><strong>SHADOW'S COLD EMBRACE</strong> — Reduce your max HP by 2. You cast no shadow and no reflection.</p><p>When you are exposed to sunlight or holy light, you cannot spend Favor (for any reason).</p><p>Otherwise you can spend 1 Favor to:</p><ul><li>Remain unnoticed, even when under scrutiny or after doing something to draw attention.</li><li>Leave no trace of your comings or goings.</li><li>Pass off a lie as an obvious, evident truth.</li></ul>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "speak-truth",
+							"description": "<p><strong>SPEAK TRUTH, WHISPER SECRETS</strong> — Reduce your max HP by 2. Your tongue grows unusually long and your teeth become stained and jagged.</p><p>You can spend 1 Favor to look someone in the eye and learn (pick 1):</p><ul><li>What do they desire above all else?</li><li>What secret shame do they bear?</li><li>What is their greatest fear?</li><li>What is their worst memory?</li></ul><p>When you use the answer against them, you have advantage.</p>",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "torments-blessing",
+							"description": "<p><strong>TORMENT'S BLESSING</strong> — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.</p><p>When you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: <strong>on a 10+</strong>, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.</p>",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			],
+			"instinct": {
+				"slug": "instinct",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"options": [
+							{
+								"slug": "fascination",
+								"description": "To explore your powers, your master, your new existence.",
+								"text": "Fascination"
+							},
+							{
+								"slug": "resistance",
+								"description": "To struggle against your master and cling to your humanity.",
+								"text": "Resistance"
+							},
+							{
+								"slug": "shame",
+								"description": "To hide and deny your true nature.",
+								"text": "Shame"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"_id": "19UwDQOGthndDunk",
+	"_key": "!items!19UwDQOGthndDunk"
 }

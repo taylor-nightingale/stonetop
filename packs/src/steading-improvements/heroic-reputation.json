@@ -1,66 +1,78 @@
 {
-  "name": "Heroic Reputation",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "heroic-reputation",
-      "sortOrder": 7,
-      "choices": {
-        "slug": "heroic-reputation",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Heroic Reputation",
-            "description": "<p>Few have heard of Stonetop's heroes. Yet.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> any 3 of the following:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "impress-hillfolk",
-            "description": "Impressing a band of Hillfolk",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "brave-lake",
-            "description": "Braving a lake and coming back with proof",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "save-marshedge",
-            "description": "Saving many Marshedge residents' lives",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "save-gordins-delve",
-            "description": "Saving many Gordin's Delve residents' lives",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "save-beyond-marshedge",
-            "description": "Saving someone from beyond Marshedge",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "hire-minstrel",
-            "description": "Hiring a minstrel to tell your tales (Value 2)",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: <strong>on a 10+</strong>, say what they've heard about you or Stonetop, and gain advantage on your next move against them; <strong>on a 7-9</strong>, say what they've heard; <strong>on a 6-</strong>, the GM decides what they've heard.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "0AMHN4p4oN6yuyQR",
-  "_key": "!items!0AMHN4p4oN6yuyQR"
+	"name": "Heroic Reputation",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "heroic-reputation",
+			"sortOrder": 7,
+			"choices": {
+				"slug": "heroic-reputation",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Heroic Reputation",
+						"description": "<p>Few have heard of Stonetop's heroes. Yet.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> any 3 of the following:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "impress-hillfolk",
+						"description": "Impressing a band of Hillfolk",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "brave-lake",
+						"description": "Braving a lake and coming back with proof",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "save-marshedge",
+						"description": "Saving many Marshedge residents' lives",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "save-gordins-delve",
+						"description": "Saving many Gordin's Delve residents' lives",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "save-beyond-marshedge",
+						"description": "Saving someone from beyond Marshedge",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "hire-minstrel",
+						"description": "Hiring a minstrel to tell your tales (Value 2)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: <strong>on a 10+</strong>, say what they've heard about you or Stonetop, and gain advantage on your next move against them; <strong>on a 7-9</strong>, say what they've heard; <strong>on a 6-</strong>, the GM decides what they've heard.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "0AMHN4p4oN6yuyQR",
+	"_key": "!items!0AMHN4p4oN6yuyQR"
 }

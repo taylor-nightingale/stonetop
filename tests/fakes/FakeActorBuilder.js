@@ -155,7 +155,7 @@ export class FakeActorBuilder {
 				},
 			},
 			items: this.buildItems(),
-			flags: fakeFlags,
+			flags: fakeFlags.toRaw(),
 			getFlag: (scope, key) => fakeFlags.getFlag(scope, key),
 			setFlag: (scope, key, value) => fakeFlags.setFlag(scope, key, value),
 			update: vi.fn(),

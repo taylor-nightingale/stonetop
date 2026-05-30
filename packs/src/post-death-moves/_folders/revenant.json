@@ -1,12 +1,12 @@
 {
-  "name": "revenant",
-  "type": "Item",
-  "description": "",
-  "folder": null,
-  "sorting": "a",
-  "sort": 0,
-  "color": null,
-  "flags": {},
-  "_id": "PltWcwhA5PwgziBO",
-  "_key": "!folders!PltWcwhA5PwgziBO"
+	"name": "revenant",
+	"type": "Item",
+	"description": "",
+	"folder": null,
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {},
+	"_id": "PltWcwhA5PwgziBO",
+	"_key": "!folders!PltWcwhA5PwgziBO"
 }

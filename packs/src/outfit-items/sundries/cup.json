@@ -1,18 +1,18 @@
 {
-  "_id": "eNdjIs9hVLXnGBB1",
-  "_key": "!items!eNdjIs9hVLXnGBB1",
-  "name": "Cup",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "cup",
-      "inventoryColumn": "small",
-      "sortOrder": 13,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "eNdjIs9hVLXnGBB1",
+	"_key": "!items!eNdjIs9hVLXnGBB1",
+	"name": "Cup",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "cup",
+			"inventoryColumn": "small",
+			"sortOrder": 13,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

@@ -1,22 +1,22 @@
 {
-  "_id": "BnD3XkfFNuYUPnmb",
-  "_key": "!items!BnD3XkfFNuYUPnmb",
-  "name": "Thick hides",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "thick-hides",
-      "inventoryColumn": "regular",
-      "sortOrder": 26,
-      "note": "1 armor, <em>warm</em>",
-      "weight": 2,
-      "armor": {
-        "base": 1
-      }
-    }
-  },
-  "folder": "StOnEtOpAmr0001X"
+	"_id": "BnD3XkfFNuYUPnmb",
+	"_key": "!items!BnD3XkfFNuYUPnmb",
+	"name": "Thick hides",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "thick-hides",
+			"inventoryColumn": "regular",
+			"sortOrder": 26,
+			"note": "1 armor, <em>warm</em>",
+			"weight": 2,
+			"armor": {
+				"base": 1
+			}
+		}
+	},
+	"folder": "StOnEtOpAmr0001X"
 }

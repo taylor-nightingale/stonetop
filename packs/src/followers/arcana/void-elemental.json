@@ -1,0 +1,49 @@
+{
+	"name": "Void elemental",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "void-elemental",
+			"arcanaSlug": "oversized-crown",
+			"note": "Spirit, primordial, confused, angry",
+			"hp": {
+				"max": 15
+			},
+			"armor": 1,
+			"damage": "d10",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to rage at all the noise and chaos\n-immune to most harm\n-Manifest as a black hole in reality\n-Snuff out a source of energy\n-Become confused, unsure what to do"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "Loyalty ◯◯◯"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "QiGKZZSbO176nkOO",
+	"_key": "!items!QiGKZZSbO176nkOO"
+}

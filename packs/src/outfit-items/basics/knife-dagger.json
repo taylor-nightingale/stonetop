@@ -1,18 +1,18 @@
 {
-  "_id": "k7Gdp0CXP9K63LSF",
-  "_key": "!items!k7Gdp0CXP9K63LSF",
-  "name": "Knife or dagger, iron",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "knife-dagger",
-      "inventoryColumn": "small",
-      "sortOrder": 1,
-      "note": "<em>hand</em>"
-    }
-  },
-  "folder": "StOnEtOpBsc0001X"
+	"_id": "k7Gdp0CXP9K63LSF",
+	"_key": "!items!k7Gdp0CXP9K63LSF",
+	"name": "Knife or dagger, iron",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "knife-dagger",
+			"inventoryColumn": "small",
+			"sortOrder": 1,
+			"note": "<em>hand</em>"
+		}
+	},
+	"folder": "StOnEtOpBsc0001X"
 }

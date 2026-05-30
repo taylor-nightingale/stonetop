@@ -1,0 +1,49 @@
+{
+	"name": "Unliving chimera",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "unliving-chimera",
+			"arcanaSlug": "rusty-cauldron",
+			"note": "Undead, construct, terrifying, clumsy",
+			"hp": {
+				"max": 3
+			},
+			"armor": 4,
+			"damage": "d6",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "varies d6 (band, maybe others)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to get confused and lash out\n-Do something one of its component beasts could do\n-Moan, wretchedly and disturbingly"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "lots of fresh blood (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "fIh7TkvwIHduk4p5",
+	"_key": "!items!fIh7TkvwIHduk4p5"
+}

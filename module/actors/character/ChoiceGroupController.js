@@ -22,6 +22,14 @@ export class ChoiceGroupController {
 		await this._flags.setFlag("values", values.toRaw());
 	}
 
+	async setCount(groupSlug, optionSlug, count) {
+		await this._flags.setFlag("values", this._values.set(groupSlug, optionSlug, count).toRaw());
+	}
+
+	async setText(groupSlug, optionSlug, text) {
+		await this._flags.setFlag("values", this._values.set(groupSlug, optionSlug, text).toRaw());
+	}
+
 	async clearValues() {
 		await this._flags.setFlag("values", {});
 	}

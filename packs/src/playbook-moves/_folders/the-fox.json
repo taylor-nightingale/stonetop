@@ -1,12 +1,12 @@
 {
-  "name": "The Fox",
-  "type": "Item",
-  "description": "",
-  "folder": null,
-  "sorting": "a",
-  "sort": 0,
-  "color": null,
-  "flags": {},
-  "_id": "xnEoWIXTKWl4oAJz",
-  "_key": "!folders!xnEoWIXTKWl4oAJz"
+	"name": "The Fox",
+	"type": "Item",
+	"description": "",
+	"folder": null,
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {},
+	"_id": "xnEoWIXTKWl4oAJz",
+	"_key": "!folders!xnEoWIXTKWl4oAJz"
 }

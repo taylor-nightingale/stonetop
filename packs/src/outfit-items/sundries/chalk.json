@@ -1,18 +1,18 @@
 {
-  "_id": "HDBTq0Zf2pCLxb0l",
-  "_key": "!items!HDBTq0Zf2pCLxb0l",
-  "name": "Chalk",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "chalk",
-      "inventoryColumn": "small",
-      "sortOrder": 2,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "HDBTq0Zf2pCLxb0l",
+	"_key": "!items!HDBTq0Zf2pCLxb0l",
+	"name": "Chalk",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "chalk",
+			"inventoryColumn": "small",
+			"sortOrder": 2,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

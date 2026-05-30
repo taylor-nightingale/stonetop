@@ -3,7 +3,7 @@
     {{#each groups}}
     <div class="stonetop-choice-entry" data-slug="{{slug}}">
         {{#each list}}
-        {{> "stonetop.choice-row" inputClass="stonetop-option-check"}}
+        {{> "stonetop.choice-row" cgContext=../../cgContext cgGroup=../slug}}
         {{/each}}
     </div>
     {{/each}}

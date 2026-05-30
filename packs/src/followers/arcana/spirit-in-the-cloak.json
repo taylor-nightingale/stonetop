@@ -1,0 +1,49 @@
+{
+	"name": "The Spirit in the Cloak",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "spirit-in-the-cloak",
+			"arcanaSlug": "cloak-richly-embroidered",
+			"note": "Spirit, magical, proud, mute",
+			"hp": {
+				"max": 13
+			},
+			"armor": 1,
+			"damage": "d6",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "lashing wind, rain, debris d6 (near, area)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to \"not hear\" your commands\n-Bear its master aloft on a cushion of swirling winds\n-Manifest a storm as it flies\n-Wreak havoc on its surroundings\n-Fling lightning from a raging storm, d10+3 (far, forceful, reload)"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "flying about for hours (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "3z1iQ7P9QK4vMuog",
+	"_key": "!items!3z1iQ7P9QK4vMuog"
+}

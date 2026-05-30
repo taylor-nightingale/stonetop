@@ -1,70 +1,82 @@
 {
-  "name": "Well-Trained Militia",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "well-trained-militia",
-      "sortOrder": 17,
-      "choices": {
-        "slug": "well-trained-militia",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Well-Trained Militia",
-            "description": "<p>Everyone can use a spear and shield, but some hard drilling could make us a force to be reckoned with.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> one of the following:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "veteran-warrior",
-            "description": "A veteran warrior, able to command a crowd",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>For each tactic below, you must then Pull Together, requiring a season of drills and 1 Surplus.</p>"
-          },
-          {
-            "type": "track",
-            "slug": "archery",
-            "description": "Archery: barrages, ranged ambushes, sniping, etc.",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "cavalry",
-            "description": "Cavalry (requires a Herd of Horses): fighting from horseback, charges",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "formations",
-            "description": "Formations: shield walls, wedges, phalanx, etc.",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "readiness",
-            "description": "Readiness: patrolling, reacting quickly to alarms",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "skirmishing",
-            "description": "Skirmishing: ambushes, harassing, hit-and-run",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence <strong>on a 7-9</strong>, not the GM).</p><p>When the militia has trained in 2+ tactics, increase Defenses by 1.</p><p>Each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "FmFFyXlR2adDPOqR",
-  "_key": "!items!FmFFyXlR2adDPOqR"
+	"name": "Well-Trained Militia",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "well-trained-militia",
+			"sortOrder": 17,
+			"choices": {
+				"slug": "well-trained-militia",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Well-Trained Militia",
+						"description": "<p>Everyone can use a spear and shield, but some hard drilling could make us a force to be reckoned with.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> one of the following:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "veteran-warrior",
+						"description": "A veteran warrior, able to command a crowd",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>For each tactic below, you must then Pull Together, requiring a season of drills and 1 Surplus.</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "archery",
+						"description": "Archery: barrages, ranged ambushes, sniping, etc.",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "cavalry",
+						"description": "Cavalry (requires a Herd of Horses): fighting from horseback, charges",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "formations",
+						"description": "Formations: shield walls, wedges, phalanx, etc.",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "readiness",
+						"description": "Readiness: patrolling, reacting quickly to alarms",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "skirmishing",
+						"description": "Skirmishing: ambushes, harassing, hit-and-run",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence <strong>on a 7-9</strong>, not the GM).</p><p>When the militia has trained in 2+ tactics, increase Defenses by 1.</p><p>Each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "FmFFyXlR2adDPOqR",
+	"_key": "!items!FmFFyXlR2adDPOqR"
 }

@@ -4,7 +4,7 @@ import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	MinorArcanumSnapshot, MinorArcanumFrontSnapshot, MinorArcanumBackSnapshot,
-	ChoiceGroup, ChoiceRow, HeadingRow,
+	ChoiceGroup, HeadingRow, FollowerRow,
 } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
 
@@ -31,10 +31,10 @@ const FFYRNIG_SPHERE = {
 			list: [
 				{ type: "heading", description: "The pictograms depict some sort of recipe, which you can learn but you must…" },
 				{ type: "heading", description: "Some context text." },
-				{ type: "track",   slug: "dig-sphere",   description: "… first dig up and clean the sphere.", max: 1 },
-				{ type: "track",   slug: "study-glyphs", description: "… spend weeks studying the glyphs.", max: 1 },
+				{ type: "heading", slug: "dig-sphere",   description: "… first dig up and clean the sphere.", track: { max: 1 } },
+				{ type: "heading", slug: "study-glyphs", description: "… spend weeks studying the glyphs.", track: { max: 1 } },
 				{ type: "heading", description: "And then…" },
-				{ type: "track",   slug: "risk-recipe",  description: "… risk getting the recipe wrong.", max: 3 },
+				{ type: "heading", slug: "risk-recipe",  description: "… risk getting the recipe wrong.", track: { max: 3 } },
 			],
 		},
 	},
@@ -183,37 +183,39 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(row.description).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
 		});
 
-		it("front.unlock.list has heading and choice nodes in order", async () => {
+		it("front.unlock.list has all heading nodes", async () => {
 			const { list } = (await getItem()).front.unlock;
 			expect(list).toHaveLength(6);
-			expect(list[0].type).toBe("heading");
-			expect(list[1].type).toBe("heading");
-			expect(list[2].type).toBe("choice");
-			expect(list[3].type).toBe("choice");
-			expect(list[4].type).toBe("heading");
-			expect(list[5].type).toBe("choice");
+			expect(list.every(r => r.type === "heading")).toBe(true);
 		});
 
-		it("choice row has correct option slug and description", async () => {
+		it("heading row without track has null track field", async () => {
+			const row = (await getItem()).front.unlock.list[0];
+			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row.track).toBeNull();
+		});
+
+		it("heading row with track has slug and checks array", async () => {
 			const row = (await getItem()).front.unlock.list[2];
-			expect(row).toBeInstanceOf(ChoiceRow);
-			expect(row.options[0].slug).toBe("dig-sphere");
-			expect(row.options[0].description).toBe("… first dig up and clean the sphere.");
+			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row.track).not.toBeNull();
+			expect(row.track.slug).toBe("dig-sphere");
+			expect(row.description).toBe("… first dig up and clean the sphere.");
 		});
 
-		it("choice row defaults checks to all false when no count saved", async () => {
+		it("heading+track defaults checks to all false when no count saved", async () => {
 			const row = (await getItem()).front.unlock.list[2];
-			expect(row.options[0].checks).toEqual([false]);
+			expect(row.track.checks).toEqual([false]);
 		});
 
-		it("choice row with explicit max has checks array of that length", async () => {
+		it("heading+track with max:3 has checks array of length 3", async () => {
 			const row = (await getItem()).front.unlock.list[5];
-			expect(row.options[0].checks).toHaveLength(3);
+			expect(row.track.checks).toHaveLength(3);
 		});
 
-		it("choice row checks reflect saved flag values", async () => {
+		it("heading+track checks reflect saved flag values", async () => {
 			const row = (await getItem({ unlock: { "huge-wooden-sphere": { "dig-sphere": 1 } } })).front.unlock.list[2];
-			expect(row.options[0].checks).toEqual([true]);
+			expect(row.track.checks).toEqual([true]);
 		});
 	});
 
@@ -268,6 +270,10 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			);
 			expect((await arcana.buildSnapshot()).minor.items[0].back.move).toBeNull();
 		});
+
+		it("back.choices is null when absent in JSON", async () => {
+			expect((await getItem()).back.choices).toBeNull();
+		});
 	});
 
 	describe("mutation methods", () => {
@@ -305,6 +311,14 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			await arcana.setUnlockCount("huge-wooden-sphere", "dig-sphere", 1);
 			expect(flags.setFlag).toHaveBeenCalledWith("unlock", { "huge-wooden-sphere": { "dig-sphere": 1 } });
 		});
+
+		it("setBackChoiceValue stores count in backChoices flag", async () => {
+			const flags = makeFlags();
+			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+			await arcana.setBackChoiceValue("cracked-flute", "andalau-of-the-flute", 1);
+			expect(flags.setFlag).toHaveBeenCalledWith("backChoices", { "cracked-flute": { "andalau-of-the-flute": 1 } });
+		});
+
 	});
 });
 
@@ -489,5 +503,183 @@ describe("CharacterArcana — outfitItems sync", () => {
 	it("does not throw when outfitItems is null", async () => {
 		const arcana = new CharacterArcana(makeFlags({}), new FakeArcanaRepository([BOW_WITH_NO_STRING]));
 		await expect(arcana.addArcanum("bow-with-no-string")).resolves.not.toThrow();
+	});
+});
+
+// -- Follower sync fixtures ----------------------------------------------------
+
+const CRACKED_FLUTE = {
+	slug: "cracked-flute",
+	front: {
+		title: "A cracked flute",
+		item: null,
+		description: "<p>A cracked flute.</p>",
+		unlock: { slug: "cracked-flute", list: [] },
+	},
+	back: {
+		title: "Dancing Wind Spirit",
+		choices: {
+			slug: "cracked-flute",
+			list: [
+				{ type: "follower", slug: "andalau-of-the-flute", followerSlug: "andalau-of-the-flute", track: { max: 1 } },
+			],
+		},
+		item: null,
+		description: "<p>The andalau manifests.</p>",
+		resource: null,
+		move: null,
+	},
+};
+
+const STONE_IDOL = {
+	slug: "stone-idol",
+	front: {
+		title: "A stone idol",
+		item: null,
+		description: "<p>A tiny Fae.</p>",
+		unlock: { slug: "stone-idol", list: [] },
+	},
+	back: {
+		title: "The Angry Little God",
+		choices: {
+			slug: "stone-idol",
+			list: [
+				{ type: "follower", slug: "all-mighty-thistlewisk", followerSlug: "all-mighty-thistlewisk", track: { max: 1 } },
+			],
+		},
+		item: null,
+		description: "<p>It wakes.</p>",
+		resource: null,
+		move: null,
+	},
+};
+
+function makeFakeFollowers() {
+	return {
+		addFollower:    vi.fn(async () => {}),
+		removeFollower: vi.fn(async () => {}),
+		buildSnapshot:  vi.fn(async () => []),
+	};
+}
+
+function makeArcanaWithFollowers(flagStore = {}, arcana = [CRACKED_FLUTE], fakeFollowers = null) {
+	const followers = fakeFollowers ?? makeFakeFollowers();
+	const charArcana = new CharacterArcana(
+		makeFlags(flagStore),
+		new FakeArcanaRepository(arcana),
+		null,
+		null,
+		followers,
+	);
+	return { charArcana, followers };
+}
+
+// -- Tests: follower sync ------------------------------------------------------
+
+describe("CharacterArcana — follower sync", () => {
+	it("flipArcanum calls addFollower for each follower in back.choices", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		await charArcana.flipArcanum("cracked-flute");
+		expect(followers.addFollower).toHaveBeenCalledWith("andalau-of-the-flute");
+	});
+
+	it("unflipArcanum calls removeFollower for each follower in back.choices", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers({
+			owned: ["cracked-flute"],
+			flipped: ["cracked-flute"],
+		});
+		await charArcana.unflipArcanum("cracked-flute");
+		expect(followers.removeFollower).toHaveBeenCalledWith("andalau-of-the-flute");
+	});
+
+	it("removeArcanum calls removeFollower for each follower in back.choices", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers({
+			owned: ["cracked-flute"],
+			flipped: ["cracked-flute"],
+		});
+		await charArcana.removeArcanum("cracked-flute");
+		expect(followers.removeFollower).toHaveBeenCalledWith("andalau-of-the-flute");
+	});
+
+	it("addArcanum does not call addFollower (arcanum starts unflipped)", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers();
+		await charArcana.addArcanum("cracked-flute");
+		expect(followers.addFollower).not.toHaveBeenCalled();
+	});
+
+	it("does not call addFollower when arcanum has no back.choices", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers({ owned: ["huge-wooden-sphere"] }, [FFYRNIG_SPHERE]);
+		await charArcana.flipArcanum("huge-wooden-sphere");
+		expect(followers.addFollower).not.toHaveBeenCalled();
+	});
+
+	it("does not throw when _followers is null", async () => {
+		const arcana = new CharacterArcana(makeFlags({ owned: ["cracked-flute"] }), new FakeArcanaRepository([CRACKED_FLUTE]));
+		await expect(arcana.flipArcanum("cracked-flute")).resolves.not.toThrow();
+	});
+
+	it("setBackChoiceValue with count>0 calls addFollower", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers();
+		await charArcana.setBackChoiceValue("cracked-flute", "andalau-of-the-flute", 1);
+		expect(followers.addFollower).toHaveBeenCalledWith("andalau-of-the-flute");
+	});
+
+	it("setBackChoiceValue with count=0 calls removeFollower", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers();
+		await charArcana.setBackChoiceValue("cracked-flute", "andalau-of-the-flute", 0);
+		expect(followers.removeFollower).toHaveBeenCalledWith("andalau-of-the-flute");
+	});
+});
+
+// -- Tests: buildSnapshot — back.choices -------------------------------------
+
+describe("CharacterArcana.buildSnapshot() — back.choices", () => {
+	it("back.choices is null when arcanum has no back choices", async () => {
+		const { charArcana } = makeArcanaWithFollowers({ owned: ["huge-wooden-sphere"] }, [FFYRNIG_SPHERE]);
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices).toBeNull();
+	});
+
+	it("back.choices is a ChoiceGroup when arcanum has back.choices", async () => {
+		const { charArcana } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices).toBeInstanceOf(ChoiceGroup);
+	});
+
+	it("back.choices.list contains FollowerRow instances", async () => {
+		const { charArcana } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		const snap = await charArcana.buildSnapshot();
+		const row = snap.minor.items[0].back.choices.list[0];
+		expect(row).toBeInstanceOf(FollowerRow);
+		expect(row.followerSlug).toBe("andalau-of-the-flute");
+	});
+
+	it("FollowerRow.follower is null when not in followersBySlug", async () => {
+		const { charArcana } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices.list[0].follower).toBeNull();
+	});
+
+	it("FollowerRow.follower resolves when followers.buildSnapshot returns it", async () => {
+		const { charArcana, followers } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		const fakeFollowerSnap = { slug: "andalau-of-the-flute", name: "The Andalau" };
+		followers.buildSnapshot.mockResolvedValue([fakeFollowerSnap]);
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices.list[0].follower).toBe(fakeFollowerSnap);
+	});
+
+	it("FollowerRow.track.checks is [false] when backChoices count is 0", async () => {
+		const { charArcana } = makeArcanaWithFollowers({ owned: ["cracked-flute"] });
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([false]);
+	});
+
+	it("FollowerRow.track.checks is [true] when backChoices count is 1", async () => {
+		const { charArcana } = makeArcanaWithFollowers({
+			owned: ["cracked-flute"],
+			backChoices: { "cracked-flute": { "andalau-of-the-flute": 1 } },
+		});
+		const snap = await charArcana.buildSnapshot();
+		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([true]);
 	});
 });

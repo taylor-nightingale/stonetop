@@ -1,52 +1,58 @@
 {
-  "name": "Palisade",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "palisade",
-      "sortOrder": 11,
-      "choices": {
-        "slug": "palisade",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Palisade",
-            "description": "<p>A wall of sharpened logs, 10' tall, to keep evil at bay.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> all of the following, in order:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "timber",
-            "description": "Lots of timber (~20-25 wagonloads, Value 3)",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "engineer-foreman",
-            "description": "A competent engineer/foreman",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "rope-nails-pitch",
-            "description": "Lots of rope, nails, pitch, etc. (Value 2)",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>Pulling Together, costing a month and 1 Surplus.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.</p><p>Henceforth, when you take advantage of the palisade, you have advantage to Deploy.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "nuIJXiG6zisn95MG",
-  "_key": "!items!nuIJXiG6zisn95MG"
+	"name": "Palisade",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "palisade",
+			"sortOrder": 11,
+			"choices": {
+				"slug": "palisade",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Palisade",
+						"description": "<p>A wall of sharpened logs, 10' tall, to keep evil at bay.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> all of the following, in order:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "timber",
+						"description": "Lots of timber (~20-25 wagonloads, Value 3)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "engineer-foreman",
+						"description": "A competent engineer/foreman",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "rope-nails-pitch",
+						"description": "Lots of rope, nails, pitch, etc. (Value 2)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>Pulling Together, costing a month and 1 Surplus.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.</p><p>Henceforth, when you take advantage of the palisade, you have advantage to Deploy.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "nuIJXiG6zisn95MG",
+	"_key": "!items!nuIJXiG6zisn95MG"
 }

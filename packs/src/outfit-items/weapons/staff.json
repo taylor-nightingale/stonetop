@@ -1,19 +1,19 @@
 {
-  "_id": "AraVNqTIAae24HZK",
-  "_key": "!items!AraVNqTIAae24HZK",
-  "name": "Staff",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "staff",
-      "inventoryColumn": "regular",
-      "sortOrder": 19,
-      "note": "<em>close</em>",
-      "weight": 1
-    }
-  },
-  "folder": "StOnEtOpWpn0001X"
+	"_id": "AraVNqTIAae24HZK",
+	"_key": "!items!AraVNqTIAae24HZK",
+	"name": "Staff",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "staff",
+			"inventoryColumn": "regular",
+			"sortOrder": 19,
+			"note": "<em>close</em>",
+			"weight": 1
+		}
+	},
+	"folder": "StOnEtOpWpn0001X"
 }

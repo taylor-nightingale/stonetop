@@ -1,0 +1,43 @@
+{
+	"name": "The Andalau of the Flute",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "andalau-of-the-flute",
+			"arcanaSlug": "cracked-flute",
+			"note": "Spirit, tiny, stealthy, mischievous",
+			"hp": {
+				"max": 8
+			},
+			"armor": 0,
+			"damage": null,
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to play and frolic\n-Manifest as a fluttering gust of wind (harmed only by salt)\n-Deliver a whispery message\n-Flit things about (dust, leaves, etc.)\n-Annoy or spook someone"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "entertainment (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "Qr1HJzxWYqTYZkQc",
+	"_key": "!items!Qr1HJzxWYqTYZkQc"
+}

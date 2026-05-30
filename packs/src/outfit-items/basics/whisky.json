@@ -1,25 +1,25 @@
 {
-  "_id": "bjhPInRVkLUhY7gb",
-  "_key": "!items!bjhPInRVkLUhY7gb",
-  "name": "Whisky, skin",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "whisky",
-      "inventoryColumn": "small",
-      "sortOrder": 7,
-      "resource": {
-        "max": 2,
-        "title": null,
-        "labels": [
-          "",
-          ""
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpBsc0001X"
+	"_id": "bjhPInRVkLUhY7gb",
+	"_key": "!items!bjhPInRVkLUhY7gb",
+	"name": "Whisky, skin",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "whisky",
+			"inventoryColumn": "small",
+			"sortOrder": 7,
+			"resource": {
+				"max": 2,
+				"title": null,
+				"labels": [
+					"",
+					""
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpBsc0001X"
 }

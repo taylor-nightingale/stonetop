@@ -1,0 +1,49 @@
+{
+	"name": "Mantle wraiths",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "mantle-wraiths",
+			"arcanaSlug": "tattered-mantle",
+			"note": "Group (3), spirit, undead, terrifying, vicious",
+			"hp": {
+				"max": 13
+			},
+			"armor": 1,
+			"damage": "d8",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "life drain d8 (band, ignores armor)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to run rampant\n-powerless in daylight\n-Whisper their longings to the wearer\n-Manifest a form of shadow and cold (harmed only by silver and salt)\n-Hurl themselves at the living\n-Suck the vitality from their prey"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "souls feasted upon (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "gZuqGWcHx2WawdRw",
+	"_key": "!items!gZuqGWcHx2WawdRw"
+}

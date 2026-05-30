@@ -37,7 +37,8 @@
 			"empty": "Drag arcana here from the Arcana compendium.",
 			"showFront": "Show Front",
 			"showBack": "Reveal Back",
-			"removeArcanum": "Remove"
+			"removeArcanum": "Remove",
+			"addToFollowers": "Add to followers"
 		},
 		"inventory": {
 			"regularItems": "Items",

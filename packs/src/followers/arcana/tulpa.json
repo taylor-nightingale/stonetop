@@ -1,0 +1,49 @@
+{
+	"name": "Tulpa",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "tulpa",
+			"arcanaSlug": "beautiful-scroll",
+			"note": "Spirit, construct, tiny, naive, eager",
+			"hp": {
+				"max": 8
+			},
+			"armor": 0,
+			"damage": "d4",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "d4 (if that)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to play / to learn / to flaunt\n-Manifest a form of dust/snow/vapor\n-Produce light (area, reach)\n-Carry/manipulate a ◇ item\n-Deliver a message\n-Spy on someone/something"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "U1SAvkDiUzITqaNe",
+	"_key": "!items!U1SAvkDiUzITqaNe"
+}

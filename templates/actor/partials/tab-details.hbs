@@ -1,7 +1,7 @@
 <div class="tab details" data-group="primary" data-tab="details">
 	<section class="sheet-tab">
 
-		{{> "stonetop.choice-section" groups=stonetop.playbook.lore}}
+		{{> "stonetop.choice-section" groups=stonetop.playbook.lore cgContext="lore"}}
 
 		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
@@ -43,7 +43,7 @@
 			{{#if stonetop.playbook.instinct.group}}
 			<div class="stonetop-instinct-options">
 				{{#each stonetop.playbook.instinct.group.list}}
-				{{> "stonetop.choice-row" radio=true namePrefix="stonetop-instinct" inputClass="stonetop-playbook-instinct"}}
+				{{> "stonetop.choice-row" radio=true namePrefix="stonetop-instinct" cgContext="instinct"}}
 				{{/each}}
 			</div>
 			{{/if}}
@@ -54,7 +54,7 @@
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
 			{{#each stonetop.playbook.appearance}}
-			{{> "stonetop.choice-row" inputClass="stonetop-appearance-radio" namePrefix="stonetop-appearance"}}
+			{{> "stonetop.choice-row" cgContext="appearance" namePrefix="stonetop-appearance"}}
 			{{/each}}
 		</div>
 		{{/if}}

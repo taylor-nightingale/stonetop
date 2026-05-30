@@ -1,0 +1,49 @@
+{
+	"name": "Bronze protector",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "bronze-protector",
+			"arcanaSlug": "metal-man",
+			"note": "Construct, spirit, durable, vigilant, overbearing, mute, gullible",
+			"hp": {
+				"max": 13
+			},
+			"armor": 3,
+			"damage": "d8",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "pummel d8 (band)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to be overzealous in guarding you\n-fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP\n-Loom menacingly, belching smoke\n-Start fires, cause collateral damage\n-Run low on fuel"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "profuse gratitude (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "8GMWKr8m725mlG4C",
+	"_key": "!items!8GMWKr8m725mlG4C"
+}

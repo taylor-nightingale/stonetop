@@ -1,17 +1,17 @@
 {
-  "_id": "VxUZpfbH9vOWOU6m",
-  "_key": "!items!VxUZpfbH9vOWOU6m",
-  "name": "Handful of coppers",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "coppers",
-      "inventoryColumn": "small",
-      "sortOrder": 6
-    }
-  },
-  "folder": "StOnEtOpBsc0001X"
+	"_id": "VxUZpfbH9vOWOU6m",
+	"_key": "!items!VxUZpfbH9vOWOU6m",
+	"name": "Handful of coppers",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "coppers",
+			"inventoryColumn": "small",
+			"sortOrder": 6
+		}
+	},
+	"folder": "StOnEtOpBsc0001X"
 }

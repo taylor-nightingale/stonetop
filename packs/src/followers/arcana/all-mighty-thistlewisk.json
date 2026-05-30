@@ -1,0 +1,49 @@
+{
+	"name": "All-mighty Thistlewisk",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "all-mighty-thistlewisk",
+			"arcanaSlug": "stone-idol",
+			"note": "Fae, tiny, magical, devious, arrogant",
+			"hp": {
+				"max": 15
+			},
+			"armor": 6,
+			"damage": "d10",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "weapon",
+						"text": "Weapon",
+						"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+					},
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to heap abuse on its worshippers\n-inert; disembodied voice\n-Make unreasonable demands\n-Consume the essence of foodstuffs\n-Sense one's idle thoughts/memories\n-Weave powerful illusions and hallucinations (near, area)\n-Grow bored/huffy and go to sleep"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "obeisance and ever-larger offerings of food (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK",
+	"_id": "GQFL5gcULAt4X74f",
+	"_key": "!items!GQFL5gcULAt4X74f"
+}

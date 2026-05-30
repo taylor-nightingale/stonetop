@@ -1,18 +1,18 @@
 {
-  "_id": "WcURYxPY8EcFK12B",
-  "_key": "!items!WcURYxPY8EcFK12B",
-  "name": "Whistle",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "whistle",
-      "inventoryColumn": "small",
-      "sortOrder": 18,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "WcURYxPY8EcFK12B",
+	"_key": "!items!WcURYxPY8EcFK12B",
+	"name": "Whistle",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "whistle",
+			"inventoryColumn": "small",
+			"sortOrder": 18,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

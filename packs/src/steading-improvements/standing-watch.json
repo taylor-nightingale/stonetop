@@ -1,30 +1,30 @@
 {
-  "name": "Standing Watch",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "standing-watch",
-      "sortOrder": 13,
-      "choices": {
-        "slug": "standing-watch",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Standing Watch",
-            "description": "<p>Some full-time warriors would make us all safer, no?</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> all of the following:</p><ul><li>A veteran warrior, able to command a crowd</li><li>At least 6 warriors, well-equipped and willing</li><li>The village leaders agreeing to support warriors who train and keep watch full-time</li></ul>"
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.</p><p>When you specifically involve the watch in a move, treat Defenses as 1 higher than they are.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "v0ygB3sfvACkWFZr",
-  "_key": "!items!v0ygB3sfvACkWFZr"
+	"name": "Standing Watch",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "standing-watch",
+			"sortOrder": 13,
+			"choices": {
+				"slug": "standing-watch",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Standing Watch",
+						"description": "<p>Some full-time warriors would make us all safer, no?</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> all of the following:</p><ul><li>A veteran warrior, able to command a crowd</li><li>At least 6 warriors, well-equipped and willing</li><li>The village leaders agreeing to support warriors who train and keep watch full-time</li></ul>"
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.</p><p>When you specifically involve the watch in a move, treat Defenses as 1 higher than they are.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "v0ygB3sfvACkWFZr",
+	"_key": "!items!v0ygB3sfvACkWFZr"
 }

@@ -1,26 +1,26 @@
 {
-  "_id": "ZH3UDqpNVGMrerqt",
-  "_key": "!items!ZH3UDqpNVGMrerqt",
-  "name": "Sling",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "sling",
-      "inventoryColumn": "small",
-      "sortOrder": 2,
-      "note": "<em>near</em>, <em>reload</em>, <em>awkward</em>",
-      "resource": {
-        "max": 2,
-        "title": null,
-        "labels": [
-          "low ammo",
-          "all out"
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpBsc0001X"
+	"_id": "ZH3UDqpNVGMrerqt",
+	"_key": "!items!ZH3UDqpNVGMrerqt",
+	"name": "Sling",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sling",
+			"inventoryColumn": "small",
+			"sortOrder": 2,
+			"note": "<em>near</em>, <em>reload</em>, <em>awkward</em>",
+			"resource": {
+				"max": 2,
+				"title": null,
+				"labels": [
+					"low ammo",
+					"all out"
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpBsc0001X"
 }

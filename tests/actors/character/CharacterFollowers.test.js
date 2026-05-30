@@ -204,7 +204,7 @@ describe("CharacterFollowers — state mutations", () => {
 // -- Tests: buildSnapshot -----------------------------------------------------
 
 describe("CharacterFollowers.buildSnapshot", () => {
-	it("returns empty array when no slugs owned", async () => {
+	it("returns empty array when no slugs owned and no extra slugs", async () => {
 		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo());
 		expect(await cf.buildSnapshot()).toEqual([]);
 	});
@@ -301,6 +301,46 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.damage).toBe("d6");
+	});
+});
+
+// -- Tests: extraSlugs (arcana-linked followers) -------------------------------
+
+describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
+	it("returns static snapshot for extra slug not in owned", async () => {
+		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo([ENFYS]));
+		const snaps = await cf.buildSnapshot(["enfys"]);
+		expect(snaps).toHaveLength(1);
+		expect(snaps[0].slug).toBe("enfys");
+	});
+
+	it("static snapshot uses pack defaults for HP and loyalty", async () => {
+		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot(["enfys"]);
+		expect(snap.hp).toBe(6);
+		expect(snap.loyalty).toBe(0);
+	});
+
+	it("does not duplicate when extra slug is already owned", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const snaps = await cf.buildSnapshot(["enfys"]);
+		expect(snaps).toHaveLength(1);
+	});
+
+	it("owned followers appear before extra static snapshots", async () => {
+		const flags = makeFlags({ owned: ["test-picker"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS, PICKER]));
+		const snaps = await cf.buildSnapshot(["enfys"]);
+		expect(snaps).toHaveLength(2);
+		expect(snaps[0].slug).toBe("test-picker");
+		expect(snaps[1].slug).toBe("enfys");
+	});
+
+	it("silently omits extra slug not found in repo", async () => {
+		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo());
+		const snaps = await cf.buildSnapshot(["nonexistent"]);
+		expect(snaps).toEqual([]);
 	});
 });
 
@@ -483,5 +523,35 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.loyaltyMax).toBe(3);
+	});
+});
+
+// -- Tests: arcanaSlug propagation --------------------------------------------
+
+describe("CharacterFollowers — arcanaSlug", () => {
+	const BRONZE_PROTECTOR_DATA = {
+		slug:       "bronze-protector",
+		name:       "Bronze protector",
+		note:       "Construct, spirit, durable",
+		hp:         { max: 13 },
+		armor:      3,
+		damage:     "pummel 1d8 (band)",
+		loyalty:    { max: 3 },
+		arcanaSlug: "metal-man",
+	};
+	const BRONZE_PROTECTOR = new Follower(BRONZE_PROTECTOR_DATA);
+
+	it("arcanaSlug is null for regular followers", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.arcanaSlug).toBeNull();
+	});
+
+	it("arcanaSlug is propagated from pack data to snapshot", async () => {
+		const flags = makeFlags({ owned: ["bronze-protector"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([BRONZE_PROTECTOR]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.arcanaSlug).toBe("metal-man");
 	});
 });

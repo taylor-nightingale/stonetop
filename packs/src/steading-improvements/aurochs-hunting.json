@@ -1,58 +1,66 @@
 {
-  "name": "Aurochs Hunting",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "aurochs-hunting",
-      "sortOrder": 2,
-      "choices": {
-        "slug": "aurochs-hunting",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Aurochs Hunting",
-            "description": "<p>Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> 2 of the following:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "herd-of-horses",
-            "description": "A Herd of Horses (and hunters to ride them)",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "cooperating-hillfolk",
-            "description": "Cooperating with the Hillfolk",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "cunning-plan",
-            "description": "A cunning plan",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>And then:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "successful-hunt",
-            "description": "A successful first hunt (played out in detail)",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Aurochs hunting (meat, hide, horn)\" to the Resources list.</p><p>Henceforth, when you <strong><em>lead the aurochs hunt in spring,</em></strong> roll +Defenses: <strong>on a 10+</strong>, gain 1d4 Surplus; <strong>on a 7-9</strong>, gain 1d4 Surplus but pick 1 from the list below; <strong>on a 6-</strong>, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.</p><ul><li>1d4 of the town's horses are lamed or killed</li><li>A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)</li><li>The GM picks an NPC present for the hunt; they are killed</li><li>The Hillfolk are somehow offended</li><li>The herd is weak; if you hunt next year they'll be wiped out</li></ul>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "Ai81Nq5WZvoKglDj",
-  "_key": "!items!Ai81Nq5WZvoKglDj"
+	"name": "Aurochs Hunting",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "aurochs-hunting",
+			"sortOrder": 2,
+			"choices": {
+				"slug": "aurochs-hunting",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Aurochs Hunting",
+						"description": "<p>Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> 2 of the following:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "herd-of-horses",
+						"description": "A Herd of Horses (and hunters to ride them)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "cooperating-hillfolk",
+						"description": "Cooperating with the Hillfolk",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "cunning-plan",
+						"description": "A cunning plan",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>And then:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "successful-hunt",
+						"description": "A successful first hunt (played out in detail)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Aurochs hunting (meat, hide, horn)\" to the Resources list.</p><p>Henceforth, when you <strong><em>lead the aurochs hunt in spring,</em></strong> roll +Defenses: <strong>on a 10+</strong>, gain 1d4 Surplus; <strong>on a 7-9</strong>, gain 1d4 Surplus but pick 1 from the list below; <strong>on a 6-</strong>, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.</p><ul><li>1d4 of the town's horses are lamed or killed</li><li>A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)</li><li>The GM picks an NPC present for the hunt; they are killed</li><li>The Hillfolk are somehow offended</li><li>The herd is weak; if you hunt next year they'll be wiped out</li></ul>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "Ai81Nq5WZvoKglDj",
+	"_key": "!items!Ai81Nq5WZvoKglDj"
 }

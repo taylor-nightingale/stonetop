@@ -1,0 +1,94 @@
+{
+  "_id": "oF1DII3ILM5NnFop",
+  "_key": "!items!oF1DII3ILM5NnFop",
+  "name": "A beautiful scroll",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "beautiful-scroll",
+      "front": {
+        "title": "A beautiful scroll",
+        "item": {
+          "name": "A beautiful scroll",
+          "weight": null,
+          "note": "<em>beautiful, fragile</em>",
+          "inventoryColumn": null
+        },
+        "description": "<p>Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?</p>",
+        "unlock": {
+          "slug": "beautiful-scroll",
+          "list": [
+            {
+              "type": "heading",
+              "description": "To unlock the mysteries of this scroll, you must…"
+            },
+            {
+              "type": "heading",
+              "slug": "talent-magic",
+              "description": "… have some talent for magic.",
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "heading",
+              "slug": "decipher-glyphs",
+              "description": "… decipher the Rime Lord glyphs.",
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "heading",
+              "slug": "months-practice",
+              "description": "… spend a few months practicing the meditative techniques it describes.",
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "heading",
+              "slug": "describe-tulpa",
+              "description": "… describe and name the tiny spirit-construct that you wish to create:",
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "heading",
+              "slug": "sacrifice-hp",
+              "description": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\"",
+              "track": {
+                "max": 1
+              }
+            }
+          ]
+        }
+      },
+      "back": {
+        "title": "Little Friend",
+        "item": null,
+        "description": "<p>You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.</p>",
+        "resource": null,
+        "move": null,
+        "choices": {
+          "slug": "beautiful-scroll",
+          "list": [
+            {
+              "type": "follower",
+              "slug": "tulpa",
+              "followerSlug": "tulpa",
+              "track": {
+                "max": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "folder": "ae2Zzqvw7AMw8WLw"
+}

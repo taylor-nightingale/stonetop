@@ -1,19 +1,19 @@
 {
-  "_id": "jht3X13npgW2zMj5",
-  "_key": "!items!jht3X13npgW2zMj5",
-  "name": "Spear, iron",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "spear",
-      "inventoryColumn": "regular",
-      "sortOrder": 20,
-      "note": "<em>close</em>, <em>thrown</em>, x <em>piercing</em>",
-      "weight": 1
-    }
-  },
-  "folder": "StOnEtOpWpn0001X"
+	"_id": "jht3X13npgW2zMj5",
+	"_key": "!items!jht3X13npgW2zMj5",
+	"name": "Spear, iron",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "spear",
+			"inventoryColumn": "regular",
+			"sortOrder": 20,
+			"note": "<em>close</em>, <em>thrown</em>, x <em>piercing</em>",
+			"weight": 1
+		}
+	},
+	"folder": "StOnEtOpWpn0001X"
 }

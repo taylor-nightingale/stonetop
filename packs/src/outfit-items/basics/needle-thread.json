@@ -1,17 +1,17 @@
 {
-  "_id": "zkChMbyIbNiCdxnu",
-  "_key": "!items!zkChMbyIbNiCdxnu",
-  "name": "Needle & thread",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "needle-thread",
-      "inventoryColumn": "small",
-      "sortOrder": 5
-    }
-  },
-  "folder": "StOnEtOpBsc0001X"
+	"_id": "zkChMbyIbNiCdxnu",
+	"_key": "!items!zkChMbyIbNiCdxnu",
+	"name": "Needle & thread",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "needle-thread",
+			"inventoryColumn": "small",
+			"sortOrder": 5
+		}
+	},
+	"folder": "StOnEtOpBsc0001X"
 }

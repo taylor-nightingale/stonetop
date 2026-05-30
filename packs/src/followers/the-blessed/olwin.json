@@ -1,0 +1,140 @@
+{
+  "_id": "nGXhJJXLcLNHUDWa",
+  "_key": "!items!nGXhJJXLcLNHUDWa",
+  "name": "Olwin, Your Anointed Lover",
+  "type": "equipment",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "equipmentType": "follower"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "olwin",
+      "note": "Fates-wise, beautiful, passionate, magical",
+      "hp": {
+        "max": 6
+      },
+      "armor": 1,
+      "damage": "d6",
+      "loyalty": {
+        "max": 3
+      },
+      "choices": {
+        "slug": "choices",
+        "list": [
+          {
+            "type": "input",
+            "slug": "weapon",
+            "default": "iron spear d6 (close, thrown)",
+            "text": "Weapon"
+          },
+          {
+            "type": "input",
+            "slug": "instinct",
+            "default": "to lack discretion\n-Perform a divination\n-Speak a (dire) prophecy\n-Make a big deal about something",
+            "text": "Instinct"
+          },
+          {
+            "type": "input",
+            "slug": "cost",
+            "default": "tenderness, respect; Loyalty",
+            "text": "Cost"
+          },
+          {
+            "type": "heading",
+            "title": "Pick 1 on each line"
+          },
+          {
+            "type": "pick",
+            "pickCount": 1,
+            "inline": true,
+            "options": [
+              {
+                "slug": "he",
+                "text": "he"
+              },
+              {
+                "slug": "she",
+                "text": "she"
+              },
+              {
+                "slug": "they",
+                "text": "they"
+              },
+              {
+                "slug": "custom",
+                "type": "input"
+              }
+            ]
+          },
+          {
+            "type": "pick",
+            "pickCount": 1,
+            "inline": true,
+            "options": [
+              {
+                "slug": "betrothed",
+                "text": "betrothed"
+              },
+              {
+                "slug": "true-love",
+                "text": "true love"
+              },
+              {
+                "slug": "ceremonial",
+                "text": "ceremonial"
+              },
+              {
+                "slug": "complicated",
+                "text": "complicated"
+              }
+            ]
+          },
+          {
+            "type": "pick",
+            "pickCount": 1,
+            "inline": true,
+            "options": [
+              {
+                "slug": "contrary",
+                "text": "contrary"
+              },
+              {
+                "slug": "dramatic",
+                "text": "dramatic"
+              },
+              {
+                "slug": "passionate",
+                "text": "passionate"
+              },
+              {
+                "slug": "tormented",
+                "text": "tormented"
+              }
+            ]
+          },
+          {
+            "type": "pick",
+            "pickCount": 1,
+            "inline": true,
+            "options": [
+              {
+                "slug": "rites-of-blood",
+                "text": "rites of blood"
+              },
+              {
+                "slug": "rites-of-fire",
+                "text": "rites of fire"
+              },
+              {
+                "slug": "rites-of-sacred-union",
+                "text": "rites of sacred union"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "folder": "L8MaIYwGZ0HOUZzG"
+}

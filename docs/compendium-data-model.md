@@ -61,19 +61,21 @@ interface ChoiceGroup {
 }
 
 type ChoiceListItem =
-  | { type: "heading"; title?: string | null; description?: string | null; note?: string | null }
+  | { type: "heading"; title?: string | null; description?: string | null; note?: string | null; slug?: string; track?: { max: number; requires?: string } }
   // Non-interactive label. `title` as section heading, `description` as body, `note` in parentheses.
+  // When `slug` and `track` are present: renders `max` checkboxes before the description.
+  // Checked count persisted per (group slug, item slug). Used in arcana unlock, lore, and steading improvements.
 
-  | { type: "track"; slug: string; description: string; max: number }
-  // Trackable checkbox track. `max` checkboxes; checked count persisted per (group slug, item slug).
-  // Used in arcana unlock and lore.
+  | { type: "follower"; slug: string; followerSlug: string; track?: { max: number } }
+  // Follower card embedded in a choices list. When `track` is present, a checkbox to add to the followers tab.
+  // Used in arcana back.choices.
 
-  | { type: "text"; slug: string; description: string }
-  // Free-text input. Value persisted per (group slug, item slug). Used in lore only.
+  | { type: "input"; slug: string; text: string; default?: string }
+  // Free-text textarea. Value persisted per (group slug, item slug). Used in lore only.
 
   | { type: "pick"; pickCount: number; options: PickOption[]; inline?: boolean }
   // Pick-mode row. pickCount=1 → radio (exclusive); pickCount>1 → multi-select checkboxes.
-  // Used in possession choices.
+  // Used in possession choices and follower choices.
 
 type PickOption = {
   slug:         string;
@@ -105,6 +107,7 @@ interface MinorArcanum {
     description: string;    // HTML
     resource:    Resource | null;
     move:        ArcanaMove | null;
+    choices:     ChoiceGroup | null;   // follower-type rows; group slug = arcanum slug
   };
 }
 

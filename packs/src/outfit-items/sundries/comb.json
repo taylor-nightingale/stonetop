@@ -1,18 +1,18 @@
 {
-  "_id": "8IRh1E2JDBld6DYy",
-  "_key": "!items!8IRh1E2JDBld6DYy",
-  "name": "Comb",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "comb",
-      "inventoryColumn": "small",
-      "sortOrder": 4,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "8IRh1E2JDBld6DYy",
+	"_key": "!items!8IRh1E2JDBld6DYy",
+	"name": "Comb",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "comb",
+			"inventoryColumn": "small",
+			"sortOrder": 4,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

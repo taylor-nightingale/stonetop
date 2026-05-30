@@ -324,40 +324,52 @@
 							"description": "<p><em>(pick 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "crinwin-raid",
 							"description": "… to repel a nighttime raid by crinwin from the Great Wood.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "bandits",
 							"description": "… to drive off bandits who'd taken up near the Ruined Tower.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hillfolk",
 							"description": "… to fend off Hillfolk pursuing a blood feud.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "brennan-claws",
 							"description": "… against Brennan and his Claws, before they settled in Marshedge.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hagr",
 							"description": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "beasts",
 							"description": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},

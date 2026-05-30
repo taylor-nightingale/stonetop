@@ -9,7 +9,7 @@ function makeRepo(improvements = []) {
 
 const PALISADE_CHOICES = {
 	slug: "palisade",
-	list: [{type: "track", slug: "done", description: "Completed", max: 1}],
+	list: [{ type: "heading", slug: "done", description: "Completed", track: { max: 1 } }],
 };
 
 function makePalisadeRepo() {
@@ -42,7 +42,7 @@ describe("SteadingImprovements.buildSnapshot", () => {
 	it("track is unchecked by default", async () => {
 		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
 		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].options[0].checks[0]).toBe(false);
+		expect(snap[0].list[0].track.checks[0]).toBe(false);
 	});
 });
 
@@ -51,7 +51,7 @@ describe("SteadingImprovements.setTrack", () => {
 		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
 		await imp.setTrack("palisade", "done", 1);
 		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].options[0].checks[0]).toBe(true);
+		expect(snap[0].list[0].track.checks[0]).toBe(true);
 	});
 
 	it("clearing a track sets it back to unchecked", async () => {
@@ -59,6 +59,6 @@ describe("SteadingImprovements.setTrack", () => {
 		await imp.setTrack("palisade", "done", 1);
 		await imp.setTrack("palisade", "done", 0);
 		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].options[0].checks[0]).toBe(false);
+		expect(snap[0].list[0].track.checks[0]).toBe(false);
 	});
 });

@@ -285,58 +285,76 @@
 							"description": "<p><em>(choose 1, maybe 2)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "fire",
 							"description": "Fire, burning, the smell of charred flesh.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "not-serious",
 							"description": "That they won't take you seriously.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "not-cut-out",
 							"description": "That you really aren't cut out for this.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "loved-ones",
 							"description": "The death of your family or loved ones.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "alone",
 							"description": "Being alone and helpless.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "violence",
 							"description": "Violence, bloodshed, and pain.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "monsters",
 							"description": "Monsters.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "capable-of",
 							"description": "What you're capable of.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "must-do",
 							"description": "What you must do.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
@@ -349,52 +367,68 @@
 							"description": "<p><em>(choose 2, maybe 3)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "bullying",
 							"description": "Bullying, slavery, and oppression.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "cruelty",
 							"description": "Wanton cruelty and unnecessary suffering.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "injustice",
 							"description": "Injustice and inequality.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "cowardice",
 							"description": "Cowardice, treachery, and selfishness.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "despoiling",
 							"description": "The despoiling of beauty and innocence.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "loved-ones",
 							"description": "Threats to your loved ones.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "innocents",
 							"description": "Violence to children, animals, the innocent.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "perversions",
 							"description": "Perversions of nature.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},

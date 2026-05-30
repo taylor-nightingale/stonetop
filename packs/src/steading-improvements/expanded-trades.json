@@ -1,88 +1,106 @@
 {
-  "name": "Expanded Trades",
-  "type": "move",
-  "flags": {
-    "stonetop": {
-      "slug": "expanded-trades",
-      "sortOrder": 3,
-      "choices": {
-        "slug": "expanded-trades",
-        "list": [
-          {
-            "type": "heading",
-            "title": "Expanded Trades",
-            "description": "<p>Specialization is the key to prosperity!</p>"
-          },
-          {
-            "type": "heading",
-            "description": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "req-harnessing-stream",
-            "description": "Harnessing the Stream",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "req-raincatching",
-            "description": "Raincatching",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "req-mill",
-            "description": "Mill",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>And establishing at least 3 of the following:</p>"
-          },
-          {
-            "type": "track",
-            "slug": "chandler",
-            "description": "A chandler with extensive tools and supplies (Value 3)",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "glassblower",
-            "description": "A glassblower with a full glassworks (Value 3)",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "weaver",
-            "description": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "potter",
-            "description": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "smith",
-            "description": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)",
-            "max": 1
-          },
-          {
-            "type": "track",
-            "slug": "other-tradesperson",
-            "description": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
-            "max": 1
-          },
-          {
-            "type": "heading",
-            "description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
-          }
-        ]
-      }
-    }
-  },
-  "_id": "Rbctcz2sMbc9wGLB",
-  "_key": "!items!Rbctcz2sMbc9wGLB"
+	"name": "Expanded Trades",
+	"type": "move",
+	"flags": {
+		"stonetop": {
+			"slug": "expanded-trades",
+			"sortOrder": 3,
+			"choices": {
+				"slug": "expanded-trades",
+				"list": [
+					{
+						"type": "heading",
+						"title": "Expanded Trades",
+						"description": "<p>Specialization is the key to prosperity!</p>"
+					},
+					{
+						"type": "heading",
+						"description": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "req-harnessing-stream",
+						"description": "Harnessing the Stream",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "req-raincatching",
+						"description": "Raincatching",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "req-mill",
+						"description": "Mill",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>And establishing at least 3 of the following:</p>"
+					},
+					{
+						"type": "heading",
+						"slug": "chandler",
+						"description": "A chandler with extensive tools and supplies (Value 3)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "glassblower",
+						"description": "A glassblower with a full glassworks (Value 3)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "weaver",
+						"description": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "potter",
+						"description": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "smith",
+						"description": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "other-tradesperson",
+						"description": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
+					}
+				]
+			}
+		}
+	},
+	"_id": "Rbctcz2sMbc9wGLB",
+	"_key": "!items!Rbctcz2sMbc9wGLB"
 }

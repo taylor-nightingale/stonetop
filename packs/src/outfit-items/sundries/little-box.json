@@ -1,18 +1,18 @@
 {
-  "_id": "ktUJrhQR6FEecAtp",
-  "_key": "!items!ktUJrhQR6FEecAtp",
-  "name": "Little box",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "little-box",
-      "inventoryColumn": "small",
-      "sortOrder": 6,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "ktUJrhQR6FEecAtp",
+	"_key": "!items!ktUJrhQR6FEecAtp",
+	"name": "Little box",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "little-box",
+			"inventoryColumn": "small",
+			"sortOrder": 6,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

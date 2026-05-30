@@ -24,6 +24,7 @@ export class FollowerSnapshot {
 		this.loyalty    = b._loyalty;
 		this.loyaltyMax = b._loyaltyMax;
 		this.choices    = b._choices;
+		this.arcanaSlug = b._arcanaSlug ?? null;
 	}
 }
 
@@ -38,5 +39,6 @@ export class FollowerSnapshotBuilder {
 	withLoyalty(v)    { this._loyalty    = v; return this; }
 	withLoyaltyMax(v) { this._loyaltyMax = v; return this; }
 	withChoices(v)    { this._choices    = v; return this; }
+	withArcanaSlug(v) { this._arcanaSlug = v; return this; }
 	build()           { return new FollowerSnapshot(this); }
 }

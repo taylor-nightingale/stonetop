@@ -1,31 +1,31 @@
 {
-  "_id": "H8xIZM1JRcoreogr",
-  "_key": "!items!H8xIZM1JRcoreogr",
-  "name": "Even more supplies",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "even-more-supplies",
-      "inventoryColumn": "regular",
-      "sortOrder": 3,
-      "note": "4+Prosperity uses",
-      "weight": 1,
-      "resource": {
-        "max": 6,
-        "title": null,
-        "labels": [
-          "",
-          "",
-          "",
-          "",
-          "",
-          ""
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpSup0001X"
+	"_id": "H8xIZM1JRcoreogr",
+	"_key": "!items!H8xIZM1JRcoreogr",
+	"name": "Even more supplies",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "even-more-supplies",
+			"inventoryColumn": "regular",
+			"sortOrder": 3,
+			"note": "4+Prosperity uses",
+			"weight": 1,
+			"resource": {
+				"max": 6,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpSup0001X"
 }

@@ -394,7 +394,7 @@
 					{{#each stonetop.improvements}}
 						<div class="stonetop-choice-entry" data-slug="{{slug}}">
 							{{#each list}}
-								{{> "stonetop.choice-row" inputClass="stonetop-improvement-track"}}
+								{{> "stonetop.choice-row" cgContext="improvement" cgGroup=../slug}}
 							{{/each}}
 						</div>
 					{{/each}}

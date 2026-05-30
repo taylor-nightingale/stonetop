@@ -1,28 +1,28 @@
 {
-  "_id": "6h8l7qgATtLFxJpR",
-  "_key": "!items!6h8l7qgATtLFxJpR",
-  "name": "Extra arrows",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "extra-arrows",
-      "inventoryColumn": "regular",
-      "sortOrder": 23,
-      "note": "x <em>piercing</em>",
-      "weight": 1,
-      "resource": {
-        "max": 3,
-        "title": null,
-        "labels": [
-          "plenty left",
-          "low ammo",
-          "all out"
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpWpn0001X"
+	"_id": "6h8l7qgATtLFxJpR",
+	"_key": "!items!6h8l7qgATtLFxJpR",
+	"name": "Extra arrows",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "extra-arrows",
+			"inventoryColumn": "regular",
+			"sortOrder": 23,
+			"note": "x <em>piercing</em>",
+			"weight": 1,
+			"resource": {
+				"max": 3,
+				"title": null,
+				"labels": [
+					"plenty left",
+					"low ammo",
+					"all out"
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpWpn0001X"
 }

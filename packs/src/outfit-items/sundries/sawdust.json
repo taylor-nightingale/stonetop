@@ -1,18 +1,18 @@
 {
-  "_id": "EfvuP1uRr6YICtu8",
-  "_key": "!items!EfvuP1uRr6YICtu8",
-  "name": "Sawdust",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "sawdust",
-      "inventoryColumn": "small",
-      "sortOrder": 7,
-      "twoCol": true
-    }
-  },
-  "folder": "StOnEtOpSnd0001X"
+	"_id": "EfvuP1uRr6YICtu8",
+	"_key": "!items!EfvuP1uRr6YICtu8",
+	"name": "Sawdust",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "sawdust",
+			"inventoryColumn": "small",
+			"sortOrder": 7,
+			"twoCol": true
+		}
+	},
+	"folder": "StOnEtOpSnd0001X"
 }

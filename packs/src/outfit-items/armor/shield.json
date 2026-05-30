@@ -1,23 +1,23 @@
 {
-  "_id": "yshA6P3MsHarAJOC",
-  "_key": "!items!yshA6P3MsHarAJOC",
-  "name": "Shield",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "shield",
-      "inventoryColumn": "regular",
-      "sortOrder": 25,
-      "note": "+1 armor, +1 Readiness on 7+ to Defend",
-      "weight": 2,
-      "breakBefore": true,
-      "armor": {
-        "modifier": 1
-      }
-    }
-  },
-  "folder": "StOnEtOpAmr0001X"
+	"_id": "yshA6P3MsHarAJOC",
+	"_key": "!items!yshA6P3MsHarAJOC",
+	"name": "Shield",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "shield",
+			"inventoryColumn": "regular",
+			"sortOrder": 25,
+			"note": "+1 armor, +1 Readiness on 7+ to Defend",
+			"weight": 2,
+			"breakBefore": true,
+			"armor": {
+				"modifier": 1
+			}
+		}
+	},
+	"folder": "StOnEtOpAmr0001X"
 }

@@ -1,31 +1,31 @@
 {
-  "_id": "NbrnTP3fAbnFbmOH",
-  "_key": "!items!NbrnTP3fAbnFbmOH",
-  "name": "Supplies",
-  "type": "equipment",
-  "system": {
-    "equipmentType": "outfit"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "supplies",
-      "inventoryColumn": "regular",
-      "sortOrder": 1,
-      "note": "4+Prosperity uses",
-      "weight": 1,
-      "resource": {
-        "max": 6,
-        "title": null,
-        "labels": [
-          "",
-          "",
-          "",
-          "",
-          "",
-          ""
-        ]
-      }
-    }
-  },
-  "folder": "StOnEtOpSup0001X"
+	"_id": "NbrnTP3fAbnFbmOH",
+	"_key": "!items!NbrnTP3fAbnFbmOH",
+	"name": "Supplies",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "outfit"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "supplies",
+			"inventoryColumn": "regular",
+			"sortOrder": 1,
+			"note": "4+Prosperity uses",
+			"weight": 1,
+			"resource": {
+				"max": 6,
+				"title": null,
+				"labels": [
+					"",
+					"",
+					"",
+					"",
+					"",
+					""
+				]
+			}
+		}
+	},
+	"folder": "StOnEtOpSup0001X"
 }

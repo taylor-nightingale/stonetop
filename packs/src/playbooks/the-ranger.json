@@ -267,34 +267,44 @@
 							"description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "great-wood",
 							"description": "A dark, unwholesome presence lurking in the Great Wood.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "ruined-tower",
 							"description": "A strange, furtive figure seen near the Ruined Tower.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "foothills",
 							"description": "Something big & savage stalking the northern foothills.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "suarachan",
 							"description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						},
 						{
-							"type": "track",
+							"type": "heading",
 							"slug": "hillfolk",
 							"description": "That of which the Hillfolk refuse to speak.",
-							"max": 1
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},
