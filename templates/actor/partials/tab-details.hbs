@@ -3,7 +3,7 @@
 
 		{{> "stonetop.choice-section" groups=stonetop.playbook.lore}}
 
-	{{#if stonetop.playbook.background.options.length}}
+		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.background.label") note=(localize "stonetop.character.selection.chooseOne")}}
 			{{#each stonetop.playbook.background.options}}

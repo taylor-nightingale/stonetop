@@ -122,7 +122,8 @@ body,
 .sheet-attributes-top .cell--attributes-top {
 	gap: 6px;
 	align-items: stretch;
-	flex-wrap: nowrap;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .sheet-attributes-top .cell--attributes-top .cell {
@@ -325,39 +326,39 @@ body,
 	padding: 8px
 }
 
-.pbta.sheet.playbook-the-would-be-hero form {
+.stonetop-playbook-the-would-be-hero {
 	background-color: color-mix(in hsl, var(--color-the-would-be-hero) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-fox form {
+.stonetop-playbook-the-fox {
 	background-color: color-mix(in hsl, var(--color-the-fox) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-blessed form {
+.stonetop-playbook-the-blessed {
 	background-color: color-mix(in hsl, var(--color-the-blessed) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-marshal form {
+.stonetop-playbook-the-marshal {
 	background-color: color-mix(in hsl, var(--color-the-marshal) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-seeker form {
+.stonetop-playbook-the-seeker {
 	background-color: color-mix(in hsl, var(--color-the-seeker) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-heavy form {
+.stonetop-playbook-the-heavy {
 	background-color: color-mix(in hsl, var(--color-the-heavy) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-ranger form {
+.stonetop-playbook-the-ranger {
 	background-color: color-mix(in hsl, var(--color-the-ranger) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-lightbearer form {
+.stonetop-playbook-the-lightbearer {
 	background-color: color-mix(in hsl, var(--color-the-lightbearer) 10%, transparent);
 }
 
-.pbta.sheet.playbook-the-judge form {
+.stonetop-playbook-the-judge {
 	background-color: color-mix(in hsl, var(--color-the-judge) 10%, transparent);
 }
 
