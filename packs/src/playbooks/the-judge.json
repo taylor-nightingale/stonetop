@@ -199,7 +199,7 @@
 												{
 													"slug": "black-iron-maul",
 													"name": "Black iron maul, utterly immune to all magic",
-													"weight": 1,
+													"weight": 2,
 													"inventoryColumn": "regular",
 													"note": "<em>close, forceful, awkward</em>, +1 damage"
 												}
@@ -213,7 +213,7 @@
 												{
 													"slug": "makerglass-shield",
 													"name": "Makerglass shield, etched with Aratis's symbol",
-													"weight": 1,
+													"weight": 2,
 													"inventoryColumn": "regular",
 													"note": "<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+",
 													"armor": {
