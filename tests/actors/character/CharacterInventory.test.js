@@ -341,6 +341,18 @@ describe("CharacterInventory.buildSnapshot", () => {
 		const snap = await makeCi({ smallPool: 5 }).buildSnapshot(1);
 		expect(snap.outfit.smallPool.current).toBe(5);
 	});
+
+	it("otherItems is present in snapshot", async () => {
+		const snap = await makeCi().buildSnapshot(1);
+		expect(snap.otherItems).toBe("");
+	});
+
+	it("otherItems is set with string value", async () => {
+		const ci = await makeCi();
+		ci.setOtherItems("A test Item");
+		const snap = await ci.buildSnapshot(1);
+		expect(snap.otherItems).toBe("A test Item");
+	});
 });
 
 // -- CharacterInventory.addCustomItem -----------------------------------------
