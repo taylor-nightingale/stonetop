@@ -1,0 +1,10 @@
+{
+  "_id": "TDauAuIDBeqtH34m",
+  "_key": "!items!TDauAuIDBeqtH34m",
+  "name": "Advantage/Disadvantage",
+    "type": "move",
+    "system": {
+        "moveType": "special",
+        "description": "<p>When you <strong><em>make a roll with advantage</strong></em>, roll an extra die and discard the lowest result.</p><p>When you <strong><em>make a roll with disadvantage</strong></em>, roll an extra die and discard the highest result.</p><p>When you <strong><em>make a roll with both advantage and disadvantage</strong></em>, they cancel each other out.</p><p>If you <strong><em>have advantage/disadvantage on a damage roll</strong></em>, roll the main dice twice and discard the lower/higher result. Then add any bonus dice that apply.</p>"
+    }
+}
