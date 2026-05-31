@@ -9,13 +9,13 @@ export class CharacterVitals {
 	}
 
 	get level() {
-		return this._actor.system?.attributes?.level?.value ?? 1;
+		return this._actor.system?.attributes?.level ?? 1;
 	}
 
 	async buildVitalsSnapshot() {
 		const armorValue = await this._inventory.getArmor();
 		const attrs  = this._actor.system?.attributes ?? {};
-		const level  = attrs.level?.value ?? 1;
+		const level  = attrs.level ?? 1;
 		const hpMax  = this._flags.getFlag("maxHP") ?? 0;
 		const damage = this._flags.getFlag("damage") ?? null;
 		return new VitalsSnapshotBuilder()
@@ -39,15 +39,12 @@ export class CharacterVitals {
 	async setDamage(damage) {
 		await Promise.all([
 			this._flags.setFlag("damage", damage),
-			this._actor.update({ "system.attributes.damage.value": damage }),
+			this._actor.update({"system.attributes.damage.die": damage?.die ?? null}),
 		]);
 	}
 
 	async setMaxHP(maxHp) {
-		await Promise.all([
-			this._flags.setFlag("maxHP", maxHp),
-			this._actor.update({ "system.attributes.maxHp.value": maxHp }),
-		]);
+		await this._flags.setFlag("maxHP", maxHp);
 	}
 
 	async setHP(hp) {

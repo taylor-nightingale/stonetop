@@ -5,11 +5,12 @@ import { PlaybookSnapshot } from "../../../module/model/snapshot/character/Chara
 // -- Helpers ------------------------------------------------------------------
 
 function makeActor(playbookSlug = "the-blessed") {
-	const playbookItems = playbookSlug ? [{ type: "playbook", system: { slug: playbookSlug } }] : [];
+	const flags = playbookSlug ? { stonetop: { "playbook.slug": playbookSlug } } : { stonetop: {} };
 	return {
 		system: {},
-		items: { find: fn => playbookItems.find(fn) },
-		setFlag: vi.fn(async () => {}),
+		flags,
+		getFlag: (_scope, key) => flags.stonetop[key] ?? null,
+		setFlag: vi.fn(async (scope, key, value) => { flags.stonetop[key] = value; }),
 	};
 }
 

@@ -39,8 +39,8 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 	});
 
 	it("damage comes from vitals flags", async () => {
-		const snap = await makeVitals({}, { maxHP: 18, damage: "d6" }).buildVitalsSnapshot();
-		expect(snap.damage).toBe("d6");
+		const snap = await makeVitals({}, { maxHP: 18, damage: {die: "d6"} }).buildVitalsSnapshot();
+		expect(snap.damage).toEqual({die: "d6"});
 	});
 
 	it("damage is null when damage flag not set", async () => {
@@ -53,8 +53,8 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 		expect(snap.armor).toBe(3);
 	});
 
-	it("level comes from actor attrs.level.value", async () => {
-		const snap = await makeVitals({ level: { value: 4 } }, { maxHP: 18 }).buildVitalsSnapshot();
+	it("level comes from actor attrs.level scalar", async () => {
+		const snap = await makeVitals({ level: 4 }, { maxHP: 18 }).buildVitalsSnapshot();
 		expect(snap.level).toBe(4);
 	});
 
@@ -64,7 +64,7 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 	});
 
 	it("xp.max = 6 + level * 2", async () => {
-		const snap = await makeVitals({ level: { value: 4 } }, { maxHP: 18 }).buildVitalsSnapshot();
+		const snap = await makeVitals({ level: 4 }, { maxHP: 18 }).buildVitalsSnapshot();
 		expect(snap.xp.max).toBe(14);
 	});
 
@@ -94,21 +94,28 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 });
 
 describe("CharacterVitals.setHP / setDamage / setMaxHP", () => {
-	it("setHP calls actor.update with object form", async () => {
+	it("setHP calls actor.update with hp.value", async () => {
 		const actor = makeActor();
 		await new CharacterVitals(actor, makeInventory()).setHP(14);
 		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.hp.value": 14 });
 	});
 
-	it("setMaxHP calls actor.update with object form", async () => {
+	it("setMaxHP writes only to flags, not system", async () => {
 		const actor = makeActor();
 		await new CharacterVitals(actor, makeInventory()).setMaxHP(20);
-		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.maxHp.value": 20 });
+		expect(actor.update).not.toHaveBeenCalled();
+		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.maxHP", 20);
 	});
 
-	it("setDamage calls actor.update with object form", async () => {
+	it("setDamage writes die to system.attributes.damage.die", async () => {
 		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory()).setDamage("d8");
-		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.value": "d8" });
+		await new CharacterVitals(actor, makeInventory()).setDamage({die: "d8"});
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.die": "d8" });
+	});
+
+	it("setDamage stores full damage object in flags", async () => {
+		const actor = makeActor();
+		await new CharacterVitals(actor, makeInventory()).setDamage({die: "d8"});
+		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.damage", {die: "d8"});
 	});
 });

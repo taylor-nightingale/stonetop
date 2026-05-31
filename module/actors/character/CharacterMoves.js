@@ -14,6 +14,8 @@ export class CharacterMoves {
 		this._actor = actor;
 	}
 
+	setVitals(vitals) { this._vitals = vitals; }
+
 	_getCategories() {
 		return this._flags?.getFlag("categories") ?? [];
 	}
@@ -194,7 +196,7 @@ export class CharacterMoves {
 
 	buildSnapshot() {
 		const cats = this._getCategories();
-		const level = this._actor.system?.attributes?.level?.value ?? 1;
+		const level = this._vitals?.level ?? 1;
 		const acquiredByName = _acquiredNames(cats);
 		const categories = cats.map(cat => new MoveCategorySnapshotBuilder()
 			.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
@@ -213,7 +215,7 @@ export class CharacterMoves {
 	getMoveSnapshotsForCategory(key) {
 		const cat = this._findCategory(key);
 		if (!cat) return [];
-		const level = this._actor.system?.attributes?.level?.value ?? 1;
+		const level = this._vitals?.level ?? 1;
 		const acquiredByName = _acquiredNames(this._getCategories());
 		return cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName)));
 	}

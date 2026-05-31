@@ -2,9 +2,9 @@
 	<div class="cell cell--attr cell--attr-damage">
 		<span class="cell__title">{{localize "stonetop.character.attributes.damage"}}</span>
 		<div class="cell__value">
-			<input name="system.attributes.damage.value"
+			<input name="system.attributes.damage.die"
 			       type="text"
-			       value="{{system.attributes.damage.value}}"
+			       value="{{system.attributes.damage.die}}"
 			       {{#unless editable}}disabled{{/unless}}>
 		</div>
 	</div>
@@ -41,9 +41,9 @@
 	<div class="cell cell--attr cell--attr-level">
 		<span class="cell__title">{{localize "stonetop.character.attributes.level"}}</span>
 		<div class="cell__value">
-			<input name="system.attributes.level.value"
+			<input name="system.attributes.level"
 			       type="number"
-			       value="{{system.attributes.level.value}}"
+			       value="{{system.attributes.level}}"
 			       min="1"
 			       {{#unless editable}}disabled{{/unless}}>
 		</div>

@@ -23,7 +23,7 @@ export class CharacterPlaybook {
 	}
 
 	getSlug() {
-		return this._actor.items?.find(i => i.type === "playbook")?.system?.slug ?? null;
+		return this._flags.getFlag("slug") ?? null;
 	}
 
 	async getBackgroundMoveNames(bgSelectedSlug) {
@@ -46,6 +46,7 @@ export class CharacterPlaybook {
 	}
 
 	async selectPlaybook(stonetopPlaybook) {
+		await this._flags.setFlag("slug", stonetopPlaybook.slug);
 		const bgMoveNames = new Set(
 			stonetopPlaybook.backgrounds?.find(b => b.slug === this._background.selectedSlug)?.moves ?? []
 		);

@@ -46,7 +46,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			if (!this.isEditable) return;
 
 			html.find("[name=stonetop-roll-mode]").on("change", ev => {
-				this.actor.setFlag("stonetop", "rollMode", ev.currentTarget.value);
+				this._stonetopCharacter.setRollMode(ev.currentTarget.value);
 			});
 
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));

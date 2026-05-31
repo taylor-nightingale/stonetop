@@ -1,4 +1,4 @@
-import { StatSnapshot, DebilitySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { StatSnapshot } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { Stats } from "../../model/data/character/Stats.js";
 
 const _STAT_DEFS = {
@@ -9,12 +9,6 @@ const _STAT_DEFS = {
 	wis: { name: "Wisdom",       abbr: "WIS" },
 	cha: { name: "Charisma",     abbr: "CHA" },
 };
-
-const _DEBILITY_DEFS = [
-	{ key: "weakened",  name: "Weakened",  stats: ["str", "dex"] },
-	{ key: "dazed",     name: "Dazed",     stats: ["int", "wis"] },
-	{ key: "miserable", name: "Miserable", stats: ["con", "cha"] },
-];
 
 export class CharacterStats {
 	constructor(actor) {
@@ -34,45 +28,5 @@ export class CharacterStats {
 				new StatSnapshot(stats.get(key), name, abbr),
 			])
 		);
-	}
-
-	buildDebilitiesSnapshot() {
-		const opts = this._actor.system?.attributes?.debilities?.options ?? {};
-		return _DEBILITY_DEFS.map(({ key, name, stats }) =>
-			new DebilitySnapshotBuilder()
-				.withKey(key)
-				.withName(name)
-				.withActive(!!(opts[key]?.value))
-				.withStats(stats)
-				.build()
-		);
-	}
-
-	applyDebilityRollMode(stat, options) {
-		const debilityOptions = this._actor.system.attributes?.debilities?.options ?? {};
-		const hasActiveDebility = Object.values(debilityOptions).some(
-			opt => opt.value && Array.isArray(opt.stat) && opt.stat.includes(stat)
-		);
-		if (!hasActiveDebility) return options;
-		if (options.rollMode === "adv") return { ...options, rollMode: "def" };
-		if (options.rollMode === "dis") return options;
-		return { ...options, rollMode: "dis" };
-	}
-
-	async onRoll(event) {
-		const itemId = event.currentTarget.closest(".item")?.dataset.itemId;
-		if (!itemId) return false;
-		const item = this._actor.items.get(itemId);
-		const stat = item?.system?.rollType ?? null;
-		if (!stat) return false;
-
-		const isDescription = event.currentTarget.getAttribute("data-show") === "description";
-		const descriptionOnly = isDescription || (item.type === "npcMove" && !item.system.rollFormula);
-		const options = {};
-		if (!game.settings.get("stonetop", "hideRollMode")) {
-			options.rollMode = this._actor.getFlag("stonetop", "rollMode");
-		}
-		await item.roll({ ...this.applyDebilityRollMode(stat, options), descriptionOnly });
-		return true;
 	}
 }

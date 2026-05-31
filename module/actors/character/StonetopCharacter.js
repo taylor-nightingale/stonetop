@@ -13,6 +13,7 @@ import {CharacterPostDeath} from "./CharacterPostDeath.js";
 import {CharacterFollowers} from "./CharacterFollowers.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
+import {CharacterRolling} from "./CharacterRolling.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
@@ -43,8 +44,10 @@ export class StonetopCharacter {
 			repos.postDeathInsert,
 			this._moves,
 		);
+		this._rolling = new CharacterRolling(actor, this._stats);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
+		this._moves.setVitals(this._vitals);
 	}
 
 	static create(actor) {
@@ -91,7 +94,7 @@ export class StonetopCharacter {
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbook)
-			.withDebilities(this._stats.buildDebilitiesSnapshot())
+			.withDebilities(this._rolling.buildDebilitiesSnapshot())
 			.withStats(this._stats.buildStatsSnapshot())
 			.withVitals(vitals)
 			.withMoves(this._moves.buildSnapshot())
@@ -99,7 +102,7 @@ export class StonetopCharacter {
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
 			.withFollowers(followers)
-			.withRollMode(actor.getFlag("stonetop", "rollMode") ?? "normal")
+			.withRollMode(this._rolling.rollMode)
 			.build();
 	}
 
@@ -246,7 +249,15 @@ export class StonetopCharacter {
 	}
 
 	async onRoll(event) {
-		return this._stats.onRoll(event);
+		return this._rolling.onRoll(event);
+	}
+
+	async rollStat(stat) {
+		await this._rolling.rollStat(stat);
+	}
+
+	async setRollMode(mode) {
+		await this._rolling.setRollMode(mode);
 	}
 
 	async onDropMove(itemData) {

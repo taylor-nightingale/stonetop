@@ -50,11 +50,12 @@ export class FakeStatBuilder {
 export class FakeActorBuilder {
 	_flags = {};
 	_rollMode = null;
-	_playbook = {slug: null, name: null};
+	_playbookSlug = null;
 	_name = "Brakken";
 	_items = [];
 	_level = 1;
 	_armor = 0;
+	_damage = null;
 	_xp = {value: 0, max: 8};
 	_hp = {value: 8, max: 8};
 	_statBuilder = new FakeStatBuilder();
@@ -69,8 +70,13 @@ export class FakeActorBuilder {
 		return this;
 	}
 
-	withPlaybook(slug, name) {
-		this._playbook = {slug, name};
+	withPlaybook(slug) {
+		this._playbookSlug = slug;
+		return this;
+	}
+
+	withDamage(die) {
+		this._damage = die ? {die} : null;
 		return this;
 	}
 
@@ -138,19 +144,21 @@ export class FakeActorBuilder {
 			fakeFlags.setFlagNonAsync("stonetop", key, value);
 		}
 		fakeFlags.setFlagNonAsync("stonetop", "rollMode", this._rollMode);
+		if (this._playbookSlug) {
+			fakeFlags.setFlagNonAsync("stonetop", "playbook.slug", this._playbookSlug);
+		}
 
 		return {
 			name: this._name,
 			type: "character",
 			system: {
-				playbook: this._playbook,
 				stats: this._statBuilder.build(),
 				attributes: {
-					level: {value: this._level},
+					level: this._level,
 					hp: this._hp,
-					armor: {value: this._armor},
+					armor: this._armor,
 					xp: this._xp,
-					damage: {value: "d4"},
+					damage: this._damage ?? {die: null},
 					debilities: {options: {...this._debilities}},
 				},
 			},

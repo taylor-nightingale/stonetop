@@ -18,12 +18,11 @@
 				"cha": {"value": 0}
 			},
 			"attributes": {
-				"damage": {"value": "d4"},
+				"damage": {"die": null},
 				"hp":     {"value": 16, "min": 0, "max": 16},
-				"armor":  {"value": 0},
+				"armor":  0,
 				"xp":     {"value": 0, "max": 8},
-				"level":  {"value": 1},
-				"maxHp":  {"value": 16},
+				"level":  1,
 				"debilities": {
 					"options": {
 						"weakened":  {"value": false, "stat": ["str", "dex"]},

@@ -33,13 +33,6 @@ export function createStonetopActorClass(BaseActor) {
 			return false;
 		}
 
-		async _onRollStat(stat, label, options = {}) {
-			if (this.type === "character") {
-				options = this.typedActor.applyDebilityRollMode(stat, options);
-			}
-			return this.sheet._onRollStat(stat, label, options);
-		}
-
 		async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
 			await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
 			if (this.typedActor.type === "character" && collection === "items") {

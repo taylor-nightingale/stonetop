@@ -17,9 +17,9 @@ function makeFlags(store = {}) {
 	};
 }
 
-function makeActor(level = 1) {
+function makeActor() {
 	return {
-		system: { attributes: { level: { value: level } } },
+		system: {},
 		createEmbeddedDocuments: vi.fn(async (_, docs) =>
 			docs.map((d, i) => ({ _id: `created-${i}`, name: d.name }))
 		),
@@ -28,11 +28,14 @@ function makeActor(level = 1) {
 }
 
 function makeMoves({
-	repo  = new FakeMoveRepository(),
-	flags = makeFlags(),
-	actor = makeActor(),
+	repo   = new FakeMoveRepository(),
+	flags  = makeFlags(),
+	actor  = makeActor(),
+	vitals = { level: 1 },
 } = {}) {
-	return new CharacterMoves(repo, flags, actor);
+	const moves = new CharacterMoves(repo, flags, actor);
+	moves.setVitals(vitals);
+	return moves;
 }
 
 function makePlaybookData(overrides = {}) {
@@ -287,8 +290,7 @@ describe("CharacterMoves.buildSnapshot — selectable computation", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 6, playbook: null } })] }),
 		]});
-		const actor = makeActor(1);
-		const move = makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0];
+		const move = makeMoves({ flags, vitals: { level: 1 } }).buildSnapshot().categories[0].moves[0];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(false);
 	});
@@ -297,8 +299,7 @@ describe("CharacterMoves.buildSnapshot — selectable computation", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 3, playbook: null } })] }),
 		]});
-		const actor = makeActor(3);
-		const move = makeMoves({ flags, actor }).buildSnapshot().categories[0].moves[0];
+		const move = makeMoves({ flags, vitals: { level: 3 } }).buildSnapshot().categories[0].moves[0];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(true);
 	});
