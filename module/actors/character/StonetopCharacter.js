@@ -229,13 +229,19 @@ export class StonetopCharacter {
 	}
 
 	async _onCreateDescendantDocuments(documents) {
-		const stonetopItem = documents.find(d => d.type === "playbook");
-		if (!stonetopItem) return;
-		const playbookData = stonetopItem.asPlaybook();
-		await this._playbook.selectPlaybook(playbookData);
-		const sp = playbookData.specialPossessions;
-		for (const slug of sp?.preselected ?? []) {
-			await this._possessions.syncPossessionItems(slug, sp);
+		const playbookItem = documents.find(d => d.type === "playbook");
+		if (playbookItem) {
+			const playbookData = playbookItem.asPlaybook();
+			await this._playbook.selectPlaybook(playbookData);
+			const sp = playbookData.specialPossessions;
+			for (const slug of sp?.preselected ?? []) {
+				await this._possessions.syncPossessionItems(slug, sp);
+			}
+		}
+
+		const insertItem = documents.find(d => d.type === "insert");
+		if (insertItem) {
+			await this._postDeath.setInsert(insertItem.system?.slug ?? null);
 		}
 	}
 

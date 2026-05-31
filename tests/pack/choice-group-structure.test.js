@@ -70,7 +70,7 @@ async function loadLoreFiles() {
 		for (const name of entries.filter(n => n.endsWith(".json"))) {
 			const full = path.join(dir, name);
 			const data = JSON.parse(await fs.readFile(full, "utf8"));
-			const lore = data.system?.lore ?? data.flags?.stonetop?.lore ?? [];
+			const lore = data.system?.lore ?? data.system?.choices ?? data.flags?.stonetop?.lore ?? [];
 			if (lore.length) files.push({ name, lore });
 		}
 	}

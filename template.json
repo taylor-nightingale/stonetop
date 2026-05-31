@@ -128,7 +128,7 @@
 		}
 	},
 	"Item": {
-		"types": ["move", "equipment", "playbook"],
+		"types": ["move", "equipment", "playbook", "insert"],
 		"templates": {},
 		"move": {
 			"rollType": null,
@@ -177,6 +177,12 @@
 			"specialPossessions": null,
 			"lore": [],
 			"introductions": []
+		},
+		"insert": {
+			"slug": null,
+			"description": "",
+			"instinct": null,
+			"choices": []
 		}
 	}
 }

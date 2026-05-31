@@ -8,6 +8,8 @@ const INSTINCT_DATA = {
 	list: [{ type: "pick", pickCount: 1, options: [{ slug: "denial", label: "Denial", description: "To refuse to accept that you are dead." }] }],
 };
 
+const LORE_DATA = [{ slug: "terrible-purpose", list: [] }];
+
 function makeDoc(overrides = {}) {
 	return {
 		name:   "Revenant",
@@ -15,13 +17,10 @@ function makeDoc(overrides = {}) {
 		system: {
 			slug:        "revenant",
 			description: "<p>When you die...</p>",
+			instinct:    INSTINCT_DATA,
+			choices:     LORE_DATA,
 		},
-		flags: {
-			stonetop: {
-				instinct: INSTINCT_DATA,
-				lore:     [{ slug: "terrible-purpose", title: "Terrible Purpose", description: "", options: [] }],
-			},
-		},
+		flags: {},
 		...overrides,
 	};
 }
@@ -45,12 +44,11 @@ describe("PostDeathInsert", () => {
 		expect(new PostDeathInsert(makeDoc()).description).toBe("<p>When you die...</p>");
 	});
 
-	it("reads instinct from flags.stonetop.instinct", () => {
-		const data = new PostDeathInsert(makeDoc());
-		expect(data.instinct).toBe(INSTINCT_DATA);
+	it("reads instinct from system.instinct", () => {
+		expect(new PostDeathInsert(makeDoc()).instinct).toBe(INSTINCT_DATA);
 	});
 
-	it("reads lore from flags.stonetop.lore", () => {
+	it("reads lore from system.choices", () => {
 		const data = new PostDeathInsert(makeDoc());
 		expect(data.lore).toHaveLength(1);
 		expect(data.lore[0].slug).toBe("terrible-purpose");
@@ -73,15 +71,15 @@ describe("PostDeathInsert", () => {
 	});
 
 	it("defaults instinct to null when missing", () => {
-		expect(new PostDeathInsert({ system: {}, flags: { stonetop: {} } }).instinct).toBeNull();
+		expect(new PostDeathInsert({ system: {}, flags: {} }).instinct).toBeNull();
 	});
 
 	it("defaults lore to [] when missing", () => {
-		expect(new PostDeathInsert({ system: {}, flags: { stonetop: {} } }).lore).toEqual([]);
+		expect(new PostDeathInsert({ system: {}, flags: {} }).lore).toEqual([]);
 	});
 
-	it("defaults instinct and lore when flags.stonetop is absent", () => {
-		const data = new PostDeathInsert({ system: {}, flags: {} });
+	it("defaults instinct and lore when system is absent", () => {
+		const data = new PostDeathInsert({ flags: {} });
 		expect(data.instinct).toBeNull();
 		expect(data.lore).toEqual([]);
 	});

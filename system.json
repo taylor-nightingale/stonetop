@@ -3,18 +3,20 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
-	"version": "0.8.1",
+	"version": "0.9.0",
 	"compatibility": {
-		"minimum": "12",
+		"minimum": "14",
 		"verified": "14"
 	},
 	"authors": [
 		{
-			"name": "aMediocerDad",
-			"flags": {}
+			"name": "aMediocerDad"
 		},
 		{
 			"name": "taylor-nightingale"
+		},
+		{
+			"name": "pervandyke"
 		}
 	],
 	"flags": {

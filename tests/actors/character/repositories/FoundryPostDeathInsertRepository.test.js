@@ -7,15 +7,15 @@ import { PostDeathInsert } from "../../../../module/model/data/character/PostDea
 const INSERT_DOC = {
 	name:   "Revenant",
 	img:    "icons/svg/skull.png",
-	system: { slug: "revenant", description: "<p>When you die...</p>" },
-	flags:  { stonetop: { instinct: { slug: "instinct", list: [] }, lore: [] } },
+	system: { slug: "revenant", description: "<p>When you die...</p>", instinct: { slug: "instinct", list: [] }, choices: [] },
+	flags:  {},
 };
 
 const OTHER_DOC = {
 	name:   "Ghost",
 	img:    null,
-	system: { slug: "ghost", description: "<p>When your soul lingers...</p>" },
-	flags:  { stonetop: { instinct: null, lore: [] } },
+	system: { slug: "ghost", description: "<p>When your soul lingers...</p>", instinct: null, choices: [] },
+	flags:  {},
 };
 
 // -- Helpers ------------------------------------------------------------------
