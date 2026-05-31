@@ -19,6 +19,7 @@ export class FoundrySteadingImprovementRepository {
 		if (this._cache) return this._cache;
 		const entries = await this._store.getAll();
 		this._cache = entries
+			.filter(e => e.type === "improvement")
 			.sort((a, b) => (a.system?.sortOrder ?? 0) - (b.system?.sortOrder ?? 0))
 			.map(entry => new SteadingImprovement(entry.system?.slug, entry.system?.choices ?? null));
 		return this._cache;

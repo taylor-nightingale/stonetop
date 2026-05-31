@@ -5,6 +5,7 @@ function makeEntry(slug, sortOrder = 1, choices = null) {
 	return {
 		_id: `id-${slug}`,
 		name: slug,
+		type: "improvement",
 		system: { slug, sortOrder, choices },
 	};
 }

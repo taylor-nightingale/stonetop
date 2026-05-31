@@ -128,7 +128,7 @@
 		}
 	},
 	"Item": {
-		"types": ["move", "equipment", "playbook", "insert"],
+		"types": ["move", "equipment", "playbook", "insert", "improvement"],
 		"templates": {},
 		"move": {
 			"rollType": null,
@@ -183,6 +183,11 @@
 			"description": "",
 			"instinct": null,
 			"choices": []
+		},
+		"improvement": {
+			"slug": null,
+			"sortOrder": null,
+			"choices": null
 		}
 	}
 }
