@@ -1,0 +1,101 @@
+{
+	"_id": "d7al3ApmX5jiP5GW",
+	"_key": "!items!d7al3ApmX5jiP5GW",
+	"name": "Demonhide Cloak",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/demonhide-cloak.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "demonhide-cloak",
+			"front": {
+				"title": "Demonhide Cloak",
+				"item": {
+					"name": "Demonhide Cloak",
+					"weight": 1,
+					"note": "1 armor, warm, magical",
+					"inventoryColumn": null
+				},
+				"description": "<p>A tattered cloak, stitched from a motley patchwork of unfamiliar hides and leather. Shifting odors waft from it: damp earth, ozone, musk, sulfur, rust, rot.</p><p>It is not a glamorous garment. Anything but.</p>",
+				"unlock": {
+					"slug": "demonhide-cloak",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>wear the Cloak</em></strong>, Its armor applies against demons in all cases, even if their attacks are piercing or ignore armor.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>draw up the hood of the Cloak</em></strong>, You see clearly in darkness.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>wrap the Cloak tightly about your person</em></strong>, You pass unnoticed by all so long as you move calmly and carefully and keep out of direct, harsh light. In retrospect, those you pass may recall a strange smell.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>flay the hide from a demon, tan it, and sew it onto the cloak</em></strong>, Mark 1.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 3
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Demonhide Cloak",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "the-flesh-remembers",
+						"name": "The Flesh Remembers",
+						"text": "<p>When you <strong>first encounter a demon and search the Cloak's memories for its like</strong>, roll +nothing: <strong>on a 10+</strong>, the flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated; <strong>on a 7-9</strong>, choose 1 from the list below.</p><ul><li>The flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated, but mark a Consequence</li><li>The flesh of such a creature is not present in the cloak; you learn nothing</li></ul><p>When you <strong>have marked 3 Consequences</strong>, you gain the following move:</p><p><strong>Unholy Visage</strong> ◻◻◻ When you <em>take the appearance of a demon</em>, roll +CON: <strong>on a 10+</strong>, hold 3 Guise; <strong>on a 7-9</strong>, hold 1 Guise; <strong>on a 6-</strong>, hold 1 Guise and mark a Consequence. While you hold Guise, all perceive you as a demon, and magic that affects demons affects you, too. Spend Guise, 1-for-1 to:</p><ul><li>Maintain your appearance in the face of divination or revealing light</li><li>Understand any language you hear, and reply in kind</li><li>Shrug off harm that your demonic form could ignore</li><li>Maneuver in a way consistent with your demonic form: flying, leaping, oozing, flitting as a shadow, etc.</li></ul>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "cloak-c1",
+							"description": "<p>◻◻ You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "cloak-c2",
+							"description": "<p>◻◻ A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of demon flesh into it.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "cloak-c3",
+							"description": "<p>The Cloak's stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren't wearing it.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "cloak-c4",
+							"description": "<p>You become incapable of fear while wearing the Cloak. If you <strong>wear the Cloak during a session</strong>, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\"</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "cloak-c5",
+							"description": "<p>You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower. When you would mark a Consequence, you can choose to spend 1 of the Cloak's Loyalty instead.</p><p><strong>The Cloak</strong> — <em>bloodthirsty, demon-wise, extraordinary, magical</em> — Instinct: to bicker and argue (with you, with itself) — ➤ Reveal a dark and terrible secret, or part of one; ➤ Manifest a minor demonic effect; ➤ Possess you in your sleep — Cost: chaos and wanton destruction (Loyalty ◻◻◻)</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

@@ -1,12 +1,11 @@
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
-	ArcanumBackMoveSnapshot,
-	MinorArcanumBackSnapshotBuilder, MinorArcanumFrontSnapshotBuilder,
-	MinorArcanumSnapshotBuilder,
+	ArcanumBackSnapshotBuilder, ArcanumFrontSnapshotBuilder,
+	ArcanumSnapshotBuilder,
 	ResourceBuilder,
 	ChoiceGroup, ChoiceValues,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
+import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 
 export class CharacterArcana {
 	constructor(flags, arcanaRepo, stats = null, outfitItems = null, followers = null) {
@@ -56,11 +55,13 @@ export class CharacterArcana {
 			: [];
 		const followersBySlug = Object.fromEntries(followerSnapshots.map(f => [f.slug, f]));
 
-		const minorItems = fetchedItems.map(item => {
+		const snapshots = fetchedItems.map(item => {
 			const flipped = flippedSlugs.has(item.slug);
-			const unlock = ChoiceGroup.fromPackData(item.front.unlock, unlockValues);
+			const unlock = item.front.unlock
+				? ChoiceGroup.fromPackData(item.front.unlock, unlockValues)
+				: null;
 
-			const front = new MinorArcanumFrontSnapshotBuilder()
+			const front = new ArcanumFrontSnapshotBuilder()
 				.withTitle(item.front.title)
 				.withItem(this._buildOutfitItem(item.slug, item.front.item))
 				.withDescription(item.front.description)
@@ -91,28 +92,30 @@ export class CharacterArcana {
 					.build()
 				: null;
 
-			const backMove = item.back.move
-				? new ArcanumBackMoveSnapshot(
-					item.back.move.name,
-					item.back.move.rollType ?? null,
-					item.back.move.description)
-				: null;
-
 			const backChoices = item.back.choices
 				? ChoiceGroup.fromPackData(item.back.choices, backChoiceValues, followersBySlug)
 				: null;
 
-			const back = new MinorArcanumBackSnapshotBuilder()
+			const consequences = item.back.consequences
+				? ChoiceGroup.fromPackData(item.back.consequences, new ChoiceValues({}))
+				: null;
+
+			const back = new ArcanumBackSnapshotBuilder()
 				.withTitle(item.back.title)
 				.withItem(this._buildOutfitItem(item.slug, item.back.item, backItemResource))
 				.withDescription(item.back.description)
 				.withResource(backResource)
-				.withMove(backMove)
 				.withChoices(backChoices)
+				.withMoves(item.back.moves)
+				.withConsequences(consequences)
+				.withUnlockAt(item.back.unlockAt)
 				.build();
 
-			return new MinorArcanumSnapshotBuilder()
+			return new ArcanumSnapshotBuilder()
 				.withSlug(item.slug)
+				.withMajor(item.major)
+				.withName(item.name)
+				.withImg(item.img)
 				.withFront(front)
 				.withBack(back)
 				.withOwned(true)
@@ -121,8 +124,8 @@ export class CharacterArcana {
 				.build();
 		});
 
-		const minor = new ArcanaSectionSnapshot("Minor Arcana", minorItems);
-		const major = new ArcanaSectionSnapshot("Major Arcana", []);
+		const minor = new ArcanaSectionSnapshot("Minor Arcana", snapshots.filter(s => !s.major));
+		const major = new ArcanaSectionSnapshot("Major Arcana", snapshots.filter(s =>  s.major));
 		return new ArcanaSnapshot(minor, major);
 	}
 

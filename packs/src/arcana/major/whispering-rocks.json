@@ -1,0 +1,89 @@
+{
+	"_id": "Iu7z09gddzRnpJRA",
+	"_key": "!items!Iu7z09gddzRnpJRA",
+	"name": "Whispering Rocks",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/whispering-rocks.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "whispering-rocks",
+			"front": {
+				"title": "Whispering Rocks",
+				"item": null,
+				"description": "<p>Jagged hunks of black volcanic glass. Surely the swirling movement in their depths is a trick of light. And, surely, those hushed voices you've been hearing are just the sighing wind. Surely.</p>",
+				"unlock": {
+					"slug": "whispering-rocks",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>spend a few hours staring into the stones and listening to their whispers</em></strong>, Name someone you know but on whom you have never used this power before. Then, roll +INT: <strong>on a 10+</strong>, the stones reveal a secret about them; <strong>on a 7-9</strong>, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); <strong>on a 6-</strong>, the stones pry a secret from you.</p><p>When you <strong>reveal a secret to the stones</strong>, or they pry one from your mind, mark 1.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 5
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Whispering Rocks",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "shadow-magic",
+						"name": "Shadow Magic",
+						"text": "<p>When you <strong>hold a Whispering Rock and call out the shadows within</strong>, choose one thing which you wish to do:</p><ul><li>Cloak yourself in shadows and silence, moving unseen and unnoticed as long as you draw no attention to yourself and avoid the sun or sacred light</li><li>Name someone you know or to whom you have an arcane link (hair, clothing, or the like); you can see them, hear them, and whisper to them as if from a nearby shadow</li><li>Name someone you can see; the nearby shadows ensnare them, doing no harm but hampering their sight and movement</li></ul><p>Then, roll +CON: <strong>on a 10+</strong>, the effect lasts as long as you wish, but you have disadvantage on all rolls while you maintain it; <strong>on a 7-9</strong>, either mark a consequence and the effect lasts as on a 10+, or the effect flickers out after mere moments (your choice which); <strong>on a 6-</strong>, ask the GM what happens (which may or may not involve marking a consequence).</p><p>When <strong>one of the rocks is shattered</strong>, cross off one of the Shadow Magic options; it is no longer available.</p>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "rocks-c1",
+							"description": "<p>The rocks all cease to function until each is caressed by a dying breath.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "rocks-c2",
+							"description": "<p>◻◻◻ The dark spirit in the rock you were using escapes, manifesting in the world. Cross off the Shadow Magic option that you just used until you force or convince the spirit to return to the rock.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "rocks-c3",
+							"description": "<p>Your eyes turn jet black. You can see sharply in even utter darkness, but you see no color and are blinded by sunlight.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "rocks-c4",
+							"description": "<p>You skin turns deathly pale or coal black (your choice) and chill to the touch. The sun burns your skin, but you go unharmed by even the bitterest cold.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "rocks-c5",
+							"description": "<p>You begin to suffer from dark and troubling dreams. When you <strong>Make Camp</strong>, roll +WIS: <strong>on a 10+</strong>, a useful secret is revealed by your nightmares—ask the GM to describe them; <strong>on a 7-9</strong>, you get as good a night's sleep as you can; <strong>on a 6-</strong>, you get no rest for the night.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "rocks-c6",
+							"description": "<p>The spirits in the rocks take purchase in your soul. When <strong>the spirits compel you to action</strong>, mark XP if you comply. If you resist, roll +WIS: <strong>on a 10+</strong>, you quickly shake off the compulsion; <strong>on a 7-9</strong>, it takes a few moments to break free; <strong>on a 6-</strong>, you come to your senses some time later, having done the-gods-know-what.</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

@@ -1,74 +1,75 @@
 {
-  "_id": "Lc2AfF4fHi6jKaLm",
-  "_key": "!items!Lc2AfF4fHi6jKaLm",
-  "name": "A tattered mantle",
-  "type": "move",
-  "system": {
-    "moveType": "arcanum"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "tattered-mantle",
-      "front": {
-        "title": "A tattered mantle",
-        "item": {
-          "name": "A tattered mantle",
-          "weight": 1,
-          "note": "<em>warm, magical</em>",
-          "inventoryColumn": "regular"
-        },
-        "description": "<p>Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.</p>",
-        "unlock": {
-          "slug": "tattered-mantle",
-          "list": [
-            {
-              "type": "heading",
-              "description": "You can unlock the power of this mantle by…"
-            },
-            {
-              "type": "heading",
-              "slug": "wear-through-nightmares",
-              "description": "… wearing it for three days and three long, long nights, suffering through the nightmares.",
-              "track": {
-                "max": 1
-              }
-            },
-            {
-              "type": "heading",
-              "slug": "bring-to-heel",
-              "description": "… bringing to heel the slavering wraiths that are tethered to it.",
-              "track": {
-                "max": 1
-              }
-            }
-          ]
-        }
-      },
-      "back": {
-        "title": "Mantle Wraiths",
-        "item": null,
-        "description": "<p>When you <strong><em>let slip the wraiths tethered to the mantle</em></strong>, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>",
-        "resource": null,
-        "move": {
-          "name": "When you let slip the wraiths tethered to the mantle",
-          "rollType": null,
-          "description": "<p>Treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>"
-        },
-        "choices": {
-          "slug": "tattered-mantle",
-          "list": [
-            {
-              "type": "follower",
-              "slug": "mantle-wraiths",
-              "followerSlug": "mantle-wraiths",
-              "track": {
-                "max": 1
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  "folder": "ae2Zzqvw7AMw8WLw"
+	"_id": "Lc2AfF4fHi6jKaLm",
+	"_key": "!items!Lc2AfF4fHi6jKaLm",
+	"name": "A tattered mantle",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "tattered-mantle",
+			"front": {
+				"title": "A tattered mantle",
+				"item": {
+					"name": "A tattered mantle",
+					"weight": 1,
+					"note": "<em>warm, magical</em>",
+					"inventoryColumn": "regular"
+				},
+				"description": "<p>Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.</p>",
+				"unlock": {
+					"slug": "tattered-mantle",
+					"list": [
+						{
+							"type": "heading",
+							"description": "You can unlock the power of this mantle by…"
+						},
+						{
+							"type": "heading",
+							"slug": "wear-through-nightmares",
+							"description": "… wearing it for three days and three long, long nights, suffering through the nightmares.",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "bring-to-heel",
+							"description": "… bringing to heel the slavering wraiths that are tethered to it.",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mantle Wraiths",
+				"item": null,
+				"description": "<p>When you <strong><em>let slip the wraiths tethered to the mantle</em></strong>, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>",
+				"resource": null,
+				"choices": {
+					"slug": "tattered-mantle",
+					"list": [
+						{
+							"type": "follower",
+							"slug": "mantle-wraiths",
+							"followerSlug": "mantle-wraiths",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				"moves": [
+					{
+						"name": "When you let slip the wraiths tethered to the mantle",
+						"text": "<p>Treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>"
+					}
+				]
+			}
+		}
+	},
+	"folder": "ae2Zzqvw7AMw8WLw"
 }

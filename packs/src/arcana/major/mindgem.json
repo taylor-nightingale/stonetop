@@ -1,0 +1,117 @@
+{
+	"_id": "iHawovCBsJJf4TyZ",
+	"_key": "!items!iHawovCBsJJf4TyZ",
+	"name": "Mindgem",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/mindgem.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "mindgem",
+			"front": {
+				"title": "Mindgem",
+				"item": {
+					"name": "Mindgem",
+					"weight": 2,
+					"note": "slow, indestructible",
+					"inventoryColumn": null
+				},
+				"description": "<p>A chunk of makerglass the size of a human head; inspection reveals facets within facets, a thousandfold. When you <strong>touch the glass with bare skin and open your mind to it</strong>, you contact the intelligence within—lonely, confused, longing for meaning and connection.</p><p>It will happily speak with you, mind-to-mind. It knows much about the past, but naught of its own history or purpose. At least, not yet.</p>",
+				"unlock": {
+					"slug": "mindgem",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>consult the Mindgem about the Makers, their arts, or their history</em></strong>, Ask a question and roll +INT: <strong>on a 7+</strong>, it answers but <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 2:</p><ul><li>The answer is cryptic, vague, or lacking crucial context</li><li>It takes a long time—hours or even days—to get the answer</li><li>Your mind is left reeling; take disadvantage on your next roll</li></ul><p><strong>On a 6-</strong>, choose 1:</p><ul><li>It wastes your time with irrelevant histories and data</li><li>It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).</li></ul><p>The Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem's body and unlock its mysteries:</p><ul><li>Recover its chassis of white granite, which weighs well over a ton</li><li>Recover its ◇ \"heart,\" a chunk of makerglass that forever burns with terrible heat (<em>indestructible, dangerous</em>)</li><li>Recover and repair the intricate ◇◇ bronze helm (<em>awkward, big</em>) that serves as a casing for the Mindgem</li><li>Puzzle out how to assemble all the pieces</li></ul>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 4
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Mindgem",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": {
+					"slug": "followers",
+					"list": [
+						{
+							"type": "follower",
+							"slug": "the-mighty-servant",
+							"followerSlug": "the-mighty-servant",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				"moves": [
+					{
+						"id": "the-mighty-servant",
+						"name": "The Mighty Servant",
+						"text": "<p>When <strong>the Mighty Servant makes a move at your behest</strong> (see Order Followers), on a 6-, in addition to whatever the GM says, mark a consequence.</p>",
+						"followerSlug": "the-mighty-servant"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "mindgem-c1",
+							"description": "<p>It becomes frustrated/agitated and begins to obsessively do something destructive or dangerous to others.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c2",
+							"description": "<p>It begins to understand (or perhaps it remembers) lies and deception. It gains the <em>devious</em> tag and this move: ➤ Reveal an earlier deception or half-truth.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c3",
+							"description": "<p>It develops a sense of pride; cross off the <em>meek</em> tag.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c4",
+							"description": "<p>It realizes its potential as a weapon. Replace the <em>slow</em> tag with the <em>warrior</em> tag, and its damage becomes 1d10+5 (<em>hand, close, messy, forceful</em>, 3 piercing).</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c4a",
+							"description": "<p>It becomes aggressive and reckless in battle. Its attacks gain the <em>area</em> and <em>dangerous</em> tags.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c5",
+							"description": "<p>It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant's new cost (replacing \"wonder, excitement, joy\"): 1 To punish — Victory against Hillfolk, sorcerers, the Things Below; 2 To preserve — Acquiring artifacts of the past, safely hiding them away; 3 To purge — Destroying artifacts of the Green Lords or Things Below; 4 To build — Progress towards building an enormous, enigmatic edifice.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c6",
+							"description": "<p>Its instinct becomes \"to pursue its purpose.\" You must Persuade it to do anything unrelated to that purpose, and it will flat-out refuse to act against its purpose.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "mindgem-c7",
+							"description": "<p>It wanders off in pursuit of its purpose, implacably pursuing it. It is no longer a follower, though you might still be able to Persuade it.</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

@@ -4,107 +4,17 @@
 	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
 	{{/unless}}
 
+	{{!-- Minor arcana --}}
 	<div class="stonetop-arcana-grid">
-	{{#each stonetop.arcana.minor.items}}
-	{{#if owned}}
-	<div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}">
+	{{> "stonetop.arcanum-cards" items=stonetop.arcana.minor.items}}
+	</div>
 
-		{{#if flipped}}
-		{{!-- Back side --}}
-		<div class="stonetop-arcanum-header">
-			<div class="stonetop-arcanum-header-left">
-				<span class="stonetop-arcanum-title">{{back.title}}</span>
-				{{#if back.item}}
-				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-					{{#if back.item.weight}}
-					<span class="stonetop-inv-diamonds">
-						{{#each (times back.item.weight)}}
-						<input type="checkbox"
-						       class="stonetop-inventory-item-check stonetop-inv-diamond"
-						       data-slug="{{../slug}}"
-						       {{#if ../checked}}checked{{/if}}>
-						{{/each}}
-					</span>
-					{{/if}}
-					{{#unless (eq back.item.name back.title)}}
-					<span class="stonetop-inv-label">{{back.item.name}}</span>
-					{{/unless}}
-					{{#if back.item.note}}<span class="stonetop-inv-note">{{{back.item.note}}}</span>{{/if}}
-					{{#if back.item.resource}}
-					<span class="stonetop-inv-resources">
-						{{> "stonetop.resource-track" resource=back.item.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
-					</span>
-					{{/if}}
-				</div>
-				{{/if}}
-			</div>
-			{{#if back.resource}}
-			<div class="stonetop-arcanum-header-resource">
-				{{> "stonetop.resource-track" resource=back.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
-			</div>
-			{{/if}}
-		</div>
-		<div class="stonetop-arcanum-body">
-			{{{back.description}}}
-			{{#if back.move}}
-			<p class="stonetop-arcanum-move-trigger"><strong><em>{{back.move.name}}</em></strong></p>
-			{{{back.move.description}}}
-			{{/if}}
-			{{#if back.choices}}
-			<div class="stonetop-arcanum-back-choices">
-				{{#each back.choices.list}}
-				{{> "stonetop.choice-row" cgContext="arcana-back" cgGroup=../slug}}
-				{{/each}}
-			</div>
-			{{/if}}
-		</div>
-
-		{{else}}
-		{{!-- Front side --}}
-		<div class="stonetop-arcanum-header">
-			<div class="stonetop-arcanum-header-left">
-				<span class="stonetop-arcanum-title">{{front.title}}</span>
-				{{#if front.item}}
-				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-					{{#if front.item.weight}}
-					<span class="stonetop-inv-diamonds">
-						{{#each (times front.item.weight)}}
-						<input type="checkbox"
-						       class="stonetop-inventory-item-check stonetop-inv-diamond"
-						       data-slug="{{../slug}}"
-						       {{#if ../checked}}checked{{/if}}>
-						{{/each}}
-					</span>
-					{{/if}}
-					{{#if front.item.note}}<span class="stonetop-inv-note">{{{front.item.note}}}</span>{{/if}}
-				</div>
-				{{/if}}
-			</div>
-		</div>
-		<div class="stonetop-arcanum-body">
-			{{{front.description}}}
-			<div class="stonetop-arcanum-unlock">
-				{{#each front.unlock.list}}
-				{{> "stonetop.choice-row" cgContext="arcana-unlock" cgGroup=../slug}}
-				{{/each}}
-			</div>
-		</div>
-		{{/if}}
-
-		<div class="stonetop-arcanum-footer">
-			<button type="button" class="stonetop-arcanum-flip-btn"
-			        data-slug="{{slug}}" data-flipped="{{flipped}}">
-				{{#if flipped}}{{localize "stonetop.arcana.showFront"}}{{else}}{{localize "stonetop.arcana.showBack"}}{{/if}}
-			</button>
-			<button type="button" class="stonetop-arcanum-delete" data-slug="{{slug}}"
-			        title="{{localize 'stonetop.arcana.removeArcanum'}}">
-				<i class="fas fa-times"></i>
-			</button>
-		</div>
-
+	{{!-- Major arcana --}}
+	{{#if stonetop.arcana.major.hasOwned}}
+	<h3 class="stonetop-arcana-section-title">{{stonetop.arcana.major.title}}</h3>
+	<div class="stonetop-arcana-grid">
+	{{> "stonetop.arcanum-cards" items=stonetop.arcana.major.items}}
 	</div>
 	{{/if}}
-	{{/each}}
-	</div>
 
 </div>

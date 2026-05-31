@@ -1,0 +1,43 @@
+{
+	"_id": "QrCWSgMjE96X4dGl",
+	"_key": "!items!QrCWSgMjE96X4dGl",
+	"name": "Astor",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "astor",
+			"arcanaSlug": "blackwood-fetishes",
+			"note": "undead, spirit, hunter, cunning, jealous, sarcastic, warrior",
+			"hp": {
+				"max": 13
+			},
+			"armor": 1,
+			"damage": "ghostly spear d8 (reach, ignores armor)",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to comply maliciously\n-Stalk assigned prey\n-Manifest a ghostly presence (harmed only by silver or salt)\n-Make a pessimistic observation"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "proof of honor, nobility (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK"
+}

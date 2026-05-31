@@ -3,7 +3,7 @@ import { CharacterArcana } from "../../../module/actors/character/CharacterArcan
 import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
-	MinorArcanumSnapshot, MinorArcanumFrontSnapshot, MinorArcanumBackSnapshot,
+	ArcanumSnapshot, ArcanumFrontSnapshot, ArcanumBackSnapshot,
 	ChoiceGroup, HeadingRow, FollowerRow,
 } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
@@ -43,11 +43,9 @@ const FFYRNIG_SPHERE = {
 		item: { name: "Ffyrnig Tonic", weight: 1, note: "magical", inventoryColumn: "regular" },
 		description: "<p>When you pickle fresh ffyrnig root…</p>",
 		resource: { max: 3, maxStat: null, title: "Ffyrnig Tonic", labels: [] },
-		move: {
-			name: "When you take a draught of ffyrnig tonic",
-			rollType: null,
-			description: "<p>pick 1: regain HP or clear a debility.</p>",
-		},
+		moves: [
+			{ name: "When you take a draught of ffyrnig tonic", text: "<p>pick 1: regain HP or clear a debility.</p>" },
+		],
 	},
 };
 
@@ -126,9 +124,9 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(snap.minor.items[0].owned).toBe(true);
 		});
 
-		it("returns a MinorArcanumSnapshot", async () => {
+		it("returns a ArcanumSnapshot", async () => {
 			const snap = await makeArcana({ owned: ["huge-wooden-sphere"] }).buildSnapshot();
-			expect(snap.minor.items[0]).toBeInstanceOf(MinorArcanumSnapshot);
+			expect(snap.minor.items[0]).toBeInstanceOf(ArcanumSnapshot);
 		});
 
 		it("has correct slug", async () => {
@@ -157,8 +155,8 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			return (await makeArcana({ owned: ["huge-wooden-sphere"], ...flagStore }).buildSnapshot()).minor.items[0];
 		}
 
-		it("front is a MinorArcanumFrontSnapshot", async () => {
-			expect((await getItem()).front).toBeInstanceOf(MinorArcanumFrontSnapshot);
+		it("front is a ArcanumFrontSnapshot", async () => {
+			expect((await getItem()).front).toBeInstanceOf(ArcanumFrontSnapshot);
 		});
 
 		it("front has correct title, item, description", async () => {
@@ -224,8 +222,8 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			return (await makeArcana({ owned: ["huge-wooden-sphere"], ...flagStore }).buildSnapshot()).minor.items[0];
 		}
 
-		it("back is a MinorArcanumBackSnapshot", async () => {
-			expect((await getItem()).back).toBeInstanceOf(MinorArcanumBackSnapshot);
+		it("back is a ArcanumBackSnapshot", async () => {
+			expect((await getItem()).back).toBeInstanceOf(ArcanumBackSnapshot);
 		});
 
 		it("back has correct title, item, description", async () => {
@@ -255,20 +253,21 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
 		});
 
-		it("back.move is populated with correct name and rollType", async () => {
-			expect((await getItem()).back.move).toMatchObject({
+		it("back.moves[0] has correct name and text", async () => {
+			const item = await getItem();
+			expect(item.back.moves[0]).toMatchObject({
 				name: "When you take a draught of ffyrnig tonic",
-				rollType: null,
+				text: "<p>pick 1: regain HP or clear a debility.</p>",
 			});
 		});
 
-		it("back.move is null when absent in JSON", async () => {
-			const noMove = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, move: undefined } };
+		it("back.moves is empty when absent in JSON", async () => {
+			const noMoves = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, moves: undefined } };
 			const arcana = new CharacterArcana(
 				makeFlags({ owned: ["huge-wooden-sphere"] }),
-				new FakeArcanaRepository([noMove]),
+				new FakeArcanaRepository([noMoves]),
 			);
-			expect((await arcana.buildSnapshot()).minor.items[0].back.move).toBeNull();
+			expect((await arcana.buildSnapshot()).minor.items[0].back.moves).toEqual([]);
 		});
 
 		it("back.choices is null when absent in JSON", async () => {

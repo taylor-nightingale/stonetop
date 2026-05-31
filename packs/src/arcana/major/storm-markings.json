@@ -1,0 +1,108 @@
+{
+	"_id": "zjrkOmLuV4bssGaS",
+	"_key": "!items!zjrkOmLuV4bssGaS",
+	"name": "Storm Markings",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/storm-markings.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "storm-markings",
+			"front": {
+				"title": "Storm Markings",
+				"item": null,
+				"description": "<p>A series of branching, tree-like markings coursing up and down your skin. Usually pale blue, almost like veins, but when you become agitated they seem to glow, pulse, and ripple with light.</p><p>The markings are usually seen as a blessing of Tor (rainmaker, thunderhead, slayer-of-beasts). But like most blessings of the gods, they are also a great burden.</p>",
+				"unlock": {
+					"slug": "storm-markings",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>roil with anger</em></strong>, You do +1 damage until you calm down. But when you <strong>try to control your temper</strong>, roll +WIS: <strong>on a 10+</strong>, you keep your cool and act as you wish; <strong>on a 7-9</strong>, choose 1 from the list below; <strong>on a 6-</strong>, you just lose it—tell the GM what damn fool thing you end up doing.</p><ul><li>Take some deep breaths and count to ten, fuming all the while</li><li>Vent your rage, but tell us how and on what</li></ul>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>are struck by lightning or an electrical discharge</em></strong>, Mark 1, take no damage, and suffer no ill effects (your gear, alas, has no such protection).</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 3
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Storm Markings",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "storms-fury",
+						"name": "Storm's Fury",
+						"subtitle": "begin to roil with anger",
+						"tracker": {
+							"label": "Fury",
+							"max": 3
+						},
+						"text": "<p>Your markings crackle with electricity and the air thrums with pressure. Roll +CON: <strong>on a 10+</strong>, hold 3 Fury; <strong>on a 7-9</strong>, hold 2 Fury; <strong>on a 6-</strong>, hold 2 Fury but also mark a consequence.</p><p>You may spend Fury 1-for-1 to manifest one of the following:</p><ul><li>Imbue your next strike with the force of thunder (+1d6 damage, <em>forceful, loud</em>)</li><li>Move like lightning, closing the distance between you and a nearby foe before they can react</li><li>Bellow like the storm itself, drawing no small amount of attention and making craven foes cringe in fear</li></ul><p>When you <strong>have marked 3 consequences</strong>, you gain Chosen of the Storm-bringer.</p>"
+					},
+					{
+						"id": "chosen-of-the-storm-bringer",
+						"name": "Chosen of the Storm-bringer",
+						"text": "<p>Add these to the list of potential manifestations granted by Storm's Fury:</p><ul><li>Roll +CON to Let Fly with a bolt of lightning (2d6 damage, <em>thrown, forceful, loud, dangerous</em>, ignores armor)</li><li>Make a prodigious leap, buoyed by the wind</li><li>Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it</li></ul>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "storm-c1",
+							"description": "<p>◻◻◻ Lightning begins to arc off of you, striking objects and creatures nearby at random for 2d6 damage (<em>near, forceful, loud</em>, ignores armor). This lasts until you calm down.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c2",
+							"description": "<p>◻◻ A gale of winds forms around you, as with Chosen of the Storm-bringer (even if you can't normally use that move). You can't dismiss it easily; the effects (including the disadvantage) continue until you calm down.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c3",
+							"description": "<p>Name an NPC who is present and whose regard you value. They are terrified of the power you wield and grow distant.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c4",
+							"description": "<p>From now on, when you gain Fury, gain +1 Fury. But you also have disadvantage on rolls to control your temper.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c5",
+							"description": "<p>A storm forms (or worsens) in your immediate area. It arrives unnaturally fast, but not miraculously so.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c6",
+							"description": "<p>A terrible storm begins to form in your immediate area and pummels the entire region. Blizzards, tornados, floods—it's bad.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "storm-c6a",
+							"description": "<p>A terrible storm forms (as above) and the weather remains freakish for a few months. Your steading takes -2 to its next roll to generate Surplus, and its next Fortunes roll for Seasons Change is automatically a 6-. Other communities in the region likewise suffer.</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

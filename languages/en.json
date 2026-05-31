@@ -38,7 +38,8 @@
 			"showFront": "Show Front",
 			"showBack": "Reveal Back",
 			"removeArcanum": "Remove",
-			"addToFollowers": "Add to followers"
+			"addToFollowers": "Add to followers",
+			"consequences": "Consequences"
 		},
 		"inventory": {
 			"regularItems": "Items",

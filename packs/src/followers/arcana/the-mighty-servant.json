@@ -1,0 +1,43 @@
+{
+	"_id": "q6rtLEUNcSqqcEbC",
+	"_key": "!items!q6rtLEUNcSqqcEbC",
+	"name": "The Mighty Servant",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "the-mighty-servant",
+			"arcanaSlug": "mindgem",
+			"note": "large, construct, Maker-wise, beautiful, meek, hardy, slow, strong, exceptional",
+			"hp": {
+				"max": 24
+			},
+			"armor": 4,
+			"damage": "stone fists d10+1 (hand, close, disadvantage)",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to misunderstand\n-living stone, tireless"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK"
+}

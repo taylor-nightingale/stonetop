@@ -1,0 +1,95 @@
+{
+	"_id": "V1Qsr1io0pFhT82S",
+	"_key": "!items!V1Qsr1io0pFhT82S",
+	"name": "Blackwood Fetishes",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/blackwood-fetishes.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "blackwood-fetishes",
+			"front": {
+				"title": "Blackwood Fetishes",
+				"item": {
+					"name": "Blackwood Fetishes",
+					"weight": 1,
+					"note": "magical, indestructible",
+					"inventoryColumn": null
+				},
+				"description": "<p>A pair of wooden figurines, carved from blackwood and worn smooth with age and use. A whitish shaft has been driven into the top of each figurine's head, and the eyes and forehead of each are stained a rusty, reddish color.</p><p>The figurines resist all mundane attempts to damage them. Such attempts might mar them slightly, but their forms hold fast.</p>",
+				"unlock": {
+					"slug": "blackwood-fetishes",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>mark a figurine's eyes with blood and likewise mark your own eyelids</em></strong>, You see through the eyes of the figurine whenever you close your eyes, for as long as the blood remains.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>anoint a figurine with your own blood and then sleep in its presence</em></strong>, Roll +CON: <strong>on a 10+</strong>, you dream lucidly of the spirit in the figurine, which speaks an archaic but intelligible dialect—it might be persuaded to reveal its name, or the name of its fellow spirit, or the method of calling them forth; <strong>on a 7-9</strong>, you dream of the spirit, but the dream is fleeting, strange, and disorienting—ask the GM what you learn of the spirit.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>learn the name of one of the bound spirits, or the sign that draws them forth and binds them</em></strong>, Mark 1.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 3
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Blackwood Fetishes",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": {
+					"slug": "followers",
+					"list": [
+						{
+							"type": "follower",
+							"slug": "astor",
+							"followerSlug": "astor",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "follower",
+							"slug": "halix",
+							"followerSlug": "halix",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				"moves": [
+					{
+						"id": "call-forth-and-command",
+						"name": "Call Forth and Command",
+						"text": "<p>When you <strong>mark both figurines with your own blood and call both Astor and Halix by name</strong>, their ghosts manifest before you. Treat them as followers. They are bound to obey your direct commands and can take no overt action against you, but you might need to Persuade them to do anything other than follow your orders to the letter.</p><p>When you <strong>dismiss either Astor or Halix</strong>, both return to their figurines until you call them forth again.</p><p>When <strong>either Astor or Halix is banished or reduced to 0 HP</strong>, they both return to their respective fetish. They cannot be called forth again until the next new moon.</p><p><em>In life, Astor was a hunter, low-born but handsome and proud. Halix was the lordly heir of Astor's people: spoiled, manipulative, vain. Halix took Astor as one of many furtive lovers, making an insincere blood-oath that one day they would wed.</em></p><p><em>Their clan fell under the sway of a sorcerer. Astor snuck away to warn the Makers of rebellion, but Halix sided with the sorcerer. The sorcerer used the blood-oath between them to work foul magic, wrenching Astor's soul from their body and binding it. To their surprise, Halix's soul was likewise bound. The sorcerer used them as spies and assassins, leaving Astor's once-noble soul bitter and distrustful. Halix, though, revels in immortality and delights in the opportunities afforded by this undead state.</em></p>",
+						"followerSlug": "astor"
+					},
+					{
+						"id": "halix",
+						"name": "Halix",
+						"text": "<p>Halix accompanies Astor when called forth (see Call Forth and Command).</p>",
+						"followerSlug": "halix"
+					}
+				],
+				"consequences": null,
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

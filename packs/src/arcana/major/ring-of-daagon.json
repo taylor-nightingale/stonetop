@@ -1,0 +1,97 @@
+{
+	"_id": "1EvcBv0ExiwnuHfA",
+	"_key": "!items!1EvcBv0ExiwnuHfA",
+	"name": "Ring of Daagon",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/ring-of-daagon.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "ring-of-daagon",
+			"front": {
+				"title": "Ring of Daagon",
+				"item": null,
+				"description": "<p>A finely carved ring of copper, coated in verdigris and always a little damp. Its shape is that of a strange, reptilian creature devouring its own tail.</p>",
+				"unlock": {
+					"slug": "ring-of-daagon",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>don the Ring</em></strong>, You feel the presence of every body of water within a few miles, natural or not, even if it is underground.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>wear the Ring and caress its reptilian head</em></strong>, The air around you becomes damper and cooler. If you continue to caress it for a minute or so, a mist gathers near the ground and grows higher and thicker as long as you continue. A few minutes of caressing the Ring will blanket your immediate surroundings in thick, obscuring fog. Half an hour will blanket the countryside. The fog persists for as long as you caress the Ring, and then dissipates naturally based on the prevailing weather.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>have used the Ring to summon an obscuring fog and a named creature dies within that fog</em></strong>, The Ring will ask you (silently, in your mind, not so much with words as with a deep longing) <em>May I take this one?</em> Should you assent, the creature's body will be gone—vanished into the mists—as soon as no mortal is directly paying it heed. The first time this happens during each fog you summon, mark 1.</p><p>When you <strong>make the last mark</strong>, you unlock the ring's mysteries and may Call Up the Deep Ones (see reverse) while wearing the ring. The ring itself becomes a follower.</p><p><strong>The Ring</strong> — <em>deep-wise, greedy, patient, knowledgeable, magical</em> — Instinct: to give nothing (not even secrets or info) away — ➤ Speak mind-to-mind; ➤ Reveal a secret, for a price; ➤ Know someone's desires — Cost: devouring fallen, named creatures (Loyalty ◻◻◻)</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 3
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Ring of Daagon",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "call-up-the-deep-ones",
+						"name": "Call Up the Deep Ones",
+						"text": "<p>When you <strong>stand in heavy fog or before deep water and call on the servants of Daagon to serve you</strong>, spend 1 Loyalty or mark a consequence and they appear. Treat them as followers, sharing a pool of Loyalty with the Ring itself. You can always choose to mark a consequence in lieu of spending their Loyalty.</p><p><strong>Servant of Daagon</strong> — <em>terrifying, violent, wretched</em> — Instinct to devour</p><p>Each time you Call Up the Deep Ones, roll five d4s and assign each to a different aspect:</p><p><strong>Tags:</strong> 1 = +craven; 2 = +ravenous; 3 = +cunning; 4 = +exceptional (roll +2 for moves instead of +1)</p><p><strong>No. Appearing:</strong> 1 = horde (quantity 2d6, HP 3, damage 1d6); 2-3 = group (quantity 1d6+1, HP 6, damage 1d8); 4 = solitary (HP 12, damage 1d10)</p><p><strong>Size:</strong> 1 = small (-2 HP, -2 damage, hand); 2-3 = medium (close); 4 = large (+4 HP, +1 damage, close, reach)</p><p><strong>Traits:</strong> choose a number equal to the assigned die — blubbery/scaly hide (2 armor); +stealthy and +cautious; powerful (+2 damage, forceful); tentacles/pincers, etc. (reach, grabby); big claws/fangs (1 piercing, messy); projectiles (+near)</p><p><strong>Moves:</strong> choose a number equal to the assigned die — Wriggle free of danger/restraint; Smother/constrict/engulf them; Mesmerize the weak-willed; Heal at a prodigious rate; Dissolve organic material; Paralyze them with venom</p><p>When you <strong>send them back whence they came</strong>, roll +CHA: <strong>on a 10+</strong>, they go, now; <strong>on a 7-9</strong>, they go, but take their time and likely do some harm on their way; <strong>on a 6-</strong>, spend their Loyalty or mark a consequence and they eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.</p>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "daagon-c1",
+							"description": "<p>Your skin becomes clammy and squamous.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "daagon-c1a",
+							"description": "<p>You can breathe water through your skin, but must keep it moist or suffer increasing debilities.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "daagon-c2",
+							"description": "<p>You gain nourishment only from meat. Plants, grains and the like no longer count as supplies or provisions when you need to eat.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "daagon-c2a",
+							"description": "<p>Only raw flesh nourishes you, but you are immune to food-borne illness.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "daagon-c3",
+							"description": "<p>◻◻◻ 1d6 sinkholes appear within a few miles of you. At the bottom of each, a megalith protrudes from standing water, attended by servants of Daagon.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "daagon-c4",
+							"description": "<p>The ring's Cost becomes \"Living, helpless, intelligent sacrifices.\"</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

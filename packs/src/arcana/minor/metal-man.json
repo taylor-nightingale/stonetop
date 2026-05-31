@@ -1,87 +1,88 @@
 {
-  "_id": "AR3PUU5UYZ7ZzABc",
-  "_key": "!items!AR3PUU5UYZ7ZzABc",
-  "name": "A metal man",
-  "type": "move",
-  "system": {
-    "moveType": "arcanum"
-  },
-  "flags": {
-    "stonetop": {
-      "slug": "metal-man",
-      "front": {
-        "title": "A metal man",
-        "item": {
-          "name": "A metal man",
-          "weight": null,
-          "note": "<em>magical, fragile</em>",
-          "inventoryColumn": null
-        },
-        "description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
-        "unlock": {
-          "slug": "metal-man",
-          "list": [
-            {
-              "type": "heading",
-              "description": "This is clearly no mere statue, but to unlock its mysteries you need to…"
-            },
-            {
-              "type": "heading",
-              "slug": "repair-body",
-              "description": "… repair the body, taking a full season for an <em>exceptional</em> smith (Value 3).",
-              "track": {
-                "max": 1
-              }
-            },
-            {
-              "type": "heading",
-              "slug": "repair-runes",
-              "description": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable.",
-              "track": {
-                "max": 1
-              }
-            },
-            {
-              "type": "heading",
-              "slug": "convince-spirit",
-              "description": "… convince your own hearth's spirit to inhabit the stove and animate the construct.",
-              "track": {
-                "max": 1
-              }
-            }
-          ]
-        }
-      },
-      "back": {
-        "title": "Bronze Protector",
-        "item": null,
-        "description": "<p>As long as <strong><em>fire burns in in the stove-like chest</em></strong>, the hearth spirit will animate the construct. Treat it as a follower.</p>",
-        "resource": {
-          "max": 4,
-          "maxStat": null,
-          "title": "Readiness",
-          "labels": []
-        },
-        "move": {
-          "name": "As long as fire burns in the stove-like chest",
-          "rollType": null,
-          "description": "<p>The hearth spirit will animate the construct. Treat it as a follower.</p>"
-        },
-        "choices": {
-          "slug": "metal-man",
-          "list": [
-            {
-              "type": "follower",
-              "slug": "bronze-protector",
-              "followerSlug": "bronze-protector",
-              "track": {
-                "max": 1
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  "folder": "ae2Zzqvw7AMw8WLw"
+	"_id": "AR3PUU5UYZ7ZzABc",
+	"_key": "!items!AR3PUU5UYZ7ZzABc",
+	"name": "A metal man",
+	"type": "equipment",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "metal-man",
+			"front": {
+				"title": "A metal man",
+				"item": {
+					"name": "A metal man",
+					"weight": null,
+					"note": "<em>magical, fragile</em>",
+					"inventoryColumn": null
+				},
+				"description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
+				"unlock": {
+					"slug": "metal-man",
+					"list": [
+						{
+							"type": "heading",
+							"description": "This is clearly no mere statue, but to unlock its mysteries you need to…"
+						},
+						{
+							"type": "heading",
+							"slug": "repair-body",
+							"description": "… repair the body, taking a full season for an <em>exceptional</em> smith (Value 3).",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "repair-runes",
+							"description": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable.",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "convince-spirit",
+							"description": "… convince your own hearth's spirit to inhabit the stove and animate the construct.",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Bronze Protector",
+				"item": null,
+				"description": "<p>As long as <strong><em>fire burns in in the stove-like chest</em></strong>, the hearth spirit will animate the construct. Treat it as a follower.</p>",
+				"resource": {
+					"max": 4,
+					"maxStat": null,
+					"title": "Readiness",
+					"labels": []
+				},
+				"choices": {
+					"slug": "metal-man",
+					"list": [
+						{
+							"type": "follower",
+							"slug": "bronze-protector",
+							"followerSlug": "bronze-protector",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				"moves": [
+					{
+						"name": "As long as fire burns in the stove-like chest",
+						"text": "<p>The hearth spirit will animate the construct. Treat it as a follower.</p>"
+					}
+				]
+			}
+		}
+	},
+	"folder": "ae2Zzqvw7AMw8WLw"
 }

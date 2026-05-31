@@ -1,0 +1,117 @@
+{
+	"_id": "AGA3VlOEiOEFNYFc",
+	"_key": "!items!AGA3VlOEiOEFNYFc",
+	"name": "Shield of the Wisent Witch",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/shield-of-the-wisent-witch.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "shield-of-the-wisent-witch",
+			"front": {
+				"title": "Shield of the Wisent Witch",
+				"item": {
+					"name": "Shield of the Wisent Witch",
+					"weight": 2,
+					"note": "+1 armor, close, forceful, magical, +1 Readiness on a 7+ to Defend",
+					"inventoryColumn": null
+				},
+				"description": "<p>A shield of horn-oak, glossy from long use, shod in bronze and adorned with a stylized wisent skull. It's heavier than it looks, but its heft gives you a feeling of confidence, like anyone would be a fool to mess with a titan such as you.</p>",
+				"unlock": {
+					"slug": "shield-of-the-wisent-witch",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>bear the Shield openly</em></strong>, Natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>use the Shield to Defend with both feet planted firmly on the ground</em></strong>, So long as you hold Readiness you cannot be moved or tripped. When you <strong>spend Readiness to strike back at an attacker</strong>, you also break their momentum, knock them back, and/or send them reeling.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>perform the sacred rites of the forest witches, alone in the woods under a clear crescent moon</em></strong>, Mark 1.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 5
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Shield of the Wisent Witch",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "spirits-of-the-herd",
+						"name": "Spirits of the Herd",
+						"subtitle": "proudly bear the Shield of the Wisent Witch and call upon the spirits of the herd",
+						"tracker": {
+							"label": "Might",
+							"max": 3
+						},
+						"text": "<p>Choose 1 of the following effects:</p><ul><li>So long as you bear the Shield and until one of you speaks in the tongues of men, you and any allies that you mark with mud from the forest floor take on the visage of a herd of wisents. While this spell lasts, you and your allies cover ground at great speed and can graze rather than consuming supplies/provisions.</li><li>As you charge your foes, conjure a herd of stampeding wisent to join you. Treat the herd as a weapon (+2d4 damage, <em>forceful, messy, area, dangerous, terrifying</em>) as you Clash. The herd vanishes once the charge's momentum is spent.</li><li>Hold 3 Might. You can spend Might 1-for-1 to: Plow past, over, or through an opponent or obstacle; Tear free from any physical restraint; Shrug off a physical blow, unfazed and unharmed.</li></ul><p>After choosing an effect, roll +CON: <strong>on a 10+</strong>, the effect occurs as described; <strong>on a 7-9</strong>, the effect occurs, but only if you mark 1 Consequence; <strong>on a 6-</strong>, mark 1 Consequence, and the effect occurs—but the GM will tell you what goes wrong.</p>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "shield-c1",
+							"description": "<p>You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c2",
+							"description": "<p>Over the next few days, you grow 4-6 inches.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c3",
+							"description": "<p>Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c4",
+							"description": "<p>You consume twice the normal amount of supplies or provisions each day.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c5",
+							"description": "<p>You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c6",
+							"description": "<p>Your attacks all gain the <em>forceful</em> tag (and become more so if they already were <em>forceful</em>) and large weapons lose the <em>awkward</em> tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends).</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c7",
+							"description": "<p>Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "shield-c8",
+							"description": "<p>You become territorial and overly defensive of your allies. When someone or thing <strong>disrespects you, challenges your authority, or directly threatens your allies</strong>, you have disadvantage to do anything other than set them straight.</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

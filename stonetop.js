@@ -81,6 +81,7 @@ Hooks.once("init", () => {
 		"stonetop.tab-moves":        "modules/stonetop/templates/actor/partials/tab-moves.hbs",
 		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
 		"stonetop.tab-arcana":       "modules/stonetop/templates/actor/partials/tab-arcana.hbs",
+		"stonetop.arcanum-cards":    "modules/stonetop/templates/actor/partials/arcanum-cards.hbs",
 		"stonetop.tab-followers":    "modules/stonetop/templates/actor/partials/tab-followers.hbs",
 		"stonetop.follower-card":    "modules/stonetop/templates/actor/partials/follower-card.hbs",
 		"stonetop.tab-post-death":   "modules/stonetop/templates/actor/partials/tab-post-death.hbs",

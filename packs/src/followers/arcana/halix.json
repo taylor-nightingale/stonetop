@@ -1,0 +1,43 @@
+{
+	"_id": "qefhHxkAI1atQFh3",
+	"_key": "!items!qefhHxkAI1atQFh3",
+	"name": "Halix",
+	"type": "equipment",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"equipmentType": "follower"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "halix",
+			"arcanaSlug": "blackwood-fetishes",
+			"note": "undead, spirit, magical, hedonistic, cautious, devious, stealthy, exceptional",
+			"hp": {
+				"max": 10
+			},
+			"armor": 1,
+			"damage": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
+			"loyalty": {
+				"max": 3
+			},
+			"choices": {
+				"slug": "choices",
+				"list": [
+					{
+						"type": "input",
+						"slug": "instinct",
+						"text": "Instinct",
+						"default": "to second-guess your decisions\n-Manifest a ghostly presence (harmed only by silver or salt)\n-Possess an inebriated victim\n-Spot a weakness, want, or fear\n-Spin plots and falsehoods"
+					},
+					{
+						"type": "input",
+						"slug": "cost",
+						"text": "Cost",
+						"default": "pleasures of the flesh (Loyalty ◯◯◯)"
+					}
+				]
+			}
+		}
+	},
+	"folder": "BNaYX2Y4eMe7EOPK"
+}

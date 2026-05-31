@@ -1,0 +1,127 @@
+{
+	"_id": "owVnAXfeM4rOBEnw",
+	"_key": "!items!owVnAXfeM4rOBEnw",
+	"name": "Red Scepter",
+	"type": "equipment",
+	"img": "modules/stonetop/assets/arcana/red-scepter.png",
+	"system": {
+		"equipmentType": "arcanum"
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "red-scepter",
+			"front": {
+				"title": "Red Scepter",
+				"item": {
+					"name": "Red Scepter",
+					"weight": 1,
+					"note": "magical",
+					"inventoryColumn": null
+				},
+				"description": "<p>A bronze rod, tipped with a glowing red crystal and carved with openwork shapes of hungry, leering faces.</p>",
+				"unlock": {
+					"slug": "red-scepter",
+					"list": [
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>hold the Scepter and wind blows through the openings in the crystal</em></strong>, It makes a soft howling noise.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>gesture at an open flame with the scepter</em></strong>, The flame flickers or flares as if blown by the wind.</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>bleed a helpless, living creature and dip the Scepter's crystal in their still-warm blood</em></strong>, Mark 1 charge as the crystal soaks up the blood (to a maximum of 3). ◇◇◇</p>"
+						},
+						{
+							"type": "heading",
+							"description": "<p>When you <strong><em>inflame</em></strong>, When you <strong>wield the Scepter and incite an individual to violent action</strong>, you may erase 1 charge to roll +CHA: <strong>on a 10+</strong>, they must pick 1 from the list below; <strong>on a 7-9</strong>, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.</p><ul><li>Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so</li><li>Resist, but suffer painful burns (2d4 damage, ignores armor).</li></ul><p>When you <strong>Inflame someone and they kill one or more living beings as a result</strong>, mark 1.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "marks",
+							"description": "Marks",
+							"track": {
+								"max": 4
+							}
+						}
+					]
+				}
+			},
+			"back": {
+				"title": "Mysteries of the Red Scepter",
+				"description": null,
+				"resource": null,
+				"itemSameAsFront": true,
+				"choices": null,
+				"moves": [
+					{
+						"id": "burning-hatred",
+						"name": "Burning Hatred",
+						"subtitle": "near, magical, reload",
+						"text": "<p>When you <strong>point the Red Scepter at an object of your hatred and erase 1 charge</strong>, roll +CHA: <strong>on a 10+</strong>, the Scepter deals 2d4 damage (<em>messy</em>, ignores armor), manifested as blistering burns; <strong>on a 7-9</strong>, as a 10+ but pick 1:</p><ul><li>Mark a consequence</li><li>Spend a few seconds chanting and muttering before dealing damage</li><li>Cause any exposed, combustible items in range to burst into flames</li></ul><p><strong>On a 6-</strong>, the GM says what happens (which may or may not involve marking a consequence).</p><p>When you <strong>mark 3 Consequences</strong>, you gain Fanning the Flames.</p>"
+					},
+					{
+						"id": "fanning-the-flames",
+						"name": "Fanning the Flames",
+						"text": "<p>When you <strong>use Inflame</strong>, you can incite everyone who can hear you into violent action, not just an individual. If you do, roll once for the entire crowd, but each target makes their own choices. <strong>On a 7-9</strong>, you must also choose a Consequence; <strong>on a 6-</strong>, the GM chooses a Consequence for you in addition to whatever else happens.</p><p>When you <strong>use Burning Hatred</strong>, you can mark a consequence to target not just the person or thing you hate but also everything near them. Roll +CHA once but roll damage for each victim. Any combustibles on your targets also erupt into flame.</p>"
+					}
+				],
+				"consequences": {
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "heading",
+							"slug": "scepter-c1",
+							"description": "<p>Your skin becomes feverish. You always feel hot and can't bear to wear <em>warm</em> gear.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c2",
+							"description": "<p>Your eyes change, glowing like fiery embers. They flare with your temper.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c3",
+							"description": "<p>The crystal tip of the Scepter cracks, and you cannot use the Scepter's powers until you have \"fed\" the Scepter another chunk of red crystal, one at least the size of your fist.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c4",
+							"description": "<p>To gain any future charge, the victim you bleed must be awake and terrified.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c5",
+							"description": "<p>To gain any future charge, the blood-letting must be brutal, messy, and wanton.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c6",
+							"description": "<p>Henceforth, when you <strong>incite someone to violence with the Scepter and they act as you suggest</strong>, they lose themselves to primal bloodlust. They feel no pain and revel in carnage until they are killed, restrained, or crippled.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c7",
+							"description": "<p>When you <strong>use Burning Hatred</strong>, something on your person or within reach also catches fire.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c8",
+							"description": "<p>You always hear a dim howling in the back of your mind. When the wind blows, the howling grows in volume, making it difficult to hear anything other than insults or plans to commit violence.</p>"
+						},
+						{
+							"type": "heading",
+							"slug": "scepter-c9",
+							"description": "<p>When you <strong>Persuade using anything other than threats, pain, or violence</strong>, the best you can get is a 7-9.</p>"
+						}
+					]
+				},
+				"unlockAt": null
+			},
+			"major": true
+		}
+	},
+	"folder": "fpByTs4Q1SJRjnfu"
+}

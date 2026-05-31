@@ -1,16 +1,6 @@
-// ── Back side ─────────────────────────────────────────────────────────────────
-
-export class ArcanumBackMoveSnapshot {
-	constructor(name, rollType, description) {
-		this.name        = name;
-		this.rollType    = rollType;
-		this.description = description;
-	}
-}
-
 // ── Front / back snapshots ────────────────────────────────────────────────────
 
-export class MinorArcanumFrontSnapshot {
+export class ArcanumFrontSnapshot {
 	constructor(b) {
 		this.title       = b._title;
 		this.item        = b._item;
@@ -19,40 +9,47 @@ export class MinorArcanumFrontSnapshot {
 	}
 }
 
-export class MinorArcanumFrontSnapshotBuilder {
+export class ArcanumFrontSnapshotBuilder {
 	withTitle(v)       { this._title       = v; return this; }
 	withItem(v)        { this._item        = v; return this; }
 	withDescription(v) { this._description = v; return this; }
 	withUnlock(v)      { this._unlock      = v; return this; }
-	build()            { return new MinorArcanumFrontSnapshot(this); }
+	build()            { return new ArcanumFrontSnapshot(this); }
 }
 
-export class MinorArcanumBackSnapshot {
+export class ArcanumBackSnapshot {
 	constructor(b) {
-		this.title       = b._title;
-		this.item        = b._item;
-		this.description = b._description;
-		this.resource    = b._resource;
-		this.move        = b._move;
-		this.choices     = b._choices ?? null;
+		this.title        = b._title;
+		this.item         = b._item;
+		this.description  = b._description;
+		this.resource     = b._resource;
+		this.choices      = b._choices      ?? null;
+		this.moves        = b._moves        ?? [];
+		this.consequences = b._consequences ?? null;
+		this.unlockAt     = b._unlockAt     ?? null;
 	}
 }
 
-export class MinorArcanumBackSnapshotBuilder {
-	withTitle(v)       { this._title       = v; return this; }
-	withItem(v)        { this._item        = v; return this; }
-	withDescription(v) { this._description = v; return this; }
-	withResource(v)    { this._resource    = v; return this; }
-	withMove(v)        { this._move        = v; return this; }
-	withChoices(v)     { this._choices     = v; return this; }
-	build()            { return new MinorArcanumBackSnapshot(this); }
+export class ArcanumBackSnapshotBuilder {
+	withTitle(v)        { this._title        = v; return this; }
+	withItem(v)         { this._item         = v; return this; }
+	withDescription(v)  { this._description  = v; return this; }
+	withResource(v)     { this._resource     = v; return this; }
+	withChoices(v)      { this._choices      = v; return this; }
+	withMoves(v)        { this._moves        = v; return this; }
+	withConsequences(v) { this._consequences = v; return this; }
+	withUnlockAt(v)     { this._unlockAt     = v; return this; }
+	build()             { return new ArcanumBackSnapshot(this); }
 }
 
 // ── Arcanum ───────────────────────────────────────────────────────────────────
 
-export class MinorArcanumSnapshot {
+export class ArcanumSnapshot {
 	constructor(b) {
 		this.slug    = b._slug;
+		this.major   = b._major   ?? false;
+		this.name    = b._name    ?? null;
+		this.img     = b._img     ?? null;
 		this.front   = b._front;
 		this.back    = b._back;
 		this.owned   = b._owned;
@@ -61,14 +58,17 @@ export class MinorArcanumSnapshot {
 	}
 }
 
-export class MinorArcanumSnapshotBuilder {
+export class ArcanumSnapshotBuilder {
 	withSlug(v)    { this._slug    = v; return this; }
+	withMajor(v)   { this._major   = v; return this; }
+	withName(v)    { this._name    = v; return this; }
+	withImg(v)     { this._img     = v; return this; }
 	withFront(v)   { this._front   = v; return this; }
 	withBack(v)    { this._back    = v; return this; }
 	withOwned(v)   { this._owned   = v; return this; }
 	withFlipped(v) { this._flipped = v; return this; }
 	withChecked(v) { this._checked = v; return this; }
-	build()        { return new MinorArcanumSnapshot(this); }
+	build()        { return new ArcanumSnapshot(this); }
 }
 
 // ── Sections ──────────────────────────────────────────────────────────────────

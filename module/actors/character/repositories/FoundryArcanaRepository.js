@@ -1,4 +1,4 @@
-import { MinorArcanum } from "../../../model/data/character/MinorArcanum.js";
+import { Arcanum } from "../../../model/data/character/Arcanum.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 export class FoundryArcanaRepository {
@@ -12,7 +12,7 @@ export class FoundryArcanaRepository {
 		const entry = await this._store.findEntry(e => e.flags?.stonetop?.slug === slug);
 		if (!entry) return null;
 		const doc    = await this._store.getDocument(entry._id);
-		const arcanum = new MinorArcanum(doc.flags.stonetop);
+		const arcanum = new Arcanum({ ...doc.flags.stonetop, name: doc.name, img: doc.img });
 		this._cache.set(slug, arcanum);
 		return arcanum;
 	}
