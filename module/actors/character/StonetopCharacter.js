@@ -99,7 +99,7 @@ export class StonetopCharacter {
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
 			.withFollowers(followers)
-			.withRollMode(actor.getFlag("pbta", "rollMode") ?? "normal")
+			.withRollMode(actor.getFlag("stonetop", "rollMode") ?? "normal")
 			.build();
 	}
 

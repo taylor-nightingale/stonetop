@@ -4,72 +4,69 @@
 	"name": "A gold ring",
 	"type": "equipment",
 	"system": {
-		"equipmentType": "arcanum"
-	},
-	"flags": {
-		"stonetop": {
-			"slug": "gold-ring",
-			"front": {
-				"title": "A gold ring",
-				"item": {
-					"name": "A gold ring",
-					"weight": null,
-					"note": "<em>magical</em>",
-					"inventoryColumn": null
-				},
-				"description": "<p>This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.</p>",
-				"unlock": {
-					"slug": "gold-ring",
-					"list": [
-						{
-							"type": "heading",
-							"description": "You can unlock the secrets of this ring, but must first…"
-						},
-						{
-							"type": "heading",
-							"slug": "wear-40-days",
-							"description": "… wear the ring continuously for 40 days, witnessing the sunrise each day.",
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "heading",
-							"slug": "act-of-charity",
-							"description": "… perform an act of charity while wearing the ring, one that changes the recipient's life.",
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "heading",
-							"slug": "worship-helior",
-							"description": "… participate in the devout and proper worship of Helior.",
-							"track": {
-								"max": 1
-							}
-						}
-					]
-				}
+		"equipmentType": "arcanum",
+		"slug": "gold-ring",
+		"front": {
+			"title": "A gold ring",
+			"item": {
+				"name": "A gold ring",
+				"weight": null,
+				"note": "<em>magical</em>",
+				"inventoryColumn": null
 			},
-			"back": {
-				"title": "Helior's Shining Ring",
-				"item": null,
-				"description": "<p>When you <strong><em>spend the better part of a day wearing the ring and worshipping Helior in full sunlight</em></strong>, hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.</p><p>Alas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.</p>",
-				"resource": {
-					"max": 3,
-					"maxStat": null,
-					"title": "Daylight",
-					"labels": []
-				},
-				"moves": [
+			"description": "<p>This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.</p>",
+			"unlock": {
+				"slug": "gold-ring",
+				"list": [
 					{
-						"name": "When you spend the better part of a day wearing the ring and worshipping Helior in full sunlight",
-						"text": "<p>Hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at.</p>"
+						"type": "heading",
+						"description": "You can unlock the secrets of this ring, but must first…"
+					},
+					{
+						"type": "heading",
+						"slug": "wear-40-days",
+						"description": "… wear the ring continuously for 40 days, witnessing the sunrise each day.",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "act-of-charity",
+						"description": "… perform an act of charity while wearing the ring, one that changes the recipient's life.",
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "heading",
+						"slug": "worship-helior",
+						"description": "… participate in the devout and proper worship of Helior.",
+						"track": {
+							"max": 1
+						}
 					}
 				]
 			}
+		},
+		"back": {
+			"title": "Helior's Shining Ring",
+			"item": null,
+			"description": "<p>When you <strong><em>spend the better part of a day wearing the ring and worshipping Helior in full sunlight</em></strong>, hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.</p><p>Alas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.</p>",
+			"resource": {
+				"max": 3,
+				"maxStat": null,
+				"title": "Daylight",
+				"labels": []
+			},
+			"moves": [
+				{
+					"name": "When you spend the better part of a day wearing the ring and worshipping Helior in full sunlight",
+					"text": "<p>Hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at.</p>"
+				}
+			]
 		}
 	},
+	"flags": {},
 	"folder": "ae2Zzqvw7AMw8WLw"
 }

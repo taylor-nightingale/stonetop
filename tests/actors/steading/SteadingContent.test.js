@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { SteadingContent } from "../../../module/actors/steading/SteadingContent.js";
 import { ContentSection } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
-import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 function make() {
-	return new SteadingContent(new FakeActorBuilder().build());
+	return new SteadingContent(new FakeSteadingBuilder().build());
 }
 
 describe("SteadingContent.buildSnapshot", () => {

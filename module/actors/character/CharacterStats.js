@@ -69,8 +69,8 @@ export class CharacterStats {
 		const isDescription = event.currentTarget.getAttribute("data-show") === "description";
 		const descriptionOnly = isDescription || (item.type === "npcMove" && !item.system.rollFormula);
 		const options = {};
-		if (!game.settings.get("pbta", "hideRollMode")) {
-			options.rollMode = this._actor.getFlag("pbta", "rollMode");
+		if (!game.settings.get("stonetop", "hideRollMode")) {
+			options.rollMode = this._actor.getFlag("stonetop", "rollMode");
 		}
 		await item.roll({ ...this.applyDebilityRollMode(stat, options), descriptionOnly });
 		return true;

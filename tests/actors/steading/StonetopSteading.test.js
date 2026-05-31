@@ -1,13 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { StonetopSteading } from "../../../module/actors/steading/StonetopSteading.js";
-import { SteadingDefaults } from "../../../module/model/data/steading/SteadingDefaults.js";
 import { SteadingSnapshot } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
-import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 const fakeRepo = {getAll: async () => []};
 
 function make() {
-	return new StonetopSteading(new FakeActorBuilder().build(), fakeRepo);
+	return new StonetopSteading(new FakeSteadingBuilder().build(), fakeRepo);
 }
 
 describe("StonetopSteading.buildSnapshot", () => {
@@ -17,12 +16,12 @@ describe("StonetopSteading.buildSnapshot", () => {
 
 	it("uses default fortunes when no value set", async () => {
 		const snap = await make().buildSnapshot();
-		expect(snap.fortunes.current).toBe(SteadingDefaults.fortunes.current);
+		expect(snap.fortunes.current).toBe(2);
 	});
 
 	it("uses default surplus when no value set", async () => {
 		const snap = await make().buildSnapshot();
-		expect(snap.surplus.current).toBe(SteadingDefaults.surplus.current);
+		expect(snap.surplus.current).toBe(1);
 	});
 
 	it("defaults notes to empty string", async () => {

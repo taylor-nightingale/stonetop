@@ -3,7 +3,6 @@ export class StonetopPlaybook {
 
 	constructor(stonetopItem) {
 		this._stonetopItem = stonetopItem;
-		this._stonetopFields = this._stonetopItem.flags.stonetop;
 	}
 
 	get name() {
@@ -23,42 +22,42 @@ export class StonetopPlaybook {
 	}
 
 	get statsNote() {
-		return this._stonetopFields.statsNote ?? null;
+		return this._stonetopItem.system?.statsNote ?? null;
 	}
 
 	get hp() {
-		return this._stonetopFields.hp;
+		return this._stonetopItem.system?.hp;
 	}
 
 	get damage() {
-		return this._stonetopFields.damage;
+		return this._stonetopItem.system?.damage ?? null;
 	}
 
 	get appearance() {
-		return this._stonetopFields.appearance ?? null;
+		return this._stonetopItem.system?.appearance ?? null;
 	}
 
 	get backgrounds() {
-		return this._stonetopFields.backgrounds ?? [];
+		return this._stonetopItem.system?.backgrounds ?? [];
 	}
 
 	get instinct() {
-		return this._stonetopFields.instinct ?? null;
+		return this._stonetopItem.system?.instinct ?? null;
 	}
 
 	get origin() {
-		return this._stonetopFields.origin ?? [];
+		return this._stonetopItem.system?.origin ?? [];
 	}
 
 	get startingMovesNote() {
-		return this._stonetopFields.moves?.startingMovesNote ?? null;
+		return this._stonetopItem.system?.startingMovesNote ?? null;
 	}
 
 	get specialPossessions() {
-		return this._stonetopFields.specialPossessions ?? null;
+		return this._stonetopItem.system?.specialPossessions ?? null;
 	}
 
 	get lore() {
-		return this._stonetopFields.lore ?? [];
+		return this._stonetopItem.system?.lore ?? [];
 	}
 }

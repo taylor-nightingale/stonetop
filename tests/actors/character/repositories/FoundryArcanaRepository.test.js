@@ -4,13 +4,13 @@ import { Arcanum } from "../../../../module/model/data/character/Arcanum.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
-const ARCANUM_FLAGS = {
+const ARCANUM_SYSTEM = {
 	slug: "huge-wooden-sphere",
 	front: { title: "A Huge Wooden Sphere", item: null, description: "", unlock: { description: "", requirements: [] } },
 	back:  { title: "Ffyrnig Tonic", item: null, description: "", resource: null, move: null, options: [] },
 };
 
-const OTHER_FLAGS = {
+const OTHER_SYSTEM = {
 	slug: "humble-broom",
 	front: { title: "A Humble Broom", item: null, description: "", unlock: { description: "", requirements: [] } },
 	back:  { title: "Broom of Sweeping", item: null, description: "", resource: null, move: null, options: [] },
@@ -18,14 +18,14 @@ const OTHER_FLAGS = {
 
 // -- Helpers ------------------------------------------------------------------
 
-function makePack(entries = [], flagsBySlug = {}) {
+function makePack(entries = [], systemBySlug = {}) {
 	return {
 		getIndex: vi.fn(async () => {}),
 		index: entries,
 		getDocument: vi.fn(async (id) => {
 			const entry = entries.find(e => e._id === id);
-			const slug  = entry?.flags?.stonetop?.slug;
-			return { flags: { stonetop: flagsBySlug[slug] } };
+			const slug  = entry?.system?.slug;
+			return { system: systemBySlug[slug] };
 		}),
 	};
 }
@@ -58,8 +58,8 @@ describe("FoundryArcanaRepository", () => {
 
 		it("returns an Arcanum when slug is found", async () => {
 			const pack = makePack(
-				[{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } }],
-				{ "huge-wooden-sphere": ARCANUM_FLAGS },
+				[{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } }],
+				{ "huge-wooden-sphere": ARCANUM_SYSTEM },
 			);
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
@@ -70,18 +70,18 @@ describe("FoundryArcanaRepository", () => {
 			expect(result.back.title).toBe("Ffyrnig Tonic");
 		});
 
-		it("calls getIndex with flags.stonetop.slug field", async () => {
+		it("calls getIndex with system.slug field", async () => {
 			const pack = makePack([], {});
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
 			await repo.findBySlug("anything");
-			expect(pack.getIndex).toHaveBeenCalledWith({ fields: ["flags.stonetop.slug"] });
+			expect(pack.getIndex).toHaveBeenCalledWith({ fields: ["system.slug"] });
 		});
 
 		it("caches the result — getDocument is not called a second time", async () => {
 			const pack = makePack(
-				[{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } }],
-				{ "huge-wooden-sphere": ARCANUM_FLAGS },
+				[{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } }],
+				{ "huge-wooden-sphere": ARCANUM_SYSTEM },
 			);
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
@@ -95,10 +95,10 @@ describe("FoundryArcanaRepository", () => {
 		it("returns Arcanum instances for all matching arcana", async () => {
 			const pack = makePack(
 				[
-					{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } },
-					{ _id: "abc123xyz0000002", flags: { stonetop: { slug: "humble-broom" } } },
+					{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } },
+					{ _id: "abc123xyz0000002", system: { slug: "humble-broom" } },
 				],
-				{ "huge-wooden-sphere": ARCANUM_FLAGS, "humble-broom": OTHER_FLAGS },
+				{ "huge-wooden-sphere": ARCANUM_SYSTEM, "humble-broom": OTHER_SYSTEM },
 			);
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
@@ -112,8 +112,8 @@ describe("FoundryArcanaRepository", () => {
 
 		it("filters out slugs not in index", async () => {
 			const pack = makePack(
-				[{ _id: "abc123xyz0000001", flags: { stonetop: { slug: "huge-wooden-sphere" } } }],
-				{ "huge-wooden-sphere": ARCANUM_FLAGS },
+				[{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } }],
+				{ "huge-wooden-sphere": ARCANUM_SYSTEM },
 			);
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();

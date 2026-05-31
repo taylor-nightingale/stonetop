@@ -42,7 +42,7 @@ export class CharacterBackgrounds {
 			const choices = b.choices ? new BackgroundChoicesSnapshotBuilder()
 				.withLabel(b.choices.label)
 				.withCount(b.choices.count)
-				.withCountLabel(b.choices.count.join(" or "))
+				.withCountLabel(`${b.choices.count.min} or ${b.choices.count.max}`)
 				.withOptions(b.choices.options.map(o =>
 					new BackgroundChoiceOptionSnapshot(o.slug, o.label, !!(savedChoices?.[o.slug]))
 				))

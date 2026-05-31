@@ -1,18 +1,17 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
 import {DebilitySnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
 
 export class SteadingDebilities {
 	constructor(actor) {
-		this._flags = new StonetopFlags(actor, "steading");
+		this._actor = actor;
 	}
 
 	get _state() {
-		return this._flags.getFlag("debilities") ?? {};
+		return this._actor.system.debilities ?? {};
 	}
 
 	async setDebility(slug, active) {
-		await this._flags.setFlag("debilities", {...this._state, [slug]: active});
+		await this._actor.update({"system.debilities": {...this._state, [slug]: active}});
 	}
 
 	buildSnapshot() {

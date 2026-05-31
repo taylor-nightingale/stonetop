@@ -1,126 +1,54 @@
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
 import {AttributeSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
-import {StonetopFlags} from "../character/StonetopFlags.js";
-
-class AttributeState {
-	slug;
-	items = [];
-	current;
-	defaultsAdded = false;
-	constructor(slug) {
-		this.slug = slug;
-	}
-
-	static fromRaw(raw) {
-		const instance = new AttributeState();
-		instance.slug = raw.slug;
-		instance.items = raw.items ?? [];
-		instance.current = raw.current;
-		instance.defaultsAdded = raw.defaultsAdded ?? false;
-		return instance;
-	}
-
-	toPlainData() {
-		return  {
-			slug: this.slug,
-			items: this.items,
-			current: this.current,
-			defaultsAdded: this.defaultsAdded
-		};
-	}
-	addNewItem() {
-		this.items.push("");
-		return this;
-	}
-
-	updateItem(index, item) {
-		this.items[index] = item;
-		return this;
-	}
-
-	removeItem(index) {
-		this.items.splice(index, 1);
-		return this;
-	}
-
-	setCurrent(current) {
-		this.current = current;
-		return this;
-	}
-
-	setDefaults(defaults) {
-		this.current = defaults.current;
-		this.items = [...(defaults.items ?? []), ...this.items];
-		this.defaultsAdded = true;
-	}
-}
 
 export class SteadingAttributes {
 	constructor(actor) {
-		this._flags = new StonetopFlags(actor, "steadingAttributes");
+		this._actor = actor;
 	}
 
-	async _setAttribute(attribute) {
-		return await this._flags.setFlag(attribute.slug, attribute.toPlainData());
+	_attr(slug) {
+		return this._actor.system.attributes[slug] ?? {current: 0, items: []};
 	}
 
-	_attribute(slug) {
-		const raw = this._flags.getFlag(slug) ?? new AttributeState(slug);
-
-		if (raw instanceof AttributeState) {
-			return raw;
-		}
-
-		return AttributeState.fromRaw(raw);
+	async _save(slug, attr) {
+		await this._actor.update({[`system.attributes.${slug}`]: attr});
 	}
 
-
-	async setCurrent(attributeSlug, current) {
-		const attribute = this._attribute(attributeSlug).setCurrent(current);
-		await this._setAttribute(attribute);
+	async setCurrent(slug, current) {
+		await this._save(slug, {...this._attr(slug), current});
 	}
 
-	async addNewItemToAttribute(attributeSlug) {
-		const attribute = this._attribute(attributeSlug).addNewItem();
-		await this._setAttribute(attribute);
+	async addNewItemToAttribute(slug) {
+		const attr = this._attr(slug);
+		await this._save(slug, {...attr, items: [...attr.items, ""]});
 	}
 
-	async updateItemOnAttribute(attributeSlug, index, value) {
-		const attribute = this._attribute(attributeSlug).updateItem(index, value);
-		await this._setAttribute(attribute);
+	async updateItemOnAttribute(slug, index, value) {
+		const attr  = this._attr(slug);
+		const items = [...attr.items];
+		items[index] = value;
+		await this._save(slug, {...attr, items});
 	}
 
-	async removeItemFromAttribute(attributeSlug, index) {
-		const attribute = this._attribute(attributeSlug).removeItem(index);
-		await this._setAttribute(attribute);
+	async removeItemFromAttribute(slug, index) {
+		const attr  = this._attr(slug);
+		const items = [...attr.items];
+		items.splice(index, 1);
+		await this._save(slug, {...attr, items});
 	}
 
-	async buildSnapshot() {
-		const [size, population, prosperity, defense] = await Promise.all([
-			this._buildAttributeSnapshot("size"),
-			this._buildAttributeSnapshot("population"),
-			this._buildAttributeSnapshot("prosperity"),
-			this._buildAttributeSnapshot("defenses")
-		]);
-
+	buildSnapshot() {
 		return {
-			size: size,
-			population: population,
-			prosperity: prosperity,
-			defenses: defense,
+			size:       this._attrSnapshot("size"),
+			population: this._attrSnapshot("population"),
+			prosperity: this._attrSnapshot("prosperity"),
+			defenses:   this._attrSnapshot("defenses"),
 		};
 	}
 
-	async _buildAttributeSnapshot(slug) {
-		const defaultValues = SteadingDefaults.attributes[slug];
-		const attribute = this._attribute(slug)
-
-		if (!attribute.defaultsAdded) {
-			attribute.setDefaults(defaultValues);
-			await this._setAttribute(attribute);
-		}
-
-		return new AttributeSnapshot(slug, defaultValues.title, defaultValues.note,
-			attribute.current, defaultValues.options, attribute.items);
+	_attrSnapshot(slug) {
+		const def  = SteadingDefaults.attributes[slug];
+		const attr = this._attr(slug);
+		return new AttributeSnapshot(slug, def.title, def.note, attr.current, def.options, attr.items);
 	}
 }

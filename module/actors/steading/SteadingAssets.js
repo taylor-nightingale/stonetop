@@ -1,47 +1,38 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
-import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
-
 export class SteadingAssets {
 	constructor(actor) {
-		this._flags = new StonetopFlags(actor, "steading");
+		this._actor = actor;
 	}
 
 	get _state() {
-		return this._flags.getFlag("assets") ?? {};
+		return this._actor.system.assets;
 	}
 
 	async addItem() {
-		const state = this._state;
-		const items = [...(state.items ?? SteadingDefaults.assets.items), ""];
-		await this._flags.setFlag("assets", {...state, items});
+		await this._actor.update({"system.assets": {...this._state, items: [...this._state.items, ""]}});
 	}
 
 	async removeItem(index) {
-		const state = this._state;
-		const items = [...(state.items ?? SteadingDefaults.assets.items)];
+		const items = [...this._state.items];
 		items.splice(index, 1);
-		await this._flags.setFlag("assets", {...state, items});
+		await this._actor.update({"system.assets": {...this._state, items}});
 	}
 
 	async updateItem(index, value) {
-		const state = this._state;
-		const items = [...(state.items ?? SteadingDefaults.assets.items)];
+		const items = [...this._state.items];
 		items[index] = value;
-		await this._flags.setFlag("assets", {...state, items});
+		await this._actor.update({"system.assets": {...this._state, items}});
 	}
 
 	async updateCoinageEntry(index, field, value) {
-		const state = this._state;
-		const coinage = [...(state.coinage ?? SteadingDefaults.assets.coinage)];
+		const coinage = [...this._state.coinage];
 		coinage[index] = {...coinage[index], [field]: value};
-		await this._flags.setFlag("assets", {...state, coinage});
+		await this._actor.update({"system.assets": {...this._state, coinage}});
 	}
 
 	buildSnapshot() {
-		const state = this._state;
 		return {
-			items:   state.items   ?? SteadingDefaults.assets.items,
-			coinage: state.coinage ?? SteadingDefaults.assets.coinage,
+			items:   this._state.items,
+			coinage: this._state.coinage,
 		};
 	}
 }

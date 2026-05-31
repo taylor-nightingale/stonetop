@@ -70,7 +70,7 @@ async function loadLoreFiles() {
 		for (const name of entries.filter(n => n.endsWith(".json"))) {
 			const full = path.join(dir, name);
 			const data = JSON.parse(await fs.readFile(full, "utf8"));
-			const lore = data.flags?.stonetop?.lore ?? [];
+			const lore = data.system?.lore ?? data.flags?.stonetop?.lore ?? [];
 			if (lore.length) files.push({ name, lore });
 		}
 	}
@@ -83,7 +83,7 @@ async function loadPlaybookChoices() {
 	for (const name of files.filter(n => n.endsWith(".json"))) {
 		const full = path.join(PLAYBOOK_DIR, name);
 		const data = JSON.parse(await fs.readFile(full, "utf8"));
-		const options = data.flags?.stonetop?.specialPossessions?.options ?? [];
+		const options = data.system?.specialPossessions?.options ?? [];
 		for (const opt of options) {
 			if (opt.choices != null) entries.push({ name, possessionSlug: opt.slug, choices: opt.choices });
 		}
@@ -101,7 +101,7 @@ async function loadArcanaFiles() {
 				await scanDir(full);
 			} else if (entry.name.endsWith(".json")) {
 				const data = JSON.parse(await fs.readFile(full, "utf8"));
-				const unlock = data.flags?.stonetop?.front?.unlock;
+				const unlock = data.system?.front?.unlock;
 				if (unlock) files.push({ name: entry.name, unlock });
 			}
 		}

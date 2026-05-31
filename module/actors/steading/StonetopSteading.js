@@ -1,4 +1,3 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
 import {FortunesSnapshot, SurplusSnapshot, SteadingSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
 import {PlacesOfInterest} from "./PlacesOfInterest.js";
@@ -13,7 +12,7 @@ import {SteadingImprovements} from "./SteadingImprovements.js";
 
 export class StonetopSteading {
 	constructor(actor, improvementsRepo) {
-		this._flags           = new StonetopFlags(actor, "steading");
+		this._actor          = actor;
 		this.placesOfInterest = new PlacesOfInterest(actor);
 		this.attributes       = new SteadingAttributes(actor);
 		this.debilities       = new SteadingDebilities(actor);
@@ -30,27 +29,27 @@ export class StonetopSteading {
 	}
 
 	get fortunesCurrent() {
-		return this._flags.getFlag("fortunes") ?? SteadingDefaults.fortunes.current;
+		return this._actor.system.fortunes ?? SteadingDefaults.fortunes.current;
 	}
 
 	get surplusCurrent() {
-		return this._flags.getFlag("surplus") ?? SteadingDefaults.surplus.current;
+		return this._actor.system.surplus ?? SteadingDefaults.surplus.current;
 	}
 
 	get notes() {
-		return this._flags.getFlag("notes") ?? "";
+		return this._actor.system.notes ?? "";
 	}
 
 	async setFortunes(index) {
-		await this._flags.setFlag("fortunes", index);
+		await this._actor.update({"system.fortunes": index});
 	}
 
 	async setSurplus(value) {
-		await this._flags.setFlag("surplus", value);
+		await this._actor.update({"system.surplus": value});
 	}
 
 	async setNotes(value) {
-		await this._flags.setFlag("notes", value);
+		await this._actor.update({"system.notes": value});
 	}
 
 	async buildSnapshot() {
@@ -62,21 +61,21 @@ export class StonetopSteading {
 			surplus: new SurplusSnapshot(
 				SteadingDefaults.surplus.title, SteadingDefaults.surplus.note, this.surplusCurrent,
 			),
-			attributes:         await this.attributes.buildSnapshot(),
+			attributes:         this.attributes.buildSnapshot(),
 			debilities:         this.debilities.buildSnapshot(),
-			placesOfInterest:   await this.placesOfInterest.buildSnapshot(),
+			placesOfInterest:   this.placesOfInterest.buildSnapshot(),
 			notes:              this.notes,
 			residents:          this.residents.buildSnapshot(),
 			neighbors: {
 				people: this.neighborPeople.buildSnapshot(),
-				places: await this.neighborPlaces.buildSnapshot(),
+				places: this.neighborPlaces.buildSnapshot(),
 			},
 			contentDescription: SteadingDefaults.content.description,
 			content:            this.content.buildSnapshot(),
 			assets:             this.assets.buildSnapshot(),
 			improvements:       await this.improvements.buildSnapshot(),
-			residentNames:      SteadingDefaults.residentNames,
-			residentTraits:     SteadingDefaults.residentTraits,
+			residentNames:      this._actor.system.residentNames,
+			residentTraits:     this._actor.system.residentTraits,
 		});
 	}
 }

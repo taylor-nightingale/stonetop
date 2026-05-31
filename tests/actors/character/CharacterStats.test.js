@@ -231,7 +231,7 @@ describe("CharacterStats.onRoll", () => {
 		expect(item.roll).toHaveBeenCalledOnce();
 	});
 
-	it("passes rollMode from actor pbta flag", async () => {
+	it("passes rollMode from actor stonetop flag", async () => {
 		const item = makeRollableItem({rollType: "str"});
 		const stats = new CharacterStats(makeOnRollActor(item, {pbtaRollMode: "adv"}));
 		expect(await stats.onRoll(makeItemEvent())).toBe(true);

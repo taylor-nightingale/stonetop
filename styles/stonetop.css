@@ -70,7 +70,7 @@ body,
 }
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
-	background: var(--stonetop-bg) url(/modules/stonetop/assets/graphics/sheet-bg.png);
+	background: var(--stonetop-bg) url(/systems/stonetop/assets/graphics/sheet-bg.png);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;
@@ -1284,7 +1284,7 @@ body,
 	min-height: 260px;
 	border-width: 14px;
 	border-style: solid;
-	border-image: url('/modules/stonetop/assets/arcana/arcana-card-border.png') 40 / 14px stretch;
+	border-image: url('/systems/stonetop/assets/arcana/arcana-card-border.png') 40 / 14px stretch;
 }
 
 .stonetop-arcanum-header {
@@ -1880,7 +1880,7 @@ body,
 	display: block;
 	width: 10px;
 	height: 10px;
-	background: url('/modules/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
+	background: url('/systems/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
 	flex-shrink: 0;
 }
 

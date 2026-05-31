@@ -49,7 +49,7 @@ export class FakeStatBuilder {
 
 export class FakeActorBuilder {
 	_flags = {};
-	_pbtaRollMode = null;
+	_rollMode = null;
 	_playbook = {slug: null, name: null};
 	_name = "Brakken";
 	_items = [];
@@ -105,7 +105,7 @@ export class FakeActorBuilder {
 	}
 
 	withRollMode(rollMode) {
-		this._pbtaRollMode = rollMode;
+		this._rollMode = rollMode;
 		return this;
 	}
 
@@ -137,7 +137,7 @@ export class FakeActorBuilder {
 		for (const [key, value] of Object.entries(this._flags)) {
 			fakeFlags.setFlagNonAsync("stonetop", key, value);
 		}
-		fakeFlags.setFlagNonAsync("pbta", "rollMode", this._pbtaRollMode);
+		fakeFlags.setFlagNonAsync("stonetop", "rollMode", this._rollMode);
 
 		return {
 			name: this._name,

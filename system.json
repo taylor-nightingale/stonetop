@@ -1,0 +1,141 @@
+{
+	"$schema": "https://json.schemastore.org/foundryvtt-system-manifest.json",
+	"id": "stonetop",
+	"title": "Stonetop",
+	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
+	"version": "0.8.1",
+	"compatibility": {
+		"minimum": "12",
+		"verified": "14"
+	},
+	"authors": [
+		{
+			"name": "aMediocerDad",
+			"flags": {}
+		},
+		{
+			"name": "taylor-nightingale"
+		}
+	],
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "js", "hbs", "json"],
+			"paths": [
+				"stonetop.js",
+				"module",
+				"styles",
+				"languages",
+				"templates"
+			]
+		}
+	},
+	"esmodules": [
+		"stonetop.js"
+	],
+	"styles": [
+		"styles/stonetop.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "languages/en.json"
+		}
+	],
+	"template": "template.json",
+	"documentTypes": {
+		"Actor": {
+			"steading": {}
+		}
+	},
+	"packs": [
+		{
+			"name": "basic-moves",
+			"label": "Basic Moves",
+			"path": "packs/basic-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "playbooks",
+			"label": "Playbooks",
+			"path": "packs/playbooks",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "special-moves",
+			"label": "Special Moves",
+			"path": "packs/special-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "playbook-moves",
+			"label": "Playbook Moves",
+			"path": "packs/playbook-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "follower-moves",
+			"label": "Follower Moves",
+			"path": "packs/follower-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "homefront-moves",
+			"label": "Homefront Moves",
+			"path": "packs/homefront-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "outfit-items",
+			"label": "Inventory Items",
+			"path": "packs/outfit-items",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "arcana",
+			"label": "Arcana",
+			"path": "packs/arcana",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "post-death-inserts",
+			"label": "Post-Death Inserts",
+			"path": "packs/post-death-inserts",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "post-death-moves",
+			"label": "Post-Death Moves",
+			"path": "packs/post-death-moves",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "followers",
+			"label": "Followers",
+			"path": "packs/followers",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "steading-improvements",
+			"label": "Steading Improvements",
+			"path": "packs/steading-improvements",
+			"type": "Item",
+			"system": "stonetop"
+		}
+	],
+	"url": "https://github.com/taylor-nightingale/stonetop",
+	"license": "LICENSE",
+	"manifest": "https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.json",
+	"download": "https://github.com/taylor-nightingale/stonetop/archive/refs/heads/main.zip"
+}

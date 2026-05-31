@@ -1,6 +1,6 @@
 import { FoundryPackStore } from "../../character/repositories/FoundryPackStore.js";
 
-const FIELDS = ["flags.stonetop.slug", "flags.stonetop.sortOrder", "flags.stonetop.choices"];
+const FIELDS = ["system.slug", "system.sortOrder", "system.choices"];
 
 export class SteadingImprovement {
 	constructor(slug, choices) {
@@ -19,11 +19,8 @@ export class FoundrySteadingImprovementRepository {
 		if (this._cache) return this._cache;
 		const entries = await this._store.getAll();
 		this._cache = entries
-			.sort((a, b) => (a.flags?.stonetop?.sortOrder ?? 0) - (b.flags?.stonetop?.sortOrder ?? 0))
-			.map(entry => {
-				const st = entry.flags?.stonetop ?? {};
-				return new SteadingImprovement(st.slug, st.choices ?? null);
-			});
+			.sort((a, b) => (a.system?.sortOrder ?? 0) - (b.system?.sortOrder ?? 0))
+			.map(entry => new SteadingImprovement(entry.system?.slug, entry.system?.choices ?? null));
 		return this._cache;
 	}
 }

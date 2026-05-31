@@ -16,7 +16,7 @@ export function createStonetopSteadingSheetClass(Base) {
 		}
 
 		get template() {
-			return "modules/stonetop/templates/actor/steading.hbs";
+			return "systems/stonetop/templates/actor/steading.hbs";
 		}
 
 		async getData() {

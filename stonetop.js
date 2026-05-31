@@ -1,9 +1,9 @@
 import { registerSettings } from "./module/settings.js";
 import { createStonetopActorClass } from "./module/actors/StonetopActor.js";
 import { createStonetopItemClass } from "./module/item/StonetopItem.js";
+import { StonetopActorSheet } from "./module/actors/StonetopActorSheet.js";
 import { createStonetopCharacterSheetClass } from "./module/actors/character/StonetopCharacterSheet.js";
 import { createStonetopSteadingSheetClass } from "./module/actors/steading/StonetopSteadingSheet.js";
-import { onPbtaSheetConfig } from "./module/hooks/PbtaSheetConfig.js";
 import { onReady } from "./module/hooks/Ready.js";
 import { onRenderActorSheet } from "./module/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./module/hooks/RenderPause.js";
@@ -62,7 +62,7 @@ Hooks.once("init", () => {
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
-	const StonetopCharacterSheet = createStonetopCharacterSheetClass(game.pbta.applications.actor.PbtaActorSheet);
+	const StonetopCharacterSheet = createStonetopCharacterSheetClass(StonetopActorSheet);
 	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopCharacterSheet, {
 		types: ["character"],
 		makeDefault: true,
@@ -71,37 +71,35 @@ Hooks.once("init", () => {
 
 	const StonetopSteadingSheet = createStonetopSteadingSheetClass(foundry.appv1.sheets.ActorSheet);
 	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopSteadingSheet, {
-		types: ["stonetop.steading"],
+		types: ["steading"],
 		makeDefault: true,
 		label: "Stonetop Steading Sheet",
 	});
 
 	foundry.applications.handlebars.loadTemplates({
-		"stonetop.tab-details":      "modules/stonetop/templates/actor/partials/tab-details.hbs",
-		"stonetop.tab-moves":        "modules/stonetop/templates/actor/partials/tab-moves.hbs",
-		"stonetop.tab-equipment":    "modules/stonetop/templates/actor/partials/tab-equipment.hbs",
-		"stonetop.tab-arcana":       "modules/stonetop/templates/actor/partials/tab-arcana.hbs",
-		"stonetop.arcanum-cards":    "modules/stonetop/templates/actor/partials/arcanum-cards.hbs",
-		"stonetop.tab-followers":    "modules/stonetop/templates/actor/partials/tab-followers.hbs",
-		"stonetop.follower-card":    "modules/stonetop/templates/actor/partials/follower-card.hbs",
-		"stonetop.tab-post-death":   "modules/stonetop/templates/actor/partials/tab-post-death.hbs",
-		"stonetop.move-group":       "modules/stonetop/templates/actor/partials/move-group.hbs",
-		"stonetop.choice-row":       "modules/stonetop/templates/actor/partials/choice-row.hbs",
-		"stonetop.choice-section":   "modules/stonetop/templates/actor/partials/lore-section.hbs",
-		"stonetop.section-heading":  "modules/stonetop/templates/actor/partials/section-heading.hbs",
-		"stonetop.resource-track":   "modules/stonetop/templates/actor/partials/resource-track.hbs",
-		"stonetop.steading":         "modules/stonetop/templates/actor/steading.hbs",
+		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
+		"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
+		"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",
+		"stonetop.tab-details":      "systems/stonetop/templates/actor/partials/tab-details.hbs",
+		"stonetop.tab-moves":        "systems/stonetop/templates/actor/partials/tab-moves.hbs",
+		"stonetop.tab-equipment":    "systems/stonetop/templates/actor/partials/tab-equipment.hbs",
+		"stonetop.tab-arcana":       "systems/stonetop/templates/actor/partials/tab-arcana.hbs",
+		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
+		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
+		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
+		"stonetop.tab-post-death":   "systems/stonetop/templates/actor/partials/tab-post-death.hbs",
+		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
+		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
+		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
+		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
+		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
+		"stonetop.steading":         "systems/stonetop/templates/actor/steading.hbs",
 	});
 });
 
 // -- RENDER PAUSE ----------------------------------------------
 // Fires when the game is paused
 Hooks.on("renderPause", onRenderPause);
-
-// -- PBTA SHEET CONFIG -----------------------------------------
-// Fires after init, before ready. pbta listens for this hook
-// to allow modules to override its sheet configuration.
-Hooks.once("pbtaSheetConfig", onPbtaSheetConfig);
 
 // -- READY -----------------------------------------------------
 // Fires when the world is fully loaded and all documents exist.

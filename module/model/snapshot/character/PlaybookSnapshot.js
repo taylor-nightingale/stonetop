@@ -113,7 +113,7 @@ export class PlaybookSnapshot {
 		this.slug        = b._slug;
 		this.name        = b._name;
 		this.img         = b._img;
-		this.titleImg    = b._slug ? `modules/stonetop/assets/playbooks/${b._slug}-title.png` : null;
+		this.titleImg    = b._slug ? `systems/stonetop/assets/playbooks/${b._slug}-title.png` : null;
 		this.description = b._description;
 		this.statsNote   = b._statsNote;
 		this.lore        = b._lore;

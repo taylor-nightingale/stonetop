@@ -16,7 +16,7 @@ export function createStonetopActorClass(BaseActor) {
 				case "character":
 					this._typedActor = StonetopCharacter.create(this);
 					break;
-				case "stonetop.steading":
+				case "steading":
 					this._typedActor = new StonetopSteading(this);
 					break;
 			}
@@ -26,20 +26,18 @@ export function createStonetopActorClass(BaseActor) {
 
 
 		// -- Lifecycle ---------------------------------------------
-		// Method names can not change, they are called by pbta system
 		async _onRoll(event) {
 			if (this.type === "character") {
-				const handled = await this.typedActor.onRoll(event);
-				if (handled) return;
+				return await this.typedActor.onRoll(event);
 			}
-			return super._onRoll(event);
+			return false;
 		}
 
 		async _onRollStat(stat, label, options = {}) {
 			if (this.type === "character") {
 				options = this.typedActor.applyDebilityRollMode(stat, options);
 			}
-			return super._onRollStat(stat, label, options);
+			return this.sheet._onRollStat(stat, label, options);
 		}
 
 		async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {

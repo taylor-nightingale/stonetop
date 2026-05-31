@@ -1,19 +1,24 @@
 import { describe, it, expect } from "vitest";
 import { SteadingAssets } from "../../../module/actors/steading/SteadingAssets.js";
-import { SteadingDefaults } from "../../../module/model/data/steading/SteadingDefaults.js";
-import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+
+const DEFAULT_ITEMS_COUNT = 4;
+const DEFAULT_COINAGE = [
+	{ title: "silver", purses: 0, handfuls: 0, coins: 0 },
+	{ title: "gold",   purses: 0, handfuls: 0, coins: 0 },
+];
 
 function make() {
-	return new SteadingAssets(new FakeActorBuilder().build());
+	return new SteadingAssets(new FakeSteadingBuilder().build());
 }
 
 describe("SteadingAssets.buildSnapshot", () => {
 	it("returns default coinage when no changes made", () => {
-		expect(make().buildSnapshot().coinage).toEqual(SteadingDefaults.assets.coinage);
+		expect(make().buildSnapshot().coinage).toEqual(DEFAULT_COINAGE);
 	});
 
 	it("returns default items when no changes made", () => {
-		expect(make().buildSnapshot().items).toEqual(SteadingDefaults.assets.items);
+		expect(make().buildSnapshot().items).toHaveLength(DEFAULT_ITEMS_COUNT);
 	});
 });
 
@@ -22,15 +27,15 @@ describe("SteadingAssets.addItem", () => {
 		const a = make();
 		await a.addItem();
 		const items = a.buildSnapshot().items;
-		expect(items).toHaveLength(SteadingDefaults.assets.items.length + 1);
+		expect(items).toHaveLength(DEFAULT_ITEMS_COUNT + 1);
 		expect(items.at(-1)).toBe("");
 	});
 
 	it("preserves existing items", async () => {
 		const a = make();
+		const before = a.buildSnapshot().items;
 		await a.addItem();
-		const items = a.buildSnapshot().items;
-		expect(items.slice(0, -1)).toEqual(SteadingDefaults.assets.items);
+		expect(a.buildSnapshot().items.slice(0, -1)).toEqual(before);
 	});
 });
 
@@ -84,9 +89,9 @@ describe("SteadingAssets.updateCoinageEntry", () => {
 		await a.updateCoinageEntry(0, "purses", 9);
 		const entry = a.buildSnapshot().coinage[0];
 		expect(entry.purses).toBe(9);
-		expect(entry.handfuls).toBe(SteadingDefaults.assets.coinage[0].handfuls);
-		expect(entry.coins).toBe(SteadingDefaults.assets.coinage[0].coins);
-		expect(entry.title).toBe(SteadingDefaults.assets.coinage[0].title);
+		expect(entry.handfuls).toBe(DEFAULT_COINAGE[0].handfuls);
+		expect(entry.coins).toBe(DEFAULT_COINAGE[0].coins);
+		expect(entry.title).toBe(DEFAULT_COINAGE[0].title);
 	});
 
 	it("can update handfuls and coins independently", async () => {

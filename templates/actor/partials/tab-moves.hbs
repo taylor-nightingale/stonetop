@@ -2,16 +2,28 @@
 	<section class="sheet-tab">
 
 		{{!-- Roll Mode --}}
-		{{#if isCharacter}}
-		{{#if (not sheetSettings.hideRollMode)}}
 		<section class="sheet-resources flexrow">
 			<div class="cell cell--roll-mode">
-				<label class="cell__title">{{localize "PBTA.RollMode"}}</label>
-				{{radioBoxes 'flags.pbta.rollMode' config.rollModes checked=flags.pbta.rollMode localize=true}}
+				<label class="cell__title">{{localize "stonetop.rollMode.label"}}</label>
+				<div class="stonetop-roll-modes">
+					<label>
+						<input type="radio" name="stonetop-roll-mode" value="normal"
+						       {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
+						{{localize "stonetop.rollMode.normal"}}
+					</label>
+					<label>
+						<input type="radio" name="stonetop-roll-mode" value="adv"
+						       {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
+						{{localize "stonetop.rollMode.adv"}}
+					</label>
+					<label>
+						<input type="radio" name="stonetop-roll-mode" value="dis"
+						       {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
+						{{localize "stonetop.rollMode.dis"}}
+					</label>
+				</div>
 			</div>
 		</section>
-		{{/if}}
-		{{/if}}
 
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}

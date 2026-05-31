@@ -1,4 +1,3 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
 import {ContentSection} from "../../model/snapshot/steading/SteadingSnapshot.js";
 
 const SECTIONS = [
@@ -9,30 +8,30 @@ const SECTIONS = [
 
 export class SteadingContent {
 	constructor(actor) {
-		this._flags = new StonetopFlags(actor, "steading");
+		this._actor = actor;
 	}
 
 	get _state() {
-		return this._flags.getFlag("content") ?? {};
+		return this._actor.system.content;
 	}
 
 	async addItem(section) {
 		const state = this._state;
-		await this._flags.setFlag("content", {...state, [section]: [...(state[section] ?? []), ""]});
+		await this._actor.update({"system.content": {...state, [section]: [...(state[section] ?? []), ""]}});
 	}
 
 	async removeItem(section, index) {
-		const state = this._state;
-		const list = [...(state[section] ?? [])];
+		const state  = this._state;
+		const list   = [...(state[section] ?? [])];
 		list.splice(index, 1);
-		await this._flags.setFlag("content", {...state, [section]: list});
+		await this._actor.update({"system.content": {...state, [section]: list}});
 	}
 
 	async updateItem(section, index, value) {
 		const state = this._state;
-		const list = [...(state[section] ?? [])];
+		const list  = [...(state[section] ?? [])];
 		list[index] = value;
-		await this._flags.setFlag("content", {...state, [section]: list});
+		await this._actor.update({"system.content": {...state, [section]: list}});
 	}
 
 	buildSnapshot() {

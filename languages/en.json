@@ -1,21 +1,25 @@
 {
-	"PBTA_OTHER": "Other (animals, kits, stashed items, etc.)",
 	"TYPES": {
 		"Actor": {
-			"stonetop": {
-				"steading": "Steading"
-			}
+			"steading": "Steading"
 		}
 	},
 	"stonetop": {
 		"sheet": {
 			"tabs": {
+				"moves": "Moves",
 				"details": "Details",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
 				"followers": "Followers",
 				"postDeath": "Post-Death"
 			}
+		},
+		"rollMode": {
+			"label": "Roll Mode",
+			"normal": "Normal",
+			"adv": "Advantage",
+			"dis": "Disadvantage"
 		},
 		"followers": {
 			"empty": "Drag followers here from the Followers compendium.",
@@ -66,6 +70,14 @@
 			}
 		},
 		"settings": {
+			"hideRollMode": {
+				"name": "Hide Roll Mode",
+				"hint": "Hide the roll mode selector (advantage/disadvantage) from character sheets."
+			},
+			"debugMode": {
+				"name": "Debug Mode",
+				"hint": "Enable debug logging in the browser console."
+			},
 			"expandMoveDescriptions": {
 				"name": "Expand Move Descriptions",
 				"hint": "Show move descriptions expanded by default on character sheets."

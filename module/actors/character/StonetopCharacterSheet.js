@@ -19,15 +19,12 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		get template() {
-			return "modules/stonetop/templates/actor/character.hbs";
+			return "systems/stonetop/templates/actor/character.hbs";
 		}
 
 		async getData() {
 			const context = await super.getData();
 			context.stonetop = await this._stonetopCharacter.buildSnapshot();
-			// reassign stonetop to system
-			context.system.attributes.armor.value = context.stonetop.vitals.armor
-			context.system.attributes.xp.max = context.stonetop.vitals.xp.max
 			return context;
 		}
 
@@ -47,6 +44,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			});
 
 			if (!this.isEditable) return;
+
+			html.find("[name=stonetop-roll-mode]").on("change", ev => {
+				this.actor.setFlag("stonetop", "rollMode", ev.currentTarget.value);
+			});
 
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
 			html.find(".stonetop-instinct-custom").on("change", ev =>

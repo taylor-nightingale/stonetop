@@ -23,7 +23,7 @@ export class CharacterPlaybook {
 	}
 
 	getSlug() {
-		return this._actor.system?.playbook?.slug;
+		return this._actor.items?.find(i => i.type === "playbook")?.system?.slug ?? null;
 	}
 
 	async getBackgroundMoveNames(bgSelectedSlug) {

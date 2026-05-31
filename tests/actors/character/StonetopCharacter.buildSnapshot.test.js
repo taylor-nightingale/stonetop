@@ -41,7 +41,7 @@ describe("buildSnapshot — rollMode", () => {
 		expect(snap.rollMode).toBe("normal");
 	});
 
-	it("reflects pbta rollMode flag", async () => {
+	it("reflects stonetop rollMode flag", async () => {
 		const actor = new FakeActorBuilder().withRollMode("adv").build();
 		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
 		expect(snap.rollMode).toBe("adv");

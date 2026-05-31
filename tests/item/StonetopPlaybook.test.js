@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { StonetopPlaybook } from "../../module/item/StonetopPlaybook.js";
 
-function makeItem(stonetopFields = {}) {
-	return { flags: { stonetop: stonetopFields } };
+function makeItem(systemFields = {}) {
+	return { system: systemFields };
 }
 
 describe("StonetopPlaybook", () => {
@@ -10,8 +10,8 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem({ hp: 18 })).hp).toBe(18);
 	});
 
-	it("damage returns the damage string", () => {
-		expect(new StonetopPlaybook(makeItem({ damage: "d6" })).damage).toBe("d6");
+	it("damage returns the damage object", () => {
+		expect(new StonetopPlaybook(makeItem({ damage: { die: "d6" } })).damage).toEqual({ die: "d6" });
 	});
 
 	it("appearance returns the appearance ChoiceGroup", () => {
@@ -50,8 +50,8 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem()).origin).toEqual([]);
 	});
 
-	it("startingMovesNote reads from moves.startingMovesNote", () => {
-		const item = makeItem({ moves: { startingMovesNote: "Pick 2 starting moves." } });
+	it("startingMovesNote reads directly from system", () => {
+		const item = makeItem({ startingMovesNote: "Pick 2 starting moves." });
 		expect(new StonetopPlaybook(item).startingMovesNote).toBe("Pick 2 starting moves.");
 	});
 
@@ -69,7 +69,7 @@ describe("StonetopPlaybook", () => {
 	});
 
 	it("lore returns the lore array", () => {
-		const lore = [{ slug: "the-earth-mother", title: "The Earth Mother", description: "", options: [] }];
+		const lore = [{ slug: "the-earth-mother", list: [] }];
 		expect(new StonetopPlaybook(makeItem({ lore })).lore).toEqual(lore);
 	});
 
