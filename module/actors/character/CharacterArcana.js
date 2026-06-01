@@ -68,7 +68,7 @@ export class CharacterArcana {
 				.withUnlock(unlock)
 				.build();
 
-			const current = resourceController?.getCurrent(item.slug) ?? 0;
+			const current = resourceController?.getCurrent("inventory", item.slug) ?? 0;
 
 			const backDef = item.back.resource ?? null;
 			const backResource = backDef

@@ -12,7 +12,7 @@ describe("StonetopCharacter.onDropItems", () => {
 	it("routes arcanum move to addArcanum and returns anyAdded=true", async () => {
 		const char = makeChar();
 		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "equipment", system: { equipmentType: "arcanum" }, flags: { stonetop: { slug: "shell-game" } } };
+		const item = { type: "equipment", system: { equipmentType: "arcanum", slug: "shell-game" } };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
@@ -68,7 +68,7 @@ describe("StonetopCharacter.onDropItems", () => {
 		const char = makeChar();
 		vi.spyOn(char, "addArcanum").mockResolvedValue();
 		vi.spyOn(char, "onDropMove").mockResolvedValue(false);
-		const arcanum = { type: "equipment", system: { equipmentType: "arcanum" }, flags: { stonetop: { slug: "eye" } } };
+		const arcanum = { type: "equipment", system: { equipmentType: "arcanum", slug: "eye" } };
 		const move = { type: "move", system: { moveType: "basic" } };
 		const other = { type: "equipment" };
 

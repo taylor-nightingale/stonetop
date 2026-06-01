@@ -193,7 +193,7 @@
 					       {{#if disabled}}disabled{{/if}}>
 					<strong class="stonetop-item-name">{{{label}}}</strong>
 					{{#if preselectedSource}}<span class="stonetop-item-source">{{preselectedSource}}</span>{{/if}}
-					{{#if (and checked resource)}}
+					{{#if resource}}
 					<span class="stonetop-item-resources">
 						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=slug}}
 					</span>
@@ -202,7 +202,7 @@
 				{{#if description}}
 				<div class="stonetop-item-description">{{{description}}}</div>
 				{{/if}}
-				{{#if (and checked choices)}}
+				{{#if choices}}
 				<div class="stonetop-choice-rows">
 				{{#each choices.list}}
 					{{#if (eq type "heading")}}

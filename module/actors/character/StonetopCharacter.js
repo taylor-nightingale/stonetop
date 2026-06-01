@@ -12,6 +12,7 @@ import {CharacterLore} from "./CharacterLore.js";
 import {CharacterPostDeath} from "./CharacterPostDeath.js";
 import {CharacterFollowers} from "./CharacterFollowers.js";
 import {ChoiceGroupController} from "./ChoiceGroupController.js";
+import {ResourceController} from "./ResourceController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterRolling} from "./CharacterRolling.js";
@@ -26,19 +27,20 @@ export class StonetopCharacter {
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"), actor);
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
 		const outfitItems = new ActorOutfitItems(actor);
-		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
+		this._resourceController = new ResourceController(new StonetopFlags(actor, "resources"));
+		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers, this._resourceController);
 		this._choiceController = new ChoiceGroupController(
 			new StonetopFlags(actor, "choices"),
 			this._followers
 		);
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"), this._choiceController);
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"), this._choiceController);
-		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController);
+		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController, this._resourceController);
 		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor, this._choiceController);
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
-		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems);
+		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor, this._inventory);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
@@ -88,11 +90,11 @@ export class StonetopCharacter {
 	async buildSnapshot() {
 		await this._moves.initBasicMoves();
 		const level = this._vitals.level;
-		const { checked, resources: resourceController } = this._inventory;
+		const { checked } = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
 		const [arcana, inventory, postDeath, playbook, vitals, moves] = await Promise.all([
-			this._arcana.buildSnapshot(checked, resourceController),
+			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
@@ -214,11 +216,11 @@ export class StonetopCharacter {
 		const others    = items.filter(i => !isArcanum(i) && i.type !== "move" && i.system?.equipmentType !== "follower");
 		let anyAdded = false;
 		for (const item of arcana) {
-			const slug = item.flags?.stonetop?.slug;
+			const slug = item.system?.slug;
 			if (slug) { await this.addArcanum(slug); anyAdded = true; }
 		}
 		for (const item of followers) {
-			const slug = item.flags?.stonetop?.slug;
+			const slug = item.system?.slug;
 			if (slug) { await this._followers.addFollower(slug); anyAdded = true; }
 		}
 		for (const item of moves) {

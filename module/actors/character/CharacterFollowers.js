@@ -3,16 +3,17 @@ import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/Choice
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterFollowers {
-	constructor(flags, followerRepo) {
-		this._flags       = flags;
-		this._followerRepo = followerRepo;
+	constructor(flags, followerRepo, resourceController) {
+		this._flags            = flags;
+		this._followerRepo     = followerRepo;
+		this._resourceController = resourceController;
 	}
 
 	get ownedSlugs() { return this._flags.getFlag("owned") ?? []; }
 	get _state()     { return this._flags.getFlag("state") ?? {}; }
 
 	_stateFor(slug) {
-		return this._state[slug] ?? { hp: null, loyalty: null, values: {} };
+		return this._state[slug] ?? { hp: null, values: {} };
 	}
 
 	async addFollower(slug) {
@@ -45,7 +46,7 @@ export class CharacterFollowers {
 	}
 
 	async setLoyalty(slug, loyalty) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), loyalty } });
+		await this._resourceController.set("followers", slug, loyalty);
 	}
 
 	async setArmor(slug, armor) {
@@ -88,7 +89,6 @@ export class CharacterFollowers {
 				hpMax:   blank.hp.max,
 				armor:   blank.armor.value,
 				damage:  blank.damage?.die ?? null,
-				loyalty: 0,
 				values:  {},
 			},
 		});
@@ -130,7 +130,7 @@ export class CharacterFollowers {
 		const hpMax    = state.hpMax   ?? follower.hp.max;
 		const name     = state.name    ?? follower.name;
 		const tags     = state.tags    ?? follower.tags;
-		const loyalty  = state.loyalty ?? 0;
+		const loyalty  = this._resourceController.getCurrent("followers", follower.slug);
 		const armorVal = state.armor   ?? follower.armor.value;
 		const damageDie = state.damage ?? follower.damage?.die ?? null;
 
@@ -153,6 +153,7 @@ export class CharacterFollowers {
 		const state  = this._stateFor(slug);
 		const values = new ChoiceValues(state.values ?? {});
 		const damageDie = state.damage ?? null;
+		const loyalty = this._resourceController.getCurrent("followers", slug);
 		return new FollowerSnapshotBuilder()
 			.withSlug(slug)
 			.withName(state.name     ?? "New Follower")
@@ -162,7 +163,7 @@ export class CharacterFollowers {
 			.withArmor({ value: state.armor ?? 0, note: "" })
 			.withDamage(damageDie ? { die: damageDie, label: "", tags: "" } : null)
 			.withInstinct("")
-			.withLoyalty(ResourceController.build({ max: 3, title: null, labels: [] }, state.loyalty ?? 0))
+			.withLoyalty(ResourceController.build({ max: 3, title: null, labels: [] }, loyalty))
 			.withChoices(blank?.choices ? ChoiceGroup.fromPackData(blank.choices, values) : null)
 			.build();
 	}

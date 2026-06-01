@@ -11,16 +11,15 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterInventory {
-	constructor(flags, inventoryRepo, possessions, outfitItems) {
+	constructor(flags, inventoryRepo, possessions, outfitItems, resourceController) {
 		this._flags = flags;
 		this._repo = inventoryRepo;
 		this._possessions = possessions;
 		this._outfitItems = outfitItems;
-		this._resources = new ResourceController(flags);
+		this._resourceController = resourceController;
 	}
 
 	get checked()     { return this._flags.getFlag("checked") ?? {}; }
-	get resources()   { return this._resources; }
 	get loadLevel()   { return this._flags.getFlag("loadLevel") ?? null; }
 	get regularPool() { return this._flags.getFlag("regularPool") ?? 0; }
 	get smallPool()   { return this._flags.getFlag("smallPool") ?? 0; }
@@ -31,7 +30,7 @@ export class CharacterInventory {
 	}
 
 	async setResource(slug, count) {
-		await this._resources.set(slug, count);
+		await this._resourceController.set("inventory", slug, count);
 	}
 
 	async setLoadLevel(level) {
@@ -93,7 +92,7 @@ export class CharacterInventory {
 				.withNote(outfitItem.note)
 				.withWeight(outfitItem.weight)
 				.withChecked(checked[outfitItem.slug] ?? false)
-				.withResource(this._resources.buildSnapshot(outfitItem.resource, outfitItem.slug))
+				.withResource(this._resourceController.buildSnapshot("inventory", outfitItem.resource, outfitItem.slug))
 				.withIsCustom(outfitItem.ownedId != null)
 				.withOwnedId(outfitItem.ownedId ?? null)
 				.withTwoCol(outfitItem.twoCol)

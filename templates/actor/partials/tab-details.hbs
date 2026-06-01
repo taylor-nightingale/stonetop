@@ -12,17 +12,17 @@
 					<input type="radio" class="stonetop-item-check" name="stonetop-background"
 					       value="{{slug}}"{{#if selected}} checked{{/if}}>
 					<strong class="stonetop-item-name">{{label}}</strong>
+					{{#if resource}}
+					<span class="stonetop-item-resources">
+						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" slug=slug}}
+					</span>
+					{{/if}}
 				</div>
 				{{#if description}}
 				<div class="stonetop-item-description">{{{description}}}</div>
 				{{/if}}
 			</label>
-			{{#if (and selected resource)}}
-			<span class="stonetop-bg-resources">
-				{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" slug=slug}}
-			</span>
-			{{/if}}
-			{{#if (and selected choices)}}
+			{{#if choices}}
 			<div class="stonetop-bg-choices">
 				{{#each choices.list}}
 				{{> "stonetop.choice-row" cgContext="background" cgGroup=../choices.slug namePrefix=../slug}}

@@ -1,6 +1,8 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../module/actors/character/CharacterArcana.js";
 import { ResourceController } from "../../../module/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
@@ -240,7 +242,8 @@ describe("CharacterArcana.buildSnapshot()", () => {
 		});
 
 		it("back.resource.current reflects resourceController", async () => {
-			const ctrl = new ResourceController(makeFlags({ resources: { "huge-wooden-sphere": 2 } }));
+			const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+			await ctrl.set("inventory", "huge-wooden-sphere", 2);
 			const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
 				.buildSnapshot({}, ctrl)).minor.items[0];
 			expect(item.back.resource.current).toBe(2);
@@ -369,7 +372,8 @@ const BOW_WITH_NO_STRING = {
 
 describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 	it("back.resource uses resourceController current for back.resource arcana", async () => {
-		const ctrl = new ResourceController(makeFlags({ resources: { "huge-wooden-sphere": 2 } }));
+		const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+		await ctrl.set("inventory", "huge-wooden-sphere", 2);
 		const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
 			.buildSnapshot({}, ctrl)).minor.items[0];
 		expect(item.back.resource.current).toBe(2);
@@ -381,7 +385,8 @@ describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 	});
 
 	it("back.item.resource is a resolved Resource on the OutfitItem snapshot", async () => {
-		const ctrl = new ResourceController(makeFlags({ resources: { "bow-with-no-string": 1 } }));
+		const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+		await ctrl.set("inventory", "bow-with-no-string", 1);
 		const item = (await makeArcana({ owned: ["bow-with-no-string"] }, [BOW_WITH_NO_STRING])
 			.buildSnapshot({}, ctrl)).minor.items[0];
 		expect(item.back.item.resource).not.toBeNull();

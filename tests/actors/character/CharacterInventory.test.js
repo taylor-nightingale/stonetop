@@ -1,5 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { CharacterInventory } from "../../../module/actors/character/CharacterInventory.js";
+import { ResourceController } from "../../../module/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { OutfitItemBuilder } from "../../../module/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
 import { InventorySnapshot, PossessionsSnapshot } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
@@ -66,12 +69,17 @@ function makeActorOutfitItems(items = []) {
 	};
 }
 
-function makeCi(flagStore = {}, repo = null, possessions = null, outfitItems = null) {
+function makeResourceController() {
+	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+}
+
+function makeCi(flagStore = {}, repo = null, possessions = null, outfitItems = null, resourceCtrl = null) {
 	return new CharacterInventory(
 		makeFlags(flagStore),
 		repo ?? makeRepo(),
 		possessions ?? makePossessionsFake(),
 		outfitItems ?? makeActorOutfitItems(),
+		resourceCtrl ?? makeResourceController(),
 	);
 }
 
@@ -84,10 +92,6 @@ function smallItems(snap)   { return snap.outfit.smallSections.flatMap(s => s.it
 describe("CharacterInventory", () => {
 	it("checked returns {} when no flags set", () => {
 		expect(makeCi().checked).toEqual({});
-	});
-
-	it("resources returns a ResourceController", () => {
-		expect(makeCi().resources.getCurrent("any-slug")).toBe(0);
 	});
 
 	it("setItemChecked stores true for a slug", async () => {
@@ -104,11 +108,11 @@ describe("CharacterInventory", () => {
 		expect(store.checked).toEqual({ supplies: false });
 	});
 
-	it("setResource stores integer count for a slug", async () => {
-		const store = {};
-		const ci = makeCi(store);
+	it("setResource persists count in the inventory namespace of ResourceController", async () => {
+		const resourceCtrl = makeResourceController();
+		const ci = makeCi({}, null, null, null, resourceCtrl);
 		await ci.setResource("bow-arrows", 2);
-		expect(store.resources).toEqual({ "bow-arrows": 2 });
+		expect(resourceCtrl.getCurrent("inventory", "bow-arrows")).toBe(2);
 	});
 });
 
@@ -212,9 +216,11 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(regularItems(snap)[0].checked).toBe(false);
 	});
 
-	it("resource.current reflects inventory resources flag", async () => {
+	it("resource.current reflects saved inventory resource", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "bow-arrows", inventoryColumn: "regular", resourceLabels: ["low", "out"] })]);
-		const snap = await makeCi({ resources: { "bow-arrows": 1 } }, repo).buildSnapshot(1);
+		const resourceCtrl = makeResourceController();
+		await resourceCtrl.set("inventory", "bow-arrows", 1);
+		const snap = await makeCi({}, repo, null, null, resourceCtrl).buildSnapshot(1);
 		expect(regularItems(snap)[0].resource.current).toBe(1);
 	});
 

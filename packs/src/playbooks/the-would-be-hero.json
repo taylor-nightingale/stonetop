@@ -526,8 +526,8 @@
 								"type": "pick",
 								"pickCount": 1,
 								"options": [
-									{ "slug": "family-heirloom", "text": "<><> A shield, bearing ___’s crest" },
-									{ "slug": "cloak", "text": "<> A wool cloak, woven just for you by ___" },
+									{ "slug": "family-heirloom", "text": "◇◇ A shield, bearing ___’s crest" },
+									{ "slug": "cloak", "text": "◇ A wool cloak, woven just for you by ___" },
 									{ "slug": "letter", "text": "A letter, spattered with tears & blood" },
 									{ "slug": "flute", "text": "A flute, a gift from someone you loved" },
 									{ "slug": "locket", "text": "A fine locket, holding a strand of hair" },

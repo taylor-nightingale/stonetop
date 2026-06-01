@@ -1,6 +1,9 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterBackgrounds } from "../../../module/actors/character/CharacterBackgrounds.js";
 import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
+import { ResourceController } from "../../../module/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { BackgroundSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 import { ChoiceGroup } from "../../../module/model/snapshot/character/ChoiceGroup.js";
@@ -13,11 +16,15 @@ function makeFlags(store = {}) {
 	};
 }
 
-function makeBg(selectedSlug = "", valuesRaw = {}, followers = new FakeFollowers(), extraFlags = {}) {
-	const store   = { selected: selectedSlug, values: valuesRaw, ...extraFlags };
-	const flags   = makeFlags(store);
-	const ctrl    = new ChoiceGroupController(flags, followers);
-	return new CharacterBackgrounds(flags, followers, ctrl);
+function makeResourceController() {
+	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+}
+
+function makeBg(selectedSlug = "", valuesRaw = {}, followers = new FakeFollowers(), resourceCtrl = null) {
+	const store = { selected: selectedSlug, values: valuesRaw };
+	const flags = makeFlags(store);
+	const ctrl  = new ChoiceGroupController(flags, followers);
+	return new CharacterBackgrounds(flags, followers, ctrl, resourceCtrl ?? makeResourceController());
 }
 
 const SIMPLE_BG_DATA = [
@@ -51,16 +58,16 @@ const HEADING_CHOICES_DATA = [{
 
 describe("CharacterBackgrounds", () => {
 	it("selectedSlug returns empty string when no saved selection", () => {
-		expect(new CharacterBackgrounds(makeFlags()).selectedSlug).toBe("");
+		expect(new CharacterBackgrounds(makeFlags(), null, new ChoiceGroupController(makeFlags(), null), makeResourceController()).selectedSlug).toBe("");
 	});
 
 	it("selectedSlug returns the stored slug", () => {
-		expect(new CharacterBackgrounds(makeFlags({ selected: "vessel" })).selectedSlug).toBe("vessel");
+		expect(new CharacterBackgrounds(makeFlags({ selected: "vessel" }), null, new ChoiceGroupController(makeFlags(), null), makeResourceController()).selectedSlug).toBe("vessel");
 	});
 
 	it("selectBackground stores the slug via setFlag", async () => {
 		const flags = makeFlags();
-		const bg = new CharacterBackgrounds(flags);
+		const bg = new CharacterBackgrounds(flags, null, new ChoiceGroupController(makeFlags(), null), makeResourceController());
 		await bg.selectBackground("initiate");
 		expect(flags.setFlag).toHaveBeenCalledWith("selected", "initiate");
 	});
@@ -70,7 +77,6 @@ describe("CharacterBackgrounds", () => {
 
 describe("CharacterBackgrounds.setChoiceValue", () => {
 	it("saves the count to flags.values in ChoiceValues format", async () => {
-		const store = {};
 		const bg = makeBg("", {}, null);
 		await bg.setChoiceValue("initiate", "enfys", 1);
 		expect(bg._choiceController._flags.getFlag("values")).toEqual({ initiate: { enfys: 1 } });
@@ -205,7 +211,9 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 
 	it("resource.current reflects saved value", async () => {
 		const data = [{ slug: "initiate", label: "Initiate", description: "", resource: { max: 2, title: null, labels: [] } }];
-		const snap = await makeBg("", {}, null, { resources: { initiate: 1 } }).buildSnapshot(data);
+		const resourceCtrl = makeResourceController();
+		await resourceCtrl.set("backgrounds", "initiate", 1);
+		const snap = await makeBg("", {}, null, resourceCtrl).buildSnapshot(data);
 		expect(snap.options[0].resource.current).toBe(1);
 	});
 });
@@ -213,17 +221,19 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 // -- Tests: setResource --------------------------------------------------------
 
 describe("CharacterBackgrounds.setResource", () => {
-	it("saves the count under resources[slug]", async () => {
-		const store = {};
-		const bg = new CharacterBackgrounds(makeFlags(store));
+	it("persists count in the backgrounds namespace of ResourceController", async () => {
+		const resourceCtrl = makeResourceController();
+		const bg = new CharacterBackgrounds(makeFlags(), null, new ChoiceGroupController(makeFlags(), null), resourceCtrl);
 		await bg.setResource("initiate", 2);
-		expect(store.resources).toEqual({ initiate: 2 });
+		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
 	});
 
 	it("merges into existing resources", async () => {
-		const store = { resources: { vessel: 1 } };
-		const bg = new CharacterBackgrounds(makeFlags(store));
+		const resourceCtrl = makeResourceController();
+		await resourceCtrl.set("backgrounds", "vessel", 1);
+		const bg = new CharacterBackgrounds(makeFlags(), null, new ChoiceGroupController(makeFlags(), null), resourceCtrl);
 		await bg.setResource("initiate", 2);
-		expect(store.resources).toEqual({ vessel: 1, initiate: 2 });
+		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
+		expect(resourceCtrl.getCurrent("backgrounds", "vessel")).toBe(1);
 	});
 });

@@ -918,7 +918,9 @@ body,
 	flex-shrink: 0;
 }
 
-.stonetop-item-resource-check {
+.stonetop-item-resource-check,
+.stonetop-background-resource-btn,
+.stonetop-follower-loyalty-btn {
 	width: 16px;
 	height: 16px;
 	border-radius: 50% !important;
@@ -929,7 +931,9 @@ body,
 	flex-shrink: 0;
 }
 
-.stonetop-item-resource-check.is-checked {
+.stonetop-item-resource-check.is-checked,
+.stonetop-background-resource-btn.is-checked,
+.stonetop-follower-loyalty-btn.is-checked {
 	background-color: var(--color-text-dark-primary) !important;
 }
 

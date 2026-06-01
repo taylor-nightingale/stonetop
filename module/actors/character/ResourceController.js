@@ -5,16 +5,19 @@ export class ResourceController {
 		this._flags = flags;
 	}
 
-	get _counts() { return this._flags.getFlag("resources") ?? {}; }
+	get _allCounts() { return this._flags.getFlag("counts") ?? {}; }
 
-	getCurrent(slug) { return this._counts[slug] ?? 0; }
+	_countsFor(namespace) { return this._allCounts[namespace] ?? {}; }
 
-	async set(slug, count) {
-		await this._flags.setFlag("resources", { ...this._counts, [slug]: count });
+	getCurrent(namespace, slug) { return this._countsFor(namespace)[slug] ?? 0; }
+
+	async set(namespace, slug, count) {
+		const all = this._allCounts;
+		await this._flags.setFlag("counts", { ...all, [namespace]: { ...this._countsFor(namespace), [slug]: count } });
 	}
 
-	buildSnapshot(def, slug) {
-		return ResourceController.build(def, this.getCurrent(slug));
+	buildSnapshot(namespace, def, slug) {
+		return ResourceController.build(def, this.getCurrent(namespace, slug));
 	}
 
 	static build(def, current) {

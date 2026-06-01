@@ -1,12 +1,13 @@
 export class TestChoiceRowBuilder {
 	_type;
-	_slug        = null;
-	_track       = null;
-	_title       = null;
-	_text        = null;
-	_placeholder = null;
-	_options     = [];
-	_pickCount   = 1;
+	_slug          = null;
+	_track         = null;
+	_title         = null;
+	_text          = null;
+	_note          = null;
+	_placeholder   = null;
+	_options       = [];
+	_pickCount     = 1;
 	_inlineDisplay = false;
 
 	static heading()  { return new TestChoiceRowBuilder().withType("heading"); }
@@ -18,6 +19,7 @@ export class TestChoiceRowBuilder {
 	withSlug(slug)               { this._slug          = slug;        return this; }
 	withTitle(title)             { this._title         = title;       return this; }
 	withText(text)               { this._text          = text;        return this; }
+	withNote(note)               { this._note          = note;        return this; }
 	withTrack(max)               { this._track         = { max };     return this; }
 	withPlaceholder(placeholder) { this._placeholder   = placeholder; return this; }
 	withPickCount(n)             { this._pickCount      = n;          return this; }
@@ -30,6 +32,7 @@ export class TestChoiceRowBuilder {
 			slug:        this._slug,
 			title:       this._title,
 			description: this._text,
+			note:        this._note,
 			track:       this._track,
 		};
 		if (this._type === "follower") return {

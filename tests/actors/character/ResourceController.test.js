@@ -1,66 +1,94 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { ResourceController } from "../../../module/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/FakeFlags.js";
 
-function makeFlags(store = {}) {
-	return {
-		getFlag: (key) => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
-	};
+function makeFlags() {
+	return new StonetopFlags(new FakeFlags(), "resources");
 }
 
-// -- getCurrent ----------------------------------------------------------------
+function makeController() {
+	return new ResourceController(makeFlags());
+}
+
+// ── getCurrent ────────────────────────────────────────────────────────────────
 
 describe("ResourceController.getCurrent", () => {
-	it("returns 0 when no resources saved", () => {
-		expect(new ResourceController(makeFlags()).getCurrent("foo")).toBe(0);
+	it("returns 0 when nothing saved", () => {
+		expect(makeController().getCurrent("backgrounds", "foo")).toBe(0);
 	});
 
-	it("returns the saved count for a slug", () => {
-		expect(new ResourceController(makeFlags({ resources: { foo: 2 } })).getCurrent("foo")).toBe(2);
+	it("returns the saved count for a namespace and slug", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "foo", 2);
+		expect(ctrl.getCurrent("backgrounds", "foo")).toBe(2);
 	});
 
-	it("returns 0 for an unknown slug when others are saved", () => {
-		expect(new ResourceController(makeFlags({ resources: { bar: 1 } })).getCurrent("foo")).toBe(0);
+	it("returns 0 for an unknown slug when other slugs are saved", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "bar", 1);
+		expect(ctrl.getCurrent("backgrounds", "foo")).toBe(0);
 	});
 });
 
-// -- set -----------------------------------------------------------------------
+// ── set ───────────────────────────────────────────────────────────────────────
 
 describe("ResourceController.set", () => {
-	it("saves the count to the resources map", async () => {
-		const store = {};
-		await new ResourceController(makeFlags(store)).set("foo", 3);
-		expect(store.resources).toEqual({ foo: 3 });
+	it("saves the count for a namespace and slug", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "foo", 3);
+		expect(ctrl.getCurrent("backgrounds", "foo")).toBe(3);
 	});
 
-	it("merges into existing resources", async () => {
-		const store = { resources: { bar: 1 } };
-		await new ResourceController(makeFlags(store)).set("foo", 2);
-		expect(store.resources).toEqual({ bar: 1, foo: 2 });
+	it("merges into existing counts in the same namespace", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "bar", 1);
+		await ctrl.set("backgrounds", "foo", 2);
+		expect(ctrl.getCurrent("backgrounds", "bar")).toBe(1);
+		expect(ctrl.getCurrent("backgrounds", "foo")).toBe(2);
 	});
 });
 
-// -- buildSnapshot (instance) --------------------------------------------------
+// ── buildSnapshot (instance) ──────────────────────────────────────────────────
 
 describe("ResourceController.buildSnapshot", () => {
 	it("returns null when def is null", () => {
-		expect(new ResourceController(makeFlags()).buildSnapshot(null, "foo")).toBeNull();
+		expect(makeController().buildSnapshot("backgrounds", null, "foo")).toBeNull();
 	});
 
-	it("uses getCurrent for the slug", () => {
-		const ctrl = new ResourceController(makeFlags({ resources: { foo: 2 } }));
-		const snap = ctrl.buildSnapshot({ max: 3, title: null, labels: [] }, "foo");
+	it("uses getCurrent for the namespace and slug", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "foo", 2);
+		const snap = ctrl.buildSnapshot("backgrounds", { max: 3, title: null, labels: [] }, "foo");
 		expect(snap.current).toBe(2);
 		expect(snap.max).toBe(3);
 	});
 
 	it("uses 0 as current when slug has no saved value", () => {
-		const snap = new ResourceController(makeFlags()).buildSnapshot({ max: 2, title: null, labels: [] }, "foo");
+		const snap = makeController().buildSnapshot("backgrounds", { max: 2, title: null, labels: [] }, "foo");
 		expect(snap.current).toBe(0);
 	});
 });
 
-// -- build (static) ------------------------------------------------------------
+// ── namespace isolation ───────────────────────────────────────────────────────
+
+describe("ResourceController — namespace isolation", () => {
+	it("two namespaces with the same slug do not collide", async () => {
+		const ctrl = makeController();
+		await ctrl.set("backgrounds", "foo", 1);
+		await ctrl.set("inventory", "foo", 3);
+		expect(ctrl.getCurrent("backgrounds", "foo")).toBe(1);
+		expect(ctrl.getCurrent("inventory", "foo")).toBe(3);
+	});
+
+	it("setting a slug in one namespace does not affect another", async () => {
+		const ctrl = makeController();
+		await ctrl.set("followers", "enfys", 2);
+		expect(ctrl.getCurrent("backgrounds", "enfys")).toBe(0);
+	});
+});
+
+// ── build (static) ────────────────────────────────────────────────────────────
 
 describe("ResourceController.build", () => {
 	it("returns null when def is null", () => {
