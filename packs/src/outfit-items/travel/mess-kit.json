@@ -2,19 +2,20 @@
 	"_id": "Nwwmq6OLkTkx9NIQ",
 	"_key": "!items!Nwwmq6OLkTkx9NIQ",
 	"name": "Mess kit",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "mess-kit",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "requires fire & water, makes Supplies last longer",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": true,
+		"sortOrder": 4,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "mess-kit",
-			"inventoryColumn": "regular",
-			"sortOrder": 4,
-			"note": "requires fire & water; makes Supplies last longer",
-			"weight": 1,
-			"breakBefore": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpTrv0001X"
 }

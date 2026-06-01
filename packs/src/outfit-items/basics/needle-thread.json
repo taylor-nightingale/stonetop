@@ -2,16 +2,20 @@
 	"_id": "zkChMbyIbNiCdxnu",
 	"_key": "!items!zkChMbyIbNiCdxnu",
 	"name": "Needle & thread",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "needle-thread",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 5,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "needle-thread",
-			"inventoryColumn": "small",
-			"sortOrder": 5
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

@@ -2,22 +2,22 @@
 	"_id": "yshA6P3MsHarAJOC",
 	"_key": "!items!yshA6P3MsHarAJOC",
 	"name": "Shield",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "shield",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"tags": "",
+		"note": "+1 armor, +1 Readiness on 7+ to Defend",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": true,
+		"sortOrder": 25,
+		"armor": {
+			"modifier": 1
+		},
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "shield",
-			"inventoryColumn": "regular",
-			"sortOrder": 25,
-			"note": "+1 armor, +1 Readiness on 7+ to Defend",
-			"weight": 2,
-			"breakBefore": true,
-			"armor": {
-				"modifier": 1
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpAmr0001X"
 }

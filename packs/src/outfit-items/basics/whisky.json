@@ -2,24 +2,27 @@
 	"_id": "bjhPInRVkLUhY7gb",
 	"_key": "!items!bjhPInRVkLUhY7gb",
 	"name": "Whisky, skin",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "whisky",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"",
+				""
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 7,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "whisky",
-			"inventoryColumn": "small",
-			"sortOrder": 7,
-			"resource": {
-				"max": 2,
-				"title": null,
-				"labels": [
-					"",
-					""
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

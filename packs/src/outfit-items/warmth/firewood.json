@@ -2,18 +2,20 @@
 	"_id": "dKF0j7elKPoh3pKM",
 	"_key": "!items!dKF0j7elKPoh3pKM",
 	"name": "Firewood",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "firewood",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"tags": "reach, area",
+		"note": "enough to last 1 full night",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 15,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "firewood",
-			"inventoryColumn": "regular",
-			"sortOrder": 15,
-			"note": "enough to last 1 full night; <em>reach</em>, <em>area</em>",
-			"weight": 2
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWrm0001X"
 }

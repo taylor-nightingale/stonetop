@@ -11,7 +11,7 @@
 		"description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
 		"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
 		"damage": {
-			"die": "d6"
+			"value": "d6"
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",

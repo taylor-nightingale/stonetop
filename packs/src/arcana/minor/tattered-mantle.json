@@ -52,10 +52,11 @@
 					{
 						"type": "follower",
 						"slug": "mantle-wraiths",
-						"followerSlug": "mantle-wraiths",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

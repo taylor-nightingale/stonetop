@@ -53,18 +53,20 @@
 					{
 						"type": "follower",
 						"slug": "astor",
-						"followerSlug": "astor",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					},
 					{
 						"type": "follower",
 						"slug": "halix",
-						"followerSlug": "halix",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

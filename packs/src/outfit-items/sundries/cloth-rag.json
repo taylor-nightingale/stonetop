@@ -2,17 +2,20 @@
 	"_id": "HVlnES8GrgmolaHr",
 	"_key": "!items!HVlnES8GrgmolaHr",
 	"name": "Cloth/rag",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "cloth-rag",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 12,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "cloth-rag",
-			"inventoryColumn": "small",
-			"sortOrder": 12,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

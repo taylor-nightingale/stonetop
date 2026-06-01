@@ -2,28 +2,29 @@
 	"_id": "x9qWCA79ISjs8JHU",
 	"_key": "!items!x9qWCA79ISjs8JHU",
 	"name": "Extra oil",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "extra-oil",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "for lamp/lantern, useless as a weapon",
+		"resource": {
+			"max": 4,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"hours"
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 14,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "extra-oil",
-			"inventoryColumn": "regular",
-			"sortOrder": 14,
-			"note": "for lamp/lantern, useless as a weapon",
-			"weight": 1,
-			"resource": {
-				"max": 4,
-				"title": null,
-				"labels": [
-					"",
-					"",
-					"",
-					"hours"
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWrm0001X"
 }

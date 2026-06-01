@@ -2,19 +2,20 @@
 	"_id": "zKG5mSoyPstUeC99",
 	"_key": "!items!zKG5mSoyPstUeC99",
 	"name": "Hatchet, iron",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "hatchet",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "hand, thrown",
+		"note": "x piercing",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": true,
+		"sortOrder": 16,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "hatchet",
-			"inventoryColumn": "regular",
-			"sortOrder": 16,
-			"note": "<em>hand</em>, <em>thrown</em>, x <em>piercing</em>",
-			"weight": 1,
-			"breakBefore": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWpn0001X"
 }

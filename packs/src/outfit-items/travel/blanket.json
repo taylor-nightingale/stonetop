@@ -2,19 +2,20 @@
 	"_id": "IqK3yn9FfcgMXAdx",
 	"_key": "!items!IqK3yn9FfcgMXAdx",
 	"name": "Blanket",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "blanket",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "warm",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 6,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "blanket",
-			"inventoryColumn": "regular",
-			"sortOrder": 6,
-			"note": "<em>warm</em>",
-			"weight": 1,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpTrv0001X"
 }

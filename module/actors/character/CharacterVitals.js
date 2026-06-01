@@ -17,7 +17,7 @@ export class CharacterVitals {
 		const attrs  = this._actor.system?.attributes ?? {};
 		const level  = attrs.level ?? 1;
 		const hpMax  = this._flags.getFlag("maxHP") ?? 0;
-		const damage = this._flags.getFlag("damage") ?? null;
+		const damage = this._damage;
 		return new VitalsSnapshotBuilder()
 			.withHp(new ValueMax(attrs.hp?.value ?? 0, hpMax))
 			.withDamage(damage)
@@ -30,24 +30,27 @@ export class CharacterVitals {
 	async updateVitalsFromPlaybook(stonetopPlaybook) {
 		const hp = stonetopPlaybook.hp;
 		await Promise.all([
-			this.setDamage(stonetopPlaybook.damage),
-			this.setMaxHP(hp),
-			this.setHP(hp)
+			this._setDamage(stonetopPlaybook.damage),
+			this._setMaxHP(hp),
+			this._setP(hp)
 		]);
 	}
 
-	async setDamage(damage) {
+	get _damage() {
+		return this._actor.system.attributes.damage.value
+	}
+
+	async _setDamage(damage) {
 		await Promise.all([
-			this._flags.setFlag("damage", damage),
-			this._actor.update({"system.attributes.damage.die": damage?.die ?? null}),
+			this._actor.update({"system.attributes.damage.value": damage?.value ?? null}),
 		]);
 	}
 
-	async setMaxHP(maxHp) {
+	async _setMaxHP(maxHp) {
 		await this._flags.setFlag("maxHP", maxHp);
 	}
 
-	async setHP(hp) {
+	async _setP(hp) {
 		await this._actor.update({ "system.attributes.hp.value": hp });
 	}
 }

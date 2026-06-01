@@ -11,7 +11,7 @@
 		"description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
 		"startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
 		"damage": {
-			"die": "d10"
+			"value": "d10"
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",

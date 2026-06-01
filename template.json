@@ -18,7 +18,7 @@
 				"cha": {"value": 0}
 			},
 			"attributes": {
-				"damage": {"die": null},
+				"damage": {"value": null},
 				"hp":     {"value": 16, "min": 0, "max": 16},
 				"armor":  0,
 				"xp":     {"value": 0, "max": 8},
@@ -34,12 +34,14 @@
 		},
 		"npc": {
 			"templates": ["base"],
-			"attributes": {
-				"hp":      {"value": 0, "min": 0, "max": 0},
-				"armor":   {"value": 0},
-				"damage":  {"value": "d6"},
-				"instinct": {"value": ""}
-			}
+			"tags":             "",
+			"hp":               {"value": 0, "min": 0, "max": 0},
+			"armor":            {"value": 0, "note": ""},
+			"damage":           {"die": "d6", "label": "", "tags": ""},
+			"specialQualities": "",
+			"instinct":         "",
+			"loyalty":          {"value": 0, "max": 3},
+			"choices":          null
 		},
 		"steading": {
 			"templates": ["base"],
@@ -127,7 +129,7 @@
 		}
 	},
 	"Item": {
-		"types": ["move", "equipment", "playbook", "insert", "improvement"],
+		"types": ["move", "equipment", "playbook", "insert", "improvement", "npc", "outfitItem"],
 		"templates": {},
 		"move": {
 			"rollType": null,
@@ -166,7 +168,7 @@
 			"actorType": null,
 			"description": "",
 			"hp": 0,
-			"damage": {"die": null},
+			"damage": {"value": null},
 			"statsNote": "",
 			"startingMovesNote": "",
 			"backgrounds": [],
@@ -187,6 +189,32 @@
 			"slug": null,
 			"sortOrder": null,
 			"choices": null
+		},
+		"npc": {
+			"slug":             null,
+			"arcanaSlug":       null,
+			"tags":             "",
+			"hp":               {"value": 0, "min": 0, "max": 0},
+			"armor":            {"value": 0, "note": ""},
+			"damage":           {"die": "d6", "label": "", "tags": ""},
+			"specialQualities": "",
+			"instinct":         "",
+			"loyalty":          {"value": 0, "max": 3},
+			"choices":          null,
+			"description":      ""
+		},
+		"outfitItem": {
+			"slug":            null,
+			"inventoryColumn": null,
+			"weight":          1,
+			"tags":            "",
+			"note":            "",
+			"resource":        null,
+			"twoCol":          false,
+			"breakBefore":     false,
+			"sortOrder":       null,
+			"armor":           null,
+			"source":          null
 		}
 	}
 }

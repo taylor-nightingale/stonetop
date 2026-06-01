@@ -2,17 +2,20 @@
 	"_id": "HioRRdzHzmA4KR1V",
 	"_key": "!items!HioRRdzHzmA4KR1V",
 	"name": "Rushlight",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "rushlight",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "hand, crude",
+		"note": "lasts ~15-30 min",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 3,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "rushlight",
-			"inventoryColumn": "small",
-			"sortOrder": 3,
-			"note": "lasts ~15-30 min, <em>hand</em>, <em>crude</em>"
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

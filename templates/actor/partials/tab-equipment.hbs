@@ -69,6 +69,7 @@
 						{{/each}}
 					</span>
 					<span class="stonetop-inv-label">{{name}}
+						{{#if tags}}<span class="stonetop-inv-tags">{{tags}}</span>{{/if}}
 						{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
 					</span>
 					{{#if isCustom}}

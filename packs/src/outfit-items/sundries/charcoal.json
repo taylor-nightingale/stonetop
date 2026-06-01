@@ -2,17 +2,20 @@
 	"_id": "nXv2Rra6fSEVQOEX",
 	"_key": "!items!nXv2Rra6fSEVQOEX",
 	"name": "Charcoal",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "charcoal",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 11,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "charcoal",
-			"inventoryColumn": "small",
-			"sortOrder": 11,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

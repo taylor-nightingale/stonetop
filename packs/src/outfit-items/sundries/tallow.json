@@ -2,17 +2,20 @@
 	"_id": "zF9OHzlwUMVmI5BR",
 	"_key": "!items!zF9OHzlwUMVmI5BR",
 	"name": "Tallow",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "tallow",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 16,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "tallow",
-			"inventoryColumn": "small",
-			"sortOrder": 16,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

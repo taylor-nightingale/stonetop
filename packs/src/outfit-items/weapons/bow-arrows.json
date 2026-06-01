@@ -2,26 +2,27 @@
 	"_id": "nYCsXoblu17rNy8H",
 	"_key": "!items!nYCsXoblu17rNy8H",
 	"name": "Bow & iron arrows",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "bow-arrows",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "near",
+		"note": "x piercing",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 22,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "bow-arrows",
-			"inventoryColumn": "regular",
-			"sortOrder": 22,
-			"note": "<em>near</em>, x <em>piercing</em>",
-			"weight": 1,
-			"resource": {
-				"max": 2,
-				"title": null,
-				"labels": [
-					"low ammo",
-					"all out"
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWpn0001X"
 }

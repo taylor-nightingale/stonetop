@@ -23,16 +23,16 @@ function makeFakeRepo(followers = []) {
 const ENFYS_DATA = {
 	slug:    "enfys",
 	name:    "Enfys, the Acolyte",
-	note:    "Bird-wise, innocent",
-	hp:      { max: 6 },
-	armor:   0,
-	damage:  "d4",
-	loyalty: { max: 3 },
+	tags:    "Bird-wise, innocent",
+	hp:      { value: 6, min: 0, max: 6 },
+	armor:   { value: 0, note: "" },
+	damage:  { die: "d4", label: "", tags: "" },
+	instinct: "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off",
+	loyalty: { value: 0, max: 3 },
 	choices: {
 		slug: "choices",
 		list: [
 			{ type: "input", slug: "weapon",   text: "Weapon",   default: "bronze knife d4 (hand)" },
-			{ type: "input", slug: "instinct", text: "Instinct", default: "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off" },
 			{ type: "input", slug: "cost",     text: "Cost",     default: "knowledge, secret lore; Loyalty" },
 			{ type: "heading", title: "Pick 1 on each line" },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "he", text: "he" }, { slug: "she", text: "she" }, { slug: "they", text: "they" }] },
@@ -46,11 +46,12 @@ const ENFYS = new Follower(ENFYS_DATA);
 const PICKER_DATA = {
 	slug:    "test-picker",
 	name:    "Test Picker",
-	note:    null,
-	hp:      { max: 4 },
-	armor:   0,
+	tags:    null,
+	hp:      { value: 4, min: 0, max: 4 },
+	armor:   { value: 0, note: "" },
 	damage:  null,
-	loyalty: { max: 2 },
+	instinct: "",
+	loyalty: { value: 0, max: 2 },
 	choices: {
 		slug: "choices",
 		list: [
@@ -64,11 +65,12 @@ const PICKER = new Follower(PICKER_DATA);
 const CUSTOM_DATA = {
 	slug:    "test-custom",
 	name:    "Test Custom",
-	note:    null,
-	hp:      { max: 3 },
-	armor:   0,
+	tags:    null,
+	hp:      { value: 3, min: 0, max: 3 },
+	armor:   { value: 0, note: "" },
 	damage:  null,
-	loyalty: { max: 2 },
+	instinct: "",
+	loyalty: { value: 0, max: 2 },
 };
 
 const CUSTOM = new Follower(CUSTOM_DATA);
@@ -142,12 +144,12 @@ describe("CharacterFollowers — state mutations", () => {
 		expect(store.state.enfys.name).toBe("Enfys the Brave");
 	});
 
-	it("setNote stores note under state[slug]", async () => {
+	it("setTags stores tags under state[slug]", async () => {
 		const store = {};
 		const flags = makeFlags(store);
 		const cf = new CharacterFollowers(flags, makeFakeRepo());
-		await cf.setNote("enfys", "Updated notes");
-		expect(store.state.enfys.note).toBe("Updated notes");
+		await cf.setTags("enfys", "Updated tags");
+		expect(store.state.enfys.tags).toBe("Updated tags");
 	});
 
 	it("setLoyalty stores loyalty under state[slug]", async () => {
@@ -180,8 +182,8 @@ describe("CharacterFollowers — state mutations", () => {
 		const store = {};
 		const flags = makeFlags(store);
 		const cf = new CharacterFollowers(flags, makeFakeRepo());
-		await cf.setChoiceText("enfys", "instinct", "to wander aimlessly");
-		expect(store.state.enfys.values.choices.instinct).toBe("to wander aimlessly");
+		await cf.setChoiceText("enfys", "weapon", "iron axe d6 (hand)");
+		expect(store.state.enfys.values.choices.weapon).toBe("iron axe d6 (hand)");
 	});
 
 	it("setArmor stores armor under state[slug]", async () => {
@@ -192,7 +194,7 @@ describe("CharacterFollowers — state mutations", () => {
 		expect(store.state.enfys.armor).toBe(2);
 	});
 
-	it("setDamage stores damage string under state[slug]", async () => {
+	it("setDamage stores damage die string under state[slug]", async () => {
 		const store = {};
 		const flags = makeFlags(store);
 		const cf = new CharacterFollowers(flags, makeFakeRepo());
@@ -231,14 +233,21 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		expect(snap.name).toBe("Enfys the Renamed");
 	});
 
-	it("note reflects saved state override", async () => {
-		const flags = makeFlags({ owned: ["enfys"], state: { enfys: { note: "Updated notes" } } });
+	it("tags reflects pack data", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.note).toBe("Updated notes");
+		expect(snap.tags).toBe("Bird-wise, innocent");
 	});
 
-	it("hp defaults to hpMax when no state", async () => {
+	it("tags reflects saved state override", async () => {
+		const flags = makeFlags({ owned: ["enfys"], state: { enfys: { tags: "Updated tags" } } });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.tags).toBe("Updated tags");
+	});
+
+	it("hp defaults to hp.value when no state", async () => {
 		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
@@ -279,28 +288,43 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.armor).toBe(0);
+		expect(snap.armor.value).toBe(0);
+		expect(snap.armor.note).toBe("");
 	});
 
-	it("armor reflects saved state", async () => {
+	it("armor.value reflects saved state override", async () => {
 		const flags = makeFlags({ owned: ["enfys"], state: { enfys: { armor: 2 } } });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.armor).toBe(2);
+		expect(snap.armor.value).toBe(2);
 	});
 
-	it("damage defaults to pack value when no state", async () => {
+	it("damage defaults to pack die when no state", async () => {
 		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage).toBe("d4");
+		expect(snap.damage.die).toBe("d4");
 	});
 
-	it("damage reflects saved state", async () => {
+	it("damage.die reflects saved state override", async () => {
 		const flags = makeFlags({ owned: ["enfys"], state: { enfys: { damage: "d6" } } });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage).toBe("d6");
+		expect(snap.damage.die).toBe("d6");
+	});
+
+	it("instinct comes from pack data", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.instinct).toBe("to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off");
+	});
+
+	it("damage is null when pack damage is null", async () => {
+		const flags = makeFlags({ owned: ["test-picker"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([PICKER]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.damage).toBeNull();
 	});
 });
 
@@ -368,8 +392,6 @@ describe("CharacterFollowers — choices snapshot", () => {
 		const [snap] = await cf.buildSnapshot();
 		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
 		expect(weaponRow.value).toBe("bronze knife d4 (hand)");
-		const instinctRow = snap.choices.list.find(r => r.slug === "instinct");
-		expect(instinctRow.value).toBe("to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off");
 		const costRow = snap.choices.list.find(r => r.slug === "cost");
 		expect(costRow.value).toBe("knowledge, secret lore; Loyalty");
 	});
@@ -377,12 +399,12 @@ describe("CharacterFollowers — choices snapshot", () => {
 	it("saved text value overrides pack default", async () => {
 		const flags = makeFlags({
 			owned: ["enfys"],
-			state: { enfys: { values: { choices: { instinct: "to wander aimlessly" } } } },
+			state: { enfys: { values: { choices: { weapon: "iron axe d6 (hand)" } } } },
 		});
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		const instinctRow = snap.choices.list.find(r => r.slug === "instinct");
-		expect(instinctRow.value).toBe("to wander aimlessly");
+		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
+		expect(weaponRow.value).toBe("iron axe d6 (hand)");
 	});
 
 	it("pick rows have correct options and are unchecked by default", async () => {
@@ -429,6 +451,13 @@ describe("CharacterFollowers — choices snapshot", () => {
 		expect(pronounRow.options.find(o => o.slug === "she").checked).toBe(true);
 		expect(pronounRow.options.find(o => o.slug === "he").checked).toBe(false);
 	});
+
+	it("instinct row is not in choices (it is a separate field)", async () => {
+		const flags = makeFlags({ owned: ["enfys"] });
+		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.choices.list.find(r => r.slug === "instinct")).toBeUndefined();
+	});
 });
 
 // -- Fixtures: blank follower -------------------------------------------------
@@ -436,16 +465,16 @@ describe("CharacterFollowers — choices snapshot", () => {
 const BLANK_DATA = {
 	slug:    "blank",
 	name:    "New Follower",
-	note:    null,
-	hp:      { max: 6 },
-	armor:   0,
-	damage:  "d6",
-	loyalty: { max: 3 },
+	tags:    null,
+	hp:      { value: 6, min: 0, max: 6 },
+	armor:   { value: 0, note: "" },
+	damage:  { die: "d6", label: "", tags: "" },
+	instinct: "",
+	loyalty: { value: 0, max: 3 },
 	choices: {
 		slug: "choices",
 		list: [
 			{ type: "input", slug: "damage",   text: "Damage",   default: "" },
-			{ type: "input", slug: "instinct", text: "Instinct", default: "" },
 			{ type: "input", slug: "cost",     text: "Cost",     default: "" },
 			{ type: "input", slug: "notes",    text: "Notes",    default: "" },
 		],
@@ -501,7 +530,7 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.choices).not.toBeNull();
-		expect(snap.choices.list.find(r => r.slug === "instinct")).toBeDefined();
+		expect(snap.choices.list.find(r => r.slug === "cost")).toBeDefined();
 	});
 
 	it("custom snapshot has null choices when blank not available", async () => {
@@ -524,6 +553,20 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.loyaltyMax).toBe(3);
 	});
+
+	it("custom armor snapshot is an object with value and note", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "X", hp: 4, hpMax: 4, armor: 2, damage: "d6", loyalty: 0, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.armor).toEqual({ value: 2, note: "" });
+	});
+
+	it("custom damage snapshot is an object with die", async () => {
+		const store = { owned: ["custom-1"], state: { "custom-1": { name: "X", hp: 4, hpMax: 4, armor: 0, damage: "d8", loyalty: 0, values: {} } } };
+		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.damage).toEqual({ die: "d8", label: "", tags: "" });
+	});
 });
 
 // -- Tests: arcanaSlug propagation --------------------------------------------
@@ -532,11 +575,12 @@ describe("CharacterFollowers — arcanaSlug", () => {
 	const BRONZE_PROTECTOR_DATA = {
 		slug:       "bronze-protector",
 		name:       "Bronze protector",
-		note:       "Construct, spirit, durable",
-		hp:         { max: 13 },
-		armor:      3,
-		damage:     "pummel 1d8 (band)",
-		loyalty:    { max: 3 },
+		tags:       "Construct, spirit, durable",
+		hp:         { value: 13, min: 0, max: 13 },
+		armor:      { value: 3, note: "" },
+		damage:     { die: "d8", label: "pummel", tags: "band" },
+		instinct:   "",
+		loyalty:    { value: 0, max: 3 },
 		arcanaSlug: "metal-man",
 	};
 	const BRONZE_PROTECTOR = new Follower(BRONZE_PROTECTOR_DATA);

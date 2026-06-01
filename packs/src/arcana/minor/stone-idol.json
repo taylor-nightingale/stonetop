@@ -60,10 +60,11 @@
 					{
 						"type": "follower",
 						"slug": "all-mighty-thistlewisk",
-						"followerSlug": "all-mighty-thistlewisk",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

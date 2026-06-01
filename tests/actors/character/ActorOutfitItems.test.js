@@ -4,11 +4,10 @@ import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 
 function makeRawItem(overrides = {}) {
 	return {
-		_id:    overrides._id    ?? "item-1",
-		type:   overrides.type   ?? "equipment",
-		name:   overrides.name   ?? "Test",
-		system: { equipmentType: overrides.equipmentType ?? "outfit", ...(overrides.system ?? {}) },
-		flags:  { stonetop: { source: overrides.source ?? null, ...(overrides.stonetop ?? {}) } },
+		_id:    overrides._id  ?? "item-1",
+		type:   overrides.type ?? "outfitItem",
+		name:   overrides.name ?? "Test",
+		system: { source: overrides.source ?? null, ...(overrides.system ?? {}) },
 	};
 }
 
@@ -17,17 +16,17 @@ function make(items = []) {
 }
 
 describe("ActorOutfitItems.getAll", () => {
-	it("returns outfit equipment items", () => {
+	it("returns outfitItem items", () => {
 		const aoi = make([makeRawItem()]);
 		expect(aoi.getAll()).toHaveLength(1);
 	});
 
-	it("excludes non-outfit equipment items", () => {
-		const aoi = make([makeRawItem({ equipmentType: "arcana" })]);
+	it("excludes non-outfitItem items", () => {
+		const aoi = make([makeRawItem({ type: "equipment" })]);
 		expect(aoi.getAll()).toHaveLength(0);
 	});
 
-	it("excludes non-equipment items", () => {
+	it("excludes move items", () => {
 		const aoi = make([makeRawItem({ type: "move" })]);
 		expect(aoi.getAll()).toHaveLength(0);
 	});
@@ -62,7 +61,7 @@ describe("ActorOutfitItems.create", () => {
 	it("calls createEmbeddedDocuments with the given items", async () => {
 		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
-		const data = [{ name: "X", type: "equipment" }];
+		const data = [{ name: "X", type: "outfitItem" }];
 		await aoi.create(data);
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", data);
 	});
@@ -107,7 +106,7 @@ describe("ActorOutfitItems.sync", () => {
 	it("deletes existing items with the source then creates the new ones", async () => {
 		const actor = new FakeActorBuilder().withItems([makeRawItem({_id: "old", source: "arcana:sword"})]).build();
 		const aoi = new ActorOutfitItems(actor);
-		const newData = [{ name: "New Sword", type: "equipment" }];
+		const newData = [{ name: "New Sword", type: "outfitItem" }];
 		await aoi.sync("arcana:sword", newData);
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["old"]);
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", newData);
@@ -124,7 +123,7 @@ describe("ActorOutfitItems.sync", () => {
 	it("skips delete when no existing items match source", async () => {
 		const actor = new FakeActorBuilder().withItems([]).build();
 		const aoi = new ActorOutfitItems(actor);
-		await aoi.sync("arcana:sword", [{ name: "Sword", type: "equipment" }]);
+		await aoi.sync("arcana:sword", [{ name: "Sword", type: "outfitItem" }]);
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalled();
 	});

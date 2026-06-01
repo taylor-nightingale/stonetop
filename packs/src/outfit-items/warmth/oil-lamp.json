@@ -2,27 +2,28 @@
 	"_id": "p5B1Id9Z850kEnyd",
 	"_key": "!items!p5B1Id9Z850kEnyd",
 	"name": "Oil lamp",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "oil-lamp",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "close, area, crude",
+		"note": "",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"hours"
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 13,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "oil-lamp",
-			"inventoryColumn": "regular",
-			"sortOrder": 13,
-			"note": "<em>close</em>, <em>area</em>, <em>crude</em>",
-			"weight": 1,
-			"resource": {
-				"max": 3,
-				"title": null,
-				"labels": [
-					"",
-					"",
-					"hours"
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWrm0001X"
 }

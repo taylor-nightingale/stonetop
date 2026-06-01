@@ -2,17 +2,20 @@
 	"_id": "h8LojIIf94ChZESF",
 	"_key": "!items!h8LojIIf94ChZESF",
 	"name": "Twine/cord",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "twine-cord",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 8,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "twine-cord",
-			"inventoryColumn": "small",
-			"sortOrder": 8,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

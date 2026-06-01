@@ -65,10 +65,11 @@
 					{
 						"type": "follower",
 						"slug": "spirit-in-the-cloak",
-						"followerSlug": "spirit-in-the-cloak",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

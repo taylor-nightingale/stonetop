@@ -2,17 +2,20 @@
 	"_id": "xavU07zUHLnnBbuQ",
 	"_key": "!items!xavU07zUHLnnBbuQ",
 	"name": "Tinderbox",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "tinderbox",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "slow",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 4,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "tinderbox",
-			"inventoryColumn": "small",
-			"sortOrder": 4,
-			"note": "slow"
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

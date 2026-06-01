@@ -2,17 +2,20 @@
 	"_id": "AwFv0Yg7NZRBT7qY",
 	"_key": "!items!AwFv0Yg7NZRBT7qY",
 	"name": "Bowstring",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "bowstring",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 10,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "bowstring",
-			"inventoryColumn": "small",
-			"sortOrder": 10,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

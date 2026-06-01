@@ -11,7 +11,7 @@
 		"description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
 		"startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
 		"damage": {
-			"die": "d6"
+			"value": "d6"
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
@@ -217,13 +217,13 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "What Do You Fear Most?",
-						"description": "<p><em>(choose 1, maybe 2)</em></p>"
+						"title": "Fear & anger",
+						"description": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
 					},
 					{
 						"type": "heading",
 						"slug": "fire",
-						"description": "Fire, burning, the smell of charred flesh.",
+						"description": "Fire, burning, the smell of charred flesh",
 						"track": {
 							"max": 1
 						}
@@ -231,7 +231,7 @@
 					{
 						"type": "heading",
 						"slug": "not-serious",
-						"description": "That they won't take you seriously.",
+						"description": "That they won't take you seriously",
 						"track": {
 							"max": 1
 						}
@@ -239,7 +239,7 @@
 					{
 						"type": "heading",
 						"slug": "not-cut-out",
-						"description": "That you really aren't cut out for this.",
+						"description": "That you really aren't cut out for this",
 						"track": {
 							"max": 1
 						}
@@ -247,7 +247,7 @@
 					{
 						"type": "heading",
 						"slug": "loved-ones",
-						"description": "The death of your family or loved ones.",
+						"description": "The death of your family or loved ones",
 						"track": {
 							"max": 1
 						}
@@ -255,7 +255,7 @@
 					{
 						"type": "heading",
 						"slug": "alone",
-						"description": "Being alone and helpless.",
+						"description": "Being alone and helpless",
 						"track": {
 							"max": 1
 						}
@@ -263,7 +263,7 @@
 					{
 						"type": "heading",
 						"slug": "violence",
-						"description": "Violence, bloodshed, and pain.",
+						"description": "Violence, bloodshed, and pain",
 						"track": {
 							"max": 1
 						}
@@ -271,7 +271,7 @@
 					{
 						"type": "heading",
 						"slug": "monsters",
-						"description": "Monsters.",
+						"description": "Monsters",
 						"track": {
 							"max": 1
 						}
@@ -279,7 +279,7 @@
 					{
 						"type": "heading",
 						"slug": "capable-of",
-						"description": "What you're capable of.",
+						"description": "What you're capable of",
 						"track": {
 							"max": 1
 						}
@@ -287,25 +287,19 @@
 					{
 						"type": "heading",
 						"slug": "must-do",
-						"description": "What you must do.",
+						"description": "What you must do",
 						"track": {
 							"max": 1
 						}
-					}
-				]
-			},
-			{
-				"slug": "fear-and-anger-anger",
-				"list": [
+					},
 					{
 						"type": "heading",
-						"title": "What Makes You Burn with Righteous Anger?",
-						"description": "<p><em>(choose 2, maybe 3)</em></p>"
+						"description": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
 					},
 					{
 						"type": "heading",
 						"slug": "bullying",
-						"description": "Bullying, slavery, and oppression.",
+						"description": "Bullying, slavery, and oppression",
 						"track": {
 							"max": 1
 						}
@@ -313,7 +307,7 @@
 					{
 						"type": "heading",
 						"slug": "cruelty",
-						"description": "Wanton cruelty and unnecessary suffering.",
+						"description": "Wanton cruelty and unnecessary suffering",
 						"track": {
 							"max": 1
 						}
@@ -321,7 +315,7 @@
 					{
 						"type": "heading",
 						"slug": "injustice",
-						"description": "Injustice and inequality.",
+						"description": "Injustice and inequality",
 						"track": {
 							"max": 1
 						}
@@ -329,7 +323,7 @@
 					{
 						"type": "heading",
 						"slug": "cowardice",
-						"description": "Cowardice, treachery, and selfishness.",
+						"description": "Cowardice, treachery, and selfishness",
 						"track": {
 							"max": 1
 						}
@@ -337,7 +331,7 @@
 					{
 						"type": "heading",
 						"slug": "despoiling",
-						"description": "The despoiling of beauty and innocence.",
+						"description": "The despoiling of beauty and innocence",
 						"track": {
 							"max": 1
 						}
@@ -345,7 +339,7 @@
 					{
 						"type": "heading",
 						"slug": "loved-ones",
-						"description": "Threats to your loved ones.",
+						"description": "Threats to your loved ones",
 						"track": {
 							"max": 1
 						}
@@ -353,7 +347,7 @@
 					{
 						"type": "heading",
 						"slug": "innocents",
-						"description": "Violence to children, animals, the innocent.",
+						"description": "Violence to children, animals, the innocent",
 						"track": {
 							"max": 1
 						}
@@ -361,20 +355,10 @@
 					{
 						"type": "heading",
 						"slug": "perversions",
-						"description": "Perversions of nature.",
+						"description": "Perversions of nature",
 						"track": {
 							"max": 1
 						}
-					}
-				]
-			},
-			{
-				"slug": "fear-and-anger-story",
-				"list": [
-					{
-						"type": "heading",
-						"title": "When Did Your Fear or Anger Last Cause You Trouble?",
-						"description": ""
 					},
 					{
 						"type": "input",
@@ -403,12 +387,99 @@
 			{
 				"slug": "driven",
 				"label": "Driven",
-				"description": "<p>You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1: a loved one was killed or abducted; someone gave their life to save you; your idol sacrificed themselves to save many; you stumbled upon a dark mystery; or you must make amends for a terrible mistake.</p><p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+				"choices": {
+					"slug": "driven",
+					"list": [
+						{ "type": "heading", "description": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:"},
+						{ "type": "heading", "slug": "loved-one",   "description": "A loved one was killed or abducted", "track": { "max": 1 } },
+						{ "type": "heading", "slug": "gave-life",    "description": "Someone gave their life to save you", "track": { "max": 1 } },
+						{ "type": "heading", "slug": "idol", "description": "Your idol sacrificed themselves to save many", "track": { "max": 1 } },
+						{ "type": "heading", "slug": "dark-mystery",   "description": "You stumbled upon a dark mystery", "track": { "max": 1 } },
+						{ "type": "heading", "slug": "mistake",   "description": "You must make amends for a terrible mistake", "track": { "max": 1 } },
+						{
+							"type": "heading", "description": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+						}
+					]
+				}
 			},
 			{
 				"slug": "destined",
 				"label": "Destined",
-				"description": "<p>Fate has laid her hand upon you. Choose 3-4 items to describe your destiny.</p><p>At the <em>start of a session</em>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will share a vision or portent that points toward your fate; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don't mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision.</p><p><em>Until your destiny is fulfilled</em>, treat a 6- on Death's Door as a 7-9, and a 7-9 as a 10+.</p>"
+				"choices": {
+					"slug": "driven",
+					"list": [
+						{ "type": "heading", "description": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"},
+						{
+							"type": "pick",
+							"pickCount": 3,
+							"inline": true,
+							"options": [
+								{"slug": "anointed", "text": "anointed"},
+								{"slug": "marked", "text": "marked at birth"},
+								{"slug": "coming", "text": "your coming foretold"}
+							]
+						},
+						{
+							"type": "pick",
+							"pickCount": 5,
+							"inline": true,
+							"options": [
+								{"slug": "destroy", "text": "destroy"},
+								{"slug": "discover", "text": "discover"},
+								{"slug": "free", "text": "free"},
+								{"slug": "protect", "text": "protect"},
+								{"slug": "protect", "text": "restore"}
+							]
+						},
+						{
+							"type": "pick",
+							"pickCount": 4,
+							"inline": true,
+							"options": [
+								{"slug": "unify", "text": "unify"},
+								{"slug": "blood", "text": "blood"},
+								{"slug": "civilization", "text": "civilization"},
+								{"slug": "darkness", "text": "darkness"}
+							]
+						},
+						{
+							"type": "pick",
+							"pickCount": 6,
+							"inline": true,
+							"options": [
+								{"slug": "earth", "text": "earth & stone"},
+								{"slug": "fire", "text": "fire"},
+								{"slug": "ice", "text": "ice"},
+								{"slug": "light", "text": "light"},
+								{"slug": "life", "text": "life"},
+								{"slug": "storms", "text": "storms"}
+							]
+						},
+						{
+							"type": "pick",
+							"pickCount": 5,
+							"inline": true,
+							"options": [
+								{"slug": "war", "text": "war"},
+								{"slug": "water", "text": "water"},
+								{"slug": "fae", "text": "the Fae"},
+								{"slug": "gods", "text": " the gods"},
+								{"slug": "makers", "text": " the Makers"}
+							]
+						},
+						{
+							"type": "pick",
+							"pickCount": 2,
+							"inline": true,
+							"options": [
+								{"slug": "stone", "text": "the Stone"},
+								{"slug": "things", "text": "the Things Below"}
+							]
+						},
+						{ "type": "heading", "description": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"}
+					]
+				},
+				"resource": { "max": 3 }
 			}
 		],
 		"specialPossessions": {

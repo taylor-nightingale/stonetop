@@ -2,16 +2,20 @@
 	"_id": "VxUZpfbH9vOWOU6m",
 	"_key": "!items!VxUZpfbH9vOWOU6m",
 	"name": "Handful of coppers",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "coppers",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 6,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "coppers",
-			"inventoryColumn": "small",
-			"sortOrder": 6
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

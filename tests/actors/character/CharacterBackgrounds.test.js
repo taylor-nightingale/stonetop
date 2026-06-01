@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterBackgrounds } from "../../../module/actors/character/CharacterBackgrounds.js";
 import { BackgroundSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceGroup } from "../../../module/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
 	return {
@@ -10,8 +11,15 @@ function makeFlags(store = {}) {
 	};
 }
 
-function makeBg(selected = "", choices = {}) {
-	return new CharacterBackgrounds(makeFlags({ selected, choices }));
+function makeFollowers() {
+	return {
+		addFollower:    vi.fn(async () => {}),
+		removeFollower: vi.fn(async () => {}),
+	};
+}
+
+function makeBg(selectedSlug = "", choicesRaw = {}, followers = null) {
+	return new CharacterBackgrounds(makeFlags({ selected: selectedSlug, choices: choicesRaw }), followers);
 }
 
 const SIMPLE_BG_DATA = [
@@ -19,27 +27,37 @@ const SIMPLE_BG_DATA = [
 	{ slug: "vessel",   label: "Vessel",   description: "<p>Vessel.</p>",   moves: ["Danu's Grasp"] },
 ];
 
-const BG_WITH_CHOICES = [{
-	slug: "initiate", label: "Initiate", description: "", moves: [],
+const FOLLOWER_CHOICES_DATA = [{
+	slug: "initiate", label: "Initiate", description: "<p>Initiate. Pick 2 or 3:</p>", moves: [],
 	choices: {
-		label: "Who are they?",
-		count: [2, 3],
-		options: [
-			{ slug: "enfys", label: "Enfys" },
-			{ slug: "afon",  label: "Afon" },
+		slug: "initiate",
+		list: [
+			{ type: "follower", slug: "enfys", inlineDisplay: false, title: "Enfys, your acolyte", track: { max: 1 } },
+			{ type: "follower", slug: "afon",  inlineDisplay: false, title: "Afon, Fae-touched",   track: { max: 1 } },
 		],
 	},
 }];
 
+const HEADING_CHOICES_DATA = [{
+	slug: "driven", label: "Driven", description: "<p>Driven. Pick 2 or 3:</p>", moves: [],
+	choices: {
+		slug: "driven",
+		list: [
+			{ type: "heading", slug: "enfys", description: "Enfys, your acolyte", track: { max: 1 } },
+			{ type: "heading", slug: "afon",  description: "Afon, Fae-touched",   track: { max: 1 } },
+		],
+	},
+}];
+
+// -- Tests: selectedSlug / selectBackground -----------------------------------
+
 describe("CharacterBackgrounds", () => {
 	it("selectedSlug returns empty string when no saved selection", () => {
-		const bg = new CharacterBackgrounds(makeFlags());
-		expect(bg.selectedSlug).toBe("");
+		expect(new CharacterBackgrounds(makeFlags()).selectedSlug).toBe("");
 	});
 
 	it("selectedSlug returns the stored slug", () => {
-		const bg = new CharacterBackgrounds(makeFlags({ selected: "vessel" }));
-		expect(bg.selectedSlug).toBe("vessel");
+		expect(new CharacterBackgrounds(makeFlags({ selected: "vessel" })).selectedSlug).toBe("vessel");
 	});
 
 	it("selectBackground stores the slug via setFlag", async () => {
@@ -48,34 +66,64 @@ describe("CharacterBackgrounds", () => {
 		await bg.selectBackground("initiate");
 		expect(flags.setFlag).toHaveBeenCalledWith("selected", "initiate");
 	});
+});
 
-	it("choices returns empty object when no choices saved", () => {
-		const bg = new CharacterBackgrounds(makeFlags());
-		expect(bg.choices).toEqual({});
+// -- Tests: setChoiceValue ---------------------------------------------------
+
+describe("CharacterBackgrounds.setChoiceValue", () => {
+	it("saves the count to flags.choices in ChoiceValues format", async () => {
+		const store = {};
+		const bg = new CharacterBackgrounds(makeFlags(store));
+		await bg.setChoiceValue("initiate", "enfys", 1);
+		expect(store.choices).toEqual({ initiate: { enfys: 1 } });
 	});
 
-	it("choices returns saved choices object", () => {
-		const bg = new CharacterBackgrounds(makeFlags({ choices: { "hard-upbringing": true } }));
-		expect(bg.choices).toEqual({ "hard-upbringing": true });
+	it("merges into existing choices state", async () => {
+		const store = { choices: { initiate: { afon: 1 } } };
+		const bg = new CharacterBackgrounds(makeFlags(store));
+		await bg.setChoiceValue("initiate", "enfys", 1);
+		expect(store.choices.initiate).toEqual({ afon: 1, enfys: 1 });
 	});
 
-	it("addChoice merges checked state into saved choices", async () => {
-		const store = { choices: { "old-slug": false } };
-		const flags = makeFlags(store);
-		const bg = new CharacterBackgrounds(flags);
-		const choice = { slug: "new-slug", isChecked: true };
-		await bg.addChoice(choice);
-		expect(flags.setFlag).toHaveBeenCalledWith("choices", { "old-slug": false, "new-slug": true });
-	});
-
-	it("addChoice works when no choices previously saved", async () => {
-		const flags = makeFlags();
-		const bg = new CharacterBackgrounds(flags);
-		const choice = { slug: "hard-upbringing", isChecked: false };
-		await bg.addChoice(choice);
-		expect(flags.setFlag).toHaveBeenCalledWith("choices", { "hard-upbringing": false });
+	it("does not call addFollower even when followers is provided", async () => {
+		const followers = makeFollowers();
+		const bg = new CharacterBackgrounds(makeFlags({}), followers);
+		await bg.setChoiceValue("driven", "enfys", 1);
+		expect(followers.addFollower).not.toHaveBeenCalled();
 	});
 });
+
+// -- Tests: setFollowerChoiceValue -------------------------------------------
+
+describe("CharacterBackgrounds.setFollowerChoiceValue", () => {
+	it("saves the count to flags.choices", async () => {
+		const store = {};
+		const bg = new CharacterBackgrounds(makeFlags(store), makeFollowers());
+		await bg.setFollowerChoiceValue("initiate", "enfys", 1);
+		expect(store.choices).toEqual({ initiate: { enfys: 1 } });
+	});
+
+	it("calls addFollower when count > 0", async () => {
+		const followers = makeFollowers();
+		const bg = new CharacterBackgrounds(makeFlags({}), followers);
+		await bg.setFollowerChoiceValue("initiate", "enfys", 1);
+		expect(followers.addFollower).toHaveBeenCalledWith("enfys");
+	});
+
+	it("calls removeFollower when count === 0", async () => {
+		const followers = makeFollowers();
+		const bg = new CharacterBackgrounds(makeFlags({}), followers);
+		await bg.setFollowerChoiceValue("initiate", "enfys", 0);
+		expect(followers.removeFollower).toHaveBeenCalledWith("enfys");
+	});
+
+	it("does not throw when followers is null", async () => {
+		const bg = new CharacterBackgrounds(makeFlags({}), null);
+		await expect(bg.setFollowerChoiceValue("initiate", "enfys", 1)).resolves.not.toThrow();
+	});
+});
+
+// -- Tests: buildSnapshot ----------------------------------------------------
 
 describe("CharacterBackgrounds.buildSnapshot", () => {
 	it("returns a BackgroundSection", () => {
@@ -121,17 +169,31 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 		expect(makeBg().buildSnapshot(SIMPLE_BG_DATA).options[0].choices).toBeNull();
 	});
 
-	it("builds choices when background has choices data", () => {
-		const snap = makeBg().buildSnapshot(BG_WITH_CHOICES);
-		expect(snap.options[0].choices).not.toBeNull();
-		expect(snap.options[0].choices.label).toBe("Who are they?");
-		expect(snap.options[0].choices.options).toHaveLength(2);
+	it("builds a ChoiceGroup when background has follower choices", () => {
+		const snap = makeBg().buildSnapshot(FOLLOWER_CHOICES_DATA);
+		expect(snap.options[0].choices).toBeInstanceOf(ChoiceGroup);
 	});
 
-	it("choice options reflect saved checked state", () => {
-		const snap = makeBg("", { enfys: true }).buildSnapshot(BG_WITH_CHOICES);
-		expect(snap.options[0].choices.options.find(o => o.slug === "enfys").checked).toBe(true);
-		expect(snap.options[0].choices.options.find(o => o.slug === "afon").checked).toBe(false);
+	it("builds a ChoiceGroup when background has heading choices", () => {
+		const snap = makeBg().buildSnapshot(HEADING_CHOICES_DATA);
+		expect(snap.options[0].choices).toBeInstanceOf(ChoiceGroup);
+	});
+
+	it("ChoiceGroup list has correct length", () => {
+		const snap = makeBg().buildSnapshot(FOLLOWER_CHOICES_DATA);
+		expect(snap.options[0].choices.list).toHaveLength(2);
+	});
+
+	it("saved follower choice reflects checked track state", () => {
+		const snap = makeBg("", { initiate: { enfys: 1 } }).buildSnapshot(FOLLOWER_CHOICES_DATA);
+		const row = snap.options[0].choices.list.find(r => r.slug === "enfys");
+		expect(row.track.checks[0]).toBe(true);
+	});
+
+	it("unsaved follower choice has unchecked track", () => {
+		const snap = makeBg().buildSnapshot(FOLLOWER_CHOICES_DATA);
+		const row = snap.options[0].choices.list.find(r => r.slug === "afon");
+		expect(row.track.checks[0]).toBe(false);
 	});
 
 	it("returns empty options when backgroundsData is absent", () => {

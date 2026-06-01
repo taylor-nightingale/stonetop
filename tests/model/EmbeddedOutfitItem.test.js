@@ -13,15 +13,15 @@ function makeItem(overrides = {}) {
 }
 
 describe("EmbeddedOutfitItemBuilder", () => {
-	it("sets type to 'equipment'", () => {
-		expect(makeItem().type).toBe("equipment");
+	it("sets type to 'outfitItem'", () => {
+		expect(makeItem().type).toBe("outfitItem");
 	});
 
-	it("sets system.equipmentType to 'outfit'", () => {
-		expect(makeItem().system.equipmentType).toBe("outfit");
+	it("has no flags", () => {
+		expect(makeItem().flags).toBeUndefined();
 	});
 
-	it("sets system.weight", () => {
+	it("stores weight in system.weight", () => {
 		expect(makeItem({ weight: 3 }).system.weight).toBe(3);
 	});
 
@@ -30,59 +30,67 @@ describe("EmbeddedOutfitItemBuilder", () => {
 		expect(item.system.weight).toBe(0);
 	});
 
-	it("stores slug in flags.stonetop.slug", () => {
-		expect(makeItem({ slug: "my-slug" }).flags.stonetop.slug).toBe("my-slug");
+	it("stores slug in system.slug", () => {
+		expect(makeItem({ slug: "my-slug" }).system.slug).toBe("my-slug");
 	});
 
-	it("stores inventoryColumn in flags.stonetop.inventoryColumn", () => {
-		expect(makeItem({ inventoryColumn: "small" }).flags.stonetop.inventoryColumn).toBe("small");
+	it("stores inventoryColumn in system.inventoryColumn", () => {
+		expect(makeItem({ inventoryColumn: "small" }).system.inventoryColumn).toBe("small");
 	});
 
 	it("defaults inventoryColumn to 'regular'", () => {
 		const item = new EmbeddedOutfitItemBuilder().withName("X").build();
-		expect(item.flags.stonetop.inventoryColumn).toBe("regular");
+		expect(item.system.inventoryColumn).toBe("regular");
 	});
 
-	it("stores note in flags.stonetop.note", () => {
-		expect(makeItem({ note: "magical" }).flags.stonetop.note).toBe("magical");
+	it("stores tags in system.tags", () => {
+		expect(makeItem({ tags: "hand, thrown" }).system.tags).toBe("hand, thrown");
+	});
+
+	it("defaults tags to empty string", () => {
+		expect(makeItem().system.tags).toBe("");
+	});
+
+	it("stores note in system.note", () => {
+		expect(makeItem({ note: "x piercing" }).system.note).toBe("x piercing");
 	});
 
 	it("defaults note to null", () => {
-		expect(makeItem().flags.stonetop.note).toBeNull();
+		expect(makeItem().system.note).toBeNull();
 	});
 
-	it("stores resource in flags.stonetop.resource", () => {
+	it("stores resource in system.resource", () => {
 		const res = { max: 3, title: "Charges", labels: [] };
-		expect(makeItem({ resource: res }).flags.stonetop.resource).toEqual(res);
+		expect(makeItem({ resource: res }).system.resource).toEqual(res);
 	});
 
 	it("defaults resource to null", () => {
-		expect(makeItem().flags.stonetop.resource).toBeNull();
+		expect(makeItem().system.resource).toBeNull();
 	});
 
-	it("stores twoCol in flags.stonetop.twoCol", () => {
-		expect(makeItem({ twoCol: true }).flags.stonetop.twoCol).toBe(true);
+	it("stores twoCol in system.twoCol", () => {
+		expect(makeItem({ twoCol: true }).system.twoCol).toBe(true);
 	});
 
 	it("defaults twoCol to false", () => {
-		expect(makeItem().flags.stonetop.twoCol).toBe(false);
+		expect(makeItem().system.twoCol).toBe(false);
 	});
 
-	it("stores breakBefore in flags.stonetop.breakBefore", () => {
-		expect(makeItem({ breakBefore: true }).flags.stonetop.breakBefore).toBe(true);
+	it("stores breakBefore in system.breakBefore", () => {
+		expect(makeItem({ breakBefore: true }).system.breakBefore).toBe(true);
 	});
 
 	it("defaults breakBefore to false", () => {
-		expect(makeItem().flags.stonetop.breakBefore).toBe(false);
+		expect(makeItem().system.breakBefore).toBe(false);
 	});
 
-	it("stores source in flags.stonetop.source", () => {
-		expect(makeItem({ source: "arcana:my-arcanum" }).flags.stonetop.source).toBe("arcana:my-arcanum");
+	it("stores source in system.source", () => {
+		expect(makeItem({ source: "arcana:my-arcanum" }).system.source).toBe("arcana:my-arcanum");
 	});
 
 	it("defaults source to null", () => {
 		const item = new EmbeddedOutfitItemBuilder().withName("X").build();
-		expect(item.flags.stonetop.source).toBeNull();
+		expect(item.system.source).toBeNull();
 	});
 
 	it("stores name at top level", () => {

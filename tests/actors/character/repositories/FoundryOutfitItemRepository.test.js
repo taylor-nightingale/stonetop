@@ -3,11 +3,11 @@ import { FoundryOutfitItemRepository } from "../../../../module/actors/character
 
 // -- Helpers ------------------------------------------------------------------
 
-function makeEntry(slug, flags = {}) {
+function makeEntry(slug, systemOverrides = {}) {
 	return {
 		_id: `id-${slug}`,
 		name: slug,
-		flags: { stonetop: { slug, inventoryColumn: "regular", sortOrder: 1, weight: 1, ...flags } },
+		system: { slug, inventoryColumn: "regular", sortOrder: 1, weight: 1, tags: "", note: null, ...systemOverrides },
 	};
 }
 
@@ -38,25 +38,39 @@ describe("FoundryOutfitItemRepository", () => {
 		expect(await repo.getAll()).toEqual([]);
 	});
 
-	it("defaults item.armor to null when flag is absent", async () => {
+	it("defaults item.armor to null when system.armor is absent", async () => {
 		stubGame(makePack([makeEntry("cloak")]));
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
 		expect(items[0].armor).toBeNull();
 	});
 
-	it("maps flags.stonetop.armor to item.armor for a base value", async () => {
+	it("maps system.armor to item.armor for a base value", async () => {
 		stubGame(makePack([makeEntry("thick-hides", { armor: { base: 1 } })]));
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
 		expect(items[0].armor).toEqual({ base: 1 });
 	});
 
-	it("maps flags.stonetop.armor to item.armor for a modifier value", async () => {
+	it("maps system.armor to item.armor for a modifier value", async () => {
 		stubGame(makePack([makeEntry("shield", { armor: { modifier: 1 } })]));
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
 		expect(items[0].armor).toEqual({ modifier: 1 });
+	});
+
+	it("maps system.tags to item.tags", async () => {
+		stubGame(makePack([makeEntry("knife", { tags: "hand, thrown" })]));
+		const repo = new FoundryOutfitItemRepository();
+		const items = await repo.getAll();
+		expect(items[0].tags).toBe("hand, thrown");
+	});
+
+	it("maps system.note to item.note", async () => {
+		stubGame(makePack([makeEntry("arrows", { note: "x piercing" })]));
+		const repo = new FoundryOutfitItemRepository();
+		const items = await repo.getAll();
+		expect(items[0].note).toBe("x piercing");
 	});
 
 	it("resolves folder id to group name", async () => {

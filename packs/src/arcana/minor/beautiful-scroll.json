@@ -76,10 +76,11 @@
 					{
 						"type": "follower",
 						"slug": "tulpa",
-						"followerSlug": "tulpa",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			}

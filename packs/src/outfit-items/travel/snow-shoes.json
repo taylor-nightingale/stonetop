@@ -2,18 +2,20 @@
 	"_id": "eNo41eoPni6JDWYl",
 	"_key": "!items!eNo41eoPni6JDWYl",
 	"name": "Snow-shoes",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "snow-shoes",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 11,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "snow-shoes",
-			"inventoryColumn": "regular",
-			"sortOrder": 11,
-			"weight": 1,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpTrv0001X"
 }

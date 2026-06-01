@@ -2,18 +2,20 @@
 	"_id": "AnHTmt9OBGhnuKon",
 	"_key": "!items!AnHTmt9OBGhnuKon",
 	"name": "Sledge/litter/travois, roll-out",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "sledge",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 10,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "sledge",
-			"inventoryColumn": "regular",
-			"sortOrder": 10,
-			"weight": 2,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpTrv0001X"
 }

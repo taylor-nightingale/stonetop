@@ -4,8 +4,7 @@ export class ActorOutfitItems {
 	}
 
 	get _all() {
-		return [...(this._actor.items ?? [])]
-			.filter(i => i.type === "equipment" && i.system?.equipmentType === "outfit");
+		return [...(this._actor.items ?? [])].filter(i => i.type === "outfitItem");
 	}
 
 	getAll() {
@@ -13,7 +12,7 @@ export class ActorOutfitItems {
 	}
 
 	getBySource(source) {
-		return this._all.filter(i => i.flags?.stonetop?.source === source);
+		return this._all.filter(i => i.system?.source === source);
 	}
 
 	async create(itemsData) {

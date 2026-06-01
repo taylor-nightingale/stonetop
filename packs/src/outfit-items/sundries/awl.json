@@ -2,18 +2,20 @@
 	"_id": "tP7ySeQMgV0Lh8Wv",
 	"_key": "!items!tP7ySeQMgV0Lh8Wv",
 	"name": "Awl",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "awl",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": true,
+		"sortOrder": 1,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "awl",
-			"inventoryColumn": "small",
-			"sortOrder": 1,
-			"breakBefore": true,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

@@ -2,17 +2,20 @@
 	"_id": "k7Gdp0CXP9K63LSF",
 	"_key": "!items!k7Gdp0CXP9K63LSF",
 	"name": "Knife or dagger, iron",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "knife-dagger",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "hand",
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 1,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "knife-dagger",
-			"inventoryColumn": "small",
-			"sortOrder": 1,
-			"note": "<em>hand</em>"
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

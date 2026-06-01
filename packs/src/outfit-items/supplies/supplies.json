@@ -2,30 +2,31 @@
 	"_id": "NbrnTP3fAbnFbmOH",
 	"_key": "!items!NbrnTP3fAbnFbmOH",
 	"name": "Supplies",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "supplies",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "4+Prosperity uses",
+		"resource": {
+			"max": 6,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 1,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "supplies",
-			"inventoryColumn": "regular",
-			"sortOrder": 1,
-			"note": "4+Prosperity uses",
-			"weight": 1,
-			"resource": {
-				"max": 6,
-				"title": null,
-				"labels": [
-					"",
-					"",
-					"",
-					"",
-					"",
-					""
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSup0001X"
 }

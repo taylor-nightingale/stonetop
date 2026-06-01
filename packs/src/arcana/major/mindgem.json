@@ -45,10 +45,11 @@
 					{
 						"type": "follower",
 						"slug": "the-mighty-servant",
-						"followerSlug": "the-mighty-servant",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

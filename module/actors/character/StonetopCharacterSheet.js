@@ -1,4 +1,3 @@
-import {BackgroundInputChoice} from "./elements/background-input-choice.js";
 import {PossessionUseButton} from "./elements/possession-use-button.js";
 
 export function createStonetopCharacterSheetClass(Base) {
@@ -58,7 +57,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			);
 			html.find(".stonetop-origin-name").on("click", this._onOriginNameClick.bind(this));
 			html.find(".stonetop-move-check, .stonetop-repeat-check").on("change", this._onMoveCheck.bind(this));
-			html.find(".stonetop-bg-choice").on("change", this._onBgChoiceChange.bind(this));
 			html[0].addEventListener("click", ev => {
 				const btn = ev.target.closest(".stonetop-item-resource-check");
 				if (!btn) return;
@@ -157,10 +155,15 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const el = ev.target.closest(".stonetop-arcanum-follower-check");
 				if (!el) return;
-				const { slug: arcanumSlug, option: followerSlug, index } = el.dataset;
+				const { cgContext, slug: groupSlug, option: optionSlug, index } = el.dataset;
 				const count = el.checked ? Number(index) + 1 : Number(index);
-				this._stonetopCharacter.setArcanumBackChoiceValue(arcanumSlug, followerSlug, count)
-					.then(() => this.render(false));
+				if (cgContext === "arcana-back") {
+					this._stonetopCharacter.setArcanumBackChoiceValue(groupSlug, optionSlug, count)
+						.then(() => this.render(false));
+				} else if (cgContext === "background") {
+					this._stonetopCharacter.setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count)
+						.then(() => this.render(false));
+				}
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -271,11 +274,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			const isChecked = ev.currentTarget.classList.contains("is-checked");
 			const current = isChecked ? Number(index) : Number(index) + 1;
 			await this._stonetopCharacter.setMoveResourceCurrent(categoryKey, moveName, current);
-		}
-
-		async _onBgChoiceChange(ev) {
-			const choice = new BackgroundInputChoice(ev);
-			await this._stonetopCharacter.background.addChoice(choice);
 		}
 
 		async _onPossessionCheck(ev) {

@@ -19,42 +19,6 @@ export class OriginSection {
 
 // ── Background ────────────────────────────────────────────────────────────────
 
-/** One choice within a background's optional choice list. */
-export class BackgroundChoiceOptionSnapshot {
-	constructor(slug, label, checked) {
-		this.slug    = slug;
-		this.label   = label;
-		this.checked = checked;
-	}
-}
-
-/**
- * The choices sub-object on a BackgroundOptionSnapshot.
- * @property {string} label
- * @property {number[]} count
- * @property {string} countLabel
- * @property {BackgroundChoiceOptionSnapshot[]} options
- * @property {Object.<string,boolean>} saved
- */
-export class BackgroundChoicesSnapshot {
-	constructor(b) {
-		this.label      = b._label;
-		this.count      = b._count;
-		this.countLabel = b._countLabel;
-		this.options    = b._options;
-		this.saved      = b._saved;
-	}
-}
-
-export class BackgroundChoicesSnapshotBuilder {
-	withLabel(v)      { this._label      = v; return this; }
-	withCount(v)      { this._count      = v; return this; }
-	withCountLabel(v) { this._countLabel = v; return this; }
-	withOptions(v)    { this._options    = v; return this; }
-	withSaved(v)      { this._saved      = v; return this; }
-	build()           { return new BackgroundChoicesSnapshot(this); }
-}
-
 /**
  * One background option on PlaybookSnapshot.background.
  * @property {string} slug
@@ -62,7 +26,7 @@ export class BackgroundChoicesSnapshotBuilder {
  * @property {string} description
  * @property {boolean} selected
  * @property {string[]} moves - move slugs granted by this background
- * @property {BackgroundChoicesSnapshot|null} choices
+ * @property {ChoiceGroup|null} choices
  */
 export class BackgroundOptionSnapshot {
 	constructor(b) {

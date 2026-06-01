@@ -8,15 +8,15 @@
 	{{/unless}}
 
 	<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
-	<input type="text" class="stonetop-follower-note-input" value="{{note}}" data-slug="{{slug}}"
+	<input type="text" class="stonetop-follower-note-input" value="{{tags}}" data-slug="{{slug}}"
 	       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
 
 	<div class="stonetop-follower-attrs">
 		{{#if damage}}
 		<div class="cell cell--damage cell--Roll">
 			<span class="cell__title">{{localize "stonetop.followers.damage"}}</span>
-			<span class="attr-rollable rollable" data-roll="{{damage}}"><i class="fas fa-dice-d6"></i></span>
-			<input type="text" class="stonetop-follower-damage" value="{{damage}}" data-slug="{{slug}}">
+			<span class="attr-rollable rollable" data-roll="{{damage.die}}"><i class="fas fa-dice-d6"></i></span>
+			<input type="text" class="stonetop-follower-damage" value="{{damage.die}}" data-slug="{{slug}}">
 		</div>
 		{{/if}}
 		<div class="cell cell--hp cell--Resource">
@@ -29,7 +29,7 @@
 		</div>
 		<div class="cell cell--armor cell--Number">
 			<span class="cell__title">{{localize "stonetop.followers.armor"}}</span>
-			<input type="number" class="stonetop-follower-armor" min="0" value="{{armor}}" data-slug="{{slug}}">
+			<input type="number" class="stonetop-follower-armor" min="0" value="{{armor.value}}" data-slug="{{slug}}">
 		</div>
 	</div>
 

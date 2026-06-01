@@ -2,17 +2,20 @@
 	"_id": "HDBTq0Zf2pCLxb0l",
 	"_key": "!items!HDBTq0Zf2pCLxb0l",
 	"name": "Chalk",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "chalk",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 2,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "chalk",
-			"inventoryColumn": "small",
-			"sortOrder": 2,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

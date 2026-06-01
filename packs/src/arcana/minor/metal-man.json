@@ -65,10 +65,11 @@
 					{
 						"type": "follower",
 						"slug": "bronze-protector",
-						"followerSlug": "bronze-protector",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

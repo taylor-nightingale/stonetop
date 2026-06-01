@@ -19,14 +19,8 @@
 			</label>
 			{{#if (and selected choices)}}
 			<div class="stonetop-bg-choices">
-				<p class="stonetop-bg-choices-label">{{choices.label}} (choose {{choices.countLabel}})</p>
-				{{#each choices.options}}
-				<label class="stonetop-bg-choice-option">
-					<input type="checkbox" class="stonetop-item-check stonetop-bg-choice"
-					       data-slug="{{slug}}"
-					       {{#if checked}}checked{{/if}}>
-					{{label}}
-				</label>
+				{{#each choices.list}}
+				{{> "stonetop.choice-row" cgContext="background" cgGroup=../choices.slug namePrefix=../slug}}
 				{{/each}}
 			</div>
 			{{/if}}

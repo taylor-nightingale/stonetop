@@ -2,18 +2,20 @@
 	"_id": "AraVNqTIAae24HZK",
 	"_key": "!items!AraVNqTIAae24HZK",
 	"name": "Staff",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "staff",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "close",
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 19,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "staff",
-			"inventoryColumn": "regular",
-			"sortOrder": 19,
-			"note": "<em>close</em>",
-			"weight": 1
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWpn0001X"
 }

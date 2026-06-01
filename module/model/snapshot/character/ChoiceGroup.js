@@ -42,12 +42,13 @@ export class TextRow {
 }
 
 export class FollowerRow {
-	constructor(slug, followerSlug, follower, track) {
-		this.type         = "follower";
-		this.slug         = slug;
-		this.followerSlug = followerSlug;
-		this.follower     = follower;   // FollowerSnapshot | null
-		this.track        = track;      // null | { slug, checks: bool[] } — null means no checkbox
+	constructor(slug, follower, track, title, inlineDisplay) {
+		this.type          = "follower";
+		this.slug          = slug;
+		this.follower      = follower;      // FollowerSnapshot | null
+		this.track         = track;         // null | { slug, checks: bool[] } — null means no checkbox
+		this.title         = title;         // HTML string, shown when !inlineDisplay
+		this.inlineDisplay = inlineDisplay; // boolean — true: show full card; false: show title
 	}
 }
 
@@ -139,9 +140,10 @@ export class ChoiceGroup {
 			: null;
 		return new FollowerRow(
 			item.slug,
-			item.followerSlug,
-			followersBySlug[item.followerSlug] ?? null,
+			followersBySlug[item.slug] ?? null,
 			track,
+			item.title         ?? "",
+			item.inlineDisplay ?? false,
 		);
 	}
 }

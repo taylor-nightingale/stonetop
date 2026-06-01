@@ -464,7 +464,7 @@ describe("CharacterArcana — outfitItems sync", () => {
 		await arcana.addArcanum("bow-with-no-string");
 		expect(outfitItems.sync).toHaveBeenCalledWith(
 			"arcana:bow-with-no-string",
-			expect.arrayContaining([expect.objectContaining({ flags: expect.objectContaining({ stonetop: expect.objectContaining({ source: "arcana:bow-with-no-string" }) }) })]),
+			expect.arrayContaining([expect.objectContaining({ system: expect.objectContaining({ source: "arcana:bow-with-no-string" }) })]),
 		);
 	});
 
@@ -520,7 +520,7 @@ const CRACKED_FLUTE = {
 		choices: {
 			slug: "cracked-flute",
 			list: [
-				{ type: "follower", slug: "andalau-of-the-flute", followerSlug: "andalau-of-the-flute", track: { max: 1 } },
+				{ type: "follower", slug: "andalau-of-the-flute", inlineDisplay: true, title: "", track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -543,7 +543,7 @@ const STONE_IDOL = {
 		choices: {
 			slug: "stone-idol",
 			list: [
-				{ type: "follower", slug: "all-mighty-thistlewisk", followerSlug: "all-mighty-thistlewisk", track: { max: 1 } },
+				{ type: "follower", slug: "all-mighty-thistlewisk", inlineDisplay: true, title: "", track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -650,7 +650,7 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		const snap = await charArcana.buildSnapshot();
 		const row = snap.minor.items[0].back.choices.list[0];
 		expect(row).toBeInstanceOf(FollowerRow);
-		expect(row.followerSlug).toBe("andalau-of-the-flute");
+		expect(row.slug).toBe("andalau-of-the-flute");
 	});
 
 	it("FollowerRow.follower is null when not in followersBySlug", async () => {

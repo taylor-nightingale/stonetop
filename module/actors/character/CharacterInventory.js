@@ -90,6 +90,7 @@ export class CharacterInventory {
 			return new OutfitItemSnapshotBuilder()
 				.withSlug(outfitItem.slug)
 				.withName(outfitItem.name)
+				.withTags(outfitItem.tags)
 				.withNote(outfitItem.note)
 				.withWeight(outfitItem.weight)
 				.withChecked(checked[outfitItem.slug] ?? false)
@@ -106,16 +107,17 @@ export class CharacterInventory {
 		};
 
 		const embeddedItems = this._outfitItems.getAll().map(i => {
-			const st = i.flags?.stonetop ?? {};
-			const source = st.source ?? null;
+			const sys    = i.system ?? {};
+			const source = sys.source ?? null;
 			return new OutfitItemBuilder()
-				.withSlug(st.slug ?? i._id)
+				.withSlug(sys.slug ?? i._id)
 				.withName(i.name)
-				.withWeight(i.system?.weight ?? st.weight ?? 1)
-				.withNote(st.note ?? null)
-				.withInventoryColumn(st.inventoryColumn ?? "regular")
-				.withResource(st.resource ?? null)
-				.withTwoCol(st.twoCol ?? false)
+				.withWeight(sys.weight ?? 1)
+				.withTags(sys.tags ?? "")
+				.withNote(sys.note ?? null)
+				.withInventoryColumn(sys.inventoryColumn ?? "regular")
+				.withResource(sys.resource ?? null)
+				.withTwoCol(sys.twoCol ?? false)
 				.withOwnedId(source == null ? i._id : null)
 				.build();
 		});

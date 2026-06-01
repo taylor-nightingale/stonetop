@@ -22,20 +22,19 @@ export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._stats = new CharacterStats(actor);
-		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"));
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"), actor);
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
-
-		this._playbook = new CharacterPlaybook(actor, repos.playbook,
-			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor);
 		const outfitItems = new ActorOutfitItems(actor);
+		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
+		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers);
+		this._playbook = new CharacterPlaybook(actor, repos.playbook,
+			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems);
 		this._vitals = new CharacterVitals(actor, this._inventory);
-		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
@@ -288,11 +287,20 @@ export class StonetopCharacter {
 		await this._arcana.setBackChoiceValue(arcanumSlug, optionSlug, count);
 	}
 
+	async setBackgroundChoiceValue(groupSlug, optionSlug, count) {
+		await this._background.setChoiceValue(groupSlug, optionSlug, count);
+	}
+
+	async setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count) {
+		await this._background.setFollowerChoiceValue(groupSlug, optionSlug, count);
+	}
+
 	async setChoiceCount(context, group, option, count) {
 		switch (context) {
 			case "arcana-unlock": return this.setArcanumUnlockCount(group, option, count);
 			case "lore":          return this.setLoreOptionCount(group, option, count);
 			case "pdi-lore":      return this.setPostDeathLoreCount(group, option, count);
+			case "background":    return this.setBackgroundChoiceValue(group, option, count);
 		}
 	}
 

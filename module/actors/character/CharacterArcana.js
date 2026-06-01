@@ -37,7 +37,7 @@ export class CharacterArcana {
 	}
 
 	_followerSlugsFor(item) {
-		return this._followerRowsFor(item).map(r => r.followerSlug);
+		return this._followerRowsFor(item).map(r => r.slug);
 	}
 
 	async buildSnapshot(checkedMap = {}, inventoryResources = {}) {
@@ -155,7 +155,7 @@ export class CharacterArcana {
 		await this._outfitItems?.deleteBySource("arcana:" + slug);
 		const [item] = await this._arcanaRepo.findBySlugs([slug]);
 		for (const row of this._followerRowsFor(item)) {
-			await this._followers?.removeFollower(row.followerSlug);
+			await this._followers?.removeFollower(row.slug);
 		}
 	}
 
@@ -228,8 +228,8 @@ export class CharacterArcana {
 		if (!rows.length) return;
 		const flipped = this.flippedSlugs.has(slug);
 		for (const row of rows) {
-			if (flipped) await this._followers.addFollower(row.followerSlug);
-			else         await this._followers.removeFollower(row.followerSlug);
+			if (flipped) await this._followers.addFollower(row.slug);
+			else         await this._followers.removeFollower(row.slug);
 		}
 	}
 }

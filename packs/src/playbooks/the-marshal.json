@@ -11,7 +11,7 @@
 		"description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
 		"startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
 		"damage": {
-			"die": "d8"
+			"value": "d8"
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",

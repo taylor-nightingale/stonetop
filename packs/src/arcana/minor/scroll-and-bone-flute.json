@@ -52,10 +52,11 @@
 					{
 						"type": "follower",
 						"slug": "dool-spirit",
-						"followerSlug": "dool-spirit",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

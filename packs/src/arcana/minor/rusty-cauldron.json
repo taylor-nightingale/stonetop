@@ -68,10 +68,11 @@
 					{
 						"type": "follower",
 						"slug": "unliving-chimera",
-						"followerSlug": "unliving-chimera",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

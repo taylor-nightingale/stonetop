@@ -34,6 +34,7 @@
     {{#if track}}
     <label class="stonetop-arcanum-follower-label">
         <input type="checkbox" class="stonetop-arcanum-follower-check"
+               data-cg-context="{{cgContext}}"
                data-slug="{{cgGroup}}"
                data-option="{{slug}}"
                data-index="0"
@@ -41,7 +42,11 @@
         {{localize "stonetop.arcana.addToFollowers"}}
     </label>
     {{/if}}
+    {{#if inlineDisplay}}
     {{#if follower}}{{> "stonetop.follower-card" follower}}{{/if}}
+    {{else if title}}
+    <p class="stonetop-arcanum-follower-title">{{{title}}}</p>
+    {{/if}}
 </div>
 {{else}}
 {{! Pick or track row (type="choice") }}

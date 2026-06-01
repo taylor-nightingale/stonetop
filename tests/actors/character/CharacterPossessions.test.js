@@ -342,8 +342,8 @@ describe("CharacterPossessions.syncPossessionItems", () => {
 		expect(outfitItems.sync).toHaveBeenCalledWith(
 			"possession:smithy",
 			expect.arrayContaining([
-				expect.objectContaining({ flags: expect.objectContaining({ stonetop: expect.objectContaining({ slug: "smithy-tongs", source: "possession:smithy" }) }) }),
-				expect.objectContaining({ flags: expect.objectContaining({ stonetop: expect.objectContaining({ slug: "smithy-bellows" }) }) }),
+				expect.objectContaining({ system: expect.objectContaining({ slug: "smithy-tongs", source: "possession:smithy" }) }),
+				expect.objectContaining({ system: expect.objectContaining({ slug: "smithy-bellows" }) }),
 			]),
 		);
 	});
@@ -356,7 +356,7 @@ describe("CharacterPossessions.syncPossessionItems", () => {
 		expect(outfitItems.sync).toHaveBeenCalledWith(
 			"possession:weapons-of-war",
 			expect.arrayContaining([
-				expect.objectContaining({ flags: expect.objectContaining({ stonetop: expect.objectContaining({ slug: "mace" }) }) }),
+				expect.objectContaining({ system: expect.objectContaining({ slug: "mace" }) }),
 			]),
 		);
 	});

@@ -2,17 +2,20 @@
 	"_id": "rsK9EjHvIHCtlRJo",
 	"_key": "!items!rsK9EjHvIHCtlRJo",
 	"name": "Whetstone",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "whetstone",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 9,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "whetstone",
-			"inventoryColumn": "small",
-			"sortOrder": 9,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

@@ -2,17 +2,20 @@
 	"_id": "8IRh1E2JDBld6DYy",
 	"_key": "!items!8IRh1E2JDBld6DYy",
 	"name": "Comb",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "comb",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 4,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "comb",
-			"inventoryColumn": "small",
-			"sortOrder": 4,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

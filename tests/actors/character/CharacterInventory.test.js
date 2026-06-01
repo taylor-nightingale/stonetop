@@ -41,17 +41,18 @@ function makePossessionsFake(snapshot = null) {
 function makeRawEmbeddedItem(overrides = {}) {
 	return {
 		_id:    overrides._id    ?? "emb-1",
-		type:   "equipment",
+		type:   "outfitItem",
 		name:   overrides.name   ?? "Embedded Item",
-		system: { equipmentType: "outfit", weight: overrides.weight ?? 1 },
-		flags:  { stonetop: {
+		system: {
 			slug:            overrides.slug            ?? null,
 			inventoryColumn: overrides.inventoryColumn ?? "regular",
+			weight:          overrides.weight          ?? 1,
+			tags:            overrides.tags            ?? "",
 			note:            overrides.note            ?? null,
 			resource:        overrides.resource        ?? null,
 			twoCol:          overrides.twoCol          ?? false,
 			source:          overrides.source          ?? null,
-		}},
+		},
 	};
 }
 
@@ -277,7 +278,7 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(item.ownedId).toBeNull();
 	});
 
-	it("embedded item uses flags.stonetop.slug as slug when present", async () => {
+	it("embedded item uses system.slug as slug when present", async () => {
 		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "smithy-tongs", source: "possession:smithy" });
 		const snap = await makeCi({}, null, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		expect(regularItems(snap).some(i => i.slug === "smithy-tongs")).toBe(true);
@@ -365,9 +366,8 @@ describe("CharacterInventory.addCustomItem", () => {
 		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({
 				name: "Rope",
-				type: "equipment",
-				system: expect.objectContaining({ equipmentType: "outfit", weight: 2 }),
-				flags: expect.objectContaining({ stonetop: expect.objectContaining({ inventoryColumn: "regular", source: null }) }),
+				type: "outfitItem",
+				system: expect.objectContaining({ weight: 2, inventoryColumn: "regular", source: null }),
 			}),
 		]);
 	});
@@ -392,9 +392,8 @@ describe("CharacterInventory.addCustomSmallItem", () => {
 		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({
 				name: "Coin",
-				type: "equipment",
-				system: expect.objectContaining({ equipmentType: "outfit" }),
-				flags: expect.objectContaining({ stonetop: expect.objectContaining({ inventoryColumn: "small", source: null }) }),
+				type: "outfitItem",
+				system: expect.objectContaining({ inventoryColumn: "small", source: null }),
 			}),
 		]);
 	});

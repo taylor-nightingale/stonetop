@@ -2,18 +2,20 @@
 	"_id": "P6ihgIqLSmNqE40f",
 	"_key": "!items!P6ihgIqLSmNqE40f",
 	"name": "Mallet, iron and/or wood",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "mallet",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "hand",
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 18,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "mallet",
-			"inventoryColumn": "regular",
-			"sortOrder": 18,
-			"note": "<em>hand</em>",
-			"weight": 1
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWpn0001X"
 }

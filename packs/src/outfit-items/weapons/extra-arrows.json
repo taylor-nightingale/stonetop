@@ -2,27 +2,28 @@
 	"_id": "6h8l7qgATtLFxJpR",
 	"_key": "!items!6h8l7qgATtLFxJpR",
 	"name": "Extra arrows",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "extra-arrows",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "x piercing",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"plenty left",
+				"low ammo",
+				"all out"
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 23,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "extra-arrows",
-			"inventoryColumn": "regular",
-			"sortOrder": 23,
-			"note": "x <em>piercing</em>",
-			"weight": 1,
-			"resource": {
-				"max": 3,
-				"title": null,
-				"labels": [
-					"plenty left",
-					"low ammo",
-					"all out"
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpWpn0001X"
 }

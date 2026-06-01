@@ -2,17 +2,20 @@
 	"_id": "ktUJrhQR6FEecAtp",
 	"_key": "!items!ktUJrhQR6FEecAtp",
 	"name": "Little box",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "little-box",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 6,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "little-box",
-			"inventoryColumn": "small",
-			"sortOrder": 6,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSnd0001X"
 }

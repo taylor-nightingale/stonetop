@@ -2,18 +2,20 @@
 	"_id": "2Ztd26fEeVVhDIq2",
 	"_key": "!items!2Ztd26fEeVVhDIq2",
 	"name": "Shovel",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "shovel",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "",
+		"resource": null,
+		"twoCol": true,
+		"breakBefore": false,
+		"sortOrder": 9,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "shovel",
-			"inventoryColumn": "regular",
-			"sortOrder": 9,
-			"weight": 1,
-			"twoCol": true
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpTrv0001X"
 }

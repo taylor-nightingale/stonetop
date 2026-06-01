@@ -41,20 +41,22 @@ export class LoadSnapshotBuilder {
 // ── Inventory item ────────────────────────────────────────────────────────────
 
 /**
- * @property {string} slug
- * @property {string} name
- * @property {string|null} note
- * @property {number} weight
- * @property {boolean} checked
+ * @property {string}      slug
+ * @property {string}      name
+ * @property {string}      tags      — plain text DW tags, e.g. "hand, thrown"
+ * @property {string|null} note      — parenthetical annotation, e.g. "x piercing"
+ * @property {number}      weight
+ * @property {boolean}     checked
  * @property {Resource|null} resource
- * @property {boolean} isCustom
+ * @property {boolean}     isCustom
  * @property {string|null} ownedId
- * @property {boolean} twoCol
+ * @property {boolean}     twoCol
  */
 export class OutfitItemSnapshot {
 	constructor(b) {
 		this.slug     = b._slug;
 		this.name     = b._name;
+		this.tags     = b._tags;
 		this.note     = b._note;
 		this.weight   = b._weight;
 		this.checked  = b._checked;
@@ -68,6 +70,7 @@ export class OutfitItemSnapshot {
 export class OutfitItemSnapshotBuilder {
 	withSlug(v)     { this._slug     = v; return this; }
 	withName(v)     { this._name     = v; return this; }
+	withTags(v)     { this._tags     = v; return this; }
 	withNote(v)     { this._note     = v; return this; }
 	withWeight(v)   { this._weight   = v; return this; }
 	withChecked(v)  { this._checked  = v; return this; }

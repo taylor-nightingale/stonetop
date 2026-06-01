@@ -11,7 +11,7 @@
 		"description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
 		"startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice.",
 		"damage": {
-			"die": "d6"
+			"value": "d6"
 		},
 		"hp": 18,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
@@ -342,37 +342,18 @@
 			{
 				"slug": "initiate",
 				"label": "Initiate",
-				"description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p>",
+				"description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p><p>There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:</p>",
 				"moves": [
 					"rites-of-the-land"
 				],
 				"choices": {
-					"label": "There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers— see the Initiates of Danu insert. Who are they?",
-					"count": {
-						"min": 2,
-						"max": 3
-					},
-					"options": [
-						{
-							"slug": "enfys",
-							"label": "Enfys, your acolyte, beloved by birds"
-						},
-						{
-							"slug": "afon",
-							"label": "Afon, strange and Fae-touched"
-						},
-						{
-							"slug": "gwendyl",
-							"label": "Gwendyl, your mentor, a talented healer"
-						},
-						{
-							"slug": "olwin",
-							"label": "Olwin, your anointed lover, seer of fates"
-						},
-						{
-							"slug": "seren",
-							"label": "Seren the Eldest, wise and hard as winter"
-						}
+					"slug": "initiate",
+					"list": [
+						{ "type": "follower", "slug": "enfys",           "inlineDisplay": false, "title": "Enfys, your acolyte, beloved by birds",          "track": { "max": 1 } },
+						{ "type": "follower", "slug": "afon",            "inlineDisplay": false, "title": "Afon, strange and Fae-touched",                   "track": { "max": 1 } },
+						{ "type": "follower", "slug": "gwendyl",         "inlineDisplay": false, "title": "Gwendyl, your mentor, a talented healer",         "track": { "max": 1 } },
+						{ "type": "follower", "slug": "olwin",           "inlineDisplay": false, "title": "Olwin, your anointed lover, seer of fates",       "track": { "max": 1 } },
+						{ "type": "follower", "slug": "seren-the-eldest","inlineDisplay": false, "title": "Seren the Eldest, wise and hard as winter",       "track": { "max": 1 } }
 					]
 				}
 			},

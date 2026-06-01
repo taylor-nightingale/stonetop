@@ -78,10 +78,11 @@
 					{
 						"type": "follower",
 						"slug": "void-elemental",
-						"followerSlug": "void-elemental",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

@@ -107,15 +107,15 @@ describe("CharacterVitals.setHP / setDamage / setMaxHP", () => {
 		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.maxHP", 20);
 	});
 
-	it("setDamage writes die to system.attributes.damage.die", async () => {
+	it("setDamage writes die to system.attributes.damage.value", async () => {
 		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory()).setDamage({die: "d8"});
-		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.die": "d8" });
+		await new CharacterVitals(actor, makeInventory())._setDamage({die: "d8"});
+		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.value": "d8" });
 	});
 
 	it("setDamage stores full damage object in flags", async () => {
 		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory()).setDamage({die: "d8"});
+		await new CharacterVitals(actor, makeInventory())._setDamage({die: "d8"});
 		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.damage", {die: "d8"});
 	});
 });

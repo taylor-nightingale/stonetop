@@ -11,7 +11,7 @@
 		"description": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
 		"startingMovesNote": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice.",
 		"damage": {
-			"die": "d4"
+			"value": "d4"
 		},
 		"hp": 18,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",

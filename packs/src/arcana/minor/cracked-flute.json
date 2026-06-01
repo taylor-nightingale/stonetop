@@ -44,10 +44,11 @@
 					{
 						"type": "follower",
 						"slug": "andalau-of-the-flute",
-						"followerSlug": "andalau-of-the-flute",
 						"track": {
 							"max": 1
-						}
+						},
+						"inlineDisplay": true,
+						"title": ""
 					}
 				]
 			},

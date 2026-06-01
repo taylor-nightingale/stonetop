@@ -39,8 +39,8 @@ export class CharacterFollowers {
 		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), name } });
 	}
 
-	async setNote(slug, note) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), note } });
+	async setTags(slug, tags) {
+		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), tags } });
 	}
 
 	async setLoyalty(slug, loyalty) {
@@ -81,14 +81,14 @@ export class CharacterFollowers {
 		await this._flags.setFlag("state", {
 			...this._state,
 			[slug]: {
-				name:     blank.name,
-				note:     blank.note,
-				hp:       blank.hp.max,
-				hpMax:    blank.hp.max,
-				armor:    blank.armor,
-				damage:   blank.damage,
-				loyalty:  0,
-				values:   {},
+				name:    blank.name,
+				tags:    blank.tags,
+				hp:      blank.hp.max,
+				hpMax:   blank.hp.max,
+				armor:   blank.armor.value,
+				damage:  blank.damage?.die ?? null,
+				loyalty: 0,
+				values:  {},
 			},
 		});
 		await this.addFollower(slug);
@@ -123,42 +123,45 @@ export class CharacterFollowers {
 	}
 
 	_buildFollowerSnapshot(follower) {
-		const state   = this._stateFor(follower.slug);
-		const values  = new ChoiceValues(state.values ?? {});
-		const hp      = state.hp      ?? follower.hp.max;
-		const hpMax   = state.hpMax   ?? follower.hp.max;
-		const name    = state.name    ?? follower.name;
-		const note    = state.note    ?? follower.note;
-		const loyalty = state.loyalty ?? 0;
-		const armor   = state.armor   ?? follower.armor;
-		const damage  = state.damage  ?? follower.damage;
+		const state    = this._stateFor(follower.slug);
+		const values   = new ChoiceValues(state.values ?? {});
+		const hp       = state.hp      ?? follower.hp.value;
+		const hpMax    = state.hpMax   ?? follower.hp.max;
+		const name     = state.name    ?? follower.name;
+		const tags     = state.tags    ?? follower.tags;
+		const loyalty  = state.loyalty ?? 0;
+		const armorVal = state.armor   ?? follower.armor.value;
+		const damageDie = state.damage ?? follower.damage?.die ?? null;
 
 		return new FollowerSnapshotBuilder()
 			.withSlug(follower.slug)
 			.withName(name)
-			.withNote(note)
+			.withTags(tags)
 			.withHp(hp)
 			.withHpMax(hpMax)
-			.withArmor(armor)
-			.withDamage(damage)
+			.withArmor({ value: armorVal, note: follower.armor.note })
+			.withDamage(damageDie ? { die: damageDie, label: follower.damage?.label ?? "", tags: follower.damage?.tags ?? "" } : null)
+			.withInstinct(follower.instinct)
 			.withLoyalty(loyalty)
-			.withLoyaltyMax(3)
+			.withLoyaltyMax(follower.loyalty.max)
 			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
 			.withArcanaSlug(follower.arcanaSlug)
 			.build();
 	}
 
 	_buildCustomFollowerSnapshot(slug, blank) {
-		const state   = this._stateFor(slug);
-		const values  = new ChoiceValues(state.values ?? {});
+		const state  = this._stateFor(slug);
+		const values = new ChoiceValues(state.values ?? {});
+		const damageDie = state.damage ?? null;
 		return new FollowerSnapshotBuilder()
 			.withSlug(slug)
 			.withName(state.name     ?? "New Follower")
-			.withNote(state.note     ?? null)
+			.withTags(state.tags     ?? null)
 			.withHp(state.hp         ?? 6)
 			.withHpMax(state.hpMax   ?? 6)
-			.withArmor(state.armor   ?? 0)
-			.withDamage(state.damage ?? "d6")
+			.withArmor({ value: state.armor ?? 0, note: "" })
+			.withDamage(damageDie ? { die: damageDie, label: "", tags: "" } : null)
+			.withInstinct("")
 			.withLoyalty(state.loyalty ?? 0)
 			.withLoyaltyMax(3)
 			.withChoices(blank?.choices ? ChoiceGroup.fromPackData(blank.choices, values) : null)

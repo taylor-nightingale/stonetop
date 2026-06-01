@@ -2,25 +2,27 @@
 	"_id": "ZH3UDqpNVGMrerqt",
 	"_key": "!items!ZH3UDqpNVGMrerqt",
 	"name": "Sling",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "sling",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"tags": "near, reload, awkward",
+		"note": "",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 2,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "sling",
-			"inventoryColumn": "small",
-			"sortOrder": 2,
-			"note": "<em>near</em>, <em>reload</em>, <em>awkward</em>",
-			"resource": {
-				"max": 2,
-				"title": null,
-				"labels": [
-					"low ammo",
-					"all out"
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpBsc0001X"
 }

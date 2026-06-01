@@ -2,9 +2,9 @@ import { OutfitItemBuilder } from "../../../model/data/character/OutfitItem.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 const FIELDS = [
-	"flags.stonetop.slug", "flags.stonetop.inventoryColumn", "flags.stonetop.sortOrder",
-	"flags.stonetop.weight", "flags.stonetop.note", "flags.stonetop.resource",
-	"flags.stonetop.twoCol", "flags.stonetop.armor",
+	"system.slug", "system.inventoryColumn", "system.sortOrder",
+	"system.weight", "system.tags", "system.note", "system.resource",
+	"system.twoCol", "system.armor",
 	"folder",
 ];
 
@@ -19,19 +19,20 @@ export class FoundryOutfitItemRepository {
 		const entries = await this._store.getAll();
 		const folders = await this._store.getFolders();
 		this._cache = entries
-			.sort((a, b) => (a.flags?.stonetop?.sortOrder ?? 0) - (b.flags?.stonetop?.sortOrder ?? 0))
+			.sort((a, b) => (a.system?.sortOrder ?? 0) - (b.system?.sortOrder ?? 0))
 			.map(item => {
-				const st = item.flags?.stonetop ?? {};
+				const sys = item.system ?? {};
 				return new OutfitItemBuilder()
-					.withSlug(st.slug)
+					.withSlug(sys.slug)
 					.withName(item.name)
-					.withWeight(st.weight ?? 0)
-					.withNote(st.note ?? null)
-					.withInventoryColumn(st.inventoryColumn ?? null)
-					.withResource(st.resource ?? null)
-					.withTwoCol(st.twoCol ?? false)
+					.withWeight(sys.weight ?? 0)
+					.withTags(sys.tags ?? "")
+					.withNote(sys.note ?? null)
+					.withInventoryColumn(sys.inventoryColumn ?? null)
+					.withResource(sys.resource ?? null)
+					.withTwoCol(sys.twoCol ?? false)
 					.withGroup(folders.get(item.folder) ?? null)
-					.withArmor(st.armor ?? null)
+					.withArmor(sys.armor ?? null)
 					.build();
 			});
 		return this._cache;

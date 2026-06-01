@@ -2,30 +2,31 @@
 	"_id": "nKYaXRvj7uff0LYT",
 	"_key": "!items!nKYaXRvj7uff0LYT",
 	"name": "More supplies",
-	"type": "equipment",
+	"type": "outfitItem",
 	"system": {
-		"equipmentType": "outfit"
+		"slug": "more-supplies",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"tags": "",
+		"note": "4+Prosperity uses",
+		"resource": {
+			"max": 6,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		"twoCol": false,
+		"breakBefore": false,
+		"sortOrder": 2,
+		"armor": null,
+		"source": null
 	},
-	"flags": {
-		"stonetop": {
-			"slug": "more-supplies",
-			"inventoryColumn": "regular",
-			"sortOrder": 2,
-			"note": "4+Prosperity uses",
-			"weight": 1,
-			"resource": {
-				"max": 6,
-				"title": null,
-				"labels": [
-					"",
-					"",
-					"",
-					"",
-					"",
-					""
-				]
-			}
-		}
-	},
+	"flags": {},
 	"folder": "StOnEtOpSup0001X"
 }

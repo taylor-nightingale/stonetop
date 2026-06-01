@@ -1,6 +1,5 @@
+import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import {
-	BackgroundChoiceOptionSnapshot,
-	BackgroundChoicesSnapshotBuilder,
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
@@ -13,41 +12,43 @@ function _toSlug(name) {
 }
 
 export class CharacterBackgrounds {
-	constructor(flags) {
-		this._flags = flags;
+	constructor(flags, followers = null) {
+		this._flags     = flags;
+		this._followers = followers;
 	}
 
 	get selectedSlug() {
 		return this._flags.getFlag("selected") ?? "";
 	}
 
-	get choices() {
-		return this._flags.getFlag("choices") ?? {};
+	get _choiceValues() {
+		return new ChoiceValues(this._flags.getFlag("choices") ?? {});
 	}
 
 	async selectBackground(slug) {
 		await this._flags.setFlag("selected", slug);
 	}
 
-	async addChoice(choice) {
-		const current = this.choices;
-		await this._flags.setFlag("choices", { ...current, [choice.slug]: choice.isChecked });
+	async setChoiceValue(groupSlug, optionSlug, count) {
+		await this._flags.setFlag("choices", this._choiceValues.set(groupSlug, optionSlug, count).toRaw());
+	}
+
+	async setFollowerChoiceValue(groupSlug, optionSlug, count) {
+		await this.setChoiceValue(groupSlug, optionSlug, count);
+		if (this._followers) {
+			if (count > 0) await this._followers.addFollower(optionSlug);
+			else           await this._followers.removeFollower(optionSlug);
+		}
 	}
 
 	buildSnapshot(backgroundsData) {
-		const savedSlug    = this.selectedSlug || null;
-		const savedChoices = this.choices;
+		const savedSlug = this.selectedSlug || null;
+		const cv        = this._choiceValues;
 
 		const options = (backgroundsData ?? []).map(b => {
-			const choices = b.choices ? new BackgroundChoicesSnapshotBuilder()
-				.withLabel(b.choices.label)
-				.withCount(b.choices.count)
-				.withCountLabel(`${b.choices.count.min} or ${b.choices.count.max}`)
-				.withOptions(b.choices.options.map(o =>
-					new BackgroundChoiceOptionSnapshot(o.slug, o.label, !!(savedChoices?.[o.slug]))
-				))
-				.withSaved(savedChoices)
-				.build() : null;
+			const choices = b.choices
+				? ChoiceGroup.fromPackData(b.choices, cv, {})
+				: null;
 			return new BackgroundOptionSnapshotBuilder()
 				.withSlug(b.slug)
 				.withLabel(b.label)
