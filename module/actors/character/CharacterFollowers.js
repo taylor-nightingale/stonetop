@@ -1,5 +1,6 @@
 import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ResourceController } from "./ResourceController.js";
 
 export class CharacterFollowers {
 	constructor(flags, followerRepo) {
@@ -142,8 +143,7 @@ export class CharacterFollowers {
 			.withArmor({ value: armorVal, note: follower.armor.note })
 			.withDamage(damageDie ? { die: damageDie, label: follower.damage?.label ?? "", tags: follower.damage?.tags ?? "" } : null)
 			.withInstinct(follower.instinct)
-			.withLoyalty(loyalty)
-			.withLoyaltyMax(follower.loyalty.max)
+			.withLoyalty(ResourceController.build({ max: follower.loyalty.max, title: null, labels: [] }, loyalty))
 			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
 			.withArcanaSlug(follower.arcanaSlug)
 			.build();
@@ -162,8 +162,7 @@ export class CharacterFollowers {
 			.withArmor({ value: state.armor ?? 0, note: "" })
 			.withDamage(damageDie ? { die: damageDie, label: "", tags: "" } : null)
 			.withInstinct("")
-			.withLoyalty(state.loyalty ?? 0)
-			.withLoyaltyMax(3)
+			.withLoyalty(ResourceController.build({ max: 3, title: null, labels: [] }, state.loyalty ?? 0))
 			.withChoices(blank?.choices ? ChoiceGroup.fromPackData(blank.choices, values) : null)
 			.build();
 	}

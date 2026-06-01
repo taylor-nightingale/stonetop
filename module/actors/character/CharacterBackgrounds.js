@@ -3,6 +3,7 @@ import {
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ResourceController } from "./ResourceController.js";
 
 function _toSlug(name) {
 	return name.toLowerCase()
@@ -15,6 +16,7 @@ export class CharacterBackgrounds {
 	constructor(flags, followers = null) {
 		this._flags     = flags;
 		this._followers = followers;
+		this._resources = new ResourceController(flags);
 	}
 
 	get selectedSlug() {
@@ -41,6 +43,10 @@ export class CharacterBackgrounds {
 		}
 	}
 
+	async setResource(slug, count) {
+		await this._resources.set(slug, count);
+	}
+
 	buildSnapshot(backgroundsData) {
 		const savedSlug = this.selectedSlug || null;
 		const cv        = this._choiceValues;
@@ -56,6 +62,7 @@ export class CharacterBackgrounds {
 				.withSelected(b.slug === savedSlug)
 				.withMoves((b.moves ?? []).map(_toSlug))
 				.withChoices(choices)
+				.withResource(this._resources.buildSnapshot(b.resource ?? null, b.slug))
 				.build();
 		});
 

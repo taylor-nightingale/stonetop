@@ -5,10 +5,10 @@ import {
 	OutfitItemSnapshotBuilder,
 	OutfitSection,
 	OutfitSnapshotBuilder,
-	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
+import { ResourceController } from "./ResourceController.js";
 
 export class CharacterInventory {
 	constructor(flags, inventoryRepo, possessions, outfitItems) {
@@ -16,10 +16,11 @@ export class CharacterInventory {
 		this._repo = inventoryRepo;
 		this._possessions = possessions;
 		this._outfitItems = outfitItems;
+		this._resources = new ResourceController(flags);
 	}
 
 	get checked()     { return this._flags.getFlag("checked") ?? {}; }
-	get resources()   { return this._flags.getFlag("resources") ?? {}; }
+	get resources()   { return this._resources; }
 	get loadLevel()   { return this._flags.getFlag("loadLevel") ?? null; }
 	get regularPool() { return this._flags.getFlag("regularPool") ?? 0; }
 	get smallPool()   { return this._flags.getFlag("smallPool") ?? 0; }
@@ -30,7 +31,7 @@ export class CharacterInventory {
 	}
 
 	async setResource(slug, count) {
-		await this._flags.setFlag("resources", {...this.resources, [slug]: count});
+		await this._resources.set(slug, count);
 	}
 
 	async setLoadLevel(level) {
@@ -83,10 +84,8 @@ export class CharacterInventory {
 
 	async buildSnapshot(level) {
 		const checked = this.checked;
-		const resources = this.resources;
 
 		const mapItem = (outfitItem) => {
-			const res = outfitItem.resource;
 			return new OutfitItemSnapshotBuilder()
 				.withSlug(outfitItem.slug)
 				.withName(outfitItem.name)
@@ -94,12 +93,7 @@ export class CharacterInventory {
 				.withNote(outfitItem.note)
 				.withWeight(outfitItem.weight)
 				.withChecked(checked[outfitItem.slug] ?? false)
-				.withResource(res ? new ResourceBuilder()
-					.withCurrent(resources[outfitItem.slug] ?? 0)
-					.withMax(res.max)
-					.withTitle(res.title ?? null)
-					.withLabels(res.labels ?? [])
-					.build() : null)
+				.withResource(this._resources.buildSnapshot(outfitItem.resource, outfitItem.slug))
 				.withIsCustom(outfitItem.ownedId != null)
 				.withOwnedId(outfitItem.ownedId ?? null)
 				.withTwoCol(outfitItem.twoCol)
@@ -127,9 +121,9 @@ export class CharacterInventory {
 		const outfit = new OutfitSnapshotBuilder()
 			.withLoad(this.buildLoadSnapshot(this.loadLevel))
 			.withRegularSections(_buildSections(repoItems, embeddedItems, "regular", mapItem))
-			.withRegularPool(new ResourceBuilder().withCurrent(this.regularPool).withMax(9).withTitle(null).withLabels([]).build())
+			.withRegularPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.regularPool))
 			.withSmallSections(_buildSections(repoItems, embeddedItems, "small", mapItem))
-			.withSmallPool(new ResourceBuilder().withCurrent(this.smallPool).withMax(9).withTitle(null).withLabels([]).build())
+			.withSmallPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.smallPool))
 			.build();
 
 		return new InventorySnapshot(outfit, await this._possessions.buildSnapshot(level ?? 1), this.otherItems);

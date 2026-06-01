@@ -5,8 +5,6 @@ export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapsho
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
 	OriginOptionSnapshot, OriginSection,
-	BackgroundChoiceOptionSnapshot,
-	BackgroundChoicesSnapshot, BackgroundChoicesSnapshotBuilder,
 	BackgroundOptionSnapshot, BackgroundOptionSnapshotBuilder, BackgroundSection,
 	PlaybookSnapshot, PlaybookSnapshotBuilder,
 } from "./PlaybookSnapshot.js";

@@ -7,7 +7,24 @@
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
 		"isStartingMove": true,
-		"description": "<p>Once per level, when you roll a stat and get a 10+, mark one of the following (note the level during which you marked it). You don't have to mark them in order.</p><ul><li>Increase the stat you rolled by 1, to a max of +2 (×4 marks available)</li><li>Increase your max HP by 4</li><li>Increase your damage die to a d8</li></ul>",
+		"description": "<p>Once per level, <strong><em>when you roll a stat and get a 10+</em></strong>, mark one of the following (note the level during which you marked it). You don't have to mark them in order.</p>",
+		"choices": {
+			"slug": "choices",
+			"list": [
+				{ "type": "heading", "slug": "stat1", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
+				{ "type": "input", "slug": "stat1-input", "placeholder": "level checked"},
+				{ "type": "heading", "slug": "stat2", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
+				{ "type": "input", "slug": "stat2-input", "placeholder": "level checked"},
+				{ "type": "heading", "slug": "stat3", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
+				{ "type": "input", "slug": "stat3-input", "placeholder": "level checked"},
+				{ "type": "heading", "slug": "stat4", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
+				{ "type": "input", "slug": "stat4-input", "placeholder": "level checked"},
+				{ "type": "heading", "slug": "hp", "label": "Increase you max HP by 4", "track": { "max": 1 } },
+				{ "type": "input", "slug": "hp-input", "placeholder": "level checked"},
+				{ "type": "heading", "slug": "damage", "label": "Increase your damage die to a d8", "track": { "max": 1 } },
+				{ "type": "input", "slug": "damage-input", "placeholder": "level checked"}
+			]
+		},
 		"requirement": {
 			"playbook": "The Would-Be Hero"
 		}

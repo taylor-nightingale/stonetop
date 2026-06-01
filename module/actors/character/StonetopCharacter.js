@@ -80,11 +80,11 @@ export class StonetopCharacter {
 	async buildSnapshot() {
 		await this._moves.initBasicMoves();
 		const level = this._vitals.level;
-		const { checked, resources } = this._inventory;
+		const { checked, resources: resourceController } = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
 		const [arcana, inventory, postDeath, playbook, vitals] = await Promise.all([
-			this._arcana.buildSnapshot(checked, resources),
+			this._arcana.buildSnapshot(checked, resourceController),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
@@ -293,6 +293,10 @@ export class StonetopCharacter {
 
 	async setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count) {
 		await this._background.setFollowerChoiceValue(groupSlug, optionSlug, count);
+	}
+
+	async setBackgroundResource(slug, count) {
+		await this._background.setResource(slug, count);
 	}
 
 	async setChoiceCount(context, group, option, count) {

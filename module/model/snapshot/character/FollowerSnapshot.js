@@ -9,8 +9,7 @@
  * @property {{value:number,note:string}|null} armor
  * @property {{die:string,label:string,tags:string}|null} damage
  * @property {string}                   instinct
- * @property {number}                   loyalty
- * @property {number}                   loyaltyMax
+ * @property {ResourceSnapshot|null}    loyalty
  * @property {ChoiceGroup|null}         choices
  */
 export class FollowerSnapshot {
@@ -24,7 +23,6 @@ export class FollowerSnapshot {
 		this.damage     = b._damage;
 		this.instinct   = b._instinct;
 		this.loyalty    = b._loyalty;
-		this.loyaltyMax = b._loyaltyMax;
 		this.choices    = b._choices;
 		this.arcanaSlug = b._arcanaSlug ?? null;
 	}
@@ -40,7 +38,6 @@ export class FollowerSnapshotBuilder {
 	withDamage(v)     { this._damage     = v; return this; }
 	withInstinct(v)   { this._instinct   = v; return this; }
 	withLoyalty(v)    { this._loyalty    = v; return this; }
-	withLoyaltyMax(v) { this._loyaltyMax = v; return this; }
 	withChoices(v)    { this._choices    = v; return this; }
 	withArcanaSlug(v) { this._arcanaSlug = v; return this; }
 	build()           { return new FollowerSnapshot(this); }

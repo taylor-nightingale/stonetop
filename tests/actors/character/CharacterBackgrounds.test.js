@@ -18,8 +18,8 @@ function makeFollowers() {
 	};
 }
 
-function makeBg(selectedSlug = "", choicesRaw = {}, followers = null) {
-	return new CharacterBackgrounds(makeFlags({ selected: selectedSlug, choices: choicesRaw }), followers);
+function makeBg(selectedSlug = "", choicesRaw = {}, followers = null, extraFlags = {}) {
+	return new CharacterBackgrounds(makeFlags({ selected: selectedSlug, choices: choicesRaw, ...extraFlags }), followers);
 }
 
 const SIMPLE_BG_DATA = [
@@ -198,5 +198,40 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 
 	it("returns empty options when backgroundsData is absent", () => {
 		expect(makeBg().buildSnapshot(undefined).options).toHaveLength(0);
+	});
+
+	it("resource is null when background has no resource field", () => {
+		const snap = makeBg().buildSnapshot(SIMPLE_BG_DATA);
+		expect(snap.options[0].resource).toBeNull();
+	});
+
+	it("resource is a ResourceSnapshot when background has a resource field", () => {
+		const data = [{ slug: "initiate", label: "Initiate", description: "", resource: { max: 2, title: "Uses", labels: [] } }];
+		const snap = makeBg().buildSnapshot(data);
+		expect(snap.options[0].resource).toMatchObject({ max: 2, current: 0, title: "Uses" });
+	});
+
+	it("resource.current reflects saved value", () => {
+		const data = [{ slug: "initiate", label: "Initiate", description: "", resource: { max: 2, title: null, labels: [] } }];
+		const snap = makeBg("", {}, null, { resources: { initiate: 1 } }).buildSnapshot(data);
+		expect(snap.options[0].resource.current).toBe(1);
+	});
+});
+
+// -- Tests: setResource --------------------------------------------------------
+
+describe("CharacterBackgrounds.setResource", () => {
+	it("saves the count under resources[slug]", async () => {
+		const store = {};
+		const bg = new CharacterBackgrounds(makeFlags(store));
+		await bg.setResource("initiate", 2);
+		expect(store.resources).toEqual({ initiate: 2 });
+	});
+
+	it("merges into existing resources", async () => {
+		const store = { resources: { vessel: 1 } };
+		const bg = new CharacterBackgrounds(makeFlags(store));
+		await bg.setResource("initiate", 2);
+		expect(store.resources).toEqual({ vessel: 1, initiate: 2 });
 	});
 });

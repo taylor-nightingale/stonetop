@@ -1,8 +1,8 @@
 import {
 	PossessionItemSnapshotBuilder,
 	PossessionsSnapshot,
-	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ResourceController } from "./ResourceController.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 
@@ -114,12 +114,9 @@ export class CharacterPossessions {
 			const maxUses = maxUsesMap[opt.slug] ?? opt.resource?.max ?? null;
 			const currentUses = isSelected ? (usesMap[opt.slug] ?? 0) : 0;
 			const resourceDef = opt.resource ?? null;
-			const resource = resourceDef ? new ResourceBuilder()
-				.withCurrent(currentUses)
-				.withMax(maxUses ?? resourceDef.max)
-				.withTitle(resourceDef.title ?? null)
-				.withLabels(resourceDef.labels ?? [])
-				.build() : null;
+			const resource = resourceDef
+				? ResourceController.build({ ...resourceDef, max: maxUses ?? resourceDef.max }, currentUses)
+				: null;
 			return new PossessionItemSnapshotBuilder()
 				.withSlug(opt.slug)
 				.withLabel(opt.label)

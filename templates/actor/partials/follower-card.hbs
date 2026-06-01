@@ -35,14 +35,7 @@
 
 	<div class="stonetop-follower-loyalty">
 		<span class="stonetop-follower-loyalty-label">{{localize "stonetop.followers.loyalty"}}</span>
-		<div class="stonetop-follower-loyalty-pips">
-			{{#each (times loyaltyMax)}}
-			<button type="button"
-			        class="stonetop-follower-loyalty-pip{{#if (lt @index ../loyalty)}} is-checked{{/if}}"
-			        data-slug="{{../slug}}"
-			        data-index="{{@index}}"></button>
-			{{/each}}
-		</div>
+		{{> "stonetop.resource-track" resource=loyalty btnClass="stonetop-follower-loyalty-btn" slug=slug}}
 	</div>
 
 	{{#if choices}}

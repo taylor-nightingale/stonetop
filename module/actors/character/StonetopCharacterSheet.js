@@ -120,6 +120,16 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-background-resource-btn");
+				if (!btn) return;
+				ev.stopPropagation();
+				const { slug, index } = btn.dataset;
+				const isChecked = btn.classList.contains("is-checked");
+				const newVal = isChecked ? Number(index) : Number(index) + 1;
+				this._stonetopCharacter.setBackgroundResource(slug, newVal).then(() => this.render(false));
+			}, true);
+
+			html[0].addEventListener("click", ev => {
 				const btn = ev.target.closest(".stonetop-arcanum-delete");
 				if (!btn) return;
 				ev.stopPropagation();
@@ -221,7 +231,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("click", ev => {
-				const btn = ev.target.closest(".stonetop-follower-loyalty-pip");
+				const btn = ev.target.closest(".stonetop-follower-loyalty-btn");
 				if (!btn) return;
 				ev.stopPropagation();
 				const { slug, index } = btn.dataset;

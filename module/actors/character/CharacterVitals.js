@@ -36,13 +36,22 @@ export class CharacterVitals {
 		]);
 	}
 
+	async setHP(hp) {
+		await this._actor.update({ "system.attributes.hp.value": hp });
+	}
+
+	async setMaxHP(hpMax) {
+		await this._flags.setFlag("maxHP", hpMax);
+	}
+
 	get _damage() {
-		return this._actor.system.attributes.damage.value
+		return this._flags.getFlag("damage") ?? null;
 	}
 
 	async _setDamage(damage) {
 		await Promise.all([
-			this._actor.update({"system.attributes.damage.value": damage?.value ?? null}),
+			this._actor.update({ "system.attributes.damage.value": damage?.die ?? null }),
+			this._flags.setFlag("damage", damage ?? null),
 		]);
 	}
 

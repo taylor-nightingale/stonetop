@@ -2,10 +2,10 @@ import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanumBackSnapshotBuilder, ArcanumFrontSnapshotBuilder,
 	ArcanumSnapshotBuilder,
-	ResourceBuilder,
 	ChoiceGroup, ChoiceValues,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
+import { ResourceController } from "./ResourceController.js";
 
 export class CharacterArcana {
 	constructor(flags, arcanaRepo, stats = null, outfitItems = null, followers = null) {
@@ -40,7 +40,7 @@ export class CharacterArcana {
 		return this._followerRowsFor(item).map(r => r.slug);
 	}
 
-	async buildSnapshot(checkedMap = {}, inventoryResources = {}) {
+	async buildSnapshot(checkedMap = {}, resourceController = null) {
 		const stats = this._stats?.getStats() ?? {};
 		const ownedSlugs = this.ownedSlugs;
 		const flippedSlugs = this.flippedSlugs;
@@ -68,28 +68,22 @@ export class CharacterArcana {
 				.withUnlock(unlock)
 				.build();
 
-			const backResource = item.back.resource
-				? new ResourceBuilder()
-					.withCurrent(inventoryResources[item.slug] ?? 0)
-					.withMax(item.back.resource.maxStat
-						? (stats.get(item.back.resource.maxStat))
-						: item.back.resource.max)
-					.withMaxStat(item.back.resource.maxStat ?? null)
-					.withTitle(item.back.resource.title ?? null)
-					.withLabels(item.back.resource.labels ?? [])
-					.build()
+			const current = resourceController?.getCurrent(item.slug) ?? 0;
+
+			const backDef = item.back.resource ?? null;
+			const backResource = backDef
+				? ResourceController.build({
+					...backDef,
+					max: backDef.maxStat ? (stats.get(backDef.maxStat) ?? 0) : backDef.max,
+				}, current)
 				: null;
 
-			const backItemResource = item.back.item?.resource
-				? new ResourceBuilder()
-					.withCurrent(inventoryResources[item.slug] ?? 0)
-					.withMax(item.back.item.resource.maxStat
-						? (stats[item.back.item.resource.maxStat]?.value ?? 0)
-						: item.back.item.resource.max)
-					.withMaxStat(item.back.item.resource.maxStat ?? null)
-					.withTitle(item.back.item.resource.title ?? null)
-					.withLabels(item.back.item.resource.labels ?? [])
-					.build()
+			const backItemDef = item.back.item?.resource ?? null;
+			const backItemResource = backItemDef
+				? ResourceController.build({
+					...backItemDef,
+					max: backItemDef.maxStat ? (stats[backItemDef.maxStat]?.value ?? 0) : backItemDef.max,
+				}, current)
 				: null;
 
 			const backChoices = item.back.choices

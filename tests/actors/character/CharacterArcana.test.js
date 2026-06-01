@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../module/actors/character/CharacterArcana.js";
+import { ResourceController } from "../../../module/actors/character/ResourceController.js";
 import { Stats } from "../../../module/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
@@ -238,9 +239,10 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).back.resource).toMatchObject({ current: 0, max: 3, title: "Ffyrnig Tonic" });
 		});
 
-		it("back.resource.current reflects inventoryResources", async () => {
+		it("back.resource.current reflects resourceController", async () => {
+			const ctrl = new ResourceController(makeFlags({ resources: { "huge-wooden-sphere": 2 } }));
 			const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
-				.buildSnapshot({}, { "huge-wooden-sphere": 2 })).minor.items[0];
+				.buildSnapshot({}, ctrl)).minor.items[0];
 			expect(item.back.resource.current).toBe(2);
 		});
 
@@ -365,10 +367,11 @@ const BOW_WITH_NO_STRING = {
 	},
 };
 
-describe("CharacterArcana.buildSnapshot() — inventoryResources", () => {
-	it("back.resource uses inventoryResources current for back.resource arcana", async () => {
+describe("CharacterArcana.buildSnapshot() — resourceController", () => {
+	it("back.resource uses resourceController current for back.resource arcana", async () => {
+		const ctrl = new ResourceController(makeFlags({ resources: { "huge-wooden-sphere": 2 } }));
 		const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
-			.buildSnapshot({}, { "huge-wooden-sphere": 2 })).minor.items[0];
+			.buildSnapshot({}, ctrl)).minor.items[0];
 		expect(item.back.resource.current).toBe(2);
 	});
 
@@ -378,8 +381,9 @@ describe("CharacterArcana.buildSnapshot() — inventoryResources", () => {
 	});
 
 	it("back.item.resource is a resolved Resource on the OutfitItem snapshot", async () => {
+		const ctrl = new ResourceController(makeFlags({ resources: { "bow-with-no-string": 1 } }));
 		const item = (await makeArcana({ owned: ["bow-with-no-string"] }, [BOW_WITH_NO_STRING])
-			.buildSnapshot({}, { "bow-with-no-string": 1 })).minor.items[0];
+			.buildSnapshot({}, ctrl)).minor.items[0];
 		expect(item.back.item.resource).not.toBeNull();
 		expect(item.back.item.resource.current).toBe(1);
 		expect(item.back.item.resource.max).toBe(3);
@@ -446,13 +450,13 @@ describe("CharacterArcana.buildSnapshot() — checked state", () => {
 
 	it("checked is true when slug is in checkedMap", async () => {
 		const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
-			.buildSnapshot({ "huge-wooden-sphere": true }, {})).minor.items[0];
+			.buildSnapshot({ "huge-wooden-sphere": true })).minor.items[0];
 		expect(item.checked).toBe(true);
 	});
 
 	it("checked is false when slug is not in checkedMap", async () => {
 		const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
-			.buildSnapshot({ "other-slug": true }, {})).minor.items[0];
+			.buildSnapshot({ "other-slug": true })).minor.items[0];
 		expect(item.checked).toBe(false);
 	});
 });

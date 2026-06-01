@@ -86,8 +86,8 @@ describe("CharacterInventory", () => {
 		expect(makeCi().checked).toEqual({});
 	});
 
-	it("resources returns {} when no flags set", () => {
-		expect(makeCi().resources).toEqual({});
+	it("resources returns a ResourceController", () => {
+		expect(makeCi().resources.getCurrent("any-slug")).toBe(0);
 	});
 
 	it("setItemChecked stores true for a slug", async () => {

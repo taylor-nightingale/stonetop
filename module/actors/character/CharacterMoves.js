@@ -3,8 +3,8 @@ import {
 	MoveSnapshotBuilder,
 	MovelistBuilder,
 	RequirementSnapshot,
-	ResourceBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ResourceController } from "./ResourceController.js";
 import {ValueMax} from "../../model/snapshot/character/VitalsSnapshot.js";
 
 export class CharacterMoves {
@@ -314,10 +314,7 @@ function _requirementsMet(move, level, acquiredByName) {
 
 function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet) {
 	const resource = move.resource
-		? new ResourceBuilder()
-			.withCurrent(move.resource.current).withMax(move.resource.max)
-			.withTitle(move.resource.title ?? null).withLabels(move.resource.labels ?? [])
-			.build()
+		? ResourceController.build(move.resource, move.resource.current)
 		: null;
 	const req = move.requirement;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);

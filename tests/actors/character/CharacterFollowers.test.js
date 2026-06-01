@@ -269,19 +269,19 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		expect(snap.hp).toBe(3);
 	});
 
-	it("loyalty defaults to 0 when no state", async () => {
+	it("loyalty defaults to current=0 and max=3 when no state", async () => {
 		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.loyalty).toBe(0);
-		expect(snap.loyaltyMax).toBe(3);
+		expect(snap.loyalty.current).toBe(0);
+		expect(snap.loyalty.max).toBe(3);
 	});
 
-	it("loyalty reflects saved state", async () => {
+	it("loyalty.current reflects saved state", async () => {
 		const flags = makeFlags({ owned: ["enfys"], state: { enfys: { loyalty: 1 } } });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.loyalty).toBe(1);
+		expect(snap.loyalty.current).toBe(1);
 	});
 
 	it("armor defaults to pack value when no state", async () => {
@@ -342,7 +342,7 @@ describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
 		const cf = new CharacterFollowers(makeFlags(), makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot(["enfys"]);
 		expect(snap.hp).toBe(6);
-		expect(snap.loyalty).toBe(0);
+		expect(snap.loyalty.current).toBe(0);
 	});
 
 	it("does not duplicate when extra slug is already owned", async () => {
@@ -540,18 +540,18 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		expect(snap.choices).toBeNull();
 	});
 
-	it("loyalty max is always 3 for custom followers", async () => {
+	it("loyalty.max is always 3 for custom followers", async () => {
 		const store = { owned: ["custom-1"], state: { "custom-1": { name: "X", hp: 4, hpMax: 4, armor: 0, damage: "d6", loyalty: 1, values: {} } } };
 		const cf = new CharacterFollowers(makeFlags(store), makeFakeRepo([BLANK]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.loyaltyMax).toBe(3);
+		expect(snap.loyalty.max).toBe(3);
 	});
 
-	it("loyalty max is always 3 for compendium followers", async () => {
+	it("loyalty.max reflects pack data for compendium followers", async () => {
 		const flags = makeFlags({ owned: ["enfys"] });
 		const cf = new CharacterFollowers(flags, makeFakeRepo([ENFYS]));
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.loyaltyMax).toBe(3);
+		expect(snap.loyalty.max).toBe(3);
 	});
 
 	it("custom armor snapshot is an object with value and note", async () => {

@@ -9,7 +9,12 @@
 		"description": "<p>When you converse with someone (PC or NPC) you can hold 2 Rapport with them. If you do, they hold 1 Rapport with you. During the conversation, either of you can spend 1 Rapport to ask the other player one of the following and get an honest answer.</p><ul><li>What weighs you down or holds you back?</li><li>What drives you forward?</li><li>What lesson would you have me learn?</li><li>What do you think of me, truly?</li></ul>",
 		"resource": {
 			"title": "Rapport",
-			"max": 2
+			"max": 3,
+			"labels": [
+				"",
+				"|",
+				""
+			]
 		}
 	},
 	"folder": "dgktpzqUfX5DWqqE"
