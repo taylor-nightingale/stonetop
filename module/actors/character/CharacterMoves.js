@@ -8,10 +8,11 @@ import { ResourceController } from "./ResourceController.js";
 import {ValueMax} from "../../model/snapshot/character/VitalsSnapshot.js";
 
 export class CharacterMoves {
-	constructor(moveRepo, flags, actor) {
-		this._moveRepo = moveRepo;
-		this._flags = flags;
-		this._actor = actor;
+	constructor(moveRepo, flags, actor, choiceController) {
+		this._moveRepo        = moveRepo;
+		this._flags           = flags;
+		this._actor           = actor;
+		this._choiceController = choiceController;
 	}
 
 	setVitals(vitals) { this._vitals = vitals; }
@@ -173,6 +174,7 @@ export class CharacterMoves {
 			selection: {max: 1, value: 1},
 			ownedIds: newId ? [newId] : [],
 			resource: null,
+			choices: moveData.system?.choices ?? null,
 		};
 		await this._setCategories(cats.map(c => c.key !== "other" ? c : {...c, moves: [...c.moves, flagMove]}));
 		return true;
@@ -187,6 +189,10 @@ export class CharacterMoves {
 		await this._updateCategory("other", c => ({...c, moves: c.moves.filter(m => m.name !== moveName)}));
 	}
 
+	async setMoveChoiceText(moveName, optionSlug, value) {
+		await this._choiceController.setText(moveName, optionSlug, value);
+	}
+
 	async setMoveResourceCurrent(categoryKey, moveName, current) {
 		await this._updateCategory(categoryKey, c => ({
 			...c,
@@ -194,16 +200,21 @@ export class CharacterMoves {
 		}));
 	}
 
-	buildSnapshot() {
+	async buildSnapshot() {
 		const cats = this._getCategories();
 		const level = this._vitals?.level ?? 1;
 		const acquiredByName = _acquiredNames(cats);
-		const categories = cats.map(cat => new MoveCategorySnapshotBuilder()
-			.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
-			.withAllowAdditional(cat.allowAdditional).withNote(cat.note ?? null)
-			.withMoves(cat.moves.map(m => _buildMoveSnapshot(m, cat.key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName))))
-			.build()
-		);
+		const choiceController = this._choiceController;
+		const categories = await Promise.all(cats.map(async cat => {
+			const moves = await Promise.all(cat.moves.map(m =>
+				_buildMoveSnapshot(m, cat.key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName), choiceController)
+			));
+			return new MoveCategorySnapshotBuilder()
+				.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
+				.withAllowAdditional(cat.allowAdditional).withNote(cat.note ?? null)
+				.withMoves(moves)
+				.build();
+		}));
 		return new MovelistBuilder().withCategories(categories).build();
 	}
 
@@ -212,12 +223,12 @@ export class CharacterMoves {
 		return move?.selection.value ?? 0;
 	}
 
-	getMoveSnapshotsForCategory(key) {
+	async getMoveSnapshotsForCategory(key) {
 		const cat = this._findCategory(key);
 		if (!cat) return [];
 		const level = this._vitals?.level ?? 1;
 		const acquiredByName = _acquiredNames(this._getCategories());
-		return cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName)));
+		return Promise.all(cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName))));
 	}
 
 	async onDropMove(itemData) {
@@ -277,6 +288,7 @@ function _toFlagMove(move, selected) {
 			labels: move.resource.labels ?? [],
 			current: 0,
 		} : null,
+		choices: move.choices ?? null,
 	};
 }
 
@@ -312,10 +324,15 @@ function _requirementsMet(move, level, acquiredByName) {
 	return true;
 }
 
-function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet) {
+async function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet, choiceController) {
 	const resource = move.resource
 		? ResourceController.build(move.resource, move.resource.current)
 		: null;
+	let choices = null;
+	if (move.choices && choiceController) {
+		await choiceController.addGroup(move.name, move.choices);
+		choices = choiceController.buildGroupSnapshot(move.name);
+	}
 	const req = move.requirement;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
 	const requirement = reqParts.length
@@ -335,6 +352,7 @@ function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet) {
 		.withRequirement(requirement)
 		.withRequiresLabel(requirement?.label ?? null)
 		.withResource(resource)
+		.withChoices(choices)
 		.build();
 }
 

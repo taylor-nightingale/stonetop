@@ -213,7 +213,7 @@
 		],
 		"lore": [
 			{
-				"slug": "fear-and-anger-fears",
+				"slug": "fear-and-anger",
 				"list": [
 					{
 						"type": "heading",
@@ -246,7 +246,7 @@
 					},
 					{
 						"type": "heading",
-						"slug": "loved-ones",
+						"slug": "death-loved-ones",
 						"description": "The death of your family or loved ones",
 						"track": {
 							"max": 1
@@ -338,7 +338,7 @@
 					},
 					{
 						"type": "heading",
-						"slug": "loved-ones",
+						"slug": "threats-loved-ones",
 						"description": "Threats to your loved ones",
 						"track": {
 							"max": 1
@@ -406,7 +406,7 @@
 				"slug": "destined",
 				"label": "Destined",
 				"choices": {
-					"slug": "driven",
+					"slug": "destined",
 					"list": [
 						{ "type": "heading", "description": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"},
 						{
@@ -490,22 +490,35 @@
 				{
 					"slug": "a-good-dog",
 					"label": "A good dog",
-					"description": "a loyal follower; HP 6; Damage d4 (<em>hand, harmless</em>); Instinct: to guard &amp; protect; Cost: love and care."
+					"description": "follower (retriever or herder, keen-nosed, clever); HP 6; Damage d6 (hand, grabby); Instinct to play; Cost: affection."
 				},
 				{
 					"slug": "heap-of-expectations",
-					"label": "Heap of expectations",
-					"description": "the hopes and dreams of all who believe in you. Of little practical use, but it's there."
+					"label": "A heap of expectations",
+					"description": "of little use"
 				},
 				{
 					"slug": "husbandry-tools",
 					"label": "Husbandry tools",
-					"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+					"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.).",
+					"outfitItems": [
+						{
+							"slug": "husbandry-whips",
+							"name": "Whips",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "husbandry-bridles",
+							"name": "Bridles",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "personal-token",
-					"label": "Personal token",
-					"description": "something that marks your place as a would-be hero.",
+					"label": "Personal token, fraught with meaning",
 					"choices": {
 						"slug": "personal-token",
 						"list": [
@@ -513,23 +526,12 @@
 								"type": "pick",
 								"pickCount": 1,
 								"options": [
-									{
-										"slug": "family-heirloom",
-										"text": "A family heirloom (reroll one failed roll per session)"
-									},
-									{
-										"slug": "lucky-charm",
-										"resource": {
-											"max": 1,
-											"title": null,
-											"labels": []
-										},
-										"text": "A lucky charm (mark it; clear when you Make Camp; while marked, +1 forward)"
-									},
-									{
-										"slug": "trophy",
-										"text": "A trophy from a past victory"
-									}
+									{ "slug": "family-heirloom", "text": "<><> A shield, bearing ___’s crest" },
+									{ "slug": "cloak", "text": "<> A wool cloak, woven just for you by ___" },
+									{ "slug": "letter", "text": "A letter, spattered with tears & blood" },
+									{ "slug": "flute", "text": "A flute, a gift from someone you loved" },
+									{ "slug": "locket", "text": "A fine locket, holding a strand of hair" },
+									{ "slug": "locket", "text": "A tinderbox, lovingly engraved" }
 								]
 							}
 						]
@@ -544,27 +546,57 @@
 							"slug": "smithy-tongs",
 							"name": "Tongs",
 							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
+							"inventoryColumn": "regular"
 						},
 						{
 							"slug": "smithy-bellows",
 							"name": "Bellows",
 							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
+							"inventoryColumn": "regular"
 						}
 					]
 				},
 				{
 					"slug": "stoneworkers-tools",
 					"label": "Stoneworker's tools",
-					"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+					"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
+					"outfitItems": [
+						{
+							"slug": "stoneworkers-prybars",
+							"name": "Prybars",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "stoneworkers-spikes",
+							"name": "Spikes",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "stoneworkers-block",
+							"name": "Block & tackles",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "tannery",
 					"label": "Tannery",
-					"description": "(or access to it): hides, pelts, alum, salt, ◇ frames, ◇ knives; leather goods, straps, armor, etc."
+					"description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc.",
+					"outfitItems": [
+						{
+							"slug": "tannery-cuirass",
+							"name": "A boiled leather cuirass",
+							"weight": 1,
+							"inventoryColumn": "regular",
+							"note": "(1 armor)",
+							"armor": {
+								"value": 1
+							}
+						}
+					]
 				}
 			]
 		}

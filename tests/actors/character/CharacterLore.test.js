@@ -174,6 +174,21 @@ describe("CharacterLore.buildSnapshot", () => {
 		expect(row.value).toBe("");
 	});
 
+	it("text option TextRow has placeholder when item has one", () => {
+		const dataWithPlaceholder = [{
+			slug: "earth", list: [{ type: "input", slug: "opt-text", text: "A text question", placeholder: "e.g. level 3" }],
+		}];
+		const snap = makeLore().buildSnapshot(dataWithPlaceholder);
+		const row = snap[0].list.find(r => r.type === "input");
+		expect(row.placeholder).toBe("e.g. level 3");
+	});
+
+	it("text option TextRow placeholder is null when item has none", () => {
+		const snap = makeLore().buildSnapshot(LORE_DATA);
+		const row = snap[0].list.find(r => r.type === "input");
+		expect(row.placeholder).toBeNull();
+	});
+
 	it("plain heading (no track) becomes a HeadingRow with null track", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
 		const rows = snap[0].list.filter(r => r.type === "heading");

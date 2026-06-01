@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterInstincts } from "../../../module/actors/character/CharacterInstincts.js";
+import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
 import { ChoiceGroup } from "../../../module/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
@@ -10,7 +11,9 @@ function makeFlags(store = {}) {
 }
 
 function makeInstinct(store = {}) {
-	return new CharacterInstincts(makeFlags(store));
+	const flags = makeFlags(store);
+	const ctrl  = new ChoiceGroupController(flags);
+	return new CharacterInstincts(flags, ctrl);
 }
 
 const INSTINCT_DATA = {
@@ -30,21 +33,21 @@ const INSTINCT_DATA = {
 describe("CharacterInstincts — selectOption", () => {
 	it("stores chosen slug in values under the instinct group", async () => {
 		const store = {};
-		const inst = new CharacterInstincts(makeFlags(store));
+		const inst = makeInstinct(store);
 		await inst.selectOption("delight", "delight,detachment");
 		expect(store.values.instinct.delight).toBe(1);
 	});
 
 	it("zeroes sibling slugs when selecting an option", async () => {
 		const store = {};
-		const inst = new CharacterInstincts(makeFlags(store));
+		const inst = makeInstinct(store);
 		await inst.selectOption("delight", "delight,detachment");
 		expect(store.values.instinct.detachment).toBe(0);
 	});
 
 	it("clears custom text when an option is selected", async () => {
 		const store = { custom: "my bespoke instinct" };
-		const inst = new CharacterInstincts(makeFlags(store));
+		const inst = makeInstinct(store);
 		await inst.selectOption("delight", "delight,detachment");
 		expect(store.custom).toBe("");
 	});
@@ -55,14 +58,14 @@ describe("CharacterInstincts — selectOption", () => {
 describe("CharacterInstincts — selectCustom", () => {
 	it("stores custom text in the custom flag", async () => {
 		const store = {};
-		const inst = new CharacterInstincts(makeFlags(store));
+		const inst = makeInstinct(store);
 		await inst.selectCustom("to nurture at all costs");
 		expect(store.custom).toBe("to nurture at all costs");
 	});
 
 	it("clears all ChoiceValues when custom text is entered", async () => {
 		const store = { values: { instinct: { delight: 1 } } };
-		const inst = new CharacterInstincts(makeFlags(store));
+		const inst = makeInstinct(store);
 		await inst.selectCustom("my custom instinct");
 		expect(store.values).toEqual({});
 	});
@@ -71,14 +74,14 @@ describe("CharacterInstincts — selectCustom", () => {
 // -- buildSnapshot ------------------------------------------------------------
 
 describe("CharacterInstincts.buildSnapshot", () => {
-	it("returns an object with group (ChoiceGroup) and selected", () => {
-		const snap = makeInstinct().buildSnapshot(INSTINCT_DATA);
+	it("returns an object with group (ChoiceGroup) and selected", async () => {
+		const snap = await makeInstinct().buildSnapshot(INSTINCT_DATA);
 		expect(snap.group).toBeInstanceOf(ChoiceGroup);
 		expect("selected" in snap).toBe(true);
 	});
 
-	it("group contains the options from pack data", () => {
-		const snap = makeInstinct().buildSnapshot(INSTINCT_DATA);
+	it("group contains the options from pack data", async () => {
+		const snap = await makeInstinct().buildSnapshot(INSTINCT_DATA);
 		const opts = snap.group.list[0].options;
 		expect(opts).toHaveLength(2);
 		expect(opts[0].slug).toBe("delight");
@@ -86,32 +89,32 @@ describe("CharacterInstincts.buildSnapshot", () => {
 		expect(opts[0].description).toBe("To find beauty, in even the ugliest things.");
 	});
 
-	it("selected is null when nothing is saved", () => {
-		expect(makeInstinct().buildSnapshot(INSTINCT_DATA).selected).toBeNull();
+	it("selected is null when nothing is saved", async () => {
+		expect((await makeInstinct().buildSnapshot(INSTINCT_DATA)).selected).toBeNull();
 	});
 
-	it("saved slug marks the matching option as checked", () => {
+	it("saved slug marks the matching option as checked", async () => {
 		const store = { values: { instinct: { delight: 1 } } };
-		const snap = makeInstinct(store).buildSnapshot(INSTINCT_DATA);
+		const snap = await makeInstinct(store).buildSnapshot(INSTINCT_DATA);
 		const opts = snap.group.list[0].options;
 		expect(opts.find(o => o.slug === "delight").checked).toBe(true);
 		expect(opts.find(o => o.slug === "detachment").checked).toBe(false);
 	});
 
-	it("selected is the composite label — description of the checked option", () => {
+	it("selected is the composite label — description of the checked option", async () => {
 		const store = { values: { instinct: { delight: 1 } } };
-		const snap = makeInstinct(store).buildSnapshot(INSTINCT_DATA);
+		const snap = await makeInstinct(store).buildSnapshot(INSTINCT_DATA);
 		expect(snap.selected).toBe("Delight — To find beauty, in even the ugliest things.");
 	});
 
-	it("selected is the custom text when no ChoiceValues selection", () => {
+	it("selected is the custom text when no ChoiceValues selection", async () => {
 		const store = { custom: "my bespoke instinct" };
-		const snap = makeInstinct(store).buildSnapshot(INSTINCT_DATA);
+		const snap = await makeInstinct(store).buildSnapshot(INSTINCT_DATA);
 		expect(snap.selected).toBe("my bespoke instinct");
 	});
 
-	it("returns group null and selected null when instinctData is absent", () => {
-		const snap = makeInstinct().buildSnapshot(null);
+	it("returns group null and selected null when instinctData is absent", async () => {
+		const snap = await makeInstinct().buildSnapshot(null);
 		expect(snap.group).toBeNull();
 		expect(snap.selected).toBeNull();
 	});

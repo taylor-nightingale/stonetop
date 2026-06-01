@@ -1,9 +1,7 @@
-import { ChoiceGroupController } from "./ChoiceGroupController.js";
-
 export class CharacterInstincts {
-	constructor(flags) {
+	constructor(flags, choiceController) {
 		this._flags      = flags;
-		this._controller = new ChoiceGroupController(flags);
+		this._controller = choiceController;
 	}
 
 	get _custom() { return this._flags.getFlag("custom") ?? ""; }
@@ -14,13 +12,14 @@ export class CharacterInstincts {
 	}
 
 	async selectCustom(text) {
-		await this._controller.clearValues();
+		await this._controller.clearValues("instinct");
 		await this._flags.setFlag("custom", text);
 	}
 
-	buildSnapshot(instinctData) {
+	async buildSnapshot(instinctData) {
 		if (!instinctData) return { group: null, selected: null };
-		const group = this._controller.buildGroup(instinctData);
+		await this._controller.addGroup("instinct", instinctData);
+		const group = this._controller.buildGroupSnapshot("instinct");
 		const checkedOption = group.list[0]?.options?.find(o => o.checked) ?? null;
 		const selected = checkedOption
 			? `${checkedOption.text} — ${checkedOption.description}`

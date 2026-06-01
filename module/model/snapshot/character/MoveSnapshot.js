@@ -38,6 +38,7 @@ export class MoveSnapshot {
 		this.requirement   = b._requirement;
 		this.requiresLabel = b._requiresLabel;
 		this.resource      = b._resource;
+		this.choices       = b._choices ?? null;
 	}
 }
 
@@ -55,6 +56,7 @@ export class MoveSnapshotBuilder {
 	withRequirement(v)   { this._requirement   = v; return this; }
 	withRequiresLabel(v) { this._requiresLabel = v; return this; }
 	withResource(v)      { this._resource      = v; return this; }
+	withChoices(v)       { this._choices       = v; return this; }
 	build()              { return new MoveSnapshot(this); }
 }
 

@@ -1,14 +1,16 @@
 import { describe, it, expect } from "vitest";
 import { CharacterAppearance } from "../../../module/actors/character/CharacterAppearance.js";
+import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
 import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 
 function makeAppearance(stored = {}) {
 	const actor = new FakeFlags();
 	for (const [key, value] of Object.entries(stored)) {
-		actor.setFlagNonAsync("stonetop", `appearance.${key}`, value);
+		actor.setFlagNonAsync("stonetop", `choices.${key}`, value);
 	}
-	return new CharacterAppearance(new StonetopFlags(actor, "appearance"));
+	const ctrl = new ChoiceGroupController(new StonetopFlags(actor, "choices"));
+	return new CharacterAppearance(new StonetopFlags(actor, "choices"), ctrl);
 }
 
 const APPEARANCE_DATA = {
@@ -47,51 +49,51 @@ describe("CharacterAppearance — selectOption", () => {
 // -- buildSnapshot ------------------------------------------------------------
 
 describe("CharacterAppearance.buildSnapshot", () => {
-	it("returns an array of rows", () => {
-		expect(Array.isArray(makeAppearance().buildSnapshot(APPEARANCE_DATA))).toBe(true);
+	it("returns an array of rows", async () => {
+		expect(Array.isArray(await makeAppearance().buildSnapshot(APPEARANCE_DATA))).toBe(true);
 	});
 
-	it("includes one row per list entry", () => {
-		expect(makeAppearance().buildSnapshot(APPEARANCE_DATA)).toHaveLength(2);
+	it("includes one row per list entry", async () => {
+		expect(await makeAppearance().buildSnapshot(APPEARANCE_DATA)).toHaveLength(2);
 	});
 
-	it("each row has the correct rowKey", () => {
-		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
+	it("each row has the correct rowKey", async () => {
+		const snap = await makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].rowKey).toBe("appearance-row-0");
 		expect(snap[1].rowKey).toBe("appearance-row-1");
 	});
 
-	it("each row is inline", () => {
-		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
+	it("each row is inline", async () => {
+		const snap = await makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].inline).toBe(true);
 		expect(snap[1].inline).toBe(true);
 	});
 
-	it("each row option has slug and text", () => {
-		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
+	it("each row option has slug and text", async () => {
+		const snap = await makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options[0].slug).toBe("fresh-faced");
 		expect(snap[0].options[0].text).toBe("fresh-faced");
 		expect(snap[0].options[2].slug).toBe("gray-and-wizened");
 	});
 
-	it("saved option is marked checked", () => {
-		const snap = makeAppearance({ values: { appearance: { "gray-and-wizened": 1 } } }).buildSnapshot(APPEARANCE_DATA);
+	it("saved option is marked checked", async () => {
+		const snap = await makeAppearance({ values: { appearance: { "gray-and-wizened": 1 } } }).buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.find(o => o.slug === "gray-and-wizened").checked).toBe(true);
 	});
 
-	it("unsaved options are not checked", () => {
-		const snap = makeAppearance().buildSnapshot(APPEARANCE_DATA);
+	it("unsaved options are not checked", async () => {
+		const snap = await makeAppearance().buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.every(o => !o.checked)).toBe(true);
 	});
 
-	it("selections on different rows are independent", () => {
-		const snap = makeAppearance({ values: { appearance: { "fresh-faced": 1, "soothing-voice": 1 } } }).buildSnapshot(APPEARANCE_DATA);
+	it("selections on different rows are independent", async () => {
+		const snap = await makeAppearance({ values: { appearance: { "fresh-faced": 1, "soothing-voice": 1 } } }).buildSnapshot(APPEARANCE_DATA);
 		expect(snap[0].options.find(o => o.slug === "fresh-faced").checked).toBe(true);
 		expect(snap[1].options.find(o => o.slug === "soothing-voice").checked).toBe(true);
 		expect(snap[0].options.find(o => o.slug === "hale-and-hearty").checked).toBe(false);
 	});
 
-	it("returns empty array when groupData is null", () => {
-		expect(makeAppearance().buildSnapshot(null)).toHaveLength(0);
+	it("returns empty array when groupData is null", async () => {
+		expect(await makeAppearance().buildSnapshot(null)).toHaveLength(0);
 	});
 });

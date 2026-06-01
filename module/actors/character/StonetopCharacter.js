@@ -11,6 +11,7 @@ import {CharacterArcana} from "./CharacterArcana.js";
 import {CharacterLore} from "./CharacterLore.js";
 import {CharacterPostDeath} from "./CharacterPostDeath.js";
 import {CharacterFollowers} from "./CharacterFollowers.js";
+import {ChoiceGroupController} from "./ChoiceGroupController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterRolling} from "./CharacterRolling.js";
@@ -22,14 +23,18 @@ export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._stats = new CharacterStats(actor);
-		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"));
-		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"));
 		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"), actor);
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
-		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers);
-		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers);
+		this._choiceController = new ChoiceGroupController(
+			new StonetopFlags(actor, "choices"),
+			this._followers
+		);
+		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"), this._choiceController);
+		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"), this._choiceController);
+		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController);
+		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor, this._choiceController);
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
@@ -38,7 +43,10 @@ export class StonetopCharacter {
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
-			new CharacterInstincts(new StonetopFlags(actor, "postDeathInstinct")),
+			new CharacterInstincts(
+				new StonetopFlags(actor, "postDeathInstinct"),
+				new ChoiceGroupController(new StonetopFlags(actor, "postDeathChoices"), this._followers)
+			),
 			new CharacterLore(new StonetopFlags(actor, "postDeathLore")),
 			repos.postDeathInsert,
 			this._moves,
@@ -83,12 +91,13 @@ export class StonetopCharacter {
 		const { checked, resources: resourceController } = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
-		const [arcana, inventory, postDeath, playbook, vitals] = await Promise.all([
+		const [arcana, inventory, postDeath, playbook, vitals, moves] = await Promise.all([
 			this._arcana.buildSnapshot(checked, resourceController),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
+			this._moves.buildSnapshot(),
 		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
@@ -96,7 +105,7 @@ export class StonetopCharacter {
 			.withDebilities(this._rolling.buildDebilitiesSnapshot())
 			.withStats(this._stats.buildStatsSnapshot())
 			.withVitals(vitals)
-			.withMoves(this._moves.buildSnapshot())
+			.withMoves(moves)
 			.withInventory(inventory)
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
@@ -322,7 +331,12 @@ export class StonetopCharacter {
 			case "lore":     return this.setLoreOptionText(group, option, value);
 			case "pdi-lore": return this.setPostDeathLoreText(group, option, value);
 			case "follower": return this.setFollowerChoiceText(group, option, value);
+			case "move":     return this.setMoveChoiceText(group, option, value);
 		}
+	}
+
+	async setMoveChoiceText(moveName, optionSlug, value) {
+		await this._moves.setMoveChoiceText(moveName, optionSlug, value);
 	}
 
 	async setArcanumResource(slug, count) {

@@ -55,9 +55,9 @@ export class CharacterPostDeath {
 					.withName(data.name)
 					.withImg(data.img)
 					.withDescription(data.description)
-					.withInstinct(this._instinct.buildSnapshot(data.instinct))
+					.withInstinct(await this._instinct.buildSnapshot(data.instinct))
 					.withLore(this._lore.buildSnapshot(data.lore))
-					.withMoves(this._moves.getMoveSnapshotsForCategory(moveType))
+					.withMoves(await this._moves.getMoveSnapshotsForCategory(moveType))
 					.build();
 			}
 		}

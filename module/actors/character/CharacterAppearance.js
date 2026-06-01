@@ -1,16 +1,15 @@
-import { ChoiceGroupController } from "./ChoiceGroupController.js";
-
 export class CharacterAppearance {
-	constructor(flags) {
-		this._controller = new ChoiceGroupController(flags);
+	constructor(flags, choiceController) {
+		this._controller = choiceController;
 	}
 
 	async selectOption(slug, siblingSlugsCsv) {
 		await this._controller.selectOption("appearance", slug, siblingSlugsCsv);
 	}
 
-	buildSnapshot(groupData) {
+	async buildSnapshot(groupData) {
 		if (!groupData) return [];
-		return this._controller.buildGroup(groupData).list;
+		await this._controller.addGroup("appearance", groupData);
+		return this._controller.buildGroupSnapshot("appearance").list;
 	}
 }

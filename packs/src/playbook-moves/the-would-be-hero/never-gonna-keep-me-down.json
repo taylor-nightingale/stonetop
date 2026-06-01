@@ -6,7 +6,10 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>have 5 or fewer current HP</em></strong>, you impose disadvantage on any damage you take.</p><p>Once per session, when you are at Death's Door, don't roll. You get a 10+.</p>"
+		"description": "<p>When you <strong><em>have 5 or fewer current HP</em></strong>, you impose disadvantage on any damage you take.</p><p>Once per session, when you are at Death's Door, don't roll. You get a 10+.</p>",
+		"resource": {
+			"max": 1
+		}
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

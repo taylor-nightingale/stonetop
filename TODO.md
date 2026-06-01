@@ -18,6 +18,7 @@
 * dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
 * tethered arcana needs format fixes
 * localize steading defaults
+
 * ● Here's the full picture:
 
   What rollType does today: StonetopItem.roll() reads rollType as a stat key and looks up actor.system.stats[rollType].value. Every non-null rollType in the packs is one of the 6 stats (str, dex, con, int, wis, cha). Dark Succor currently has rollType: null — it renders description-only and never actually rolls.

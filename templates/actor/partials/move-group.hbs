@@ -55,6 +55,13 @@
 				{{/if}}
 			</div>
 			<div class="stonetop-item-description">{{{description}}}</div>
+			{{#if choices}}
+			<div class="stonetop-move-choices">
+				{{#each choices.list}}
+				{{> "stonetop.choice-row" cgContext="move" cgGroup=../name namePrefix=../name}}
+				{{/each}}
+			</div>
+			{{/if}}
 		</li>
 	{{/each}}
 	</ol>

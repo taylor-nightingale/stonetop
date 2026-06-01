@@ -26,7 +26,8 @@
     <textarea class="stonetop-cg-text"
               data-cg-context="{{cgContext}}"
               data-cg-group="{{cgGroup}}"
-              data-cg-option="{{slug}}">{{value}}</textarea>
+              data-cg-option="{{slug}}"
+              {{#if placeholder}}placeholder="{{placeholder}}"{{/if}}>{{value}}</textarea>
 </div>
 {{else if (eq type "follower")}}
 {{! Follower row (arcanum back) }}

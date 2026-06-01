@@ -1,4 +1,3 @@
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import {
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
@@ -13,49 +12,44 @@ function _toSlug(name) {
 }
 
 export class CharacterBackgrounds {
-	constructor(flags, followers = null) {
-		this._flags     = flags;
-		this._followers = followers;
-		this._resources = new ResourceController(flags);
+	constructor(flags, followers = null, choiceController) {
+		this._flags           = flags;
+		this._followers       = followers;
+		this._resources       = new ResourceController(flags);
+		this._choiceController = choiceController;
 	}
 
 	get selectedSlug() {
 		return this._flags.getFlag("selected") ?? "";
 	}
 
-	get _choiceValues() {
-		return new ChoiceValues(this._flags.getFlag("choices") ?? {});
-	}
-
 	async selectBackground(slug) {
 		await this._flags.setFlag("selected", slug);
 	}
 
-	async setChoiceValue(groupSlug, optionSlug, count) {
-		await this._flags.setFlag("choices", this._choiceValues.set(groupSlug, optionSlug, count).toRaw());
+	async setChoiceValue(namespace, optionSlug, count) {
+		await this._choiceController.setCount(namespace, optionSlug, count);
 	}
 
-	async setFollowerChoiceValue(groupSlug, optionSlug, count) {
-		await this.setChoiceValue(groupSlug, optionSlug, count);
-		if (this._followers) {
-			if (count > 0) await this._followers.addFollower(optionSlug);
-			else           await this._followers.removeFollower(optionSlug);
-		}
+	async setFollowerChoiceValue(namespace, optionSlug, count) {
+		await this._choiceController.setFollowerCount(namespace, optionSlug, count);
 	}
 
 	async setResource(slug, count) {
 		await this._resources.set(slug, count);
 	}
 
-	buildSnapshot(backgroundsData) {
+	async buildSnapshot(backgroundsData) {
 		const savedSlug = this.selectedSlug || null;
-		const cv        = this._choiceValues;
 
-		const options = (backgroundsData ?? []).map(b => {
-			const choices = b.choices
-				? ChoiceGroup.fromPackData(b.choices, cv, {})
-				: null;
-			return new BackgroundOptionSnapshotBuilder()
+		const options = [];
+		for (const b of (backgroundsData ?? [])) {
+			let choices = null;
+			if (b.choices) {
+				await this._choiceController.addGroup(b.slug, b.choices);
+				choices = this._choiceController.buildGroupSnapshot(b.slug);
+			}
+			options.push(new BackgroundOptionSnapshotBuilder()
 				.withSlug(b.slug)
 				.withLabel(b.label)
 				.withDescription(b.description ?? "")
@@ -63,8 +57,8 @@ export class CharacterBackgrounds {
 				.withMoves((b.moves ?? []).map(_toSlug))
 				.withChoices(choices)
 				.withResource(this._resources.buildSnapshot(b.resource ?? null, b.slug))
-				.build();
-		});
+				.build());
+		}
 
 		return new BackgroundSection(savedSlug, options);
 	}

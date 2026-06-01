@@ -23,8 +23,9 @@ export class ChoiceRow {
 }
 
 export class HeadingRow {
-	constructor(title, description = null, note = null, track = null) {
+	constructor(slug, title, description = null, note = null, track = null) {
 		this.type        = "heading";
+		this.slug        = slug;
 		this.title       = title;
 		this.description = description;
 		this.note        = note;
@@ -33,11 +34,12 @@ export class HeadingRow {
 }
 
 export class TextRow {
-	constructor(slug, text, value) {
-		this.type  = "input";
-		this.slug  = slug;
-		this.text  = text;
-		this.value = value;
+	constructor(slug, text, value, placeholder = null) {
+		this.type        = "input";
+		this.slug        = slug;
+		this.text        = text;
+		this.value       = value;
+		this.placeholder = placeholder;
 	}
 }
 
@@ -106,12 +108,12 @@ export class ChoiceGroup {
 			const checks = Array.from({length: item.track.max ?? 1}, (_, i) => i < count);
 			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
 		}
-		return new HeadingRow(item.title ?? null, item.description ?? null, item.note ?? null, track);
+		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? null, item.note ?? null, track);
 	}
 
 	static buildTextRow(item, values, es) {
 		const saved = values.getText(es, item.slug);
-		return new TextRow(item.slug, item.text, saved || (item.default ?? ""));
+		return new TextRow(item.slug, item.text, saved || (item.default ?? ""), item.placeholder ?? null);
 	}
 
 	static buildPickRow(item, es, idx, values) {

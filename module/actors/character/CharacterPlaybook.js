@@ -63,6 +63,11 @@ export class CharacterPlaybook {
 	async buildPlaybookSnapshot() {
 		const data = await this.getData();
 		if (!data) return null;
+		const [background, instinct, appearance] = await Promise.all([
+			this._background.buildSnapshot(data.backgrounds ?? []),
+			this._instinct.buildSnapshot(data.instinct ?? null),
+			this._appearance.buildSnapshot(data.appearance ?? null),
+		]);
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
@@ -70,9 +75,9 @@ export class CharacterPlaybook {
 			.withDescription(data.description ?? null)
 			.withStatsNote(data.statsNote ?? null)
 			.withLore(this._lore.buildSnapshot(data.lore ?? []))
-			.withBackground(this._background.buildSnapshot(data.backgrounds ?? []))
-			.withInstinct(this._instinct.buildSnapshot(data.instinct ?? null))
-			.withAppearance(this._appearance.buildSnapshot(data.appearance ?? null))
+			.withBackground(background)
+			.withInstinct(instinct)
+			.withAppearance(appearance)
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))
 			.build();
 	}

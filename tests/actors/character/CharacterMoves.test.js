@@ -1,11 +1,13 @@
 import { describe, expect, it, vi } from "vitest";
 import { CharacterMoves } from "../../../module/actors/character/CharacterMoves.js";
+import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import {
 	MoveSnapshot,
 	Movelist,
 	MoveCategorySnapshot,
 	ValueMax,
+	ChoiceGroup,
 } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -33,7 +35,8 @@ function makeMoves({
 	actor  = makeActor(),
 	vitals = { level: 1 },
 } = {}) {
-	const moves = new CharacterMoves(repo, flags, actor);
+	const ctrl  = new ChoiceGroupController(flags);
+	const moves = new CharacterMoves(repo, flags, actor, ctrl);
 	moves.setVitals(vitals);
 	return moves;
 }
@@ -70,6 +73,7 @@ function makeFlagMove(name, overrides = {}) {
 		selection: overrides.selection ?? { max: 1, value: 0 },
 		ownedIds: overrides.ownedIds ?? [],
 		resource: overrides.resource ?? null,
+		choices: overrides.choices ?? null,
 	};
 }
 
@@ -148,32 +152,32 @@ describe("CharacterMoves.sortPlaybookMoves", () => {
 // ── buildSnapshot ─────────────────────────────────────────────────────────────
 
 describe("CharacterMoves.buildSnapshot — empty", () => {
-	it("returns a Movelist when no categories in flags", () => {
-		expect(makeMoves().buildSnapshot()).toBeInstanceOf(Movelist);
+	it("returns a Movelist when no categories in flags", async () => {
+		expect(await makeMoves().buildSnapshot()).toBeInstanceOf(Movelist);
 	});
 
-	it("categories is empty when no categories stored in flags", () => {
-		expect(makeMoves().buildSnapshot().categories).toHaveLength(0);
+	it("categories is empty when no categories stored in flags", async () => {
+		expect((await makeMoves().buildSnapshot()).categories).toHaveLength(0);
 	});
 });
 
 describe("CharacterMoves.buildSnapshot — categories from flags", () => {
-	it("returns one category per entry in flags", () => {
+	it("returns one category per entry in flags", async () => {
 		const flags = makeFlags({ categories: [makeFlagCategory("basic")] });
-		const result = makeMoves({ flags }).buildSnapshot();
+		const result = await makeMoves({ flags }).buildSnapshot();
 		expect(result.categories).toHaveLength(1);
 	});
 
-	it("category is a MoveCategorySnapshot", () => {
+	it("category is a MoveCategorySnapshot", async () => {
 		const flags = makeFlags({ categories: [makeFlagCategory("basic")] });
-		const result = makeMoves({ flags }).buildSnapshot();
+		const result = await makeMoves({ flags }).buildSnapshot();
 		expect(result.categories[0]).toBeInstanceOf(MoveCategorySnapshot);
 	});
 
-	it("category key, label, renderStyle, allowAdditional, note preserved", () => {
+	it("category key, label, renderStyle, allowAdditional, note preserved", async () => {
 		const catData = { key: "playbook-the-heavy", label: "The Heavy", renderStyle: "standard", allowAdditional: false, note: "Pick 2.", moves: [] };
 		const flags = makeFlags({ categories: [catData] });
-		const cat = makeMoves({ flags }).buildSnapshot().categories[0];
+		const cat = (await makeMoves({ flags }).buildSnapshot()).categories[0];
 		expect(cat.key).toBe("playbook-the-heavy");
 		expect(cat.label).toBe("The Heavy");
 		expect(cat.renderStyle).toBe("standard");
@@ -181,149 +185,149 @@ describe("CharacterMoves.buildSnapshot — categories from flags", () => {
 		expect(cat.note).toBe("Pick 2.");
 	});
 
-	it("each move in a category becomes a MoveSnapshot", () => {
+	it("each move in a category becomes a MoveSnapshot", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("basic", { moves: [makeFlagMove("Defy Danger", { selection: { max: 1, value: 1 } })] }),
 		]});
-		const cat = makeMoves({ flags }).buildSnapshot().categories[0];
+		const cat = (await makeMoves({ flags }).buildSnapshot()).categories[0];
 		expect(cat.moves[0]).toBeInstanceOf(MoveSnapshot);
 	});
 
-	it("move selection is a ValueMax", () => {
+	it("move selection is a ValueMax", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("basic", { moves: [makeFlagMove("Defy Danger", { selection: { max: 1, value: 1 } })] }),
 		]});
-		const snap = makeMoves({ flags }).buildSnapshot().categories[0].moves[0];
+		const snap = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0];
 		expect(snap.selection).toBeInstanceOf(ValueMax);
 		expect(snap.selection.value).toBe(1);
 		expect(snap.selection.max).toBe(1);
 	});
 
-	it("move ownedId is last entry in ownedIds", () => {
+	it("move ownedId is last entry in ownedIds", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("basic", { moves: [makeFlagMove("Defy Danger", { ownedIds: ["id1", "id2"] })] }),
 		]});
-		const snap = makeMoves({ flags }).buildSnapshot().categories[0].moves[0];
+		const snap = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0];
 		expect(snap.ownedId).toBe("id2");
 	});
 
-	it("move ownedId is null when ownedIds is empty", () => {
+	it("move ownedId is null when ownedIds is empty", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("basic", { moves: [makeFlagMove("Defy Danger")] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].ownedId).toBeNull();
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].ownedId).toBeNull();
 	});
 
-	it("move resource is mapped from flags", () => {
+	it("move resource is mapped from flags", async () => {
 		const moveWithResource = makeFlagMove("Resource Move", {
 			resource: { max: 3, title: "Favor", labels: [], current: 2 },
 			selection: { max: 1, value: 1 },
 		});
 		const flags = makeFlags({ categories: [makeFlagCategory("cat", { moves: [moveWithResource] })] });
-		const snap = makeMoves({ flags }).buildSnapshot().categories[0].moves[0];
+		const snap = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0];
 		expect(snap.resource).not.toBeNull();
 		expect(snap.resource.max).toBe(3);
 		expect(snap.resource.current).toBe(2);
 	});
 
-	it("move resource is null when not set", () => {
+	it("move resource is null when not set", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("basic", { moves: [makeFlagMove("Defy Danger")] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].resource).toBeNull();
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].resource).toBeNull();
 	});
 });
 
 describe("CharacterMoves.buildSnapshot — requiresLabel", () => {
-	it("requiresLabel is null when no requirement", () => {
+	it("requiresLabel is null when no requirement", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha")] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].requiresLabel).toBeNull();
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].requiresLabel).toBeNull();
 	});
 
-	it("requiresLabel is 'Level N' when only a level requirement", () => {
+	it("requiresLabel is 'Level N' when only a level requirement", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 6, playbook: null } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].requiresLabel).toBe("Level 6");
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].requiresLabel).toBe("Level 6");
 	});
 
-	it("requiresLabel lists required move names when only moves requirement", () => {
+	it("requiresLabel lists required move names when only moves requirement", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: ["Wild Speech", "Spirit Tongue"], level: null, playbook: null } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].requiresLabel).toBe("Wild Speech, Spirit Tongue");
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].requiresLabel).toBe("Wild Speech, Spirit Tongue");
 	});
 
-	it("requiresLabel combines moves and level", () => {
+	it("requiresLabel combines moves and level", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: ["Wild Speech"], level: 6, playbook: null } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].requiresLabel).toBe("Wild Speech, Level 6");
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].requiresLabel).toBe("Wild Speech, Level 6");
 	});
 
-	it("requiresLabel is null when requirement has only playbook field", () => {
+	it("requiresLabel is null when requirement has only playbook field", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: null, playbook: "The Ranger" } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].requiresLabel).toBeNull();
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].requiresLabel).toBeNull();
 	});
 });
 
 describe("CharacterMoves.buildSnapshot — selectable computation", () => {
-	it("selectable=false when selection.value >= selection.max", () => {
+	it("selectable=false when selection.value >= selection.max", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { selection: { max: 1, value: 1 } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].selectable).toBe(false);
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].selectable).toBe(false);
 	});
 
-	it("selectable=true when selection.value < selection.max and no requirement", () => {
+	it("selectable=true when selection.value < selection.max and no requirement", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { selection: { max: 2, value: 1 } })] }),
 		]});
-		expect(makeMoves({ flags }).buildSnapshot().categories[0].moves[0].selectable).toBe(true);
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].selectable).toBe(true);
 	});
 
-	it("selectable=true but requirement.met=false when level requirement exceeds actor level", () => {
+	it("selectable=true but requirement.met=false when level requirement exceeds actor level", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 6, playbook: null } })] }),
 		]});
-		const move = makeMoves({ flags, vitals: { level: 1 } }).buildSnapshot().categories[0].moves[0];
+		const move = (await makeMoves({ flags, vitals: { level: 1 } }).buildSnapshot()).categories[0].moves[0];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(false);
 	});
 
-	it("selectable=true and requirement.met=true when level requirement equals actor level", () => {
+	it("selectable=true and requirement.met=true when level requirement equals actor level", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { requirement: { moves: [], level: 3, playbook: null } })] }),
 		]});
-		const move = makeMoves({ flags, vitals: { level: 3 } }).buildSnapshot().categories[0].moves[0];
+		const move = (await makeMoves({ flags, vitals: { level: 3 } }).buildSnapshot()).categories[0].moves[0];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(true);
 	});
 
-	it("selectable=true but requirement.met=false when required move not yet acquired", () => {
+	it("selectable=true but requirement.met=false when required move not yet acquired", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [
 				makeFlagMove("Parent"),
 				makeFlagMove("Child", { requirement: { moves: ["Parent"], level: null, playbook: null } }),
 			]}),
 		]});
-		const move = makeMoves({ flags }).buildSnapshot().categories[0].moves[1];
+		const move = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[1];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(false);
 	});
 
-	it("selectable=true and requirement.met=true when required move is acquired", () => {
+	it("selectable=true and requirement.met=true when required move is acquired", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [
 				makeFlagMove("Parent", { selection: { max: 1, value: 1 } }),
 				makeFlagMove("Child", { requirement: { moves: ["Parent"], level: null, playbook: null } }),
 			]}),
 		]});
-		const move = makeMoves({ flags }).buildSnapshot().categories[0].moves[1];
+		const move = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[1];
 		expect(move.selectable).toBe(true);
 		expect(move.requirement.met).toBe(true);
 	});
@@ -332,25 +336,25 @@ describe("CharacterMoves.buildSnapshot — selectable computation", () => {
 // ── getMoveSnapshotsForCategory ───────────────────────────────────────────────
 
 describe("CharacterMoves.getMoveSnapshotsForCategory", () => {
-	it("returns empty array when category not found", () => {
-		expect(makeMoves().getMoveSnapshotsForCategory("post-death-revenant")).toHaveLength(0);
+	it("returns empty array when category not found", async () => {
+		expect(await makeMoves().getMoveSnapshotsForCategory("post-death-revenant")).toHaveLength(0);
 	});
 
-	it("returns MoveSnapshot for each move in the category", () => {
+	it("returns MoveSnapshot for each move in the category", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("post-death-revenant", { moves: [makeFlagMove("Haunt")] }),
 		]});
-		const snaps = makeMoves({ flags }).getMoveSnapshotsForCategory("post-death-revenant");
+		const snaps = await makeMoves({ flags }).getMoveSnapshotsForCategory("post-death-revenant");
 		expect(snaps).toHaveLength(1);
 		expect(snaps[0]).toBeInstanceOf(MoveSnapshot);
 		expect(snaps[0].name).toBe("Haunt");
 	});
 
-	it("returned snapshot has correct source.type", () => {
+	it("returned snapshot has correct source.type", async () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("post-death-revenant", { moves: [makeFlagMove("Haunt")] }),
 		]});
-		const snap = makeMoves({ flags }).getMoveSnapshotsForCategory("post-death-revenant")[0];
+		const snap = (await makeMoves({ flags }).getMoveSnapshotsForCategory("post-death-revenant"))[0];
 		expect(snap.source.type).toBe("post-death-revenant");
 	});
 });
@@ -574,7 +578,7 @@ describe("CharacterMoves.removeCategory", () => {
 		const flags = makeFlags(store);
 		const m = makeMoves({ flags });
 		await m.removeCategory("post-death-revenant");
-		expect(m.buildSnapshot().categories.find(c => c.key === "post-death-revenant")).toBeUndefined();
+		expect((await m.buildSnapshot()).categories.find(c => c.key === "post-death-revenant")).toBeUndefined();
 	});
 });
 
@@ -846,5 +850,62 @@ describe("CharacterMoves.countOwnedByName", () => {
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha")] }),
 		]});
 		expect(makeMoves({ flags }).countOwnedByName("Bulwark")).toBe(0);
+	});
+});
+
+// ── setMoveChoiceText ─────────────────────────────────────────────────────────
+
+const CHOICES_DATA = {
+	slug: "potential",
+	list: [
+		{ type: "input", slug: "stat1-input", placeholder: "level checked" },
+	],
+};
+
+describe("CharacterMoves.setMoveChoiceText", () => {
+	it("persists via ChoiceGroupController keyed by move name", async () => {
+		const store = {};
+		const flags = makeFlags(store);
+		await makeMoves({ flags }).setMoveChoiceText("Potential for Greatness", "stat1-input", "2");
+		expect(store.values).toEqual({ "Potential for Greatness": { "stat1-input": "2" } });
+	});
+});
+
+// ── buildSnapshot — choices ───────────────────────────────────────────────────
+
+describe("CharacterMoves.buildSnapshot — choices", () => {
+	it("choices is null when move has no choices", async () => {
+		const flags = makeFlags({ categories: [
+			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha")] }),
+		]});
+		expect((await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].choices).toBeNull();
+	});
+
+	it("choices is a ChoiceGroup when move has choices", async () => {
+		const flags = makeFlags({ categories: [
+			makeFlagCategory("cat", { moves: [makeFlagMove("Potential for Greatness", { choices: CHOICES_DATA })] }),
+		]});
+		const snap = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0];
+		expect(snap.choices).toBeInstanceOf(ChoiceGroup);
+		expect(snap.choices.list).toHaveLength(1);
+	});
+
+	it("choice TextRow reflects saved value from controller", async () => {
+		const flags = makeFlags({
+			categories: [
+				makeFlagCategory("cat", { moves: [makeFlagMove("Potential for Greatness", { choices: CHOICES_DATA })] }),
+			],
+			values: { "Potential for Greatness": { "stat1-input": "level 2" } },
+		});
+		const row = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].choices.list[0];
+		expect(row.value).toBe("level 2");
+	});
+
+	it("choice TextRow has placeholder from pack data", async () => {
+		const flags = makeFlags({ categories: [
+			makeFlagCategory("cat", { moves: [makeFlagMove("Potential for Greatness", { choices: CHOICES_DATA })] }),
+		]});
+		const row = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].choices.list[0];
+		expect(row.placeholder).toBe("level checked");
 	});
 });
