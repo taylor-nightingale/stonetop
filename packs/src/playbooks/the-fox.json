@@ -592,7 +592,7 @@
 				{
 					"slug": "distillery",
 					"label": "Distillery",
-					"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
 					"outfitItems": [
 						{
 							"slug": "distillery-firkins",
@@ -603,7 +603,7 @@
 					],
 					"resource": {
 						"max": 2,
-						"title": null,
+						"title": "Skins of fine whisky",
 						"labels": []
 					}
 				},
@@ -625,7 +625,15 @@
 				{
 					"slug": "scribes-tools",
 					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+					"outfitItems": [
+						{
+							"slug": "scribe-notebook",
+							"name": "Notebook",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "trade-contacts",

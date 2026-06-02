@@ -633,8 +633,8 @@
 				},
 				{
 					"slug": "books-and-scrolls",
-					"label": "Books &amp; scrolls",
-					"description": "○○○○○ uses: a collection of religious texts and sacred histories. Mark a use to <em>Know Things about Helior, the Sun-Worshippers, or their lore</em> as if you rolled a 10+.",
+					"label": "Books & scrolls",
+					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
 					"resource": {
 						"max": 5,
 						"title": null,
@@ -649,7 +649,7 @@
 				{
 					"slug": "distillery",
 					"label": "Distillery",
-					"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
 					"outfitItems": [
 						{
 							"slug": "distillery-firkins",
@@ -660,7 +660,7 @@
 					],
 					"resource": {
 						"max": 2,
-						"title": null,
+						"title": "Skins of fine whisky",
 						"labels": []
 					}
 				},

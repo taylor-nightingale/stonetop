@@ -396,7 +396,7 @@
 				{
 					"slug": "distillery",
 					"label": "Distillery",
-					"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
 					"outfitItems": [
 						{
 							"slug": "distillery-firkins",
@@ -407,14 +407,28 @@
 					],
 					"resource": {
 						"max": 2,
-						"title": null,
+						"title": "Skins of fine whisky",
 						"labels": []
 					}
 				},
 				{
 					"slug": "engineers-tools",
 					"label": "Engineer's tools",
-					"description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
+					"outfitItems": [
+						{
+							"slug": "engineer-tripod",
+							"name": "Tripod",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "engineer-block",
+							"name": "Block & Tackle",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "personal-symbol",
@@ -424,7 +438,15 @@
 				{
 					"slug": "scribes-tools",
 					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+					"outfitItems": [
+						{
+							"slug": "scribe-notebook",
+							"name": "Notebook",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "weapons-of-war",

@@ -346,12 +346,20 @@
 				{
 					"slug": "scribes-tools",
 					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+					"outfitItems": [
+						{
+							"slug": "scribe-notebook",
+							"name": "Notebook",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "books-and-scrolls",
-					"label": "Books &amp; scrolls",
-					"description": "(○○○○○ uses) a collection of arcane texts and forbidden lore. Mark a use to <em>Know Things about the topic at hand</em> as if you rolled a 10+.",
+					"label": "Books & scrolls",
+					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
 					"resource": {
 						"max": 5,
 						"title": null,
@@ -361,7 +369,7 @@
 				{
 					"slug": "distillery",
 					"label": "Distillery",
-					"description": "○○ uses: skins of fine whisky (grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
 					"outfitItems": [
 						{
 							"slug": "distillery-firkins",
@@ -372,19 +380,53 @@
 					],
 					"resource": {
 						"max": 2,
-						"title": null,
+						"title": "Skins of fine whisky",
 						"labels": []
 					}
 				},
 				{
 					"slug": "engineers-tools",
 					"label": "Engineer's tools",
-					"description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
+					"outfitItems": [
+						{
+							"slug": "engineer-tripod",
+							"name": "Tripod",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "engineer-block",
+							"name": "Block & Tackle",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "laboratory",
 					"label": "Laboratory",
-					"description": "retorts, tubes, alembics, crucibles, ◇ a furnace, notebooks full of notes; a workspace for research, preparation, and experimentation."
+					"description": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce d4-1 uses of ◇ naphtha (<em>thrown, area, dangerous, ignores armor</em>)",
+					"outfitItems": [
+						{
+							"slug": "laboratory-scales",
+							"name": "Scales",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "laboratory-decanters",
+							"name": "Decanters",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "laboratory-naptha",
+							"name": "Naptha",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "paraphernalia",

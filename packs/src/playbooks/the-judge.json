@@ -583,7 +583,21 @@
 				{
 					"slug": "engineers-tools",
 					"label": "Engineer's tools",
-					"description": "measuring string, stakes, levels, plumb bobs, ◇ compasses, ◇ drawing tools, plans, etc."
+					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
+					"outfitItems": [
+						{
+							"slug": "engineer-tripod",
+							"name": "Tripod",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						},
+						{
+							"slug": "engineer-block",
+							"name": "Block & Tackle",
+							"weight": 1,
+							"inventoryColumn": "regular"
+						}
+					]
 				},
 				{
 					"slug": "smithy",
