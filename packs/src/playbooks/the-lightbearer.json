@@ -204,13 +204,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "The Worship of Helior Is…",
-						"description": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
+						"content": {
+							"title": "The Worship of Helior Is…",
+							"text": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "ancient-widespread",
-						"description": "… ancient, widespread, and well-known.",
+						"content": {
+							"title": null,
+							"text": "… ancient, widespread, and well-known."
+						},
 						"track": {
 							"max": 1
 						}
@@ -218,7 +223,10 @@
 					{
 						"type": "heading",
 						"slug": "lygos-south",
-						"description": "… most common in Lygos and the south.",
+						"content": {
+							"title": null,
+							"text": "… most common in Lygos and the south."
+						},
 						"track": {
 							"max": 1
 						}
@@ -226,7 +234,10 @@
 					{
 						"type": "heading",
 						"slug": "new-thing",
-						"description": "… a new thing, still unheard of by many.",
+						"content": {
+							"title": null,
+							"text": "… a new thing, still unheard of by many."
+						},
 						"track": {
 							"max": 1
 						}
@@ -234,7 +245,10 @@
 					{
 						"type": "heading",
 						"slug": "old-forgotten",
-						"description": "… an old thing, forgotten by most.",
+						"content": {
+							"title": null,
+							"text": "… an old thing, forgotten by most."
+						},
 						"track": {
 							"max": 1
 						}
@@ -242,7 +256,10 @@
 					{
 						"type": "heading",
 						"slug": "persecuted",
-						"description": "… widely persecuted.",
+						"content": {
+							"title": null,
+							"text": "… widely persecuted."
+						},
 						"track": {
 							"max": 1
 						}
@@ -254,13 +271,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "He Is Worshipped Through…",
-						"description": "<p><em>(choose 1 or 2)</em></p>"
+						"content": {
+							"title": "He Is Worshipped Through…",
+							"text": "<p><em>(choose 1 or 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "solemn-hymns",
-						"description": "… solemn hymns.",
+						"content": {
+							"title": null,
+							"text": "… solemn hymns."
+						},
 						"track": {
 							"max": 1
 						}
@@ -268,7 +290,10 @@
 					{
 						"type": "heading",
 						"slug": "meditation",
-						"description": "… serene meditation.",
+						"content": {
+							"title": null,
+							"text": "… serene meditation."
+						},
 						"track": {
 							"max": 1
 						}
@@ -276,7 +301,10 @@
 					{
 						"type": "heading",
 						"slug": "joyful-song",
-						"description": "… joyful song.",
+						"content": {
+							"title": null,
+							"text": "… joyful song."
+						},
 						"track": {
 							"max": 1
 						}
@@ -284,7 +312,10 @@
 					{
 						"type": "heading",
 						"slug": "ascetic-denial",
-						"description": "… ascetic denial.",
+						"content": {
+							"title": null,
+							"text": "… ascetic denial."
+						},
 						"track": {
 							"max": 1
 						}
@@ -292,7 +323,10 @@
 					{
 						"type": "heading",
 						"slug": "dancing",
-						"description": "… fervent dancing.",
+						"content": {
+							"title": null,
+							"text": "… fervent dancing."
+						},
 						"track": {
 							"max": 1
 						}
@@ -300,7 +334,10 @@
 					{
 						"type": "heading",
 						"slug": "ceremonies",
-						"description": "… formal ceremonies.",
+						"content": {
+							"title": null,
+							"text": "… formal ceremonies."
+						},
 						"track": {
 							"max": 1
 						}
@@ -308,7 +345,10 @@
 					{
 						"type": "heading",
 						"slug": "drugs",
-						"description": "… drugs & intoxicants.",
+						"content": {
+							"title": null,
+							"text": "… drugs & intoxicants."
+						},
 						"track": {
 							"max": 1
 						}
@@ -316,7 +356,10 @@
 					{
 						"type": "heading",
 						"slug": "pain-sacrifice",
-						"description": "… pain & sacrifice.",
+						"content": {
+							"title": null,
+							"text": "… pain & sacrifice."
+						},
 						"track": {
 							"max": 1
 						}
@@ -328,13 +371,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-						"description": "<p><em>(choose 1)</em></p>"
+						"content": {
+							"title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+							"text": "<p><em>(choose 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "highest-honor",
-						"description": "… the place of highest honor, even if Tor is more popular.",
+						"content": {
+							"title": null,
+							"text": "… the place of highest honor, even if Tor is more popular."
+						},
 						"track": {
 							"max": 1
 						}
@@ -342,7 +390,10 @@
 					{
 						"type": "heading",
 						"slug": "well-tended",
-						"description": "… been well-tended and given due respect.",
+						"content": {
+							"title": null,
+							"text": "… been well-tended and given due respect."
+						},
 						"track": {
 							"max": 1
 						}
@@ -350,7 +401,10 @@
 					{
 						"type": "heading",
 						"slug": "recently-restored",
-						"description": "… recently been restored/established, perhaps by you.",
+						"content": {
+							"title": null,
+							"text": "… recently been restored/established, perhaps by you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -358,7 +412,10 @@
 					{
 						"type": "heading",
 						"slug": "seen-better-days",
-						"description": "… seen better days, for certain.",
+						"content": {
+							"title": null,
+							"text": "… seen better days, for certain."
+						},
 						"track": {
 							"max": 1
 						}
@@ -370,13 +427,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Your Predecessor, the Previous Lightbearer…",
-						"description": "<p><em>(choose 2 or 3)</em></p>"
+						"content": {
+							"title": "Your Predecessor, the Previous Lightbearer…",
+							"text": "<p><em>(choose 2 or 3)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "lived-long-ago",
-						"description": "… lived long ago, a figure of legend.",
+						"content": {
+							"title": null,
+							"text": "… lived long ago, a figure of legend."
+						},
 						"track": {
 							"max": 1
 						}
@@ -384,7 +446,10 @@
 					{
 						"type": "heading",
 						"slug": "martyred",
-						"description": "… was martyred for their faith.",
+						"content": {
+							"title": null,
+							"text": "… was martyred for their faith."
+						},
 						"track": {
 							"max": 1
 						}
@@ -392,7 +457,10 @@
 					{
 						"type": "heading",
 						"slug": "died-facing",
-						"description": "… died facing a mighty sorcerer or demon.",
+						"content": {
+							"title": null,
+							"text": "… died facing a mighty sorcerer or demon."
+						},
 						"track": {
 							"max": 1
 						}
@@ -400,7 +468,10 @@
 					{
 						"type": "heading",
 						"slug": "wrote-works",
-						"description": "… wrote many works of sublime beauty.",
+						"content": {
+							"title": null,
+							"text": "… wrote many works of sublime beauty."
+						},
 						"track": {
 							"max": 1
 						}
@@ -408,7 +479,10 @@
 					{
 						"type": "heading",
 						"slug": "things-below",
-						"description": "… faced one of the Things Below.",
+						"content": {
+							"title": null,
+							"text": "… faced one of the Things Below."
+						},
 						"track": {
 							"max": 1
 						}
@@ -416,7 +490,10 @@
 					{
 						"type": "heading",
 						"slug": "died-peacefully",
-						"description": "… died in their bed, peacefully.",
+						"content": {
+							"title": null,
+							"text": "… died in their bed, peacefully."
+						},
 						"track": {
 							"max": 1
 						}
@@ -424,7 +501,10 @@
 					{
 						"type": "heading",
 						"slug": "ascended",
-						"description": "… ascended bodily into the heavens.",
+						"content": {
+							"title": null,
+							"text": "… ascended bodily into the heavens."
+						},
 						"track": {
 							"max": 1
 						}
@@ -432,7 +512,10 @@
 					{
 						"type": "heading",
 						"slug": "reincarnated",
-						"description": "… was reincarnated—as you.",
+						"content": {
+							"title": null,
+							"text": "… was reincarnated—as you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -444,13 +527,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "You Came Into Your Powers…",
-						"description": "<p><em>(choose 1)</em></p>"
+						"content": {
+							"title": "You Came Into Your Powers…",
+							"text": "<p><em>(choose 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "years-study",
-						"description": "… through years of study and devotion.",
+						"content": {
+							"title": null,
+							"text": "… through years of study and devotion."
+						},
 						"track": {
 							"max": 1
 						}
@@ -458,7 +546,10 @@
 					{
 						"type": "heading",
 						"slug": "predecessor",
-						"description": "… when your predecessor passed them on.",
+						"content": {
+							"title": null,
+							"text": "… when your predecessor passed them on."
+						},
 						"track": {
 							"max": 1
 						}
@@ -466,7 +557,10 @@
 					{
 						"type": "heading",
 						"slug": "sudden",
-						"description": "… suddenly, at a moment of great need.",
+						"content": {
+							"title": null,
+							"text": "… suddenly, at a moment of great need."
+						},
 						"track": {
 							"max": 1
 						}
@@ -474,7 +568,10 @@
 					{
 						"type": "heading",
 						"slug": "visitation",
-						"description": "… after a visitation from Helior or one of his servants.",
+						"content": {
+							"title": null,
+							"text": "… after a visitation from Helior or one of his servants."
+						},
 						"track": {
 							"max": 1
 						}
@@ -482,7 +579,10 @@
 					{
 						"type": "heading",
 						"slug": "first-sight",
-						"description": "… when you first laid eyes upon the _______.",
+						"content": {
+							"title": null,
+							"text": "… when you first laid eyes upon the _______."
+						},
 						"track": {
 							"max": 1
 						}

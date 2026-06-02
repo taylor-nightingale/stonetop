@@ -20,24 +20,36 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
+						"content": {
+							"title": null,
+							"text": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "fae-help",
-						"description": "… need help from a Fae poet, or perhaps one of the Forest Folk;",
+						"content": {
+							"title": null,
+							"text": "… need help from a Fae poet, or perhaps one of the Forest Folk;"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "or…"
+						"content": {
+							"title": null,
+							"text": "or…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "risk-recipe",
-						"description": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew.",
+						"content": {
+							"title": null,
+							"text": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew."
+						},
 						"track": {
 							"max": 1
 						}

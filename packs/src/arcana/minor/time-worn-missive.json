@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of these portals, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of these portals, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "translate-dialect",
-						"description": "… translate the archaic dialect.",
+						"content": {
+							"title": null,
+							"text": "… translate the archaic dialect."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "find-portal",
-						"description": "… find a portal (other than the one depicted in the missive).",
+						"content": {
+							"title": null,
+							"text": "… find a portal (other than the one depicted in the missive)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "axiom-contagion",
-						"description": "… determine how to \"invoke the axiom of local contagion.\"",
+						"content": {
+							"title": null,
+							"text": "… determine how to \"invoke the axiom of local contagion.\""
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-cinnabar",
-						"description": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2).",
+						"content": {
+							"title": null,
+							"text": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -57,7 +72,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-miscasting",
-						"description": "… attempt casting the spell the first time, and risk miscasting it.",
+						"content": {
+							"title": null,
+							"text": "… attempt casting the spell the first time, and risk miscasting it."
+						},
 						"track": {
 							"max": 1
 						}

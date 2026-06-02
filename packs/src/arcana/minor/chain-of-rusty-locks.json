@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can master the locks by…"
+						"content": {
+							"title": null,
+							"text": "You can master the locks by…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "convince-shade-capture",
-						"description": "… convincing one of the shades to reveal how it was captured.",
+						"content": {
+							"title": null,
+							"text": "… convincing one of the shades to reveal how it was captured."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-shade-opened",
-						"description": "… convincing a shade to reveal what happens when a lock is opened.",
+						"content": {
+							"title": null,
+							"text": "… convincing a shade to reveal what happens when a lock is opened."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "open-locks",
-						"description": "… finding a way to open the locks.",
+						"content": {
+							"title": null,
+							"text": "… finding a way to open the locks."
+						},
 						"track": {
 							"max": 1
 						}

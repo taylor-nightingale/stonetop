@@ -16,16 +16,25 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>enter an ecstatic delirium and allow the Ineffable Words to pour forth</em></strong>, Roll +CON: <strong>on a 10+</strong>, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; <strong>on a 7-9</strong>, the 10+ result applies, but choose 1 from the list below.</p><ul><li>The Truth is cryptic, vague, incomplete</li><li>You are overcome, collapsing in a full-body seizure</li><li>You draw unwanted attention</li></ul>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>enter an ecstatic delirium and allow the Ineffable Words to pour forth</em></strong>, Roll +CON: <strong>on a 10+</strong>, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; <strong>on a 7-9</strong>, the 10+ result applies, but choose 1 from the list below.</p><ul><li>The Truth is cryptic, vague, incomplete</li><li>You are overcome, collapsing in a full-body seizure</li><li>You draw unwanted attention</li></ul>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>spend weeks in ascetic contemplation of the incommunicable words within you</em></strong>, Roll +WIS: <strong>on a 10+</strong>, you gain insight into the power within you—mark 1 below; <strong>on a 7-9</strong>, gain advantage on your next attempt to contemplate the words.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>spend weeks in ascetic contemplation of the incommunicable words within you</em></strong>, Roll +WIS: <strong>on a 10+</strong>, you gain insight into the power within you—mark 1 below; <strong>on a 7-9</strong>, gain advantage on your next attempt to contemplate the words.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 3
 						}
@@ -72,27 +81,42 @@
 					{
 						"type": "heading",
 						"slug": "words-c1",
-						"description": "<p>◻◻◻ The Word's power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻◻ The Word's power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "words-c2",
-						"description": "<p>◻◻ The power of the Word overflows, affecting every possible target within <em>far</em> range to violent effect.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻ The power of the Word overflows, affecting every possible target within <em>far</em> range to violent effect.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "words-c3",
-						"description": "<p>Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "words-c4",
-						"description": "<p>The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "words-c5",
-						"description": "<p>You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power.</p>"
+						}
 					}
 				]
 			},

@@ -21,16 +21,25 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>first run your fingers over the inscriptions</em></strong>, Your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>first run your fingers over the inscriptions</em></strong>, Your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>cast a Codex Spell, Casting penalty ◻◻◻◻◻</em></strong>, When you <strong>cast a spell learned from the Hec'tumel Codex</strong>, roll +INT: <strong>on a 10+</strong>, the spell works as described; <strong>on a 7-9</strong>, the spell works, but choose 1 from the list below; <strong>on a 6-</strong>, mark a consequence (see reverse) in addition to whatever the GM says.</p><ul><li>You draw unwelcome attention or put yourself in a spot (ask the GM how)</li><li>Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)</li></ul><p><strong>Call the Pale Lizard.</strong> Cast this spell at night. Hec'tumel (<em>Slithering One! Death Is Its Eyes!</em>) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.</p><p>When <strong>Hec'tumel spends the night teaching you a spell from the Codex</strong>, mark 1.</p><p>Each time you <strong>make a mark</strong>, choose one of the Codex Spells (see reverse)—you can now cast it. When you <strong>make the last mark</strong>, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>cast a Codex Spell, Casting penalty ◻◻◻◻◻</em></strong>, When you <strong>cast a spell learned from the Hec'tumel Codex</strong>, roll +INT: <strong>on a 10+</strong>, the spell works as described; <strong>on a 7-9</strong>, the spell works, but choose 1 from the list below; <strong>on a 6-</strong>, mark a consequence (see reverse) in addition to whatever the GM says.</p><ul><li>You draw unwelcome attention or put yourself in a spot (ask the GM how)</li><li>Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)</li></ul><p><strong>Call the Pale Lizard.</strong> Cast this spell at night. Hec'tumel (<em>Slithering One! Death Is Its Eyes!</em>) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.</p><p>When <strong>Hec'tumel spends the night teaching you a spell from the Codex</strong>, mark 1.</p><p>Each time you <strong>make a mark</strong>, choose one of the Codex Spells (see reverse)—you can now cast it. When you <strong>make the last mark</strong>, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 4
 						}
@@ -77,37 +86,58 @@
 					{
 						"type": "heading",
 						"slug": "codex-c1",
-						"description": "<p>Over a few days, you lose all body hair. Your skin pales and develops scaly patches.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Over a few days, you lose all body hair. Your skin pales and develops scaly patches.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c1a",
-						"description": "<p>Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c2",
-						"description": "<p>Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c2a",
-						"description": "<p>Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c3",
-						"description": "<p>Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c3a",
-						"description": "<p>Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "codex-c3b",
-						"description": "<p>Anything that you perceive, Hec'tumel perceives it too.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Anything that you perceive, Hec'tumel perceives it too.</p>"
+						}
 					}
 				]
 			},

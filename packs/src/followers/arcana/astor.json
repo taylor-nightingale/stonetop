@@ -32,10 +32,15 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "proof of honor, nobility (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "proof of honor, nobility (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { ResourceController } from "../../../module/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { ResourceController } from "../../../src/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 
 function makeFlags() {

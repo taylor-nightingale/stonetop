@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "roll-to-open",
-						"description": "… roll +INT to open the box: <strong>on a 10+</strong>, it takes a few days of fiddling; <strong>on a 7-9</strong>, it takes a few obsessive weeks; <strong>on a 6-</strong>, it's beyond you.",
+						"content": {
+							"title": null,
+							"text": "… roll +INT to open the box: <strong>on a 10+</strong>, it takes a few days of fiddling; <strong>on a 7-9</strong>, it takes a few obsessive weeks; <strong>on a 6-</strong>, it's beyond you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "season-deciphering",
-						"description": "… spend a season deciphering the symbols etched along the inside.",
+						"content": {
+							"title": null,
+							"text": "… spend a season deciphering the symbols etched along the inside."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-mental-quirk",
-						"description": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so.",
+						"content": {
+							"title": null,
+							"text": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "commune-spirit",
-						"description": "… commune with a primordial spirit and learn the Silent Words from it.",
+						"content": {
+							"title": null,
+							"text": "… commune with a primordial spirit and learn the Silent Words from it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -57,7 +72,10 @@
 					{
 						"type": "heading",
 						"slug": "days-practice",
-						"description": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage.",
+						"content": {
+							"title": null,
+							"text": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage."
+						},
 						"track": {
 							"max": 1
 						}

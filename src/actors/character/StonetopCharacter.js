@@ -37,7 +37,7 @@ export class StonetopCharacter {
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"), this._choiceController);
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"), this._choiceController);
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController, this._resourceController);
-		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
+		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
@@ -92,7 +92,7 @@ export class StonetopCharacter {
 	async buildSnapshot() {
 		await this._moves.initBasicMoves();
 		const level = this._vitals.level;
-		const { checked } = this._inventory;
+		const {checked} = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
 		const [arcana, inventory, postDeath, playbook, vitals, moves] = await Promise.all([
@@ -121,6 +121,7 @@ export class StonetopCharacter {
 	async setPostDeathInsert(slug) {
 		await this._postDeath.setInsert(slug);
 	}
+
 	async setInventoryItemChecked(slug, isChecked) {
 		await this._inventory.setItemChecked(slug, isChecked);
 		const armor = await this._inventory.getArmor();
@@ -201,18 +202,24 @@ export class StonetopCharacter {
 
 	async onDropItems(items) {
 		const isArcanum = i => i.type === "equipment" && i.system?.equipmentType === "arcanum";
-		const arcana    = items.filter(isArcanum);
+		const arcana = items.filter(isArcanum);
 		const followers = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "follower");
-		const moves     = items.filter(i => i.type === "move");
-		const others    = items.filter(i => !isArcanum(i) && i.type !== "move" && i.system?.equipmentType !== "follower");
+		const moves = items.filter(i => i.type === "move");
+		const others = items.filter(i => !isArcanum(i) && i.type !== "move" && i.system?.equipmentType !== "follower");
 		let anyAdded = false;
 		for (const item of arcana) {
 			const slug = item.system?.slug;
-			if (slug) { await this.addArcanum(slug); anyAdded = true; }
+			if (slug) {
+				await this.addArcanum(slug);
+				anyAdded = true;
+			}
 		}
 		for (const item of followers) {
 			const slug = item.system?.slug;
-			if (slug) { await this._followers.addFollower(slug); anyAdded = true; }
+			if (slug) {
+				await this._followers.addFollower(slug);
+				anyAdded = true;
+			}
 		}
 		for (const item of moves) {
 			if (await this.onDropMove(item)) anyAdded = true;
@@ -280,9 +287,11 @@ export class StonetopCharacter {
 	async unflipArcanum(slug) {
 		await this._arcana.unflipArcanum(slug);
 	}
+
 	async setArcanumBackChoiceValue(arcanumSlug, optionSlug, count) {
 		await this._arcana.setBackChoiceValue(arcanumSlug, optionSlug, count);
 	}
+
 	async setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count) {
 		await this._background.setFollowerChoiceValue(groupSlug, optionSlug, count);
 	}
@@ -293,36 +302,51 @@ export class StonetopCharacter {
 
 	async setChoiceCount(context, group, option, count) {
 		switch (context) {
-			case "arcana-unlock": return await this._arcana.setUnlockCount(group, option, count);
-			case "lore":          return await this._lore.set(group, option, count);
-			case "pdi-lore":      return await this._postDeath.lore.set(group, option, count);
-			case "background":    return await this._background.setChoiceValue(group, option, count);
-			case "move":          return await this._moves.setMoveChoiceCount(group, option, count);
+			case "arcana-unlock":
+				return await this._arcana.setUnlockCount(group, option, count);
+			case "lore":
+				return await this._lore.set(group, option, count);
+			case "pdi-lore":
+				return await this._postDeath.lore.set(group, option, count);
+			case "background":
+				return await this._background.setChoiceValue(group, option, count);
+			case "move":
+				return await this._moves.setMoveChoiceCount(group, option, count);
 		}
 	}
 
 	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
 		switch (context) {
-			case "instinct":     return this.instinct.selectOption(option, siblingsCsv);
-			case "pdi-instinct": return await this._postDeath.instinct.selectOption(option, siblingsCsv);
-			case "appearance":   return this.appearance.selectOption(option, siblingsCsv);
-			case "follower":     return await this._followers.setChoiceValue(group, "choices", option, siblingsCsv);
-			case "background":   return this._background.setChoiceValue(group, option, checked ? 1 : 0);
+			case "instinct":
+				return this.instinct.selectOption(option, siblingsCsv);
+			case "pdi-instinct":
+				return await this._postDeath.instinct.selectOption(option, siblingsCsv);
+			case "appearance":
+				return this.appearance.selectOption(option, siblingsCsv);
+			case "follower":
+				return await this._followers.setChoiceValue(group, "choices", option, siblingsCsv);
+			case "background":
+				return this._background.setChoiceValue(group, option, checked ? 1 : 0);
 		}
 	}
 
 	async setChoiceText(context, group, option, value) {
 		switch (context) {
-			case "lore":     return await this._lore.set(group, option, value);
-			case "pdi-lore": return await this._postDeath.lore.set(group, option, value);
-			case "follower": return await this._followers.setChoiceText(group, option, value);
-			case "move":     return await this._moves.setMoveChoiceText(group, option, value);
+			case "lore":
+				return await this._lore.set(group, option, value);
+			case "pdi-lore":
+				return await this._postDeath.lore.set(group, option, value);
+			case "follower":
+				return await this._followers.setChoiceText(group, option, value);
+			case "move":
+				return await this._moves.setMoveChoiceText(group, option, value);
 		}
 	}
 
 	async setArcanumResource(slug, count) {
 		await this._inventory.setResource(slug, count);
 	}
+
 	async addCustomFollower() {
 		await this._followers.addCustomFollower();
 	}
@@ -378,6 +402,7 @@ export class StonetopCharacter {
 	async setFollowerNote(slug, note) {
 		await this._followers.setNote(slug, note);
 	}
+
 	async setFollowerArmor(slug, armor) {
 		await this._followers.setArmor(slug, armor);
 	}

@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the jar's mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the jar's mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "wash-surface",
-						"description": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility).",
+						"content": {
+							"title": null,
+							"text": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "commune-spirit",
-						"description": "… commune with the spirit of the haughty Green Lord to whom this jar is bound.",
+						"content": {
+							"title": null,
+							"text": "… commune with the spirit of the haughty Green Lord to whom this jar is bound."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "use-crystals",
-						"description": "… learn to use the red crystals to torment the Green Lord's spirit.",
+						"content": {
+							"title": null,
+							"text": "… learn to use the red crystals to torment the Green Lord's spirit."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-lord",
-						"description": "… convince the bound Green Lord spirit to change your form.",
+						"content": {
+							"title": null,
+							"text": "… convince the bound Green Lord spirit to change your form."
+						},
 						"track": {
 							"max": 1
 						}

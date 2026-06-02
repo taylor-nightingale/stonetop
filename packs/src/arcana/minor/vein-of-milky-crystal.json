@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…"
+						"content": {
+							"title": null,
+							"text": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "extract-crystal",
-						"description": "… personally extract a large ◇ hunk of crystal (Value 1) from the vein.",
+						"content": {
+							"title": null,
+							"text": "… personally extract a large ◇ hunk of crystal (Value 1) from the vein."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "shape-sphere",
-						"description": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job).",
+						"content": {
+							"title": null,
+							"text": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-sacred-words",
-						"description": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth.",
+						"content": {
+							"title": null,
+							"text": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "speak-under-moon",
-						"description": "… on three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month.",
+						"content": {
+							"title": null,
+							"text": "… on three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month."
+						},
 						"track": {
 							"max": 1
 						}

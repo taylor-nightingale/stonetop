@@ -3,8 +3,8 @@ export class TestChoiceRowBuilder {
 	_slug          = null;
 	_track         = null;
 	_title         = null;
-	_label         = null;
-	_text          = null;
+	_contentTitle  = null;
+	_contentText   = null;
 	_note          = null;
 	_placeholder   = null;
 	_input         = null;
@@ -15,13 +15,12 @@ export class TestChoiceRowBuilder {
 	static heading()  { return new TestChoiceRowBuilder().withType("heading"); }
 	static follower() { return new TestChoiceRowBuilder().withType("follower"); }
 	static pick()     { return new TestChoiceRowBuilder().withType("pick"); }
-	static input()    { return new TestChoiceRowBuilder().withType("input"); }
 
 	withType(type)               { this._type          = type;        return this; }
 	withSlug(slug)               { this._slug          = slug;        return this; }
 	withTitle(title)             { this._title         = title;       return this; }
-	withLabel(label)             { this._label         = label;       return this; }
-	withText(text)               { this._text          = text;        return this; }
+	withContentTitle(title)      { this._contentTitle  = title;       return this; }
+	withContentText(text)        { this._contentText   = text;        return this; }
 	withNote(note)               { this._note          = note;        return this; }
 	withTrack(max)               { this._track         = { max };     return this; }
 	withPlaceholder(placeholder) { this._placeholder   = placeholder; return this; }
@@ -32,14 +31,12 @@ export class TestChoiceRowBuilder {
 
 	build() {
 		if (this._type === "heading") return {
-			type:        "heading",
-			slug:        this._slug,
-			title:       this._title,
-			label:       this._label,
-			description: this._text,
-			note:        this._note,
-			track:       this._track,
-			input:       this._input,
+			type:    "heading",
+			slug:    this._slug,
+			content: { title: this._contentTitle, text: this._contentText },
+			note:    this._note,
+			track:   this._track,
+			input:   this._input,
 		};
 		if (this._type === "follower") return {
 			type:          "follower",
@@ -47,12 +44,6 @@ export class TestChoiceRowBuilder {
 			title:         this._title ?? "",
 			inlineDisplay: this._inlineDisplay,
 			track:         this._track ?? { max: 1 },
-		};
-		if (this._type === "input") return {
-			type:        "input",
-			slug:        this._slug,
-			text:        this._text,
-			placeholder: this._placeholder,
 		};
 		if (this._type === "pick") return {
 			type:      "pick",

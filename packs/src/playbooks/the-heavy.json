@@ -213,13 +213,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Just About Everyone Here Talks About the Time You…",
-						"description": "<p><em>(pick 1 or 2)</em></p>"
+						"content": {
+							"title": "Just About Everyone Here Talks About the Time You…",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "thunder-drake",
-						"description": "… drove off a thunder drake that got too close to town.",
+						"content": {
+							"title": null,
+							"text": "… drove off a thunder drake that got too close to town."
+						},
 						"track": {
 							"max": 1
 						}
@@ -227,7 +232,10 @@
 					{
 						"type": "heading",
 						"slug": "hagr",
-						"description": "… killed that hagr in the Foothills.",
+						"content": {
+							"title": null,
+							"text": "… killed that hagr in the Foothills."
+						},
 						"track": {
 							"max": 1
 						}
@@ -235,7 +243,10 @@
 					{
 						"type": "heading",
 						"slug": "crinwin-dozen",
-						"description": "… slew a dozen crinwin in one battle.",
+						"content": {
+							"title": null,
+							"text": "… slew a dozen crinwin in one battle."
+						},
 						"track": {
 							"max": 1
 						}
@@ -243,7 +254,10 @@
 					{
 						"type": "heading",
 						"slug": "adventurers",
-						"description": "… tossed those adventurers out of town.",
+						"content": {
+							"title": null,
+							"text": "… tossed those adventurers out of town."
+						},
 						"track": {
 							"max": 1
 						}
@@ -251,7 +265,10 @@
 					{
 						"type": "heading",
 						"slug": "ivan",
-						"description": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws.",
+						"content": {
+							"title": null,
+							"text": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws."
+						},
 						"track": {
 							"max": 1
 						}
@@ -259,7 +276,10 @@
 					{
 						"type": "heading",
 						"slug": "bleeding",
-						"description": "… dragged yourself (and another?) into town, bleeding from a dozen wounds.",
+						"content": {
+							"title": null,
+							"text": "… dragged yourself (and another?) into town, bleeding from a dozen wounds."
+						},
 						"track": {
 							"max": 1
 						}
@@ -267,7 +287,10 @@
 					{
 						"type": "heading",
 						"slug": "lightning",
-						"description": "… were struck by lightning and woke up covered in these marks.",
+						"content": {
+							"title": null,
+							"text": "… were struck by lightning and woke up covered in these marks."
+						},
 						"track": {
 							"max": 1
 						}
@@ -279,13 +302,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "But Folks Are Less Keen to Discuss…",
-						"description": "<p><em>(pick 1 or 2)</em></p>"
+						"content": {
+							"title": "But Folks Are Less Keen to Discuss…",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "blood-look",
-						"description": "… the look in your eye when you spilled all that blood.",
+						"content": {
+							"title": null,
+							"text": "… the look in your eye when you spilled all that blood."
+						},
 						"track": {
 							"max": 1
 						}
@@ -293,7 +321,10 @@
 					{
 						"type": "heading",
 						"slug": "hard-cases",
-						"description": "… those hard cases who showed up looking for you.",
+						"content": {
+							"title": null,
+							"text": "… those hard cases who showed up looking for you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -301,7 +332,10 @@
 					{
 						"type": "heading",
 						"slug": "shouting",
-						"description": "… the shouting matches between you and your love.",
+						"content": {
+							"title": null,
+							"text": "… the shouting matches between you and your love."
+						},
 						"track": {
 							"max": 1
 						}
@@ -309,7 +343,10 @@
 					{
 						"type": "heading",
 						"slug": "claws",
-						"description": "… the time you spent as one of Brennan's Claws.",
+						"content": {
+							"title": null,
+							"text": "… the time you spent as one of Brennan's Claws."
+						},
 						"track": {
 							"max": 1
 						}
@@ -317,7 +354,10 @@
 					{
 						"type": "heading",
 						"slug": "urbgen",
-						"description": "… what happened to Urbgen, even if he did have it coming.",
+						"content": {
+							"title": null,
+							"text": "… what happened to Urbgen, even if he did have it coming."
+						},
 						"track": {
 							"max": 1
 						}
@@ -325,7 +365,10 @@
 					{
 						"type": "heading",
 						"slug": "seizures",
-						"description": "… your uncontrollable seizures, where you claw those weird marks in the dirt.",
+						"content": {
+							"title": null,
+							"text": "… your uncontrollable seizures, where you claw those weird marks in the dirt."
+						},
 						"track": {
 							"max": 1
 						}
@@ -337,13 +380,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "What Keeps You Up at Night?",
-						"description": "<p><em>(pick 1 or 2)</em></p>"
+						"content": {
+							"title": "What Keeps You Up at Night?",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "temper",
-						"description": "That thrice-damned temper of yours.",
+						"content": {
+							"title": null,
+							"text": "That thrice-damned temper of yours."
+						},
 						"track": {
 							"max": 1
 						}
@@ -351,7 +399,10 @@
 					{
 						"type": "heading",
 						"slug": "someone-coming",
-						"description": "The worry that someone's coming after you.",
+						"content": {
+							"title": null,
+							"text": "The worry that someone's coming after you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -359,7 +410,10 @@
 					{
 						"type": "heading",
 						"slug": "crinwin-bolder",
-						"description": "The feeling that the crinwin are getting bolder.",
+						"content": {
+							"title": null,
+							"text": "The feeling that the crinwin are getting bolder."
+						},
 						"track": {
 							"max": 1
 						}
@@ -367,7 +421,10 @@
 					{
 						"type": "heading",
 						"slug": "brennan",
-						"description": "Wondering what Brennan's up to, now that he's the marshal of Marshedge.",
+						"content": {
+							"title": null,
+							"text": "Wondering what Brennan's up to, now that he's the marshal of Marshedge."
+						},
 						"track": {
 							"max": 1
 						}
@@ -375,7 +432,10 @@
 					{
 						"type": "heading",
 						"slug": "dark-visions",
-						"description": "Dark visions of things moving in the earth, restless, whispering, and hungry.",
+						"content": {
+							"title": null,
+							"text": "Dark visions of things moving in the earth, restless, whispering, and hungry."
+						},
 						"track": {
 							"max": 1
 						}
@@ -383,7 +443,10 @@
 					{
 						"type": "heading",
 						"slug": "family",
-						"description": "The question of who'll look after your family when you get yourself killed.",
+						"content": {
+							"title": null,
+							"text": "The question of who'll look after your family when you get yourself killed."
+						},
 						"track": {
 							"max": 1
 						}
@@ -391,7 +454,10 @@
 					{
 						"type": "heading",
 						"slug": "truth",
-						"description": "The worry that they'll all learn the truth about you, sooner or later.",
+						"content": {
+							"title": null,
+							"text": "The worry that they'll all learn the truth about you, sooner or later."
+						},
 						"track": {
 							"max": 1
 						}

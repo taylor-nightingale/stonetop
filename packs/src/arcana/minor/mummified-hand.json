@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "learn-name",
-						"description": "… learn the name of the sorcerer whose hand this was.",
+						"content": {
+							"title": null,
+							"text": "… learn the name of the sorcerer whose hand this was."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-words",
-						"description": "… learn the words of power and the process below.",
+						"content": {
+							"title": null,
+							"text": "… learn the words of power and the process below."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "soak-crystal",
-						"description": "… on three separate nights, soak a different piece of red crystal (Value 1) in a bowl of your own fresh blood (5 HP, mark a debility), chanting words of power throughout the night, and then set the still-dripping crystal in one of the rings that adorn the hand.",
+						"content": {
+							"title": null,
+							"text": "… on three separate nights, soak a different piece of red crystal (Value 1) in a bowl of your own fresh blood (5 HP, mark a debility), chanting words of power throughout the night, and then set the still-dripping crystal in one of the rings that adorn the hand."
+						},
 						"track": {
 							"max": 1
 						}

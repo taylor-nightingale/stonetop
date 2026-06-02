@@ -38,9 +38,9 @@ const ENFYS_DATA = {
 	choices: {
 		slug: "choices",
 		list: [
-			{ type: "input", slug: "weapon",   text: "Weapon",   default: "bronze knife d4 (hand)" },
-			{ type: "input", slug: "cost",     text: "Cost",     default: "knowledge, secret lore; Loyalty" },
-			{ type: "heading", title: "Pick 1 on each line" },
+			{ type: "heading", slug: "weapon", content: { text: "Weapon" }, input: { default: "bronze knife d4 (hand)" } },
+			{ type: "heading", slug: "cost",   content: { text: "Cost" },   input: { default: "knowledge, secret lore; Loyalty" } },
+			{ type: "heading", content: { title: "Pick 1 on each line" } },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "he", text: "he" }, { slug: "she", text: "she" }, { slug: "they", text: "they" }] },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "just-a-child", text: "just a child" }, { slug: "on-the-cusp", text: "on the cusp" }] },
 		],
@@ -345,27 +345,27 @@ describe("CharacterFollowers — choices snapshot", () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		const heading = snap.choices.list.find(r => r.type === "heading");
-		expect(heading.title).toBe("Pick 1 on each line");
+		const heading = snap.choices.list.find(r => r.type === "heading" && r.content.title);
+		expect(heading.content.title).toBe("Pick 1 on each line");
 	});
 
-	it("text rows default to pack default value", async () => {
+	it("heading input rows default to pack default value", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
 		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
-		expect(weaponRow.value).toBe("bronze knife d4 (hand)");
+		expect(weaponRow.input.value).toBe("bronze knife d4 (hand)");
 		const costRow = snap.choices.list.find(r => r.slug === "cost");
-		expect(costRow.value).toBe("knowledge, secret lore; Loyalty");
+		expect(costRow.input.value).toBe("knowledge, secret lore; Loyalty");
 	});
 
 	it("saved text value overrides pack default", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		await cf.setChoiceText("enfys", "weapon", "iron axe d6 (hand)");
+		await cf.setChoiceText("enfys", "weapon-input", "iron axe d6 (hand)");
 		const [snap] = await cf.buildSnapshot();
 		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
-		expect(weaponRow.value).toBe("iron axe d6 (hand)");
+		expect(weaponRow.input.value).toBe("iron axe d6 (hand)");
 	});
 
 	it("pick rows have correct options and are unchecked by default", async () => {
@@ -431,9 +431,9 @@ const BLANK_DATA = {
 	choices: {
 		slug: "choices",
 		list: [
-			{ type: "input", slug: "damage",   text: "Damage",   default: "" },
-			{ type: "input", slug: "cost",     text: "Cost",     default: "" },
-			{ type: "input", slug: "notes",    text: "Notes",    default: "" },
+			{ type: "heading", slug: "damage", content: { text: "Damage" }, input: {} },
+			{ type: "heading", slug: "cost",   content: { text: "Cost" },   input: {} },
+			{ type: "heading", slug: "notes",  content: { text: "Notes" },  input: {} },
 		],
 	},
 };

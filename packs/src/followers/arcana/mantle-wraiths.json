@@ -30,16 +30,26 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "weapon",
-					"text": "Weapon",
-					"default": "life drain d8 (band, ignores armor)"
+					"content": {
+						"title": null,
+						"text": "Weapon"
+					},
+					"input": {
+						"default": "life drain d8 (band, ignores armor)"
+					}
 				},
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "souls feasted upon (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "souls feasted upon (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

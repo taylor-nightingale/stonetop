@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of the cloak, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of the cloak, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "learn-name",
-						"description": "… learn the name of the bound spirit.",
+						"content": {
+							"title": null,
+							"text": "… learn the name of the bound spirit."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "decipher-command",
-						"description": "… decipher the word of command, embroidered in ancient Maker-script.",
+						"content": {
+							"title": null,
+							"text": "… decipher the word of command, embroidered in ancient Maker-script."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "bend-spirit",
-						"description": "… bend the spirit to your will, risking its (destructive) escape.",
+						"content": {
+							"title": null,
+							"text": "… bend the spirit to your will, risking its (destructive) escape."
+						},
 						"track": {
 							"max": 1
 						}

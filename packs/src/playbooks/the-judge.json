@@ -200,13 +200,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "The Chronicle",
-						"description": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>"
+						"content": {
+							"title": "The Chronicle",
+							"text": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sturdy-vault",
-						"description": "… is a sturdy vault from the time of the Makers.",
+						"content": {
+							"title": null,
+							"text": "… is a sturdy vault from the time of the Makers."
+						},
 						"track": {
 							"max": 1
 						}
@@ -214,7 +219,10 @@
 					{
 						"type": "heading",
 						"slug": "room-to-grow",
-						"description": "… has plenty of room to grow.",
+						"content": {
+							"title": null,
+							"text": "… has plenty of room to grow."
+						},
 						"track": {
 							"max": 1
 						}
@@ -222,7 +230,10 @@
 					{
 						"type": "heading",
 						"slug": "hidden-underground",
-						"description": "… is hidden underground.",
+						"content": {
+							"title": null,
+							"text": "… is hidden underground."
+						},
 						"track": {
 							"max": 1
 						}
@@ -230,7 +241,10 @@
 					{
 						"type": "heading",
 						"slug": "one-entrance",
-						"description": "… has but one entrance, magically sealed.",
+						"content": {
+							"title": null,
+							"text": "… has but one entrance, magically sealed."
+						},
 						"track": {
 							"max": 1
 						}
@@ -238,7 +252,10 @@
 					{
 						"type": "heading",
 						"slug": "minor-magics",
-						"description": "… bears minor magics to preserve its contents.",
+						"content": {
+							"title": null,
+							"text": "… bears minor magics to preserve its contents."
+						},
 						"track": {
 							"max": 1
 						}
@@ -246,7 +263,10 @@
 					{
 						"type": "heading",
 						"slug": "warded",
-						"description": "… is warded against spirits and magic.",
+						"content": {
+							"title": null,
+							"text": "… is warded against spirits and magic."
+						},
 						"track": {
 							"max": 1
 						}
@@ -254,7 +274,10 @@
 					{
 						"type": "heading",
 						"slug": "living-quarters",
-						"description": "… includes your living quarters & office.",
+						"content": {
+							"title": null,
+							"text": "… includes your living quarters & office."
+						},
 						"track": {
 							"max": 1
 						}
@@ -266,13 +289,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "But Alas, It…",
-						"description": "<p><em>(choose 2)</em></p>"
+						"content": {
+							"title": "But Alas, It…",
+							"text": "<p><em>(choose 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "outskirts",
-						"description": "… sits on the outskirts, near the Old Wall.",
+						"content": {
+							"title": null,
+							"text": "… sits on the outskirts, near the Old Wall."
+						},
 						"track": {
 							"max": 1
 						}
@@ -280,7 +308,10 @@
 					{
 						"type": "heading",
 						"slug": "cramped",
-						"description": "… is cramped, chaotic, and overflowing.",
+						"content": {
+							"title": null,
+							"text": "… is cramped, chaotic, and overflowing."
+						},
 						"track": {
 							"max": 1
 						}
@@ -288,7 +319,10 @@
 					{
 						"type": "heading",
 						"slug": "crude-cellar",
-						"description": "… is little more than a crude cellar.",
+						"content": {
+							"title": null,
+							"text": "… is little more than a crude cellar."
+						},
 						"track": {
 							"max": 1
 						}
@@ -296,7 +330,10 @@
 					{
 						"type": "heading",
 						"slug": "haunted",
-						"description": "… seems to be haunted.",
+						"content": {
+							"title": null,
+							"text": "… seems to be haunted."
+						},
 						"track": {
 							"max": 1
 						}
@@ -304,7 +341,10 @@
 					{
 						"type": "heading",
 						"slug": "dangerous-artifacts",
-						"description": "… contains a few dangerous artifacts.",
+						"content": {
+							"title": null,
+							"text": "… contains a few dangerous artifacts."
+						},
 						"track": {
 							"max": 1
 						}
@@ -316,13 +356,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "The Lawkeeper",
-						"description": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>"
+						"content": {
+							"title": "The Lawkeeper",
+							"text": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shrine-hub",
-						"description": "… a hub of the community, a place of frequent rites, petitions, and celebrations.",
+						"content": {
+							"title": null,
+							"text": "… a hub of the community, a place of frequent rites, petitions, and celebrations."
+						},
 						"track": {
 							"max": 1
 						}
@@ -330,7 +375,10 @@
 					{
 						"type": "heading",
 						"slug": "shrine-high-holiday",
-						"description": "… used only on high holidays, for each home keeps its own shrine above the hearth.",
+						"content": {
+							"title": null,
+							"text": "… used only on high holidays, for each home keeps its own shrine above the hearth."
+						},
 						"track": {
 							"max": 1
 						}
@@ -338,7 +386,10 @@
 					{
 						"type": "heading",
 						"slug": "shrine-neglected",
-						"description": "… neglected by most, tended only by you and a handful of believers.",
+						"content": {
+							"title": null,
+							"text": "… neglected by most, tended only by you and a handful of believers."
+						},
 						"track": {
 							"max": 1
 						}
@@ -346,7 +397,10 @@
 					{
 						"type": "heading",
 						"slug": "shrine-grim",
-						"description": "… a grim place of judgement and punishment, shunned by all but her chosen.",
+						"content": {
+							"title": null,
+							"text": "… a grim place of judgement and punishment, shunned by all but her chosen."
+						},
 						"track": {
 							"max": 1
 						}
@@ -354,7 +408,10 @@
 					{
 						"type": "heading",
 						"slug": "shrine-new",
-						"description": "… newly established, cramped and spare.",
+						"content": {
+							"title": null,
+							"text": "… newly established, cramped and spare."
+						},
 						"track": {
 							"max": 1
 						}
@@ -366,13 +423,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Of Her True Disciples, Aratis Demands…",
-						"description": "<p><em>(choose 3)</em></p>"
+						"content": {
+							"title": "Of Her True Disciples, Aratis Demands…",
+							"text": "<p><em>(choose 3)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "truth",
-						"description": "… truth, honesty, and forthrightness.",
+						"content": {
+							"title": null,
+							"text": "… truth, honesty, and forthrightness."
+						},
 						"track": {
 							"max": 1
 						}
@@ -380,7 +442,10 @@
 					{
 						"type": "heading",
 						"slug": "hospitality",
-						"description": "… hospitality, freely given to all who ask for it.",
+						"content": {
+							"title": null,
+							"text": "… hospitality, freely given to all who ask for it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -388,7 +453,10 @@
 					{
 						"type": "heading",
 						"slug": "punishment",
-						"description": "… the punishment of thieves & oathbreakers.",
+						"content": {
+							"title": null,
+							"text": "… the punishment of thieves & oathbreakers."
+						},
 						"track": {
 							"max": 1
 						}
@@ -396,7 +464,10 @@
 					{
 						"type": "heading",
 						"slug": "diet-dress",
-						"description": "… adherence to strict rules of diet and dress.",
+						"content": {
+							"title": null,
+							"text": "… adherence to strict rules of diet and dress."
+						},
 						"track": {
 							"max": 1
 						}
@@ -404,7 +475,10 @@
 					{
 						"type": "heading",
 						"slug": "authority",
-						"description": "… respect for authority, property, and rank.",
+						"content": {
+							"title": null,
+							"text": "… respect for authority, property, and rank."
+						},
 						"track": {
 							"max": 1
 						}

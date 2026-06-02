@@ -1,6 +1,6 @@
 {{#if (eq type "heading")}}
 {{! Heading row }}
-{{#if title}}{{> "stonetop.section-heading" title=title}}{{/if}}
+{{#if content.title}}{{> "stonetop.section-heading" title=content.title}}{{/if}}
 {{#if track}}
 <div class="stonetop-choice-track">
     <span class="stonetop-choice-track-checks">
@@ -14,10 +14,10 @@
                {{#if this}}checked{{/if}}>
         {{/each}}
     </span>
-    <span class="stonetop-choice-track-desc">{{{description}}}</span>
+    <span class="stonetop-choice-track-desc">{{{content.text}}}</span>
 </div>
-{{else if description}}
-<div class="stonetop-choice-description">{{{description}}}</div>
+{{else if content.text}}
+<div class="stonetop-choice-description">{{{content.text}}}</div>
 {{/if}}
 {{#if input}}
 <div class="stonetop-choice-option stonetop-choice-option--text">
@@ -28,16 +28,6 @@
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
 </div>
 {{/if}}
-{{else if (eq type "input")}}
-{{! Text input row (textarea) }}
-<div class="stonetop-choice-option stonetop-choice-option--text">
-    {{#if text}}<label class="stonetop-option-desc">{{{text}}}</label>{{/if}}
-    <textarea class="stonetop-cg-text"
-              data-cg-context="{{cgContext}}"
-              data-cg-group="{{cgGroup}}"
-              data-cg-option="{{slug}}"
-              {{#if placeholder}}placeholder="{{placeholder}}"{{/if}}>{{value}}</textarea>
-</div>
 {{else if (eq type "follower")}}
 {{! Follower row (arcanum back) }}
 <div class="stonetop-arcanum-follower">

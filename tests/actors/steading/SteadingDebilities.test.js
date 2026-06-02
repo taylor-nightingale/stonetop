@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { SteadingDebilities } from "../../../module/actors/steading/SteadingDebilities.js";
-import { DebilitySnapshot } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
+import { SteadingDebilities } from "../../../src/actors/steading/SteadingDebilities.js";
+import { DebilitySnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 function make() {

@@ -218,13 +218,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Something Wicked This Way Comes",
-						"description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
+						"content": {
+							"title": "Something Wicked This Way Comes",
+							"text": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "great-wood",
-						"description": "A dark, unwholesome presence lurking in the Great Wood.",
+						"content": {
+							"title": null,
+							"text": "A dark, unwholesome presence lurking in the Great Wood."
+						},
 						"track": {
 							"max": 1
 						}
@@ -232,7 +237,10 @@
 					{
 						"type": "heading",
 						"slug": "ruined-tower",
-						"description": "A strange, furtive figure seen near the Ruined Tower.",
+						"content": {
+							"title": null,
+							"text": "A strange, furtive figure seen near the Ruined Tower."
+						},
 						"track": {
 							"max": 1
 						}
@@ -240,7 +248,10 @@
 					{
 						"type": "heading",
 						"slug": "foothills",
-						"description": "Something big & savage stalking the northern foothills.",
+						"content": {
+							"title": null,
+							"text": "Something big & savage stalking the northern foothills."
+						},
 						"track": {
 							"max": 1
 						}
@@ -248,7 +259,10 @@
 					{
 						"type": "heading",
 						"slug": "suarachan",
-						"description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
+						"content": {
+							"title": null,
+							"text": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold."
+						},
 						"track": {
 							"max": 1
 						}
@@ -256,7 +270,10 @@
 					{
 						"type": "heading",
 						"slug": "hillfolk",
-						"description": "That of which the Hillfolk refuse to speak.",
+						"content": {
+							"title": null,
+							"text": "That of which the Hillfolk refuse to speak."
+						},
 						"track": {
 							"max": 1
 						}
@@ -268,43 +285,73 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Answer At Least 3 of the Following",
-						"description": ""
+						"content": {
+							"title": "Answer At Least 3 of the Following",
+							"text": ""
+						}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-is-it",
-						"text": "What, exactly, do you think it is?"
+						"content": {
+							"title": null,
+							"text": "What, exactly, do you think it is?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-saw",
-						"text": "What did you see, and how close did you have to get to see it?"
+						"content": {
+							"title": null,
+							"text": "What did you see, and how close did you have to get to see it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-lost",
-						"text": "Whom or what have you lost to it?"
+						"content": {
+							"title": null,
+							"text": "Whom or what have you lost to it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "left-behind",
-						"text": "What did it leave behind?"
+						"content": {
+							"title": null,
+							"text": "What did it leave behind?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-wants",
-						"text": "What do you think it wants?"
+						"content": {
+							"title": null,
+							"text": "What do you think it wants?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "disbeliever",
-						"text": "Who refuses to believe you?"
+						"content": {
+							"title": null,
+							"text": "Who refuses to believe you?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "who-knows-more",
-						"text": "Who can tell you more, if you can only convince them?"
+						"content": {
+							"title": null,
+							"text": "Who can tell you more, if you can only convince them?"
+						},
+						"input": {}
 					}
 				]
 			}

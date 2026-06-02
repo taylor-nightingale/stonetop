@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Greater Harvest",
-					"description": "<p>Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.</p>"
+					"content": {
+						"title": "Greater Harvest",
+						"text": "<p>Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> 1 of the following:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> 1 of the following:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "double-yield",
-					"description": "Doubling the yield of crops inside the Old Wall",
+					"content": {
+						"title": null,
+						"text": "Doubling the yield of crops inside the Old Wall"
+					},
 					"track": {
 						"max": 1
 					}
@@ -30,14 +38,20 @@
 				{
 					"type": "heading",
 					"slug": "clear-fields",
-					"description": "Clearing/taming new fields beyond the Old Wall",
+					"content": {
+						"title": null,
+						"text": "Clearing/taming new fields beyond the Old Wall"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when <strong><em>the autumn harvest is complete</em></strong>, gain +1d4 Surplus.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Henceforth, when <strong><em>the autumn harvest is complete</em></strong>, gain +1d4 Surplus.</p>"
+					}
 				}
 			]
 		}

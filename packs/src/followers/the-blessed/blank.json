@@ -32,22 +32,31 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "damage",
-					"text": "Damage",
-					"default": ""
+					"content": {
+						"title": null,
+						"text": "Damage"
+					},
+					"input": {}
 				},
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": ""
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {}
 				},
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "notes",
-					"text": "Notes",
-					"default": ""
+					"content": {
+						"title": null,
+						"text": "Notes"
+					},
+					"input": {}
 				}
 			]
 		},

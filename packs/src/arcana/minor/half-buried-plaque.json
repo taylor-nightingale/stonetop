@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The plate contains the workings of a spell, which you can learn but…"
+						"content": {
+							"title": null,
+							"text": "The plate contains the workings of a spell, which you can learn but…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "dig-up-clean",
-						"description": "… you must first dig up & clean the plate.",
+						"content": {
+							"title": null,
+							"text": "… you must first dig up & clean the plate."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "decipher-runes",
-						"description": "… you must decipher the Maker-runes.",
+						"content": {
+							"title": null,
+							"text": "… you must decipher the Maker-runes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-of-study",
-						"description": "… it'll take a few weeks of study.",
+						"content": {
+							"title": null,
+							"text": "… it'll take a few weeks of study."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-voice",
-						"description": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice.",
+						"content": {
+							"title": null,
+							"text": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice."
+						},
 						"track": {
 							"max": 1
 						}

@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "fill-whisky",
-						"description": "… fill it with whisky or a similarly potent spirit.",
+						"content": {
+							"title": null,
+							"text": "… fill it with whisky or a similarly potent spirit."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "drink-single-pull",
-						"description": "… drink the contents in a single pull (mark dazed).",
+						"content": {
+							"title": null,
+							"text": "… drink the contents in a single pull (mark dazed)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-blacking-out",
-						"description": "… risk blacking out, acting the fool, or at least marking more debilities.",
+						"content": {
+							"title": null,
+							"text": "… risk blacking out, acting the fool, or at least marking more debilities."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "survive-storm",
-						"description": "… survive the storm you summon as a result (see reverse).",
+						"content": {
+							"title": null,
+							"text": "… survive the storm you summon as a result (see reverse)."
+						},
 						"track": {
 							"max": 1
 						}

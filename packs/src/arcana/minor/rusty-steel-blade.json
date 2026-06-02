@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of this weapon, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of this weapon, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "restore-blade",
-						"description": "… restore the blade, which requires access to a smithy, a few weeks of work, and no small amount of skill.",
+						"content": {
+							"title": null,
+							"text": "… restore the blade, which requires access to a smithy, a few weeks of work, and no small amount of skill."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "commune-fire",
-						"description": "… commune with the spirit of fire within the steel (Instinct to seek glory), and convince it that you are worthy to wield the blade.",
+						"content": {
+							"title": null,
+							"text": "… commune with the spirit of fire within the steel (Instinct to seek glory), and convince it that you are worthy to wield the blade."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-scabbard",
-						"description": "… acquire a scabbard that can withstand the fire and heat of a forge.",
+						"content": {
+							"title": null,
+							"text": "… acquire a scabbard that can withstand the fire and heat of a forge."
+						},
 						"track": {
 							"max": 1
 						}

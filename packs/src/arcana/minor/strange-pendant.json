@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of the pendant…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of the pendant…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "wear-lunar-cycle",
-						"description": "… wear it ceaselessly for a lunar cycle, answering its questions honestly.",
+						"content": {
+							"title": null,
+							"text": "… wear it ceaselessly for a lunar cycle, answering its questions honestly."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "hold-underwater",
-						"description": "… hold yourself underwater until you risk drowning.",
+						"content": {
+							"title": null,
+							"text": "… hold yourself underwater until you risk drowning."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "drown-another",
-						"description": "… drown another person, and offer their last gasps to the pendant.",
+						"content": {
+							"title": null,
+							"text": "… drown another person, and offer their last gasps to the pendant."
+						},
 						"track": {
 							"max": 1
 						}

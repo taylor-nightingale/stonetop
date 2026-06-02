@@ -23,24 +23,13 @@ export class ChoiceRow {
 }
 
 export class HeadingRow {
-	constructor(slug, title, description = null, note = null, track = null, input = null) {
-		this.type        = "heading";
-		this.slug        = slug;
-		this.title       = title;
-		this.description = description;
-		this.note        = note;
-		this.track       = track;   // null | { slug, checks: bool[], requires? }
-		this.input       = input;   // null | { slug, placeholder, value }
-	}
-}
-
-export class TextRow {
-	constructor(slug, text, value, placeholder = null) {
-		this.type        = "input";
-		this.slug        = slug;
-		this.text        = text;
-		this.value       = value;
-		this.placeholder = placeholder;
+	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null) {
+		this.type    = "heading";
+		this.slug    = slug;
+		this.content = content;  // { title: string|null, text: string|null }
+		this.note    = note;
+		this.track   = track;   // null | { slug, checks: bool[], requires? }
+		this.input   = input;   // null | { slug, placeholder, value }
 	}
 }
 
@@ -97,7 +86,6 @@ export class ChoiceGroup {
 
 	static buildRow(item, values, es, idx, followersBySlug = {}) {
 		if (item.type === "heading")  return this.buildHeadingRow(item, values, es);
-		if (item.type === "input")    return this.buildTextRow(item, values, es);
 		if (item.type === "follower") return this.buildFollowerRow(item, values, es, followersBySlug);
 		return this.buildPickRow(item, es, idx, values);
 	}
@@ -110,14 +98,14 @@ export class ChoiceGroup {
 			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
 		}
 		const input = item.input
-			? { slug: `${item.slug}-input`, placeholder: item.input.placeholder ?? null, value: values.getText(es, `${item.slug}-input`) }
+			? {
+				slug:        `${item.slug}-input`,
+				placeholder: item.input.placeholder ?? null,
+				value:       values.getText(es, `${item.slug}-input`) || (item.input.default ?? ""),
+			}
 			: null;
-		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? item.label ?? null, item.note ?? null, track, input);
-	}
-
-	static buildTextRow(item, values, es) {
-		const saved = values.getText(es, item.slug);
-		return new TextRow(item.slug, item.text, saved || (item.default ?? ""), item.placeholder ?? null);
+		const content = { title: item.content?.title ?? null, text: item.content?.text ?? null };
+		return new HeadingRow(item.slug ?? null, content, item.note ?? null, track, input);
 	}
 
 	static buildPickRow(item, es, idx, values) {

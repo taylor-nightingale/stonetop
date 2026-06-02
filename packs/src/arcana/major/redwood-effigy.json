@@ -16,16 +16,25 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>perform the secret rite, requires privacy, a few hours, and a drop of your own fresh blood</em></strong>, Hold 1 Conduit (max 1 Conduit, at least to start). ◇◇◇</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>perform the secret rite, requires privacy, a few hours, and a drop of your own fresh blood</em></strong>, Hold 1 Conduit (max 1 Conduit, at least to start). ◇◇◇</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>surrogate Suffering</em></strong>, When you <strong>suffer physical harm while carrying the effigy on your person</strong>, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.</p><p>Record the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the <strong>effigy is destroyed</strong>, you suffer all this harm at once.</p><p><strong>Each time the effigy suffers harm on your behalf</strong>, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>surrogate Suffering</em></strong>, When you <strong>suffer physical harm while carrying the effigy on your person</strong>, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.</p><p>Record the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the <strong>effigy is destroyed</strong>, you suffer all this harm at once.</p><p><strong>Each time the effigy suffers harm on your behalf</strong>, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 3
 						}
@@ -52,32 +61,50 @@
 					{
 						"type": "heading",
 						"slug": "effigy-c1",
-						"description": "<p>Your heartbeat slows and your emotions dull. Magic cannot stir your emotions unless it specifically targets the effigy. Alas, you can no longer Burn Brightly.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your heartbeat slows and your emotions dull. Magic cannot stir your emotions unless it specifically targets the effigy. Alas, you can no longer Burn Brightly.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "effigy-c2",
-						"description": "<p>Your blood flows like sap and your muscles become like wood. Gain +1 armor and +4 max HP, but you can no longer regain HP via the Recover move. When you <strong>Make Camp</strong>, you must rest while touching soil or you get no benefit.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your blood flows like sap and your muscles become like wood. Gain +1 armor and +4 max HP, but you can no longer regain HP via the Recover move. When you <strong>Make Camp</strong>, you must rest while touching soil or you get no benefit.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "effigy-c3",
-						"description": "<p>Henceforth, when <strong>anyone works magic upon the effigy</strong>, it affects you instead and bypasses any defenses that you have in place (including Surrogate Suffering).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Henceforth, when <strong>anyone works magic upon the effigy</strong>, it affects you instead and bypasses any defenses that you have in place (including Surrogate Suffering).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "effigy-c4",
-						"description": "<p>Henceforth, when you <strong>suffer physical harm while you hold Conduit</strong>, you must spend it and use Surrogate Suffering.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Henceforth, when you <strong>suffer physical harm while you hold Conduit</strong>, you must spend it and use Surrogate Suffering.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "effigy-c5",
-						"description": "<p>The effigy becomes both <em>fragile</em> and highly flammable. When you suffer damage from heat or fire, you take +1d6 damage. If the effigy suffers harm from heat or fire in your place, it will burst into flames and be destroyed.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>The effigy becomes both <em>fragile</em> and highly flammable. When you suffer damage from heat or fire, you take +1d6 damage. If the effigy suffers harm from heat or fire in your place, it will burst into flames and be destroyed.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "effigy-c6",
-						"description": "<p>When you <strong>roll 6- at Death's Door</strong>, you have no choice: gain the Revenant insert until the effigy is destroyed (and you become a wraith controlled by the GM) or it is buried in a Red Grove (and you become an NPC spirit of that grove).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong>roll 6- at Death's Door</strong>, you have no choice: gain the Revenant insert until the effigy is destroyed (and you become a wraith controlled by the GM) or it is buried in a Red Grove (and you become an NPC spirit of that grove).</p>"
+						}
 					}
 				]
 			},

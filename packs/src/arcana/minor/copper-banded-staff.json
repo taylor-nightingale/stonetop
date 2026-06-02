@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The staff still tingles with power. To unlock its mysteries you must…"
+						"content": {
+							"title": null,
+							"text": "The staff still tingles with power. To unlock its mysteries you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "figure-runes",
-						"description": "… figure out the shape of the missing and damaged runes.",
+						"content": {
+							"title": null,
+							"text": "… figure out the shape of the missing and damaged runes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "replace-bands",
-						"description": "… replace the bands with new ones of rune-embossed aetherium.",
+						"content": {
+							"title": null,
+							"text": "… replace the bands with new ones of rune-embossed aetherium."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "hold-fast",
-						"description": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go).",
+						"content": {
+							"title": null,
+							"text": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "days-practice",
-						"description": "… spend a few days practicing with the charged-up staff.",
+						"content": {
+							"title": null,
+							"text": "… spend a few days practicing with the charged-up staff."
+						},
 						"track": {
 							"max": 1
 						}

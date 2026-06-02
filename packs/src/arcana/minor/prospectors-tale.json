@@ -15,12 +15,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "proficient-art",
-						"description": "… be proficient in some art or craft (pottery, weaving, smithing, etc.).",
+						"content": {
+							"title": null,
+							"text": "… be proficient in some art or craft (pottery, weaving, smithing, etc.)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -28,7 +34,10 @@
 					{
 						"type": "heading",
 						"slug": "find-ustrina",
-						"description": "… find an Ustrina able and willing to teach you the Sublime Words.",
+						"content": {
+							"title": null,
+							"text": "… find an Ustrina able and willing to teach you the Sublime Words."
+						},
 						"track": {
 							"max": 1
 						}
@@ -36,7 +45,10 @@
 					{
 						"type": "heading",
 						"slug": "season-studying",
-						"description": "… spend a season studying with the Ustrina, practicing the Words.",
+						"content": {
+							"title": null,
+							"text": "… spend a season studying with the Ustrina, practicing the Words."
+						},
 						"track": {
 							"max": 1
 						}
@@ -44,7 +56,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-voice",
-						"description": "… risk never mastering the Words, or permanently harming your voice.",
+						"content": {
+							"title": null,
+							"text": "… risk never mastering the Words, or permanently harming your voice."
+						},
 						"track": {
 							"max": 1
 						}

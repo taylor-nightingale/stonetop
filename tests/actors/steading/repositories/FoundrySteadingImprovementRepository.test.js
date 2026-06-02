@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { FoundrySteadingImprovementRepository } from "../../../../module/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
+import { FoundrySteadingImprovementRepository } from "../../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 
 function makeEntry(slug, sortOrder = 1, choices = null) {
 	return {

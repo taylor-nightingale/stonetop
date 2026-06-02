@@ -15,12 +15,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
+						"content": {
+							"title": null,
+							"text": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "follow-paths",
-						"description": "… follow the twisting paths in silence, until you spy the White Hart.",
+						"content": {
+							"title": null,
+							"text": "… follow the twisting paths in silence, until you spy the White Hart."
+						},
 						"track": {
 							"max": 1
 						}
@@ -28,7 +34,10 @@
 					{
 						"type": "heading",
 						"slug": "chase-hart",
-						"description": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth.",
+						"content": {
+							"title": null,
+							"text": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth."
+						},
 						"track": {
 							"max": 1
 						}
@@ -36,7 +45,10 @@
 					{
 						"type": "heading",
 						"slug": "wrestle-serpent",
-						"description": "… wrestle the strange serpent that lives in the tree (Book II, page 371), crushing the life from it and eating its still-warm heart.",
+						"content": {
+							"title": null,
+							"text": "… wrestle the strange serpent that lives in the tree (Book II, page 371), crushing the life from it and eating its still-warm heart."
+						},
 						"track": {
 							"max": 1
 						}

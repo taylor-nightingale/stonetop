@@ -36,7 +36,7 @@ export {
 	ArcanumBackSnapshot, ArcanumBackSnapshotBuilder,
 } from "./ArcanaSnapshot.js";
 export { FollowerSnapshot, FollowerSnapshotBuilder } from "./FollowerSnapshot.js";
-export { ChoiceOption, ChoiceRow, HeadingRow, TextRow, FollowerRow, ChoiceGroup, ChoiceValues } from "./ChoiceGroup.js";
+export { ChoiceOption, ChoiceRow, HeadingRow, FollowerRow, ChoiceGroup, ChoiceValues } from "./ChoiceGroup.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.

@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the codex's mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the codex's mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "decipher-text",
-						"description": "… decipher the text, written in a form of the Rime Lord's alphabet.",
+						"content": {
+							"title": null,
+							"text": "… decipher the text, written in a form of the Rime Lord's alphabet."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "months-study",
-						"description": "… spend months studying the text and practicing the techniques therein.",
+						"content": {
+							"title": null,
+							"text": "… spend months studying the text and practicing the techniques therein."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-health",
-						"description": "… risk permanently damaging your health as you master them.",
+						"content": {
+							"title": null,
+							"text": "… risk permanently damaging your health as you master them."
+						},
 						"track": {
 							"max": 1
 						}

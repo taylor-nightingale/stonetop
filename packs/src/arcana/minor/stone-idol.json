@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its \"mysteries\" and benefit from its patronage, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its \"mysteries\" and benefit from its patronage, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "restore-shrine",
-						"description": "… restore the shrine, while suffering the abuse of its angry little god.",
+						"content": {
+							"title": null,
+							"text": "… restore the shrine, while suffering the abuse of its angry little god."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "extract-idol",
-						"description": "… extract the idol from the stone and rubble in which it's embedded, at the risk of damaging/insulting it.",
+						"content": {
+							"title": null,
+							"text": "… extract the idol from the stone and rubble in which it's embedded, at the risk of damaging/insulting it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "trick-idol",
-						"description": "… trick the idol into accepting an offering that puts it in your lasting debt. A Surplus worth of food and/or whisky ought to be enough.",
+						"content": {
+							"title": null,
+							"text": "… trick the idol into accepting an offering that puts it in your lasting debt. A Surplus worth of food and/or whisky ought to be enough."
+						},
 						"track": {
 							"max": 1
 						}

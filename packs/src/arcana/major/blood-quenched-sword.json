@@ -21,24 +21,39 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>draw the Blood-quenched Sword</em></strong>, It leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>draw the Blood-quenched Sword</em></strong>, It leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>spill your own blood in order to return the Sword to its sheath</em></strong>, Take 1d4 damage (ignoring armor) and the scars from the cut never fade.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>spill your own blood in order to return the Sword to its sheath</em></strong>, Take 1d4 damage (ignoring armor) and the scars from the cut never fade.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>strike first in a fight with the Blood-quenched Sword</em></strong>, Gain advantage on your first roll.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>strike first in a fight with the Blood-quenched Sword</em></strong>, Gain advantage on your first roll.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>sheathe the Sword after using it to kill a living, bleeding foe</em></strong>, Mark 1 unless you have already done so since the last sunset.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>sheathe the Sword after using it to kill a living, bleeding foe</em></strong>, Mark 1 unless you have already done so since the last sunset.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 5
 						}
@@ -75,32 +90,50 @@
 					{
 						"type": "heading",
 						"slug": "sword-c1",
-						"description": "<p>◻◻◻ You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.</p><p>When you <strong>attack the nearest living creature</strong>, you have advantage on damage rolls.</p><p>When you <strong>attempt to stay your hand</strong>, roll +WIS: <strong>on a 10+</strong>, you do so, and can choose to calm yourself and end the rage with a few moments focus; <strong>on a 7-9</strong>, you stay your hand, but must choose a different target for your rage; <strong>on a 6-</strong>, attack without mercy or doubt.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻◻ You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.</p><p>When you <strong>attack the nearest living creature</strong>, you have advantage on damage rolls.</p><p>When you <strong>attempt to stay your hand</strong>, roll +WIS: <strong>on a 10+</strong>, you do so, and can choose to calm yourself and end the rage with a few moments focus; <strong>on a 7-9</strong>, you stay your hand, but must choose a different target for your rage; <strong>on a 6-</strong>, attack without mercy or doubt.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sword-c2",
-						"description": "<p>Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either <em>dazed</em> or <em>miserable</em> (your choice).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either <em>dazed</em> or <em>miserable</em> (your choice).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sword-c2a",
-						"description": "<p>Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\"</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\"</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sword-c3",
-						"description": "<p>You can no longer sleep or rest without the Blood-quenched Sword at hand.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You can no longer sleep or rest without the Blood-quenched Sword at hand.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sword-c4",
-						"description": "<p>You no longer gain sustenance from food. When you <strong>slay a living, bleeding creature with the Sword</strong>, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead. ◻◻◻</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You no longer gain sustenance from food. When you <strong>slay a living, bleeding creature with the Sword</strong>, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead. ◻◻◻</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "sword-c5",
-						"description": "<p>You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else.</p>"
+						}
 					}
 				]
 			},

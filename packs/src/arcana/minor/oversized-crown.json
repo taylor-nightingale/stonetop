@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "But to fully unlock the mysteries of this crown, you must…"
+						"content": {
+							"title": null,
+							"text": "But to fully unlock the mysteries of this crown, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "risk-sense-of-self",
-						"description": "… risk your sense of self as you commune with this spirit of the void.",
+						"content": {
+							"title": null,
+							"text": "… risk your sense of self as you commune with this spirit of the void."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-words-of-being",
-						"description": "… learn the Words of Being, which will force the spirit to manifest.",
+						"content": {
+							"title": null,
+							"text": "… learn the Words of Being, which will force the spirit to manifest."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-words-of-unbeing",
-						"description": "… learn the Words of Unbeing, which will send the spirit home.",
+						"content": {
+							"title": null,
+							"text": "… learn the Words of Unbeing, which will send the spirit home."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-manifest",
-						"description": "… convince the spirit to manifest and then successfully dismiss it.",
+						"content": {
+							"title": null,
+							"text": "… convince the spirit to manifest and then successfully dismiss it."
+						},
 						"track": {
 							"max": 1
 						}

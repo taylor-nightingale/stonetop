@@ -8,7 +8,7 @@ const INSTINCT_SNAP = { group: new ChoiceGroup("instinct", []), selected: "Denia
 
 const LORE = [
 	new ChoiceGroup("consequences", [
-		new HeadingRow("Consequences", "<p>Choose 1...</p>"),
+		new HeadingRow("Consequences", { title: null, text: "<p>Choose 1...</p>" }),
 		new ChoiceRow([new ChoiceOption("breakdown", { description: "<p>You lash out...</p>", checks: [true], requires: null })]),
 		new ChoiceRow([new ChoiceOption("unstable",  { description: "<p>You are prone...</p>", checks: [false], requires: "breakdown" })]),
 	]),

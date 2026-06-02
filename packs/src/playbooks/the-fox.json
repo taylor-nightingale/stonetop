@@ -202,13 +202,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "There Was That Time You…",
-						"description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
+						"content": {
+							"title": "There Was That Time You…",
+							"text": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "lost-great-wood",
-						"description": "… got lost in the Great Wood.",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Great Wood."
+						},
 						"track": {
 							"max": 2
 						}
@@ -216,7 +221,10 @@
 					{
 						"type": "heading",
 						"slug": "lost-flats",
-						"description": "… got lost in the Flats.",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Flats."
+						},
 						"track": {
 							"max": 2
 						}
@@ -224,7 +232,10 @@
 					{
 						"type": "heading",
 						"slug": "lost-steplands",
-						"description": "… got lost in the Steplands.",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Steplands."
+						},
 						"track": {
 							"max": 2
 						}
@@ -232,7 +243,10 @@
 					{
 						"type": "heading",
 						"slug": "lost-ferrers-fen",
-						"description": "… got lost in Ferrier's Fen.",
+						"content": {
+							"title": null,
+							"text": "… got lost in Ferrier's Fen."
+						},
 						"track": {
 							"max": 2
 						}
@@ -240,7 +254,10 @@
 					{
 						"type": "heading",
 						"slug": "lost-foothills",
-						"description": "… got lost in the Foothills.",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Foothills."
+						},
 						"track": {
 							"max": 2
 						}
@@ -248,7 +265,10 @@
 					{
 						"type": "heading",
 						"slug": "lost-huffel-peaks",
-						"description": "… got lost in the Huffel Peaks.",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Huffel Peaks."
+						},
 						"track": {
 							"max": 2
 						}
@@ -256,7 +276,10 @@
 					{
 						"type": "heading",
 						"slug": "crinwin-raid",
-						"description": "… were on watch when the crinwin raided.",
+						"content": {
+							"title": null,
+							"text": "… were on watch when the crinwin raided."
+						},
 						"track": {
 							"max": 2
 						}
@@ -264,7 +287,10 @@
 					{
 						"type": "heading",
 						"slug": "ruined-tower",
-						"description": "… dared each other to explore the Ruined Tower.",
+						"content": {
+							"title": null,
+							"text": "… dared each other to explore the Ruined Tower."
+						},
 						"track": {
 							"max": 2
 						}
@@ -272,7 +298,10 @@
 					{
 						"type": "heading",
 						"slug": "hillfolk",
-						"description": "… managed to rile up a small band of Hillfolk.",
+						"content": {
+							"title": null,
+							"text": "… managed to rile up a small band of Hillfolk."
+						},
 						"track": {
 							"max": 2
 						}
@@ -280,7 +309,10 @@
 					{
 						"type": "heading",
 						"slug": "labyrinth",
-						"description": "… braved the Labyrinth, just a little.",
+						"content": {
+							"title": null,
+							"text": "… braved the Labyrinth, just a little."
+						},
 						"track": {
 							"max": 2
 						}
@@ -288,7 +320,10 @@
 					{
 						"type": "heading",
 						"slug": "old-mans-book",
-						"description": "… stole that crazy old man's book.",
+						"content": {
+							"title": null,
+							"text": "… stole that crazy old man's book."
+						},
 						"track": {
 							"max": 2
 						}
@@ -296,7 +331,10 @@
 					{
 						"type": "heading",
 						"slug": "barrow-mounds",
-						"description": "… went poking about the old Barrow Mounds.",
+						"content": {
+							"title": null,
+							"text": "… went poking about the old Barrow Mounds."
+						},
 						"track": {
 							"max": 2
 						}
@@ -308,13 +346,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "And You Ended Up…",
-						"description": "<p><em>(choose 1 or 2 per tale)</em></p>"
+						"content": {
+							"title": "And You Ended Up…",
+							"text": "<p><em>(choose 1 or 2 per tale)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "running",
-						"description": "… running for your life from something.",
+						"content": {
+							"title": null,
+							"text": "… running for your life from something."
+						},
 						"track": {
 							"max": 2
 						}
@@ -322,7 +365,10 @@
 					{
 						"type": "heading",
 						"slug": "well-placed-blow",
-						"description": "… landing a well-placed blow.",
+						"content": {
+							"title": null,
+							"text": "… landing a well-placed blow."
+						},
 						"track": {
 							"max": 2
 						}
@@ -330,7 +376,10 @@
 					{
 						"type": "heading",
 						"slug": "strange-gather",
-						"description": "… interrupting a strange, creepy gathering.",
+						"content": {
+							"title": null,
+							"text": "… interrupting a strange, creepy gathering."
+						},
 						"track": {
 							"max": 2
 						}
@@ -338,7 +387,10 @@
 					{
 						"type": "heading",
 						"slug": "big-beast",
-						"description": "… stumbling on a beast, bigger'n anything.",
+						"content": {
+							"title": null,
+							"text": "… stumbling on a beast, bigger'n anything."
+						},
 						"track": {
 							"max": 2
 						}
@@ -346,7 +398,10 @@
 					{
 						"type": "heading",
 						"slug": "treasure",
-						"description": "… with a sack full of treasure.",
+						"content": {
+							"title": null,
+							"text": "… with a sack full of treasure."
+						},
 						"track": {
 							"max": 2
 						}
@@ -354,7 +409,10 @@
 					{
 						"type": "heading",
 						"slug": "someone-fight",
-						"description": "… getting someone to fight them for you.",
+						"content": {
+							"title": null,
+							"text": "… getting someone to fight them for you."
+						},
 						"track": {
 							"max": 2
 						}
@@ -362,7 +420,10 @@
 					{
 						"type": "heading",
 						"slug": "ghost",
-						"description": "… face to face with a ghost/Fae/demon.",
+						"content": {
+							"title": null,
+							"text": "… face to face with a ghost/Fae/demon."
+						},
 						"track": {
 							"max": 2
 						}
@@ -370,7 +431,10 @@
 					{
 						"type": "heading",
 						"slug": "strange-runes",
-						"description": "… finding those strange old runes.",
+						"content": {
+							"title": null,
+							"text": "… finding those strange old runes."
+						},
 						"track": {
 							"max": 2
 						}
@@ -378,7 +442,10 @@
 					{
 						"type": "heading",
 						"slug": "fine-looking",
-						"description": "… getting to know that fine-looking fellow/lady/person/couple.",
+						"content": {
+							"title": null,
+							"text": "… getting to know that fine-looking fellow/lady/person/couple."
+						},
 						"track": {
 							"max": 2
 						}
@@ -390,13 +457,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "But All You've Got Left to Show for It Is…",
-						"description": ""
+						"content": {
+							"title": "But All You've Got Left to Show for It Is…",
+							"text": ""
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "story-no-one-believes",
-						"description": "… a story no one believes.",
+						"content": {
+							"title": null,
+							"text": "… a story no one believes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -404,7 +476,10 @@
 					{
 						"type": "heading",
 						"slug": "nasty-scar",
-						"description": "… a nasty scar; wanna see?",
+						"content": {
+							"title": null,
+							"text": "… a nasty scar; wanna see?"
+						},
 						"track": {
 							"max": 1
 						}
@@ -412,7 +487,10 @@
 					{
 						"type": "heading",
 						"slug": "nightmares",
-						"description": "… the occasional nightmare.",
+						"content": {
+							"title": null,
+							"text": "… the occasional nightmare."
+						},
 						"track": {
 							"max": 1
 						}
@@ -420,7 +498,10 @@
 					{
 						"type": "heading",
 						"slug": "map-with-runes",
-						"description": "… this map with runes no one can read.",
+						"content": {
+							"title": null,
+							"text": "… this map with runes no one can read."
+						},
 						"track": {
 							"max": 1
 						}
@@ -428,7 +509,10 @@
 					{
 						"type": "heading",
 						"slug": "mystery-key",
-						"description": "… this key that opens who-knows-what.",
+						"content": {
+							"title": null,
+							"text": "… this key that opens who-knows-what."
+						},
 						"track": {
 							"max": 1
 						}

@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the cauldron's mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the cauldron's mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scrub-rust",
-						"description": "… thoroughly scrub the rust from the cauldron.",
+						"content": {
+							"title": null,
+							"text": "… thoroughly scrub the rust from the cauldron."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "sleep-seven-nights",
-						"description": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time.",
+						"content": {
+							"title": null,
+							"text": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "boil-bones",
-						"description": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood.",
+						"content": {
+							"title": null,
+							"text": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "bring-creature",
-						"description": "… bring the wretched thing that arises under your control.",
+						"content": {
+							"title": null,
+							"text": "… bring the wretched thing that arises under your control."
+						},
 						"track": {
 							"max": 1
 						}

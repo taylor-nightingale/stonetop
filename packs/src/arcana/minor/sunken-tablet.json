@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The tablet reveals the workings for a ritual, which you can learn if you…"
+						"content": {
+							"title": null,
+							"text": "The tablet reveals the workings for a ritual, which you can learn if you…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "extract-tablet",
-						"description": "… extract the tablet from the muck.",
+						"content": {
+							"title": null,
+							"text": "… extract the tablet from the muck."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "carefully-clean",
-						"description": "… carefully clean it.",
+						"content": {
+							"title": null,
+							"text": "… carefully clean it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "decipher-runes",
-						"description": "… decipher the Maker-runes.",
+						"content": {
+							"title": null,
+							"text": "… decipher the Maker-runes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "study-runes",
-						"description": "… study the runes for a few weeks.",
+						"content": {
+							"title": null,
+							"text": "… study the runes for a few weeks."
+						},
 						"track": {
 							"max": 1
 						}
@@ -57,7 +72,10 @@
 					{
 						"type": "heading",
 						"slug": "practice-spell",
-						"description": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth.",
+						"content": {
+							"title": null,
+							"text": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth."
+						},
 						"track": {
 							"max": 1
 						}

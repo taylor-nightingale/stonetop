@@ -15,24 +15,36 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "There is magic here; to unlock its secrets, either…"
+						"content": {
+							"title": null,
+							"text": "There is magic here; to unlock its secrets, either…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "experiment-at-pool",
-						"description": "… spend a week or so experimenting at the pool, then roll +INT: <strong>on a 10+</strong>, you figure it out; <strong>on a 7-9</strong>, no luck; <strong>on a 6-</strong>, you are interrupted by danger;",
+						"content": {
+							"title": null,
+							"text": "… spend a week or so experimenting at the pool, then roll +INT: <strong>on a 10+</strong>, you figure it out; <strong>on a 7-9</strong>, no luck; <strong>on a 6-</strong>, you are interrupted by danger;"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "or…"
+						"content": {
+							"title": null,
+							"text": "or…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "firsthand-account",
-						"description": "… get a firsthand account of the pool's powers in use.",
+						"content": {
+							"title": null,
+							"text": "… get a firsthand account of the pool's powers in use."
+						},
 						"track": {
 							"max": 1
 						}

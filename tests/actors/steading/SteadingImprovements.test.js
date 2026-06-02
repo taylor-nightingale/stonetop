@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { SteadingImprovements } from "../../../src/actors/steading/SteadingImprovements.js";
-import { SteadingImprovement } from "../../../module/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
+import { SteadingImprovement } from "../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 function makeRepo(improvements = []) {

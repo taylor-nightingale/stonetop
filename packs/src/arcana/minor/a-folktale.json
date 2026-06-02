@@ -15,12 +15,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can learn the secret of the enchanted seedpods, but need one of the following:"
+						"content": {
+							"title": null,
+							"text": "You can learn the secret of the enchanted seedpods, but need one of the following:"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "herbalist-teacher",
-						"description": "A Marshedge herbalist, steeped in lore, to teach you the ritual",
+						"content": {
+							"title": null,
+							"text": "A Marshedge herbalist, steeped in lore, to teach you the ritual"
+						},
 						"track": {
 							"max": 1
 						}
@@ -28,7 +34,10 @@
 					{
 						"type": "heading",
 						"slug": "gwir-nettle-spirit",
-						"description": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth",
+						"content": {
+							"title": null,
+							"text": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth"
+						},
 						"track": {
 							"max": 1
 						}

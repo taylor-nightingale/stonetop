@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of this scroll, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of this scroll, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "determine-origin",
-						"description": "… determine the scroll's origin and be able to read the author's language.",
+						"content": {
+							"title": null,
+							"text": "… determine the scroll's origin and be able to read the author's language."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "break-cipher",
-						"description": "… break the cipher in which the recipe is encoded.",
+						"content": {
+							"title": null,
+							"text": "… break the cipher in which the recipe is encoded."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-ingredients",
-						"description": "… acquire the recipe's unusual and unsavory ingredients (Value 1).",
+						"content": {
+							"title": null,
+							"text": "… acquire the recipe's unusual and unsavory ingredients (Value 1)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "practice-incantation",
-						"description": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results.",
+						"content": {
+							"title": null,
+							"text": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results."
+						},
 						"track": {
 							"max": 1
 						}

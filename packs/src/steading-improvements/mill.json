@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Mill",
-					"description": "<p>We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.</p>"
+					"content": {
+						"title": "Mill",
+						"text": "<p>We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> all of the following:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> all of the following:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "engineer-foreman",
-					"description": "An <em>exceptional</em> engineer/foreman",
+					"content": {
+						"title": null,
+						"text": "An <em>exceptional</em> engineer/foreman"
+					},
 					"track": {
 						"max": 1
 					}
@@ -30,7 +38,10 @@
 				{
 					"type": "heading",
 					"slug": "power-source",
-					"description": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)",
+					"content": {
+						"title": null,
+						"text": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)"
+					},
 					"track": {
 						"max": 1
 					}
@@ -38,7 +49,10 @@
 				{
 					"type": "heading",
 					"slug": "building-site",
-					"description": "A building site able to harness that power source",
+					"content": {
+						"title": null,
+						"text": "A building site able to harness that power source"
+					},
 					"track": {
 						"max": 1
 					}
@@ -46,7 +60,10 @@
 				{
 					"type": "heading",
 					"slug": "pull-together",
-					"description": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)",
+					"content": {
+						"title": null,
+						"text": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)"
+					},
 					"track": {
 						"max": 2
 					}
@@ -54,14 +71,20 @@
 				{
 					"type": "heading",
 					"slug": "full-time-miller",
-					"description": "A full-time miller",
+					"content": {
+						"title": null,
+						"text": "A full-time miller"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.</p><p>Henceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.</p><p>Henceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.</p>"
+					}
 				}
 			]
 		}

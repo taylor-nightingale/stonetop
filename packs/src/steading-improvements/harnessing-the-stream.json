@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Harnessing the Stream",
-					"description": "<p>A shallow creek flows just below the town. If only it could be harnessed!</p>"
+					"content": {
+						"title": "Harnessing the Stream",
+						"text": "<p>A shallow creek flows just below the town. If only it could be harnessed!</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> 2 of the following:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> 2 of the following:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "reservoir",
-					"description": "A reservoir for the Stream to pool in, and some way for water to flow uphill",
+					"content": {
+						"title": null,
+						"text": "A reservoir for the Stream to pool in, and some way for water to flow uphill"
+					},
 					"track": {
 						"max": 1
 					}
@@ -30,14 +38,20 @@
 				{
 					"type": "heading",
 					"slug": "aqueducts",
-					"description": "A series of aqueducts, from the Stream's source to Stonetop",
+					"content": {
+						"title": null,
+						"text": "A series of aqueducts, from the Stream's source to Stonetop"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you <strong><em>meet the requirements</em></strong>, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
+					}
 				}
 			]
 		}

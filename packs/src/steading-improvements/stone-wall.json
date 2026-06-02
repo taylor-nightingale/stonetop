@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Stone Wall",
-					"description": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all...</p>"
+					"content": {
+						"title": "Stone Wall",
+						"text": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all...</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> all of the following, in order:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "engineer-foreman",
-					"description": "An <em>exceptional</em> engineer/foreman",
+					"content": {
+						"title": null,
+						"text": "An <em>exceptional</em> engineer/foreman"
+					},
 					"track": {
 						"max": 1
 					}
@@ -30,7 +38,10 @@
 				{
 					"type": "heading",
 					"slug": "stonecutter",
-					"description": "A stonecutter with an able crew",
+					"content": {
+						"title": null,
+						"text": "A stonecutter with an able crew"
+					},
 					"track": {
 						"max": 1
 					}
@@ -38,7 +49,10 @@
 				{
 					"type": "heading",
 					"slug": "equipment-tools",
-					"description": "Equipment, tools, and material (Value 3)",
+					"content": {
+						"title": null,
+						"text": "Equipment, tools, and material (Value 3)"
+					},
 					"track": {
 						"max": 1
 					}
@@ -46,14 +60,20 @@
 				{
 					"type": "heading",
 					"slug": "pull-together",
-					"description": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)",
+					"content": {
+						"title": null,
+						"text": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)"
+					},
 					"track": {
 						"max": 4
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.</p><p>Henceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.</p><p>Henceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.</p>"
+					}
 				}
 			]
 		}

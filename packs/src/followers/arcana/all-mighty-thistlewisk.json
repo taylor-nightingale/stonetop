@@ -30,16 +30,26 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "weapon",
-					"text": "Weapon",
-					"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+					"content": {
+						"title": null,
+						"text": "Weapon"
+					},
+					"input": {
+						"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+					}
 				},
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "obeisance and ever-larger offerings of food (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "obeisance and ever-larger offerings of food (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

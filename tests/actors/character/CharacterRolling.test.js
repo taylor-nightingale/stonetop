@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CharacterRolling } from "../../../src/actors/character/CharacterRolling.js";
-import { CharacterStats } from "../../../module/actors/character/CharacterStats.js";
+import { CharacterStats } from "../../../src/actors/character/CharacterStats.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 // -- Helpers -------------------------------------------------------------------

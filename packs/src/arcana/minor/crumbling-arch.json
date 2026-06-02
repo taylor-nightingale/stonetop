@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can learn the secrets of the sanctifying mark, but to do so you must…"
+						"content": {
+							"title": null,
+							"text": "You can learn the secrets of the sanctifying mark, but to do so you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "purify-yourself",
-						"description": "… purify yourself in fresh, clean water.",
+						"content": {
+							"title": null,
+							"text": "… purify yourself in fresh, clean water."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "gaze-and-roll",
-						"description": "… calm your mind, gaze upon the sigil, and roll +WIS: <strong>on a 10+</strong>, the sigil becomes clear; <strong>on a 7-9</strong>, the sigil will become clear after a few more days in contemplation; <strong>on a 6-</strong>, the sigil is beyond your ability to learn.",
+						"content": {
+							"title": null,
+							"text": "… calm your mind, gaze upon the sigil, and roll +WIS: <strong>on a 10+</strong>, the sigil becomes clear; <strong>on a 7-9</strong>, the sigil will become clear after a few more days in contemplation; <strong>on a 6-</strong>, the sigil is beyond your ability to learn."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "memorize-sigil",
-						"description": "… spend a few days memorizing and practicing the sigil.",
+						"content": {
+							"title": null,
+							"text": "… spend a few days memorizing and practicing the sigil."
+						},
 						"track": {
 							"max": 1
 						}

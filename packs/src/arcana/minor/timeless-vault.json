@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of this place's stasis…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of this place's stasis…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "find-runes",
-						"description": "… find and reveal the hidden runes that anchor the magic.",
+						"content": {
+							"title": null,
+							"text": "… find and reveal the hidden runes that anchor the magic."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "copy-runes",
-						"description": "… spend a few hours copying them, risking an error.",
+						"content": {
+							"title": null,
+							"text": "… spend a few hours copying them, risking an error."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "trace-runes",
-						"description": "… spend weeks tracing the runes on objects, until they gleam silver and vanish.",
+						"content": {
+							"title": null,
+							"text": "… spend weeks tracing the runes on objects, until they gleam silver and vanish."
+						},
 						"track": {
 							"max": 1
 						}

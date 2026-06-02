@@ -208,13 +208,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "The Last Time the Militia Saw Serious Action, It Was…",
-						"description": "<p><em>(pick 1)</em></p>"
+						"content": {
+							"title": "The Last Time the Militia Saw Serious Action, It Was…",
+							"text": "<p><em>(pick 1)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "crinwin-raid",
-						"description": "… to repel a nighttime raid by crinwin from the Great Wood.",
+						"content": {
+							"title": null,
+							"text": "… to repel a nighttime raid by crinwin from the Great Wood."
+						},
 						"track": {
 							"max": 1
 						}
@@ -222,7 +227,10 @@
 					{
 						"type": "heading",
 						"slug": "bandits",
-						"description": "… to drive off bandits who'd taken up near the Ruined Tower.",
+						"content": {
+							"title": null,
+							"text": "… to drive off bandits who'd taken up near the Ruined Tower."
+						},
 						"track": {
 							"max": 1
 						}
@@ -230,7 +238,10 @@
 					{
 						"type": "heading",
 						"slug": "hillfolk",
-						"description": "… to fend off Hillfolk pursuing a blood feud.",
+						"content": {
+							"title": null,
+							"text": "… to fend off Hillfolk pursuing a blood feud."
+						},
 						"track": {
 							"max": 1
 						}
@@ -238,7 +249,10 @@
 					{
 						"type": "heading",
 						"slug": "brennan-claws",
-						"description": "… against Brennan and his Claws, before they settled in Marshedge.",
+						"content": {
+							"title": null,
+							"text": "… against Brennan and his Claws, before they settled in Marshedge."
+						},
 						"track": {
 							"max": 1
 						}
@@ -246,7 +260,10 @@
 					{
 						"type": "heading",
 						"slug": "hagr",
-						"description": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",
+						"content": {
+							"title": null,
+							"text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
+						},
 						"track": {
 							"max": 1
 						}
@@ -254,7 +271,10 @@
 					{
 						"type": "heading",
 						"slug": "beasts",
-						"description": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
+						"content": {
+							"title": null,
+							"text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
+						},
 						"track": {
 							"max": 1
 						}
@@ -266,48 +286,82 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Answer At Least 3 of the Following",
-						"description": ""
+						"content": {
+							"title": "Answer At Least 3 of the Following",
+							"text": ""
+						}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "when",
-						"text": "When exactly did it happen?"
+						"content": {
+							"title": null,
+							"text": "When exactly did it happen?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "who-died",
-						"text": "Who lost their life, and who mourns them?"
+						"content": {
+							"title": null,
+							"text": "Who lost their life, and who mourns them?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "who-maimed",
-						"text": "Who from Stonetop was maimed, and how?"
+						"content": {
+							"title": null,
+							"text": "Who from Stonetop was maimed, and how?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "saved-day",
-						"text": "Who saved the day, and how?"
+						"content": {
+							"title": null,
+							"text": "Who saved the day, and how?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "enemy-away",
-						"text": "How did the enemy get away, and whom do you still blame for it?"
+						"content": {
+							"title": null,
+							"text": "How did the enemy get away, and whom do you still blame for it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "honor",
-						"text": "Who comported themselves with honor?"
+						"content": {
+							"title": null,
+							"text": "Who comported themselves with honor?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "bugging",
-						"text": "What's been bugging you about it ever since?"
+						"content": {
+							"title": null,
+							"text": "What's been bugging you about it ever since?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "worried",
-						"text": "What's got you even more worried now?"
+						"content": {
+							"title": null,
+							"text": "What's got you even more worried now?"
+						},
+						"input": {}
 					}
 				]
 			}

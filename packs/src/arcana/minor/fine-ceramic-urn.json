@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of the urn, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of the urn, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "commune-spirit",
-						"description": "… commune with the chthonic spirit that dwells within (Instinct to hoard secrets).",
+						"content": {
+							"title": null,
+							"text": "… commune with the chthonic spirit that dwells within (Instinct to hoard secrets)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-recipe",
-						"description": "… convince it to teach you both the secret recipe and song required to make its magic work.",
+						"content": {
+							"title": null,
+							"text": "… convince it to teach you both the secret recipe and song required to make its magic work."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-reagents",
-						"description": "… acquire the reagents required for the recipe (Value 1).",
+						"content": {
+							"title": null,
+							"text": "… acquire the reagents required for the recipe (Value 1)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "sing-secret-song",
-						"description": "… manage to sing the secret song for a day and night, without pause.",
+						"content": {
+							"title": null,
+							"text": "… manage to sing the secret song for a day and night, without pause."
+						},
 						"track": {
 							"max": 1
 						}

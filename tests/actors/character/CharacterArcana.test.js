@@ -32,12 +32,12 @@ const FFYRNIG_SPHERE = {
 		unlock: {
 			slug: "huge-wooden-sphere",
 			list: [
-				{ type: "heading", description: "The pictograms depict some sort of recipe, which you can learn but you must…" },
-				{ type: "heading", description: "Some context text." },
-				{ type: "heading", slug: "dig-sphere",   description: "… first dig up and clean the sphere.", track: { max: 1 } },
-				{ type: "heading", slug: "study-glyphs", description: "… spend weeks studying the glyphs.", track: { max: 1 } },
-				{ type: "heading", description: "And then…" },
-				{ type: "heading", slug: "risk-recipe",  description: "… risk getting the recipe wrong.", track: { max: 3 } },
+				{ type: "heading", content: { text: "The pictograms depict some sort of recipe, which you can learn but you must…" } },
+				{ type: "heading", content: { text: "Some context text." } },
+				{ type: "heading", slug: "dig-sphere",   content: { text: "… first dig up and clean the sphere." }, track: { max: 1 } },
+				{ type: "heading", slug: "study-glyphs", content: { text: "… spend weeks studying the glyphs." }, track: { max: 1 } },
+				{ type: "heading", content: { text: "And then…" } },
+				{ type: "heading", slug: "risk-recipe",  content: { text: "… risk getting the recipe wrong." }, track: { max: 3 } },
 			],
 		},
 	},
@@ -181,7 +181,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 		it("front.unlock.list first item is a HeadingRow with the unlock description", async () => {
 			const row = (await getItem()).front.unlock.list[0];
 			expect(row).toBeInstanceOf(HeadingRow);
-			expect(row.description).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
+			expect(row.content.text).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
 		});
 
 		it("front.unlock.list has all heading nodes", async () => {
@@ -201,7 +201,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(row).toBeInstanceOf(HeadingRow);
 			expect(row.track).not.toBeNull();
 			expect(row.track.slug).toBe("dig-sphere");
-			expect(row.description).toBe("… first dig up and clean the sphere.");
+			expect(row.content.text).toBe("… first dig up and clean the sphere.");
 		});
 
 		it("heading+track defaults checks to all false when no count saved", async () => {

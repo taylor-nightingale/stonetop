@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "find-fae",
-						"description": "… find a Fae who can hear the broom's song in its entirety.",
+						"content": {
+							"title": null,
+							"text": "… find a Fae who can hear the broom's song in its entirety."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-teach",
-						"description": "… convince them to teach you the broom's song in full.",
+						"content": {
+							"title": null,
+							"text": "… convince them to teach you the broom's song in full."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "use-daily",
-						"description": "… use the broom at least once a day for a whole season, singing the lullaby as you do.",
+						"content": {
+							"title": null,
+							"text": "… use the broom at least once a day for a whole season, singing the lullaby as you do."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-timeless-sleep",
-						"description": "… risk falling into a lasting, timeless sleep as you practice the lullaby.",
+						"content": {
+							"title": null,
+							"text": "… risk falling into a lasting, timeless sleep as you practice the lullaby."
+						},
 						"track": {
 							"max": 1
 						}

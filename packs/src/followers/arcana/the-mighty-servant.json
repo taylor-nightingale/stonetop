@@ -32,10 +32,15 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

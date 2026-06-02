@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Expanded Trades",
-					"description": "<p>Specialization is the key to prosperity!</p>"
+					"content": {
+						"title": "Expanded Trades",
+						"text": "<p>Specialization is the key to prosperity!</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "req-harnessing-stream",
-					"description": "Harnessing the Stream",
+					"content": {
+						"title": null,
+						"text": "Harnessing the Stream"
+					},
 					"track": {
 						"max": 1
 					}
@@ -30,7 +38,10 @@
 				{
 					"type": "heading",
 					"slug": "req-raincatching",
-					"description": "Raincatching",
+					"content": {
+						"title": null,
+						"text": "Raincatching"
+					},
 					"track": {
 						"max": 1
 					}
@@ -38,19 +49,28 @@
 				{
 					"type": "heading",
 					"slug": "req-mill",
-					"description": "Mill",
+					"content": {
+						"title": null,
+						"text": "Mill"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>And establishing at least 3 of the following:</p>"
+					"content": {
+						"title": null,
+						"text": "<p>And establishing at least 3 of the following:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "chandler",
-					"description": "A chandler with extensive tools and supplies (Value 3)",
+					"content": {
+						"title": null,
+						"text": "A chandler with extensive tools and supplies (Value 3)"
+					},
 					"track": {
 						"max": 1
 					}
@@ -58,7 +78,10 @@
 				{
 					"type": "heading",
 					"slug": "glassblower",
-					"description": "A glassblower with a full glassworks (Value 3)",
+					"content": {
+						"title": null,
+						"text": "A glassblower with a full glassworks (Value 3)"
+					},
 					"track": {
 						"max": 1
 					}
@@ -66,7 +89,10 @@
 				{
 					"type": "heading",
 					"slug": "weaver",
-					"description": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
+					"content": {
+						"title": null,
+						"text": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool"
+					},
 					"track": {
 						"max": 1
 					}
@@ -74,7 +100,10 @@
 				{
 					"type": "heading",
 					"slug": "potter",
-					"description": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay",
+					"content": {
+						"title": null,
+						"text": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay"
+					},
 					"track": {
 						"max": 1
 					}
@@ -82,7 +111,10 @@
 				{
 					"type": "heading",
 					"slug": "smith",
-					"description": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)",
+					"content": {
+						"title": null,
+						"text": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)"
+					},
 					"track": {
 						"max": 1
 					}
@@ -90,14 +122,20 @@
 				{
 					"type": "heading",
 					"slug": "other-tradesperson",
-					"description": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
+					"content": {
+						"title": null,
+						"text": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
+					}
 				}
 			]
 		}

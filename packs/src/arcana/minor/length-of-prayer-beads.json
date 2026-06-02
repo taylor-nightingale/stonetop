@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of the prayer beads, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of the prayer beads, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "decipher-glyphs",
-						"description": "… decipher the Rime Lord glyphs embossed upon many of the beads.",
+						"content": {
+							"title": null,
+							"text": "… decipher the Rime Lord glyphs embossed upon many of the beads."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-chants",
-						"description": "… learn the meditative chants that accompany the beads (from a trove of knowledge or someone who knows).",
+						"content": {
+							"title": null,
+							"text": "… learn the meditative chants that accompany the beads (from a trove of knowledge or someone who knows)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "isolated-fasting",
-						"description": "… spend a season in isolation, naked and fasting, meditating with the prayer beads, risking illness, accident, and misadventure.",
+						"content": {
+							"title": null,
+							"text": "… spend a season in isolation, naked and fasting, meditating with the prayer beads, risking illness, accident, and misadventure."
+						},
 						"track": {
 							"max": 1
 						}

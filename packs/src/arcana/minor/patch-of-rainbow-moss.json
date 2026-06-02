@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of this place, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of this place, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "lie-in-moss",
-						"description": "… lie down in the moss and let its tendrils fuse with your skin.",
+						"content": {
+							"title": null,
+							"text": "… lie down in the moss and let its tendrils fuse with your skin."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "drift-consciousness",
-						"description": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits.",
+						"content": {
+							"title": null,
+							"text": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-visiting",
-						"description": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest's senses.",
+						"content": {
+							"title": null,
+							"text": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest's senses."
+						},
 						"track": {
 							"max": 1
 						}

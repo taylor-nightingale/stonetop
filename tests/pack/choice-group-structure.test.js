@@ -5,7 +5,7 @@ import path from "path";
 const LORE_DIRS    = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
 const ARCANA_DIR   = path.resolve("packs/src/arcana");
 const PLAYBOOK_DIR = path.resolve("packs/src/playbooks");
-const VALID_TYPES  = new Set(["heading", "input"]);
+const VALID_TYPES  = new Set(["heading", "pick", "follower"]);
 
 describe("Pack possession choices use the ChoiceGroup format", () => {
 	let entries;
@@ -31,12 +31,12 @@ describe("Pack possession choices use the ChoiceGroup format", () => {
 		}
 	});
 
-	it("heading items have title or description", () => {
+	it("heading items have content with title or text", () => {
 		for (const { name, possessionSlug, choices } of entries) {
 			for (const item of (choices.list ?? []).filter(i => i.type === "heading")) {
 				expect(
-					item.title != null || item.description != null,
-					`${name}/${possessionSlug}: heading missing both title and description`,
+					item.content?.title != null || item.content?.text != null,
+					`${name}/${possessionSlug}: heading missing both content.title and content.text`,
 				).toBe(true);
 			}
 		}
@@ -153,10 +153,10 @@ describe("Pack arcana unlock entries use the list format", () => {
 		}
 	});
 
-	it("heading items have description", () => {
+	it("heading items have content.text", () => {
 		for (const { name, unlock } of files) {
 			for (const item of (unlock.list ?? []).filter(i => i.type === "heading")) {
-				expect(item.description, `${name}: heading missing description`).toBeDefined();
+				expect(item.content?.text, `${name}: heading missing content.text`).toBeDefined();
 			}
 		}
 	});
@@ -215,24 +215,13 @@ describe("Pack lore entries use the list format", () => {
 		}
 	});
 
-	it("input items have slug and text", () => {
-		for (const { name, lore } of files) {
-			for (const entry of lore) {
-				for (const item of (entry.list ?? []).filter(i => i.type === "input")) {
-					expect(item.slug, `${name}/${entry.slug}: input item missing slug`).toBeDefined();
-					expect(item.text, `${name}/${entry.slug}/${item.slug}: input item missing text`).toBeDefined();
-				}
-			}
-		}
-	});
-
-	it("heading items have title or description", () => {
+	it("heading items have content with title or text", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
 				for (const item of (entry.list ?? []).filter(i => i.type === "heading")) {
 					expect(
-						item.title != null || item.description != null,
-						`${name}/${entry.slug}: heading missing both title and description`,
+						item.content?.title != null || item.content?.text != null,
+						`${name}/${entry.slug}: heading missing both content.title and content.text`,
 					).toBe(true);
 				}
 			}

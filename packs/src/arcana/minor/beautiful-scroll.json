@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of this scroll, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of this scroll, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "talent-magic",
-						"description": "… have some talent for magic.",
+						"content": {
+							"title": null,
+							"text": "… have some talent for magic."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "decipher-glyphs",
-						"description": "… decipher the Rime Lord glyphs.",
+						"content": {
+							"title": null,
+							"text": "… decipher the Rime Lord glyphs."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "months-practice",
-						"description": "… spend a few months practicing the meditative techniques it describes.",
+						"content": {
+							"title": null,
+							"text": "… spend a few months practicing the meditative techniques it describes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "describe-tulpa",
-						"description": "… describe and name the tiny spirit-construct that you wish to create:",
+						"content": {
+							"title": null,
+							"text": "… describe and name the tiny spirit-construct that you wish to create:"
+						},
 						"track": {
 							"max": 1
 						}
@@ -57,7 +72,10 @@
 					{
 						"type": "heading",
 						"slug": "sacrifice-hp",
-						"description": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\"",
+						"content": {
+							"title": null,
+							"text": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\""
+						},
 						"track": {
 							"max": 1
 						}

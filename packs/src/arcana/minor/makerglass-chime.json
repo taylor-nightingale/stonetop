@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
+						"content": {
+							"title": null,
+							"text": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "grasp-and-roll",
-						"description": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: <strong>on a 10+</strong>, you've got it; <strong>on a 7-9</strong>, mark a debility and you'll need to try again; <strong>on a 6-</strong>, ask the GM what goes terribly wrong.",
+						"content": {
+							"title": null,
+							"text": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: <strong>on a 10+</strong>, you've got it; <strong>on a 7-9</strong>, mark a debility and you'll need to try again; <strong>on a 6-</strong>, ask the GM what goes terribly wrong."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-control",
-						"description": "… spend a week or so learning to control the ringing chime.",
+						"content": {
+							"title": null,
+							"text": "… spend a week or so learning to control the ringing chime."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-hearing",
-						"description": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice.",
+						"content": {
+							"title": null,
+							"text": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice."
+						},
 						"track": {
 							"max": 1
 						}

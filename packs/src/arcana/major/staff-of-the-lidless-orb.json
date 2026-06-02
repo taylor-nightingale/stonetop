@@ -21,12 +21,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>grip the Staff, close your eyes, and see through the Lidless Orb</em></strong>, Roll +CON: <strong>on a 10+</strong>, choose 3 from the list below; <strong>on a 7-9</strong>, choose 1.</p><ul><li>The orb sees through darkness, natural or magical</li><li>The orb sees through illusion, glamour, and invisibility</li><li>The orb can see strong emotions as auras radiating from people and lingering on places</li><li>You can move about and operate effectively while seeing through the orb (otherwise, not so much)</li></ul><p>Whatever you choose, the effect lasts until you open your eyes or let go of the staff.</p><p><strong>On a 6-</strong>, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>grip the Staff, close your eyes, and see through the Lidless Orb</em></strong>, Roll +CON: <strong>on a 10+</strong>, choose 3 from the list below; <strong>on a 7-9</strong>, choose 1.</p><ul><li>The orb sees through darkness, natural or magical</li><li>The orb sees through illusion, glamour, and invisibility</li><li>The orb can see strong emotions as auras radiating from people and lingering on places</li><li>You can move about and operate effectively while seeing through the orb (otherwise, not so much)</li></ul><p>Whatever you choose, the effect lasts until you open your eyes or let go of the staff.</p><p><strong>On a 6-</strong>, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 3
 						}
@@ -53,37 +59,58 @@
 					{
 						"type": "heading",
 						"slug": "orb-eye-1",
-						"description": "<p>One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-eye-1a",
-						"description": "<p>Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the <em>miserable</em> debility.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the <em>miserable</em> debility.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-scales",
-						"description": "<p>You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-beauty",
-						"description": "<p>You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and you hold a strange fascination.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and you hold a strange fascination.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-beauty-a",
-						"description": "<p>Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-beauty-b",
-						"description": "<p>You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "orb-elrash",
-						"description": "<p>◻◻◻ You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻◻ You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.</p>"
+						}
 					}
 				]
 			},

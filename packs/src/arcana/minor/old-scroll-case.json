@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
+						"content": {
+							"title": null,
+							"text": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "translate-letter",
-						"description": "… you must translate the letter.",
+						"content": {
+							"title": null,
+							"text": "… you must translate the letter."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "dedicated-study",
-						"description": "… it'll take a few weeks of dedicated study.",
+						"content": {
+							"title": null,
+							"text": "… it'll take a few weeks of dedicated study."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "use-aetherium",
-						"description": "… you'll use up one of the aetherium ingots (or another source of aetherium).",
+						"content": {
+							"title": null,
+							"text": "… you'll use up one of the aetherium ingots (or another source of aetherium)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-electrocution",
-						"description": "… you risk electrocuting yourself and/or using up the other ingot.",
+						"content": {
+							"title": null,
+							"text": "… you risk electrocuting yourself and/or using up the other ingot."
+						},
 						"track": {
 							"max": 1
 						}

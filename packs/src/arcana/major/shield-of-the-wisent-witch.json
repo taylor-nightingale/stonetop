@@ -21,20 +21,32 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>bear the Shield openly</em></strong>, Natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>bear the Shield openly</em></strong>, Natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>use the Shield to Defend with both feet planted firmly on the ground</em></strong>, So long as you hold Readiness you cannot be moved or tripped. When you <strong>spend Readiness to strike back at an attacker</strong>, you also break their momentum, knock them back, and/or send them reeling.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>use the Shield to Defend with both feet planted firmly on the ground</em></strong>, So long as you hold Readiness you cannot be moved or tripped. When you <strong>spend Readiness to strike back at an attacker</strong>, you also break their momentum, knock them back, and/or send them reeling.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>perform the sacred rites of the forest witches, alone in the woods under a clear crescent moon</em></strong>, Mark 1.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>perform the sacred rites of the forest witches, alone in the woods under a clear crescent moon</em></strong>, Mark 1.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 5
 						}
@@ -66,42 +78,66 @@
 					{
 						"type": "heading",
 						"slug": "shield-c1",
-						"description": "<p>You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c2",
-						"description": "<p>Over the next few days, you grow 4-6 inches.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Over the next few days, you grow 4-6 inches.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c3",
-						"description": "<p>Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c4",
-						"description": "<p>You consume twice the normal amount of supplies or provisions each day.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You consume twice the normal amount of supplies or provisions each day.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c5",
-						"description": "<p>You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c6",
-						"description": "<p>Your attacks all gain the <em>forceful</em> tag (and become more so if they already were <em>forceful</em>) and large weapons lose the <em>awkward</em> tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your attacks all gain the <em>forceful</em> tag (and become more so if they already were <em>forceful</em>) and large weapons lose the <em>awkward</em> tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c7",
-						"description": "<p>Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "shield-c8",
-						"description": "<p>You become territorial and overly defensive of your allies. When someone or thing <strong>disrespects you, challenges your authority, or directly threatens your allies</strong>, you have disadvantage to do anything other than set them straight.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You become territorial and overly defensive of your allies. When someone or thing <strong>disrespects you, challenges your authority, or directly threatens your allies</strong>, you have disadvantage to do anything other than set them straight.</p>"
+						}
 					}
 				]
 			},

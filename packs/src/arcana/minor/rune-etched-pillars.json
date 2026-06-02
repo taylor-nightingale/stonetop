@@ -15,12 +15,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can unlock their secrets, but…"
+						"content": {
+							"title": null,
+							"text": "You can unlock their secrets, but…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "study-runes",
-						"description": "… you must spend a few days studying the runes and memorizing their sequence.",
+						"content": {
+							"title": null,
+							"text": "… you must spend a few days studying the runes and memorizing their sequence."
+						},
 						"track": {
 							"max": 1
 						}
@@ -28,7 +34,10 @@
 					{
 						"type": "heading",
 						"slug": "meditate",
-						"description": "… you must meditate for a few weeks on the magic that infuses them.",
+						"content": {
+							"title": null,
+							"text": "… you must meditate for a few weeks on the magic that infuses them."
+						},
 						"track": {
 							"max": 1
 						}
@@ -36,7 +45,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-collapse",
-						"description": "… you risk triggering the spell contained in the runes, and collapsing the entire structure.",
+						"content": {
+							"title": null,
+							"text": "… you risk triggering the spell contained in the runes, and collapsing the entire structure."
+						},
 						"track": {
 							"max": 1
 						}

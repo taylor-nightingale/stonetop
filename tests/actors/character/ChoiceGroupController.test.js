@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
@@ -142,33 +142,33 @@ describe("ChoiceGroupController — pick rows", () => {
 // ── Input rows ────────────────────────────────────────────────────────────────
 
 describe("ChoiceGroupController — input rows", () => {
-	it("value is empty string before any mutation", async () => {
+	it("input.value is empty string before any mutation", async () => {
 		const ctrl = makeController();
 		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
-			.addChoice(TestChoiceRowBuilder.input().withSlug("note"))
+			.addChoice(TestChoiceRowBuilder.heading().withSlug("note").withInput(null))
 			.build());
 
-		expect(ctrl.buildGroupSnapshot("ns").list[0].value).toBe("");
+		expect(ctrl.buildGroupSnapshot("ns").list[0].input.value).toBe("");
 	});
 
-	it("placeholder comes from group data", async () => {
+	it("input.placeholder comes from group data", async () => {
 		const ctrl = makeController();
 		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
-			.addChoice(TestChoiceRowBuilder.input().withSlug("note").withPlaceholder("e.g. level 2"))
+			.addChoice(TestChoiceRowBuilder.heading().withSlug("note").withInput("e.g. level 2"))
 			.build());
 
-		expect(ctrl.buildGroupSnapshot("ns").list[0].placeholder).toBe("e.g. level 2");
+		expect(ctrl.buildGroupSnapshot("ns").list[0].input.placeholder).toBe("e.g. level 2");
 	});
 
-	it("setText updates the value in the snapshot", async () => {
+	it("setText with input slug updates input.value in the snapshot", async () => {
 		const ctrl = makeController();
 		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
-			.addChoice(TestChoiceRowBuilder.input().withSlug("note"))
+			.addChoice(TestChoiceRowBuilder.heading().withSlug("note").withInput(null))
 			.build());
 
-		await ctrl.setText("ns", "note", "hello world");
+		await ctrl.setText("ns", "note-input", "hello world");
 
-		expect(ctrl.buildGroupSnapshot("ns").list[0].value).toBe("hello world");
+		expect(ctrl.buildGroupSnapshot("ns").list[0].input.value).toBe("hello world");
 	});
 });
 

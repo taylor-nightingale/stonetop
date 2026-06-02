@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the ring's mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the ring's mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "season-wearing",
-						"description": "… spend a season wearing the ring and contemplating the glyph.",
+						"content": {
+							"title": null,
+							"text": "… spend a season wearing the ring and contemplating the glyph."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "get-used-headaches",
-						"description": "… get used to the headaches & nausea that come from wearing the ring.",
+						"content": {
+							"title": null,
+							"text": "… get used to the headaches & nausea that come from wearing the ring."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "spend-follower-loyalty",
-						"description": "… spend 1 of your follower's Loyalty to charge the ring.",
+						"content": {
+							"title": null,
+							"text": "… spend 1 of your follower's Loyalty to charge the ring."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "influence-follower",
-						"description": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s).",
+						"content": {
+							"title": null,
+							"text": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s)."
+						},
 						"track": {
 							"max": 1
 						}

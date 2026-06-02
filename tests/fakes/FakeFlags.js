@@ -48,6 +48,10 @@ export class FakeFlags {
 		return JSON.parse(JSON.stringify(this.storage));
 	}
 
+	get state() {
+		return this.storage.stonetop ?? {};
+	}
+
 	clear() {
 		this.storage = {};
 	}

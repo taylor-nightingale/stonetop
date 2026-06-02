@@ -206,7 +206,7 @@
 				<div class="stonetop-choice-rows">
 				{{#each choices.list}}
 					{{#if (eq type "heading")}}
-					<p class="stonetop-choice-row-heading">{{{title}}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
+					<p class="stonetop-choice-row-heading">{{{content.title}}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
 					{{else if radio}}
 					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-radio" namePrefix="stonetop" possessionSlug=../slug}}
 					{{else}}

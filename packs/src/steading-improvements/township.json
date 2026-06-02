@@ -12,17 +12,25 @@
 			"list": [
 				{
 					"type": "heading",
-					"title": "Township",
-					"description": "<p>Will this ever be more than a backwater village?</p>"
+					"content": {
+						"title": "Township",
+						"text": "<p>Will this ever be more than a backwater village?</p>"
+					}
 				},
 				{
 					"type": "heading",
-					"description": "<p><strong>Requires</strong> all of the following:</p>"
+					"content": {
+						"title": null,
+						"text": "<p><strong>Requires</strong> all of the following:</p>"
+					}
 				},
 				{
 					"type": "heading",
 					"slug": "population-plus3",
-					"description": "Population +3 for 4 consecutive seasons",
+					"content": {
+						"title": null,
+						"text": "Population +3 for 4 consecutive seasons"
+					},
 					"track": {
 						"max": 4
 					}
@@ -30,7 +38,10 @@
 				{
 					"type": "heading",
 					"slug": "additional-housing",
-					"description": "Additional Housing",
+					"content": {
+						"title": null,
+						"text": "Additional Housing"
+					},
 					"track": {
 						"max": 1
 					}
@@ -38,7 +49,10 @@
 				{
 					"type": "heading",
 					"slug": "water-source",
-					"description": "Raincatching OR Harnessing the Stream",
+					"content": {
+						"title": null,
+						"text": "Raincatching OR Harnessing the Stream"
+					},
 					"track": {
 						"max": 1
 					}
@@ -46,7 +60,10 @@
 				{
 					"type": "heading",
 					"slug": "other-improvements",
-					"description": "At least 4 other improvements",
+					"content": {
+						"title": null,
+						"text": "At least 4 other improvements"
+					},
 					"track": {
 						"max": 4
 					}
@@ -54,14 +71,20 @@
 				{
 					"type": "heading",
 					"slug": "formal-government",
-					"description": "A formal government of some sort",
+					"content": {
+						"title": null,
+						"text": "A formal government of some sort"
+					},
 					"track": {
 						"max": 1
 					}
 				},
 				{
 					"type": "heading",
-					"description": "<p>When you mark all of the requirements, change Size to town and its Population to +0.</p><p>Henceforth: When you Muster, Pull Together, or Trade &amp; Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population.</p>"
+					"content": {
+						"title": null,
+						"text": "<p>When you mark all of the requirements, change Size to town and its Population to +0.</p><p>Henceforth: When you Muster, Pull Together, or Trade &amp; Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population.</p>"
+					}
 				}
 			]
 		}

@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of the basin, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of the basin, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "befriend-spirit",
-						"description": "… befriend the spirit of life and vitality that dwells within.",
+						"content": {
+							"title": null,
+							"text": "… befriend the spirit of life and vitality that dwells within."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-from-fae",
-						"description": "… learn from a Fae how to pour years of your life into the basin.",
+						"content": {
+							"title": null,
+							"text": "… learn from a Fae how to pour years of your life into the basin."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,14 +50,20 @@
 					{
 						"type": "heading",
 						"slug": "fill-with-years",
-						"description": "… fill the basin with a few years of your life.",
+						"content": {
+							"title": null,
+							"text": "… fill the basin with a few years of your life."
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "When you mark the last requirement and unlock this arcanum, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
+						"content": {
+							"title": null,
+							"text": "When you mark the last requirement and unlock this arcanum, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
+						}
 					}
 				]
 			}

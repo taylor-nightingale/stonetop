@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The runes repeat themselves and can be copied, but…"
+						"content": {
+							"title": null,
+							"text": "The runes repeat themselves and can be copied, but…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "careful-work",
-						"description": "… it takes a few hours of careful work.",
+						"content": {
+							"title": null,
+							"text": "… it takes a few hours of careful work."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-transcription",
-						"description": "… you risk a transcription error, but to what effect?",
+						"content": {
+							"title": null,
+							"text": "… you risk a transcription error, but to what effect?"
+						},
 						"track": {
 							"max": 1
 						}

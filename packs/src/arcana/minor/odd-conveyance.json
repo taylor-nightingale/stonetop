@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
+						"content": {
+							"title": null,
+							"text": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "skilled-carpenter",
-						"description": "… need a skilled carpenter, good timber (Value 2), a new sail (Value 1), and a season on repairs.",
+						"content": {
+							"title": null,
+							"text": "… need a skilled carpenter, good timber (Value 2), a new sail (Value 1), and a season on repairs."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-damage",
-						"description": "… risk damaging it further, and/or having it/the aetherium float away.",
+						"content": {
+							"title": null,
+							"text": "… risk damaging it further, and/or having it/the aetherium float away."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "attune-aetherium",
-						"description": "… must attune to the aetherium, so as to control how much it hovers.",
+						"content": {
+							"title": null,
+							"text": "… must attune to the aetherium, so as to control how much it hovers."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-to-sail",
-						"description": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft.",
+						"content": {
+							"title": null,
+							"text": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft."
+						},
 						"track": {
 							"max": 1
 						}

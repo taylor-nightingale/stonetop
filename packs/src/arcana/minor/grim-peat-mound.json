@@ -15,12 +15,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "It is young and eager, and can be set to work upon criminals, but only if you…"
+						"content": {
+							"title": null,
+							"text": "It is young and eager, and can be set to work upon criminals, but only if you…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "communicate",
-						"description": "… find a way to communicate with it.",
+						"content": {
+							"title": null,
+							"text": "… find a way to communicate with it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -28,7 +34,10 @@
 					{
 						"type": "heading",
 						"slug": "convince-guilty-only",
-						"description": "… convince it that you will use its mark only to condemn the guilty.",
+						"content": {
+							"title": null,
+							"text": "… convince it that you will use its mark only to condemn the guilty."
+						},
 						"track": {
 							"max": 1
 						}

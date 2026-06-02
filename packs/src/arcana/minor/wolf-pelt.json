@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its secrets, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its secrets, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "hunt-moonlit",
-						"description": "… hunt a beast by moonlight, alone, while wearing the pelt.",
+						"content": {
+							"title": null,
+							"text": "… hunt a beast by moonlight, alone, while wearing the pelt."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "eat-raw-liver",
-						"description": "… tear out its liver with your bare hands or teeth and eat it, raw.",
+						"content": {
+							"title": null,
+							"text": "… tear out its liver with your bare hands or teeth and eat it, raw."
+						},
 						"track": {
 							"max": 1
 						}

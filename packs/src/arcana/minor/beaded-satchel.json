@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the satchel's secrets and gain the spirits' aid, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the satchel's secrets and gain the spirits' aid, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "imbibe-alcohol",
-						"description": "… imbibe a prodigious, dangerous quantity of alcohol.",
+						"content": {
+							"title": null,
+							"text": "… imbibe a prodigious, dangerous quantity of alcohol."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "commune-spirits",
-						"description": "… while thoroughly drunk, commune with the tethered spirits (Instinct to be genuinely, awkwardly caring and giving) and win their friendship.",
+						"content": {
+							"title": null,
+							"text": "… while thoroughly drunk, commune with the tethered spirits (Instinct to be genuinely, awkwardly caring and giving) and win their friendship."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "feed-satchel",
-						"description": "… feed the satchel 1 Surplus of freshly harvested foodstuffs (which shouldn't possibly fit, but does).",
+						"content": {
+							"title": null,
+							"text": "… feed the satchel 1 Surplus of freshly harvested foodstuffs (which shouldn't possibly fit, but does)."
+						},
 						"track": {
 							"max": 1
 						}

@@ -215,8 +215,10 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Collection",
-						"description": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+						"content": {
+							"title": "Collection",
+							"text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+						}
 					}
 				]
 			},
@@ -225,33 +227,55 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Major Arcanum",
-						"description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
+						"content": {
+							"title": "Major Arcanum",
+							"text": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
+						}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "where-acquired",
-						"text": "Where did you acquire it?"
+						"content": {
+							"title": null,
+							"text": "Where did you acquire it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "wrested-from",
-						"text": "From whose grasp did you wrest it?"
+						"content": {
+							"title": null,
+							"text": "From whose grasp did you wrest it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "who-else-wants",
-						"text": "Who else wants it?"
+						"content": {
+							"title": null,
+							"text": "Who else wants it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-cost",
-						"text": "What did it cost you?"
+						"content": {
+							"title": null,
+							"text": "What did it cost you?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "when-unlocked",
-						"text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+						},
+						"input": {}
 					}
 				]
 			},
@@ -260,23 +284,37 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Minor Arcana",
-						"description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
+						"content": {
+							"title": "Minor Arcana",
+							"text": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
+						}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "mastered-location",
-						"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+						"content": {
+							"title": null,
+							"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "found-location",
-						"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+						"content": {
+							"title": null,
+							"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "sought-notes",
-						"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+						"content": {
+							"title": null,
+							"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+						},
+						"input": {}
 					}
 				]
 			}

@@ -21,20 +21,32 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>wear the Rune-laden Scales</em></strong>, You are perfectly comfortable in cold weather and suffer no harm from exposure or magic that might otherwise freeze your flesh. You have no such immunity to secondary effects of ice-magic, such as slipping, being impaled by an icicle, becoming encased in a block of ice, or the like.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>wear the Rune-laden Scales</em></strong>, You are perfectly comfortable in cold weather and suffer no harm from exposure or magic that might otherwise freeze your flesh. You have no such immunity to secondary effects of ice-magic, such as slipping, being impaled by an icicle, becoming encased in a block of ice, or the like.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>wear the Rune-laden Scales and stand fast against a magical attack</em></strong>, Roll +CON: <strong>on a 10+</strong>, the magic washes over you, unpleasant perhaps but with no ill effect; <strong>on a 7-9</strong>, you're only partially affected—suffer half damage (if any) and a reduced effect; <strong>on a 6-</strong>, mark XP, and the magic affects you fully.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>wear the Rune-laden Scales and stand fast against a magical attack</em></strong>, Roll +CON: <strong>on a 10+</strong>, the magic washes over you, unpleasant perhaps but with no ill effect; <strong>on a 7-9</strong>, you're only partially affected—suffer half damage (if any) and a reduced effect; <strong>on a 6-</strong>, mark XP, and the magic affects you fully.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>wear the Rune-laden Scales and defeat a wielder of chaotic magic</em></strong>, Mark 1.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>wear the Rune-laden Scales and defeat a wielder of chaotic magic</em></strong>, Mark 1.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 5
 						}
@@ -76,37 +88,58 @@
 					{
 						"type": "heading",
 						"slug": "scales-c1",
-						"description": "<p>You no longer mark 1 (see reverse) when you simply <em>defeat</em> a being that wields chaotic magic; you must destroy it instead.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You no longer mark 1 (see reverse) when you simply <em>defeat</em> a being that wields chaotic magic; you must destroy it instead.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c1a",
-						"description": "<p>Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c2",
-						"description": "<p>When you <strong>use or knowingly submit to chaotic magic</strong>, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong>use or knowingly submit to chaotic magic</strong>, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c3",
-						"description": "<p>When you <strong>kill a living creature out of anger, fear, or passion</strong>, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong>kill a living creature out of anger, fear, or passion</strong>, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c3a",
-						"description": "<p>When you <strong>take any violent action out of anger, fear, or passion</strong>, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong>take any violent action out of anger, fear, or passion</strong>, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c4",
-						"description": "<p>You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "scales-c5",
-						"description": "<p>You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function.</p>"
+						}
 					}
 				]
 			},

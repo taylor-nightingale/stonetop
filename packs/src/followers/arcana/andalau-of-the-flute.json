@@ -30,10 +30,15 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "entertainment (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "entertainment (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

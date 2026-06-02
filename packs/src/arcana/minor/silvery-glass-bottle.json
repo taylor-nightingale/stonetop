@@ -20,24 +20,36 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can unlock the secrets of this old glass bottle, but you must either…"
+						"content": {
+							"title": null,
+							"text": "You can unlock the secrets of this old glass bottle, but you must either…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "find-teacher",
-						"description": "… find one who knows its workings, and get them to teach you;",
+						"content": {
+							"title": null,
+							"text": "… find one who knows its workings, and get them to teach you;"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "or…"
+						"content": {
+							"title": null,
+							"text": "or…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "fill-and-drink",
-						"description": "… fill the bottle with spring-water and hallucinogenic mushrooms, and let it steep in the dark for a fortnight, drink the contents and risk learning nothing as you suffer through the sickness and the nightmares.",
+						"content": {
+							"title": null,
+							"text": "… fill the bottle with spring-water and hallucinogenic mushrooms, and let it steep in the dark for a fortnight, drink the contents and risk learning nothing as you suffer through the sickness and the nightmares."
+						},
 						"track": {
 							"max": 1
 						}

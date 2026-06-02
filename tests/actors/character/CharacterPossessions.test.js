@@ -66,7 +66,7 @@ function choicesSp() {
 			.withSlug("weapons-of-war").withLabel("Weapons of War").withDescription("War stuff")
 			.withChoices(new TestChoiceGroupBuilder()
 				.withSlug("weapons-of-war")
-				.addChoice(TestChoiceRowBuilder.heading().withTitle("Choose your weapon").withNote("pick 1"))
+				.addChoice(TestChoiceRowBuilder.heading().withContentTitle("Choose your weapon").withNote("pick 1"))
 				.addChoice(TestChoiceRowBuilder.pick().withOptions(
 					{ slug: "sword", label: "◇ Sword" },
 					{ slug: "axe",   label: "◇ Axe" },
@@ -369,7 +369,7 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 		const snap = await cp.buildSnapshot(1);
 		const heading = snap.items.find(i => i.slug === "weapons-of-war").choices.list[0];
 		expect(heading.type).toBe("heading");
-		expect(heading.title).toBe("Choose your weapon");
+		expect(heading.content.title).toBe("Choose your weapon");
 		expect(heading.note).toBe("pick 1");
 	});
 

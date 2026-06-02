@@ -17,10 +17,53 @@ export class FoundryMoveRepository {
 
 	async getPlaybookMoves(playbookName) {
 		if (this._playbookCache.has(playbookName)) return this._playbookCache.get(playbookName);
+
 		const entries = await this._playbookStore.filterEntries(e => e.system?.playbook === playbookName);
-		const moves   = entries.map(e => new Move(e));
+
+		const moves = this.sortPlaybookMoves( entries.map(e => new Move(e)));
 		this._playbookCache.set(playbookName, moves);
 		return moves;
+	}
+
+	sortPlaybookMoves(moves) {
+		const groups = new Map();
+		for (const move of moves) {
+			const key = move.minLevel ?? 0;
+			if (!groups.has(key)) groups.set(key, []);
+			groups.get(key).push(move);
+		}
+		const result = [];
+		for (const level of [...groups.keys()].sort((a, b) => a - b)) {
+			result.push(...this._sortGroup(groups.get(level), new Set(groups.get(level).map(m => m.name))));
+		}
+		return result;
+	}
+
+	_sortGroup(moves, groupNames) {
+		const dependents = new Map();
+		const roots = [];
+		for (const move of moves) {
+			if (!move.requires || !groupNames.has(move.requires)) roots.push(move);
+			else {
+				if (!dependents.has(move.requires)) dependents.set(move.requires, []);
+				dependents.get(move.requires).push(move);
+			}
+		}
+		roots.sort((a, b) => a.name.localeCompare(b.name));
+		for (const deps of dependents.values()) deps.sort((a, b) => a.name.localeCompare(b.name));
+		const result  = [];
+		const visited = new Set();
+
+		function visit(move) {
+			if (visited.has(move.name)) return;
+			visited.add(move.name);
+			result.push(move);
+			for (const child of dependents.get(move.name) ?? []) visit(child);
+		}
+
+		for (const root of roots) visit(root);
+		moves.filter(m => !visited.has(m.name)).sort((a, b) => a.name.localeCompare(b.name)).forEach(m => result.push(m));
+		return result;
 	}
 
 	async getPlaybookMoveDocument(id) {

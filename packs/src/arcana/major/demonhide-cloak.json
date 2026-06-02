@@ -21,24 +21,39 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>wear the Cloak</em></strong>, Its armor applies against demons in all cases, even if their attacks are piercing or ignore armor.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>wear the Cloak</em></strong>, Its armor applies against demons in all cases, even if their attacks are piercing or ignore armor.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>draw up the hood of the Cloak</em></strong>, You see clearly in darkness.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>draw up the hood of the Cloak</em></strong>, You see clearly in darkness.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>wrap the Cloak tightly about your person</em></strong>, You pass unnoticed by all so long as you move calmly and carefully and keep out of direct, harsh light. In retrospect, those you pass may recall a strange smell.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>wrap the Cloak tightly about your person</em></strong>, You pass unnoticed by all so long as you move calmly and carefully and keep out of direct, harsh light. In retrospect, those you pass may recall a strange smell.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>flay the hide from a demon, tan it, and sew it onto the cloak</em></strong>, Mark 1.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>flay the hide from a demon, tan it, and sew it onto the cloak</em></strong>, Mark 1.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 3
 						}
@@ -65,27 +80,42 @@
 					{
 						"type": "heading",
 						"slug": "cloak-c1",
-						"description": "<p>◻◻ You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻ You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "cloak-c2",
-						"description": "<p>◻◻ A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of demon flesh into it.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻ A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of demon flesh into it.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "cloak-c3",
-						"description": "<p>The Cloak's stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren't wearing it.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>The Cloak's stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren't wearing it.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "cloak-c4",
-						"description": "<p>You become incapable of fear while wearing the Cloak. If you <strong>wear the Cloak during a session</strong>, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\"</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You become incapable of fear while wearing the Cloak. If you <strong>wear the Cloak during a session</strong>, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\"</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "cloak-c5",
-						"description": "<p>You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower. When you would mark a Consequence, you can choose to spend 1 of the Cloak's Loyalty instead.</p><p><strong>The Cloak</strong> — <em>bloodthirsty, demon-wise, extraordinary, magical</em> — Instinct: to bicker and argue (with you, with itself) — ➤ Reveal a dark and terrible secret, or part of one; ➤ Manifest a minor demonic effect; ➤ Possess you in your sleep — Cost: chaos and wanton destruction (Loyalty ◻◻◻)</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower. When you would mark a Consequence, you can choose to spend 1 of the Cloak's Loyalty instead.</p><p><strong>The Cloak</strong> — <em>bloodthirsty, demon-wise, extraordinary, magical</em> — Instinct: to bicker and argue (with you, with itself) — ➤ Reveal a dark and terrible secret, or part of one; ➤ Manifest a minor demonic effect; ➤ Possess you in your sleep — Cost: chaos and wanton destruction (Loyalty ◻◻◻)</p>"
+						}
 					}
 				]
 			},

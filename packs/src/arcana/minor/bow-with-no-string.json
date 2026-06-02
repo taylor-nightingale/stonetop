@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "acquire-glove",
-						"description": "… acquire a glove of aetherium, properly attuned to the bow.",
+						"content": {
+							"title": null,
+							"text": "… acquire a glove of aetherium, properly attuned to the bow."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "learn-secret-word",
-						"description": "… learn the secret word that activates the bow.",
+						"content": {
+							"title": null,
+							"text": "… learn the secret word that activates the bow."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "charge-with-lightning",
-						"description": "… charge the bow with lightning, risking harm to the bow or yourself.",
+						"content": {
+							"title": null,
+							"text": "… charge the bow with lightning, risking harm to the bow or yourself."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-practice",
-						"description": "… spend a few weeks practicing, risking all manner of collateral damage in the process.",
+						"content": {
+							"title": null,
+							"text": "… spend a few weeks practicing, risking all manner of collateral damage in the process."
+						},
 						"track": {
 							"max": 1
 						}

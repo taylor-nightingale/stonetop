@@ -15,16 +15,25 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "The pictograms depict some sort of recipe, which you can learn but you must…"
+						"content": {
+							"title": null,
+							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "The pictograms depict some sort of recipe, which you can learn but you must…"
+						"content": {
+							"title": null,
+							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "dig-up-clean",
-						"description": "… first dig up and clean the sphere.",
+						"content": {
+							"title": null,
+							"text": "… first dig up and clean the sphere."
+						},
 						"track": {
 							"max": 1
 						}
@@ -32,7 +41,10 @@
 					{
 						"type": "heading",
 						"slug": "study-glyphs",
-						"description": "… spend weeks studying the glyphs.",
+						"content": {
+							"title": null,
+							"text": "… spend weeks studying the glyphs."
+						},
 						"track": {
 							"max": 1
 						}
@@ -40,7 +52,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-ffyrnig-root",
-						"description": "… acquire some fresh ffyrnig root.",
+						"content": {
+							"title": null,
+							"text": "… acquire some fresh ffyrnig root."
+						},
 						"track": {
 							"max": 1
 						}
@@ -48,19 +63,28 @@
 					{
 						"type": "heading",
 						"slug": "acquire-boar-bile",
-						"description": "… acquire the bile of a wild boar.",
+						"content": {
+							"title": null,
+							"text": "… acquire the bile of a wild boar."
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "And then…"
+						"content": {
+							"title": null,
+							"text": "And then…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "risk-recipe",
-						"description": "… you risk getting the recipe wrong, and lethally so.",
+						"content": {
+							"title": null,
+							"text": "… you risk getting the recipe wrong, and lethally so."
+						},
 						"track": {
 							"max": 1
 						}

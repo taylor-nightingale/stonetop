@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its mysteries and learn the spell, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its mysteries and learn the spell, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "decipher-glyphs",
-						"description": "… decipher the Green Lords' glyphs.",
+						"content": {
+							"title": null,
+							"text": "… decipher the Green Lords' glyphs."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "study-ponder",
-						"description": "… spend a few weeks studying and pondering them.",
+						"content": {
+							"title": null,
+							"text": "… spend a few weeks studying and pondering them."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "experiment-beast",
-						"description": "… experiment on a beast of at least small size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad.",
+						"content": {
+							"title": null,
+							"text": "… experiment on a beast of at least small size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad."
+						},
 						"track": {
 							"max": 1
 						}

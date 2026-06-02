@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its secrets, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its secrets, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "master-fear-touch",
-						"description": "… master your fear, forcing yourself to grasp it and take it inside of you.",
+						"content": {
+							"title": null,
+							"text": "… master your fear, forcing yourself to grasp it and take it inside of you."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "hold-tight-soul",
-						"description": "… hold tight as it wracks your body and soul, attempting to unmake you (2d6 damage, messy, ignores armor).",
+						"content": {
+							"title": null,
+							"text": "… hold tight as it wracks your body and soul, attempting to unmake you (2d6 damage, messy, ignores armor)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-isolation",
-						"description": "… spend weeks in isolation, wrapping your mind around the dread word that now lives in your head.",
+						"content": {
+							"title": null,
+							"text": "… spend weeks in isolation, wrapping your mind around the dread word that now lives in your head."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-locale",
-						"description": "… risk corrupting your locale and destroying your possessions or anything else nearby as you practice speaking the dread word aloud.",
+						"content": {
+							"title": null,
+							"text": "… risk corrupting your locale and destroying your possessions or anything else nearby as you practice speaking the dread word aloud."
+						},
 						"track": {
 							"max": 1
 						}

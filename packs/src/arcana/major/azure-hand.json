@@ -21,16 +21,25 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>bear the Azure Hand</em></strong>, You sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>bear the Azure Hand</em></strong>, You sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it.</p>"
+						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>When you <strong><em>brandish the Azure Hand at a source of elemental energy</em></strong>, Roll +CON: <strong>on a 10+</strong>, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; <strong>on a 7-9</strong>, as a 10+, but the vortex is unstable and maintaining it requires all your focus.</p><ul><li>Direct the energy into a vessel able to contain it</li><li>Discharge the energy harmlessly into the earth</li><li>Fling the energy, rolling +INT to Let Fly (<em>thrown, dangerous</em>), inflicting damage and other effects of the GM's choosing</li><li>Use the energy to fuel or empower some other magic.</li></ul><p><strong>On a 6-</strong>, instead of marking XP, mark 1.</p><p>Each time you mark 1, ask the GM how the power goes out of control.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>When you <strong><em>brandish the Azure Hand at a source of elemental energy</em></strong>, Roll +CON: <strong>on a 10+</strong>, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; <strong>on a 7-9</strong>, as a 10+, but the vortex is unstable and maintaining it requires all your focus.</p><ul><li>Direct the energy into a vessel able to contain it</li><li>Discharge the energy harmlessly into the earth</li><li>Fling the energy, rolling +INT to Let Fly (<em>thrown, dangerous</em>), inflicting damage and other effects of the GM's choosing</li><li>Use the energy to fuel or empower some other magic.</li></ul><p><strong>On a 6-</strong>, instead of marking XP, mark 1.</p><p>Each time you mark 1, ask the GM how the power goes out of control.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marks",
-						"description": "Marks",
+						"content": {
+							"title": null,
+							"text": "Marks"
+						},
 						"track": {
 							"max": 4
 						}
@@ -72,32 +81,50 @@
 					{
 						"type": "heading",
 						"slug": "azure-c1",
-						"description": "<p>◻◻◻ You are burned by the power you attempt to wield. Mark a debility and take 2d4 damage (ignores armor).</p>"
+						"content": {
+							"title": null,
+							"text": "<p>◻◻◻ You are burned by the power you attempt to wield. Mark a debility and take 2d4 damage (ignores armor).</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "azure-c2",
-						"description": "<p>You become bound to the staff. You can call it to your hand from up to <em>far</em> range, but you fully suffer the effects of any harm or magic visited upon it.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>You become bound to the staff. You can call it to your hand from up to <em>far</em> range, but you fully suffer the effects of any harm or magic visited upon it.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "azure-c3",
-						"description": "<p>Your eyes become a solid bluish white, darkening or brightening with your mood. You now see energy patterns, glowing brightly, which can obscure facial expressions and other details unless you focus.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your eyes become a solid bluish white, darkening or brightening with your mood. You now see energy patterns, glowing brightly, which can obscure facial expressions and other details unless you focus.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "azure-c4",
-						"description": "<p>Your skin takes on a bluish tint; your hair is streaked with white; the air about you thrums with power. Sensitive beings can easily sense your presence, even from afar.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your skin takes on a bluish tint; your hair is streaked with white; the air about you thrums with power. Sensitive beings can easily sense your presence, even from afar.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "azure-c5",
-						"description": "<p>Henceforth, any storm in your presence is unnaturally strong. If you spend a summer or a winter in a steading or within a day's march of one, the steading loses 1d4-1 Surplus due to storms.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Henceforth, any storm in your presence is unnaturally strong. If you spend a summer or a winter in a steading or within a day's march of one, the steading loses 1d4-1 Surplus due to storms.</p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "azure-c6",
-						"description": "<p>Your body pulses with barely controlled energy. Henceforth, when you <strong>roll +CON and get a 6-</strong>, you unleash bolts of elemental power all about you (1d10 damage, <em>near, area, forceful, dangerous</em>) in addition to whatever else the GM says.</p>"
+						"content": {
+							"title": null,
+							"text": "<p>Your body pulses with barely controlled energy. Henceforth, when you <strong>roll +CON and get a 6-</strong>, you unleash bolts of elemental power all about you (1d10 damage, <em>near, area, forceful, dangerous</em>) in addition to whatever else the GM says.</p>"
+						}
 					}
 				]
 			},

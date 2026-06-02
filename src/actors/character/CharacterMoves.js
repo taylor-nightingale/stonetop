@@ -7,11 +7,12 @@ import {
 import { ResourceController } from "./ResourceController.js";
 import { ValueMax } from "../../model/snapshot/character/VitalsSnapshot.js";
 import { toSlug } from "../../utils/slug.js";
+import {StonetopFlags} from "./StonetopFlags.js";
 
 export class CharacterMoves {
-	constructor(moveRepo, flags, actor, choiceController, resourceController) {
+	constructor(moveRepo, actor, choiceController, resourceController) {
 		this._moveRepo          = moveRepo;
-		this._flags             = flags;
+		this._flags             = new StonetopFlags(actor, "moves");
 		this._actor             = actor;
 		this._choiceController  = choiceController;
 		this._resourceController = resourceController;
@@ -53,11 +54,10 @@ export class CharacterMoves {
 	async initPlaybookCategory(playbookData) {
 		const existing = this._getCategories().find(c => c.key.startsWith("playbook-"));
 		if (existing) await this.removeCategory(existing.key);
-		const entries  = await this._moveRepo.getPlaybookMoves(playbookData.name);
-		const sorted   = this.sortPlaybookMoves(entries);
+		const playbookMoves  = await this._moveRepo.getPlaybookMoves(playbookData.name);
 		const catKey   = `playbook-${playbookData.slug}`;
-		const flagMoves = sorted.map(m => _toFlagMove(m, m.isStarting));
-		const startingEntries = sorted.filter(m => m.isStarting);
+		const flagMoves = playbookMoves.map(m => _toFlagMove(m, m.isStarting));
+		const startingEntries = playbookMoves.filter(m => m.isStarting);
 		let created = [];
 		if (startingEntries.length) {
 			const docs = await Promise.all(startingEntries.map(e => this._moveRepo.getPlaybookMoveDocument(e.id)));

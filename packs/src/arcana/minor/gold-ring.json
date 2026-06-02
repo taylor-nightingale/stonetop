@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can unlock the secrets of this ring, but must first…"
+						"content": {
+							"title": null,
+							"text": "You can unlock the secrets of this ring, but must first…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "wear-40-days",
-						"description": "… wear the ring continuously for 40 days, witnessing the sunrise each day.",
+						"content": {
+							"title": null,
+							"text": "… wear the ring continuously for 40 days, witnessing the sunrise each day."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "act-of-charity",
-						"description": "… perform an act of charity while wearing the ring, one that changes the recipient's life.",
+						"content": {
+							"title": null,
+							"text": "… perform an act of charity while wearing the ring, one that changes the recipient's life."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "worship-helior",
-						"description": "… participate in the devout and proper worship of Helior.",
+						"content": {
+							"title": null,
+							"text": "… participate in the devout and proper worship of Helior."
+						},
 						"track": {
 							"max": 1
 						}

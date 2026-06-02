@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can learn their mysteries, but…"
+						"content": {
+							"title": null,
+							"text": "You can learn their mysteries, but…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "careful-transcription",
-						"description": "… it'll take days of careful transcription, haunted by morose shades.",
+						"content": {
+							"title": null,
+							"text": "… it'll take days of careful transcription, haunted by morose shades."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-ennui",
-						"description": "… you risk succumbing to the ennui of the place.",
+						"content": {
+							"title": null,
+							"text": "… you risk succumbing to the ennui of the place."
+						},
 						"track": {
 							"max": 1
 						}

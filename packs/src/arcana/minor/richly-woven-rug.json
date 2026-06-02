@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You can unlock the secrets of this rug, but you must first…"
+						"content": {
+							"title": null,
+							"text": "You can unlock the secrets of this rug, but you must first…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "marked-by-fire",
-						"description": "… be marked by fire, losing yourself to the panic or pain of burning.",
+						"content": {
+							"title": null,
+							"text": "… be marked by fire, losing yourself to the panic or pain of burning."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-meditation",
-						"description": "… then, spend weeks in meditation upon the rug and studying the now-clear runes.",
+						"content": {
+							"title": null,
+							"text": "… then, spend weeks in meditation upon the rug and studying the now-clear runes."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "burned-by-flame",
-						"description": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear.",
+						"content": {
+							"title": null,
+							"text": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear."
+						},
 						"track": {
 							"max": 1
 						}

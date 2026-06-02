@@ -217,13 +217,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"title": "Fear & anger",
-						"description": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
+						"content": {
+							"title": "Fear & anger",
+							"text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "fire",
-						"description": "Fire, burning, the smell of charred flesh",
+						"content": {
+							"title": null,
+							"text": "Fire, burning, the smell of charred flesh"
+						},
 						"track": {
 							"max": 1
 						}
@@ -231,7 +236,10 @@
 					{
 						"type": "heading",
 						"slug": "not-serious",
-						"description": "That they won't take you seriously",
+						"content": {
+							"title": null,
+							"text": "That they won't take you seriously"
+						},
 						"track": {
 							"max": 1
 						}
@@ -239,7 +247,10 @@
 					{
 						"type": "heading",
 						"slug": "not-cut-out",
-						"description": "That you really aren't cut out for this",
+						"content": {
+							"title": null,
+							"text": "That you really aren't cut out for this"
+						},
 						"track": {
 							"max": 1
 						}
@@ -247,7 +258,10 @@
 					{
 						"type": "heading",
 						"slug": "death-loved-ones",
-						"description": "The death of your family or loved ones",
+						"content": {
+							"title": null,
+							"text": "The death of your family or loved ones"
+						},
 						"track": {
 							"max": 1
 						}
@@ -255,7 +269,10 @@
 					{
 						"type": "heading",
 						"slug": "alone",
-						"description": "Being alone and helpless",
+						"content": {
+							"title": null,
+							"text": "Being alone and helpless"
+						},
 						"track": {
 							"max": 1
 						}
@@ -263,7 +280,10 @@
 					{
 						"type": "heading",
 						"slug": "violence",
-						"description": "Violence, bloodshed, and pain",
+						"content": {
+							"title": null,
+							"text": "Violence, bloodshed, and pain"
+						},
 						"track": {
 							"max": 1
 						}
@@ -271,7 +291,10 @@
 					{
 						"type": "heading",
 						"slug": "monsters",
-						"description": "Monsters",
+						"content": {
+							"title": null,
+							"text": "Monsters"
+						},
 						"track": {
 							"max": 1
 						}
@@ -279,7 +302,10 @@
 					{
 						"type": "heading",
 						"slug": "capable-of",
-						"description": "What you're capable of",
+						"content": {
+							"title": null,
+							"text": "What you're capable of"
+						},
 						"track": {
 							"max": 1
 						}
@@ -287,19 +313,28 @@
 					{
 						"type": "heading",
 						"slug": "must-do",
-						"description": "What you must do",
+						"content": {
+							"title": null,
+							"text": "What you must do"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
+						"content": {
+							"title": null,
+							"text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "bullying",
-						"description": "Bullying, slavery, and oppression",
+						"content": {
+							"title": null,
+							"text": "Bullying, slavery, and oppression"
+						},
 						"track": {
 							"max": 1
 						}
@@ -307,7 +342,10 @@
 					{
 						"type": "heading",
 						"slug": "cruelty",
-						"description": "Wanton cruelty and unnecessary suffering",
+						"content": {
+							"title": null,
+							"text": "Wanton cruelty and unnecessary suffering"
+						},
 						"track": {
 							"max": 1
 						}
@@ -315,7 +353,10 @@
 					{
 						"type": "heading",
 						"slug": "injustice",
-						"description": "Injustice and inequality",
+						"content": {
+							"title": null,
+							"text": "Injustice and inequality"
+						},
 						"track": {
 							"max": 1
 						}
@@ -323,7 +364,10 @@
 					{
 						"type": "heading",
 						"slug": "cowardice",
-						"description": "Cowardice, treachery, and selfishness",
+						"content": {
+							"title": null,
+							"text": "Cowardice, treachery, and selfishness"
+						},
 						"track": {
 							"max": 1
 						}
@@ -331,7 +375,10 @@
 					{
 						"type": "heading",
 						"slug": "despoiling",
-						"description": "The despoiling of beauty and innocence",
+						"content": {
+							"title": null,
+							"text": "The despoiling of beauty and innocence"
+						},
 						"track": {
 							"max": 1
 						}
@@ -339,7 +386,10 @@
 					{
 						"type": "heading",
 						"slug": "threats-loved-ones",
-						"description": "Threats to your loved ones",
+						"content": {
+							"title": null,
+							"text": "Threats to your loved ones"
+						},
 						"track": {
 							"max": 1
 						}
@@ -347,7 +397,10 @@
 					{
 						"type": "heading",
 						"slug": "innocents",
-						"description": "Violence to children, animals, the innocent",
+						"content": {
+							"title": null,
+							"text": "Violence to children, animals, the innocent"
+						},
 						"track": {
 							"max": 1
 						}
@@ -355,25 +408,40 @@
 					{
 						"type": "heading",
 						"slug": "perversions",
-						"description": "Perversions of nature",
+						"content": {
+							"title": null,
+							"text": "Perversions of nature"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "when-trouble",
-						"text": "When did your fear or anger last cause you trouble?"
+						"content": {
+							"title": null,
+							"text": "When did your fear or anger last cause you trouble?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "what-did",
-						"text": "What did you do?"
+						"content": {
+							"title": null,
+							"text": "What did you do?"
+						},
+						"input": {}
 					},
 					{
-						"type": "input",
+						"type": "heading",
 						"slug": "how-turned",
-						"text": "How did it turn out?"
+						"content": {
+							"title": null,
+							"text": "How did it turn out?"
+						},
+						"input": {}
 					}
 				]
 			}
@@ -390,14 +458,74 @@
 				"choices": {
 					"slug": "driven",
 					"list": [
-						{ "type": "heading", "description": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:"},
-						{ "type": "heading", "slug": "loved-one",   "description": "A loved one was killed or abducted", "track": { "max": 1 } },
-						{ "type": "heading", "slug": "gave-life",    "description": "Someone gave their life to save you", "track": { "max": 1 } },
-						{ "type": "heading", "slug": "idol", "description": "Your idol sacrificed themselves to save many", "track": { "max": 1 } },
-						{ "type": "heading", "slug": "dark-mystery",   "description": "You stumbled upon a dark mystery", "track": { "max": 1 } },
-						{ "type": "heading", "slug": "mistake",   "description": "You must make amends for a terrible mistake", "track": { "max": 1 } },
 						{
-							"type": "heading", "description": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+							"type": "heading",
+							"content": {
+								"title": null,
+								"text": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:"
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "loved-one",
+							"content": {
+								"title": null,
+								"text": "A loved one was killed or abducted"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "gave-life",
+							"content": {
+								"title": null,
+								"text": "Someone gave their life to save you"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "idol",
+							"content": {
+								"title": null,
+								"text": "Your idol sacrificed themselves to save many"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "dark-mystery",
+							"content": {
+								"title": null,
+								"text": "You stumbled upon a dark mystery"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"slug": "mistake",
+							"content": {
+								"title": null,
+								"text": "You must make amends for a terrible mistake"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "heading",
+							"content": {
+								"title": null,
+								"text": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+							}
 						}
 					]
 				}
@@ -408,15 +536,30 @@
 				"choices": {
 					"slug": "destined",
 					"list": [
-						{ "type": "heading", "description": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"},
+						{
+							"type": "heading",
+							"content": {
+								"title": null,
+								"text": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"
+							}
+						},
 						{
 							"type": "pick",
 							"pickCount": 3,
 							"inline": true,
 							"options": [
-								{"slug": "anointed", "text": "anointed"},
-								{"slug": "marked", "text": "marked at birth"},
-								{"slug": "coming", "text": "your coming foretold"}
+								{
+									"slug": "anointed",
+									"text": "anointed"
+								},
+								{
+									"slug": "marked",
+									"text": "marked at birth"
+								},
+								{
+									"slug": "coming",
+									"text": "your coming foretold"
+								}
 							]
 						},
 						{
@@ -424,11 +567,26 @@
 							"pickCount": 5,
 							"inline": true,
 							"options": [
-								{"slug": "destroy", "text": "destroy"},
-								{"slug": "discover", "text": "discover"},
-								{"slug": "free", "text": "free"},
-								{"slug": "protect", "text": "protect"},
-								{"slug": "protect", "text": "restore"}
+								{
+									"slug": "destroy",
+									"text": "destroy"
+								},
+								{
+									"slug": "discover",
+									"text": "discover"
+								},
+								{
+									"slug": "free",
+									"text": "free"
+								},
+								{
+									"slug": "protect",
+									"text": "protect"
+								},
+								{
+									"slug": "protect",
+									"text": "restore"
+								}
 							]
 						},
 						{
@@ -436,10 +594,22 @@
 							"pickCount": 4,
 							"inline": true,
 							"options": [
-								{"slug": "unify", "text": "unify"},
-								{"slug": "blood", "text": "blood"},
-								{"slug": "civilization", "text": "civilization"},
-								{"slug": "darkness", "text": "darkness"}
+								{
+									"slug": "unify",
+									"text": "unify"
+								},
+								{
+									"slug": "blood",
+									"text": "blood"
+								},
+								{
+									"slug": "civilization",
+									"text": "civilization"
+								},
+								{
+									"slug": "darkness",
+									"text": "darkness"
+								}
 							]
 						},
 						{
@@ -447,12 +617,30 @@
 							"pickCount": 6,
 							"inline": true,
 							"options": [
-								{"slug": "earth", "text": "earth & stone"},
-								{"slug": "fire", "text": "fire"},
-								{"slug": "ice", "text": "ice"},
-								{"slug": "light", "text": "light"},
-								{"slug": "life", "text": "life"},
-								{"slug": "storms", "text": "storms"}
+								{
+									"slug": "earth",
+									"text": "earth & stone"
+								},
+								{
+									"slug": "fire",
+									"text": "fire"
+								},
+								{
+									"slug": "ice",
+									"text": "ice"
+								},
+								{
+									"slug": "light",
+									"text": "light"
+								},
+								{
+									"slug": "life",
+									"text": "life"
+								},
+								{
+									"slug": "storms",
+									"text": "storms"
+								}
 							]
 						},
 						{
@@ -460,11 +648,26 @@
 							"pickCount": 5,
 							"inline": true,
 							"options": [
-								{"slug": "war", "text": "war"},
-								{"slug": "water", "text": "water"},
-								{"slug": "fae", "text": "the Fae"},
-								{"slug": "gods", "text": " the gods"},
-								{"slug": "makers", "text": " the Makers"}
+								{
+									"slug": "war",
+									"text": "war"
+								},
+								{
+									"slug": "water",
+									"text": "water"
+								},
+								{
+									"slug": "fae",
+									"text": "the Fae"
+								},
+								{
+									"slug": "gods",
+									"text": " the gods"
+								},
+								{
+									"slug": "makers",
+									"text": " the Makers"
+								}
 							]
 						},
 						{
@@ -472,14 +675,28 @@
 							"pickCount": 2,
 							"inline": true,
 							"options": [
-								{"slug": "stone", "text": "the Stone"},
-								{"slug": "things", "text": "the Things Below"}
+								{
+									"slug": "stone",
+									"text": "the Stone"
+								},
+								{
+									"slug": "things",
+									"text": "the Things Below"
+								}
 							]
 						},
-						{ "type": "heading", "description": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"}
+						{
+							"type": "heading",
+							"content": {
+								"title": null,
+								"text": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"
+							}
+						}
 					]
 				},
-				"resource": { "max": 3 }
+				"resource": {
+					"max": 3
+				}
 			}
 		],
 		"specialPossessions": {
@@ -526,12 +743,30 @@
 								"type": "pick",
 								"pickCount": 1,
 								"options": [
-									{ "slug": "family-heirloom", "text": "◇◇ A shield, bearing ___’s crest" },
-									{ "slug": "cloak", "text": "◇ A wool cloak, woven just for you by ___" },
-									{ "slug": "letter", "text": "A letter, spattered with tears & blood" },
-									{ "slug": "flute", "text": "A flute, a gift from someone you loved" },
-									{ "slug": "locket", "text": "A fine locket, holding a strand of hair" },
-									{ "slug": "locket", "text": "A tinderbox, lovingly engraved" }
+									{
+										"slug": "family-heirloom",
+										"text": "◇◇ A shield, bearing ___’s crest"
+									},
+									{
+										"slug": "cloak",
+										"text": "◇ A wool cloak, woven just for you by ___"
+									},
+									{
+										"slug": "letter",
+										"text": "A letter, spattered with tears & blood"
+									},
+									{
+										"slug": "flute",
+										"text": "A flute, a gift from someone you loved"
+									},
+									{
+										"slug": "locket",
+										"text": "A fine locket, holding a strand of hair"
+									},
+									{
+										"slug": "locket",
+										"text": "A tinderbox, lovingly engraved"
+									}
 								]
 							}
 						]

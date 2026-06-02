@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…"
+						"content": {
+							"title": null,
+							"text": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "master-fear",
-						"description": "… master your fear and force yourself to touch it.",
+						"content": {
+							"title": null,
+							"text": "… master your fear and force yourself to touch it."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "hold-tight",
-						"description": "… hold tight as it wracks your mind and soul, refusing to let go.",
+						"content": {
+							"title": null,
+							"text": "… hold tight as it wracks your mind and soul, refusing to let go."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "weeks-migraines",
-						"description": "… spend a few weeks dealing with terrible migraines and flashes of color, learning to calm and control your mind's new eye.",
+						"content": {
+							"title": null,
+							"text": "… spend a few weeks dealing with terrible migraines and flashes of color, learning to calm and control your mind's new eye."
+						},
 						"track": {
 							"max": 1
 						}

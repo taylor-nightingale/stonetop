@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the mysteries of this iron and claim its power as your own, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock the mysteries of this iron and claim its power as your own, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "decipher-runes",
-						"description": "… decipher the meaning of the runes, and identify the missing ones.",
+						"content": {
+							"title": null,
+							"text": "… decipher the meaning of the runes, and identify the missing ones."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "finish-etchings",
-						"description": "… finish the etchings, risking an error that will make the next step fail.",
+						"content": {
+							"title": null,
+							"text": "… finish the etchings, risking an error that will make the next step fail."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "heat-and-brand",
-						"description": "… heat the iron red-hot and let yourself be branded (lose 3d6 HP), the runes fading from the iron and searing themselves upon your soul.",
+						"content": {
+							"title": null,
+							"text": "… heat the iron red-hot and let yourself be branded (lose 3d6 HP), the runes fading from the iron and searing themselves upon your soul."
+						},
 						"track": {
 							"max": 1
 						}
@@ -49,7 +61,10 @@
 					{
 						"type": "heading",
 						"slug": "allow-heal",
-						"description": "… allow the wound to heal and scar, without the aid of any magic.",
+						"content": {
+							"title": null,
+							"text": "… allow the wound to heal and scar, without the aid of any magic."
+						},
 						"track": {
 							"max": 1
 						}

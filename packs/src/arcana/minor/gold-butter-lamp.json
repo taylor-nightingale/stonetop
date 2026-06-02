@@ -20,12 +20,18 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock its secrets, you must…"
+						"content": {
+							"title": null,
+							"text": "To unlock its secrets, you must…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "consult-disciple",
-						"description": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to get the recipe and mantra that makes the lamp work.",
+						"content": {
+							"title": null,
+							"text": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to get the recipe and mantra that makes the lamp work."
+						},
 						"track": {
 							"max": 1
 						}
@@ -33,7 +39,10 @@
 					{
 						"type": "heading",
 						"slug": "acquire-ingredients",
-						"description": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1).",
+						"content": {
+							"title": null,
+							"text": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1)."
+						},
 						"track": {
 							"max": 1
 						}
@@ -41,7 +50,10 @@
 					{
 						"type": "heading",
 						"slug": "risk-wraiths",
-						"description": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation.",
+						"content": {
+							"title": null,
+							"text": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation."
+						},
 						"track": {
 							"max": 1
 						}

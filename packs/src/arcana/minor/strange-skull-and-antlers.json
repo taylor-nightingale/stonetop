@@ -20,24 +20,36 @@
 				"list": [
 					{
 						"type": "heading",
-						"description": "To unlock the secrets of this relic, you…"
+						"content": {
+							"title": null,
+							"text": "To unlock the secrets of this relic, you…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "learn-name",
-						"description": "… must learn the name of the shade whose skull this was;",
+						"content": {
+							"title": null,
+							"text": "… must learn the name of the shade whose skull this was;"
+						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "heading",
-						"description": "or…"
+						"content": {
+							"title": null,
+							"text": "or…"
+						}
 					},
 					{
 						"type": "heading",
 						"slug": "call-spirits",
-						"description": "… use the Blessed's Call the Spirits move to call up the shade.",
+						"content": {
+							"title": null,
+							"text": "… use the Blessed's Call the Spirits move to call up the shade."
+						},
 						"track": {
 							"max": 1
 						}

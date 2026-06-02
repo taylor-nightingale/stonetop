@@ -32,10 +32,15 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "cost",
-					"text": "Cost",
-					"default": "pleasures of the flesh (Loyalty ◯◯◯)"
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "pleasures of the flesh (Loyalty ◯◯◯)"
+					}
 				}
 			]
 		},

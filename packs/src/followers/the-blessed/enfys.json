@@ -32,20 +32,33 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "input",
+					"type": "heading",
 					"slug": "weapon",
-					"default": "bronze knife d4 (hand)",
-					"text": "Weapon"
-				},
-				{
-					"type": "input",
-					"slug": "cost",
-					"default": "knowledge, secret lore; Loyalty",
-					"text": "Cost"
+					"content": {
+						"title": null,
+						"text": "Weapon"
+					},
+					"input": {
+						"default": "bronze knife d4 (hand)"
+					}
 				},
 				{
 					"type": "heading",
-					"title": "Pick 1 on each line"
+					"slug": "cost",
+					"content": {
+						"title": null,
+						"text": "Cost"
+					},
+					"input": {
+						"default": "knowledge, secret lore; Loyalty"
+					}
+				},
+				{
+					"type": "heading",
+					"content": {
+						"title": "Pick 1 on each line",
+						"text": null
+					}
 				},
 				{
 					"type": "pick",
@@ -65,8 +78,13 @@
 							"text": "they"
 						},
 						{
+							"type": "heading",
 							"slug": "custom",
-							"type": "input"
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"input": {}
 						}
 					]
 				},
