@@ -12,6 +12,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				height:  900,
 				scrollY: [".window-content"],
 				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "content" }],
+				submitOnChange: true,
 			});
 		}
 

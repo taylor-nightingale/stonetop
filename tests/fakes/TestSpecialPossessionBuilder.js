@@ -22,8 +22,8 @@ export class TestSpecialPossessionBuilder {
 		return this;
 	}
 
-	withMoveBonus(moveName, perInstance) {
-		this._moveBonuses.push({ moveName, perInstance });
+	withMoveBonus(moveSlug, perInstance) {
+		this._moveBonuses.push({ moveSlug, perInstance });
 		return this;
 	}
 

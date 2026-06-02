@@ -1,9 +1,11 @@
 import {Resource} from "./Resource.js";
+import {toSlug} from "../../utils/slug.js";
 
 export class Move {
 	constructor(data) {
 		this.id          = data._id;
 		this.name        = data.name;
+		this.slug        = toSlug(data.name);
 		this.playbook    = data.system?.playbook        ?? null;
 		this.rollType    = data.system?.rollType        ?? null;
 		this.description = data.system?.description     ?? null;

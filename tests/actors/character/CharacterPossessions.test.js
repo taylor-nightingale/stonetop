@@ -21,7 +21,7 @@ function bonusSp() {
 	return new TestSpecialPossessionsBuilder()
 		.addOption(new TestSpecialPossessionBuilder()
 			.withSlug("sacred-pouch").withResource(3)
-			.withUsesBonus(1).withMoveBonus("Big Magic", 2))
+			.withUsesBonus(1).withMoveBonus("big-magic", 2))
 		.build();
 }
 
@@ -228,15 +228,15 @@ describe("CharacterPossessions — computeMaxUses", () => {
 	});
 
 	it("owning Big Magic once adds +2", () => {
-		expect(makeCp(makeMoves().ownMove("Big Magic")).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(5);
+		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(5);
 	});
 
 	it("owning Big Magic twice adds +4", () => {
-		expect(makeCp(makeMoves().ownMove("Big Magic", 2)).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(7);
+		expect(makeCp(makeMoves().ownMove("big-magic", 2)).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(7);
 	});
 
 	it("Big Magic once + level 4 gives base 3 + 4", () => {
-		expect(makeCp(makeMoves().ownMove("Big Magic")).computeMaxUses(bonusSp(), 4)["sacred-pouch"]).toBe(7);
+		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusSp(), 4)["sacred-pouch"]).toBe(7);
 	});
 
 	it("possession without usesBonus is not affected", () => {

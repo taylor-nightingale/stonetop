@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { CharacterMoves } from "../../../module/actors/character/CharacterMoves.js";
+import { toSlug } from "../../../module/utils/slug.js";
 import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import {
@@ -64,6 +65,7 @@ function makeFlagCategory(key, overrides = {}) {
 
 function makeFlagMove(name, overrides = {}) {
 	return {
+		slug: toSlug(name),
 		name,
 		compendiumId: overrides.compendiumId ?? null,
 		rollType: overrides.rollType ?? null,
@@ -590,7 +592,7 @@ describe("CharacterMoves.incrementMove", () => {
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha", { selection: { max: 2, value: 0 } })] }),
 		]};
 		const flags = makeFlags(store);
-		await makeMoves({ flags }).incrementMove("cat", "Alpha");
+		await makeMoves({ flags }).incrementMove("cat", "alpha");
 		const saved = flags.setFlag.mock.calls.at(-1)[1];
 		const move = saved.find(c => c.key === "cat").moves.find(m => m.name === "Alpha");
 		expect(move.selection.value).toBe(1);
@@ -602,7 +604,7 @@ describe("CharacterMoves.incrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).incrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).incrementMove("cat", "alpha");
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
 		expect(flags.setFlag).not.toHaveBeenCalled();
 	});
@@ -613,7 +615,7 @@ describe("CharacterMoves.incrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).incrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).incrementMove("cat", "alpha");
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [
 			expect.objectContaining({ name: "Alpha", type: "move" }),
 		]);
@@ -625,7 +627,7 @@ describe("CharacterMoves.incrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).incrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).incrementMove("cat", "alpha");
 		const saved = flags.setFlag.mock.calls.at(-1)[1];
 		const move = saved.find(c => c.key === "cat").moves.find(m => m.name === "Alpha");
 		expect(move.ownedIds).toHaveLength(1);
@@ -641,7 +643,7 @@ describe("CharacterMoves.decrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).decrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).decrementMove("cat", "alpha");
 		const saved = flags.setFlag.mock.calls.at(-1)[1];
 		const move = saved.find(c => c.key === "cat").moves.find(m => m.name === "Alpha");
 		expect(move.selection.value).toBe(0);
@@ -653,7 +655,7 @@ describe("CharacterMoves.decrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).decrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).decrementMove("cat", "alpha");
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["id1"]);
 	});
 
@@ -663,7 +665,7 @@ describe("CharacterMoves.decrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).decrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).decrementMove("cat", "alpha");
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();
 		expect(flags.setFlag).not.toHaveBeenCalled();
 	});
@@ -674,7 +676,7 @@ describe("CharacterMoves.decrementMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).decrementMove("cat", "Alpha");
+		await makeMoves({ flags, actor }).decrementMove("cat", "alpha");
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();
 		expect(flags.setFlag).not.toHaveBeenCalled();
 	});
@@ -735,9 +737,9 @@ describe("CharacterMoves.deleteMove", () => {
 			makeFlagCategory("other", { moves: [makeFlagMove("To Delete")] }),
 		]};
 		const flags = makeFlags(store);
-		await makeMoves({ flags }).deleteMove("To Delete");
+		await makeMoves({ flags }).deleteMove("to-delete");
 		const saved = flags.setFlag.mock.calls[0][1];
-		expect(saved.find(c => c.key === "other").moves.find(m => m.name === "To Delete")).toBeUndefined();
+		expect(saved.find(c => c.key === "other").moves.find(m => m.slug === "to-delete")).toBeUndefined();
 	});
 
 	it("deletes embedded docs", async () => {
@@ -746,14 +748,14 @@ describe("CharacterMoves.deleteMove", () => {
 		]};
 		const flags = makeFlags(store);
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).deleteMove("To Delete");
+		await makeMoves({ flags, actor }).deleteMove("to-delete");
 		expect(actor.deleteEmbeddedDocuments).toHaveBeenCalledWith("Item", ["id1"]);
 	});
 
 	it("does nothing when move not found in other", async () => {
 		const flags = makeFlags({});
 		const actor = makeActor();
-		await makeMoves({ flags, actor }).deleteMove("Nonexistent");
+		await makeMoves({ flags, actor }).deleteMove("nonexistent");
 		expect(flags.setFlag).not.toHaveBeenCalled();
 		expect(actor.deleteEmbeddedDocuments).not.toHaveBeenCalled();
 	});
@@ -772,9 +774,9 @@ describe("CharacterMoves.setMoveResourceCurrent", () => {
 			]}),
 		]};
 		const flags = makeFlags(store);
-		await makeMoves({ flags }).setMoveResourceCurrent("cat", "Resource Move", 2);
+		await makeMoves({ flags }).setMoveResourceCurrent("cat", "resource-move", 2);
 		const saved = flags.setFlag.mock.calls[0][1];
-		const move = saved.find(c => c.key === "cat").moves.find(m => m.name === "Resource Move");
+		const move = saved.find(c => c.key === "cat").moves.find(m => m.slug === "resource-move");
 		expect(move.resource.current).toBe(2);
 	});
 
@@ -783,9 +785,9 @@ describe("CharacterMoves.setMoveResourceCurrent", () => {
 			makeFlagCategory("cat", { moves: [makeFlagMove("No Resource")] }),
 		]};
 		const flags = makeFlags(store);
-		await makeMoves({ flags }).setMoveResourceCurrent("cat", "No Resource", 5);
+		await makeMoves({ flags }).setMoveResourceCurrent("cat", "no-resource", 5);
 		const saved = flags.setFlag.mock.calls[0][1];
-		const move = saved.find(c => c.key === "cat").moves.find(m => m.name === "No Resource");
+		const move = saved.find(c => c.key === "cat").moves.find(m => m.slug === "no-resource");
 		expect(move.resource).toBeNull();
 	});
 });
@@ -824,32 +826,32 @@ describe("CharacterMoves.onDropMove", () => {
 	});
 });
 
-// ── countOwnedByName ──────────────────────────────────────────────────────────
+// ── countOwnedBySlug ──────────────────────────────────────────────────────────
 
-describe("CharacterMoves.countOwnedByName", () => {
+describe("CharacterMoves.countOwnedBySlug", () => {
 	it("returns 0 when no categories exist", () => {
-		expect(makeMoves().countOwnedByName("Bulwark")).toBe(0);
+		expect(makeMoves().countOwnedBySlug("bulwark")).toBe(0);
 	});
 
 	it("returns 0 when move exists but selection.value=0", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Bulwark", { selection: { max: 1, value: 0 } })] }),
 		]});
-		expect(makeMoves({ flags }).countOwnedByName("Bulwark")).toBe(0);
+		expect(makeMoves({ flags }).countOwnedBySlug("bulwark")).toBe(0);
 	});
 
 	it("returns selection.value when move is acquired", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Bulwark", { selection: { max: 2, value: 2 } })] }),
 		]});
-		expect(makeMoves({ flags }).countOwnedByName("Bulwark")).toBe(2);
+		expect(makeMoves({ flags }).countOwnedBySlug("bulwark")).toBe(2);
 	});
 
-	it("returns 0 when move name does not match any category", () => {
+	it("returns 0 when slug does not match any move", () => {
 		const flags = makeFlags({ categories: [
 			makeFlagCategory("cat", { moves: [makeFlagMove("Alpha")] }),
 		]});
-		expect(makeMoves({ flags }).countOwnedByName("Bulwark")).toBe(0);
+		expect(makeMoves({ flags }).countOwnedBySlug("bulwark")).toBe(0);
 	});
 });
 
@@ -863,11 +865,11 @@ const CHOICES_DATA = {
 };
 
 describe("CharacterMoves.setMoveChoiceText", () => {
-	it("persists via ChoiceGroupController keyed by move name", async () => {
+	it("persists via ChoiceGroupController keyed by move slug", async () => {
 		const store = {};
 		const flags = makeFlags(store);
-		await makeMoves({ flags }).setMoveChoiceText("Potential for Greatness", "stat1-input", "2");
-		expect(store.values).toEqual({ "Potential for Greatness": { "stat1-input": "2" } });
+		await makeMoves({ flags }).setMoveChoiceText("potential-for-greatness", "stat1-input", "2");
+		expect(store.values).toEqual({ "potential-for-greatness": { "stat1-input": "2" } });
 	});
 });
 
@@ -895,7 +897,7 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 			categories: [
 				makeFlagCategory("cat", { moves: [makeFlagMove("Potential for Greatness", { choices: CHOICES_DATA })] }),
 			],
-			values: { "Potential for Greatness": { "stat1-input": "level 2" } },
+			values: { "potential-for-greatness": { "stat1-input": "level 2" } },
 		});
 		const row = (await makeMoves({ flags }).buildSnapshot()).categories[0].moves[0].choices.list[0];
 		expect(row.value).toBe("level 2");

@@ -57,8 +57,7 @@
 			{{#each stonetop.inventory.outfit.regularSections}}
 			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
-			{{#if breakBefore}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/if}}
-			{{#if isGrid}}
+		{{#if isGrid}}
 			<div class="stonetop-inv-twocol-grid">
 				{{#each items}}
 				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
@@ -135,8 +134,7 @@
 			{{#each stonetop.inventory.outfit.smallSections}}
 			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
-			{{#if breakBefore}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/if}}
-			{{#if isGrid}}
+		{{#if isGrid}}
 			<div class="stonetop-inv-grid">
 				{{#each items}}
 				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">

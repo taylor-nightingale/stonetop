@@ -32,21 +32,28 @@
 {{else if (eq type "follower")}}
 {{! Follower row (arcanum back) }}
 <div class="stonetop-arcanum-follower">
+    {{#if inlineDisplay}}
     {{#if track}}
+    <input type="checkbox" class="stonetop-arcanum-follower-check"
+           data-cg-context="{{cgContext}}"
+           data-slug="{{cgGroup}}"
+           data-option="{{slug}}"
+           data-index="0"
+           {{#if (lookup track.checks 0)}}checked{{/if}}>
+    {{/if}}
+    {{#if follower}}{{> "stonetop.follower-card" follower}}{{/if}}
+    {{else if title}}
     <label class="stonetop-arcanum-follower-label">
+        {{#if track}}
         <input type="checkbox" class="stonetop-arcanum-follower-check"
                data-cg-context="{{cgContext}}"
                data-slug="{{cgGroup}}"
                data-option="{{slug}}"
                data-index="0"
                {{#if (lookup track.checks 0)}}checked{{/if}}>
-        {{localize "stonetop.arcana.addToFollowers"}}
+        {{/if}}
+        {{{title}}}
     </label>
-    {{/if}}
-    {{#if inlineDisplay}}
-    {{#if follower}}{{> "stonetop.follower-card" follower}}{{/if}}
-    {{else if title}}
-    <p class="stonetop-arcanum-follower-title">{{{title}}}</p>
     {{/if}}
 </div>
 {{else}}

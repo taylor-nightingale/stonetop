@@ -7,7 +7,7 @@ export class FakePlaybookRepository {
 	}
 
 	async findBySlug(slug) {
-		return this._playbooks[slug];
+		return this._playbooks[slug] ?? null;
 	}
 
 	add(playbook) {

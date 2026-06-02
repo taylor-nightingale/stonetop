@@ -1,11 +1,15 @@
 import {ValueMax, VitalsSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {StonetopFlags} from "./StonetopFlags.js";
 
+function toInt(v) {
+	const n = parseInt(v);
+	return isNaN(n) ? 0 : n;
+}
+
 export class CharacterVitals {
-	constructor(actor, inventory) {
+	constructor(actor) {
 		this._actor = actor;
 		this._flags = new StonetopFlags(actor, "vitals");
-		this._inventory = inventory;
 	}
 
 	get level() {
@@ -13,53 +17,53 @@ export class CharacterVitals {
 	}
 
 	async buildVitalsSnapshot() {
-		const armorValue = await this._inventory.getArmor();
-		const attrs  = this._actor.system?.attributes ?? {};
-		const level  = attrs.level ?? 1;
-		const hpMax  = this._flags.getFlag("maxHP") ?? 0;
-		const damage = this._damage;
+		const attrs    = this._actor.system?.attributes ?? {};
+		const level    = attrs.level ?? 1;
+		const hpMax    = this._flags.getFlag("maxHP") ?? 0;
+		const dieVal   = attrs.damage?.value ?? null;
+		const damage   = dieVal ? { die: dieVal } : null;
 		return new VitalsSnapshotBuilder()
 			.withHp(new ValueMax(attrs.hp?.value ?? 0, hpMax))
 			.withDamage(damage)
-			.withArmor(armorValue)
+			.withArmor(attrs.armor ?? 0)
 			.withLevel(level)
 			.withXp(new ValueMax(attrs.xp?.value ?? 0, 6 + level * 2))
 			.build();
 	}
 
 	async updateVitalsFromPlaybook(stonetopPlaybook) {
-		const hp = stonetopPlaybook.hp;
 		await Promise.all([
 			this._setDamage(stonetopPlaybook.damage),
-			this._setMaxHP(hp),
-			this._setP(hp)
+			this.setMaxHP(stonetopPlaybook.hp),
+			this.setHP(stonetopPlaybook.hp),
 		]);
 	}
 
 	async setHP(hp) {
-		await this._actor.update({ "system.attributes.hp.value": hp });
+		await this._actor.update({ "system.attributes.hp.value": Math.max(0, toInt(hp)) });
+	}
+
+	async setXP(xp) {
+		await this._actor.update({ "system.attributes.xp.value": Math.max(0, toInt(xp)) });
+	}
+
+	async setLevel(level) {
+		await this._actor.update({ "system.attributes.level": Math.max(1, toInt(level)) });
 	}
 
 	async setMaxHP(hpMax) {
-		await this._flags.setFlag("maxHP", hpMax);
+		await this._flags.setFlag("maxHP", Math.max(0, toInt(hpMax)));
 	}
 
-	get _damage() {
-		return this._flags.getFlag("damage") ?? null;
+	async setArmor(armor) {
+		await this._actor.update({ "system.attributes.armor": Math.max(0, toInt(armor)) });
+	}
+
+	async setDamage(die) {
+		await this._setDamage(die ? { die: String(die).trim() } : null);
 	}
 
 	async _setDamage(damage) {
-		await Promise.all([
-			this._actor.update({ "system.attributes.damage.value": damage?.die ?? null }),
-			this._flags.setFlag("damage", damage ?? null),
-		]);
-	}
-
-	async _setMaxHP(maxHp) {
-		await this._flags.setFlag("maxHP", maxHp);
-	}
-
-	async _setP(hp) {
-		await this._actor.update({ "system.attributes.hp.value": hp });
+		await this._actor.update({ "system.attributes.damage.value": damage?.die ?? null });
 	}
 }

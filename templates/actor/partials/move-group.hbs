@@ -13,7 +13,7 @@
 					{{#each (repeatChecks this)}}
 					<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
 					       data-category-key="{{../../categoryKey}}"
-					       data-move-name="{{../name}}"
+					       data-move-slug="{{../slug}}"
 					       data-owned-id="{{../ownedId}}"
 					       {{#if checked}}checked{{/if}}
 					       {{#if disabled}}disabled{{/if}}>
@@ -22,7 +22,7 @@
 				{{else}}
 				<input type="checkbox" class="stonetop-item-check stonetop-move-check"
 				       data-category-key="{{../categoryKey}}"
-				       data-move-name="{{name}}"
+				       data-move-slug="{{slug}}"
 				       data-owned-id="{{ownedId}}"
 				       {{#if ownedId}}checked{{/if}}
 				       {{#if (or isStarting (and (not ownedId) (not selectable)))}}disabled{{/if}}>
@@ -41,7 +41,7 @@
 					<span class="stonetop-item-resource-entry">
 						<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
 						        data-category-key="{{../../categoryKey}}"
-						        data-move-name="{{../name}}"
+						        data-move-slug="{{../slug}}"
 						        data-index="{{@index}}"></button>
 						{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
 					</span>
@@ -49,7 +49,7 @@
 				</span>
 				{{/if}}
 				{{#if ../allowAdditional}}
-				<a class="stonetop-other-move-delete" data-move-name="{{name}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
+				<a class="stonetop-other-move-delete" data-move-slug="{{slug}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
 					<i class="fas fa-trash"></i>
 				</a>
 				{{/if}}
@@ -58,7 +58,7 @@
 			{{#if choices}}
 			<div class="stonetop-move-choices">
 				{{#each choices.list}}
-				{{> "stonetop.choice-row" cgContext="move" cgGroup=../name namePrefix=../name}}
+				{{> "stonetop.choice-row" cgContext="move" cgGroup=../slug namePrefix=../slug}}
 				{{/each}}
 			</div>
 			{{/if}}

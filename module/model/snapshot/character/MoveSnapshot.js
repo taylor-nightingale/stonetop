@@ -27,6 +27,7 @@ export class MoveSnapshot {
 	constructor(b) {
 		this.id            = b._id;
 		this.ownedId       = b._ownedId;
+		this.slug          = b._slug;
 		this.name          = b._name;
 		this.description   = b._description;
 		this.rollType      = b._rollType;
@@ -45,6 +46,7 @@ export class MoveSnapshot {
 export class MoveSnapshotBuilder {
 	withId(v)            { this._id            = v; return this; }
 	withOwnedId(v)       { this._ownedId       = v; return this; }
+	withSlug(v)          { this._slug          = v; return this; }
 	withName(v)          { this._name          = v; return this; }
 	withDescription(v)   { this._description   = v; return this; }
 	withRollType(v)      { this._rollType      = v; return this; }

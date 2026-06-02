@@ -210,7 +210,6 @@ export class CharacterArcana {
 				.withInventoryColumn(sideItem.inventoryColumn)
 				.withResource(sideItem.resource ?? null)
 				.withTwoCol(false)
-				.withBreakBefore(false)
 				.withSource("arcana:" + slug)
 				.build(),
 		]);

@@ -1,35 +1,23 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CharacterVitals } from "../../../module/actors/character/CharacterVitals.js";
+import { FakeActor } from "../../fakes/FakeActor.js";
+import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
 
-function makeActor(attrs = {}, vitalsFlags = {}) {
-	const flagStore = {};
-	for (const [k, v] of Object.entries(vitalsFlags)) {
-		flagStore[`vitals.${k}`] = v;
-	}
-	return {
-		system: { attributes: attrs },
-		getFlag: (_scope, key) => flagStore[key] ?? null,
-		setFlag: vi.fn(async () => {}),
-		update: vi.fn(),
-	};
-}
-
-function makeInventory(armor = 0) {
-	return { getArmor: async () => armor };
-}
-
-function makeVitals(attrs = {}, vitalsFlags = {}, armor = 0) {
-	return new CharacterVitals(makeActor(attrs, vitalsFlags), makeInventory(armor));
+function makeVitals(attrs = {}) {
+	const actor = new FakeActor(attrs);
+	return new CharacterVitals(actor);
 }
 
 describe("CharacterVitals.buildVitalsSnapshot", () => {
 	it("hp.max comes from vitals flags maxHP", async () => {
-		const snap = await makeVitals({}, { maxHP: 20 }).buildVitalsSnapshot();
+		const vitals = makeVitals({});
+		await vitals.setMaxHP(20);
+		const snap = await vitals.buildVitalsSnapshot();
 		expect(snap.hp.max).toBe(20);
 	});
 
 	it("hp.value comes from actor attrs.hp.value", async () => {
-		const snap = await makeVitals({ hp: { value: 12 } }, { maxHP: 20 }).buildVitalsSnapshot();
+		const snap = await makeVitals({ hp: { value: 12 } }).buildVitalsSnapshot();
 		expect(snap.hp.value).toBe(12);
 	});
 
@@ -39,83 +27,172 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 	});
 
 	it("damage comes from vitals flags", async () => {
-		const snap = await makeVitals({}, { maxHP: 18, damage: {die: "d6"} }).buildVitalsSnapshot();
-		expect(snap.damage).toEqual({die: "d6"});
+		const vitals = makeVitals({});
+		await vitals.setDamage("d6");
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.damage).toEqual({ die: "d6" });
 	});
 
-	it("damage is null when damage flag not set", async () => {
+	it("damage is null when not set", async () => {
 		const snap = await makeVitals().buildVitalsSnapshot();
 		expect(snap.damage).toBeNull();
 	});
 
-	it("armor comes from inventory.getArmor()", async () => {
-		const snap = await makeVitals({}, { maxHP: 18 }, 3).buildVitalsSnapshot();
+	it("armor comes from actor attrs.armor", async () => {
+		const snap = await makeVitals({ armor: 3 }).buildVitalsSnapshot();
 		expect(snap.armor).toBe(3);
 	});
 
-	it("level comes from actor attrs.level scalar", async () => {
-		const snap = await makeVitals({ level: 4 }, { maxHP: 18 }).buildVitalsSnapshot();
+	it("armor defaults to 0 when not in attrs", async () => {
+		const snap = await makeVitals().buildVitalsSnapshot();
+		expect(snap.armor).toBe(0);
+	});
+
+	it("level comes from actor attrs.level", async () => {
+		const snap = await makeVitals({ level: 4 }).buildVitalsSnapshot();
 		expect(snap.level).toBe(4);
 	});
 
-	it("level is 1 when missing from actor", async () => {
-		const snap = await makeVitals({}, { maxHP: 18 }).buildVitalsSnapshot();
+	it("level defaults to 1 when missing", async () => {
+		const snap = await makeVitals().buildVitalsSnapshot();
 		expect(snap.level).toBe(1);
 	});
 
 	it("xp.max = 6 + level * 2", async () => {
-		const snap = await makeVitals({ level: 4 }, { maxHP: 18 }).buildVitalsSnapshot();
+		const snap = await makeVitals({ level: 4 }).buildVitalsSnapshot();
 		expect(snap.xp.max).toBe(14);
 	});
 
 	it("xp.value comes from actor attrs.xp.value", async () => {
-		const snap = await makeVitals({ xp: { value: 5 } }, { maxHP: 18 }).buildVitalsSnapshot();
+		const snap = await makeVitals({ xp: { value: 5 } }).buildVitalsSnapshot();
 		expect(snap.xp.value).toBe(5);
 	});
 
 	it("defaults gracefully when actor.system.attributes is absent", async () => {
-		const actor = {
-			system: {},
-			getFlag: (_s, k) => k === "vitals.maxHP" ? 18 : null,
-			setFlag: vi.fn(),
-			update: vi.fn(),
-		};
-		const snap = await new CharacterVitals(actor, makeInventory(0)).buildVitalsSnapshot();
+		const actor = new FakeActor();
+		actor.system = {};
+		await new StonetopFlags(actor, "vitals").setFlag("maxHP", 18);
+		const snap = await new CharacterVitals(actor).buildVitalsSnapshot();
 		expect(snap.hp).toMatchObject({ value: 0, max: 18 });
 		expect(snap.level).toBe(1);
 		expect(snap.xp.max).toBe(8);
 	});
 
-	it("hp and damage are zero/null when no flags set", async () => {
-		const snap = await makeVitals({ }).buildVitalsSnapshot();
+	it("hp and damage are zero/null when nothing is set", async () => {
+		const snap = await makeVitals().buildVitalsSnapshot();
 		expect(snap.hp).toMatchObject({ value: 0, max: 0 });
 		expect(snap.damage).toBeNull();
 	});
 });
 
-describe("CharacterVitals.setHP / setDamage / setMaxHP", () => {
-	it("setHP calls actor.update with hp.value", async () => {
-		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory()).setHP(14);
-		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.hp.value": 14 });
+describe("CharacterVitals setters", () => {
+	it("setHP stores the value and reflects in snapshot", async () => {
+		const vitals = makeVitals();
+		await vitals.setHP(14);
+		expect((await vitals.buildVitalsSnapshot()).hp.value).toBe(14);
 	});
 
-	it("setMaxHP writes only to flags, not system", async () => {
-		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory()).setMaxHP(20);
-		expect(actor.update).not.toHaveBeenCalled();
-		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.maxHP", 20);
+	it("setHP clamps negative values to 0", async () => {
+		const vitals = makeVitals();
+		await vitals.setHP(-3);
+		expect((await vitals.buildVitalsSnapshot()).hp.value).toBe(0);
 	});
 
-	it("setDamage writes die to system.attributes.damage.value", async () => {
-		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory())._setDamage({die: "d8"});
-		expect(actor.update).toHaveBeenCalledWith({ "system.attributes.damage.value": "d8" });
+	it("setXP stores the value and reflects in snapshot", async () => {
+		const vitals = makeVitals();
+		await vitals.setXP(5);
+		expect((await vitals.buildVitalsSnapshot()).xp.value).toBe(5);
 	});
 
-	it("setDamage stores full damage object in flags", async () => {
-		const actor = makeActor();
-		await new CharacterVitals(actor, makeInventory())._setDamage({die: "d8"});
-		expect(actor.setFlag).toHaveBeenCalledWith("stonetop", "vitals.damage", {die: "d8"});
+	it("setXP with 0 stores 0", async () => {
+		const vitals = makeVitals({ xp: { value: 3 } });
+		await vitals.setXP(0);
+		expect((await vitals.buildVitalsSnapshot()).xp.value).toBe(0);
+	});
+
+	it("setXP clamps negative values to 0", async () => {
+		const vitals = makeVitals();
+		await vitals.setXP(-1);
+		expect((await vitals.buildVitalsSnapshot()).xp.value).toBe(0);
+	});
+
+	it("setLevel stores the value and reflects in snapshot", async () => {
+		const vitals = makeVitals();
+		await vitals.setLevel(3);
+		expect((await vitals.buildVitalsSnapshot()).level).toBe(3);
+	});
+
+	it("setLevel clamps values below 1 to 1", async () => {
+		const vitals = makeVitals();
+		await vitals.setLevel(0);
+		expect((await vitals.buildVitalsSnapshot()).level).toBe(1);
+	});
+
+	it("setMaxHP stores value and reflects in hp.max", async () => {
+		const vitals = makeVitals();
+		await vitals.setMaxHP(20);
+		expect((await vitals.buildVitalsSnapshot()).hp.max).toBe(20);
+	});
+
+	it("setArmor stores value and reflects in snapshot", async () => {
+		const vitals = makeVitals();
+		await vitals.setArmor(2);
+		expect((await vitals.buildVitalsSnapshot()).armor).toBe(2);
+	});
+
+	it("setArmor clamps negative to 0", async () => {
+		const vitals = makeVitals();
+		await vitals.setArmor(-1);
+		expect((await vitals.buildVitalsSnapshot()).armor).toBe(0);
+	});
+
+	it("setDamage stores die and reflects in snapshot", async () => {
+		const vitals = makeVitals();
+		await vitals.setDamage("d8");
+		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ die: "d8" });
+	});
+
+	it("setDamage with empty string stores null", async () => {
+		const vitals = makeVitals();
+		await vitals.setDamage("d8");
+		await vitals.setDamage("");
+		expect((await vitals.buildVitalsSnapshot()).damage).toBeNull();
+	});
+
+	it("setters accept string values from inputs and coerce correctly", async () => {
+		const vitals = makeVitals();
+		await vitals.setHP("7");
+		await vitals.setXP("3");
+		await vitals.setLevel("2");
+		await vitals.setMaxHP("18");
+		await vitals.setArmor("1");
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.hp.value).toBe(7);
+		expect(snap.xp.value).toBe(3);
+		expect(snap.level).toBe(2);
+		expect(snap.hp.max).toBe(18);
+		expect(snap.armor).toBe(1);
+	});
+});
+
+describe("CharacterVitals.updateVitalsFromPlaybook", () => {
+	it("sets max HP and initial HP from playbook", async () => {
+		const vitals = makeVitals();
+		await vitals.updateVitalsFromPlaybook({ hp: 16, damage: null });
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.hp.max).toBe(16);
+		expect(snap.hp.value).toBe(16);
+	});
+
+	it("sets damage from playbook", async () => {
+		const vitals = makeVitals();
+		await vitals.updateVitalsFromPlaybook({ hp: 16, damage: { die: "d10" } });
+		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ die: "d10" });
+	});
+
+	it("sets null damage when playbook has no damage", async () => {
+		const vitals = makeVitals();
+		await vitals.updateVitalsFromPlaybook({ hp: 16, damage: null });
+		expect((await vitals.buildVitalsSnapshot()).damage).toBeNull();
 	});
 });

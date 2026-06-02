@@ -11,7 +11,6 @@
 		"note": "recover 1d6 extra HP when you Make Camp",
 		"resource": null,
 		"twoCol": false,
-		"breakBefore": false,
 		"sortOrder": 5,
 		"armor": null,
 		"source": null

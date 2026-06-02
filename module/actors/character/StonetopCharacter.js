@@ -41,7 +41,7 @@ export class StonetopCharacter {
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems, this._resourceController);
-		this._vitals = new CharacterVitals(actor, this._inventory);
+		this._vitals = new CharacterVitals(actor);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
@@ -134,6 +134,8 @@ export class StonetopCharacter {
 
 	async setInventoryItemChecked(slug, isChecked) {
 		await this._inventory.setItemChecked(slug, isChecked);
+		const armor = await this._inventory.getArmor();
+		await this._vitals.setArmor(armor);
 	}
 
 	async setInventoryResource(slug, count) {
@@ -337,8 +339,8 @@ export class StonetopCharacter {
 		}
 	}
 
-	async setMoveChoiceText(moveName, optionSlug, value) {
-		await this._moves.setMoveChoiceText(moveName, optionSlug, value);
+	async setMoveChoiceText(moveSlug, optionSlug, value) {
+		await this._moves.setMoveChoiceText(moveSlug, optionSlug, value);
 	}
 
 	async setArcanumResource(slug, count) {
@@ -355,6 +357,30 @@ export class StonetopCharacter {
 
 	async addCustomFollower() {
 		await this._followers.addCustomFollower();
+	}
+
+	async setHP(hp) {
+		await this._vitals.setHP(hp);
+	}
+
+	async setXP(xp) {
+		await this._vitals.setXP(xp);
+	}
+
+	async setLevel(level) {
+		await this._vitals.setLevel(level);
+	}
+
+	async setMaxHP(max) {
+		await this._vitals.setMaxHP(max);
+	}
+
+	async setArmor(armor) {
+		await this._vitals.setArmor(armor);
+	}
+
+	async setDamage(die) {
+		await this._vitals.setDamage(die);
 	}
 
 	async removeFollower(slug) {

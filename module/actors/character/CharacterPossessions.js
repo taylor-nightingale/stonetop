@@ -91,7 +91,7 @@ export class CharacterPossessions {
 				bonus += Math.floor(level / 2) * opt.usesBonus.evenLevelBonus;
 			}
 			for (const mb of (opt.usesBonus.moveBonus ?? [])) {
-				bonus += this._moves.countOwnedByName(mb.moveName) * mb.perInstance;
+				bonus += this._moves.countOwnedBySlug(mb.moveSlug) * mb.perInstance;
 			}
 			if (bonus > 0) result[opt.slug] = (opt.resource?.max ?? 0) + bonus;
 		}
@@ -147,7 +147,6 @@ function _buildEmbeddedItem(data, source) {
 		.withInventoryColumn(data.inventoryColumn ?? "regular")
 		.withResource(data.resource ?? null)
 		.withTwoCol(data.twoCol ?? false)
-		.withBreakBefore(data.breakBefore ?? false)
 		.withSource(source)
 		.build();
 }

@@ -6,6 +6,7 @@ import {
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
 import {ValueMax} from "../../model/snapshot/character/VitalsSnapshot.js";
+import {toSlug} from "../../utils/slug.js";
 
 export class CharacterMoves {
 	constructor(moveRepo, flags, actor, choiceController) {
@@ -105,18 +106,18 @@ export class CharacterMoves {
 		await this._setCategories(this._getCategories().filter(c => c.key !== key));
 	}
 
-	async incrementMove(categoryKey, moveName) {
+	async incrementMove(categoryKey, moveSlug) {
 		const cat = this._findCategory(categoryKey);
-		const move = cat?.moves.find(m => m.name === moveName);
+		const move = cat?.moves.find(m => m.slug === moveSlug);
 		if (!move || move.selection.value >= move.selection.max) return;
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
-			name: moveName, type: "move",
+			name: move.name, type: "move",
 			system: {moveType: categoryKey, rollType: move.rollType ?? "", description: move.description ?? ""},
 		}]);
 		const newId = created[0]?._id ?? null;
 		await this._updateCategory(categoryKey, c => ({
 			...c,
-			moves: c.moves.map(m => m.name !== moveName ? m : {
+			moves: c.moves.map(m => m.slug !== moveSlug ? m : {
 				...m,
 				selection: {...m.selection, value: m.selection.value + 1},
 				ownedIds: newId ? [...(m.ownedIds ?? []), newId] : (m.ownedIds ?? []),
@@ -124,9 +125,9 @@ export class CharacterMoves {
 		}));
 	}
 
-	async decrementMove(categoryKey, moveName) {
+	async decrementMove(categoryKey, moveSlug) {
 		const cat = this._findCategory(categoryKey);
-		const move = cat?.moves.find(m => m.name === moveName);
+		const move = cat?.moves.find(m => m.slug === moveSlug);
 		if (!move || move.selection.value === 0) return;
 		if (move.isStarting && move.selection.value <= 1) return;
 		const ownedIds = move.ownedIds ?? [];
@@ -134,7 +135,7 @@ export class CharacterMoves {
 		if (idToRemove) await this._actor.deleteEmbeddedDocuments("Item", [idToRemove]);
 		await this._updateCategory(categoryKey, c => ({
 			...c,
-			moves: c.moves.map(m => m.name !== moveName ? m : {
+			moves: c.moves.map(m => m.slug !== moveSlug ? m : {
 				...m,
 				selection: {...m.selection, value: m.selection.value - 1},
 				ownedIds: ownedIds.slice(0, -1),
@@ -145,6 +146,7 @@ export class CharacterMoves {
 	async addMoveToOther(moveData) {
 		let cats = this._getCategories();
 		let otherCat = cats.find(c => c.key === "other");
+		const moveSlug = toSlug(moveData.name);
 		if (!otherCat) {
 			otherCat = {
 				key: "other",
@@ -156,7 +158,7 @@ export class CharacterMoves {
 			};
 			cats = [...cats, otherCat];
 		}
-		if (otherCat.moves.some(m => m.name === moveData.name)) return false;
+		if (otherCat.moves.some(m => m.slug === moveSlug)) return false;
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
 			name: moveData.name, type: "move",
 			system: {
@@ -167,6 +169,7 @@ export class CharacterMoves {
 		}]);
 		const newId = created[0]?._id ?? null;
 		const flagMove = {
+			slug: moveSlug,
 			name: moveData.name, compendiumId: null,
 			rollType: moveData.system?.rollType ?? null,
 			description: moveData.system?.description ?? "",
@@ -180,34 +183,34 @@ export class CharacterMoves {
 		return true;
 	}
 
-	async deleteMove(moveName) {
+	async deleteMove(moveSlug) {
 		const cat = this._findCategory("other");
-		const move = cat?.moves.find(m => m.name === moveName);
+		const move = cat?.moves.find(m => m.slug === moveSlug);
 		if (!move) return;
 		const ids = move.ownedIds ?? [];
 		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
-		await this._updateCategory("other", c => ({...c, moves: c.moves.filter(m => m.name !== moveName)}));
+		await this._updateCategory("other", c => ({...c, moves: c.moves.filter(m => m.slug !== moveSlug)}));
 	}
 
-	async setMoveChoiceText(moveName, optionSlug, value) {
-		await this._choiceController.setText(moveName, optionSlug, value);
+	async setMoveChoiceText(moveSlug, optionSlug, value) {
+		await this._choiceController.setText(moveSlug, optionSlug, value);
 	}
 
-	async setMoveResourceCurrent(categoryKey, moveName, current) {
+	async setMoveResourceCurrent(categoryKey, moveSlug, current) {
 		await this._updateCategory(categoryKey, c => ({
 			...c,
-			moves: c.moves.map(m => !m.resource || m.name !== moveName ? m : {...m, resource: {...m.resource, current}}),
+			moves: c.moves.map(m => !m.resource || m.slug !== moveSlug ? m : {...m, resource: {...m.resource, current}}),
 		}));
 	}
 
 	async buildSnapshot() {
 		const cats = this._getCategories();
 		const level = this._vitals?.level ?? 1;
-		const acquiredByName = _acquiredNames(cats);
+		const acquiredSlugs = _acquiredSlugs(cats);
 		const choiceController = this._choiceController;
 		const categories = await Promise.all(cats.map(async cat => {
 			const moves = await Promise.all(cat.moves.map(m =>
-				_buildMoveSnapshot(m, cat.key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName), choiceController)
+				_buildMoveSnapshot(m, cat.key, _computeSelectable(m), _requirementsMet(m, level, acquiredSlugs), choiceController)
 			));
 			return new MoveCategorySnapshotBuilder()
 				.withKey(cat.key).withLabel(cat.label).withRenderStyle(cat.renderStyle)
@@ -218,8 +221,8 @@ export class CharacterMoves {
 		return new MovelistBuilder().withCategories(categories).build();
 	}
 
-	countOwnedByName(moveName) {
-		const move = this._getCategories().flatMap(c => c.moves).find(m => m.name === moveName);
+	countOwnedBySlug(moveSlug) {
+		const move = this._getCategories().flatMap(c => c.moves).find(m => m.slug === moveSlug);
 		return move?.selection.value ?? 0;
 	}
 
@@ -227,16 +230,17 @@ export class CharacterMoves {
 		const cat = this._findCategory(key);
 		if (!cat) return [];
 		const level = this._vitals?.level ?? 1;
-		const acquiredByName = _acquiredNames(this._getCategories());
-		return Promise.all(cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredByName))));
+		const acquiredSlugs = _acquiredSlugs(this._getCategories());
+		return Promise.all(cat.moves.map(m => _buildMoveSnapshot(m, key, _computeSelectable(m), _requirementsMet(m, level, acquiredSlugs))));
 	}
 
 	async onDropMove(itemData) {
+		const itemSlug = toSlug(itemData.name);
 		for (const cat of this._getCategories()) {
-			const existing = cat.moves.find(m => m.name === itemData.name);
+			const existing = cat.moves.find(m => m.slug === itemSlug);
 			if (existing) {
 				if (existing.selection.value < existing.selection.max) {
-					await this.incrementMove(cat.key, itemData.name);
+					await this.incrementMove(cat.key, existing.slug);
 					return true;
 				}
 				return false;
@@ -272,6 +276,7 @@ export class CharacterMoves {
 
 function _toFlagMove(move, selected) {
 	return {
+		slug: move.slug,
 		name: move.name, compendiumId: move.id ?? null,
 		rollType: move.rollType ?? null, description: move.description ?? "",
 		isStarting: selected,
@@ -297,30 +302,31 @@ function _withMoveType(obj, moveType) {
 }
 
 function _assignOwnedIds(flagMoves, createdDocs) {
-	const idsByName = new Map();
+	const idsBySlug = new Map();
 	for (const doc of (createdDocs ?? [])) {
-		if (!idsByName.has(doc.name)) idsByName.set(doc.name, []);
-		idsByName.get(doc.name).push(doc._id);
+		const slug = toSlug(doc.name);
+		if (!idsBySlug.has(slug)) idsBySlug.set(slug, []);
+		idsBySlug.get(slug).push(doc._id);
 	}
 	for (const m of flagMoves) {
-		const ids = idsByName.get(m.name);
+		const ids = idsBySlug.get(m.slug);
 		if (ids?.length) m.ownedIds = ids;
 	}
 }
 
-function _acquiredNames(cats) {
-	return new Set(cats.flatMap(c => c.moves).filter(m => m.selection.value > 0).map(m => m.name));
+function _acquiredSlugs(cats) {
+	return new Set(cats.flatMap(c => c.moves).filter(m => m.selection.value > 0).map(m => m.slug));
 }
 
 function _computeSelectable(move) {
 	return move.selection.value < move.selection.max;
 }
 
-function _requirementsMet(move, level, acquiredByName) {
+function _requirementsMet(move, level, acquiredSlugs) {
 	const req = move.requirement;
 	if (!req) return true;
 	if (req.level && level < req.level) return false;
-	if ((req.moves ?? []).some(name => !acquiredByName.has(name))) return false;
+	if ((req.moves ?? []).some(name => !acquiredSlugs.has(toSlug(name)))) return false;
 	return true;
 }
 
@@ -330,8 +336,8 @@ async function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet
 		: null;
 	let choices = null;
 	if (move.choices && choiceController) {
-		await choiceController.addGroup(move.name, move.choices);
-		choices = choiceController.buildGroupSnapshot(move.name);
+		await choiceController.addGroup(move.slug, move.choices);
+		choices = choiceController.buildGroupSnapshot(move.slug);
 	}
 	const req = move.requirement;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
@@ -341,6 +347,7 @@ async function _buildMoveSnapshot(move, categoryKey, selectable, requirementsMet
 	return new MoveSnapshotBuilder()
 		.withId(move.compendiumId ?? null)
 		.withOwnedId((move.ownedIds ?? []).at(-1) ?? null)
+		.withSlug(move.slug)
 		.withName(move.name)
 		.withDescription(move.description ?? "")
 		.withRollType(move.rollType ?? null)
