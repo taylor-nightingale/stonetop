@@ -25,23 +25,22 @@
 * bullet points everywhere should use our icon just like in the steading sheet.
 * add playbook dropdown
 * selecting moves flickers the check box before selecting
-* modal popup for rolling? keep roll mode?
-* Add hover over tool tip for armor, hp, and damage to show where the calculations came from
+* steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
+* Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty", name: "Loyalty to the Eldritch God" }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
+* moveResults data — many moves don't yet have moveResults populated in pack data
+* modal popup for rolling needs better formatting and a button for adv/dis/normal
 
 == Nice to have
 * toggle to turn off non-selected character options
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
+* Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 
-Debility checks in the character sheet have a bug.
-unchecking a debility stat unchecks all debilities
-checking a debility for the first time flickers it, checking it for the second time actually selects it.
-     ---
-     Follow-on work (out of scope here)
+=== Bugs
+* Debility checks in the character sheet have a bug.
+  * unchecking a debility stat unchecks all debilities
+  checking a debility for the first time flickers it, checking it for the second time actually selects it.
 
-     1. Steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
-     2. Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty", name: "Loyalty to the Eldritch God" }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
-     3. "ask" stat filtering — some moves restrict which stats can be chosen (e.g. "roll +STR or +DEX"); pack data could add askStats: ["str", "dex"] and getRollableStats(item) could filter accordingly
-     4. moveResults data — many moves don't yet have moveResults populated in pack data
+
 
 
