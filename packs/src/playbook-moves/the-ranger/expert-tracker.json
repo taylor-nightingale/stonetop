@@ -1,27 +1,27 @@
 {
-	"_id": "EH3YkpP6LX9sCrW3",
-	"_key": "!items!EH3YkpP6LX9sCrW3",
-	"name": "Expert Tracker",
-	"type": "move",
-	"system": {
-		"playbook": "The Ranger",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight by searching for or studying the signs left by passing creatures</em></strong>, you can ask \"What happened here recently?\" for free, even <strong>on a 6-</strong>.</p><p>When you <strong><em>follow a creature's trail</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong> you follow it to a significant change in terrain or activity; <strong>on a 10+</strong>, you can ask the GM a reasonable question about your quarry and get a useful answer.</p>",
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Follow the trail to a significant change and ask a reasonable question about your quarry."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Follow the trail to a significant change in terrain or activity."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "TOPlmLzP0PF3i9CM"
+  "_id": "EH3YkpP6LX9sCrW3",
+  "_key": "!items!EH3YkpP6LX9sCrW3",
+  "name": "Expert Tracker",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>Seek Insight by searching for or studying the signs left by passing creatures</em></strong>, you can ask \"What happened here recently?\" for free, even <strong>on a 6-</strong>.</p><p>When you <strong><em>follow a creature's trail</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong> you follow it to a significant change in terrain or activity; <strong>on a 10+</strong>, you can ask the GM a reasonable question about your quarry and get a useful answer.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Follow the trail to a significant change and ask a reasonable question about your quarry."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Follow the trail to a significant change in terrain or activity."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
 }

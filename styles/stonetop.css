@@ -2750,3 +2750,40 @@ body,
 	margin-bottom: 4px;
 }
 
+.stonetop-move-result {
+	margin-top: 0.5em;
+	padding: 0.4em 0.6em;
+	border-left: 3px solid currentColor;
+	font-style: italic;
+}
+.stonetop-move-result--success { color: #2d6a2d; border-color: #2d6a2d; }
+.stonetop-move-result--partial  { color: #7a6000; border-color: #7a6000; }
+.stonetop-move-result--failure  { color: #8b0000; border-color: #8b0000; }
+
+.stonetop-roll-dice {
+	display: flex;
+	align-items: center;
+	gap: 0.35em;
+	flex-wrap: wrap;
+	margin-bottom: 0.5em;
+	font-size: 1.05em;
+}
+.stonetop-die {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.6em;
+	height: 1.6em;
+	background: #2a2a2a;
+	color: #f0f0f0;
+	border-radius: 3px;
+	font-weight: bold;
+}
+.stonetop-die--dropped {
+	opacity: 0.35;
+	background: #555;
+	text-decoration: line-through;
+}
+.stonetop-roll-mod   { font-weight: bold; }
+.stonetop-roll-total { font-weight: bold; }
+

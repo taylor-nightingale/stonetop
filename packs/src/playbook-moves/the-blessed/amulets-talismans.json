@@ -1,27 +1,27 @@
 {
-	"_id": "aGHBpr0zIvFX5DLz",
-	"_key": "!items!aGHBpr0zIvFX5DLz",
-	"name": "Amulets & Talismans",
-	"type": "move",
-	"system": {
-		"playbook": "The Blessed",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>craft a protective charm for someone</em></strong>, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When <strong><em>they would suffer such harm while bearing your charm</em></strong>, roll +INT: <strong>on a 10+</strong>, they ignore the harm entirely; <strong><em>on a 7-9</em></strong>, they suffer only half the damage or effect; <strong>on a 6-</strong>, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.</p>",
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They ignore the harm entirely."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "They suffer only half the damage or effect."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "They suffer the harm normally."
-			}
-		}
-	},
-	"folder": "twBI9Q4lZycODbDk"
+  "_id": "aGHBpr0zIvFX5DLz",
+  "_key": "!items!aGHBpr0zIvFX5DLz",
+  "name": "Amulets & Talismans",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>craft a protective charm for someone</em></strong>, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When <strong><em>they would suffer such harm while bearing your charm</em></strong>, roll +INT: <strong>on a 10+</strong>, they ignore the harm entirely; <strong><em>on a 7-9</em></strong>, they suffer only half the damage or effect; <strong>on a 6-</strong>, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They ignore the harm entirely."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They suffer only half the damage or effect."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "They suffer the harm normally."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "twBI9Q4lZycODbDk"
 }

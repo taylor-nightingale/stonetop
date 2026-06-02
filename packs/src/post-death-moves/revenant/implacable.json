@@ -1,13 +1,13 @@
 {
-	"name": "Implacable",
-	"type": "move",
-	"system": {
-		"moveType": "post-death",
-		"playbook": "revenant",
-		"description": "<p>When you <strong><em>push the limits of your undead body</em></strong>, lose 1d4 HP and choose 1:</p><ul><li>Perform a feat of inhuman strength</li><li>Act with uncanny speed and grace</li><li>Refuse to be moved, held back, or knocked off course</li></ul>",
-		"rollType": null
-	},
-	"folder": "PltWcwhA5PwgziBO",
-	"_id": "6L9Bk2ymFDAOM1F9",
-	"_key": "!items!6L9Bk2ymFDAOM1F9"
+  "name": "Implacable",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "revenant",
+    "description": "<p>When you <strong><em>push the limits of your undead body</em></strong>, lose 1d4 HP and choose 1:</p><ul><li>Perform a feat of inhuman strength</li><li>Act with uncanny speed and grace</li><li>Refuse to be moved, held back, or knocked off course</li></ul>",
+    "rollStat": null
+  },
+  "folder": "PltWcwhA5PwgziBO",
+  "_id": "6L9Bk2ymFDAOM1F9",
+  "_key": "!items!6L9Bk2ymFDAOM1F9"
 }

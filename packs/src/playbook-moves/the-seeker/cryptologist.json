@@ -1,32 +1,32 @@
 {
-	"_id": "bbzbqY1hmgwSAP7H",
-	"_key": "!items!bbzbqY1hmgwSAP7H",
-	"name": "Cryptologist",
-	"type": "move",
-	"system": {
-		"playbook": "The Seeker",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>study encoded, forgotten, or arcane marks or writing</em></strong>, roll +INT: <strong>on a 10+</strong>, you can fully decipher them in just a few minutes; <strong><em>on a 7-9</em></strong>, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.</p>",
-		"requirement": {
-			"moves": [
-				"Polyglot"
-			]
-		},
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Fully decipher them in just a few minutes."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Get the gist in a few minutes; full deciphering takes an hour or so."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "Xq0anhaGDBnO4A5B"
+  "_id": "bbzbqY1hmgwSAP7H",
+  "_key": "!items!bbzbqY1hmgwSAP7H",
+  "name": "Cryptologist",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>study encoded, forgotten, or arcane marks or writing</em></strong>, roll +INT: <strong>on a 10+</strong>, you can fully decipher them in just a few minutes; <strong><em>on a 7-9</em></strong>, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.</p>",
+    "requirement": {
+      "moves": [
+        "Polyglot"
+      ]
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Fully decipher them in just a few minutes."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Get the gist in a few minutes; full deciphering takes an hour or so."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
 }

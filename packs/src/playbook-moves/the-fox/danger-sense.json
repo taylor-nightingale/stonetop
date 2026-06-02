@@ -1,28 +1,28 @@
 {
-	"_id": "ihACAISSKV2nIYTy",
-	"_key": "!items!ihACAISSKV2nIYTy",
-	"name": "Danger Sense",
-	"type": "move",
-	"system": {
-		"playbook": "The Fox",
-		"moveType": "playbook",
-		"isStartingMove": false,
-		"description": "<p>You can always ask the GM, \"Is there an ambush or trap here?\" If they say \"yes,\" roll +INT: <strong>on a 10+</strong>, ask the GM both of the questions below; <strong><em>on a 7-9</em></strong>, ask 1; either way, gain advantage on your next roll to act on the answer(s).</p><ul><li>What will trigger the ambush or trap?</li><li>What will happen once it's triggered?</li></ul><p>On a 6-, don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.</p>",
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Ask both questions."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Ask 1 question."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
-			}
-		}
-	},
-	"folder": "xnEoWIXTKWl4oAJz"
+  "_id": "ihACAISSKV2nIYTy",
+  "_key": "!items!ihACAISSKV2nIYTy",
+  "name": "Danger Sense",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "isStartingMove": false,
+    "description": "<p>You can always ask the GM, \"Is there an ambush or trap here?\" If they say \"yes,\" roll +INT: <strong>on a 10+</strong>, ask the GM both of the questions below; <strong><em>on a 7-9</em></strong>, ask 1; either way, gain advantage on your next roll to act on the answer(s).</p><ul><li>What will trigger the ambush or trap?</li><li>What will happen once it's triggered?</li></ul><p>On a 6-, don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Ask both questions."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Ask 1 question."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
 }

@@ -1,27 +1,27 @@
 {
-	"name": "Dark Succor",
-	"type": "move",
-	"system": {
-		"moveType": "post-death",
-		"playbook": "thrall",
-		"description": "<p>When you are dying or killed outright, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: <strong>on a 10+</strong>, choose 1; <strong>on a 7–9</strong>, choose 2; <strong>on a 6–</strong>, all 3 apply.</p><ul><li>Gain a new Mark of the GM's choice</li><li>Cross off a Mark that you don't have—you can never gain it</li><li>Your master gives you a task; until you complete it, your Favor stays at 0.</li></ul><p>Regardless, reset your Favor to 0.</p>",
-		"rollType": null,
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Choose 1: Gain a new Mark of the GM's choice; Cross off a Mark that you don't have—you can never gain it; Your master gives you a task; until you complete it, your Favor stays at 0."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Choose 2 from the list above."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "All 3 apply."
-			}
-		}
-	},
-	"folder": "Xk9mThr4LLp0aZcN",
-	"_id": "Thr4llDrkSuc0003",
-	"_key": "!items!Thr4llDrkSuc0003"
+  "name": "Dark Succor",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "thrall",
+    "description": "<p>When you are dying or killed outright, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: <strong>on a 10+</strong>, choose 1; <strong>on a 7–9</strong>, choose 2; <strong>on a 6–</strong>, all 3 apply.</p><ul><li>Gain a new Mark of the GM's choice</li><li>Cross off a Mark that you don't have—you can never gain it</li><li>Your master gives you a task; until you complete it, your Favor stays at 0.</li></ul><p>Regardless, reset your Favor to 0.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Choose 1: Gain a new Mark of the GM's choice; Cross off a Mark that you don't have—you can never gain it; Your master gives you a task; until you complete it, your Favor stays at 0."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Choose 2 from the list above."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "All 3 apply."
+      }
+    },
+    "rollStat": null
+  },
+  "folder": "Xk9mThr4LLp0aZcN",
+  "_id": "Thr4llDrkSuc0003",
+  "_key": "!items!Thr4llDrkSuc0003"
 }

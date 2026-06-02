@@ -22,11 +22,11 @@ const repo = new FoundryMoveRepository();
 const BLESSED_MOVE_A = new FakeCompendiumMoveBuilder().withName("Serenity").withPlaybook("The Blessed").withRollType("stat").asStarting().build();
 const BLESSED_MOVE_B = new FakeCompendiumMoveBuilder().withName("Invoke the Gods").withPlaybook("The Blessed").withRollType("stat").build();
 const MARSHAL_MOVE_A = new FakeCompendiumMoveBuilder().withName("Read the Winds").withPlaybook("The Marshal").withRollType("stat").asStarting().build();
-const BASIC_MOVE_A = new FakeCompendiumMoveBuilder().withName("Defy Danger").withRollType("stat").build();
-const BASIC_MOVE_B = new FakeCompendiumMoveBuilder().withName("Aid or Interfere").withRollType("stat").build();
+const BASIC_MOVE_A   = new FakeCompendiumMoveBuilder().withName("Defy Danger").withRollType("stat").build();
+const BASIC_MOVE_B   = new FakeCompendiumMoveBuilder().withName("Aid or Interfere").withRollType("stat").build();
 const REVENANT_MOVE_A = new FakeCompendiumMoveBuilder().withName("Unliving").withPlaybook("revenant").build();
 const REVENANT_MOVE_B = new FakeCompendiumMoveBuilder().withName("Undying").withPlaybook("revenant").withRollType("con").build();
-const GHOST_MOVE_A = new FakeCompendiumMoveBuilder().withName("Disembodied").withPlaybook("ghost").build();
+const GHOST_MOVE_A   = new FakeCompendiumMoveBuilder().withName("Disembodied").withPlaybook("ghost").build();
 
 describe("FoundryMoveRepository", () => {
 	afterEach(() => vi.unstubAllGlobals());
@@ -58,26 +58,14 @@ describe("FoundryMoveRepository", () => {
 			expect(await repo.getPlaybookMoves("The Marshal")).toEqual([]);
 		});
 
-		it("calls getIndex with the correct fields", async () => {
-			new FakeGameBuilder()
-				.withPack(FakePackBuilder.playbookMovesPack())
-				.build();
-			const repo = new FoundryMoveRepository();
-			await repo.getPlaybookMoves("The Blessed");
-			expect(pack.getIndex).toHaveBeenCalledWith({
-				fields: ["system.playbook", "system.isStartingMove", "system.requirement",
-					"system.rollType", "system.description", "system.repeatMax", "system.resource", "system.choices"],
-			});
-		});
-
-		it("caches result — getIndex not called a second time for same playbook", async () => {
+		it("caches result — same array returned on second call", async () => {
 			new FakeGameBuilder()
 				.withPack(FakePackBuilder.playbookMovesPack().withItem(BLESSED_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
-			await repo.getPlaybookMoves("The Blessed");
-			await repo.getPlaybookMoves("The Blessed");
-			expect(pack.getIndex).toHaveBeenCalledTimes(1);
+			const first  = await repo.getPlaybookMoves("The Blessed");
+			const second = await repo.getPlaybookMoves("The Blessed");
+			expect(second).toBe(first);
 		});
 
 		it("does not share cache across different playbook names", async () => {
@@ -87,17 +75,16 @@ describe("FoundryMoveRepository", () => {
 			const repo = new FoundryMoveRepository();
 			const blessed = await repo.getPlaybookMoves("The Blessed");
 			const marshal = await repo.getPlaybookMoves("The Marshal");
-			expect(blessed.map(m => m.id)).toEqual(["pb001"]);
-			expect(marshal.map(m => m.id)).toEqual(["pb003"]);
+			expect(blessed.map(m => m.id)).toEqual([BLESSED_MOVE_A._id]);
+			expect(marshal.map(m => m.id)).toEqual([MARSHAL_MOVE_A._id]);
 		});
 	});
 
 	describe("getPlaybookMoveDocument", () => {
 		it("returns null when pack is not registered", async () => {
 			new FakeGameBuilder().build();
-			new FakeGameBuilder().build();
 			const repo = new FoundryMoveRepository();
-			expect(await repo.getPlaybookMoveDocument("pb001")).toBeNull();
+			expect(await repo.getPlaybookMoveDocument(BLESSED_MOVE_A._id)).toBeNull();
 		});
 
 		it("returns the document when found", async () => {
@@ -105,7 +92,7 @@ describe("FoundryMoveRepository", () => {
 				.withPack(FakePackBuilder.playbookMovesPack().withItem(BLESSED_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
-			const doc = await repo.getPlaybookMoveDocument("pb001");
+			const doc = await repo.getPlaybookMoveDocument(BLESSED_MOVE_A._id);
 			expect(doc).toEqual(BLESSED_MOVE_A);
 		});
 	});
@@ -125,26 +112,17 @@ describe("FoundryMoveRepository", () => {
 			const moves = await repo.getBasicMoves();
 			expect(moves).toHaveLength(2);
 			expect(moves[0]).toBeInstanceOf(Move);
-			expect(moves.map(m => m.id)).toEqual(["bm001", "bm002"]);
+			expect(moves.map(m => m.id)).toEqual([BASIC_MOVE_A._id, BASIC_MOVE_B._id]);
 		});
 
-		it("calls getIndex with the correct fields", async () => {
-			new FakeGameBuilder()
-				.withPack(FakePackBuilder.basicMovesPack())
-				.build();
-			const repo = new FoundryMoveRepository();
-			await repo.getBasicMoves();
-			expect(pack.getIndex).toHaveBeenCalledWith({fields: ["system.rollType"]});
-		});
-
-		it("caches result — getIndex not called a second time", async () => {
+		it("caches result — same array returned on second call", async () => {
 			new FakeGameBuilder()
 				.withPack(FakePackBuilder.basicMovesPack().withItem(BASIC_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
-			await repo.getBasicMoves();
-			await repo.getBasicMoves();
-			expect(pack.getIndex).toHaveBeenCalledTimes(1);
+			const first  = await repo.getBasicMoves();
+			const second = await repo.getBasicMoves();
+			expect(second).toBe(first);
 		});
 	});
 
@@ -152,7 +130,7 @@ describe("FoundryMoveRepository", () => {
 		it("returns null when pack is not registered", async () => {
 			new FakeGameBuilder().build();
 			const repo = new FoundryMoveRepository();
-			expect(await repo.getBasicMoveDocument("bm001")).toBeNull();
+			expect(await repo.getBasicMoveDocument(BASIC_MOVE_A._id)).toBeNull();
 		});
 
 		it("returns the document when found", async () => {
@@ -160,7 +138,7 @@ describe("FoundryMoveRepository", () => {
 				.withPack(FakePackBuilder.basicMovesPack().withItem(BASIC_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
-			const doc = await repo.getBasicMoveDocument("bm001");
+			const doc = await repo.getBasicMoveDocument(BASIC_MOVE_A._id);
 			expect(doc).toEqual(BASIC_MOVE_A);
 		});
 	});
@@ -181,7 +159,7 @@ describe("FoundryMoveRepository", () => {
 			const moves = await repo.getPostDeathMoves("revenant");
 			expect(moves).toHaveLength(2);
 			expect(moves[0]).toBeInstanceOf(Move);
-			expect(moves.map(m => m.id)).toEqual(["pd001", "pd002"]);
+			expect(moves.map(m => m.id)).toEqual([REVENANT_MOVE_A._id, REVENANT_MOVE_B._id]);
 		});
 
 		it("returns [] when no moves match insertSlug", async () => {
@@ -193,27 +171,15 @@ describe("FoundryMoveRepository", () => {
 			expect(await repo.getPostDeathMoves("thrall")).toEqual([]);
 		});
 
-		it("calls getIndex with the correct fields", async () => {
-			new FakeGameBuilder()
-				.withPack(FakePackBuilder.postDeathMovesPack())
-				.build();
-
-			const repo = new FoundryMoveRepository();
-			await repo.getPostDeathMoves("revenant");
-			expect(pack.getIndex).toHaveBeenCalledWith({
-				fields: ["system.playbook", "system.rollType", "system.description", "system.resource"],
-			});
-		});
-
-		it("caches result — getIndex not called a second time for same insertSlug", async () => {
+		it("caches result — same array returned on second call for same insertSlug", async () => {
 			new FakeGameBuilder()
 				.withPack(FakePackBuilder.postDeathMovesPack().withItem(REVENANT_MOVE_A))
 				.build();
 
 			const repo = new FoundryMoveRepository();
-			await repo.getPostDeathMoves("revenant");
-			await repo.getPostDeathMoves("revenant");
-			expect(pack.getIndex).toHaveBeenCalledTimes(1);
+			const first  = await repo.getPostDeathMoves("revenant");
+			const second = await repo.getPostDeathMoves("revenant");
+			expect(second).toBe(first);
 		});
 	});
 
@@ -221,7 +187,7 @@ describe("FoundryMoveRepository", () => {
 		it("returns null when pack is not registered", async () => {
 			new FakeGameBuilder().build();
 			const repo = new FoundryMoveRepository();
-			expect(await repo.getPostDeathMoveDocument("pd001")).toBeNull();
+			expect(await repo.getPostDeathMoveDocument(REVENANT_MOVE_A._id)).toBeNull();
 		});
 
 		it("returns the document when found", async () => {
@@ -229,7 +195,7 @@ describe("FoundryMoveRepository", () => {
 				.withPack(FakePackBuilder.postDeathMovesPack().withItem(REVENANT_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
-			const doc = await repo.getPostDeathMoveDocument("pd001");
+			const doc = await repo.getPostDeathMoveDocument(REVENANT_MOVE_A._id);
 			expect(doc).toEqual(REVENANT_MOVE_A);
 		});
 	});

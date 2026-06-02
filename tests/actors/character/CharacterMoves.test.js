@@ -503,6 +503,18 @@ describe("CharacterMoves.incrementMove", () => {
 		expect(actor.createdDocs).toHaveLength(1);
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
+
+	it("stores moveResults from repo move in embedded doc", async () => {
+		const moveResults = { success: { label: "10+", value: "Yes!" }, partial: { label: "7-9", value: "Mostly." }, failure: { label: "6-", value: "No." } };
+		const repo = new FakeMoveRepository([
+			new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).withMoveResults(moveResults).build(),
+		]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.initPlaybookCategory(makePlaybookData());
+		await m.incrementMove("playbook-the-heavy", "alpha");
+		expect(actor.createdDocs[0].system.moveResults).toEqual(moveResults);
+	});
 });
 
 // ── decrementMove ─────────────────────────────────────────────────────────────
@@ -587,7 +599,7 @@ describe("CharacterMoves.addMoveToOther", () => {
 	it("assigns an ownedId after creating embedded doc", async () => {
 		const actor = makeActor();
 		const m = makeMoves({actor});
-		await m.addMoveToOther({name: "Custom Move", system: {rollType: "str"}});
+		await m.addMoveToOther({name: "Custom Move", system: {rollStat: "str"}});
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 });

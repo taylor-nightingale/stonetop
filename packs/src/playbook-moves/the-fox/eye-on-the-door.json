@@ -1,30 +1,30 @@
 {
-	"_id": "gfHFqhRArEVbHK8o",
-	"_key": "!items!gfHFqhRArEVbHK8o",
-	"name": "Eye on the Door",
-	"type": "move",
-	"system": {
-		"playbook": "The Fox",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>and your allies need to get out of here</em></strong>, name your escape route and roll +INT: <strong>on a 10+</strong>, you're gone; <strong><em>on a 7-9</em></strong>, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.</p>",
-		"requirement": {
-			"level": 6
-		},
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "You're gone."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "xnEoWIXTKWl4oAJz"
+  "_id": "gfHFqhRArEVbHK8o",
+  "_key": "!items!gfHFqhRArEVbHK8o",
+  "name": "Eye on the Door",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>and your allies need to get out of here</em></strong>, name your escape route and roll +INT: <strong>on a 10+</strong>, you're gone; <strong><em>on a 7-9</em></strong>, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.</p>",
+    "requirement": {
+      "level": 6
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "You're gone."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
 }

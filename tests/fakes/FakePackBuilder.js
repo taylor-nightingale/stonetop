@@ -6,18 +6,17 @@ export class FakePackBuilder {
 		this.name = name;
 	}
 
-
 	withItem(item) {
 		this._items.push(item);
 		return this;
 	}
 
 	build() {
+		const items = this._items;
 		return {
-			getIndex: vi.fn(async () => {
-			}),
-			index: this._items,
-			getDocument: vi.fn(async (id) => this._items.find(e => e._id === id) ?? null),
+			async getIndex() {},
+			index: items,
+			async getDocument(id) { return items.find(e => e._id === id) ?? null; },
 		};
 	}
 

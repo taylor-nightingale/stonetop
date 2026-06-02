@@ -1,27 +1,27 @@
 {
-	"_id": "RUVgl5y0aHLgsBY3",
-	"_key": "!items!RUVgl5y0aHLgsBY3",
-	"name": "We Happy Few",
-	"type": "move",
-	"system": {
-		"playbook": "The Marshal",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>give an inspiring speech to your allies before facing a dire threat</em></strong>, roll +CHA: <strong>on a 10+</strong>, each ally holds 2 Inspiration; <strong><em>on a 7-9</em></strong>, each ally holds 1 Inspiration; <strong>on a 6-</strong>, each ally holds 1, but you have disadvantage on all rolls until you share your nagging doubts with someone else.</p><p>Once battle is joined, your allies can spend their Inspiration at any time, 1-for-1 to:</p><ul><li>Act fearlessly in the face of terror or overwhelming odds</li><li>Keep 1 HP instead of being reduced to 0 HP</li><li>Add 1d6 to a damage roll they just made</li></ul>",
-		"rollType": "cha",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Each ally holds 2 Inspiration."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Each ally holds 1 Inspiration."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else."
-			}
-		}
-	},
-	"folder": "AFEGaCzrd5eKoPuV"
+  "_id": "RUVgl5y0aHLgsBY3",
+  "_key": "!items!RUVgl5y0aHLgsBY3",
+  "name": "We Happy Few",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>give an inspiring speech to your allies before facing a dire threat</em></strong>, roll +CHA: <strong>on a 10+</strong>, each ally holds 2 Inspiration; <strong><em>on a 7-9</em></strong>, each ally holds 1 Inspiration; <strong>on a 6-</strong>, each ally holds 1, but you have disadvantage on all rolls until you share your nagging doubts with someone else.</p><p>Once battle is joined, your allies can spend their Inspiration at any time, 1-for-1 to:</p><ul><li>Act fearlessly in the face of terror or overwhelming odds</li><li>Keep 1 HP instead of being reduced to 0 HP</li><li>Add 1d6 to a damage roll they just made</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Each ally holds 2 Inspiration."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Each ally holds 1 Inspiration."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else."
+      }
+    },
+    "rollStat": "cha"
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
 }

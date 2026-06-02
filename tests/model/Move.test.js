@@ -6,25 +6,32 @@ import { Resource } from "../../src/model/data/Resource.js";
 
 const CHOICES_DATA = { slug: "choices", list: [{ type: "heading", slug: "h1", label: "Pick one" }] };
 
+const MOVE_RESULTS = {
+	success: { label: "10+", value: "You succeed." },
+	partial: { label: "7-9", value: "Partial success." },
+	failure: { label: "6-",  value: "You fail." },
+};
+
 const PLAYBOOK_ENTRY = {
 	_id: "pb001",
 	name: "Serenity",
 	system: {
 		playbook:       "The Blessed",
-		rollType:       "wis",
+		rollStat:       "wis",
 		description:    "<p>Roll +WIS.</p>",
 		isStartingMove: true,
 		requirement:    { level: 2, moves: ["Serenity"], playbook: null },
 		repeatMax:      2,
 		resource:       { max: 3, maxStat: null, title: "Stock", labels: [] },
 		choices:        CHOICES_DATA,
+		moveResults:    MOVE_RESULTS,
 	},
 };
 
 const BASIC_ENTRY = {
 	_id: "bm001",
 	name: "Defy Danger",
-	system: { rollType: "stat" },
+	system: { rollStat: "stat" },
 };
 
 // -- Tests --------------------------------------------------------------------
@@ -42,8 +49,8 @@ describe("Move", () => {
 		expect(new Move(PLAYBOOK_ENTRY).playbook).toBe("The Blessed");
 	});
 
-	it("stores rollType", () => {
-		expect(new Move(PLAYBOOK_ENTRY).rollType).toBe("wis");
+	it("stores rollStat", () => {
+		expect(new Move(PLAYBOOK_ENTRY).rollStat).toBe("wis");
 	});
 
 	it("stores description", () => {
@@ -76,13 +83,21 @@ describe("Move", () => {
 		expect(new Move(BASIC_ENTRY).resource).toBeNull();
 	});
 
+	it("stores moveResults", () => {
+		expect(new Move(PLAYBOOK_ENTRY).moveResults).toEqual(MOVE_RESULTS);
+	});
+
+	it("moveResults defaults to null when absent", () => {
+		expect(new Move(BASIC_ENTRY).moveResults).toBeNull();
+	});
+
 	describe("defaults for absent system fields", () => {
 		it("playbook defaults to null", () => {
 			expect(new Move(BASIC_ENTRY).playbook).toBeNull();
 		});
 
-		it("rollType defaults to null", () => {
-			expect(new Move({ _id: "x", name: "x", system: {} }).rollType).toBeNull();
+		it("rollStat defaults to null", () => {
+			expect(new Move({ _id: "x", name: "x", system: {} }).rollStat).toBeNull();
 		});
 
 		it("description defaults to null", () => {

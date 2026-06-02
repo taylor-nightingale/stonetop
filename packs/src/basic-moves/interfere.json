@@ -1,25 +1,25 @@
 {
-	"name": "Interfere",
-	"type": "move",
-	"system": {
-		"moveType": "basic",
-		"description": "<p>When you try to foil another PC’s action and neither of you back down, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, they pick 1 from the list below; <strong><em>on a 7-9</em></strong>, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.</p><ul><li>Do it anyway, but with disadvantage on their (next) roll</li><li>Relent, change course, or otherwise allow their move to be foiled</li></ul>",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They pick 1 from the list."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Makes a hard GM move (Up to GM interpretation)."
-			}
-		},
-		"rollType": "ask"
-	},
-	"_id": "NIzfTEDyTEujEV6M",
-	"_key": "!items!NIzfTEDyTEujEV6M"
+  "name": "Interfere",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "description": "<p>When you try to foil another PC’s action and neither of you back down, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, they pick 1 from the list below; <strong><em>on a 7-9</em></strong>, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.</p><ul><li>Do it anyway, but with disadvantage on their (next) roll</li><li>Relent, change course, or otherwise allow their move to be foiled</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They pick 1 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Makes a hard GM move (Up to GM interpretation)."
+      }
+    },
+    "rollStat": "ask"
+  },
+  "_id": "NIzfTEDyTEujEV6M",
+  "_key": "!items!NIzfTEDyTEujEV6M"
 }

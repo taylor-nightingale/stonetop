@@ -33,4 +33,15 @@
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
 
+Debility checks in the character sheet have a bug.
+unchecking a debility stat unchecks all debilities
+checking a debility for the first time flickers it, checking it for the second time actually selects it.
+     ---
+     Follow-on work (out of scope here)
+
+     1. Steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
+     2. Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty", name: "Loyalty to the Eldritch God" }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
+     3. "ask" stat filtering — some moves restrict which stats can be chosen (e.g. "roll +STR or +DEX"); pack data could add askStats: ["str", "dex"] and getRollableStats(item) could filter accordingly
+     4. moveResults data — many moves don't yet have moveResults populated in pack data
+
 

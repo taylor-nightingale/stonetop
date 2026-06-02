@@ -1,27 +1,27 @@
 {
-	"_id": "PYXUWkHmFT4B9HcH",
-	"_key": "!items!PYXUWkHmFT4B9HcH",
-	"name": "Burgle",
-	"type": "move",
-	"system": {
-		"playbook": "The Fox",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>sneak off on your own into a dangerous place</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, you make it back, and the GM says where you got to and what you learned. Then, <strong>on a 10+</strong>, also pick 2; <strong><em>on a 7-9</em></strong>, also pick 1:</p><ul><li>You got away clean, rousing no suspicion</li><li>You swiped something valuable (GM's choice)</li><li>You set something up to exploit on your return</li><li>Ask a Seek Insight question about what you saw</li></ul><p>On a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).</p>",
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "You make it back. Pick 2 from the list."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "You make it back. Pick 1 from the list."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
-			}
-		}
-	},
-	"folder": "xnEoWIXTKWl4oAJz"
+  "_id": "PYXUWkHmFT4B9HcH",
+  "_key": "!items!PYXUWkHmFT4B9HcH",
+  "name": "Burgle",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>sneak off on your own into a dangerous place</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, you make it back, and the GM says where you got to and what you learned. Then, <strong>on a 10+</strong>, also pick 2; <strong><em>on a 7-9</em></strong>, also pick 1:</p><ul><li>You got away clean, rousing no suspicion</li><li>You swiped something valuable (GM's choice)</li><li>You set something up to exploit on your return</li><li>Ask a Seek Insight question about what you saw</li></ul><p>On a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "You make it back. Pick 2 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You make it back. Pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
 }

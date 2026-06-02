@@ -1,32 +1,32 @@
 {
-	"_id": "zVHHzThbi5GNSvdF",
-	"_key": "!items!zVHHzThbi5GNSvdF",
-	"name": "Luminous Shield",
-	"type": "move",
-	"system": {
-		"playbook": "The Lightbearer",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>brandish a holy light to turn aside an attack against body, mind, or soul</em></strong>, roll +CHA: <strong>on a 10+</strong>, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; <strong><em>on a 7-9</em></strong>, the attack is deflected but your holy light flickers and dims, threatening to go out; <strong>on a 6-</strong>, your light snuffs out and the attack is unimpeded.</p>",
-		"requirement": {
-			"moves": [
-				"A Candle Against the Dark"
-			]
-		},
-		"rollType": "cha",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "The attack is deflected and the attacker (if in range) is briefly blinded."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "The attack is deflected but your holy light flickers and dims, threatening to go out."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Your light snuffs out and the attack is unimpeded."
-			}
-		}
-	},
-	"folder": "iPC15k3PnwMGDZE3"
+  "_id": "zVHHzThbi5GNSvdF",
+  "_key": "!items!zVHHzThbi5GNSvdF",
+  "name": "Luminous Shield",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>brandish a holy light to turn aside an attack against body, mind, or soul</em></strong>, roll +CHA: <strong>on a 10+</strong>, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; <strong><em>on a 7-9</em></strong>, the attack is deflected but your holy light flickers and dims, threatening to go out; <strong>on a 6-</strong>, your light snuffs out and the attack is unimpeded.</p>",
+    "requirement": {
+      "moves": [
+        "A Candle Against the Dark"
+      ]
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "The attack is deflected and the attacker (if in range) is briefly blinded."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The attack is deflected but your holy light flickers and dims, threatening to go out."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Your light snuffs out and the attack is unimpeded."
+      }
+    },
+    "rollStat": "cha"
+  },
+  "folder": "iPC15k3PnwMGDZE3"
 }

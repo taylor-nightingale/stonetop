@@ -1,27 +1,27 @@
 {
-	"_id": "OfRcEbjujQyVhOlK",
-	"_key": "!items!OfRcEbjujQyVhOlK",
-	"name": "Shake It Off",
-	"type": "move",
-	"system": {
-		"playbook": "The Marshal",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>order an ally to overcome fear, pain</em></strong>, doubt, or delusion, roll +CHA: <strong>on a 10+</strong>, they do it; <strong><em>on a 7-9</em></strong>, a PC gets advantage to do it; an NPC will do it, but they'll need time, they'll resent you, or they'll feel humiliated (GM decides).</p>",
-		"rollType": "cha",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They do it."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "A PC gets advantage to do it; an NPC does it but at a cost (GM decides)."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "AFEGaCzrd5eKoPuV"
+  "_id": "OfRcEbjujQyVhOlK",
+  "_key": "!items!OfRcEbjujQyVhOlK",
+  "name": "Shake It Off",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>order an ally to overcome fear, pain</em></strong>, doubt, or delusion, roll +CHA: <strong>on a 10+</strong>, they do it; <strong><em>on a 7-9</em></strong>, a PC gets advantage to do it; an NPC will do it, but they'll need time, they'll resent you, or they'll feel humiliated (GM decides).</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They do it."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "A PC gets advantage to do it; an NPC does it but at a cost (GM decides)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "cha"
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
 }

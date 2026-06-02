@@ -1,28 +1,28 @@
 {
-	"_id": "VQeZJR3H4YBMiBol",
-	"_key": "!items!VQeZJR3H4YBMiBol",
-	"name": "Invoke the Sun God",
-	"type": "move",
-	"system": {
-		"playbook": "The Lightbearer",
-		"moveType": "playbook",
-		"isStartingMove": true,
-		"description": "<p>When you <strong><em>imbue a holy light with Helior's power</em></strong>, choose an Invocation you know and roll +WIS: <strong>on a 10+</strong>, it works as described but you must choose 1 consequence from the list below; <strong><em>on a 7-9</em></strong>, it works as described, but you and the GM each choose 1.</p><ul><li>The Invocation has its reduced effect</li><li>The effort taxes you; mark a debility</li><li>The light is snuffed out when the Invocation is complete, its fuel consumed</li><li>You must bask in sunlight for an hour or so before using that Invocation again</li></ul><p>See the Invocations insert for details.</p>",
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "It works as described — you choose 1 consequence."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "It works as described — you and the GM each choose 1 consequence."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "iPC15k3PnwMGDZE3"
+  "_id": "VQeZJR3H4YBMiBol",
+  "_key": "!items!VQeZJR3H4YBMiBol",
+  "name": "Invoke the Sun God",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "<p>When you <strong><em>imbue a holy light with Helior's power</em></strong>, choose an Invocation you know and roll +WIS: <strong>on a 10+</strong>, it works as described but you must choose 1 consequence from the list below; <strong><em>on a 7-9</em></strong>, it works as described, but you and the GM each choose 1.</p><ul><li>The Invocation has its reduced effect</li><li>The effort taxes you; mark a debility</li><li>The light is snuffed out when the Invocation is complete, its fuel consumed</li><li>You must bask in sunlight for an hour or so before using that Invocation again</li></ul><p>See the Invocations insert for details.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "It works as described — you choose 1 consequence."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "It works as described — you and the GM each choose 1 consequence."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "iPC15k3PnwMGDZE3"
 }

@@ -2,7 +2,7 @@ import {toSlug} from "../../src/utils/slug.js";
 
 export class FakeCompendiumMoveBuilder {
 	_name = "Test Move";
-	_rollType = null;
+	_rollStat = null;
 	_description = "";
 	_isStartingMove = false;
 	_requirement = null;
@@ -20,10 +20,12 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
-	withRollType(rt) {
-		this._rollType = rt;
+	withRollStat(rt) {
+		this._rollStat = rt;
 		return this;
 	}
+
+	withRollType(rt) { return this.withRollStat(rt); }
 
 	withDescription(desc) {
 		this._description = desc;
@@ -55,10 +57,15 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
+	withMoveResults(moveResults) {
+		this._moveResults = moveResults;
+		return this;
+	}
+
 	build() {
 		const name = this._name;
 		const system = {
-			rollType: this._rollType,
+			rollStat: this._rollStat,
 			description: this._description,
 			isStartingMove: this._isStartingMove,
 			requirement: this._requirement,
@@ -66,6 +73,7 @@ export class FakeCompendiumMoveBuilder {
 			resource: this._resource,
 			choices: this._choices,
 			playbook: this._playbook,
+			moveResults: this._moveResults ?? null,
 		};
 		return {
 			_id: toSlug(name),

@@ -1,28 +1,28 @@
 {
-	"_id": "OHUi25JGAmSYUGYZ",
-	"_key": "!items!OHUi25JGAmSYUGYZ",
-	"name": "Work With What You've Got",
-	"type": "move",
-	"system": {
-		"playbook": "The Seeker",
-		"moveType": "playbook",
-		"isStartingMove": true,
-		"description": "<p>When you <strong><em>cleverly use your environment to harm or impede your foe(s)</em></strong>, roll +INT: <strong>on a 10+</strong>, pick 2; <strong><em>on a 7-9</em></strong>, pick 1:</p><ul><li>Interrupt or thwart their action(s)</li><li>Create an opportunity that grants you or an ally advantage on the next roll to exploit it</li><li>Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)</li></ul>",
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Pick 2."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Pick 1."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "Xq0anhaGDBnO4A5B"
+  "_id": "OHUi25JGAmSYUGYZ",
+  "_key": "!items!OHUi25JGAmSYUGYZ",
+  "name": "Work With What You've Got",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "<p>When you <strong><em>cleverly use your environment to harm or impede your foe(s)</em></strong>, roll +INT: <strong>on a 10+</strong>, pick 2; <strong><em>on a 7-9</em></strong>, pick 1:</p><ul><li>Interrupt or thwart their action(s)</li><li>Create an opportunity that grants you or an ally advantage on the next roll to exploit it</li><li>Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Pick 2."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
 }

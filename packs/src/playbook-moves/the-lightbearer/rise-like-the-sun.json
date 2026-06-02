@@ -1,27 +1,27 @@
 {
-	"_id": "iOqv5jLvmBVcdOKk",
-	"_key": "!items!iOqv5jLvmBVcdOKk",
-	"name": "Rise Like the Sun",
-	"type": "move",
-	"system": {
-		"playbook": "The Lightbearer",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>draw attention to yourself by word or deed</em></strong>, roll +CHA: <strong>on a 10+</strong>, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; <strong><em>on a 7-9</em></strong>, everyone turns and looks.</p>",
-		"rollType": "cha",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Everyone turns and looks."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "iPC15k3PnwMGDZE3"
+  "_id": "iOqv5jLvmBVcdOKk",
+  "_key": "!items!iOqv5jLvmBVcdOKk",
+  "name": "Rise Like the Sun",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>draw attention to yourself by word or deed</em></strong>, roll +CHA: <strong>on a 10+</strong>, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; <strong><em>on a 7-9</em></strong>, everyone turns and looks.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Everyone turns and looks."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "cha"
+  },
+  "folder": "iPC15k3PnwMGDZE3"
 }

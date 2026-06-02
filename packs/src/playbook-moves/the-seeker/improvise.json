@@ -1,33 +1,33 @@
 {
-	"_id": "nGlaIZnRGe8UWy5X",
-	"_key": "!items!nGlaIZnRGe8UWy5X",
-	"name": "Improvise",
-	"type": "move",
-	"system": {
-		"playbook": "The Seeker",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>wish to use an arcanum's move or option without having unlocked it</em></strong>, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: <strong><em>on a 7+</em></strong>, you get it to work this once; <strong>on a 10+</strong>, also mark one step towards unlocking the arcanum's mysteries.</p>",
-		"requirement": {
-			"level": 6,
-			"moves": [
-				"Quick Study"
-			]
-		},
-		"rollType": "int",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "It works and you mark one step towards unlocking the arcanum's mysteries."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "It works this once."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "Xq0anhaGDBnO4A5B"
+  "_id": "nGlaIZnRGe8UWy5X",
+  "_key": "!items!nGlaIZnRGe8UWy5X",
+  "name": "Improvise",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>wish to use an arcanum's move or option without having unlocked it</em></strong>, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: <strong><em>on a 7+</em></strong>, you get it to work this once; <strong>on a 10+</strong>, also mark one step towards unlocking the arcanum's mysteries.</p>",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Quick Study"
+      ]
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "It works and you mark one step towards unlocking the arcanum's mysteries."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "It works this once."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "int"
+  },
+  "folder": "Xq0anhaGDBnO4A5B"
 }

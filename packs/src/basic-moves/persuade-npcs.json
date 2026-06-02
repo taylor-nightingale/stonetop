@@ -1,25 +1,25 @@
 {
-	"name": "Persuade (vs. NPCs)",
-	"type": "move",
-	"system": {
-		"moveType": "basic",
-		"description": "<p>When you <strong><em>press or entice an NPC</em></strong>, say what you want them to do (or not do). If they <strong><em>have reason to resist</em></strong>, roll +DEX: <strong>on a 10+</strong>, they either do as you want or reveal the easiest way to convince them;<strong>on a 7-9</strong>, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.</p>",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They either do as you want or reveal the easiest way to convince them"
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Up to GM"
-			}
-		},
-		"rollType": "cha"
-	},
-	"_id": "Hfpdz9YXksUfEBav",
-	"_key": "!items!Hfpdz9YXksUfEBav"
+  "name": "Persuade (vs. NPCs)",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "description": "<p>When you <strong><em>press or entice an NPC</em></strong>, say what you want them to do (or not do). If they <strong><em>have reason to resist</em></strong>, roll +DEX: <strong>on a 10+</strong>, they either do as you want or reveal the easiest way to convince them;<strong>on a 7-9</strong>, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They either do as you want or reveal the easiest way to convince them"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Up to GM"
+      }
+    },
+    "rollStat": "cha"
+  },
+  "_id": "Hfpdz9YXksUfEBav",
+  "_key": "!items!Hfpdz9YXksUfEBav"
 }

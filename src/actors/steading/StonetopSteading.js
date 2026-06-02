@@ -28,6 +28,33 @@ export class StonetopSteading {
 		return "steading";
 	}
 
+	get rollMode() {
+		return "def";
+	}
+
+	getRollableStats() {
+		const attr = this._actor.system.attributes;
+		return [
+			{ key: "population", name: "Population", value: attr.population?.current ?? 0 },
+			{ key: "prosperity", name: "Prosperity", value: attr.prosperity?.current ?? 0 },
+			{ key: "defenses",   name: "Defenses",   value: attr.defenses?.current   ?? 0 },
+			{ key: "fortunes",   name: "Fortunes",   value: this._actor.system.fortunes ?? 0 },
+		];
+	}
+
+	resolveBonus(rollStat) {
+		const attr = this._actor.system.attributes;
+		if (rollStat === "population") return attr.population?.current ?? null;
+		if (rollStat === "prosperity") return attr.prosperity?.current ?? null;
+		if (rollStat === "defenses")   return attr.defenses?.current   ?? null;
+		if (rollStat === "fortunes")   return this._actor.system.fortunes ?? null;
+		return null;
+	}
+
+	applyRollMode(rollStat, rollMode) {
+		return rollMode;
+	}
+
 	get fortunesCurrent() {
 		return this._actor.system.fortunes ?? SteadingDefaults.fortunes.current;
 	}

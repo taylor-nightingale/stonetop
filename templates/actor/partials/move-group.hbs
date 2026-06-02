@@ -2,7 +2,7 @@
 	{{> "stonetop.section-heading" title=title note=note}}
 	<ol class="items-list">
 	{{#each moves}}
-		{{#if (and ownedId rollType)}}
+		{{#if (and ownedId rollStat)}}
 		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 		{{else}}
 		<li class="stonetop-item{{#if isStarting}} move-starting{{/if}}">
@@ -30,8 +30,8 @@
 				<strong class="stonetop-item-name">{{name}}</strong>
 				{{#if requirement}}<span class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</span>{{/if}}
 				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
-				{{#if (and ownedId rollType)}}
-				<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+				{{#if (and ownedId rollStat)}}
+				<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
 					<i class="fas fa-dice-d6"></i>
 				</span>
 				{{/if}}

@@ -1,27 +1,27 @@
 {
-	"name": "Urges",
-	"type": "move",
-	"system": {
-		"moveType": "post-death",
-		"playbook": "thrall",
-		"description": "<p>When the GM compels you to act on your impulse, gain 1 Favor if you act as bidden. If you resist, roll +WIS: <strong>on a 10+</strong>, your actions are your own; <strong>on a 7–9</strong>, choose 1:</p><ul><li>Struggle for control until someone or something snaps you out of it</li><li>Start acting as compelled, putting yourself or an ally in a spot before you regain control</li><li>Harm yourself (d6 damage, ignores armor) to regain control</li></ul><p><strong>On a 6–</strong>, you come to your senses later, having done gods-know-what.</p><p>When you act on your impulse without being compelled to do so, and your actions cause you or your allies trouble, gain 1 Favor.</p>",
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Your actions are your own."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Choose 1: Struggle for control until someone or something snaps you out of it; Start acting as compelled, putting yourself or an ally in a spot before you regain control; Harm yourself (d6 damage, ignores armor) to regain control."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "You come to your senses later, having done gods-know-what."
-			}
-		}
-	},
-	"folder": "Xk9mThr4LLp0aZcN",
-	"_id": "Thr4llUrg3s00002",
-	"_key": "!items!Thr4llUrg3s00002"
+  "name": "Urges",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "thrall",
+    "description": "<p>When the GM compels you to act on your impulse, gain 1 Favor if you act as bidden. If you resist, roll +WIS: <strong>on a 10+</strong>, your actions are your own; <strong>on a 7–9</strong>, choose 1:</p><ul><li>Struggle for control until someone or something snaps you out of it</li><li>Start acting as compelled, putting yourself or an ally in a spot before you regain control</li><li>Harm yourself (d6 damage, ignores armor) to regain control</li></ul><p><strong>On a 6–</strong>, you come to your senses later, having done gods-know-what.</p><p>When you act on your impulse without being compelled to do so, and your actions cause you or your allies trouble, gain 1 Favor.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Your actions are your own."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Choose 1: Struggle for control until someone or something snaps you out of it; Start acting as compelled, putting yourself or an ally in a spot before you regain control; Harm yourself (d6 damage, ignores armor) to regain control."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You come to your senses later, having done gods-know-what."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "Xk9mThr4LLp0aZcN",
+  "_id": "Thr4llUrg3s00002",
+  "_key": "!items!Thr4llUrg3s00002"
 }

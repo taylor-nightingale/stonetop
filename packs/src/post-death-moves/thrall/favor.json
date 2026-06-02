@@ -1,18 +1,18 @@
 {
-	"name": "Favor",
-	"type": "move",
-	"system": {
-		"moveType": "post-death",
-		"playbook": "thrall",
-		"description": "<p>Your Favor starts at 0 and can go no higher than 3.</p><p>When you have 3 Favor and would gain another, reduce your Favor to 0 and choose 1:</p><ul><li>Ask a question of your master and gain advantage on your next roll to act on the answer.</li><li>Gain a new Mark of your choice. Then ask the GM to choose a Mark that you don't have, and cross it off—you can never gain it.</li></ul>",
-		"rollType": null,
-		"resource": {
-			"max": 3,
-			"title": "Favor",
-			"labels": []
-		}
-	},
-	"folder": "Xk9mThr4LLp0aZcN",
-	"_id": "Thr4llFav0r00001",
-	"_key": "!items!Thr4llFav0r00001"
+  "name": "Favor",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "thrall",
+    "description": "<p>Your Favor starts at 0 and can go no higher than 3.</p><p>When you have 3 Favor and would gain another, reduce your Favor to 0 and choose 1:</p><ul><li>Ask a question of your master and gain advantage on your next roll to act on the answer.</li><li>Gain a new Mark of your choice. Then ask the GM to choose a Mark that you don't have, and cross it off—you can never gain it.</li></ul>",
+    "resource": {
+      "max": 3,
+      "title": "Favor",
+      "labels": []
+    },
+    "rollStat": null
+  },
+  "folder": "Xk9mThr4LLp0aZcN",
+  "_id": "Thr4llFav0r00001",
+  "_key": "!items!Thr4llFav0r00001"
 }

@@ -256,8 +256,20 @@ export class StonetopCharacter {
 		}
 	}
 
-	async onRoll(event) {
-		return this._rolling.onRoll(event);
+	get rollMode() {
+		return this._rolling.rollMode;
+	}
+
+	getRollableStats() {
+		return this._rolling.getRollableStats();
+	}
+
+	resolveBonus(rollStat) {
+		return this._rolling.resolveBonus(rollStat);
+	}
+
+	applyRollMode(rollStat, rollMode) {
+		return this._rolling.applyRollMode(rollStat, rollMode);
 	}
 
 	async rollStat(stat) {

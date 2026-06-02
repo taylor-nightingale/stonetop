@@ -1,4 +1,5 @@
 import { DebilitySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { buildRollContent } from "../../utils/rollDisplay.js";
 
 const _DEBILITY_DEFS = [
 	{ key: "weakened",  name: "Weakened",  stats: ["str", "dex"] },
@@ -43,24 +44,31 @@ export class CharacterRolling {
 		return { ...options, rollMode: "dis" };
 	}
 
-	async onRoll(event) {
-		const itemId = event.currentTarget.closest(".item")?.dataset.itemId;
-		if (!itemId) return false;
-		const item = this._actor.items.get(itemId);
-		const stat = item?.system?.rollType ?? null;
-		if (!stat) return false;
+	getRollableStats() {
+		return this._stats.getRollableStats();
+	}
 
-		const isDescription = event.currentTarget.getAttribute("data-show") === "description";
-		const descriptionOnly = isDescription || (item.type === "npcMove" && !item.system.rollFormula);
-		const options = {};
-		if (!game.settings.get("stonetop", "hideRollMode")) {
-			options.rollMode = this.rollMode;
-		}
-		await item.roll({ ...this.applyDebilityRollMode(stat, options), descriptionOnly });
-		return true;
+	resolveBonus(rollStat) {
+		const stats = this._stats.getStats();
+		return rollStat in stats ? stats.get(rollStat) : null;
+	}
+
+	applyRollMode(rollStat, rollMode) {
+		return this.applyDebilityRollMode(rollStat, { rollMode }).rollMode;
 	}
 
 	async rollStat(stat) {
+		if (stat === "damage") {
+			const die = this._actor.system?.attributes?.damage?.value;
+			if (!die) return;
+			const roll = await new Roll(`1${die}`).evaluate();
+			await roll.toMessage({
+				speaker: ChatMessage.getSpeaker({ actor: this._actor }),
+				flavor: game.i18n.localize("stonetop.character.attributes.damage"),
+			});
+			return;
+		}
+
 		const statValue = this._stats.getStats().get(stat) ?? 0;
 		const options = {};
 		if (!game.settings.get("stonetop", "hideRollMode")) {
@@ -74,14 +82,23 @@ export class CharacterRolling {
 			                 `2d6 + ${statValue}`;
 		const roll = await new Roll(formula).evaluate();
 		const total = roll.total;
+		const resultKey   = total >= 10 ? "success" : total >= 7 ? "partial" : "failure";
 		const resultLabel = game.i18n.localize(
-			total >= 10 ? "stonetop.rollResults.strongHit" :
-			total >= 7  ? "stonetop.rollResults.weakHit"  :
-			              "stonetop.rollResults.miss"
+			resultKey === "success" ? "stonetop.rollResults.strongHit" :
+			resultKey === "partial"  ? "stonetop.rollResults.weakHit"  :
+			                          "stonetop.rollResults.miss"
 		);
-		await roll.toMessage({
-			speaker: ChatMessage.getSpeaker({ actor: this._actor }),
-			flavor: `${stat.toUpperCase()} — ${resultLabel}`,
+		const speaker = ChatMessage.getSpeaker({ actor: this._actor });
+		await ChatMessage.create({
+			speaker,
+			content: buildRollContent(roll, {
+				name:     `${stat.toUpperCase()} — ${resultLabel}`,
+				rollMode: mode,
+				bonus:    statValue,
+				statKey:  stat,
+				resultKey,
+			}),
+			rolls: [roll],
 		});
 	}
 }

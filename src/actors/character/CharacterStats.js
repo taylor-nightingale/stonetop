@@ -20,6 +20,11 @@ export class CharacterStats {
 		return new Stats(Object.fromEntries(Object.keys(_STAT_DEFS).map(k => [k, raw[k]?.value ?? 0])));
 	}
 
+	getRollableStats() {
+		const stats = this.getStats();
+		return Object.entries(_STAT_DEFS).map(([key, { name }]) => ({ key, name, value: stats.get(key) }));
+	}
+
 	buildStatsSnapshot() {
 		const stats = this.getStats();
 		return Object.fromEntries(

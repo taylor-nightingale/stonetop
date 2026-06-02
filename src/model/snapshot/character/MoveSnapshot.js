@@ -13,7 +13,7 @@ export class RequirementSnapshot {
  * @property {string|null} ownedId     - last actor item ID (for rolling); null if not acquired
  * @property {string} name
  * @property {string} description
- * @property {string|null} rollType    - stat key | "ask" | "prompt" | null
+ * @property {string|null} rollStat    - stat key | "ask" | "prompt" | null
  * @property {boolean} isStarting
  * @property {{ type: string }} source
  * @property {string|null} sourceLabel
@@ -30,7 +30,7 @@ export class MoveSnapshot {
 		this.slug          = b._slug;
 		this.name          = b._name;
 		this.description   = b._description;
-		this.rollType      = b._rollType;
+		this.rollStat      = b._rollStat;
 		this.isStarting    = b._isStarting;
 		this.source        = b._source;
 		this.sourceLabel   = b._sourceLabel;
@@ -49,7 +49,7 @@ export class MoveSnapshotBuilder {
 	withSlug(v)          { this._slug          = v; return this; }
 	withName(v)          { this._name          = v; return this; }
 	withDescription(v)   { this._description   = v; return this; }
-	withRollType(v)      { this._rollType      = v; return this; }
+	withRollStat(v)      { this._rollStat      = v; return this; }
 	withIsStarting(v)    { this._isStarting    = v; return this; }
 	withSource(v)        { this._source        = v; return this; }
 	withSourceLabel(v)   { this._sourceLabel   = v; return this; }

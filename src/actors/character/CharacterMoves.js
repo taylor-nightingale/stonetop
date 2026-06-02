@@ -102,7 +102,7 @@ export class CharacterMoves {
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
 			name:   repoMove?.name   ?? moveSlug,
 			type:   "move",
-			system: { moveType: categoryKey, rollType: repoMove?.rollType ?? "", description: repoMove?.description ?? "" },
+			system: { moveType: categoryKey, rollStat: repoMove?.rollStat ?? "", description: repoMove?.description ?? "", moveResults: repoMove?.moveResults ?? null },
 		}]);
 		const newId = created[0]?._id ?? null;
 		await this._updateCategory(categoryKey, c => ({
@@ -144,7 +144,7 @@ export class CharacterMoves {
 		if (otherCat.moves.some(m => m.slug === moveSlug)) return false;
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
 			name: moveData.name, type: "move",
-			system: { moveType: "other", rollType: moveData.system?.rollType ?? "", description: moveData.system?.description ?? "" },
+			system: { moveType: "other", rollStat: moveData.system?.rollStat ?? "", description: moveData.system?.description ?? "", moveResults: moveData.system?.moveResults ?? null },
 		}]);
 		const newId   = created[0]?._id ?? null;
 		const flagMove = {
@@ -261,7 +261,7 @@ export class CharacterMoves {
 		if (!entries.length) return [];
 		return this._actor.createEmbeddedDocuments("Item", entries.map(m => ({
 			name: m.name, type: "move",
-			system: { moveType, rollType: m.rollType ?? "", description: m.description ?? "" },
+			system: { moveType, rollStat: m.rollStat ?? "", description: m.description ?? "", moveResults: m.moveResults ?? null },
 		})));
 	}
 }
@@ -333,7 +333,7 @@ async function _buildMoveSnapshot(flagMove, repoMove, categoryKey, selectable, r
 		.withSlug(flagMove.slug)
 		.withName(src?.name)
 		.withDescription(src?.description ?? "")
-		.withRollType(src?.rollType ?? null)
+		.withRollStat(src?.rollStat ?? null)
 		.withIsStarting(flagMove.isStarting)
 		.withSource({ type: categoryKey })
 		.withSourceLabel(null)

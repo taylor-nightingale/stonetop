@@ -7,7 +7,7 @@ export class FoundryPlaybookMoveRepository {
 		if (!pack) return [];
 		await pack.getIndex({
 			fields: ["system.playbook", "system.isStartingMove", "system.requirement",
-				"system.rollType", "system.description", "system.repeatMax", "system.resource"],
+				"system.rollStat", "system.description", "system.repeatMax", "system.resource"],
 		});
 		const entries = [...pack.index.filter(e => e.system?.playbook === playbookName)];
 		_indexCache.set(playbookName, entries);

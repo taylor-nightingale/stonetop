@@ -1,13 +1,13 @@
 {
-	"name": "Unliving",
-	"type": "move",
-	"system": {
-		"moveType": "post-death",
-		"playbook": "revenant",
-		"description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
-		"rollType": null
-	},
-	"folder": "PltWcwhA5PwgziBO",
-	"_id": "RhbJ1HyhIdihmq7n",
-	"_key": "!items!RhbJ1HyhIdihmq7n"
+  "name": "Unliving",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "revenant",
+    "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
+    "rollStat": null
+  },
+  "folder": "PltWcwhA5PwgziBO",
+  "_id": "RhbJ1HyhIdihmq7n",
+  "_key": "!items!RhbJ1HyhIdihmq7n"
 }

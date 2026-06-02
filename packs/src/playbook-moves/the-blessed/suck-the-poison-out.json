@@ -1,33 +1,33 @@
 {
-	"_id": "isHDlP9j3OEKCHkn",
-	"_key": "!items!isHDlP9j3OEKCHkn",
-	"name": "Suck the Poison Out",
-	"type": "move",
-	"system": {
-		"playbook": "The Blessed",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>draw a malady from a patient's body, mind, or soul</em></strong>, spend 1 Stock and roll +WIS.</p>",
-		"requirement": {
-			"level": 6,
-			"moves": [
-				"Healer's Arts"
-			]
-		},
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "twBI9Q4lZycODbDk"
+  "_id": "isHDlP9j3OEKCHkn",
+  "_key": "!items!isHDlP9j3OEKCHkn",
+  "name": "Suck the Poison Out",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>draw a malady from a patient's body, mind, or soul</em></strong>, spend 1 Stock and roll +WIS.</p>",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Healer's Arts"
+      ]
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "twBI9Q4lZycODbDk"
 }

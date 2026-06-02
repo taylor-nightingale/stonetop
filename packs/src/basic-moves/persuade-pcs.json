@@ -1,25 +1,25 @@
 {
-	"name": "Persuade (vs. PCs)",
-	"type": "move",
-	"system": {
-		"moveType": "basic",
-		"description": "<p>When you <strong><em>press or entice a PC and they resist</em></strong>, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.</p><p>If they say “yes,” you can roll +CHA: <strong>on a 10+</strong>, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; <strong>on a 7-9</strong>, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).</p>",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like)."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "Up to GM"
-			}
-		},
-		"rollType": "cha"
-	},
-	"_id": "adMx5sWi2flZIkxp",
-	"_key": "!items!adMx5sWi2flZIkxp"
+  "name": "Persuade (vs. PCs)",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "description": "<p>When you <strong><em>press or entice a PC and they resist</em></strong>, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.</p><p>If they say “yes,” you can roll +CHA: <strong>on a 10+</strong>, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; <strong>on a 7-9</strong>, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Up to GM"
+      }
+    },
+    "rollStat": "cha"
+  },
+  "_id": "adMx5sWi2flZIkxp",
+  "_key": "!items!adMx5sWi2flZIkxp"
 }

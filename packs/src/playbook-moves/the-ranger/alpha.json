@@ -1,34 +1,34 @@
 {
-	"_id": "bUTwuyZY9GIiiajc",
-	"_key": "!items!bUTwuyZY9GIiiajc",
-	"name": "Alpha",
-	"type": "move",
-	"system": {
-		"playbook": "The Ranger",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>assert dominance over another (beast, spirit, Fae, or person)</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong>, they must pick 1 from the list below; <strong>on a 10+</strong>, you also have advantage on your next roll against them.</p><ul><li>Accept your authority, at least for now</li><li>Slink away or flee, then avoid you</li><li>Fight you for dominance</li></ul>",
-		"requirement": {
-			"level": 6,
-			"moves": [
-				"Wild Speech",
-				"Spirit Tongue"
-			]
-		},
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "They pick 1 from the list and you have advantage on your next roll against them."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "They pick 1 from the list."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "TOPlmLzP0PF3i9CM"
+  "_id": "bUTwuyZY9GIiiajc",
+  "_key": "!items!bUTwuyZY9GIiiajc",
+  "name": "Alpha",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>assert dominance over another (beast, spirit, Fae, or person)</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong>, they must pick 1 from the list below; <strong>on a 10+</strong>, you also have advantage on your next roll against them.</p><ul><li>Accept your authority, at least for now</li><li>Slink away or flee, then avoid you</li><li>Fight you for dominance</li></ul>",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Wild Speech",
+        "Spirit Tongue"
+      ]
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They pick 1 from the list and you have advantage on your next roll against them."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
 }

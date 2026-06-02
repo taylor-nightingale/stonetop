@@ -1,27 +1,27 @@
 {
-	"_id": "9vaR2JsZjm4XRjyG",
-	"_key": "!items!9vaR2JsZjm4XRjyG",
-	"name": "All is Illuminated",
-	"type": "move",
-	"system": {
-		"playbook": "The Lightbearer",
-		"moveType": "playbook",
-		"description": "<p>When you <strong><em>look closely on another and see their soul laid bare</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; <strong><em>on a 7-9</em></strong>, ask them 1 question from the list. In any case, they must answer truthfully.</p><ul><li>Of what are they most ashamed?</li><li>What do they most desire or covet?</li><li>What hope have they abandoned?</li><li>Who or what is most precious to them?</li></ul>",
-		"rollType": "wis",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Ask 1 question from the list plus the bonus question."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Ask 1 question from the list."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "iPC15k3PnwMGDZE3"
+  "_id": "9vaR2JsZjm4XRjyG",
+  "_key": "!items!9vaR2JsZjm4XRjyG",
+  "name": "All is Illuminated",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>look closely on another and see their soul laid bare</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; <strong><em>on a 7-9</em></strong>, ask them 1 question from the list. In any case, they must answer truthfully.</p><ul><li>Of what are they most ashamed?</li><li>What do they most desire or covet?</li><li>What hope have they abandoned?</li><li>Who or what is most precious to them?</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Ask 1 question from the list plus the bonus question."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Ask 1 question from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis"
+  },
+  "folder": "iPC15k3PnwMGDZE3"
 }

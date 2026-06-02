@@ -2,13 +2,14 @@ import { Move } from "../../../model/data/Move.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 const PLAYBOOK_FIELDS   = ["system.playbook", "system.isStartingMove", "system.requirement",
-                            "system.rollType", "system.description", "system.repeatMax", "system.resource", "system.choices"];
-const POST_DEATH_FIELDS = ["system.playbook", "system.rollType", "system.description", "system.resource"];
+                            "system.rollStat", "system.description", "system.repeatMax", "system.resource", "system.choices",
+                            "system.moveResults"];
+const POST_DEATH_FIELDS = ["system.playbook", "system.rollStat", "system.description", "system.resource", "system.moveResults"];
 
 export class FoundryMoveRepository {
 	constructor() {
 		this._playbookStore  = new FoundryPackStore("stonetop.playbook-moves",  PLAYBOOK_FIELDS);
-		this._basicStore     = new FoundryPackStore("stonetop.basic-moves",      ["system.rollType"]);
+		this._basicStore     = new FoundryPackStore("stonetop.basic-moves",      ["system.rollStat", "system.moveResults"]);
 		this._postDeathStore = new FoundryPackStore("stonetop.post-death-moves", POST_DEATH_FIELDS);
 		this._playbookCache  = new Map();
 		this._postDeathCache = new Map();

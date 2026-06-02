@@ -1,26 +1,26 @@
 {
-    "_id": "mNKPrUHV2KbTkJTL",
-    "_key": "!items!mNKPrUHV2KbTkJTL",
-    "name": "Pull Together",
-    "type": "move",
-    "system": {
-        "playbook": "Stonetop",
-        "moveType": "homefront",
-        "description": "<p>When you <strong><em>set a community to work on improvements</em></strong>, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: <strong>on a 10+</strong>, the job gets done; <strong>on a 7-9</strong>, pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul></p>",
-        "rollType": "population",
-        "moveResults": {
-            "success": {
-                "label": "10+",
-                "value": "The job gets done."
-            },
-            "partial": {
-                "label": "7-9",
-                "value": "Pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul>"
-            },
-            "failure": {
-                "label": "6-",
-                "value": "Establish badness"
-            }
-        }
-    }
+  "_id": "mNKPrUHV2KbTkJTL",
+  "_key": "!items!mNKPrUHV2KbTkJTL",
+  "name": "Pull Together",
+  "type": "move",
+  "system": {
+    "playbook": "Stonetop",
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>set a community to work on improvements</em></strong>, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: <strong>on a 10+</strong>, the job gets done; <strong>on a 7-9</strong>, pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul></p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "The job gets done."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul>"
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Establish badness"
+      }
+    },
+    "rollStat": "population"
+  }
 }

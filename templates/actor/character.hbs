@@ -87,13 +87,13 @@
 					{{> "stonetop.section-heading" title=label}}
 					<ol class="items-list">
 					{{#each moves}}
-						{{#if (and ownedId rollType)}}
+						{{#if (and ownedId rollStat)}}
 						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
 						{{else}}
 						<li class="stonetop-move-item move-unowned">
 						{{/if}}
-							{{#if (and ownedId rollType)}}
-							<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+							{{#if (and ownedId rollStat)}}
+							<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
 								<i class="fas fa-dice-d6"></i>
 							</span>
 							{{/if}}

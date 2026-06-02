@@ -4,16 +4,13 @@ import { PlaybookSnapshot } from "../../../src/model/snapshot/character/Characte
 import { FakePlaybookRepository } from "../../fakes/FakePlaybookRepository.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
-import { FakeActor } from "../../fakes/FakeActor.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function makeActor(playbookSlug = "the-blessed") {
-	const actor = new FakeActor();
-	if (playbookSlug) {
-		new StonetopFlags(actor, "playbook").setFlag("slug", playbookSlug);
-	}
+	const actor = new FakeActorBuilder().withPlaybook(playbookSlug).build();
 	return actor;
 }
 
@@ -62,7 +59,7 @@ const PLAYBOOK = {
 
 describe("CharacterPlaybook.getData", () => {
 	it("returns null when actor has no playbook slug", async () => {
-		const actor = new FakeActor();
+		const actor = new FakeActorBuilder().build();
 		expect(await makePlaybook(actor, new FakePlaybookRepository(PLAYBOOK)).getData()).toBeNull();
 	});
 
@@ -84,7 +81,7 @@ describe("CharacterPlaybook.getData", () => {
 
 describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 	it("returns null when no playbook is set on actor", async () => {
-		const actor = new FakeActor();
+		const actor = new FakeActorBuilder().build();
 		expect(await makePlaybook(actor, new FakePlaybookRepository()).buildPlaybookSnapshot()).toBeNull();
 	});
 
@@ -219,7 +216,7 @@ describe("CharacterPlaybook.getBackgroundMoveNames", () => {
 	});
 
 	it("returns empty Set when no playbook is assigned", async () => {
-		const actor = new FakeActor();
+		const actor = new FakeActorBuilder().build();
 		const pb = makePlaybook(actor, new FakePlaybookRepository());
 		expect(await pb.getBackgroundMoveNames("herbalist")).toEqual(new Set());
 	});
@@ -258,7 +255,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("does not increment or decrement moves when no playbook slug is set", async () => {
 		const bg    = new FakeBackground("");
 		const moves = new FakeMoves();
-		const actor = new FakeActor();
+		const actor = new FakeActorBuilder().build();
 		const pb = makePlaybook(actor, new FakePlaybookRepository(PLAYBOOK), { background: bg });
 		pb.setMoves(moves);
 		await pb.selectBackground("herbalist");

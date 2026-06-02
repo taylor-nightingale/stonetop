@@ -1,7 +1,7 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { CharacterRolling } from "../../../src/actors/character/CharacterRolling.js";
 import { CharacterStats } from "../../../src/actors/character/CharacterStats.js";
-import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { FakeActorBuilder, FakeStatBuilder } from "../../fakes/FakeActorBuilder.js";
 
 // -- Helpers -------------------------------------------------------------------
 
@@ -14,38 +14,13 @@ function makeDebilityActor({ weakened = false, dazed = false, miserable = false,
 		.build();
 }
 
-class FakeItemBuilder {
-	constructor(id) { this._id = id; }
-	withType(type)                       { this._type = type; return this; }
-	withRollable(rollType, rollFormula)   { this._rollType = rollType; this._rollFormula = rollFormula; return this; }
-	build() {
-		return {
-			_id: this._id,
-			type: this._type,
-			system: { rollType: this._rollType, _rollFormula: this._rollFormula },
-			roll: vi.fn(),
-		};
-	}
-}
-
-function makeRollableItem({ id = "item-1", rollType = "str", type = "move", rollFormula = null } = {}) {
-	return new FakeItemBuilder(id).withType(type).withRollable(rollType, rollFormula).build();
-}
-
-function makeItemEvent({ itemId = "item-1", showDescription = false, hasItemEl = true } = {}) {
-	return {
-		currentTarget: {
-			closest: (sel) => sel === ".item" && hasItemEl ? { dataset: { itemId } } : null,
-			getAttribute: (attr) => attr === "data-show" && showDescription ? "description" : null,
-			classList: { contains: () => false },
-			dataset: {},
-		},
-	};
-}
-
 function makeRolling(actor, statsOverride = {}) {
 	const stats = new CharacterStats({ system: { stats: statsOverride } });
 	return new CharacterRolling(actor, stats);
+}
+
+function makeRollingWithActor(actor) {
+	return new CharacterRolling(actor, new CharacterStats(actor));
 }
 
 // -- rollMode ------------------------------------------------------------------
@@ -132,74 +107,87 @@ describe("CharacterRolling.applyDebilityRollMode", () => {
 	});
 });
 
-// -- onRoll --------------------------------------------------------------------
+// -- getRollableStats ----------------------------------------------------------
 
-describe("CharacterRolling.onRoll", () => {
-	beforeEach(() => { game.settings = { get: vi.fn(() => false) }; });
-	afterEach(() => { delete game.settings; });
-
-	function makeOnRollActor(item, { pbtaRollMode = "def", debilities = {} } = {}) {
-		return new FakeActorBuilder()
-			.withDebility("weakened", debilities.weakened ?? false)
-			.withDebility("dazed", debilities.dazed ?? false)
-			.withDebility("miserable", debilities.miserable ?? false)
-			.withRollMode(pbtaRollMode)
-			.withItems(item ? [item] : [])
-			.build();
-	}
-
-	it("returns false when event has no item element", async () => {
-		const rolling = makeRolling(makeOnRollActor(null));
-		expect(await rolling.onRoll(makeItemEvent({ hasItemEl: false }))).toBe(false);
+describe("CharacterRolling.getRollableStats", () => {
+	it("returns 6 entries", () => {
+		const actor = new FakeActorBuilder().build();
+		expect(makeRollingWithActor(actor).getRollableStats()).toHaveLength(6);
 	});
 
-	it("returns false when item has no rollType", async () => {
-		const item = makeRollableItem({ rollType: null });
-		const rolling = makeRolling(makeOnRollActor(item));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(false);
-		expect(item.roll).not.toHaveBeenCalled();
+	it("each entry has key, name, and value", () => {
+		const actor = new FakeActorBuilder().withStats(new FakeStatBuilder().withWis(2)).build();
+		const stats = makeRollingWithActor(actor).getRollableStats();
+		const wis = stats.find(s => s.key === "wis");
+		expect(wis).toBeDefined();
+		expect(wis.name).toBe("Wisdom");
+		expect(wis.value).toBe(2);
 	});
 
-	it("returns true and calls item.roll when item has a rollType", async () => {
-		const item = makeRollableItem({ rollType: "str" });
-		const rolling = makeRolling(makeOnRollActor(item));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(true);
-		expect(item.roll).toHaveBeenCalledOnce();
+	it("covers all six stat keys", () => {
+		const actor = new FakeActorBuilder().build();
+		const keys = makeRollingWithActor(actor).getRollableStats().map(s => s.key);
+		expect(keys).toEqual(expect.arrayContaining(["str", "dex", "con", "int", "wis", "cha"]));
+	});
+});
+
+// -- resolveBonus --------------------------------------------------------------
+
+describe("CharacterRolling.resolveBonus", () => {
+	it("returns the stat value for a known stat key", () => {
+		const actor = new FakeActorBuilder().withStats(new FakeStatBuilder().withWis(2)).build();
+		expect(makeRollingWithActor(actor).resolveBonus("wis")).toBe(2);
 	});
 
-	it("passes rollMode from actor stonetop flag", async () => {
-		const item = makeRollableItem({ rollType: "str" });
-		const rolling = makeRolling(makeOnRollActor(item, { pbtaRollMode: "adv" }));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(true);
-		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "adv" }));
+	it("returns 0 for a known stat with no value set", () => {
+		const actor = new FakeActorBuilder().build();
+		expect(makeRollingWithActor(actor).resolveBonus("str")).toBe(0);
 	});
 
-	it("sets descriptionOnly when data-show=description", async () => {
-		const item = makeRollableItem({ rollType: "str" });
-		const rolling = makeRolling(makeOnRollActor(item));
-		expect(await rolling.onRoll(makeItemEvent({ showDescription: true }))).toBe(true);
-		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ descriptionOnly: true }));
+	it("returns null for an unknown rollStat key", () => {
+		const actor = new FakeActorBuilder().build();
+		expect(makeRollingWithActor(actor).resolveBonus("loyalty")).toBeNull();
+	});
+});
+
+// -- applyRollMode -------------------------------------------------------------
+
+describe("CharacterRolling.applyRollMode", () => {
+	it("returns rollMode unchanged when no debility is active", () => {
+		const rolling = makeRolling(makeDebilityActor());
+		expect(rolling.applyRollMode("str", "def")).toBe("def");
+		expect(rolling.applyRollMode("str", "adv")).toBe("adv");
 	});
 
-	it("applies disadvantage when relevant debility is active", async () => {
-		const item = makeRollableItem({ rollType: "str" });
-		const rolling = makeRolling(makeOnRollActor(item, { debilities: { weakened: true } }));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(true);
-		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "dis" }));
+	it("returns 'dis' when relevant debility is active and rollMode is 'def'", () => {
+		const rolling = makeRolling(makeDebilityActor({ weakened: true }));
+		expect(rolling.applyRollMode("str", "def")).toBe("dis");
 	});
 
-	it("does not apply disadvantage when debility covers a different stat", async () => {
-		const item = makeRollableItem({ rollType: "wis" });
-		const rolling = makeRolling(makeOnRollActor(item, { debilities: { weakened: true } }));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(true);
-		expect(item.roll).toHaveBeenCalledWith(expect.objectContaining({ rollMode: "def" }));
+	it("returns 'def' when relevant debility cancels advantage", () => {
+		const rolling = makeRolling(makeDebilityActor({ weakened: true }));
+		expect(rolling.applyRollMode("str", "adv")).toBe("def");
 	});
 
-	it("omits rollMode from options when hideRollMode is true", async () => {
-		game.settings.get.mockReturnValue(true);
-		const item = makeRollableItem({ rollType: "str" });
-		const rolling = makeRolling(makeOnRollActor(item, { pbtaRollMode: "adv" }));
-		expect(await rolling.onRoll(makeItemEvent())).toBe(true);
-		expect(item.roll).toHaveBeenCalledWith({ descriptionOnly: false });
+	it("returns 'dis' when debility is active and rollMode is already 'dis'", () => {
+		const rolling = makeRolling(makeDebilityActor({ weakened: true }));
+		expect(rolling.applyRollMode("str", "dis")).toBe("dis");
+	});
+
+	it("passes through unchanged when debility covers a different stat", () => {
+		const rolling = makeRolling(makeDebilityActor({ weakened: true }));
+		expect(rolling.applyRollMode("wis", "def")).toBe("def");
+	});
+});
+
+// -- rollStat("damage") --------------------------------------------------------
+
+describe("CharacterRolling.rollStat — damage", () => {
+	afterEach(() => vi.unstubAllGlobals());
+
+	it("is a no-op when actor has no damage die value", async () => {
+		const actor = new FakeActorBuilder().build();
+		const rolling = new CharacterRolling(actor, new CharacterStats(actor));
+		await expect(rolling.rollStat("damage")).resolves.toBeUndefined();
 	});
 });

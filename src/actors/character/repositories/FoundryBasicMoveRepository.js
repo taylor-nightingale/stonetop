@@ -5,7 +5,7 @@ export class FoundryBasicMoveRepository {
 		if (_cache) return _cache;
 		const pack = game.packs.get("stonetop.basic-moves");
 		if (!pack) return [];
-		await pack.getIndex({ fields: ["system.rollType"] });
+		await pack.getIndex({ fields: ["system.rollStat"] });
 		_cache = [...pack.index];
 		return _cache;
 	}

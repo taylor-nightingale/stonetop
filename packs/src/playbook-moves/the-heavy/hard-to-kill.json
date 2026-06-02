@@ -1,28 +1,28 @@
 {
-	"_id": "BLoC4JmoaeBjRsPa",
-	"_key": "!items!BLoC4JmoaeBjRsPa",
-	"name": "Hard to Kill",
-	"type": "move",
-	"system": {
-		"playbook": "The Heavy",
-		"moveType": "playbook",
-		"isStartingMove": true,
-		"description": "<p>When you <strong><em>are at Death's Door</em></strong>, you can roll +CON or +nothing (your choice). <strong><em>On a 7-9</em></strong>, you can mark a debility of your choice to regain 1 HP.</p>",
-		"rollType": "con",
-		"moveResults": {
-			"success": {
-				"label": "10+",
-				"value": "Stabilize — see Death's Door rules."
-			},
-			"partial": {
-				"label": "7-9",
-				"value": "Mark a debility of your choice to regain 1 HP."
-			},
-			"failure": {
-				"label": "6-",
-				"value": "The GM makes a move."
-			}
-		}
-	},
-	"folder": "QAZ4iqkCm6GtadAu"
+  "_id": "BLoC4JmoaeBjRsPa",
+  "_key": "!items!BLoC4JmoaeBjRsPa",
+  "name": "Hard to Kill",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "<p>When you <strong><em>are at Death's Door</em></strong>, you can roll +CON or +nothing (your choice). <strong><em>On a 7-9</em></strong>, you can mark a debility of your choice to regain 1 HP.</p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Stabilize — see Death's Door rules."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Mark a debility of your choice to regain 1 HP."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "con"
+  },
+  "folder": "QAZ4iqkCm6GtadAu"
 }

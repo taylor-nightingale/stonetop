@@ -132,7 +132,7 @@
 		"types": ["move", "equipment", "playbook", "insert", "improvement", "npc", "outfitItem"],
 		"templates": {},
 		"move": {
-			"rollType": null,
+			"rollStat": null,
 			"moveType": null,
 			"description": "",
 			"moveResults": {

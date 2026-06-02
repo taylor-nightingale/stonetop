@@ -31,7 +31,7 @@ export class FakeActor {
 	get deletedIds()  { return this._deletedIds; }
 
 	async createEmbeddedDocuments(_, docs) {
-		const results = docs.map(d => ({_id: `created-${this._nextId++}`, name: d.name}));
+		const results = docs.map(d => ({ ...d, _id: `created-${this._nextId++}` }));
 		this._createdDocs.push(...results);
 		return results;
 	}
