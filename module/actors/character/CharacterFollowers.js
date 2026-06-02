@@ -88,7 +88,7 @@ export class CharacterFollowers {
 				hp:      blank.hp.max,
 				hpMax:   blank.hp.max,
 				armor:   blank.armor.value,
-				damage:  blank.damage?.die ?? null,
+				damage:  blank.damage?.value ?? null,
 				values:  {},
 			},
 		});
@@ -132,7 +132,7 @@ export class CharacterFollowers {
 		const tags     = state.tags    ?? follower.tags;
 		const loyalty  = this._resourceController.getCurrent("followers", follower.slug);
 		const armorVal = state.armor   ?? follower.armor.value;
-		const damageDie = state.damage ?? follower.damage?.die ?? null;
+		const damageDie = state.damage ?? follower.damage?.value ?? null;
 
 		return new FollowerSnapshotBuilder()
 			.withSlug(follower.slug)
@@ -141,7 +141,7 @@ export class CharacterFollowers {
 			.withHp(hp)
 			.withHpMax(hpMax)
 			.withArmor({ value: armorVal, note: follower.armor.note })
-			.withDamage(damageDie ? { die: damageDie, label: follower.damage?.label ?? "", tags: follower.damage?.tags ?? "" } : null)
+			.withDamage(damageDie ? { value: damageDie, label: follower.damage?.label ?? "", tags: follower.damage?.tags ?? "" } : null)
 			.withInstinct(follower.instinct)
 			.withLoyalty(ResourceController.build({ max: follower.loyalty.max, title: null, labels: [] }, loyalty))
 			.withChoices(follower.choices ? ChoiceGroup.fromPackData(follower.choices, values) : null)
@@ -161,7 +161,7 @@ export class CharacterFollowers {
 			.withHp(state.hp         ?? 6)
 			.withHpMax(state.hpMax   ?? 6)
 			.withArmor({ value: state.armor ?? 0, note: "" })
-			.withDamage(damageDie ? { die: damageDie, label: "", tags: "" } : null)
+			.withDamage(damageDie ? { value: damageDie, label: "", tags: "" } : null)
 			.withInstinct("")
 			.withLoyalty(ResourceController.build({ max: 3, title: null, labels: [] }, loyalty))
 			.withChoices(blank?.choices ? ChoiceGroup.fromPackData(blank.choices, values) : null)

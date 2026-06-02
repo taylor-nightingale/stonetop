@@ -32,7 +32,7 @@ const ENFYS_DATA = {
 	tags:    "Bird-wise, innocent",
 	hp:      { value: 6, min: 0, max: 6 },
 	armor:   { value: 0, note: "" },
-	damage:  { die: "d4", label: "", tags: "" },
+	damage:  { value: "d4", label: "", tags: "" },
 	instinct: "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off",
 	loyalty: { value: 0, max: 3 },
 	choices: {
@@ -197,7 +197,7 @@ describe("CharacterFollowers — state mutations", () => {
 		await cf.addFollower("enfys");
 		await cf.setDamage("enfys", "d6");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage.die).toBe("d6");
+		expect(snap.damage.value).toBe("d6");
 	});
 });
 
@@ -273,7 +273,7 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage.die).toBe("d4");
+		expect(snap.damage.value).toBe("d4");
 	});
 
 	it("instinct comes from pack data", async () => {
@@ -425,7 +425,7 @@ const BLANK_DATA = {
 	tags:    null,
 	hp:      { value: 6, min: 0, max: 6 },
 	armor:   { value: 0, note: "" },
-	damage:  { die: "d6", label: "", tags: "" },
+	damage:  { value: "d6", label: "", tags: "" },
 	instinct: "",
 	loyalty: { value: 0, max: 3 },
 	choices: {
@@ -525,7 +525,7 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		const slug = cf.ownedSlugs[0];
 		await cf.setDamage(slug, "d8");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage).toEqual({ die: "d8", label: "", tags: "" });
+		expect(snap.damage).toEqual({ value: "d8", label: "", tags: "" });
 	});
 });
 
@@ -538,7 +538,7 @@ describe("CharacterFollowers — arcanaSlug", () => {
 		tags:       "Construct, spirit, durable",
 		hp:         { value: 13, min: 0, max: 13 },
 		armor:      { value: 3, note: "" },
-		damage:     { die: "d8", label: "pummel", tags: "band" },
+		damage:     { value: "d8", label: "pummel", tags: "band" },
 		instinct:   "",
 		loyalty:    { value: 0, max: 3 },
 		arcanaSlug: "metal-man",

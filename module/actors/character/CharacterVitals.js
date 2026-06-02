@@ -21,7 +21,7 @@ export class CharacterVitals {
 		const level    = attrs.level ?? 1;
 		const hpMax    = this._flags.getFlag("maxHP") ?? 0;
 		const dieVal   = attrs.damage?.value ?? null;
-		const damage   = dieVal ? { die: dieVal } : null;
+		const damage   = dieVal ? { value: dieVal } : null;
 		return new VitalsSnapshotBuilder()
 			.withHp(new ValueMax(attrs.hp?.value ?? 0, hpMax))
 			.withDamage(damage)
@@ -60,10 +60,10 @@ export class CharacterVitals {
 	}
 
 	async setDamage(die) {
-		await this._setDamage(die ? { die: String(die).trim() } : null);
+		await this._setDamage(die ? { value: String(die).trim() } : null);
 	}
 
 	async _setDamage(damage) {
-		await this._actor.update({ "system.attributes.damage.value": damage?.die ?? null });
+		await this._actor.update({ "system.attributes.damage.value": damage?.value ?? null });
 	}
 }

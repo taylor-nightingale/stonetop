@@ -30,7 +30,7 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 		const vitals = makeVitals({});
 		await vitals.setDamage("d6");
 		const snap = await vitals.buildVitalsSnapshot();
-		expect(snap.damage).toEqual({ die: "d6" });
+		expect(snap.damage).toEqual({ value: "d6" });
 	});
 
 	it("damage is null when not set", async () => {
@@ -146,10 +146,10 @@ describe("CharacterVitals setters", () => {
 		expect((await vitals.buildVitalsSnapshot()).armor).toBe(0);
 	});
 
-	it("setDamage stores die and reflects in snapshot", async () => {
+	it("setDamage stores value and reflects in snapshot", async () => {
 		const vitals = makeVitals();
 		await vitals.setDamage("d8");
-		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ die: "d8" });
+		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ value: "d8" });
 	});
 
 	it("setDamage with empty string stores null", async () => {
@@ -186,8 +186,8 @@ describe("CharacterVitals.updateVitalsFromPlaybook", () => {
 
 	it("sets damage from playbook", async () => {
 		const vitals = makeVitals();
-		await vitals.updateVitalsFromPlaybook({ hp: 16, damage: { die: "d10" } });
-		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ die: "d10" });
+		await vitals.updateVitalsFromPlaybook({ hp: 16, damage: { value: "d10" } });
+		expect((await vitals.buildVitalsSnapshot()).damage).toEqual({ value: "d10" });
 	});
 
 	it("sets null damage when playbook has no damage", async () => {

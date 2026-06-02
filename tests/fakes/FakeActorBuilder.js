@@ -76,7 +76,7 @@ export class FakeActorBuilder {
 	}
 
 	withDamage(die) {
-		this._damage = die ? {die} : null;
+		this._damage = die ? {value: die} : null;
 		return this;
 	}
 
