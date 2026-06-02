@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
-import { CharacterInstincts } from "../../../module/actors/character/CharacterInstincts.js";
-import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
-import { ChoiceGroup } from "../../../module/model/snapshot/character/ChoiceGroup.js";
+import { CharacterInstincts } from "../../../src/actors/character/CharacterInstincts.js";
+import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
 	return {

@@ -1,4 +1,4 @@
-import { StonetopCharacter } from "../../module/actors/character/StonetopCharacter.js";
+import { StonetopCharacter } from "../../src/actors/character/StonetopCharacter.js";
 import { FakeRepositoryFactory } from "./FakeRepositoryFactory.js";
 
 export class TestCharacterBuilder {

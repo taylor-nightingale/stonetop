@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
-import { CharacterInventory } from "../../../module/actors/character/CharacterInventory.js";
-import { ResourceController } from "../../../module/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterInventory } from "../../../src/actors/character/CharacterInventory.js";
+import { ResourceController } from "../../../src/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
-import { OutfitItemBuilder } from "../../../module/model/data/character/OutfitItem.js";
+import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
-import { InventorySnapshot, PossessionsSnapshot } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import { InventorySnapshot, PossessionsSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Fake helpers ---------------------------------------------------------------
 

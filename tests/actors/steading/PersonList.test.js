@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { PersonList } from "../../../module/actors/steading/PersonList.js";
+import { PersonList } from "../../../src/actors/steading/PersonList.js";
 import { Person } from "../../../module/actors/steading/Person.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 

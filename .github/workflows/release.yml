@@ -31,7 +31,7 @@ jobs:
       - name: Create zip
         run: |
           zip -r stonetop.zip \
-            module.json stonetop.js LICENSE module/ styles/ languages/ assets/ templates/ packs/ \
+            module.json stonetop.js LICENSE src/ styles/ languages/ assets/ templates/ packs/ \
             --exclude "packs/src/*"
 
       - name: Create release

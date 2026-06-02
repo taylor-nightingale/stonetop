@@ -37,7 +37,7 @@ export class StonetopCharacter {
 		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"), this._choiceController);
 		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"), this._choiceController);
 		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController, this._resourceController);
-		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor, this._choiceController);
+		this._moves = new CharacterMoves(repos.moves, new StonetopFlags(actor, "moves"), actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
@@ -121,19 +121,6 @@ export class StonetopCharacter {
 	async setPostDeathInsert(slug) {
 		await this._postDeath.setInsert(slug);
 	}
-
-	async setPostDeathInstinct(slug, siblingSlugsCsv) {
-		await this._postDeath.instinct.selectOption(slug, siblingSlugsCsv);
-	}
-
-	async setPostDeathLoreCount(loreSlug, optSlug, n) {
-		await this._postDeath.lore.set(loreSlug, optSlug, n);
-	}
-
-	async setPostDeathLoreText(loreSlug, optSlug, value) {
-		await this._postDeath.lore.set(loreSlug, optSlug, value);
-	}
-
 	async setInventoryItemChecked(slug, isChecked) {
 		await this._inventory.setItemChecked(slug, isChecked);
 		const armor = await this._inventory.getArmor();
@@ -160,8 +147,8 @@ export class StonetopCharacter {
 		await this._inventory.setOtherItems(value);
 	}
 
-	async setMoveResourceCurrent(categoryKey, moveName, current) {
-		await this._moves.setMoveResourceCurrent(categoryKey, moveName, current);
+	async setMoveResourceCurrent(moveSlug, current) {
+		await this._moves.setMoveResourceCurrent(moveSlug, current);
 	}
 
 	async addCustomInventoryItem(name, weight) {
@@ -293,19 +280,9 @@ export class StonetopCharacter {
 	async unflipArcanum(slug) {
 		await this._arcana.unflipArcanum(slug);
 	}
-
-	async setArcanumUnlockCount(arcanumSlug, optionSlug, count) {
-		await this._arcana.setUnlockCount(arcanumSlug, optionSlug, count);
-	}
-
 	async setArcanumBackChoiceValue(arcanumSlug, optionSlug, count) {
 		await this._arcana.setBackChoiceValue(arcanumSlug, optionSlug, count);
 	}
-
-	async setBackgroundChoiceValue(groupSlug, optionSlug, count) {
-		await this._background.setChoiceValue(groupSlug, optionSlug, count);
-	}
-
 	async setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count) {
 		await this._background.setFollowerChoiceValue(groupSlug, optionSlug, count);
 	}
@@ -316,47 +293,36 @@ export class StonetopCharacter {
 
 	async setChoiceCount(context, group, option, count) {
 		switch (context) {
-			case "arcana-unlock": return this.setArcanumUnlockCount(group, option, count);
-			case "lore":          return this.setLoreOptionCount(group, option, count);
-			case "pdi-lore":      return this.setPostDeathLoreCount(group, option, count);
-			case "background":    return this.setBackgroundChoiceValue(group, option, count);
+			case "arcana-unlock": return await this._arcana.setUnlockCount(group, option, count);
+			case "lore":          return await this._lore.set(group, option, count);
+			case "pdi-lore":      return await this._postDeath.lore.set(group, option, count);
+			case "background":    return await this._background.setChoiceValue(group, option, count);
+			case "move":          return await this._moves.setMoveChoiceCount(group, option, count);
 		}
 	}
 
-	async setChoicePick(context, group, option, siblingsCsv) {
+	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
 		switch (context) {
 			case "instinct":     return this.instinct.selectOption(option, siblingsCsv);
-			case "pdi-instinct": return this.setPostDeathInstinct(option, siblingsCsv);
+			case "pdi-instinct": return await this._postDeath.instinct.selectOption(option, siblingsCsv);
 			case "appearance":   return this.appearance.selectOption(option, siblingsCsv);
-			case "follower":     return this.setFollowerChoiceValue(group, "choices", option, siblingsCsv);
+			case "follower":     return await this._followers.setChoiceValue(group, "choices", option, siblingsCsv);
+			case "background":   return this._background.setChoiceValue(group, option, checked ? 1 : 0);
 		}
 	}
 
 	async setChoiceText(context, group, option, value) {
 		switch (context) {
-			case "lore":     return this.setLoreOptionText(group, option, value);
-			case "pdi-lore": return this.setPostDeathLoreText(group, option, value);
-			case "follower": return this.setFollowerChoiceText(group, option, value);
-			case "move":     return this.setMoveChoiceText(group, option, value);
+			case "lore":     return await this._lore.set(group, option, value);
+			case "pdi-lore": return await this._postDeath.lore.set(group, option, value);
+			case "follower": return await this._followers.setChoiceText(group, option, value);
+			case "move":     return await this._moves.setMoveChoiceText(group, option, value);
 		}
-	}
-
-	async setMoveChoiceText(moveSlug, optionSlug, value) {
-		await this._moves.setMoveChoiceText(moveSlug, optionSlug, value);
 	}
 
 	async setArcanumResource(slug, count) {
 		await this._inventory.setResource(slug, count);
 	}
-
-	async setLoreOptionCount(loreSlug, optionSlug, count) {
-		await this._lore.set(loreSlug, optionSlug, count);
-	}
-
-	async setLoreOptionText(loreSlug, optionSlug, value) {
-		await this._lore.set(loreSlug, optionSlug, value);
-	}
-
 	async addCustomFollower() {
 		await this._followers.addCustomFollower();
 	}
@@ -412,15 +378,6 @@ export class StonetopCharacter {
 	async setFollowerNote(slug, note) {
 		await this._followers.setNote(slug, note);
 	}
-
-	async setFollowerChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
-		await this._followers.setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv);
-	}
-
-	async setFollowerChoiceText(followerSlug, optionSlug, text) {
-		await this._followers.setChoiceText(followerSlug, optionSlug, text);
-	}
-
 	async setFollowerArmor(slug, armor) {
 		await this._followers.setArmor(slug, armor);
 	}

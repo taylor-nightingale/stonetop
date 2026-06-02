@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { FoundryMoveRepository } from "../../../../module/actors/character/repositories/FoundryMoveRepository.js";
-import { Move } from "../../../../module/model/data/Move.js";
+import { FoundryMoveRepository } from "../../../../src/actors/character/repositories/FoundryMoveRepository.js";
+import { Move } from "../../../../src/model/data/Move.js";
 
 // -- Fixtures ------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ describe("FoundryMoveRepository", () => {
 			await repo.getPlaybookMoves("The Blessed");
 			expect(pack.getIndex).toHaveBeenCalledWith({
 				fields: ["system.playbook", "system.isStartingMove", "system.requirement",
-				         "system.rollType", "system.description", "system.repeatMax", "system.resource"],
+				         "system.rollType", "system.description", "system.repeatMax", "system.resource", "system.choices"],
 			});
 		});
 

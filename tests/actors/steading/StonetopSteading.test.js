@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { StonetopSteading } from "../../../module/actors/steading/StonetopSteading.js";
-import { SteadingSnapshot } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
+import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
+import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 const fakeRepo = {getAll: async () => []};

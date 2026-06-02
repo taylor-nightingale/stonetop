@@ -1,10 +1,10 @@
 export function registerSettings() {
 	// -- WORLD SETTINGS ------------------------------------------
 
-	// Tracks the last loaded module version.
+	// Tracks the last loaded system version.
 	// Used to detect when migrations need to run.
-	game.settings.register("stonetop", "moduleVersion", {
-		name: "Module Version",
+	game.settings.register("stonetop", "systemVersion", {
+		name: "System Version",
 		scope: "world",
 		config: false,
 		type: String,

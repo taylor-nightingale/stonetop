@@ -2,7 +2,7 @@ import { Move } from "../../../model/data/Move.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 const PLAYBOOK_FIELDS   = ["system.playbook", "system.isStartingMove", "system.requirement",
-                            "system.rollType", "system.description", "system.repeatMax", "system.resource"];
+                            "system.rollType", "system.description", "system.repeatMax", "system.resource", "system.choices"];
 const POST_DEATH_FIELDS = ["system.playbook", "system.rollType", "system.description", "system.resource"];
 
 export class FoundryMoveRepository {
@@ -48,5 +48,15 @@ export class FoundryMoveRepository {
 
 	async getPostDeathMoveDocument(id) {
 		return this._postDeathStore.getDocument(id);
+	}
+
+	async buildSlugIndex() {
+		const [playbook, basic, postDeath] = await Promise.all([
+			this._playbookStore.getAll(),
+			this._basicStore.getAll(),
+			this._postDeathStore.getAll(),
+		]);
+		const all = [...playbook, ...basic, ...postDeath].map(e => new Move(e));
+		return new Map(all.map(m => [m.slug, m]));
 	}
 }

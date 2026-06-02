@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { SteadingContent } from "../../../module/actors/steading/SteadingContent.js";
+import { SteadingContent } from "../../../src/actors/steading/SteadingContent.js";
 import { ContentSection } from "../../../module/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 

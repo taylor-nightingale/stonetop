@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { CharacterPossessions } from "../../../module/actors/character/CharacterPossessions.js";
-import { PossessionsSnapshot } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterPossessions } from "../../../src/actors/character/CharacterPossessions.js";
+import { PossessionsSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";

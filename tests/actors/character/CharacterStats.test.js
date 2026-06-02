@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { CharacterStats } from "../../../module/actors/character/CharacterStats.js";
-import { Stats } from "../../../module/model/data/character/Stats.js";
+import { CharacterStats } from "../../../src/actors/character/CharacterStats.js";
+import { Stats } from "../../../src/model/data/character/Stats.js";
 
 function makeStatsActor(stats = {}) {
 	return { system: { stats } };

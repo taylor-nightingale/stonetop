@@ -10,8 +10,7 @@
 			{{#each stonetop.playbook.background.options}}
 			<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
-					<input type="radio" class="stonetop-item-check" name="stonetop-background"
-					       value="{{slug}}"{{#if selected}} checked{{/if}}>
+					<input type="radio" class="stonetop-item-check" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
 					<strong class="stonetop-item-name">{{label}}</strong>
 					{{#if resource}}
 					<span class="stonetop-item-resources">
@@ -22,14 +21,14 @@
 				{{#if description}}
 				<div class="stonetop-item-description">{{{description}}}</div>
 				{{/if}}
+				{{#if choices}}
+				<div class="stonetop-bg-choices">
+					{{#each choices.list}}
+					{{> "stonetop.choice-row" cgContext="background" cgGroup=../choices.slug namePrefix=../slug}}
+					{{/each}}
+				</div>
+				{{/if}}
 			</label>
-			{{#if choices}}
-			<div class="stonetop-bg-choices">
-				{{#each choices.list}}
-				{{> "stonetop.choice-row" cgContext="background" cgGroup=../choices.slug namePrefix=../slug}}
-				{{/each}}
-			</div>
-			{{/if}}
 			{{/each}}
 		</div>
 		{{/if}}

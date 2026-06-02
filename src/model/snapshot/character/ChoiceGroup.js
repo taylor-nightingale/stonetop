@@ -108,7 +108,7 @@ export class ChoiceGroup {
 			const checks = Array.from({length: item.track.max ?? 1}, (_, i) => i < count);
 			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
 		}
-		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? null, item.note ?? null, track);
+		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? item.label ?? null, item.note ?? null, track);
 	}
 
 	static buildTextRow(item, values, es) {

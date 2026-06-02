@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { PostDeathInsert } from "../../module/model/data/character/PostDeathInsert.js";
+import { PostDeathInsert } from "../../src/model/data/character/PostDeathInsert.js";
 
 // -- Helpers ------------------------------------------------------------------
 

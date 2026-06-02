@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {ActorOutfitItems} from "../../../module/actors/character/ActorOutfitItems.js";
+import {ActorOutfitItems} from "../../../src/actors/character/ActorOutfitItems.js";
 import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 
 function makeRawItem(overrides = {}) {

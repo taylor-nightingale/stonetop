@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { createStonetopCharacterSheetClass } from "../../../module/actors/character/StonetopCharacterSheet.js";
+import { createStonetopCharacterSheetClass } from "../../../src/actors/character/StonetopCharacterSheet.js";
 import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 
 // -- Helpers ------------------------------------------------------------------

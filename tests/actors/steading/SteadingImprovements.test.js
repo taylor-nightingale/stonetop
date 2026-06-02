@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { SteadingImprovements } from "../../../module/actors/steading/SteadingImprovements.js";
+import { SteadingImprovements } from "../../../src/actors/steading/SteadingImprovements.js";
 import { SteadingImprovement } from "../../../module/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 

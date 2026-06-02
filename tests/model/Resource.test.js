@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Resource } from "../../module/model/data/Resource.js";
+import { Resource } from "../../src/model/data/Resource.js";
 
 describe("Resource", () => {
 	it("stores max, maxStat, title, labels from data", () => {

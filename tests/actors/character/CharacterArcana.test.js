@@ -1,14 +1,14 @@
 import { describe, it, expect, vi } from "vitest";
-import { CharacterArcana } from "../../../module/actors/character/CharacterArcana.js";
-import { ResourceController } from "../../../module/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.js";
+import { ResourceController } from "../../../src/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
-import { Stats } from "../../../module/model/data/character/Stats.js";
+import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanumSnapshot, ArcanumFrontSnapshot, ArcanumBackSnapshot,
 	ChoiceGroup, HeadingRow, FollowerRow,
-} from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+} from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
 
 // -- Helpers ------------------------------------------------------------------

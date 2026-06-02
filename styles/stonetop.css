@@ -1106,6 +1106,12 @@ body,
 	margin: 0 0 2px;
 }
 
+.stonetop-bg-choices,
+.stonetop-move-choices {
+	padding-left: 20px;
+	margin-top: 4px;
+}
+
 .stonetop-choice-rows {
 	padding-left: 20px;
 }

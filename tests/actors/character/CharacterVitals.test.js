@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { CharacterVitals } from "../../../module/actors/character/CharacterVitals.js";
+import { CharacterVitals } from "../../../src/actors/character/CharacterVitals.js";
 import { FakeActor } from "../../fakes/FakeActor.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 
 function makeVitals(attrs = {}) {
 	const actor = new FakeActor(attrs);

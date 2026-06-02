@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Stats } from "../../module/model/data/character/Stats.js";
+import { Stats } from "../../src/model/data/character/Stats.js";
 
 describe("Stats", () => {
 	it("named getters return the provided value for each stat", () => {

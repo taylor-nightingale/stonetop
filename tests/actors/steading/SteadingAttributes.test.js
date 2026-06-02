@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {SteadingAttributes} from "../../../module/actors/steading/SteadingAttributes.js";
+import {SteadingAttributes} from "../../../src/actors/steading/SteadingAttributes.js";
 import {FakeSteadingBuilder} from "../../fakes/FakeSteadingBuilder.js";
 
 describe("SteadingAttributes.buildSnapshot", () => {

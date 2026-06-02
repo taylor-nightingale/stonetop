@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {CharacterSnapshot} from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import {CharacterSnapshot} from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
 import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
 

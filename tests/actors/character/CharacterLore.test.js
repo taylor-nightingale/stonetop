@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-import { CharacterLore } from "../../../module/actors/character/CharacterLore.js";
-import { ChoiceValues, ChoiceGroup, HeadingRow, TextRow } from "../../../module/model/snapshot/character/ChoiceGroup.js";
+import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
+import { ChoiceValues, ChoiceGroup, HeadingRow, TextRow } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
 	return {

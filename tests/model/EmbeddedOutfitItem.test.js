@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { EmbeddedOutfitItemBuilder } from "../../module/model/data/character/EmbeddedOutfitItem.js";
+import { EmbeddedOutfitItemBuilder } from "../../src/model/data/character/EmbeddedOutfitItem.js";
 
 function makeItem(overrides = {}) {
 	let b = new EmbeddedOutfitItemBuilder()

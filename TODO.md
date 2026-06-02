@@ -23,6 +23,10 @@
 * displaying info in the compendium
 * support editing and adding compendium items
 * bullet points everywhere should use our icon just like in the steading sheet.
+* add playbook dropdown
+* selecting moves flickers the check box before selecting
+* modal popup for rolling? keep roll mode?
+* Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 
 == Nice to have
 * toggle to turn off non-selected character options

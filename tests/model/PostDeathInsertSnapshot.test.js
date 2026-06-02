@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../module/model/snapshot/character/PostDeathInsertSnapshot.js";
-import { ChoiceOption, ChoiceRow, HeadingRow, ChoiceGroup } from "../../module/model/snapshot/character/ChoiceGroup.js";
+import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../src/model/snapshot/character/PostDeathInsertSnapshot.js";
+import { ChoiceOption, ChoiceRow, HeadingRow, ChoiceGroup } from "../../src/model/snapshot/character/ChoiceGroup.js";
 
 // -- Fixtures -----------------------------------------------------------------
 

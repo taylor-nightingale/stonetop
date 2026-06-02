@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { FoundryOutfitItemRepository } from "../../../../module/actors/character/repositories/FoundryOutfitItemRepository.js";
+import { FoundryOutfitItemRepository } from "../../../../src/actors/character/repositories/FoundryOutfitItemRepository.js";
 
 // -- Helpers ------------------------------------------------------------------
 

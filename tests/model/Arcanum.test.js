@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
 	Arcanum, ArcanumFront, ArcanumBack, ArcanumItem,
-} from "../../module/model/data/character/Arcanum.js";
+} from "../../src/model/data/character/Arcanum.js";
 import { Resource } from "../../module/model/data/Resource.js";
 
 // -- Fixtures -----------------------------------------------------------------

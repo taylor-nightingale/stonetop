@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { CharacterPlaybook } from "../../../module/actors/character/CharacterPlaybook.js";
-import { PlaybookSnapshot } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
+import { CharacterPlaybook } from "../../../src/actors/character/CharacterPlaybook.js";
+import { PlaybookSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { FakePlaybookRepository } from "../../fakes/FakePlaybookRepository.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeActor } from "../../fakes/FakeActor.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

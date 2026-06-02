@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Person } from "../../../module/actors/steading/Person.js";
+import { Person } from "../../../src/actors/steading/Person.js";
 
 describe("Person.blank", () => {
 	it("has a non-empty id", () => {

@@ -1,4 +1,4 @@
-import {Move} from "../../module/model/data/Move.js";
+import {Move} from "../../src/model/data/Move.js";
 
 export class FakeMoveRepository {
 	constructor(playbookMoves = [], basicMoves = [], postDeathMoves = []) {
@@ -41,6 +41,12 @@ export class FakeMoveRepository {
 
 	addPostDeath(move) {
 		this._postDeathMoves.push(move);
+	}
+
+	async buildSlugIndex() {
+		const all = [...this._playbookMoves, ...this._basicMoves, ...this._postDeathMoves];
+		const entries = all.map(m => new Move(m));
+		return new Map(entries.map(m => [m.slug, m]));
 	}
 }
 

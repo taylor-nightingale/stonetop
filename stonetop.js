@@ -1,13 +1,13 @@
-import { registerSettings } from "./module/settings.js";
-import { createStonetopActorClass } from "./module/actors/StonetopActor.js";
-import { createStonetopItemClass } from "./module/item/StonetopItem.js";
-import { StonetopActorSheet } from "./module/actors/StonetopActorSheet.js";
-import { createStonetopCharacterSheetClass } from "./module/actors/character/StonetopCharacterSheet.js";
-import { createStonetopSteadingSheetClass } from "./module/actors/steading/StonetopSteadingSheet.js";
-import { onReady } from "./module/hooks/Ready.js";
-import { onRenderActorSheet } from "./module/hooks/RenderActorSheet.js";
-import { onRenderPause } from "./module/hooks/RenderPause.js";
-import { info } from "./module/utils/logger.js";
+import { registerSettings } from "./src/settings.js";
+import { createStonetopActorClass } from "./src/actors/StonetopActor.js";
+import { createStonetopItemClass } from "./src/item/StonetopItem.js";
+import { StonetopActorSheet } from "./src/actors/StonetopActorSheet.js";
+import { createStonetopCharacterSheetClass } from "./src/actors/character/StonetopCharacterSheet.js";
+import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
+import { onReady } from "./src/hooks/Ready.js";
+import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
+import { onRenderPause } from "./src/hooks/RenderPause.js";
+import { info } from "./src/utils/logger.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must

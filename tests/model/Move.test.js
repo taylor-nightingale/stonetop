@@ -1,8 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { Move } from "../../module/model/data/Move.js";
-import { Resource } from "../../module/model/data/Resource.js";
+import { Move } from "../../src/model/data/Move.js";
+import { Resource } from "../../src/model/data/Resource.js";
 
 // -- Fixtures -----------------------------------------------------------------
+
+const CHOICES_DATA = { slug: "choices", list: [{ type: "heading", slug: "h1", label: "Pick one" }] };
 
 const PLAYBOOK_ENTRY = {
 	_id: "pb001",
@@ -15,6 +17,7 @@ const PLAYBOOK_ENTRY = {
 		requirement:    { level: 2, moves: ["Serenity"], playbook: null },
 		repeatMax:      2,
 		resource:       { max: 3, maxStat: null, title: "Stock", labels: [] },
+		choices:        CHOICES_DATA,
 	},
 };
 
@@ -59,6 +62,10 @@ describe("Move", () => {
 		expect(new Move(PLAYBOOK_ENTRY).repeatMax).toBe(2);
 	});
 
+	it("stores choices when present", () => {
+		expect(new Move(PLAYBOOK_ENTRY).choices).toEqual(CHOICES_DATA);
+	});
+
 	it("wraps resource in Resource when present", () => {
 		expect(new Move(PLAYBOOK_ENTRY).resource).toBeInstanceOf(Resource);
 		expect(new Move(PLAYBOOK_ENTRY).resource.max).toBe(3);
@@ -92,6 +99,10 @@ describe("Move", () => {
 
 		it("repeatMax defaults to null", () => {
 			expect(new Move(BASIC_ENTRY).repeatMax).toBeNull();
+		});
+
+		it("choices defaults to null", () => {
+			expect(new Move(BASIC_ENTRY).choices).toBeNull();
 		});
 	});
 

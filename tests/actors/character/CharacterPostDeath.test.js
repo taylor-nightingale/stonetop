@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
-import { CharacterPostDeath } from "../../../module/actors/character/CharacterPostDeath.js";
-import { CharacterInstincts } from "../../../module/actors/character/CharacterInstincts.js";
-import { CharacterLore } from "../../../module/actors/character/CharacterLore.js";
+import { CharacterPostDeath } from "../../../src/actors/character/CharacterPostDeath.js";
+import { CharacterInstincts } from "../../../src/actors/character/CharacterInstincts.js";
+import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
 
 function makeFlags(store = {}) {
 	return {

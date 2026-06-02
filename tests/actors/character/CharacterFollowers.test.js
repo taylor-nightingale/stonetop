@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { CharacterFollowers } from "../../../module/actors/character/CharacterFollowers.js";
-import { ResourceController } from "../../../module/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
+import { ResourceController } from "../../../src/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
-import { Follower } from "../../../module/model/data/character/Follower.js";
+import { Follower } from "../../../src/model/data/character/Follower.js";
 
 // -- Helpers ------------------------------------------------------------------
 

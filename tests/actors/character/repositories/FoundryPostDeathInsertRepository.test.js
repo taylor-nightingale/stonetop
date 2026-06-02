@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { FoundryPostDeathInsertRepository } from "../../../../module/actors/character/repositories/FoundryPostDeathInsertRepository.js";
-import { PostDeathInsert } from "../../../../module/model/data/character/PostDeathInsert.js";
+import { FoundryPostDeathInsertRepository } from "../../../../src/actors/character/repositories/FoundryPostDeathInsertRepository.js";
+import { PostDeathInsert } from "../../../../src/model/data/character/PostDeathInsert.js";
 
 // -- Fixtures -----------------------------------------------------------------
 

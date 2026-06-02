@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { FoundryPackStore } from "../../../../module/actors/character/repositories/FoundryPackStore.js";
+import { FoundryPackStore } from "../../../../src/actors/character/repositories/FoundryPackStore.js";
 
 // -- Helpers ------------------------------------------------------------------
 

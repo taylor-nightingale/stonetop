@@ -1,4 +1,4 @@
-import { PostDeathInsert } from "../../module/model/data/character/PostDeathInsert.js";
+import { PostDeathInsert } from "../../src/model/data/character/PostDeathInsert.js";
 
 export class FakePostDeathInsertRepository {
 	constructor(inserts = []) {

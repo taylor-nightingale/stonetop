@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { StonetopPlaybook } from "../../module/item/StonetopPlaybook.js";
+import { StonetopPlaybook } from "../../src/item/StonetopPlaybook.js";
 
 function makeItem(systemFields = {}) {
 	return { system: systemFields };

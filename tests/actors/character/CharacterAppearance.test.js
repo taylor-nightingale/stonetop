@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { CharacterAppearance } from "../../../module/actors/character/CharacterAppearance.js";
-import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterAppearance } from "../../../src/actors/character/CharacterAppearance.js";
+import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 
 function makeAppearance(stored = {}) {

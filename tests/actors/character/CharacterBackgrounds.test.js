@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from "vitest";
-import { CharacterBackgrounds } from "../../../module/actors/character/CharacterBackgrounds.js";
-import { ChoiceGroupController } from "../../../module/actors/character/ChoiceGroupController.js";
-import { ResourceController } from "../../../module/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../module/actors/character/StonetopFlags.js";
+import { CharacterBackgrounds } from "../../../src/actors/character/CharacterBackgrounds.js";
+import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { ResourceController } from "../../../src/actors/character/ResourceController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
-import { BackgroundSection } from "../../../module/model/snapshot/character/CharacterSnapshot.js";
-import { ChoiceGroup } from "../../../module/model/snapshot/character/ChoiceGroup.js";
+import { BackgroundSection } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeFlags(store = {}) {
 	return {

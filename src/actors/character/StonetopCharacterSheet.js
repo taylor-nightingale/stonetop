@@ -188,7 +188,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (cgContext === "instinct") {
 					html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
 				}
-				this._stonetopCharacter.setChoicePick(cgContext, cgGroup, cgOption, cgSiblings ?? null);
+				this._stonetopCharacter.setChoicePick(cgContext, cgGroup, cgOption, cgSiblings ?? null, el.checked);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
@@ -313,10 +313,10 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		async _onMoveResourceChange(ev) {
-			const { categoryKey, moveSlug, index } = ev.currentTarget.dataset;
+			const { moveSlug, index } = ev.currentTarget.dataset;
 			const isChecked = ev.currentTarget.classList.contains("is-checked");
 			const current = isChecked ? Number(index) : Number(index) + 1;
-			await this._stonetopCharacter.setMoveResourceCurrent(categoryKey, moveSlug, current);
+			await this._stonetopCharacter.setMoveResourceCurrent(moveSlug, current);
 		}
 
 		async _onPossessionCheck(ev) {

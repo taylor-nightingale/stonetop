@@ -13,6 +13,7 @@ export class Move {
 		this.requirement = data.system?.requirement     ?? null;
 		this.repeatMax   = data.system?.repeatMax       ?? null;
 		this.resource    = data.system?.resource ? new Resource(data.system.resource) : null;
+		this.choices     = data.system?.choices  ?? null;
 	}
 
 	get requires() { return this.requirement?.moves?.[0] ?? null; }

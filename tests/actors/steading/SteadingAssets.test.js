@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { SteadingAssets } from "../../../module/actors/steading/SteadingAssets.js";
+import { SteadingAssets } from "../../../src/actors/steading/SteadingAssets.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 const DEFAULT_ITEMS_COUNT = 4;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { PlacesOfInterest } from "../../../module/actors/steading/PlacesOfInterest.js";
+import { PlacesOfInterest } from "../../../src/actors/steading/PlacesOfInterest.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 
 function make() {
