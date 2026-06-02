@@ -7,6 +7,8 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeFlags } from "../../fakes/FakeFlags.js";
 import { FakeActor } from "../../fakes/FakeActor.js";
 import { TestMoveBuilder } from "../../fakes/TestMoveBuilder.js";
+import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
+import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 import {
 	MoveSnapshot,
 	Movelist,
@@ -764,13 +766,16 @@ describe("CharacterMoves.countOwnedBySlug", () => {
 
 // ── setMoveChoiceText / setMoveChoiceCount ────────────────────────────────────
 
-const CHOICES_DATA = {
-	slug: "potential",
-	list: [
-		{ type: "heading", slug: "stat1", label: "Increase the stat you rolled by 1", track: { max: 1 } },
-		{ type: "input",   slug: "stat1-input", placeholder: "level checked" },
-	],
-};
+const CHOICES_DATA = new TestChoiceGroupBuilder()
+	.withSlug("potential")
+	.addChoice(
+		TestChoiceRowBuilder.heading()
+			.withSlug("stat1")
+			.withLabel("Increase the stat you rolled by 1")
+			.withTrack(1)
+			.withInput("level checked")
+	)
+	.build();
 
 describe("CharacterMoves.setMoveChoiceText", () => {
 	it("persists via ChoiceGroupController keyed by move slug", async () => {
@@ -807,13 +812,15 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 		expect(snap.choices.list).toHaveLength(CHOICES_DATA.list.length);
 	});
 
-	it("TextRow value reflects saved state from ChoiceGroupController", async () => {
+	it("HeadingRow.input reflects saved text value from ChoiceGroupController", async () => {
 		const repo = new FakeMoveRepository([new TestMoveBuilder().withName("Potential for Greatness").withChoices(CHOICES_DATA).build()]);
 		const flags = makeFlags({ values: { "potential-for-greatness": { "stat1-input": "level 2" } } });
 		const m = makeMoves({ repo, flags });
 		await m.initPlaybookCategory(makePlaybookData());
-		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1-input");
-		expect(row.value).toBe("level 2");
+		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
+		expect(row.input.value).toBe("level 2");
+		expect(row.input.slug).toBe("stat1-input");
+		expect(row.input.placeholder).toBe("level checked");
 	});
 
 	it("HeadingRow track reflects saved count from ChoiceGroupController", async () => {
@@ -821,7 +828,7 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 		const flags = makeFlags({ values: { "potential-for-greatness": { "stat1": 1 } } });
 		const m = makeMoves({ repo, flags });
 		await m.initPlaybookCategory(makePlaybookData());
-		const headingRow = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
-		expect(headingRow.track.checks[0]).toBe(true);
+		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
+		expect(row.track.checks[0]).toBe(true);
 	});
 });

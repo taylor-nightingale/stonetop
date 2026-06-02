@@ -11,18 +11,12 @@
 		"choices": {
 			"slug": "choices",
 			"list": [
-				{ "type": "heading", "slug": "stat1", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
-				{ "type": "input", "slug": "stat1-input", "placeholder": "level checked"},
-				{ "type": "heading", "slug": "stat2", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
-				{ "type": "input", "slug": "stat2-input", "placeholder": "level checked"},
-				{ "type": "heading", "slug": "stat3", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
-				{ "type": "input", "slug": "stat3-input", "placeholder": "level checked"},
-				{ "type": "heading", "slug": "stat4", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 } },
-				{ "type": "input", "slug": "stat4-input", "placeholder": "level checked"},
-				{ "type": "heading", "slug": "hp", "label": "Increase you max HP by 4", "track": { "max": 1 } },
-				{ "type": "input", "slug": "hp-input", "placeholder": "level checked"},
-				{ "type": "heading", "slug": "damage", "label": "Increase your damage die to a d8", "track": { "max": 1 } },
-				{ "type": "input", "slug": "damage-input", "placeholder": "level checked"}
+				{ "type": "heading", "slug": "stat1", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 }, "input": { "placeholder": "level checked" } },
+				{ "type": "heading", "slug": "stat2", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 }, "input": { "placeholder": "level checked" } },
+				{ "type": "heading", "slug": "stat3", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 }, "input": { "placeholder": "level checked" } },
+				{ "type": "heading", "slug": "stat4", "label": "Increase the stat you rolled by 1, to a max of +2", "track": { "max": 1 }, "input": { "placeholder": "level checked" } },
+				{ "type": "heading", "slug": "hp",    "label": "Increase your max HP by 4",              "track": { "max": 1 }, "input": { "placeholder": "level checked" } },
+				{ "type": "heading", "slug": "damage", "label": "Increase your damage die to a d8",      "track": { "max": 1 }, "input": { "placeholder": "level checked" } }
 			]
 		},
 		"requirement": {

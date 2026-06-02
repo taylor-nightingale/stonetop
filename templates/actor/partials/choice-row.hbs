@@ -19,6 +19,15 @@
 {{else if description}}
 <div class="stonetop-choice-description">{{{description}}}</div>
 {{/if}}
+{{#if input}}
+<div class="stonetop-choice-option stonetop-choice-option--text">
+    <textarea class="stonetop-cg-text"
+              data-cg-context="{{cgContext}}"
+              data-cg-group="{{cgGroup}}"
+              data-cg-option="{{input.slug}}"
+              {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
+</div>
+{{/if}}
 {{else if (eq type "input")}}
 {{! Text input row (textarea) }}
 <div class="stonetop-choice-option stonetop-choice-option--text">

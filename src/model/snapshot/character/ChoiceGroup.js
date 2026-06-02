@@ -23,13 +23,14 @@ export class ChoiceRow {
 }
 
 export class HeadingRow {
-	constructor(slug, title, description = null, note = null, track = null) {
+	constructor(slug, title, description = null, note = null, track = null, input = null) {
 		this.type        = "heading";
 		this.slug        = slug;
 		this.title       = title;
 		this.description = description;
 		this.note        = note;
 		this.track       = track;   // null | { slug, checks: bool[], requires? }
+		this.input       = input;   // null | { slug, placeholder, value }
 	}
 }
 
@@ -108,7 +109,10 @@ export class ChoiceGroup {
 			const checks = Array.from({length: item.track.max ?? 1}, (_, i) => i < count);
 			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
 		}
-		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? item.label ?? null, item.note ?? null, track);
+		const input = item.input
+			? { slug: `${item.slug}-input`, placeholder: item.input.placeholder ?? null, value: values.getText(es, `${item.slug}-input`) }
+			: null;
+		return new HeadingRow(item.slug ?? null, item.title ?? null, item.description ?? item.label ?? null, item.note ?? null, track, input);
 	}
 
 	static buildTextRow(item, values, es) {

@@ -3,9 +3,11 @@ export class TestChoiceRowBuilder {
 	_slug          = null;
 	_track         = null;
 	_title         = null;
+	_label         = null;
 	_text          = null;
 	_note          = null;
 	_placeholder   = null;
+	_input         = null;
 	_options       = [];
 	_pickCount     = 1;
 	_inlineDisplay = false;
@@ -18,10 +20,12 @@ export class TestChoiceRowBuilder {
 	withType(type)               { this._type          = type;        return this; }
 	withSlug(slug)               { this._slug          = slug;        return this; }
 	withTitle(title)             { this._title         = title;       return this; }
+	withLabel(label)             { this._label         = label;       return this; }
 	withText(text)               { this._text          = text;        return this; }
 	withNote(note)               { this._note          = note;        return this; }
 	withTrack(max)               { this._track         = { max };     return this; }
 	withPlaceholder(placeholder) { this._placeholder   = placeholder; return this; }
+	withInput(placeholder)       { this._input         = { placeholder }; return this; }
 	withPickCount(n)             { this._pickCount      = n;          return this; }
 	withInlineDisplay(inline)    { this._inlineDisplay  = inline;     return this; }
 	withOptions(...options)      { this._options        = options.flat(); return this; }
@@ -31,9 +35,11 @@ export class TestChoiceRowBuilder {
 			type:        "heading",
 			slug:        this._slug,
 			title:       this._title,
+			label:       this._label,
 			description: this._text,
 			note:        this._note,
 			track:       this._track,
+			input:       this._input,
 		};
 		if (this._type === "follower") return {
 			type:          "follower",
