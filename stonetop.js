@@ -39,8 +39,9 @@ Hooks.once("init", () => {
 		const segments = [];
 		let current = null;
 		for (const item of (items ?? [])) {
-			if (!current || current.isGrid !== item.twoCol) {
-				current = { isGrid: item.twoCol, items: [] };
+			const forceBreak = item.breakBefore && segments.length > 0;
+			if (!current || current.isGrid !== item.twoCol || item.breakBefore) {
+				current = { isGrid: item.twoCol, items: [], breakBefore: forceBreak };
 				segments.push(current);
 			}
 			current.items.push(item);

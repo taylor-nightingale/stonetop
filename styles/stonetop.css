@@ -1,4 +1,45 @@
 /* Custom CSS */
+
+@font-face {
+	font-family: "StonetopUI";
+t	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Historical-FellTypeRomanSC";
+	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Historical FellType Roman SC";
+	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.stonetop.sheet .sheet-tabs,
+.stonetop.sheet .sheet-tabs .item,
+.stonetop.sheet h1,
+.stonetop.sheet h2,
+.stonetop.sheet h3,
+.stonetop.sheet h4,
+.stonetop.sheet button,
+.stonetop.sheet .stonetop-stat-roll,
+.stonetop.sheet .stonetop-resource__label,
+.stonetop.sheet .stonetop-damage-roll,
+.stonetop.sheet .stonetop-item-name,
+.stonetop.sheet .stonetop-move-group-title,
+.stonetop.sheet .stonetop-arcanum-title,
+.stonetop.sheet .stonetop-follower-name-input {
+	font-family: "StonetopUI", serif;
+	font-weight: bolder;
+	letter-spacing: 0.4px;
+}
+
 :root {
 	--font-primary: Signika, sans-serif;
 	--stonetop-bg: hsl(30deg 20% 94%);
@@ -65,9 +106,6 @@ body,
 	background-color: slategrey;
 }
 
-.pbta.sheet .sheet-attributes .cell--stats .stat {
-	background-color: transparent;
-}
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
 	background: var(--stonetop-bg) url(/systems/stonetop/assets/graphics/sheet-bg.png);
@@ -98,6 +136,63 @@ body,
 	margin-top: 0px;
 }
 
+/* ── Sheet tabs ──────────────────────────────────────────────────────────────── */
+
+/* Strip the PBTA h3 underline — section-heading.hbs provides the panel-divider instead */
+.stonetop.sheet .stonetop-move-group-title {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+
+/* Remove PBTA border on the tabs section and add breathing room above */
+.stonetop.sheet .sheet-main {
+	border-top: none !important;
+	padding-top: 12px;
+}
+
+.stonetop.sheet .sheet-tabs {
+	display: flex;
+	justify-content: flex-start;
+	gap: 6px;
+	align-items: flex-end;
+	margin: 0 0 10px;
+	padding-bottom: 8px;
+	border-bottom: none;
+	border-top: none;
+	background-image: url("../assets/sheet/divider-horizontal.png");
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	background-size: auto 7px;
+}
+
+.stonetop.sheet .sheet-tabs .item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 36px;
+	padding: 9px 18px 6px;
+	border: none;
+	background-color: transparent;
+	background-image: url("../assets/sheet/tab-half-frame.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	box-shadow: none;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.stonetop.sheet .sheet-tabs .item:hover {
+	filter: brightness(1.05);
+}
+
+.stonetop.sheet .sheet-tabs .item.active {
+	transform: translateY(2px);
+	filter: brightness(1.08);
+	background-color: transparent;
+}
+
 /* .pbta.sheet .sheet-resources {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
@@ -118,38 +213,6 @@ body,
 	justify-self: unset;
 }
 
-/* Inline attributes row */
-.sheet-attributes-top .cell--attributes-top {
-	gap: 6px;
-	align-items: stretch;
-	flex-wrap: nowrap;
-}
-
-.sheet-attributes-top .cell--attributes-top .cell {
-	border: 2px solid var(--color-border-dark, #888);
-	border-radius: 6px;
-	padding: 4px 8px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex: 1;
-	min-width: 0;
-}
-
-.sheet-attributes-top .cell--attributes-top .cell .cell__title {
-	font-size: 0.7em;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-bottom: 2px;
-}
-
-/* XP max is derived from level — prevent editing it directly */
-.cell--attr-xp .cell__max input {
-	pointer-events: none;
-	background: transparent;
-	border: none;
-	color: inherit;
-}
 
 .pbta.sheet .sheet-header__fields .view-playbook {
 	display: grid;
@@ -160,91 +223,222 @@ body,
 	font-weight: unset;
 }
 
-.pbta.sheet .sheet-attributes .cell--stats {
-	flex: 1;
-	min-width: 0;
-}
-
-.pbta.sheet .sheet-attributes .cell--stats .stats-list {
-	display: flex !important;
-	flex-direction: row !important;
-	flex-wrap: nowrap !important;
-	align-items: stretch;
-	justify-content: space-between;
-	gap: 2px;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.pbta.sheet .sheet-attributes .cell--stats .stat {
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
-	justify-content: center !important;
-	gap: 2px;
-	padding: 2px;
-	color: #1a1a1a !important;
-	flex: 1 !important;
-	border-radius: 0 !important;
-	background: transparent !important;
-	text-transform: none;
-	text-align: center;
-}
-
-.pbta.sheet .sheet-attributes .cell--stats .stat:hover {
-	background: rgba(0, 0, 0, 0.05) !important;
-}
-
-.pbta.sheet .sheet-attributes .cell--stats .stat-value {
-	order: 0;
-	width: 44px !important;
-	height: 44px !important;
-	min-width: 44px !important;
-	border-radius: 4px !important;
-	border: 2px solid #555 !important;
-	text-align: center;
-	padding: 0 !important;
-	background: transparent !important;
-	color: #1a1a1a !important;
-	font-size: 1.1rem;
-	line-height: 42px;
-	flex-shrink: 0;
-}
-
-.pbta.sheet .sheet-attributes .cell--stats .cell__title {
-	width: 100% !important;
-	min-width: 0 !important;
-	flex: unset !important;
-	display: flex !important;
-	flex-direction: row !important;
-	align-items: center !important;
-	justify-content: center !important;
-	gap: 3px;
-	font-variant: small-caps;
-	font-size: 0.82rem !important;
-	color: #1a1a1a !important;
-	text-align: center !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: 0;
-	line-height: 1;
-}
-
 .stonetop-stat-abbr {
-	font-size: 0.75rem;
+	font-size: 12px;
 	font-variant: small-caps;
 	color: var(--color-text-dark-secondary);
 	line-height: 1;
 }
 
-.pbta.sheet .sheet-attributes .cell--stats .stat-icon {
-	color: #1a1a1a !important;
-	font-size: 0.8rem !important;
+/* ── Section panel border ────────────────────────────────────────────────────── */
+
+.stonetop-section-panel {
+	position: relative;
+	background: white;
+}
+
+.stonetop-section-panel::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image:
+		url("../assets/sheet/panel-corner-tl.png"),
+		url("../assets/sheet/panel-corner-tr.png"),
+		url("../assets/sheet/panel-corner-bl.png"),
+		url("../assets/sheet/panel-corner-br.png"),
+		url("../assets/sheet/panel-edge-top.png"),
+		url("../assets/sheet/panel-edge-bottom.png"),
+		url("../assets/sheet/panel-edge-left.png"),
+		url("../assets/sheet/panel-edge-right.png");
+	background-repeat:
+		no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	background-position:
+		left top, right top, left bottom, right bottom,
+		left 16px top 0,
+		left 16px bottom 0,
+		left 0 top 16px,
+		right 0 top 16px;
+	background-size:
+		16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px,
+		calc(100% - 32px) 8px,
+		8px calc(100% - 32px),
+		8px calc(100% - 32px);
+}
+
+.stonetop-section-panel > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* ── Stats row ──────────────────────────────────────────────────────────────── */
+
+.stonetop-stats-row {
+	display: grid;
+	grid-template-columns: repeat(6, 120px);
+	gap: 4px;
+}
+
+.stonetop-stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 120px;
+	height: 95px;
+	padding: 8px;
+	background-image: url("../assets/sheet/frame-stat.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.stonetop-stat-roll {
+	border: none;
+	background: transparent;
+	font-weight: bold;
+	font-size: 13px;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.stonetop-stat-roll:hover {
+	text-decoration: underline;
+}
+
+.stonetop-stat-input {
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	height: 36px;
+	line-height: 36px;
+	width: 100%;
+	padding: 0;
+}
+
+/* ── Vitals resource row ─────────────────────────────────────────────────────── */
+
+.stonetop-resource-row {
+	display: grid;
+	grid-template-columns: 120px 210px 120px 210px 120px;
+	gap: 4px;
+}
+
+.stonetop-resource {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	height: 95px;
+	padding: 10px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.stonetop-resource--small {
+	background-image: url("../assets/sheet/frame-stat.png");
+}
+
+.stonetop-resource--wide {
+	background-image: url("../assets/sheet/frame-wide.png");
+}
+
+.stonetop-resource__label,
+.stonetop-damage-roll {
+	border: none;
+	background: transparent;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 0;
+	margin: 0 0 2px;
+	width: 100%;
+	text-align: center;
+	cursor: default;
 	line-height: 1;
-	flex-shrink: 0;
-	width: auto !important;
-	height: auto !important;
+}
+
+.stonetop-damage-roll {
+	cursor: pointer;
+}
+
+.stonetop-damage-roll:hover {
+	text-decoration: underline;
+}
+
+.stonetop-resource__input {
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	height: 38px;
+	line-height: 38px;
+	width: 100%;
+	padding: 0;
+}
+
+.stonetop-resource__split {
+	display: grid;
+	grid-template-columns: 1fr 18px 1fr;
+	align-items: center;
+	gap: 2px;
+	width: 100%;
+}
+
+.stonetop-resource__split > span {
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.stonetop-resource__max {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+/* Follower card: match dice-goblin NPC resource formatting */
+.stonetop-resource--follower {
+	height: 70px;
+	padding: 7px 8px 5px;
+}
+
+.stonetop-resource--follower .stonetop-resource__label,
+.stonetop-resource--follower .stonetop-damage-roll {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 2px;
+	line-height: 1;
+}
+
+.stonetop-resource--follower .stonetop-resource__input {
+	font-size: 26px;
+	font-weight: bold;
+	height: 34px;
+	line-height: 34px;
+	padding: 0;
+}
+
+.stonetop-resource--follower .stonetop-resource__max {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.stonetop-resource--follower .stonetop-resource__split {
+	grid-template-columns: 1fr 16px 1fr;
+}
+
+.stonetop-resource--follower .stonetop-resource__split > span {
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
 }
 
 .stonetop-playbook-description {
@@ -255,10 +449,14 @@ body,
 	line-height: 1.4;
 }
 
-.stonetop-playbook-divider {
-	border: none;
-	border-top: 1px solid var(--color-border-light-tertiary, #ccc);
-	margin: 0 0 6px;
+.stonetop-playbook-divider,
+.stonetop-panel-divider {
+	height: 5px;
+	margin: 4px 0 8px;
+	background-image: url("../assets/sheet/divider-horizontal-thin.png");
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: auto 5px;
 }
 
 .pbta.sheet .cell--debilities {
@@ -267,7 +465,7 @@ body,
 
 .stonetop-debilities {
 	display: flex;
-	width: 100%;
+	width: 740px;
 	padding: 0;
 }
 
@@ -278,14 +476,15 @@ body,
 	align-items: center;
 }
 
-.stonetop-debility-bracket {
+.stonetop-debility-divider {
 	display: block;
-	align-self: stretch;
+	width: 740px;
 	height: 8px;
-	border: 1.5px solid #888;
-	border-top: none;
-	border-radius: 0 0 6px 6px;
-	margin: 0 6px 4px;
+	background-image: url("../assets/sheet/divider-horizontal.png");
+	background-repeat: repeat-x;
+	background-size: auto 7px;
+	background-position: center;
+	margin: 2px 0;
 }
 
 .stonetop-debility-control {
@@ -363,6 +562,19 @@ body,
 
 /* ~ Playbook colors */
 
+/* -- Details tab --------------------------------------------- */
+
+.stonetop-details-columns {
+	column-count: 2;
+	column-gap: 16px;
+}
+
+.stonetop-details-columns .details-section,
+.stonetop-details-columns .stonetop-choice-section {
+	break-inside: avoid;
+	margin-bottom: 12px;
+}
+
 /* -- Creation tab -------------------------------------------- */
 
 .stonetop .tab.stonetop-creation {
@@ -395,7 +607,7 @@ body,
 
 .creation-option {
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	gap: 4px;
 	cursor: pointer;
 }
@@ -877,6 +1089,24 @@ body,
 	padding-left: 20px;
 }
 
+.stonetop-choice-track {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 3px;
+}
+
+.stonetop-choice-track-checks {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	flex-shrink: 0;
+}
+
+.stonetop-choice-track-desc {
+	line-height: 1.3;
+}
+
 .stonetop-choice-row--inline {
 	display: flex;
 	flex-wrap: wrap;
@@ -954,11 +1184,6 @@ body,
 
 /* -- Equipment: Special Possessions + Sub-Choices --------- */
 
-.stonetop-possession-list {
-	padding: 0;
-	list-style: none;
-	margin: 4px 0 0;
-}
 
 /* -- Equipment: Sub-Choices ------------------------------ */
 
@@ -1009,7 +1234,7 @@ body,
 
 .stonetop-inv-item {
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	gap: 4px;
 	margin: 1px 0;
 	font-size: 0.9em;
@@ -1090,8 +1315,8 @@ body,
 
 .stonetop-inv-small { cursor: pointer; }
 
-.stonetop-inv-separator {
-	border: none;
+.stonetop-inv-divider {
+	height: 0;
 	border-top: 1px solid var(--color-border-light, #ccc);
 	margin: 4px 0;
 }
@@ -1124,12 +1349,17 @@ body,
 
 /* Special possessions — 2 columns */
 .stonetop-possession-list {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 4px 12px;
+	column-count: 2;
+	column-gap: 12px;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+.stonetop-possession-list > li {
+	break-inside: avoid;
+	margin-bottom: 4px;
+	min-width: 0;
 }
 
 /* -- Playbook icon -------------------------------------------- */
@@ -1192,17 +1422,47 @@ body,
 
 /* -- Possessions overflow fix --------------------------------- */
 .tab-section--possessions { overflow: visible; }
-.stonetop-possession-list { overflow: visible; }
-.stonetop-possession-list > li { min-width: 0; }
 
 /* -- Outfit header -------------------------------------------- */
 .stonetop-outfit-header {
+	position: relative;
+	background: white;
 	margin-bottom: 8px;
-	padding: 6px 8px;
-	background: rgba(0, 0, 0, 0.05);
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 3px;
+	padding: 10px 12px;
 	font-size: 0.9em;
+}
+
+.stonetop-outfit-header::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image:
+		url("../assets/sheet/panel-corner-tl.png"),
+		url("../assets/sheet/panel-corner-tr.png"),
+		url("../assets/sheet/panel-corner-bl.png"),
+		url("../assets/sheet/panel-corner-br.png"),
+		url("../assets/sheet/panel-edge-top.png"),
+		url("../assets/sheet/panel-edge-bottom.png"),
+		url("../assets/sheet/panel-edge-left.png"),
+		url("../assets/sheet/panel-edge-right.png");
+	background-repeat:
+		no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	background-position:
+		left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	background-size:
+		16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+}
+
+.stonetop-outfit-header > * {
+	position: relative;
+	z-index: 1;
 }
 .stonetop-outfit-heading { font-size: 1em; margin: 0 0 4px; }
 .stonetop-outfit-loads {
@@ -1239,6 +1499,40 @@ body,
 }
 .stonetop-outfit-load-radio:checked { background: currentColor; }
 .stonetop-outfit-load-label.is-checked .stonetop-outfit-load-radio { background: currentColor; }
+
+.stonetop-roll-mode-radio {
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	border: 1.5px solid currentColor;
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	flex-shrink: 0;
+}
+.stonetop-roll-mode-radio:checked { background: currentColor; }
+.stonetop-outfit-load-label.is-checked .stonetop-roll-mode-radio { background: currentColor; }
+
+.stonetop-roll-mode-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.stonetop-roll-mode-header .stonetop-outfit-heading {
+	font-family: "StonetopUI", serif;
+	font-weight: bolder;
+	font-size: 1rem;
+	letter-spacing: 0.4px;
+	margin: 0;
+	flex-shrink: 0;
+}
+
+.stonetop-roll-mode-header .stonetop-outfit-loads {
+	flex-direction: row;
+	gap: 10px;
+}
 
 /* -- Supplies pool -------------------------------------------- */
 .stonetop-supplies-pool {
@@ -1286,9 +1580,9 @@ body,
 	flex-direction: column;
 	background: #fff;
 	min-height: 260px;
-	border-width: 14px;
+	border-width: 28px;
 	border-style: solid;
-	border-image: url('/systems/stonetop/assets/arcana/arcana-card-border.png') 40 / 14px stretch;
+	border-image: url('/systems/stonetop/assets/arcana/arcana-card-border.png') 40 / 28px stretch;
 }
 
 .stonetop-arcanum-header {
@@ -1379,7 +1673,7 @@ body,
 .stonetop-arcanum-unlock-option {
 	margin-bottom: 3px;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 4px;
 	flex-wrap: nowrap;
 }
@@ -1452,7 +1746,6 @@ body,
 
 .stonetop-arcanum-follower .stonetop-follower-card {
 	box-shadow: none;
-	border: 1px solid var(--color-border-dark);
 }
 
 /* -- Choice sections (Details + Post-Death tabs) ---------------- */
@@ -1468,13 +1761,14 @@ body,
 
 .stonetop-choice-option {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 6px;
 	margin-bottom: 4px;
 }
 
 .stonetop-choice-option--text {
 	flex-direction: column;
+	align-items: flex-start;
 }
 
 .stonetop-option-text {
@@ -1542,10 +1836,42 @@ body,
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	border: 1px solid var(--color-border-dark);
-	border-radius: 3px;
-	padding: 8px;
+	background: white;
+	padding: 12px;
 	font-size: 0.85rem;
+}
+
+.stonetop-follower-card::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image:
+		url("../assets/sheet/panel-corner-tl.png"),
+		url("../assets/sheet/panel-corner-tr.png"),
+		url("../assets/sheet/panel-corner-bl.png"),
+		url("../assets/sheet/panel-corner-br.png"),
+		url("../assets/sheet/panel-edge-top.png"),
+		url("../assets/sheet/panel-edge-bottom.png"),
+		url("../assets/sheet/panel-edge-left.png"),
+		url("../assets/sheet/panel-edge-right.png");
+	background-repeat:
+		no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	background-position:
+		left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	background-size:
+		16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+}
+
+.stonetop-follower-card > * {
+	position: relative;
+	z-index: 1;
 }
 
 .stonetop-follower-name-input {
@@ -1599,54 +1925,9 @@ body,
 .stonetop-follower-delete:hover { color: var(--color-level-error, #c00); }
 
 .stonetop-follower-attrs {
-	display: flex;
+	display: grid;
+	grid-template-columns: 88px 88px 155px;
 	gap: 4px;
-	align-items: stretch;
-}
-
-.stonetop-follower-card .cell {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2px;
-	border: 1px solid var(--color-border-dark);
-	border-radius: 3px;
-	padding: 4px 6px;
-}
-
-.stonetop-follower-card .cell__title {
-	font-size: 0.72rem;
-	font-variant: small-caps;
-	color: var(--color-text-dark-secondary, #555);
-	text-align: center;
-}
-
-.stonetop-follower-card .cell input {
-	width: 36px;
-	text-align: center;
-	font-size: 1rem;
-	background: transparent;
-	border: none;
-	outline: none;
-	padding: 0;
-}
-
-.stonetop-follower-card .cell__counter {
-	display: flex;
-	align-items: center;
-	gap: 2px;
-}
-
-.stonetop-follower-card .cell--damage .attr-rollable {
-	font-size: 1.1rem;
-	cursor: pointer;
-}
-
-.stonetop-follower-card .stonetop-follower-damage {
-	width: 28px;
-	font-size: 0.8rem;
 }
 
 .stonetop-follower-loyalty {
@@ -1822,9 +2103,12 @@ body,
 }
 
 .st-stat-divider {
-	height: 1px;
-	background: var(--color-border-light-primary, #ccc);
+	height: 5px;
 	margin: 2px 8px;
+	background-image: url("../assets/sheet/divider-horizontal-thin.png");
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: auto 5px;
 }
 
 /* Mid row: Prosperity | Defenses */

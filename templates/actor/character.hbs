@@ -22,12 +22,12 @@
 
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
 
-			<section class="sheet-attributes flexrow">
+			<div class="stonetop-stats-section">
 				{{> "stonetop.actor-stats" stats=stonetop.stats}}
-			</section>
+			</div>
+			<div class="stonetop-debility-divider" aria-hidden="true"></div>
 			<div class="stonetop-debilities">
 				<div class="stonetop-debility">
-					<span class="stonetop-debility-bracket"></span>
 					<label class="stonetop-debility-control">
 						<input type="checkbox" class="attr-list"
 						       name="system.attributes.debilities.options.weakened.value"
@@ -36,7 +36,6 @@
 					</label>
 				</div>
 				<div class="stonetop-debility">
-					<span class="stonetop-debility-bracket"></span>
 					<label class="stonetop-debility-control">
 						<input type="checkbox" class="attr-list"
 						       name="system.attributes.debilities.options.dazed.value"
@@ -45,7 +44,6 @@
 					</label>
 				</div>
 				<div class="stonetop-debility">
-					<span class="stonetop-debility-bracket"></span>
 					<label class="stonetop-debility-control">
 						<input type="checkbox" class="attr-list"
 						       name="system.attributes.debilities.options.miserable.value"
@@ -55,9 +53,9 @@
 				</div>
 			</div>
 
-			<section class="sheet-attributes-top">
+			<div class="stonetop-vitals-section">
 				{{> "stonetop.actor-attributes"}}
-			</section>
+			</div>
 
 		</section>
 

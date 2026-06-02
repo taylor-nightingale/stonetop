@@ -35,7 +35,7 @@
 		{{!-- Regular items (left column) --}}
 		<div class="stonetop-inventory-regular">
 			{{> "stonetop.section-heading" title=(localize "stonetop.inventory.regularItems")}}
-			<hr class="stonetop-inv-separator">
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
 			{{!-- Regular pool --}}
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.regularUndefinedPoolLabel"}}</strong></span>
@@ -53,10 +53,11 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
-			<hr class="stonetop-inv-separator">
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
 			{{#each stonetop.inventory.outfit.regularSections}}
-			{{#unless @first}}<hr class="stonetop-inv-separator">{{/unless}}
+			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
+			{{#if breakBefore}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/if}}
 			{{#if isGrid}}
 			<div class="stonetop-inv-twocol-grid">
 				{{#each items}}
@@ -113,7 +114,7 @@
 		<div class="stonetop-inventory-small">
 			{{> "stonetop.section-heading" title=(localize "stonetop.inventory.smallItems")}}
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.smallItemsNote"}}}</p>
-			<hr class="stonetop-inv-separator">
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
 			{{!-- Small pool --}}
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.smallUndefinedPoolLabel"}}</strong></span>
@@ -130,10 +131,11 @@
 				</span>
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
-			<hr class="stonetop-inv-separator">
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
 			{{#each stonetop.inventory.outfit.smallSections}}
-			{{#unless @first}}<hr class="stonetop-inv-separator">{{/unless}}
+			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
+			{{#if breakBefore}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/if}}
 			{{#if isGrid}}
 			<div class="stonetop-inv-grid">
 				{{#each items}}

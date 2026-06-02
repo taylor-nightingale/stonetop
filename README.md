@@ -29,4 +29,8 @@ npm test           # run tests
 
 Code is licensed under the [MIT License](LICENSE).
 
-Game content (and icons) are derived from [Stonetop](https://plusoneexp.com/collections/stonetop) by Jeremy Strandberg and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Some CSS/HTML and assets derived with permission from dice-goblin's beautiful [stonetop system](https://github.com/Dice-Goblin-Click-Clack/Stonetop)
+
+Game content (and trade dress) are derived from [Stonetop](https://plusoneexp.com/collections/stonetop) by Jeremy Strandberg and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+The Stonetop maps are Lucie’s illustrations (C), and should not be distributed in this repository.

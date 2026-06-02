@@ -1,15 +1,12 @@
-<ul class="stats-list flexrow">
+<div class="stonetop-stats-row">
 	{{#each stats}}
-	<li class="stat flexcol cell--stats" data-stat="{{@key}}">
-		<input class="stat-value" type="number"
+	<div class="stonetop-stat" data-stat="{{@key}}">
+		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}">{{name}}</span>
+		<input class="stonetop-stat-input" type="number"
 		       name="system.stats.{{@key}}.value"
-		       value="{{value}}"
-		       min="-3" max="3"
+		       value="{{value}}" min="-3" max="3"
 		       {{#unless ../editable}}disabled{{/unless}}>
-		<label class="stat-label">{{name}}</label>
-		<span class="rollable stat-rollable" data-roll="{{@key}}">
-			<i class="fas fa-dice-d6"></i>
-		</span>
-	</li>
+		<span class="stonetop-stat-abbr">({{abbr}})</span>
+	</div>
 	{{/each}}
-</ul>
+</div>

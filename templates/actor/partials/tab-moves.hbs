@@ -2,28 +2,32 @@
 	<section class="sheet-tab">
 
 		{{!-- Roll Mode --}}
-		<section class="sheet-resources flexrow">
-			<div class="cell cell--roll-mode">
-				<label class="cell__title">{{localize "stonetop.rollMode.label"}}</label>
-				<div class="stonetop-roll-modes">
-					<label>
-						<input type="radio" name="stonetop-roll-mode" value="normal"
-						       {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-						{{localize "stonetop.rollMode.normal"}}
+		<div class="stonetop-outfit-header">
+			<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
+			<ul class="stonetop-outfit-loads">
+				<li>
+					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+						       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
+						<span>{{localize "stonetop.rollMode.normal"}}</span>
 					</label>
-					<label>
-						<input type="radio" name="stonetop-roll-mode" value="adv"
-						       {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-						{{localize "stonetop.rollMode.adv"}}
+				</li>
+				<li>
+					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+						       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
+						<span>{{localize "stonetop.rollMode.adv"}}</span>
 					</label>
-					<label>
-						<input type="radio" name="stonetop-roll-mode" value="dis"
-						       {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-						{{localize "stonetop.rollMode.dis"}}
+				</li>
+				<li>
+					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+						       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
+						<span>{{localize "stonetop.rollMode.dis"}}</span>
 					</label>
-				</div>
-			</div>
-		</section>
+				</li>
+			</ul>
+		</div>
 
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}

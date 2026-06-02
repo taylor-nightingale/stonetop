@@ -13,23 +13,27 @@
 
 	<div class="stonetop-follower-attrs">
 		{{#if damage}}
-		<div class="cell cell--damage cell--Roll">
-			<span class="cell__title">{{localize "stonetop.followers.damage"}}</span>
-			<span class="attr-rollable rollable" data-roll="{{damage.die}}"><i class="fas fa-dice-d6"></i></span>
-			<input type="text" class="stonetop-follower-damage" value="{{damage.die}}" data-slug="{{slug}}">
+		<div class="stonetop-resource stonetop-resource--small stonetop-resource--follower">
+			<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button"
+			        data-roll="{{damage.die}}">{{localize "stonetop.followers.damage"}}</button>
+			<input class="stonetop-resource__input stonetop-follower-damage"
+			       type="text" value="{{damage.die}}" data-slug="{{slug}}">
 		</div>
 		{{/if}}
-		<div class="cell cell--hp cell--Resource">
-			<span class="cell__title">{{localize "stonetop.followers.hp"}}</span>
-			<div class="cell__counter">
-				<input type="number" class="stonetop-follower-hp" min="0" value="{{hp}}" data-slug="{{slug}}">
-				<span>/</span>
-				<input type="number" class="stonetop-follower-hp-max" min="0" value="{{hpMax}}" data-slug="{{slug}}">
-			</div>
+		<div class="stonetop-resource stonetop-resource--small stonetop-resource--follower">
+			<span class="stonetop-resource__label">{{localize "stonetop.followers.armor"}}</span>
+			<input class="stonetop-resource__input stonetop-follower-armor"
+			       type="number" min="0" value="{{armor.value}}" data-slug="{{slug}}">
 		</div>
-		<div class="cell cell--armor cell--Number">
-			<span class="cell__title">{{localize "stonetop.followers.armor"}}</span>
-			<input type="number" class="stonetop-follower-armor" min="0" value="{{armor.value}}" data-slug="{{slug}}">
+		<div class="stonetop-resource stonetop-resource--wide stonetop-resource--follower">
+			<span class="stonetop-resource__label">{{localize "stonetop.followers.hp"}}</span>
+			<div class="stonetop-resource__split">
+				<input class="stonetop-resource__input stonetop-follower-hp"
+				       type="number" min="0" value="{{hp}}" data-slug="{{slug}}">
+				<span>/</span>
+				<input class="stonetop-resource__input stonetop-follower-hp-max"
+				       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
+			</div>
 		</div>
 	</div>
 

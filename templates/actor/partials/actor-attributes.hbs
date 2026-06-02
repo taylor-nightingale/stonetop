@@ -1,51 +1,45 @@
-<div class="cell--attributes-top flexrow">
-	<div class="cell cell--attr cell--attr-damage">
-		<span class="cell__title">{{localize "stonetop.character.attributes.damage"}}</span>
-		<div class="cell__value">
-			<input name="system.attributes.damage.value"
-			       type="text"
-			       value="{{system.attributes.damage.value}}"
+<div class="stonetop-resource-row">
+
+	<div class="stonetop-resource stonetop-resource--small">
+		<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button"
+		        data-roll="damage">{{localize "stonetop.character.attributes.damage"}}</button>
+		<input class="stonetop-resource__input" name="system.attributes.damage.value"
+		       type="text" value="{{system.attributes.damage.value}}"
+		       {{#unless editable}}disabled{{/unless}}>
+	</div>
+
+	<div class="stonetop-resource stonetop-resource--wide">
+		<span class="stonetop-resource__label">HP</span>
+		<div class="stonetop-resource__split">
+			<input class="stonetop-resource__input" name="system.attributes.hp.value"
+			       type="number" value="{{system.attributes.hp.value}}" min="0"
 			       {{#unless editable}}disabled{{/unless}}>
+			<span>/</span>
+			<span class="stonetop-resource__max">{{stonetop.vitals.hp.max}}</span>
 		</div>
 	</div>
-	<div class="cell cell--attr cell--attr-hp">
-		<span class="cell__title">HP</span>
-		<div class="cell__value flexrow">
-			<input name="system.attributes.hp.value"
-			       type="number"
-			       value="{{system.attributes.hp.value}}"
-			       min="0"
+
+	<div class="stonetop-resource stonetop-resource--small">
+		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.armor"}}</span>
+		<span class="stonetop-resource__input">{{stonetop.vitals.armor}}</span>
+	</div>
+
+	<div class="stonetop-resource stonetop-resource--wide">
+		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.xp"}}</span>
+		<div class="stonetop-resource__split">
+			<input class="stonetop-resource__input" name="system.attributes.xp.value"
+			       type="number" value="{{system.attributes.xp.value}}" min="0"
 			       {{#unless editable}}disabled{{/unless}}>
-			<span class="cell__sep">/</span>
-			<span class="cell__max">{{stonetop.vitals.hp.max}}</span>
+			<span>/</span>
+			<span class="stonetop-resource__max">{{system.attributes.xp.max}}</span>
 		</div>
 	</div>
-	<div class="cell cell--attr cell--attr-armor">
-		<span class="cell__title">{{localize "stonetop.character.attributes.armor"}}</span>
-		<div class="cell__value">
-			<span>{{stonetop.vitals.armor}}</span>
-		</div>
+
+	<div class="stonetop-resource stonetop-resource--small">
+		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
+		<input class="stonetop-resource__input" name="system.attributes.level"
+		       type="number" value="{{system.attributes.level}}" min="1"
+		       {{#unless editable}}disabled{{/unless}}>
 	</div>
-	<div class="cell cell--attr cell--attr-xp">
-		<span class="cell__title">{{localize "stonetop.character.attributes.xp"}}</span>
-		<div class="cell__value flexrow">
-			<input name="system.attributes.xp.value"
-			       type="number"
-			       value="{{system.attributes.xp.value}}"
-			       min="0"
-			       {{#unless editable}}disabled{{/unless}}>
-			<span class="cell__sep">/</span>
-			<span class="cell__max">{{system.attributes.xp.max}}</span>
-		</div>
-	</div>
-	<div class="cell cell--attr cell--attr-level">
-		<span class="cell__title">{{localize "stonetop.character.attributes.level"}}</span>
-		<div class="cell__value">
-			<input name="system.attributes.level"
-			       type="number"
-			       value="{{system.attributes.level}}"
-			       min="1"
-			       {{#unless editable}}disabled{{/unless}}>
-		</div>
-	</div>
+
 </div>
