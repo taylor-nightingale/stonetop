@@ -211,7 +211,6 @@
 			"note":            "",
 			"resource":        null,
 			"twoCol":          false,
-			"breakBefore":     false,
 			"sortOrder":       null,
 			"armor":           null,
 			"source":          null

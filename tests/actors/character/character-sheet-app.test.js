@@ -104,19 +104,11 @@ describe("StonetopCharacterSheet._onDropItemCreate", () => {
 		expect(actor.typedActor.onDropItems).toHaveBeenCalledWith([item]);
 	});
 
-	it("calls render when anyAdded is true", async () => {
+	it("does not call render explicitly — Foundry re-renders after document mutation", async () => {
 		const actor = makeActor();
 		const sheet = makeSheet(actor);
 		actor.typedActor.onDropItems.mockResolvedValue({ anyAdded: true, others: [] });
 		await sheet._onDropItemCreate(makeArcanum("humble-broom"));
-		expect(sheet.render).toHaveBeenCalledWith(false);
-	});
-
-	it("does not call render when anyAdded is false", async () => {
-		const actor = makeActor();
-		const sheet = makeSheet(actor);
-		actor.typedActor.onDropItems.mockResolvedValue({ anyAdded: false, others: [] });
-		await sheet._onDropItemCreate(makeNonMove());
 		expect(sheet.render).not.toHaveBeenCalled();
 	});
 });

@@ -469,54 +469,70 @@ body,
 }
 
 .stonetop-debilities {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	width: 740px;
-	padding: 0;
-}
-
-.stonetop-debility {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.stonetop-debility-divider {
-	display: block;
-	width: 740px;
-	height: 8px;
-	background-image: url("../assets/sheet/divider-horizontal.png");
-	background-repeat: repeat-x;
-	background-size: auto 7px;
-	background-position: center;
 	margin: 2px 0;
 }
 
+.stonetop-debility {
+	display: block;
+}
+
 .stonetop-debility-control {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 3px;
+	position: relative;
+	display: block;
+	height: 34px;
 	cursor: pointer;
 	font-size: 0.7rem;
 	font-style: italic;
+	font-weight: normal;
 	color: var(--color-text-dark-secondary);
+	text-align: center;
+}
+
+.stonetop-debility-divider {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 100%;
+	height: 18px;
+	background-image: url("../assets/sheet/divider-debility.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+	pointer-events: none;
 }
 
 .stonetop-debility input[type="checkbox"] {
+	position: absolute !important;
+	left: 48% !important;
+	top: 3px !important;
+	transform: translateX(-50%) !important;
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px !important;
-	height: 14px !important;
-	flex: 0 0 14px !important;
+	width: 12px !important;
+	height: 12px !important;
 	border-radius: 50% !important;
-	border: 1.5px solid #555 !important;
+	border: 1px solid #555 !important;
 	background: transparent !important;
 	cursor: pointer;
+	z-index: 3;
 }
 
 .stonetop-debility input[type="checkbox"]:checked {
 	background-color: #555 !important;
+}
+
+.stonetop-debility-label {
+	position: absolute;
+	left: 0;
+	top: 19px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	pointer-events: none;
 }
 
 /* Playbook colors */

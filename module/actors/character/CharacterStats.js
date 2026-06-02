@@ -4,9 +4,9 @@ import { Stats } from "../../model/data/character/Stats.js";
 const _STAT_DEFS = {
 	str: { name: "Strength",     abbr: "STR" },
 	dex: { name: "Dexterity",    abbr: "DEX" },
-	con: { name: "Constitution", abbr: "CON" },
 	int: { name: "Intelligence", abbr: "INT" },
 	wis: { name: "Wisdom",       abbr: "WIS" },
+	con: { name: "Constitution", abbr: "CON" },
 	cha: { name: "Charisma",     abbr: "CHA" },
 };
 

@@ -76,14 +76,6 @@ describe("EmbeddedOutfitItemBuilder", () => {
 		expect(makeItem().system.twoCol).toBe(false);
 	});
 
-	it("stores breakBefore in system.breakBefore", () => {
-		expect(makeItem({ breakBefore: true }).system.breakBefore).toBe(true);
-	});
-
-	it("defaults breakBefore to false", () => {
-		expect(makeItem().system.breakBefore).toBe(false);
-	});
-
 	it("stores source in system.source", () => {
 		expect(makeItem({ source: "arcana:my-arcanum" }).system.source).toBe("arcana:my-arcanum");
 	});

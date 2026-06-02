@@ -22,10 +22,11 @@
 * getting the rules text and roll results showing in the roll chat.
 * displaying info in the compendium
 * support editing and adding compendium items
-
+* bullet points everywhere should use our icon just like in the steading sheet.
 
 == Nice to have
 * toggle to turn off non-selected character options
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
-* Add a bar between arcana outfit items and the others so they are more clearly visible
+
+

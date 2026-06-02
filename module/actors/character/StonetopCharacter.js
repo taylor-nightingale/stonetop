@@ -15,6 +15,7 @@ import {ChoiceGroupController} from "./ChoiceGroupController.js";
 import {ResourceController} from "./ResourceController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
+import {CharacterDebilities} from "./CharacterDebilities.js";
 import {CharacterRolling} from "./CharacterRolling.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
@@ -42,6 +43,7 @@ export class StonetopCharacter {
 		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
 		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor);
+		this._debilities = new CharacterDebilities(actor);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
@@ -381,6 +383,10 @@ export class StonetopCharacter {
 
 	async setDamage(die) {
 		await this._vitals.setDamage(die);
+	}
+
+	async setDebility(slug, value) {
+		await this._debilities.setDebility(slug, value);
 	}
 
 	async removeFollower(slug) {

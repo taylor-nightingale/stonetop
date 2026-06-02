@@ -77,6 +77,13 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setRollMode(ev.currentTarget.value);
 			});
 
+			html[0].addEventListener("change", ev => {
+				const el = ev.target.closest(".stonetop-debility-check");
+				if (!el) return;
+				ev.stopImmediatePropagation();
+				ev.stopPropagation();
+				this._stonetopCharacter.setDebility(el.dataset.slug, el.checked);
+			}, true);
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
 			html.find(".stonetop-instinct-custom").on("change", ev =>
 				this._stonetopCharacter.instinct.selectCustom(ev.currentTarget.value.trim())
@@ -126,44 +133,44 @@ export function createStonetopCharacterSheetClass(Base) {
 				await this._stonetopCharacter.deleteMove(moveSlug);
 			});
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-arcanum-flip-btn");
 				if (!btn) return;
 				ev.stopPropagation();
 				const { slug, flipped } = btn.dataset;
 				if (flipped === "true") {
-					this._stonetopCharacter.unflipArcanum(slug).then(() => this.render(false));
+					await this._stonetopCharacter.unflipArcanum(slug);
 				} else {
-					this._stonetopCharacter.flipArcanum(slug).then(() => this.render(false));
+					await this._stonetopCharacter.flipArcanum(slug);
 				}
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-arcanum-resource-btn");
 				if (!btn) return;
 				ev.stopPropagation();
 				const { slug, index } = btn.dataset;
 				const isChecked = btn.classList.contains("is-checked");
 				const newVal = isChecked ? Number(index) : Number(index) + 1;
-				this._stonetopCharacter.setArcanumResource(slug, newVal).then(() => this.render(false));
+				await this._stonetopCharacter.setArcanumResource(slug, newVal);
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-background-resource-btn");
 				if (!btn) return;
 				ev.stopPropagation();
 				const { slug, index } = btn.dataset;
 				const isChecked = btn.classList.contains("is-checked");
 				const newVal = isChecked ? Number(index) : Number(index) + 1;
-				this._stonetopCharacter.setBackgroundResource(slug, newVal).then(() => this.render(false));
+				await this._stonetopCharacter.setBackgroundResource(slug, newVal);
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-arcanum-delete");
 				if (!btn) return;
 				ev.stopPropagation();
 				const { slug } = btn.dataset;
-				this._stonetopCharacter.removeArcanum(slug).then(() => this.render(true));
+				await this._stonetopCharacter.removeArcanum(slug);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
@@ -191,45 +198,43 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setChoiceText(cgContext, cgGroup, cgOption, el.value);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-arcanum-follower-check");
 				if (!el) return;
 				const { cgContext, slug: groupSlug, option: optionSlug, index } = el.dataset;
 				const count = el.checked ? Number(index) + 1 : Number(index);
 				if (cgContext === "arcana-back") {
-					this._stonetopCharacter.setArcanumBackChoiceValue(groupSlug, optionSlug, count)
-						.then(() => this.render(false));
+					await this._stonetopCharacter.setArcanumBackChoiceValue(groupSlug, optionSlug, count);
 				} else if (cgContext === "background") {
-					this._stonetopCharacter.setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count)
-						.then(() => this.render(false));
+					await this._stonetopCharacter.setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count);
 				}
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-pdi-activate");
 				if (!btn) return;
 				ev.stopPropagation();
-				this._stonetopCharacter.setPostDeathInsert(btn.dataset.slug).then(() => this.render(false));
+				await this._stonetopCharacter.setPostDeathInsert(btn.dataset.slug);
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-pdi-remove");
 				if (!btn) return;
 				ev.stopPropagation();
-				this._stonetopCharacter.setPostDeathInsert(null).then(() => this.render(false));
+				await this._stonetopCharacter.setPostDeathInsert(null);
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-follower-add");
 				if (!btn) return;
-				this._stonetopCharacter.addCustomFollower().then(() => this.render(false));
+				await this._stonetopCharacter.addCustomFollower();
 			}, true);
 
-			html[0].addEventListener("click", ev => {
+			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-follower-delete");
 				if (!btn) return;
 				ev.stopPropagation();
-				this._stonetopCharacter.removeFollower(btn.dataset.slug).then(() => this.render(false));
+				await this._stonetopCharacter.removeFollower(btn.dataset.slug);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
@@ -287,7 +292,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			const items = Array.isArray(itemData) ? itemData : [itemData];
 			const { anyAdded, others } = await this._stonetopCharacter.onDropItems(items);
 			if (others.length) await super._onDropItemCreate(others);
-			if (anyAdded) this.render(false);
 		}
 
 		async _onBackgroundChange(ev) {
@@ -353,7 +357,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			await this._stonetopCharacter.setInventoryItemChecked(
 				ev.currentTarget.dataset.slug, ev.currentTarget.checked
 			);
-			this.render(true);
 		}
 
 		async _onInventoryResource(ev) {
@@ -361,7 +364,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			const isChecked = ev.currentTarget.classList.contains("is-checked");
 			const newVal = isChecked ? Number(index) : Number(index) + 1;
 			await this._stonetopCharacter.setInventoryResource(slug, newVal);
-			this.render(true);
 		}
 
 		async _onAddInventoryItem(ev) {
@@ -384,11 +386,9 @@ export function createStonetopCharacterSheetClass(Base) {
 							if (!name) return;
 							if (isRegular) {
 								const weight = parseInt(html.find("[name=weight]").val()) || 1;
-								this._stonetopCharacter.addCustomInventoryItem(name, weight)
-									.then(() => this.render(false));
+								this._stonetopCharacter.addCustomInventoryItem(name, weight);
 							} else {
-								this._stonetopCharacter.addCustomSmallItem(name)
-									.then(() => this.render(false));
+								this._stonetopCharacter.addCustomSmallItem(name);
 							}
 						},
 					},
@@ -400,7 +400,6 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onOutfitLoad(ev) {
 			await this._stonetopCharacter.setInventoryLoadLevel(ev.currentTarget.value);
-			this.render(false);
 		}
 
 		async _onRegularPool(ev) {
@@ -408,7 +407,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			await this._stonetopCharacter.setInventoryRegularPool(
 				ev.currentTarget.checked ? idx + 1 : idx
 			);
-			this.render(false);
 		}
 
 		async _onSmallPool(ev) {
@@ -416,7 +414,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			await this._stonetopCharacter.setInventorySmallPool(
 				ev.currentTarget.checked ? idx + 1 : idx
 			);
-			this.render(false);
 		}
 
 		async _onDeleteCustomInventoryItem(ev) {

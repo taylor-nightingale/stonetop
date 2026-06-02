@@ -25,28 +25,30 @@
 			<div class="stonetop-stats-section">
 				{{> "stonetop.actor-stats" stats=stonetop.stats}}
 			</div>
-			<div class="stonetop-debility-divider" aria-hidden="true"></div>
 			<div class="stonetop-debilities">
 				<div class="stonetop-debility">
 					<label class="stonetop-debility-control">
-						<input type="checkbox" class="attr-list"
-						       name="system.attributes.debilities.options.weakened.value"
+						<span class="stonetop-debility-divider"></span>
+						<input type="checkbox" class="stonetop-debility-check"
+						       data-slug="weakened"
 						       {{#if system.attributes.debilities.options.weakened.value}}checked{{/if}}>
 						<span class="stonetop-debility-label">weakened</span>
 					</label>
 				</div>
 				<div class="stonetop-debility">
 					<label class="stonetop-debility-control">
-						<input type="checkbox" class="attr-list"
-						       name="system.attributes.debilities.options.dazed.value"
+						<span class="stonetop-debility-divider"></span>
+						<input type="checkbox" class="stonetop-debility-check"
+						       data-slug="dazed"
 						       {{#if system.attributes.debilities.options.dazed.value}}checked{{/if}}>
 						<span class="stonetop-debility-label">dazed</span>
 					</label>
 				</div>
 				<div class="stonetop-debility">
 					<label class="stonetop-debility-control">
-						<input type="checkbox" class="attr-list"
-						       name="system.attributes.debilities.options.miserable.value"
+						<span class="stonetop-debility-divider"></span>
+						<input type="checkbox" class="stonetop-debility-check"
+						       data-slug="miserable"
 						       {{#if system.attributes.debilities.options.miserable.value}}checked{{/if}}>
 						<span class="stonetop-debility-label">miserable</span>
 					</label>

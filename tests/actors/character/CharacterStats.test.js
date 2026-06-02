@@ -33,7 +33,7 @@ describe("CharacterStats.getStats", () => {
 describe("CharacterStats.buildStatsSnapshot", () => {
 	it("returns an entry for each of the 6 stats", () => {
 		const snap = new CharacterStats(makeStatsActor()).buildStatsSnapshot();
-		expect(Object.keys(snap)).toEqual(["str", "dex", "con", "int", "wis", "cha"]);
+		expect(Object.keys(snap)).toEqual(["str", "dex", "int", "wis", "con", "cha"]);
 	});
 
 	it("maps the value from actor system.stats", () => {
