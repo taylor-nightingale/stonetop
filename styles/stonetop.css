@@ -2779,8 +2779,10 @@ body,
 	border-radius: 3px;
 	font-weight: bold;
 }
+.stonetop-dice-group--dropped {
+	opacity: 0.4;
+}
 .stonetop-die--dropped {
-	opacity: 0.35;
 	background: #555;
 	text-decoration: line-through;
 }

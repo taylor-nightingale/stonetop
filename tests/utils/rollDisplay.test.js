@@ -1,20 +1,25 @@
 import { describe, it, expect } from "vitest";
 import { buildRollContent } from "../../src/utils/rollDisplay.js";
+import { FakeNormalRollBuilder } from "../fakes/FakeNormalRollBuilder.js";
+import { FakePoolRollBuilder }  from "../fakes/FakePoolRollBuilder.js";
 
-// -- Helpers -------------------------------------------------------------------
+// -- Fixtures ------------------------------------------------------------------
 
-function fakeRoll({ groups, total }) {
-	return {
-		dice: groups.map(group => ({
-			results: group.map(({ value, active = true }) => ({ result: value, active })),
-		})),
-		total,
-	};
-}
+const NORMAL = new FakeNormalRollBuilder().withValues(3, 5).withTotal(8).build();
 
-const NORMAL = fakeRoll({ groups: [[{ value: 3 }, { value: 5 }]], total: 8 });
-const ADV    = fakeRoll({ groups: [[{ value: 3 }, { value: 5 }], [{ value: 2, active: false }, { value: 4, active: false }]], total: 8 });
-const DIS    = fakeRoll({ groups: [[{ value: 3, active: false }, { value: 5, active: false }], [{ value: 2 }, { value: 4 }]], total: 6 });
+// ADV (kh): higher-sum group kept
+const ADV = new FakePoolRollBuilder()
+	.withKeptGroup(3, 5)     // sum 8, kept
+	.withDroppedGroup(2, 4)  // sum 6, dropped
+	.withTotal(8)
+	.build();
+
+// DIS (kl): lower-sum group kept
+const DIS = new FakePoolRollBuilder()
+	.withDroppedGroup(3, 5)  // sum 8, dropped
+	.withKeptGroup(2, 4)     // sum 6, kept
+	.withTotal(6)
+	.build();
 
 // -- buildRollContent ----------------------------------------------------------
 
@@ -54,6 +59,24 @@ describe("buildRollContent — dice display", () => {
 	it("does not show separator for a normal roll", () => {
 		const html = buildRollContent(NORMAL, { name: "Test", resultKey: "partial", resultLabel: "Weak Hit" });
 		expect(html).not.toContain("stonetop-dice-separator");
+	});
+
+	it("marks the dropped group container with --dropped class", () => {
+		const html = buildRollContent(ADV, { name: "Test", rollMode: "adv", resultKey: "partial", resultLabel: "Weak Hit" });
+		expect(html).toContain("stonetop-dice-group--dropped");
+		expect(html).not.toContain("stonetop-dice-group stonetop-dice-group--dropped stonetop-dice-group--dropped");
+	});
+
+	it("does not mark the kept group with --dropped class", () => {
+		const html = buildRollContent(ADV, { name: "Test", rollMode: "adv", resultKey: "partial", resultLabel: "Weak Hit" });
+		const groups = [...html.matchAll(/stonetop-dice-group[^"]*"/g)].map(m => m[0]);
+		expect(groups.some(g => g.includes("--dropped"))).toBe(true);
+		expect(groups.some(g => !g.includes("--dropped"))).toBe(true);
+	});
+
+	it("does not add --dropped group for a normal roll", () => {
+		const html = buildRollContent(NORMAL, { name: "Test", resultKey: "partial", resultLabel: "Weak Hit" });
+		expect(html).not.toContain("stonetop-dice-group--dropped");
 	});
 });
 

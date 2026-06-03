@@ -26,7 +26,7 @@
 * add playbook dropdown
 * selecting moves flickers the check box before selecting
 * steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
-* Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty", name: "Loyalty to the Eldritch God" }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
+* Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * modal popup for rolling needs better formatting and a button for adv/dis/normal
 
@@ -37,9 +37,7 @@
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 
 === Bugs
-* Debility checks in the character sheet have a bug.
-  * unchecking a debility stat unchecks all debilities
-  checking a debility for the first time flickers it, checking it for the second time actually selects it.
+
 
 
 
