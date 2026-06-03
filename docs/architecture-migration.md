@@ -84,7 +84,8 @@ These values derive from other data and go stale if stored:
 3. `CharacterPlaybook` ✓ — `flags.stonetop.playbook.slug` → `system.playbookSlug`
 4. `CharacterMoves` ✓ — `flags.stonetop.moves.categories` → `system.moves`; only `_getCategories()` + `_setCategories()` changed
 5. `CharacterInventory` + `CharacterPossessions` ✓ — 10 flags → `system.inventory.*` + `system.possessions.*`; constructor arg changed from injected flags to actor
-6. `CharacterArcana`
+6. `CharacterArcana` ✓ — 4 flags → `system.arcana.*`; 5 spy-assertion tests rewritten to assert on observable state
+7. `CharacterFollowers`
 3. `CharacterPlaybook`
 4. `CharacterMoves`
 5. `CharacterInventory` + `CharacterPossessions`

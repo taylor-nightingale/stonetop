@@ -3,6 +3,7 @@ import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.j
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
@@ -13,12 +14,15 @@ import {FakeArcanaRepository} from "../../fakes/FakeArcanaRepository.js";
 
 // -- Helpers ------------------------------------------------------------------
 
-function makeFlags(store = {}) {
-	return {
-		_store: { ...store },
-		getFlag: (key) => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
+function makeActor(arcanaState = {}) {
+	const actor = new FakeActorBuilder().build();
+	actor.system.arcana = {
+		owned:       arcanaState.owned       ?? [],
+		flipped:     arcanaState.flipped     ?? [],
+		unlock:      arcanaState.unlock      ?? {},
+		backChoices: arcanaState.backChoices ?? {},
 	};
+	return actor;
 }
 
 // -- Fixture ------------------------------------------------------------------
@@ -62,9 +66,9 @@ function makeActorOutfitItems() {
 	return { sync: vi.fn(async () => {}), deleteBySource: vi.fn(async () => {}) };
 }
 
-function makeArcana(flagStore = {}, arcana = [FFYRNIG_SPHERE], fakeStats = null, outfitItems = null) {
+function makeArcana(arcanaState = {}, arcana = [FFYRNIG_SPHERE], fakeStats = null, outfitItems = null) {
 	return new CharacterArcana(
-		makeFlags(flagStore),
+		makeActor(arcanaState),
 		new FakeArcanaRepository(arcana),
 		fakeStats ?? makeFakeStats(),
 		outfitItems ?? makeActorOutfitItems(),
@@ -115,7 +119,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 
 		it("owned slug missing from repo is omitted silently", async () => {
 			const arcana = new CharacterArcana(
-				makeFlags({ owned: ["nonexistent-slug"] }),
+				makeActor({ owned: ["nonexistent-slug"] }),
 				new FakeArcanaRepository([FFYRNIG_SPHERE]),
 			);
 			const snap = await arcana.buildSnapshot();
@@ -252,7 +256,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 		it("back.resource is null when absent in JSON", async () => {
 			const noResource = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, resource: undefined } };
 			const arcana = new CharacterArcana(
-				makeFlags({ owned: ["huge-wooden-sphere"] }),
+				makeActor({ owned: ["huge-wooden-sphere"] }),
 				new FakeArcanaRepository([noResource]),
 			);
 			expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
@@ -269,7 +273,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 		it("back.moves is empty when absent in JSON", async () => {
 			const noMoves = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, moves: undefined } };
 			const arcana = new CharacterArcana(
-				makeFlags({ owned: ["huge-wooden-sphere"] }),
+				makeActor({ owned: ["huge-wooden-sphere"] }),
 				new FakeArcanaRepository([noMoves]),
 			);
 			expect((await arcana.buildSnapshot()).minor.items[0].back.moves).toEqual([]);
@@ -281,48 +285,47 @@ describe("CharacterArcana.buildSnapshot()", () => {
 	});
 
 	describe("mutation methods", () => {
-		it("addArcanum adds slug to owned flag", async () => {
-			const flags = makeFlags();
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("addArcanum adds slug to ownedSlugs", async () => {
+			const actor = makeActor();
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.addArcanum("some-slug");
-			expect(flags.setFlag).toHaveBeenCalledWith("owned", ["some-slug"]);
+			expect([...arcana.ownedSlugs]).toEqual(["some-slug"]);
 		});
 
-		it("removeArcanum removes slug from owned flag", async () => {
-			const flags = makeFlags({ owned: ["some-slug", "other-slug"] });
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("removeArcanum removes slug from ownedSlugs", async () => {
+			const actor = makeActor({ owned: ["some-slug", "other-slug"] });
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.removeArcanum("some-slug");
-			expect(flags.setFlag).toHaveBeenCalledWith("owned", ["other-slug"]);
+			expect([...arcana.ownedSlugs]).toEqual(["other-slug"]);
 		});
 
-		it("flipArcanum adds slug to flipped flag", async () => {
-			const flags = makeFlags();
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("flipArcanum adds slug to flippedSlugs", async () => {
+			const actor = makeActor();
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.flipArcanum("some-slug");
-			expect(flags.setFlag).toHaveBeenCalledWith("flipped", ["some-slug"]);
+			expect([...arcana.flippedSlugs]).toEqual(["some-slug"]);
 		});
 
-		it("unflipArcanum removes slug from flipped flag", async () => {
-			const flags = makeFlags({ flipped: ["some-slug"] });
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("unflipArcanum removes slug from flippedSlugs", async () => {
+			const actor = makeActor({ flipped: ["some-slug"] });
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.unflipArcanum("some-slug");
-			expect(flags.setFlag).toHaveBeenCalledWith("flipped", []);
+			expect([...arcana.flippedSlugs]).toEqual([]);
 		});
 
-		it("setUnlockCount stores the count nested by arcanumSlug then optionSlug", async () => {
-			const flags = makeFlags();
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("setUnlockCount stores count nested by arcanumSlug then optionSlug", async () => {
+			const actor = makeActor();
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.setUnlockCount("huge-wooden-sphere", "dig-sphere", 1);
-			expect(flags.setFlag).toHaveBeenCalledWith("unlock", { "huge-wooden-sphere": { "dig-sphere": 1 } });
+			expect(actor.system.arcana.unlock).toEqual({ "huge-wooden-sphere": { "dig-sphere": 1 } });
 		});
 
-		it("setBackChoiceValue stores count in backChoices flag", async () => {
-			const flags = makeFlags();
-			const arcana = new CharacterArcana(flags, new FakeArcanaRepository());
+		it("setBackChoiceValue stores count in backChoices", async () => {
+			const actor = makeActor();
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository());
 			await arcana.setBackChoiceValue("cracked-flute", "andalau-of-the-flute", 1);
-			expect(flags.setFlag).toHaveBeenCalledWith("backChoices", { "cracked-flute": { "andalau-of-the-flute": 1 } });
+			expect(actor.system.arcana.backChoices).toEqual({ "cracked-flute": { "andalau-of-the-flute": 1 } });
 		});
-
 	});
 });
 
@@ -413,7 +416,7 @@ describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 	it("back.resource is null when neither back.resource nor back.item.resource defined", async () => {
 		const noResource = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, resource: null } };
 		const arcana = new CharacterArcana(
-			makeFlags({ owned: ["huge-wooden-sphere"] }),
+			makeActor({ owned: ["huge-wooden-sphere"] }),
 			new FakeArcanaRepository([noResource]),
 		);
 		expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
@@ -423,7 +426,7 @@ describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 describe("CharacterArcana.buildSnapshot() — maxStat resolution", () => {
 	it("maxStat resolves to stat value from stats", async () => {
 		const arcana = new CharacterArcana(
-			makeFlags({ owned: ["carvings-in-a-cave"] }),
+			makeActor({ owned: ["carvings-in-a-cave"] }),
 			new FakeArcanaRepository([CARVINGS_IN_A_CAVE]),
 			makeFakeStats({ con: 3 }),
 		);
@@ -433,7 +436,7 @@ describe("CharacterArcana.buildSnapshot() — maxStat resolution", () => {
 
 	it("maxStat resolves to 0 when stat is missing", async () => {
 		const arcana = new CharacterArcana(
-			makeFlags({ owned: ["carvings-in-a-cave"] }),
+			makeActor({ owned: ["carvings-in-a-cave"] }),
 			new FakeArcanaRepository([CARVINGS_IN_A_CAVE]),
 			makeFakeStats(),
 		);
@@ -509,7 +512,7 @@ describe("CharacterArcana — outfitItems sync", () => {
 	});
 
 	it("does not throw when outfitItems is null", async () => {
-		const arcana = new CharacterArcana(makeFlags({}), new FakeArcanaRepository([BOW_WITH_NO_STRING]));
+		const arcana = new CharacterArcana(makeActor({}), new FakeArcanaRepository([BOW_WITH_NO_STRING]));
 		await expect(arcana.addArcanum("bow-with-no-string")).resolves.not.toThrow();
 	});
 });
@@ -570,10 +573,10 @@ function makeFakeFollowers() {
 	};
 }
 
-function makeArcanaWithFollowers(flagStore = {}, arcana = [CRACKED_FLUTE], fakeFollowers = null) {
+function makeArcanaWithFollowers(arcanaState = {}, arcana = [CRACKED_FLUTE], fakeFollowers = null) {
 	const followers = fakeFollowers ?? makeFakeFollowers();
 	const charArcana = new CharacterArcana(
-		makeFlags(flagStore),
+		makeActor(arcanaState),
 		new FakeArcanaRepository(arcana),
 		null,
 		null,
@@ -622,7 +625,7 @@ describe("CharacterArcana — follower sync", () => {
 	});
 
 	it("does not throw when _followers is null", async () => {
-		const arcana = new CharacterArcana(makeFlags({ owned: ["cracked-flute"] }), new FakeArcanaRepository([CRACKED_FLUTE]));
+		const arcana = new CharacterArcana(makeActor({ owned: ["cracked-flute"] }), new FakeArcanaRepository([CRACKED_FLUTE]));
 		await expect(arcana.flipArcanum("cracked-flute")).resolves.not.toThrow();
 	});
 

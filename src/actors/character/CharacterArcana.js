@@ -8,29 +8,18 @@ import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOu
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterArcana {
-	constructor(flags, arcanaRepo, stats = null, outfitItems = null, followers = null) {
-		this._flags = flags;
+	constructor(actor, arcanaRepo, stats = null, outfitItems = null, followers = null) {
+		this._actor = actor;
 		this._arcanaRepo = arcanaRepo;
 		this._stats = stats;
 		this._outfitItems = outfitItems;
 		this._followers = followers;
 	}
 
-	get ownedSlugs() {
-		return new Set(this._flags.getFlag("owned") ?? []);
-	}
-
-	get flippedSlugs() {
-		return new Set(this._flags.getFlag("flipped") ?? []);
-	}
-
-	get _unlockValues() {
-		return new ChoiceValues(this._flags.getFlag("unlock") ?? {});
-	}
-
-	get _backChoiceValues() {
-		return new ChoiceValues(this._flags.getFlag("backChoices") ?? {});
-	}
+	get ownedSlugs()        { return new Set(this._actor.system?.arcana?.owned       ?? []); }
+	get flippedSlugs()      { return new Set(this._actor.system?.arcana?.flipped     ?? []); }
+	get _unlockValues()     { return new ChoiceValues(this._actor.system?.arcana?.unlock      ?? {}); }
+	get _backChoiceValues() { return new ChoiceValues(this._actor.system?.arcana?.backChoices ?? {}); }
 
 	_followerRowsFor(item) {
 		return (item?.back?.choices?.list ?? []).filter(r => r.type === "follower");
@@ -138,14 +127,14 @@ export class CharacterArcana {
 	async addArcanum(slug) {
 		const slugsWeHae = this.ownedSlugs;
 		slugsWeHae.add(slug);
-		await this._flags.setFlag("owned", [...slugsWeHae]);
+		await this._actor.update({ "system.arcana.owned": [...slugsWeHae] });
 		await this._syncSideEffects(slug);
 	}
 
 	async removeArcanum(slug) {
 		const s = this.ownedSlugs;
 		s.delete(slug);
-		await this._flags.setFlag("owned", [...s]);
+		await this._actor.update({ "system.arcana.owned": [...s] });
 		await this._outfitItems?.deleteBySource("arcana:" + slug);
 		const [item] = await this._arcanaRepo.findBySlugs([slug]);
 		for (const row of this._followerRowsFor(item)) {
@@ -156,23 +145,23 @@ export class CharacterArcana {
 	async flipArcanum(slug) {
 		const s = this.flippedSlugs;
 		s.add(slug);
-		await this._flags.setFlag("flipped", [...s]);
+		await this._actor.update({ "system.arcana.flipped": [...s] });
 		await this._syncSideEffects(slug);
 	}
 
 	async unflipArcanum(slug) {
 		const s = this.flippedSlugs;
 		s.delete(slug);
-		await this._flags.setFlag("flipped", [...s]);
+		await this._actor.update({ "system.arcana.flipped": [...s] });
 		await this._syncSideEffects(slug);
 	}
 
 	async setUnlockCount(arcanumSlug, optionSlug, count) {
-		await this._flags.setFlag("unlock", this._unlockValues.set(arcanumSlug, optionSlug, count).toRaw());
+		await this._actor.update({ "system.arcana.unlock": this._unlockValues.set(arcanumSlug, optionSlug, count).toRaw() });
 	}
 
 	async setBackChoiceValue(arcanumSlug, optionSlug, count) {
-		await this._flags.setFlag("backChoices", this._backChoiceValues.set(arcanumSlug, optionSlug, count).toRaw());
+		await this._actor.update({ "system.arcana.backChoices": this._backChoiceValues.set(arcanumSlug, optionSlug, count).toRaw() });
 		if (this._followers) {
 			if (count > 0) {
 				await this._followers.addFollower(optionSlug);

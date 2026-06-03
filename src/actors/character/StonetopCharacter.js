@@ -44,7 +44,7 @@ export class StonetopCharacter {
 		this._inventory = new CharacterInventory(actor, repos.inventory, this._possessions, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor);
 		this._debilities = new CharacterDebilities(actor);
-		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);
+		this._arcana = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
 			new StonetopFlags(actor, "postDeathInsert"),
 			new CharacterInstincts(

@@ -32,6 +32,14 @@ describe("CharacterData defaults", () => {
 		expect(new CharacterData().moves).toEqual([]);
 	});
 
+	it("defaults arcana to empty state", () => {
+		const d = new CharacterData();
+		expect(d.arcana.owned).toEqual([]);
+		expect(d.arcana.flipped).toEqual([]);
+		expect(d.arcana.unlock).toEqual({});
+		expect(d.arcana.backChoices).toEqual({});
+	});
+
 	it("defaults inventory to zeroed state", () => {
 		const d = new CharacterData();
 		expect(d.inventory.checked).toEqual({});
