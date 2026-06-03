@@ -7,12 +7,9 @@ import {
 import { ResourceController } from "./ResourceController.js";
 import { ValueMax } from "../../model/snapshot/character/VitalsSnapshot.js";
 import { toSlug } from "../../utils/slug.js";
-import {StonetopFlags} from "./StonetopFlags.js";
-
 export class CharacterMoves {
 	constructor(moveRepo, actor, choiceController, resourceController) {
 		this._moveRepo          = moveRepo;
-		this._flags             = new StonetopFlags(actor, "moves");
 		this._actor             = actor;
 		this._choiceController  = choiceController;
 		this._resourceController = resourceController;
@@ -21,11 +18,11 @@ export class CharacterMoves {
 	setVitals(vitals) { this._vitals = vitals; }
 
 	_getCategories() {
-		return this._flags?.getFlag("categories") ?? [];
+		return this._actor.system?.moves ?? [];
 	}
 
 	async _setCategories(cats) {
-		await this._flags?.setFlag("categories", cats);
+		await this._actor.update({ "system.moves": cats });
 	}
 
 	_findCategory(key) {

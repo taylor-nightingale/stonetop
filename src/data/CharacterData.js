@@ -10,6 +10,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			description:  new f.StringField({ initial: "" }),
 			notes:        new f.StringField({ initial: "" }),
 			playbookSlug: new f.StringField({ initial: "" }),
+			moves:        new f.ArrayField(new f.ObjectField()),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

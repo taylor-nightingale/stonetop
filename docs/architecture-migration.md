@@ -82,7 +82,8 @@ These values derive from other data and go stale if stored:
 1. `CharacterVitals` ✓ — `flags.stonetop.vitals.maxHP` → `system.attributes.hp.max`; `CharacterData` TypeDataModel created and registered
 2. `CharacterStats` + `CharacterDebilities` ✓ — no flags; no-op
 3. `CharacterPlaybook` ✓ — `flags.stonetop.playbook.slug` → `system.playbookSlug`
-4. `CharacterMoves`
+4. `CharacterMoves` ✓ — `flags.stonetop.moves.categories` → `system.moves`; only `_getCategories()` + `_setCategories()` changed
+5. `CharacterInventory` + `CharacterPossessions`
 3. `CharacterPlaybook`
 4. `CharacterMoves`
 5. `CharacterInventory` + `CharacterPossessions`
