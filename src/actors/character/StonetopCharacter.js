@@ -40,8 +40,8 @@ export class StonetopCharacter {
 		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
-		this._possessions = new CharacterPossessions(new StonetopFlags(actor, "possessions"), this._moves, outfitItems, this._playbook);
-		this._inventory = new CharacterInventory(new StonetopFlags(actor, "inventory"), repos.inventory, this._possessions, outfitItems, this._resourceController);
+		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, this._playbook);
+		this._inventory = new CharacterInventory(actor, repos.inventory, this._possessions, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor);
 		this._debilities = new CharacterDebilities(actor);
 		this._arcana = new CharacterArcana(new StonetopFlags(actor, "arcana"), repos.arcana, this._stats, outfitItems, this._followers);

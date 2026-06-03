@@ -7,57 +7,57 @@ import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/Choice
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 
 export class CharacterPossessions {
-	constructor(flags, moves, outfitItems = null, playbook = null) {
-		this._flags = flags;
+	constructor(actor, moves, outfitItems = null, playbook = null) {
+		this._actor = actor;
 		this._moves = moves;
 		this._outfitItems = outfitItems;
 		this._playbook = playbook;
 	}
 
-	get selected()      { return new Set(this._flags.getFlag("selected") ?? []); }
-	get uses()          { return this._flags.getFlag("uses") ?? {}; }
-	get maxUses()       { return this._flags.getFlag("maxUses") ?? {}; }
-	get _pickValues()   { return new ChoiceValues(this._flags.getFlag("pickValues") ?? {}); }
-	get choiceUses()    { return this._flags.getFlag("choiceUses") ?? {}; }
+	get selected()      { return new Set(this._actor.system?.possessions?.selected   ?? []); }
+	get uses()          { return this._actor.system?.possessions?.uses               ?? {}; }
+	get maxUses()       { return this._actor.system?.possessions?.maxUses            ?? {}; }
+	get _pickValues()   { return new ChoiceValues(this._actor.system?.possessions?.pickValues ?? {}); }
+	get choiceUses()    { return this._actor.system?.possessions?.choiceUses         ?? {}; }
 
 	async select(slug, specialPossessions = null) {
 		const s = this.selected;
 		s.add(slug);
-		await this._flags.setFlag("selected", [...s]);
+		await this._actor.update({ "system.possessions.selected": [...s] });
 		await this.syncPossessionItems(slug, specialPossessions);
 	}
 
 	async deselect(slug) {
 		const s = this.selected;
 		s.delete(slug);
-		await this._flags.setFlag("selected", [...s]);
+		await this._actor.update({ "system.possessions.selected": [...s] });
 		await this._outfitItems?.deleteBySource("possession:" + slug);
 	}
 
 	async setUses(slug, count) {
-		await this._flags.setFlag("uses", { ...this.uses, [slug]: count });
+		await this._actor.update({ "system.possessions.uses": { ...this.uses, [slug]: count } });
 	}
 
 	async addSubChoice(possessionSlug, choiceSlug, specialPossessions = null) {
-		await this._flags.setFlag("pickValues", this._pickValues.set(possessionSlug, choiceSlug, 1).toRaw());
+		await this._actor.update({ "system.possessions.pickValues": this._pickValues.set(possessionSlug, choiceSlug, 1).toRaw() });
 		await this.syncPossessionItems(possessionSlug, specialPossessions);
 	}
 
 	async removeSubChoice(possessionSlug, choiceSlug, specialPossessions = null) {
-		await this._flags.setFlag("pickValues", this._pickValues.set(possessionSlug, choiceSlug, 0).toRaw());
+		await this._actor.update({ "system.possessions.pickValues": this._pickValues.set(possessionSlug, choiceSlug, 0).toRaw() });
 		await this.syncPossessionItems(possessionSlug, specialPossessions);
 	}
 
 	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs, specialPossessions = null) {
 		let cv = this._pickValues;
 		for (const s of exclusiveSlugs) cv = cv.set(possessionSlug, s, 0);
-		await this._flags.setFlag("pickValues", cv.set(possessionSlug, choiceSlug, 1).toRaw());
+		await this._actor.update({ "system.possessions.pickValues": cv.set(possessionSlug, choiceSlug, 1).toRaw() });
 		await this.syncPossessionItems(possessionSlug, specialPossessions);
 	}
 
 	async setChoiceUses(possessionSlug, choiceSlug, count) {
 		const key = `${possessionSlug}:${choiceSlug}`;
-		await this._flags.setFlag("choiceUses", { ...this.choiceUses, [key]: count });
+		await this._actor.update({ "system.possessions.choiceUses": { ...this.choiceUses, [key]: count } });
 	}
 
 	async syncPossessionItems(possessionSlug, specialPossessions) {

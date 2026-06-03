@@ -11,22 +11,22 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterInventory {
-	constructor(flags, inventoryRepo, possessions, outfitItems, resourceController) {
-		this._flags = flags;
+	constructor(actor, inventoryRepo, possessions, outfitItems, resourceController) {
+		this._actor = actor;
 		this._repo = inventoryRepo;
 		this._possessions = possessions;
 		this._outfitItems = outfitItems;
 		this._resourceController = resourceController;
 	}
 
-	get checked()     { return this._flags.getFlag("checked") ?? {}; }
-	get loadLevel()   { return this._flags.getFlag("loadLevel") ?? null; }
-	get regularPool() { return this._flags.getFlag("regularPool") ?? 0; }
-	get smallPool()   { return this._flags.getFlag("smallPool") ?? 0; }
-	get otherItems()  { return this._flags.getFlag("otherItems") ?? ""; }
+	get checked()     { return this._actor.system?.inventory?.checked     ?? {}; }
+	get loadLevel()   { return this._actor.system?.inventory?.loadLevel   ?? null; }
+	get regularPool() { return this._actor.system?.inventory?.regularPool ?? 0; }
+	get smallPool()   { return this._actor.system?.inventory?.smallPool   ?? 0; }
+	get otherItems()  { return this._actor.system?.inventory?.otherItems  ?? ""; }
 
 	async setItemChecked(slug, isChecked) {
-		await this._flags.setFlag("checked", {...this.checked, [slug]: isChecked});
+		await this._actor.update({ "system.inventory.checked": { ...this.checked, [slug]: isChecked } });
 	}
 
 	async setResource(slug, count) {
@@ -34,19 +34,19 @@ export class CharacterInventory {
 	}
 
 	async setLoadLevel(level) {
-		await this._flags.setFlag("loadLevel", level);
+		await this._actor.update({ "system.inventory.loadLevel": level });
 	}
 
 	async setRegularPool(count) {
-		await this._flags.setFlag("regularPool", count);
+		await this._actor.update({ "system.inventory.regularPool": count });
 	}
 
 	async setSmallPool(count) {
-		await this._flags.setFlag("smallPool", count);
+		await this._actor.update({ "system.inventory.smallPool": count });
 	}
 
 	async setOtherItems(value) {
-		await this._flags.setFlag("otherItems", value)
+		await this._actor.update({ "system.inventory.otherItems": value });
 	}
 
 	async addCustomItem(name, weight) {

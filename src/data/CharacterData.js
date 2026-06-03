@@ -11,6 +11,20 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			notes:        new f.StringField({ initial: "" }),
 			playbookSlug: new f.StringField({ initial: "" }),
 			moves:        new f.ArrayField(new f.ObjectField()),
+			inventory: new f.SchemaField({
+				checked:     new f.ObjectField(),
+				loadLevel:   new f.StringField({ nullable: true, initial: null }),
+				regularPool: new f.NumberField({ initial: 0, integer: true }),
+				smallPool:   new f.NumberField({ initial: 0, integer: true }),
+				otherItems:  new f.StringField({ initial: "" }),
+			}),
+			possessions: new f.SchemaField({
+				selected:   new f.ArrayField(new f.StringField()),
+				uses:       new f.ObjectField(),
+				maxUses:    new f.ObjectField(),
+				pickValues: new f.ObjectField(),
+				choiceUses: new f.ObjectField(),
+			}),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

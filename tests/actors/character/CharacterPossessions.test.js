@@ -1,16 +1,25 @@
 import { describe, it, expect } from "vitest";
 import { CharacterPossessions } from "../../../src/actors/character/CharacterPossessions.js";
 import { PossessionsSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 import { FakePlaybook } from "../../fakes/FakePlaybook.js";
 import { TestSpecialPossessionBuilder, TestSpecialPossessionsBuilder } from "../../fakes/TestSpecialPossessionBuilder.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 
-function makeFlags()       { return new StonetopFlags(new FakeFlags(), "possessions"); }
+function makeActor(possessionsState = {}) {
+	const actor = new FakeActorBuilder().build();
+	actor.system.possessions = {
+		selected:   possessionsState.selected   ?? [],
+		uses:       possessionsState.uses       ?? {},
+		maxUses:    possessionsState.maxUses    ?? {},
+		pickValues: possessionsState.pickValues ?? {},
+		choiceUses: possessionsState.choiceUses ?? {},
+	};
+	return actor;
+}
 function makeMoves()       { return new FakeMoves(); }
 function makeOutfitItems() { return new FakeOutfitItems(); }
 function makePlaybook(sp)  { return new FakePlaybook(sp); }
@@ -85,18 +94,18 @@ function choicesSp() {
 
 describe("CharacterPossessions — selection", () => {
 	it("selected is empty before any mutation", () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		expect(cp.selected.size).toBe(0);
 	});
 
 	it("select adds slug to selected", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		await cp.select("apiary");
 		expect(cp.selected.has("apiary")).toBe(true);
 	});
 
 	it("deselect removes slug from selected", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		await cp.select("apiary");
 		await cp.select("mastiffs");
 		await cp.deselect("apiary");
@@ -109,29 +118,29 @@ describe("CharacterPossessions — selection", () => {
 
 describe("CharacterPossessions — resource tracking", () => {
 	it("uses is empty before any mutation", () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		expect(cp.uses).toEqual({});
 	});
 
 	it("setUses stores count under the slug key", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		await cp.setUses("sacred-pouch", 2);
 		expect(cp.uses["sacred-pouch"]).toBe(2);
 	});
 
 	it("choiceUses is empty before any mutation", () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		expect(cp.choiceUses).toEqual({});
 	});
 
 	it("setChoiceUses stores count under possessionSlug:choiceSlug key", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		await cp.setChoiceUses("weapons-of-war", "crossbow", 1);
 		expect(cp.choiceUses["weapons-of-war:crossbow"]).toBe(1);
 	});
 
 	it("setChoiceUses merges with existing choiceUses", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		await cp.setChoiceUses("weapons-of-war", "sword", 0);
 		await cp.setChoiceUses("weapons-of-war", "crossbow", 2);
 		expect(cp.choiceUses["weapons-of-war:sword"]).toBe(0);
@@ -143,7 +152,7 @@ describe("CharacterPossessions — resource tracking", () => {
 
 describe("CharacterPossessions — sub-choices", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeFlags(), makeMoves(), null, makePlaybook(choicesSp()));
+		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(choicesSp()));
 	}
 
 	async function wowChoices(cp) {
@@ -212,7 +221,7 @@ describe("CharacterPossessions — sub-choices", () => {
 
 describe("CharacterPossessions — computeMaxUses", () => {
 	function makeCp(moves = makeMoves()) {
-		return new CharacterPossessions(makeFlags(), moves);
+		return new CharacterPossessions(makeActor(), moves);
 	}
 
 	it("no bonus at level 1 with no moves — entry absent", () => {
@@ -247,9 +256,7 @@ describe("CharacterPossessions — computeMaxUses", () => {
 	});
 
 	it("merges persisted maxUses with computed bonus", () => {
-		const ff = new FakeFlags();
-		ff.storage.stonetop = { "possessions.maxUses": { "custom-item": 5 } };
-		const cp = new CharacterPossessions(new StonetopFlags(ff, "possessions"), makeMoves());
+		const cp = new CharacterPossessions(makeActor({ maxUses: { "custom-item": 5 } }), makeMoves());
 		const result = cp.computeMaxUses(bonusSp(), 1);
 		expect(result["custom-item"]).toBe(5);
 		expect(result["sacred-pouch"]).toBeUndefined();
@@ -260,11 +267,11 @@ describe("CharacterPossessions — computeMaxUses", () => {
 
 describe("CharacterPossessions — buildSnapshot", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeFlags(), makeMoves(), null, makePlaybook(baseSp()));
+		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(baseSp()));
 	}
 
 	it("returns null when specialPossessions is null", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves());
+		const cp = new CharacterPossessions(makeActor(), makeMoves());
 		expect(await cp.buildSnapshot(1)).toBeNull();
 	});
 
@@ -331,7 +338,7 @@ describe("CharacterPossessions — buildSnapshot", () => {
 			.addOption(new TestSpecialPossessionBuilder()
 				.withSlug("sacred-pouch").withLabel("Sacred Pouch").withResource(3).withUsesBonus(1))
 			.build();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), null, makePlaybook(sp));
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(sp));
 		const snap = await cp.buildSnapshot(4);
 		expect(snap.items.find(i => i.slug === "sacred-pouch").resource.max).toBe(5);
 	});
@@ -341,7 +348,7 @@ describe("CharacterPossessions — buildSnapshot", () => {
 
 describe("CharacterPossessions — buildSnapshot — choices", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeFlags(), makeMoves(), null, makePlaybook(choicesSp()));
+		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(choicesSp()));
 	}
 
 	it("choices is null when possession has no choices key", async () => {
@@ -438,19 +445,19 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 describe("CharacterPossessions — syncPossessionItems", () => {
 	it("is a no-op when specialPossessions is null", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.syncPossessionItems("smithy", null);
 		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
 	});
 
 	it("does not throw when outfitItems is null", async () => {
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), null);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), null);
 		await expect(cp.syncPossessionItems("smithy", outfitSp())).resolves.not.toThrow();
 	});
 
 	it("syncs possession-level outfit items under 'possession:smithy'", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.syncPossessionItems("smithy", outfitSp());
 		expect(outfitItems.getSlugs("possession:smithy"))
 			.toEqual(expect.arrayContaining(["smithy-tongs", "smithy-bellows"]));
@@ -458,7 +465,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("syncs choice outfit item when the sub-choice is selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.addSubChoice("weapons-of-war", "mace");
 		await cp.syncPossessionItems("weapons-of-war", outfitSp());
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
@@ -466,14 +473,14 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("does not include choice outfit item when sub-choice is not selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.syncPossessionItems("weapons-of-war", outfitSp());
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toHaveLength(0);
 	});
 
 	it("syncs an empty array when possession has no outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.syncPossessionItems("apiary", outfitSp());
 		expect(outfitItems.getSlugs("possession:apiary")).toHaveLength(0);
 		expect(outfitItems.hasSource("possession:apiary")).toBe(true);
@@ -485,7 +492,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 describe("CharacterPossessions — outfit item integration", () => {
 	it("select syncs the possession's outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.select("smithy", outfitSp());
 		expect(outfitItems.getSlugs("possession:smithy"))
 			.toEqual(expect.arrayContaining(["smithy-tongs", "smithy-bellows"]));
@@ -493,7 +500,7 @@ describe("CharacterPossessions — outfit item integration", () => {
 
 	it("deselect removes the possession's outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.select("smithy", outfitSp());
 		await cp.deselect("smithy");
 		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
@@ -501,14 +508,14 @@ describe("CharacterPossessions — outfit item integration", () => {
 
 	it("addSubChoice syncs with the newly selected choice item", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.addSubChoice("weapons-of-war", "mace", outfitSp());
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
 	});
 
 	it("removeSubChoice syncs with the choice item removed", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeFlags(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
 		await cp.addSubChoice("weapons-of-war", "mace", outfitSp());
 		await cp.removeSubChoice("weapons-of-war", "mace", outfitSp());
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).not.toContain("mace");

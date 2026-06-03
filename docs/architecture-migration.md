@@ -83,7 +83,8 @@ These values derive from other data and go stale if stored:
 2. `CharacterStats` + `CharacterDebilities` ✓ — no flags; no-op
 3. `CharacterPlaybook` ✓ — `flags.stonetop.playbook.slug` → `system.playbookSlug`
 4. `CharacterMoves` ✓ — `flags.stonetop.moves.categories` → `system.moves`; only `_getCategories()` + `_setCategories()` changed
-5. `CharacterInventory` + `CharacterPossessions`
+5. `CharacterInventory` + `CharacterPossessions` ✓ — 10 flags → `system.inventory.*` + `system.possessions.*`; constructor arg changed from injected flags to actor
+6. `CharacterArcana`
 3. `CharacterPlaybook`
 4. `CharacterMoves`
 5. `CharacterInventory` + `CharacterPossessions`

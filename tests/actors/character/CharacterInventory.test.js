@@ -3,19 +3,23 @@ import { CharacterInventory } from "../../../src/actors/character/CharacterInven
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
 import { InventorySnapshot, PossessionsSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Fake helpers ---------------------------------------------------------------
 
-function makeFlags(store = {}) {
-	return {
-		getFlag: (key) => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => {
-			store[key] = val;
-		}),
+function makeActor(inventoryState = {}) {
+	const actor = new FakeActorBuilder().build();
+	actor.system.inventory = {
+		checked:     inventoryState.checked     ?? {},
+		loadLevel:   inventoryState.loadLevel   ?? null,
+		regularPool: inventoryState.regularPool ?? 0,
+		smallPool:   inventoryState.smallPool   ?? 0,
+		otherItems:  inventoryState.otherItems  ?? "",
 	};
+	return actor;
 }
 
 function makeOutfitItem(overrides = {}) {
@@ -73,9 +77,9 @@ function makeResourceController() {
 	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
 }
 
-function makeCi(flagStore = {}, repo = null, possessions = null, outfitItems = null, resourceCtrl = null) {
+function makeCi(inventoryState = {}, repo = null, possessions = null, outfitItems = null, resourceCtrl = null) {
 	return new CharacterInventory(
-		makeFlags(flagStore),
+		makeActor(inventoryState),
 		repo ?? makeRepo(),
 		possessions ?? makePossessionsFake(),
 		outfitItems ?? makeActorOutfitItems(),
@@ -95,17 +99,15 @@ describe("CharacterInventory", () => {
 	});
 
 	it("setItemChecked stores true for a slug", async () => {
-		const store = {};
-		const ci = makeCi(store);
+		const ci = makeCi();
 		await ci.setItemChecked("supplies", true);
-		expect(store.checked).toEqual({ supplies: true });
+		expect(ci.checked).toEqual({ supplies: true });
 	});
 
 	it("setItemChecked stores false to uncheck", async () => {
-		const store = { checked: { supplies: true } };
-		const ci = makeCi(store);
+		const ci = makeCi({ checked: { supplies: true } });
 		await ci.setItemChecked("supplies", false);
-		expect(store.checked).toEqual({ supplies: false });
+		expect(ci.checked).toEqual({ supplies: false });
 	});
 
 	it("setResource persists count in the inventory namespace of ResourceController", async () => {
