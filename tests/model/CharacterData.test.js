@@ -24,6 +24,10 @@ describe("CharacterData defaults", () => {
 		expect(new CharacterData().attributes.damage.value).toBeNull();
 	});
 
+	it("defaults playbookSlug to empty string", () => {
+		expect(new CharacterData().playbookSlug).toBe("");
+	});
+
 	it("defaults all stats to 0", () => {
 		const d = new CharacterData();
 		for (const stat of ["str", "dex", "con", "int", "wis", "cha"]) {
@@ -47,6 +51,10 @@ describe("CharacterData defaults", () => {
 });
 
 describe("CharacterData with initial data", () => {
+	it("accepts a playbookSlug", () => {
+		expect(new CharacterData({ playbookSlug: "the-fox" }).playbookSlug).toBe("the-fox");
+	});
+
 	it("accepts hp value and max", () => {
 		const d = new CharacterData({ attributes: { hp: { value: 12, max: 16 } } });
 		expect(d.attributes.hp.value).toBe(12);

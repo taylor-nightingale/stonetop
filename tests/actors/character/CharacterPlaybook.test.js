@@ -5,7 +5,6 @@ import { FakePlaybookRepository } from "../../fakes/FakePlaybookRepository.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

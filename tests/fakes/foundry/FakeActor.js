@@ -7,6 +7,7 @@ export class FakeActor {
 
 	constructor(builder) {
 		this.system = {
+			playbookSlug: builder._playbookSlug ?? "",
 			stats: builder.buildStats(),
 			attributes: {
 				level: builder._level,

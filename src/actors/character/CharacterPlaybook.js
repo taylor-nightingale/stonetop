@@ -1,11 +1,9 @@
 import { PlaybookSnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
-import {StonetopFlags} from "./StonetopFlags.js";
 
 export class CharacterPlaybook {
 	constructor(actor, playbookRepo, background, instinct, appearance, origin, lore) {
 		this._actor      = actor;
 		this._repo       = playbookRepo;
-		this._flags      = new StonetopFlags(actor, "playbook");
 		this._background = background;
 		this._instinct   = instinct;
 		this._appearance = appearance;
@@ -23,7 +21,7 @@ export class CharacterPlaybook {
 	}
 
 	getSlug() {
-		return this._flags.getFlag("slug") ?? null;
+		return this._actor.system?.playbookSlug || null;
 	}
 
 	async getBackgroundMoveNames(bgSelectedSlug) {
@@ -46,7 +44,7 @@ export class CharacterPlaybook {
 	}
 
 	async selectPlaybook(stonetopPlaybook) {
-		await this._flags.setFlag("slug", stonetopPlaybook.slug);
+		await this._actor.update({ "system.playbookSlug": stonetopPlaybook.slug });
 		const bgMoveNames = new Set(
 			stonetopPlaybook.backgrounds?.find(b => b.slug === this._background.selectedSlug)?.moves ?? []
 		);

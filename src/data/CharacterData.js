@@ -7,8 +7,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 	static defineSchema() {
 		const f = foundry.data.fields;
 		return {
-			description: new f.StringField({ initial: "" }),
-			notes:       new f.StringField({ initial: "" }),
+			description:  new f.StringField({ initial: "" }),
+			notes:        new f.StringField({ initial: "" }),
+			playbookSlug: new f.StringField({ initial: "" }),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

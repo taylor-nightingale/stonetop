@@ -138,7 +138,6 @@ export class FakeActorBuilder {
 
 	buildFlags() {
 		return this._flagsBuilder.withFlag("rollMode", this._rollMode)
-			.withFlag("playbook.slug", this._playbookSlug)
 			.build();
 	}
 
