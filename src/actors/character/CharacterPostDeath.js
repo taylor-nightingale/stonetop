@@ -4,8 +4,8 @@ import {
 } from "../../model/snapshot/character/PostDeathInsertSnapshot.js";
 
 export class CharacterPostDeath {
-	constructor(insertFlags, instinct, lore, insertRepo, moves) {
-		this._insertFlags = insertFlags;
+	constructor(actor, instinct, lore, insertRepo, moves) {
+		this._actor = actor;
 		this._instinct = instinct;
 		this._lore = lore;
 		this._insertRepo = insertRepo;
@@ -13,11 +13,11 @@ export class CharacterPostDeath {
 	}
 
 	get activeSlug() {
-		return this._insertFlags.getFlag("slug") ?? null;
+		return this._actor.system?.postDeath?.insert ?? null;
 	}
 
 	async setActiveSlug(s) {
-		await this._insertFlags.setFlag("slug", s);
+		await this._actor.update({ "system.postDeath.insert": s });
 	}
 
 	get instinct() {
@@ -68,4 +68,3 @@ export class CharacterPostDeath {
 			.build();
 	}
 }
-

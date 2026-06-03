@@ -1,5 +1,5 @@
 export class CharacterAppearance {
-	constructor(flags, choiceController) {
+	constructor(choiceController) {
 		this._controller = choiceController;
 	}
 

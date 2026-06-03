@@ -35,6 +35,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 				owned: new f.ArrayField(new f.StringField()),
 				state: new f.ObjectField(),
 			}),
+			background:        new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),
+			instinct:          new f.SchemaField({ custom:   new f.StringField({ initial: "" }) }),
+			origin:            new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),
+			lore:              new f.SchemaField({ values:   new f.ObjectField() }),
+			postDeath:         new f.SchemaField({ insert:   new f.StringField({ nullable: true, initial: null }) }),
+			postDeathInstinct: new f.SchemaField({ custom:   new f.StringField({ initial: "" }) }),
+			postDeathLore:     new f.SchemaField({ values:   new f.ObjectField() }),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

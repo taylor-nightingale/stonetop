@@ -25,8 +25,8 @@ export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._stats = new CharacterStats(actor);
-		this._origin = new CharacterOrigin(new StonetopFlags(actor, "origin"), actor);
-		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
+		this._origin = new CharacterOrigin(actor);
+		this._lore = new CharacterLore(actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(new StonetopFlags(actor, "resources"));
 		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController);
@@ -34,9 +34,9 @@ export class StonetopCharacter {
 			new StonetopFlags(actor, "choices"),
 			this._followers
 		);
-		this._instinct = new CharacterInstincts(new StonetopFlags(actor, "instinct"), this._choiceController);
-		this._appearance = new CharacterAppearance(new StonetopFlags(actor, "appearance"), this._choiceController);
-		this._background = new CharacterBackgrounds(new StonetopFlags(actor, "background"), this._followers, this._choiceController, this._resourceController);
+		this._instinct = new CharacterInstincts(actor, this._choiceController);
+		this._appearance = new CharacterAppearance(this._choiceController);
+		this._background = new CharacterBackgrounds(actor, this._followers, this._choiceController, this._resourceController);
 		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
@@ -46,12 +46,13 @@ export class StonetopCharacter {
 		this._debilities = new CharacterDebilities(actor);
 		this._arcana = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers);
 		this._postDeath = new CharacterPostDeath(
-			new StonetopFlags(actor, "postDeathInsert"),
+			actor,
 			new CharacterInstincts(
-				new StonetopFlags(actor, "postDeathInstinct"),
-				new ChoiceGroupController(new StonetopFlags(actor, "postDeathChoices"), this._followers)
+				actor,
+				new ChoiceGroupController(new StonetopFlags(actor, "postDeathChoices"), this._followers),
+				"postDeathInstinct"
 			),
-			new CharacterLore(new StonetopFlags(actor, "postDeathLore")),
+			new CharacterLore(actor, "postDeathLore"),
 			repos.postDeathInsert,
 			this._moves,
 		);

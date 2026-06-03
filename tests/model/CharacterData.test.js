@@ -40,6 +40,17 @@ describe("CharacterData defaults", () => {
 		expect(d.arcana.backChoices).toEqual({});
 	});
 
+	it("defaults background, instinct, origin, lore, postDeath sections", () => {
+		const d = new CharacterData();
+		expect(d.background.selected).toBe("");
+		expect(d.instinct.custom).toBe("");
+		expect(d.origin.selected).toBe("");
+		expect(d.lore.values).toEqual({});
+		expect(d.postDeath.insert).toBeNull();
+		expect(d.postDeathInstinct.custom).toBe("");
+		expect(d.postDeathLore.values).toEqual({});
+	});
+
 	it("defaults followers to empty state", () => {
 		const d = new CharacterData();
 		expect(d.followers.owned).toEqual([]);

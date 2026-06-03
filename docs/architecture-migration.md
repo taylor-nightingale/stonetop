@@ -86,8 +86,13 @@ These values derive from other data and go stale if stored:
 5. `CharacterInventory` + `CharacterPossessions` ✓ — 10 flags → `system.inventory.*` + `system.possessions.*`; constructor arg changed from injected flags to actor
 6. `CharacterArcana` ✓ — 4 flags → `system.arcana.*`; 5 spy-assertion tests rewritten to assert on observable state
 7. `CharacterFollowers` ✓ — 2 flags → `system.followers.*`
-8. `ChoiceGroupController` + `ResourceController`
-9. Delete `StonetopFlags`; delete `template.json`
+8. `CharacterBackgrounds` + `CharacterInstincts` + `CharacterAppearance` + `CharacterOrigin` + `CharacterLore` + `CharacterPostDeath` ✓ — 7 flags → `system.background.*`, `system.instinct.*`, `system.origin.*`, `system.lore.*`, `system.postDeath.*`, `system.postDeathInstinct.*`, `system.postDeathLore.*`; `CharacterInstincts` and `CharacterLore` gain optional `systemSection` param for postDeath reuse; `FakeMoves` extended with `addCategory`/`removeCategory`/observable getters
+9. `ChoiceGroupController` + `ResourceController`
+10. Delete `StonetopFlags`; delete `template.json`
+
+
+# TypeDataModel for Actor State (steading and npc)
+to be figured out.
 
 ---
 

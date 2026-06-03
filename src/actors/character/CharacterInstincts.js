@@ -1,19 +1,20 @@
 export class CharacterInstincts {
-	constructor(flags, choiceController) {
-		this._flags      = flags;
+	constructor(actor, choiceController, systemSection = "instinct") {
+		this._actor      = actor;
 		this._controller = choiceController;
+		this._section    = systemSection;
 	}
 
-	get _custom() { return this._flags.getFlag("custom") ?? ""; }
+	get _custom() { return this._actor.system?.[this._section]?.custom ?? ""; }
 
 	async selectOption(slug, siblingSlugsCsv) {
 		await this._controller.selectOption("instinct", slug, siblingSlugsCsv);
-		await this._flags.setFlag("custom", "");
+		await this._actor.update({ [`system.${this._section}.custom`]: "" });
 	}
 
 	async selectCustom(text) {
 		await this._controller.clearValues("instinct");
-		await this._flags.setFlag("custom", text);
+		await this._actor.update({ [`system.${this._section}.custom`]: text });
 	}
 
 	async buildSnapshot(instinctData) {

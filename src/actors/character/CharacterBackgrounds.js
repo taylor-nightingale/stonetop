@@ -5,19 +5,19 @@ import {
 import {toSlug} from "../../utils/slug.js";
 
 export class CharacterBackgrounds {
-	constructor(flags, followers = null, choiceController, resourceController) {
-		this._flags            = flags;
+	constructor(actor, followers = null, choiceController, resourceController) {
+		this._actor            = actor;
 		this._followers        = followers;
 		this._choiceController = choiceController;
 		this._resourceController = resourceController;
 	}
 
 	get selectedSlug() {
-		return this._flags.getFlag("selected") ?? "";
+		return this._actor.system?.background?.selected ?? "";
 	}
 
 	async selectBackground(slug) {
-		await this._flags.setFlag("selected", slug);
+		await this._actor.update({ "system.background.selected": slug });
 	}
 
 	async setChoiceValue(namespace, optionSlug, count) {

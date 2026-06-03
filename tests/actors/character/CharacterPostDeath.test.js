@@ -1,15 +1,12 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CharacterPostDeath } from "../../../src/actors/character/CharacterPostDeath.js";
 import { CharacterInstincts } from "../../../src/actors/character/CharacterInstincts.js";
 import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
-
-function makeFlags(store = {}) {
-	return {
-		getFlag: (key) => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
-	};
-}
-
+import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { FakeMoves } from "../../fakes/FakeMoves.js";
 
 function makeInsertRepo(inserts = []) {
 	return {
@@ -18,23 +15,14 @@ function makeInsertRepo(inserts = []) {
 	};
 }
 
-function makeFakeMoves() {
-	return {
-		addCategory:                 vi.fn(async () => {}),
-		removeCategory:              vi.fn(async () => {}),
-		getMoveSnapshotsForCategory: vi.fn(() => []),
-	};
-}
-
-function makePostDeath({
-	flags      = makeFlags(),
-	insertRepo = makeInsertRepo([]),
-	moves      = makeFakeMoves(),
-} = {}) {
+function makePostDeath({ initialSlug = null, insertRepo = makeInsertRepo([]), moves = new FakeMoves() } = {}) {
+	const actor = new FakeActorBuilder().build();
+	if (initialSlug) actor.system.postDeath = { insert: initialSlug };
+	const ctrl = new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"));
 	return new CharacterPostDeath(
-		flags,
-		new CharacterInstincts(makeFlags()),
-		new CharacterLore(makeFlags()),
+		actor,
+		new CharacterInstincts(actor, ctrl, "postDeathInstinct"),
+		new CharacterLore(actor, "postDeathLore"),
 		insertRepo,
 		moves,
 	);
@@ -46,10 +34,8 @@ describe("CharacterPostDeath", () => {
 	});
 
 	it("setActiveSlug stores slug and activeSlug returns it", async () => {
-		const flags = makeFlags();
-		const pd = makePostDeath({ flags });
+		const pd = makePostDeath();
 		await pd.setActiveSlug("revenant");
-		expect(flags.setFlag).toHaveBeenCalledWith("slug", "revenant");
 		expect(pd.activeSlug).toBe("revenant");
 	});
 
@@ -64,29 +50,29 @@ describe("CharacterPostDeath", () => {
 
 describe("CharacterPostDeath.setInsert", () => {
 	it("calls moves.removeCategory for the previous insert", async () => {
-		const fakeMoves = makeFakeMoves();
-		const pd = makePostDeath({ flags: makeFlags({ slug: "revenant" }), moves: fakeMoves });
+		const moves = new FakeMoves();
+		const pd = makePostDeath({ initialSlug: "revenant", moves });
 		await pd.setInsert(null);
-		expect(fakeMoves.removeCategory).toHaveBeenCalledWith("post-death-revenant");
+		expect(moves.removedCategories).toContain("post-death-revenant");
 		expect(pd.activeSlug).toBeNull();
 	});
 
 	it("does not call moves.removeCategory when no previous slug", async () => {
-		const fakeMoves = makeFakeMoves();
-		const pd = makePostDeath({ moves: fakeMoves });
+		const moves = new FakeMoves();
+		const pd = makePostDeath({ moves });
 		await pd.setInsert("revenant");
-		expect(fakeMoves.removeCategory).not.toHaveBeenCalled();
+		expect(moves.removedCategories).toHaveLength(0);
 	});
 
 	it("calls removeCategory for old and addCategory for new when switching", async () => {
 		const insertRepo = makeInsertRepo([
 			{ slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] },
 		]);
-		const fakeMoves = makeFakeMoves();
-		const pd = makePostDeath({ flags: makeFlags({ slug: "ghost" }), insertRepo, moves: fakeMoves });
+		const moves = new FakeMoves();
+		const pd = makePostDeath({ initialSlug: "ghost", insertRepo, moves });
 		await pd.setInsert("revenant");
-		expect(fakeMoves.removeCategory).toHaveBeenCalledWith("post-death-ghost");
-		expect(fakeMoves.addCategory).toHaveBeenCalledWith("post-death-revenant", "Revenant", "revenant");
+		expect(moves.removedCategories).toContain("post-death-ghost");
+		expect(moves.addedCategories).toContainEqual({ type: "post-death-revenant", name: "Revenant", slug: "revenant" });
 	});
 
 	it("sets the active slug after a successful insert", async () => {
@@ -96,7 +82,7 @@ describe("CharacterPostDeath.setInsert", () => {
 	});
 
 	it("clears the active slug when called with null", async () => {
-		const pd = makePostDeath({ flags: makeFlags({ slug: "revenant" }) });
+		const pd = makePostDeath({ initialSlug: "revenant" });
 		await pd.setInsert(null);
 		expect(pd.activeSlug).toBeNull();
 	});
@@ -105,17 +91,17 @@ describe("CharacterPostDeath.setInsert", () => {
 		const insertRepo = makeInsertRepo([
 			{ slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] },
 		]);
-		const fakeMoves = makeFakeMoves();
-		const pd = makePostDeath({ insertRepo, moves: fakeMoves });
+		const moves = new FakeMoves();
+		const pd = makePostDeath({ insertRepo, moves });
 		await pd.setInsert("revenant");
-		expect(fakeMoves.addCategory).toHaveBeenCalledWith("post-death-revenant", "Revenant", "revenant");
+		expect(moves.addedCategories).toContainEqual({ type: "post-death-revenant", name: "Revenant", slug: "revenant" });
 	});
 
 	it("does not call addCategory when slug is null", async () => {
-		const fakeMoves = makeFakeMoves();
-		const pd = makePostDeath({ moves: fakeMoves });
+		const moves = new FakeMoves();
+		const pd = makePostDeath({ moves });
 		await pd.setInsert(null);
-		expect(fakeMoves.addCategory).not.toHaveBeenCalled();
+		expect(moves.addedCategories).toHaveLength(0);
 	});
 });
 
@@ -127,23 +113,22 @@ describe("CharacterPostDeath.buildSnapshot", () => {
 
 	it("activeInsert.moves come from moves.getMoveSnapshotsForCategory", async () => {
 		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
-		const fakeMoves = makeFakeMoves();
-		fakeMoves.getMoveSnapshotsForCategory.mockReturnValue([{ name: "Haunt" }]);
+		const moves = new FakeMoves();
+		moves.setSnapshotsForCategory("post-death-revenant", [{ name: "Haunt" }]);
 		const pd = makePostDeath({
-			flags: makeFlags({ slug: "revenant" }),
+			initialSlug: "revenant",
 			insertRepo: makeInsertRepo([insert]),
-			moves: fakeMoves,
+			moves,
 		});
 		const snap = await pd.buildSnapshot();
 		expect(snap.activeInsert.moves).toHaveLength(1);
 		expect(snap.activeInsert.moves[0].name).toBe("Haunt");
-		expect(fakeMoves.getMoveSnapshotsForCategory).toHaveBeenCalledWith("post-death-revenant");
 	});
 
 	it("activeInsert.moves is empty when getMoveSnapshotsForCategory returns []", async () => {
 		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
 		const snap = await makePostDeath({
-			flags: makeFlags({ slug: "revenant" }),
+			initialSlug: "revenant",
 			insertRepo: makeInsertRepo([insert]),
 		}).buildSnapshot();
 		expect(snap.activeInsert.moves).toHaveLength(0);
@@ -151,13 +136,13 @@ describe("CharacterPostDeath.buildSnapshot", () => {
 
 	it("does not call moves.addCategory during buildSnapshot", async () => {
 		const insert = { slug: "revenant", name: "Revenant", img: null, description: "", instinct: null, lore: [] };
-		const fakeMoves = makeFakeMoves();
+		const moves = new FakeMoves();
 		const pd = makePostDeath({
-			flags: makeFlags({ slug: "revenant" }),
+			initialSlug: "revenant",
 			insertRepo: makeInsertRepo([insert]),
-			moves: fakeMoves,
+			moves,
 		});
 		await pd.buildSnapshot();
-		expect(fakeMoves.addCategory).not.toHaveBeenCalled();
+		expect(moves.addedCategories).toHaveLength(0);
 	});
 });

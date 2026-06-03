@@ -5,12 +5,12 @@ import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 
 function makeAppearance(stored = {}) {
-	const actor = new FakeFlags();
+	const fakeFlags = new FakeFlags();
 	for (const [key, value] of Object.entries(stored)) {
-		actor.setFlagNonAsync("stonetop", `choices.${key}`, value);
+		fakeFlags.setFlagNonAsync("stonetop", `choices.${key}`, value);
 	}
-	const ctrl = new ChoiceGroupController(new StonetopFlags(actor, "choices"));
-	return new CharacterAppearance(new StonetopFlags(actor, "choices"), ctrl);
+	const ctrl = new ChoiceGroupController(new StonetopFlags(fakeFlags, "choices"));
+	return new CharacterAppearance(ctrl);
 }
 
 const APPEARANCE_DATA = {

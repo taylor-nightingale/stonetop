@@ -1,16 +1,12 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { ChoiceValues, ChoiceGroup, HeadingRow } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
-function makeFlags(store = {}) {
-	return {
-		getFlag: (key) => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
-	};
-}
-
 function makeLore(values = {}) {
-	return new CharacterLore(makeFlags({ values }));
+	const actor = new FakeActorBuilder().build();
+	actor.system.lore = { values };
+	return new CharacterLore(actor);
 }
 
 const LORE_DATA = [
@@ -83,34 +79,34 @@ describe("ChoiceValues", () => {
 // -- CharacterLore ------------------------------------------------------------
 
 describe("CharacterLore", () => {
-	it("values returns an empty ChoiceValues when no flag saved", () => {
-		const lore = new CharacterLore(makeFlags());
+	it("values returns an empty ChoiceValues when no values saved", () => {
+		const lore = new CharacterLore(new FakeActorBuilder().build());
 		expect(lore.values).toBeInstanceOf(ChoiceValues);
 		expect(lore.values.getCount("earth", "opt-a")).toBe(0);
 	});
 
-	it("values returns a ChoiceValues wrapping the saved flag", () => {
+	it("values returns a ChoiceValues wrapping the saved data", () => {
 		const lore = makeLore({ earth: { "opt-a": 2 } });
 		expect(lore.values.getCount("earth", "opt-a")).toBe(2);
 	});
 
-	it("set stores the updated values under the 'values' flag key", async () => {
-		const flags = makeFlags();
-		await new CharacterLore(flags).set("earth", "opt-a", 1);
-		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-a": 1 } });
+	it("set stores the updated value", async () => {
+		const lore = makeLore();
+		await lore.set("earth", "opt-a", 1);
+		expect(lore.values.getCount("earth", "opt-a")).toBe(1);
 	});
 
 	it("set merges new value into existing data", async () => {
-		const store = { values: { earth: { "opt-a": 1 } } };
-		const flags = makeFlags(store);
-		await new CharacterLore(flags).set("earth", "opt-b", 2);
-		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-a": 1, "opt-b": 2 } });
+		const lore = makeLore({ earth: { "opt-a": 1 } });
+		await lore.set("earth", "opt-b", 2);
+		expect(lore.values.getCount("earth", "opt-a")).toBe(1);
+		expect(lore.values.getCount("earth", "opt-b")).toBe(2);
 	});
 
 	it("set works for text values", async () => {
-		const flags = makeFlags();
-		await new CharacterLore(flags).set("earth", "opt-text", "my answer");
-		expect(flags.setFlag).toHaveBeenCalledWith("values", { earth: { "opt-text": "my answer" } });
+		const lore = makeLore();
+		await lore.set("earth", "opt-text", "my answer");
+		expect(lore.values.getText("earth", "opt-text")).toBe("my answer");
 	});
 });
 

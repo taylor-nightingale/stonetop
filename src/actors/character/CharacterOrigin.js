@@ -1,17 +1,16 @@
 import { OriginOptionSnapshot, OriginSection } from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterOrigin {
-	constructor(flags, actor) {
-		this._flags = flags;
+	constructor(actor) {
 		this._actor = actor;
 	}
 
 	get selected() {
-		return this._flags.getFlag("selected") ?? "";
+		return this._actor.system?.origin?.selected ?? "";
 	}
 
 	async select(region) {
-		await this._flags.setFlag("selected", region);
+		await this._actor.update({ "system.origin.selected": region });
 	}
 
 	async selectName(name) {

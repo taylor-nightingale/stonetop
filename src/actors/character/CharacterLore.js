@@ -1,16 +1,19 @@
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 
 export class CharacterLore {
-	constructor(flags) {
-		this._flags = flags;
+	constructor(actor, systemSection = "lore") {
+		this._actor   = actor;
+		this._section = systemSection;
 	}
 
 	get values() {
-		return new ChoiceValues(this._flags.getFlag("values") ?? {});
+		return new ChoiceValues(this._actor.system?.[this._section]?.values ?? {});
 	}
 
 	async set(groupSlug, optionSlug, value) {
-		await this._flags.setFlag("values", this.values.set(groupSlug, optionSlug, value).toRaw());
+		await this._actor.update({
+			[`system.${this._section}.values`]: this.values.set(groupSlug, optionSlug, value).toRaw(),
+		});
 	}
 
 	buildSnapshot(loreData) {
