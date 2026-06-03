@@ -10,12 +10,15 @@ import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
+import { CharacterData } from "./src/data/CharacterData.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
 // be registered here so they're available before any documents load.
 Hooks.once("init", () => {
 	info("Initializing");
+
+	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData });
 
 	registerSettings();
 

@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CharacterVitals } from "../../../src/actors/character/CharacterVitals.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 
 function makeVitals({ hp, armor, level, xp } = {}) {
 	let b = new FakeActorBuilder();
@@ -13,7 +12,7 @@ function makeVitals({ hp, armor, level, xp } = {}) {
 }
 
 describe("CharacterVitals.buildVitalsSnapshot", () => {
-	it("hp.max comes from vitals flags maxHP", async () => {
+	it("hp.max comes from actor system hp.max", async () => {
 		const vitals = makeVitals({});
 		await vitals.setMaxHP(20);
 		const snap = await vitals.buildVitalsSnapshot();
@@ -25,12 +24,12 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 		expect(snap.hp.value).toBe(12);
 	});
 
-	it("hp.max defaults to 0 when maxHP flag not set", async () => {
+	it("hp.max defaults to 0 when not set on actor", async () => {
 		const snap = await makeVitals({ hp: { value: 5 } }).buildVitalsSnapshot();
 		expect(snap.hp.max).toBe(0);
 	});
 
-	it("damage comes from vitals flags", async () => {
+	it("damage comes from actor system damage.value", async () => {
 		const vitals = makeVitals({});
 		await vitals.setDamage("d6");
 		const snap = await vitals.buildVitalsSnapshot();
@@ -75,9 +74,8 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 	it("defaults gracefully when actor.system.attributes is absent", async () => {
 		const actor = new FakeActorBuilder().build();
 		actor.system.attributes = undefined;
-		await new StonetopFlags(actor, "vitals").setFlag("maxHP", 18);
 		const snap = await new CharacterVitals(actor).buildVitalsSnapshot();
-		expect(snap.hp).toMatchObject({ value: 0, max: 18 });
+		expect(snap.hp).toMatchObject({ value: 0, max: 0 });
 		expect(snap.level).toBe(1);
 		expect(snap.xp.max).toBe(8);
 	});

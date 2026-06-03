@@ -79,7 +79,7 @@ These values derive from other data and go stale if stored:
 
 ### Migration Order (one controller at a time, each independently testable)
 
-1. `CharacterVitals` — fewest flags, clearest mapping; start here
+1. `CharacterVitals` ✓ — `flags.stonetop.vitals.maxHP` → `system.attributes.hp.max`; `StonetopFlags` removed from this class; `CharacterData` TypeDataModel created and registered
 2. `CharacterStats` + `CharacterDebilities`
 3. `CharacterPlaybook`
 4. `CharacterMoves`

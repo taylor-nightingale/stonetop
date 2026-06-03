@@ -26,9 +26,12 @@ export class StringField {
 	}
 
 	initialize(value) {
-		const { initial } = this._options;
+		const { initial, nullable } = this._options;
+		if (value === null && nullable) return null;
 		if (value === undefined || value === null) {
-			return resolveInitial(initial) ?? "";
+			const resolved = resolveInitial(initial);
+			if (resolved === null && nullable) return null;
+			return resolved ?? "";
 		}
 		return String(value);
 	}

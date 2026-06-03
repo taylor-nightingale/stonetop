@@ -56,6 +56,15 @@ describe("StringField", () => {
 	it("passes a string through unchanged", () => {
 		expect(new StringField().initialize("ranger")).toBe("ranger");
 	});
+	it("returns null for null when nullable: true", () => {
+		expect(new StringField({ nullable: true }).initialize(null)).toBeNull();
+	});
+	it("returns null for undefined when nullable: true and initial: null", () => {
+		expect(new StringField({ nullable: true, initial: null }).initialize(undefined)).toBeNull();
+	});
+	it("returns empty string for null when not nullable", () => {
+		expect(new StringField().initialize(null)).toBe("");
+	});
 });
 
 describe("BooleanField", () => {
