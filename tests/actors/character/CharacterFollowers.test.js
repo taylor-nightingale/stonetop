@@ -3,13 +3,14 @@ import { CharacterFollowers } from "../../../src/actors/character/CharacterFollo
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
 import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
 import { Follower } from "../../../src/model/data/character/Follower.js";
 
 // -- Helpers ------------------------------------------------------------------
 
-function makeFollowerFlags() {
-	return new StonetopFlags(new FakeFlags(), "followers");
+function makeActor() {
+	return new FakeActorBuilder().build();
 }
 
 function makeResourceController() {
@@ -18,7 +19,7 @@ function makeResourceController() {
 
 function makeCf(repo = null, resourceCtrl = null) {
 	return new CharacterFollowers(
-		makeFollowerFlags(),
+		makeActor(),
 		repo ?? new FakeFollowerRepository(),
 		resourceCtrl ?? makeResourceController(),
 	);
@@ -489,7 +490,7 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		const cf = makeCf(new FakeFollowerRepository());
 		await cf.addCustomFollower().catch(() => {}); // Will throw; use a pre-seeded custom slug instead
 		// Simulate a custom follower state without blank in repo
-		const cf2 = new CharacterFollowers(makeFollowerFlags(), new FakeFollowerRepository(), makeResourceController());
+		const cf2 = new CharacterFollowers(makeActor(), new FakeFollowerRepository(), makeResourceController());
 		await cf2.addFollower("custom-orphan");
 		const [snap] = await cf2.buildSnapshot();
 		expect(snap.choices).toBeNull();

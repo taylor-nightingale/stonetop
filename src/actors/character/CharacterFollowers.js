@@ -3,14 +3,14 @@ import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/Choice
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterFollowers {
-	constructor(flags, followerRepo, resourceController) {
-		this._flags            = flags;
+	constructor(actor, followerRepo, resourceController) {
+		this._actor            = actor;
 		this._followerRepo     = followerRepo;
 		this._resourceController = resourceController;
 	}
 
-	get ownedSlugs() { return this._flags.getFlag("owned") ?? []; }
-	get _state()     { return this._flags.getFlag("state") ?? {}; }
+	get ownedSlugs() { return this._actor.system?.followers?.owned ?? []; }
+	get _state()     { return this._actor.system?.followers?.state ?? {}; }
 
 	_stateFor(slug) {
 		return this._state[slug] ?? { hp: null, values: {} };
@@ -19,30 +19,30 @@ export class CharacterFollowers {
 	async addFollower(slug) {
 		const slugs = this.ownedSlugs;
 		if (slugs.includes(slug)) return;
-		await this._flags.setFlag("owned", [...slugs, slug]);
+		await this._actor.update({ "system.followers.owned": [...slugs, slug] });
 	}
 
 	async removeFollower(slug) {
-		await this._flags.setFlag("owned", this.ownedSlugs.filter(s => s !== slug));
+		await this._actor.update({ "system.followers.owned": this.ownedSlugs.filter(s => s !== slug) });
 		const state = { ...this._state };
 		delete state[slug];
-		await this._flags.setFlag("state", state);
+		await this._actor.update({ "system.followers.state": state });
 	}
 
 	async setHp(slug, hp) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), hp } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), hp } } });
 	}
 
 	async setHpMax(slug, hpMax) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), hpMax } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), hpMax } } });
 	}
 
 	async setName(slug, name) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), name } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), name } } });
 	}
 
 	async setTags(slug, tags) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), tags } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), tags } } });
 	}
 
 	async setLoyalty(slug, loyalty) {
@@ -50,11 +50,11 @@ export class CharacterFollowers {
 	}
 
 	async setArmor(slug, armor) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), armor } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), armor } } });
 	}
 
 	async setDamage(slug, damage) {
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...this._stateFor(slug), damage } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...this._stateFor(slug), damage } } });
 	}
 
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
@@ -66,21 +66,21 @@ export class CharacterFollowers {
 			}
 		}
 		values = values.set(groupSlug, choiceSlug, 1);
-		await this._flags.setFlag("state", { ...this._state, [slug]: { ...state, values: values.toRaw() } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [slug]: { ...state, values: values.toRaw() } } });
 	}
 
 	async setChoiceText(followerSlug, optionSlug, text) {
 		const state = this._stateFor(followerSlug);
 		let values = new ChoiceValues(state.values ?? {});
 		values = values.set("choices", optionSlug, text);
-		await this._flags.setFlag("state", { ...this._state, [followerSlug]: { ...state, values: values.toRaw() } });
+		await this._actor.update({ "system.followers.state": { ...this._state, [followerSlug]: { ...state, values: values.toRaw() } } });
 	}
 
 	async addCustomFollower() {
 		const [blank] = await this._followerRepo.findBySlugs(["blank"]);
 		if (!blank) throw new Error("Blank follower not found in compendium");
 		const slug = `custom-${Date.now()}`;
-		await this._flags.setFlag("state", {
+		await this._actor.update({ "system.followers.state": {
 			...this._state,
 			[slug]: {
 				name:    blank.name,
@@ -91,7 +91,7 @@ export class CharacterFollowers {
 				damage:  blank.damage?.value ?? null,
 				values:  {},
 			},
-		});
+		} });
 		await this.addFollower(slug);
 	}
 

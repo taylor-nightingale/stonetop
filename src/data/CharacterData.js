@@ -31,6 +31,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 				unlock:      new f.ObjectField(),
 				backChoices: new f.ObjectField(),
 			}),
+			followers: new f.SchemaField({
+				owned: new f.ArrayField(new f.StringField()),
+				state: new f.ObjectField(),
+			}),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

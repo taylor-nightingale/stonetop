@@ -85,12 +85,7 @@ These values derive from other data and go stale if stored:
 4. `CharacterMoves` ✓ — `flags.stonetop.moves.categories` → `system.moves`; only `_getCategories()` + `_setCategories()` changed
 5. `CharacterInventory` + `CharacterPossessions` ✓ — 10 flags → `system.inventory.*` + `system.possessions.*`; constructor arg changed from injected flags to actor
 6. `CharacterArcana` ✓ — 4 flags → `system.arcana.*`; 5 spy-assertion tests rewritten to assert on observable state
-7. `CharacterFollowers`
-3. `CharacterPlaybook`
-4. `CharacterMoves`
-5. `CharacterInventory` + `CharacterPossessions`
-6. `CharacterArcana`
-7. `CharacterFollowers`
+7. `CharacterFollowers` ✓ — 2 flags → `system.followers.*`
 8. `ChoiceGroupController` + `ResourceController`
 9. Delete `StonetopFlags`; delete `template.json`
 

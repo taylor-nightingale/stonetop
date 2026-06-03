@@ -29,7 +29,7 @@ export class StonetopCharacter {
 		this._lore = new CharacterLore(new StonetopFlags(actor, "lore"));
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(new StonetopFlags(actor, "resources"));
-		this._followers = new CharacterFollowers(new StonetopFlags(actor, "followers"), repos.followers, this._resourceController);
+		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController);
 		this._choiceController = new ChoiceGroupController(
 			new StonetopFlags(actor, "choices"),
 			this._followers
