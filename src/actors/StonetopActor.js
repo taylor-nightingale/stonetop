@@ -113,6 +113,11 @@ export function createStonetopActorClass(BaseActor) {
 			return roll.toMessage({ speaker, flavor: game.i18n.localize("stonetop.character.attributes.damage") });
 		}
 
+		static defaultName({ type, parent, pack } = {}) {
+			const key = `stonetop.actor.defaultName.${type}`;
+			return game.i18n.has(key) ? game.i18n.localize(key) : super.defaultName({ type, parent, pack });
+		}
+
 		static async _pickStat(moveName, stats) {
 			return new Promise(resolve => {
 				const options = stats.map(s => `<option value="${s.key}">${s.name} (${s.value})</option>`).join("");
