@@ -3,7 +3,7 @@ import {FoundryMoveRepository} from "../../../../src/actors/character/repositori
 import {Move} from "../../../../src/model/data/Move.js";
 import {FakeCompendiumMoveBuilder} from "../../../fakes/FakeCompendiumMoveBuilder.js";
 import {FakeGameBuilder} from "../../../fakes/FakeGameBuilder.js";
-import {FakePackBuilder} from "../../../fakes/FakePackBuilder.js";
+import {FakePackBuilder} from "../../../fakes/foundry/FakePackBuilder.js";
 
 // -- Helpers ------------------------------------------------------------------
 

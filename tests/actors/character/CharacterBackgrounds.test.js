@@ -3,7 +3,7 @@ import { CharacterBackgrounds } from "../../../src/actors/character/CharacterBac
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { BackgroundSection } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";

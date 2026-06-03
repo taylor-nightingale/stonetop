@@ -1,5 +1,5 @@
-import {FakeFlags} from "./FakeFlags.js";
-import {FakeActor} from "./FakeActor.js";
+import {FakeFlags} from "./foundry/FakeFlags.js";
+import {FakeActor} from "./foundry/FakeActor.js";
 import {StonetopFakeFlagsBuilder} from "./StonetopFakeFlagsBuilder.js";
 
 export class FakeStatBuilder {

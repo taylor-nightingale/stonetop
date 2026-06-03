@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
 import { Follower } from "../../../src/model/data/character/Follower.js";
 

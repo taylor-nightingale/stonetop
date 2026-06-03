@@ -1,4 +1,4 @@
-import {FakeFlags} from "./FakeFlags.js";
+import {FakeFlags} from "./foundry/FakeFlags.js";
 
 export class StonetopFakeFlagsBuilder {
 	_flags = {};

@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 
 function makeFlags() {
 	return new StonetopFlags(new FakeFlags(), "resources");

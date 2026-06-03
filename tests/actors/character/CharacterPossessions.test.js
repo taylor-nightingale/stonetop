@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { CharacterPossessions } from "../../../src/actors/character/CharacterPossessions.js";
 import { PossessionsSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 import { FakePlaybook } from "../../fakes/FakePlaybook.js";

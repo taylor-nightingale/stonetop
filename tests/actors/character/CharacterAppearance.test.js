@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { CharacterAppearance } from "../../../src/actors/character/CharacterAppearance.js";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
 import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
+import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 
 function makeAppearance(stored = {}) {
 	const actor = new FakeFlags();
