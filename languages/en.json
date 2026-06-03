@@ -111,7 +111,15 @@
 				"intelligence": "Intelligence",
 				"wisdom": "Wisdom",
 				"constitution": "Constitution",
-				"charisma": "Charisma"
+				"charisma": "Charisma",
+				"abbr": {
+					"str": "+STR",
+					"dex": "+DEX",
+					"con": "+CON",
+					"int": "+INT",
+					"wis": "+WIS",
+					"cha": "+CHA"
+				}
 			},
 			"attributes": {
 				"damage": "Damage",
@@ -160,6 +168,36 @@
 					"dialogTitle": "Choose Origin",
 					"namesLabel": "Names",
 					"instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
+				}
+			}
+		},
+		"item": {
+			"move": {
+				"namePlaceholder": "Move Name",
+				"rollStat": {
+					"none":   "— No Roll —",
+					"ask":    "Ask (player chooses)",
+					"prompt": "Prompt (no roll)"
+				},
+				"moveType": {
+					"none":      "— Type —",
+					"basic":     "Basic",
+					"playbook":  "Playbook",
+					"homefront": "Homefront",
+					"special":   "Special",
+					"postDeath": "Post-Death",
+					"follower":  "Follower",
+					"other":     "Other"
+				},
+				"results": {
+					"successPlaceholder": "What happens on a 10+…",
+					"partialPlaceholder": "What happens on a 7-9…",
+					"failurePlaceholder": "What happens on a 6-…"
+				},
+				"details": {
+					"playbook":           "Playbook",
+					"repeatMax":          "Checkboxes",
+					"isStartingMove":     "Starting Move"
 				}
 			}
 		}

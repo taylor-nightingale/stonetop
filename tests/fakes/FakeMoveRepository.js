@@ -1,14 +1,22 @@
 import {Move} from "../../src/model/data/Move.js";
+import {FakeWorldItemStore} from "./FakeWorldItemStore.js";
 
 export class FakeMoveRepository {
+	_worldStore = new FakeWorldItemStore();
+
 	constructor(playbookMoves = [], basicMoves = [], postDeathMoves = []) {
 		this._playbookMoves  = playbookMoves;
 		this._basicMoves     = basicMoves;
 		this._postDeathMoves = postDeathMoves;
 	}
 
-	async getPlaybookMoves() {
-		return this._playbookMoves.map(m => new Move(m));
+	addWorld(item) { this._worldStore.add(item); return this; }
+
+	async getPlaybookMoves(playbookName) {
+		const world = await this._worldStore.filterEntries(
+			e => e.system?.moveType === "playbook" && e.system?.playbook === playbookName
+		);
+		return [...this._playbookMoves, ...world].map(m => new Move(m));
 	}
 
 	async getPlaybookMoveDocument(id) {
@@ -16,11 +24,14 @@ export class FakeMoveRepository {
 	}
 
 	async getBasicMoves() {
-		return this._basicMoves.map(m => new Move(m));
+		const world = await this._worldStore.filterEntries(e => e.system?.moveType === "basic");
+		return [...this._basicMoves, ...world].map(m => new Move(m));
 	}
 
 	async getBasicMoveDocument(id) {
-		return this._basicMoves.find(m => m._id === id) ?? null;
+		return this._basicMoves.find(m => m._id === id)
+			?? await this._worldStore.getDocument(id)
+			?? null;
 	}
 
 	addBasic(move) {
@@ -44,9 +55,9 @@ export class FakeMoveRepository {
 	}
 
 	async buildSlugIndex() {
-		const all = [...this._playbookMoves, ...this._basicMoves, ...this._postDeathMoves];
-		const entries = all.map(m => new Move(m));
-		return new Map(entries.map(m => [m.slug, m]));
+		const world = await this._worldStore.getAll();
+		const all   = [...this._playbookMoves, ...this._basicMoves, ...this._postDeathMoves, ...world];
+		return new Map(all.map(m => new Move(m)).map(m => [m.slug, m]));
 	}
 }
 

@@ -37,18 +37,34 @@ export class CharacterMoves {
 	}
 
 	async initBasicMoves() {
-		if (this._findCategory("basic")) return;
-		const entries   = await this._moveRepo.getBasicMoves();
-		const flagMoves = entries.map(m => _toFlagMove(m, true));
-		const docs      = await Promise.all(entries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
+		const entries  = await this._moveRepo.getBasicMoves();
+		const existing = this._findCategory("basic");
+
+		if (!existing) {
+			const flagMoves = entries.map(m => _toFlagMove(m, true));
+			const docs      = await Promise.all(entries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
+			const created   = await this._actor.createEmbeddedDocuments("Item",
+				docs.filter(Boolean).map(d => _withMoveType(d.toObject(), "basic"))
+			);
+			_assignOwnedIds(flagMoves, created);
+			await this._setCategories([
+				...this._getCategories(),
+				{ key: "basic", label: "Basic Moves", renderStyle: "side-bar", allowAdditional: false, note: null, moves: flagMoves },
+			]);
+			return;
+		}
+
+		const existingSlugs = new Set(existing.moves.map(m => m.slug));
+		const newEntries    = entries.filter(m => !existingSlugs.has(m.slug));
+		if (!newEntries.length) return;
+
+		const flagMoves = newEntries.map(m => _toFlagMove(m, true));
+		const docs      = await Promise.all(newEntries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
 		const created   = await this._actor.createEmbeddedDocuments("Item",
 			docs.filter(Boolean).map(d => _withMoveType(d.toObject(), "basic"))
 		);
 		_assignOwnedIds(flagMoves, created);
-		await this._setCategories([
-			...this._getCategories(),
-			{ key: "basic", label: "Basic Moves", renderStyle: "side-bar", allowAdditional: false, note: null, moves: flagMoves },
-		]);
+		await this._updateCategory("basic", c => ({ ...c, moves: [...c.moves, ...flagMoves] }));
 	}
 
 	async initPlaybookCategory(playbookData) {

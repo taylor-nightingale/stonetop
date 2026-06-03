@@ -325,6 +325,33 @@ describe("CharacterMoves.initBasicMoves", () => {
 		await m.initBasicMoves();
 		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
 	});
+
+	it("incrementally adds new world move when basic category already exists", async () => {
+		const repo  = new FakeMoveRepository([], [new FakeCompendiumMoveBuilder().withName("Defy Danger").asStarting().build()]);
+		const actor = makeActor();
+		const m     = makeMoves({repo, actor});
+		await m.initBasicMoves();
+
+		repo.addWorld(new FakeCompendiumMoveBuilder().withName("Aid or Interfere").withMoveType("basic").asStarting().build());
+		await m.initBasicMoves();
+
+		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "basic");
+		expect(cat.moves.some(mv => mv.name === "Aid or Interfere")).toBe(true);
+		expect(cat.moves.some(mv => mv.name === "Defy Danger")).toBe(true);
+	});
+
+	it("does not create duplicate docs for existing moves when called again with new world move", async () => {
+		const repo  = new FakeMoveRepository([], [new FakeCompendiumMoveBuilder().withName("Defy Danger").asStarting().build()]);
+		const actor = makeActor();
+		const m     = makeMoves({repo, actor});
+		await m.initBasicMoves();
+		const docsAfterFirst = actor.createdDocs.length;
+
+		repo.addWorld(new FakeCompendiumMoveBuilder().withName("Aid or Interfere").withMoveType("basic").asStarting().build());
+		await m.initBasicMoves();
+
+		expect(actor.createdDocs.length).toBe(docsAfterFirst + 1);
+	});
 });
 
 // ── initPlaybookCategory ──────────────────────────────────────────────────────
@@ -743,5 +770,47 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 		await m.setMoveChoiceCount("potential-for-greatness", "stat1", 1);
 		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
 		expect(row.track.checks[0]).toBe(true);
+	});
+});
+
+// ── buildSnapshot — world move enrichment ─────────────────────────────────────
+
+describe("CharacterMoves.buildSnapshot — world move enrichment", () => {
+	it("shows name and description for a world move in other category", async () => {
+		const repo = new FakeMoveRepository();
+		repo.addWorld(
+			new FakeCompendiumMoveBuilder()
+				.withName("Iron Wall")
+				.withDescription("Block it.")
+				.withRollStat("str")
+				.build()
+		);
+		const m = makeMoves({repo});
+		await m.addMoveToOther({name: "Iron Wall", system: {}});
+		const other = (await m.buildSnapshot()).categories.find(c => c.key === "other");
+		const snap  = other.moves[0];
+		expect(snap.name).toBe("Iron Wall");
+		expect(snap.description).toBe("Block it.");
+		expect(snap.rollStat).toBe("str");
+	});
+});
+
+// ── initPlaybookCategory — world playbook moves ───────────────────────────────
+
+describe("CharacterMoves.initPlaybookCategory — world playbook moves", () => {
+	it("world move for matching playbook appears in playbook category", async () => {
+		const repo = new FakeMoveRepository();
+		repo.addWorld(
+			new FakeCompendiumMoveBuilder()
+				.withName("Smite")
+				.withPlaybook("The Blessed")
+				.withMoveType("playbook")
+				.asStarting()
+				.build()
+		);
+		const m = makeMoves({repo});
+		await m.initPlaybookCategory({slug: "the-blessed", name: "The Blessed", startingMovesNote: null, backgrounds: []});
+		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "playbook-the-blessed");
+		expect(cat.moves.some(mv => mv.name === "Smite")).toBe(true);
 	});
 });

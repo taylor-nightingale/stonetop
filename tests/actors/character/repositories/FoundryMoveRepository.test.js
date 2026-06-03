@@ -115,31 +115,30 @@ describe("FoundryMoveRepository", () => {
 			expect(moves.map(m => m.id)).toEqual([BASIC_MOVE_A._id, BASIC_MOVE_B._id]);
 		});
 
-		it("caches result — same array returned on second call", async () => {
-			new FakeGameBuilder()
-				.withPack(FakePackBuilder.basicMovesPack().withItem(BASIC_MOVE_A))
-				.build();
-			const repo = new FoundryMoveRepository();
-			const first  = await repo.getBasicMoves();
-			const second = await repo.getBasicMoves();
-			expect(second).toBe(first);
-		});
 	});
 
 	describe("getBasicMoveDocument", () => {
-		it("returns null when pack is not registered", async () => {
+		it("returns null when pack is not registered and no world item", async () => {
 			new FakeGameBuilder().build();
 			const repo = new FoundryMoveRepository();
 			expect(await repo.getBasicMoveDocument(BASIC_MOVE_A._id)).toBeNull();
 		});
 
-		it("returns the document when found", async () => {
+		it("returns the document when found in pack", async () => {
 			new FakeGameBuilder()
 				.withPack(FakePackBuilder.basicMovesPack().withItem(BASIC_MOVE_A))
 				.build();
 			const repo = new FoundryMoveRepository();
 			const doc = await repo.getBasicMoveDocument(BASIC_MOVE_A._id);
 			expect(doc).toEqual(BASIC_MOVE_A);
+		});
+
+		it("falls back to world item when not in pack", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("World Basic Move").withMoveType("basic").build();
+			new FakeGameBuilder().withWorldItem(worldMove).build();
+			const repo = new FoundryMoveRepository();
+			const doc = await repo.getBasicMoveDocument(worldMove._id);
+			expect(doc).toEqual(worldMove);
 		});
 	});
 

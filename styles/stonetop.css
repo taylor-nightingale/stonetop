@@ -2789,3 +2789,487 @@ body,
 .stonetop-roll-mod   { font-weight: bold; }
 .stonetop-roll-total { font-weight: bold; }
 
+/* ============================================================
+   Move Item Sheet
+   ============================================================ */
+
+/* No background set — inherits the parchment window-content background
+   shared by all Stonetop sheets (var(--stonetop-bg)). */
+
+/* -- Header -------------------------------------------------- */
+
+.move-sheet-header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem;
+	border-bottom: 2px solid #8b5c2a;
+}
+
+.move-sheet-icon {
+	width: 48px;
+	height: 48px;
+	object-fit: cover;
+	border-radius: 4px;
+	border: 1px solid #bbb;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.move-sheet-title-block {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	min-width: 0;
+}
+
+.move-sheet-name {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #bbb;
+	color: inherit;
+	font-size: 1.2rem;
+	font-weight: bold;
+	font-family: inherit;
+	width: 100%;
+	padding: 0.1rem 0;
+}
+.move-sheet-name:focus { outline: none; border-bottom-color: #8b5c2a; }
+.move-sheet-name:disabled { border-bottom-color: transparent; cursor: default; }
+
+.move-sheet-selects {
+	display: flex;
+	gap: 0.5rem;
+}
+.move-sheet-selects select {
+	background: rgba(255,255,255,0.5);
+	border: 1px solid #bbb;
+	color: inherit;
+	border-radius: 3px;
+	padding: 0.15rem 0.4rem;
+	font-size: 0.8rem;
+}
+.move-sheet-selects select:disabled { opacity: 0.7; }
+
+/* -- Body ---------------------------------------------------- */
+
+.move-sheet-body {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	flex: 1;
+}
+
+/* -- Description --------------------------------------------- */
+
+.move-sheet-description {
+	padding: 0.75rem;
+	border-bottom: 1px solid #ccc;
+	flex: 1;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+}
+
+.move-sheet-description .editor-content {
+	flex: 1;
+	min-height: 130px;
+	line-height: 1.5;
+}
+
+.move-sheet-description .editor-content p { margin: 0.4em 0; }
+.move-sheet-description .editor-content p:first-child { margin-top: 0; }
+
+/* -- Move Results -------------------------------------------- */
+
+.move-sheet-results {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #ccc;
+}
+
+.move-sheet-result {
+	display: flex;
+	align-items: stretch;
+	border-top: 1px solid #ddd;
+}
+.move-sheet-result:first-child { border-top: none; }
+
+.move-sheet-result-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.8rem;
+	padding: 0.5rem 0.4rem;
+	font-size: 0.8rem;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+	flex-shrink: 0;
+}
+
+.move-sheet-result-label--success { background: #dff0df; color: #2d6a2d; }
+.move-sheet-result-label--partial  { background: #fdf3d0; color: #7a5500; }
+.move-sheet-result-label--failure  { background: #f0dfdf; color: #6a2d2d; }
+
+.move-sheet-result textarea {
+	flex: 1;
+	background: transparent;
+	border: none;
+	border-left: 1px solid #ddd;
+	color: inherit;
+	font-family: inherit;
+	font-size: 0.85rem;
+	line-height: 1.4;
+	padding: 0.4rem 0.6rem;
+	resize: vertical;
+}
+.move-sheet-result textarea:focus { outline: none; background: rgba(255,255,255,0.4); }
+.move-sheet-result textarea::placeholder { color: #aaa; }
+
+.move-sheet-result-text {
+	flex: 1;
+	padding: 0.4rem 0.6rem;
+	font-size: 0.85rem;
+	line-height: 1.4;
+	border-left: 1px solid #ddd;
+}
+.move-sheet-result-text p { margin: 0.3em 0; }
+.move-sheet-result-text p:first-child { margin-top: 0; }
+.move-sheet-result-text ul { margin: 0.3em 0; padding-left: 1.2em; }
+
+/* -- Details ------------------------------------------------- */
+
+.move-sheet-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding: 0.65rem 0.75rem;
+	background: rgba(0,0,0,0.04);
+	border-top: 1px solid #ccc;
+	align-items: center;
+}
+
+.move-sheet-detail {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	flex: 1;
+	min-width: 140px;
+}
+
+.move-sheet-detail--narrow {
+	flex: 0 0 auto;
+	min-width: unset;
+}
+
+.move-sheet-detail--checkbox {
+	flex: 0 0 auto;
+	min-width: unset;
+	cursor: pointer;
+}
+
+.move-sheet-detail-label {
+	font-size: 0.75rem;
+	color: #666;
+	white-space: nowrap;
+}
+
+.move-sheet-detail input[type="text"],
+.move-sheet-detail input[type="number"],
+.move-sheet-detail select {
+	flex: 1;
+	background: rgba(255,255,255,0.6);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	color: inherit;
+	font-family: inherit;
+	font-size: 0.8rem;
+	padding: 0.2rem 0.4rem;
+	min-width: 0;
+}
+.move-sheet-detail input[type="number"] { width: 3.5rem; flex: none; }
+.move-sheet-detail input[type="text"]:focus,
+.move-sheet-detail input[type="number"]:focus,
+.move-sheet-detail select:focus { outline: none; border-color: #8b5c2a; }
+.move-sheet-detail input:disabled,
+.move-sheet-detail select:disabled { opacity: 0.6; }
+
+.move-sheet-detail input[type="checkbox"] {
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+	accent-color: #8b5c2a;
+}
+
+/* ── Move Sheet — Choices Editor ─────────────────────────────────────────── */
+
+.move-sheet-choices {
+	border-top: 1px solid #ccc;
+	padding: 0.75rem;
+}
+
+.choices-empty { text-align: center; }
+
+.choices-group-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.choices-remove-group {
+	background: none;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 0.75rem;
+	padding: 0.15rem 0.5rem;
+	color: #a00;
+	margin-left: auto;
+	white-space: nowrap;
+}
+.choices-remove-group:hover { border-color: #a00; background: rgba(170,0,0,0.05); }
+
+.choices-row {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+	background: rgba(255,255,255,0.4);
+}
+
+.choices-row-header {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-bottom: 0.5rem;
+}
+
+.choices-row-type {
+	font-size: 0.68rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.1rem 0.45rem;
+	border-radius: 3px;
+	flex: 1;
+}
+.choices-row-type--heading  { background: #dce8f5; color: #2050a0; }
+.choices-row-type--pick     { background: #dff0df; color: #2d6a2d; }
+.choices-row-type--follower { background: #f0e0f5; color: #6a2d8a; }
+
+.choices-row-header button {
+	background: none;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 0.8rem;
+	padding: 0.1rem 0.4rem;
+	color: #555;
+	line-height: 1;
+}
+.choices-row-header button:hover { background: rgba(0,0,0,0.06); }
+.choices-row-delete { color: #a00 !important; border-color: #dbb !important; }
+.choices-row-delete:hover { background: rgba(170,0,0,0.06) !important; border-color: #a00 !important; }
+
+.choices-row-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.choices-field {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.8rem;
+	min-width: 0;
+}
+
+.choices-field > span:first-child {
+	min-width: 4.5rem;
+	color: #666;
+	font-size: 0.75rem;
+}
+
+.choices-field input[type="text"],
+.choices-field input[type="number"],
+.choices-field select,
+.choices-field textarea {
+	flex: 1;
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	font-family: inherit;
+	font-size: 0.8rem;
+	padding: 0.15rem 0.35rem;
+	color: inherit;
+	min-width: 0;
+}
+.choices-field textarea { resize: vertical; min-height: 2.5rem; }
+.choices-field input[type="text"]:focus,
+.choices-field input[type="number"]:focus,
+.choices-field select:focus,
+.choices-field textarea:focus { outline: none; border-color: #8b5c2a; }
+
+.choices-field--narrow input { max-width: 4rem; flex: none; }
+.choices-field--check { gap: 0.35rem; }
+.choices-field--check > span { min-width: unset; }
+.choices-field--check input[type="checkbox"] { margin: 0; accent-color: #8b5c2a; flex: none; width: auto; align-self: center; }
+
+.choices-field--toggle {
+	display: grid;
+	grid-template-columns: 4.5rem 1fr auto;
+	align-items: center;
+	gap: 0.4rem;
+	min-width: 0;
+	font-size: 0.8rem;
+}
+
+.choices-field--toggle > span:first-child {
+	min-width: unset;
+	color: #666;
+	font-size: 0.75rem;
+}
+
+.choices-field--toggle input[type="number"],
+.choices-field--toggle input[type="text"] {
+	grid-column: 2;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	font-family: inherit;
+	font-size: 0.8rem;
+	padding: 0.15rem 0.35rem;
+	color: inherit;
+	height: auto;
+}
+
+.choices-field--toggle button {
+	grid-column: 3;
+	justify-self: start;
+	background: none;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 0.75rem;
+	padding: 0 0.35rem;
+	line-height: 1.6;
+	color: #555;
+	height: auto;
+	min-height: 0;
+	width: auto;
+	display: inline;
+}
+.choices-field--toggle button:hover { background: rgba(0,0,0,0.06); }
+
+.choices-options-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	width: 100%;
+}
+
+.choices-option-entry {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	width: 100%;
+}
+
+.choices-option-row {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 0.25rem;
+	align-items: center;
+	width: 100%;
+}
+
+.choices-option-row input[type="text"] {
+	width: 100%;
+	min-width: 0;
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	font-family: inherit;
+	font-size: 0.75rem;
+	padding: 0.12rem 0.3rem;
+	color: inherit;
+}
+.choices-option-row select {
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	font-family: inherit;
+	font-size: 0.75rem;
+	padding: 0.12rem 0.2rem;
+	color: inherit;
+}
+.choices-option-row input[type="text"]:focus,
+.choices-option-row select:focus { outline: none; border-color: #8b5c2a; }
+
+.choices-option-desc {
+	width: 100%;
+	box-sizing: border-box;
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	font-family: inherit;
+	font-size: 0.75rem;
+	padding: 0.15rem 0.3rem;
+	color: inherit;
+	resize: vertical;
+	min-height: 2.2rem;
+}
+.choices-option-desc:focus { outline: none; border-color: #8b5c2a; }
+.choices-option-desc:placeholder-shown { border-style: dashed; }
+
+.choices-option-delete {
+	background: none;
+	border: 1px solid #dbb;
+	border-radius: 3px;
+	cursor: pointer;
+	color: #a00;
+	font-size: 0.75rem;
+	padding: 0.1rem 0.35rem;
+	flex: none;
+	line-height: 1;
+}
+.choices-option-delete:hover { border-color: #a00; background: rgba(170,0,0,0.06); }
+
+.choices-add-option {
+	background: none;
+	border: 1px dashed #bbb;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 0.75rem;
+	padding: 0.15rem 0.5rem;
+	color: #666;
+	align-self: flex-start;
+	margin-top: 0.15rem;
+}
+.choices-add-option:hover { border-color: #8b5c2a; color: #8b5c2a; }
+
+.choices-add-row-buttons {
+	display: flex;
+	gap: 0.4rem;
+	margin-top: 0.5rem;
+}
+
+.choices-add-row-buttons button,
+.choices-add-group {
+	background: none;
+	border: 1px dashed #bbb;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 0.8rem;
+	padding: 0.25rem 0.75rem;
+	color: #555;
+}
+.choices-add-row-buttons button:hover,
+.choices-add-group:hover { border-color: #8b5c2a; color: #8b5c2a; }
+

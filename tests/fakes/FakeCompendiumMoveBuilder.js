@@ -52,6 +52,11 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
+	withMoveType(moveType) {
+		this._moveType = moveType;
+		return this;
+	}
+
 	withChoices(choices) {
 		this._choices = choices;
 		return this;
@@ -73,6 +78,7 @@ export class FakeCompendiumMoveBuilder {
 			resource: this._resource,
 			choices: this._choices,
 			playbook: this._playbook,
+			moveType: this._moveType ?? null,
 			moveResults: this._moveResults ?? null,
 		};
 		return {

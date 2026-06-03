@@ -1,0 +1,235 @@
+<form class="stonetop sheet item move" autocomplete="off">
+
+	<header class="move-sheet-header">
+		<img class="move-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
+		<div class="move-sheet-title-block">
+			<input class="move-sheet-name" type="text" name="name" value="{{data.name}}"
+			       placeholder="{{localize "stonetop.item.move.namePlaceholder"}}"
+			       {{#unless editable}}disabled{{/unless}}>
+			<div class="move-sheet-selects">
+				<select name="system.moveType" {{#unless editable}}disabled{{/unless}}>
+					{{#each moveTypeChoices}}
+					<option value="{{@key}}" {{#if (eq @key ../system.moveType)}}selected{{/if}}>
+						{{localize this}}
+					</option>
+					{{/each}}
+				</select>
+				<select name="system.rollStat" {{#unless editable}}disabled{{/unless}}>
+					{{#each rollStatChoices}}
+					<option value="{{@key}}" {{#if (eq @key ../system.rollStat)}}selected{{/if}}>
+						{{localize this}}
+					</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</header>
+
+	<div class="move-sheet-body">
+
+		<section class="move-sheet-description editor">
+			<div class="editor-content" data-edit="system.description">{{{system.description}}}</div>
+		</section>
+
+		{{#if isRollable}}
+		<section class="move-sheet-results">
+			<div class="move-sheet-result">
+				<span class="move-sheet-result-label move-sheet-result-label--success">10+</span>
+				{{#if editable}}
+				<textarea name="system.moveResults.success.value" rows="3"
+				          placeholder="{{localize "stonetop.item.move.results.successPlaceholder"}}">{{system.moveResults.success.value}}</textarea>
+				{{else}}
+				<div class="move-sheet-result-text">{{{system.moveResults.success.value}}}</div>
+				{{/if}}
+			</div>
+			<div class="move-sheet-result">
+				<span class="move-sheet-result-label move-sheet-result-label--partial">7-9</span>
+				{{#if editable}}
+				<textarea name="system.moveResults.partial.value" rows="3"
+				          placeholder="{{localize "stonetop.item.move.results.partialPlaceholder"}}">{{system.moveResults.partial.value}}</textarea>
+				{{else}}
+				<div class="move-sheet-result-text">{{{system.moveResults.partial.value}}}</div>
+				{{/if}}
+			</div>
+			<div class="move-sheet-result">
+				<span class="move-sheet-result-label move-sheet-result-label--failure">6−</span>
+				{{#if editable}}
+				<textarea name="system.moveResults.failure.value" rows="3"
+				          placeholder="{{localize "stonetop.item.move.results.failurePlaceholder"}}">{{system.moveResults.failure.value}}</textarea>
+				{{else}}
+				<div class="move-sheet-result-text">{{{system.moveResults.failure.value}}}</div>
+				{{/if}}
+			</div>
+		</section>
+		{{/if}}
+
+		{{#if editable}}
+		<section class="move-sheet-choices">
+			{{#if system.choices}}
+			<div class="choices-group-header">
+				<button type="button" class="choices-remove-group">Remove Choices</button>
+			</div>
+
+			<div class="choices-rows">
+				{{#each choiceRows}}
+				<div class="choices-row">
+					<div class="choices-row-header">
+						<span class="choices-row-type choices-row-type--{{type}}">{{type}}</span>
+						<button type="button" class="choices-row-up" data-row-index="{{_index}}">↑</button>
+						<button type="button" class="choices-row-down" data-row-index="{{_index}}">↓</button>
+						<button type="button" class="choices-row-delete" data-row-index="{{_index}}">×</button>
+					</div>
+
+					{{#if (eq type "heading")}}
+					<div class="choices-row-fields">
+						<label class="choices-field">
+							<span>Title</span>
+							<input type="text"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="content.title"
+							       value="{{content.title}}">
+						</label>
+						<label class="choices-field">
+							<span>Text</span>
+							<textarea
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="content.text">{{content.text}}</textarea>
+						</label>
+						<div class="choices-field choices-field--toggle">
+							<span>Track</span>
+							{{#if track}}
+							<input type="number" min="1" max="10"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="track.max"
+							       value="{{track.max}}">
+							<button type="button" class="choices-row-toggle-track" data-row-index="{{_index}}">×</button>
+							{{else}}
+							<button type="button" class="choices-row-toggle-track" data-row-index="{{_index}}">+ Track</button>
+							{{/if}}
+						</div>
+						<div class="choices-field choices-field--toggle">
+							<span>Input</span>
+							{{#if input}}
+							<input type="text"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="input.placeholder"
+							       value="{{input.placeholder}}" placeholder="placeholder text">
+							<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">×</button>
+							{{else}}
+							<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">+ Input</button>
+							{{/if}}
+						</div>
+					</div>
+
+					{{else if (eq type "pick")}}
+					<div class="choices-row-fields">
+						<label class="choices-field choices-field--narrow">
+							<span>Count</span>
+							<input type="number" min="1" max="10"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="pickCount"
+							       value="{{pickCount}}">
+						</label>
+						<label class="choices-field choices-field--check">
+							<input type="checkbox"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="inline"
+							       {{#if inline}}checked{{/if}}>
+							<span>Show options side-by-side</span>
+						</label>
+						<div class="choices-options-list">
+							{{#each options}}
+							<div class="choices-option-entry">
+								<div class="choices-option-row">
+									<input type="text" placeholder="label"
+									       data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="text"
+									       value="{{text}}">
+									<select data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="type">
+										<option value="" {{#unless type}}selected{{/unless}}>text</option>
+										<option value="input" {{#if (eq type "input")}}selected{{/if}}>fill-in</option>
+									</select>
+									<button type="button" class="choices-option-delete" data-row-index="{{_rowIndex}}" data-option-index="{{_index}}">×</button>
+								</div>
+								<textarea class="choices-option-desc"
+								          placeholder="description (optional)"
+								          data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="description">{{description}}</textarea>
+							</div>
+							{{/each}}
+						</div>
+						<button type="button" class="choices-add-option" data-row-index="{{_index}}">+ Option</button>
+					</div>
+
+					{{else if (eq type "follower")}}
+					<div class="choices-row-fields">
+						<label class="choices-field">
+							<span>Follower</span>
+							<select data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="slug">
+								{{#each ../followerChoices}}
+								<option value="{{@key}}" {{#if (eq @key ../slug)}}selected{{/if}}>{{this}}</option>
+								{{/each}}
+							</select>
+						</label>
+						<label class="choices-field">
+							<span>Title</span>
+							<input type="text"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="title"
+							       value="{{title}}" placeholder="Follower name…">
+						</label>
+						<div class="choices-field choices-field--toggle">
+							<span>Track</span>
+							{{#if track}}
+							<input type="number" min="1" max="10"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="track.max"
+							       value="{{track.max}}">
+							<button type="button" class="choices-row-toggle-follower-track" data-row-index="{{_index}}">×</button>
+							{{else}}
+							<button type="button" class="choices-row-toggle-follower-track" data-row-index="{{_index}}">+ Track</button>
+							{{/if}}
+						</div>
+						<label class="choices-field choices-field--check">
+							<input type="checkbox"
+							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="inlineDisplay"
+							       {{#if inlineDisplay}}checked{{/if}}>
+							<span>Show full follower card</span>
+						</label>
+					</div>
+					{{/if}}
+				</div>
+				{{/each}}
+			</div>
+
+			<div class="choices-add-row-buttons">
+				<button type="button" class="choices-add-row" data-type="heading">+ Heading</button>
+				<button type="button" class="choices-add-row" data-type="pick">+ Pick</button>
+				<button type="button" class="choices-add-row" data-type="follower">+ Follower</button>
+			</div>
+			{{else}}
+			<div class="choices-empty">
+				<button type="button" class="choices-add-group">+ Add Choices</button>
+			</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		<section class="move-sheet-details">
+			{{#if isPlaybook}}
+			<label class="move-sheet-detail">
+				<span class="move-sheet-detail-label">{{localize "stonetop.item.move.details.playbook"}}</span>
+				<select name="system.playbook" {{#unless editable}}disabled{{/unless}}>
+					{{#each playbookChoices}}
+					<option value="{{@key}}" {{#if (eq @key ../system.playbook)}}selected{{/if}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</label>
+			{{/if}}
+			<label class="move-sheet-detail move-sheet-detail--narrow">
+				<span class="move-sheet-detail-label">{{localize "stonetop.item.move.details.repeatMax"}}</span>
+				<input type="number" name="system.repeatMax" value="{{system.repeatMax}}" min="0"
+				       {{#unless editable}}disabled{{/unless}}>
+			</label>
+			{{#if isPlaybook}}
+			<label class="move-sheet-detail move-sheet-detail--checkbox">
+				<input type="checkbox" name="system.isStartingMove"
+				       {{#if system.isStartingMove}}checked{{/if}}
+				       {{#unless editable}}disabled{{/unless}}>
+				<span class="move-sheet-detail-label">{{localize "stonetop.item.move.details.isStartingMove"}}</span>
+			</label>
+			{{/if}}
+		</section>
+
+	</div>
+</form>

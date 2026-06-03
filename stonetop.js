@@ -4,6 +4,7 @@ import { createStonetopItemClass } from "./src/item/StonetopItem.js";
 import { StonetopActorSheet } from "./src/actors/StonetopActorSheet.js";
 import { createStonetopCharacterSheetClass } from "./src/actors/character/StonetopCharacterSheet.js";
 import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
+import { createStonetopMoveSheetClass } from "./src/item/StonetopMoveSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
@@ -74,6 +75,13 @@ Hooks.once("init", () => {
 		types: ["steading"],
 		makeDefault: true,
 		label: "Stonetop Steading Sheet",
+	});
+
+	const StonetopMoveSheet = createStonetopMoveSheetClass(foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopMoveSheet, {
+		types: ["move"],
+		makeDefault: true,
+		label: "Stonetop Move Sheet",
 	});
 
 	foundry.applications.handlebars.loadTemplates({
