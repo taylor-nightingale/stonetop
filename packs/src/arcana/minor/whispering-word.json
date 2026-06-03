@@ -2,9 +2,8 @@
 	"_id": "vM8KPP0PST2UuVvw",
 	"_key": "!items!vM8KPP0PST2UuVvw",
 	"name": "A whispering... word?",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "whispering-word",
 		"front": {
 			"title": "A whispering... word?",

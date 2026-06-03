@@ -2,9 +2,8 @@
 	"_id": "Hy8wBb0bDe2fG6hI",
 	"_key": "!items!Hy8wBb0bDe2fG6hI",
 	"name": "A half-buried plaque",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "half-buried-plaque",
 		"front": {
 			"title": "A half-buried plaque",

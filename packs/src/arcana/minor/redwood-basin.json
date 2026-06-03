@@ -2,9 +2,8 @@
 	"_id": "IZ1XCC3CGH5HiIJk",
 	"_key": "!items!IZ1XCC3CGH5HiIJk",
 	"name": "A redwood basin",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "redwood-basin",
 		"front": {
 			"title": "A redwood basin",

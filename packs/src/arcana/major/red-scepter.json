@@ -2,10 +2,9 @@
 	"_id": "owVnAXfeM4rOBEnw",
 	"_key": "!items!owVnAXfeM4rOBEnw",
 	"name": "Red Scepter",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/red-scepter.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "red-scepter",
 		"front": {
 			"title": "Red Scepter",

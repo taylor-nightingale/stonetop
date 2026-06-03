@@ -2,9 +2,8 @@
 	"_id": "fw2UzZ4zAC6EeWfg",
 	"_key": "!items!fw2UzZ4zAC6EeWfg",
 	"name": "A beaded satchel",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "beaded-satchel",
 		"front": {
 			"title": "A beaded satchel",

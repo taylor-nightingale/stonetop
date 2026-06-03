@@ -2,9 +2,8 @@
 	"_id": "Ne4ChH6hJk8lMcNo",
 	"_key": "!items!Ne4ChH6hJk8lMcNo",
 	"name": "A huge wooden sphere",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "huge-wooden-sphere",
 		"front": {
 			"title": "A huge wooden sphere",

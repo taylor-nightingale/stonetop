@@ -2,9 +2,8 @@
 	"_id": "Bq4sUv6wXy8zAbCD",
 	"_key": "!items!Bq4sUv6wXy8zAbCD",
 	"name": "A folktale",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "a-folktale",
 		"front": {
 			"title": "A folktale",

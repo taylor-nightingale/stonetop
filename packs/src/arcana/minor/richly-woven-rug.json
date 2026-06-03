@@ -2,9 +2,8 @@
 	"_id": "Kb1zEe3eGh5iJ9kL",
 	"_key": "!items!Kb1zEe3eGh5iJ9kL",
 	"name": "A richly woven rug",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "richly-woven-rug",
 		"front": {
 			"title": "A richly woven rug",

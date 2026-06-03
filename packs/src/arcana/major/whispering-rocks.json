@@ -2,10 +2,9 @@
 	"_id": "Iu7z09gddzRnpJRA",
 	"_key": "!items!Iu7z09gddzRnpJRA",
 	"name": "Whispering Rocks",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/whispering-rocks.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "whispering-rocks",
 		"front": {
 			"title": "Whispering Rocks",

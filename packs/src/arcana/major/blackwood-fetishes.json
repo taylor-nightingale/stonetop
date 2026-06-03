@@ -2,10 +2,9 @@
 	"_id": "V1Qsr1io0pFhT82S",
 	"_key": "!items!V1Qsr1io0pFhT82S",
 	"name": "Blackwood Fetishes",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/blackwood-fetishes.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "blackwood-fetishes",
 		"front": {
 			"title": "Blackwood Fetishes",

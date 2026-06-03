@@ -2,9 +2,8 @@
 	"_id": "rI4GLL6LOP8QqIrs",
 	"_key": "!items!rI4GLL6LOP8QqIrs",
 	"name": "A creepy cave",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "creepy-cave",
 		"front": {
 			"title": "A creepy cave",

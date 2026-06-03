@@ -22,7 +22,7 @@ describe("ActorOutfitItems.getAll", () => {
 	});
 
 	it("excludes non-outfitItem items", () => {
-		const aoi = make([makeRawItem({ type: "equipment" })]);
+		const aoi = make([makeRawItem({ type: "arcanum" })]);
 		expect(aoi.getAll()).toHaveLength(0);
 	});
 

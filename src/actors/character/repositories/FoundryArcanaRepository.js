@@ -5,7 +5,7 @@ import { WorldItemStore } from "./WorldItemStore.js";
 export class FoundryArcanaRepository {
 	constructor() {
 		this._store      = new FoundryPackStore("stonetop.arcana", ["system.slug"]);
-		this._worldStore = new WorldItemStore("equipment", i => i.system?.equipmentType === "arcanum");
+		this._worldStore = new WorldItemStore("arcanum");
 		this._cache      = new Map();
 	}
 

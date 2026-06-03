@@ -2,9 +2,8 @@
 	"_id": "JA2YDD4DHI6IjJKl",
 	"_key": "!items!JA2YDD4DHI6IjJKl",
 	"name": "A humble broom",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "humble-broom",
 		"front": {
 			"title": "A humble broom",

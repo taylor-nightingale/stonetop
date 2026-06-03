@@ -2,9 +2,8 @@
 	"_id": "AR3PUU5UYZ7ZzABc",
 	"_key": "!items!AR3PUU5UYZ7ZzABc",
 	"name": "A metal man",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "metal-man",
 		"front": {
 			"title": "A metal man",

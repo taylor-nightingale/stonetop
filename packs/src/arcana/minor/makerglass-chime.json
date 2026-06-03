@@ -2,9 +2,8 @@
 	"_id": "lC8AFF0FIJ2KkClm",
 	"_key": "!items!lC8AFF0FIJ2KkClm",
 	"name": "A makerglass chime",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "makerglass-chime",
 		"front": {
 			"title": "A makerglass chime",

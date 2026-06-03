@@ -2,9 +2,8 @@
 	"_id": "wN9LQQ1QTU3VvWwx",
 	"_key": "!items!wN9LQQ1QTU3VvWwx",
 	"name": "A corroded spearhead",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "corroded-spearhead",
 		"front": {
 			"title": "A corroded spearhead",

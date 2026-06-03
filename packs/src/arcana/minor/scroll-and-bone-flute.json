@@ -2,9 +2,8 @@
 	"_id": "Of5DiI7iKl9mNdOp",
 	"_key": "!items!Of5DiI7iKl9mNdOp",
 	"name": "A scroll & a bone flute",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "scroll-and-bone-flute",
 		"front": {
 			"title": "A scroll & a bone flute",

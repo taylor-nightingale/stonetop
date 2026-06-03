@@ -2,9 +2,8 @@
 	"_id": "Fw6uYz8zBc0dE4fG",
 	"_key": "!items!Fw6uYz8zBc0dE4fG",
 	"name": "A giant's dormitory",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "giants-dormitory",
 		"front": {
 			"title": "A giant's dormitory",

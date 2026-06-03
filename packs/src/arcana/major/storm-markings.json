@@ -2,10 +2,9 @@
 	"_id": "zjrkOmLuV4bssGaS",
 	"_key": "!items!zjrkOmLuV4bssGaS",
 	"name": "Storm Markings",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/storm-markings.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "storm-markings",
 		"front": {
 			"title": "Storm Markings",

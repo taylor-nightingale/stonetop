@@ -2,10 +2,9 @@
 	"_id": "XJd42jHfouBYG8kL",
 	"_key": "!items!XJd42jHfouBYG8kL",
 	"name": "Hec'tumel Codex",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/hectumel-codex.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "hectumel-codex",
 		"front": {
 			"title": "Hec'tumel Codex",

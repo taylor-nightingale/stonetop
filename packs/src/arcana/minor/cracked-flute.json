@@ -2,9 +2,8 @@
 	"_id": "gx3VAA5ABD7FfXgh",
 	"_key": "!items!gx3VAA5ABD7FfXgh",
 	"name": "A cracked flute",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "cracked-flute",
 		"front": {
 			"title": "A cracked flute",

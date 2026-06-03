@@ -2,9 +2,8 @@
 	"_id": "Ul1JoO3oQr5tTlUv",
 	"_key": "!items!Ul1JoO3oQr5tTlUv",
 	"name": "A giant oak leaf",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "giant-oak-leaf",
 		"front": {
 			"title": "A giant oak leaf",

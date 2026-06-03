@@ -2,9 +2,8 @@
 	"_id": "zQ2OTT4TWX6YyZzA",
 	"_key": "!items!zQ2OTT4TWX6YyZzA",
 	"name": "A bow with no string",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "bow-with-no-string",
 		"front": {
 			"title": "A bow with no string",

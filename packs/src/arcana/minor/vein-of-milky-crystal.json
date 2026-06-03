@@ -2,9 +2,8 @@
 	"_id": "GX9VAA1AEF3FgGHi",
 	"_key": "!items!GX9VAA1AEF3FgGHi",
 	"name": "A vein of milky crystal",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "vein-of-milky-crystal",
 		"front": {
 			"title": "A vein of milky crystal",

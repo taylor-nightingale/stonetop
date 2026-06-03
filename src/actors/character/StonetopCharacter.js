@@ -201,11 +201,11 @@ export class StonetopCharacter {
 	}
 
 	async onDropItems(items) {
-		const isArcanum = i => i.type === "equipment" && i.system?.equipmentType === "arcanum";
+		const isArcanum = i => i.type === "arcanum";
 		const arcana = items.filter(isArcanum);
-		const followers = items.filter(i => i.type === "equipment" && i.system?.equipmentType === "follower");
+		const followers = items.filter(i => i.type === "npc");
 		const moves = items.filter(i => i.type === "move");
-		const others = items.filter(i => !isArcanum(i) && i.type !== "move" && i.system?.equipmentType !== "follower");
+		const others = items.filter(i => i.type !== "arcanum" && i.type !== "move" && i.type !== "npc");
 		let anyAdded = false;
 		for (const item of arcana) {
 			const slug = item.system?.slug;

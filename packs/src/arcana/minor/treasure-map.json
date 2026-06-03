@@ -2,9 +2,8 @@
 	"_id": "LC4AFF6FKL9LlLMn",
 	"_key": "!items!LC4AFF6FKL9LlLMn",
 	"name": "A treasure map",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "treasure-map",
 		"front": {
 			"title": "A treasure map",

@@ -2,10 +2,9 @@
 	"_id": "yNO9jDgDfo69SF1O",
 	"_key": "!items!yNO9jDgDfo69SF1O",
 	"name": "Redwood Effigy",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/redwood-effigy.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "redwood-effigy",
 		"front": {
 			"title": "Redwood Effigy",

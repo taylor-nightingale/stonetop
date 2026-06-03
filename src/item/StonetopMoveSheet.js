@@ -53,7 +53,7 @@ async function _buildFollowerChoices() {
 		}
 	}
 	for (const item of game.items?.contents ?? []) {
-		if (item.type === "equipment" && item.system?.equipmentType === "follower" && item.system?.slug) {
+		if (item.type === "npc" && item.system?.slug) {
 			entries.set(item.system.slug, item.name);
 		}
 	}

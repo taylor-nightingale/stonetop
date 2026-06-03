@@ -2,9 +2,8 @@
 	"_id": "tK6INN8NQR0SsTtu",
 	"_key": "!items!tK6INN8NQR0SsTtu",
 	"name": "A silvery glass bottle",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "silvery-glass-bottle",
 		"front": {
 			"title": "A silvery glass bottle",

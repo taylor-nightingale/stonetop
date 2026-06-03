@@ -2,9 +2,8 @@
 	"_id": "sJ5HMM7MPQ9RrJst",
 	"_key": "!items!sJ5HMM7MPQ9RrJst",
 	"name": "A disturbing mask",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "disturbing-mask",
 		"front": {
 			"title": "A disturbing mask",

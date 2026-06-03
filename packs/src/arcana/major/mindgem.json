@@ -2,10 +2,9 @@
 	"_id": "iHawovCBsJJf4TyZ",
 	"_key": "!items!iHawovCBsJJf4TyZ",
 	"name": "Mindgem",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/mindgem.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "mindgem",
 		"front": {
 			"title": "Mindgem",

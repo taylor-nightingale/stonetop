@@ -2,9 +2,8 @@
 	"_id": "xO0MRR2RUV4WwXxy",
 	"_key": "!items!xO0MRR2RUV4WwXxy",
 	"name": "A copper-banded staff",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "copper-banded-staff",
 		"front": {
 			"title": "A copper-banded staff",

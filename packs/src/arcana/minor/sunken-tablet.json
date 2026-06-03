@@ -2,9 +2,8 @@
 	"_id": "iz5XCC7CFG9HhZij",
 	"_key": "!items!iz5XCC7CFG9HhZij",
 	"name": "A sunken tablet",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "sunken-tablet",
 		"front": {
 			"title": "A sunken tablet",

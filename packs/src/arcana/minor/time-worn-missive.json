@@ -2,9 +2,8 @@
 	"_id": "Vm2KpP4pRs6uUmVw",
 	"_key": "!items!Vm2KpP4pRs6uUmVw",
 	"name": "A time-worn missive",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "time-worn-missive",
 		"front": {
 			"title": "A time-worn missive",

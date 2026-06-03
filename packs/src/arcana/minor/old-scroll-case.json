@@ -2,9 +2,8 @@
 	"_id": "Pq3rSt5uVw7xYz9A",
 	"_key": "!items!Pq3rSt5uVw7xYz9A",
 	"name": "An old scroll case",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "old-scroll-case",
 		"front": {
 			"title": "An old scroll case",

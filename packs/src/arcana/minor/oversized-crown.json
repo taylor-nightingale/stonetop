@@ -2,9 +2,8 @@
 	"_id": "MD5BGG7GML0MmMNo",
 	"_key": "!items!MD5BGG7GML0MmMNo",
 	"name": "An oversized crown",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "oversized-crown",
 		"front": {
 			"title": "An oversized crown",

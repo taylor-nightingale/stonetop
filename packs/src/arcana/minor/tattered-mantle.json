@@ -2,9 +2,8 @@
 	"_id": "Lc2AfF4fHi6jKaLm",
 	"_key": "!items!Lc2AfF4fHi6jKaLm",
 	"name": "A tattered mantle",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "tattered-mantle",
 		"front": {
 			"title": "A tattered mantle",

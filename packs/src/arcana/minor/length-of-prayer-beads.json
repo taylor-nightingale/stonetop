@@ -2,9 +2,8 @@
 	"_id": "nE0CHH2HKL4MmEno",
 	"_key": "!items!nE0CHH2HKL4MmEno",
 	"name": "A length of prayer beads",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "length-of-prayer-beads",
 		"front": {
 			"title": "A length of prayer beads",

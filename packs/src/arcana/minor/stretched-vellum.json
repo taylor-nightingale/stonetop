@@ -2,9 +2,8 @@
 	"_id": "ct9RwW1wXz3BbTcd",
 	"_key": "!items!ct9RwW1wXz3BbTcd",
 	"name": "A stretched vellum",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "stretched-vellum",
 		"front": {
 			"title": "A stretched vellum",

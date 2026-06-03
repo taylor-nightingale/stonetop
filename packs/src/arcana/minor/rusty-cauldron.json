@@ -2,9 +2,8 @@
 	"_id": "jA6YDD8DGH0IiAjk",
 	"_key": "!items!jA6YDD8DGH0IiAjk",
 	"name": "A rusty cauldron",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "rusty-cauldron",
 		"front": {
 			"title": "A rusty cauldron",

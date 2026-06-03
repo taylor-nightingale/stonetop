@@ -2,9 +2,8 @@
 	"_id": "EV7TYY9YCD1DeEFg",
 	"_key": "!items!EV7TYY9YCD1DeEFg",
 	"name": "A silvery signet ring",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "silvery-signet-ring",
 		"front": {
 			"title": "A silvery signet ring",

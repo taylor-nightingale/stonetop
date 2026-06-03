@@ -2,9 +2,8 @@
 	"_id": "Ja0yDd2dFg4hI8jK",
 	"_key": "!items!Ja0yDd2dFg4hI8jK",
 	"name": "A grim peat mound",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "grim-peat-mound",
 		"front": {
 			"title": "A grim peat mound",

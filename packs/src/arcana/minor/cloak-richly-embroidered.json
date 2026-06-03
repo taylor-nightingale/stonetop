@@ -2,9 +2,8 @@
 	"_id": "ev1TyY3yZB5DdVef",
 	"_key": "!items!ev1TyY3yZB5DdVef",
 	"name": "A cloak, richly embroidered",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "cloak-richly-embroidered",
 		"front": {
 			"title": "A cloak, richly embroidered",

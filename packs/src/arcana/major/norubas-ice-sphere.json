@@ -2,10 +2,9 @@
 	"_id": "chYBosYSA5MmCYiS",
 	"_key": "!items!chYBosYSA5MmCYiS",
 	"name": "Noruba's Ice Sphere",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/norubas-ice-sphere.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "norubas-ice-sphere",
 		"front": {
 			"title": "Noruba's Ice Sphere",

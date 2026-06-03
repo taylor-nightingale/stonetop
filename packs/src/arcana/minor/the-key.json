@@ -2,9 +2,8 @@
 	"_id": "Zq6OtT8tUw0yYqZa",
 	"_key": "!items!Zq6OtT8tUw0yYqZa",
 	"name": "A... key?",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "the-key",
 		"front": {
 			"title": "A... key?",

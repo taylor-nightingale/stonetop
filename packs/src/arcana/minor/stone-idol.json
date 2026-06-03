@@ -2,9 +2,8 @@
 	"_id": "KB3ZEE5EIJ7JkKLm",
 	"_key": "!items!KB3ZEE5EIJ7JkKLm",
 	"name": "A stone idol",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "stone-idol",
 		"front": {
 			"title": "A stone idol",

@@ -2,10 +2,9 @@
 	"_id": "3bCVrDBFlp75EfSr",
 	"_key": "!items!3bCVrDBFlp75EfSr",
 	"name": "Rune-laden Scales",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/rune-laden-scales.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "rune-laden-scales",
 		"front": {
 			"title": "Rune-laden Scales",

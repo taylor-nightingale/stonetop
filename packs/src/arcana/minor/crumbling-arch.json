@@ -2,9 +2,8 @@
 	"_id": "ar7PuU9uVx1zZrAb",
 	"_key": "!items!ar7PuU9uVx1zZrAb",
 	"name": "A crumbling arch",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "crumbling-arch",
 		"front": {
 			"title": "A crumbling arch",

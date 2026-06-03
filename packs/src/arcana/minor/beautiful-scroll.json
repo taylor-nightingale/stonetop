@@ -2,9 +2,8 @@
 	"_id": "oF1DII3ILM5NnFop",
 	"_key": "!items!oF1DII3ILM5NnFop",
 	"name": "A beautiful scroll",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "beautiful-scroll",
 		"front": {
 			"title": "A beautiful scroll",

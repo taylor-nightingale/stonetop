@@ -2,9 +2,8 @@
 	"_id": "kB7ZEE9EHI1JjBkl",
 	"_key": "!items!kB7ZEE9EHI1JjBkl",
 	"name": "A large wooden jar",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "large-wooden-jar",
 		"front": {
 			"title": "A large wooden jar",

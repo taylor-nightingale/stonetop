@@ -2,10 +2,9 @@
 	"_id": "f4nTtxqREMwt0DWJ",
 	"_key": "!items!f4nTtxqREMwt0DWJ",
 	"name": "Twisted Spear",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/twisted-spear.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "twisted-spear",
 		"front": {
 			"title": "Twisted Spear",

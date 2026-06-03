@@ -129,7 +129,7 @@
 		}
 	},
 	"Item": {
-		"types": ["move", "equipment", "playbook", "insert", "improvement", "npc", "outfitItem"],
+		"types": ["move", "arcanum", "playbook", "insert", "improvement", "npc", "outfitItem"],
 		"templates": {},
 		"move": {
 			"rollStat": null,
@@ -153,8 +153,7 @@
 			"sortOrder": null,
 			"choices": null
 		},
-		"equipment": {
-			"equipmentType": null,
+		"arcanum": {
 			"weight": 1,
 			"description": "",
 			"slug": null,

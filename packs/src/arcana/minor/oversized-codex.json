@@ -2,9 +2,8 @@
 	"_id": "Qh7FkK9kMn1oPhQr",
 	"_key": "!items!Qh7FkK9kMn1oPhQr",
 	"name": "An oversized codex",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "oversized-codex",
 		"front": {
 			"title": "An oversized codex",

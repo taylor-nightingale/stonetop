@@ -2,9 +2,8 @@
 	"_id": "NE6CHH8HNM1NnNOp",
 	"_key": "!items!NE6CHH8HNM1NnNOp",
 	"name": "A metal puzzle box",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "metal-puzzle-box",
 		"front": {
 			"title": "A metal puzzle box",
