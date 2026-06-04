@@ -54,6 +54,7 @@ export { ChoiceOption, ChoiceRow, HeadingRow, FollowerRow, ChoiceGroup, ChoiceVa
  * @property {ArcanaSnapshot} arcana
  * @property {PostDeathSectionSnapshot} postDeathInsert
  * @property {FollowerSnapshot[]} followers
+ * @property {PossessionsSnapshot|null} possessions
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
@@ -68,6 +69,7 @@ export class CharacterSnapshot {
 		this.arcana          = b._arcana;
 		this.postDeathInsert = b._postDeathInsert;
 		this.followers       = b._followers ?? [];
+		this.possessions     = b._possessions ?? null;
 		this.rollMode        = b._rollMode;
 	}
 }
@@ -83,6 +85,7 @@ export class CharacterSnapshotBuilder {
 	withArcana(v)          { this._arcana          = v; return this; }
 	withPostDeathInsert(v) { this._postDeathInsert = v; return this; }
 	withFollowers(v)       { this._followers       = v; return this; }
+	withPossessions(v)     { this._possessions     = v; return this; }
 	withRollMode(v)        { this._rollMode        = v; return this; }
 	build()                { return new CharacterSnapshot(this); }
 }

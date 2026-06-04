@@ -92,13 +92,14 @@ export class StonetopCharacter {
 		const {checked} = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
-		const [arcana, inventory, postDeath, playbook, vitals, moves] = await Promise.all([
+		const [arcana, inventory, postDeath, playbook, vitals, moves, possessions] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
 			this._moves.buildSnapshot(),
+			this._possessions.buildSnapshot(level),
 		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
@@ -111,6 +112,7 @@ export class StonetopCharacter {
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
 			.withFollowers(followers)
+			.withPossessions(possessions)
 			.withRollMode(this._rolling.rollMode)
 			.build();
 	}

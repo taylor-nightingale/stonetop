@@ -1,7 +1,9 @@
 import {describe, expect, it} from "vitest";
-import {CharacterSnapshot} from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import {CharacterSnapshot, PossessionsSnapshot} from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
 import {FakeActorBuilder} from "../../fakes/FakeActorBuilder.js";
+import {FakePossessionRepository} from "../../fakes/FakePossessionRepository.js";
+import {TestPossessionBuilder} from "../../fakes/TestPossessionBuilder.js";
 
 // ── CharacterSnapshot class ───────────────────────────────────────────────────
 
@@ -45,5 +47,31 @@ describe("buildSnapshot — rollMode", () => {
 		const actor = new FakeActorBuilder().withRollMode("adv").build();
 		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
 		expect(snap.rollMode).toBe("adv");
+	});
+});
+
+// ── possessions ───────────────────────────────────────────────────────────────
+
+describe("buildSnapshot — possessions: null when no playbook", () => {
+	it("possessions is null", async () => {
+		const snap = await new TestCharacterBuilder(new FakeActorBuilder().build())
+			.build().buildSnapshot();
+		expect(snap.possessions).toBeNull();
+	});
+});
+
+describe("buildSnapshot — possessions: snapshot when playbook configured", () => {
+	it("possessions is a PossessionsSnapshot with items from the playbook", async () => {
+		const sp = { pickCount: 1, pickNote: "Pick 1", preselected: [], slugs: ["apiary"] };
+		const playbook = { slug: "blessed", specialPossessions: sp };
+		const possession = new TestPossessionBuilder().withSlug("apiary").withLabel("Apiary").build();
+		const actor = new FakeActorBuilder().withPlaybook("blessed").build();
+		const snap = await new TestCharacterBuilder(actor)
+			.addPlaybook(playbook)
+			.withPossessionRepo(new FakePossessionRepository([possession]))
+			.build().buildSnapshot();
+		expect(snap.possessions).toBeInstanceOf(PossessionsSnapshot);
+		expect(snap.possessions.items).toHaveLength(1);
+		expect(snap.possessions.items[0].slug).toBe("apiary");
 	});
 });

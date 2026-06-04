@@ -148,6 +148,57 @@ New `possession` item type with its own compendium pack.
 
 ---
 
+## Phase 2b: Dropped Possessions Show on Sheet
+
+### Problem
+
+A possession item dragged from the compendium browser lands in the actor's embedded items (via Foundry's default `_onDropItemCreate`) but never appears on the sheet. `CharacterPossessions.buildSnapshot()` only reads the playbook's `slugs[]` list — it has no concept of "possession items already embedded on this actor."
+
+Additionally, `StonetopCharacter.buildSnapshot()` never calls `this._possessions.buildSnapshot()` at all, so the possessions section is absent from the snapshot entirely.
+
+### Solution
+
+Two changes:
+
+**1. Wire possessions into `StonetopCharacter.buildSnapshot()`**
+
+Add `this._possessions.buildSnapshot(level)` to the `Promise.all` block and pass the result to `CharacterSnapshotBuilder.withPossessions(...)`.
+
+**2. Merge embedded possession items into `CharacterPossessions.buildSnapshot()`**
+
+After building the list from the playbook slugs, read `actor.items` for type `"possession"` and append any whose `system.slug` is not already in the playbook's slug list. These "dropped" possessions appear selected and not disabled (the player owns them), but are never preselected, not counted against `pickCount`, and carry no `preselectedSource`.
+
+Concretely, `buildSnapshot(level)` becomes:
+
+```
+playbookSlugs = sp.slugs                          // from playbook
+playbookPossessions = repo.findBySlugs(slugs)     // compendium data
+embeddedPossessions = actor.items                 // embedded on actor
+  .filter(type === "possession" && slug not in playbookSlugs)
+  .map(item => new Possession(item.system))
+
+allPossessions = [...playbookPossessions, ...embeddedPossessions]
+```
+
+Embedded-only possessions are always `selected: true`, `disabled: false`, `preselected: false`.
+
+### Key decisions
+
+- Embedded possessions are not subject to `pickCount` — the player acquired them outside the standard picking flow.
+- If a possession's slug appears in both the playbook list and embedded items, the playbook entry wins (deduplication by slug before merging).
+- `onDropItems` in `StonetopCharacter` does not need to change — `possession` items already fall through to `super._onDropItemCreate()`.
+- No `selectPossession()` call on drop — the item being embedded is sufficient.
+
+### Steps
+
+1. Add `possessions` to `CharacterSnapshotBuilder` — `withPossessions(snap)` method + field on the snapshot
+2. Add `buildSnapshot(level)` call to `StonetopCharacter.buildSnapshot()`
+3. Extend `CharacterPossessions.buildSnapshot()` to read embedded possession items from the actor and merge them after the playbook list
+4. Update `FakeActor` / `FakeActorBuilder` to expose an `items` collection that tests can populate with possession items
+5. Write tests: embedded possession appears in snapshot; playbook possession wins on slug collision; embedded possession is selected+not-disabled
+
+---
+
 ## Phase 3: Embed All Playbook Moves on Selection
 
 ### Problem
