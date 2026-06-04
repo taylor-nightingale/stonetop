@@ -28,14 +28,6 @@ describe("CharacterData defaults", () => {
 		expect(new CharacterData().playbookSlug).toBe("");
 	});
 
-	it("defaults arcana to empty state", () => {
-		const d = new CharacterData();
-		expect(d.arcana.owned).toEqual([]);
-		expect(d.arcana.flipped).toEqual([]);
-		expect(d.arcana.unlock).toEqual({});
-		expect(d.arcana.backChoices).toEqual({});
-	});
-
 	it("defaults choices, resources, and moveResources sections", () => {
 		const d = new CharacterData();
 		expect(d.choices.values).toEqual({});
@@ -54,12 +46,6 @@ describe("CharacterData defaults", () => {
 		expect(d.postDeath.insert).toBeNull();
 		expect(d.postDeathInstinct.custom).toBe("");
 		expect(d.postDeathLore.values).toEqual({});
-	});
-
-	it("defaults followers to empty state", () => {
-		const d = new CharacterData();
-		expect(d.followers.owned).toEqual([]);
-		expect(d.followers.state).toEqual({});
 	});
 
 	it("defaults inventory to zeroed state", () => {

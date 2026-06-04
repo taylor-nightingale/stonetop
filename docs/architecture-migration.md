@@ -209,8 +209,8 @@ Embedded-only possessions are always `selected: true`, `disabled: false`, `prese
 |---|---|---|---|
 | **Moves** | Yes — one item per acquired move | `system.moves[]` categories with `selection.{max,value}` and `ownedIds[]` | Yes — `buildSlugIndex()` to fetch all move definitions |
 | **Possessions** | Partial — dropped possessions only; playbook possessions are slug-only | `system.possessions.{selected,uses,maxUses,pickValues,choiceUses}` | Yes — `findBySlugs(slugs)` for playbook possessions |
-| **Arcana** | No — slug-only | `system.arcana.{owned,flipped,unlock,backChoices}` | Yes — `findBySlugs(ownedSlugs)` |
-| **Followers** | No — slug-only | `system.followers.{owned,state}` (state includes hp, armor, damage, loyalty, choice values) | Yes — `findBySlugs(ownedSlugs)` |
+| **Arcana** | Yes ✓ — full item embedded at acquisition | none (`system.arcana.*` removed) | No ✓ — reads from `actor.items` |
+| **Followers** | Yes ✓ — full item embedded at acquisition (owned=true); linked preview items (owned=false) | none (`system.followers.*` removed) | No ✓ — reads from `actor.items` |
 | **Playbook** | Yes — one item created on drop | `system.playbookSlug` (pointer only) | Yes — `findBySlug(slug)` for all background/instinct/lore/origin data |
 | **Insert** | Yes — one item created on drop | `system.postDeath.insert` (pointer only) | Yes — `getAll()` + `findBySlug()` |
 | **Outfit items** | Yes — fully embedded | `system.inventory.checked{}` (equipped state only) | Yes — `getAll()` for inventory item definitions |
@@ -330,9 +330,44 @@ Moves were only embedded when acquired. Players could not view or drag unacquire
 
 ---
 
-## Phase 4: Embed Arcana and Followers on Acquisition
+## Phase 4: Embed Arcana and Followers on Acquisition ✓ COMPLETE
 
 Arcana and NPC item types already exist. Embed when acquired; remove when lost. Enables drag-and-drop for both.
+
+### What changed
+
+**Schema:**
+- `ArcanumData`: added `flipped`, `unlockValues`, `backChoiceValues` fields — mutable per-actor state moves from `system.arcana.*` onto each embedded item
+- `NpcItemData`: added `owned` (false = pre-embedded linked follower, true = player-owned), `choiceValues`; `damage.die` made nullable (null means no damage, was "d6")
+- `CharacterData`: removed `arcana` and `followers` SchemaFields entirely
+
+**CharacterArcana:**
+- `ownedSlugs` getter reads from `actor.items` (type=arcanum)
+- `addArcanum` fetches from repo, embeds full item; pre-embeds linked followers (owned=false) via `embedLinkedFollowers`
+- `removeArcanum` deletes arcanum item; calls `removeLinkedFollower` for back-choice followers (only deletes if still owned=false)
+- `flipArcanum`/`unflipArcanum` update `item.system.flipped` via `updateEmbeddedDocuments`
+- `setUnlockCount`/`setBackChoiceValue` update `item.system.unlockValues`/`backChoiceValues`
+- `buildSnapshot()` reads entirely from `actor.items` — no repo fetch
+
+**CharacterFollowers:**
+- `ownedSlugs` getter reads from `actor.items` (type=npc, owned=true)
+- `addFollower` embeds from repo as owned=true; upgrades owned=false → owned=true if pre-embedded
+- New `embedLinkedFollowers(slugs)` — called by CharacterArcana.addArcanum; creates npc items with owned=false
+- New `removeLinkedFollower(slug)` — deletes only if owned=false (called by removeArcanum)
+- `removeFollower` deletes the item entirely
+- `addCustomFollower` no longer throws if blank not in repo — uses blank as template if available, hardcoded defaults otherwise
+- All setters (setHp, setName, setTags, setArmor, setDamage, setChoiceValue, setChoiceText) update embedded items via `updateEmbeddedDocuments`
+- `buildSnapshot()` reads from `actor.items` — no repo fetch
+
+**FakeActor:**
+- `updateEmbeddedDocuments` now does deep merge (via `_deepAssign`) and handles top-level `name` updates
+
+**Eliminated:**
+- `actor.system.arcana.{owned,flipped,unlock,backChoices}` — removed from `CharacterData` schema
+- `actor.system.followers.{owned,state}` — removed from `CharacterData` schema
+- All `findBySlugs` calls in `buildSnapshot()` for both classes
+
+---
 
 ---
 

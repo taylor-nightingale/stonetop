@@ -44,7 +44,9 @@ export class FakeActor {
 		this._updatedDocs.push(...updates);
 		for (const update of updates) {
 			const item = this.items.get(update._id);
-			if (item?.system && update.system) Object.assign(item.system, update.system);
+			if (!item) continue;
+			if (update.name !== undefined) item.name = update.name;
+			if (update.system) _deepAssign(item.system, update.system);
 		}
 		return updates;
 	}
@@ -81,5 +83,16 @@ export class FakeActor {
 
 	setFlag(scope, key, value) {
 		return this._fakeFlags.setFlag(scope, key, value);
+	}
+}
+
+function _deepAssign(target, source) {
+	for (const [key, value] of Object.entries(source)) {
+		if (value && typeof value === "object" && !Array.isArray(value)
+				&& target[key] && typeof target[key] === "object") {
+			_deepAssign(target[key], value);
+		} else {
+			target[key] = value;
+		}
 	}
 }

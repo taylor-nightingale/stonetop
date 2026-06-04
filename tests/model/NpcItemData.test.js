@@ -29,9 +29,9 @@ describe("NpcItemData defaults", () => {
 		expect(d.armor.note).toBe("");
 	});
 
-	it("defaults damage die to 'd6'", () => {
+	it("defaults damage die to null", () => {
 		const d = new NpcItemData();
-		expect(d.damage.die).toBe("d6");
+		expect(d.damage.die).toBeNull();
 		expect(d.damage.label).toBe("");
 		expect(d.damage.tags).toBe("");
 	});

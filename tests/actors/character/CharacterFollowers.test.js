@@ -23,6 +23,30 @@ function makeCf(repo = null, resourceCtrl = null) {
 	);
 }
 
+function makeFollowerItem(data, overrides = {}) {
+	return {
+		_id: (data.slug ?? "unknown") + "-item",
+		type: "npc",
+		name: data.name ?? data.slug,
+		system: {
+			slug:             data.slug,
+			owned:            overrides.owned ?? false,
+			tags:             data.tags ?? "",
+			hp:               { value: data.hp?.value ?? 0, min: 0, max: data.hp?.max ?? 0 },
+			armor:            { value: data.armor?.value ?? 0, note: data.armor?.note ?? "" },
+			damage:           data.damage
+				? { die: data.damage.value ?? data.damage.die ?? null, label: data.damage.label ?? "", tags: data.damage.tags ?? "" }
+				: { die: null, label: "", tags: "" },
+			instinct:         data.instinct ?? "",
+			loyalty:          { value: 0, max: data.loyalty?.max ?? 3 },
+			choices:          data.choices ?? null,
+			arcanaSlug:       data.arcanaSlug ?? null,
+			specialQualities: data.specialQualities ?? "",
+			choiceValues:     {},
+		},
+	};
+}
+
 // -- Fixtures -----------------------------------------------------------------
 
 const ENFYS_DATA = {
@@ -88,20 +112,20 @@ describe("CharacterFollowers — ownership", () => {
 	});
 
 	it("addFollower stores slug in ownedSlugs", async () => {
-		const cf = makeCf();
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		expect(cf.ownedSlugs).toContain("enfys");
 	});
 
 	it("addFollower does not duplicate slugs", async () => {
-		const cf = makeCf();
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		await cf.addFollower("enfys");
 		expect(cf.ownedSlugs.filter(s => s === "enfys").length).toBe(1);
 	});
 
 	it("removeFollower removes slug from ownedSlugs", async () => {
-		const cf = makeCf();
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		await cf.removeFollower("enfys");
 		expect(cf.ownedSlugs).not.toContain("enfys");
@@ -293,15 +317,19 @@ describe("CharacterFollowers.buildSnapshot", () => {
 // -- Tests: extraSlugs (arcana-linked followers) -------------------------------
 
 describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
-	it("returns static snapshot for extra slug not in owned", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+	it("returns static snapshot for extra slug pre-embedded with owned=false", async () => {
+		const actor = makeActor();
+		actor.items.push(makeFollowerItem(ENFYS_DATA));
+		const cf = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
 		const snaps = await cf.buildSnapshot(["enfys"]);
 		expect(snaps).toHaveLength(1);
 		expect(snaps[0].slug).toBe("enfys");
 	});
 
-	it("static snapshot uses pack defaults for HP and loyalty", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+	it("static snapshot uses embedded data for HP and loyalty", async () => {
+		const actor = makeActor();
+		actor.items.push(makeFollowerItem(ENFYS_DATA));
+		const cf = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
 		const [snap] = await cf.buildSnapshot(["enfys"]);
 		expect(snap.hp).toBe(6);
 		expect(snap.loyalty.current).toBe(0);
@@ -315,7 +343,9 @@ describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
 	});
 
 	it("owned followers appear before extra static snapshots", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS, PICKER]));
+		const actor = makeActor();
+		actor.items.push(makeFollowerItem(ENFYS_DATA));
+		const cf = new CharacterFollowers(actor, new FakeFollowerRepository([PICKER]), makeResourceController());
 		await cf.addFollower("test-picker");
 		const snaps = await cf.buildSnapshot(["enfys"]);
 		expect(snaps).toHaveLength(2);
@@ -323,7 +353,7 @@ describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
 		expect(snaps[1].slug).toBe("enfys");
 	});
 
-	it("silently omits extra slug not found in repo", async () => {
+	it("silently omits extra slug not pre-embedded in actor.items", async () => {
 		const cf = makeCf(new FakeFollowerRepository());
 		const snaps = await cf.buildSnapshot(["nonexistent"]);
 		expect(snaps).toEqual([]);
@@ -442,9 +472,9 @@ const BLANK = new Follower(BLANK_DATA);
 // -- Tests: addCustomFollower -------------------------------------------------
 
 describe("CharacterFollowers — addCustomFollower", () => {
-	it("throws if blank follower not in repo", async () => {
+	it("does not throw if blank follower not in repo", async () => {
 		const cf = makeCf(new FakeFollowerRepository());
-		await expect(cf.addCustomFollower()).rejects.toThrow("Blank follower not found in compendium");
+		await expect(cf.addCustomFollower()).resolves.not.toThrow();
 	});
 
 	it("adds a custom- slug to ownedSlugs", async () => {
@@ -476,7 +506,7 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		expect(snaps[0].slug).toMatch(/^custom-/);
 	});
 
-	it("custom snapshot uses blank follower choices as template", async () => {
+	it("custom snapshot uses blank follower choices as template when blank in repo", async () => {
 		const cf = makeCf(new FakeFollowerRepository([BLANK]));
 		await cf.addCustomFollower();
 		const [snap] = await cf.buildSnapshot();
@@ -486,11 +516,8 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 
 	it("custom snapshot has null choices when blank not available", async () => {
 		const cf = makeCf(new FakeFollowerRepository());
-		await cf.addCustomFollower().catch(() => {}); // Will throw; use a pre-seeded custom slug instead
-		// Simulate a custom follower state without blank in repo
-		const cf2 = new CharacterFollowers(makeActor(), new FakeFollowerRepository(), makeResourceController());
-		await cf2.addFollower("custom-orphan");
-		const [snap] = await cf2.buildSnapshot();
+		await cf.addCustomFollower();
+		const [snap] = await cf.buildSnapshot();
 		expect(snap.choices).toBeNull();
 	});
 

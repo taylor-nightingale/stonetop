@@ -4,7 +4,9 @@ export class NpcItemData extends foundry.abstract.TypeDataModel {
 		return {
 			slug:            new f.StringField({ nullable: true, initial: null }),
 			arcanaSlug:      new f.StringField({ nullable: true, initial: null }),
+			owned:           new f.BooleanField({ initial: false }),
 			tags:            new f.StringField({ initial: "" }),
+			choiceValues:    new f.ObjectField({ initial: {} }),
 			hp:              new f.SchemaField({
 				value: new f.NumberField({ initial: 0, integer: true }),
 				min:   new f.NumberField({ initial: 0, integer: true }),
@@ -15,7 +17,7 @@ export class NpcItemData extends foundry.abstract.TypeDataModel {
 				note:  new f.StringField({ initial: "" }),
 			}),
 			damage:          new f.SchemaField({
-				die:   new f.StringField({ initial: "d6" }),
+				die:   new f.StringField({ nullable: true, initial: null }),
 				label: new f.StringField({ initial: "" }),
 				tags:  new f.StringField({ initial: "" }),
 			}),

@@ -24,16 +24,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 				pickValues: new f.ObjectField(),
 				choiceUses: new f.ObjectField(),
 			}),
-			arcana: new f.SchemaField({
-				owned:       new f.ArrayField(new f.StringField()),
-				flipped:     new f.ArrayField(new f.StringField()),
-				unlock:      new f.ObjectField(),
-				backChoices: new f.ObjectField(),
-			}),
-			followers: new f.SchemaField({
-				owned: new f.ArrayField(new f.StringField()),
-				state: new f.ObjectField(),
-			}),
 			background:        new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),
 			instinct:          new f.SchemaField({ custom:   new f.StringField({ initial: "" }) }),
 			origin:            new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),

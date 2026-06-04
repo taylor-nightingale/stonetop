@@ -1,7 +1,7 @@
 import {StonetopCharacter} from "./character/StonetopCharacter.js";
 import {StonetopSteading} from "./steading/StonetopSteading.js";
 import {buildRollContent} from "../utils/rollDisplay.js";
-import { StonetopNpc } from "./npc/StonetopNpc.js";
+import {StonetopNpc} from "./npc/StonetopNpc.js";
 
 export function createStonetopActorClass(BaseActor) {
 	return class StonetopActor extends BaseActor {
@@ -38,20 +38,20 @@ export function createStonetopActorClass(BaseActor) {
 			if (!item) return false;
 
 			const isDescription = event.target.getAttribute("data-show") === "description";
-			const rollStat      = event.target.closest("[data-roll]")?.dataset.roll || null;
-			const hideRollMode  = game.settings.get("stonetop", "hideRollMode");
-			const rollMode      = hideRollMode ? "def" : this.typedActor.rollMode;
+			const rollStat = event.target.closest("[data-roll]")?.dataset.roll || null;
+			const hideRollMode = game.settings.get("stonetop", "hideRollMode");
+			const rollMode = hideRollMode ? "def" : this.typedActor.rollMode;
 
-			await this._executeRoll(item, { rollMode, rollStat, descriptionOnly: isDescription });
+			await this._executeRoll(item, {rollMode, rollStat, descriptionOnly: isDescription});
 			return true;
 		}
 
-		async _executeRoll(item, { rollMode = "def", descriptionOnly = false, rollStat } = {}) {
+		async _executeRoll(item, {rollMode = "def", descriptionOnly = false, rollStat} = {}) {
 			rollStat ??= item.system?.rollStat;
-			const speaker  = ChatMessage.getSpeaker({ actor: this });
+			const speaker = ChatMessage.getSpeaker({actor: this});
 
 			if (descriptionOnly || !rollStat) {
-				return ChatMessage.create({ speaker, content: `<h3>${item.name}</h3>${item.system?.description ?? ""}` });
+				return ChatMessage.create({speaker, content: `<h3>${item.name}</h3>${item.system?.description ?? ""}`});
 			}
 
 			if (rollStat === "damage") return this._rollDamage(speaker);
@@ -67,15 +67,12 @@ export function createStonetopActorClass(BaseActor) {
 			if (rollStat !== "prompt") {
 				bonus = this.typedActor.resolveBonus(statKey);
 				if (bonus === null) {
-					return ChatMessage.create({ speaker, content: `<h3>${item.name}</h3>${item.system?.description ?? ""}` });
+					return ChatMessage.create({speaker, content: `<h3>${item.name}</h3>${item.system?.description ?? ""}`});
 				}
 			}
 
 			const effectiveMode = this.typedActor.applyRollMode(statKey, rollMode);
-			const formula =
-				effectiveMode === "adv" ? `{2d6,2d6}kh + ${bonus}` :
-				effectiveMode === "dis" ? `{2d6,2d6}kl + ${bonus}` :
-				                          `2d6 + ${bonus}`;
+			const formula = this._rollingFormula(effectiveMode, bonus);
 
 			const roll = await new Roll(formula).evaluate();
 			const total = roll.total;
@@ -83,21 +80,21 @@ export function createStonetopActorClass(BaseActor) {
 				total >= 10 ? "success" : total >= 7 ? "partial" : "failure";
 			const resultLabel = game.i18n.localize(
 				resultKey === "success" ? "stonetop.rollResults.strongHit" :
-				resultKey === "partial"  ? "stonetop.rollResults.weakHit"  :
-				                          "stonetop.rollResults.miss"
+					resultKey === "partial" ? "stonetop.rollResults.weakHit" :
+						"stonetop.rollResults.miss"
 			);
 
-			const statLabel   = rollStat === "prompt" ? "" : ` (+${statKey.toUpperCase()})`;
+			const statLabel = rollStat === "prompt" ? "" : ` (+${statKey.toUpperCase()})`;
 			const description = item.system?.description ?? "";
-			const resultText  = item.system?.moveResults?.[resultKey]?.value ?? "";
+			const resultText = item.system?.moveResults?.[resultKey]?.value ?? "";
 
 			return ChatMessage.create({
 				speaker,
 				content: buildRollContent(roll, {
-					name:        `${item.name}${statLabel} — ${resultLabel}`,
-					rollMode:    effectiveMode,
-					bonus:       rollStat !== "prompt" ? bonus : null,
-					statKey:     rollStat !== "prompt" ? statKey : null,
+					name: `${item.name}${statLabel} — ${resultLabel}`,
+					rollMode: effectiveMode,
+					bonus: rollStat !== "prompt" ? bonus : null,
+					statKey: rollStat !== "prompt" ? statKey : null,
 					resultKey,
 					description,
 					resultText,
@@ -106,16 +103,27 @@ export function createStonetopActorClass(BaseActor) {
 			});
 		}
 
+		_rollingFormula(rollMode, bonus) {
+			switch (rollMode) {
+				case "adv":
+					return `{3d6}kh2 + ${bonus}`;
+				case "dis":
+					return `{3d6}kl2 + ${bonus}`
+				default:
+					return `2d6 + ${bonus}`
+			}
+		}
+
 		async _rollDamage(speaker) {
 			const die = this.system?.attributes?.damage?.value;
 			if (!die) return;
 			const roll = await new Roll(`1${die}`).evaluate();
-			return roll.toMessage({ speaker, flavor: game.i18n.localize("stonetop.character.attributes.damage") });
+			return roll.toMessage({speaker, flavor: game.i18n.localize("stonetop.character.attributes.damage")});
 		}
 
-		static defaultName({ type, parent, pack } = {}) {
+		static defaultName({type, parent, pack} = {}) {
 			const key = `stonetop.actor.defaultName.${type}`;
-			return game.i18n.has(key) ? game.i18n.localize(key) : super.defaultName({ type, parent, pack });
+			return game.i18n.has(key) ? game.i18n.localize(key) : super.defaultName({type, parent, pack});
 		}
 
 		static async _pickStat(moveName, stats) {
