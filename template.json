@@ -7,42 +7,8 @@
 				"notes": ""
 			}
 		},
-		"character": {
-			"templates": ["base"],
-			"stats": {
-				"str": {"value": 0},
-				"dex": {"value": 0},
-				"con": {"value": 0},
-				"int": {"value": 0},
-				"wis": {"value": 0},
-				"cha": {"value": 0}
-			},
-			"attributes": {
-				"damage": {"value": null},
-				"hp":     {"value": 16, "min": 0, "max": 16},
-				"armor":  0,
-				"xp":     {"value": 0, "max": 8},
-				"level":  1,
-				"debilities": {
-					"options": {
-						"weakened":  {"value": false, "stat": ["str", "dex"]},
-						"dazed":     {"value": false, "stat": ["int", "wis"]},
-						"miserable": {"value": false, "stat": ["con", "cha"]}
-					}
-				}
-			}
-		},
-		"npc": {
-			"templates": ["base"],
-			"tags":             "",
-			"hp":               {"value": 0, "min": 0, "max": 0},
-			"armor":            {"value": 0, "note": ""},
-			"damage":           {"die": "d6", "label": "", "tags": ""},
-			"specialQualities": "",
-			"instinct":         "",
-			"loyalty":          {"value": 0, "max": 3},
-			"choices":          null
-		},
+		"character": {},
+		"npc": {},
 		"steading": {
 			"templates": ["base"],
 			"fortunes": 2,
@@ -106,6 +72,9 @@
 				{"slug": "other",       "name": "Other places",        "subtitle": "Barrier Pass, the Manmarch, etc.", "note": "", "names": ""}
 			],
 			"residentNames": "Aderyn, Aeronwen, Afanen, Afon, Alun, Andras, Aneirin, Awstin, Bedwyr, Berwyn, Betrys, Braith, Briallen, Bronwen, Bryn, Cadi, Cadoc, Cadwygan, Caron, Cefin, Ceinwen, Ceridwyn, Cerys, Colwyn, Deiniol, Dilwen, Dylis, Eifion, Eirlys, Eluned, Emrys, Enfys, Eurwen, Gaenor, Garet, Gethin, Glyndir, Heledd, Hywel, Ifan, Iorwerth, Iwan, Lewela, Leuca, Linos, Mado, Maldwyn, Malon, Mared, Marged, Martyn, Meirion, Menwen, Mererid, Neirin, Nia, Ofydd, Olwyn, Owain, Padrig, Parry, Pryce, Pryder, Rheinal, Rhisiart, Rhosyn, Rydderch, Sawyl, Siana, Sioned, Talfryn, Tegid, Tiwlip, Tomos, Tudyr, Winifred, Yorath",
+			"residents":      [],
+			"neighborPeople": [],
+			"improvements":   { "pickValues": {} },
 			"residentTraits": [
 				"all thumbs", "dallied with the Fae years ago", "has a beef with Marshedge", "immaculate appearance", "mute",
 				"ambitious", "deaf", "has a good heart", "jealous", "not afraid of deep water",

@@ -4,7 +4,7 @@ import { Person } from "../../../src/actors/steading/Person.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 function make() {
-	return new PersonList(new FakeActorBuilder().build(), "steading", "people");
+	return new PersonList(new FakeActorBuilder().build(), "people");
 }
 
 describe("PersonList.buildSnapshot", () => {

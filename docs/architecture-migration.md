@@ -88,11 +88,16 @@ These values derive from other data and go stale if stored:
 7. `CharacterFollowers` ✓ — 2 flags → `system.followers.*`
 8. `CharacterBackgrounds` + `CharacterInstincts` + `CharacterAppearance` + `CharacterOrigin` + `CharacterLore` + `CharacterPostDeath` ✓ — 7 flags → `system.background.*`, `system.instinct.*`, `system.origin.*`, `system.lore.*`, `system.postDeath.*`, `system.postDeathInstinct.*`, `system.postDeathLore.*`; `CharacterInstincts` and `CharacterLore` gain optional `systemSection` param for postDeath reuse; `FakeMoves` extended with `addCategory`/`removeCategory`/observable getters
 9. `ChoiceGroupController` + `ResourceController` ✓ — `system.choices.*`, `system.postDeathChoices.*`, `system.resources.*`, `system.moveResources.*`; both gain optional `systemSection` param; `StonetopFlags` import removed from `StonetopCharacter.js`
-10. Delete `StonetopFlags` (blocked: still used by `PersonList.js`, `SteadingImprovements.js`, `StonetopNpc.js`); delete `template.json`
+10. `StonetopNpc` + `PersonList` + `SteadingImprovements` ✓ — `NpcData` TypeDataModel created and registered; all three classes migrated from flags to `system.*`; `StonetopFlags.js` deleted; template.json character+npc actor sections removed (TypeDataModels own them now); steading section extended with `residents`, `neighborPeople`, `improvements.pickValues` fields
 
+---
 
-# TypeDataModel for Actor State (steading and npc)
-to be figured out.
+## What remains in template.json
+
+- `"steading"` actor section — still has its schema here (no TypeDataModel yet)
+- All `"Item"` sections — no item TypeDataModels created yet
+
+Full deletion of template.json requires creating a SteadingData TypeDataModel and item TypeDataModels — future work.
 
 ---
 

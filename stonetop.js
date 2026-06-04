@@ -11,6 +11,7 @@ import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
 import { CharacterData } from "./src/data/CharacterData.js";
+import { NpcData } from "./src/data/NpcData.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
@@ -18,7 +19,7 @@ import { CharacterData } from "./src/data/CharacterData.js";
 Hooks.once("init", () => {
 	info("Initializing");
 
-	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData });
+	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData });
 
 	registerSettings();
 
