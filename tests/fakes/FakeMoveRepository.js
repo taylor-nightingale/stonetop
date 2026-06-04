@@ -20,7 +20,9 @@ export class FakeMoveRepository {
 	}
 
 	async getPlaybookMoveDocument(id) {
-		return this._playbookMoves.find(m => m._id === id) ?? null;
+		return this._playbookMoves.find(m => m._id === id)
+			?? await this._worldStore.getDocument(id)
+			?? null;
 	}
 
 	async getBasicMoves() {

@@ -190,19 +190,19 @@ export class CharacterMoves {
 	}
 
 	async buildSnapshot() {
-		const cats         = this._getCategories();
-		const level        = this._vitals?.level ?? 1;
+		const cats          = this._getCategories();
+		const level         = this._vitals?.level ?? 1;
 		const acquiredSlugs = _acquiredSlugs(cats);
-		const repoBySlug   = await this._moveRepo.buildSlugIndex();
-		const choiceController    = this._choiceController;
-		const resourceController  = this._resourceController;
+		const choiceController   = this._choiceController;
+		const resourceController = this._resourceController;
 		const categories = await Promise.all(cats.map(async cat => {
 			const moves = await Promise.all(cat.moves.map(flagMove => {
-				const repoMove = repoBySlug.get(flagMove.slug) ?? null;
+				const ownedId = flagMove.ownedIds?.[0] ?? null;
+				const item    = ownedId ? this._actor.items.get(ownedId) : null;
 				return _buildMoveSnapshot(
-					flagMove, repoMove, cat.key,
+					flagMove, item, cat.key,
 					_computeSelectable(flagMove),
-					_requirementsMet(repoMove ?? flagMove, level, acquiredSlugs),
+					_requirementsMet(item?.system ?? null, level, acquiredSlugs),
 					choiceController, resourceController
 				);
 			}));
@@ -222,17 +222,17 @@ export class CharacterMoves {
 	async getMoveSnapshotsForCategory(key) {
 		const cat = this._findCategory(key);
 		if (!cat) return [];
-		const level        = this._vitals?.level ?? 1;
+		const level         = this._vitals?.level ?? 1;
 		const acquiredSlugs = _acquiredSlugs(this._getCategories());
-		const repoBySlug   = await this._moveRepo.buildSlugIndex();
 		const choiceController   = this._choiceController;
 		const resourceController = this._resourceController;
 		return Promise.all(cat.moves.map(flagMove => {
-			const repoMove = repoBySlug.get(flagMove.slug) ?? null;
+			const ownedId = flagMove.ownedIds?.[0] ?? null;
+			const item    = ownedId ? this._actor.items.get(ownedId) : null;
 			return _buildMoveSnapshot(
-				flagMove, repoMove, key,
+				flagMove, item, key,
 				_computeSelectable(flagMove),
-				_requirementsMet(repoMove ?? flagMove, level, acquiredSlugs),
+				_requirementsMet(item?.system ?? null, level, acquiredSlugs),
 				choiceController, resourceController
 			);
 		}));
@@ -322,29 +322,29 @@ function _requirementsMet(move, level, acquiredSlugs) {
 	return true;
 }
 
-async function _buildMoveSnapshot(flagMove, repoMove, categoryKey, selectable, requirementsMet, choiceController, resourceController) {
-	const src    = repoMove ?? flagMove;
-	const resDef = src?.resource ?? null;
+async function _buildMoveSnapshot(flagMove, item, categoryKey, selectable, requirementsMet, choiceController, resourceController) {
+	const sys    = item?.system ?? null;
+	const resDef = sys?.resource ?? null;
 	const resource = resourceController
 		? resourceController.buildSnapshot("moves", resDef, flagMove.slug)
 		: null;
 	let choices = null;
-	if (src?.choices && choiceController) {
-		await choiceController.addGroup(flagMove.slug, src.choices);
+	if (sys?.choices && choiceController) {
+		await choiceController.addGroup(flagMove.slug, sys.choices);
 		choices = choiceController.buildGroupSnapshot(flagMove.slug);
 	}
-	const req      = src?.requirement ?? null;
+	const req      = sys?.requirement ?? null;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
 	const requirement = reqParts.length
 		? new RequirementSnapshot(reqParts.join(", "), requirementsMet)
 		: null;
 	return new MoveSnapshotBuilder()
-		.withId(repoMove?.id ?? null)
+		.withId(flagMove.compendiumId ?? null)
 		.withOwnedId((flagMove.ownedIds ?? []).at(-1) ?? null)
 		.withSlug(flagMove.slug)
-		.withName(src?.name)
-		.withDescription(src?.description ?? "")
-		.withRollStat(src?.rollStat ?? null)
+		.withName(item?.name ?? flagMove.slug)
+		.withDescription(sys?.description ?? "")
+		.withRollStat(sys?.rollStat ?? null)
 		.withIsStarting(flagMove.isStarting)
 		.withSource({ type: categoryKey })
 		.withSourceLabel(null)

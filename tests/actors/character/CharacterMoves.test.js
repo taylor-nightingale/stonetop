@@ -168,6 +168,16 @@ describe("CharacterMoves.buildSnapshot — repo enrichment", () => {
 		expect(snap.choices).toBeNull();
 		expect(snap.requirement).toBeNull();
 	});
+
+	it("reads move data from embedded item, not live repo", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").withDescription("Sturdy.").build()]);
+		const m    = makeMoves({repo});
+		await m.initPlaybookCategory(makePlaybookData());
+		m._moveRepo = new FakeMoveRepository();
+		const snap  = (await m.buildSnapshot()).categories[0].moves[0];
+		expect(snap.name).toBe("Bulwark");
+		expect(snap.description).toBe("Sturdy.");
+	});
 });
 
 // ── buildSnapshot — requiresLabel ─────────────────────────────────────────────
@@ -285,6 +295,15 @@ describe("CharacterMoves.getMoveSnapshotsForCategory", () => {
 		const m = makeMoves({repo});
 		await m.addCategory("post-death-revenant", "Revenant", "revenant");
 		expect((await m.getMoveSnapshotsForCategory("post-death-revenant"))[0].source.type).toBe("post-death-revenant");
+	});
+
+	it("reads move data from embedded item, not live repo", async () => {
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
+		const m    = makeMoves({repo});
+		await m.addCategory("post-death-revenant", "Revenant", "revenant");
+		m._moveRepo = new FakeMoveRepository();
+		const snaps = await m.getMoveSnapshotsForCategory("post-death-revenant");
+		expect(snaps[0].name).toBe("Haunt");
 	});
 });
 
@@ -827,16 +846,8 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 
 describe("CharacterMoves.buildSnapshot — world move enrichment", () => {
 	it("shows name and description for a world move in other category", async () => {
-		const repo = new FakeMoveRepository();
-		repo.addWorld(
-			new FakeCompendiumMoveBuilder()
-				.withName("Iron Wall")
-				.withDescription("Block it.")
-				.withRollStat("str")
-				.build()
-		);
-		const m = makeMoves({repo});
-		await m.addMoveToOther({name: "Iron Wall", system: {}});
+		const m = makeMoves();
+		await m.addMoveToOther({name: "Iron Wall", system: {description: "Block it.", rollStat: "str"}});
 		const other = (await m.buildSnapshot()).categories.find(c => c.key === "other");
 		const snap  = other.moves[0];
 		expect(snap.name).toBe("Iron Wall");
