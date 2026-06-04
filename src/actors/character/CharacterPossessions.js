@@ -5,6 +5,7 @@ import {
 import { ResourceController } from "./ResourceController.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
+import { Possession } from "../../model/data/character/Possession.js";
 
 export class CharacterPossessions {
 	constructor(actor, moves, outfitItems = null, playbook = null, possessionRepo = null) {
@@ -131,6 +132,31 @@ export class CharacterPossessions {
 				.withChoices(isSelected && p.choices ? ChoiceGroup.fromPackData(p.choices, this._pickValues) : null)
 				.build();
 		});
+
+		const playbookSlugSet = new Set(slugs);
+		const embedded = [...(this._actor.items ?? [])]
+			.filter(i => i.type === "possession" && i.system?.slug && !playbookSlugSet.has(i.system.slug));
+		for (const item of embedded) {
+			const p = new Possession(item.system);
+			const resourceDef = p.resource ?? null;
+			const currentUses = usesMap[p.slug] ?? 0;
+			const resource = resourceDef
+				? ResourceController.build({ ...resourceDef }, currentUses)
+				: null;
+			items.push(new PossessionItemSnapshotBuilder()
+				.withSlug(p.slug)
+				.withLabel(p.label)
+				.withDescription(p.description ?? "")
+				.withSelected(true)
+				.withChecked(true)
+				.withDisabled(false)
+				.withPreselected(false)
+				.withPreselectedSource(null)
+				.withResource(resource)
+				.withUsesLabel(resourceDef?.title ?? null)
+				.withChoices(p.choices ? ChoiceGroup.fromPackData(p.choices, this._pickValues) : null)
+				.build());
+		}
 
 		return new PossessionsSnapshot(pickCount, pickNote, items);
 	}

@@ -542,3 +542,49 @@ describe("CharacterPossessions — outfit item integration", () => {
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).not.toContain("mace");
 	});
 });
+
+// ── buildSnapshot — embedded items ────────────────────────────────────────────
+
+describe("CharacterPossessions — buildSnapshot — embedded items", () => {
+	function embeddedItem(slug, label = slug) {
+		return { type: "possession", system: { slug, label, description: "", resource: null,
+			outfitItems: [], choices: null, scaling: null, sortOrder: null } };
+	}
+
+	function makeCpWithEmbedded(actorItems = []) {
+		const actor = makeActor();
+		for (const item of actorItems) actor.items.push(item);
+		return new CharacterPossessions(
+			actor, makeMoves(), null,
+			makePlaybook(baseSp()),
+			new FakePossessionRepository(basePossessions()),
+		);
+	}
+
+	it("embedded possession appears in snapshot items", async () => {
+		const cp = makeCpWithEmbedded([embeddedItem("smithy")]);
+		const snap = await cp.buildSnapshot(1);
+		expect(snap.items).toHaveLength(4);
+	});
+
+	it("embedded possession is selected, not disabled, not preselected", async () => {
+		const cp = makeCpWithEmbedded([embeddedItem("smithy", "Smithy")]);
+		const snap = await cp.buildSnapshot(1);
+		const smithy = snap.items.find(i => i.slug === "smithy");
+		expect(smithy.selected).toBe(true);
+		expect(smithy.disabled).toBe(false);
+		expect(smithy.preselected).toBe(false);
+	});
+
+	it("embedded possession appears after playbook possessions", async () => {
+		const cp = makeCpWithEmbedded([embeddedItem("smithy")]);
+		const snap = await cp.buildSnapshot(1);
+		expect(snap.items[3].slug).toBe("smithy");
+	});
+
+	it("slug collision: playbook entry wins, no duplicate", async () => {
+		const cp = makeCpWithEmbedded([embeddedItem("apiary")]);
+		const snap = await cp.buildSnapshot(1);
+		expect(snap.items).toHaveLength(3);
+	});
+});
