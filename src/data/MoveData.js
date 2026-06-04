@@ -23,6 +23,9 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			sortOrder:      new f.NumberField({ nullable: true, initial: null }),
 			choices:       new f.ObjectField({ nullable: true, initial: null }),
 			categoryKey:   new f.StringField({ nullable: true, initial: null }),
+			categoryLabel: new f.StringField({ nullable: true, initial: null }),
+			categoryNote:  new f.StringField({ nullable: true, initial: null }),
+			compendiumId:  new f.StringField({ nullable: true, initial: null }),
 			acquired:      new f.BooleanField({ initial: false }),
 			instanceCount: new f.NumberField({ integer: true, initial: 0 }),
 		};

@@ -28,10 +28,6 @@ describe("CharacterData defaults", () => {
 		expect(new CharacterData().playbookSlug).toBe("");
 	});
 
-	it("defaults moves to empty array", () => {
-		expect(new CharacterData().moves).toEqual([]);
-	});
-
 	it("defaults arcana to empty state", () => {
 		const d = new CharacterData();
 		expect(d.arcana.owned).toEqual([]);
@@ -108,12 +104,6 @@ describe("CharacterData defaults", () => {
 describe("CharacterData with initial data", () => {
 	it("accepts a playbookSlug", () => {
 		expect(new CharacterData({ playbookSlug: "the-fox" }).playbookSlug).toBe("the-fox");
-	});
-
-	it("accepts moves categories", () => {
-		const d = new CharacterData({ moves: [{ key: "basic", moves: [] }] });
-		expect(d.moves).toHaveLength(1);
-		expect(d.moves[0].key).toBe("basic");
 	});
 
 	it("accepts hp value and max", () => {

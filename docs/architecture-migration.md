@@ -244,11 +244,10 @@ To eliminate async fetches, items must be **self-contained at acquisition time**
 - Custom followers (created blank, not from compendium) already work this way; just need schema alignment
 - **Arcana dependency**: `CharacterArcana.buildSnapshot()` currently fetches followers linked to arcana back choices. If followers are in `actor.items`, this becomes a filter on items — cleaner, but means arcana and follower rendering are no longer independent.
 
-**Moves** — category metadata is the blocker
-- Move documents are already embedded. The async fetch (`buildSlugIndex()`) exists to get move definitions (label, description, results, requirement) for moves that are in the actor's category list but whose item may not exist.
-- If all owned moves have their items embedded with full pack data, `buildSlugIndex()` goes away.
-- **Blocker**: `actor.system.moves[]` category metadata (key, label, renderStyle, allowAdditional, ownedIds[]) does not belong on items — it's the actor's organizational structure, not item data. This stays in `actor.system` regardless.
-- `ownedIds[]` becomes redundant (filter `actor.items` by type + slug instead), but the category array itself stays.
+**Moves** ✓ COMPLETE (Phase 3)
+- All moves embedded at playbook selection time with full pack data. `buildSlugIndex()` eliminated.
+- `actor.system.moves[]` eliminated entirely — category membership derived from `item.system.categoryKey`, ordering from `item.system.sortOrder`, metadata from `item.system.categoryLabel`/`categoryNote` or hardcoded constants.
+- `buildSnapshot()` is now a synchronous filter-and-group over `actor.items`.
 
 **Playbook** — highest risk, lowest priority
 - Pack data is very large: backgrounds[], instinct.list[], appearance.list[], origin.list[], lore.list[], all with nested ChoiceRows
@@ -266,7 +265,7 @@ To eliminate async fetches, items must be **self-contained at acquisition time**
 
 **2. Data duplication**: Compendium is still source of truth during development. Embedded copies go stale if pack data changes (text edits, balance changes). A sync step or re-embed would be needed after pack updates — same tradeoff as dnd5e/PF2e.
 
-**3. Move category ordering**: The `ownedIds[]` tracking inside `actor.system.moves` is currently used to associate multiple instances of the same move with a category slot. This becomes a filter-by-slug on `actor.items`, which works but may change ordering semantics.
+**3. Move category ordering**: ✓ Resolved — `item.system.sortOrder` (set at embed time) preserves display order. Filter by `categoryKey`, sort by `sortOrder`.
 
 **4. Circular follower–arcana dependency**: `CharacterFollowers.buildSnapshot()` currently runs before `CharacterArcana.buildSnapshot()` because arcana needs follower data for linked-follower rows. With items, both just read `actor.items` — the ordering concern goes away, but the templates still need follower snapshots for arcana back-side rendering.
 
@@ -274,7 +273,7 @@ To eliminate async fetches, items must be **self-contained at acquisition time**
 
 **Do** migrate possessions, arcana, and followers to item-centric embedding — these three have the most async I/O and the most to gain. Migration order: possessions first (smallest schema, already partially done), then arcana, then followers.
 
-**Keep** `actor.system.moves[]` category array in system data — it's structural metadata, not item data. Move items stay embedded but the category structure stays in system.
+~~**Keep** `actor.system.moves[]` category array in system data~~ — superseded by Phase 3 Part 5. The category array is eliminated; move items carry their own ordering and category label via `sortOrder`, `categoryLabel`, and `categoryNote` system fields.
 
 **Defer** playbook and insert — they are singleton items per actor, their fetches are cached, and the schema expansion is not worth the complexity at this stage.
 
@@ -284,62 +283,50 @@ To eliminate async fetches, items must be **self-contained at acquisition time**
 
 ---
 
-## Phase 3: Embed All Playbook Moves on Selection
+## Phase 3: Embed All Playbook Moves on Selection ✓ COMPLETE
 
 ### Problem
 
-Moves are only embedded when acquired. Players cannot view or drag unacquired playbook moves. Move category metadata (`label`, `renderStyle`, `allowAdditional`) lives in `actor.system.moves[]` alongside per-move selection state, coupling organisational structure to actor state. Every `buildSnapshot()` call does an async `buildSlugIndex()` fetch to get move definitions for all moves in all categories.
+Moves were only embedded when acquired. Players could not view or drag unacquired playbook moves. Move category metadata (`label`, `renderStyle`, `allowAdditional`) lived in `actor.system.moves[]` alongside per-move selection state. Every `buildSnapshot()` call did an async `buildSlugIndex()` fetch.
 
-### Solution
+### Solution (completed in five parts)
 
-Embed all moves at playbook selection time. Move items become self-contained; category structure comes from playbook data and a static basic-moves definition. `actor.system.moves[]` is eliminated.
+**Part 1** — `MoveData` TypeDataModel with `categoryKey`, `acquired`, `instanceCount`, `isStartingMove`, `repeatMax`.
 
-**Move items gain:**
+**Part 2** — Embed ALL playbook moves at selection time (`acquired: false` for non-starting). `incrementMove` / `decrementMove` update existing items instead of creating/deleting them.
 
-```json
-{
-  "categoryKey": "blessed",
-  "acquired": false,
-  "instanceCount": 0
-}
-```
+**Part 3** — `buildSnapshot()` reads move content from `actor.items` instead of calling `buildSlugIndex()`. Snapshot path is now synchronous.
 
-- `categoryKey` — which category this move belongs to (e.g. `"basic"`, `"blessed"`, `"other"`, `"post-death"`)
-- `acquired` — whether the player has taken this move
-- `instanceCount` — for repeatable moves, how many times acquired (replaces `selection.value`)
+**Part 4** — Strip redundant state from `actor.system.moves[]`. Flag moves shrunk from `{ slug, compendiumId, isStarting, selection: {max,value}, ownedIds: [id] }` to `{ slug, compendiumId, ownedId }`.
 
-**Category metadata sources:**
+**Part 5** — Eliminate `actor.system.moves[]` entirely. Items carry ordering (`sortOrder`) and category metadata (`categoryLabel`, `categoryNote`, `compendiumId`). `buildSnapshot()` groups `actor.items` by `categoryKey`, derives metadata from items or hardcoded constants, needs no category array.
 
-| Category | Where metadata comes from |
-|---|---|
-| `basic` | Hardcoded in the system (static — label, renderStyle never change) |
-| Playbook-specific (e.g. `blessed`) | Playbook pack data embedded in the playbook item at selection time |
-| `other` | Hardcoded catch-all for moves acquired outside the playbook flow |
-| `post-death` | Insert item defines the post-death category |
+**Move item fields added across Parts 1–5:**
 
-**On playbook selection:**
-1. Embed all playbook moves as items with `acquired: false`, `categoryKey: <playbookSlug>`
-2. Set `acquired: true` on moves that are starting moves (`isStartingMove: true`)
+| Field | Type | Purpose |
+|---|---|---|
+| `categoryKey` | string | which category the move belongs to |
+| `categoryLabel` | string\|null | display label for the category (non-hardcoded categories) |
+| `categoryNote` | string\|null | starting-moves note for playbook categories |
+| `compendiumId` | string\|null | original compendium document ID |
+| `acquired` | boolean | whether the player has taken this move |
+| `instanceCount` | number | how many times acquired (for repeatable moves) |
+| `isStartingMove` | boolean | cannot decrement below 1 |
+| `sortOrder` | number\|null | display order within the category |
 
-**On character creation (basic moves):**
-- Embed all basic moves with `acquired: true`, `categoryKey: "basic"`
+**Category metadata derivation:**
 
-**On acquiring a move:**
-- Flip `acquired: true` on the existing embedded item (or increment `instanceCount` for repeatable moves)
-- No new item created — the item already exists from playbook selection
+| Category key | label | renderStyle | allowAdditional | note |
+|---|---|---|---|---|
+| `basic` | hardcoded "Basic Moves" | `side-bar` | false | null |
+| `playbook-*` | `item.system.categoryLabel` | `standard` | false | `item.system.categoryNote` |
+| `post-death-*` | `item.system.categoryLabel` | `standard` | false | null |
+| `other` | hardcoded "Other Moves" | `standard` | true | null |
 
-**`buildSnapshot()` for moves:**
-1. Read the embedded playbook item for playbook category metadata (label, renderStyle, allowAdditional)
-2. Read all move items from `actor.items` where `type === "move"`
-3. Group by `categoryKey` — basic group is static, playbook group from playbook item, others as catch-all
-4. No async fetch — all data is on the items
-
-**Eliminates:**
-- `actor.system.moves[]` category array
-- `ownedIds[]` tracking on move flags
-- `buildSlugIndex()` async compendium fetch in `CharacterMoves.buildSnapshot()`
-
-**Custom / post-death categories** (moves added from other sources or post-death inserts) use `categoryKey: "other"` or `categoryKey: "post-death"`. If the player manually adds a custom category, a minimal `actor.system.customCategories[]` can hold the label for that category only.
+**Eliminated:**
+- `actor.system.moves[]` category array — removed from `CharacterData` schema
+- `ownedIds[]` / flag-move list — category membership derived from `item.system.categoryKey`
+- `buildSlugIndex()` async compendium fetch — `buildSnapshot()` reads only from `actor.items`
 
 ---
 

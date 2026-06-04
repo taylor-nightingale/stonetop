@@ -70,7 +70,8 @@ describe("CharacterMoves.buildSnapshot — category structure", () => {
 	});
 
 	it("category key, label, renderStyle, allowAdditional, note come from initPlaybookCategory data", async () => {
-		const m = makeMoves();
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().build()]);
+		const m = makeMoves({repo});
 		await m.initPlaybookCategory(makePlaybookData({startingMovesNote: "Pick 2."}));
 		const cat = (await m.buildSnapshot()).categories[0];
 		expect(cat.key).toBe("playbook-the-heavy");
@@ -138,6 +139,17 @@ describe("CharacterMoves.buildSnapshot — category structure", () => {
 		await m.initPlaybookCategory(makePlaybookData());
 		await m.incrementMove("playbook-the-heavy", "alpha");
 		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
+	});
+
+	it("buildSnapshot derives categories from actor.items when system.moves is empty", async () => {
+		const actor = new FakeActorBuilder().build();
+		actor.items.push({ _id: "m1", name: "Defy Danger", type: "move",
+			system: { categoryKey: "basic", acquired: true, instanceCount: 1, repeatMax: 1, sortOrder: 0, isStartingMove: true } });
+		const m = makeMoves({ actor });
+		const snap = await m.buildSnapshot();
+		expect(snap.categories).toHaveLength(1);
+		expect(snap.categories[0].key).toBe("basic");
+		expect(snap.categories[0].moves[0].name).toBe("Defy Danger");
 	});
 });
 
@@ -347,7 +359,8 @@ describe("CharacterMoves.initBasicMoves", () => {
 	});
 
 	it("writes a basic category with side-bar renderStyle", async () => {
-		const m = makeMoves();
+		const repo = new FakeMoveRepository([], [new FakeCompendiumMoveBuilder().withName("Defy Danger").asStarting().build()]);
+		const m = makeMoves({repo});
 		await m.initBasicMoves();
 		expect((await m.buildSnapshot()).categories[0].renderStyle).toBe("side-bar");
 	});
@@ -391,7 +404,8 @@ describe("CharacterMoves.initBasicMoves", () => {
 
 describe("CharacterMoves.initPlaybookCategory", () => {
 	it("creates a playbook-<slug> category", async () => {
-		const m = makeMoves();
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().build()]);
+		const m = makeMoves({repo});
 		await m.initPlaybookCategory(makePlaybookData());
 		expect((await m.buildSnapshot()).categories.some(c => c.key === "playbook-the-heavy")).toBe(true);
 	});
@@ -471,7 +485,8 @@ describe("CharacterMoves.initPlaybookCategory", () => {
 
 describe("CharacterMoves.addCategory", () => {
 	it("appends the category", async () => {
-		const m = makeMoves();
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
+		const m = makeMoves({repo});
 		await m.addCategory("post-death-revenant", "Revenant", "revenant");
 		expect((await m.buildSnapshot()).categories.some(c => c.key === "post-death-revenant" && c.label === "Revenant")).toBe(true);
 	});
@@ -510,7 +525,8 @@ describe("CharacterMoves.addCategory", () => {
 	});
 
 	it("stored category has renderStyle=standard and allowAdditional=false", async () => {
-		const m = makeMoves();
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
+		const m = makeMoves({repo});
 		await m.addCategory("post-death-revenant", "Revenant", "revenant");
 		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "post-death-revenant");
 		expect(cat.renderStyle).toBe("standard");

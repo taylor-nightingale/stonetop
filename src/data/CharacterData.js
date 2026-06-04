@@ -10,7 +10,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			description:  new f.StringField({ initial: "" }),
 			notes:        new f.StringField({ initial: "" }),
 			playbookSlug: new f.StringField({ initial: "" }),
-			moves:        new f.ArrayField(new f.ObjectField()),
 			inventory: new f.SchemaField({
 				checked:     new f.ObjectField(),
 				loadLevel:   new f.StringField({ nullable: true, initial: null }),

@@ -2,7 +2,7 @@
 	{{> "stonetop.section-heading" title=title note=note}}
 	<ol class="items-list">
 	{{#each moves}}
-		{{#if (and ownedId rollStat)}}
+		{{#if (and (gt selection.value 0) rollStat)}}
 		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 		{{else}}
 		<li class="stonetop-item{{#if isStarting}} move-starting{{/if}}">
@@ -24,18 +24,18 @@
 				       data-category-key="{{../categoryKey}}"
 				       data-move-slug="{{slug}}"
 				       data-owned-id="{{ownedId}}"
-				       {{#if ownedId}}checked{{/if}}
-				       {{#if (or isStarting (and (not ownedId) (not selectable)))}}disabled{{/if}}>
+				       {{#if (gt selection.value 0)}}checked{{/if}}
+				       {{#if (or isStarting (and (not (gt selection.value 0)) (not selectable)))}}disabled{{/if}}>
 				{{/if}}
 				<strong class="stonetop-item-name">{{name}}</strong>
 				{{#if requirement}}<span class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</span>{{/if}}
 				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
-				{{#if (and ownedId rollStat)}}
+				{{#if (and (gt selection.value 0) rollStat)}}
 				<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
 					<i class="fas fa-dice-d6"></i>
 				</span>
 				{{/if}}
-				{{#if (and ownedId resource)}}
+				{{#if (and (gt selection.value 0) resource)}}
 				<span class="stonetop-item-resources">
 					{{#each (resourceChecks resource)}}
 					<span class="stonetop-item-resource-entry">

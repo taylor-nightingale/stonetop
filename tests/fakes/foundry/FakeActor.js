@@ -9,7 +9,6 @@ export class FakeActor {
 	constructor(builder) {
 		this.system = {
 			playbookSlug: builder._playbookSlug ?? "",
-			moves: [],
 			stats: builder.buildStats(),
 			attributes: {
 				level: builder._level,
@@ -43,11 +42,19 @@ export class FakeActor {
 
 	async updateEmbeddedDocuments(_, updates) {
 		this._updatedDocs.push(...updates);
+		for (const update of updates) {
+			const item = this.items.get(update._id);
+			if (item?.system && update.system) Object.assign(item.system, update.system);
+		}
 		return updates;
 	}
 
 	async deleteEmbeddedDocuments(_, ids) {
 		this._deletedIds.push(...ids);
+		const idSet = new Set(ids);
+		const remaining = this.items.filter(i => !idSet.has(i._id));
+		remaining.get = id => remaining.find(i => i._id === id) ?? null;
+		this.items = remaining;
 	}
 
 	update(data) {
