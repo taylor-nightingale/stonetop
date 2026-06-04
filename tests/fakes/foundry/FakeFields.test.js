@@ -35,6 +35,12 @@ describe("NumberField", () => {
 	it("does not truncate when integer: false", () => {
 		expect(new NumberField({ integer: false }).initialize(3.7)).toBe(3.7);
 	});
+	it("returns null for null when nullable: true", () => {
+		expect(new NumberField({ nullable: true }).initialize(null)).toBeNull();
+	});
+	it("returns null for undefined when nullable: true and initial: null", () => {
+		expect(new NumberField({ nullable: true, initial: null }).initialize(undefined)).toBeNull();
+	});
 });
 
 describe("StringField", () => {
@@ -104,6 +110,9 @@ describe("ObjectField", () => {
 	it("passes object through unchanged", () => {
 		const obj = { x: 1, y: 2 };
 		expect(new ObjectField().initialize(obj)).toEqual(obj);
+	});
+	it("returns null for undefined when nullable: true and initial: null", () => {
+		expect(new ObjectField({ nullable: true, initial: null }).initialize(undefined)).toBeNull();
 	});
 });
 

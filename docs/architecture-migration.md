@@ -88,16 +88,17 @@ These values derive from other data and go stale if stored:
 7. `CharacterFollowers` ✓ — 2 flags → `system.followers.*`
 8. `CharacterBackgrounds` + `CharacterInstincts` + `CharacterAppearance` + `CharacterOrigin` + `CharacterLore` + `CharacterPostDeath` ✓ — 7 flags → `system.background.*`, `system.instinct.*`, `system.origin.*`, `system.lore.*`, `system.postDeath.*`, `system.postDeathInstinct.*`, `system.postDeathLore.*`; `CharacterInstincts` and `CharacterLore` gain optional `systemSection` param for postDeath reuse; `FakeMoves` extended with `addCategory`/`removeCategory`/observable getters
 9. `ChoiceGroupController` + `ResourceController` ✓ — `system.choices.*`, `system.postDeathChoices.*`, `system.resources.*`, `system.moveResources.*`; both gain optional `systemSection` param; `StonetopFlags` import removed from `StonetopCharacter.js`
-10. `StonetopNpc` + `PersonList` + `SteadingImprovements` ✓ — `NpcData` TypeDataModel created and registered; all three classes migrated from flags to `system.*`; `StonetopFlags.js` deleted; template.json character+npc actor sections removed (TypeDataModels own them now); steading section extended with `residents`, `neighborPeople`, `improvements.pickValues` fields
+10. `StonetopNpc` + `PersonList` + `SteadingImprovements` ✓ — `NpcData` TypeDataModel created and registered; all three classes migrated from flags to `system.*`; `StonetopFlags.js` deleted; template.json character+npc actor sections removed
+11. `SteadingData` TypeDataModel ✓ — `SteadingDefaultData.js` created for large content constants; `SteadingData.js` defines full steading schema with correct defaults; registered in `stonetop.js`; template.json steading actor section removed. All three actor types are now TypeDataModel-managed.
+12. Item TypeDataModels ✓ — `MoveData`, `ArcanumData`, `PlaybookData`, `InsertData`, `ImprovementData`, `NpcItemData`, `OutfitItemData` created in `src/data/`; all registered in `stonetop.js`; `FakeFields.js` fixed to handle `nullable:true` on `NumberField` and `ObjectField`; template.json item data schemas removed. `template.json` is now purely a type registry (`types` arrays only).
 
 ---
 
 ## What remains in template.json
 
-- `"steading"` actor section — still has its schema here (no TypeDataModel yet)
-- All `"Item"` sections — no item TypeDataModels created yet
+- `"types"` arrays for actor and item types (still required by Foundry to recognise document types)
 
-Full deletion of template.json requires creating a SteadingData TypeDataModel and item TypeDataModels — future work.
+Full deletion of template.json requires adding `documentTypes` to `system.json` — future work if desired.
 
 ---
 

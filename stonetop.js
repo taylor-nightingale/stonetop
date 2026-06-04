@@ -12,6 +12,14 @@ import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
 import { CharacterData } from "./src/data/CharacterData.js";
 import { NpcData } from "./src/data/NpcData.js";
+import { SteadingData } from "./src/data/SteadingData.js";
+import { MoveData }        from "./src/data/MoveData.js";
+import { ArcanumData }     from "./src/data/ArcanumData.js";
+import { PlaybookData }    from "./src/data/PlaybookData.js";
+import { InsertData }      from "./src/data/InsertData.js";
+import { ImprovementData } from "./src/data/ImprovementData.js";
+import { NpcItemData }     from "./src/data/NpcItemData.js";
+import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
@@ -19,7 +27,16 @@ import { NpcData } from "./src/data/NpcData.js";
 Hooks.once("init", () => {
 	info("Initializing");
 
-	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData });
+	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData, steading: SteadingData });
+	Object.assign(CONFIG.Item.dataModels, {
+		move:        MoveData,
+		arcanum:     ArcanumData,
+		playbook:    PlaybookData,
+		insert:      InsertData,
+		improvement: ImprovementData,
+		npc:         NpcItemData,
+		outfitItem:  OutfitItemData,
+	});
 
 	registerSettings();
 

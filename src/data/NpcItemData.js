@@ -1,0 +1,32 @@
+export class NpcItemData extends foundry.abstract.TypeDataModel {
+	static defineSchema() {
+		const f = foundry.data.fields;
+		return {
+			slug:            new f.StringField({ nullable: true, initial: null }),
+			arcanaSlug:      new f.StringField({ nullable: true, initial: null }),
+			tags:            new f.StringField({ initial: "" }),
+			hp:              new f.SchemaField({
+				value: new f.NumberField({ initial: 0, integer: true }),
+				min:   new f.NumberField({ initial: 0, integer: true }),
+				max:   new f.NumberField({ initial: 0, integer: true }),
+			}),
+			armor:           new f.SchemaField({
+				value: new f.NumberField({ initial: 0, integer: true }),
+				note:  new f.StringField({ initial: "" }),
+			}),
+			damage:          new f.SchemaField({
+				die:   new f.StringField({ initial: "d6" }),
+				label: new f.StringField({ initial: "" }),
+				tags:  new f.StringField({ initial: "" }),
+			}),
+			specialQualities: new f.StringField({ initial: "" }),
+			instinct:         new f.StringField({ initial: "" }),
+			loyalty:          new f.SchemaField({
+				value: new f.NumberField({ initial: 0, integer: true }),
+				max:   new f.NumberField({ initial: 3, integer: true }),
+			}),
+			choices:          new f.ObjectField({ nullable: true, initial: null }),
+			description:      new f.StringField({ initial: "" }),
+		};
+	}
+}

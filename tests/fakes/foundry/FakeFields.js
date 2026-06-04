@@ -8,9 +8,16 @@ export class NumberField {
 	}
 
 	initialize(value) {
-		const { initial, min, max, integer } = this._options;
+		const { initial, min, max, integer, nullable } = this._options;
+		if (value === null && nullable) return null;
 		if (value === undefined || value === null) {
-			return resolveInitial(initial) ?? 0;
+			const resolved = resolveInitial(initial);
+			if (resolved === null && nullable) return null;
+			let n = Number(resolved ?? 0);
+			if (min !== undefined && n < min) n = min;
+			if (max !== undefined && n > max) n = max;
+			if (integer) n = Math.trunc(n);
+			return n;
 		}
 		let n = Number(value);
 		if (min !== undefined && n < min) n = min;
@@ -58,11 +65,11 @@ export class ObjectField {
 
 	initialize(value) {
 		const { initial, nullable } = this._options;
-		if (value === null) {
-			return nullable ? null : (resolveInitial(initial) ?? {});
-		}
-		if (value === undefined) {
-			return resolveInitial(initial) ?? {};
+		if (value === null && nullable) return null;
+		if (value === undefined || value === null) {
+			const resolved = resolveInitial(initial);
+			if (resolved === null && nullable) return null;
+			return resolved ?? {};
 		}
 		return value;
 	}

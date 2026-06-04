@@ -1,20 +1,19 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
 import {ChoiceGroup, ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
 import {FoundrySteadingImprovementRepository} from "./repositories/FoundrySteadingImprovementRepository.js";
 
 export class SteadingImprovements {
 	constructor(actor, repo = new FoundrySteadingImprovementRepository()) {
-		this._flags = new StonetopFlags(actor, "improvements");
-		this._repo = repo;
+		this._actor = actor;
+		this._repo  = repo;
 	}
 
 	get _values() {
-		return new ChoiceValues(this._flags.getFlag("pickValues") ?? {});
+		return new ChoiceValues(this._actor.system?.improvements?.pickValues ?? {});
 	}
 
 	async setTrack(groupSlug, optionSlug, count) {
 		const cv = this._values.set(groupSlug, optionSlug, count);
-		await this._flags.setFlag("pickValues", cv.toRaw());
+		await this._actor.update({ "system.improvements.pickValues": cv.toRaw() });
 	}
 
 	async buildSnapshot() {
