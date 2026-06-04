@@ -1,6 +1,5 @@
 import {CharacterSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {CharacterMoves} from "./CharacterMoves.js";
-import {StonetopFlags} from "./StonetopFlags.js";
 import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
 import {CharacterInstincts} from "./CharacterInstincts.js";
 import {CharacterAppearance} from "./CharacterAppearance.js";
@@ -28,16 +27,13 @@ export class StonetopCharacter {
 		this._origin = new CharacterOrigin(actor);
 		this._lore = new CharacterLore(actor);
 		const outfitItems = new ActorOutfitItems(actor);
-		this._resourceController = new ResourceController(new StonetopFlags(actor, "resources"));
+		this._resourceController = new ResourceController(actor);
 		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController);
-		this._choiceController = new ChoiceGroupController(
-			new StonetopFlags(actor, "choices"),
-			this._followers
-		);
+		this._choiceController = new ChoiceGroupController(actor, this._followers);
 		this._instinct = new CharacterInstincts(actor, this._choiceController);
 		this._appearance = new CharacterAppearance(this._choiceController);
 		this._background = new CharacterBackgrounds(actor, this._followers, this._choiceController, this._resourceController);
-		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(new StonetopFlags(actor, "move-resources")));
+		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(actor, "moveResources"));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, this._playbook);
@@ -49,7 +45,7 @@ export class StonetopCharacter {
 			actor,
 			new CharacterInstincts(
 				actor,
-				new ChoiceGroupController(new StonetopFlags(actor, "postDeathChoices"), this._followers),
+				new ChoiceGroupController(actor, this._followers, "postDeathChoices"),
 				"postDeathInstinct"
 			),
 			new CharacterLore(actor, "postDeathLore"),

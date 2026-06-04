@@ -1,8 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
@@ -246,7 +244,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 		});
 
 		it("back.resource.current reflects resourceController", async () => {
-			const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+			const ctrl = new ResourceController(new FakeActorBuilder().build());
 			await ctrl.set("inventory", "huge-wooden-sphere", 2);
 			const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
 				.buildSnapshot({}, ctrl)).minor.items[0];
@@ -375,7 +373,7 @@ const BOW_WITH_NO_STRING = {
 
 describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 	it("back.resource uses resourceController current for back.resource arcana", async () => {
-		const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+		const ctrl = new ResourceController(new FakeActorBuilder().build());
 		await ctrl.set("inventory", "huge-wooden-sphere", 2);
 		const item = (await makeArcana({ owned: ["huge-wooden-sphere"] })
 			.buildSnapshot({}, ctrl)).minor.items[0];
@@ -388,7 +386,7 @@ describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 	});
 
 	it("back.item.resource is a resolved Resource on the OutfitItem snapshot", async () => {
-		const ctrl = new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+		const ctrl = new ResourceController(new FakeActorBuilder().build());
 		await ctrl.set("inventory", "bow-with-no-string", 1);
 		const item = (await makeArcana({ owned: ["bow-with-no-string"] }, [BOW_WITH_NO_STRING])
 			.buildSnapshot({}, ctrl)).minor.items[0];

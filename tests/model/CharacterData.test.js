@@ -40,6 +40,15 @@ describe("CharacterData defaults", () => {
 		expect(d.arcana.backChoices).toEqual({});
 	});
 
+	it("defaults choices, resources, and moveResources sections", () => {
+		const d = new CharacterData();
+		expect(d.choices.values).toEqual({});
+		expect(d.choices.groupDefs).toEqual({});
+		expect(d.postDeathChoices.values).toEqual({});
+		expect(d.resources.counts).toEqual({});
+		expect(d.moveResources.counts).toEqual({});
+	});
+
 	it("defaults background, instinct, origin, lore, postDeath sections", () => {
 		const d = new CharacterData();
 		expect(d.background.selected).toBe("");

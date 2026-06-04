@@ -2,28 +2,25 @@ import { describe, it, expect } from "vitest";
 import { CharacterBackgrounds } from "../../../src/actors/character/CharacterBackgrounds.js";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { BackgroundSection } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeResourceController() {
-	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
-}
-
-function makeBg(selectedSlug = "", valuesRaw = {}, followers = new FakeFollowers(), resourceCtrl = null) {
-	const actor = new FakeActorBuilder().build();
-	actor.system.background = { selected: selectedSlug };
-	const fakeFlags = new FakeFlags();
-	if (Object.keys(valuesRaw).length) fakeFlags.setFlagNonAsync("stonetop", "choices.values", valuesRaw);
-	const ctrl = new ChoiceGroupController(new StonetopFlags(fakeFlags, "choices"), followers);
-	return new CharacterBackgrounds(actor, followers, ctrl, resourceCtrl ?? makeResourceController());
+	return new ResourceController(new FakeActorBuilder().build());
 }
 
 function makeActor() {
 	return new FakeActorBuilder().build();
+}
+
+function makeBg(selectedSlug = "", valuesRaw = {}, followers = new FakeFollowers(), resourceCtrl = null) {
+	const actor = makeActor();
+	actor.system.background = { selected: selectedSlug };
+	if (Object.keys(valuesRaw).length) actor.system.choices = { values: valuesRaw, groupDefs: {} };
+	const ctrl = new ChoiceGroupController(actor, followers);
+	return new CharacterBackgrounds(actor, followers, ctrl, resourceCtrl ?? makeResourceController());
 }
 
 const SIMPLE_BG_DATA = [
@@ -58,18 +55,18 @@ const HEADING_CHOICES_DATA = [{
 describe("CharacterBackgrounds", () => {
 	it("selectedSlug returns empty string when no saved selection", () => {
 		const actor = makeActor();
-		expect(new CharacterBackgrounds(actor, null, new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"), null), makeResourceController()).selectedSlug).toBe("");
+		expect(new CharacterBackgrounds(actor, null, new ChoiceGroupController(actor, null), makeResourceController()).selectedSlug).toBe("");
 	});
 
 	it("selectedSlug returns the stored slug", () => {
 		const actor = makeActor();
 		actor.system.background = { selected: "vessel" };
-		expect(new CharacterBackgrounds(actor, null, new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"), null), makeResourceController()).selectedSlug).toBe("vessel");
+		expect(new CharacterBackgrounds(actor, null, new ChoiceGroupController(actor, null), makeResourceController()).selectedSlug).toBe("vessel");
 	});
 
 	it("selectBackground stores the slug", async () => {
 		const actor = makeActor();
-		const bg = new CharacterBackgrounds(actor, null, new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"), null), makeResourceController());
+		const bg = new CharacterBackgrounds(actor, null, new ChoiceGroupController(actor, null), makeResourceController());
 		await bg.selectBackground("initiate");
 		expect(bg.selectedSlug).toBe("initiate");
 	});
@@ -78,16 +75,16 @@ describe("CharacterBackgrounds", () => {
 // -- Tests: setChoiceValue ---------------------------------------------------
 
 describe("CharacterBackgrounds.setChoiceValue", () => {
-	it("saves the count to flags.values in ChoiceValues format", async () => {
+	it("saves the count to choices.values in ChoiceValues format", async () => {
 		const bg = makeBg("", {}, null);
 		await bg.setChoiceValue("initiate", "enfys", 1);
-		expect(bg._choiceController._flags.getFlag("values")).toEqual({ initiate: { enfys: 1 } });
+		expect(bg._choiceController._actor.system.choices?.values).toEqual({ initiate: { enfys: 1 } });
 	});
 
 	it("merges into existing choices state", async () => {
 		const bg = makeBg("", { initiate: { afon: 1 } }, null);
 		await bg.setChoiceValue("initiate", "enfys", 1);
-		expect(bg._choiceController._flags.getFlag("values").initiate).toEqual({ afon: 1, enfys: 1 });
+		expect(bg._choiceController._actor.system.choices.values.initiate).toEqual({ afon: 1, enfys: 1 });
 	});
 
 	it("does not add to followers even when followers is provided (setChoiceValue is not a follower mutation)", async () => {
@@ -101,10 +98,10 @@ describe("CharacterBackgrounds.setChoiceValue", () => {
 // -- Tests: setFollowerChoiceValue -------------------------------------------
 
 describe("CharacterBackgrounds.setFollowerChoiceValue", () => {
-	it("saves the count to flags.values", async () => {
+	it("saves the count to choices.values", async () => {
 		const bg = makeBg();
 		await bg.setFollowerChoiceValue("initiate", "enfys", 1);
-		expect(bg._choiceController._flags.getFlag("values")).toEqual({ initiate: { enfys: 1 } });
+		expect(bg._choiceController._actor.system.choices?.values).toEqual({ initiate: { enfys: 1 } });
 	});
 
 	it("adds the follower when count > 0", async () => {
@@ -225,7 +222,8 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 describe("CharacterBackgrounds.setResource", () => {
 	it("persists count in the backgrounds namespace of ResourceController", async () => {
 		const resourceCtrl = makeResourceController();
-		const bg = new CharacterBackgrounds(makeActor(), null, new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"), null), resourceCtrl);
+		const actor = makeActor();
+		const bg = new CharacterBackgrounds(actor, null, new ChoiceGroupController(actor, null), resourceCtrl);
 		await bg.setResource("initiate", 2);
 		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
 	});
@@ -233,7 +231,8 @@ describe("CharacterBackgrounds.setResource", () => {
 	it("merges into existing resources", async () => {
 		const resourceCtrl = makeResourceController();
 		await resourceCtrl.set("backgrounds", "vessel", 1);
-		const bg = new CharacterBackgrounds(makeActor(), null, new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"), null), resourceCtrl);
+		const actor = makeActor();
+		const bg = new CharacterBackgrounds(actor, null, new ChoiceGroupController(actor, null), resourceCtrl);
 		await bg.setResource("initiate", 2);
 		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
 		expect(resourceCtrl.getCurrent("backgrounds", "vessel")).toBe(1);

@@ -87,8 +87,8 @@ These values derive from other data and go stale if stored:
 6. `CharacterArcana` ✓ — 4 flags → `system.arcana.*`; 5 spy-assertion tests rewritten to assert on observable state
 7. `CharacterFollowers` ✓ — 2 flags → `system.followers.*`
 8. `CharacterBackgrounds` + `CharacterInstincts` + `CharacterAppearance` + `CharacterOrigin` + `CharacterLore` + `CharacterPostDeath` ✓ — 7 flags → `system.background.*`, `system.instinct.*`, `system.origin.*`, `system.lore.*`, `system.postDeath.*`, `system.postDeathInstinct.*`, `system.postDeathLore.*`; `CharacterInstincts` and `CharacterLore` gain optional `systemSection` param for postDeath reuse; `FakeMoves` extended with `addCategory`/`removeCategory`/observable getters
-9. `ChoiceGroupController` + `ResourceController`
-10. Delete `StonetopFlags`; delete `template.json`
+9. `ChoiceGroupController` + `ResourceController` ✓ — `system.choices.*`, `system.postDeathChoices.*`, `system.resources.*`, `system.moveResources.*`; both gain optional `systemSection` param; `StonetopFlags` import removed from `StonetopCharacter.js`
+10. Delete `StonetopFlags` (blocked: still used by `PersonList.js`, `SteadingImprovements.js`, `StonetopNpc.js`); delete `template.json`
 
 
 # TypeDataModel for Actor State (steading and npc)

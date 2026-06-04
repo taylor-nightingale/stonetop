@@ -1,15 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { CharacterAppearance } from "../../../src/actors/character/CharacterAppearance.js";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
-function makeAppearance(stored = {}) {
-	const fakeFlags = new FakeFlags();
-	for (const [key, value] of Object.entries(stored)) {
-		fakeFlags.setFlagNonAsync("stonetop", `choices.${key}`, value);
-	}
-	const ctrl = new ChoiceGroupController(new StonetopFlags(fakeFlags, "choices"));
+function makeAppearance(choicesData = {}) {
+	const actor = new FakeActorBuilder().build();
+	if (choicesData.values) actor.system.choices = { values: choicesData.values, groupDefs: {} };
+	const ctrl = new ChoiceGroupController(actor);
 	return new CharacterAppearance(ctrl);
 }
 
@@ -35,14 +32,14 @@ describe("CharacterAppearance — selectOption", () => {
 	it("stores the chosen slug in values under the appearance group", async () => {
 		const ap = makeAppearance();
 		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
-		expect(ap._controller._flags.getFlag("values").appearance["raspy-voice"]).toBe(1);
+		expect(ap._controller._actor.system.choices.values.appearance["raspy-voice"]).toBe(1);
 	});
 
 	it("zeroes sibling slugs when selecting an option", async () => {
 		const ap = makeAppearance();
 		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
-		expect(ap._controller._flags.getFlag("values").appearance["imperious-voice"]).toBe(0);
-		expect(ap._controller._flags.getFlag("values").appearance["soothing-voice"]).toBe(0);
+		expect(ap._controller._actor.system.choices.values.appearance["imperious-voice"]).toBe(0);
+		expect(ap._controller._actor.system.choices.values.appearance["soothing-voice"]).toBe(0);
 	});
 });
 

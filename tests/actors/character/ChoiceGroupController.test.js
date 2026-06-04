@@ -1,17 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 
-function makeFlags() {
-	return new StonetopFlags(new FakeFlags(), "choices");
-}
-
 function makeController(followers = new FakeFollowers()) {
-	return new ChoiceGroupController(makeFlags(), followers);
+	return new ChoiceGroupController(new FakeActorBuilder().build(), followers);
 }
 
 // ── Heading rows ──────────────────────────────────────────────────────────────

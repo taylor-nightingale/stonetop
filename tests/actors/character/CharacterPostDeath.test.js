@@ -3,8 +3,6 @@ import { CharacterPostDeath } from "../../../src/actors/character/CharacterPostD
 import { CharacterInstincts } from "../../../src/actors/character/CharacterInstincts.js";
 import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 
@@ -18,7 +16,7 @@ function makeInsertRepo(inserts = []) {
 function makePostDeath({ initialSlug = null, insertRepo = makeInsertRepo([]), moves = new FakeMoves() } = {}) {
 	const actor = new FakeActorBuilder().build();
 	if (initialSlug) actor.system.postDeath = { insert: initialSlug };
-	const ctrl = new ChoiceGroupController(new StonetopFlags(new FakeFlags(), "choices"));
+	const ctrl = new ChoiceGroupController(actor, null, "postDeathChoices");
 	return new CharacterPostDeath(
 		actor,
 		new CharacterInstincts(actor, ctrl, "postDeathInstinct"),

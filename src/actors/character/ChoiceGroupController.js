@@ -1,14 +1,14 @@
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 
 export class ChoiceGroupController {
-	constructor(flags, followers) {
-		this._flags     = flags;
+	constructor(actor, followers, systemSection = "choices") {
+		this._actor     = actor;
 		this._followers = followers;
+		this._section   = systemSection;
 	}
 
-	get _values() {
-		return new ChoiceValues(this._flags.getFlag("values") ?? {});
-	}
+	get _values()    { return new ChoiceValues(this._actor.system?.[this._section]?.values   ?? {}); }
+	get _groupDefs() { return this._actor.system?.[this._section]?.groupDefs ?? {}; }
 
 	async addGroup(namespace, groupData) {
 		const seen = new Set();
@@ -17,11 +17,11 @@ export class ChoiceGroupController {
 			if (seen.has(item.slug)) throw new Error(`Duplicate slug "${item.slug}" in group "${namespace}"`);
 			seen.add(item.slug);
 		}
-		await this._flags.setFlag("groupDefs", { ...(this._flags.getFlag("groupDefs") ?? {}), [namespace]: groupData });
+		await this._actor.update({ [`system.${this._section}.groupDefs`]: { ...this._groupDefs, [namespace]: groupData } });
 	}
 
 	buildGroupSnapshot(namespace) {
-		const groupData = (this._flags.getFlag("groupDefs") ?? {})[namespace];
+		const groupData = this._groupDefs[namespace];
 		if (!groupData) return null;
 		return ChoiceGroup.fromPackData({ slug: namespace, list: groupData.list }, this._values);
 	}
@@ -31,11 +31,11 @@ export class ChoiceGroupController {
 		if (siblingSlugsCsv) {
 			for (const sib of siblingSlugsCsv.split(",")) values = values.set(namespace, sib, 0);
 		}
-		await this._flags.setFlag("values", values.set(namespace, slug, 1).toRaw());
+		await this._actor.update({ [`system.${this._section}.values`]: values.set(namespace, slug, 1).toRaw() });
 	}
 
 	async setCount(namespace, optionSlug, count) {
-		await this._flags.setFlag("values", this._values.set(namespace, optionSlug, count).toRaw());
+		await this._actor.update({ [`system.${this._section}.values`]: this._values.set(namespace, optionSlug, count).toRaw() });
 	}
 
 	async setFollowerCount(namespace, optionSlug, count) {
@@ -45,12 +45,12 @@ export class ChoiceGroupController {
 	}
 
 	async setText(namespace, optionSlug, text) {
-		await this._flags.setFlag("values", this._values.set(namespace, optionSlug, text).toRaw());
+		await this._actor.update({ [`system.${this._section}.values`]: this._values.set(namespace, optionSlug, text).toRaw() });
 	}
 
 	async clearValues(namespace) {
 		const raw = { ...this._values.toRaw() };
 		delete raw[namespace];
-		await this._flags.setFlag("values", raw);
+		await this._actor.update({ [`system.${this._section}.values`]: raw });
 	}
 }

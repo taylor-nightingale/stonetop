@@ -1,8 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { CharacterInventory } from "../../../src/actors/character/CharacterInventory.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
@@ -74,7 +72,7 @@ function makeActorOutfitItems(items = []) {
 }
 
 function makeResourceController() {
-	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+	return new ResourceController(new FakeActorBuilder().build());
 }
 
 function makeCi(inventoryState = {}, repo = null, possessions = null, outfitItems = null, resourceCtrl = null) {

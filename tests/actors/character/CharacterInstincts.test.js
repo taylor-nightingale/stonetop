@@ -1,17 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { CharacterInstincts } from "../../../src/actors/character/CharacterInstincts.js";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeInstinct(valuesRaw = {}, initialCustom = "") {
 	const actor = new FakeActorBuilder().build();
 	actor.system.instinct = { custom: initialCustom };
-	const fakeFlags = new FakeFlags();
-	if (Object.keys(valuesRaw).length) fakeFlags.setFlagNonAsync("stonetop", "choices.values", valuesRaw);
-	const ctrl = new ChoiceGroupController(new StonetopFlags(fakeFlags, "choices"));
+	if (Object.keys(valuesRaw).length) actor.system.choices = { values: valuesRaw, groupDefs: {} };
+	const ctrl = new ChoiceGroupController(actor);
 	return new CharacterInstincts(actor, ctrl);
 }
 

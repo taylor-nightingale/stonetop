@@ -1,6 +1,5 @@
 import {describe, expect, it} from "vitest";
 import {CharacterMoves} from "../../../src/actors/character/CharacterMoves.js";
-import {StonetopFlags} from "../../../src/actors/character/StonetopFlags.js";
 import {ChoiceGroupController} from "../../../src/actors/character/ChoiceGroupController.js";
 import {ResourceController} from "../../../src/actors/character/ResourceController.js";
 import {FakeMoveRepository} from "../../fakes/FakeMoveRepository.js";
@@ -36,8 +35,8 @@ function makeMoves({
 	actor  = makeActor(),
 	vitals = {level: 1},
 } = {}) {
-	const ctrl = new ChoiceGroupController(new StonetopFlags(actor, "choices"));
-	const res  = new ResourceController(new StonetopFlags(actor, "resources"));
+	const ctrl = new ChoiceGroupController(actor);
+	const res  = new ResourceController(actor);
 	const m    = new CharacterMoves(repo, actor, ctrl, res);
 	m.setVitals(vitals);
 	return m;

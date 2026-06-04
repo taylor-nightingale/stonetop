@@ -42,6 +42,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			postDeath:         new f.SchemaField({ insert:   new f.StringField({ nullable: true, initial: null }) }),
 			postDeathInstinct: new f.SchemaField({ custom:   new f.StringField({ initial: "" }) }),
 			postDeathLore:     new f.SchemaField({ values:   new f.ObjectField() }),
+			choices:           new f.SchemaField({ values: new f.ObjectField(), groupDefs: new f.ObjectField() }),
+			postDeathChoices:  new f.SchemaField({ values: new f.ObjectField(), groupDefs: new f.ObjectField() }),
+			resources:         new f.SchemaField({ counts: new f.ObjectField() }),
+			moveResources:     new f.SchemaField({ counts: new f.ObjectField() }),
 			stats: new f.SchemaField({
 				str: statField(), dex: statField(), con: statField(),
 				int: statField(), wis: statField(), cha: statField(),

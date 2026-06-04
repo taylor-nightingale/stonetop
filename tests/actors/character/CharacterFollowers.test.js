@@ -1,8 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/foundry/FakeFlags.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
 import { Follower } from "../../../src/model/data/character/Follower.js";
@@ -14,7 +12,7 @@ function makeActor() {
 }
 
 function makeResourceController() {
-	return new ResourceController(new StonetopFlags(new FakeFlags(), "resources"));
+	return new ResourceController(new FakeActorBuilder().build());
 }
 
 function makeCf(repo = null, resourceCtrl = null) {
