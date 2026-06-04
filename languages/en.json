@@ -5,6 +5,13 @@
 		}
 	},
 	"stonetop": {
+		"actor": {
+			"defaultName": {
+				"character": "New Character",
+				"npc": "New NPC",
+				"steading": "New Steading"
+			}
+		},
 		"dialog": {
 			"roll": "Roll"
 		},
