@@ -5,7 +5,7 @@
 	"system": {
 		"slug": "spirit-in-the-cloak",
 		"arcanaSlug": "cloak-richly-embroidered",
-		"tags": "Spirit, magical, proud, mute",
+		"tags": "spirit, magical, proud, mute",
 		"hp": {
 			"value": 0,
 			"min": 0,

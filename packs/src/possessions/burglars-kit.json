@@ -27,7 +27,7 @@
 				"name": "Lantern",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"note": "<em>close, area</em>",
+				"tags": "close, area",
 				"resource": {
 					"max": 5,
 					"labels": [

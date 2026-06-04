@@ -131,6 +131,14 @@ describe("CharacterMoves.buildSnapshot — category structure", () => {
 		expect(snap.resource.max).toBe(3);
 		expect(snap.resource.current).toBe(2);
 	});
+
+	it("selection.value reflects instanceCount on embedded item after increment", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
+		const m    = makeMoves({repo});
+		await m.initPlaybookCategory(makePlaybookData());
+		await m.incrementMove("playbook-the-heavy", "alpha");
+		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
+	});
 });
 
 // ── buildSnapshot — repo enrichment ──────────────────────────────────────────
