@@ -41,4 +41,8 @@ describe("MoveData defaults", () => {
 		expect(d.choices).toBeNull();
 		expect(d.sortOrder).toBeNull();
 	});
+
+	it("defaults categoryKey to null", () => expect(new MoveData().categoryKey).toBeNull());
+	it("defaults acquired to false",   () => expect(new MoveData().acquired).toBe(false));
+	it("defaults instanceCount to 0",  () => expect(new MoveData().instanceCount).toBe(0));
 });

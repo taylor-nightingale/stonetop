@@ -21,7 +21,10 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			playbook:       new f.StringField({ nullable: true, initial: null }),
 			slug:           new f.StringField({ nullable: true, initial: null }),
 			sortOrder:      new f.NumberField({ nullable: true, initial: null }),
-			choices:        new f.ObjectField({ nullable: true, initial: null }),
+			choices:       new f.ObjectField({ nullable: true, initial: null }),
+			categoryKey:   new f.StringField({ nullable: true, initial: null }),
+			acquired:      new f.BooleanField({ initial: false }),
+			instanceCount: new f.NumberField({ integer: true, initial: 0 }),
 		};
 	}
 }

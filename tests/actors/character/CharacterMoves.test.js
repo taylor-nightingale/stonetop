@@ -312,6 +312,15 @@ describe("CharacterMoves.initBasicMoves", () => {
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 
+	it("created item has categoryKey='basic', acquired=true, instanceCount=1", async () => {
+		const repo = new FakeMoveRepository([], [new FakeCompendiumMoveBuilder().withName("Defy Danger").asStarting().build()]);
+		const actor = makeActor();
+		await makeMoves({repo, actor}).initBasicMoves();
+		expect(actor.createdDocs[0].system.categoryKey).toBe("basic");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
+	});
+
 	it("writes a basic category with side-bar renderStyle", async () => {
 		const m = makeMoves();
 		await m.initBasicMoves();
@@ -368,6 +377,15 @@ describe("CharacterMoves.initPlaybookCategory", () => {
 		const m = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
+	});
+
+	it("starting move item has correct categoryKey, acquired, instanceCount", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().build()]);
+		const actor = makeActor();
+		await makeMoves({repo, actor}).initPlaybookCategory(makePlaybookData());
+		expect(actor.createdDocs[0].system.categoryKey).toBe("playbook-the-heavy");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
 	});
 
 	it("non-starting move has no ownedId", async () => {
@@ -431,6 +449,15 @@ describe("CharacterMoves.addCategory", () => {
 		const m = makeMoves({repo, actor});
 		await m.addCategory("post-death-revenant", "Revenant", "revenant");
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
+	});
+
+	it("created item has correct categoryKey, acquired, instanceCount", async () => {
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
+		const actor = makeActor();
+		await makeMoves({repo, actor}).addCategory("post-death-revenant", "Revenant", "revenant");
+		expect(actor.createdDocs[0].system.categoryKey).toBe("post-death-revenant");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
 	});
 
 	it("does not create embedded docs when repo returns no moves", async () => {
@@ -530,6 +557,17 @@ describe("CharacterMoves.incrementMove", () => {
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 
+	it("created item has correct categoryKey, acquired, instanceCount", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.initPlaybookCategory(makePlaybookData());
+		await m.incrementMove("playbook-the-heavy", "alpha");
+		expect(actor.createdDocs[0].system.categoryKey).toBe("playbook-the-heavy");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
+	});
+
 	it("stores moveResults from repo move in embedded doc", async () => {
 		const moveResults = { success: { label: "10+", value: "Yes!" }, partial: { label: "7-9", value: "Mostly." }, failure: { label: "6-", value: "No." } };
 		const repo = new FakeMoveRepository([
@@ -627,6 +665,14 @@ describe("CharacterMoves.addMoveToOther", () => {
 		const m = makeMoves({actor});
 		await m.addMoveToOther({name: "Custom Move", system: {rollStat: "str"}});
 		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
+	});
+
+	it("created item has categoryKey='other', acquired=true, instanceCount=1", async () => {
+		const actor = makeActor();
+		await makeMoves({actor}).addMoveToOther({name: "Custom Move", system: {}});
+		expect(actor.createdDocs[0].system.categoryKey).toBe("other");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
 	});
 });
 

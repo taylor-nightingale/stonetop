@@ -41,7 +41,7 @@ export class CharacterMoves {
 			const flagMoves = entries.map(m => _toFlagMove(m, true));
 			const docs      = await Promise.all(entries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
 			const created   = await this._actor.createEmbeddedDocuments("Item",
-				docs.filter(Boolean).map(d => _withMoveType(d.toObject(), "basic"))
+				docs.filter(Boolean).map(d => _withCategoryFields(d.toObject(), "basic"))
 			);
 			_assignOwnedIds(flagMoves, created);
 			await this._setCategories([
@@ -58,7 +58,7 @@ export class CharacterMoves {
 		const flagMoves = newEntries.map(m => _toFlagMove(m, true));
 		const docs      = await Promise.all(newEntries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
 		const created   = await this._actor.createEmbeddedDocuments("Item",
-			docs.filter(Boolean).map(d => _withMoveType(d.toObject(), "basic"))
+			docs.filter(Boolean).map(d => _withCategoryFields(d.toObject(), "basic"))
 		);
 		_assignOwnedIds(flagMoves, created);
 		await this._updateCategory("basic", c => ({ ...c, moves: [...c.moves, ...flagMoves] }));
@@ -75,7 +75,7 @@ export class CharacterMoves {
 		if (startingEntries.length) {
 			const docs = await Promise.all(startingEntries.map(e => this._moveRepo.getPlaybookMoveDocument(e.id)));
 			created = await this._actor.createEmbeddedDocuments("Item",
-				docs.filter(Boolean).map(d => _withMoveType(d.toObject(), catKey))
+				docs.filter(Boolean).map(d => _withCategoryFields(d.toObject(), catKey))
 			);
 		}
 		_assignOwnedIds(flagMoves, created);
@@ -115,7 +115,7 @@ export class CharacterMoves {
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
 			name:   repoMove?.name   ?? moveSlug,
 			type:   "move",
-			system: { moveType: categoryKey, rollStat: repoMove?.rollStat ?? "", description: repoMove?.description ?? "", moveResults: repoMove?.moveResults ?? null },
+			system: { moveType: categoryKey, categoryKey, acquired: true, instanceCount: 1, rollStat: repoMove?.rollStat ?? "", description: repoMove?.description ?? "", moveResults: repoMove?.moveResults ?? null },
 		}]);
 		const newId = created[0]?._id ?? null;
 		await this._updateCategory(categoryKey, c => ({
@@ -157,7 +157,7 @@ export class CharacterMoves {
 		if (otherCat.moves.some(m => m.slug === moveSlug)) return false;
 		const created = await this._actor.createEmbeddedDocuments("Item", [{
 			name: moveData.name, type: "move",
-			system: { moveType: "other", rollStat: moveData.system?.rollStat ?? "", description: moveData.system?.description ?? "", moveResults: moveData.system?.moveResults ?? null },
+			system: { moveType: "other", categoryKey: "other", acquired: true, instanceCount: 1, rollStat: moveData.system?.rollStat ?? "", description: moveData.system?.description ?? "", moveResults: moveData.system?.moveResults ?? null },
 		}]);
 		const newId   = created[0]?._id ?? null;
 		const flagMove = {
@@ -270,11 +270,11 @@ export class CharacterMoves {
 		return result;
 	}
 
-	async _addCategoryMoves(moveType, entries) {
+	async _addCategoryMoves(categoryKey, entries) {
 		if (!entries.length) return [];
 		return this._actor.createEmbeddedDocuments("Item", entries.map(m => ({
 			name: m.name, type: "move",
-			system: { moveType, rollStat: m.rollStat ?? "", description: m.description ?? "", moveResults: m.moveResults ?? null },
+			system: { moveType: categoryKey, categoryKey, acquired: true, instanceCount: 1, rollStat: m.rollStat ?? "", description: m.description ?? "", moveResults: m.moveResults ?? null },
 		})));
 	}
 }
@@ -291,8 +291,8 @@ function _toFlagMove(move, selected) {
 	};
 }
 
-function _withMoveType(obj, moveType) {
-	return { ...obj, system: { ...obj.system, moveType } };
+function _withCategoryFields(obj, categoryKey) {
+	return { ...obj, system: { ...obj.system, moveType: categoryKey, categoryKey, acquired: true, instanceCount: 1 } };
 }
 
 function _assignOwnedIds(flagMoves, createdDocs) {
