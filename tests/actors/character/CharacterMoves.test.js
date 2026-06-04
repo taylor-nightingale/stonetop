@@ -97,24 +97,22 @@ describe("CharacterMoves.buildSnapshot — category structure", () => {
 		expect(snap.selection.max).toBe(1);
 	});
 
-	it("move ownedId is last created doc id", async () => {
+	it("move ownedId is the doc created at initPlaybookCategory, unchanged after increment", async () => {
 		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().withRepeatMax(2).build()]);
 		const actor = makeActor();
 		const m = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
-		const firstId = actor.createdDocs[0]._id;
+		const initDocId = actor.createdDocs[0]._id;
 		await m.incrementMove("playbook-the-heavy", "bulwark");
-		const secondId = actor.createdDocs[1]._id;
-		const snap = (await m.buildSnapshot()).categories[0].moves[0];
-		expect(snap.ownedId).toBe(secondId);
-		expect(snap.ownedId).not.toBe(firstId);
+		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(initDocId);
 	});
 
-	it("move ownedId is null when move not acquired", async () => {
-		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Optional").build()]);
-		const m = makeMoves({repo});
+	it("move ownedId is set even when not acquired (embedded at init with acquired=false)", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Optional").build()]);
+		const actor = makeActor();
+		const m     = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
-		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBeNull();
+		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 
 	it("move resource is null when repo has no resource definition", async () => {
@@ -388,13 +386,31 @@ describe("CharacterMoves.initPlaybookCategory", () => {
 		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
 	});
 
-	it("non-starting move has no ownedId", async () => {
-		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Optional").build()]);
+	it("non-starting move gets an ownedId assigned", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Optional").build()]);
 		const actor = makeActor();
-		const m = makeMoves({repo, actor});
+		const m     = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
-		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBeNull();
-		expect(actor.createdDocs).toHaveLength(0);
+		expect(actor.createdDocs).toHaveLength(1);
+		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
+	});
+
+	it("non-starting move item has acquired=false and instanceCount=0", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Optional").build()]);
+		const actor = makeActor();
+		await makeMoves({repo, actor}).initPlaybookCategory(makePlaybookData());
+		expect(actor.createdDocs[0].system.acquired).toBe(false);
+		expect(actor.createdDocs[0].system.instanceCount).toBe(0);
+	});
+
+	it("embedded move item has full move data (moveResults)", async () => {
+		const moveResults = { success: { label: "10+", value: "Yes!" }, partial: { label: "7-9", value: "Mostly." }, failure: { label: "6-", value: "No." } };
+		const repo  = new FakeMoveRepository([
+			new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().withMoveResults(moveResults).build(),
+		]);
+		const actor = makeActor();
+		await makeMoves({repo, actor}).initPlaybookCategory(makePlaybookData());
+		expect(actor.createdDocs[0].system.moveResults).toEqual(moveResults);
 	});
 
 	it("starting move has selection.value=1", async () => {
@@ -547,37 +563,25 @@ describe("CharacterMoves.incrementMove", () => {
 		expect(actor.createdDocs.length).toBe(docsBefore);
 	});
 
-	it("assigns a new ownedId after creating embedded doc", async () => {
-		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
+	it("ownedId is already assigned from initPlaybookCategory", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
 		const actor = makeActor();
-		const m = makeMoves({repo, actor});
+		const m     = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
+		const initDocId = actor.createdDocs[0]._id;
 		await m.incrementMove("playbook-the-heavy", "alpha");
+		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(initDocId);
 		expect(actor.createdDocs).toHaveLength(1);
-		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 
-	it("created item has correct categoryKey, acquired, instanceCount", async () => {
-		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
+	it("updates existing item to acquired=true with incremented instanceCount", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
 		const actor = makeActor();
-		const m = makeMoves({repo, actor});
+		const m     = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
 		await m.incrementMove("playbook-the-heavy", "alpha");
-		expect(actor.createdDocs[0].system.categoryKey).toBe("playbook-the-heavy");
-		expect(actor.createdDocs[0].system.acquired).toBe(true);
-		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
-	});
-
-	it("stores moveResults from repo move in embedded doc", async () => {
-		const moveResults = { success: { label: "10+", value: "Yes!" }, partial: { label: "7-9", value: "Mostly." }, failure: { label: "6-", value: "No." } };
-		const repo = new FakeMoveRepository([
-			new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).withMoveResults(moveResults).build(),
-		]);
-		const actor = makeActor();
-		const m = makeMoves({repo, actor});
-		await m.initPlaybookCategory(makePlaybookData());
-		await m.incrementMove("playbook-the-heavy", "alpha");
-		expect(actor.createdDocs[0].system.moveResults).toEqual(moveResults);
+		expect(actor.updatedDocs[0].system.acquired).toBe(true);
+		expect(actor.updatedDocs[0].system.instanceCount).toBe(1);
 	});
 });
 
@@ -594,15 +598,16 @@ describe("CharacterMoves.decrementMove", () => {
 		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
 	});
 
-	it("deletes the last owned embedded doc", async () => {
-		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").asStarting().withRepeatMax(2).build()]);
+	it("updates existing item to acquired=false when count reaches 0", async () => {
+		const repo  = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(2).build()]);
 		const actor = makeActor();
-		const m = makeMoves({repo, actor});
+		const m     = makeMoves({repo, actor});
 		await m.initPlaybookCategory(makePlaybookData());
 		await m.incrementMove("playbook-the-heavy", "alpha");
-		const idToDelete = actor.createdDocs.at(-1)._id;
 		await m.decrementMove("playbook-the-heavy", "alpha");
-		expect(actor.deletedIds).toContain(idToDelete);
+		const lastUpdate = actor.updatedDocs.at(-1);
+		expect(lastUpdate.system.acquired).toBe(false);
+		expect(lastUpdate.system.instanceCount).toBe(0);
 	});
 
 	it("does nothing when value is already 0", async () => {

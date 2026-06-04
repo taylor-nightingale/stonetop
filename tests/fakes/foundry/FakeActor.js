@@ -2,6 +2,7 @@ import {FakeFlags} from "./FakeFlags.js";
 
 export class FakeActor {
 	_createdDocs = [];
+	_updatedDocs = [];
 	_deletedIds = [];
 	_nextId = 0;
 
@@ -29,13 +30,19 @@ export class FakeActor {
 
 	}
 
-	get createdDocs() { return this._createdDocs; }
-	get deletedIds()  { return this._deletedIds; }
+	get createdDocs()  { return this._createdDocs; }
+	get updatedDocs()  { return this._updatedDocs; }
+	get deletedIds()   { return this._deletedIds; }
 
 	async createEmbeddedDocuments(_, docs) {
 		const results = docs.map(d => ({ ...d, _id: `created-${this._nextId++}` }));
 		this._createdDocs.push(...results);
 		return results;
+	}
+
+	async updateEmbeddedDocuments(_, updates) {
+		this._updatedDocs.push(...updates);
+		return updates;
 	}
 
 	async deleteEmbeddedDocuments(_, ids) {
