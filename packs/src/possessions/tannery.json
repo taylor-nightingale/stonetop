@@ -1,0 +1,28 @@
+{
+	"_id": "ZeNmpxBHgjKDABc2",
+	"_key": "!items!ZeNmpxBHgjKDABc2",
+	"name": "Tannery",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "tannery",
+		"label": "Tannery",
+		"description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "tannery-cuirass",
+				"name": "A boiled leather cuirass",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": "(1 armor)",
+				"armor": {
+					"value": 1
+				}
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

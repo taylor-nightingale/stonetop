@@ -1,0 +1,17 @@
+{
+	"_id": "um1o6lihMqCQM3pZ",
+	"_key": "!items!um1o6lihMqCQM3pZ",
+	"name": "Composite bow",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "composite-bow",
+		"label": "Composite bow",
+		"description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

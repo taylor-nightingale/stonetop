@@ -1,0 +1,21 @@
+{
+	"_id": "E1JqTdVZpBtgeYt8",
+	"_key": "!items!E1JqTdVZpBtgeYt8",
+	"name": "Books & scrolls",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "books-and-scrolls",
+		"label": "Books & scrolls",
+		"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
+		"resource": {
+			"max": 5,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

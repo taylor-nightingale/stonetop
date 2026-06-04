@@ -1,0 +1,17 @@
+{
+	"_id": "HARH3MzF8sVSUBoz",
+	"_key": "!items!HARH3MzF8sVSUBoz",
+	"name": "Aviary",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "aviary",
+		"label": "Aviary",
+		"description": "a building with trained birds to carry messages. When you <em>send a message by trained bird</em>, the GM will tell you when (or if) you receive a reply, and what it says.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

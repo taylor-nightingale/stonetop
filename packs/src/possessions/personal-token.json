@@ -1,0 +1,51 @@
+{
+	"_id": "xQXvlX2nvC5psaxi",
+	"_key": "!items!xQXvlX2nvC5psaxi",
+	"name": "Personal token, fraught with meaning",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "personal-token",
+		"label": "Personal token, fraught with meaning",
+		"description": "",
+		"resource": null,
+		"outfitItems": [],
+		"choices": {
+			"slug": "personal-token",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "family-heirloom",
+							"text": "◇◇ A shield, bearing ___’s crest"
+						},
+						{
+							"slug": "cloak",
+							"text": "◇ A wool cloak, woven just for you by ___"
+						},
+						{
+							"slug": "letter",
+							"text": "A letter, spattered with tears & blood"
+						},
+						{
+							"slug": "flute",
+							"text": "A flute, a gift from someone you loved"
+						},
+						{
+							"slug": "locket",
+							"text": "A fine locket, holding a strand of hair"
+						},
+						{
+							"slug": "locket",
+							"text": "A tinderbox, lovingly engraved"
+						}
+					]
+				}
+			]
+		},
+		"scaling": null,
+		"sortOrder": null
+	}
+}

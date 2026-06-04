@@ -1,0 +1,17 @@
+{
+	"_id": "tYdqVCRZiovnZ11u",
+	"_key": "!items!tYdqVCRZiovnZ11u",
+	"name": "A good dog",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "a-good-dog",
+		"label": "A good dog",
+		"description": "follower (retriever or herder, keen-nosed, clever); HP 6; Damage d6 (hand, grabby); Instinct to play; Cost: affection.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

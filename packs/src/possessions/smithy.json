@@ -1,0 +1,32 @@
+{
+	"_id": "CiAuUP38Z1SJzKHI",
+	"_key": "!items!CiAuUP38Z1SJzKHI",
+	"name": "Smithy",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "smithy",
+		"label": "Smithy",
+		"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "smithy-tongs",
+				"name": "Tongs",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			},
+			{
+				"slug": "smithy-bellows",
+				"name": "Bellows",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

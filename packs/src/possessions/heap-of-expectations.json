@@ -1,0 +1,17 @@
+{
+	"_id": "y1a6OYjCHhqwEE3M",
+	"_key": "!items!y1a6OYjCHhqwEE3M",
+	"name": "A heap of expectations",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "heap-of-expectations",
+		"label": "A heap of expectations",
+		"description": "of little use",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

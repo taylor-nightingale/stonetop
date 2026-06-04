@@ -5,7 +5,8 @@ import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 import { FakePlaybook } from "../../fakes/FakePlaybook.js";
-import { TestSpecialPossessionBuilder, TestSpecialPossessionsBuilder } from "../../fakes/TestSpecialPossessionBuilder.js";
+import { FakePossessionRepository } from "../../fakes/FakePossessionRepository.js";
+import { TestPossessionBuilder } from "../../fakes/TestPossessionBuilder.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 
@@ -26,36 +27,34 @@ function makePlaybook(sp)  { return new FakePlaybook(sp); }
 
 // ── Test data ─────────────────────────────────────────────────────────────────
 
-function bonusSp() {
-	return new TestSpecialPossessionsBuilder()
-		.addOption(new TestSpecialPossessionBuilder()
-			.withSlug("sacred-pouch").withResource(3)
-			.withUsesBonus(1).withMoveBonus("big-magic", 2))
-		.build();
+function bonusPossessions() {
+	return [new TestPossessionBuilder()
+		.withSlug("sacred-pouch").withResource(3)
+		.withScaling(1).withMoveBonus("big-magic", 2)
+		.build()];
+}
+
+function basePossessions() {
+	return [
+		new TestPossessionBuilder().withSlug("sacred-pouch").withLabel("Sacred Pouch").withDescription("magic").withResource(3).build(),
+		new TestPossessionBuilder().withSlug("apiary").withLabel("Apiary").withDescription("bees").build(),
+		new TestPossessionBuilder().withSlug("mastiffs").withLabel("Mastiffs").withDescription("dogs").build(),
+	];
 }
 
 function baseSp() {
-	return new TestSpecialPossessionsBuilder()
-		.withPickCount(2).withPickNote("Pick 2")
-		.addPreselected("sacred-pouch")
-		.addOption(new TestSpecialPossessionBuilder()
-			.withSlug("sacred-pouch").withLabel("Sacred Pouch").withDescription("magic").withResource(3))
-		.addOption(new TestSpecialPossessionBuilder()
-			.withSlug("apiary").withLabel("Apiary").withDescription("bees"))
-		.addOption(new TestSpecialPossessionBuilder()
-			.withSlug("mastiffs").withLabel("Mastiffs").withDescription("dogs"))
-		.build();
+	return { pickNote: "Pick 2", pickCount: 2, preselected: ["sacred-pouch"], slugs: ["sacred-pouch", "apiary", "mastiffs"] };
 }
 
-function outfitSp() {
-	return new TestSpecialPossessionsBuilder()
-		.addOption(new TestSpecialPossessionBuilder()
+function outfitPossessions() {
+	return [
+		new TestPossessionBuilder()
 			.withSlug("smithy").withLabel("Smithy")
 			.withOutfitItems(
 				{ slug: "smithy-tongs",   name: "Tongs",   weight: 1, inventoryColumn: "regular" },
 				{ slug: "smithy-bellows", name: "Bellows", weight: 1, inventoryColumn: "regular" },
-			))
-		.addOption(new TestSpecialPossessionBuilder()
+			).build(),
+		new TestPossessionBuilder()
 			.withSlug("weapons-of-war").withLabel("Weapons of War")
 			.withChoices(new TestChoiceGroupBuilder()
 				.withSlug("weapons-of-war")
@@ -63,15 +62,17 @@ function outfitSp() {
 					{ slug: "mace",     outfitItems: [{ slug: "mace",     name: "Mace",     weight: 1, inventoryColumn: "regular" }] },
 					{ slug: "crossbow", outfitItems: [{ slug: "crossbow", name: "Crossbow", weight: 1, inventoryColumn: "regular" }] },
 				))
-				.build()))
-		.addOption(new TestSpecialPossessionBuilder().withSlug("apiary").withLabel("Apiary"))
-		.build();
+				.build())
+			.build(),
+		new TestPossessionBuilder().withSlug("apiary").withLabel("Apiary").build(),
+	];
 }
 
-function choicesSp() {
-	return new TestSpecialPossessionsBuilder()
-		.withPickCount(1).withPickNote("Pick 1")
-		.addOption(new TestSpecialPossessionBuilder()
+function outfitRepo() { return new FakePossessionRepository(outfitPossessions()); }
+
+function choicesPossessions() {
+	return [
+		new TestPossessionBuilder()
 			.withSlug("weapons-of-war").withLabel("Weapons of War").withDescription("War stuff")
 			.withChoices(new TestChoiceGroupBuilder()
 				.withSlug("weapons-of-war")
@@ -85,9 +86,14 @@ function choicesSp() {
 					{ slug: "quiver",  label: "Quiver" },
 					{ slug: "hauberk", label: "Hauberk" },
 				))
-				.build()))
-		.addOption(new TestSpecialPossessionBuilder().withSlug("apiary").withLabel("Apiary").withDescription("Bees"))
-		.build();
+				.build())
+			.build(),
+		new TestPossessionBuilder().withSlug("apiary").withLabel("Apiary").withDescription("Bees").build(),
+	];
+}
+
+function choicesSp() {
+	return { pickCount: 1, pickNote: "Pick 1", preselected: [], slugs: ["weapons-of-war", "apiary"] };
 }
 
 // ── selection ─────────────────────────────────────────────────────────────────
@@ -152,7 +158,11 @@ describe("CharacterPossessions — resource tracking", () => {
 
 describe("CharacterPossessions — sub-choices", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(choicesSp()));
+		return new CharacterPossessions(
+			makeActor(), makeMoves(), null,
+			makePlaybook(choicesSp()),
+			new FakePossessionRepository(choicesPossessions()),
+		);
 	}
 
 	async function wowChoices(cp) {
@@ -225,39 +235,37 @@ describe("CharacterPossessions — computeMaxUses", () => {
 	}
 
 	it("no bonus at level 1 with no moves — entry absent", () => {
-		expect(makeCp().computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBeUndefined();
+		expect(makeCp().computeMaxUses(bonusPossessions(), 1)["sacred-pouch"]).toBeUndefined();
 	});
 
 	it("level 2 adds +1 from even-level bonus", () => {
-		expect(makeCp().computeMaxUses(bonusSp(), 2)["sacred-pouch"]).toBe(4);
+		expect(makeCp().computeMaxUses(bonusPossessions(), 2)["sacred-pouch"]).toBe(4);
 	});
 
 	it("level 4 adds +2 from two even levels", () => {
-		expect(makeCp().computeMaxUses(bonusSp(), 4)["sacred-pouch"]).toBe(5);
+		expect(makeCp().computeMaxUses(bonusPossessions(), 4)["sacred-pouch"]).toBe(5);
 	});
 
 	it("owning Big Magic once adds +2", () => {
-		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(5);
+		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusPossessions(), 1)["sacred-pouch"]).toBe(5);
 	});
 
 	it("owning Big Magic twice adds +4", () => {
-		expect(makeCp(makeMoves().ownMove("big-magic", 2)).computeMaxUses(bonusSp(), 1)["sacred-pouch"]).toBe(7);
+		expect(makeCp(makeMoves().ownMove("big-magic", 2)).computeMaxUses(bonusPossessions(), 1)["sacred-pouch"]).toBe(7);
 	});
 
 	it("Big Magic once + level 4 gives base 3 + 4", () => {
-		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusSp(), 4)["sacred-pouch"]).toBe(7);
+		expect(makeCp(makeMoves().ownMove("big-magic")).computeMaxUses(bonusPossessions(), 4)["sacred-pouch"]).toBe(7);
 	});
 
 	it("possession without usesBonus is not affected", () => {
-		const sp = new TestSpecialPossessionsBuilder()
-			.addOption(new TestSpecialPossessionBuilder().withSlug("apiary"))
-			.build();
-		expect(makeCp().computeMaxUses(sp, 10)["apiary"]).toBeUndefined();
+		const possessions = [new TestPossessionBuilder().withSlug("apiary").build()];
+		expect(makeCp().computeMaxUses(possessions, 10)["apiary"]).toBeUndefined();
 	});
 
 	it("merges persisted maxUses with computed bonus", () => {
 		const cp = new CharacterPossessions(makeActor({ maxUses: { "custom-item": 5 } }), makeMoves());
-		const result = cp.computeMaxUses(bonusSp(), 1);
+		const result = cp.computeMaxUses(bonusPossessions(), 1);
 		expect(result["custom-item"]).toBe(5);
 		expect(result["sacred-pouch"]).toBeUndefined();
 	});
@@ -267,7 +275,11 @@ describe("CharacterPossessions — computeMaxUses", () => {
 
 describe("CharacterPossessions — buildSnapshot", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(baseSp()));
+		return new CharacterPossessions(
+			makeActor(), makeMoves(), null,
+			makePlaybook(baseSp()),
+			new FakePossessionRepository(basePossessions()),
+		);
 	}
 
 	it("returns null when specialPossessions is null", async () => {
@@ -333,12 +345,15 @@ describe("CharacterPossessions — buildSnapshot", () => {
 	});
 
 	it("level-based uses bonus is applied to resource max", async () => {
-		const sp = new TestSpecialPossessionsBuilder()
-			.withPickCount(1).addPreselected("sacred-pouch")
-			.addOption(new TestSpecialPossessionBuilder()
-				.withSlug("sacred-pouch").withLabel("Sacred Pouch").withResource(3).withUsesBonus(1))
-			.build();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(sp));
+		const possessions = [new TestPossessionBuilder()
+			.withSlug("sacred-pouch").withLabel("Sacred Pouch").withResource(3).withScaling(1)
+			.build()];
+		const sp = { pickCount: 1, preselected: ["sacred-pouch"], slugs: ["sacred-pouch"] };
+		const cp = new CharacterPossessions(
+			makeActor(), makeMoves(), null,
+			makePlaybook(sp),
+			new FakePossessionRepository(possessions),
+		);
 		const snap = await cp.buildSnapshot(4);
 		expect(snap.items.find(i => i.slug === "sacred-pouch").resource.max).toBe(5);
 	});
@@ -348,7 +363,11 @@ describe("CharacterPossessions — buildSnapshot", () => {
 
 describe("CharacterPossessions — buildSnapshot — choices", () => {
 	function makeCp() {
-		return new CharacterPossessions(makeActor(), makeMoves(), null, makePlaybook(choicesSp()));
+		return new CharacterPossessions(
+			makeActor(), makeMoves(), null,
+			makePlaybook(choicesSp()),
+			new FakePossessionRepository(choicesPossessions()),
+		);
 	}
 
 	it("choices is null when possession has no choices key", async () => {
@@ -443,45 +462,45 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 // ── syncPossessionItems ───────────────────────────────────────────────────────
 
 describe("CharacterPossessions — syncPossessionItems", () => {
-	it("is a no-op when specialPossessions is null", async () => {
+	it("is a no-op when there is no repository", async () => {
 		const outfitItems = makeOutfitItems();
 		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.syncPossessionItems("smithy", null);
+		await cp.syncPossessionItems("smithy");
 		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
 	});
 
 	it("does not throw when outfitItems is null", async () => {
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), null);
-		await expect(cp.syncPossessionItems("smithy", outfitSp())).resolves.not.toThrow();
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), null, null, outfitRepo());
+		await expect(cp.syncPossessionItems("smithy")).resolves.not.toThrow();
 	});
 
 	it("syncs possession-level outfit items under 'possession:smithy'", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.syncPossessionItems("smithy", outfitSp());
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems, null, outfitRepo());
+		await cp.syncPossessionItems("smithy");
 		expect(outfitItems.getSlugs("possession:smithy"))
 			.toEqual(expect.arrayContaining(["smithy-tongs", "smithy-bellows"]));
 	});
 
 	it("syncs choice outfit item when the sub-choice is selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems, null, outfitRepo());
 		await cp.addSubChoice("weapons-of-war", "mace");
-		await cp.syncPossessionItems("weapons-of-war", outfitSp());
+		await cp.syncPossessionItems("weapons-of-war");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
 	});
 
 	it("does not include choice outfit item when sub-choice is not selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.syncPossessionItems("weapons-of-war", outfitSp());
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems, null, outfitRepo());
+		await cp.syncPossessionItems("weapons-of-war");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toHaveLength(0);
 	});
 
 	it("syncs an empty array when possession has no outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.syncPossessionItems("apiary", outfitSp());
+		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems, null, outfitRepo());
+		await cp.syncPossessionItems("apiary");
 		expect(outfitItems.getSlugs("possession:apiary")).toHaveLength(0);
 		expect(outfitItems.hasSource("possession:apiary")).toBe(true);
 	});
@@ -490,34 +509,36 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 // ── outfit item integration ───────────────────────────────────────────────────
 
 describe("CharacterPossessions — outfit item integration", () => {
+	function makeCp(outfitItems) {
+		return new CharacterPossessions(makeActor(), makeMoves(), outfitItems, null, outfitRepo());
+	}
+
 	it("select syncs the possession's outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.select("smithy", outfitSp());
+		await makeCp(outfitItems).select("smithy");
 		expect(outfitItems.getSlugs("possession:smithy"))
 			.toEqual(expect.arrayContaining(["smithy-tongs", "smithy-bellows"]));
 	});
 
 	it("deselect removes the possession's outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.select("smithy", outfitSp());
+		const cp = makeCp(outfitItems);
+		await cp.select("smithy");
 		await cp.deselect("smithy");
 		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
 	});
 
 	it("addSubChoice syncs with the newly selected choice item", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.addSubChoice("weapons-of-war", "mace", outfitSp());
+		await makeCp(outfitItems).addSubChoice("weapons-of-war", "mace");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
 	});
 
 	it("removeSubChoice syncs with the choice item removed", async () => {
 		const outfitItems = makeOutfitItems();
-		const cp = new CharacterPossessions(makeActor(), makeMoves(), outfitItems);
-		await cp.addSubChoice("weapons-of-war", "mace", outfitSp());
-		await cp.removeSubChoice("weapons-of-war", "mace", outfitSp());
+		const cp = makeCp(outfitItems);
+		await cp.addSubChoice("weapons-of-war", "mace");
+		await cp.removeSubChoice("weapons-of-war", "mace");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).not.toContain("mace");
 	});
 });

@@ -513,113 +513,13 @@
 				"symbol-of-authority",
 				"scribes-kit"
 			],
-			"options": [
-				{
-					"slug": "symbol-of-authority",
-					"label": "Symbol of authority (pick 1)",
-					"choices": {
-						"slug": "symbol-of-authority",
-						"list": [
-							{
-								"type": "pick",
-								"pickCount": 1,
-								"options": [
-									{
-										"slug": "authority-black-iron-maul",
-										"description": "utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)",
-										"outfitItems": [
-											{
-												"slug": "black-iron-maul",
-												"name": "Black iron maul, utterly immune to all magic",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, forceful, awkward</em>, +1 damage"
-											}
-										],
-										"text": "◇◇ Black iron maul"
-									},
-									{
-										"slug": "authority-makerglass-shield",
-										"description": "etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)",
-										"outfitItems": [
-											{
-												"slug": "makerglass-shield",
-												"name": "Makerglass shield, etched with Aratis's symbol",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+",
-												"armor": {
-													"modifier": 1
-												}
-											}
-										],
-										"text": "◇◇ Makerglass shield"
-									},
-									{
-										"slug": "authority-helm",
-										"description": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
-										"text": "Helm"
-									}
-								]
-							}
-						]
-					}
-				},
-				{
-					"slug": "scribes-kit",
-					"label": "Scribe's kit",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
-				},
-				{
-					"slug": "aviary",
-					"label": "Aviary",
-					"description": "a building with trained birds to carry messages. When you <em>send a message by trained bird</em>, the GM will tell you when (or if) you receive a reply, and what it says."
-				},
-				{
-					"slug": "carpenters-tools",
-					"label": "Carpenter's tools",
-					"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
-				},
-				{
-					"slug": "engineers-tools",
-					"label": "Engineer's tools",
-					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "engineer-tripod",
-							"name": "Tripod",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "engineer-block",
-							"name": "Block & Tackle",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "smithy",
-					"label": "Smithy",
-					"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
-					"outfitItems": [
-						{
-							"slug": "smithy-tongs",
-							"name": "Tongs",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						},
-						{
-							"slug": "smithy-bellows",
-							"name": "Bellows",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						}
-					]
-				}
+			"slugs": [
+				"symbol-of-authority",
+				"scribes-kit",
+				"aviary",
+				"carpenters-tools",
+				"engineers-tools",
+				"smithy"
 			]
 		}
 	}

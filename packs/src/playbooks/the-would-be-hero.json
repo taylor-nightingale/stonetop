@@ -703,136 +703,14 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "a-good-dog",
-					"label": "A good dog",
-					"description": "follower (retriever or herder, keen-nosed, clever); HP 6; Damage d6 (hand, grabby); Instinct to play; Cost: affection."
-				},
-				{
-					"slug": "heap-of-expectations",
-					"label": "A heap of expectations",
-					"description": "of little use"
-				},
-				{
-					"slug": "husbandry-tools",
-					"label": "Husbandry tools",
-					"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.).",
-					"outfitItems": [
-						{
-							"slug": "husbandry-whips",
-							"name": "Whips",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "husbandry-bridles",
-							"name": "Bridles",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "personal-token",
-					"label": "Personal token, fraught with meaning",
-					"choices": {
-						"slug": "personal-token",
-						"list": [
-							{
-								"type": "pick",
-								"pickCount": 1,
-								"options": [
-									{
-										"slug": "family-heirloom",
-										"text": "◇◇ A shield, bearing ___’s crest"
-									},
-									{
-										"slug": "cloak",
-										"text": "◇ A wool cloak, woven just for you by ___"
-									},
-									{
-										"slug": "letter",
-										"text": "A letter, spattered with tears & blood"
-									},
-									{
-										"slug": "flute",
-										"text": "A flute, a gift from someone you loved"
-									},
-									{
-										"slug": "locket",
-										"text": "A fine locket, holding a strand of hair"
-									},
-									{
-										"slug": "locket",
-										"text": "A tinderbox, lovingly engraved"
-									}
-								]
-							}
-						]
-					}
-				},
-				{
-					"slug": "smithy",
-					"label": "Smithy",
-					"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
-					"outfitItems": [
-						{
-							"slug": "smithy-tongs",
-							"name": "Tongs",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "smithy-bellows",
-							"name": "Bellows",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "stoneworkers-tools",
-					"label": "Stoneworker's tools",
-					"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "stoneworkers-prybars",
-							"name": "Prybars",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "stoneworkers-spikes",
-							"name": "Spikes",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "stoneworkers-block",
-							"name": "Block & tackles",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "tannery",
-					"label": "Tannery",
-					"description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc.",
-					"outfitItems": [
-						{
-							"slug": "tannery-cuirass",
-							"name": "A boiled leather cuirass",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": "(1 armor)",
-							"armor": {
-								"value": 1
-							}
-						}
-					]
-				}
+			"slugs": [
+				"a-good-dog",
+				"heap-of-expectations",
+				"husbandry-tools",
+				"personal-token",
+				"smithy",
+				"stoneworkers-tools",
+				"tannery"
 			]
 		}
 	}

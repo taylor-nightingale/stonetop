@@ -1,0 +1,17 @@
+{
+	"_id": "nTadvCwRUl1IdFi8",
+	"_key": "!items!nTadvCwRUl1IdFi8",
+	"name": "Paraphernalia",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "paraphernalia",
+		"label": "Paraphernalia",
+		"description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

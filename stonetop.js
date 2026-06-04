@@ -20,6 +20,7 @@ import { InsertData }      from "./src/data/InsertData.js";
 import { ImprovementData } from "./src/data/ImprovementData.js";
 import { NpcItemData }     from "./src/data/NpcItemData.js";
 import { OutfitItemData }  from "./src/data/OutfitItemData.js";
+import { PossessionData }  from "./src/data/PossessionData.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
@@ -36,6 +37,7 @@ Hooks.once("init", () => {
 		improvement: ImprovementData,
 		npc:         NpcItemData,
 		outfitItem:  OutfitItemData,
+		possession:  PossessionData,
 	});
 
 	registerSettings();

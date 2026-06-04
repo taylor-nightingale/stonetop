@@ -1,0 +1,100 @@
+{
+	"_id": "T8pbT2GsHAUdLbrM",
+	"_key": "!items!T8pbT2GsHAUdLbrM",
+	"name": "Weapons of war",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "weapons-of-war",
+		"label": "Weapons of war",
+		"description": "",
+		"resource": null,
+		"outfitItems": [],
+		"choices": {
+			"slug": "weapons-of-war",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 3,
+					"options": [
+						{
+							"slug": "sword",
+							"outfitItems": [
+								{
+									"slug": "sword",
+									"name": "Sword, iron",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>close</em>, +1 damage"
+								}
+							],
+							"text": "◇ Sword, iron (<em>close</em>, +1 damage)"
+						},
+						{
+							"slug": "battleaxe",
+							"outfitItems": [
+								{
+									"slug": "battleaxe",
+									"name": "Battleaxe, iron",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>close, messy</em>"
+								}
+							],
+							"text": "◇ Battleaxe, iron (<em>close, messy</em>)"
+						},
+						{
+							"slug": "warhammer",
+							"outfitItems": [
+								{
+									"slug": "warhammer",
+									"name": "Warhammer, iron",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>close</em>, 2 piercing"
+								}
+							],
+							"text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
+						},
+						{
+							"slug": "mace-or-flail",
+							"outfitItems": [
+								{
+									"slug": "mace-or-flail",
+									"name": "Mace or flail, iron",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>close, forceful</em>"
+								}
+							],
+							"text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
+						},
+						{
+							"slug": "crossbow",
+							"outfitItems": [
+								{
+									"slug": "crossbow",
+									"name": "Crossbow",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>far</em>, +1 damage, <em>reload, x</em> piercing",
+									"resource": {
+										"max": 2,
+										"title": null,
+										"labels": [
+											"low ammo",
+											"all out"
+										]
+									}
+								}
+							],
+							"text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)"
+						}
+					]
+				}
+			]
+		},
+		"scaling": null,
+		"sortOrder": null
+	}
+}

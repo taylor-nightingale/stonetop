@@ -1,0 +1,17 @@
+{
+	"_id": "jcnI8kd2SYBudLU0",
+	"_key": "!items!jcnI8kd2SYBudLU0",
+	"name": "Chandlery",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "chandlery",
+		"label": "Chandlery",
+		"description": "tallow, wax, wicks, dye, ◇ molds; candles, wick-holders, holy candles (<em>close, area</em>, ~1 hr), lanterns, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

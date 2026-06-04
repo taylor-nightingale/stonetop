@@ -611,79 +611,14 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "apiary",
-					"label": "Apiary",
-					"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
-					"outfitItems": [
-						{
-							"slug": "apiary-bee-smokers",
-							"name": "Bee smokers",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "apiary-hat-veils",
-							"name": "Hat & veils",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "books-and-scrolls",
-					"label": "Books & scrolls",
-					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
-					"resource": {
-						"max": 5,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "chandlery",
-					"label": "Chandlery",
-					"description": "tallow, wax, wicks, dye, ◇ molds; candles, wick-holders, holy candles (<em>close, area</em>, ~1 hr), lanterns, etc."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "glassworks",
-					"label": "Glassworks",
-					"description": "sand, ash, ◇ crucibles, ◇ blowpipes; bottles, flasks, lenses, lantern glass, etc."
-				},
-				{
-					"slug": "holy-relics",
-					"label": "Holy relics",
-					"description": "○○○ uses: sacred objects of Helior's worship. Expend a use to add +1 to a roll involving the god's favor or power. Restore 1 use each season.",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "luthiers-tools",
-					"label": "Luthier's tools",
-					"description": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc."
-				}
+			"slugs": [
+				"apiary",
+				"books-and-scrolls",
+				"chandlery",
+				"distillery",
+				"glassworks",
+				"holy-relics",
+				"luthiers-tools"
 			]
 		}
 	}

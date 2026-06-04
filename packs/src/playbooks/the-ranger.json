@@ -379,65 +379,14 @@
 			"preselected": [
 				"composite-bow"
 			],
-			"options": [
-				{
-					"slug": "composite-bow",
-					"label": "Composite bow",
-					"description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "hideouts",
-					"label": "Hideouts",
-					"description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "hounds",
-					"label": "Hounds",
-					"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
-				},
-				{
-					"slug": "husbandry-tools",
-					"label": "Husbandry tools",
-					"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
-				},
-				{
-					"slug": "lay-of-the-land",
-					"label": "Lay of the land",
-					"description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "trapping-gear",
-					"label": "Trapping gear",
-					"description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning."
-				}
+			"slugs": [
+				"composite-bow",
+				"distillery",
+				"hideouts",
+				"hounds",
+				"husbandry-tools",
+				"lay-of-the-land",
+				"trapping-gear"
 			]
 		}
 	}

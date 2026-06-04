@@ -1,0 +1,17 @@
+{
+	"_id": "B8Z6oQlZQRMIFVeu",
+	"_key": "!items!B8Z6oQlZQRMIFVeu",
+	"name": "Glassworks",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "glassworks",
+		"label": "Glassworks",
+		"description": "sand, ash, ◇ crucibles, ◇ blowpipes; bottles, flasks, lenses, lantern glass, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

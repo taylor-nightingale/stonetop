@@ -47,10 +47,21 @@
 			"path": "languages/en.json"
 		}
 	],
-	"template": "template.json",
 	"documentTypes": {
 		"Actor": {
-			"steading": {}
+			"character": {},
+			"npc":       {},
+			"steading":  {}
+		},
+		"Item": {
+			"move":        {},
+			"arcanum":     {},
+			"playbook":    {},
+			"insert":      {},
+			"improvement": {},
+			"npc":         {},
+			"outfitItem":  {},
+			"possession":  {}
 		}
 	},
 	"packs": [
@@ -128,6 +139,13 @@
 			"name": "followers",
 			"label": "Followers",
 			"path": "packs/followers",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "possessions",
+			"label": "Possessions",
+			"path": "packs/possessions",
 			"type": "Item",
 			"system": "stonetop"
 		},

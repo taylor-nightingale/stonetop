@@ -1,0 +1,17 @@
+{
+	"_id": "3MygmPhu0nCfDb02",
+	"_key": "!items!3MygmPhu0nCfDb02",
+	"name": "Personal symbol",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "personal-symbol",
+		"label": "Personal symbol",
+		"description": "a banner, insignia, or seal that marks you as the Marshal of Stonetop. Recognized throughout the Manmarch.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "1yaLsiT70nMJ2Exi",
+	"_key": "!items!1yaLsiT70nMJ2Exi",
+	"name": "Scribe's kit",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "scribes-kit",
+		"label": "Scribe's kit",
+		"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

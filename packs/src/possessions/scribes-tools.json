@@ -1,0 +1,24 @@
+{
+	"_id": "8DX6RKs1BrvE3M2K",
+	"_key": "!items!8DX6RKs1BrvE3M2K",
+	"name": "Scribe's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "scribes-tools",
+		"label": "Scribe's tools",
+		"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "scribe-notebook",
+				"name": "Notebook",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

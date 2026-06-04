@@ -342,102 +342,14 @@
 			"preselected": [
 				"scribes-tools"
 			],
-			"options": [
-				{
-					"slug": "scribes-tools",
-					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-					"outfitItems": [
-						{
-							"slug": "scribe-notebook",
-							"name": "Notebook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "books-and-scrolls",
-					"label": "Books & scrolls",
-					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
-					"resource": {
-						"max": 5,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "engineers-tools",
-					"label": "Engineer's tools",
-					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "engineer-tripod",
-							"name": "Tripod",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "engineer-block",
-							"name": "Block & Tackle",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "laboratory",
-					"label": "Laboratory",
-					"description": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce d4-1 uses of ◇ naphtha (<em>thrown, area, dangerous, ignores armor</em>)",
-					"outfitItems": [
-						{
-							"slug": "laboratory-scales",
-							"name": "Scales",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "laboratory-decanters",
-							"name": "Decanters",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "laboratory-naptha",
-							"name": "Naptha",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "paraphernalia",
-					"label": "Paraphernalia",
-					"description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
-				},
-				{
-					"slug": "trade-contacts",
-					"label": "Trade contacts",
-					"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
-				}
+			"slugs": [
+				"scribes-tools",
+				"books-and-scrolls",
+				"distillery",
+				"engineers-tools",
+				"laboratory",
+				"paraphernalia",
+				"trade-contacts"
 			]
 		}
 	}

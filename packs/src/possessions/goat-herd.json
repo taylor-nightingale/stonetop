@@ -1,0 +1,17 @@
+{
+	"_id": "ybcqv0gJXLV7Bwx3",
+	"_key": "!items!ybcqv0gJXLV7Bwx3",
+	"name": "Goat herd",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "goat-herd",
+		"label": "Goat herd",
+		"description": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison).",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

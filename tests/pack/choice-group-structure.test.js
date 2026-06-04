@@ -2,10 +2,10 @@ import { describe, it, expect, beforeAll } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
 
-const LORE_DIRS    = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
-const ARCANA_DIR   = path.resolve("packs/src/arcana");
-const PLAYBOOK_DIR = path.resolve("packs/src/playbooks");
-const VALID_TYPES  = new Set(["heading", "pick", "follower"]);
+const LORE_DIRS       = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
+const ARCANA_DIR      = path.resolve("packs/src/arcana");
+const POSSESSIONS_DIR = path.resolve("packs/src/possessions");
+const VALID_TYPES     = new Set(["heading", "pick", "follower"]);
 
 describe("Pack possession choices use the ChoiceGroup format", () => {
 	let entries;
@@ -79,14 +79,12 @@ async function loadLoreFiles() {
 
 async function loadPlaybookChoices() {
 	const entries = [];
-	const files = await fs.readdir(PLAYBOOK_DIR);
+	const files = await fs.readdir(POSSESSIONS_DIR);
 	for (const name of files.filter(n => n.endsWith(".json"))) {
-		const full = path.join(PLAYBOOK_DIR, name);
+		const full = path.join(POSSESSIONS_DIR, name);
 		const data = JSON.parse(await fs.readFile(full, "utf8"));
-		const options = data.system?.specialPossessions?.options ?? [];
-		for (const opt of options) {
-			if (opt.choices != null) entries.push({ name, possessionSlug: opt.slug, choices: opt.choices });
-		}
+		const choices = data.system?.choices;
+		if (choices != null) entries.push({ name, possessionSlug: data.system?.slug, choices });
 	}
 	return entries;
 }

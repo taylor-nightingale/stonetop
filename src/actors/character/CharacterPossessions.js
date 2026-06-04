@@ -7,11 +7,12 @@ import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/Choice
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 
 export class CharacterPossessions {
-	constructor(actor, moves, outfitItems = null, playbook = null) {
-		this._actor = actor;
-		this._moves = moves;
-		this._outfitItems = outfitItems;
-		this._playbook = playbook;
+	constructor(actor, moves, outfitItems = null, playbook = null, possessionRepo = null) {
+		this._actor          = actor;
+		this._moves          = moves;
+		this._outfitItems    = outfitItems;
+		this._playbook       = playbook;
+		this._possessionRepo = possessionRepo;
 	}
 
 	get selected()      { return new Set(this._actor.system?.possessions?.selected   ?? []); }
@@ -20,11 +21,11 @@ export class CharacterPossessions {
 	get _pickValues()   { return new ChoiceValues(this._actor.system?.possessions?.pickValues ?? {}); }
 	get choiceUses()    { return this._actor.system?.possessions?.choiceUses         ?? {}; }
 
-	async select(slug, specialPossessions = null) {
+	async select(slug) {
 		const s = this.selected;
 		s.add(slug);
 		await this._actor.update({ "system.possessions.selected": [...s] });
-		await this.syncPossessionItems(slug, specialPossessions);
+		await this.syncPossessionItems(slug);
 	}
 
 	async deselect(slug) {
@@ -38,21 +39,21 @@ export class CharacterPossessions {
 		await this._actor.update({ "system.possessions.uses": { ...this.uses, [slug]: count } });
 	}
 
-	async addSubChoice(possessionSlug, choiceSlug, specialPossessions = null) {
+	async addSubChoice(possessionSlug, choiceSlug) {
 		await this._actor.update({ "system.possessions.pickValues": this._pickValues.set(possessionSlug, choiceSlug, 1).toRaw() });
-		await this.syncPossessionItems(possessionSlug, specialPossessions);
+		await this.syncPossessionItems(possessionSlug);
 	}
 
-	async removeSubChoice(possessionSlug, choiceSlug, specialPossessions = null) {
+	async removeSubChoice(possessionSlug, choiceSlug) {
 		await this._actor.update({ "system.possessions.pickValues": this._pickValues.set(possessionSlug, choiceSlug, 0).toRaw() });
-		await this.syncPossessionItems(possessionSlug, specialPossessions);
+		await this.syncPossessionItems(possessionSlug);
 	}
 
-	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs, specialPossessions = null) {
+	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
 		let cv = this._pickValues;
 		for (const s of exclusiveSlugs) cv = cv.set(possessionSlug, s, 0);
 		await this._actor.update({ "system.possessions.pickValues": cv.set(possessionSlug, choiceSlug, 1).toRaw() });
-		await this.syncPossessionItems(possessionSlug, specialPossessions);
+		await this.syncPossessionItems(possessionSlug);
 	}
 
 	async setChoiceUses(possessionSlug, choiceSlug, count) {
@@ -60,20 +61,20 @@ export class CharacterPossessions {
 		await this._actor.update({ "system.possessions.choiceUses": { ...this.choiceUses, [key]: count } });
 	}
 
-	async syncPossessionItems(possessionSlug, specialPossessions) {
-		if (!specialPossessions || !this._outfitItems) return;
-		const opt = specialPossessions.options?.find(o => o.slug === possessionSlug);
-		if (!opt) return;
+	async syncPossessionItems(slug) {
+		if (!this._outfitItems || !this._possessionRepo) return;
+		const possession = await this._possessionRepo.findBySlug(slug);
+		if (!possession) return;
 		const cv = this._pickValues;
-		const source = "possession:" + possessionSlug;
+		const source = "possession:" + slug;
 		const items = [];
-		for (const item of opt.outfitItems ?? []) {
+		for (const item of possession.outfitItems ?? []) {
 			items.push(_buildEmbeddedItem(item, source));
 		}
-		for (const row of (opt.choices?.list ?? [])) {
+		for (const row of (possession.choices?.list ?? [])) {
 			if (row.type !== "pick") continue;
 			for (const choice of row.options ?? []) {
-				if (cv.getCount(possessionSlug, choice.slug) === 0) continue;
+				if (cv.getCount(slug, choice.slug) === 0) continue;
 				for (const item of choice.outfitItems ?? []) {
 					items.push(_buildEmbeddedItem(item, source));
 				}
@@ -82,45 +83,44 @@ export class CharacterPossessions {
 		await this._outfitItems.sync(source, items);
 	}
 
-	computeMaxUses(specialPossessions, level) {
+	computeMaxUses(possessions, level) {
 		const result = { ...this.maxUses };
-		for (const opt of (specialPossessions?.options ?? [])) {
-			if (!opt.usesBonus) continue;
+		for (const p of possessions) {
+			if (!p.scaling) continue;
 			let bonus = 0;
-			if (opt.usesBonus.evenLevelBonus) {
-				bonus += Math.floor(level / 2) * opt.usesBonus.evenLevelBonus;
+			if (p.scaling.perEvenLevel) bonus += Math.floor(level / 2) * p.scaling.perEvenLevel;
+			for (const mb of (p.scaling.perMove ?? [])) {
+				bonus += this._moves.countOwnedBySlug(mb.moveSlug) * mb.amount;
 			}
-			for (const mb of (opt.usesBonus.moveBonus ?? [])) {
-				bonus += this._moves.countOwnedBySlug(mb.moveSlug) * mb.perInstance;
-			}
-			if (bonus > 0) result[opt.slug] = (opt.resource?.max ?? 0) + bonus;
+			if (bonus > 0) result[p.slug] = (p.resource?.max ?? 0) + bonus;
 		}
 		return result;
 	}
 
 	async buildSnapshot(actorLevel) {
 		const playbookData = await this._playbook?.getData();
-		const specialPossessions = playbookData?.specialPossessions ?? null;
-		if (!specialPossessions) return null;
-		const { pickNote, pickCount, preselected = [], options } = specialPossessions;
-		const maxUsesMap = this.computeMaxUses(specialPossessions, actorLevel);
+		const sp = playbookData?.specialPossessions ?? null;
+		if (!sp) return null;
+		const { pickNote, pickCount, preselected = [], slugs = [] } = sp;
+		const possessions = await this._possessionRepo?.findBySlugs(slugs) ?? [];
+		const maxUsesMap = this.computeMaxUses(possessions, actorLevel);
 		const selectedSlugs = this.selected;
 		const usesMap = this.uses;
 		const preselectedSet = new Set(preselected);
 
-		const items = options.map(opt => {
-			const isPre = preselectedSet.has(opt.slug);
-			const isSelected = isPre || selectedSlugs.has(opt.slug);
-			const maxUses = maxUsesMap[opt.slug] ?? opt.resource?.max ?? null;
-			const currentUses = isSelected ? (usesMap[opt.slug] ?? 0) : 0;
-			const resourceDef = opt.resource ?? null;
+		const items = possessions.map(p => {
+			const isPre = preselectedSet.has(p.slug);
+			const isSelected = isPre || selectedSlugs.has(p.slug);
+			const maxUses = maxUsesMap[p.slug] ?? p.resource?.max ?? null;
+			const currentUses = isSelected ? (usesMap[p.slug] ?? 0) : 0;
+			const resourceDef = p.resource ?? null;
 			const resource = resourceDef
 				? ResourceController.build({ ...resourceDef, max: maxUses ?? resourceDef.max }, currentUses)
 				: null;
 			return new PossessionItemSnapshotBuilder()
-				.withSlug(opt.slug)
-				.withLabel(opt.label)
-				.withDescription(opt.description ?? "")
+				.withSlug(p.slug)
+				.withLabel(p.label)
+				.withDescription(p.description ?? "")
 				.withSelected(isSelected)
 				.withChecked(isSelected)
 				.withDisabled(isPre)
@@ -128,7 +128,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(isSelected && opt.choices ? ChoiceGroup.fromPackData(opt.choices, this._pickValues) : null)
+				.withChoices(isSelected && p.choices ? ChoiceGroup.fromPackData(p.choices, this._pickValues) : null)
 				.build();
 		});
 

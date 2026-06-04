@@ -1,0 +1,17 @@
+{
+	"_id": "UVjTMUoM9ZeP3eaa",
+	"_key": "!items!UVjTMUoM9ZeP3eaa",
+	"name": "Hounds",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "hounds",
+		"label": "Hounds",
+		"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

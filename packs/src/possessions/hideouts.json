@@ -1,0 +1,21 @@
+{
+	"_id": "qoe4VSceYnBxzuUk",
+	"_key": "!items!qoe4VSceYnBxzuUk",
+	"name": "Hideouts",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "hideouts",
+		"label": "Hideouts",
+		"description": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

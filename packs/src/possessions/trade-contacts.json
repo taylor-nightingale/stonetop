@@ -1,0 +1,17 @@
+{
+	"_id": "ob24fu7ANnHNcHCD",
+	"_key": "!items!ob24fu7ANnHNcHCD",
+	"name": "Trade contacts",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "trade-contacts",
+		"label": "Trade contacts",
+		"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

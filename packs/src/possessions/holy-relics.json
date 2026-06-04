@@ -1,0 +1,21 @@
+{
+	"_id": "oIcgz8zFC3aMW6on",
+	"_key": "!items!oIcgz8zFC3aMW6on",
+	"name": "Holy relics",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "holy-relics",
+		"label": "Holy relics",
+		"description": "○○○ uses: sacred objects of Helior's worship. Expend a use to add +1 to a roll involving the god's favor or power. Restore 1 use each season.",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

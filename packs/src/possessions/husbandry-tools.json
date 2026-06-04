@@ -1,0 +1,17 @@
+{
+	"_id": "6V4Pq5JsGTTMhxfn",
+	"_key": "!items!6V4Pq5JsGTTMhxfn",
+	"name": "Husbandry tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "husbandry-tools",
+		"label": "Husbandry tools",
+		"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.).",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

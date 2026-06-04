@@ -1,0 +1,28 @@
+{
+	"_id": "KGQaJhl0DtFzYqXx",
+	"_key": "!items!KGQaJhl0DtFzYqXx",
+	"name": "Distillery",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "distillery",
+		"label": "Distillery",
+		"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+		"resource": {
+			"max": 2,
+			"title": "Skins of fine whisky",
+			"labels": []
+		},
+		"outfitItems": [
+			{
+				"slug": "distillery-firkins",
+				"name": "Firkins",
+				"weight": 2,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

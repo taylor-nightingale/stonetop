@@ -541,105 +541,14 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "burglars-kit",
-					"label": "Burglar's kit",
-					"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
-					"outfitItems": [
-						{
-							"slug": "burglar-prybars",
-							"name": "Prybars",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "burglar-hacksaws",
-							"name": "Hacksaws",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "burglar-lantern",
-							"name": "Lantern",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": "<em>close, area</em>",
-							"resource": {
-								"max": 5,
-								"labels": [
-									"",
-									"",
-									"",
-									"",
-									"hours"
-								]
-							}
-						},
-						{
-							"slug": "burglar-grappling-hook",
-							"name": "Grappling hook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "carpenters-tools",
-					"label": "Carpenter's tools",
-					"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "hidden-stash",
-					"label": "Hidden stash",
-					"description": "each use produces valuables worth a purse of silvers (Value 2).",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "mummers-kit",
-					"label": "Mummer's kit",
-					"description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
-				},
-				{
-					"slug": "scribes-tools",
-					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-					"outfitItems": [
-						{
-							"slug": "scribe-notebook",
-							"name": "Notebook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "trade-contacts",
-					"label": "Trade contacts",
-					"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
-				}
+			"slugs": [
+				"burglars-kit",
+				"carpenters-tools",
+				"distillery",
+				"hidden-stash",
+				"mummers-kit",
+				"scribes-tools",
+				"trade-contacts"
 			]
 		}
 	}
