@@ -95,7 +95,7 @@ These values derive from other data and go stale if stored:
 
 ---
 
-## Phase 2: Possession Standalone Item Type
+## Phase 2: Possession Standalone Item Type ✓ COMPLETE
 
 ### Problem
 
@@ -115,6 +115,7 @@ New `possession` item type with its own compendium pack.
   "outfitItems": [],
   "resource": null,
   "choices": null,
+  "scaling": null,
   "sortOrder": null
 }
 ```
@@ -135,14 +136,15 @@ New `possession` item type with its own compendium pack.
 - No `playbookSlug` on possessions — possessions can be shared across playbooks; the playbook owns its list via `slugs`
 - `outfitItems` stay inline on the possession item (not standalone compendium entries) — matches how arcana front/back items work
 - Drag-and-drop adds a possession to the actor without auto-selecting it in the playbook picking flow
+- `scaling` field on `PossessionData` (not `usesBonus`) — fixes field-name bug from inline possession data
 
 ### Steps
 
-1. Add `possession` to item types in TypeDataModel (or `template.json` if still present)
-2. Create `possessions` compendium pack
-3. Extract possessions from each playbook JSON into the new pack
-4. Update playbook schema: `specialPossessions.options[]` → `specialPossessions.slugs[]`
-5. Update `CharacterPossessions` and `PossessionsSnapshot` to load from new pack
+1. ✓ Add `possession` to item types in TypeDataModel — `PossessionData.js` registered in `stonetop.js` + `system.json`
+2. ✓ Create `possessions` compendium pack — `packs/src/possessions/` (39 files), registered in `system.json`
+3. ✓ Extract possessions from each playbook JSON — `scripts/extract-possessions.js` run once; 9 playbooks updated
+4. ✓ Update playbook schema: `specialPossessions.options[]` → `specialPossessions.slugs[]`
+5. ✓ Update `CharacterPossessions` to load from repository — `FoundryPossessionRepository` wired via `FoundryRepositoryFactory.possessions` into `StonetopCharacter`; `FakeRepositoryFactory` + `TestCharacterBuilder` updated to match
 
 ---
 

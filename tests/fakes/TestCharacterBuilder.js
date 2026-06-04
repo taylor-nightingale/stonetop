@@ -57,6 +57,11 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
+	withPossessionRepo(repo) {
+		this._repos.possessions = repo ?? this._repos.possessions;
+		return this;
+	}
+
 	build() {
 		return new StonetopCharacter(this._actor, this._repos);
 	}

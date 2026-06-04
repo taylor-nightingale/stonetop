@@ -4,6 +4,7 @@ import {FoundryOutfitItemRepository} from "./FoundryOutfitItemRepository.js";
 import {FoundryArcanaRepository} from "./FoundryArcanaRepository.js";
 import {FoundryPostDeathInsertRepository} from "./FoundryPostDeathInsertRepository.js";
 import {FoundryFollowerRepository} from "./FoundryFollowerRepository.js";
+import {FoundryPossessionRepository} from "./FoundryPossessionRepository.js";
 
 export class FoundryRepositoryFactory {
 	get playbook() {
@@ -28,5 +29,9 @@ export class FoundryRepositoryFactory {
 
 	get followers() {
 		return this._followers ??= new FoundryFollowerRepository();
+	}
+
+	get possessions() {
+		return this._possessions ??= new FoundryPossessionRepository();
 	}
 }
