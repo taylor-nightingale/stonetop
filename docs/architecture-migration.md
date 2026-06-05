@@ -512,20 +512,23 @@ Three row types existed (`heading`, `follower`, unnamed pick default). `heading`
 
 ---
 
-## Phase 9B: Strip Possession Delegation from CharacterInventory
+## Phase 9B: Strip Possession Delegation from CharacterInventory ✓ COMPLETE
 
-`CharacterInventory.buildSnapshot()` calls `this._possessions.buildSnapshot(level)` and assembles the full `InventorySnapshot` itself. After Phase 5, possessions have their own item-embedded lifecycle and class — there is no reason `CharacterInventory` should know about them.
+`CharacterInventory.buildSnapshot()` previously delegated to `this._possessions.buildSnapshot(level)` and assembled the full `InventorySnapshot` itself, while `StonetopCharacter.buildSnapshot()` was also calling `this._possessions.buildSnapshot(level)` independently — computing the possessions snapshot twice. `CharacterSnapshot.possessions` was a dead top-level property; templates exclusively use `stonetop.inventory.possessions`.
 
-**What changes**
-- `CharacterInventory`: remove `_possessions` constructor arg; `buildSnapshot(level)` returns `OutfitSnapshot` (was `InventorySnapshot`)
-- `StonetopCharacter.buildSnapshot()`: call both `this._inventory.buildSnapshot(level)` and `this._possessions.buildSnapshot(level)` in the existing `Promise.all`, then pass both to `CharacterSnapshotBuilder`
-- `InventorySnapshot` construction moves from inside `CharacterInventory` to `StonetopCharacter`
+**What changed:**
+- `CharacterInventory`: removed `possessions` constructor arg; `buildSnapshot(level)` now returns `OutfitSnapshot` only (no `InventorySnapshot` wrapping, no `_possessions` call)
+- `StonetopCharacter.buildSnapshot()`: assembles `new InventorySnapshot(outfit, possessions, this._inventory.otherItems)` after the `Promise.all`, using the independently-computed `possessions` result
+- `CharacterSnapshot`: removed dead `possessions` top-level property and `withPossessions()` builder method
+- `CharacterInventory.test.js`: removed `possessions` param from `makeCi`; updated return-type assertions (`snap.outfit.*` → `snap.*`); removed delegation tests
+- `StonetopCharacter.buildSnapshot.test.js`: updated `snap.possessions` → `snap.inventory.possessions`
 
-The outfit catalog `getAll()` repo call stays — it is a catalog display query (every character sees every outfit item), not an ownership query. `getArmor()` also stays as a repo call; it is only in the mutation path (`setInventoryItemChecked`), not the render path.
+The outfit catalog `getAll()` repo call stays — it is a catalog display query, not an ownership query.
 
 ---
+## Phase 10: fix the move item builder
 
-## Phase 10
+## Phase 11
 Data and character migrations for pre-refactor to post-refactor changes.
 
 **Actor groupDef migration (from Phase 8):** scan `game.actors`, update `system.choices.groupDefs` and `system.postDeathChoices.groupDefs`:

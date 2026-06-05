@@ -1,5 +1,4 @@
 import {
-	InventorySnapshot,
 	LoadOptionSnapshot,
 	LoadSnapshotBuilder,
 	OutfitItemSnapshotBuilder,
@@ -11,10 +10,9 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
 
 export class CharacterInventory {
-	constructor(actor, inventoryRepo, possessions, outfitItems, resourceController) {
+	constructor(actor, inventoryRepo, outfitItems, resourceController) {
 		this._actor = actor;
 		this._repo = inventoryRepo;
-		this._possessions = possessions;
 		this._outfitItems = outfitItems;
 		this._resourceController = resourceController;
 	}
@@ -117,15 +115,14 @@ export class CharacterInventory {
 
 		const repoItems = await this._repo.getAll();
 
-		const outfit = new OutfitSnapshotBuilder()
+		return new OutfitSnapshotBuilder()
 			.withLoad(this.buildLoadSnapshot(this.loadLevel))
 			.withRegularSections(_buildSections(repoItems, embeddedItems, "regular", mapItem))
 			.withRegularPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.regularPool))
 			.withSmallSections(_buildSections(repoItems, embeddedItems, "small", mapItem))
 			.withSmallPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.smallPool))
+			.withOtherItems(this.otherItems)
 			.build();
-
-		return new InventorySnapshot(outfit, await this._possessions.buildSnapshot(level ?? 1), this.otherItems);
 	}
 
 	buildLoadSnapshot(loadLevel) {

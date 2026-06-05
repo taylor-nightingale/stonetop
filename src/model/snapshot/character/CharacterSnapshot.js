@@ -23,7 +23,6 @@ export {
 	OutfitSnapshot, OutfitSnapshotBuilder,
 	PossessionsSnapshot,
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,
-	InventorySnapshot,
 } from "./InventorySnapshot.js";
 export {
 	PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder,
@@ -49,11 +48,11 @@ export { ChoiceOption, ChoiceRow, EntryRow, ChoiceGroup, ChoiceValues } from "./
  * @property {Object.<string, StatSnapshot>} stats - keys: str dex con int wis cha
  * @property {VitalsSnapshot} vitals
  * @property {Movelist} moves
- * @property {InventorySnapshot} inventory
+ * @property {OutfitSnapshot} outfit
+ * @property {PossessionsSnapshot|null} possessions
  * @property {ArcanaSnapshot} arcana
  * @property {PostDeathInsertSnapshot|null} postDeathInsert
  * @property {FollowerSnapshot[]} followers
- * @property {PossessionsSnapshot|null} possessions
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
@@ -64,11 +63,11 @@ export class CharacterSnapshot {
 		this.stats           = b._stats;
 		this.vitals          = b._vitals;
 		this.moves           = b._moves;
-		this.inventory       = b._inventory;
+		this.outfit          = b._outfit;
+		this.possessions     = b._possessions ?? null;
 		this.arcana          = b._arcana;
 		this.postDeathInsert = b._postDeathInsert;
 		this.followers       = b._followers ?? [];
-		this.possessions     = b._possessions ?? null;
 		this.rollMode        = b._rollMode;
 	}
 }
@@ -80,11 +79,11 @@ export class CharacterSnapshotBuilder {
 	withStats(v)           { this._stats           = v; return this; }
 	withVitals(v)          { this._vitals          = v; return this; }
 	withMoves(v)           { this._moves           = v; return this; }
-	withInventory(v)       { this._inventory       = v; return this; }
+	withOutfit(v)          { this._outfit          = v; return this; }
+	withPossessions(v)     { this._possessions     = v; return this; }
 	withArcana(v)          { this._arcana          = v; return this; }
 	withPostDeathInsert(v) { this._postDeathInsert = v; return this; }
 	withFollowers(v)       { this._followers       = v; return this; }
-	withPossessions(v)     { this._possessions     = v; return this; }
 	withRollMode(v)        { this._rollMode        = v; return this; }
 	build()                { return new CharacterSnapshot(this); }
 }

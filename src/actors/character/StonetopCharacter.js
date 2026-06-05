@@ -36,7 +36,7 @@ export class StonetopCharacter {
 		this._playbook = new CharacterPlaybook(actor,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, repos.possessions);
-		this._inventory = new CharacterInventory(actor, repos.inventory, this._possessions, outfitItems, this._resourceController);
+		this._inventory = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor);
 		this._debilities = new CharacterDebilities(actor);
 		this._arcana = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers);
@@ -89,7 +89,7 @@ export class StonetopCharacter {
 		const {checked} = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
-		const [arcana, inventory, postDeath, playbook, vitals, moves, possessions] = await Promise.all([
+		const [arcana, outfit, postDeath, playbook, vitals, moves, possessions] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._postDeath.buildSnapshot(),
@@ -105,11 +105,11 @@ export class StonetopCharacter {
 			.withStats(this._stats.buildStatsSnapshot())
 			.withVitals(vitals)
 			.withMoves(moves)
-			.withInventory(inventory)
+			.withOutfit(outfit)
+			.withPossessions(possessions)
 			.withArcana(arcana)
 			.withPostDeathInsert(postDeath)
 			.withFollowers(followers)
-			.withPossessions(possessions)
 			.withRollMode(this.rollMode)
 			.build();
 	}
