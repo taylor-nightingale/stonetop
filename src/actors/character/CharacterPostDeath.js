@@ -1,70 +1,50 @@
-import {
-	PostDeathInsertSnapshotBuilder,
-	PostDeathSectionSnapshotBuilder,
-} from "../../model/snapshot/character/PostDeathInsertSnapshot.js";
+import { PostDeathInsertSnapshotBuilder } from "../../model/snapshot/character/PostDeathInsertSnapshot.js";
 
 export class CharacterPostDeath {
-	constructor(actor, instinct, lore, insertRepo, moves) {
-		this._actor = actor;
+	constructor(actor, instinct, lore, moves) {
+		this._actor    = actor;
 		this._instinct = instinct;
-		this._lore = lore;
-		this._insertRepo = insertRepo;
-		this._moves = moves;
+		this._lore     = lore;
+		this._moves    = moves;
 	}
 
-	get activeSlug() {
-		return this._actor.system?.postDeath?.insert ?? null;
-	}
+	get instinct() { return this._instinct; }
+	get lore()     { return this._lore; }
 
-	async setActiveSlug(s) {
-		await this._actor.update({ "system.postDeath.insert": s });
-	}
-
-	get instinct() {
-		return this._instinct;
-	}
-
-	get lore() {
-		return this._lore;
-	}
-
-	async setInsert(slug) {
-		const previousSlug = this.activeSlug;
-		if (previousSlug) {
-			await this._moves.removeCategory(`post-death-${previousSlug}`);
+	async onInsertDropped(item) {
+		const existing = [...this._actor.items]
+			.filter(i => i.type === "insert" && i._id !== item._id);
+		for (const old of existing) {
+			await this._moves.removeCategory(`post-death-${old.system?.slug}`);
+			await this._actor.deleteEmbeddedDocuments("Item", [old._id]);
 		}
-		await this.setActiveSlug(slug);
-		if (slug) {
-			const insert = await this._insertRepo.findBySlug(slug);
-			const moveType = `post-death-${slug}`;
-			await this._moves.addCategory(moveType, insert?.name ?? slug, slug);
-		}
+		const slug = item.system?.slug ?? null;
+		await this._moves.addCategory(`post-death-${slug}`, item.name, slug);
+	}
+
+	async removeInsert() {
+		const item = [...this._actor.items].find(i => i.type === "insert") ?? null;
+		if (!item) return;
+		await this._moves.removeCategory(`post-death-${item.system?.slug}`);
+		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
+	}
+
+	async onInsertRemoved(slug) {
+		if (slug) await this._moves.removeCategory(`post-death-${slug}`);
 	}
 
 	async buildSnapshot() {
-		const slug = this.activeSlug;
-		const allEntries = await this._insertRepo.getAll();
-
-		let activeInsert = null;
-		if (slug) {
-			const data = await this._insertRepo.findBySlug(slug);
-			if (data) {
-				const moveType = `post-death-${slug}`;
-				activeInsert = new PostDeathInsertSnapshotBuilder()
-					.withSlug(data.slug)
-					.withName(data.name)
-					.withImg(data.img)
-					.withDescription(data.description)
-					.withInstinct(await this._instinct.buildSnapshot(data.instinct))
-					.withLore(this._lore.buildSnapshot(data.lore))
-					.withMoves(await this._moves.getMoveSnapshotsForCategory(moveType))
-					.build();
-			}
-		}
-		return new PostDeathSectionSnapshotBuilder()
-			.withActiveSlug(slug)
-			.withActiveInsert(activeInsert)
-			.withAvailableInserts(allEntries)
+		const item = [...this._actor.items].find(i => i.type === "insert") ?? null;
+		if (!item) return null;
+		const slug = item.system?.slug ?? null;
+		return new PostDeathInsertSnapshotBuilder()
+			.withSlug(slug)
+			.withName(item.name)
+			.withImg(item.img ?? null)
+			.withDescription(item.system?.description ?? null)
+			.withInstinct(await this._instinct.buildSnapshot(item.system?.instinct ?? null))
+			.withLore(this._lore.buildSnapshot(item.system?.choices ?? []))
+			.withMoves(await this._moves.getMoveSnapshotsForCategory(`post-death-${slug}`))
 			.build();
 	}
 }

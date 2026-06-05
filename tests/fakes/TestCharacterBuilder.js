@@ -42,11 +42,6 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	withPostDeathInsertRepo(repo) {
-		this._repos.postDeathInsert = repo ?? this._repos.postDeathInsert;
-		return this;
-	}
-
 	withPossessionRepo(repo) {
 		this._repos.possessions = repo ?? this._repos.possessions;
 		return this;

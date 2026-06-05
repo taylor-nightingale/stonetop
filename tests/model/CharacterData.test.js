@@ -43,7 +43,6 @@ describe("CharacterData defaults", () => {
 		expect(d.instinct.custom).toBe("");
 		expect(d.origin.selected).toBe("");
 		expect(d.lore.values).toEqual({});
-		expect(d.postDeath.insert).toBeNull();
 		expect(d.postDeathInstinct.custom).toBe("");
 		expect(d.postDeathLore.values).toEqual({});
 	});

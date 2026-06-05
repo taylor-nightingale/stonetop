@@ -27,7 +27,6 @@ export {
 } from "./InventorySnapshot.js";
 export {
 	PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder,
-	PostDeathSectionSnapshot, PostDeathSectionSnapshotBuilder,
 } from "./PostDeathInsertSnapshot.js";
 export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
@@ -52,7 +51,7 @@ export { ChoiceOption, ChoiceRow, EntryRow, ChoiceGroup, ChoiceValues } from "./
  * @property {Movelist} moves
  * @property {InventorySnapshot} inventory
  * @property {ArcanaSnapshot} arcana
- * @property {PostDeathSectionSnapshot} postDeathInsert
+ * @property {PostDeathInsertSnapshot|null} postDeathInsert
  * @property {FollowerSnapshot[]} followers
  * @property {PossessionsSnapshot|null} possessions
  * @property {string} rollMode - "normal" | "adv" | "dis"

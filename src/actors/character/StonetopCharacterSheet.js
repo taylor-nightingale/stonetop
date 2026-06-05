@@ -213,17 +213,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("click", async ev => {
-				const btn = ev.target.closest(".stonetop-pdi-activate");
-				if (!btn) return;
-				ev.stopPropagation();
-				await this._stonetopCharacter.setPostDeathInsert(btn.dataset.slug);
-			}, true);
-
-			html[0].addEventListener("click", async ev => {
 				const btn = ev.target.closest(".stonetop-pdi-remove");
 				if (!btn) return;
 				ev.stopPropagation();
-				await this._stonetopCharacter.setPostDeathInsert(null);
+				await this._stonetopCharacter.removeInsert();
 			}, true);
 
 			html[0].addEventListener("click", async ev => {

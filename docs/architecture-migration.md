@@ -491,40 +491,24 @@ Three row types existed (`heading`, `follower`, unnamed pick default). `heading`
 
 ---
 
-## Phase 9A: Embed Insert on Drag-Drop
+## Phase 9A: Embed Insert on Drag-Drop ✓ COMPLETE
 
-`CharacterPostDeath` currently calls `insertRepo.getAll()` (for the choose-fate dropdown) and `insertRepo.findBySlug(slug)` (for active insert data + move category name) in every `buildSnapshot()`. The UI shows a panel of buttons to pick which insert to activate.
+`CharacterPostDeath` previously called `insertRepo.getAll()` and `insertRepo.findBySlug(slug)` on every render, and stored the active insert slug in `actor.system.postDeath.insert`.
 
-**New flow:** drag an `insert` item onto the sheet → Foundry embeds it → tab appears. No pick-from-list panel.
+**New flow:** drag an `insert` item from the compendium browser → Foundry embeds it in `actor.items` → post-death tab appears. Presence of the embedded item is the state.
 
-### What changes
+**What changed:**
+- `CharacterPostDeath`: removed `_insertRepo`; removed `setInsert`, `activeSlug`, `setActiveSlug`; added `onInsertDropped(item)`, `removeInsert()`, `onInsertRemoved(slug)`; `buildSnapshot()` reads from `actor.items`, returns `PostDeathInsertSnapshot | null`
+- `StonetopCharacter`: `_onCreateDescendantDocuments` calls `onInsertDropped`; `_onDeleteDescendantDocuments` calls `onInsertRemoved`; removed `setPostDeathInsert`; added `removeInsert()`
+- `PostDeathSectionSnapshot` + builder deleted; `CharacterSnapshot.postDeathInsert` is now `PostDeathInsertSnapshot | null`
+- `CharacterData`: removed `postDeath: SchemaField({ insert: StringField })` — embedded item is the state
+- `StonetopCharacterSheet`: removed `.stonetop-pdi-activate` handler; `.stonetop-pdi-remove` now calls `removeInsert()`
+- `character.hbs`: post-death tab nav is conditional on `stonetop.postDeathInsert`
+- `tab-post-death.hbs`: removed choose-fate block; paths flattened from `activeInsert.name` → `name`
+- Removed `postDeathInsert` from `FoundryRepositoryFactory`, `FakeRepositoryFactory`, `TestCharacterBuilder`
+- Added `tests/fakes/TestInsertItemBuilder.js`
 
-**`CharacterPostDeath`**
-- Constructor: remove `insertRepo` arg
-- Remove `setInsert(slug)`, `activeSlug`, `setActiveSlug()`
-- Add `onInsertDropped(item)` — called from `_onCreateDescendantDocuments`; adds move category using `item.name`, no repo fetch
-- Add `removeInsert()` — finds embedded insert item and calls `deleteEmbeddedDocuments`
-- Add `onInsertRemoved(slug)` — removes move category; called from `_onDeleteDescendantDocuments`
-- `buildSnapshot()` returns `PostDeathInsertSnapshot | null` (not `PostDeathSectionSnapshot`); reads from `actor.items.find(i => i.type === "insert")`; maps `item.system.choices` → lore (same mapping as `PostDeathInsert` class did)
-
-**`StonetopCharacter`**
-- `_onCreateDescendantDocuments`: change insert branch to call `this._postDeath.onInsertDropped(item)`
-- `_onDeleteDescendantDocuments`: add insert branch → `this._postDeath.onInsertRemoved(slug)`
-- Remove `setPostDeathInsert(slug)`; add `removeInsert()` → delegates to `this._postDeath.removeInsert()`
-
-**Snapshot**
-- `PostDeathSectionSnapshot` + its builder are deleted
-- Character snapshot's `postDeathInsert` field is `PostDeathInsertSnapshot | null`
-
-**`CharacterData.js`**
-- Remove `postDeath: SchemaField({ insert: StringField })` — embedded item presence is the state
-
-**Templates**
-- `character.hbs`: tab nav entry is conditional: `{{#if stonetop.postDeathInsert}}<a ... data-tab="post-death">...</a>{{/if}}`
-- `tab-post-death.hbs`: remove `{{else}}` block (choose-fate / availableInserts); flatten path: `stonetop.postDeathInsert.name` (was `stonetop.postDeathInsert.activeInsert.name`); remove button calls `removeInsert`
-
-**Repos / factories**
-- Remove `postDeathInsert` from `FoundryRepositoryFactory`, `FakeRepositoryFactory`, `TestCharacterBuilder`
+**Actor migration note:** `system.postDeath.insert` on existing actors is orphaned — cleaned up in Phase 10.
 
 ---
 

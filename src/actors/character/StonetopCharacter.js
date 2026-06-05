@@ -48,7 +48,6 @@ export class StonetopCharacter {
 				"postDeathInstinct"
 			),
 			new CharacterLore(actor, "postDeathLore"),
-			repos.postDeathInsert,
 			this._moves,
 		);
 		this._playbook.setVitals(this._vitals);
@@ -115,8 +114,8 @@ export class StonetopCharacter {
 			.build();
 	}
 
-	async setPostDeathInsert(slug) {
-		await this._postDeath.setInsert(slug);
+	async removeInsert() {
+		await this._postDeath.removeInsert();
 	}
 
 	async setInventoryItemChecked(slug, isChecked) {
@@ -243,9 +242,7 @@ export class StonetopCharacter {
 		}
 
 		const insertItem = documents.find(d => d.type === "insert");
-		if (insertItem) {
-			await this._postDeath.setInsert(insertItem.system?.slug ?? null);
-		}
+		if (insertItem) await this._postDeath.onInsertDropped(insertItem);
 	}
 
 	async _onDeleteDescendantDocuments(documents) {
@@ -255,6 +252,9 @@ export class StonetopCharacter {
 				playbookItem.system?.slug ?? null,
 			);
 		}
+
+		const insertItem = documents.find(d => d.type === "insert");
+		if (insertItem) await this._postDeath.onInsertRemoved(insertItem.system?.slug ?? null);
 	}
 
 	get rollMode() {

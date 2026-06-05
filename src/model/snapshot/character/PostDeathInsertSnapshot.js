@@ -5,7 +5,7 @@
  * @property {string|null} description  - trigger text ("When you die but...")
  * @property {InstinctSection} instinct - replaces the playbook instinct
  * @property {MoveSnapshot[]} moves     - all granted automatically
- * @property {LoreSection} lore         - terrible purpose, consequences, etc.
+ * @property {ChoiceGroup[]} lore       - terrible purpose, consequences, etc.
  */
 export class PostDeathInsertSnapshot {
 	constructor(b) {
@@ -17,21 +17,6 @@ export class PostDeathInsertSnapshot {
 		this.moves       = b._moves;
 		this.lore        = b._lore;
 	}
-}
-
-export class PostDeathSectionSnapshot {
-	constructor(b) {
-		this.activeSlug       = b._activeSlug;
-		this.activeInsert     = b._activeInsert;
-		this.availableInserts = b._availableInserts;
-	}
-}
-
-export class PostDeathSectionSnapshotBuilder {
-	withActiveSlug(v)       { this._activeSlug       = v; return this; }
-	withActiveInsert(v)     { this._activeInsert     = v; return this; }
-	withAvailableInserts(v) { this._availableInserts = v; return this; }
-	build()                 { return new PostDeathSectionSnapshot(this); }
 }
 
 export class PostDeathInsertSnapshotBuilder {
