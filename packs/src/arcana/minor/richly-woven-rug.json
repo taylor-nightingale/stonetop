@@ -18,14 +18,14 @@
 				"slug": "richly-woven-rug",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the secrets of this rug, but you must first…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marked-by-fire",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-meditation",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "burned-by-flame",
 						"content": {
 							"title": null,

@@ -18,14 +18,14 @@
 				"slug": "the-key",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "master-fear",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hold-tight",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-migraines",
 						"content": {
 							"title": null,

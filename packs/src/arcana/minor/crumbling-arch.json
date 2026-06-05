@@ -18,14 +18,14 @@
 				"slug": "crumbling-arch",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn the secrets of the sanctifying mark, but to do so you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "purify-yourself",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "gaze-and-roll",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "memorize-sigil",
 						"content": {
 							"title": null,

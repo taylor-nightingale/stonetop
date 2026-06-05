@@ -13,14 +13,14 @@
 				"slug": "grim-peat-mound",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "It is young and eager, and can be set to work upon criminals, but only if you…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "communicate",
 						"content": {
 							"title": null,
@@ -31,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-guilty-only",
 						"content": {
 							"title": null,

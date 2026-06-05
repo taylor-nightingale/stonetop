@@ -18,14 +18,14 @@
 				"slug": "metal-puzzle-box",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "roll-to-open",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "season-deciphering",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-mental-quirk",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "commune-spirit",
 						"content": {
 							"title": null,
@@ -69,7 +69,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "days-practice",
 						"content": {
 							"title": null,

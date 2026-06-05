@@ -11,21 +11,21 @@
 			"slug": "expanded-trades",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Expanded Trades",
 						"text": "<p>Specialization is the key to prosperity!</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "req-harnessing-stream",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "req-raincatching",
 					"content": {
 						"title": null,
@@ -47,7 +47,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "req-mill",
 					"content": {
 						"title": null,
@@ -58,14 +58,14 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>And establishing at least 3 of the following:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "chandler",
 					"content": {
 						"title": null,
@@ -76,7 +76,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "glassblower",
 					"content": {
 						"title": null,
@@ -87,7 +87,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "weaver",
 					"content": {
 						"title": null,
@@ -98,7 +98,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "potter",
 					"content": {
 						"title": null,
@@ -109,7 +109,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "smith",
 					"content": {
 						"title": null,
@@ -120,7 +120,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "other-tradesperson",
 					"content": {
 						"title": null,
@@ -131,7 +131,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"

@@ -18,14 +18,14 @@
 				"slug": "strange-skull-and-antlers",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of this relic, you…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-name",
 						"content": {
 							"title": null,
@@ -36,14 +36,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "call-spirits",
 						"content": {
 							"title": null,

@@ -11,21 +11,21 @@
 			"slug": "raincatching",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Raincatching",
 						"text": "<p>Filling the cistern takes so much work. Surely, we can do better!</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "slate-terracotta",
 					"content": {
 						"title": null,
@@ -47,7 +47,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "pull-together",
 					"content": {
 						"title": null,
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Raincatching\" to the Resources list.</p><p>Henceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"

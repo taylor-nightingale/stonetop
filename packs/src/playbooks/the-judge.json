@@ -199,14 +199,14 @@
 				"slug": "chronicle-plus",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "The Chronicle",
 							"text": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sturdy-vault",
 						"content": {
 							"title": null,
@@ -217,7 +217,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "room-to-grow",
 						"content": {
 							"title": null,
@@ -228,7 +228,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hidden-underground",
 						"content": {
 							"title": null,
@@ -239,7 +239,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "one-entrance",
 						"content": {
 							"title": null,
@@ -250,7 +250,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "minor-magics",
 						"content": {
 							"title": null,
@@ -261,7 +261,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "warded",
 						"content": {
 							"title": null,
@@ -272,7 +272,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "living-quarters",
 						"content": {
 							"title": null,
@@ -288,14 +288,14 @@
 				"slug": "chronicle-minus",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "But Alas, It…",
 							"text": "<p><em>(choose 2)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "outskirts",
 						"content": {
 							"title": null,
@@ -306,7 +306,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "cramped",
 						"content": {
 							"title": null,
@@ -317,7 +317,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "crude-cellar",
 						"content": {
 							"title": null,
@@ -328,7 +328,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "haunted",
 						"content": {
 							"title": null,
@@ -339,7 +339,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dangerous-artifacts",
 						"content": {
 							"title": null,
@@ -355,14 +355,14 @@
 				"slug": "lawkeeper-shrine",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "The Lawkeeper",
 							"text": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-hub",
 						"content": {
 							"title": null,
@@ -373,7 +373,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-high-holiday",
 						"content": {
 							"title": null,
@@ -384,7 +384,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-neglected",
 						"content": {
 							"title": null,
@@ -395,7 +395,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-grim",
 						"content": {
 							"title": null,
@@ -406,7 +406,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-new",
 						"content": {
 							"title": null,
@@ -422,14 +422,14 @@
 				"slug": "lawkeeper-demands",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Of Her True Disciples, Aratis Demands…",
 							"text": "<p><em>(choose 3)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "truth",
 						"content": {
 							"title": null,
@@ -440,7 +440,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hospitality",
 						"content": {
 							"title": null,
@@ -451,7 +451,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "punishment",
 						"content": {
 							"title": null,
@@ -462,7 +462,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "diet-dress",
 						"content": {
 							"title": null,
@@ -473,7 +473,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "authority",
 						"content": {
 							"title": null,

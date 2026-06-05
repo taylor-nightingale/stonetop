@@ -463,11 +463,35 @@ Possessions are embedded into `actor.items` when a playbook is dropped onto a ch
 - `CharacterFollowers.setChoiceValue/setChoiceText` use `forItem`
 - `buildGroupSnapshot(namespace, followersBySlug = {})` gained the `followersBySlug` param
 
-**This phase is a prerequisite for Phase 8A and 8B.**
+**This phase is a prerequisite for Phase 8, 9A, and 9B.**
 
 ---
 
-## Phase 8A: Embed Insert on Drag-Drop
+## Phase 8: ChoiceGroup Row Type Unification ✓ COMPLETE
+
+Three row types existed (`heading`, `follower`, unnamed pick default). `heading` was misleadingly named; `follower` was special-cased. The unified model has two types: **`entry`** and **`pick`**.
+
+**`entry`** — replaces both `heading` and `follower`. Carries `content`, `track`, `input`, `note`, `followers: [slug]`, `outfitItems: [descriptor]`, `inlineDisplay`. Follower side effects are declared via `followers` field, not by row type.
+
+**`pick`** — unchanged container of options. Options now also carry `followers` and `outfitItems` for side effects, matching `entry` semantics.
+
+**What changed:**
+- `HeadingRow` class renamed to `EntryRow` (`type: "entry"`); `FollowerRow` class removed
+- `ChoiceGroup.buildRow` handles legacy types (`"heading"`, `"follower"`) for backward compatibility with existing actor groupDefs
+- `ChoiceGroup.buildEntryRow` resolves `followers: [slug]` from `followersBySlug` map; legacy `type: "follower"` rows use the row's own slug
+- `ChoiceGroupController._fireSideEffects` unified: looks up target by slug across both entry rows and pick options; fires follower effects via `target.followers[]` (or legacy `target.type === "follower"`); fires outfitItem effects per-option with source `${sourcePrefix}:${namespace}:${optionSlug}`
+- `ChoiceGroupController.selectOption` now fires remove side effects for previously-selected siblings (follower remove, outfitItem deleteBySource)
+- `_syncOutfitItems` method removed — replaced by per-option source logic in `_fireSideEffects`
+- `outfitItems` handler shape changed: `{ items, source }` → `{ items, sourcePrefix }`
+- Templates: `choice-row.hbs` merges follower/heading branches under `type === "entry"`; follower card section conditional on `row.followers.length > 0`; `tab-equipment.hbs` and `move.hbs` updated to `"entry"` type check
+- Pack data: 131 files migrated `"heading"` → `"entry"`; 12 playbook files migrated `"follower"` → `"entry"` with `followers: [slug]`, `content.text` from `title`; 5 follower pack files fixed a pre-existing bug (`type: "heading"` in pick options → `type: "input"`)
+- Migration script: `scripts/migrate-choice-row-types.js`
+
+**Actor groupDef migration** — `system.choices.groupDefs` and `system.postDeathChoices.groupDefs` on existing actors still contain old row types. Backward compat in `buildRow` and `_fireSideEffects` handles this until Phase 10. The migration function is documented in Phase 10.
+
+---
+
+## Phase 9A: Embed Insert on Drag-Drop
 
 `CharacterPostDeath` currently calls `insertRepo.getAll()` (for the choose-fate dropdown) and `insertRepo.findBySlug(slug)` (for active insert data + move category name) in every `buildSnapshot()`. The UI shows a panel of buttons to pick which insert to activate.
 
@@ -504,7 +528,7 @@ Possessions are embedded into `actor.items` when a playbook is dropped onto a ch
 
 ---
 
-## Phase 8B: Strip Possession Delegation from CharacterInventory
+## Phase 9B: Strip Possession Delegation from CharacterInventory
 
 `CharacterInventory.buildSnapshot()` calls `this._possessions.buildSnapshot(level)` and assembles the full `InventorySnapshot` itself. After Phase 5, possessions have their own item-embedded lifecycle and class — there is no reason `CharacterInventory` should know about them.
 
@@ -517,5 +541,28 @@ The outfit catalog `getAll()` repo call stays — it is a catalog display query 
 
 ---
 
-## Phase 9
+## Phase 10
 Data and character migrations for pre-refactor to post-refactor changes.
+
+**Actor groupDef migration (from Phase 8):** scan `game.actors`, update `system.choices.groupDefs` and `system.postDeathChoices.groupDefs`:
+
+```js
+function migrateGroupDefs(defs) {
+    let changed = false;
+    const result = {};
+    for (const [ns, def] of Object.entries(defs ?? {})) {
+        const newList = (def.list ?? []).map(row => {
+            if (row.type === "follower") {
+                changed = true;
+                return { ...row, type: "entry", followers: [row.slug], content: { title: null, text: row.title ?? "" } };
+            }
+            if (row.type === "heading") { changed = true; return { ...row, type: "entry" }; }
+            return row;
+        });
+        result[ns] = { ...def, list: newList };
+    }
+    return changed ? result : null;
+}
+```
+
+Once this migration runs, the backward compat branches in `buildRow` and `_fireSideEffects` can be removed.

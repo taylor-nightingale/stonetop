@@ -18,14 +18,14 @@
 				"slug": "oversized-crown",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "But to fully unlock the mysteries of this crown, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-sense-of-self",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-words-of-being",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-words-of-unbeing",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-manifest",
 						"content": {
 							"title": null,
@@ -90,13 +90,19 @@
 				"slug": "oversized-crown",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "void-elemental",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"void-elemental"
+						]
 					}
 				]
 			},

@@ -203,14 +203,14 @@
 				"slug": "helior-worship-spread",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "The Worship of Helior Is…",
 							"text": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ancient-widespread",
 						"content": {
 							"title": null,
@@ -221,7 +221,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lygos-south",
 						"content": {
 							"title": null,
@@ -232,7 +232,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "new-thing",
 						"content": {
 							"title": null,
@@ -243,7 +243,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "old-forgotten",
 						"content": {
 							"title": null,
@@ -254,7 +254,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "persecuted",
 						"content": {
 							"title": null,
@@ -270,14 +270,14 @@
 				"slug": "helior-worship-practice",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "He Is Worshipped Through…",
 							"text": "<p><em>(choose 1 or 2)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "solemn-hymns",
 						"content": {
 							"title": null,
@@ -288,7 +288,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "meditation",
 						"content": {
 							"title": null,
@@ -299,7 +299,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "joyful-song",
 						"content": {
 							"title": null,
@@ -310,7 +310,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ascetic-denial",
 						"content": {
 							"title": null,
@@ -321,7 +321,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dancing",
 						"content": {
 							"title": null,
@@ -332,7 +332,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ceremonies",
 						"content": {
 							"title": null,
@@ -343,7 +343,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "drugs",
 						"content": {
 							"title": null,
@@ -354,7 +354,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "pain-sacrifice",
 						"content": {
 							"title": null,
@@ -370,14 +370,14 @@
 				"slug": "helior-shrine",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
 							"text": "<p><em>(choose 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "highest-honor",
 						"content": {
 							"title": null,
@@ -388,7 +388,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "well-tended",
 						"content": {
 							"title": null,
@@ -399,7 +399,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "recently-restored",
 						"content": {
 							"title": null,
@@ -410,7 +410,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "seen-better-days",
 						"content": {
 							"title": null,
@@ -426,14 +426,14 @@
 				"slug": "helior-predecessor",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Your Predecessor, the Previous Lightbearer…",
 							"text": "<p><em>(choose 2 or 3)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lived-long-ago",
 						"content": {
 							"title": null,
@@ -444,7 +444,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "martyred",
 						"content": {
 							"title": null,
@@ -455,7 +455,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "died-facing",
 						"content": {
 							"title": null,
@@ -466,7 +466,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wrote-works",
 						"content": {
 							"title": null,
@@ -477,7 +477,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "things-below",
 						"content": {
 							"title": null,
@@ -488,7 +488,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "died-peacefully",
 						"content": {
 							"title": null,
@@ -499,7 +499,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ascended",
 						"content": {
 							"title": null,
@@ -510,7 +510,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "reincarnated",
 						"content": {
 							"title": null,
@@ -526,14 +526,14 @@
 				"slug": "helior-powers-origin",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "You Came Into Your Powers…",
 							"text": "<p><em>(choose 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "years-study",
 						"content": {
 							"title": null,
@@ -544,7 +544,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "predecessor",
 						"content": {
 							"title": null,
@@ -555,7 +555,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sudden",
 						"content": {
 							"title": null,
@@ -566,7 +566,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "visitation",
 						"content": {
 							"title": null,
@@ -577,7 +577,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "first-sight",
 						"content": {
 							"title": null,

@@ -429,7 +429,7 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 		await cp.select("weapons-of-war");
 		const snap = await cp.buildSnapshot(1);
 		const heading = snap.items.find(i => i.slug === "weapons-of-war").choices.list[0];
-		expect(heading.type).toBe("heading");
+		expect(heading.type).toBe("entry");
 		expect(heading.content.title).toBe("Choose your weapon");
 		expect(heading.note).toBe("pick 1");
 	});
@@ -488,7 +488,7 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 		const snap = await cp.buildSnapshot(1);
 		const list = snap.items.find(i => i.slug === "weapons-of-war").choices.list;
 		expect(list).toHaveLength(3);
-		expect(list[0].type).toBe("heading");
+		expect(list[0].type).toBe("entry");
 		expect(list[1].options).toHaveLength(2);
 		expect(list[2].options).toHaveLength(3);
 	});

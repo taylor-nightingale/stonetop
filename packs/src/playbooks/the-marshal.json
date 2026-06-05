@@ -207,14 +207,14 @@
 				"slug": "war-stories-action",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "The Last Time the Militia Saw Serious Action, It Was…",
 							"text": "<p><em>(pick 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "crinwin-raid",
 						"content": {
 							"title": null,
@@ -225,7 +225,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bandits",
 						"content": {
 							"title": null,
@@ -236,7 +236,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hillfolk",
 						"content": {
 							"title": null,
@@ -247,7 +247,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "brennan-claws",
 						"content": {
 							"title": null,
@@ -258,7 +258,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hagr",
 						"content": {
 							"title": null,
@@ -269,7 +269,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "beasts",
 						"content": {
 							"title": null,
@@ -285,14 +285,14 @@
 				"slug": "war-stories-questions",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Answer At Least 3 of the Following",
 							"text": ""
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "when",
 						"content": {
 							"title": null,
@@ -301,7 +301,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "who-died",
 						"content": {
 							"title": null,
@@ -310,7 +310,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "who-maimed",
 						"content": {
 							"title": null,
@@ -319,7 +319,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "saved-day",
 						"content": {
 							"title": null,
@@ -328,7 +328,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "enemy-away",
 						"content": {
 							"title": null,
@@ -337,7 +337,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "honor",
 						"content": {
 							"title": null,
@@ -346,7 +346,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bugging",
 						"content": {
 							"title": null,
@@ -355,7 +355,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "worried",
 						"content": {
 							"title": null,

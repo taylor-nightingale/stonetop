@@ -212,14 +212,14 @@
 				"slug": "violence-fame",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Just About Everyone Here Talks About the Time You…",
 							"text": "<p><em>(pick 1 or 2)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "thunder-drake",
 						"content": {
 							"title": null,
@@ -230,7 +230,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hagr",
 						"content": {
 							"title": null,
@@ -241,7 +241,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "crinwin-dozen",
 						"content": {
 							"title": null,
@@ -252,7 +252,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "adventurers",
 						"content": {
 							"title": null,
@@ -263,7 +263,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ivan",
 						"content": {
 							"title": null,
@@ -274,7 +274,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bleeding",
 						"content": {
 							"title": null,
@@ -285,7 +285,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lightning",
 						"content": {
 							"title": null,
@@ -301,14 +301,14 @@
 				"slug": "violence-shadows",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "But Folks Are Less Keen to Discuss…",
 							"text": "<p><em>(pick 1 or 2)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "blood-look",
 						"content": {
 							"title": null,
@@ -319,7 +319,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hard-cases",
 						"content": {
 							"title": null,
@@ -330,7 +330,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shouting",
 						"content": {
 							"title": null,
@@ -341,7 +341,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "claws",
 						"content": {
 							"title": null,
@@ -352,7 +352,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "urbgen",
 						"content": {
 							"title": null,
@@ -363,7 +363,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "seizures",
 						"content": {
 							"title": null,
@@ -379,14 +379,14 @@
 				"slug": "violence-fears",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "What Keeps You Up at Night?",
 							"text": "<p><em>(pick 1 or 2)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "temper",
 						"content": {
 							"title": null,
@@ -397,7 +397,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "someone-coming",
 						"content": {
 							"title": null,
@@ -408,7 +408,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "crinwin-bolder",
 						"content": {
 							"title": null,
@@ -419,7 +419,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "brennan",
 						"content": {
 							"title": null,
@@ -430,7 +430,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dark-visions",
 						"content": {
 							"title": null,
@@ -441,7 +441,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "family",
 						"content": {
 							"title": null,
@@ -452,7 +452,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "truth",
 						"content": {
 							"title": null,

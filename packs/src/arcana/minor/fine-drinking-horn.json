@@ -18,14 +18,14 @@
 				"slug": "fine-drinking-horn",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fill-whisky",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "drink-single-pull",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-blacking-out",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "survive-storm",
 						"content": {
 							"title": null,

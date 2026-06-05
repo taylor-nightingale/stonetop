@@ -33,7 +33,7 @@
 				"slug": "choices",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weapon",
 						"content": {
 							"title": null,
@@ -44,7 +44,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "cost",
 						"content": {
 							"title": null,
@@ -55,7 +55,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Pick 1 on each line",
 							"text": null
@@ -79,13 +79,8 @@
 								"text": "they"
 							},
 							{
-								"type": "heading",
 								"slug": "custom",
-								"content": {
-									"title": null,
-									"text": null
-								},
-								"input": {}
+								"type": "input"
 							}
 						]
 					},

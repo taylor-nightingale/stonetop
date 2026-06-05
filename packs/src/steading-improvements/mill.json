@@ -11,21 +11,21 @@
 			"slug": "mill",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Mill",
 						"text": "<p>We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> all of the following:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "power-source",
 					"content": {
 						"title": null,
@@ -47,7 +47,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "building-site",
 					"content": {
 						"title": null,
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "pull-together",
 					"content": {
 						"title": null,
@@ -69,7 +69,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "full-time-miller",
 					"content": {
 						"title": null,
@@ -80,7 +80,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.</p><p>Henceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.</p>"

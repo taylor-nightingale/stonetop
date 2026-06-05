@@ -13,14 +13,14 @@
 				"slug": "path-in-the-woods",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "follow-paths",
 						"content": {
 							"title": null,
@@ -31,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "chase-hart",
 						"content": {
 							"title": null,
@@ -42,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wrestle-serpent",
 						"content": {
 							"title": null,

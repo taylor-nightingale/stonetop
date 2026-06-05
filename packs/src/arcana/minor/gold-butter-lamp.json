@@ -18,14 +18,14 @@
 				"slug": "gold-butter-lamp",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "consult-disciple",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "acquire-ingredients",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-wraiths",
 						"content": {
 							"title": null,

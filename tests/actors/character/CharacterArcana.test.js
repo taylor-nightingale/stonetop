@@ -9,7 +9,7 @@ import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanumSnapshot, ArcanumFrontSnapshot, ArcanumBackSnapshot,
-	ChoiceGroup, HeadingRow, FollowerRow,
+	ChoiceGroup, EntryRow,
 } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Helpers ------------------------------------------------------------------
@@ -205,27 +205,27 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).front.unlock.slug).toBe("huge-wooden-sphere");
 		});
 
-		it("front.unlock.list first item is a HeadingRow with the unlock description", async () => {
+		it("front.unlock.list first item is an EntryRow with the unlock description", async () => {
 			const row = (await getItem()).front.unlock.list[0];
-			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row).toBeInstanceOf(EntryRow);
 			expect(row.content.text).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
 		});
 
-		it("front.unlock.list has all heading nodes", async () => {
+		it("front.unlock.list has all entry nodes", async () => {
 			const { list } = (await getItem()).front.unlock;
 			expect(list).toHaveLength(6);
-			expect(list.every(r => r.type === "heading")).toBe(true);
+			expect(list.every(r => r.type === "entry")).toBe(true);
 		});
 
-		it("heading row without track has null track field", async () => {
+		it("entry row without track has null track field", async () => {
 			const row = (await getItem()).front.unlock.list[0];
-			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row).toBeInstanceOf(EntryRow);
 			expect(row.track).toBeNull();
 		});
 
-		it("heading row with track has slug and checks array", async () => {
+		it("entry row with track has slug and checks array", async () => {
 			const row = (await getItem()).front.unlock.list[2];
-			expect(row).toBeInstanceOf(HeadingRow);
+			expect(row).toBeInstanceOf(EntryRow);
 			expect(row.track).not.toBeNull();
 			expect(row.track.slug).toBe("dig-sphere");
 			expect(row.content.text).toBe("… first dig up and clean the sphere.");
@@ -711,35 +711,35 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		expect(snap.minor.items[0].back.choices).toBeInstanceOf(ChoiceGroup);
 	});
 
-	it("back.choices.list contains FollowerRow instances", async () => {
+	it("back.choices.list contains EntryRow instances for follower rows", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
 		const row = snap.minor.items[0].back.choices.list[0];
-		expect(row).toBeInstanceOf(FollowerRow);
+		expect(row).toBeInstanceOf(EntryRow);
 		expect(row.slug).toBe("andalau-of-the-flute");
 	});
 
-	it("FollowerRow.follower is null when not in actor.items", async () => {
+	it("EntryRow.followers is empty when follower is not in actor.items", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].follower).toBeNull();
+		expect(snap.minor.items[0].back.choices.list[0].followers).toEqual([]);
 	});
 
-	it("FollowerRow.follower resolves when follower is in actor.items", async () => {
+	it("EntryRow.followers resolves when follower is in actor.items", async () => {
 		const { actor, charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		actor.items.push(makeNpcItem("andalau-of-the-flute", { owned: false }));
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].follower).not.toBeNull();
-		expect(snap.minor.items[0].back.choices.list[0].follower.slug).toBe("andalau-of-the-flute");
+		expect(snap.minor.items[0].back.choices.list[0].followers).toHaveLength(1);
+		expect(snap.minor.items[0].back.choices.list[0].followers[0].slug).toBe("andalau-of-the-flute");
 	});
 
-	it("FollowerRow.track.checks is [false] when backChoices count is 0", async () => {
+	it("EntryRow.track.checks is [false] when backChoices count is 0", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
 		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([false]);
 	});
 
-	it("FollowerRow.track.checks is [true] when backChoices count is 1", async () => {
+	it("EntryRow.track.checks is [true] when backChoices count is 1", async () => {
 		const { charArcana } = makeArcanaWithFollowers([
 			makeArcanumItem(CRACKED_FLUTE, { backChoices: { "cracked-flute": { "andalau-of-the-flute": 1 } } }),
 		]);

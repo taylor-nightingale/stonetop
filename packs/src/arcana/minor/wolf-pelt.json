@@ -18,14 +18,14 @@
 				"slug": "wolf-pelt",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hunt-moonlit",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "eat-raw-liver",
 						"content": {
 							"title": null,

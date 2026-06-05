@@ -38,14 +38,14 @@
 				"slug": "terrible-purpose",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Terrible Purpose",
 							"text": "<p>Choose 1:</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "longing",
 						"content": {
 							"title": null,
@@ -56,7 +56,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "vengeance",
 						"content": {
 							"title": null,
@@ -67,7 +67,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "duty",
 						"content": {
 							"title": null,
@@ -83,14 +83,14 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Consequences",
 							"text": "<p>When you first take this insert, choose 1. Choose another whenever a move tells you to do so.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "breakdown",
 						"content": {
 							"title": null,
@@ -101,7 +101,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "unstable",
 						"content": {
 							"title": null,
@@ -112,7 +112,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "carrion-stench",
 						"content": {
 							"title": null,
@@ -123,7 +123,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "deathly-visage",
 						"content": {
 							"title": null,
@@ -134,7 +134,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "home-to-vermin",
 						"content": {
 							"title": null,
@@ -145,7 +145,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "nightkin",
 						"content": {
 							"title": null,
@@ -156,7 +156,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "quarry",
 						"content": {
 							"title": null,
@@ -167,7 +167,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "strange-appetites",
 						"content": {
 							"title": null,
@@ -178,7 +178,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "insatiable",
 						"content": {
 							"title": null,
@@ -189,7 +189,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "final-consequence",
 						"content": {
 							"title": null,

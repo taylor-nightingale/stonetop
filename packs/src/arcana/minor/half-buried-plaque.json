@@ -18,14 +18,14 @@
 				"slug": "half-buried-plaque",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The plate contains the workings of a spell, which you can learn but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dig-up-clean",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-runes",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-of-study",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-voice",
 						"content": {
 							"title": null,

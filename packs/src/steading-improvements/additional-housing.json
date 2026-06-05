@@ -11,21 +11,21 @@
 			"slug": "additional-housing",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Additional Housing",
 						"text": "<p>It's getting crowded! We need more room to live.</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> either one of these:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "build-on-fields",
 					"content": {
 						"title": null,
@@ -47,14 +47,14 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1 and add any new homes to the map. Henceforth, <strong><em>when you consume Surplus in winter,</em></strong> consider Population to be 1 lower than it is.</p>"

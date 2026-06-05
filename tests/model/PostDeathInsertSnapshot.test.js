@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { PostDeathInsertSnapshot, PostDeathInsertSnapshotBuilder } from "../../src/model/snapshot/character/PostDeathInsertSnapshot.js";
-import { ChoiceOption, ChoiceRow, HeadingRow, ChoiceGroup } from "../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceOption, ChoiceRow, EntryRow, ChoiceGroup } from "../../src/model/snapshot/character/ChoiceGroup.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
@@ -8,7 +8,7 @@ const INSTINCT_SNAP = { group: new ChoiceGroup("instinct", []), selected: "Denia
 
 const LORE = [
 	new ChoiceGroup("consequences", [
-		new HeadingRow("Consequences", { title: null, text: "<p>Choose 1...</p>" }),
+		new EntryRow("Consequences", { title: null, text: "<p>Choose 1...</p>" }),
 		new ChoiceRow([new ChoiceOption("breakdown", { description: "<p>You lash out...</p>", checks: [true], requires: null })]),
 		new ChoiceRow([new ChoiceOption("unstable",  { description: "<p>You are prone...</p>", checks: [false], requires: "breakdown" })]),
 	]),

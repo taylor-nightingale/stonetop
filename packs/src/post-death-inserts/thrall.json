@@ -38,14 +38,14 @@
 				"slug": "your-master",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Your Master",
 							"text": "<p>The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "name",
 						"content": {
 							"title": null,
@@ -59,14 +59,14 @@
 				"slug": "impulse",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Impulse",
 							"text": "<p>Ask the GM to choose 1, to represent your master's nature and will:</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "stoke-conflict",
 						"content": {
 							"title": null,
@@ -77,7 +77,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "erode-hope",
 						"content": {
 							"title": null,
@@ -88,7 +88,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hide-bury",
 						"content": {
 							"title": null,
@@ -99,7 +99,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "deprive",
 						"content": {
 							"title": null,
@@ -110,7 +110,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "inflict-harm",
 						"content": {
 							"title": null,
@@ -121,7 +121,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "desecrate",
 						"content": {
 							"title": null,
@@ -132,7 +132,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shock-terrify",
 						"content": {
 							"title": null,
@@ -148,14 +148,14 @@
 				"slug": "terrible-purpose",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Terrible Purpose",
 							"text": "<p>Choose 1:</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "longing",
 						"content": {
 							"title": null,
@@ -166,7 +166,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "vengeance",
 						"content": {
 							"title": null,
@@ -177,7 +177,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "duty",
 						"content": {
 							"title": null,
@@ -193,14 +193,14 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Consequences",
 							"text": "<p>When you first take this insert, choose 1. Choose another whenever a move tells you to do so.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "breakdown",
 						"content": {
 							"title": null,
@@ -211,7 +211,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "unstable",
 						"content": {
 							"title": null,
@@ -222,7 +222,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "carrion-stench",
 						"content": {
 							"title": null,
@@ -233,7 +233,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "deathly-visage",
 						"content": {
 							"title": null,
@@ -244,7 +244,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "home-to-vermin",
 						"content": {
 							"title": null,
@@ -255,7 +255,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "nightkin",
 						"content": {
 							"title": null,
@@ -266,7 +266,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "quarry",
 						"content": {
 							"title": null,
@@ -277,7 +277,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "strange-appetites",
 						"content": {
 							"title": null,
@@ -288,7 +288,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "insatiable",
 						"content": {
 							"title": null,
@@ -299,7 +299,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "final-consequence",
 						"content": {
 							"title": null,
@@ -315,14 +315,14 @@
 				"slug": "marks",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Marks",
 							"text": "<p>When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "festering-rot",
 						"content": {
 							"title": null,
@@ -333,7 +333,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "child-of-the-deeps",
 						"content": {
 							"title": null,
@@ -344,7 +344,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "death-mask",
 						"content": {
 							"title": null,
@@ -355,7 +355,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "quicksilver-dreams",
 						"content": {
 							"title": null,
@@ -366,7 +366,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ravenous",
 						"content": {
 							"title": null,
@@ -377,7 +377,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "red-wrath",
 						"content": {
 							"title": null,
@@ -388,7 +388,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shadows-cold-embrace",
 						"content": {
 							"title": null,
@@ -399,7 +399,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "speak-truth",
 						"content": {
 							"title": null,
@@ -410,7 +410,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "torments-blessing",
 						"content": {
 							"title": null,

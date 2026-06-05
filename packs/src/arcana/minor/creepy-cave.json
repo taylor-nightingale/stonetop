@@ -13,14 +13,14 @@
 				"slug": "creepy-cave",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-thing-below",
 						"content": {
 							"title": null,
@@ -31,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "absolute-darkness",
 						"content": {
 							"title": null,
@@ -42,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bring-warm-being",
 						"content": {
 							"title": null,

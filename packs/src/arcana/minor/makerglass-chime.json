@@ -18,14 +18,14 @@
 				"slug": "makerglass-chime",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "grasp-and-roll",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-control",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-hearing",
 						"content": {
 							"title": null,

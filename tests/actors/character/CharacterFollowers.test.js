@@ -374,7 +374,7 @@ describe("CharacterFollowers — choices snapshot", () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		const heading = snap.choices.list.find(r => r.type === "heading" && r.content.title);
+		const heading = snap.choices.list.find(r => r.type === "entry" && r.content.title);
 		expect(heading.content.title).toBe("Pick 1 on each line");
 	});
 

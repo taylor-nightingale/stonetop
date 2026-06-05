@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
+import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 
@@ -33,7 +34,7 @@ describe("ChoiceGroupController — heading rows", () => {
 			.build());
 
 		const snap = ctrl.buildGroupSnapshot("ns");
-		expect(snap.list[0].type).toBe("heading");
+		expect(snap.list[0].type).toBe("entry");
 		expect(snap.list[0].slug).toBe("no-track");
 		expect(snap.list[0].track).toBeNull();
 	});
@@ -404,5 +405,179 @@ describe("ChoiceGroupController.forItem", () => {
 		await ctrl.setCount("back", "rook", 1);
 
 		expect(followers.isOwned("rook")).toBe(true);
+	});
+});
+
+// ── Entry rows with followers field ──────────────────────────────────────────
+
+describe("ChoiceGroupController — entry rows with followers", () => {
+	it("setCount(1) on an entry row with followers adds the follower", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("enfys").withFollowers("enfys").withTrack(1))
+			.build());
+
+		await ctrl.setCount("ns", "enfys", 1);
+
+		expect(followers.isOwned("enfys")).toBe(true);
+	});
+
+	it("setCount(0) on an entry row with followers removes the follower", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("enfys").withFollowers("enfys").withTrack(1))
+			.build());
+
+		await ctrl.setCount("ns", "enfys", 1);
+		await ctrl.setCount("ns", "enfys", 0);
+
+		expect(followers.isOwned("enfys")).toBe(false);
+	});
+
+	it("entry row without followers does not add to followers on setCount", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("lore-track").withTrack(1))
+			.build());
+
+		await ctrl.setCount("ns", "lore-track", 1);
+
+		expect(followers.owned).toHaveLength(0);
+	});
+
+	it("entry row with multiple followers adds all of them", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("dual").withFollowers("enfys", "rook").withTrack(1))
+			.build());
+
+		await ctrl.setCount("ns", "dual", 1);
+
+		expect(followers.isOwned("enfys")).toBe(true);
+		expect(followers.isOwned("rook")).toBe(true);
+	});
+});
+
+// ── Pick options with followers ───────────────────────────────────────────────
+
+describe("ChoiceGroupController — pick options with followers", () => {
+	it("selectOption fires addFollower for the chosen option's followers", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.pick().withOptions(
+				{ slug: "enfys-pick", text: "Enfys", followers: ["enfys"] },
+				{ slug: "rook-pick",  text: "Rook" },
+			))
+			.build());
+
+		await ctrl.selectOption("ns", "enfys-pick", "enfys-pick,rook-pick");
+
+		expect(followers.isOwned("enfys")).toBe(true);
+	});
+
+	it("selecting a different option fires removeFollower for the previously selected one", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.pick().withOptions(
+				{ slug: "enfys-pick", text: "Enfys", followers: ["enfys"] },
+				{ slug: "rook-pick",  text: "Rook",  followers: ["rook"]  },
+			))
+			.build());
+
+		await ctrl.selectOption("ns", "enfys-pick", "enfys-pick,rook-pick");
+		await ctrl.selectOption("ns", "rook-pick",  "enfys-pick,rook-pick");
+
+		expect(followers.isOwned("enfys")).toBe(false);
+		expect(followers.isOwned("rook")).toBe(true);
+	});
+
+	it("sibling without followers does not cause errors when deselected", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.pick().withOptions(
+				{ slug: "with-follower",    text: "A", followers: ["enfys"] },
+				{ slug: "without-follower", text: "B" },
+			))
+			.build());
+
+		await ctrl.selectOption("ns", "with-follower",    "with-follower,without-follower");
+		await ctrl.selectOption("ns", "without-follower", "with-follower,without-follower");
+
+		expect(followers.isOwned("enfys")).toBe(false);
+	});
+});
+
+// ── outfitItems — per-option sources ─────────────────────────────────────────
+
+describe("ChoiceGroupController — outfitItems per-option sources", () => {
+	const SWORD = { slug: "sword", name: "Sword", weight: 1 };
+	const BOW   = { slug: "bow",   name: "Bow",   weight: 1 };
+
+	function makeControllerWithOutfit(sourcePrefix = "cg") {
+		const fakeItems = new FakeOutfitItems();
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices", {
+			outfitItems: { items: fakeItems, sourcePrefix },
+		});
+		return { ctrl, fakeItems };
+	}
+
+	it("selecting a pick option with outfitItems syncs to sourcePrefix:namespace:optionSlug", async () => {
+		const { ctrl, fakeItems } = makeControllerWithOutfit();
+		await ctrl.addGroup("weapons", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.pick().withOptions(
+				{ slug: "sword-opt", text: "Sword", outfitItems: [SWORD] },
+				{ slug: "bow-opt",   text: "Bow" },
+			))
+			.build());
+
+		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
+
+		expect(fakeItems.getItems("cg:weapons:sword-opt")).toEqual([SWORD]);
+	});
+
+	it("selecting a different option removes the previous option's outfit items", async () => {
+		const { ctrl, fakeItems } = makeControllerWithOutfit();
+		await ctrl.addGroup("weapons", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.pick().withOptions(
+				{ slug: "sword-opt", text: "Sword", outfitItems: [SWORD] },
+				{ slug: "bow-opt",   text: "Bow",   outfitItems: [BOW]   },
+			))
+			.build());
+
+		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
+		await ctrl.selectOption("weapons", "bow-opt",   "sword-opt,bow-opt");
+
+		expect(fakeItems.hasSource("cg:weapons:sword-opt")).toBe(false);
+		expect(fakeItems.getItems("cg:weapons:bow-opt")).toEqual([BOW]);
+	});
+
+	it("setCount(0) on an entry row with outfitItems removes that source", async () => {
+		const { ctrl, fakeItems } = makeControllerWithOutfit();
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("kit").withTrack(1).withOutfitItems([SWORD]))
+			.build());
+
+		await ctrl.setCount("ns", "kit", 1);
+		await ctrl.setCount("ns", "kit", 0);
+
+		expect(fakeItems.hasSource("cg:ns:kit")).toBe(false);
+	});
+
+	it("uses the configured sourcePrefix in the source key", async () => {
+		const { ctrl, fakeItems } = makeControllerWithOutfit("possessions");
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.entry().withSlug("kit").withTrack(1).withOutfitItems([SWORD]))
+			.build());
+
+		await ctrl.setCount("ns", "kit", 1);
+
+		expect(fakeItems.hasSource("possessions:ns:kit")).toBe(true);
 	});
 });

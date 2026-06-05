@@ -13,14 +13,14 @@
 				"slug": "a-folktale",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn the secret of the enchanted seedpods, but need one of the following:"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "herbalist-teacher",
 						"content": {
 							"title": null,
@@ -31,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "gwir-nettle-spirit",
 						"content": {
 							"title": null,

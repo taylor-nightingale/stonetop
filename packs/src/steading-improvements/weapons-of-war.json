@@ -11,21 +11,21 @@
 			"slug": "weapons-of-war",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Weapons of War",
 						"text": "<p>Spears are great, but how about axes, picks, swords?</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> either this:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "buy-weapons",
 					"content": {
 						"title": null,
@@ -36,14 +36,14 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>Or all of these:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "smith-staff",
 					"content": {
 						"title": null,
@@ -54,7 +54,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "iron-ore",
 					"content": {
 						"title": null,
@@ -65,7 +65,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "smith-seasons",
 					"content": {
 						"title": null,
@@ -76,14 +76,14 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>And then:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "veteran-warrior",
 					"content": {
 						"title": null,
@@ -94,7 +94,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "train-militia",
 					"content": {
 						"title": null,
@@ -105,7 +105,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Defenses by 1 and add \"Weapons of War\" to the Fortifications list. Each spring, the village must expend 1 Surplus to maintain and replace the town's weapons.</p><p>Henceforth, when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items, as if they were already on the inventory inserts. Battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity.</p>"

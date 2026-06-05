@@ -18,7 +18,7 @@
 			"slug": "sacred-pouch",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Your sacred pouch is...",
 						"text": null
@@ -95,7 +95,7 @@
 					"inline": true
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "What remarkable trait does it possess?",
 						"text": null

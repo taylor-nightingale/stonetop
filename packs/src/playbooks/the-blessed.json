@@ -231,14 +231,14 @@
 				"slug": "the-earth-mother",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "The Earth Mother",
 							"text": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-loved",
 						"content": {
 							"title": null,
@@ -249,7 +249,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-token",
 						"content": {
 							"title": null,
@@ -260,7 +260,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-berth",
 						"content": {
 							"title": null,
@@ -271,7 +271,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shrine-neglected",
 						"content": {
 							"title": null,
@@ -282,14 +282,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fruits-of-harvest",
 						"content": {
 							"title": null,
@@ -300,7 +300,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "figurines",
 						"content": {
 							"title": null,
@@ -311,7 +311,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "whisky",
 						"content": {
 							"title": null,
@@ -322,7 +322,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "salt",
 						"content": {
 							"title": null,
@@ -333,7 +333,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rain-water",
 						"content": {
 							"title": null,
@@ -344,7 +344,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "metal-nails",
 						"content": {
 							"title": null,
@@ -355,7 +355,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "blood",
 						"content": {
 							"title": null,
@@ -366,7 +366,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "incense",
 						"content": {
 							"title": null,
@@ -391,49 +391,79 @@
 					"slug": "initiate",
 					"list": [
 						{
-							"type": "follower",
 							"slug": "enfys",
 							"inlineDisplay": false,
-							"title": "Enfys, your acolyte, beloved by birds",
 							"track": {
 								"max": 1
-							}
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Enfys, your acolyte, beloved by birds"
+							},
+							"followers": [
+								"enfys"
+							]
 						},
 						{
-							"type": "follower",
 							"slug": "afon",
 							"inlineDisplay": false,
-							"title": "Afon, strange and Fae-touched",
 							"track": {
 								"max": 1
-							}
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Afon, strange and Fae-touched"
+							},
+							"followers": [
+								"afon"
+							]
 						},
 						{
-							"type": "follower",
 							"slug": "gwendyl",
 							"inlineDisplay": false,
-							"title": "Gwendyl, your mentor, a talented healer",
 							"track": {
 								"max": 1
-							}
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Gwendyl, your mentor, a talented healer"
+							},
+							"followers": [
+								"gwendyl"
+							]
 						},
 						{
-							"type": "follower",
 							"slug": "olwin",
 							"inlineDisplay": false,
-							"title": "Olwin, your anointed lover, seer of fates",
 							"track": {
 								"max": 1
-							}
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Olwin, your anointed lover, seer of fates"
+							},
+							"followers": [
+								"olwin"
+							]
 						},
 						{
-							"type": "follower",
 							"slug": "seren-the-eldest",
 							"inlineDisplay": false,
-							"title": "Seren the Eldest, wise and hard as winter",
 							"track": {
 								"max": 1
-							}
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Seren the Eldest, wise and hard as winter"
+							},
+							"followers": [
+								"seren-the-eldest"
+							]
 						}
 					]
 				}

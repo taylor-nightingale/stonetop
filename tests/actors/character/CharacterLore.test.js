@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { CharacterLore } from "../../../src/actors/character/CharacterLore.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
-import { ChoiceValues, ChoiceGroup, HeadingRow } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues, ChoiceGroup, EntryRow } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 
 function makeLore(values = {}) {
 	const actor = new FakeActorBuilder().build();
@@ -135,32 +135,32 @@ describe("CharacterLore.buildSnapshot", () => {
 		expect(makeLore().buildSnapshot([])).toHaveLength(0);
 	});
 
-	it("first list item is a HeadingRow with entry title and description", () => {
+	it("first list item is an EntryRow with entry title and description", () => {
 		const row = makeLore().buildSnapshot(LORE_DATA)[0].list[0];
-		expect(row).toBeInstanceOf(HeadingRow);
-		expect(row.type).toBe("heading");
+		expect(row).toBeInstanceOf(EntryRow);
+		expect(row.type).toBe("entry");
 		expect(row.content.title).toBe("The Earth");
 		expect(row.content.text).toBe("<p>The earth knows.</p>");
 	});
 
 	it("heading+track row reflects stored count in checks array", () => {
 		const snap = makeLore({ earth: { "opt-a": 1 } }).buildSnapshot(LORE_DATA);
-		const row = snap[0].list.find(r => r.type === "heading" && r.track?.slug === "opt-a");
-		expect(row).toBeInstanceOf(HeadingRow);
+		const row = snap[0].list.find(r => r.type === "entry" && r.track?.slug === "opt-a");
+		expect(row).toBeInstanceOf(EntryRow);
 		expect(row.track.checks).toEqual([true]);
 	});
 
 	it("heading+track checks default to all false when count is 0", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const row = snap[0].list.find(r => r.type === "heading" && r.track?.slug === "opt-b");
-		expect(row).toBeInstanceOf(HeadingRow);
+		const row = snap[0].list.find(r => r.type === "entry" && r.track?.slug === "opt-b");
+		expect(row).toBeInstanceOf(EntryRow);
 		expect(row.track.checks).toEqual([false, false, false]);
 	});
 
 	it("text option heading reflects saved value in input.value", () => {
 		const snap = makeLore({ earth: { "opt-text-input": "my answer" } }).buildSnapshot(LORE_DATA);
 		const row = snap[0].list.find(r => r.slug === "opt-text");
-		expect(row).toBeInstanceOf(HeadingRow);
+		expect(row).toBeInstanceOf(EntryRow);
 		expect(row.input.value).toBe("my answer");
 	});
 
@@ -185,11 +185,11 @@ describe("CharacterLore.buildSnapshot", () => {
 		expect(row.input.placeholder).toBeNull();
 	});
 
-	it("plain heading (no track) becomes a HeadingRow with null track", () => {
+	it("plain heading (no track) becomes an EntryRow with null track", () => {
 		const snap = makeLore().buildSnapshot(LORE_DATA);
-		const rows = snap[0].list.filter(r => r.type === "heading");
+		const rows = snap[0].list.filter(r => r.type === "entry");
 		const optHeading = rows.find(r => !r.content?.title && r.track === null && !r.input);
-		expect(optHeading).toBeInstanceOf(HeadingRow);
+		expect(optHeading).toBeInstanceOf(EntryRow);
 		expect(optHeading.content.text).toBe("<p>A heading with no max</p>");
 	});
 });

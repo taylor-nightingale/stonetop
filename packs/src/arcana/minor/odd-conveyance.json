@@ -18,14 +18,14 @@
 				"slug": "odd-conveyance",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "skilled-carpenter",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-damage",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "attune-aetherium",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-to-sail",
 						"content": {
 							"title": null,

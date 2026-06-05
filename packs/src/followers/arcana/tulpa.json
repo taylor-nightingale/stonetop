@@ -31,7 +31,7 @@
 				"slug": "choices",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weapon",
 						"content": {
 							"title": null,
@@ -42,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "cost",
 						"content": {
 							"title": null,

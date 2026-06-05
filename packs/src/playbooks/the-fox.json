@@ -201,14 +201,14 @@
 				"slug": "tall-tales-beginning",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "There Was That Time You…",
 							"text": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-great-wood",
 						"content": {
 							"title": null,
@@ -219,7 +219,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-flats",
 						"content": {
 							"title": null,
@@ -230,7 +230,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-steplands",
 						"content": {
 							"title": null,
@@ -241,7 +241,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-ferrers-fen",
 						"content": {
 							"title": null,
@@ -252,7 +252,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-foothills",
 						"content": {
 							"title": null,
@@ -263,7 +263,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lost-huffel-peaks",
 						"content": {
 							"title": null,
@@ -274,7 +274,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "crinwin-raid",
 						"content": {
 							"title": null,
@@ -285,7 +285,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ruined-tower",
 						"content": {
 							"title": null,
@@ -296,7 +296,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hillfolk",
 						"content": {
 							"title": null,
@@ -307,7 +307,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "labyrinth",
 						"content": {
 							"title": null,
@@ -318,7 +318,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "old-mans-book",
 						"content": {
 							"title": null,
@@ -329,7 +329,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "barrow-mounds",
 						"content": {
 							"title": null,
@@ -345,14 +345,14 @@
 				"slug": "tall-tales-ending",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "And You Ended Up…",
 							"text": "<p><em>(choose 1 or 2 per tale)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "running",
 						"content": {
 							"title": null,
@@ -363,7 +363,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "well-placed-blow",
 						"content": {
 							"title": null,
@@ -374,7 +374,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "strange-gather",
 						"content": {
 							"title": null,
@@ -385,7 +385,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "big-beast",
 						"content": {
 							"title": null,
@@ -396,7 +396,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "treasure",
 						"content": {
 							"title": null,
@@ -407,7 +407,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "someone-fight",
 						"content": {
 							"title": null,
@@ -418,7 +418,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ghost",
 						"content": {
 							"title": null,
@@ -429,7 +429,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "strange-runes",
 						"content": {
 							"title": null,
@@ -440,7 +440,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fine-looking",
 						"content": {
 							"title": null,
@@ -456,14 +456,14 @@
 				"slug": "tall-tales-legacy",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "But All You've Got Left to Show for It Is…",
 							"text": ""
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "story-no-one-believes",
 						"content": {
 							"title": null,
@@ -474,7 +474,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "nasty-scar",
 						"content": {
 							"title": null,
@@ -485,7 +485,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "nightmares",
 						"content": {
 							"title": null,
@@ -496,7 +496,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "map-with-runes",
 						"content": {
 							"title": null,
@@ -507,7 +507,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mystery-key",
 						"content": {
 							"title": null,

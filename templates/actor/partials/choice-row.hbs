@@ -1,5 +1,34 @@
-{{#if (eq type "heading")}}
-{{! Heading row }}
+{{#if (eq type "entry")}}
+{{! Entry row }}
+{{#if followers}}
+{{! Entry with followers }}
+<div class="stonetop-arcanum-follower">
+    {{#if inlineDisplay}}
+    {{#if track}}
+    <input type="checkbox" class="stonetop-arcanum-follower-check"
+           data-cg-context="{{cgContext}}"
+           data-slug="{{cgGroup}}"
+           data-option="{{slug}}"
+           data-index="0"
+           {{#if (lookup track.checks 0)}}checked{{/if}}>
+    {{/if}}
+    {{#each followers}}{{> "stonetop.follower-card" this}}{{/each}}
+    {{else if content.text}}
+    <label class="stonetop-arcanum-follower-label">
+        {{#if track}}
+        <input type="checkbox" class="stonetop-arcanum-follower-check"
+               data-cg-context="{{cgContext}}"
+               data-slug="{{cgGroup}}"
+               data-option="{{slug}}"
+               data-index="0"
+               {{#if (lookup track.checks 0)}}checked{{/if}}>
+        {{/if}}
+        {{{content.text}}}
+    </label>
+    {{/if}}
+</div>
+{{else}}
+{{! Entry without followers: content/track/input }}
 {{#if content.title}}{{> "stonetop.section-heading" title=content.title}}{{/if}}
 {{#if track}}
 <div class="stonetop-choice-track">
@@ -28,35 +57,9 @@
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
 </div>
 {{/if}}
-{{else if (eq type "follower")}}
-{{! Follower row (arcanum back) }}
-<div class="stonetop-arcanum-follower">
-    {{#if inlineDisplay}}
-    {{#if track}}
-    <input type="checkbox" class="stonetop-arcanum-follower-check"
-           data-cg-context="{{cgContext}}"
-           data-slug="{{cgGroup}}"
-           data-option="{{slug}}"
-           data-index="0"
-           {{#if (lookup track.checks 0)}}checked{{/if}}>
-    {{/if}}
-    {{#if follower}}{{> "stonetop.follower-card" follower}}{{/if}}
-    {{else if title}}
-    <label class="stonetop-arcanum-follower-label">
-        {{#if track}}
-        <input type="checkbox" class="stonetop-arcanum-follower-check"
-               data-cg-context="{{cgContext}}"
-               data-slug="{{cgGroup}}"
-               data-option="{{slug}}"
-               data-index="0"
-               {{#if (lookup track.checks 0)}}checked{{/if}}>
-        {{/if}}
-        {{{title}}}
-    </label>
-    {{/if}}
-</div>
+{{/if}}
 {{else}}
-{{! Pick or track row (type="choice") }}
+{{! Pick row (type="choice") }}
 <div class="stonetop-choice-row{{#if inline}} stonetop-choice-row--inline{{/if}}">
     {{#each options}}
     {{#if description}}

@@ -18,14 +18,14 @@
 				"slug": "old-scroll-case",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "translate-letter",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dedicated-study",
 						"content": {
 							"title": null,
@@ -47,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "use-aetherium",
 						"content": {
 							"title": null,
@@ -58,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-electrocution",
 						"content": {
 							"title": null,

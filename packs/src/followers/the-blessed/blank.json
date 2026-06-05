@@ -33,7 +33,7 @@
 				"slug": "choices",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "damage",
 						"content": {
 							"title": null,
@@ -42,7 +42,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "cost",
 						"content": {
 							"title": null,
@@ -51,7 +51,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "notes",
 						"content": {
 							"title": null,

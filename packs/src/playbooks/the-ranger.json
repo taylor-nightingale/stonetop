@@ -217,14 +217,14 @@
 				"slug": "wicked-threat",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Something Wicked This Way Comes",
 							"text": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "great-wood",
 						"content": {
 							"title": null,
@@ -235,7 +235,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "ruined-tower",
 						"content": {
 							"title": null,
@@ -246,7 +246,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "foothills",
 						"content": {
 							"title": null,
@@ -257,7 +257,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "suarachan",
 						"content": {
 							"title": null,
@@ -268,7 +268,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hillfolk",
 						"content": {
 							"title": null,
@@ -284,14 +284,14 @@
 				"slug": "wicked-questions",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Answer At Least 3 of the Following",
 							"text": ""
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "what-is-it",
 						"content": {
 							"title": null,
@@ -300,7 +300,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "what-saw",
 						"content": {
 							"title": null,
@@ -309,7 +309,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "what-lost",
 						"content": {
 							"title": null,
@@ -318,7 +318,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "left-behind",
 						"content": {
 							"title": null,
@@ -327,7 +327,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "what-wants",
 						"content": {
 							"title": null,
@@ -336,7 +336,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "disbeliever",
 						"content": {
 							"title": null,
@@ -345,7 +345,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "who-knows-more",
 						"content": {
 							"title": null,

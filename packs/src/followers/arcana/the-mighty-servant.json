@@ -33,7 +33,7 @@
 				"slug": "choices",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "cost",
 						"content": {
 							"title": null,

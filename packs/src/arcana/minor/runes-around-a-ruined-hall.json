@@ -18,14 +18,14 @@
 				"slug": "runes-around-a-ruined-hall",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The runes repeat themselves and can be copied, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "careful-work",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-transcription",
 						"content": {
 							"title": null,

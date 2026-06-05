@@ -12,7 +12,7 @@
 			"slug": "choices",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "stat1",
 					"content": {
 						"title": null,
@@ -26,7 +26,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "stat2",
 					"content": {
 						"title": null,
@@ -40,7 +40,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "stat3",
 					"content": {
 						"title": null,
@@ -54,7 +54,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "stat4",
 					"content": {
 						"title": null,
@@ -68,7 +68,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "hp",
 					"content": {
 						"title": null,
@@ -82,7 +82,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "damage",
 					"content": {
 						"title": null,

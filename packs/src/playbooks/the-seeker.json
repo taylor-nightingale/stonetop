@@ -214,7 +214,7 @@
 				"slug": "collection",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Collection",
 							"text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
@@ -226,14 +226,14 @@
 				"slug": "arcana-major",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Major Arcanum",
 							"text": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "where-acquired",
 						"content": {
 							"title": null,
@@ -242,7 +242,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wrested-from",
 						"content": {
 							"title": null,
@@ -251,7 +251,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "who-else-wants",
 						"content": {
 							"title": null,
@@ -260,7 +260,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "what-cost",
 						"content": {
 							"title": null,
@@ -269,7 +269,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "when-unlocked",
 						"content": {
 							"title": null,
@@ -283,14 +283,14 @@
 				"slug": "arcana-minor",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": "Minor Arcana",
 							"text": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mastered-location",
 						"content": {
 							"title": null,
@@ -299,7 +299,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "found-location",
 						"content": {
 							"title": null,
@@ -308,7 +308,7 @@
 						"input": {}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sought-notes",
 						"content": {
 							"title": null,

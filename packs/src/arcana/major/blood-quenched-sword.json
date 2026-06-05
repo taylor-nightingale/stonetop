@@ -19,35 +19,35 @@
 				"slug": "blood-quenched-sword",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>draw the Blood-quenched Sword</em></strong>, It leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>spill your own blood in order to return the Sword to its sheath</em></strong>, Take 1d4 damage (ignoring armor) and the scars from the cut never fade.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>strike first in a fight with the Blood-quenched Sword</em></strong>, Gain advantage on your first roll.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>sheathe the Sword after using it to kill a living, bleeding foe</em></strong>, Mark 1 unless you have already done so since the last sunset.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -87,7 +87,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c1",
 						"content": {
 							"title": null,
@@ -95,7 +95,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c2",
 						"content": {
 							"title": null,
@@ -103,7 +103,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c2a",
 						"content": {
 							"title": null,
@@ -111,7 +111,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c3",
 						"content": {
 							"title": null,
@@ -119,7 +119,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c4",
 						"content": {
 							"title": null,
@@ -127,7 +127,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sword-c5",
 						"content": {
 							"title": null,

@@ -56,12 +56,18 @@ export class ChoiceGroupController {
 	}
 
 	async selectOption(namespace, slug, siblingSlugsCsv) {
-		let values = this._values;
-		if (siblingSlugsCsv) {
-			for (const sib of siblingSlugsCsv.split(",")) values = values.set(namespace, sib, 0);
-		}
+		const prevValues = this._values;
+		let values = prevValues;
+		const siblings = siblingSlugsCsv
+			? siblingSlugsCsv.split(",").filter(s => s !== slug)
+			: [];
+		for (const sib of siblings) values = values.set(namespace, sib, 0);
 		const newValues = values.set(namespace, slug, 1);
 		await this._writer(newValues.toRaw());
+		for (const sib of siblings) {
+			if (prevValues.getCount(namespace, sib) > 0)
+				await this._fireSideEffects(namespace, sib, 0, newValues);
+		}
 		await this._fireSideEffects(namespace, slug, 1, newValues);
 	}
 
@@ -85,25 +91,34 @@ export class ChoiceGroupController {
 	async _fireSideEffects(namespace, optionSlug, count, newValues) {
 		const def = this._defStore?.get(namespace);
 		if (!def) return;
-		const row = (def.list ?? []).find(r => r.slug === optionSlug);
-		if (row?.type === "follower" && this._followers) {
-			if (count > 0) await this._followers.addFollower(optionSlug);
-			else           await this._followers.removeFollower(optionSlug);
-		}
-		if (this._outfitItems) {
-			await this._syncOutfitItems(def, newValues);
-		}
-	}
 
-	async _syncOutfitItems(def, values) {
-		const items = [];
+		// Find the target: entry row by slug, or pick option by slug
+		let target = null;
 		for (const row of def.list ?? []) {
+			if (row.slug === optionSlug) { target = row; break; }
 			for (const opt of row.options ?? []) {
-				if (opt.outfitItems?.length && values.getCount(def.slug, opt.slug) > 0) {
-					items.push(...opt.outfitItems);
-				}
+				if (opt.slug === optionSlug) { target = opt; break; }
+			}
+			if (target) break;
+		}
+		if (!target) return;
+
+		// Follower side effects — new: target.followers[]; legacy: target.type === "follower"
+		if (this._followers) {
+			const followerSlugs = target.followers?.length
+				? target.followers
+				: (target.type === "follower" ? [target.slug] : []);
+			for (const slug of followerSlugs) {
+				if (count > 0) await this._followers.addFollower(slug);
+				else           await this._followers.removeFollower(slug);
 			}
 		}
-		await this._outfitItems.items.sync(this._outfitItems.source, items);
+
+		// outfitItem side effects — per-option source key
+		if (this._outfitItems && target.outfitItems?.length) {
+			const source = `${this._outfitItems.sourcePrefix}:${namespace}:${optionSlug}`;
+			if (count > 0) await this._outfitItems.items.sync(source, target.outfitItems);
+			else           await this._outfitItems.items.deleteBySource(source);
+		}
 	}
 }

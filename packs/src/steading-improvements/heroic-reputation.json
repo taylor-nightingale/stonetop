@@ -11,21 +11,21 @@
 			"slug": "heroic-reputation",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Heroic Reputation",
 						"text": "<p>Few have heard of Stonetop's heroes. Yet.</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> any 3 of the following:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "impress-hillfolk",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "brave-lake",
 					"content": {
 						"title": null,
@@ -47,7 +47,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "save-marshedge",
 					"content": {
 						"title": null,
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "save-gordins-delve",
 					"content": {
 						"title": null,
@@ -69,7 +69,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "save-beyond-marshedge",
 					"content": {
 						"title": null,
@@ -80,7 +80,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "hire-minstrel",
 					"content": {
 						"title": null,
@@ -91,7 +91,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: <strong>on a 10+</strong>, say what they've heard about you or Stonetop, and gain advantage on your next move against them; <strong>on a 7-9</strong>, say what they've heard; <strong>on a 6-</strong>, the GM decides what they've heard.</p>"

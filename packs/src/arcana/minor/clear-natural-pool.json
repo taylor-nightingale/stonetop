@@ -13,14 +13,14 @@
 				"slug": "clear-natural-pool",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "There is magic here; to unlock its secrets, either…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "experiment-at-pool",
 						"content": {
 							"title": null,
@@ -31,14 +31,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "firsthand-account",
 						"content": {
 							"title": null,

@@ -13,14 +13,14 @@
 				"slug": "prospectors-tale",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "proficient-art",
 						"content": {
 							"title": null,
@@ -31,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "find-ustrina",
 						"content": {
 							"title": null,
@@ -42,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "season-studying",
 						"content": {
 							"title": null,
@@ -53,7 +53,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-voice",
 						"content": {
 							"title": null,

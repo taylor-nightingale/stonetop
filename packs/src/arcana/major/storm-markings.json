@@ -14,21 +14,21 @@
 				"slug": "storm-markings",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>roil with anger</em></strong>, You do +1 damage until you calm down. But when you <strong>try to control your temper</strong>, roll +WIS: <strong>on a 10+</strong>, you keep your cool and act as you wish; <strong>on a 7-9</strong>, choose 1 from the list below; <strong>on a 6-</strong>, you just lose it—tell the GM what damn fool thing you end up doing.</p><ul><li>Take some deep breaths and count to ten, fuming all the while</li><li>Vent your rage, but tell us how and on what</li></ul>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>are struck by lightning or an electrical discharge</em></strong>, Mark 1, take no damage, and suffer no ill effects (your gear, alas, has no such protection).</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -68,7 +68,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c1",
 						"content": {
 							"title": null,
@@ -76,7 +76,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c2",
 						"content": {
 							"title": null,
@@ -84,7 +84,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c3",
 						"content": {
 							"title": null,
@@ -92,7 +92,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c4",
 						"content": {
 							"title": null,
@@ -100,7 +100,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c5",
 						"content": {
 							"title": null,
@@ -108,7 +108,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c6",
 						"content": {
 							"title": null,
@@ -116,7 +116,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "storm-c6a",
 						"content": {
 							"title": null,

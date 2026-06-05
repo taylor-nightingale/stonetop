@@ -18,14 +18,14 @@
 				"slug": "sealed-cave",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn their mysteries, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "careful-transcription",
 						"content": {
 							"title": null,
@@ -36,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-ennui",
 						"content": {
 							"title": null,

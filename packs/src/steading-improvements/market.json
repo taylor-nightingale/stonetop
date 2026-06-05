@@ -11,21 +11,21 @@
 			"slug": "market",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Market",
 						"text": "<p>Stonetop is at most an afterthought for traders in the region. We need to change that.</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> 1 of the following:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "compelling-good",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "other-reason",
 					"content": {
 						"title": null,
@@ -47,14 +47,14 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>And these:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "market-site",
 					"content": {
 						"title": null,
@@ -65,7 +65,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "arbiter",
 					"content": {
 						"title": null,
@@ -76,7 +76,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "four-seasons",
 					"content": {
 						"title": null,
@@ -87,7 +87,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p><p>When the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus.</p>"
