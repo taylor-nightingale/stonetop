@@ -10,8 +10,7 @@ export class StonetopActorSheet extends foundry.appv1.sheets.ActorSheet {
 			const rollable = ev.target.closest(".rollable[data-roll]");
 			if (!rollable) return;
 			ev.stopPropagation();
-			const handled = await this.actor._onRoll(ev);
-			if (!handled) await this.actor.typedActor?.rollStat?.(rollable.dataset.roll);
+			await this.actor._onRoll(ev);
 		}, true);
 	}
 }

@@ -7,18 +7,12 @@ export class FakePoolRollBuilder {
 	withTotal(total)            { this._total = total; return this; }
 
 	build() {
-		const poolTerm = {
-			rolls: this._groups.map(g => ({
-				dice: [{ results: g.values.map(v => ({ result: v, active: true })) }],
-			})),
-			results: this._groups.map(g => ({
-				result: g.values.reduce((s, v) => s + v, 0),
-				active: g.kept,
-			})),
-		};
+		const results = [
+			...this._groups.filter(g =>  g.kept).flatMap(g => g.values.map(v => ({ result: v, active: true  }))),
+			...this._groups.filter(g => !g.kept).flatMap(g => g.values.map(v => ({ result: v, active: false }))),
+		];
 		return {
-			terms: [poolTerm],
-			dice:  poolTerm.rolls.flatMap(r => r.dice),
+			dice:  [{ results }],
 			total: this._total,
 		};
 	}

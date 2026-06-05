@@ -57,14 +57,6 @@ describe("CharacterData defaults", () => {
 		expect(d.inventory.otherItems).toBe("");
 	});
 
-	it("defaults possessions to empty state", () => {
-		const d = new CharacterData();
-		expect(d.possessions.selected).toEqual([]);
-		expect(d.possessions.uses).toEqual({});
-		expect(d.possessions.pickValues).toEqual({});
-		expect(d.possessions.choiceUses).toEqual({});
-	});
-
 	it("defaults all stats to 0", () => {
 		const d = new CharacterData();
 		for (const stat of ["str", "dex", "con", "int", "wis", "cha"]) {

@@ -17,13 +17,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 				smallPool:   new f.NumberField({ initial: 0, integer: true }),
 				otherItems:  new f.StringField({ initial: "" }),
 			}),
-			possessions: new f.SchemaField({
-				selected:   new f.ArrayField(new f.StringField()),
-				uses:       new f.ObjectField(),
-				maxUses:    new f.ObjectField(),
-				pickValues: new f.ObjectField(),
-				choiceUses: new f.ObjectField(),
-			}),
 			background:        new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),
 			instinct:          new f.SchemaField({ custom:   new f.StringField({ initial: "" }) }),
 			origin:            new f.SchemaField({ selected: new f.StringField({ initial: "" }) }),

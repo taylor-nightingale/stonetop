@@ -15,7 +15,6 @@ import {ResourceController} from "./ResourceController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterDebilities} from "./CharacterDebilities.js";
-import {CharacterRolling} from "./CharacterRolling.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
@@ -36,7 +35,7 @@ export class StonetopCharacter {
 		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(actor, "moveResources"));
 		this._playbook = new CharacterPlaybook(actor, repos.playbook,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
-		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, this._playbook, repos.possessions);
+		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, repos.possessions);
 		this._inventory = new CharacterInventory(actor, repos.inventory, this._possessions, outfitItems, this._resourceController);
 		this._vitals = new CharacterVitals(actor);
 		this._debilities = new CharacterDebilities(actor);
@@ -52,7 +51,6 @@ export class StonetopCharacter {
 			repos.postDeathInsert,
 			this._moves,
 		);
-		this._rolling = new CharacterRolling(actor, this._stats);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
@@ -104,7 +102,7 @@ export class StonetopCharacter {
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbook)
-			.withDebilities(this._rolling.buildDebilitiesSnapshot())
+			.withDebilities(this._debilities.buildDebilitiesSnapshot())
 			.withStats(this._stats.buildStatsSnapshot())
 			.withVitals(vitals)
 			.withMoves(moves)
@@ -113,7 +111,7 @@ export class StonetopCharacter {
 			.withPostDeathInsert(postDeath)
 			.withFollowers(followers)
 			.withPossessions(possessions)
-			.withRollMode(this._rolling.rollMode)
+			.withRollMode(this.rollMode)
 			.build();
 	}
 
@@ -164,8 +162,7 @@ export class StonetopCharacter {
 	}
 
 	async selectPossession(slug) {
-		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
-		await this._possessions.select(slug, sp);
+		await this._possessions.select(slug);
 	}
 
 	async deselectPossession(slug) {
@@ -177,18 +174,15 @@ export class StonetopCharacter {
 	}
 
 	async selectSubChoice(possessionSlug, choiceSlug) {
-		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
-		await this._possessions.addSubChoice(possessionSlug, choiceSlug, sp);
+		await this._possessions.addSubChoice(possessionSlug, choiceSlug);
 	}
 
 	async deselectSubChoice(possessionSlug, choiceSlug) {
-		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
-		await this._possessions.removeSubChoice(possessionSlug, choiceSlug, sp);
+		await this._possessions.removeSubChoice(possessionSlug, choiceSlug);
 	}
 
 	async selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
-		const sp = (await this._playbook.getData())?.specialPossessions ?? null;
-		await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs, sp);
+		await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs);
 	}
 
 	async setSubChoiceUses(possessionSlug, choiceSlug, count) {
@@ -243,10 +237,9 @@ export class StonetopCharacter {
 		if (playbookItem) {
 			const playbookData = playbookItem.asPlaybook();
 			await this._playbook.selectPlaybook(playbookData);
-			const sp = playbookData.specialPossessions;
-			for (const slug of sp?.preselected ?? []) {
-				await this._possessions.syncPossessionItems(slug, sp);
-			}
+			await this._possessions.addPossessionsFromPlaybook(
+				playbookData.specialPossessions, playbookData.slug,
+			);
 		}
 
 		const insertItem = documents.find(d => d.type === "insert");
@@ -255,28 +248,33 @@ export class StonetopCharacter {
 		}
 	}
 
+	async _onDeleteDescendantDocuments(documents) {
+		const playbookItem = documents.find(d => d.type === "playbook");
+		if (playbookItem) {
+			await this._possessions.removePossessionsFromPlaybook(
+				playbookItem.system?.slug ?? null,
+			);
+		}
+	}
+
 	get rollMode() {
-		return this._rolling.rollMode;
-	}
-
-	getRollableStats() {
-		return this._rolling.getRollableStats();
-	}
-
-	resolveBonus(rollStat) {
-		return this._rolling.resolveBonus(rollStat);
-	}
-
-	applyRollMode(rollStat, rollMode) {
-		return this._rolling.applyRollMode(rollStat, rollMode);
-	}
-
-	async rollStat(stat) {
-		await this._rolling.rollStat(stat);
+		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
 	}
 
 	async setRollMode(mode) {
-		await this._rolling.setRollMode(mode);
+		await this._actor.setFlag("stonetop", "rollMode", mode);
+	}
+
+	getRollableStats() {
+		return this._stats.getRollableStats();
+	}
+
+	resolveBonus(stat) {
+		return this._stats.resolveBonus(stat);
+	}
+
+	applyRollMode(stat, rollMode) {
+		return this._debilities.applyRollMode(stat, rollMode);
 	}
 
 	async onDropMove(itemData) {

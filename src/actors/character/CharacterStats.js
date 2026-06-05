@@ -25,6 +25,11 @@ export class CharacterStats {
 		return Object.entries(_STAT_DEFS).map(([key, { name }]) => ({ key, name, value: stats.get(key) }));
 	}
 
+	resolveBonus(stat) {
+		const stats = this.getStats();
+		return stat in stats ? stats.get(stat) : null;
+	}
+
 	buildStatsSnapshot() {
 		const stats = this.getStats();
 		return Object.fromEntries(

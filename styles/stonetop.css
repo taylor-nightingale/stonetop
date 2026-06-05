@@ -2788,6 +2788,24 @@ body,
 	background: #555;
 	text-decoration: line-through;
 }
+.stonetop-roll-mode {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.1em 0.45em;
+	border-radius: 3px;
+	font-size: 0.8em;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+.stonetop-roll-mode--adv {
+	background: #1a6b2e;
+	color: #c8f0d0;
+}
+.stonetop-roll-mode--dis {
+	background: #7a1a1a;
+	color: #f0c8c8;
+}
 .stonetop-roll-mod   { font-weight: bold; }
 .stonetop-roll-total { font-weight: bold; }
 

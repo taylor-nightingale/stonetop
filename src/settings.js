@@ -21,17 +21,6 @@ export function registerSettings() {
 		default: false
 	});
 
-	// -- CLIENT SPECIFIC SETTINGS --------------------------------
-
-	game.settings.register("stonetop", "hideRollMode", {
-		name: "stonetop.settings.hideRollMode.name",
-		hint: "stonetop.settings.hideRollMode.hint",
-		scope: "world",
-		config: true,
-		type: Boolean,
-		default: false
-	});
-
 	// Turn debug logging on
 	game.settings.register("stonetop", "debugMode", {
 		name: "stonetop.settings.debugMode.name",

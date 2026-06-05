@@ -61,15 +61,16 @@ describe("buildSnapshot — possessions: null when no playbook", () => {
 });
 
 describe("buildSnapshot — possessions: snapshot when playbook configured", () => {
-	it("possessions is a PossessionsSnapshot with items from the playbook", async () => {
+	it("possessions is a PossessionsSnapshot with items from actor.items", async () => {
 		const sp = { pickCount: 1, pickNote: "Pick 1", preselected: [], slugs: ["apiary"] };
-		const playbook = { slug: "blessed", specialPossessions: sp };
-		const possession = new TestPossessionBuilder().withSlug("apiary").withLabel("Apiary").build();
-		const actor = new FakeActorBuilder().withPlaybook("blessed").build();
-		const snap = await new TestCharacterBuilder(actor)
-			.addPlaybook(playbook)
-			.withPossessionRepo(new FakePossessionRepository([possession]))
-			.build().buildSnapshot();
+		const actor = new FakeActorBuilder().withItems([
+			{ _id: "pb", type: "playbook", name: "The Blessed", system: { slug: "blessed", specialPossessions: sp } },
+			{ _id: "ap", type: "possession", name: "Apiary",
+				system: { slug: "apiary", label: "Apiary", description: "", resource: null, outfitItems: [],
+					choices: null, scaling: null, sortOrder: null, selected: false, preselected: false,
+					uses: 0, pickValues: {}, choiceUses: {}, playbookSlug: "blessed" } },
+		]).withPlaybook("blessed").build();
+		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
 		expect(snap.possessions).toBeInstanceOf(PossessionsSnapshot);
 		expect(snap.possessions.items).toHaveLength(1);
 		expect(snap.possessions.items[0].slug).toBe("apiary");

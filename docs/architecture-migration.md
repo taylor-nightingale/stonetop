@@ -207,8 +207,8 @@ Embedded-only possessions are always `selected: true`, `disabled: false`, `prese
 
 | Domain | Items in `actor.items`? | Mutable state in `actor.system.*` | Async compendium fetch in `buildSnapshot`? |
 |---|---|---|---|
-| **Moves** | Yes — one item per acquired move | `system.moves[]` categories with `selection.{max,value}` and `ownedIds[]` | Yes — `buildSlugIndex()` to fetch all move definitions |
-| **Possessions** | Partial — dropped possessions only; playbook possessions are slug-only | `system.possessions.{selected,uses,maxUses,pickValues,choiceUses}` | Yes — `findBySlugs(slugs)` for playbook possessions |
+| **Moves** | Yes ✓ — full item embedded at playbook selection | none (`system.moves[]` removed) | No ✓ — reads from `actor.items` |
+| **Possessions** | Yes ✓ — full item embedded at playbook drop (playbookSlug set); drag-dropped items also embedded (playbookSlug=null) | none (`system.possessions.*` removed) | No ✓ — reads from `actor.items` |
 | **Arcana** | Yes ✓ — full item embedded at acquisition | none (`system.arcana.*` removed) | No ✓ — reads from `actor.items` |
 | **Followers** | Yes ✓ — full item embedded at acquisition (owned=true); linked preview items (owned=false) | none (`system.followers.*` removed) | No ✓ — reads from `actor.items` |
 | **Playbook** | Yes — one item created on drop | `system.playbookSlug` (pointer only) | Yes — `findBySlug(slug)` for all background/instinct/lore/origin data |
@@ -369,6 +369,36 @@ Arcana and NPC item types already exist. Embed when acquired; remove when lost. 
 
 ---
 
+## Phase 5: Embed Possessions on Playbook Acquisition ✓ COMPLETE
+
+Possessions are embedded into `actor.items` when a playbook is dropped onto a character, and removed when the playbook is removed. Same pattern as Phase 3 (moves) and Phase 4 (arcana/followers).
+
+### What changed
+
+**Schema:**
+- `PossessionData`: added `selected`, `preselected`, `uses`, `pickValues`, `choiceUses`, `playbookSlug` fields — mutable per-actor state moves from `system.possessions.*` onto each embedded item. `playbookSlug` distinguishes playbook possessions (non-null) from drag-dropped possessions (null).
+- `CharacterData`: removed `possessions` SchemaField entirely
+
+**CharacterPossessions:**
+- Constructor: removed `_playbook` arg (no longer needed)
+- `selected` getter reads from `actor.items` (type=possession, selected=true)
+- All mutations (`select`, `deselect`, `setUses`, `addSubChoice`, `removeSubChoice`, `selectExclusive`, `setChoiceUses`) update embedded items via `updateEmbeddedDocuments`
+- New `addPossessionsFromPlaybook(sp, playbookSlug)` — called on playbook drop; fetches from repo, embeds items; preselected ones start selected=true and get outfit items synced
+- New `removePossessionsFromPlaybook(playbookSlug)` — deletes all possession items with matching playbookSlug
+- `syncPossessionItems` reads from embedded item (no repo call)
+- `buildSnapshot()` reads `pickCount`/`pickNote` from embedded playbook item in `actor.items`; reads all other data from possession items — no repo fetch
+- `computeMaxUses` no longer merges a persisted `maxUses` map; computes scaling bonus only
+
+**StonetopCharacter:**
+- `_onCreateDescendantDocuments`: calls `addPossessionsFromPlaybook` instead of `syncPossessionItems` loop
+- Added `_onDeleteDescendantDocuments`: calls `removePossessionsFromPlaybook` when playbook is deleted
+- `selectPossession`, `selectSubChoice`, `deselectSubChoice`, `selectSubChoiceExclusive`: removed dead `sp` fetch
+
+**Eliminated:**
+- `actor.system.possessions.{selected,uses,maxUses,pickValues,choiceUses}` — removed from `CharacterData` schema
+- `findBySlugs` call in `buildSnapshot()` — `_possessionRepo` used only in `addPossessionsFromPlaybook`
+- `_playbook` dependency in `CharacterPossessions`
+
 ---
 
 ## Item Types by Actor Type
@@ -388,11 +418,23 @@ Arcana and NPC item types already exist. Embed when acquired; remove when lost. 
 
 ## Key Files
 
-| File | Role |
-|---|---|
-| `module/documents/StonetopCharacter.js` | Facade; orchestrates all controllers |
-| `module/actors/character/` | Domain controllers (one per concern) |
-| `module/actors/character/StonetopFlags.js` | **Deleted in Phase 1** |
-| `template.json` | **Replaced by TypeDataModel in Phase 1** |
-| `packs/src/playbooks/*.json` | Updated in Phase 2 (possessions extracted) |
-| `packs/src/possessions/` | New pack created in Phase 2 |
+| File                                    | Role |
+|-----------------------------------------|---|
+| `src/documents/StonetopCharacter.js`    | Facade; orchestrates all controllers |
+| `src/actors/character/`                 | Domain controllers (one per concern) |
+| `src/actors/character/StonetopFlags.js` | **Deleted in Phase 1** |
+| `template.json`                         | **Replaced by TypeDataModel in Phase 1** |
+| `packs/src/playbooks/*.json`            | Updated in Phase 2 (possessions extracted) |
+| `packs/src/possessions/`                | New pack created in Phase 2 |
+
+## Phase 5
+Embed Possessions on Playbook Acquisition
+
+
+## Phase 6
+embed playbook item data at selection time so CharacterPlaybook.buildSnapshot() reads from the embedded playbook item instead of fetching from repo on every render
+
+Outfit items / Insert / Inventory embeded in items
+
+## Phase 7
+update ChoiceGroupController and ResourceController to embed the state on the items themselves

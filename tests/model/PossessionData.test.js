@@ -23,6 +23,26 @@ describe("PossessionData defaults", () => {
 	it("defaults outfitItems to empty array", () => {
 		expect(new PossessionData().outfitItems).toEqual([]);
 	});
+
+	it("defaults selected and preselected to false", () => {
+		const d = new PossessionData();
+		expect(d.selected).toBe(false);
+		expect(d.preselected).toBe(false);
+	});
+
+	it("defaults uses to 0", () => {
+		expect(new PossessionData().uses).toBe(0);
+	});
+
+	it("defaults pickValues and choiceUses to empty objects", () => {
+		const d = new PossessionData();
+		expect(d.pickValues).toEqual({});
+		expect(d.choiceUses).toEqual({});
+	});
+
+	it("defaults playbookSlug to null", () => {
+		expect(new PossessionData().playbookSlug).toBeNull();
+	});
 });
 
 describe("PossessionData with initial data", () => {
