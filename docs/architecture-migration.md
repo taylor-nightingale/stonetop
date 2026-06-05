@@ -553,3 +553,6 @@ function migrateGroupDefs(defs) {
 ```
 
 Once this migration runs, the backward compat branches in `buildRow` and `_fireSideEffects` can be removed.
+After migration is live, the backward-compat branches in ChoiceGroup.buildRow and
+ChoiceGroupController._fireSideEffects for "heading" / "follower" row types (Phase 8)
+can be deleted — all actor groupDefs will have been migrated to "entry" by step E.

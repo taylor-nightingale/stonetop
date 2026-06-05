@@ -227,6 +227,10 @@ export class CharacterMoves {
 
 // ── Private helpers ───────────────────────────────────────────────────────────
 
+export function withCategoryFields(obj, categoryKey, acquired = true, opts = {}) {
+	return _withCategoryFields(obj, categoryKey, acquired, opts);
+}
+
 function _withCategoryFields(obj, categoryKey, acquired = true, opts = {}) {
 	const instanceCount = acquired ? 1 : 0;
 	return {

@@ -132,7 +132,8 @@ Hooks.once("init", () => {
 		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
-		"stonetop.steading":         "systems/stonetop/templates/actor/steading.hbs",
+		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
+		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
 	});
 });
 

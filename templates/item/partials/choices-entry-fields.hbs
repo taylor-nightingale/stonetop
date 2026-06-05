@@ -1,0 +1,52 @@
+<label class="choices-field">
+	<span>Title</span>
+	<input type="text"
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.title"
+	       value="{{content.title}}">
+</label>
+<label class="choices-field">
+	<span>Text</span>
+	<textarea
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.text">{{content.text}}</textarea>
+</label>
+<label class="choices-field">
+	<span>Note</span>
+	<textarea
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="note">{{note}}</textarea>
+</label>
+<div class="choices-field">
+	<span>Followers</span>
+	<input type="text"
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers"
+	       value="{{followers}}" placeholder="e.g. enfys,rook">
+	<label class="choices-field-inline-check">
+		<input type="checkbox"
+		       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="inlineDisplay"
+		       {{#if inlineDisplay}}checked{{/if}}>
+		<span>Show full follower card</span>
+	</label>
+</div>
+<div class="choices-field">
+	<span>Outfit items</span>
+	{{#each outfitItems}}
+	<div class="choices-outfit-item">
+		<input type="text" placeholder="slug"
+		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.slug"
+		       value="{{slug}}">
+		<input type="text" placeholder="name"
+		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.name"
+		       value="{{name}}">
+		<input type="number" placeholder="wt" min="0"
+		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.weight"
+		       value="{{weight}}">
+		<select data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.inventoryColumn">
+			<option value="regular" {{#if (eq inventoryColumn "regular")}}selected{{/if}}>regular</option>
+			<option value="small"   {{#if (eq inventoryColumn "small")}}selected{{/if}}>small</option>
+		</select>
+		<button type="button" class="choices-outfit-item-delete"
+		        data-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-option-index="{{../_optionIndex}}"{{/if}} data-outfit-item-index="{{@index}}">×</button>
+	</div>
+	{{/each}}
+	<button type="button" class="choices-add-outfit-item"
+	        data-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-option-index="{{_optionIndex}}"{{/if}}>+ Outfit Item</button>
+</div>

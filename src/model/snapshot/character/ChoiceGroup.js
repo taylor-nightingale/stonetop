@@ -12,7 +12,7 @@ export class ChoiceOption {
 }
 
 export class EntryRow {
-	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null, followers = [], inlineDisplay = false) {
+	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = []) {
 		this.type          = "entry";
 		this.slug          = slug;
 		this.content       = content;       // { title: string|null, text: string|null }
@@ -21,6 +21,7 @@ export class EntryRow {
 		this.input         = input;         // null | { slug, placeholder, value }
 		this.followers     = followers;     // FollowerSnapshot[]
 		this.inlineDisplay = inlineDisplay;
+		this.outfitItems   = outfitItems;   // OutfitItem[]
 	}
 }
 
@@ -113,6 +114,7 @@ export class ChoiceGroup {
 			input,
 			followers,
 			item.inlineDisplay ?? false,
+			item.outfitItems ?? [],
 		);
 	}
 
@@ -122,8 +124,8 @@ export class ChoiceGroup {
 		const siblingSlugsCsv = radio ? (item.options ?? []).map(o => o.slug).join(",") : null;
 		return new ChoiceRow(
 			(item.options ?? []).map(o => new ChoiceOption(o.slug, {
-				text:        o.text,
-				description: o.description ?? null,
+				text:        o.content?.title ?? o.text ?? null,
+				description: o.content?.text  ?? o.description ?? null,
 				checked:     values.getCount(es, o.slug) > 0,
 				type:        o.type ?? null,
 				fillValue:   o.type === "input" ? values.getText(es, o.slug + "-fill") : "",

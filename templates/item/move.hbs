@@ -31,7 +31,7 @@
 			<div class="editor-content" data-edit="system.description">{{{system.description}}}</div>
 		</section>
 
-		{{#if isRollable}}
+		{{#if showResults}}
 		<section class="move-sheet-results">
 			<div class="move-sheet-result">
 				<span class="move-sheet-result-label move-sheet-result-label--success">10+</span>
@@ -82,23 +82,7 @@
 
 					{{#if (eq type "entry")}}
 					<div class="choices-row-fields">
-						<label class="choices-field">
-							<span>Title</span>
-							<input type="text"
-							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="content.title"
-							       value="{{content.title}}">
-						</label>
-						<label class="choices-field">
-							<span>Text</span>
-							<textarea
-							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="content.text">{{content.text}}</textarea>
-						</label>
-						<label class="choices-field">
-							<span>Followers (slugs, comma-separated)</span>
-							<input type="text"
-							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="followers"
-							       value="{{followers}}" placeholder="e.g. enfys,rook">
-						</label>
+						{{> "stonetop.choices-entry-fields"}}
 						<div class="choices-field choices-field--toggle">
 							<span>Track</span>
 							{{#if track}}
@@ -121,12 +105,6 @@
 							<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">+ Input</button>
 							{{/if}}
 						</div>
-						<label class="choices-field choices-field--check">
-							<input type="checkbox"
-							       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="inlineDisplay"
-							       {{#if inlineDisplay}}checked{{/if}}>
-							<span>Show full follower card</span>
-						</label>
 					</div>
 
 					{{else if (eq type "pick")}}
@@ -147,18 +125,14 @@
 							{{#each options}}
 							<div class="choices-option-entry">
 								<div class="choices-option-row">
-									<input type="text" placeholder="label"
-									       data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="text"
-									       value="{{text}}">
+									<span class="choices-option-index">{{_index}}</span>
 									<select data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="type">
 										<option value="" {{#unless type}}selected{{/unless}}>text</option>
 										<option value="input" {{#if (eq type "input")}}selected{{/if}}>fill-in</option>
 									</select>
 									<button type="button" class="choices-option-delete" data-row-index="{{_rowIndex}}" data-option-index="{{_index}}">×</button>
 								</div>
-								<textarea class="choices-option-desc"
-								          placeholder="description (optional)"
-								          data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="description">{{description}}</textarea>
+								{{> "stonetop.choices-entry-fields"}}
 							</div>
 							{{/each}}
 						</div>
