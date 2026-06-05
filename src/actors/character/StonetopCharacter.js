@@ -33,7 +33,7 @@ export class StonetopCharacter {
 		this._appearance = new CharacterAppearance(this._choiceController);
 		this._background = new CharacterBackgrounds(actor, this._followers, this._choiceController, this._resourceController);
 		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(actor, "moveResources"));
-		this._playbook = new CharacterPlaybook(actor, repos.playbook,
+		this._playbook = new CharacterPlaybook(actor,
 			this._background, this._instinct, this._appearance, this._origin, this._lore);
 		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, repos.possessions);
 		this._inventory = new CharacterInventory(actor, repos.inventory, this._possessions, outfitItems, this._resourceController);

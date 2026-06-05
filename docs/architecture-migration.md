@@ -211,7 +211,7 @@ Embedded-only possessions are always `selected: true`, `disabled: false`, `prese
 | **Possessions** | Yes ✓ — full item embedded at playbook drop (playbookSlug set); drag-dropped items also embedded (playbookSlug=null) | none (`system.possessions.*` removed) | No ✓ — reads from `actor.items` |
 | **Arcana** | Yes ✓ — full item embedded at acquisition | none (`system.arcana.*` removed) | No ✓ — reads from `actor.items` |
 | **Followers** | Yes ✓ — full item embedded at acquisition (owned=true); linked preview items (owned=false) | none (`system.followers.*` removed) | No ✓ — reads from `actor.items` |
-| **Playbook** | Yes — one item created on drop | `system.playbookSlug` (pointer only) | Yes — `findBySlug(slug)` for all background/instinct/lore/origin data |
+| **Playbook** | Yes ✓ — full item embedded at selection | `system.playbookSlug` (pointer for selectBackground catKey) | No ✓ — reads from `actor.items` |
 | **Insert** | Yes — one item created on drop | `system.postDeath.insert` (pointer only) | Yes — `getAll()` + `findBySlug()` |
 | **Outfit items** | Yes — fully embedded | `system.inventory.checked{}` (equipped state only) | Yes — `getAll()` for inventory item definitions |
 
@@ -401,6 +401,27 @@ Possessions are embedded into `actor.items` when a playbook is dropped onto a ch
 
 ---
 
+## Phase 6: CharacterPlaybook.getData() Reads from actor.items ✓ COMPLETE
+
+`CharacterPlaybook.getData()` previously called `this._repo.findBySlug(slug)` on every
+`buildPlaybookSnapshot()` and `selectBackground()` call. The embedded playbook item in
+`actor.items` already has all the data (`PlaybookData` system fields + `item.name` + `item.img`).
+
+### What changed
+
+**CharacterPlaybook:**
+- Constructor: removed `playbookRepo` arg
+- `getData()` reads from `actor.items.find(i => i.type === "playbook")` and returns `{ ...item.system, name: item.name, img: item.img }` — no repo call
+
+**Eliminated:**
+- `playbookRepo` / `_repo` from `CharacterPlaybook`
+- `repos.playbook` from `StonetopCharacter` constructor
+- `playbook` getter from `FoundryRepositoryFactory`
+- `playbook` field from `FakeRepositoryFactory`
+- `withPlaybookRepo` / `addPlaybook` from `TestCharacterBuilder`
+
+---
+
 ## Item Types by Actor Type
 
 | Item type | character | steading | npc actor |
@@ -434,7 +455,8 @@ Embed Possessions on Playbook Acquisition
 ## Phase 6
 embed playbook item data at selection time so CharacterPlaybook.buildSnapshot() reads from the embedded playbook item instead of fetching from repo on every render
 
-Outfit items / Insert / Inventory embeded in items
-
 ## Phase 7
+Embed insert and inventory state on items — `CharacterInventory.buildSnapshot()` and `CharacterPostDeath.setInsert()` still call repo. `ActorOutfitItems` already reads from `actor.items` (no repo needed).
+
+## Phase 8
 update ChoiceGroupController and ResourceController to embed the state on the items themselves

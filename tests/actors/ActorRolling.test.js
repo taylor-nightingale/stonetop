@@ -60,10 +60,10 @@ describe("ActorRolling.execute — damage", () => {
 		expect(FakeRoll.lastInstance.formula).toBe("1d6+1");
 	});
 
-	it("calls toMessage with damage flavor", async () => {
+	it("posts ChatMessage with damage title", async () => {
 		const rolling = makeRolling({die: "d6"});
 		await rolling.execute(statRequest("damage"));
-		expect(FakeRoll.lastInstance._messageArgs.flavor).toBe("stonetop.character.attributes.damage");
+		expect(FakeChatMessage.lastCreated.content).toContain("stonetop.character.attributes.damage");
 	});
 
 	it("is a no-op when actor has no damage die value", async () => {

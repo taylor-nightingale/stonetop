@@ -1,16 +1,15 @@
 import { describe, it, expect } from "vitest";
 import { CharacterPlaybook } from "../../../src/actors/character/CharacterPlaybook.js";
 import { PlaybookSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
-import { FakePlaybookRepository } from "../../fakes/FakePlaybookRepository.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { TestPlaybookItemBuilder } from "../../fakes/TestPlaybookItemBuilder.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function makeActor(playbookSlug = "the-blessed") {
-	const actor = new FakeActorBuilder().withPlaybook(playbookSlug).build();
-	return actor;
+function makeActor(playbookSlug = "the-blessed", items = []) {
+	return new FakeActorBuilder().withPlaybook(playbookSlug).withItems(items).build();
 }
 
 class FakeSection {
@@ -27,7 +26,7 @@ class FakeBackground {
 	async buildSnapshot()           { return null; }
 }
 
-function makePlaybook(actor, repo, subs = {}) {
+function makePlaybook(actor, subs = {}) {
 	const {
 		background = new FakeBackground(),
 		instinct   = new FakeSection(),
@@ -35,62 +34,74 @@ function makePlaybook(actor, repo, subs = {}) {
 		origin     = new FakeSection(),
 		lore       = new FakeSection(),
 	} = subs;
-	return new CharacterPlaybook(actor, repo, background, instinct, appearance, origin, lore);
+	return new CharacterPlaybook(actor, background, instinct, appearance, origin, lore);
 }
 
-const PLAYBOOK = {
-	slug:           "the-blessed",
-	name:           "The Blessed",
-	img:            "img.webp",
-	description:    "<p>A healer.</p>",
-	statsNote:      "Assign +2/+1/+1/0/0/-1",
-	lore:           [{ slug: "lore-1" }],
-	backgrounds:    [
+const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
+	.withSlug("the-blessed")
+	.withName("The Blessed")
+	.withImg("img.webp")
+	.withDescription("<p>A healer.</p>")
+	.withStatsNote("Assign +2/+1/+1/0/0/-1")
+	.withBackgrounds([
 		{ slug: "herbalist", moves: ["healing-touch"] },
 		{ slug: "vessel",    moves: ["channel"] },
-	],
-	instinct:       { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [{ slug: "pious", label: "Pious", description: "Devout." }] }] },
-	appearance:     { slug: "appearance", list: [{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "tall", text: "tall" }, { slug: "short", text: "short" }] }] },
-	origin:         [{ region: "The Reach", names: ["Aldric"] }],
-};
+	])
+	.withInstinct({ slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [{ slug: "pious", label: "Pious", description: "Devout." }] }] })
+	.withAppearance({ slug: "appearance", list: [{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "tall", text: "tall" }, { slug: "short", text: "short" }] }] })
+	.withOrigin([{ region: "The Reach", names: ["Aldric"] }])
+	.withLore([{ slug: "lore-1" }])
+	.build();
+
+const PLAYBOOK_DATA = { ...PLAYBOOK_ITEM.system, name: PLAYBOOK_ITEM.name, img: PLAYBOOK_ITEM.img };
 
 // ── getData ───────────────────────────────────────────────────────────────────
 
 describe("CharacterPlaybook.getData", () => {
-	it("returns null when actor has no playbook slug", async () => {
+	it("returns null when actor has no playbook item in actor.items", async () => {
 		const actor = new FakeActorBuilder().build();
-		expect(await makePlaybook(actor, new FakePlaybookRepository(PLAYBOOK)).getData()).toBeNull();
+		expect(await makePlaybook(actor).getData()).toBeNull();
 	});
 
-	it("returns the playbook from the repo when slug matches", async () => {
-		expect(await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK)).getData()).toBe(PLAYBOOK);
+	it("returns null when slug is set but no playbook item is in actor.items", async () => {
+		const actor = new FakeActorBuilder().withPlaybook("the-blessed").build();
+		expect(await makePlaybook(actor).getData()).toBeNull();
 	});
 
-	it("returns null when repo returns null (slug not found)", async () => {
-		expect(await makePlaybook(makeActor("unknown"), new FakePlaybookRepository()).getData()).toBeNull();
+	it("returns playbook data from embedded item when present", async () => {
+		const data = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).getData();
+		expect(data).not.toBeNull();
+		expect(data.slug).toBe("the-blessed");
 	});
 
-	it("returns null for a different actor slug when only another playbook is registered", async () => {
-		const repo = new FakePlaybookRepository(PLAYBOOK);
-		expect(await makePlaybook(makeActor("the-heavy"), repo).getData()).toBeNull();
+	it("includes name and img from item top-level fields", async () => {
+		const data = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).getData();
+		expect(data.name).toBe("The Blessed");
+		expect(data.img).toBe("img.webp");
+	});
+
+	it("includes system fields like backgrounds and lore", async () => {
+		const data = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).getData();
+		expect(data.backgrounds).toEqual(PLAYBOOK_ITEM.system.backgrounds);
+		expect(data.lore).toEqual(PLAYBOOK_ITEM.system.lore);
 	});
 });
 
 // ── buildPlaybookSnapshot ─────────────────────────────────────────────────────
 
 describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
-	it("returns null when no playbook is set on actor", async () => {
+	it("returns null when no playbook item in actor.items", async () => {
 		const actor = new FakeActorBuilder().build();
-		expect(await makePlaybook(actor, new FakePlaybookRepository()).buildPlaybookSnapshot()).toBeNull();
+		expect(await makePlaybook(actor).buildPlaybookSnapshot()).toBeNull();
 	});
 
 	it("returns a PlaybookSnapshot", async () => {
-		const snap = await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK)).buildPlaybookSnapshot();
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
 		expect(snap).toBeInstanceOf(PlaybookSnapshot);
 	});
 
 	it("snapshot has correct slug, name, img, description, statsNote", async () => {
-		const snap = await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK)).buildPlaybookSnapshot();
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
 		expect(snap.slug).toBe("the-blessed");
 		expect(snap.name).toBe("The Blessed");
 		expect(snap.img).toBe("img.webp");
@@ -106,7 +117,7 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 			origin:     new FakeSection("origin-snap"),
 			lore:       new FakeSection("lore-snap"),
 		};
-		const snap = await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), subs).buildPlaybookSnapshot();
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), subs).buildPlaybookSnapshot();
 		expect(snap.background).toBe("bg-snap");
 		expect(snap.instinct).toBe("instinct-snap");
 		expect(snap.appearance).toBe("appearance-snap");
@@ -116,40 +127,40 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 
 	it("passes playbook.backgrounds to background.buildSnapshot", async () => {
 		const bg = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { background: bg }).buildPlaybookSnapshot();
-		expect(bg.receivedData()).toEqual(PLAYBOOK.backgrounds);
+		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg }).buildPlaybookSnapshot();
+		expect(bg.receivedData()).toEqual(PLAYBOOK_ITEM.system.backgrounds);
 	});
 
 	it("passes playbook.instinct to instinct.buildSnapshot", async () => {
 		const instinct = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { instinct }).buildPlaybookSnapshot();
-		expect(instinct.receivedData()).toEqual(PLAYBOOK.instinct);
+		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { instinct }).buildPlaybookSnapshot();
+		expect(instinct.receivedData()).toEqual(PLAYBOOK_ITEM.system.instinct);
 	});
 
 	it("passes playbook.appearance to appearance.buildSnapshot", async () => {
 		const appearance = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { appearance }).buildPlaybookSnapshot();
-		expect(appearance.receivedData()).toEqual(PLAYBOOK.appearance);
+		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { appearance }).buildPlaybookSnapshot();
+		expect(appearance.receivedData()).toEqual(PLAYBOOK_ITEM.system.appearance);
 	});
 
 	it("passes playbook.origin to origin.buildSnapshot", async () => {
 		const origin = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { origin }).buildPlaybookSnapshot();
-		expect(origin.receivedData()).toEqual(PLAYBOOK.origin);
+		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { origin }).buildPlaybookSnapshot();
+		expect(origin.receivedData()).toEqual(PLAYBOOK_ITEM.system.origin);
 	});
 
 	it("passes playbook.lore to lore.buildSnapshot", async () => {
 		const lore = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { lore }).buildPlaybookSnapshot();
-		expect(lore.receivedData()).toEqual(PLAYBOOK.lore);
+		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { lore }).buildPlaybookSnapshot();
+		expect(lore.receivedData()).toEqual(PLAYBOOK_ITEM.system.lore);
 	});
 
 	it("falls back to empty arrays when playbook fields are absent", async () => {
-		const minimal = { slug: "the-blessed", name: "The Blessed" };
+		const minimalItem = new TestPlaybookItemBuilder().withSlug("the-blessed").withName("The Blessed").build();
 		const bg = new FakeSection();
 		const instinct = new FakeSection();
 		const appearance = new FakeSection();
-		await makePlaybook(makeActor(), new FakePlaybookRepository(minimal), { background: bg, instinct, appearance }).buildPlaybookSnapshot();
+		await makePlaybook(makeActor("the-blessed", [minimalItem]), { background: bg, instinct, appearance }).buildPlaybookSnapshot();
 		expect(bg.receivedData()).toEqual([]);
 		expect(instinct.receivedData()).toBeNull();
 		expect(appearance.receivedData()).toBeNull();
@@ -162,41 +173,41 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 	it("updates vitals from the playbook data", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository());
+		const pb = makePlaybook(makeActor());
 		pb.setVitals(vitals);
 		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK);
-		expect(vitals.playbookUpdatedWith()).toBe(PLAYBOOK);
+		await pb.selectPlaybook(PLAYBOOK_DATA);
+		expect(vitals.playbookUpdatedWith()).toBe(PLAYBOOK_DATA);
 	});
 
 	it("initializes the playbook move category", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository());
+		const pb = makePlaybook(makeActor());
 		pb.setVitals(vitals);
 		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK);
-		expect(moves.initializedWith()).toBe(PLAYBOOK);
+		await pb.selectPlaybook(PLAYBOOK_DATA);
+		expect(moves.initializedWith()).toBe(PLAYBOOK_DATA);
 	});
 
 	it("increments bg moves after init when background is pre-selected", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
 		const bg     = new FakeBackground("herbalist");
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(), { background: bg });
+		const pb = makePlaybook(makeActor(), { background: bg });
 		pb.setVitals(vitals);
 		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK);
+		await pb.selectPlaybook(PLAYBOOK_DATA);
 		expect(moves.wasIncremented("playbook-the-blessed", "healing-touch")).toBe(true);
 	});
 
 	it("does not increment moves when no background is selected", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository());
+		const pb = makePlaybook(makeActor());
 		pb.setVitals(vitals);
 		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK);
+		await pb.selectPlaybook(PLAYBOOK_DATA);
 		expect(moves.incrementedCount()).toBe(0);
 	});
 });
@@ -205,18 +216,18 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 
 describe("CharacterPlaybook.getBackgroundMoveNames", () => {
 	it("returns the move slugs for the matching background slug", async () => {
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK));
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
 		expect(await pb.getBackgroundMoveNames("vessel")).toEqual(new Set(["channel"]));
 	});
 
 	it("returns empty Set when slug does not match any background", async () => {
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK));
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
 		expect(await pb.getBackgroundMoveNames("unknown-slug")).toEqual(new Set());
 	});
 
-	it("returns empty Set when no playbook is assigned", async () => {
+	it("returns empty Set when no playbook item is in actor.items", async () => {
 		const actor = new FakeActorBuilder().build();
-		const pb = makePlaybook(actor, new FakePlaybookRepository());
+		const pb = makePlaybook(actor);
 		expect(await pb.getBackgroundMoveNames("herbalist")).toEqual(new Set());
 	});
 });
@@ -226,7 +237,7 @@ describe("CharacterPlaybook.getBackgroundMoveNames", () => {
 describe("CharacterPlaybook.selectBackground", () => {
 	it("persists the new background selection", async () => {
 		const bg = new FakeBackground("");
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { background: bg });
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
 		pb.setMoves(new FakeMoves());
 		await pb.selectBackground("herbalist");
 		expect(bg.selectedSlug).toBe("herbalist");
@@ -235,7 +246,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("increments new bg moves not in the old bg", async () => {
 		const bg    = new FakeBackground("");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { background: bg });
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
 		pb.setMoves(moves);
 		await pb.selectBackground("herbalist");
 		expect(moves.wasIncremented("playbook-the-blessed", "healing-touch")).toBe(true);
@@ -244,18 +255,18 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("decrements old bg moves not in the new bg", async () => {
 		const bg    = new FakeBackground("herbalist");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor(), new FakePlaybookRepository(PLAYBOOK), { background: bg });
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
 		pb.setMoves(moves);
 		await pb.selectBackground("vessel");
 		expect(moves.wasDecremented("playbook-the-blessed", "healing-touch")).toBe(true);
 		expect(moves.wasIncremented("playbook-the-blessed", "channel")).toBe(true);
 	});
 
-	it("does not increment or decrement moves when no playbook slug is set", async () => {
+	it("does not increment or decrement moves when no playbook item is in actor.items", async () => {
 		const bg    = new FakeBackground("");
 		const moves = new FakeMoves();
 		const actor = new FakeActorBuilder().build();
-		const pb = makePlaybook(actor, new FakePlaybookRepository(PLAYBOOK), { background: bg });
+		const pb = makePlaybook(actor, { background: bg });
 		pb.setMoves(moves);
 		await pb.selectBackground("herbalist");
 		expect(moves.incrementedCount()).toBe(0);

@@ -63,7 +63,13 @@ export class ActorRolling {
 		if (!die) return;
 		const formula = /^\d/.test(die) ? die : `1${die}`;
 		const roll = await new Roll(formula).evaluate();
-		return roll.toMessage({speaker, flavor: game.i18n.localize("stonetop.character.attributes.damage")});
+		return ChatMessage.create({
+			speaker,
+			content: this._display.build(roll, {
+				name: game.i18n.localize("stonetop.character.attributes.damage"),
+			}),
+			rolls: [roll],
+		});
 	}
 
 	_rollingFormula(rollMode, bonus) {

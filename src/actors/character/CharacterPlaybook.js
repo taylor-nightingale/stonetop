@@ -1,9 +1,8 @@
 import { PlaybookSnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
 
 export class CharacterPlaybook {
-	constructor(actor, playbookRepo, background, instinct, appearance, origin, lore) {
+	constructor(actor, background, instinct, appearance, origin, lore) {
 		this._actor      = actor;
-		this._repo       = playbookRepo;
 		this._background = background;
 		this._instinct   = instinct;
 		this._appearance = appearance;
@@ -15,9 +14,9 @@ export class CharacterPlaybook {
 	setMoves(moves)   { this._moves  = moves; }
 
 	async getData() {
-		const slug = this.getSlug() ?? null;
-		if (!slug) return null;
-		return this._repo.findBySlug(slug);
+		const item = [...this._actor.items].find(i => i.type === "playbook");
+		if (!item) return null;
+		return { ...item.system, name: item.name, img: item.img };
 	}
 
 	getSlug() {
