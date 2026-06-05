@@ -208,7 +208,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (cgContext === "arcana-back") {
 					await this._stonetopCharacter.setArcanumBackChoiceValue(groupSlug, optionSlug, count);
 				} else if (cgContext === "background") {
-					await this._stonetopCharacter.setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count);
+					await this._stonetopCharacter.setChoiceCount(cgContext, groupSlug, optionSlug, count);
 				}
 			}, true);
 

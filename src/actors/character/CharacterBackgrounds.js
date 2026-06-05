@@ -24,10 +24,6 @@ export class CharacterBackgrounds {
 		await this._choiceController.setCount(namespace, optionSlug, count);
 	}
 
-	async setFollowerChoiceValue(namespace, optionSlug, count) {
-		await this._choiceController.setFollowerCount(namespace, optionSlug, count);
-	}
-
 	async setResource(slug, count) {
 		await this._resourceController.set("backgrounds", slug, count);
 	}

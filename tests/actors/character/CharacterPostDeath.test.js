@@ -16,7 +16,7 @@ function makeInsertRepo(inserts = []) {
 function makePostDeath({ initialSlug = null, insertRepo = makeInsertRepo([]), moves = new FakeMoves() } = {}) {
 	const actor = new FakeActorBuilder().build();
 	if (initialSlug) actor.system.postDeath = { insert: initialSlug };
-	const ctrl = new ChoiceGroupController(actor, null, "postDeathChoices");
+	const ctrl = ChoiceGroupController.forActorSection(actor, "postDeathChoices");
 	return new CharacterPostDeath(
 		actor,
 		new CharacterInstincts(actor, ctrl, "postDeathInstinct"),

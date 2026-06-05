@@ -27,7 +27,7 @@ export class NpcItemData extends foundry.abstract.TypeDataModel {
 				value: new f.NumberField({ initial: 0, integer: true }),
 				max:   new f.NumberField({ initial: 3, integer: true }),
 			}),
-			choices:          new f.ObjectField({ nullable: true, initial: null }),
+			choices:          new f.ArrayField(new f.ObjectField(), { initial: [] }),
 			description:      new f.StringField({ initial: "" }),
 		};
 	}

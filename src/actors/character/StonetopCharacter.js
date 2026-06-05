@@ -28,7 +28,7 @@ export class StonetopCharacter {
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
 		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController);
-		this._choiceController = new ChoiceGroupController(actor, this._followers);
+		this._choiceController = ChoiceGroupController.forActorSection(actor, "choices", { followers: this._followers });
 		this._instinct = new CharacterInstincts(actor, this._choiceController);
 		this._appearance = new CharacterAppearance(this._choiceController);
 		this._background = new CharacterBackgrounds(actor, this._followers, this._choiceController, this._resourceController);
@@ -44,7 +44,7 @@ export class StonetopCharacter {
 			actor,
 			new CharacterInstincts(
 				actor,
-				new ChoiceGroupController(actor, this._followers, "postDeathChoices"),
+				ChoiceGroupController.forActorSection(actor, "postDeathChoices", { followers: this._followers }),
 				"postDeathInstinct"
 			),
 			new CharacterLore(actor, "postDeathLore"),
@@ -299,10 +299,6 @@ export class StonetopCharacter {
 
 	async setArcanumBackChoiceValue(arcanumSlug, optionSlug, count) {
 		await this._arcana.setBackChoiceValue(arcanumSlug, optionSlug, count);
-	}
-
-	async setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count) {
-		await this._background.setFollowerChoiceValue(groupSlug, optionSlug, count);
 	}
 
 	async setBackgroundResource(slug, count) {

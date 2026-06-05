@@ -8,7 +8,7 @@ function makeInstinct(valuesRaw = {}, initialCustom = "") {
 	const actor = new FakeActorBuilder().build();
 	actor.system.instinct = { custom: initialCustom };
 	if (Object.keys(valuesRaw).length) actor.system.choices = { values: valuesRaw, groupDefs: {} };
-	const ctrl = new ChoiceGroupController(actor);
+	const ctrl = ChoiceGroupController.forActorSection(actor, "choices");
 	return new CharacterInstincts(actor, ctrl);
 }
 

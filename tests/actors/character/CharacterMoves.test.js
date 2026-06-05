@@ -35,7 +35,7 @@ function makeMoves({
 	actor  = makeActor(),
 	vitals = {level: 1},
 } = {}) {
-	const ctrl = new ChoiceGroupController(actor);
+	const ctrl = ChoiceGroupController.forActorSection(actor, "choices");
 	const res  = new ResourceController(actor);
 	const m    = new CharacterMoves(repo, actor, ctrl, res);
 	m.setVitals(vitals);

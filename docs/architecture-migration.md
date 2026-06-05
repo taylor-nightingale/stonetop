@@ -448,15 +448,74 @@ Possessions are embedded into `actor.items` when a playbook is dropped onto a ch
 | `packs/src/playbooks/*.json`            | Updated in Phase 2 (possessions extracted) |
 | `packs/src/possessions/`                | New pack created in Phase 2 |
 
-## Phase 5
-Embed Possessions on Playbook Acquisition
+## Phase 7: ChoiceGroupController — Storage Abstraction + Declarative Side Effects ✓ COMPLETE
 
+`ChoiceGroupController` hard-coded state storage to `actor.system[section]`. Follower and outfit-item side effects were scattered: `setFollowerCount` in the controller, direct `addFollower/removeFollower` calls in `CharacterArcana.setBackChoiceValue`, and a separate `.stonetop-arcanum-follower-check` sheet handler.
 
-## Phase 6
-embed playbook item data at selection time so CharacterPlaybook.buildSnapshot() reads from the embedded playbook item instead of fetching from repo on every render
+**What changed:**
+- New constructor: `{ reader, writer, definitionReader, followers, outfitItems }` — storage and side-effect targets are injected
+- Two static factories: `ChoiceGroupController.forActorSection(actor, section, handlers)` and `ChoiceGroupController.forItem(actor, itemId, valueField, handlers)`
+- `_fireSideEffects(namespace, optionSlug, count, newRawValues)` — after every write, inspects the definition for follower-type rows and outfit-item-declaring options; fires the appropriate handler automatically
+- `setFollowerCount` removed — absorbed into `_fireSideEffects`
+- `CharacterArcana.setBackChoiceValue` and `setUnlockCount` use `forItem`; direct follower calls removed
+- `CharacterBackgrounds.setFollowerChoiceValue` removed; `setChoiceValue` handles all background choices
+- `StonetopCharacter.setBackgroundFollowerChoiceValue` removed
+- `CharacterFollowers.setChoiceValue/setChoiceText` use `forItem`
+- `buildGroupSnapshot(namespace, followersBySlug = {})` gained the `followersBySlug` param
 
-## Phase 7
-Embed insert and inventory state on items — `CharacterInventory.buildSnapshot()` and `CharacterPostDeath.setInsert()` still call repo. `ActorOutfitItems` already reads from `actor.items` (no repo needed).
+**This phase is a prerequisite for Phase 8A and 8B.**
 
-## Phase 8
-update ChoiceGroupController and ResourceController to embed the state on the items themselves
+---
+
+## Phase 8A: Embed Insert on Drag-Drop
+
+`CharacterPostDeath` currently calls `insertRepo.getAll()` (for the choose-fate dropdown) and `insertRepo.findBySlug(slug)` (for active insert data + move category name) in every `buildSnapshot()`. The UI shows a panel of buttons to pick which insert to activate.
+
+**New flow:** drag an `insert` item onto the sheet → Foundry embeds it → tab appears. No pick-from-list panel.
+
+### What changes
+
+**`CharacterPostDeath`**
+- Constructor: remove `insertRepo` arg
+- Remove `setInsert(slug)`, `activeSlug`, `setActiveSlug()`
+- Add `onInsertDropped(item)` — called from `_onCreateDescendantDocuments`; adds move category using `item.name`, no repo fetch
+- Add `removeInsert()` — finds embedded insert item and calls `deleteEmbeddedDocuments`
+- Add `onInsertRemoved(slug)` — removes move category; called from `_onDeleteDescendantDocuments`
+- `buildSnapshot()` returns `PostDeathInsertSnapshot | null` (not `PostDeathSectionSnapshot`); reads from `actor.items.find(i => i.type === "insert")`; maps `item.system.choices` → lore (same mapping as `PostDeathInsert` class did)
+
+**`StonetopCharacter`**
+- `_onCreateDescendantDocuments`: change insert branch to call `this._postDeath.onInsertDropped(item)`
+- `_onDeleteDescendantDocuments`: add insert branch → `this._postDeath.onInsertRemoved(slug)`
+- Remove `setPostDeathInsert(slug)`; add `removeInsert()` → delegates to `this._postDeath.removeInsert()`
+
+**Snapshot**
+- `PostDeathSectionSnapshot` + its builder are deleted
+- Character snapshot's `postDeathInsert` field is `PostDeathInsertSnapshot | null`
+
+**`CharacterData.js`**
+- Remove `postDeath: SchemaField({ insert: StringField })` — embedded item presence is the state
+
+**Templates**
+- `character.hbs`: tab nav entry is conditional: `{{#if stonetop.postDeathInsert}}<a ... data-tab="post-death">...</a>{{/if}}`
+- `tab-post-death.hbs`: remove `{{else}}` block (choose-fate / availableInserts); flatten path: `stonetop.postDeathInsert.name` (was `stonetop.postDeathInsert.activeInsert.name`); remove button calls `removeInsert`
+
+**Repos / factories**
+- Remove `postDeathInsert` from `FoundryRepositoryFactory`, `FakeRepositoryFactory`, `TestCharacterBuilder`
+
+---
+
+## Phase 8B: Strip Possession Delegation from CharacterInventory
+
+`CharacterInventory.buildSnapshot()` calls `this._possessions.buildSnapshot(level)` and assembles the full `InventorySnapshot` itself. After Phase 5, possessions have their own item-embedded lifecycle and class — there is no reason `CharacterInventory` should know about them.
+
+**What changes**
+- `CharacterInventory`: remove `_possessions` constructor arg; `buildSnapshot(level)` returns `OutfitSnapshot` (was `InventorySnapshot`)
+- `StonetopCharacter.buildSnapshot()`: call both `this._inventory.buildSnapshot(level)` and `this._possessions.buildSnapshot(level)` in the existing `Promise.all`, then pass both to `CharacterSnapshotBuilder`
+- `InventorySnapshot` construction moves from inside `CharacterInventory` to `StonetopCharacter`
+
+The outfit catalog `getAll()` repo call stays — it is a catalog display query (every character sees every outfit item), not an ownership query. `getArmor()` also stays as a repo call; it is only in the mutation path (`setInventoryItemChecked`), not the render path.
+
+---
+
+## Phase 9
+Data and character migrations for pre-refactor to post-refactor changes.

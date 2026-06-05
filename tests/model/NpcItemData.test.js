@@ -42,7 +42,7 @@ describe("NpcItemData defaults", () => {
 		expect(d.loyalty.max).toBe(3);
 	});
 
-	it("defaults choices to null", () => {
-		expect(new NpcItemData().choices).toBeNull();
+	it("defaults choices to empty array", () => {
+		expect(new NpcItemData().choices).toEqual([]);
 	});
 });

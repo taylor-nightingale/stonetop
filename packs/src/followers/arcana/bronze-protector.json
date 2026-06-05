@@ -26,33 +26,35 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "heading",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "pummel d8 (band)"
+						}
 					},
-					"input": {
-						"default": "pummel d8 (band)"
+					{
+						"type": "heading",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "profuse gratitude (Loyalty ◯◯◯)"
+						}
 					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "profuse gratitude (Loyalty ◯◯◯)"
-					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

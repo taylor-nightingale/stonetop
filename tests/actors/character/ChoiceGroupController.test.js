@@ -5,11 +5,26 @@ import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function makeActor() { return new FakeActorBuilder().build(); }
+
 function makeController(followers = new FakeFollowers()) {
-	return new ChoiceGroupController(new FakeActorBuilder().build(), followers);
+	return ChoiceGroupController.forActorSection(makeActor(), "choices", { followers });
+}
+
+function makeItemWithChoices(choices = [], valueField = "choiceValues") {
+	const item = {
+		_id:    "item-1",
+		type:   "arcanum",
+		name:   "Test Item",
+		system: { [valueField]: {}, choices },
+	};
+	return { actor: new FakeActorBuilder().withItems([item]).build(), itemId: "item-1" };
 }
 
 // ── Heading rows ──────────────────────────────────────────────────────────────
+
 describe("ChoiceGroupController — heading rows", () => {
 	it("heading without track has null track", async () => {
 		const ctrl = makeController();
@@ -179,34 +194,7 @@ describe("ChoiceGroupController — follower rows", () => {
 		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(false);
 	});
 
-	it("setFollowerCount(1) marks the follower checked and adds them to followers", async () => {
-		const followers = new FakeFollowers();
-		const ctrl = makeController(followers);
-		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
-			.addChoice(TestChoiceRowBuilder.follower().withSlug("enfys").withTitle("Enfys"))
-			.build());
-
-		await ctrl.setFollowerCount("ns", "enfys", 1);
-
-		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(true);
-		expect(followers.isOwned("enfys")).toBe(true);
-	});
-
-	it("setFollowerCount(0) marks the follower unchecked and removes them from followers", async () => {
-		const followers = new FakeFollowers();
-		const ctrl = makeController(followers);
-		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
-			.addChoice(TestChoiceRowBuilder.follower().withSlug("enfys").withTitle("Enfys"))
-			.build());
-
-		await ctrl.setFollowerCount("ns", "enfys", 1);
-		await ctrl.setFollowerCount("ns", "enfys", 0);
-
-		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(false);
-		expect(followers.isOwned("enfys")).toBe(false);
-	});
-
-	it("setCount on a follower row persists count but does not add to followers", async () => {
+	it("setCount(1) on a follower row marks the track checked and adds the follower", async () => {
 		const followers = new FakeFollowers();
 		const ctrl = makeController(followers);
 		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
@@ -216,7 +204,44 @@ describe("ChoiceGroupController — follower rows", () => {
 		await ctrl.setCount("ns", "enfys", 1);
 
 		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(true);
+		expect(followers.isOwned("enfys")).toBe(true);
+	});
+
+	it("setCount(0) on a follower row marks the track unchecked and removes the follower", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = makeController(followers);
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.follower().withSlug("enfys").withTitle("Enfys"))
+			.build());
+
+		await ctrl.setCount("ns", "enfys", 1);
+		await ctrl.setCount("ns", "enfys", 0);
+
+		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(false);
 		expect(followers.isOwned("enfys")).toBe(false);
+	});
+
+	it("setCount on a heading row does not add to followers", async () => {
+		const followers = new FakeFollowers();
+		const ctrl = makeController(followers);
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.heading().withSlug("a-track").withTrack(1))
+			.build());
+
+		await ctrl.setCount("ns", "a-track", 1);
+
+		expect(followers.owned).toHaveLength(0);
+	});
+
+	it("setCount on a follower row without a followers handler persists count but has no side effect", async () => {
+		const ctrl = ChoiceGroupController.forActorSection(makeActor(), "choices");
+		await ctrl.addGroup("ns", new TestChoiceGroupBuilder()
+			.addChoice(TestChoiceRowBuilder.follower().withSlug("enfys").withTitle("Enfys"))
+			.build());
+
+		await ctrl.setCount("ns", "enfys", 1);
+
+		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(true);
 	});
 });
 
@@ -302,5 +327,82 @@ describe("ChoiceGroupController — clearValues", () => {
 
 		expect(ctrl.buildGroupSnapshot("ns-a").list[0].track.checks[0]).toBe(false);
 		expect(ctrl.buildGroupSnapshot("ns-b").list[0].track.checks[0]).toBe(true);
+	});
+});
+
+// ── forItem ───────────────────────────────────────────────────────────────────
+
+describe("ChoiceGroupController.forItem", () => {
+	it("buildGroupSnapshot reads the definition from item.system.choices", async () => {
+		const { actor, itemId } = makeItemWithChoices([
+			{ slug: "ns", list: [{ type: "heading", slug: "my-track", track: { max: 1 }, content: {} }] },
+		]);
+		actor.items.get(itemId).system.choiceValues = { ns: { "my-track": 1 } };
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues");
+
+		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(true);
+	});
+
+	it("setCount writes to the item via updateEmbeddedDocuments, not actor.update", async () => {
+		const { actor, itemId } = makeItemWithChoices([
+			{ slug: "ns", list: [{ type: "heading", slug: "my-track", track: { max: 1 }, content: {} }] },
+		]);
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues");
+		await ctrl.setCount("ns", "my-track", 1);
+
+		expect(actor.updatedDocs.some(d => d._id === itemId)).toBe(true);
+		expect(actor.system.choices).toBeUndefined();
+	});
+
+	it("setCount value is reflected in subsequent buildGroupSnapshot", async () => {
+		const { actor, itemId } = makeItemWithChoices([
+			{ slug: "ns", list: [{ type: "heading", slug: "my-track", track: { max: 1 }, content: {} }] },
+		]);
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues");
+		await ctrl.setCount("ns", "my-track", 1);
+
+		expect(ctrl.buildGroupSnapshot("ns").list[0].track.checks[0]).toBe(true);
+	});
+
+	it("fires follower effect for follower rows in item.system.choices", async () => {
+		const followers = new FakeFollowers();
+		const { actor, itemId } = makeItemWithChoices([
+			{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] },
+		]);
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues", { followers });
+		await ctrl.setCount("ns", "enfys", 1);
+
+		expect(followers.isOwned("enfys")).toBe(true);
+	});
+
+	it("removing a follower choice (count 0) removes from followers", async () => {
+		const followers = new FakeFollowers();
+		const { actor, itemId } = makeItemWithChoices([
+			{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] },
+		]);
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues", { followers });
+		await ctrl.setCount("ns", "enfys", 1);
+		await ctrl.setCount("ns", "enfys", 0);
+
+		expect(followers.isOwned("enfys")).toBe(false);
+	});
+
+	it("custom definitionGetter overrides item.system.choices lookup", async () => {
+		const followers = new FakeFollowers();
+		const { actor, itemId } = makeItemWithChoices([]); // empty system.choices
+		const customDef = { slug: "back", list: [{ type: "follower", slug: "rook", title: "Rook", track: { max: 1 } }] };
+
+		const ctrl = ChoiceGroupController.forItem(actor, itemId, "choiceValues", {
+			followers,
+			definitionGetter: (ns) => customDef.slug === ns ? customDef : null,
+		});
+		await ctrl.setCount("back", "rook", 1);
+
+		expect(followers.isOwned("rook")).toBe(true);
 	});
 });

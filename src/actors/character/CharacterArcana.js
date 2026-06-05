@@ -7,6 +7,7 @@ import {
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
 import { Arcanum } from "../../model/data/character/Arcanum.js";
+import { ChoiceGroupController } from "./ChoiceGroupController.js";
 
 export class CharacterArcana {
 	constructor(actor, arcanaRepo, stats = null, outfitItems = null, followers = null) {
@@ -175,19 +176,18 @@ export class CharacterArcana {
 	async setUnlockCount(arcanumSlug, optionSlug, count) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		const updated = new ChoiceValues(item.system?.unlockValues ?? {}).set(arcanumSlug, optionSlug, count).toRaw();
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { unlockValues: updated } }]);
+		await ChoiceGroupController.forItem(this._actor, item._id, "unlockValues")
+			.setCount(arcanumSlug, optionSlug, count);
 	}
 
 	async setBackChoiceValue(arcanumSlug, optionSlug, count) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		const updated = new ChoiceValues(item.system?.backChoiceValues ?? {}).set(arcanumSlug, optionSlug, count).toRaw();
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { backChoiceValues: updated } }]);
-		if (this._followers) {
-			if (count > 0) await this._followers.addFollower(optionSlug);
-			else           await this._followers.removeFollower(optionSlug);
-		}
+		const backChoices = item.system?.back?.choices;
+		await ChoiceGroupController.forItem(this._actor, item._id, "backChoiceValues", {
+			followers:        this._followers,
+			definitionGetter: (ns) => backChoices?.slug === ns ? backChoices : null,
+		}).setCount(arcanumSlug, optionSlug, count);
 	}
 
 	async _syncSideEffects(slug) {

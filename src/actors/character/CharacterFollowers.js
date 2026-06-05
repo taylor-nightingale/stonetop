@@ -1,6 +1,7 @@
 import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
+import { ChoiceGroupController } from "./ChoiceGroupController.js";
 
 export class CharacterFollowers {
 	constructor(actor, followerRepo, resourceController) {
@@ -114,20 +115,15 @@ export class CharacterFollowers {
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		let values = new ChoiceValues(item.system?.choiceValues ?? {});
-		if (siblingSlugsCsv) {
-			for (const s of siblingSlugsCsv.split(",")) values = values.set(groupSlug, s, 0);
-		}
-		values = values.set(groupSlug, choiceSlug, 1);
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { choiceValues: values.toRaw() } }]);
+		await ChoiceGroupController.forItem(this._actor, item._id, "choiceValues")
+			.selectOption(groupSlug, choiceSlug, siblingSlugsCsv ?? null);
 	}
 
 	async setChoiceText(followerSlug, optionSlug, text) {
 		const item = _findFollowerItem(this._actor, followerSlug);
 		if (!item) return;
-		let values = new ChoiceValues(item.system?.choiceValues ?? {});
-		values = values.set("choices", optionSlug, text);
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { choiceValues: values.toRaw() } }]);
+		await ChoiceGroupController.forItem(this._actor, item._id, "choiceValues")
+			.setText("choices", optionSlug, text);
 	}
 
 	async buildSnapshot(extraSlugs = []) {
@@ -159,7 +155,7 @@ export class CharacterFollowers {
 			.withDamage(damageDie ? { value: damageDie, label: sys.damage?.label ?? "", tags: sys.damage?.tags ?? "" } : null)
 			.withInstinct(sys.instinct ?? "")
 			.withLoyalty(ResourceController.build({ max: sys.loyalty?.max ?? 3, title: null, labels: [] }, loyalty))
-			.withChoices(sys.choices ? ChoiceGroup.fromPackData(sys.choices, values) : null)
+			.withChoices(sys.choices?.length ? ChoiceGroup.fromPackData(sys.choices[0], values) : null)
 			.withArcanaSlug(sys.arcanaSlug ?? null)
 			.build();
 	}

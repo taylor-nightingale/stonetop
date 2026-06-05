@@ -6,8 +6,10 @@ import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 function makeAppearance(choicesData = {}) {
 	const actor = new FakeActorBuilder().build();
 	if (choicesData.values) actor.system.choices = { values: choicesData.values, groupDefs: {} };
-	const ctrl = new ChoiceGroupController(actor);
-	return new CharacterAppearance(ctrl);
+	const ctrl = ChoiceGroupController.forActorSection(actor, "choices");
+	const ap = new CharacterAppearance(ctrl);
+	ap._testActor = actor;
+	return ap;
 }
 
 const APPEARANCE_DATA = {
@@ -32,14 +34,14 @@ describe("CharacterAppearance — selectOption", () => {
 	it("stores the chosen slug in values under the appearance group", async () => {
 		const ap = makeAppearance();
 		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
-		expect(ap._controller._actor.system.choices.values.appearance["raspy-voice"]).toBe(1);
+		expect(ap._testActor.system.choices.values.appearance["raspy-voice"]).toBe(1);
 	});
 
 	it("zeroes sibling slugs when selecting an option", async () => {
 		const ap = makeAppearance();
 		await ap.selectOption("raspy-voice", "imperious-voice,raspy-voice,soothing-voice");
-		expect(ap._controller._actor.system.choices.values.appearance["imperious-voice"]).toBe(0);
-		expect(ap._controller._actor.system.choices.values.appearance["soothing-voice"]).toBe(0);
+		expect(ap._testActor.system.choices.values.appearance["imperious-voice"]).toBe(0);
+		expect(ap._testActor.system.choices.values.appearance["soothing-voice"]).toBe(0);
 	});
 });
 

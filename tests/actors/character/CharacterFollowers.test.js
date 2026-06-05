@@ -58,7 +58,7 @@ const ENFYS_DATA = {
 	damage:  { value: "d4", label: "", tags: "" },
 	instinct: "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off",
 	loyalty: { value: 0, max: 3 },
-	choices: {
+	choices: [{
 		slug: "choices",
 		list: [
 			{ type: "heading", slug: "weapon", content: { text: "Weapon" }, input: { default: "bronze knife d4 (hand)" } },
@@ -67,7 +67,7 @@ const ENFYS_DATA = {
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "he", text: "he" }, { slug: "she", text: "she" }, { slug: "they", text: "they" }] },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "just-a-child", text: "just a child" }, { slug: "on-the-cusp", text: "on the cusp" }] },
 		],
-	},
+	}],
 };
 
 const ENFYS = new Follower(ENFYS_DATA);
@@ -81,12 +81,12 @@ const PICKER_DATA = {
 	damage:  null,
 	instinct: "",
 	loyalty: { value: 0, max: 2 },
-	choices: {
+	choices: [{
 		slug: "choices",
 		list: [
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "bully", text: "to bully" }, { slug: "scheme", text: "to scheme" }] },
 		],
-	},
+	}],
 };
 
 const PICKER = new Follower(PICKER_DATA);
@@ -457,14 +457,14 @@ const BLANK_DATA = {
 	damage:  { value: "d6", label: "", tags: "" },
 	instinct: "",
 	loyalty: { value: 0, max: 3 },
-	choices: {
+	choices: [{
 		slug: "choices",
 		list: [
 			{ type: "heading", slug: "damage", content: { text: "Damage" }, input: {} },
 			{ type: "heading", slug: "cost",   content: { text: "Cost" },   input: {} },
 			{ type: "heading", slug: "notes",  content: { text: "Notes" },  input: {} },
 		],
-	},
+	}],
 };
 
 const BLANK = new Follower(BLANK_DATA);
