@@ -143,9 +143,16 @@ export class CharacterArcana {
 				flipped: false, unlockValues: {}, backChoiceValues: {},
 			},
 		}]);
-		const linkedSlugs = this._followerSlugsFor(arcanum);
+		await this.onArcanumCreated({ system: { slug, front: arcanum.front, back: arcanum.back } });
+	}
+
+	async onArcanumCreated(item) {
+		const slug = item.system?.slug;
+		if (!slug) return;
+		const raw = { front: item.system.front ?? {}, back: item.system.back ?? {} };
+		const linkedSlugs = this._followerSlugsFor(raw);
 		await this._followers?.embedLinkedFollowers(linkedSlugs);
-		await this._syncEmbeddedItemWith(slug, arcanum);
+		await this._syncEmbeddedItemWith(slug, raw);
 	}
 
 	async removeArcanum(slug) {

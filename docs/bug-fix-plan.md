@@ -12,15 +12,15 @@ independent phases that can be implemented and verified one at a time.
 
 ### 1a. Ghost moves — wrong `playbook` field
 `packs/src/post-death-moves/ghost/{disembodied,tethered,unliving}.json`
-all have `"playbook": "revenant"`. Change to `"playbook": "ghost"`.  
+all have `"playbook": "revenant"`. Change to `"playbook": "ghost"`.
 Recompile the `post-death-moves` pack.
 
 ### 1b. Collapse move packs into a single `moves` pack
 Current packs: `basic-moves`, `playbook-moves`, `special-moves`,
-`follower-moves`, `homefront-moves`, `post-death-moves`.  
+`follower-moves`, `homefront-moves`, `post-death-moves`.
 Merge into one `moves` pack using sub-folders:
 `moves/basic`, `moves/playbook`, `moves/special`, `moves/followers`,
-`moves/homefront`, `moves/post-death`.  
+`moves/homefront`, `moves/post-death`.
 Update `system.json` `"packs"` entry. Update `FoundryMoveRepository` pack
 reference. Recompile.
 
@@ -35,7 +35,7 @@ instinct into the generic `choices[]` array was the wrong abstraction for both
 playbooks and inserts.
 
 ### Schema changes
-- `PlaybookData`: add `instinct: new f.ObjectField({ nullable: true, initial: null })`  
+- `PlaybookData`: add `instinct: new f.ObjectField({ nullable: true, initial: null })`
   (keep it out of `choices[]`)
 - `InsertData`: add `instinct: new f.ObjectField({ nullable: true, initial: null })`
 
@@ -165,8 +165,8 @@ without a JS filter helper. Add computed properties to `PlaybookSnapshot`:
 - `loreGroups: ChoiceGroup[]` — `choices.filter(c => c.slug !== "appearance")`
   (instinct is already a separate field; remaining choices are lore)
 
-`PlaybookSnapshotBuilder`: add `withAppearanceGroup(v)` and `withLoreGroups(v)`.  
-`CharacterPlaybook.buildPlaybookSnapshot`: compute and set both fields.  
+`PlaybookSnapshotBuilder`: add `withAppearanceGroup(v)` and `withLoreGroups(v)`.
+`CharacterPlaybook.buildPlaybookSnapshot`: compute and set both fields.
 Tests updated for new snapshot shape.
 
 ---
@@ -337,13 +337,14 @@ template/snapshot issue.
 
 Phase 1a → Phase 2 → Phase 3 → Phase 4 → Phase 5 → Phase 6 → Phase 7
 
-- **1a** (ghost move data): standalone
-- **1b** (move pack consolidation): standalone, can run in parallel with 2–7
-- **2** (instinct revert + shared abstraction): standalone; must precede 4 and 5
-- **3** (arcana null guard): standalone
+DONE - **1a** (ghost move data): standalone
+DONE - **1b** (move pack consolidation): standalone, can run in parallel with 2–7
+DONE - **2** (instinct revert + shared abstraction): standalone; must precede 4 and 5
+DONE - **3** (arcana null guard): standalone (MIS-IDENTIFIED BUG SOURCE)
 - **4** (PlaybookSnapshot view fields): requires Phase 2
 - **5a** (tab-details template): requires Phase 4
 - **5b–5c** (character.hbs + tab-insert.hbs): requires Phase 2; uses `instinct-section.hbs` from Phase 2
 - **6** (sheet event wiring): requires Phase 5b–5c
 - **7** (OutfitItemSideEffectHandler): standalone
 - **8** (move choices investigation): last — needs running game to verify
+- **9** dragging a new playbook onto the sheet doesn't update the details tab, or the playbook icons at the top. It keeps adding to special possessions instead of removing old ones

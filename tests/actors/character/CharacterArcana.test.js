@@ -756,3 +756,53 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([true]);
 	});
 });
+
+// ── onArcanumCreated ──────────────────────────────────────────────────────────
+
+describe("CharacterArcana.onArcanumCreated", () => {
+	it("pre-embeds linked follower with owned=false", async () => {
+		const actor = makeActor([makeArcanumItem(CRACKED_FLUTE)]);
+		const followerRepo = new FakeFollowerRepository([{
+			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
+			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
+		}]);
+		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers);
+		await charArcana.onArcanumCreated(makeArcanumItem(CRACKED_FLUTE));
+		const followerItem = [...actor.items].find(i => i.type === "npc" && i.system?.slug === "andalau-of-the-flute");
+		expect(followerItem?.system?.owned).toBe(false);
+	});
+
+	it("does not embed follower when arcanum has no back choices", async () => {
+		const actor = makeActor([makeArcanumItem(FFYRNIG_SPHERE)]);
+		const followers = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers);
+		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
+		expect([...actor.items].filter(i => i.type === "npc")).toHaveLength(0);
+	});
+
+	it("syncs outfit items when front item has inventoryColumn", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const actor = makeActor([makeArcanumItem(BOW_WITH_NO_STRING)]);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, outfitItems, null);
+		await charArcana.onArcanumCreated(makeArcanumItem(BOW_WITH_NO_STRING));
+		expect(outfitItems.sync).toHaveBeenCalledWith("arcana:bow-with-no-string", expect.any(Array));
+	});
+
+	it("deletes outfit item source when front item has no inventoryColumn", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const actor = makeActor([makeArcanumItem(FFYRNIG_SPHERE)]);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, outfitItems, null);
+		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
+		expect(outfitItems.deleteBySource).toHaveBeenCalledWith("arcana:huge-wooden-sphere");
+	});
+
+	it("does nothing when slug is null", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const charArcana = new CharacterArcana(makeActor(), new FakeArcanaRepository(), null, outfitItems, null);
+		await charArcana.onArcanumCreated({ system: { slug: null, front: null, back: null } });
+		expect(outfitItems.sync).not.toHaveBeenCalled();
+		expect(outfitItems.deleteBySource).not.toHaveBeenCalled();
+	});
+});

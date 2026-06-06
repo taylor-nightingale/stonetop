@@ -19,6 +19,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	const resourceController  = new ResourceController(actor);
 
 	await migrateArcana(actor, repos.arcana, repos.followers);
+	await migrateArcanumPackData(actor, repos.arcana);
 	await migrateFollowers(actor, repos.followers, resourceController);
 
 	const moves = new CharacterMoves(repos.moves, actor, null);
@@ -404,4 +405,22 @@ export async function migratePlaybookChoiceValues(actor) {
 		_id:    pbItem._id,
 		system: { choiceValues: { ...existing, ...toMerge } },
 	}]);
+}
+
+// ── M. Repair arcanum items with empty front/back ─────────────────────────────
+
+export async function migrateArcanumPackData(actor, arcanaRepo) {
+	const stale = [...actor.items].filter(
+		i => i.type === "arcanum" && Object.keys(i.system?.front ?? {}).length === 0,
+	);
+	if (!stale.length) return;
+	const updates = [];
+	for (const item of stale) {
+		const slug = item.system?.slug;
+		if (!slug) continue;
+		const raw = await arcanaRepo.findBySlug(slug);
+		if (!raw?.front) continue;
+		updates.push({ _id: item._id, system: { front: raw.front, back: raw.back } });
+	}
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }

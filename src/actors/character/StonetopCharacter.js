@@ -171,20 +171,15 @@ export class StonetopCharacter {
 		await this._playbook.selectBackground(slug);
 	}
 
+	get ownedArcanaSlugs() {
+		return this._arcana.ownedSlugs;
+	}
+
 	async onDropItems(items) {
-		const isArcanum = i => i.type === "arcanum";
-		const arcana = items.filter(isArcanum);
 		const followers = items.filter(i => i.type === "npc");
 		const moves = items.filter(i => i.type === "move");
-		const others = items.filter(i => i.type !== "arcanum" && i.type !== "move" && i.type !== "npc");
+		const others = items.filter(i => i.type !== "move" && i.type !== "npc");
 		let anyAdded = false;
-		for (const item of arcana) {
-			const slug = item.system?.slug;
-			if (slug) {
-				await this.addArcanum(slug);
-				anyAdded = true;
-			}
-		}
 		for (const item of followers) {
 			const slug = item.system?.slug;
 			if (slug) {
@@ -195,7 +190,7 @@ export class StonetopCharacter {
 		for (const item of moves) {
 			if (await this.onDropMove(item)) anyAdded = true;
 		}
-		return {anyAdded, others};
+		return { anyAdded, others };
 	}
 
 	async incrementMove(categoryKey, moveName) {
@@ -222,6 +217,10 @@ export class StonetopCharacter {
 
 		const insertItem = documents.find(d => d.type === "insert");
 		if (insertItem) await this._inserts.onInsertDropped(insertItem);
+
+		for (const item of documents.filter(d => d.type === "arcanum")) {
+			await this._arcana.onArcanumCreated(item);
+		}
 	}
 
 	async _onDeleteDescendantDocuments(documents) {
@@ -258,10 +257,6 @@ export class StonetopCharacter {
 
 	async onDropMove(itemData) {
 		return this._moves.onDropMove(itemData);
-	}
-
-	async addArcanum(slug) {
-		await this._arcana.addArcanum(slug);
 	}
 
 	async removeArcanum(slug) {

@@ -285,8 +285,15 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onDropItemCreate(itemData) {
 			const items = Array.isArray(itemData) ? itemData : [itemData];
-			const { anyAdded, others } = await this._stonetopCharacter.onDropItems(items);
-			if (others.length) await super._onDropItemCreate(others);
+			// Arcana: let Foundry embed natively with correct system data; skip already-owned
+			const ownedArcanaSlugs = this._stonetopCharacter.ownedArcanaSlugs;
+			const newArcana = items.filter(
+				i => i.type === "arcanum" && !ownedArcanaSlugs.has(i.system?.slug),
+			);
+			const nonArcana = items.filter(i => i.type !== "arcanum");
+			const { others } = await this._stonetopCharacter.onDropItems(nonArcana);
+			const toEmbed = [...newArcana, ...others];
+			if (toEmbed.length) await super._onDropItemCreate(toEmbed);
 		}
 
 		async _onBackgroundChange(ev) {

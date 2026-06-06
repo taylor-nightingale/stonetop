@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { FoundryArcanaRepository } from "../../../../src/actors/character/repositories/FoundryArcanaRepository.js";
-import { Arcanum } from "../../../../src/model/data/character/Arcanum.js";
 
 // -- Fixtures -----------------------------------------------------------------
 
@@ -25,7 +24,7 @@ function makePack(entries = [], systemBySlug = {}) {
 		getDocument: vi.fn(async (id) => {
 			const entry = entries.find(e => e._id === id);
 			const slug  = entry?.system?.slug;
-			return { system: systemBySlug[slug] };
+			return { name: slug ?? null, img: null, system: systemBySlug[slug] };
 		}),
 	};
 }
@@ -56,7 +55,7 @@ describe("FoundryArcanaRepository", () => {
 			expect(await repo.findBySlug("huge-wooden-sphere")).toBeNull();
 		});
 
-		it("returns an Arcanum when slug is found", async () => {
+		it("returns a plain object with slug, front, and back when slug is found", async () => {
 			const pack = makePack(
 				[{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } }],
 				{ "huge-wooden-sphere": ARCANUM_SYSTEM },
@@ -64,7 +63,6 @@ describe("FoundryArcanaRepository", () => {
 			stubGame(pack);
 			const repo = new FoundryArcanaRepository();
 			const result = await repo.findBySlug("huge-wooden-sphere");
-			expect(result).toBeInstanceOf(Arcanum);
 			expect(result.slug).toBe("huge-wooden-sphere");
 			expect(result.front.title).toBe("A Huge Wooden Sphere");
 			expect(result.back.title).toBe("Ffyrnig Tonic");
@@ -92,7 +90,7 @@ describe("FoundryArcanaRepository", () => {
 	});
 
 	describe("findBySlugs", () => {
-		it("returns Arcanum instances for all matching arcana", async () => {
+		it("returns plain objects for all matching arcana", async () => {
 			const pack = makePack(
 				[
 					{ _id: "abc123xyz0000001", system: { slug: "huge-wooden-sphere" } },
@@ -104,9 +102,7 @@ describe("FoundryArcanaRepository", () => {
 			const repo = new FoundryArcanaRepository();
 			const results = await repo.findBySlugs(["huge-wooden-sphere", "humble-broom"]);
 			expect(results).toHaveLength(2);
-			expect(results[0]).toBeInstanceOf(Arcanum);
 			expect(results[0].slug).toBe("huge-wooden-sphere");
-			expect(results[1]).toBeInstanceOf(Arcanum);
 			expect(results[1].slug).toBe("humble-broom");
 		});
 
@@ -119,7 +115,6 @@ describe("FoundryArcanaRepository", () => {
 			const repo = new FoundryArcanaRepository();
 			const results = await repo.findBySlugs(["huge-wooden-sphere", "nonexistent"]);
 			expect(results).toHaveLength(1);
-			expect(results[0]).toBeInstanceOf(Arcanum);
 			expect(results[0].slug).toBe("huge-wooden-sphere");
 		});
 

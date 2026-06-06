@@ -9,26 +9,13 @@ describe("StonetopCharacter.onDropItems", () => {
 		return new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 	}
 
-	it("routes arcanum move to addArcanum and returns anyAdded=true", async () => {
+	it("returns arcanum items in others for Foundry to embed natively", async () => {
 		const char = makeChar();
-		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
 		const item = { type: "arcanum", system: { slug: "shell-game" } };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
-		expect(addArcanum).toHaveBeenCalledWith("shell-game");
-		expect(anyAdded).toBe(true);
-		expect(others).toHaveLength(0);
-	});
-
-	it("skips arcanum item with no slug and returns anyAdded=false", async () => {
-		const char = makeChar();
-		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "arcanum", system: {}, flags: {} };
-
-		const { anyAdded } = await char.onDropItems([item]);
-
-		expect(addArcanum).not.toHaveBeenCalled();
+		expect(others).toContain(item);
 		expect(anyAdded).toBe(false);
 	});
 
@@ -54,19 +41,18 @@ describe("StonetopCharacter.onDropItems", () => {
 		expect(anyAdded).toBe(false);
 	});
 
-	it("returns non-move items as others and does not count them as added", async () => {
+	it("returns non-move non-follower items as others", async () => {
 		const char = makeChar();
 		const item = { type: "outfitItem", name: "Sword" };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
 		expect(anyAdded).toBe(false);
-		expect(others).toEqual([item]);
+		expect(others).toContain(item);
 	});
 
-	it("handles a mix and returns anyAdded=true only for handled items", async () => {
+	it("handles a mix: moves handled internally, arcana and others returned for embedding", async () => {
 		const char = makeChar();
-		vi.spyOn(char, "addArcanum").mockResolvedValue();
 		vi.spyOn(char, "onDropMove").mockResolvedValue(false);
 		const arcanum = { type: "arcanum", system: { slug: "eye" } };
 		const move = { type: "move", system: { moveType: "basic" } };
@@ -74,8 +60,9 @@ describe("StonetopCharacter.onDropItems", () => {
 
 		const { anyAdded, others } = await char.onDropItems([arcanum, move, other]);
 
-		expect(anyAdded).toBe(true);
-		expect(others).toEqual([other]);
+		expect(anyAdded).toBe(false);
+		expect(others).toContain(arcanum);
+		expect(others).toContain(other);
 	});
 });
 
