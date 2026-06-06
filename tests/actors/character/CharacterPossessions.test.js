@@ -746,4 +746,17 @@ describe("CharacterPossessions — removePossessionsFromPlaybook", () => {
 		await cp.removePossessionsFromPlaybook(null);
 		expect([...actor.items].filter(i => i.type === "possession")).toHaveLength(1);
 	});
+
+	it("calls deleteBySource for each removed possession's outfit items", async () => {
+		const [pouch, apiary] = basePossessions();
+		const actor = makeActor([
+			makePossessionItem(pouch,  { playbookSlug: "the-blessed" }),
+			makePossessionItem(apiary, { playbookSlug: "the-blessed" }),
+		]);
+		const outfitItems = makeOutfitItems();
+		const cp = new CharacterPossessions(actor, makeMoves(), outfitItems);
+		await cp.removePossessionsFromPlaybook("the-blessed");
+		expect(outfitItems.deletedSources).toContain("possession:sacred-pouch");
+		expect(outfitItems.deletedSources).toContain("possession:apiary");
+	});
 });

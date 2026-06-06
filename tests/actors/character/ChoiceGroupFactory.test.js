@@ -2,7 +2,8 @@ import { describe, it, expect } from "vitest";
 import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
-import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
+import { FollowerSideEffectHandler, OutfitItemSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
+import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -175,6 +176,20 @@ describe("ChoiceGroupFactory — register", () => {
 		factory.register(h1).register(h2);
 		await factory.forItem("item-1", "choiceValues").setCount("ns", "opt", 1);
 		expect(order).toEqual([1, 2]);
+	});
+
+	it("OutfitItemSideEffectHandler syncs items when a pick option with outfitItems is selected", async () => {
+		const outfitItems = new FakeOutfitItems();
+		const SWORD = { slug: "sword", name: "Sword" };
+		const item = makeItem({ system: { choiceValues: {}, choices: [
+			{ slug: "gear", list: [{ type: "pick", pickCount: 1, options: [
+				{ slug: "blade", text: "Blade", description: "", outfitItems: [SWORD] },
+			]}]},
+		]}});
+		const { factory } = makeFactory([item]);
+		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
+		await factory.forItem("item-1", "choiceValues").selectOption("gear", "blade", "blade");
+		expect(outfitItems.hasSource("choice:gear:blade")).toBe(true);
 	});
 
 	it("returns the factory for chaining", () => {

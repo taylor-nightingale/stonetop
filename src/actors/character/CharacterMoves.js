@@ -60,7 +60,16 @@ export class CharacterMoves {
 		const exists = [...this._actor.items].some(i => i.type === "move" && i.system?.categoryKey === key);
 		if (exists) return;
 		const entries = await this._moveRepo.getInsertMoves(slug);
-		await this._addCategoryMoves(key, label, entries);
+		const docs = await Promise.all(entries.map(m => this._moveRepo.getInsertMoveDocument(m.id)));
+		await this._actor.createEmbeddedDocuments("Item",
+			docs.filter(Boolean).map((doc, i) =>
+				_withCategoryFields(doc.toObject(), key, true, {
+					sortOrder:     i,
+					compendiumId:  doc._id ?? null,
+					categoryLabel: label,
+				})
+			)
+		);
 	}
 
 	async removeCategory(key) {
@@ -93,13 +102,14 @@ export class CharacterMoves {
 		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === "other");
 		if (existing.some(i => toSlug(i.name) === moveSlug)) return false;
 		await this._actor.createEmbeddedDocuments("Item", [{
-			name: moveData.name, type: "move",
+			...moveData,
+			name: moveData.name,
+			type: "move",
 			system: {
+				...moveData.system,
 				moveType: "other", categoryKey: "other", categoryLabel: null, categoryNote: null,
-				acquired: true, instanceCount: 1, repeatMax: 1, isStartingMove: false,
+				acquired: true, instanceCount: 1, isStartingMove: false,
 				sortOrder: existing.length, compendiumId: moveData._id ?? null,
-				rollStat: moveData.system?.rollStat ?? "", description: moveData.system?.description ?? "",
-				moveResults: moveData.system?.moveResults ?? null,
 			},
 		}]);
 		return true;
@@ -217,18 +227,6 @@ export class CharacterMoves {
 		return result;
 	}
 
-	async _addCategoryMoves(categoryKey, categoryLabel, entries) {
-		if (!entries.length) return [];
-		return this._actor.createEmbeddedDocuments("Item", entries.map((m, i) => ({
-			name: m.name, type: "move",
-			system: {
-				moveType: categoryKey, categoryKey, categoryLabel, categoryNote: null,
-				acquired: true, instanceCount: 1, isStartingMove: true,
-				repeatMax: m.repeatMax ?? 1, sortOrder: i, compendiumId: null,
-				rollStat: m.rollStat ?? "", description: m.description ?? "", moveResults: m.moveResults ?? null,
-			},
-		})));
-	}
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────

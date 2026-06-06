@@ -538,6 +538,15 @@ describe("CharacterMoves.addCategory", () => {
 		await m.addCategory("insert-revenant", "Revenant", "revenant");
 		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
 	});
+
+	it("preserves choices from repo move so snapshot shows a ChoiceGroup", async () => {
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").withChoices(CHOICES_DATA).build()]);
+		const m = makeMoves({repo});
+		await m.addCategory("insert-revenant", "Revenant", "revenant");
+		const snap = (await m.buildSnapshot()).categories[0].moves[0];
+		expect(snap.choices).toBeInstanceOf(ChoiceGroup);
+		expect(snap.choices.list).toHaveLength(CHOICES_DATA.list.length);
+	});
 });
 
 // ── removeCategory ────────────────────────────────────────────────────────────
@@ -720,6 +729,14 @@ describe("CharacterMoves.addMoveToOther", () => {
 		expect(actor.createdDocs[0].system.categoryKey).toBe("other");
 		expect(actor.createdDocs[0].system.acquired).toBe(true);
 		expect(actor.createdDocs[0].system.instanceCount).toBe(1);
+	});
+
+	it("preserves choices from source move so snapshot shows a ChoiceGroup", async () => {
+		const m = makeMoves();
+		await m.addMoveToOther({ name: "Custom Move", system: { choices: CHOICES_DATA } });
+		const snap = (await m.buildSnapshot()).categories.find(c => c.key === "other").moves[0];
+		expect(snap.choices).toBeInstanceOf(ChoiceGroup);
+		expect(snap.choices.list).toHaveLength(CHOICES_DATA.list.length);
 	});
 });
 

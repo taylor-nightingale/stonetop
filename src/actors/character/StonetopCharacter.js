@@ -15,7 +15,7 @@ import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
 import {ChoiceGroupFactory} from "./ChoiceGroupFactory.js";
-import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
+import {FollowerSideEffectHandler, OutfitItemSideEffectHandler} from "./SideEffectHandler.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -27,6 +27,7 @@ export class StonetopCharacter {
 		const factory = new ChoiceGroupFactory(actor);
 		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory);
 		factory.register(new FollowerSideEffectHandler(this._followers));
+		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
 
 		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
 		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory);
@@ -176,6 +177,10 @@ export class StonetopCharacter {
 	}
 
 	async onDropItems(items) {
+		if (items.some(i => i.type === "playbook")) {
+			const existing = [...this._actor.items].find(i => i.type === "playbook");
+			if (existing) await this._actor.deleteEmbeddedDocuments("Item", [existing._id]);
+		}
 		const followers = items.filter(i => i.type === "npc");
 		const moves = items.filter(i => i.type === "move");
 		const others = items.filter(i => i.type !== "move" && i.type !== "npc");

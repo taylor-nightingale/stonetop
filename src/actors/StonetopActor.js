@@ -66,5 +66,12 @@ export function createStonetopActorClass(BaseActor) {
 				await this.typedActor._onCreateDescendantDocuments(documents);
 			}
 		}
+
+		async _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
+			await super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+			if (this.typedActor.type === "character" && collection === "items") {
+				await this.typedActor._onDeleteDescendantDocuments(documents);
+			}
+		}
 	};
 }

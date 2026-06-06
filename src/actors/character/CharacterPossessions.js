@@ -122,9 +122,12 @@ export class CharacterPossessions {
 
 	async removePossessionsFromPlaybook(playbookSlug) {
 		if (!playbookSlug) return;
-		const ids = [...this._actor.items]
-			.filter(i => i.type === "possession" && i.system?.playbookSlug === playbookSlug)
-			.map(i => i._id);
+		const possessions = [...this._actor.items]
+			.filter(i => i.type === "possession" && i.system?.playbookSlug === playbookSlug);
+		for (const p of possessions) {
+			await this._outfitItems?.deleteBySource("possession:" + p.system.slug);
+		}
+		const ids = possessions.map(i => i._id);
 		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
 	}
 

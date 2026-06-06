@@ -341,10 +341,10 @@ DONE - **1a** (ghost move data): standalone
 DONE - **1b** (move pack consolidation): standalone, can run in parallel with 2–7
 DONE - **2** (instinct revert + shared abstraction): standalone; must precede 4 and 5
 DONE - **3** (arcana null guard): standalone (MIS-IDENTIFIED BUG SOURCE)
-- **4** (PlaybookSnapshot view fields): requires Phase 2
-- **5a** (tab-details template): requires Phase 4
-- **5b–5c** (character.hbs + tab-insert.hbs): requires Phase 2; uses `instinct-section.hbs` from Phase 2
-- **6** (sheet event wiring): requires Phase 5b–5c
-- **7** (OutfitItemSideEffectHandler): standalone
-- **8** (move choices investigation): last — needs running game to verify
-- **9** dragging a new playbook onto the sheet doesn't update the details tab, or the playbook icons at the top. It keeps adding to special possessions instead of removing old ones
+DONE - **4** (PlaybookSnapshot view fields): requires Phase 2
+DONE - **5a** (tab-details template): requires Phase 4
+DONE - **5b–5c** (character.hbs + tab-insert.hbs): requires Phase 2; uses `instinct-section.hbs` from Phase 2
+DONE - **6** (sheet event wiring): requires Phase 5b–5c
+DONE - **7** (OutfitItemSideEffectHandler): standalone
+DONE - **8** (move choices investigation): last — needs running game to verify
+DONE - **9** dragging a new playbook onto the sheet doesn't update the details tab, or the playbook icons at the top. It keeps adding to special possessions instead of removing old ones

@@ -2,7 +2,7 @@
 	<section class="sheet-tab">
 	<div class="stonetop-details-columns">
 
-		{{> "stonetop.choice-section" groups=stonetop.playbook.lore cgContext="lore"}}
+		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore"}}
 
 		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
@@ -41,10 +41,10 @@
 		    cgContext="instinct"}}
 		{{/if}}
 
-		{{#if stonetop.playbook.appearance.length}}
+		{{#if stonetop.playbook.appearanceGroup}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
-			{{#each stonetop.playbook.appearance}}
+			{{#each stonetop.playbook.appearanceGroup.list}}
 			{{> "stonetop.choice-row" cgContext="appearance" namePrefix="stonetop-appearance"}}
 			{{/each}}
 		</div>

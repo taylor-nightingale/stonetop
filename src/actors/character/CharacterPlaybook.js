@@ -87,6 +87,8 @@ export class CharacterPlaybook {
 		const instinctGroup    = data.instinct ? ChoiceGroup.fromPackData(data.instinct, choiceValues) : null;
 		const instinctSelected = InstinctController.computeSelected(instinctGroup, choiceValues);
 		const choices          = (data.choices ?? []).map(g => ChoiceGroup.fromPackData(g, choiceValues));
+		const appearanceGroup  = choices.find(c => c.slug === "appearance") ?? null;
+		const loreGroups       = choices.filter(c => c.slug !== "appearance");
 		const background       = await this._background.buildSnapshot(data.backgrounds ?? []);
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
@@ -97,6 +99,8 @@ export class CharacterPlaybook {
 			.withChoices(choices)
 			.withInstinctGroup(instinctGroup)
 			.withInstinctSelected(instinctSelected)
+			.withAppearanceGroup(appearanceGroup)
+			.withLoreGroups(loreGroups)
 			.withBackground(background)
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))
 			.build();

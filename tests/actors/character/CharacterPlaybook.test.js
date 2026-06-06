@@ -165,6 +165,36 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
 		expect(snap.choices).toHaveLength(0);
 	});
+
+	it("snapshot.appearanceGroup is the ChoiceGroup with slug 'appearance'", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.appearanceGroup).toBeInstanceOf(ChoiceGroup);
+		expect(snap.appearanceGroup.slug).toBe("appearance");
+	});
+
+	it("snapshot.loreGroups contains all non-appearance choices", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.loreGroups).toHaveLength(1);
+		expect(snap.loreGroups[0].slug).toBe("lore-1");
+	});
+
+	it("snapshot.appearanceGroup is null when no appearance group in choices", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withChoices([LORE_GROUP])
+			.build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.appearanceGroup).toBeNull();
+	});
+
+	it("snapshot.loreGroups is empty when choices has only an appearance group", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withChoices([APPEARANCE_GROUP])
+			.build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.loreGroups).toHaveLength(0);
+	});
 });
 
 // ── selectChoice ──────────────────────────────────────────────────────────────

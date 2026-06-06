@@ -175,28 +175,47 @@ export function createStonetopCharacterSheetClass(Base) {
 				await this._stonetopCharacter.removeArcanum(slug);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-track");
 				if (!el) return;
 				const { cgContext, cgGroup, cgOption, cgIndex } = el.dataset;
 				const count = el.checked ? Number(cgIndex) + 1 : Number(cgIndex);
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					await this._stonetopCharacter.setInsertChoiceCount(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, count);
+					return;
+				}
 				this._stonetopCharacter.setChoiceCount(cgContext, cgGroup, cgOption, count);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-pick");
 				if (!el?.dataset.cgContext) return;
 				const { cgContext, cgGroup, cgOption, cgSiblings, displayLabel } = el.dataset;
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					insertEl.querySelector(".stonetop-instinct-custom").value = displayLabel ?? "";
+					await this._stonetopCharacter.setInsertChoicePick(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, cgSiblings ?? null);
+					return;
+				}
 				if (cgContext === "instinct") {
 					html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
 				}
 				this._stonetopCharacter.setChoicePick(cgContext, cgGroup, cgOption, cgSiblings ?? null, el.checked);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-text");
 				if (!el?.dataset.cgContext) return;
 				const { cgContext, cgGroup, cgOption } = el.dataset;
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					await this._stonetopCharacter.setInsertChoiceText(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, el.value);
+					return;
+				}
 				this._stonetopCharacter.setChoiceText(cgContext, cgGroup, cgOption, el.value);
 			}, true);
 
@@ -213,10 +232,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("click", async ev => {
-				const btn = ev.target.closest(".stonetop-pdi-remove");
+				const btn = ev.target.closest(".stonetop-insert-remove");
 				if (!btn) return;
 				ev.stopPropagation();
-				await this._stonetopCharacter.removeInsert();
+				await this._stonetopCharacter.removeInsert(btn.dataset.insertItemId);
 			}, true);
 
 			html[0].addEventListener("click", async ev => {

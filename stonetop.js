@@ -126,7 +126,7 @@ Hooks.once("init", () => {
 		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
 		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
 		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
-		"stonetop.tab-post-death":    "systems/stonetop/templates/actor/partials/tab-post-death.hbs",
+		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",

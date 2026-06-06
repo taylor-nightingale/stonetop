@@ -68,8 +68,11 @@ export class BackgroundSection {
  * @property {string|null} img
  * @property {string|null} description
  * @property {string|null} statsNote
- * @property {ChoiceGroup[]} choices - all choice groups (instinct, appearance, lore groups)
+ * @property {ChoiceGroup[]} choices - all non-instinct choice groups
+ * @property {ChoiceGroup|null} instinctGroup
  * @property {string|null} instinctSelected - computed display label for instinct
+ * @property {ChoiceGroup|null} appearanceGroup
+ * @property {ChoiceGroup[]} loreGroups - all choices that are not appearance
  * @property {BackgroundSection} background
  * @property {OriginSection} origin
  */
@@ -84,6 +87,8 @@ export class PlaybookSnapshot {
 		this.choices          = b._choices;
 		this.instinctGroup    = b._instinctGroup;
 		this.instinctSelected = b._instinctSelected;
+		this.appearanceGroup  = b._appearanceGroup;
+		this.loreGroups       = b._loreGroups;
 		this.background       = b._background;
 		this.origin           = b._origin;
 	}
@@ -98,6 +103,8 @@ export class PlaybookSnapshotBuilder {
 	withChoices(v)          { this._choices          = v; return this; }
 	withInstinctGroup(v)    { this._instinctGroup    = v; return this; }
 	withInstinctSelected(v) { this._instinctSelected = v; return this; }
+	withAppearanceGroup(v)  { this._appearanceGroup  = v; return this; }
+	withLoreGroups(v)       { this._loreGroups       = v; return this; }
 	withBackground(v)       { this._background       = v; return this; }
 	withOrigin(v)           { this._origin           = v; return this; }
 	build()                 { return new PlaybookSnapshot(this); }
