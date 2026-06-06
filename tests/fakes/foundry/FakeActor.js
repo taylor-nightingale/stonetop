@@ -46,7 +46,11 @@ export class FakeActor {
 			const item = this.items.get(update._id);
 			if (!item) continue;
 			if (update.name !== undefined) item.name = update.name;
-			if (update.system) _deepAssign(item.system, update.system);
+			if (update.system) {
+				for (const [key, value] of Object.entries(update.system)) {
+					item.system[key] = value;
+				}
+			}
 		}
 		return updates;
 	}
@@ -89,6 +93,7 @@ export class FakeActor {
 function _deepAssign(target, source) {
 	for (const [key, value] of Object.entries(source)) {
 		if (value && typeof value === "object" && !Array.isArray(value)
+				&& Object.keys(value).length > 0
 				&& target[key] && typeof target[key] === "object") {
 			_deepAssign(target[key], value);
 		} else {

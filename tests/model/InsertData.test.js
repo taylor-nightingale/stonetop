@@ -10,8 +10,8 @@ describe("InsertData defaults", () => {
 		expect(new InsertData().description).toBe("");
 	});
 
-	it("defaults instinct to null", () => {
-		expect(new InsertData().instinct).toBeNull();
+	it("defaults choiceValues to empty object", () => {
+		expect(new InsertData().choiceValues).toEqual({});
 	});
 
 	it("defaults choices to empty array", () => {

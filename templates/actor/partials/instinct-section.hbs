@@ -1,0 +1,15 @@
+<div class="details-section">
+	{{> "stonetop.section-heading"
+	    title=(localize "stonetop.character.selection.instinct.label")
+	    note=(localize "stonetop.character.selection.chooseOne")}}
+	<input type="text" class="stonetop-instinct-custom"
+	       value="{{instinctSelected}}"
+	       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
+	{{#if instinctGroup}}
+	<div class="stonetop-instinct-options">
+		{{#each instinctGroup.list}}
+		{{> "stonetop.choice-row" radio=true namePrefix=../namePrefix cgContext=../cgContext}}
+		{{/each}}
+	</div>
+	{{/if}}
+</div>

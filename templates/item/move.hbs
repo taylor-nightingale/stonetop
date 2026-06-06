@@ -63,6 +63,14 @@
 		</section>
 		{{/if}}
 
+		{{#if (and system.choices (not editable))}}
+		<section class="move-sheet-choices">
+			{{#each choiceSnapshot.list}}
+			{{> "stonetop.choice-row" cgGroup=../system.choices.slug}}
+			{{/each}}
+		</section>
+		{{/if}}
+
 		{{#if editable}}
 		<section class="move-sheet-choices">
 			{{#if system.choices}}

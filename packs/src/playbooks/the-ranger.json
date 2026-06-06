@@ -15,123 +15,6 @@
 		},
 		"hp": 18,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "adventure",
-							"description": "To test yourself, to experience new things.",
-							"text": "Adventure"
-						},
-						{
-							"slug": "independence",
-							"description": "To refuse help and push others away.",
-							"text": "Independence"
-						},
-						{
-							"slug": "stewardship",
-							"description": "To value beasts and natural places over people.",
-							"text": "Stewardship"
-						},
-						{
-							"slug": "tenacity",
-							"description": "To be stubborn, to persist.",
-							"text": "Tenacity"
-						},
-						{
-							"slug": "wonder",
-							"description": "To marvel at beauty, magnificence, splendor.",
-							"text": "Wonder"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "fledgling",
-							"text": "fledgling"
-						},
-						{
-							"slug": "prime-specimen",
-							"text": "prime specimen"
-						},
-						{
-							"slug": "long-in-the-tooth",
-							"text": "long in the tooth"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "barking-voice",
-							"text": "barking voice"
-						},
-						{
-							"slug": "growling-voice",
-							"text": "growling voice"
-						},
-						{
-							"slug": "sing-song-voice",
-							"text": "sing-song voice"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "compact-and-sturdy",
-							"text": "compact & sturdy"
-						},
-						{
-							"slug": "long-and-lean",
-							"text": "long & lean"
-						},
-						{
-							"slug": "wolfish",
-							"text": "wolfish"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "shaggy",
-							"text": "shaggy"
-						},
-						{
-							"slug": "threadbare",
-							"text": "threadbare"
-						},
-						{
-							"slug": "well-groomed",
-							"text": "well-groomed"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -212,7 +95,121 @@
 				]
 			}
 		],
-		"lore": [
+		"backgrounds": [
+			{
+				"slug": "mighty-hunter",
+				"label": "Mighty Hunter",
+				"description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
+			},
+			{
+				"slug": "wide-wanderer",
+				"label": "Wide Wanderer",
+				"description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
+			},
+			{
+				"slug": "beast-bonded",
+				"label": "Beast-Bonded",
+				"description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2, in addition to your composite bow",
+			"pickCount": 2,
+			"preselected": [
+				"composite-bow"
+			],
+			"slugs": [
+				"composite-bow",
+				"distillery",
+				"hideouts",
+				"hounds",
+				"husbandry-tools",
+				"lay-of-the-land",
+				"trapping-gear"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "fledgling",
+								"text": "fledgling"
+							},
+							{
+								"slug": "prime-specimen",
+								"text": "prime specimen"
+							},
+							{
+								"slug": "long-in-the-tooth",
+								"text": "long in the tooth"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "barking-voice",
+								"text": "barking voice"
+							},
+							{
+								"slug": "growling-voice",
+								"text": "growling voice"
+							},
+							{
+								"slug": "sing-song-voice",
+								"text": "sing-song voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "compact-and-sturdy",
+								"text": "compact & sturdy"
+							},
+							{
+								"slug": "long-and-lean",
+								"text": "long & lean"
+							},
+							{
+								"slug": "wolfish",
+								"text": "wolfish"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "shaggy",
+								"text": "shaggy"
+							},
+							{
+								"slug": "threadbare",
+								"text": "threadbare"
+							},
+							{
+								"slug": "well-groomed",
+								"text": "well-groomed"
+							}
+						]
+					}
+				]
+			},
 			{
 				"slug": "wicked-threat",
 				"list": [
@@ -356,37 +353,41 @@
 				]
 			}
 		],
-		"backgrounds": [
-			{
-				"slug": "mighty-hunter",
-				"label": "Mighty Hunter",
-				"description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
-			},
-			{
-				"slug": "wide-wanderer",
-				"label": "Wide Wanderer",
-				"description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
-			},
-			{
-				"slug": "beast-bonded",
-				"label": "Beast-Bonded",
-				"description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2, in addition to your composite bow",
-			"pickCount": 2,
-			"preselected": [
-				"composite-bow"
-			],
-			"slugs": [
-				"composite-bow",
-				"distillery",
-				"hideouts",
-				"hounds",
-				"husbandry-tools",
-				"lay-of-the-land",
-				"trapping-gear"
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "adventure",
+							"description": "To test yourself, to experience new things.",
+							"text": "Adventure"
+						},
+						{
+							"slug": "independence",
+							"description": "To refuse help and push others away.",
+							"text": "Independence"
+						},
+						{
+							"slug": "stewardship",
+							"description": "To value beasts and natural places over people.",
+							"text": "Stewardship"
+						},
+						{
+							"slug": "tenacity",
+							"description": "To be stubborn, to persist.",
+							"text": "Tenacity"
+						},
+						{
+							"slug": "wonder",
+							"description": "To marvel at beauty, magnificence, splendor.",
+							"text": "Wonder"
+						}
+					]
+				}
 			]
 		}
 	}

@@ -42,6 +42,7 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			compendiumId:  new f.StringField({ nullable: true, initial: null }),
 			acquired:      new f.BooleanField({ initial: false }),
 			instanceCount: new f.NumberField({ integer: true, initial: 0 }),
+			pickValues:    new f.ObjectField(),
 		};
 	}
 }

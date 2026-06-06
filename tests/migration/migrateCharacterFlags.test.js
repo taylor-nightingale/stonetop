@@ -48,35 +48,25 @@ describe("migrateCharacterFlags — identity fields", () => {
 	});
 });
 
-describe("migrateCharacterFlags — lore + postDeath", () => {
-	it("copies lore.values and postDeathLore.values", async () => {
+describe("migrateCharacterFlags — lore", () => {
+	it("copies lore.values", async () => {
 		const actor = makeActor({
 			"vitals.maxHP": 16,
-			"lore.values":        { "lore-group": { "opt-a": 1 } },
-			"postDeathLore.values": { "pd-group": { "opt-b": 1 } },
+			"lore.values": { "lore-group": { "opt-a": 1 } },
 		});
 		await migrateCharacterFlags(actor);
 		expect(actor.system.lore.values).toEqual({ "lore-group": { "opt-a": 1 } });
-		expect(actor.system.postDeathLore.values).toEqual({ "pd-group": { "opt-b": 1 } });
-	});
-
-	it("copies postDeathInstinct.custom", async () => {
-		const actor = makeActor({ "vitals.maxHP": 16, "postDeathInstinct.custom": "to hunger" });
-		await migrateCharacterFlags(actor);
-		expect(actor.system.postDeathInstinct.custom).toBe("to hunger");
 	});
 });
 
 describe("migrateCharacterFlags — choices", () => {
-	it("copies choices.values and postDeathChoices.values", async () => {
+	it("copies choices.values", async () => {
 		const actor = makeActor({
 			"vitals.maxHP": 16,
-			"choices.values":          { "ns": { "slug-a": 1 } },
-			"postDeathChoices.values": { "ns2": { "slug-b": 1 } },
+			"choices.values": { "ns": { "slug-a": 1 } },
 		});
 		await migrateCharacterFlags(actor);
 		expect(actor.system.choices.values).toEqual({ "ns": { "slug-a": 1 } });
-		expect(actor.system.postDeathChoices.values).toEqual({ "ns2": { "slug-b": 1 } });
 	});
 
 	it("migrates groupDefs row types while copying", async () => {

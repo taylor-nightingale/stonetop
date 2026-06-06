@@ -1,13 +1,13 @@
 import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
-import { ChoiceGroupController } from "./ChoiceGroupController.js";
 
 export class CharacterFollowers {
-	constructor(actor, followerRepo, resourceController) {
+	constructor(actor, followerRepo, resourceController, factory = null) {
 		this._actor              = actor;
 		this._followerRepo       = followerRepo;
 		this._resourceController = resourceController;
+		this._factory            = factory;
 	}
 
 	get ownedSlugs() {
@@ -115,14 +115,14 @@ export class CharacterFollowers {
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await ChoiceGroupController.forItem(this._actor, item._id, "choiceValues")
+		await this._factory.forItem(item._id, "choiceValues")
 			.selectOption(groupSlug, choiceSlug, siblingSlugsCsv ?? null);
 	}
 
 	async setChoiceText(followerSlug, optionSlug, text) {
 		const item = _findFollowerItem(this._actor, followerSlug);
 		if (!item) return;
-		await ChoiceGroupController.forItem(this._actor, item._id, "choiceValues")
+		await this._factory.forItem(item._id, "choiceValues")
 			.setText("choices", optionSlug, text);
 	}
 

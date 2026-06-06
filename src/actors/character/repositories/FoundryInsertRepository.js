@@ -2,7 +2,7 @@ import { FoundryPackStore } from "./FoundryPackStore.js";
 
 export class FoundryInsertRepository {
 	constructor() {
-		this._store = new FoundryPackStore("stonetop.post-death-inserts", ["system.slug"]);
+		this._store = new FoundryPackStore("stonetop.inserts", ["system.slug"]);
 		this._cache = new Map();
 	}
 

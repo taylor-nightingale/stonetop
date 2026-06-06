@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { CharacterBackgrounds } from "../../../src/actors/character/CharacterBackgrounds.js";
-import { ChoiceGroupController } from "../../../src/actors/character/ChoiceGroupController.js";
+import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
@@ -11,16 +12,16 @@ function makeResourceController() {
 	return new ResourceController(new FakeActorBuilder().build());
 }
 
-function makeActor() {
-	return new FakeActorBuilder().build();
+function makePbItem(backgroundValues = {}, backgrounds = []) {
+	return { _id: "pb-1", type: "playbook", name: "The Blessed", system: { backgrounds, backgroundValues } };
 }
 
-function makeBg(selectedSlug = "", valuesRaw = {}, followers = new FakeFollowers(), resourceCtrl = null) {
-	const actor = makeActor();
+function makeBg(selectedSlug = "", backgroundValues = {}, followers = null, resourceCtrl = null, pbBackgrounds = []) {
+	const actor = new FakeActorBuilder().withItems([makePbItem(backgroundValues, pbBackgrounds)]).build();
 	actor.system.background = { selected: selectedSlug };
-	if (Object.keys(valuesRaw).length) actor.system.choices = { values: valuesRaw, groupDefs: {} };
-	const ctrl = ChoiceGroupController.forActorSection(actor, "choices", { followers });
-	return new CharacterBackgrounds(actor, followers, ctrl, resourceCtrl ?? makeResourceController());
+	const factory = new ChoiceGroupFactory(actor);
+	if (followers) factory.register(new FollowerSideEffectHandler(followers));
+	return new CharacterBackgrounds(actor, factory, resourceCtrl ?? makeResourceController());
 }
 
 const SIMPLE_BG_DATA = [
@@ -50,64 +51,45 @@ const HEADING_CHOICES_DATA = [{
 	},
 }];
 
-// -- Tests: selectedSlug / selectBackground -----------------------------------
+// -- selectedSlug / selectBackground ------------------------------------------
 
 describe("CharacterBackgrounds", () => {
 	it("selectedSlug returns empty string when no saved selection", () => {
-		const actor = makeActor();
-		expect(new CharacterBackgrounds(actor, null, ChoiceGroupController.forActorSection(actor, "choices"), makeResourceController()).selectedSlug).toBe("");
+		expect(makeBg().selectedSlug).toBe("");
 	});
 
 	it("selectedSlug returns the stored slug", () => {
-		const actor = makeActor();
-		actor.system.background = { selected: "vessel" };
-		expect(new CharacterBackgrounds(actor, null, ChoiceGroupController.forActorSection(actor, "choices"), makeResourceController()).selectedSlug).toBe("vessel");
+		expect(makeBg("vessel").selectedSlug).toBe("vessel");
 	});
 
 	it("selectBackground stores the slug", async () => {
-		const actor = makeActor();
-		const bg = new CharacterBackgrounds(actor, null, ChoiceGroupController.forActorSection(actor, "choices"), makeResourceController());
+		const bg = makeBg();
 		await bg.selectBackground("initiate");
 		expect(bg.selectedSlug).toBe("initiate");
 	});
 });
 
-// -- Tests: setChoiceValue ---------------------------------------------------
+// -- setChoiceValue -----------------------------------------------------------
 
 describe("CharacterBackgrounds.setChoiceValue", () => {
-	it("saves the count to choices.values in ChoiceValues format", async () => {
-		const actor = makeActor();
-		const bg = new CharacterBackgrounds(actor, null,
-			ChoiceGroupController.forActorSection(actor, "choices"), makeResourceController());
+	it("saves the count so it reflects in the snapshot choices", async () => {
+		const bg = makeBg("", {}, null, null, FOLLOWER_CHOICES_DATA);
 		await bg.setChoiceValue("initiate", "enfys", 1);
-		expect(actor.system.choices?.values).toEqual({ initiate: { enfys: 1 } });
-	});
-
-	it("merges into existing choices state", async () => {
-		const actor = makeActor();
-		actor.system.choices = { values: { initiate: { afon: 1 } }, groupDefs: {} };
-		const bg = new CharacterBackgrounds(actor, null,
-			ChoiceGroupController.forActorSection(actor, "choices"), makeResourceController());
-		await bg.setChoiceValue("initiate", "enfys", 1);
-		expect(actor.system.choices.values.initiate).toEqual({ afon: 1, enfys: 1 });
+		const snap = await bg.buildSnapshot(FOLLOWER_CHOICES_DATA);
+		const row  = snap.options[0].choices.list.find(r => r.slug === "enfys");
+		expect(row.track.checks[0]).toBe(true);
 	});
 
 	it("adds the follower when setChoiceValue is called on a follower-type row", async () => {
 		const followers = new FakeFollowers();
-		const actor = makeActor();
-		const ctrl = ChoiceGroupController.forActorSection(actor, "choices", { followers });
-		const bg = new CharacterBackgrounds(actor, followers, ctrl, makeResourceController());
-		await bg.buildSnapshot(FOLLOWER_CHOICES_DATA);
+		const bg = makeBg("", {}, followers, null, FOLLOWER_CHOICES_DATA);
 		await bg.setChoiceValue("initiate", "enfys", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
 	it("removes the follower when count is set to 0 on a follower-type row", async () => {
 		const followers = new FakeFollowers();
-		const actor = makeActor();
-		const ctrl = ChoiceGroupController.forActorSection(actor, "choices", { followers });
-		const bg = new CharacterBackgrounds(actor, followers, ctrl, makeResourceController());
-		await bg.buildSnapshot(FOLLOWER_CHOICES_DATA);
+		const bg = makeBg("", {}, followers, null, FOLLOWER_CHOICES_DATA);
 		await bg.setChoiceValue("initiate", "enfys", 1);
 		await bg.setChoiceValue("initiate", "enfys", 0);
 		expect(followers.isOwned("enfys")).toBe(false);
@@ -121,7 +103,7 @@ describe("CharacterBackgrounds.setChoiceValue", () => {
 	});
 });
 
-// -- Tests: buildSnapshot ----------------------------------------------------
+// -- buildSnapshot ------------------------------------------------------------
 
 describe("CharacterBackgrounds.buildSnapshot", () => {
 	it("returns a BackgroundSection", async () => {
@@ -146,7 +128,7 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 	});
 
 	it("no option is selected when nothing saved", async () => {
-		expect((await makeBg("").buildSnapshot(SIMPLE_BG_DATA)).options.every(o => !o.selected)).toBe(true);
+		expect((await makeBg().buildSnapshot(SIMPLE_BG_DATA)).options.every(o => !o.selected)).toBe(true);
 	});
 
 	it("selected is the saved slug", async () => {
@@ -184,13 +166,13 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 
 	it("saved follower choice reflects checked track state", async () => {
 		const snap = await makeBg("", { initiate: { enfys: 1 } }).buildSnapshot(FOLLOWER_CHOICES_DATA);
-		const row = snap.options[0].choices.list.find(r => r.slug === "enfys");
+		const row  = snap.options[0].choices.list.find(r => r.slug === "enfys");
 		expect(row.track.checks[0]).toBe(true);
 	});
 
 	it("unsaved follower choice has unchecked track", async () => {
 		const snap = await makeBg().buildSnapshot(FOLLOWER_CHOICES_DATA);
-		const row = snap.options[0].choices.list.find(r => r.slug === "afon");
+		const row  = snap.options[0].choices.list.find(r => r.slug === "afon");
 		expect(row.track.checks[0]).toBe(false);
 	});
 
@@ -199,14 +181,14 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 	});
 
 	it("resource is null when background has no resource field", async () => {
-		const snap = await makeBg().buildSnapshot(SIMPLE_BG_DATA);
-		expect(snap.options[0].resource).toBeNull();
+		expect((await makeBg().buildSnapshot(SIMPLE_BG_DATA)).options[0].resource).toBeNull();
 	});
 
 	it("resource is a ResourceSnapshot when background has a resource field", async () => {
 		const data = [{ slug: "initiate", label: "Initiate", description: "", resource: { max: 2, title: "Uses", labels: [] } }];
-		const snap = await makeBg().buildSnapshot(data);
-		expect(snap.options[0].resource).toMatchObject({ max: 2, current: 0, title: "Uses" });
+		expect(await makeBg().buildSnapshot(data)).toMatchObject({
+			options: [{ resource: { max: 2, current: 0, title: "Uses" } }],
+		});
 	});
 
 	it("resource.current reflects saved value", async () => {
@@ -218,23 +200,19 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 	});
 });
 
-// -- Tests: setResource --------------------------------------------------------
+// -- setResource --------------------------------------------------------------
 
 describe("CharacterBackgrounds.setResource", () => {
 	it("persists count in the backgrounds namespace of ResourceController", async () => {
 		const resourceCtrl = makeResourceController();
-		const actor = makeActor();
-		const bg = new CharacterBackgrounds(actor, null, ChoiceGroupController.forActorSection(actor, "choices"), resourceCtrl);
-		await bg.setResource("initiate", 2);
+		await makeBg("", {}, null, resourceCtrl).setResource("initiate", 2);
 		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
 	});
 
 	it("merges into existing resources", async () => {
 		const resourceCtrl = makeResourceController();
 		await resourceCtrl.set("backgrounds", "vessel", 1);
-		const actor = makeActor();
-		const bg = new CharacterBackgrounds(actor, null, ChoiceGroupController.forActorSection(actor, "choices"), resourceCtrl);
-		await bg.setResource("initiate", 2);
+		await makeBg("", {}, null, resourceCtrl).setResource("initiate", 2);
 		expect(resourceCtrl.getCurrent("backgrounds", "initiate")).toBe(2);
 		expect(resourceCtrl.getCurrent("backgrounds", "vessel")).toBe(1);
 	});

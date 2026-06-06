@@ -25,14 +25,13 @@ describe("PlaybookData defaults", () => {
 		const d = new PlaybookData();
 		expect(d.backgrounds).toEqual([]);
 		expect(d.origin).toEqual([]);
-		expect(d.lore).toEqual([]);
+		expect(d.choices).toEqual([]);
 		expect(d.introductions).toEqual([]);
 	});
 
-	it("defaults instinct, appearance, specialPossessions to null", () => {
+	it("defaults choiceValues to empty object and specialPossessions to null", () => {
 		const d = new PlaybookData();
-		expect(d.instinct).toBeNull();
-		expect(d.appearance).toBeNull();
+		expect(d.choiceValues).toEqual({});
 		expect(d.specialPossessions).toBeNull();
 	});
 });

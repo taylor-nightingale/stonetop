@@ -1,16 +1,12 @@
 import {CharacterSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {CharacterMoves} from "./CharacterMoves.js";
 import {CharacterBackgrounds} from "./CharacterBackgrounds.js";
-import {CharacterInstincts} from "./CharacterInstincts.js";
-import {CharacterAppearance} from "./CharacterAppearance.js";
 import {CharacterOrigin} from "./CharacterOrigin.js";
 import {CharacterPossessions} from "./CharacterPossessions.js";
 import {CharacterInventory} from "./CharacterInventory.js";
 import {CharacterArcana} from "./CharacterArcana.js";
-import {CharacterLore} from "./CharacterLore.js";
-import {CharacterPostDeath} from "./CharacterPostDeath.js";
+import {CharacterInserts} from "./CharacterInserts.js";
 import {CharacterFollowers} from "./CharacterFollowers.js";
-import {ChoiceGroupController} from "./ChoiceGroupController.js";
 import {ResourceController} from "./ResourceController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
@@ -18,38 +14,29 @@ import {CharacterDebilities} from "./CharacterDebilities.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
+import {ChoiceGroupFactory} from "./ChoiceGroupFactory.js";
+import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._stats = new CharacterStats(actor);
 		this._origin = new CharacterOrigin(actor);
-		this._lore = new CharacterLore(actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
-		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController);
-		this._choiceController = ChoiceGroupController.forActorSection(actor, "choices", { followers: this._followers });
-		this._instinct = new CharacterInstincts(actor, this._choiceController);
-		this._appearance = new CharacterAppearance(this._choiceController);
-		this._background = new CharacterBackgrounds(actor, this._followers, this._choiceController, this._resourceController);
-		this._moves = new CharacterMoves(repos.moves, actor, this._choiceController, new ResourceController(actor, "moveResources"));
-		this._playbook = new CharacterPlaybook(actor,
-			this._background, this._instinct, this._appearance, this._origin, this._lore);
+		const factory = new ChoiceGroupFactory(actor);
+		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory);
+		factory.register(new FollowerSideEffectHandler(this._followers));
+
+		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
+		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory);
+		this._playbook    = new CharacterPlaybook(actor, this._background, factory, this._origin);
 		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, repos.possessions);
-		this._inventory = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController);
-		this._vitals = new CharacterVitals(actor);
-		this._debilities = new CharacterDebilities(actor);
-		this._arcana = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers);
-		this._postDeath = new CharacterPostDeath(
-			actor,
-			new CharacterInstincts(
-				actor,
-				ChoiceGroupController.forActorSection(actor, "postDeathChoices", { followers: this._followers }),
-				"postDeathInstinct"
-			),
-			new CharacterLore(actor, "postDeathLore"),
-			this._moves,
-		);
+		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController);
+		this._vitals      = new CharacterVitals(actor);
+		this._debilities  = new CharacterDebilities(actor);
+		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers, factory);
+		this._inserts     = new CharacterInserts(actor, factory, this._moves);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
@@ -67,14 +54,6 @@ export class StonetopCharacter {
 		return this._background;
 	}
 
-	get instinct() {
-		return this._instinct;
-	}
-
-	get appearance() {
-		return this._appearance;
-	}
-
 	get origin() {
 		return this._origin;
 	}
@@ -89,10 +68,10 @@ export class StonetopCharacter {
 		const {checked} = this._inventory;
 		const actor = this._actor;
 		const followers = await this._followers.buildSnapshot();
-		const [arcana, outfit, postDeath, playbook, vitals, moves, possessions] = await Promise.all([
+		const [arcana, outfit, inserts, playbook, vitals, moves, possessions] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
-			this._postDeath.buildSnapshot(),
+			this._inserts.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
 			this._vitals.buildVitalsSnapshot(),
 			this._moves.buildSnapshot(),
@@ -108,14 +87,14 @@ export class StonetopCharacter {
 			.withOutfit(outfit)
 			.withPossessions(possessions)
 			.withArcana(arcana)
-			.withPostDeathInsert(postDeath)
+			.withInserts(inserts)
 			.withFollowers(followers)
 			.withRollMode(this.rollMode)
 			.build();
 	}
 
-	async removeInsert() {
-		await this._postDeath.removeInsert();
+	async removeInsert(itemId) {
+		await this._inserts.removeInsert(itemId);
 	}
 
 	async setInventoryItemChecked(slug, isChecked) {
@@ -242,7 +221,7 @@ export class StonetopCharacter {
 		}
 
 		const insertItem = documents.find(d => d.type === "insert");
-		if (insertItem) await this._postDeath.onInsertDropped(insertItem);
+		if (insertItem) await this._inserts.onInsertDropped(insertItem);
 	}
 
 	async _onDeleteDescendantDocuments(documents) {
@@ -254,7 +233,7 @@ export class StonetopCharacter {
 		}
 
 		const insertItem = documents.find(d => d.type === "insert");
-		if (insertItem) await this._postDeath.onInsertRemoved(insertItem.system?.slug ?? null);
+		if (insertItem) await this._inserts.onInsertRemoved(insertItem.system?.slug ?? null);
 	}
 
 	get rollMode() {
@@ -309,10 +288,9 @@ export class StonetopCharacter {
 		switch (context) {
 			case "arcana-unlock":
 				return await this._arcana.setUnlockCount(group, option, count);
+			case "playbook-choice":
 			case "lore":
-				return await this._lore.set(group, option, count);
-			case "pdi-lore":
-				return await this._postDeath.lore.set(group, option, count);
+				return await this._playbook.setChoiceCount(group, option, count);
 			case "background":
 				return await this._background.setChoiceValue(group, option, count);
 			case "move":
@@ -322,12 +300,10 @@ export class StonetopCharacter {
 
 	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
 		switch (context) {
+			case "playbook-choice":
 			case "instinct":
-				return this.instinct.selectOption(option, siblingsCsv);
-			case "pdi-instinct":
-				return await this._postDeath.instinct.selectOption(option, siblingsCsv);
 			case "appearance":
-				return this.appearance.selectOption(option, siblingsCsv);
+				return await this._playbook.selectChoice(group, option, siblingsCsv);
 			case "follower":
 				return await this._followers.setChoiceValue(group, "choices", option, siblingsCsv);
 			case "background":
@@ -337,15 +313,26 @@ export class StonetopCharacter {
 
 	async setChoiceText(context, group, option, value) {
 		switch (context) {
+			case "playbook-choice":
 			case "lore":
-				return await this._lore.set(group, option, value);
-			case "pdi-lore":
-				return await this._postDeath.lore.set(group, option, value);
+				return await this._playbook.setChoiceText(group, option, value);
 			case "follower":
 				return await this._followers.setChoiceText(group, option, value);
 			case "move":
 				return await this._moves.setMoveChoiceText(group, option, value);
 		}
+	}
+
+	async setInsertChoiceCount(itemId, groupSlug, optionSlug, count) {
+		await this._inserts.setCount(itemId, groupSlug, optionSlug, count);
+	}
+
+	async setInsertChoicePick(itemId, groupSlug, optionSlug, siblingsCsv) {
+		await this._inserts.selectOption(itemId, groupSlug, optionSlug, siblingsCsv);
+	}
+
+	async setInsertChoiceText(itemId, groupSlug, optionSlug, text) {
+		await this._inserts.setText(itemId, groupSlug, optionSlug, text);
 	}
 
 	async setArcanumResource(slug, count) {

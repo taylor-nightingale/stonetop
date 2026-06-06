@@ -1,13 +1,14 @@
 import { PlaybookSnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { InstinctController } from "./InstinctController.js";
 
 export class CharacterPlaybook {
-	constructor(actor, background, instinct, appearance, origin, lore) {
+	constructor(actor, background, factory, origin) {
 		this._actor      = actor;
 		this._background = background;
-		this._instinct   = instinct;
-		this._appearance = appearance;
 		this._origin     = origin;
-		this._lore       = lore;
+		this._ctrl       = factory.forItemType("playbook", "choiceValues");
+		this._instinct   = new InstinctController(this._ctrl);
 	}
 
 	setVitals(vitals) { this._vitals = vitals; }
@@ -57,24 +58,46 @@ export class CharacterPlaybook {
 		}
 	}
 
+	async selectChoice(groupSlug, optionSlug, siblingsCsv) {
+		if (groupSlug === "instinct")
+			await this._instinct.selectOption(optionSlug, siblingsCsv);
+		else
+			await this._ctrl.selectOption(groupSlug, optionSlug, siblingsCsv);
+	}
+
+	async selectCustomInstinct(text) {
+		await this._instinct.selectCustom(text);
+	}
+
+	async setChoiceCount(groupSlug, optionSlug, count) {
+		await this._ctrl.setCount(groupSlug, optionSlug, count);
+	}
+
+	async setChoiceText(groupSlug, optionSlug, text) {
+		if (groupSlug === "instinct")
+			await this._instinct.setText(optionSlug, text);
+		else
+			await this._ctrl.setText(groupSlug, optionSlug, text);
+	}
+
 	async buildPlaybookSnapshot() {
 		const data = await this.getData();
 		if (!data) return null;
-		const [background, instinct, appearance] = await Promise.all([
-			this._background.buildSnapshot(data.backgrounds ?? []),
-			this._instinct.buildSnapshot(data.instinct ?? null),
-			this._appearance.buildSnapshot(data.appearance ?? null),
-		]);
+		const choiceValues     = new ChoiceValues(data.choiceValues ?? {});
+		const instinctGroup    = data.instinct ? ChoiceGroup.fromPackData(data.instinct, choiceValues) : null;
+		const instinctSelected = InstinctController.computeSelected(instinctGroup, choiceValues);
+		const choices          = (data.choices ?? []).map(g => ChoiceGroup.fromPackData(g, choiceValues));
+		const background       = await this._background.buildSnapshot(data.backgrounds ?? []);
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
 			.withImg(data.img ?? null)
 			.withDescription(data.description ?? null)
 			.withStatsNote(data.statsNote ?? null)
-			.withLore(this._lore.buildSnapshot(data.lore ?? []))
+			.withChoices(choices)
+			.withInstinctGroup(instinctGroup)
+			.withInstinctSelected(instinctSelected)
 			.withBackground(background)
-			.withInstinct(instinct)
-			.withAppearance(appearance)
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))
 			.build();
 	}

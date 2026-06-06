@@ -1,4 +1,5 @@
 import { toSlug } from "../utils/slug.js";
+import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 
 const ROLL_STAT_CHOICES = {
 	"":       "stonetop.item.move.rollStat.none",
@@ -74,6 +75,7 @@ export function createStonetopMoveSheetClass(Base) {
 			context.isRollable       = !!this.item.system.rollStat;
 			context.showResults      = context.isRollable;
 			if (context.system.choices) {
+				context.choiceSnapshot = ChoiceGroup.fromPackData(context.system.choices, new ChoiceValues(), {});
 				context.choiceRows = context.system.choices.list.map((row, ri) => ({
 					...row,
 					_index: ri,

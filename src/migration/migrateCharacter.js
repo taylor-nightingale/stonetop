@@ -1,4 +1,5 @@
 import { CharacterMoves } from "../actors/character/CharacterMoves.js";
+import { toSlug } from "../utils/slug.js";
 import { CharacterPossessions } from "../actors/character/CharacterPossessions.js";
 import { CharacterArcana } from "../actors/character/CharacterArcana.js";
 import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
@@ -20,11 +21,15 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateArcana(actor, repos.arcana, repos.followers);
 	await migrateFollowers(actor, repos.followers, resourceController);
 
-	const moves = new CharacterMoves(repos.moves, actor, null, null);
+	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
+	await migrateInsertMoveCategories(actor);
+	await migrateInsertChoiceValues(actor);
 	await migrateEmbeddedEquipment(actor);
+	await migrateChoiceValues(actor);
+	await migratePlaybookChoiceValues(actor);
 }
 
 // ── A. Flag → system scalar copies ───────────────────────────────────────────
@@ -41,12 +46,8 @@ export async function migrateCharacterFlags(actor) {
 		"system.instinct.custom":            f("instinct.custom")           ?? "",
 		"system.origin.selected":            f("origin.selected")           ?? "",
 		"system.lore.values":                f("lore.values")               ?? {},
-		"system.postDeathInstinct.custom":   f("postDeathInstinct.custom")  ?? "",
-		"system.postDeathLore.values":       f("postDeathLore.values")      ?? {},
 		"system.choices.values":             f("choices.values")            ?? {},
 		"system.choices.groupDefs":          migrateGroupDefs(f("choices.groupDefs")),
-		"system.postDeathChoices.values":    f("postDeathChoices.values")   ?? {},
-		"system.postDeathChoices.groupDefs": migrateGroupDefs(f("postDeathChoices.groupDefs")),
 		"system.resources.counts":           f("resources.counts")          ?? {},
 		"system.moveResources.counts":       f("move-resources.counts")     ?? {},
 		"system.inventory.checked":          f("inventory.checked")         ?? {},
@@ -119,7 +120,7 @@ export async function migrateCharacterMoves(actor, moveRepo) {
 
 	for (const cat of categories.filter(c => c.key.startsWith("post-death-"))) {
 		const insertSlug = cat.key.replace("post-death-", "");
-		await moves.addCategory(cat.key, cat.label ?? insertSlug, insertSlug);
+		await moves.addCategory(`insert-${insertSlug}`, cat.label ?? insertSlug, insertSlug);
 	}
 }
 
@@ -274,7 +275,7 @@ export async function migrateInsert(actor, insertRepo, moves) {
 	if (!doc) return;
 
 	await actor.createEmbeddedDocuments("Item", [doc.toObject()]);
-	await moves.addCategory(`post-death-${slug}`, doc.name ?? slug, slug);
+	await moves.addCategory(`insert-${slug}`, doc.name ?? slug, slug);
 }
 
 // ── I. Equipment → arcanum ────────────────────────────────────────────────────
@@ -300,4 +301,107 @@ export async function migrateEmbeddedEquipment(actor) {
 		}]);
 		await actor.deleteEmbeddedDocuments("Item", [item._id]);
 	}
+}
+
+// ── K. Rename post-death-{slug} move categories → insert-{slug} ──────────────
+
+export async function migrateInsertMoveCategories(actor) {
+	const oldItems = [...actor.items].filter(
+		i => i.type === "move" && i.system?.categoryKey?.startsWith("post-death-"),
+	);
+	if (!oldItems.length) return;
+	await actor.updateEmbeddedDocuments("Item", oldItems.map(i => ({
+		_id:    i._id,
+		system: { categoryKey: i.system.categoryKey.replace("post-death-", "insert-") },
+	})));
+}
+
+// ── L. Move postDeathChoices/postDeathLore values → insert item choiceValues ──
+
+export async function migrateInsertChoiceValues(actor) {
+	const insertItem = [...actor.items].find(i => i.type === "insert") ?? null;
+	if (!insertItem) return;
+
+	const existingValues = insertItem.system?.choiceValues ?? {};
+	if (Object.keys(existingValues).length) return;
+
+	const pdChoices = actor.system?.postDeathChoices?.values ?? {};
+	const pdLore    = actor.system?.postDeathLore?.values    ?? {};
+	const merged    = { ...pdLore, ...pdChoices };
+	if (!Object.keys(merged).length) return;
+
+	await actor.updateEmbeddedDocuments("Item", [{ _id: insertItem._id, system: { choiceValues: merged } }]);
+}
+
+// ── J. choice values → per-item ───────────────────────────────────────────────
+
+export async function migrateChoiceValues(actor) {
+	const values = actor.system.choices?.values ?? {};
+	if (!Object.keys(values).length) return;
+
+	const pbItem    = [...actor.items].find(i => i.type === "playbook") ?? null;
+	const moveItems = [...actor.items].filter(i => i.type === "move" && i.system?.choices);
+
+	if (pbItem) {
+		const bgSlugs    = new Set((pbItem.system?.backgrounds ?? []).map(b => b.slug));
+		const pbSystem   = {};
+		const choiceValues = {};
+		if (values.instinct)   choiceValues.instinct   = values.instinct;
+		if (values.appearance) choiceValues.appearance = values.appearance;
+		if (Object.keys(choiceValues).length) pbSystem.choiceValues = choiceValues;
+		const bgValues = {};
+		for (const [k, v] of Object.entries(values)) {
+			if (bgSlugs.has(k)) bgValues[k] = v;
+		}
+		if (Object.keys(bgValues).length) pbSystem.backgroundValues = bgValues;
+		if (Object.keys(pbSystem).length) {
+			await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: pbSystem }]);
+		}
+	}
+
+	for (const moveItem of moveItems) {
+		const moveSlug = moveItem.system?.slug ?? toSlug(moveItem.name ?? "");
+		if (!values[moveSlug]) continue;
+		const choicesSlug = moveItem.system.choices.slug;
+		await actor.updateEmbeddedDocuments("Item", [{
+			_id:    moveItem._id,
+			system: { pickValues: { [choicesSlug]: values[moveSlug] } },
+		}]);
+	}
+}
+
+// ── M. Playbook instinct / appearance / lore → choiceValues ───────────────────
+
+export async function migratePlaybookChoiceValues(actor) {
+	const pbItem = [...actor.items].find(i => i.type === "playbook") ?? null;
+	if (!pbItem) return;
+
+	const existing         = pbItem.system?.choiceValues ?? {};
+	const instinctValues   = pbItem.system?.instinctValues   ?? {};
+	const appearanceValues = pbItem.system?.appearanceValues ?? {};
+	const loreValues       = actor.system?.lore?.values      ?? {};
+	const customInstinct   = actor.system?.instinct?.custom  ?? "";
+
+	const toMerge = {};
+
+	if (!existing.instinct) {
+		const instinctEntry = { ...instinctValues };
+		if (customInstinct) instinctEntry.__custom = customInstinct;
+		if (Object.keys(instinctEntry).length) toMerge.instinct = instinctEntry;
+	}
+
+	if (!existing.appearance && Object.keys(appearanceValues).length) {
+		toMerge.appearance = appearanceValues;
+	}
+
+	for (const [slug, groupValues] of Object.entries(loreValues)) {
+		if (!existing[slug] && Object.keys(groupValues).length) toMerge[slug] = groupValues;
+	}
+
+	if (!Object.keys(toMerge).length) return;
+
+	await actor.updateEmbeddedDocuments("Item", [{
+		_id:    pbItem._id,
+		system: { choiceValues: { ...existing, ...toMerge } },
+	}]);
 }

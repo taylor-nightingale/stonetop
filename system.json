@@ -66,9 +66,9 @@
 	},
 	"packs": [
 		{
-			"name": "basic-moves",
-			"label": "Basic Moves",
-			"path": "packs/basic-moves",
+			"name": "moves",
+			"label": "Moves",
+			"path": "packs/moves",
 			"type": "Item",
 			"system": "stonetop"
 		},
@@ -76,34 +76,6 @@
 			"name": "playbooks",
 			"label": "Playbooks",
 			"path": "packs/playbooks",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "special-moves",
-			"label": "Special Moves",
-			"path": "packs/special-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "playbook-moves",
-			"label": "Playbook Moves",
-			"path": "packs/playbook-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "follower-moves",
-			"label": "Follower Moves",
-			"path": "packs/follower-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "homefront-moves",
-			"label": "Homefront Moves",
-			"path": "packs/homefront-moves",
 			"type": "Item",
 			"system": "stonetop"
 		},
@@ -122,16 +94,9 @@
 			"system": "stonetop"
 		},
 		{
-			"name": "post-death-inserts",
-			"label": "Post-Death Inserts",
-			"path": "packs/post-death-inserts",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "post-death-moves",
-			"label": "Post-Death Moves",
-			"path": "packs/post-death-moves",
+			"name": "inserts",
+			"label": "Inserts",
+			"path": "packs/inserts",
 			"type": "Item",
 			"system": "stonetop"
 		},

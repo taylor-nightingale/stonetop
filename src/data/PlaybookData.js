@@ -10,12 +10,15 @@ export class PlaybookData extends foundry.abstract.TypeDataModel {
 			statsNote:          new f.StringField({ initial: "" }),
 			startingMovesNote:  new f.StringField({ initial: "" }),
 			backgrounds:        new f.ArrayField(new f.ObjectField()),
-			instinct:           new f.ObjectField({ nullable: true, initial: null }),
-			appearance:         new f.ObjectField({ nullable: true, initial: null }),
 			origin:             new f.ArrayField(new f.ObjectField()),
 			specialPossessions: new f.ObjectField({ nullable: true, initial: null }),
-			lore:               new f.ArrayField(new f.ObjectField()),
+			instinct:           new f.ObjectField({ nullable: true, initial: null }),
+			choices:            new f.ArrayField(new f.ObjectField()),
+			choiceValues:       new f.ObjectField(),
 			introductions:      new f.ArrayField(new f.ObjectField()),
+			instinctValues:     new f.ObjectField(),
+			appearanceValues:   new f.ObjectField(),
+			backgroundValues:   new f.ObjectField(),
 		};
 	}
 }

@@ -15,127 +15,6 @@
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "conscience",
-							"description": "To feel guilty, to try to do right.",
-							"text": "Conscience"
-						},
-						{
-							"slug": "freedom",
-							"description": "To chafe against rules, expectations, obligations.",
-							"text": "Freedom"
-						},
-						{
-							"slug": "comfort",
-							"description": "To enjoy yourself and avoid hardship.",
-							"text": "Comfort"
-						},
-						{
-							"slug": "prestige",
-							"description": "To impress others, to build a name for yourself.",
-							"text": "Prestige"
-						},
-						{
-							"slug": "trickery",
-							"description": "To deceive, misdirect, outthink.",
-							"text": "Trickery"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "young-pup",
-							"text": "young pup"
-						},
-						{
-							"slug": "responsible-adult",
-							"text": "\"responsible\" adult"
-						},
-						{
-							"slug": "cagey-old-timer",
-							"text": "cagey old-timer"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-pleasant-voice",
-							"text": "a pleasant voice"
-						},
-						{
-							"slug": "sharp-and-nasally",
-							"text": "sharp & nasally"
-						},
-						{
-							"slug": "well-spoken",
-							"text": "well-spoken"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "lithe",
-							"text": "lithe"
-						},
-						{
-							"slug": "heavyset",
-							"text": "heavyset"
-						},
-						{
-							"slug": "gangly",
-							"text": "gangly"
-						},
-						{
-							"slug": "like-a-whippin-stick",
-							"text": "like a whippin' stick"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-light-step",
-							"text": "a light step"
-						},
-						{
-							"slug": "a-brisk-stride",
-							"text": "a brisk stride"
-						},
-						{
-							"slug": "more-like-a-strut",
-							"text": "more like a strut"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -196,7 +75,123 @@
 				]
 			}
 		],
-		"lore": [
+		"backgrounds": [
+			{
+				"slug": "the-natural",
+				"label": "The Natural",
+				"description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <strong><em>Seek Insight</em></strong>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
+			},
+			{
+				"slug": "a-life-of-crime",
+				"label": "A Life of Crime",
+				"description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.</p>"
+			},
+			{
+				"slug": "the-prodigal-returned",
+				"label": "The Prodigal Returned",
+				"description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <strong><em>declare that you know someone outside of Stonetop</em></strong>, someone who can help, name them and roll +CHA: <strong>on a 10+</strong>, yeah, they can help (tell us why they're willing); <strong>on a 7-9</strong>, they can help but pick 1 from the list below; <strong>on a 6-</strong>, the GM chooses 1 and then some.</p>"
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2",
+			"pickCount": 2,
+			"preselected": [],
+			"slugs": [
+				"burglars-kit",
+				"carpenters-tools",
+				"distillery",
+				"hidden-stash",
+				"mummers-kit",
+				"scribes-tools",
+				"trade-contacts"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "young-pup",
+								"text": "young pup"
+							},
+							{
+								"slug": "responsible-adult",
+								"text": "\"responsible\" adult"
+							},
+							{
+								"slug": "cagey-old-timer",
+								"text": "cagey old-timer"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-pleasant-voice",
+								"text": "a pleasant voice"
+							},
+							{
+								"slug": "sharp-and-nasally",
+								"text": "sharp & nasally"
+							},
+							{
+								"slug": "well-spoken",
+								"text": "well-spoken"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "lithe",
+								"text": "lithe"
+							},
+							{
+								"slug": "heavyset",
+								"text": "heavyset"
+							},
+							{
+								"slug": "gangly",
+								"text": "gangly"
+							},
+							{
+								"slug": "like-a-whippin-stick",
+								"text": "like a whippin' stick"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-light-step",
+								"text": "a light step"
+							},
+							{
+								"slug": "a-brisk-stride",
+								"text": "a brisk stride"
+							},
+							{
+								"slug": "more-like-a-strut",
+								"text": "more like a strut"
+							}
+						]
+					}
+				]
+			},
 			{
 				"slug": "tall-tales-beginning",
 				"list": [
@@ -520,35 +515,41 @@
 				]
 			}
 		],
-		"backgrounds": [
-			{
-				"slug": "the-natural",
-				"label": "The Natural",
-				"description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <strong><em>Seek Insight</em></strong>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
-			},
-			{
-				"slug": "a-life-of-crime",
-				"label": "A Life of Crime",
-				"description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.</p>"
-			},
-			{
-				"slug": "the-prodigal-returned",
-				"label": "The Prodigal Returned",
-				"description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <strong><em>declare that you know someone outside of Stonetop</em></strong>, someone who can help, name them and roll +CHA: <strong>on a 10+</strong>, yeah, they can help (tell us why they're willing); <strong>on a 7-9</strong>, they can help but pick 1 from the list below; <strong>on a 6-</strong>, the GM chooses 1 and then some.</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"burglars-kit",
-				"carpenters-tools",
-				"distillery",
-				"hidden-stash",
-				"mummers-kit",
-				"scribes-tools",
-				"trade-contacts"
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "conscience",
+							"description": "To feel guilty, to try to do right.",
+							"text": "Conscience"
+						},
+						{
+							"slug": "freedom",
+							"description": "To chafe against rules, expectations, obligations.",
+							"text": "Freedom"
+						},
+						{
+							"slug": "comfort",
+							"description": "To enjoy yourself and avoid hardship.",
+							"text": "Comfort"
+						},
+						{
+							"slug": "prestige",
+							"description": "To impress others, to build a name for yourself.",
+							"text": "Prestige"
+						},
+						{
+							"slug": "trickery",
+							"description": "To deceive, misdirect, outthink.",
+							"text": "Trickery"
+						}
+					]
+				}
 			]
 		}
 	}

@@ -22,8 +22,8 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	addPostDeathMove(move) {
-		this._repos.moves.addPostDeath(move);
+	addInsertMove(move) {
+		this._repos.moves.addInsertMove(move);
 		return this;
 	}
 

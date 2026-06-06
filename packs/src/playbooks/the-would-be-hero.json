@@ -15,131 +15,6 @@
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "defiance",
-							"description": "To refuse to back down, give up, give in.",
-							"text": "Defiance"
-						},
-						{
-							"slug": "doubt",
-							"description": "To question yourself, your actions, your worth.",
-							"text": "Doubt"
-						},
-						{
-							"slug": "earnestness",
-							"description": "To prove yourself, to yourself and others.",
-							"text": "Earnestness"
-						},
-						{
-							"slug": "optimism",
-							"description": "To assume the best, and that things are simple.",
-							"text": "Optimism"
-						},
-						{
-							"slug": "sacrifice",
-							"description": "To put the needs/wants of others above your own.",
-							"text": "Sacrifice"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "still-a-child",
-							"text": "still a child"
-						},
-						{
-							"slug": "young-and-beautiful",
-							"text": "young & beautiful"
-						},
-						{
-							"slug": "all-grown-up",
-							"text": "all grown up"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "quiet-voice",
-							"text": "quiet voice"
-						},
-						{
-							"slug": "earnest-voice",
-							"text": "earnest voice"
-						},
-						{
-							"slug": "soft-voice",
-							"text": "soft voice"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "big",
-							"text": "big"
-						},
-						{
-							"slug": "scrawny",
-							"text": "scrawny"
-						},
-						{
-							"slug": "sinewy",
-							"text": "sinewy"
-						},
-						{
-							"slug": "slender",
-							"text": "slender"
-						},
-						{
-							"slug": "thick",
-							"text": "thick"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "back-unbowed",
-							"text": "back unbowed"
-						},
-						{
-							"slug": "jaw-firmly-set",
-							"text": "jaw firmly set"
-						},
-						{
-							"slug": "soulful-eyes",
-							"text": "soulful eyes"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -208,241 +83,6 @@
 					"Tamir",
 					"Takish",
 					"Yannis"
-				]
-			}
-		],
-		"lore": [
-			{
-				"slug": "fear-and-anger",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "Fear & anger",
-							"text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "fire",
-						"content": {
-							"title": null,
-							"text": "Fire, burning, the smell of charred flesh"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "not-serious",
-						"content": {
-							"title": null,
-							"text": "That they won't take you seriously"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "not-cut-out",
-						"content": {
-							"title": null,
-							"text": "That you really aren't cut out for this"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "death-loved-ones",
-						"content": {
-							"title": null,
-							"text": "The death of your family or loved ones"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "alone",
-						"content": {
-							"title": null,
-							"text": "Being alone and helpless"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "violence",
-						"content": {
-							"title": null,
-							"text": "Violence, bloodshed, and pain"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "monsters",
-						"content": {
-							"title": null,
-							"text": "Monsters"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "capable-of",
-						"content": {
-							"title": null,
-							"text": "What you're capable of"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "must-do",
-						"content": {
-							"title": null,
-							"text": "What you must do"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "bullying",
-						"content": {
-							"title": null,
-							"text": "Bullying, slavery, and oppression"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cruelty",
-						"content": {
-							"title": null,
-							"text": "Wanton cruelty and unnecessary suffering"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "injustice",
-						"content": {
-							"title": null,
-							"text": "Injustice and inequality"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cowardice",
-						"content": {
-							"title": null,
-							"text": "Cowardice, treachery, and selfishness"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "despoiling",
-						"content": {
-							"title": null,
-							"text": "The despoiling of beauty and innocence"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "threats-loved-ones",
-						"content": {
-							"title": null,
-							"text": "Threats to your loved ones"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "innocents",
-						"content": {
-							"title": null,
-							"text": "Violence to children, animals, the innocent"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "perversions",
-						"content": {
-							"title": null,
-							"text": "Perversions of nature"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "when-trouble",
-						"content": {
-							"title": null,
-							"text": "When did your fear or anger last cause you trouble?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "what-did",
-						"content": {
-							"title": null,
-							"text": "What did you do?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "how-turned",
-						"content": {
-							"title": null,
-							"text": "How did it turn out?"
-						},
-						"input": {}
-					}
 				]
 			}
 		],
@@ -711,6 +351,367 @@
 				"smithy",
 				"stoneworkers-tools",
 				"tannery"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "still-a-child",
+								"text": "still a child"
+							},
+							{
+								"slug": "young-and-beautiful",
+								"text": "young & beautiful"
+							},
+							{
+								"slug": "all-grown-up",
+								"text": "all grown up"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "quiet-voice",
+								"text": "quiet voice"
+							},
+							{
+								"slug": "earnest-voice",
+								"text": "earnest voice"
+							},
+							{
+								"slug": "soft-voice",
+								"text": "soft voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "big",
+								"text": "big"
+							},
+							{
+								"slug": "scrawny",
+								"text": "scrawny"
+							},
+							{
+								"slug": "sinewy",
+								"text": "sinewy"
+							},
+							{
+								"slug": "slender",
+								"text": "slender"
+							},
+							{
+								"slug": "thick",
+								"text": "thick"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "back-unbowed",
+								"text": "back unbowed"
+							},
+							{
+								"slug": "jaw-firmly-set",
+								"text": "jaw firmly set"
+							},
+							{
+								"slug": "soulful-eyes",
+								"text": "soulful eyes"
+							}
+						]
+					}
+				]
+			},
+			{
+				"slug": "fear-and-anger",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Fear & anger",
+							"text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "fire",
+						"content": {
+							"title": null,
+							"text": "Fire, burning, the smell of charred flesh"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "not-serious",
+						"content": {
+							"title": null,
+							"text": "That they won't take you seriously"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "not-cut-out",
+						"content": {
+							"title": null,
+							"text": "That you really aren't cut out for this"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "death-loved-ones",
+						"content": {
+							"title": null,
+							"text": "The death of your family or loved ones"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "alone",
+						"content": {
+							"title": null,
+							"text": "Being alone and helpless"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "violence",
+						"content": {
+							"title": null,
+							"text": "Violence, bloodshed, and pain"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "monsters",
+						"content": {
+							"title": null,
+							"text": "Monsters"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "capable-of",
+						"content": {
+							"title": null,
+							"text": "What you're capable of"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "must-do",
+						"content": {
+							"title": null,
+							"text": "What you must do"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "bullying",
+						"content": {
+							"title": null,
+							"text": "Bullying, slavery, and oppression"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "cruelty",
+						"content": {
+							"title": null,
+							"text": "Wanton cruelty and unnecessary suffering"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "injustice",
+						"content": {
+							"title": null,
+							"text": "Injustice and inequality"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "cowardice",
+						"content": {
+							"title": null,
+							"text": "Cowardice, treachery, and selfishness"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "despoiling",
+						"content": {
+							"title": null,
+							"text": "The despoiling of beauty and innocence"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "threats-loved-ones",
+						"content": {
+							"title": null,
+							"text": "Threats to your loved ones"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "innocents",
+						"content": {
+							"title": null,
+							"text": "Violence to children, animals, the innocent"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "perversions",
+						"content": {
+							"title": null,
+							"text": "Perversions of nature"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "when-trouble",
+						"content": {
+							"title": null,
+							"text": "When did your fear or anger last cause you trouble?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "what-did",
+						"content": {
+							"title": null,
+							"text": "What did you do?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "how-turned",
+						"content": {
+							"title": null,
+							"text": "How did it turn out?"
+						},
+						"input": {}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "defiance",
+							"description": "To refuse to back down, give up, give in.",
+							"text": "Defiance"
+						},
+						{
+							"slug": "doubt",
+							"description": "To question yourself, your actions, your worth.",
+							"text": "Doubt"
+						},
+						{
+							"slug": "earnestness",
+							"description": "To prove yourself, to yourself and others.",
+							"text": "Earnestness"
+						},
+						{
+							"slug": "optimism",
+							"description": "To assume the best, and that things are simple.",
+							"text": "Optimism"
+						},
+						{
+							"slug": "sacrifice",
+							"description": "To put the needs/wants of others above your own.",
+							"text": "Sacrifice"
+						}
+					]
+				}
 			]
 		}
 	}

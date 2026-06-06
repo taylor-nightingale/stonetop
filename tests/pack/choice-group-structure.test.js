@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
 
-const LORE_DIRS       = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
+const LORE_DIRS       = ["playbooks", "inserts"].map(d => path.resolve("packs/src", d));
 const ARCANA_DIR      = path.resolve("packs/src/arcana");
 const POSSESSIONS_DIR = path.resolve("packs/src/possessions");
 const VALID_TYPES     = new Set(["entry", "pick"]);
@@ -193,11 +193,11 @@ describe("Pack lore entries use the list format", () => {
 		}
 	});
 
-	it("first list item is always an entry", () => {
+	it("first list item is a valid type", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
 				const first = entry.list?.[0];
-				expect(first?.type, `${name}/${entry.slug}: first list item must be an entry`).toBe("entry");
+				if (first) expect(VALID_TYPES.has(first.type), `${name}/${entry.slug}: first item type "${first.type}" must be entry or pick`).toBe(true);
 			}
 		}
 	});

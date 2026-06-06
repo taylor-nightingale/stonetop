@@ -124,7 +124,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
 				if (!compendiumId) return;
-				const pack = game.packs.get("stonetop.basic-moves");
+				const pack = game.packs.get("stonetop.moves");
 				const doc  = (pack ? await pack.getDocument(compendiumId) : null)
 					?? game.items?.get(compendiumId)
 					?? null;

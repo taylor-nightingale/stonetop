@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { CharacterPlaybook } from "../../../src/actors/character/CharacterPlaybook.js";
+import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { PlaybookSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
@@ -12,12 +14,6 @@ function makeActor(playbookSlug = "the-blessed", items = []) {
 	return new FakeActorBuilder().withPlaybook(playbookSlug).withItems(items).build();
 }
 
-class FakeSection {
-	constructor(result = null) { this._result = result; }
-	buildSnapshot(data) { this._received = data; return this._result; }
-	receivedData() { return this._received ?? null; }
-}
-
 class FakeBackground {
 	_selectedSlug;
 	constructor(selectedSlug = "") { this._selectedSlug = selectedSlug; }
@@ -26,16 +22,31 @@ class FakeBackground {
 	async buildSnapshot()           { return null; }
 }
 
-function makePlaybook(actor, subs = {}) {
-	const {
-		background = new FakeBackground(),
-		instinct   = new FakeSection(),
-		appearance = new FakeSection(),
-		origin     = new FakeSection(),
-		lore       = new FakeSection(),
-	} = subs;
-	return new CharacterPlaybook(actor, background, instinct, appearance, origin, lore);
+class FakeOrigin {
+	buildSnapshot(data) { return data; }
 }
+
+function makePlaybook(actor, { background = new FakeBackground() } = {}) {
+	const factory = new ChoiceGroupFactory(actor);
+	return new CharacterPlaybook(actor, background, factory, new FakeOrigin());
+}
+
+const INSTINCT_GROUP = { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [
+	{ slug: "delight", text: "Delight", description: "To find beauty." },
+	{ slug: "nurture", text: "Nurture", description: "To help others." },
+]}]};
+
+const APPEARANCE_GROUP = { slug: "appearance", list: [
+	{ type: "pick", pickCount: 1, inline: true, options: [
+		{ slug: "fresh-faced", text: "fresh-faced" },
+		{ slug: "wizened", text: "wizened" },
+	]},
+]};
+
+const LORE_GROUP = { slug: "lore-1", list: [
+	{ type: "entry", content: { title: "Lore", text: "Some lore." } },
+	{ type: "entry", slug: "shrine-loved", content: { title: null, text: "Loved shrine." }, track: { max: 1 } },
+]};
 
 const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 	.withSlug("the-blessed")
@@ -47,10 +58,9 @@ const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 		{ slug: "herbalist", moves: ["healing-touch"] },
 		{ slug: "vessel",    moves: ["channel"] },
 	])
-	.withInstinct({ slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [{ slug: "pious", label: "Pious", description: "Devout." }] }] })
-	.withAppearance({ slug: "appearance", list: [{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "tall", text: "tall" }, { slug: "short", text: "short" }] }] })
+	.withInstinct(INSTINCT_GROUP)
+	.withChoices([APPEARANCE_GROUP, LORE_GROUP])
 	.withOrigin([{ region: "The Reach", names: ["Aldric"] }])
-	.withLore([{ slug: "lore-1" }])
 	.build();
 
 const PLAYBOOK_DATA = { ...PLAYBOOK_ITEM.system, name: PLAYBOOK_ITEM.name, img: PLAYBOOK_ITEM.img };
@@ -60,11 +70,6 @@ const PLAYBOOK_DATA = { ...PLAYBOOK_ITEM.system, name: PLAYBOOK_ITEM.name, img: 
 describe("CharacterPlaybook.getData", () => {
 	it("returns null when actor has no playbook item in actor.items", async () => {
 		const actor = new FakeActorBuilder().build();
-		expect(await makePlaybook(actor).getData()).toBeNull();
-	});
-
-	it("returns null when slug is set but no playbook item is in actor.items", async () => {
-		const actor = new FakeActorBuilder().withPlaybook("the-blessed").build();
 		expect(await makePlaybook(actor).getData()).toBeNull();
 	});
 
@@ -80,10 +85,11 @@ describe("CharacterPlaybook.getData", () => {
 		expect(data.img).toBe("img.webp");
 	});
 
-	it("includes system fields like backgrounds and lore", async () => {
+	it("includes system fields like backgrounds, instinct and choices", async () => {
 		const data = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).getData();
 		expect(data.backgrounds).toEqual(PLAYBOOK_ITEM.system.backgrounds);
-		expect(data.lore).toEqual(PLAYBOOK_ITEM.system.lore);
+		expect(data.instinct).toEqual(PLAYBOOK_ITEM.system.instinct);
+		expect(data.choices).toEqual(PLAYBOOK_ITEM.system.choices);
 	});
 });
 
@@ -109,61 +115,119 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.statsNote).toBe("Assign +2/+1/+1/0/0/-1");
 	});
 
-	it("snapshot sections come from subsystem buildSnapshot() results", async () => {
-		const subs = {
-			background: new FakeSection("bg-snap"),
-			instinct:   new FakeSection("instinct-snap"),
-			appearance: new FakeSection("appearance-snap"),
-			origin:     new FakeSection("origin-snap"),
-			lore:       new FakeSection("lore-snap"),
-		};
-		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), subs).buildPlaybookSnapshot();
-		expect(snap.background).toBe("bg-snap");
-		expect(snap.instinct).toBe("instinct-snap");
-		expect(snap.appearance).toBe("appearance-snap");
-		expect(snap.origin).toBe("origin-snap");
-		expect(snap.lore).toBe("lore-snap");
+	it("snapshot.instinctGroup is a ChoiceGroup built from item.system.instinct", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.instinctGroup).toBeInstanceOf(ChoiceGroup);
+		expect(snap.instinctGroup.slug).toBe("instinct");
 	});
 
-	it("passes playbook.backgrounds to background.buildSnapshot", async () => {
-		const bg = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg }).buildPlaybookSnapshot();
-		expect(bg.receivedData()).toEqual(PLAYBOOK_ITEM.system.backgrounds);
+	it("snapshot.choices contains non-instinct ChoiceGroups from item.system.choices", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.choices).toHaveLength(2);
+		expect(snap.choices[0]).toBeInstanceOf(ChoiceGroup);
+		expect(snap.choices[0].slug).toBe("appearance");
+		expect(snap.choices[1].slug).toBe("lore-1");
 	});
 
-	it("passes playbook.instinct to instinct.buildSnapshot", async () => {
-		const instinct = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { instinct }).buildPlaybookSnapshot();
-		expect(instinct.receivedData()).toEqual(PLAYBOOK_ITEM.system.instinct);
+	it("snapshot.instinctSelected is null when no instinct value saved", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.instinctSelected).toBeNull();
 	});
 
-	it("passes playbook.appearance to appearance.buildSnapshot", async () => {
-		const appearance = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { appearance }).buildPlaybookSnapshot();
-		expect(appearance.receivedData()).toEqual(PLAYBOOK_ITEM.system.appearance);
+	it("snapshot.instinctSelected reflects the checked option label", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withInstinct(INSTINCT_GROUP)
+			.withChoiceValues({ instinct: { delight: 1 } })
+			.build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.instinctSelected).toBe("Delight — To find beauty.");
 	});
 
-	it("passes playbook.origin to origin.buildSnapshot", async () => {
-		const origin = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { origin }).buildPlaybookSnapshot();
-		expect(origin.receivedData()).toEqual(PLAYBOOK_ITEM.system.origin);
+	it("snapshot.instinctSelected reflects custom text when stored under __custom", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withInstinct(INSTINCT_GROUP)
+			.withChoiceValues({ instinct: { __custom: "my custom instinct" } })
+			.build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.instinctSelected).toBe("my custom instinct");
 	});
 
-	it("passes playbook.lore to lore.buildSnapshot", async () => {
-		const lore = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { lore }).buildPlaybookSnapshot();
-		expect(lore.receivedData()).toEqual(PLAYBOOK_ITEM.system.lore);
+	it("snapshot.instinctGroup is null when playbook has no instinct definition", async () => {
+		const item = new TestPlaybookItemBuilder().withSlug("the-blessed").withName("The Blessed").build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.instinctGroup).toBeNull();
 	});
 
-	it("falls back to empty arrays when playbook fields are absent", async () => {
-		const minimalItem = new TestPlaybookItemBuilder().withSlug("the-blessed").withName("The Blessed").build();
-		const bg = new FakeSection();
-		const instinct = new FakeSection();
-		const appearance = new FakeSection();
-		await makePlaybook(makeActor("the-blessed", [minimalItem]), { background: bg, instinct, appearance }).buildPlaybookSnapshot();
-		expect(bg.receivedData()).toEqual([]);
-		expect(instinct.receivedData()).toBeNull();
-		expect(appearance.receivedData()).toBeNull();
+	it("snapshot.choices is empty when playbook has no choices", async () => {
+		const item = new TestPlaybookItemBuilder().withSlug("the-blessed").withName("The Blessed").build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.choices).toHaveLength(0);
+	});
+});
+
+// ── selectChoice ──────────────────────────────────────────────────────────────
+
+describe("CharacterPlaybook.selectChoice", () => {
+	it("persists the pick selection on the playbook item choiceValues", async () => {
+		const actor = makeActor("the-blessed", [PLAYBOOK_ITEM]);
+		const pb = makePlaybook(actor);
+		await pb.selectChoice("instinct", "delight", "delight,nurture");
+		const snap = await pb.buildPlaybookSnapshot();
+		expect(snap.instinctGroup.list[0].options.find(o => o.slug === "delight").checked).toBe(true);
+	});
+
+	it("clears __custom text when an instinct option is selected", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withInstinct(INSTINCT_GROUP)
+			.withChoiceValues({ instinct: { __custom: "old custom" } })
+			.build();
+		const actor = makeActor("the-blessed", [item]);
+		const pb = makePlaybook(actor);
+		await pb.selectChoice("instinct", "delight", "delight,nurture");
+		const snap = await pb.buildPlaybookSnapshot();
+		expect(snap.instinctSelected).toBe("Delight — To find beauty.");
+	});
+});
+
+// ── selectCustomInstinct ──────────────────────────────────────────────────────
+
+describe("CharacterPlaybook.selectCustomInstinct", () => {
+	it("stores custom text under instinct.__custom", async () => {
+		const actor = makeActor("the-blessed", [PLAYBOOK_ITEM]);
+		const pb = makePlaybook(actor);
+		await pb.selectCustomInstinct("to protect the village");
+		const snap = await pb.buildPlaybookSnapshot();
+		expect(snap.instinctSelected).toBe("to protect the village");
+	});
+
+	it("clears any existing pick selection", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-blessed").withName("The Blessed")
+			.withInstinct(INSTINCT_GROUP)
+			.withChoiceValues({ instinct: { delight: 1 } })
+			.build();
+		const actor = makeActor("the-blessed", [item]);
+		const pb = makePlaybook(actor);
+		await pb.selectCustomInstinct("to protect");
+		const snap = await pb.buildPlaybookSnapshot();
+		const opts = snap.instinctGroup.list[0].options;
+		expect(opts.every(o => !o.checked)).toBe(true);
+	});
+});
+
+// ── setChoiceCount ────────────────────────────────────────────────────────────
+
+describe("CharacterPlaybook.setChoiceCount", () => {
+	it("persists count on the playbook item choiceValues", async () => {
+		const actor = makeActor("the-blessed", [PLAYBOOK_ITEM]);
+		const pb = makePlaybook(actor);
+		await pb.setChoiceCount("lore-1", "shrine-loved", 1);
+		const snap = await pb.buildPlaybookSnapshot();
+		const loreGroup = snap.choices.find(c => c.slug === "lore-1");
+		expect(loreGroup.list.find(r => r.slug === "shrine-loved").track.checks[0]).toBe(true);
 	});
 });
 

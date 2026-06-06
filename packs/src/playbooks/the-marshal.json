@@ -15,123 +15,6 @@
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "authority",
-							"description": "To take charge and throw your weight around.",
-							"text": "Authority"
-						},
-						{
-							"slug": "caution",
-							"description": "To keep everyone safe, to agonize over decisions.",
-							"text": "Caution"
-						},
-						{
-							"slug": "drive",
-							"description": "To take on ever more responsibility.",
-							"text": "Drive"
-						},
-						{
-							"slug": "honor",
-							"description": "To keep your word, to follow a moral code.",
-							"text": "Honor"
-						},
-						{
-							"slug": "ruthlessness",
-							"description": "To do whatever it takes to win or survive.",
-							"text": "Ruthlessness"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "upstart-youth",
-							"text": "upstart youth"
-						},
-						{
-							"slug": "experienced-and-sober",
-							"text": "experienced & sober"
-						},
-						{
-							"slug": "grizzled",
-							"text": "grizzled"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "clear-voice",
-							"text": "clear voice"
-						},
-						{
-							"slug": "resonant-voice",
-							"text": "resonant voice"
-						},
-						{
-							"slug": "rumbling-voice",
-							"text": "rumbling voice"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "stern-frown",
-							"text": "stern frown"
-						},
-						{
-							"slug": "grim-set-jaw",
-							"text": "grim-set jaw"
-						},
-						{
-							"slug": "knowing-smirk",
-							"text": "knowing smirk"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "badge-of-office",
-							"text": "badge of office"
-						},
-						{
-							"slug": "spit-and-polish",
-							"text": "spit & polish"
-						},
-						{
-							"slug": "timeworn-gear",
-							"text": "timeworn gear"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -202,7 +85,118 @@
 				]
 			}
 		],
-		"lore": [
+		"backgrounds": [
+			{
+				"slug": "scion",
+				"label": "Scion",
+				"description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
+			},
+			{
+				"slug": "penitent",
+				"label": "Penitent",
+				"description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+			},
+			{
+				"slug": "luminary",
+				"label": "Luminary",
+				"description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2",
+			"pickCount": 2,
+			"preselected": [],
+			"slugs": [
+				"chirurgeons-tools",
+				"distillery",
+				"engineers-tools",
+				"personal-symbol",
+				"scribes-tools",
+				"weapons-of-war"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "upstart-youth",
+								"text": "upstart youth"
+							},
+							{
+								"slug": "experienced-and-sober",
+								"text": "experienced & sober"
+							},
+							{
+								"slug": "grizzled",
+								"text": "grizzled"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "clear-voice",
+								"text": "clear voice"
+							},
+							{
+								"slug": "resonant-voice",
+								"text": "resonant voice"
+							},
+							{
+								"slug": "rumbling-voice",
+								"text": "rumbling voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "stern-frown",
+								"text": "stern frown"
+							},
+							{
+								"slug": "grim-set-jaw",
+								"text": "grim-set jaw"
+							},
+							{
+								"slug": "knowing-smirk",
+								"text": "knowing smirk"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "badge-of-office",
+								"text": "badge of office"
+							},
+							{
+								"slug": "spit-and-polish",
+								"text": "spit & polish"
+							},
+							{
+								"slug": "timeworn-gear",
+								"text": "timeworn gear"
+							}
+						]
+					}
+				]
+			},
 			{
 				"slug": "war-stories-action",
 				"list": [
@@ -366,34 +360,41 @@
 				]
 			}
 		],
-		"backgrounds": [
-			{
-				"slug": "scion",
-				"label": "Scion",
-				"description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
-			},
-			{
-				"slug": "penitent",
-				"label": "Penitent",
-				"description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
-			},
-			{
-				"slug": "luminary",
-				"label": "Luminary",
-				"description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"chirurgeons-tools",
-				"distillery",
-				"engineers-tools",
-				"personal-symbol",
-				"scribes-tools",
-				"weapons-of-war"
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "authority",
+							"description": "To take charge and throw your weight around.",
+							"text": "Authority"
+						},
+						{
+							"slug": "caution",
+							"description": "To keep everyone safe, to agonize over decisions.",
+							"text": "Caution"
+						},
+						{
+							"slug": "drive",
+							"description": "To take on ever more responsibility.",
+							"text": "Drive"
+						},
+						{
+							"slug": "honor",
+							"description": "To keep your word, to follow a moral code.",
+							"text": "Honor"
+						},
+						{
+							"slug": "ruthlessness",
+							"description": "To do whatever it takes to win or survive.",
+							"text": "Ruthlessness"
+						}
+					]
+				}
 			]
 		}
 	}

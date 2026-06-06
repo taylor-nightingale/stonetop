@@ -1,6 +1,8 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.js";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
+import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeArcanaRepository } from "../../fakes/FakeArcanaRepository.js";
@@ -97,11 +99,14 @@ function makeResourceController() {
 }
 
 function makeArcana(items = [], arcana = [FFYRNIG_SPHERE], fakeStats = null, outfitItems = null) {
+	const actor = makeActor(items);
 	return new CharacterArcana(
-		makeActor(items),
+		actor,
 		new FakeArcanaRepository(arcana),
 		fakeStats ?? makeFakeStats(),
 		outfitItems ?? makeActorOutfitItems(),
+		null,
+		new ChoiceGroupFactory(actor),
 	);
 }
 
@@ -600,8 +605,10 @@ const STONE_IDOL = {
 function makeArcanaWithFollowers(items = [], arcana = [CRACKED_FLUTE]) {
 	const actor = makeActor(items);
 	const followerRepo = new FakeFollowerRepository();
-	const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
-	const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(arcana), null, null, followers);
+	const factory = new ChoiceGroupFactory(actor);
+	const followers = new CharacterFollowers(actor, followerRepo, makeResourceController(), factory);
+	factory.register(new FollowerSideEffectHandler(followers));
+	const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(arcana), null, null, followers, factory);
 	return { actor, charArcana, followers };
 }
 
@@ -679,8 +686,10 @@ describe("CharacterArcana — follower sync", () => {
 			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
-		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers);
+		const factory = new ChoiceGroupFactory(actor);
+		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController(), factory);
+		factory.register(new FollowerSideEffectHandler(followers));
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers, factory);
 		actor.items.push(makeArcanumItem(CRACKED_FLUTE));
 		await charArcana.setBackChoiceValue("cracked-flute", "andalau-of-the-flute", 1);
 		const followerItem = [...actor.items].find(i => i.type === "npc" && i.system?.slug === "andalau-of-the-flute");

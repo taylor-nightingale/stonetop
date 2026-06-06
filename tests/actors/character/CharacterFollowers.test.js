@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
+import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
@@ -16,10 +17,12 @@ function makeResourceController() {
 }
 
 function makeCf(repo = null, resourceCtrl = null) {
+	const actor = makeActor();
 	return new CharacterFollowers(
-		makeActor(),
+		actor,
 		repo ?? new FakeFollowerRepository(),
 		resourceCtrl ?? makeResourceController(),
+		new ChoiceGroupFactory(actor),
 	);
 }
 

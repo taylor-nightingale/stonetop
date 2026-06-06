@@ -526,7 +526,7 @@ Three row types existed (`heading`, `follower`, unnamed pick default). `heading`
 The outfit catalog `getAll()` repo call stays — it is a catalog display query, not an ownership query.
 
 ---
-## Phase 10: fix the move item builder
+## Phase 10: fix the move item builder COMPLETE
 
 ## Phase 11
 Data and character migrations for pre-refactor to post-refactor changes.
@@ -556,3 +556,17 @@ Once this migration runs, the backward compat branches in `buildRow` and `_fireS
 After migration is live, the backward-compat branches in ChoiceGroup.buildRow and
 ChoiceGroupController._fireSideEffects for "heading" / "follower" row types (Phase 8)
 can be deleted — all actor groupDefs will have been migrated to "entry" by step E.
+
+
+The plan doc is at docs/bug-fix-plan.md. Here's the summary of what's captured:
+
+DONE - Phase 1a — Fix ghost move playbook field in 3 JSON files
+DONE - Phase 1b — Collapse all move packs into a single moves pack with subfolders (moves/basic, moves/post-death, etc.)
+DONE - Phase 2 — Revert instinct out of choices[] for all 9 playbooks and 3 inserts; add system.instinct field to PlaybookData and InsertData; update _smartDefaultDef to check system.instinct; extract InstinctController class shared by CharacterPlaybook and
+  CharacterInserts; extract instinct-section.hbs partial used by both tab-details.hbs and tab-insert.hbs
+- Phase 3 — Arcana null guard: data.front ?? {}
+- Phase 4 — Add appearanceGroup and loreGroups computed fields to PlaybookSnapshot
+- Phase 5 — Template fixes: tab-details.hbs (use new snapshot fields), character.hbs (dynamic insert tabs), new tab-insert.hbs wrapping content in data-insert-item-id
+- Phase 6 — Sheet event handlers use el.closest("[data-insert-item-id]") to route to setInsertChoiceCount/Pick/Text with itemId
+- Phase 7 — Register OutfitItemSideEffectHandler on factory
+- Phase 8 — Investigate move choice groups (needs running game)

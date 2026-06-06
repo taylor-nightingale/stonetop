@@ -32,19 +32,16 @@ describe("CharacterData defaults", () => {
 		const d = new CharacterData();
 		expect(d.choices.values).toEqual({});
 		expect(d.choices.groupDefs).toEqual({});
-		expect(d.postDeathChoices.values).toEqual({});
 		expect(d.resources.counts).toEqual({});
 		expect(d.moveResources.counts).toEqual({});
 	});
 
-	it("defaults background, instinct, origin, lore, postDeath sections", () => {
+	it("defaults background, instinct, origin, and lore sections", () => {
 		const d = new CharacterData();
 		expect(d.background.selected).toBe("");
 		expect(d.instinct.custom).toBe("");
 		expect(d.origin.selected).toBe("");
 		expect(d.lore.values).toEqual({});
-		expect(d.postDeathInstinct.custom).toBe("");
-		expect(d.postDeathLore.values).toEqual({});
 	});
 
 	it("defaults inventory to zeroed state", () => {

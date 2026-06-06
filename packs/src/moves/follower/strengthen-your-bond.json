@@ -1,0 +1,11 @@
+{
+  "_id": "GvOpr7c3NrqJj2l2",
+  "_key": "!items!GvOpr7c3NrqJj2l2",
+  "name": "Strengthen Your Bond",
+  "type": "move",
+  "system": {
+    "moveType": "follower",
+    "description": "<p>When you <strong><em>pay your followers cost</em></strong>, and you haven't done so recently, they hold +1 Loyalty (max 3).</p><p>Spend your followers Loyalty 1-for-1 to have them: <ul><li>Overcome their fear to do as you say</li><li>Resist acting on their instinct/tags/traits</li><li>Do something they don't want to do (so long as it's not abhorent or suicidal)</li></ul></p><p>When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.</p>"
+  },
+  "folder": "Sy0QFAuDfpopSSA0"
+}

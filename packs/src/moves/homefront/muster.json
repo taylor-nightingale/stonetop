@@ -1,0 +1,27 @@
+{
+  "_id": "n78YcxUY5nTWnN8h",
+  "_key": "!items!n78YcxUY5nTWnN8h",
+  "name": "Muster",
+  "type": "move",
+  "system": {
+    "playbook": "Stonetop",
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>press every able body into the defense of a steading</em></strong>, reduce Fortunes by 1 and roll +Population: <strong>on a 7+</strong>, the steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. <strong>On a 10+</strong>, also pick 2; <strong>on a 7-9</strong>, also pick 1. <ul><li>Increase Defenses by 1 as long as the Muster holds</li><li>Everyone's willing to pitch in; don't reduce Fortunes after all</li><li>The muster holds together even without your presence</li><li>1 or 2 individuals show real potential; ask the GM who and how</li></ul></p>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 2. <ul><li>Increase Defenses by 1 as long as the Muster holds</li><li>Everyone's willing to pitch in; don't reduce Fortunes after all</li><li>The muster holds together even without your presence</li><li>1 or 2 individuals show real potential; ask the GM who and how</li></ul>"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 1. <ul><li>Increase Defenses by 1 as long as the Muster holds</li><li>Everyone's willing to pitch in; don't reduce Fortunes after all</li><li>The muster holds together even without your presence</li><li>1 or 2 individuals show real potential; ask the GM who and how</li></ul>"
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Establish badness"
+      }
+    },
+    "rollStat": "population"
+  },
+  "folder": "PA4a369HV9WVxpI3"
+}

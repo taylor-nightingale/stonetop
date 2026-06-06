@@ -15,127 +15,6 @@
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "cunning",
-							"description": "To scheme, manipulate, and plot.",
-							"text": "Cunning"
-						},
-						{
-							"slug": "curiosity",
-							"description": "To seek answers that maybe you oughtn't.",
-							"text": "Curiosity"
-						},
-						{
-							"slug": "hubris",
-							"description": "To assume you know best, that you can't fail.",
-							"text": "Hubris"
-						},
-						{
-							"slug": "mystery",
-							"description": "To avoid straight answers; to keep secrets.",
-							"text": "Mystery"
-						},
-						{
-							"slug": "vision",
-							"description": "To think big and pursue grandiose goals.",
-							"text": "Vision"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "curiously-young",
-							"text": "curiously young"
-						},
-						{
-							"slug": "world-weary",
-							"text": "world-weary"
-						},
-						{
-							"slug": "bent-with-years",
-							"text": "bent with years"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "haunted-voice",
-							"text": "haunted voice"
-						},
-						{
-							"slug": "rich-voice",
-							"text": "rich voice"
-						},
-						{
-							"slug": "whispery",
-							"text": "whispery"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "ink-stained-fingers",
-							"text": "ink-stained fingers"
-						},
-						{
-							"slug": "sinewy-hands",
-							"text": "sinewy hands"
-						},
-						{
-							"slug": "soft-hands",
-							"text": "soft hands"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "bony-limbed",
-							"text": "bony limbed"
-						},
-						{
-							"slug": "lean-and-lanky",
-							"text": "lean & lanky"
-						},
-						{
-							"slug": "short",
-							"text": "short"
-						},
-						{
-							"slug": "thick-set",
-							"text": "thick-set"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -209,7 +88,125 @@
 				]
 			}
 		],
-		"lore": [
+		"backgrounds": [
+			{
+				"slug": "patriot",
+				"label": "Patriot",
+				"description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
+			},
+			{
+				"slug": "antiquarian",
+				"label": "Antiquarian",
+				"description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
+			},
+			{
+				"slug": "witch-hunter",
+				"label": "Witch Hunter",
+				"description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2, in addition to your scribe's tools",
+			"pickCount": 2,
+			"preselected": [
+				"scribes-tools"
+			],
+			"slugs": [
+				"scribes-tools",
+				"books-and-scrolls",
+				"distillery",
+				"engineers-tools",
+				"laboratory",
+				"paraphernalia",
+				"trade-contacts"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "curiously-young",
+								"text": "curiously young"
+							},
+							{
+								"slug": "world-weary",
+								"text": "world-weary"
+							},
+							{
+								"slug": "bent-with-years",
+								"text": "bent with years"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "haunted-voice",
+								"text": "haunted voice"
+							},
+							{
+								"slug": "rich-voice",
+								"text": "rich voice"
+							},
+							{
+								"slug": "whispery",
+								"text": "whispery"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "ink-stained-fingers",
+								"text": "ink-stained fingers"
+							},
+							{
+								"slug": "sinewy-hands",
+								"text": "sinewy hands"
+							},
+							{
+								"slug": "soft-hands",
+								"text": "soft hands"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "bony-limbed",
+								"text": "bony limbed"
+							},
+							{
+								"slug": "lean-and-lanky",
+								"text": "lean & lanky"
+							},
+							{
+								"slug": "short",
+								"text": "short"
+							},
+							{
+								"slug": "thick-set",
+								"text": "thick-set"
+							}
+						]
+					}
+				]
+			},
 			{
 				"slug": "collection",
 				"list": [
@@ -319,37 +316,41 @@
 				]
 			}
 		],
-		"backgrounds": [
-			{
-				"slug": "patriot",
-				"label": "Patriot",
-				"description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
-			},
-			{
-				"slug": "antiquarian",
-				"label": "Antiquarian",
-				"description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
-			},
-			{
-				"slug": "witch-hunter",
-				"label": "Witch Hunter",
-				"description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2, in addition to your scribe's tools",
-			"pickCount": 2,
-			"preselected": [
-				"scribes-tools"
-			],
-			"slugs": [
-				"scribes-tools",
-				"books-and-scrolls",
-				"distillery",
-				"engineers-tools",
-				"laboratory",
-				"paraphernalia",
-				"trade-contacts"
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "cunning",
+							"description": "To scheme, manipulate, and plot.",
+							"text": "Cunning"
+						},
+						{
+							"slug": "curiosity",
+							"description": "To seek answers that maybe you oughtn't.",
+							"text": "Curiosity"
+						},
+						{
+							"slug": "hubris",
+							"description": "To assume you know best, that you can't fail.",
+							"text": "Hubris"
+						},
+						{
+							"slug": "mystery",
+							"description": "To avoid straight answers; to keep secrets.",
+							"text": "Mystery"
+						},
+						{
+							"slug": "vision",
+							"description": "To think big and pursue grandiose goals.",
+							"text": "Vision"
+						}
+					]
+				}
 			]
 		}
 	}

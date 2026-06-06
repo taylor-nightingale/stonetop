@@ -15,127 +15,6 @@
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "peace",
-							"description": "To avoid (further) bloodshed or violence.",
-							"text": "Peace"
-						},
-						{
-							"slug": "pride",
-							"description": "To maintain your dignity, to demand respect.",
-							"text": "Pride"
-						},
-						{
-							"slug": "recklessness",
-							"description": "To act without thought to the consequences.",
-							"text": "Recklessness"
-						},
-						{
-							"slug": "trouble",
-							"description": "To stick your nose in where it's unwelcome.",
-							"text": "Trouble"
-						},
-						{
-							"slug": "violence",
-							"description": "To solve problems by force.",
-							"text": "Violence"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "young-and-brash",
-							"text": "young & brash"
-						},
-						{
-							"slug": "in-my-prime",
-							"text": "in my prime"
-						},
-						{
-							"slug": "old-and-leathery",
-							"text": "old & leathery"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "gravelly-voice",
-							"text": "gravelly voice"
-						},
-						{
-							"slug": "hearty-voice",
-							"text": "hearty voice"
-						},
-						{
-							"slug": "soft-spoken",
-							"text": "soft-spoken"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "giant-frame",
-							"text": "giant frame"
-						},
-						{
-							"slug": "just-ripped",
-							"text": "just ripped"
-						},
-						{
-							"slug": "stocky",
-							"text": "stocky"
-						},
-						{
-							"slug": "wiry",
-							"text": "wiry"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "distinctive-scars",
-							"text": "distinctive scars"
-						},
-						{
-							"slug": "off-broken-nose",
-							"text": "off-broken nose"
-						},
-						{
-							"slug": "missing-bits",
-							"text": "missing bits"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -207,7 +86,122 @@
 				]
 			}
 		],
-		"lore": [
+		"backgrounds": [
+			{
+				"slug": "sheriff",
+				"label": "Sheriff",
+				"description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+			},
+			{
+				"slug": "blood-soaked-past",
+				"label": "Blood-Soaked Past",
+				"description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
+			},
+			{
+				"slug": "storm-marked",
+				"label": "Storm-Marked",
+				"description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2",
+			"pickCount": 2,
+			"preselected": [],
+			"slugs": [
+				"distillery",
+				"chirurgeons-tools",
+				"husbandry-tools",
+				"smithy",
+				"stoneworkers-tools",
+				"weapons-of-war"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "young-and-brash",
+								"text": "young & brash"
+							},
+							{
+								"slug": "in-my-prime",
+								"text": "in my prime"
+							},
+							{
+								"slug": "old-and-leathery",
+								"text": "old & leathery"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "gravelly-voice",
+								"text": "gravelly voice"
+							},
+							{
+								"slug": "hearty-voice",
+								"text": "hearty voice"
+							},
+							{
+								"slug": "soft-spoken",
+								"text": "soft-spoken"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "giant-frame",
+								"text": "giant frame"
+							},
+							{
+								"slug": "just-ripped",
+								"text": "just ripped"
+							},
+							{
+								"slug": "stocky",
+								"text": "stocky"
+							},
+							{
+								"slug": "wiry",
+								"text": "wiry"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "distinctive-scars",
+								"text": "distinctive scars"
+							},
+							{
+								"slug": "off-broken-nose",
+								"text": "off-broken nose"
+							},
+							{
+								"slug": "missing-bits",
+								"text": "missing bits"
+							}
+						]
+					}
+				]
+			},
 			{
 				"slug": "violence-fame",
 				"list": [
@@ -465,34 +459,41 @@
 				]
 			}
 		],
-		"backgrounds": [
-			{
-				"slug": "sheriff",
-				"label": "Sheriff",
-				"description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
-			},
-			{
-				"slug": "blood-soaked-past",
-				"label": "Blood-Soaked Past",
-				"description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
-			},
-			{
-				"slug": "storm-marked",
-				"label": "Storm-Marked",
-				"description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"distillery",
-				"chirurgeons-tools",
-				"husbandry-tools",
-				"smithy",
-				"stoneworkers-tools",
-				"weapons-of-war"
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "peace",
+							"description": "To avoid (further) bloodshed or violence.",
+							"text": "Peace"
+						},
+						{
+							"slug": "pride",
+							"description": "To maintain your dignity, to demand respect.",
+							"text": "Pride"
+						},
+						{
+							"slug": "recklessness",
+							"description": "To act without thought to the consequences.",
+							"text": "Recklessness"
+						},
+						{
+							"slug": "trouble",
+							"description": "To stick your nose in where it's unwelcome.",
+							"text": "Trouble"
+						},
+						{
+							"slug": "violence",
+							"description": "To solve problems by force.",
+							"text": "Violence"
+						}
+					]
+				}
 			]
 		}
 	}

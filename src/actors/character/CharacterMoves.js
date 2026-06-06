@@ -4,16 +4,17 @@ import {
 	MovelistBuilder,
 	RequirementSnapshot,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
 import { ValueMax } from "../../model/snapshot/character/VitalsSnapshot.js";
 import { toSlug } from "../../utils/slug.js";
 
 export class CharacterMoves {
-	constructor(moveRepo, actor, choiceController, resourceController) {
-		this._moveRepo          = moveRepo;
-		this._actor             = actor;
-		this._choiceController  = choiceController;
+	constructor(moveRepo, actor, resourceController, factory = null) {
+		this._moveRepo           = moveRepo;
+		this._actor              = actor;
 		this._resourceController = resourceController;
+		this._factory            = factory;
 	}
 
 	setVitals(vitals) { this._vitals = vitals; }
@@ -58,7 +59,7 @@ export class CharacterMoves {
 	async addCategory(key, label, slug) {
 		const exists = [...this._actor.items].some(i => i.type === "move" && i.system?.categoryKey === key);
 		if (exists) return;
-		const entries = await this._moveRepo.getPostDeathMoves(slug);
+		const entries = await this._moveRepo.getInsertMoves(slug);
 		await this._addCategoryMoves(key, label, entries);
 	}
 
@@ -113,11 +114,17 @@ export class CharacterMoves {
 	}
 
 	async setMoveChoiceText(moveSlug, optionSlug, value) {
-		await this._choiceController.setText(moveSlug, optionSlug, value);
+		const item = _findMoveItemBySlug(this._actor, moveSlug);
+		if (!item?.system?.choices) return;
+		await this._factory.forItem(item._id, "pickValues")
+			.setText(item.system.choices.slug, optionSlug, value);
 	}
 
 	async setMoveChoiceCount(moveSlug, optionSlug, count) {
-		await this._choiceController.setCount(moveSlug, optionSlug, count);
+		const item = _findMoveItemBySlug(this._actor, moveSlug);
+		if (!item?.system?.choices) return;
+		await this._factory.forItem(item._id, "pickValues")
+			.setCount(item.system.choices.slug, optionSlug, count);
 	}
 
 	async setMoveResourceCurrent(moveSlug, current) {
@@ -126,9 +133,8 @@ export class CharacterMoves {
 
 	async buildSnapshot() {
 		const allMoveItems = [...this._actor.items].filter(i => i.type === "move");
-		const level         = this._vitals?.level ?? 1;
-		const acquiredSlugs = _acquiredSlugs(allMoveItems);
-		const choiceController   = this._choiceController;
+		const level              = this._vitals?.level ?? 1;
+		const acquiredSlugs      = _acquiredSlugs(allMoveItems);
 		const resourceController = this._resourceController;
 
 		const byCatKey = new Map();
@@ -149,7 +155,7 @@ export class CharacterMoves {
 				_buildMoveSnapshot(item, catKey,
 					_computeSelectable(item),
 					_requirementsMet(item.system ?? null, level, acquiredSlugs),
-					choiceController, resourceController)
+					resourceController)
 			));
 			return new MoveCategorySnapshotBuilder()
 				.withKey(meta.key).withLabel(meta.label).withRenderStyle(meta.renderStyle)
@@ -178,7 +184,7 @@ export class CharacterMoves {
 			_buildMoveSnapshot(item, key,
 				_computeSelectable(item),
 				_requirementsMet(item.system ?? null, level, acquiredSlugs),
-				this._choiceController, this._resourceController)
+				this._resourceController)
 		));
 	}
 
@@ -270,7 +276,7 @@ function _computeSelectable(item) {
 function _categoryOrder(key) {
 	if (key.startsWith("playbook-")) return 0;
 	if (key === "basic")             return 1;
-	if (key.startsWith("post-death-")) return 2;
+	if (key.startsWith("insert-")) return 2;
 	if (key === "other")             return 3;
 	return 4;
 }
@@ -291,7 +297,7 @@ function _requirementsMet(move, level, acquiredSlugs) {
 	return true;
 }
 
-async function _buildMoveSnapshot(item, categoryKey, selectable, requirementsMet, choiceController, resourceController) {
+async function _buildMoveSnapshot(item, categoryKey, selectable, requirementsMet, resourceController) {
 	const sys    = item?.system ?? null;
 	const slug   = sys?.slug ?? toSlug(item?.name ?? "");
 	const resDef = sys?.resource ?? null;
@@ -299,9 +305,9 @@ async function _buildMoveSnapshot(item, categoryKey, selectable, requirementsMet
 		? resourceController.buildSnapshot("moves", resDef, slug)
 		: null;
 	let choices = null;
-	if (sys?.choices && choiceController) {
-		await choiceController.addGroup(slug, sys.choices);
-		choices = choiceController.buildGroupSnapshot(slug);
+	if (sys?.choices) {
+		const values = new ChoiceValues(sys.pickValues ?? {});
+		choices = ChoiceGroup.fromPackData(sys.choices, values);
 	}
 	const req      = sys?.requirement ?? null;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
@@ -352,4 +358,10 @@ function _sortGroup(moves, groupNames) {
 	for (const root of roots) visit(root);
 	moves.filter(m => !visited.has(m.name)).sort((a, b) => a.name.localeCompare(b.name)).forEach(m => result.push(m));
 	return result;
+}
+
+function _findMoveItemBySlug(actor, moveSlug) {
+	return [...actor.items].find(
+		i => i.type === "move" && (i.system?.slug ?? toSlug(i.name)) === moveSlug
+	) ?? null;
 }

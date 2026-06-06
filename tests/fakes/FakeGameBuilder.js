@@ -8,13 +8,7 @@ export class FakeGameBuilder {
 		const worldItems = this._worldItems;
 		vi.stubGlobal("game", {
 			packs: {
-				get: (name) => {
-					return this._packs[name] ?? null;
-					if (name === "stonetop.playbook-moves") return playbookPack;
-					if (name === "stonetop.basic-moves") return basicPack;
-					if (name === "stonetop.post-death-moves") return postDeathPack;
-					return null;
-				},
+				get: (name) => this._packs[name] ?? null,
 			},
 			items: {
 				contents: worldItems,
