@@ -1,0 +1,63 @@
+{
+	"_id": "64DtkzeZIkxWxVZ8",
+	"_key": "!items!64DtkzeZIkxWxVZ8",
+	"name": "Symbol of authority (pick 1)",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "symbol-of-authority",
+		"label": "Symbol of authority (pick 1)",
+		"description": "",
+		"resource": null,
+		"outfitItems": [],
+		"choices": {
+			"slug": "symbol-of-authority",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "authority-black-iron-maul",
+							"description": "utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)",
+							"outfitItems": [
+								{
+									"slug": "black-iron-maul",
+									"name": "Black iron maul, utterly immune to all magic",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>close, forceful, awkward</em>, +1 damage"
+								}
+							],
+							"text": "◇◇ Black iron maul"
+						},
+						{
+							"slug": "authority-makerglass-shield",
+							"description": "etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)",
+							"outfitItems": [
+								{
+									"slug": "makerglass-shield",
+									"name": "Makerglass shield, etched with Aratis's symbol",
+									"weight": 1,
+									"inventoryColumn": "regular",
+									"note": "<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+",
+									"armor": {
+										"modifier": 1
+									}
+								}
+							],
+							"text": "◇◇ Makerglass shield"
+						},
+						{
+							"slug": "authority-helm",
+							"description": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
+							"text": "Helm"
+						}
+					]
+				}
+			]
+		},
+		"scaling": null,
+		"sortOrder": null
+	}
+}

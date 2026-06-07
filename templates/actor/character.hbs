@@ -52,7 +52,7 @@
 				<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>
 				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
 				<a class="item" data-tab="details">{{localize "stonetop.sheet.tabs.details"}}</a>
-				<a class="item" data-tab="post-death">{{localize "stonetop.sheet.tabs.postDeath"}}</a>
+			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
 			</nav>
 
 			<div class="stonetop-sheet-layout">
@@ -62,7 +62,7 @@
 					{{> "stonetop.tab-arcana"}}
 					{{> "stonetop.tab-followers"}}
 					{{> "stonetop.tab-details"}}
-					{{> "stonetop.tab-post-death"}}
+					{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this}}{{/each}}
 				</section>
 
 				<div class="stonetop-moves-sidebar">

@@ -1,0 +1,21 @@
+{
+	"_id": "rsTl6IKoPShYVkeb",
+	"_key": "!items!rsTl6IKoPShYVkeb",
+	"name": "Hidden stash",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "hidden-stash",
+		"label": "Hidden stash",
+		"description": "each use produces valuables worth a purse of silvers (Value 2).",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

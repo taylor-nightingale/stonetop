@@ -1,14 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
-import { StonetopFlags } from "../../../src/actors/character/StonetopFlags.js";
-import { FakeFlags } from "../../fakes/FakeFlags.js";
-
-function makeFlags() {
-	return new StonetopFlags(new FakeFlags(), "resources");
-}
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 function makeController() {
-	return new ResourceController(makeFlags());
+	return new ResourceController(new FakeActorBuilder().build());
 }
 
 // ── getCurrent ────────────────────────────────────────────────────────────────

@@ -2,9 +2,8 @@
 	"_id": "Ne4ChH6hJk8lMcNo",
 	"_key": "!items!Ne4ChH6hJk8lMcNo",
 	"name": "A huge wooden sphere",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "huge-wooden-sphere",
 		"front": {
 			"title": "A huge wooden sphere",
@@ -14,21 +13,21 @@
 				"slug": "huge-wooden-sphere",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dig-up-clean",
 						"content": {
 							"title": null,
@@ -39,7 +38,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "study-glyphs",
 						"content": {
 							"title": null,
@@ -50,7 +49,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "acquire-ffyrnig-root",
 						"content": {
 							"title": null,
@@ -61,7 +60,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "acquire-boar-bile",
 						"content": {
 							"title": null,
@@ -72,14 +71,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "And then…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-recipe",
 						"content": {
 							"title": null,

@@ -1,29 +1,29 @@
 <div class="tab equipment" data-group="primary" data-tab="inventory">
 
-	{{#if stonetop.inventory}}
+	{{#if stonetop.outfit}}
 
 	{{!-- Outfit header --}}
 	<div class="stonetop-outfit-header">
 		<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
 		<ul class="stonetop-outfit-loads">
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelLight}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="light" {{#if stonetop.inventory.outfit.load.loadLevelLight}}checked{{/if}}>
+					       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
 				</label>
 			</li>
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelNormal}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="normal" {{#if stonetop.inventory.outfit.load.loadLevelNormal}}checked{{/if}}>
+					       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
 				</label>
 			</li>
 			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.inventory.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
 					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-					       value="heavy" {{#if stonetop.inventory.outfit.load.loadLevelHeavy}}checked{{/if}}>
+					       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
 					<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
 				</label>
 			</li>
@@ -40,7 +40,7 @@
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.regularUndefinedPoolLabel"}}</strong></span>
 				<span class="stonetop-supplies-pool-diamonds">
-					{{#each (poolGroups stonetop.inventory.outfit.regularPool)}}
+					{{#each (poolGroups stonetop.outfit.regularPool)}}
 					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
 					{{#each this}}
 					<input type="checkbox"
@@ -54,7 +54,7 @@
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{#each stonetop.inventory.outfit.regularSections}}
+			{{#each stonetop.outfit.regularSections}}
 			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
 		{{#if isGrid}}
@@ -118,7 +118,7 @@
 			<div class="stonetop-supplies-pool">
 				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.smallUndefinedPoolLabel"}}</strong></span>
 				<span class="stonetop-supplies-pool-diamonds">
-					{{#each (poolGroups stonetop.inventory.outfit.smallPool)}}
+					{{#each (poolGroups stonetop.outfit.smallPool)}}
 					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
 					{{#each this}}
 					<input type="checkbox"
@@ -131,7 +131,7 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{#each stonetop.inventory.outfit.smallSections}}
+			{{#each stonetop.outfit.smallSections}}
 			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
 			{{#each (outfitSegments items)}}
 		{{#if isGrid}}
@@ -173,18 +173,18 @@
 			<div>
 				{{> "stonetop.section-heading" title=(localize "stonetop.inventory.otherItems")}}
 				<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.otherItemsNote"}}}</p>
-				<textarea class="stonetop-notes st-notes-textarea" type="text" placeholder="" >{{stonetop.inventory.otherItems}}</textarea>
+				<textarea class="stonetop-notes st-notes-textarea" type="text" placeholder="" >{{stonetop.outfit.otherItems}}</textarea>
 			</div>
 		</div>
 
 	</section>
 	{{/if}}
 
-	{{#if stonetop.inventory.possessions}}
+	{{#if stonetop.possessions}}
 	<div class="tab-section tab-section--possessions">
-		{{> "stonetop.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.inventory.possessions.pickNote}}
+		{{> "stonetop.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.possessions.pickNote}}
 		<ol class="stonetop-possession-list">
-		{{#each stonetop.inventory.possessions.items}}
+		{{#each stonetop.possessions.items}}
 			<li class="stonetop-item{{#if checked}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
 					<input type="checkbox" class="stonetop-item-check stonetop-possession-check"
@@ -205,7 +205,7 @@
 				{{#if choices}}
 				<div class="stonetop-choice-rows">
 				{{#each choices.list}}
-					{{#if (eq type "heading")}}
+					{{#if (eq type "entry")}}
 					<p class="stonetop-choice-row-heading">{{{content.title}}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
 					{{else if radio}}
 					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-radio" namePrefix="stonetop" possessionSlug=../slug}}

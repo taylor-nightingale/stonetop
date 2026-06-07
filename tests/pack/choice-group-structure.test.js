@@ -2,10 +2,10 @@ import { describe, it, expect, beforeAll } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
 
-const LORE_DIRS    = ["playbooks", "post-death-inserts"].map(d => path.resolve("packs/src", d));
-const ARCANA_DIR   = path.resolve("packs/src/arcana");
-const PLAYBOOK_DIR = path.resolve("packs/src/playbooks");
-const VALID_TYPES  = new Set(["heading", "pick", "follower"]);
+const LORE_DIRS       = ["playbooks", "inserts"].map(d => path.resolve("packs/src", d));
+const ARCANA_DIR      = path.resolve("packs/src/arcana");
+const POSSESSIONS_DIR = path.resolve("packs/src/possessions");
+const VALID_TYPES     = new Set(["entry", "pick"]);
 
 describe("Pack possession choices use the ChoiceGroup format", () => {
 	let entries;
@@ -31,12 +31,12 @@ describe("Pack possession choices use the ChoiceGroup format", () => {
 		}
 	});
 
-	it("heading items have content with title or text", () => {
+	it("entry items have content with title or text", () => {
 		for (const { name, possessionSlug, choices } of entries) {
-			for (const item of (choices.list ?? []).filter(i => i.type === "heading")) {
+			for (const item of (choices.list ?? []).filter(i => i.type === "entry")) {
 				expect(
 					item.content?.title != null || item.content?.text != null,
-					`${name}/${possessionSlug}: heading missing both content.title and content.text`,
+					`${name}/${possessionSlug}: entry missing both content.title and content.text`,
 				).toBe(true);
 			}
 		}
@@ -79,14 +79,12 @@ async function loadLoreFiles() {
 
 async function loadPlaybookChoices() {
 	const entries = [];
-	const files = await fs.readdir(PLAYBOOK_DIR);
+	const files = await fs.readdir(POSSESSIONS_DIR);
 	for (const name of files.filter(n => n.endsWith(".json"))) {
-		const full = path.join(PLAYBOOK_DIR, name);
+		const full = path.join(POSSESSIONS_DIR, name);
 		const data = JSON.parse(await fs.readFile(full, "utf8"));
-		const options = data.system?.specialPossessions?.options ?? [];
-		for (const opt of options) {
-			if (opt.choices != null) entries.push({ name, possessionSlug: opt.slug, choices: opt.choices });
-		}
+		const choices = data.system?.choices;
+		if (choices != null) entries.push({ name, possessionSlug: data.system?.slug, choices });
 	}
 	return entries;
 }
@@ -127,36 +125,36 @@ describe("Pack arcana unlock entries use the list format", () => {
 		}
 	});
 
-	it("first list item is always a heading", () => {
+	it("first list item is always an entry", () => {
 		for (const { name, unlock } of files) {
-			expect(unlock.list?.[0]?.type, `${name}: first unlock list item must be a heading`).toBe("heading");
+			expect(unlock.list?.[0]?.type, `${name}: first unlock list item must be an entry`).toBe("entry");
 		}
 	});
 
-	it("each list item has an explicit type of heading or follower", () => {
+	it("each list item has an explicit type of entry or pick", () => {
 		for (const { name, unlock } of files) {
 			for (const item of unlock.list ?? []) {
 				expect(
-					item.type === "heading" || item.type === "follower",
-					`${name}: unlock item type "${item.type}" must be heading or follower`,
+					VALID_TYPES.has(item.type),
+					`${name}: unlock item type "${item.type}" must be entry or pick`,
 				).toBe(true);
 			}
 		}
 	});
 
-	it("heading items with track have slug and max", () => {
+	it("entry items with track have slug and max", () => {
 		for (const { name, unlock } of files) {
-			for (const item of (unlock.list ?? []).filter(i => i.type === "heading" && i.track)) {
-				expect(item.slug,        `${name}: heading+track item missing slug`).toBeDefined();
-				expect(item.track.max,   `${name}/${item.slug}: heading+track missing max`).toBeDefined();
+			for (const item of (unlock.list ?? []).filter(i => i.type === "entry" && i.track)) {
+				expect(item.slug,        `${name}: entry+track item missing slug`).toBeDefined();
+				expect(item.track.max,   `${name}/${item.slug}: entry+track missing max`).toBeDefined();
 			}
 		}
 	});
 
-	it("heading items have content.text", () => {
+	it("entry items have content.text", () => {
 		for (const { name, unlock } of files) {
-			for (const item of (unlock.list ?? []).filter(i => i.type === "heading")) {
-				expect(item.content?.text, `${name}: heading missing content.text`).toBeDefined();
+			for (const item of (unlock.list ?? []).filter(i => i.type === "entry")) {
+				expect(item.content?.text, `${name}: entry missing content.text`).toBeDefined();
 			}
 		}
 	});
@@ -188,40 +186,40 @@ describe("Pack lore entries use the list format", () => {
 				for (const item of entry.list ?? []) {
 					expect(
 						VALID_TYPES.has(item.type),
-						`${name}/${entry.slug}: item type "${item.type}" must be heading or input`,
+						`${name}/${entry.slug}: item type "${item.type}" must be entry or pick`,
 					).toBe(true);
 				}
 			}
 		}
 	});
 
-	it("first list item is always a heading", () => {
+	it("first list item is a valid type", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
 				const first = entry.list?.[0];
-				expect(first?.type, `${name}/${entry.slug}: first list item must be a heading`).toBe("heading");
+				if (first) expect(VALID_TYPES.has(first.type), `${name}/${entry.slug}: first item type "${first.type}" must be entry or pick`).toBe(true);
 			}
 		}
 	});
 
-	it("heading items with track have slug and max", () => {
+	it("entry items with track have slug and max", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
-				for (const item of (entry.list ?? []).filter(i => i.type === "heading" && i.track)) {
-					expect(item.slug,       `${name}/${entry.slug}: heading+track item missing slug`).toBeDefined();
-					expect(item.track.max,  `${name}/${entry.slug}/${item.slug}: heading+track missing max`).toBeDefined();
+				for (const item of (entry.list ?? []).filter(i => i.type === "entry" && i.track)) {
+					expect(item.slug,       `${name}/${entry.slug}: entry+track item missing slug`).toBeDefined();
+					expect(item.track.max,  `${name}/${entry.slug}/${item.slug}: entry+track missing max`).toBeDefined();
 				}
 			}
 		}
 	});
 
-	it("heading items have content with title or text", () => {
+	it("entry items have content with title or text", () => {
 		for (const { name, lore } of files) {
 			for (const entry of lore) {
-				for (const item of (entry.list ?? []).filter(i => i.type === "heading")) {
+				for (const item of (entry.list ?? []).filter(i => i.type === "entry")) {
 					expect(
 						item.content?.title != null || item.content?.text != null,
-						`${name}/${entry.slug}: heading missing both content.title and content.text`,
+						`${name}/${entry.slug}: entry missing both content.title and content.text`,
 					).toBe(true);
 				}
 			}

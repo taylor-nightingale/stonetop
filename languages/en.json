@@ -21,8 +21,7 @@
 				"details": "Details",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
-				"followers": "Followers",
-				"postDeath": "Post-Death"
+				"followers": "Followers"
 			}
 		},
 		"rollMode": {
@@ -43,11 +42,8 @@
 			"notePlaceholder": "Tags…",
 			"add": "Add Follower"
 		},
-		"postDeath": {
-			"chooseFate": "Choose Your Fate",
-			"removeInsert": "Remove",
-			"instinct": "Instinct",
-			"moves": "Granted Moves"
+		"insert": {
+			"remove": "Remove"
 		},
 		"arcana": {
 			"empty": "Drag arcana here from the Arcana compendium.",

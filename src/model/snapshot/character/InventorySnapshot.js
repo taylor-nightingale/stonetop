@@ -105,6 +105,7 @@ export class OutfitSnapshot {
 		this.regularPool      = b._regularPool;
 		this.smallSections    = b._smallSections;
 		this.smallPool        = b._smallPool;
+		this.otherItems       = b._otherItems ?? "";
 	}
 }
 
@@ -114,6 +115,7 @@ export class OutfitSnapshotBuilder {
 	withRegularPool(v)     { this._regularPool     = v; return this; }
 	withSmallSections(v)   { this._smallSections   = v; return this; }
 	withSmallPool(v)       { this._smallPool       = v; return this; }
+	withOtherItems(v)      { this._otherItems      = v; return this; }
 	build()                { return new OutfitSnapshot(this); }
 }
 

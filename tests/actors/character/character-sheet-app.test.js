@@ -66,7 +66,7 @@ function makeMove() {
 }
 
 function makeNonMove() {
-	return { type: "equipment", system: {}, flags: {} };
+	return { type: "arcanum", system: {}, flags: {} };
 }
 
 // -- Tests --------------------------------------------------------------------

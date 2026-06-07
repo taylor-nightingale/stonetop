@@ -2,10 +2,9 @@
 	"_id": "chYBosYSA5MmCYiS",
 	"_key": "!items!chYBosYSA5MmCYiS",
 	"name": "Noruba's Ice Sphere",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/norubas-ice-sphere.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "norubas-ice-sphere",
 		"front": {
 			"title": "Noruba's Ice Sphere",
@@ -20,21 +19,21 @@
 				"slug": "norubas-ice-sphere",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>peer into the Ice Sphere</em></strong>, Your mind is cleared of strong emotions.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>gaze deeply into the Ice Sphere and ponder a situation, puzzle, or mystery</em></strong>, Ask the GM one of the questions below. The GM will answer honestly.</p><ul><li>Who benefits (or would benefit) from ___?</li><li>What about ___ isn't what it seems to be?</li><li>How could I learn more about ___?</li><li>What's the most likely outcome if ___?</li><li>What am I overlooking?</li></ul><p>After the GM answers, roll +INT: <strong>on a 10+</strong>, hold 2 Acumen; <strong>on a 7-9</strong>, hold 1. While acting on the GM's answer, you can spend Acumen 1-for-1 to:</p><ul><li>Ask another question from the list above, and get an honest answer</li><li>Treat a 6- that you rolled as a 7-9, or a 7-9 as a 10+</li></ul><p><strong>On a 6-</strong>, your connection to your body weakens—mark a debility and mark 1 circle. The debility lasts until you spend a few days living wholly in your body and averting your gaze from the Ice Sphere.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -69,7 +68,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c1",
 						"content": {
 							"title": null,
@@ -77,7 +76,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c2",
 						"content": {
 							"title": null,
@@ -85,7 +84,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c3",
 						"content": {
 							"title": null,
@@ -93,7 +92,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c3a",
 						"content": {
 							"title": null,
@@ -101,7 +100,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c4",
 						"content": {
 							"title": null,
@@ -109,7 +108,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c4a",
 						"content": {
 							"title": null,
@@ -117,7 +116,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sphere-c5",
 						"content": {
 							"title": null,

@@ -2,9 +2,8 @@
 	"_id": "Gx7vZa9aCd1eF5gH",
 	"_key": "!items!Gx7vZa9aCd1eF5gH",
 	"name": "Carvings in a cave",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "carvings-in-a-cave",
 		"front": {
 			"title": "Carvings in a cave",
@@ -14,14 +13,14 @@
 				"slug": "carvings-in-a-cave",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can study the runes and learn the secrets they contain, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "restore-runes",
 						"content": {
 							"title": null,
@@ -32,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-ruin",
 						"content": {
 							"title": null,
@@ -43,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-writings",
 						"content": {
 							"title": null,
@@ -54,7 +53,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "days-of-study",
 						"content": {
 							"title": null,

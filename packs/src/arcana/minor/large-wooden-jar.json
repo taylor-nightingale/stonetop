@@ -2,9 +2,8 @@
 	"_id": "kB7ZEE9EHI1JjBkl",
 	"_key": "!items!kB7ZEE9EHI1JjBkl",
 	"name": "A large wooden jar",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "large-wooden-jar",
 		"front": {
 			"title": "A large wooden jar",
@@ -19,14 +18,14 @@
 				"slug": "large-wooden-jar",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the jar's mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wash-surface",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "commune-spirit",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "use-crystals",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-lord",
 						"content": {
 							"title": null,

@@ -124,7 +124,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
 				if (!compendiumId) return;
-				const pack = game.packs.get("stonetop.basic-moves");
+				const pack = game.packs.get("stonetop.moves");
 				const doc  = (pack ? await pack.getDocument(compendiumId) : null)
 					?? game.items?.get(compendiumId)
 					?? null;
@@ -175,28 +175,47 @@ export function createStonetopCharacterSheetClass(Base) {
 				await this._stonetopCharacter.removeArcanum(slug);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-track");
 				if (!el) return;
 				const { cgContext, cgGroup, cgOption, cgIndex } = el.dataset;
 				const count = el.checked ? Number(cgIndex) + 1 : Number(cgIndex);
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					await this._stonetopCharacter.setInsertChoiceCount(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, count);
+					return;
+				}
 				this._stonetopCharacter.setChoiceCount(cgContext, cgGroup, cgOption, count);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-pick");
 				if (!el?.dataset.cgContext) return;
 				const { cgContext, cgGroup, cgOption, cgSiblings, displayLabel } = el.dataset;
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					insertEl.querySelector(".stonetop-instinct-custom").value = displayLabel ?? "";
+					await this._stonetopCharacter.setInsertChoicePick(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, cgSiblings ?? null);
+					return;
+				}
 				if (cgContext === "instinct") {
 					html.find(".stonetop-instinct-custom").val(displayLabel ?? "");
 				}
 				this._stonetopCharacter.setChoicePick(cgContext, cgGroup, cgOption, cgSiblings ?? null, el.checked);
 			}, true);
 
-			html[0].addEventListener("change", ev => {
+			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-text");
 				if (!el?.dataset.cgContext) return;
 				const { cgContext, cgGroup, cgOption } = el.dataset;
+				const insertEl = el.closest("[data-insert-item-id]");
+				if (insertEl) {
+					await this._stonetopCharacter.setInsertChoiceText(
+						insertEl.dataset.insertItemId, cgGroup, cgOption, el.value);
+					return;
+				}
 				this._stonetopCharacter.setChoiceText(cgContext, cgGroup, cgOption, el.value);
 			}, true);
 
@@ -208,22 +227,15 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (cgContext === "arcana-back") {
 					await this._stonetopCharacter.setArcanumBackChoiceValue(groupSlug, optionSlug, count);
 				} else if (cgContext === "background") {
-					await this._stonetopCharacter.setBackgroundFollowerChoiceValue(groupSlug, optionSlug, count);
+					await this._stonetopCharacter.setChoiceCount(cgContext, groupSlug, optionSlug, count);
 				}
 			}, true);
 
 			html[0].addEventListener("click", async ev => {
-				const btn = ev.target.closest(".stonetop-pdi-activate");
+				const btn = ev.target.closest(".stonetop-insert-remove");
 				if (!btn) return;
 				ev.stopPropagation();
-				await this._stonetopCharacter.setPostDeathInsert(btn.dataset.slug);
-			}, true);
-
-			html[0].addEventListener("click", async ev => {
-				const btn = ev.target.closest(".stonetop-pdi-remove");
-				if (!btn) return;
-				ev.stopPropagation();
-				await this._stonetopCharacter.setPostDeathInsert(null);
+				await this._stonetopCharacter.removeInsert(btn.dataset.insertItemId);
 			}, true);
 
 			html[0].addEventListener("click", async ev => {
@@ -292,8 +304,15 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onDropItemCreate(itemData) {
 			const items = Array.isArray(itemData) ? itemData : [itemData];
-			const { anyAdded, others } = await this._stonetopCharacter.onDropItems(items);
-			if (others.length) await super._onDropItemCreate(others);
+			// Arcana: let Foundry embed natively with correct system data; skip already-owned
+			const ownedArcanaSlugs = this._stonetopCharacter.ownedArcanaSlugs;
+			const newArcana = items.filter(
+				i => i.type === "arcanum" && !ownedArcanaSlugs.has(i.system?.slug),
+			);
+			const nonArcana = items.filter(i => i.type !== "arcanum");
+			const { others } = await this._stonetopCharacter.onDropItems(nonArcana);
+			const toEmbed = [...newArcana, ...others];
+			if (toEmbed.length) await super._onDropItemCreate(toEmbed);
 		}
 
 		async _onBackgroundChange(ev) {

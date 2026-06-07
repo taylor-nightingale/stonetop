@@ -69,7 +69,9 @@ export class FakeCompendiumMoveBuilder {
 
 	build() {
 		const name = this._name;
+		const slug = toSlug(name);
 		const system = {
+			slug,
 			rollStat: this._rollStat,
 			description: this._description,
 			isStartingMove: this._isStartingMove,
@@ -82,7 +84,7 @@ export class FakeCompendiumMoveBuilder {
 			moveResults: this._moveResults ?? null,
 		};
 		return {
-			_id: toSlug(name),
+			_id: slug,
 			name,
 			system,
 			toObject() {

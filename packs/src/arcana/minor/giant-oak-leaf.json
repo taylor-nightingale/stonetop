@@ -2,9 +2,8 @@
 	"_id": "Ul1JoO3oQr5tTlUv",
 	"_key": "!items!Ul1JoO3oQr5tTlUv",
 	"name": "A giant oak leaf",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "giant-oak-leaf",
 		"front": {
 			"title": "A giant oak leaf",
@@ -19,14 +18,14 @@
 				"slug": "giant-oak-leaf",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can turn the leaf into a wondrous cloak, but to do so you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-secrets",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "tan-leaf",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "tailor-fitting",
 						"content": {
 							"title": null,

@@ -1,18 +1,17 @@
-import {StonetopFlags} from "../character/StonetopFlags.js";
 import {Person} from "./Person.js";
 
 export class PersonList {
-	constructor(actor, flagNamespace, flagKey) {
-		this._flags = new StonetopFlags(actor, flagNamespace);
-		this._key = flagKey;
+	constructor(actor, flagKey) {
+		this._actor = actor;
+		this._key   = flagKey;
 	}
 
 	get _list() {
-		return (this._flags.getFlag(this._key) ?? []).map(Person.fromRaw);
+		return (this._actor.system?.[this._key] ?? []).map(Person.fromRaw);
 	}
 
 	async _save(list) {
-		await this._flags.setFlag(this._key, list.map(p => ({...p})));
+		await this._actor.update({ [`system.${this._key}`]: list.map(p => ({...p})) });
 	}
 
 	findById(id) {

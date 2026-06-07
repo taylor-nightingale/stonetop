@@ -2,9 +2,8 @@
 	"_id": "vM8KPP0PST2UuVvw",
 	"_key": "!items!vM8KPP0PST2UuVvw",
 	"name": "A whispering... word?",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "whispering-word",
 		"front": {
 			"title": "A whispering... word?",
@@ -19,14 +18,14 @@
 				"slug": "whispering-word",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "master-fear-touch",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hold-tight-soul",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-isolation",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-locale",
 						"content": {
 							"title": null,

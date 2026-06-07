@@ -28,22 +28,24 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "proof of honor, nobility (Loyalty ◯◯◯)"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "proof of honor, nobility (Loyalty ◯◯◯)"
+						}
 					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

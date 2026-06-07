@@ -2,9 +2,8 @@
 	"_id": "AR3PUU5UYZ7ZzABc",
 	"_key": "!items!AR3PUU5UYZ7ZzABc",
 	"name": "A metal man",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "metal-man",
 		"front": {
 			"title": "A metal man",
@@ -19,14 +18,14 @@
 				"slug": "metal-man",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "This is clearly no mere statue, but to unlock its mysteries you need to…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "repair-body",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "repair-runes",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-spirit",
 						"content": {
 							"title": null,
@@ -75,13 +74,19 @@
 				"slug": "metal-man",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "bronze-protector",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"bronze-protector"
+						]
 					}
 				]
 			},

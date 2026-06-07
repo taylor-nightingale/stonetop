@@ -2,9 +2,8 @@
 	"_id": "bs8QvV0vWy2AaSbc",
 	"_key": "!items!bs8QvV0vWy2AaSbc",
 	"name": "A strange skull and antlers",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "strange-skull-and-antlers",
 		"front": {
 			"title": "A strange skull and antlers",
@@ -19,14 +18,14 @@
 				"slug": "strange-skull-and-antlers",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of this relic, you…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-name",
 						"content": {
 							"title": null,
@@ -37,14 +36,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "call-spirits",
 						"content": {
 							"title": null,

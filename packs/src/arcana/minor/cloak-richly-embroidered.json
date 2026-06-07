@@ -2,9 +2,8 @@
 	"_id": "ev1TyY3yZB5DdVef",
 	"_key": "!items!ev1TyY3yZB5DdVef",
 	"name": "A cloak, richly embroidered",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "cloak-richly-embroidered",
 		"front": {
 			"title": "A cloak, richly embroidered",
@@ -19,14 +18,14 @@
 				"slug": "cloak-richly-embroidered",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the mysteries of the cloak, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-name",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-command",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bend-spirit",
 						"content": {
 							"title": null,
@@ -75,13 +74,19 @@
 				"slug": "cloak-richly-embroidered",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "spirit-in-the-cloak",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"spirit-in-the-cloak"
+						]
 					}
 				]
 			},

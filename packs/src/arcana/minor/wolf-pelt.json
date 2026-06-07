@@ -2,9 +2,8 @@
 	"_id": "hy4WBB6BCE8GgYhi",
 	"_key": "!items!hy4WBB6BCE8GgYhi",
 	"name": "A wolf pelt",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "wolf-pelt",
 		"front": {
 			"title": "A wolf pelt",
@@ -19,14 +18,14 @@
 				"slug": "wolf-pelt",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hunt-moonlit",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "eat-raw-liver",
 						"content": {
 							"title": null,

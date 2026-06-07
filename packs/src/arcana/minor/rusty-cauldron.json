@@ -2,9 +2,8 @@
 	"_id": "jA6YDD8DGH0IiAjk",
 	"_key": "!items!jA6YDD8DGH0IiAjk",
 	"name": "A rusty cauldron",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "rusty-cauldron",
 		"front": {
 			"title": "A rusty cauldron",
@@ -19,14 +18,14 @@
 				"slug": "rusty-cauldron",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the cauldron's mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scrub-rust",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sleep-seven-nights",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "boil-bones",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bring-creature",
 						"content": {
 							"title": null,
@@ -81,13 +80,19 @@
 				"slug": "rusty-cauldron",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "unliving-chimera",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"unliving-chimera"
+						]
 					}
 				]
 			},

@@ -1,0 +1,46 @@
+{
+	"_id": "u2TAmswgfP7nXj7x",
+	"_key": "!items!u2TAmswgfP7nXj7x",
+	"name": "Stoneworker's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "stoneworkers-tools",
+		"label": "Stoneworker's tools",
+		"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "stoneworkers-prybars",
+				"name": "Prybars",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			},
+			{
+				"slug": "stoneworkers-spikes",
+				"name": "Spikes",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			},
+			{
+				"slug": "stoneworkers-block-tackle",
+				"name": "Block & tackles",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			},
+			{
+				"slug": "stoneworkers-wheelbarrow",
+				"name": "Wheelbarrow",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"note": null
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "6pd9BPsjtyuVDiNe",
+	"_key": "!items!6pd9BPsjtyuVDiNe",
+	"name": "Carpenter's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "carpenters-tools",
+		"label": "Carpenter's tools",
+		"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

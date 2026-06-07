@@ -2,9 +2,8 @@
 	"_id": "pG2EJJ4JMN6OoGpq",
 	"_key": "!items!pG2EJJ4JMN6OoGpq",
 	"name": "A gold butter lamp",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "gold-butter-lamp",
 		"front": {
 			"title": "A gold butter lamp",
@@ -19,14 +18,14 @@
 				"slug": "gold-butter-lamp",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "consult-disciple",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "acquire-ingredients",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-wraiths",
 						"content": {
 							"title": null,

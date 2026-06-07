@@ -2,9 +2,8 @@
 	"_id": "Fw6uYz8zBc0dE4fG",
 	"_key": "!items!Fw6uYz8zBc0dE4fG",
 	"name": "A giant's dormitory",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "giants-dormitory",
 		"front": {
 			"title": "A giant's dormitory",
@@ -19,14 +18,14 @@
 				"slug": "giants-dormitory",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "When you enter the dormitory, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "talent-for-magic",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "repeated-exposure",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-physique",
 						"content": {
 							"title": null,

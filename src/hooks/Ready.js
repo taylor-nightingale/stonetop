@@ -1,45 +1,17 @@
-const _SCOPE = "stonetop";
+import { MigrationRunner } from "../migration/MigrationRunner.js";
+import { FoundryRepositoryFactory } from "../actors/character/repositories/FoundryRepositoryFactory.js";
+import { getSetting, setSetting } from "../settings.js";
+import { info } from "../utils/logger.js";
 
 export async function onReady() {
-	await _migrateResourceFlags();
-}
+	if (!game.user?.isGM) return;
 
-/**
- * Moves resource counts from per-domain flags to the centralized ResourceController layout.
- *
- * Old paths:
- *   flags.stonetop.backgrounds.resources  = { [slug]: count }
- *   flags.stonetop.inventory.resources    = { [slug]: count }
- *   flags.stonetop.followers.state[slug].loyalty  (nested inside follower state)
- *
- * New path (shared ResourceController at flags.stonetop.resources):
- *   flags.stonetop.resources.counts = {
- *     backgrounds: { [slug]: count },
- *     inventory:   { [slug]: count },
- *     followers:   { [slug]: loyalty },
- *   }
- */
-async function _migrateResourceFlags() {
-	const characters = game.actors?.filter(a => a.type === "character") ?? [];
-	for (const actor of characters) {
-		if (actor.getFlag(_SCOPE, "resources.counts") != null) continue;
+	const stored  = getSetting("systemVersion");
+	const current = game.system?.version ?? "";
 
-		const counts = {};
+	if (!current || !foundry.utils.isNewerVersion(current, stored)) return;
 
-		const bgResources = actor.getFlag(_SCOPE, "backgrounds.resources");
-		if (bgResources && Object.keys(bgResources).length > 0) counts.backgrounds = { ...bgResources };
-
-		const invResources = actor.getFlag(_SCOPE, "inventory.resources");
-		if (invResources && Object.keys(invResources).length > 0) counts.inventory = { ...invResources };
-
-		const followerState = actor.getFlag(_SCOPE, "followers.state") ?? {};
-		const followerLoyalty = Object.fromEntries(
-			Object.entries(followerState)
-				.filter(([, s]) => s?.loyalty != null && s.loyalty !== 0)
-				.map(([slug, s]) => [slug, s.loyalty])
-		);
-		if (Object.keys(followerLoyalty).length > 0) counts.followers = followerLoyalty;
-
-		await actor.setFlag(_SCOPE, "resources.counts", counts);
-	}
+	info(`Migrating world from ${stored || "pre-0.9.1"} → ${current}`);
+	await new MigrationRunner(new FoundryRepositoryFactory()).run();
+	await setSetting("systemVersion", current);
 }

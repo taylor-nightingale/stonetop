@@ -2,10 +2,9 @@
 	"_id": "yNO9jDgDfo69SF1O",
 	"_key": "!items!yNO9jDgDfo69SF1O",
 	"name": "Redwood Effigy",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/redwood-effigy.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "redwood-effigy",
 		"front": {
 			"title": "Redwood Effigy",
@@ -15,21 +14,21 @@
 				"slug": "redwood-effigy",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>perform the secret rite, requires privacy, a few hours, and a drop of your own fresh blood</em></strong>, Hold 1 Conduit (max 1 Conduit, at least to start). ◇◇◇</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>surrogate Suffering</em></strong>, When you <strong>suffer physical harm while carrying the effigy on your person</strong>, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.</p><p>Record the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the <strong>effigy is destroyed</strong>, you suffer all this harm at once.</p><p><strong>Each time the effigy suffers harm on your behalf</strong>, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse).</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c1",
 						"content": {
 							"title": null,
@@ -67,7 +66,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c2",
 						"content": {
 							"title": null,
@@ -75,7 +74,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c3",
 						"content": {
 							"title": null,
@@ -83,7 +82,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c4",
 						"content": {
 							"title": null,
@@ -91,7 +90,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c5",
 						"content": {
 							"title": null,
@@ -99,7 +98,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "effigy-c6",
 						"content": {
 							"title": null,

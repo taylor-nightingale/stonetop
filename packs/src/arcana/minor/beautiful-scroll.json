@@ -2,9 +2,8 @@
 	"_id": "oF1DII3ILM5NnFop",
 	"_key": "!items!oF1DII3ILM5NnFop",
 	"name": "A beautiful scroll",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "beautiful-scroll",
 		"front": {
 			"title": "A beautiful scroll",
@@ -19,14 +18,14 @@
 				"slug": "beautiful-scroll",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the mysteries of this scroll, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "talent-magic",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-glyphs",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "months-practice",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "describe-tulpa",
 						"content": {
 							"title": null,
@@ -70,7 +69,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "sacrifice-hp",
 						"content": {
 							"title": null,
@@ -92,13 +91,19 @@
 				"slug": "beautiful-scroll",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "tulpa",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"tulpa"
+						]
 					}
 				]
 			}

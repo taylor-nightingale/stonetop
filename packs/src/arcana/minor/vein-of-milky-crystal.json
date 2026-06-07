@@ -2,9 +2,8 @@
 	"_id": "GX9VAA1AEF3FgGHi",
 	"_key": "!items!GX9VAA1AEF3FgGHi",
 	"name": "A vein of milky crystal",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "vein-of-milky-crystal",
 		"front": {
 			"title": "A vein of milky crystal",
@@ -19,14 +18,14 @@
 				"slug": "vein-of-milky-crystal",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "extract-crystal",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shape-sphere",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-sacred-words",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "speak-under-moon",
 						"content": {
 							"title": null,

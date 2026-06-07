@@ -28,129 +28,126 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "walking stick d4 (close)"
+						}
 					},
-					"input": {
-						"default": "walking stick d4 (close)"
-					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "deference, good sense shown; Loyalty"
+						}
 					},
-					"input": {
-						"default": "deference, good sense shown; Loyalty"
-					}
-				},
-				{
-					"type": "heading",
-					"content": {
-						"title": "Pick 1 on each line",
-						"text": null
-					}
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "he",
-							"text": "he"
-						},
-						{
-							"slug": "she",
-							"text": "she"
-						},
-						{
-							"slug": "they",
-							"text": "they"
-						},
-						{
-							"type": "heading",
-							"slug": "custom",
-							"content": {
-								"title": null,
-								"text": null
+					{
+						"type": "entry",
+						"content": {
+							"title": "Pick 1 on each line",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "he",
+								"text": "he"
 							},
-							"input": {}
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "dismissed",
-							"text": "dismissed"
-						},
-						{
-							"slug": "pitied",
-							"text": "pitied"
-						},
-						{
-							"slug": "feared",
-							"text": "feared"
-						},
-						{
-							"slug": "venerated",
-							"text": "venerated"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "cagey",
-							"text": "cagey"
-						},
-						{
-							"slug": "friendly-but-firm",
-							"text": "friendly but firm"
-						},
-						{
-							"slug": "imperious",
-							"text": "imperious"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "rites-of-iron",
-							"text": "rites of iron"
-						},
-						{
-							"slug": "rites-of-secret-naming",
-							"text": "rites of secret naming"
-						},
-						{
-							"slug": "rites-of-winter",
-							"text": "rites of winter"
-						}
-					]
-				}
-			]
-		},
+							{
+								"slug": "she",
+								"text": "she"
+							},
+							{
+								"slug": "they",
+								"text": "they"
+							},
+							{
+								"slug": "custom",
+								"type": "input"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "dismissed",
+								"text": "dismissed"
+							},
+							{
+								"slug": "pitied",
+								"text": "pitied"
+							},
+							{
+								"slug": "feared",
+								"text": "feared"
+							},
+							{
+								"slug": "venerated",
+								"text": "venerated"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "cagey",
+								"text": "cagey"
+							},
+							{
+								"slug": "friendly-but-firm",
+								"text": "friendly but firm"
+							},
+							{
+								"slug": "imperious",
+								"text": "imperious"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "rites-of-iron",
+								"text": "rites of iron"
+							},
+							{
+								"slug": "rites-of-secret-naming",
+								"text": "rites of secret naming"
+							},
+							{
+								"slug": "rites-of-winter",
+								"text": "rites of winter"
+							}
+						]
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

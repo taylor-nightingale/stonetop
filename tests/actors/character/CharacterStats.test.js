@@ -52,6 +52,23 @@ describe("CharacterStats.getRollableStats", () => {
 	});
 });
 
+// -- resolveBonus --------------------------------------------------------------
+
+describe("CharacterStats.resolveBonus", () => {
+	it("returns the stat value for a known stat key", () => {
+		const actor = new FakeActorBuilder().withStats(new FakeStatBuilder().withWis(2)).build();
+		expect(new CharacterStats(actor).resolveBonus("wis")).toBe(2);
+	});
+
+	it("returns 0 for a known stat with no value set", () => {
+		expect(new CharacterStats(new FakeActorBuilder().build()).resolveBonus("str")).toBe(0);
+	});
+
+	it("returns null for an unknown stat key", () => {
+		expect(new CharacterStats(new FakeActorBuilder().build()).resolveBonus("loyalty")).toBeNull();
+	});
+});
+
 // -- buildStatsSnapshot --------------------------------------------------------
 
 describe("CharacterStats.buildStatsSnapshot", () => {

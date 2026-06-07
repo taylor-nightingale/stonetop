@@ -5,7 +5,7 @@
 	"system": {
 		"slug": "tulpa",
 		"arcanaSlug": "beautiful-scroll",
-		"tags": "Spirit, construct, tiny, naive, eager",
+		"tags": "spirit, construct, tiny, naive, eager",
 		"hp": {
 			"value": 0,
 			"min": 0,
@@ -26,33 +26,35 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "d4 (if that)"
+						}
 					},
-					"input": {
-						"default": "d4 (if that)"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)"
+						}
 					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)"
-					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

@@ -50,18 +50,6 @@ t	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("tr
 	--color-ownership-none: slategrey;
 	--color-text-hyperlink: slategrey;
 
-	/* Playbook colors */
-	/* Todo: Darken to contrast with white */
-	--color-the-would-be-hero: hsl(350, 43%, 45%);
-	--color-the-fox: hsl(19, 95%, 64%);
-	--color-the-blessed: hsl(132, 34%, 56%);
-	--color-the-marshal: hsl(334, 29%, 37%);
-	--color-the-seeker: hsl(265, 33%, 25%);
-	--color-the-heavy: hsl(2, 83%, 24%);
-	--color-the-ranger: hsl(49, 51%, 34%);
-	--color-the-lightbearer: hsl(40, 94%, 49%);
-	--color-the-judge: hsl(244, 93%, 18%);
-
 	scrollbar-color: slategrey hsl(30deg 20% 94%);
 }
 
@@ -541,8 +529,6 @@ body,
 	pointer-events: none;
 }
 
-/* Playbook colors */
-
 .pbta.sheet.actor .window-content {
 	padding: 0px
 }
@@ -550,44 +536,6 @@ body,
 .pbta.sheet.actor .window-content form {
 	padding: 8px
 }
-
-.stonetop-playbook-the-would-be-hero {
-	background-color: color-mix(in hsl, var(--color-the-would-be-hero) 10%, transparent);
-}
-
-.stonetop-playbook-the-fox {
-	background-color: color-mix(in hsl, var(--color-the-fox) 10%, transparent);
-}
-
-.stonetop-playbook-the-blessed {
-	background-color: color-mix(in hsl, var(--color-the-blessed) 10%, transparent);
-}
-
-.stonetop-playbook-the-marshal {
-	background-color: color-mix(in hsl, var(--color-the-marshal) 10%, transparent);
-}
-
-.stonetop-playbook-the-seeker {
-	background-color: color-mix(in hsl, var(--color-the-seeker) 10%, transparent);
-}
-
-.stonetop-playbook-the-heavy {
-	background-color: color-mix(in hsl, var(--color-the-heavy) 10%, transparent);
-}
-
-.stonetop-playbook-the-ranger {
-	background-color: color-mix(in hsl, var(--color-the-ranger) 10%, transparent);
-}
-
-.stonetop-playbook-the-lightbearer {
-	background-color: color-mix(in hsl, var(--color-the-lightbearer) 10%, transparent);
-}
-
-.stonetop-playbook-the-judge {
-	background-color: color-mix(in hsl, var(--color-the-judge) 10%, transparent);
-}
-
-/* ~ Playbook colors */
 
 /* -- Details tab --------------------------------------------- */
 
@@ -2839,6 +2787,24 @@ body,
 .stonetop-die--dropped {
 	background: #555;
 	text-decoration: line-through;
+}
+.stonetop-roll-mode {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.1em 0.45em;
+	border-radius: 3px;
+	font-size: 0.8em;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+.stonetop-roll-mode--adv {
+	background: #1a6b2e;
+	color: #c8f0d0;
+}
+.stonetop-roll-mode--dis {
+	background: #7a1a1a;
+	color: #f0c8c8;
 }
 .stonetop-roll-mod   { font-weight: bold; }
 .stonetop-roll-total { font-weight: bold; }

@@ -15,131 +15,6 @@
 		},
 		"hp": 18,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "charity",
-							"description": "To go without so that others are better off.",
-							"text": "Charity"
-						},
-						{
-							"slug": "hope",
-							"description": "To inspire others in the face of adversity.",
-							"text": "Hope"
-						},
-						{
-							"slug": "mercy",
-							"description": "To bring relief or comfort, to give second chances.",
-							"text": "Mercy"
-						},
-						{
-							"slug": "praise",
-							"description": "To spread the glory and worship of Helior.",
-							"text": "Praise"
-						},
-						{
-							"slug": "righteousness",
-							"description": "To refuse to suffer an injustice or a lesser evil.",
-							"text": "Righteousness"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-youthful-glow",
-							"text": "a youthful glow"
-						},
-						{
-							"slug": "well-weathered",
-							"text": "well-weathered"
-						},
-						{
-							"slug": "old-and-merry",
-							"text": "old & merry"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-lifting-voice",
-							"text": "a lifting voice"
-						},
-						{
-							"slug": "a-melodious-voice",
-							"text": "a melodious voice"
-						},
-						{
-							"slug": "a-soft-voice",
-							"text": "a soft voice"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "beatific",
-							"text": "beatific"
-						},
-						{
-							"slug": "ethereal",
-							"text": "ethereal"
-						},
-						{
-							"slug": "intense",
-							"text": "intense"
-						},
-						{
-							"slug": "jovial",
-							"text": "jovial"
-						},
-						{
-							"slug": "serene",
-							"text": "serene"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "fine-robes",
-							"text": "fine robes"
-						},
-						{
-							"slug": "threadbare-cloak",
-							"text": "threadbare cloak"
-						},
-						{
-							"slug": "working-clothes",
-							"text": "working clothes"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -198,398 +73,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "helior-worship-spread",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "The Worship of Helior Is…",
-							"text": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ancient-widespread",
-						"content": {
-							"title": null,
-							"text": "… ancient, widespread, and well-known."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lygos-south",
-						"content": {
-							"title": null,
-							"text": "… most common in Lygos and the south."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "new-thing",
-						"content": {
-							"title": null,
-							"text": "… a new thing, still unheard of by many."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "old-forgotten",
-						"content": {
-							"title": null,
-							"text": "… an old thing, forgotten by most."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "persecuted",
-						"content": {
-							"title": null,
-							"text": "… widely persecuted."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "helior-worship-practice",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "He Is Worshipped Through…",
-							"text": "<p><em>(choose 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "solemn-hymns",
-						"content": {
-							"title": null,
-							"text": "… solemn hymns."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "meditation",
-						"content": {
-							"title": null,
-							"text": "… serene meditation."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "joyful-song",
-						"content": {
-							"title": null,
-							"text": "… joyful song."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ascetic-denial",
-						"content": {
-							"title": null,
-							"text": "… ascetic denial."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "dancing",
-						"content": {
-							"title": null,
-							"text": "… fervent dancing."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ceremonies",
-						"content": {
-							"title": null,
-							"text": "… formal ceremonies."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "drugs",
-						"content": {
-							"title": null,
-							"text": "… drugs & intoxicants."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "pain-sacrifice",
-						"content": {
-							"title": null,
-							"text": "… pain & sacrifice."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "helior-shrine",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-							"text": "<p><em>(choose 1)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "highest-honor",
-						"content": {
-							"title": null,
-							"text": "… the place of highest honor, even if Tor is more popular."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "well-tended",
-						"content": {
-							"title": null,
-							"text": "… been well-tended and given due respect."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "recently-restored",
-						"content": {
-							"title": null,
-							"text": "… recently been restored/established, perhaps by you."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "seen-better-days",
-						"content": {
-							"title": null,
-							"text": "… seen better days, for certain."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "helior-predecessor",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Your Predecessor, the Previous Lightbearer…",
-							"text": "<p><em>(choose 2 or 3)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lived-long-ago",
-						"content": {
-							"title": null,
-							"text": "… lived long ago, a figure of legend."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "martyred",
-						"content": {
-							"title": null,
-							"text": "… was martyred for their faith."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "died-facing",
-						"content": {
-							"title": null,
-							"text": "… died facing a mighty sorcerer or demon."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "wrote-works",
-						"content": {
-							"title": null,
-							"text": "… wrote many works of sublime beauty."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "things-below",
-						"content": {
-							"title": null,
-							"text": "… faced one of the Things Below."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "died-peacefully",
-						"content": {
-							"title": null,
-							"text": "… died in their bed, peacefully."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ascended",
-						"content": {
-							"title": null,
-							"text": "… ascended bodily into the heavens."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "reincarnated",
-						"content": {
-							"title": null,
-							"text": "… was reincarnated—as you."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "helior-powers-origin",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "You Came Into Your Powers…",
-							"text": "<p><em>(choose 1)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "years-study",
-						"content": {
-							"title": null,
-							"text": "… through years of study and devotion."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "predecessor",
-						"content": {
-							"title": null,
-							"text": "… when your predecessor passed them on."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "sudden",
-						"content": {
-							"title": null,
-							"text": "… suddenly, at a moment of great need."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "visitation",
-						"content": {
-							"title": null,
-							"text": "… after a visitation from Helior or one of his servants."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "first-sight",
-						"content": {
-							"title": null,
-							"text": "… when you first laid eyes upon the _______."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "auspicious-birth",
@@ -611,78 +94,531 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
+			"slugs": [
+				"apiary",
+				"books-and-scrolls",
+				"chandlery",
+				"distillery",
+				"glassworks",
+				"holy-relics",
+				"luthiers-tools"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-youthful-glow",
+								"text": "a youthful glow"
+							},
+							{
+								"slug": "well-weathered",
+								"text": "well-weathered"
+							},
+							{
+								"slug": "old-and-merry",
+								"text": "old & merry"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-lifting-voice",
+								"text": "a lifting voice"
+							},
+							{
+								"slug": "a-melodious-voice",
+								"text": "a melodious voice"
+							},
+							{
+								"slug": "a-soft-voice",
+								"text": "a soft voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "beatific",
+								"text": "beatific"
+							},
+							{
+								"slug": "ethereal",
+								"text": "ethereal"
+							},
+							{
+								"slug": "intense",
+								"text": "intense"
+							},
+							{
+								"slug": "jovial",
+								"text": "jovial"
+							},
+							{
+								"slug": "serene",
+								"text": "serene"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "fine-robes",
+								"text": "fine robes"
+							},
+							{
+								"slug": "threadbare-cloak",
+								"text": "threadbare cloak"
+							},
+							{
+								"slug": "working-clothes",
+								"text": "working clothes"
+							}
+						]
+					}
+				]
+			},
+			{
+				"slug": "helior-worship-spread",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "The Worship of Helior Is…",
+							"text": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ancient-widespread",
+						"content": {
+							"title": null,
+							"text": "… ancient, widespread, and well-known."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lygos-south",
+						"content": {
+							"title": null,
+							"text": "… most common in Lygos and the south."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "new-thing",
+						"content": {
+							"title": null,
+							"text": "… a new thing, still unheard of by many."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "old-forgotten",
+						"content": {
+							"title": null,
+							"text": "… an old thing, forgotten by most."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "persecuted",
+						"content": {
+							"title": null,
+							"text": "… widely persecuted."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "helior-worship-practice",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "He Is Worshipped Through…",
+							"text": "<p><em>(choose 1 or 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "solemn-hymns",
+						"content": {
+							"title": null,
+							"text": "… solemn hymns."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "meditation",
+						"content": {
+							"title": null,
+							"text": "… serene meditation."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "joyful-song",
+						"content": {
+							"title": null,
+							"text": "… joyful song."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ascetic-denial",
+						"content": {
+							"title": null,
+							"text": "… ascetic denial."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "dancing",
+						"content": {
+							"title": null,
+							"text": "… fervent dancing."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ceremonies",
+						"content": {
+							"title": null,
+							"text": "… formal ceremonies."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "drugs",
+						"content": {
+							"title": null,
+							"text": "… drugs & intoxicants."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "pain-sacrifice",
+						"content": {
+							"title": null,
+							"text": "… pain & sacrifice."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "helior-shrine",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+							"text": "<p><em>(choose 1)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "highest-honor",
+						"content": {
+							"title": null,
+							"text": "… the place of highest honor, even if Tor is more popular."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "well-tended",
+						"content": {
+							"title": null,
+							"text": "… been well-tended and given due respect."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "recently-restored",
+						"content": {
+							"title": null,
+							"text": "… recently been restored/established, perhaps by you."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "seen-better-days",
+						"content": {
+							"title": null,
+							"text": "… seen better days, for certain."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "helior-predecessor",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Your Predecessor, the Previous Lightbearer…",
+							"text": "<p><em>(choose 2 or 3)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lived-long-ago",
+						"content": {
+							"title": null,
+							"text": "… lived long ago, a figure of legend."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "martyred",
+						"content": {
+							"title": null,
+							"text": "… was martyred for their faith."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "died-facing",
+						"content": {
+							"title": null,
+							"text": "… died facing a mighty sorcerer or demon."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "wrote-works",
+						"content": {
+							"title": null,
+							"text": "… wrote many works of sublime beauty."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "things-below",
+						"content": {
+							"title": null,
+							"text": "… faced one of the Things Below."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "died-peacefully",
+						"content": {
+							"title": null,
+							"text": "… died in their bed, peacefully."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ascended",
+						"content": {
+							"title": null,
+							"text": "… ascended bodily into the heavens."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "reincarnated",
+						"content": {
+							"title": null,
+							"text": "… was reincarnated—as you."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "helior-powers-origin",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "You Came Into Your Powers…",
+							"text": "<p><em>(choose 1)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "years-study",
+						"content": {
+							"title": null,
+							"text": "… through years of study and devotion."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "predecessor",
+						"content": {
+							"title": null,
+							"text": "… when your predecessor passed them on."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "sudden",
+						"content": {
+							"title": null,
+							"text": "… suddenly, at a moment of great need."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "visitation",
+						"content": {
+							"title": null,
+							"text": "… after a visitation from Helior or one of his servants."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "first-sight",
+						"content": {
+							"title": null,
+							"text": "… when you first laid eyes upon the _______."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
 				{
-					"slug": "apiary",
-					"label": "Apiary",
-					"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
-					"outfitItems": [
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
 						{
-							"slug": "apiary-bee-smokers",
-							"name": "Bee smokers",
-							"weight": 1,
-							"inventoryColumn": "regular"
+							"slug": "charity",
+							"description": "To go without so that others are better off.",
+							"text": "Charity"
 						},
 						{
-							"slug": "apiary-hat-veils",
-							"name": "Hat & veils",
-							"weight": 1,
-							"inventoryColumn": "regular"
+							"slug": "hope",
+							"description": "To inspire others in the face of adversity.",
+							"text": "Hope"
+						},
+						{
+							"slug": "mercy",
+							"description": "To bring relief or comfort, to give second chances.",
+							"text": "Mercy"
+						},
+						{
+							"slug": "praise",
+							"description": "To spread the glory and worship of Helior.",
+							"text": "Praise"
+						},
+						{
+							"slug": "righteousness",
+							"description": "To refuse to suffer an injustice or a lesser evil.",
+							"text": "Righteousness"
 						}
 					]
-				},
-				{
-					"slug": "books-and-scrolls",
-					"label": "Books & scrolls",
-					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
-					"resource": {
-						"max": 5,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "chandlery",
-					"label": "Chandlery",
-					"description": "tallow, wax, wicks, dye, ◇ molds; candles, wick-holders, holy candles (<em>close, area</em>, ~1 hr), lanterns, etc."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "glassworks",
-					"label": "Glassworks",
-					"description": "sand, ash, ◇ crucibles, ◇ blowpipes; bottles, flasks, lenses, lantern glass, etc."
-				},
-				{
-					"slug": "holy-relics",
-					"label": "Holy relics",
-					"description": "○○○ uses: sacred objects of Helior's worship. Expend a use to add +1 to a roll involving the god's favor or power. Restore 1 use each season.",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "luthiers-tools",
-					"label": "Luthier's tools",
-					"description": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc."
 				}
 			]
 		}

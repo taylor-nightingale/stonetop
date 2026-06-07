@@ -1,0 +1,21 @@
+{
+	"_id": "kIHyRXt8n2wPFrVP",
+	"_key": "!items!kIHyRXt8n2wPFrVP",
+	"name": "Collected offerings",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "collected-offerings",
+		"label": "Collected offerings",
+		"description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

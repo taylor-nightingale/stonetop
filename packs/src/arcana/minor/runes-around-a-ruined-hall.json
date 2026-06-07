@@ -2,9 +2,8 @@
 	"_id": "Iz9xCc1cEf3gH7iJ",
 	"_key": "!items!Iz9xCc1cEf3gH7iJ",
 	"name": "Runes around a ruined hall",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "runes-around-a-ruined-hall",
 		"front": {
 			"title": "Runes around a ruined hall",
@@ -19,14 +18,14 @@
 				"slug": "runes-around-a-ruined-hall",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The runes repeat themselves and can be copied, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "careful-work",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-transcription",
 						"content": {
 							"title": null,

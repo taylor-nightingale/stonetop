@@ -2,9 +2,8 @@
 	"_id": "EV7TYY9YCD1DeEFg",
 	"_key": "!items!EV7TYY9YCD1DeEFg",
 	"name": "A silvery signet ring",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "silvery-signet-ring",
 		"front": {
 			"title": "A silvery signet ring",
@@ -19,14 +18,14 @@
 				"slug": "silvery-signet-ring",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the ring's mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "season-wearing",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "get-used-headaches",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spend-follower-loyalty",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "influence-follower",
 						"content": {
 							"title": null,

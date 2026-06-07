@@ -28,22 +28,24 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+						}
 					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

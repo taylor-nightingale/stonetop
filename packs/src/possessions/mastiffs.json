@@ -1,0 +1,17 @@
+{
+	"_id": "Nn5j10Zb8M9IIvct",
+	"_key": "!items!Nn5j10Zb8M9IIvct",
+	"name": "Mastiffs",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "mastiffs",
+		"label": "Mastiffs",
+		"description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

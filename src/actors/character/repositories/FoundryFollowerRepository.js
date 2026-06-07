@@ -5,7 +5,7 @@ import { WorldItemStore } from "./WorldItemStore.js";
 export class FoundryFollowerRepository {
 	constructor() {
 		this._store      = new FoundryPackStore("stonetop.followers", ["system.slug"]);
-		this._worldStore = new WorldItemStore("equipment", i => i.system?.equipmentType === "follower");
+		this._worldStore = new WorldItemStore("npc");
 		this._cache      = new Map();
 	}
 

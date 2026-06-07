@@ -1,0 +1,36 @@
+{
+	"_id": "N2iO0HemxpaFjgGn",
+	"_key": "!items!N2iO0HemxpaFjgGn",
+	"name": "Laboratory",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "laboratory",
+		"label": "Laboratory",
+		"description": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce d4-1 uses of ◇ naphtha (<em>thrown, area, dangerous, ignores armor</em>)",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "laboratory-scales",
+				"name": "Scales",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "laboratory-decanters",
+				"name": "Decanters",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "laboratory-naptha",
+				"name": "Naptha",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

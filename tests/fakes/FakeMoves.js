@@ -3,6 +3,9 @@ export class FakeMoves {
 	_incremented = [];
 	_decremented = [];
 	_initialized = null;
+	_removedCategories   = [];
+	_addedCategories     = [];
+	_snapshotsByCategory = {};
 
 	ownMove(slug, count = 1)  { this._counts[slug] = count; return this; }
 	countOwnedBySlug(slug)    { return this._counts[slug] ?? 0; }
@@ -21,4 +24,13 @@ export class FakeMoves {
 
 	incrementedCount()  { return this._incremented.length; }
 	initializedWith()   { return this._initialized; }
+
+	get removedCategories() { return this._removedCategories; }
+	get addedCategories()   { return this._addedCategories; }
+
+	async addCategory(type, name, slug) { this._addedCategories.push({ type, name, slug }); }
+	async removeCategory(type)          { this._removedCategories.push(type); }
+
+	setSnapshotsForCategory(category, snapshots) { this._snapshotsByCategory[category] = snapshots; }
+	getMoveSnapshotsForCategory(type) { return this._snapshotsByCategory[type] ?? []; }
 }

@@ -2,9 +2,8 @@
 	"_id": "Bq4sUv6wXy8zAbCD",
 	"_key": "!items!Bq4sUv6wXy8zAbCD",
 	"name": "A folktale",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "a-folktale",
 		"front": {
 			"title": "A folktale",
@@ -14,14 +13,14 @@
 				"slug": "a-folktale",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn the secret of the enchanted seedpods, but need one of the following:"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "herbalist-teacher",
 						"content": {
 							"title": null,
@@ -32,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "gwir-nettle-spirit",
 						"content": {
 							"title": null,

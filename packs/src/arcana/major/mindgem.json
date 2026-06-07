@@ -2,10 +2,9 @@
 	"_id": "iHawovCBsJJf4TyZ",
 	"_key": "!items!iHawovCBsJJf4TyZ",
 	"name": "Mindgem",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/mindgem.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "mindgem",
 		"front": {
 			"title": "Mindgem",
@@ -20,14 +19,14 @@
 				"slug": "mindgem",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>consult the Mindgem about the Makers, their arts, or their history</em></strong>, Ask a question and roll +INT: <strong>on a 7+</strong>, it answers but <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 2:</p><ul><li>The answer is cryptic, vague, or lacking crucial context</li><li>It takes a long time—hours or even days—to get the answer</li><li>Your mind is left reeling; take disadvantage on your next roll</li></ul><p><strong>On a 6-</strong>, choose 1:</p><ul><li>It wastes your time with irrelevant histories and data</li><li>It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).</li></ul><p>The Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem's body and unlock its mysteries:</p><ul><li>Recover its chassis of white granite, which weighs well over a ton</li><li>Recover its ◇ \"heart,\" a chunk of makerglass that forever burns with terrible heat (<em>indestructible, dangerous</em>)</li><li>Recover and repair the intricate ◇◇ bronze helm (<em>awkward, big</em>) that serves as a casing for the Mindgem</li><li>Puzzle out how to assemble all the pieces</li></ul>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -49,13 +48,19 @@
 				"slug": "followers",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "the-mighty-servant",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"the-mighty-servant"
+						]
 					}
 				]
 			},
@@ -71,7 +76,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c1",
 						"content": {
 							"title": null,
@@ -79,7 +84,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c2",
 						"content": {
 							"title": null,
@@ -87,7 +92,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c3",
 						"content": {
 							"title": null,
@@ -95,7 +100,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c4",
 						"content": {
 							"title": null,
@@ -103,7 +108,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c4a",
 						"content": {
 							"title": null,
@@ -111,7 +116,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c5",
 						"content": {
 							"title": null,
@@ -119,7 +124,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c6",
 						"content": {
 							"title": null,
@@ -127,7 +132,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "mindgem-c7",
 						"content": {
 							"title": null,

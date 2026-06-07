@@ -1,0 +1,24 @@
+{
+	"_id": "D8UsDadVT8bF3XYJ",
+	"_key": "!items!D8UsDadVT8bF3XYJ",
+	"name": "Herb garden",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "herb-garden",
+		"label": "Herb garden",
+		"description": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature).",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "herb-spades",
+				"name": "Spades",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

@@ -2,10 +2,9 @@
 	"_id": "3bCVrDBFlp75EfSr",
 	"_key": "!items!3bCVrDBFlp75EfSr",
 	"name": "Rune-laden Scales",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/rune-laden-scales.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "rune-laden-scales",
 		"front": {
 			"title": "Rune-laden Scales",
@@ -20,28 +19,28 @@
 				"slug": "rune-laden-scales",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>wear the Rune-laden Scales</em></strong>, You are perfectly comfortable in cold weather and suffer no harm from exposure or magic that might otherwise freeze your flesh. You have no such immunity to secondary effects of ice-magic, such as slipping, being impaled by an icicle, becoming encased in a block of ice, or the like.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>wear the Rune-laden Scales and stand fast against a magical attack</em></strong>, Roll +CON: <strong>on a 10+</strong>, the magic washes over you, unpleasant perhaps but with no ill effect; <strong>on a 7-9</strong>, you're only partially affected—suffer half damage (if any) and a reduced effect; <strong>on a 6-</strong>, mark XP, and the magic affects you fully.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>wear the Rune-laden Scales and defeat a wielder of chaotic magic</em></strong>, Mark 1.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -86,7 +85,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c1",
 						"content": {
 							"title": null,
@@ -94,7 +93,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c1a",
 						"content": {
 							"title": null,
@@ -102,7 +101,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c2",
 						"content": {
 							"title": null,
@@ -110,7 +109,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c3",
 						"content": {
 							"title": null,
@@ -118,7 +117,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c3a",
 						"content": {
 							"title": null,
@@ -126,7 +125,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c4",
 						"content": {
 							"title": null,
@@ -134,7 +133,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scales-c5",
 						"content": {
 							"title": null,

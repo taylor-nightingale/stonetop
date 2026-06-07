@@ -2,9 +2,8 @@
 	"_id": "Tk0InN2nPq4sSkTu",
 	"_key": "!items!Tk0InN2nPq4sSkTu",
 	"name": "A path in the woods",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "path-in-the-woods",
 		"front": {
 			"title": "A path in the woods",
@@ -14,14 +13,14 @@
 				"slug": "path-in-the-woods",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "follow-paths",
 						"content": {
 							"title": null,
@@ -32,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "chase-hart",
 						"content": {
 							"title": null,
@@ -43,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wrestle-serpent",
 						"content": {
 							"title": null,

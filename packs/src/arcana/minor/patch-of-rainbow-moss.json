@@ -2,9 +2,8 @@
 	"_id": "du0SxX2xYA4CcUde",
 	"_key": "!items!du0SxX2xYA4CcUde",
 	"name": "A patch of rainbow moss",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "patch-of-rainbow-moss",
 		"front": {
 			"title": "A patch of rainbow moss",
@@ -19,14 +18,14 @@
 				"slug": "patch-of-rainbow-moss",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the mysteries of this place, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "lie-in-moss",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "drift-consciousness",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-visiting",
 						"content": {
 							"title": null,

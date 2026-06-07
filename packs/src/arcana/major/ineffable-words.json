@@ -2,10 +2,9 @@
 	"_id": "h3TJn019UWsb6UBC",
 	"_key": "!items!h3TJn019UWsb6UBC",
 	"name": "Ineffable Words",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/ineffable-words.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "ineffable-words",
 		"front": {
 			"title": "Ineffable Words",
@@ -15,21 +14,21 @@
 				"slug": "ineffable-words",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>enter an ecstatic delirium and allow the Ineffable Words to pour forth</em></strong>, Roll +CON: <strong>on a 10+</strong>, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; <strong>on a 7-9</strong>, the 10+ result applies, but choose 1 from the list below.</p><ul><li>The Truth is cryptic, vague, incomplete</li><li>You are overcome, collapsing in a full-body seizure</li><li>You draw unwanted attention</li></ul>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>spend weeks in ascetic contemplation of the incommunicable words within you</em></strong>, Roll +WIS: <strong>on a 10+</strong>, you gain insight into the power within you—mark 1 below; <strong>on a 7-9</strong>, gain advantage on your next attempt to contemplate the words.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -79,7 +78,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "words-c1",
 						"content": {
 							"title": null,
@@ -87,7 +86,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "words-c2",
 						"content": {
 							"title": null,
@@ -95,7 +94,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "words-c3",
 						"content": {
 							"title": null,
@@ -103,7 +102,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "words-c4",
 						"content": {
 							"title": null,
@@ -111,7 +110,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "words-c5",
 						"content": {
 							"title": null,

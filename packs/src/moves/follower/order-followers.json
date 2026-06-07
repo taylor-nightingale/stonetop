@@ -1,0 +1,11 @@
+{
+  "_id": "Ui8qoMvPqqvXYg5a",
+  "_key": "!items!Ui8qoMvPqqvXYg5a",
+  "name": "Order Followers",
+  "type": "move",
+  "system": {
+    "moveType": "follower",
+    "description": "<p>When you <strong><em>direct your follower to do something that would trigger a player move</em></strong>, and they do it, they trigger the move. If the move involves rolling, you roll for them. Instead of rolling +STAT, roll and: <ul><li>if they have at least one appropriate tag or move, add +1, or +2 if they're also <em>exceptional</em>;</li><li>if they have no relevant tag or move, add +0; and</li><li>if any of their tags would get in the way, roll with disadvantage.</li></ul></p><p>When a follower is without orders or they act on their own initiative, the GM says what they do and how it goes.</p>"
+  },
+  "folder": "Sy0QFAuDfpopSSA0"
+}

@@ -2,9 +2,8 @@
 	"_id": "Pq3rSt5uVw7xYz9A",
 	"_key": "!items!Pq3rSt5uVw7xYz9A",
 	"name": "An old scroll case",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "old-scroll-case",
 		"front": {
 			"title": "An old scroll case",
@@ -19,14 +18,14 @@
 				"slug": "old-scroll-case",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "translate-letter",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dedicated-study",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "use-aetherium",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-electrocution",
 						"content": {
 							"title": null,

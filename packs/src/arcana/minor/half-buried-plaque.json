@@ -2,9 +2,8 @@
 	"_id": "Hy8wBb0bDe2fG6hI",
 	"_key": "!items!Hy8wBb0bDe2fG6hI",
 	"name": "A half-buried plaque",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "half-buried-plaque",
 		"front": {
 			"title": "A half-buried plaque",
@@ -19,14 +18,14 @@
 				"slug": "half-buried-plaque",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The plate contains the workings of a spell, which you can learn but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "dig-up-clean",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-runes",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-of-study",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-voice",
 						"content": {
 							"title": null,

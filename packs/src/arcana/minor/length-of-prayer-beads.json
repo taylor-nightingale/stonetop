@@ -2,9 +2,8 @@
 	"_id": "nE0CHH2HKL4MmEno",
 	"_key": "!items!nE0CHH2HKL4MmEno",
 	"name": "A length of prayer beads",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "length-of-prayer-beads",
 		"front": {
 			"title": "A length of prayer beads",
@@ -19,14 +18,14 @@
 				"slug": "length-of-prayer-beads",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of the prayer beads, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-glyphs",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-chants",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "isolated-fasting",
 						"content": {
 							"title": null,

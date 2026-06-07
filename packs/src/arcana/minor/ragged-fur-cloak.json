@@ -2,9 +2,8 @@
 	"_id": "qH3FKK5KNO7PpHqr",
 	"_key": "!items!qH3FKK5KNO7PpHqr",
 	"name": "A ragged fur cloak",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "ragged-fur-cloak",
 		"front": {
 			"title": "A ragged fur cloak",
@@ -19,14 +18,14 @@
 				"slug": "ragged-fur-cloak",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "There's more to this cloak, for sure. To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wear-seven-nights",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "stalk-beast",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "grievous-wound",
 						"content": {
 							"title": null,

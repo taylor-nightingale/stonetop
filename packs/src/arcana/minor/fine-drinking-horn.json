@@ -2,9 +2,8 @@
 	"_id": "FW8UZZ0ZDE2EfFGh",
 	"_key": "!items!FW8UZZ0ZDE2EfFGh",
 	"name": "A fine drinking horn",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "fine-drinking-horn",
 		"front": {
 			"title": "A fine drinking horn",
@@ -19,14 +18,14 @@
 				"slug": "fine-drinking-horn",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fill-whisky",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "drink-single-pull",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-blacking-out",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "survive-storm",
 						"content": {
 							"title": null,

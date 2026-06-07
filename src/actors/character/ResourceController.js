@@ -1,19 +1,24 @@
 import { ResourceBuilder } from "../../model/snapshot/ResourceSnapshot.js";
 
 export class ResourceController {
-	constructor(flags) {
-		this._flags = flags;
+	constructor(actor, systemSection = "resources") {
+		this._actor   = actor;
+		this._section = systemSection;
 	}
 
-	get _allCounts() { return this._flags.getFlag("counts") ?? {}; }
+	get _allCounts() { return this._actor.system?.[this._section]?.counts ?? {}; }
 
 	_countsFor(namespace) { return this._allCounts[namespace] ?? {}; }
 
 	getCurrent(namespace, slug) { return this._countsFor(namespace)[slug] ?? 0; }
 
 	async set(namespace, slug, count) {
-		const all = this._allCounts;
-		await this._flags.setFlag("counts", { ...all, [namespace]: { ...this._countsFor(namespace), [slug]: count } });
+		await this._actor.update({
+			[`system.${this._section}.counts`]: {
+				...this._allCounts,
+				[namespace]: { ...this._countsFor(namespace), [slug]: count },
+			},
+		});
 	}
 
 	buildSnapshot(namespace, def, slug) {

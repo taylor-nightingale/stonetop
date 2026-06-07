@@ -1,23 +1,14 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CharacterOrigin } from "../../../src/actors/character/CharacterOrigin.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { OriginSection } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Helpers ------------------------------------------------------------------
 
-function makeFlags(selected = "") {
-	const store = { selected };
-	return {
-		getFlag: key => store[key] ?? null,
-		setFlag: vi.fn(async (key, val) => { store[key] = val; }),
-	};
-}
-
-function makeActor() {
-	return { update: vi.fn() };
-}
-
-function makeOrigin(selected = "", actor = makeActor()) {
-	return new CharacterOrigin(makeFlags(selected), actor);
+function makeOrigin(selected = "") {
+	const actor = new FakeActorBuilder().build();
+	actor.system.origin = { selected };
+	return new CharacterOrigin(actor);
 }
 
 const ORIGIN_DATA = [
@@ -75,10 +66,9 @@ describe("CharacterOrigin.buildSnapshot", () => {
 // -- selectName ---------------------------------------------------------------
 
 describe("CharacterOrigin.selectName", () => {
-	it("calls actor.update with the given name", async () => {
-		const actor = makeActor();
-		const origin = makeOrigin("", actor);
+	it("updates the actor name", async () => {
+		const origin = makeOrigin();
 		await origin.selectName("Arwel");
-		expect(actor.update).toHaveBeenCalledWith({ name: "Arwel" });
+		expect(origin._actor.name).toBe("Arwel");
 	});
 });

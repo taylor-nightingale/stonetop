@@ -2,9 +2,8 @@
 	"_id": "Lc2AfF4fHi6jKaLm",
 	"_key": "!items!Lc2AfF4fHi6jKaLm",
 	"name": "A tattered mantle",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "tattered-mantle",
 		"front": {
 			"title": "A tattered mantle",
@@ -19,14 +18,14 @@
 				"slug": "tattered-mantle",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the power of this mantle by…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wear-through-nightmares",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "bring-to-heel",
 						"content": {
 							"title": null,
@@ -59,13 +58,19 @@
 				"slug": "tattered-mantle",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "mantle-wraiths",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"mantle-wraiths"
+						]
 					}
 				]
 			},

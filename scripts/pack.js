@@ -8,7 +8,7 @@ function randomId() {
 	return Array.from({ length: 16 }, () => CHARS[Math.floor(Math.random() * CHARS.length)]).join("");
 }
 
-async function ensureFolders(srcDir) {
+async function ensureFolders(srcDir, parentFolderId = null) {
 	const entries = await fs.readdir(srcDir, { withFileTypes: true });
 	const subdirs = entries.filter(e => e.isDirectory() && !e.name.startsWith("_"));
 	if (!subdirs.length) return;
@@ -18,16 +18,20 @@ async function ensureFolders(srcDir) {
 
 	for (const subdir of subdirs) {
 		const slug = subdir.name;
-		const name = slug.replace(/_/g, " ");
+		const name = slug.replace(/[-_]/g, " ");
 		const folderFile = path.join(foldersDir, `${slug}.json`);
 
 		let folderId;
 		try {
 			const existing = JSON.parse(await fs.readFile(folderFile, "utf8"));
 			folderId = existing._id;
+			if (existing.folder !== parentFolderId) {
+				existing.folder = parentFolderId;
+				await fs.writeFile(folderFile, JSON.stringify(existing, null, 2));
+			}
 		} catch {
 			folderId = randomId();
-			const folderDoc = { name, type: "Item", description: "", folder: null, sorting: "a", sort: 0, color: null, flags: {}, _id: folderId, _key: `!folders!${folderId}` };
+			const folderDoc = { name, type: "Item", description: "", folder: parentFolderId, sorting: "a", sort: 0, color: null, flags: {}, _id: folderId, _key: `!folders!${folderId}` };
 			await fs.writeFile(folderFile, JSON.stringify(folderDoc, null, 2));
 			console.log(`  Created folder: ${name}`);
 		}
@@ -46,6 +50,8 @@ async function ensureFolders(srcDir) {
 			doc.folder = folderId;
 			await fs.writeFile(filepath, JSON.stringify(doc, null, 2));
 		}
+
+		await ensureFolders(moveDir, folderId);
 	}
 }
 

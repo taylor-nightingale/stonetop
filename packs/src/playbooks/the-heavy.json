@@ -15,127 +15,6 @@
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "peace",
-							"description": "To avoid (further) bloodshed or violence.",
-							"text": "Peace"
-						},
-						{
-							"slug": "pride",
-							"description": "To maintain your dignity, to demand respect.",
-							"text": "Pride"
-						},
-						{
-							"slug": "recklessness",
-							"description": "To act without thought to the consequences.",
-							"text": "Recklessness"
-						},
-						{
-							"slug": "trouble",
-							"description": "To stick your nose in where it's unwelcome.",
-							"text": "Trouble"
-						},
-						{
-							"slug": "violence",
-							"description": "To solve problems by force.",
-							"text": "Violence"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "young-and-brash",
-							"text": "young & brash"
-						},
-						{
-							"slug": "in-my-prime",
-							"text": "in my prime"
-						},
-						{
-							"slug": "old-and-leathery",
-							"text": "old & leathery"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "gravelly-voice",
-							"text": "gravelly voice"
-						},
-						{
-							"slug": "hearty-voice",
-							"text": "hearty voice"
-						},
-						{
-							"slug": "soft-spoken",
-							"text": "soft-spoken"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "giant-frame",
-							"text": "giant frame"
-						},
-						{
-							"slug": "just-ripped",
-							"text": "just ripped"
-						},
-						{
-							"slug": "stocky",
-							"text": "stocky"
-						},
-						{
-							"slug": "wiry",
-							"text": "wiry"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "distinctive-scars",
-							"text": "distinctive scars"
-						},
-						{
-							"slug": "off-broken-nose",
-							"text": "off-broken nose"
-						},
-						{
-							"slug": "missing-bits",
-							"text": "missing bits"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -207,264 +86,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "violence-fame",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Just About Everyone Here Talks About the Time You…",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "thunder-drake",
-						"content": {
-							"title": null,
-							"text": "… drove off a thunder drake that got too close to town."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hagr",
-						"content": {
-							"title": null,
-							"text": "… killed that hagr in the Foothills."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "crinwin-dozen",
-						"content": {
-							"title": null,
-							"text": "… slew a dozen crinwin in one battle."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "adventurers",
-						"content": {
-							"title": null,
-							"text": "… tossed those adventurers out of town."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ivan",
-						"content": {
-							"title": null,
-							"text": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "bleeding",
-						"content": {
-							"title": null,
-							"text": "… dragged yourself (and another?) into town, bleeding from a dozen wounds."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lightning",
-						"content": {
-							"title": null,
-							"text": "… were struck by lightning and woke up covered in these marks."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "violence-shadows",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "But Folks Are Less Keen to Discuss…",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "blood-look",
-						"content": {
-							"title": null,
-							"text": "… the look in your eye when you spilled all that blood."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hard-cases",
-						"content": {
-							"title": null,
-							"text": "… those hard cases who showed up looking for you."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shouting",
-						"content": {
-							"title": null,
-							"text": "… the shouting matches between you and your love."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "claws",
-						"content": {
-							"title": null,
-							"text": "… the time you spent as one of Brennan's Claws."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "urbgen",
-						"content": {
-							"title": null,
-							"text": "… what happened to Urbgen, even if he did have it coming."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "seizures",
-						"content": {
-							"title": null,
-							"text": "… your uncontrollable seizures, where you claw those weird marks in the dirt."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "violence-fears",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "What Keeps You Up at Night?",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "temper",
-						"content": {
-							"title": null,
-							"text": "That thrice-damned temper of yours."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "someone-coming",
-						"content": {
-							"title": null,
-							"text": "The worry that someone's coming after you."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "crinwin-bolder",
-						"content": {
-							"title": null,
-							"text": "The feeling that the crinwin are getting bolder."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "brennan",
-						"content": {
-							"title": null,
-							"text": "Wondering what Brennan's up to, now that he's the marshal of Marshedge."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "dark-visions",
-						"content": {
-							"title": null,
-							"text": "Dark visions of things moving in the earth, restless, whispering, and hungry."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "family",
-						"content": {
-							"title": null,
-							"text": "The question of who'll look after your family when you get yourself killed."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "truth",
-						"content": {
-							"title": null,
-							"text": "The worry that they'll all learn the truth about you, sooner or later."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "sheriff",
@@ -486,179 +107,392 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "chirurgeons-tools",
-					"label": "Chirurgeon's tools",
-					"description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
-				},
-				{
-					"slug": "husbandry-tools",
-					"label": "Husbandry tools",
-					"description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
-				},
-				{
-					"slug": "smithy",
-					"label": "Smithy",
-					"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
-					"outfitItems": [
-						{
-							"slug": "smithy-tongs",
-							"name": "Tongs",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						},
-						{
-							"slug": "smithy-bellows",
-							"name": "Bellows",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						}
-					]
-				},
-				{
-					"slug": "stoneworkers-tools",
-					"label": "Stoneworker's tools",
-					"description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "stoneworkers-prybars",
-							"name": "Prybars",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						},
-						{
-							"slug": "stoneworkers-spikes",
-							"name": "Spikes",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						},
-						{
-							"slug": "stoneworkers-block-tackle",
-							"name": "Block & tackles",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						},
-						{
-							"slug": "stoneworkers-wheelbarrow",
-							"name": "Wheelbarrow",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
-						}
-					]
-				},
-				{
-					"slug": "weapons-of-war",
-					"label": "Weapons of war",
-					"description": "",
-					"choices": {
-						"slug": "weapons-of-war",
-						"list": [
+			"slugs": [
+				"distillery",
+				"chirurgeons-tools",
+				"husbandry-tools",
+				"smithy",
+				"stoneworkers-tools",
+				"weapons-of-war"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
 							{
-								"type": "pick",
-								"pickCount": 3,
-								"options": [
-									{
-										"slug": "sword",
-										"outfitItems": [
-											{
-												"slug": "sword",
-												"name": "Sword, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close</em>, +1 damage"
-											}
-										],
-										"text": "◇ Sword, iron (<em>close</em>, +1 damage)"
-									},
-									{
-										"slug": "battleaxe",
-										"outfitItems": [
-											{
-												"slug": "battleaxe",
-												"name": "Battleaxe, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, messy</em>"
-											}
-										],
-										"text": "◇ Battleaxe, iron (<em>close, messy</em>)"
-									},
-									{
-										"slug": "warhammer",
-										"outfitItems": [
-											{
-												"slug": "warhammer",
-												"name": "Warhammer, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close</em>, 2 piercing"
-											}
-										],
-										"text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
-									},
-									{
-										"slug": "mace-or-flail",
-										"outfitItems": [
-											{
-												"slug": "mace-or-flail",
-												"name": "Mace or flail, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, forceful</em>"
-											}
-										],
-										"text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
-									},
-									{
-										"slug": "crossbow",
-										"outfitItems": [
-											{
-												"slug": "crossbow",
-												"name": "Crossbow",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>far</em>, +1 damage, <em>reload, x</em> piercing",
-												"resource": {
-													"max": 2,
-													"title": null,
-													"labels": [
-														"low ammo",
-														"all out"
-													]
-												}
-											}
-										],
-										"text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)"
-									}
-								]
+								"slug": "young-and-brash",
+								"text": "young & brash"
+							},
+							{
+								"slug": "in-my-prime",
+								"text": "in my prime"
+							},
+							{
+								"slug": "old-and-leathery",
+								"text": "old & leathery"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "gravelly-voice",
+								"text": "gravelly voice"
+							},
+							{
+								"slug": "hearty-voice",
+								"text": "hearty voice"
+							},
+							{
+								"slug": "soft-spoken",
+								"text": "soft-spoken"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "giant-frame",
+								"text": "giant frame"
+							},
+							{
+								"slug": "just-ripped",
+								"text": "just ripped"
+							},
+							{
+								"slug": "stocky",
+								"text": "stocky"
+							},
+							{
+								"slug": "wiry",
+								"text": "wiry"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "distinctive-scars",
+								"text": "distinctive scars"
+							},
+							{
+								"slug": "off-broken-nose",
+								"text": "off-broken nose"
+							},
+							{
+								"slug": "missing-bits",
+								"text": "missing bits"
 							}
 						]
 					}
+				]
+			},
+			{
+				"slug": "violence-fame",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Just About Everyone Here Talks About the Time You…",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "thunder-drake",
+						"content": {
+							"title": null,
+							"text": "… drove off a thunder drake that got too close to town."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hagr",
+						"content": {
+							"title": null,
+							"text": "… killed that hagr in the Foothills."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "crinwin-dozen",
+						"content": {
+							"title": null,
+							"text": "… slew a dozen crinwin in one battle."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "adventurers",
+						"content": {
+							"title": null,
+							"text": "… tossed those adventurers out of town."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ivan",
+						"content": {
+							"title": null,
+							"text": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "bleeding",
+						"content": {
+							"title": null,
+							"text": "… dragged yourself (and another?) into town, bleeding from a dozen wounds."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lightning",
+						"content": {
+							"title": null,
+							"text": "… were struck by lightning and woke up covered in these marks."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "violence-shadows",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "But Folks Are Less Keen to Discuss…",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "blood-look",
+						"content": {
+							"title": null,
+							"text": "… the look in your eye when you spilled all that blood."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hard-cases",
+						"content": {
+							"title": null,
+							"text": "… those hard cases who showed up looking for you."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shouting",
+						"content": {
+							"title": null,
+							"text": "… the shouting matches between you and your love."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "claws",
+						"content": {
+							"title": null,
+							"text": "… the time you spent as one of Brennan's Claws."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "urbgen",
+						"content": {
+							"title": null,
+							"text": "… what happened to Urbgen, even if he did have it coming."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "seizures",
+						"content": {
+							"title": null,
+							"text": "… your uncontrollable seizures, where you claw those weird marks in the dirt."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "violence-fears",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "What Keeps You Up at Night?",
+							"text": "<p><em>(pick 1 or 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "temper",
+						"content": {
+							"title": null,
+							"text": "That thrice-damned temper of yours."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "someone-coming",
+						"content": {
+							"title": null,
+							"text": "The worry that someone's coming after you."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "crinwin-bolder",
+						"content": {
+							"title": null,
+							"text": "The feeling that the crinwin are getting bolder."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "brennan",
+						"content": {
+							"title": null,
+							"text": "Wondering what Brennan's up to, now that he's the marshal of Marshedge."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "dark-visions",
+						"content": {
+							"title": null,
+							"text": "Dark visions of things moving in the earth, restless, whispering, and hungry."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "family",
+						"content": {
+							"title": null,
+							"text": "The question of who'll look after your family when you get yourself killed."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "truth",
+						"content": {
+							"title": null,
+							"text": "The worry that they'll all learn the truth about you, sooner or later."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "peace",
+							"description": "To avoid (further) bloodshed or violence.",
+							"text": "Peace"
+						},
+						{
+							"slug": "pride",
+							"description": "To maintain your dignity, to demand respect.",
+							"text": "Pride"
+						},
+						{
+							"slug": "recklessness",
+							"description": "To act without thought to the consequences.",
+							"text": "Recklessness"
+						},
+						{
+							"slug": "trouble",
+							"description": "To stick your nose in where it's unwelcome.",
+							"text": "Trouble"
+						},
+						{
+							"slug": "violence",
+							"description": "To solve problems by force.",
+							"text": "Violence"
+						}
+					]
 				}
 			]
 		}

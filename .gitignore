@@ -2,15 +2,11 @@
 node_modules/
 
 # Compiled compendium packs — source of truth is packs/src/
-packs/basic-moves/
 packs/playbooks/
-packs/special-moves/
-packs/playbook-moves/
-packs/follower-moves/
-packs/homefront-moves/
+packs/moves/
 packs/outfit-items/
 packs/arcana/
-packs/post-death-inserts/
-packs/post-death-moves/
+packs/inserts/
 packs/followers/
 packs/steading-improvements/
+packs/possessions/

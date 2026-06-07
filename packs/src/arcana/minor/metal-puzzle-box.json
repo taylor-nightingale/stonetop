@@ -2,9 +2,8 @@
 	"_id": "NE6CHH8HNM1NnNOp",
 	"_key": "!items!NE6CHH8HNM1NnNOp",
 	"name": "A metal puzzle box",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "metal-puzzle-box",
 		"front": {
 			"title": "A metal puzzle box",
@@ -19,14 +18,14 @@
 				"slug": "metal-puzzle-box",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "roll-to-open",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "season-deciphering",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-mental-quirk",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "commune-spirit",
 						"content": {
 							"title": null,
@@ -70,7 +69,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "days-practice",
 						"content": {
 							"title": null,

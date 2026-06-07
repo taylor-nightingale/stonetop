@@ -2,9 +2,8 @@
 	"_id": "sJ5HMM7MPQ9RrJst",
 	"_key": "!items!sJ5HMM7MPQ9RrJst",
 	"name": "A disturbing mask",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "disturbing-mask",
 		"front": {
 			"title": "A disturbing mask",
@@ -19,14 +18,14 @@
 				"slug": "disturbing-mask",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "There's more to this mask than meets the eye. To unlock its secrets, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wear-unseen",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "watch-someone",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "tell-mask-secret",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "tell-another-secret",
 						"content": {
 							"title": null,

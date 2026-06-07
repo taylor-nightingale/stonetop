@@ -1,0 +1,21 @@
+{
+	"_id": "RNSqxyG1EY2pdub1",
+	"_key": "!items!RNSqxyG1EY2pdub1",
+	"name": "Lay of the land",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "lay-of-the-land",
+		"label": "Lay of the land",
+		"description": "○○○ uses: your intimate knowledge of the terrain within two days' march. Expend a use to ask the GM a question about what's out there; the GM answers honestly.",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

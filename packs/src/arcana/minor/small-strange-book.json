@@ -2,9 +2,8 @@
 	"_id": "DrStWx7yZa9bC3dE",
 	"_key": "!items!DrStWx7yZa9bC3dE",
 	"name": "A small, strange book",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "small-strange-book",
 		"front": {
 			"title": "A small, strange book",
@@ -19,14 +18,14 @@
 				"slug": "small-strange-book",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fae-help",
 						"content": {
 							"title": null,
@@ -37,14 +36,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-recipe",
 						"content": {
 							"title": null,

@@ -1,5 +1,4 @@
 import {ValueMax, VitalsSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
-import {StonetopFlags} from "./StonetopFlags.js";
 
 function toInt(v) {
 	const n = parseInt(v);
@@ -9,7 +8,6 @@ function toInt(v) {
 export class CharacterVitals {
 	constructor(actor) {
 		this._actor = actor;
-		this._flags = new StonetopFlags(actor, "vitals");
 	}
 
 	get level() {
@@ -19,7 +17,7 @@ export class CharacterVitals {
 	async buildVitalsSnapshot() {
 		const attrs    = this._actor.system?.attributes ?? {};
 		const level    = attrs.level ?? 1;
-		const hpMax    = this._flags.getFlag("maxHP") ?? 0;
+		const hpMax    = attrs.hp?.max ?? 0;
 		const dieVal   = attrs.damage?.value ?? null;
 		const damage   = dieVal ? { value: dieVal } : null;
 		return new VitalsSnapshotBuilder()
@@ -52,7 +50,7 @@ export class CharacterVitals {
 	}
 
 	async setMaxHP(hpMax) {
-		await this._flags.setFlag("maxHP", Math.max(0, toInt(hpMax)));
+		await this._actor.update({ "system.attributes.hp.max": Math.max(0, toInt(hpMax)) });
 	}
 
 	async setArmor(armor) {

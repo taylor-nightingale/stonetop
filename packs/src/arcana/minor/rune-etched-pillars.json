@@ -2,9 +2,8 @@
 	"_id": "Md3BgG5gIj7kLbMn",
 	"_key": "!items!Md3BgG5gIj7kLbMn",
 	"name": "Rune-etched pillars",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "rune-etched-pillars",
 		"front": {
 			"title": "Rune-etched pillars",
@@ -14,14 +13,14 @@
 				"slug": "rune-etched-pillars",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock their secrets, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "study-runes",
 						"content": {
 							"title": null,
@@ -32,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "meditate",
 						"content": {
 							"title": null,
@@ -43,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-collapse",
 						"content": {
 							"title": null,

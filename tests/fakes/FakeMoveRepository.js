@@ -4,10 +4,10 @@ import {FakeWorldItemStore} from "./FakeWorldItemStore.js";
 export class FakeMoveRepository {
 	_worldStore = new FakeWorldItemStore();
 
-	constructor(playbookMoves = [], basicMoves = [], postDeathMoves = []) {
-		this._playbookMoves  = playbookMoves;
-		this._basicMoves     = basicMoves;
-		this._postDeathMoves = postDeathMoves;
+	constructor(playbookMoves = [], basicMoves = [], insertMoves = []) {
+		this._playbookMoves = playbookMoves;
+		this._basicMoves    = basicMoves;
+		this._insertMoves   = insertMoves;
 	}
 
 	addWorld(item) { this._worldStore.add(item); return this; }
@@ -20,7 +20,9 @@ export class FakeMoveRepository {
 	}
 
 	async getPlaybookMoveDocument(id) {
-		return this._playbookMoves.find(m => m._id === id) ?? null;
+		return this._playbookMoves.find(m => m._id === id)
+			?? await this._worldStore.getDocument(id)
+			?? null;
 	}
 
 	async getBasicMoves() {
@@ -42,21 +44,21 @@ export class FakeMoveRepository {
 		this._playbookMoves.push(move);
 	}
 
-	async getPostDeathMoves() {
-		return this._postDeathMoves.map(m => new Move(m));
+	async getInsertMoves() {
+		return this._insertMoves.map(m => new Move(m));
 	}
 
-	async getPostDeathMoveDocument(id) {
-		return this._postDeathMoves.find(m => m._id === id) ?? null;
+	async getInsertMoveDocument(id) {
+		return this._insertMoves.find(m => m._id === id) ?? null;
 	}
 
-	addPostDeath(move) {
-		this._postDeathMoves.push(move);
+	addInsertMove(move) {
+		this._insertMoves.push(move);
 	}
 
 	async buildSlugIndex() {
 		const world = await this._worldStore.getAll();
-		const all   = [...this._playbookMoves, ...this._basicMoves, ...this._postDeathMoves, ...world];
+		const all   = [...this._playbookMoves, ...this._basicMoves, ...this._insertMoves, ...world];
 		return new Map(all.map(m => new Move(m)).map(m => [m.slug, m]));
 	}
 }

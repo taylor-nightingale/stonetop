@@ -15,127 +15,6 @@
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "cunning",
-							"description": "To scheme, manipulate, and plot.",
-							"text": "Cunning"
-						},
-						{
-							"slug": "curiosity",
-							"description": "To seek answers that maybe you oughtn't.",
-							"text": "Curiosity"
-						},
-						{
-							"slug": "hubris",
-							"description": "To assume you know best, that you can't fail.",
-							"text": "Hubris"
-						},
-						{
-							"slug": "mystery",
-							"description": "To avoid straight answers; to keep secrets.",
-							"text": "Mystery"
-						},
-						{
-							"slug": "vision",
-							"description": "To think big and pursue grandiose goals.",
-							"text": "Vision"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "curiously-young",
-							"text": "curiously young"
-						},
-						{
-							"slug": "world-weary",
-							"text": "world-weary"
-						},
-						{
-							"slug": "bent-with-years",
-							"text": "bent with years"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "haunted-voice",
-							"text": "haunted voice"
-						},
-						{
-							"slug": "rich-voice",
-							"text": "rich voice"
-						},
-						{
-							"slug": "whispery",
-							"text": "whispery"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "ink-stained-fingers",
-							"text": "ink-stained fingers"
-						},
-						{
-							"slug": "sinewy-hands",
-							"text": "sinewy hands"
-						},
-						{
-							"slug": "soft-hands",
-							"text": "soft hands"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "bony-limbed",
-							"text": "bony limbed"
-						},
-						{
-							"slug": "lean-and-lanky",
-							"text": "lean & lanky"
-						},
-						{
-							"slug": "short",
-							"text": "short"
-						},
-						{
-							"slug": "thick-set",
-							"text": "thick-set"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -209,116 +88,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "collection",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Collection",
-							"text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
-						}
-					}
-				]
-			},
-			{
-				"slug": "arcana-major",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Major Arcanum",
-							"text": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "where-acquired",
-						"content": {
-							"title": null,
-							"text": "Where did you acquire it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "wrested-from",
-						"content": {
-							"title": null,
-							"text": "From whose grasp did you wrest it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "who-else-wants",
-						"content": {
-							"title": null,
-							"text": "Who else wants it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "what-cost",
-						"content": {
-							"title": null,
-							"text": "What did it cost you?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "when-unlocked",
-						"content": {
-							"title": null,
-							"text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
-						},
-						"input": {}
-					}
-				]
-			},
-			{
-				"slug": "arcana-minor",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Minor Arcana",
-							"text": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "mastered-location",
-						"content": {
-							"title": null,
-							"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "found-location",
-						"content": {
-							"title": null,
-							"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "sought-notes",
-						"content": {
-							"title": null,
-							"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
-						},
-						"input": {}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "patriot",
@@ -342,101 +111,245 @@
 			"preselected": [
 				"scribes-tools"
 			],
-			"options": [
-				{
-					"slug": "scribes-tools",
-					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-					"outfitItems": [
-						{
-							"slug": "scribe-notebook",
-							"name": "Notebook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "books-and-scrolls",
-					"label": "Books & scrolls",
-					"description": "(○○○○○ uses): expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
-					"resource": {
-						"max": 5,
-						"title": null,
-						"labels": []
+			"slugs": [
+				"scribes-tools",
+				"books-and-scrolls",
+				"distillery",
+				"engineers-tools",
+				"laboratory",
+				"paraphernalia",
+				"trade-contacts"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "curiously-young",
+								"text": "curiously young"
+							},
+							{
+								"slug": "world-weary",
+								"text": "world-weary"
+							},
+							{
+								"slug": "bent-with-years",
+								"text": "bent with years"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "haunted-voice",
+								"text": "haunted voice"
+							},
+							{
+								"slug": "rich-voice",
+								"text": "rich voice"
+							},
+							{
+								"slug": "whispery",
+								"text": "whispery"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "ink-stained-fingers",
+								"text": "ink-stained fingers"
+							},
+							{
+								"slug": "sinewy-hands",
+								"text": "sinewy hands"
+							},
+							{
+								"slug": "soft-hands",
+								"text": "soft hands"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "bony-limbed",
+								"text": "bony limbed"
+							},
+							{
+								"slug": "lean-and-lanky",
+								"text": "lean & lanky"
+							},
+							{
+								"slug": "short",
+								"text": "short"
+							},
+							{
+								"slug": "thick-set",
+								"text": "thick-set"
+							}
+						]
 					}
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
+				]
+			},
+			{
+				"slug": "collection",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Collection",
+							"text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
 						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
 					}
-				},
+				]
+			},
+			{
+				"slug": "arcana-major",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Major Arcanum",
+							"text": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "where-acquired",
+						"content": {
+							"title": null,
+							"text": "Where did you acquire it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "wrested-from",
+						"content": {
+							"title": null,
+							"text": "From whose grasp did you wrest it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "who-else-wants",
+						"content": {
+							"title": null,
+							"text": "Who else wants it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "what-cost",
+						"content": {
+							"title": null,
+							"text": "What did it cost you?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "when-unlocked",
+						"content": {
+							"title": null,
+							"text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+						},
+						"input": {}
+					}
+				]
+			},
+			{
+				"slug": "arcana-minor",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Minor Arcana",
+							"text": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "mastered-location",
+						"content": {
+							"title": null,
+							"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "found-location",
+						"content": {
+							"title": null,
+							"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "sought-notes",
+						"content": {
+							"title": null,
+							"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+						},
+						"input": {}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
 				{
-					"slug": "engineers-tools",
-					"label": "Engineer's tools",
-					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
 						{
-							"slug": "engineer-tripod",
-							"name": "Tripod",
-							"weight": 1,
-							"inventoryColumn": "regular"
+							"slug": "cunning",
+							"description": "To scheme, manipulate, and plot.",
+							"text": "Cunning"
 						},
 						{
-							"slug": "engineer-block",
-							"name": "Block & Tackle",
-							"weight": 1,
-							"inventoryColumn": "regular"
+							"slug": "curiosity",
+							"description": "To seek answers that maybe you oughtn't.",
+							"text": "Curiosity"
+						},
+						{
+							"slug": "hubris",
+							"description": "To assume you know best, that you can't fail.",
+							"text": "Hubris"
+						},
+						{
+							"slug": "mystery",
+							"description": "To avoid straight answers; to keep secrets.",
+							"text": "Mystery"
+						},
+						{
+							"slug": "vision",
+							"description": "To think big and pursue grandiose goals.",
+							"text": "Vision"
 						}
 					]
-				},
-				{
-					"slug": "laboratory",
-					"label": "Laboratory",
-					"description": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce d4-1 uses of ◇ naphtha (<em>thrown, area, dangerous, ignores armor</em>)",
-					"outfitItems": [
-						{
-							"slug": "laboratory-scales",
-							"name": "Scales",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "laboratory-decanters",
-							"name": "Decanters",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "laboratory-naptha",
-							"name": "Naptha",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "paraphernalia",
-					"label": "Paraphernalia",
-					"description": "chalk, candles, inks, salts, herbs, ◇ a ritual knife, ◇ a compass, etc."
-				},
-				{
-					"slug": "trade-contacts",
-					"label": "Trade contacts",
-					"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
 				}
 			]
 		}

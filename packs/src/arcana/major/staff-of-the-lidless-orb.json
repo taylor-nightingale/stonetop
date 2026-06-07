@@ -2,10 +2,9 @@
 	"_id": "dHcuHmC9HhiqBfGo",
 	"_key": "!items!dHcuHmC9HhiqBfGo",
 	"name": "Staff of the Lidless Orb",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/staff-of-the-lidless-orb.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "staff-of-the-lidless-orb",
 		"front": {
 			"title": "Staff of the Lidless Orb",
@@ -20,14 +19,14 @@
 				"slug": "staff-of-the-lidless-orb",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>grip the Staff, close your eyes, and see through the Lidless Orb</em></strong>, Roll +CON: <strong>on a 10+</strong>, choose 3 from the list below; <strong>on a 7-9</strong>, choose 1.</p><ul><li>The orb sees through darkness, natural or magical</li><li>The orb sees through illusion, glamour, and invisibility</li><li>The orb can see strong emotions as auras radiating from people and lingering on places</li><li>You can move about and operate effectively while seeing through the orb (otherwise, not so much)</li></ul><p>Whatever you choose, the effect lasts until you open your eyes or let go of the staff.</p><p><strong>On a 6-</strong>, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -57,7 +56,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-eye-1",
 						"content": {
 							"title": null,
@@ -65,7 +64,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-eye-1a",
 						"content": {
 							"title": null,
@@ -73,7 +72,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-scales",
 						"content": {
 							"title": null,
@@ -81,7 +80,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-beauty",
 						"content": {
 							"title": null,
@@ -89,7 +88,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-beauty-a",
 						"content": {
 							"title": null,
@@ -97,7 +96,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-beauty-b",
 						"content": {
 							"title": null,
@@ -105,7 +104,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "orb-elrash",
 						"content": {
 							"title": null,

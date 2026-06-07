@@ -2,9 +2,8 @@
 	"_id": "Pg6EjJ8jLm0nOePq",
 	"_key": "!items!Pg6EjJ8jLm0nOePq",
 	"name": "A clear natural pool",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "clear-natural-pool",
 		"front": {
 			"title": "A clear natural pool",
@@ -14,14 +13,14 @@
 				"slug": "clear-natural-pool",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "There is magic here; to unlock its secrets, either…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "experiment-at-pool",
 						"content": {
 							"title": null,
@@ -32,14 +31,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "firsthand-account",
 						"content": {
 							"title": null,

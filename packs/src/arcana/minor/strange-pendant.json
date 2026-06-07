@@ -2,9 +2,8 @@
 	"_id": "Wn3LqQ5qSt7vVnWx",
 	"_key": "!items!Wn3LqQ5qSt7vVnWx",
 	"name": "A strange pendant",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "strange-pendant",
 		"front": {
 			"title": "A strange pendant",
@@ -19,14 +18,14 @@
 				"slug": "strange-pendant",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of the pendant…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wear-lunar-cycle",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hold-underwater",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "drown-another",
 						"content": {
 							"title": null,

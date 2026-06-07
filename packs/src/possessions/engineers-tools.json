@@ -1,0 +1,30 @@
+{
+	"_id": "XD3LKhMJMvkzw9s5",
+	"_key": "!items!XD3LKhMJMvkzw9s5",
+	"name": "Engineer's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "engineers-tools",
+		"label": "Engineer's tools",
+		"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "engineer-tripod",
+				"name": "Tripod",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "engineer-block",
+				"name": "Block & Tackle",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

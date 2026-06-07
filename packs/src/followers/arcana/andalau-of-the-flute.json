@@ -5,7 +5,7 @@
 	"system": {
 		"slug": "andalau-of-the-flute",
 		"arcanaSlug": "cracked-flute",
-		"tags": "Spirit, tiny, stealthy, mischievous",
+		"tags": "spirit, tiny, stealthy, mischievous",
 		"hp": {
 			"value": 0,
 			"min": 0,
@@ -26,22 +26,24 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "entertainment (Loyalty ◯◯◯)"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "entertainment (Loyalty ◯◯◯)"
+						}
 					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

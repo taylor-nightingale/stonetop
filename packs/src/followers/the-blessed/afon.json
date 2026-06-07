@@ -28,125 +28,122 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "bronze hatchet d6 (hand)"
+						}
 					},
-					"input": {
-						"default": "bronze hatchet d6 (hand)"
-					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "wonder, joy; Loyalty"
+						}
 					},
-					"input": {
-						"default": "wonder, joy; Loyalty"
-					}
-				},
-				{
-					"type": "heading",
-					"content": {
-						"title": "Pick 1 on each line",
-						"text": null
-					}
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "he",
-							"text": "he"
-						},
-						{
-							"slug": "she",
-							"text": "she"
-						},
-						{
-							"slug": "they",
-							"text": "they"
-						},
-						{
-							"type": "heading",
-							"slug": "custom",
-							"content": {
-								"title": null,
-								"text": null
+					{
+						"type": "entry",
+						"content": {
+							"title": "Pick 1 on each line",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "he",
+								"text": "he"
 							},
-							"input": {}
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "comes-and-goes",
-							"text": "comes and goes"
-						},
-						{
-							"slug": "in-the-wood",
-							"text": "in the Wood"
-						},
-						{
-							"slug": "a-hut-near-town",
-							"text": "a hut near town"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "aloof",
-							"text": "aloof"
-						},
-						{
-							"slug": "bawdy-and-lewd",
-							"text": "bawdy and lewd"
-						},
-						{
-							"slug": "unnerving",
-							"text": "unnerving"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "rites-of-ecstasy",
-							"text": "rites of ecstasy"
-						},
-						{
-							"slug": "rites-of-intoxication",
-							"text": "rites of intoxication"
-						},
-						{
-							"slug": "rites-of-moonlight",
-							"text": "rites of moonlight"
-						}
-					]
-				}
-			]
-		},
+							{
+								"slug": "she",
+								"text": "she"
+							},
+							{
+								"slug": "they",
+								"text": "they"
+							},
+							{
+								"slug": "custom",
+								"type": "input"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "comes-and-goes",
+								"text": "comes and goes"
+							},
+							{
+								"slug": "in-the-wood",
+								"text": "in the Wood"
+							},
+							{
+								"slug": "a-hut-near-town",
+								"text": "a hut near town"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "aloof",
+								"text": "aloof"
+							},
+							{
+								"slug": "bawdy-and-lewd",
+								"text": "bawdy and lewd"
+							},
+							{
+								"slug": "unnerving",
+								"text": "unnerving"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "rites-of-ecstasy",
+								"text": "rites of ecstasy"
+							},
+							{
+								"slug": "rites-of-intoxication",
+								"text": "rites of intoxication"
+							},
+							{
+								"slug": "rites-of-moonlight",
+								"text": "rites of moonlight"
+							}
+						]
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

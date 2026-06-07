@@ -2,9 +2,8 @@
 	"_id": "Xo4MrR6rTu8wWoXy",
 	"_key": "!items!Xo4MrR6rTu8wWoXy",
 	"name": "A timeless vault",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "timeless-vault",
 		"front": {
 			"title": "A timeless vault",
@@ -19,14 +18,14 @@
 				"slug": "timeless-vault",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of this place's stasis…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "find-runes",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "copy-runes",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "trace-runes",
 						"content": {
 							"title": null,

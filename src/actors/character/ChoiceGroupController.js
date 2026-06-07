@@ -1,56 +1,65 @@
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 
 export class ChoiceGroupController {
-	constructor(flags, followers) {
-		this._flags     = flags;
-		this._followers = followers;
+	constructor({ reader, writer, definitionGetter, handlers = [] }) {
+		this._reader           = reader;
+		this._writer           = writer;
+		this._definitionGetter = definitionGetter;
+		this._handlers         = handlers;
 	}
 
-	get _values() {
-		return new ChoiceValues(this._flags.getFlag("values") ?? {});
-	}
-
-	async addGroup(namespace, groupData) {
-		const seen = new Set();
-		for (const item of groupData.list) {
-			if (!item.slug) continue;
-			if (seen.has(item.slug)) throw new Error(`Duplicate slug "${item.slug}" in group "${namespace}"`);
-			seen.add(item.slug);
-		}
-		await this._flags.setFlag("groupDefs", { ...(this._flags.getFlag("groupDefs") ?? {}), [namespace]: groupData });
-	}
-
-	buildGroupSnapshot(namespace) {
-		const groupData = (this._flags.getFlag("groupDefs") ?? {})[namespace];
-		if (!groupData) return null;
-		return ChoiceGroup.fromPackData({ slug: namespace, list: groupData.list }, this._values);
-	}
+	get _values() { return new ChoiceValues(this._reader()); }
 
 	async selectOption(namespace, slug, siblingSlugsCsv) {
-		let values = this._values;
-		if (siblingSlugsCsv) {
-			for (const sib of siblingSlugsCsv.split(",")) values = values.set(namespace, sib, 0);
+		const prevValues = this._values;
+		let values = prevValues;
+		const siblings = siblingSlugsCsv
+			? siblingSlugsCsv.split(",").filter(s => s !== slug)
+			: [];
+		for (const sib of siblings) values = values.set(namespace, sib, 0);
+		const newValues = values.set(namespace, slug, 1);
+		await this._writer(newValues.toRaw());
+		for (const sib of siblings) {
+			if (prevValues.getCount(namespace, sib) > 0)
+				await this._fireSideEffects(namespace, sib, 0, newValues);
 		}
-		await this._flags.setFlag("values", values.set(namespace, slug, 1).toRaw());
+		await this._fireSideEffects(namespace, slug, 1, newValues);
 	}
 
 	async setCount(namespace, optionSlug, count) {
-		await this._flags.setFlag("values", this._values.set(namespace, optionSlug, count).toRaw());
-	}
-
-	async setFollowerCount(namespace, optionSlug, count) {
-		await this.setCount(namespace, optionSlug, count);
-		if (count > 0) await this._followers.addFollower(optionSlug);
-		else           await this._followers.removeFollower(optionSlug);
+		const newValues = this._values.set(namespace, optionSlug, count);
+		await this._writer(newValues.toRaw());
+		await this._fireSideEffects(namespace, optionSlug, count, newValues);
 	}
 
 	async setText(namespace, optionSlug, text) {
-		await this._flags.setFlag("values", this._values.set(namespace, optionSlug, text).toRaw());
+		const newValues = this._values.set(namespace, optionSlug, text);
+		await this._writer(newValues.toRaw());
 	}
 
 	async clearValues(namespace) {
 		const raw = { ...this._values.toRaw() };
 		delete raw[namespace];
-		await this._flags.setFlag("values", raw);
+		await this._writer(raw);
+	}
+
+	async _fireSideEffects(namespace, optionSlug, count, newValues) {
+		if (!this._handlers.length) return;
+		const def = this._definitionGetter?.(namespace);
+		if (!def) return;
+
+		let target = null;
+		for (const row of def.list ?? []) {
+			if (row.slug === optionSlug) { target = row; break; }
+			for (const opt of row.options ?? []) {
+				if (opt.slug === optionSlug) { target = opt; break; }
+			}
+			if (target) break;
+		}
+		if (!target) return;
+
+		for (const handler of this._handlers) {
+			await handler.apply(target, namespace, optionSlug, count, newValues);
+		}
 	}
 }

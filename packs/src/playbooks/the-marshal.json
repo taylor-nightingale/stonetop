@@ -15,123 +15,6 @@
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "authority",
-							"description": "To take charge and throw your weight around.",
-							"text": "Authority"
-						},
-						{
-							"slug": "caution",
-							"description": "To keep everyone safe, to agonize over decisions.",
-							"text": "Caution"
-						},
-						{
-							"slug": "drive",
-							"description": "To take on ever more responsibility.",
-							"text": "Drive"
-						},
-						{
-							"slug": "honor",
-							"description": "To keep your word, to follow a moral code.",
-							"text": "Honor"
-						},
-						{
-							"slug": "ruthlessness",
-							"description": "To do whatever it takes to win or survive.",
-							"text": "Ruthlessness"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "upstart-youth",
-							"text": "upstart youth"
-						},
-						{
-							"slug": "experienced-and-sober",
-							"text": "experienced & sober"
-						},
-						{
-							"slug": "grizzled",
-							"text": "grizzled"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "clear-voice",
-							"text": "clear voice"
-						},
-						{
-							"slug": "resonant-voice",
-							"text": "resonant voice"
-						},
-						{
-							"slug": "rumbling-voice",
-							"text": "rumbling voice"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "stern-frown",
-							"text": "stern frown"
-						},
-						{
-							"slug": "grim-set-jaw",
-							"text": "grim-set jaw"
-						},
-						{
-							"slug": "knowing-smirk",
-							"text": "knowing smirk"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "badge-of-office",
-							"text": "badge of office"
-						},
-						{
-							"slug": "spit-and-polish",
-							"text": "spit & polish"
-						},
-						{
-							"slug": "timeworn-gear",
-							"text": "timeworn gear"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -202,170 +85,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "war-stories-action",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "The Last Time the Militia Saw Serious Action, It Was…",
-							"text": "<p><em>(pick 1)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "crinwin-raid",
-						"content": {
-							"title": null,
-							"text": "… to repel a nighttime raid by crinwin from the Great Wood."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "bandits",
-						"content": {
-							"title": null,
-							"text": "… to drive off bandits who'd taken up near the Ruined Tower."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hillfolk",
-						"content": {
-							"title": null,
-							"text": "… to fend off Hillfolk pursuing a blood feud."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "brennan-claws",
-						"content": {
-							"title": null,
-							"text": "… against Brennan and his Claws, before they settled in Marshedge."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hagr",
-						"content": {
-							"title": null,
-							"text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "beasts",
-						"content": {
-							"title": null,
-							"text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "war-stories-questions",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Answer At Least 3 of the Following",
-							"text": ""
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "when",
-						"content": {
-							"title": null,
-							"text": "When exactly did it happen?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "who-died",
-						"content": {
-							"title": null,
-							"text": "Who lost their life, and who mourns them?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "who-maimed",
-						"content": {
-							"title": null,
-							"text": "Who from Stonetop was maimed, and how?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "saved-day",
-						"content": {
-							"title": null,
-							"text": "Who saved the day, and how?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "enemy-away",
-						"content": {
-							"title": null,
-							"text": "How did the enemy get away, and whom do you still blame for it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "honor",
-						"content": {
-							"title": null,
-							"text": "Who comported themselves with honor?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "bugging",
-						"content": {
-							"title": null,
-							"text": "What's been bugging you about it ever since?"
-						},
-						"input": {}
-					},
-					{
-						"type": "heading",
-						"slug": "worried",
-						"content": {
-							"title": null,
-							"text": "What's got you even more worried now?"
-						},
-						"input": {}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "scion",
@@ -387,155 +106,294 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "chirurgeons-tools",
-					"label": "Chirurgeon's tools",
-					"description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "engineers-tools",
-					"label": "Engineer's tools",
-					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "engineer-tripod",
-							"name": "Tripod",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "engineer-block",
-							"name": "Block & Tackle",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "personal-symbol",
-					"label": "Personal symbol",
-					"description": "a banner, insignia, or seal that marks you as the Marshal of Stonetop. Recognized throughout the Manmarch."
-				},
-				{
-					"slug": "scribes-tools",
-					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-					"outfitItems": [
-						{
-							"slug": "scribe-notebook",
-							"name": "Notebook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "weapons-of-war",
-					"label": "Weapons of war",
-					"description": "",
-					"choices": {
-						"slug": "weapons-of-war",
-						"list": [
+			"slugs": [
+				"chirurgeons-tools",
+				"distillery",
+				"engineers-tools",
+				"personal-symbol",
+				"scribes-tools",
+				"weapons-of-war"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
 							{
-								"type": "pick",
-								"pickCount": 3,
-								"options": [
-									{
-										"slug": "sword",
-										"outfitItems": [
-											{
-												"slug": "sword",
-												"name": "Sword, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close</em>, +1 damage"
-											}
-										],
-										"text": "◇ Sword, iron (<em>close</em>, +1 damage)"
-									},
-									{
-										"slug": "battleaxe",
-										"outfitItems": [
-											{
-												"slug": "battleaxe",
-												"name": "Battleaxe, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, messy</em>"
-											}
-										],
-										"text": "◇ Battleaxe, iron (<em>close, messy</em>)"
-									},
-									{
-										"slug": "warhammer",
-										"outfitItems": [
-											{
-												"slug": "warhammer",
-												"name": "Warhammer, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close</em>, 2 piercing"
-											}
-										],
-										"text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
-									},
-									{
-										"slug": "mace-or-flail",
-										"outfitItems": [
-											{
-												"slug": "mace-or-flail",
-												"name": "Mace or flail, iron",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, forceful</em>"
-											}
-										],
-										"text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
-									},
-									{
-										"slug": "crossbow",
-										"outfitItems": [
-											{
-												"slug": "crossbow",
-												"name": "Crossbow",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>far</em>, +1 damage, <em>reload</em>",
-												"resource": {
-													"max": 2,
-													"title": null,
-													"labels": [
-														"low ammo",
-														"all out"
-													]
-												}
-											}
-										],
-										"text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>)"
-									}
-								]
+								"slug": "upstart-youth",
+								"text": "upstart youth"
+							},
+							{
+								"slug": "experienced-and-sober",
+								"text": "experienced & sober"
+							},
+							{
+								"slug": "grizzled",
+								"text": "grizzled"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "clear-voice",
+								"text": "clear voice"
+							},
+							{
+								"slug": "resonant-voice",
+								"text": "resonant voice"
+							},
+							{
+								"slug": "rumbling-voice",
+								"text": "rumbling voice"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "stern-frown",
+								"text": "stern frown"
+							},
+							{
+								"slug": "grim-set-jaw",
+								"text": "grim-set jaw"
+							},
+							{
+								"slug": "knowing-smirk",
+								"text": "knowing smirk"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "badge-of-office",
+								"text": "badge of office"
+							},
+							{
+								"slug": "spit-and-polish",
+								"text": "spit & polish"
+							},
+							{
+								"slug": "timeworn-gear",
+								"text": "timeworn gear"
 							}
 						]
 					}
+				]
+			},
+			{
+				"slug": "war-stories-action",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "The Last Time the Militia Saw Serious Action, It Was…",
+							"text": "<p><em>(pick 1)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "crinwin-raid",
+						"content": {
+							"title": null,
+							"text": "… to repel a nighttime raid by crinwin from the Great Wood."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "bandits",
+						"content": {
+							"title": null,
+							"text": "… to drive off bandits who'd taken up near the Ruined Tower."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hillfolk",
+						"content": {
+							"title": null,
+							"text": "… to fend off Hillfolk pursuing a blood feud."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "brennan-claws",
+						"content": {
+							"title": null,
+							"text": "… against Brennan and his Claws, before they settled in Marshedge."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hagr",
+						"content": {
+							"title": null,
+							"text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "beasts",
+						"content": {
+							"title": null,
+							"text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "war-stories-questions",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Answer At Least 3 of the Following",
+							"text": ""
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "when",
+						"content": {
+							"title": null,
+							"text": "When exactly did it happen?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "who-died",
+						"content": {
+							"title": null,
+							"text": "Who lost their life, and who mourns them?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "who-maimed",
+						"content": {
+							"title": null,
+							"text": "Who from Stonetop was maimed, and how?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "saved-day",
+						"content": {
+							"title": null,
+							"text": "Who saved the day, and how?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "enemy-away",
+						"content": {
+							"title": null,
+							"text": "How did the enemy get away, and whom do you still blame for it?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "honor",
+						"content": {
+							"title": null,
+							"text": "Who comported themselves with honor?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "bugging",
+						"content": {
+							"title": null,
+							"text": "What's been bugging you about it ever since?"
+						},
+						"input": {}
+					},
+					{
+						"type": "entry",
+						"slug": "worried",
+						"content": {
+							"title": null,
+							"text": "What's got you even more worried now?"
+						},
+						"input": {}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "authority",
+							"description": "To take charge and throw your weight around.",
+							"text": "Authority"
+						},
+						{
+							"slug": "caution",
+							"description": "To keep everyone safe, to agonize over decisions.",
+							"text": "Caution"
+						},
+						{
+							"slug": "drive",
+							"description": "To take on ever more responsibility.",
+							"text": "Drive"
+						},
+						{
+							"slug": "honor",
+							"description": "To keep your word, to follow a moral code.",
+							"text": "Honor"
+						},
+						{
+							"slug": "ruthlessness",
+							"description": "To do whatever it takes to win or survive.",
+							"text": "Ruthlessness"
+						}
+					]
 				}
 			]
 		}

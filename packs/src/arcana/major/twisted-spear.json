@@ -2,10 +2,9 @@
 	"_id": "f4nTtxqREMwt0DWJ",
 	"_key": "!items!f4nTtxqREMwt0DWJ",
 	"name": "Twisted Spear",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/twisted-spear.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "twisted-spear",
 		"front": {
 			"title": "Twisted Spear",
@@ -20,21 +19,21 @@
 				"slug": "twisted-spear",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>wield the Twisted Spear as a weapon</em></strong>, You ignore magical protections and can harm spirits, demons, and insubstantial creatures.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>first plunge the Spear into a spirit or demon</em></strong>, Your mind reels with strange visions. These tasks become known to you. When you <strong>complete a task</strong>, mark it off.</p><p>When you <strong>have marked 3 tasks</strong>, you unlock the mysteries of the Twisted Spear. Choose one of the moves on the reverse; you can use that move as long as you wield the Spear. Each time you mark a task thereafter, gain another move from the reverse.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "task-0",
 						"content": {
 							"title": null,
@@ -45,7 +44,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "task-1",
 						"content": {
 							"title": null,
@@ -56,7 +55,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "task-2",
 						"content": {
 							"title": null,
@@ -67,7 +66,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "task-3",
 						"content": {
 							"title": null,
@@ -78,7 +77,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "task-4",
 						"content": {
 							"title": null,
@@ -123,7 +122,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c1",
 						"content": {
 							"title": null,
@@ -131,7 +130,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c2",
 						"content": {
 							"title": null,
@@ -139,7 +138,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c3",
 						"content": {
 							"title": null,
@@ -147,7 +146,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c4",
 						"content": {
 							"title": null,
@@ -155,7 +154,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c4a",
 						"content": {
 							"title": null,
@@ -163,7 +162,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c4b",
 						"content": {
 							"title": null,
@@ -171,7 +170,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c4c",
 						"content": {
 							"title": null,
@@ -179,7 +178,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "spear-c4d",
 						"content": {
 							"title": null,

@@ -2,30 +2,28 @@ import {
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import {toSlug} from "../../utils/slug.js";
+import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { toSlug } from "../../utils/slug.js";
 
 export class CharacterBackgrounds {
-	constructor(flags, followers = null, choiceController, resourceController) {
-		this._flags            = flags;
-		this._followers        = followers;
-		this._choiceController = choiceController;
+	constructor(actor, factory, resourceController) {
+		this._actor              = actor;
 		this._resourceController = resourceController;
+		this._ctrl               = factory.forItemType("playbook", "backgroundValues",
+			(ns, item) => item?.system?.backgrounds?.find(b => b.slug === ns)?.choices ?? null,
+		);
 	}
 
 	get selectedSlug() {
-		return this._flags.getFlag("selected") ?? "";
+		return this._actor.system?.background?.selected ?? "";
 	}
 
 	async selectBackground(slug) {
-		await this._flags.setFlag("selected", slug);
+		await this._actor.update({ "system.background.selected": slug });
 	}
 
 	async setChoiceValue(namespace, optionSlug, count) {
-		await this._choiceController.setCount(namespace, optionSlug, count);
-	}
-
-	async setFollowerChoiceValue(namespace, optionSlug, count) {
-		await this._choiceController.setFollowerCount(namespace, optionSlug, count);
+		await this._ctrl.setCount(namespace, optionSlug, count);
 	}
 
 	async setResource(slug, count) {
@@ -34,14 +32,12 @@ export class CharacterBackgrounds {
 
 	async buildSnapshot(backgroundsData) {
 		const savedSlug = this.selectedSlug || null;
+		const pbItem    = _findPlaybookItem(this._actor);
+		const values    = new ChoiceValues(pbItem?.system?.backgroundValues ?? {});
 
 		const options = [];
 		for (const b of (backgroundsData ?? [])) {
-			let choices = null;
-			if (b.choices) {
-				await this._choiceController.addGroup(b.slug, b.choices);
-				choices = this._choiceController.buildGroupSnapshot(b.slug);
-			}
+			const choices = b.choices ? ChoiceGroup.fromPackData(b.choices, values) : null;
 			options.push(new BackgroundOptionSnapshotBuilder()
 				.withSlug(b.slug)
 				.withLabel(b.label)
@@ -55,4 +51,8 @@ export class CharacterBackgrounds {
 
 		return new BackgroundSection(savedSlug, options);
 	}
+}
+
+function _findPlaybookItem(actor) {
+	return [...actor.items].find(i => i.type === "playbook") ?? null;
 }

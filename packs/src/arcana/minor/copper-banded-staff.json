@@ -2,9 +2,8 @@
 	"_id": "xO0MRR2RUV4WwXxy",
 	"_key": "!items!xO0MRR2RUV4WwXxy",
 	"name": "A copper-banded staff",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "copper-banded-staff",
 		"front": {
 			"title": "A copper-banded staff",
@@ -19,14 +18,14 @@
 				"slug": "copper-banded-staff",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The staff still tingles with power. To unlock its mysteries you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "figure-runes",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "replace-bands",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "hold-fast",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "days-practice",
 						"content": {
 							"title": null,

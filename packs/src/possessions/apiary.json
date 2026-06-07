@@ -1,0 +1,30 @@
+{
+	"_id": "3yJ9L3Sk8jimZOvQ",
+	"_key": "!items!3yJ9L3Sk8jimZOvQ",
+	"name": "Apiary",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "apiary",
+		"label": "Apiary",
+		"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "apiary-bee-smokers",
+				"name": "Bee smokers",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "apiary-hat-veils",
+				"name": "Hat & veils",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

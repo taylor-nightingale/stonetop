@@ -2,7 +2,7 @@
 	<section class="sheet-tab">
 	<div class="stonetop-details-columns">
 
-		{{> "stonetop.choice-section" groups=stonetop.playbook.lore cgContext="lore"}}
+		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore"}}
 
 		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
@@ -34,25 +34,17 @@
 		{{/if}}
 
 		{{#if stonetop.playbook}}
-		<div class="details-section">
-			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.instinct.label") note=(localize "stonetop.character.selection.chooseOne")}}
-			<input type="text" class="stonetop-instinct-custom"
-			       value="{{stonetop.playbook.instinct.selected}}"
-			       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
-			{{#if stonetop.playbook.instinct.group}}
-			<div class="stonetop-instinct-options">
-				{{#each stonetop.playbook.instinct.group.list}}
-				{{> "stonetop.choice-row" radio=true namePrefix="stonetop-instinct" cgContext="instinct"}}
-				{{/each}}
-			</div>
-			{{/if}}
-		</div>
+		{{> "stonetop.instinct-section"
+		    instinctSelected=stonetop.playbook.instinctSelected
+		    instinctGroup=stonetop.playbook.instinctGroup
+		    namePrefix="stonetop-instinct"
+		    cgContext="instinct"}}
 		{{/if}}
 
-		{{#if stonetop.playbook.appearance.length}}
+		{{#if stonetop.playbook.appearanceGroup}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
-			{{#each stonetop.playbook.appearance}}
+			{{#each stonetop.playbook.appearanceGroup.list}}
 			{{> "stonetop.choice-row" cgContext="appearance" namePrefix="stonetop-appearance"}}
 			{{/each}}
 		</div>

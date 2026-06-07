@@ -15,127 +15,6 @@
 		},
 		"hp": 16,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "conscience",
-							"description": "To feel guilty, to try to do right.",
-							"text": "Conscience"
-						},
-						{
-							"slug": "freedom",
-							"description": "To chafe against rules, expectations, obligations.",
-							"text": "Freedom"
-						},
-						{
-							"slug": "comfort",
-							"description": "To enjoy yourself and avoid hardship.",
-							"text": "Comfort"
-						},
-						{
-							"slug": "prestige",
-							"description": "To impress others, to build a name for yourself.",
-							"text": "Prestige"
-						},
-						{
-							"slug": "trickery",
-							"description": "To deceive, misdirect, outthink.",
-							"text": "Trickery"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "young-pup",
-							"text": "young pup"
-						},
-						{
-							"slug": "responsible-adult",
-							"text": "\"responsible\" adult"
-						},
-						{
-							"slug": "cagey-old-timer",
-							"text": "cagey old-timer"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-pleasant-voice",
-							"text": "a pleasant voice"
-						},
-						{
-							"slug": "sharp-and-nasally",
-							"text": "sharp & nasally"
-						},
-						{
-							"slug": "well-spoken",
-							"text": "well-spoken"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "lithe",
-							"text": "lithe"
-						},
-						{
-							"slug": "heavyset",
-							"text": "heavyset"
-						},
-						{
-							"slug": "gangly",
-							"text": "gangly"
-						},
-						{
-							"slug": "like-a-whippin-stick",
-							"text": "like a whippin' stick"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-light-step",
-							"text": "a light step"
-						},
-						{
-							"slug": "a-brisk-stride",
-							"text": "a brisk stride"
-						},
-						{
-							"slug": "more-like-a-strut",
-							"text": "more like a strut"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -196,330 +75,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "tall-tales-beginning",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "There Was That Time You…",
-							"text": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-great-wood",
-						"content": {
-							"title": null,
-							"text": "… got lost in the Great Wood."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-flats",
-						"content": {
-							"title": null,
-							"text": "… got lost in the Flats."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-steplands",
-						"content": {
-							"title": null,
-							"text": "… got lost in the Steplands."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-ferrers-fen",
-						"content": {
-							"title": null,
-							"text": "… got lost in Ferrier's Fen."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-foothills",
-						"content": {
-							"title": null,
-							"text": "… got lost in the Foothills."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "lost-huffel-peaks",
-						"content": {
-							"title": null,
-							"text": "… got lost in the Huffel Peaks."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "crinwin-raid",
-						"content": {
-							"title": null,
-							"text": "… were on watch when the crinwin raided."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ruined-tower",
-						"content": {
-							"title": null,
-							"text": "… dared each other to explore the Ruined Tower."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hillfolk",
-						"content": {
-							"title": null,
-							"text": "… managed to rile up a small band of Hillfolk."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "labyrinth",
-						"content": {
-							"title": null,
-							"text": "… braved the Labyrinth, just a little."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "old-mans-book",
-						"content": {
-							"title": null,
-							"text": "… stole that crazy old man's book."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "barrow-mounds",
-						"content": {
-							"title": null,
-							"text": "… went poking about the old Barrow Mounds."
-						},
-						"track": {
-							"max": 2
-						}
-					}
-				]
-			},
-			{
-				"slug": "tall-tales-ending",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "And You Ended Up…",
-							"text": "<p><em>(choose 1 or 2 per tale)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "running",
-						"content": {
-							"title": null,
-							"text": "… running for your life from something."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "well-placed-blow",
-						"content": {
-							"title": null,
-							"text": "… landing a well-placed blow."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "strange-gather",
-						"content": {
-							"title": null,
-							"text": "… interrupting a strange, creepy gathering."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "big-beast",
-						"content": {
-							"title": null,
-							"text": "… stumbling on a beast, bigger'n anything."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "treasure",
-						"content": {
-							"title": null,
-							"text": "… with a sack full of treasure."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "someone-fight",
-						"content": {
-							"title": null,
-							"text": "… getting someone to fight them for you."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "ghost",
-						"content": {
-							"title": null,
-							"text": "… face to face with a ghost/Fae/demon."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "strange-runes",
-						"content": {
-							"title": null,
-							"text": "… finding those strange old runes."
-						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "fine-looking",
-						"content": {
-							"title": null,
-							"text": "… getting to know that fine-looking fellow/lady/person/couple."
-						},
-						"track": {
-							"max": 2
-						}
-					}
-				]
-			},
-			{
-				"slug": "tall-tales-legacy",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "But All You've Got Left to Show for It Is…",
-							"text": ""
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "story-no-one-believes",
-						"content": {
-							"title": null,
-							"text": "… a story no one believes."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "nasty-scar",
-						"content": {
-							"title": null,
-							"text": "… a nasty scar; wanna see?"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "nightmares",
-						"content": {
-							"title": null,
-							"text": "… the occasional nightmare."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "map-with-runes",
-						"content": {
-							"title": null,
-							"text": "… this map with runes no one can read."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "mystery-key",
-						"content": {
-							"title": null,
-							"text": "… this key that opens who-knows-what."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "the-natural",
@@ -541,104 +96,459 @@
 			"pickNote": "Pick 2",
 			"pickCount": 2,
 			"preselected": [],
-			"options": [
-				{
-					"slug": "burglars-kit",
-					"label": "Burglar's kit",
-					"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
-					"outfitItems": [
-						{
-							"slug": "burglar-prybars",
-							"name": "Prybars",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "burglar-hacksaws",
-							"name": "Hacksaws",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "burglar-lantern",
-							"name": "Lantern",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": "<em>close, area</em>",
-							"resource": {
-								"max": 5,
-								"labels": [
-									"",
-									"",
-									"",
-									"",
-									"hours"
-								]
+			"slugs": [
+				"burglars-kit",
+				"carpenters-tools",
+				"distillery",
+				"hidden-stash",
+				"mummers-kit",
+				"scribes-tools",
+				"trade-contacts"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "young-pup",
+								"text": "young pup"
+							},
+							{
+								"slug": "responsible-adult",
+								"text": "\"responsible\" adult"
+							},
+							{
+								"slug": "cagey-old-timer",
+								"text": "cagey old-timer"
 							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-pleasant-voice",
+								"text": "a pleasant voice"
+							},
+							{
+								"slug": "sharp-and-nasally",
+								"text": "sharp & nasally"
+							},
+							{
+								"slug": "well-spoken",
+								"text": "well-spoken"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "lithe",
+								"text": "lithe"
+							},
+							{
+								"slug": "heavyset",
+								"text": "heavyset"
+							},
+							{
+								"slug": "gangly",
+								"text": "gangly"
+							},
+							{
+								"slug": "like-a-whippin-stick",
+								"text": "like a whippin' stick"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-light-step",
+								"text": "a light step"
+							},
+							{
+								"slug": "a-brisk-stride",
+								"text": "a brisk stride"
+							},
+							{
+								"slug": "more-like-a-strut",
+								"text": "more like a strut"
+							}
+						]
+					}
+				]
+			},
+			{
+				"slug": "tall-tales-beginning",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "There Was That Time You…",
+							"text": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-great-wood",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Great Wood."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-flats",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Flats."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-steplands",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Steplands."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-ferrers-fen",
+						"content": {
+							"title": null,
+							"text": "… got lost in Ferrier's Fen."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-foothills",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Foothills."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "lost-huffel-peaks",
+						"content": {
+							"title": null,
+							"text": "… got lost in the Huffel Peaks."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "crinwin-raid",
+						"content": {
+							"title": null,
+							"text": "… were on watch when the crinwin raided."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ruined-tower",
+						"content": {
+							"title": null,
+							"text": "… dared each other to explore the Ruined Tower."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hillfolk",
+						"content": {
+							"title": null,
+							"text": "… managed to rile up a small band of Hillfolk."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "labyrinth",
+						"content": {
+							"title": null,
+							"text": "… braved the Labyrinth, just a little."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "old-mans-book",
+						"content": {
+							"title": null,
+							"text": "… stole that crazy old man's book."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "barrow-mounds",
+						"content": {
+							"title": null,
+							"text": "… went poking about the old Barrow Mounds."
+						},
+						"track": {
+							"max": 2
+						}
+					}
+				]
+			},
+			{
+				"slug": "tall-tales-ending",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "And You Ended Up…",
+							"text": "<p><em>(choose 1 or 2 per tale)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "running",
+						"content": {
+							"title": null,
+							"text": "… running for your life from something."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "well-placed-blow",
+						"content": {
+							"title": null,
+							"text": "… landing a well-placed blow."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "strange-gather",
+						"content": {
+							"title": null,
+							"text": "… interrupting a strange, creepy gathering."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "big-beast",
+						"content": {
+							"title": null,
+							"text": "… stumbling on a beast, bigger'n anything."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "treasure",
+						"content": {
+							"title": null,
+							"text": "… with a sack full of treasure."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "someone-fight",
+						"content": {
+							"title": null,
+							"text": "… getting someone to fight them for you."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "ghost",
+						"content": {
+							"title": null,
+							"text": "… face to face with a ghost/Fae/demon."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "strange-runes",
+						"content": {
+							"title": null,
+							"text": "… finding those strange old runes."
+						},
+						"track": {
+							"max": 2
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "fine-looking",
+						"content": {
+							"title": null,
+							"text": "… getting to know that fine-looking fellow/lady/person/couple."
+						},
+						"track": {
+							"max": 2
+						}
+					}
+				]
+			},
+			{
+				"slug": "tall-tales-legacy",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "But All You've Got Left to Show for It Is…",
+							"text": ""
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "story-no-one-believes",
+						"content": {
+							"title": null,
+							"text": "… a story no one believes."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "nasty-scar",
+						"content": {
+							"title": null,
+							"text": "… a nasty scar; wanna see?"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "nightmares",
+						"content": {
+							"title": null,
+							"text": "… the occasional nightmare."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "map-with-runes",
+						"content": {
+							"title": null,
+							"text": "… this map with runes no one can read."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "mystery-key",
+						"content": {
+							"title": null,
+							"text": "… this key that opens who-knows-what."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "conscience",
+							"description": "To feel guilty, to try to do right.",
+							"text": "Conscience"
 						},
 						{
-							"slug": "burglar-grappling-hook",
-							"name": "Grappling hook",
-							"weight": 1,
-							"inventoryColumn": "regular"
+							"slug": "freedom",
+							"description": "To chafe against rules, expectations, obligations.",
+							"text": "Freedom"
+						},
+						{
+							"slug": "comfort",
+							"description": "To enjoy yourself and avoid hardship.",
+							"text": "Comfort"
+						},
+						{
+							"slug": "prestige",
+							"description": "To impress others, to build a name for yourself.",
+							"text": "Prestige"
+						},
+						{
+							"slug": "trickery",
+							"description": "To deceive, misdirect, outthink.",
+							"text": "Trickery"
 						}
 					]
-				},
-				{
-					"slug": "carpenters-tools",
-					"label": "Carpenter's tools",
-					"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
-				},
-				{
-					"slug": "distillery",
-					"label": "Distillery",
-					"description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-					"outfitItems": [
-						{
-							"slug": "distillery-firkins",
-							"name": "Firkins",
-							"weight": 2,
-							"inventoryColumn": "regular"
-						}
-					],
-					"resource": {
-						"max": 2,
-						"title": "Skins of fine whisky",
-						"labels": []
-					}
-				},
-				{
-					"slug": "hidden-stash",
-					"label": "Hidden stash",
-					"description": "each use produces valuables worth a purse of silvers (Value 2).",
-					"resource": {
-						"max": 3,
-						"title": null,
-						"labels": []
-					}
-				},
-				{
-					"slug": "mummers-kit",
-					"label": "Mummer's kit",
-					"description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
-				},
-				{
-					"slug": "scribes-tools",
-					"label": "Scribe's tools",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-					"outfitItems": [
-						{
-							"slug": "scribe-notebook",
-							"name": "Notebook",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						}
-					]
-				},
-				{
-					"slug": "trade-contacts",
-					"label": "Trade contacts",
-					"description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
 				}
 			]
 		}

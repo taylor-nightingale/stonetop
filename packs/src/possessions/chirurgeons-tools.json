@@ -1,0 +1,24 @@
+{
+	"_id": "4HkgaWqU92NB8rxP",
+	"_key": "!items!4HkgaWqU92NB8rxP",
+	"name": "Chirurgeon's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "chirurgeons-tools",
+		"label": "Chirurgeon's tools",
+		"description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "bonesaws",
+				"name": "Bonesaws",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

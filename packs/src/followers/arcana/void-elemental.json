@@ -26,33 +26,35 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+						}
 					},
-					"input": {
-						"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "Loyalty ◯◯◯"
+						}
 					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "Loyalty ◯◯◯"
-					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

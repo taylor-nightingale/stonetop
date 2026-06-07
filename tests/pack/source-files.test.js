@@ -72,12 +72,12 @@ describe("pack source files", () => {
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
-	it("arcana items have flags.stonetop.slug, front, and back", () => {
-		const arcana = allDocs.filter(({ doc }) => doc.system?.equipmentType === "arcana");
+	it("arcana items have a slug, front, and back", () => {
+		const arcana = allDocs.filter(({ doc }) => doc.type === "arcanum");
 		const bad = arcana.filter(({ doc }) =>
-			!doc.flags?.stonetop?.slug ||
-			!doc.flags?.stonetop?.front ||
-			!doc.flags?.stonetop?.back
+			!doc.system?.slug ||
+			!doc.system?.front ||
+			!doc.system?.back
 		);
 		expect(bad.map(b => b.file)).toEqual([]);
 	});

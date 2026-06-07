@@ -1,0 +1,140 @@
+{
+	"_id": "zQrcS9vrd831E83T",
+	"_key": "!items!zQrcS9vrd831E83T",
+	"name": "Sacred pouch (<em>magical</em>)",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "sacred-pouch",
+		"label": "Sacred pouch (<em>magical</em>)",
+		"description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
+		"resource": {
+			"max": 3,
+			"title": "Stock",
+			"labels": []
+		},
+		"outfitItems": [],
+		"choices": {
+			"slug": "sacred-pouch",
+			"list": [
+				{
+					"type": "entry",
+					"content": {
+						"title": "Your sacred pouch is...",
+						"text": null
+					},
+					"note": "choose 1 on each line"
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "origin-heirloom",
+							"text": "an heirloom made just for you"
+						},
+						{
+							"slug": "origin-made-just-for-you",
+							"text": "made just for you"
+						},
+						{
+							"slug": "origin-own-work",
+							"text": "your own work"
+						}
+					],
+					"inline": true
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "material-fur",
+							"text": "fur"
+						},
+						{
+							"slug": "material-drakescale",
+							"text": "drakescale"
+						},
+						{
+							"slug": "material-leather",
+							"text": "leather"
+						},
+						{
+							"slug": "material-woven",
+							"text": "woven"
+						},
+						{
+							"slug": "material-demonflesh",
+							"text": "demonflesh"
+						}
+					],
+					"inline": true
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "decor-unadorned",
+							"text": "unadorned"
+						},
+						{
+							"slug": "decor-beadwork",
+							"text": "beadwork"
+						},
+						{
+							"slug": "decor-rich-dyes",
+							"text": "rich dyes"
+						},
+						{
+							"slug": "decor-runes",
+							"text": "runes"
+						}
+					],
+					"inline": true
+				},
+				{
+					"type": "entry",
+					"content": {
+						"title": "What remarkable trait does it possess?",
+						"text": null
+					},
+					"note": "choose 1"
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "trait-indestructible",
+							"text": "It cannot be cut, torn, or burned by any natural means."
+						},
+						{
+							"slug": "trait-unnoticed",
+							"text": "Unless someone is specifically searching for your pouch, they will ignore its presence."
+						},
+						{
+							"slug": "trait-sealed",
+							"text": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
+						},
+						{
+							"slug": "trait-unclean",
+							"text": "Unnatural and unclean creatures cannot bear to touch it."
+						}
+					]
+				}
+			]
+		},
+		"scaling": {
+			"perEvenLevel": 1,
+			"perMove": [
+				{
+					"moveSlug": "big-magic",
+					"amount": 2
+				}
+			]
+		},
+		"sortOrder": null
+	}
+}

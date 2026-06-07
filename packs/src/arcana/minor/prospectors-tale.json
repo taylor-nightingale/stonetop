@@ -2,9 +2,8 @@
 	"_id": "BS4QVV6VZA8AbBCd",
 	"_key": "!items!BS4QVV6VZA8AbBCd",
 	"name": "A prospector's tale",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "prospectors-tale",
 		"front": {
 			"title": "A prospector's tale",
@@ -14,14 +13,14 @@
 				"slug": "prospectors-tale",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "proficient-art",
 						"content": {
 							"title": null,
@@ -32,7 +31,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "find-ustrina",
 						"content": {
 							"title": null,
@@ -43,7 +42,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "season-studying",
 						"content": {
 							"title": null,
@@ -54,7 +53,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-voice",
 						"content": {
 							"title": null,

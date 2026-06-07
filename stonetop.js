@@ -10,12 +10,35 @@ import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
+import { CharacterData } from "./src/data/CharacterData.js";
+import { NpcData } from "./src/data/NpcData.js";
+import { SteadingData } from "./src/data/SteadingData.js";
+import { MoveData }        from "./src/data/MoveData.js";
+import { ArcanumData }     from "./src/data/ArcanumData.js";
+import { PlaybookData }    from "./src/data/PlaybookData.js";
+import { InsertData }      from "./src/data/InsertData.js";
+import { ImprovementData } from "./src/data/ImprovementData.js";
+import { NpcItemData }     from "./src/data/NpcItemData.js";
+import { OutfitItemData }  from "./src/data/OutfitItemData.js";
+import { PossessionData }  from "./src/data/PossessionData.js";
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
 // be registered here so they're available before any documents load.
 Hooks.once("init", () => {
 	info("Initializing");
+
+	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData, steading: SteadingData });
+	Object.assign(CONFIG.Item.dataModels, {
+		move:        MoveData,
+		arcanum:     ArcanumData,
+		playbook:    PlaybookData,
+		insert:      InsertData,
+		improvement: ImprovementData,
+		npc:         NpcItemData,
+		outfitItem:  OutfitItemData,
+		possession:  PossessionData,
+	});
 
 	registerSettings();
 
@@ -103,13 +126,15 @@ Hooks.once("init", () => {
 		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
 		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
 		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
-		"stonetop.tab-post-death":   "systems/stonetop/templates/actor/partials/tab-post-death.hbs",
+		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
+		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
 		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
-		"stonetop.steading":         "systems/stonetop/templates/actor/steading.hbs",
+		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
+		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
 	});
 });
 

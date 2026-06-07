@@ -11,6 +11,20 @@ export class ChoiceOption {
 	}
 }
 
+export class EntryRow {
+	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = []) {
+		this.type          = "entry";
+		this.slug          = slug;
+		this.content       = content;       // { title: string|null, text: string|null }
+		this.note          = note;
+		this.track         = track;         // null | { slug, checks: bool[], requires? }
+		this.input         = input;         // null | { slug, placeholder, value }
+		this.followers     = followers;     // FollowerSnapshot[]
+		this.inlineDisplay = inlineDisplay;
+		this.outfitItems   = outfitItems;   // OutfitItem[]
+	}
+}
+
 export class ChoiceRow {
 	constructor(options, {inline = false, rowKey = null, radio = true, siblingSlugsCsv = null} = {}) {
 		this.type           = "choice";
@@ -19,28 +33,6 @@ export class ChoiceRow {
 		this.rowKey         = rowKey;
 		this.radio          = radio;
 		this.siblingSlugsCsv = siblingSlugsCsv;
-	}
-}
-
-export class HeadingRow {
-	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null) {
-		this.type    = "heading";
-		this.slug    = slug;
-		this.content = content;  // { title: string|null, text: string|null }
-		this.note    = note;
-		this.track   = track;   // null | { slug, checks: bool[], requires? }
-		this.input   = input;   // null | { slug, placeholder, value }
-	}
-}
-
-export class FollowerRow {
-	constructor(slug, follower, track, title, inlineDisplay) {
-		this.type          = "follower";
-		this.slug          = slug;
-		this.follower      = follower;      // FollowerSnapshot | null
-		this.track         = track;         // null | { slug, checks: bool[] } — null means no checkbox
-		this.title         = title;         // HTML string, shown when !inlineDisplay
-		this.inlineDisplay = inlineDisplay; // boolean — true: show full card; false: show title
 	}
 }
 
@@ -85,12 +77,12 @@ export class ChoiceGroup {
 	}
 
 	static buildRow(item, values, es, idx, followersBySlug = {}) {
-		if (item.type === "heading")  return this.buildHeadingRow(item, values, es);
-		if (item.type === "follower") return this.buildFollowerRow(item, values, es, followersBySlug);
+		if (item.type === "entry" || item.type === "heading" || item.type === "follower")
+			return this.buildEntryRow(item, values, es, followersBySlug);
 		return this.buildPickRow(item, es, idx, values);
 	}
 
-	static buildHeadingRow(item, values, es) {
+	static buildEntryRow(item, values, es, followersBySlug = {}) {
 		let track = null;
 		if (item.track && item.slug) {
 			const count  = values.getCount(es, item.slug);
@@ -104,8 +96,26 @@ export class ChoiceGroup {
 				value:       values.getText(es, `${item.slug}-input`) || (item.input.default ?? ""),
 			}
 			: null;
-		const content = { title: item.content?.title ?? null, text: item.content?.text ?? null };
-		return new HeadingRow(item.slug ?? null, content, item.note ?? null, track, input);
+		// Support both { content.text } (entry) and { title } (legacy follower)
+		const text    = item.content?.text ?? item.title ?? null;
+		const content = { title: item.content?.title ?? null, text };
+
+		// Resolve follower slugs — new: item.followers[]; legacy: item.type === "follower" uses item.slug
+		const followerSlugs = item.followers?.length
+			? item.followers
+			: (item.type === "follower" ? [item.slug] : []);
+		const followers = followerSlugs.map(s => followersBySlug[s] ?? null).filter(Boolean);
+
+		return new EntryRow(
+			item.slug ?? null,
+			content,
+			item.note ?? null,
+			track,
+			input,
+			followers,
+			item.inlineDisplay ?? false,
+			item.outfitItems ?? [],
+		);
 	}
 
 	static buildPickRow(item, es, idx, values) {
@@ -114,30 +124,13 @@ export class ChoiceGroup {
 		const siblingSlugsCsv = radio ? (item.options ?? []).map(o => o.slug).join(",") : null;
 		return new ChoiceRow(
 			(item.options ?? []).map(o => new ChoiceOption(o.slug, {
-				text:        o.text,
-				description: o.description ?? null,
+				text:        o.content?.title ?? o.text ?? null,
+				description: o.content?.text  ?? o.description ?? null,
 				checked:     values.getCount(es, o.slug) > 0,
 				type:        o.type ?? null,
 				fillValue:   o.type === "input" ? values.getText(es, o.slug + "-fill") : "",
 			})),
 			{inline: item.inline ?? false, rowKey, radio, siblingSlugsCsv},
-		);
-	}
-
-	static buildFollowerRow(item, values, es, followersBySlug) {
-		const track = item.track
-			? {
-				slug:   item.slug,
-				checks: Array.from({length: item.track.max ?? 1}, (_, i) =>
-					i < values.getCount(es, item.slug)),
-			}
-			: null;
-		return new FollowerRow(
-			item.slug,
-			followersBySlug[item.slug] ?? null,
-			track,
-			item.title         ?? "",
-			item.inlineDisplay ?? false,
 		);
 	}
 }

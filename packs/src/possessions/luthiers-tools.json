@@ -1,0 +1,17 @@
+{
+	"_id": "J7VeOungAGsYsGwI",
+	"_key": "!items!J7VeOungAGsYsGwI",
+	"name": "Luthier's tools",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "luthiers-tools",
+		"label": "Luthier's tools",
+		"description": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

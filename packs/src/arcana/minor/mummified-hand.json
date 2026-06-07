@@ -2,9 +2,8 @@
 	"_id": "HY0WBB2BFG4GhHIj",
 	"_key": "!items!HY0WBB2BFG4GhHIj",
 	"name": "A mummified hand",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "mummified-hand",
 		"front": {
 			"title": "A mummified hand",
@@ -19,14 +18,14 @@
 				"slug": "mummified-hand",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-name",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-words",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "soak-crystal",
 						"content": {
 							"title": null,

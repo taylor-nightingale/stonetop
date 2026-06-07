@@ -3,7 +3,7 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
-	"version": "0.9.1",
+	"version": "0.10.0",
 	"compatibility": {
 		"minimum": "14",
 		"verified": "14"
@@ -47,17 +47,28 @@
 			"path": "languages/en.json"
 		}
 	],
-	"template": "template.json",
 	"documentTypes": {
 		"Actor": {
-			"steading": {}
+			"character": {},
+			"npc":       {},
+			"steading":  {}
+		},
+		"Item": {
+			"move":        {},
+			"arcanum":     {},
+			"playbook":    {},
+			"insert":      {},
+			"improvement": {},
+			"npc":         {},
+			"outfitItem":  {},
+			"possession":  {}
 		}
 	},
 	"packs": [
 		{
-			"name": "basic-moves",
-			"label": "Basic Moves",
-			"path": "packs/basic-moves",
+			"name": "moves",
+			"label": "Moves",
+			"path": "packs/moves",
 			"type": "Item",
 			"system": "stonetop"
 		},
@@ -65,34 +76,6 @@
 			"name": "playbooks",
 			"label": "Playbooks",
 			"path": "packs/playbooks",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "special-moves",
-			"label": "Special Moves",
-			"path": "packs/special-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "playbook-moves",
-			"label": "Playbook Moves",
-			"path": "packs/playbook-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "follower-moves",
-			"label": "Follower Moves",
-			"path": "packs/follower-moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "homefront-moves",
-			"label": "Homefront Moves",
-			"path": "packs/homefront-moves",
 			"type": "Item",
 			"system": "stonetop"
 		},
@@ -111,16 +94,9 @@
 			"system": "stonetop"
 		},
 		{
-			"name": "post-death-inserts",
-			"label": "Post-Death Inserts",
-			"path": "packs/post-death-inserts",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "post-death-moves",
-			"label": "Post-Death Moves",
-			"path": "packs/post-death-moves",
+			"name": "inserts",
+			"label": "Inserts",
+			"path": "packs/inserts",
 			"type": "Item",
 			"system": "stonetop"
 		},
@@ -128,6 +104,13 @@
 			"name": "followers",
 			"label": "Followers",
 			"path": "packs/followers",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "possessions",
+			"label": "Possessions",
+			"path": "packs/possessions",
 			"type": "Item",
 			"system": "stonetop"
 		},

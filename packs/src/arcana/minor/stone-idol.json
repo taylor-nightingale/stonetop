@@ -2,9 +2,8 @@
 	"_id": "KB3ZEE5EIJ7JkKLm",
 	"_key": "!items!KB3ZEE5EIJ7JkKLm",
 	"name": "A stone idol",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "stone-idol",
 		"front": {
 			"title": "A stone idol",
@@ -19,14 +18,14 @@
 				"slug": "stone-idol",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its \"mysteries\" and benefit from its patronage, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "restore-shrine",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "extract-idol",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "trick-idol",
 						"content": {
 							"title": null,
@@ -70,13 +69,19 @@
 				"slug": "stone-idol",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "all-mighty-thistlewisk",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"all-mighty-thistlewisk"
+						]
 					}
 				]
 			},

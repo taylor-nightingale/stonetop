@@ -2,9 +2,8 @@
 	"_id": "JA2YDD4DHI6IjJKl",
 	"_key": "!items!JA2YDD4DHI6IjJKl",
 	"name": "A humble broom",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "humble-broom",
 		"front": {
 			"title": "A humble broom",
@@ -19,14 +18,14 @@
 				"slug": "humble-broom",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock its mysteries, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "find-fae",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-teach",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "use-daily",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-timeless-sleep",
 						"content": {
 							"title": null,

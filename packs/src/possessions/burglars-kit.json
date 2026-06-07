@@ -1,0 +1,53 @@
+{
+	"_id": "ait07YgWRRTMDXFN",
+	"_key": "!items!ait07YgWRRTMDXFN",
+	"name": "Burglar's kit",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "burglars-kit",
+		"label": "Burglar's kit",
+		"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
+		"resource": null,
+		"outfitItems": [
+			{
+				"slug": "burglar-prybars",
+				"name": "Prybars",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "burglar-hacksaws",
+				"name": "Hacksaws",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			},
+			{
+				"slug": "burglar-lantern",
+				"name": "Lantern",
+				"weight": 1,
+				"inventoryColumn": "regular",
+				"tags": "close, area",
+				"resource": {
+					"max": 5,
+					"labels": [
+						"",
+						"",
+						"",
+						"",
+						"hours"
+					]
+				}
+			},
+			{
+				"slug": "burglar-grappling-hook",
+				"name": "Grappling hook",
+				"weight": 1,
+				"inventoryColumn": "regular"
+			}
+		],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

@@ -1,4 +1,5 @@
 import { toSlug } from "../utils/slug.js";
+import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 
 const ROLL_STAT_CHOICES = {
 	"":       "stonetop.item.move.rollStat.none",
@@ -24,10 +25,16 @@ const MOVE_TYPE_CHOICES = {
 };
 
 const DEFAULT_ROWS = {
-	heading:  { type: "heading",  content: { title: null, text: null }, note: null, track: null, input: null },
-	pick:     { type: "pick",     pickCount: 1, inline: false, options: [] },
-	follower: { type: "follower", slug: "", title: "", track: null, inlineDisplay: false },
+	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: [], outfitItems: [], inlineDisplay: false },
+	pick:  { type: "pick",  pickCount: 1, inline: false, options: [] },
 };
+
+const BLANK_OUTFIT_ITEM = { slug: "", name: "", weight: 0, inventoryColumn: "regular" };
+const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: [], outfitItems: [], note: null, type: null, inlineDisplay: false };
+
+function _blankOption(n) {
+	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: [] };
+}
 
 async function _buildPlaybookChoices() {
 	const names = new Set();
@@ -41,24 +48,6 @@ async function _buildPlaybookChoices() {
 	}
 	const sorted = [...names].sort((a, b) => a.localeCompare(b));
 	return Object.fromEntries([["", "—"], ...sorted.map(n => [n, n])]);
-}
-
-async function _buildFollowerChoices() {
-	const entries = new Map();
-	const pack = game.packs.get("stonetop.followers");
-	if (pack) {
-		await pack.getIndex({ fields: ["system.slug"] });
-		for (const entry of pack.index) {
-			if (entry.system?.slug) entries.set(entry.system.slug, entry.name);
-		}
-	}
-	for (const item of game.items?.contents ?? []) {
-		if (item.type === "equipment" && item.system?.equipmentType === "follower" && item.system?.slug) {
-			entries.set(item.system.slug, item.name);
-		}
-	}
-	const sorted = [...entries.entries()].sort((a, b) => a[1].localeCompare(b[1]));
-	return Object.fromEntries([["", "— Select Follower —"], ...sorted.map(([slug, name]) => [slug, name])]);
 }
 
 export function createStonetopMoveSheetClass(Base) {
@@ -82,14 +71,26 @@ export function createStonetopMoveSheetClass(Base) {
 			context.rollStatChoices = ROLL_STAT_CHOICES;
 			context.moveTypeChoices = MOVE_TYPE_CHOICES;
 			context.playbookChoices  = await _buildPlaybookChoices();
-			context.followerChoices  = await _buildFollowerChoices();
 			context.isPlaybook       = this.item.system.moveType === "playbook";
 			context.isRollable       = !!this.item.system.rollStat;
+			context.showResults      = context.isRollable;
 			if (context.system.choices) {
+				context.choiceSnapshot = ChoiceGroup.fromPackData(context.system.choices, new ChoiceValues(), {});
 				context.choiceRows = context.system.choices.list.map((row, ri) => ({
 					...row,
 					_index: ri,
-					options: row.options?.map((opt, oi) => ({ ...opt, _index: oi, _rowIndex: ri })),
+					_target: "row",
+					_rowIndex: ri,
+					_hasOptionIndex: false,
+					_optionIndex: null,
+					options: row.options?.map((opt, oi) => ({
+						...opt,
+						_index: oi,
+						_rowIndex: ri,
+						_target: "option",
+						_hasOptionIndex: true,
+						_optionIndex: oi,
+					})),
 				}));
 			}
 			return context;
@@ -107,9 +108,19 @@ export function createStonetopMoveSheetClass(Base) {
 			html.find(".choices-row-down").click(ev => this._moveChoicesRow(Number(ev.currentTarget.dataset.rowIndex), 1));
 			html.find(".choices-row-toggle-track").click(ev => this._toggleHeadingTrack(Number(ev.currentTarget.dataset.rowIndex)));
 			html.find(".choices-row-toggle-input").click(ev => this._toggleHeadingInput(Number(ev.currentTarget.dataset.rowIndex)));
-			html.find(".choices-row-toggle-follower-track").click(ev => this._toggleFollowerTrack(Number(ev.currentTarget.dataset.rowIndex)));
 			html.find(".choices-add-option").click(ev => this._addPickOption(Number(ev.currentTarget.dataset.rowIndex)));
 			html.find(".choices-option-delete").click(ev => this._removePickOption(Number(ev.currentTarget.dataset.rowIndex), Number(ev.currentTarget.dataset.optionIndex)));
+			html.find(".choices-add-outfit-item").click(ev => {
+				const ri = Number(ev.currentTarget.dataset.rowIndex);
+				const oi = ev.currentTarget.dataset.optionIndex != null ? Number(ev.currentTarget.dataset.optionIndex) : null;
+				this._addOutfitItem(ri, oi);
+			});
+			html.find(".choices-outfit-item-delete").click(ev => {
+				const ri  = Number(ev.currentTarget.dataset.rowIndex);
+				const ofi = Number(ev.currentTarget.dataset.outfitItemIndex);
+				const oi  = ev.currentTarget.dataset.optionIndex != null ? Number(ev.currentTarget.dataset.optionIndex) : null;
+				this._removeOutfitItem(ri, ofi, oi);
+			});
 			html.find("[data-choices-field]").on("change", ev => this._onChoicesFieldChange(ev));
 		}
 
@@ -134,8 +145,9 @@ export function createStonetopMoveSheetClass(Base) {
 		async _addChoicesRow(type) {
 			const choices = this._choicesClone();
 			const row = foundry.utils.deepClone(DEFAULT_ROWS[type]);
-			if (type === "heading") row.slug = "heading-" + choices.list.length;
-			if (type === "pick") row.options.push({ slug: "option-1", text: "Option 1", description: null, type: null });
+			if (!row) return;
+			if (type === "entry") row.slug = "entry-" + choices.list.length;
+			if (type === "pick") row.options.push(_blankOption(1));
 			choices.list.push(row);
 			await this._saveChoices(choices);
 		}
@@ -168,24 +180,30 @@ export function createStonetopMoveSheetClass(Base) {
 			await this._saveChoices(choices);
 		}
 
-		async _toggleFollowerTrack(rowIndex) {
-			const choices = this._choicesClone();
-			const row = choices.list[rowIndex];
-			row.track = row.track ? null : { max: 1 };
-			await this._saveChoices(choices);
-		}
-
 		async _addPickOption(rowIndex) {
 			const choices = this._choicesClone();
 			const options = choices.list[rowIndex].options;
-			const n = options.length + 1;
-			options.push({ slug: "option-" + n, text: "Option " + n, description: null, type: null });
+			options.push(_blankOption(options.length + 1));
 			await this._saveChoices(choices);
 		}
 
 		async _removePickOption(rowIndex, optionIndex) {
 			const choices = this._choicesClone();
 			choices.list[rowIndex].options.splice(optionIndex, 1);
+			await this._saveChoices(choices);
+		}
+
+		async _addOutfitItem(rowIndex, optionIndex = null) {
+			const choices = this._choicesClone();
+			const obj = optionIndex != null ? choices.list[rowIndex].options[optionIndex] : choices.list[rowIndex];
+			obj.outfitItems = [...(obj.outfitItems ?? []), { ...BLANK_OUTFIT_ITEM }];
+			await this._saveChoices(choices);
+		}
+
+		async _removeOutfitItem(rowIndex, outfitItemIndex, optionIndex = null) {
+			const choices = this._choicesClone();
+			const obj = optionIndex != null ? choices.list[rowIndex].options[optionIndex] : choices.list[rowIndex];
+			obj.outfitItems.splice(outfitItemIndex, 1);
 			await this._saveChoices(choices);
 		}
 
@@ -199,6 +217,7 @@ export function createStonetopMoveSheetClass(Base) {
 			let value;
 			if      (el.type === "checkbox") value = el.checked;
 			else if (el.type === "number")   value = el.value ? Number(el.value) : null;
+			else if (field === "followers")  value = el.value ? el.value.split(",").map(s => s.trim()).filter(Boolean) : [];
 			else                             value = el.value || null;
 
 			const choices = this._choicesClone();

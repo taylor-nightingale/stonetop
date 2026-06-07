@@ -2,9 +2,8 @@
 	"_id": "uL7JOO9ORS1TtUuv",
 	"_key": "!items!uL7JOO9ORS1TtUuv",
 	"name": "A vellum scroll",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "vellum-scroll",
 		"front": {
 			"title": "A vellum scroll",
@@ -19,14 +18,14 @@
 				"slug": "vellum-scroll",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the secrets of this scroll, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "determine-origin",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "break-cipher",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "acquire-ingredients",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "practice-incantation",
 						"content": {
 							"title": null,

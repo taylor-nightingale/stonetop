@@ -5,7 +5,7 @@
 	"system": {
 		"slug": "bronze-protector",
 		"arcanaSlug": "metal-man",
-		"tags": "Construct, spirit, durable, vigilant, overbearing, mute, gullible",
+		"tags": "construct, spirit, durable, vigilant, overbearing, mute, gullible",
 		"hp": {
 			"value": 0,
 			"min": 0,
@@ -26,33 +26,35 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "pummel d8 (band)"
+						}
 					},
-					"input": {
-						"default": "pummel d8 (band)"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "profuse gratitude (Loyalty ◯◯◯)"
+						}
 					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
-					},
-					"input": {
-						"default": "profuse gratitude (Loyalty ◯◯◯)"
-					}
-				}
-			]
-		},
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

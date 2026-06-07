@@ -1,0 +1,12 @@
+{
+  "_id": "xbV33Dh9P0JQlbYK",
+  "_key": "!items!xbV33Dh9P0JQlbYK",
+  "name": "Make a Plan",
+  "type": "move",
+  "system": {
+    "playbook": "Stonetop",
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>wish to accomplish some project but don't know how to go about it</em></strong>, tell the GM what you hope to achieve. They'll say what's required. If you're stumped on how to accomplish one of the requirements, tell the GM and Make a Plan for that.</p>"
+  },
+  "folder": "PA4a369HV9WVxpI3"
+}

@@ -28,129 +28,126 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "iron knife d6 (hand)"
+						}
 					},
-					"input": {
-						"default": "iron knife d6 (hand)"
-					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "consideration, affection; Loyalty"
+						}
 					},
-					"input": {
-						"default": "consideration, affection; Loyalty"
-					}
-				},
-				{
-					"type": "heading",
-					"content": {
-						"title": "Pick 1 on each line",
-						"text": null
-					}
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "he",
-							"text": "he"
-						},
-						{
-							"slug": "she",
-							"text": "she"
-						},
-						{
-							"slug": "they",
-							"text": "they"
-						},
-						{
-							"type": "heading",
-							"slug": "custom",
-							"content": {
-								"title": null,
-								"text": null
+					{
+						"type": "entry",
+						"content": {
+							"title": "Pick 1 on each line",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "he",
+								"text": "he"
 							},
-							"input": {}
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "a-big-family",
-							"text": "a big family"
-						},
-						{
-							"slug": "has-taken-you-in",
-							"text": "has taken you in"
-						},
-						{
-							"slug": "lives-alone",
-							"text": "lives alone"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "blunt",
-							"text": "blunt"
-						},
-						{
-							"slug": "demanding",
-							"text": "demanding"
-						},
-						{
-							"slug": "put-upon",
-							"text": "put upon"
-						},
-						{
-							"slug": "suffers-no-fools",
-							"text": "suffers no fools"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "rites-of-earth-and-soil",
-							"text": "rites of earth & soil"
-						},
-						{
-							"slug": "rites-of-mourning",
-							"text": "rites of mourning"
-						},
-						{
-							"slug": "rites-of-petition",
-							"text": "rites of petition"
-						}
-					]
-				}
-			]
-		},
+							{
+								"slug": "she",
+								"text": "she"
+							},
+							{
+								"slug": "they",
+								"text": "they"
+							},
+							{
+								"slug": "custom",
+								"type": "input"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "a-big-family",
+								"text": "a big family"
+							},
+							{
+								"slug": "has-taken-you-in",
+								"text": "has taken you in"
+							},
+							{
+								"slug": "lives-alone",
+								"text": "lives alone"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "blunt",
+								"text": "blunt"
+							},
+							{
+								"slug": "demanding",
+								"text": "demanding"
+							},
+							{
+								"slug": "put-upon",
+								"text": "put upon"
+							},
+							{
+								"slug": "suffers-no-fools",
+								"text": "suffers no fools"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "rites-of-earth-and-soil",
+								"text": "rites of earth & soil"
+							},
+							{
+								"slug": "rites-of-mourning",
+								"text": "rites of mourning"
+							},
+							{
+								"slug": "rites-of-petition",
+								"text": "rites of petition"
+							}
+						]
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

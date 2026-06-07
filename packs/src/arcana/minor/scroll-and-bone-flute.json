@@ -2,9 +2,8 @@
 	"_id": "Of5DiI7iKl9mNdOp",
 	"_key": "!items!Of5DiI7iKl9mNdOp",
 	"name": "A scroll & a bone flute",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "scroll-and-bone-flute",
 		"front": {
 			"title": "A scroll & a bone flute",
@@ -19,14 +18,14 @@
 				"slug": "scroll-and-bone-flute",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the secrets of the scroll and flute, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-notes",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-music",
 						"content": {
 							"title": null,
@@ -59,13 +58,19 @@
 				"slug": "scroll-and-bone-flute",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "dool-spirit",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"dool-spirit"
+						]
 					}
 				]
 			},

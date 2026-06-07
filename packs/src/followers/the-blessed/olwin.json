@@ -28,133 +28,130 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "iron spear d6 (close, thrown)"
+						}
 					},
-					"input": {
-						"default": "iron spear d6 (close, thrown)"
-					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "tenderness, respect; Loyalty"
+						}
 					},
-					"input": {
-						"default": "tenderness, respect; Loyalty"
-					}
-				},
-				{
-					"type": "heading",
-					"content": {
-						"title": "Pick 1 on each line",
-						"text": null
-					}
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "he",
-							"text": "he"
-						},
-						{
-							"slug": "she",
-							"text": "she"
-						},
-						{
-							"slug": "they",
-							"text": "they"
-						},
-						{
-							"type": "heading",
-							"slug": "custom",
-							"content": {
-								"title": null,
-								"text": null
+					{
+						"type": "entry",
+						"content": {
+							"title": "Pick 1 on each line",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "he",
+								"text": "he"
 							},
-							"input": {}
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "betrothed",
-							"text": "betrothed"
-						},
-						{
-							"slug": "true-love",
-							"text": "true love"
-						},
-						{
-							"slug": "ceremonial",
-							"text": "ceremonial"
-						},
-						{
-							"slug": "complicated",
-							"text": "complicated"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "contrary",
-							"text": "contrary"
-						},
-						{
-							"slug": "dramatic",
-							"text": "dramatic"
-						},
-						{
-							"slug": "passionate",
-							"text": "passionate"
-						},
-						{
-							"slug": "tormented",
-							"text": "tormented"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "rites-of-blood",
-							"text": "rites of blood"
-						},
-						{
-							"slug": "rites-of-fire",
-							"text": "rites of fire"
-						},
-						{
-							"slug": "rites-of-sacred-union",
-							"text": "rites of sacred union"
-						}
-					]
-				}
-			]
-		},
+							{
+								"slug": "she",
+								"text": "she"
+							},
+							{
+								"slug": "they",
+								"text": "they"
+							},
+							{
+								"slug": "custom",
+								"type": "input"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "betrothed",
+								"text": "betrothed"
+							},
+							{
+								"slug": "true-love",
+								"text": "true love"
+							},
+							{
+								"slug": "ceremonial",
+								"text": "ceremonial"
+							},
+							{
+								"slug": "complicated",
+								"text": "complicated"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "contrary",
+								"text": "contrary"
+							},
+							{
+								"slug": "dramatic",
+								"text": "dramatic"
+							},
+							{
+								"slug": "passionate",
+								"text": "passionate"
+							},
+							{
+								"slug": "tormented",
+								"text": "tormented"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "rites-of-blood",
+								"text": "rites of blood"
+							},
+							{
+								"slug": "rites-of-fire",
+								"text": "rites of fire"
+							},
+							{
+								"slug": "rites-of-sacred-union",
+								"text": "rites of sacred union"
+							}
+						]
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

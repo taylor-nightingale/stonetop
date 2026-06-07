@@ -2,10 +2,9 @@
 	"_id": "44UwcP6QXmw0SUtR",
 	"_key": "!items!44UwcP6QXmw0SUtR",
 	"name": "Azure Hand",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/azure-hand.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "azure-hand",
 		"front": {
 			"title": "Azure Hand",
@@ -20,21 +19,21 @@
 				"slug": "azure-hand",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>bear the Azure Hand</em></strong>, You sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>brandish the Azure Hand at a source of elemental energy</em></strong>, Roll +CON: <strong>on a 10+</strong>, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; <strong>on a 7-9</strong>, as a 10+, but the vortex is unstable and maintaining it requires all your focus.</p><ul><li>Direct the energy into a vessel able to contain it</li><li>Discharge the energy harmlessly into the earth</li><li>Fling the energy, rolling +INT to Let Fly (<em>thrown, dangerous</em>), inflicting damage and other effects of the GM's choosing</li><li>Use the energy to fuel or empower some other magic.</li></ul><p><strong>On a 6-</strong>, instead of marking XP, mark 1.</p><p>Each time you mark 1, ask the GM how the power goes out of control.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -79,7 +78,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c1",
 						"content": {
 							"title": null,
@@ -87,7 +86,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c2",
 						"content": {
 							"title": null,
@@ -95,7 +94,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c3",
 						"content": {
 							"title": null,
@@ -103,7 +102,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c4",
 						"content": {
 							"title": null,
@@ -111,7 +110,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c5",
 						"content": {
 							"title": null,
@@ -119,7 +118,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "azure-c6",
 						"content": {
 							"title": null,

@@ -2,10 +2,9 @@
 	"_id": "V1Qsr1io0pFhT82S",
 	"_key": "!items!V1Qsr1io0pFhT82S",
 	"name": "Blackwood Fetishes",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/blackwood-fetishes.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "blackwood-fetishes",
 		"front": {
 			"title": "Blackwood Fetishes",
@@ -20,28 +19,28 @@
 				"slug": "blackwood-fetishes",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>mark a figurine's eyes with blood and likewise mark your own eyelids</em></strong>, You see through the eyes of the figurine whenever you close your eyes, for as long as the blood remains.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>anoint a figurine with your own blood and then sleep in its presence</em></strong>, Roll +CON: <strong>on a 10+</strong>, you dream lucidly of the spirit in the figurine, which speaks an archaic but intelligible dialect—it might be persuaded to reveal its name, or the name of its fellow spirit, or the method of calling them forth; <strong>on a 7-9</strong>, you dream of the spirit, but the dream is fleeting, strange, and disorienting—ask the GM what you learn of the spirit.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>learn the name of one of the bound spirits, or the sign that draws them forth and binds them</em></strong>, Mark 1.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -63,22 +62,34 @@
 				"slug": "followers",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "astor",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"astor"
+						]
 					},
 					{
-						"type": "follower",
 						"slug": "halix",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"halix"
+						]
 					}
 				]
 			},

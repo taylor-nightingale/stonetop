@@ -9,26 +9,13 @@ describe("StonetopCharacter.onDropItems", () => {
 		return new TestCharacterBuilder(new FakeActorBuilder().build()).build();
 	}
 
-	it("routes arcanum move to addArcanum and returns anyAdded=true", async () => {
+	it("returns arcanum items in others for Foundry to embed natively", async () => {
 		const char = makeChar();
-		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "equipment", system: { equipmentType: "arcanum", slug: "shell-game" } };
+		const item = { type: "arcanum", system: { slug: "shell-game" } };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
-		expect(addArcanum).toHaveBeenCalledWith("shell-game");
-		expect(anyAdded).toBe(true);
-		expect(others).toHaveLength(0);
-	});
-
-	it("skips arcanum item with no slug and returns anyAdded=false", async () => {
-		const char = makeChar();
-		const addArcanum = vi.spyOn(char, "addArcanum").mockResolvedValue();
-		const item = { type: "equipment", system: { equipmentType: "arcanum" }, flags: {} };
-
-		const { anyAdded } = await char.onDropItems([item]);
-
-		expect(addArcanum).not.toHaveBeenCalled();
+		expect(others).toContain(item);
 		expect(anyAdded).toBe(false);
 	});
 
@@ -54,28 +41,99 @@ describe("StonetopCharacter.onDropItems", () => {
 		expect(anyAdded).toBe(false);
 	});
 
-	it("returns non-move items as others and does not count them as added", async () => {
+	it("returns non-move non-follower items as others", async () => {
 		const char = makeChar();
-		const item = { type: "equipment", name: "Sword" };
+		const item = { type: "outfitItem", name: "Sword" };
 
 		const { anyAdded, others } = await char.onDropItems([item]);
 
 		expect(anyAdded).toBe(false);
-		expect(others).toEqual([item]);
+		expect(others).toContain(item);
 	});
 
-	it("handles a mix and returns anyAdded=true only for handled items", async () => {
+	it("handles a mix: moves handled internally, arcana and others returned for embedding", async () => {
 		const char = makeChar();
-		vi.spyOn(char, "addArcanum").mockResolvedValue();
 		vi.spyOn(char, "onDropMove").mockResolvedValue(false);
-		const arcanum = { type: "equipment", system: { equipmentType: "arcanum", slug: "eye" } };
+		const arcanum = { type: "arcanum", system: { slug: "eye" } };
 		const move = { type: "move", system: { moveType: "basic" } };
-		const other = { type: "equipment" };
+		const other = { type: "outfitItem" };
 
 		const { anyAdded, others } = await char.onDropItems([arcanum, move, other]);
 
-		expect(anyAdded).toBe(true);
-		expect(others).toEqual([other]);
+		expect(anyAdded).toBe(false);
+		expect(others).toContain(arcanum);
+		expect(others).toContain(other);
+	});
+
+	it("deletes existing playbook item before returning new one in others", async () => {
+		const existingPlaybook = { _id: "old-pb-id", type: "playbook", system: { slug: "the-blessed" } };
+		const actor = new FakeActorBuilder().withItems([existingPlaybook]).build();
+		const char = new TestCharacterBuilder(actor).build();
+		const newPlaybook = { type: "playbook", system: { slug: "the-ranger" } };
+
+		const { others } = await char.onDropItems([newPlaybook]);
+
+		expect(actor.deletedIds).toContain("old-pb-id");
+		expect(others).toContain(newPlaybook);
+	});
+
+	it("returns new playbook in others even when no existing playbook is present", async () => {
+		const char = makeChar();
+		const newPlaybook = { type: "playbook", system: { slug: "the-ranger" } };
+
+		const { anyAdded, others } = await char.onDropItems([newPlaybook]);
+
+		expect(anyAdded).toBe(false);
+		expect(others).toContain(newPlaybook);
+	});
+});
+
+// -- _onDeleteDescendantDocuments ---------------------------------------------
+
+describe("StonetopCharacter._onDeleteDescendantDocuments", () => {
+	it("removes possession items belonging to the deleted playbook", async () => {
+		const possessionItem = {
+			_id: "pouch-item-id", type: "possession",
+			system: { slug: "sacred-pouch", playbookSlug: "the-blessed" },
+		};
+		const actor = new FakeActorBuilder().withItems([possessionItem]).build();
+		const char = new TestCharacterBuilder(actor).build();
+
+		await char._onDeleteDescendantDocuments([
+			{ type: "playbook", system: { slug: "the-blessed" } },
+		]);
+
+		expect(actor.deletedIds).toContain("pouch-item-id");
+	});
+
+	it("does not remove possessions from a different playbook", async () => {
+		const possessionItem = {
+			_id: "pouch-item-id", type: "possession",
+			system: { slug: "sacred-pouch", playbookSlug: "the-fox" },
+		};
+		const actor = new FakeActorBuilder().withItems([possessionItem]).build();
+		const char = new TestCharacterBuilder(actor).build();
+
+		await char._onDeleteDescendantDocuments([
+			{ type: "playbook", system: { slug: "the-blessed" } },
+		]);
+
+		expect(actor.deletedIds).not.toContain("pouch-item-id");
+	});
+
+	it("is a no-op for non-playbook document types", async () => {
+		const possessionItem = {
+			_id: "pouch-item-id", type: "possession",
+			system: { slug: "sacred-pouch", playbookSlug: "the-blessed" },
+		};
+		const actor = new FakeActorBuilder().withItems([possessionItem]).build();
+		const char = new TestCharacterBuilder(actor).build();
+
+		await char._onDeleteDescendantDocuments([
+			{ type: "move", system: { slug: "some-move" } },
+		]);
+
+		expect(actor.deletedIds).toHaveLength(0);
 	});
 });
 

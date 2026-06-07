@@ -1,5 +1,5 @@
-import {FakeFlags} from "./FakeFlags.js";
-import {FakeActor} from "./FakeActor.js";
+import {FakeFlags} from "./foundry/FakeFlags.js";
+import {FakeActor} from "./foundry/FakeActor.js";
 import {StonetopFakeFlagsBuilder} from "./StonetopFakeFlagsBuilder.js";
 
 export class FakeStatBuilder {
@@ -138,7 +138,6 @@ export class FakeActorBuilder {
 
 	buildFlags() {
 		return this._flagsBuilder.withFlag("rollMode", this._rollMode)
-			.withFlag("playbook.slug", this._playbookSlug)
 			.build();
 	}
 

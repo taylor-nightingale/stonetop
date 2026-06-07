@@ -2,9 +2,8 @@
 	"_id": "Sj9HmM1mOp3qRjSt",
 	"_key": "!items!Sj9HmM1mOp3qRjSt",
 	"name": "A gold ring",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "gold-ring",
 		"front": {
 			"title": "A gold ring",
@@ -19,14 +18,14 @@
 				"slug": "gold-ring",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the secrets of this ring, but must first…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "wear-40-days",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "act-of-charity",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "worship-helior",
 						"content": {
 							"title": null,

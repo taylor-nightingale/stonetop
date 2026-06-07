@@ -2,9 +2,8 @@
 	"_id": "Ri8GlL0lNo2pQiRs",
 	"_key": "!items!Ri8GlL0lNo2pQiRs",
 	"name": "A chain of rusty locks",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "chain-of-rusty-locks",
 		"front": {
 			"title": "A chain of rusty locks",
@@ -19,14 +18,14 @@
 				"slug": "chain-of-rusty-locks",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can master the locks by…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-shade-capture",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "convince-shade-opened",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "open-locks",
 						"content": {
 							"title": null,

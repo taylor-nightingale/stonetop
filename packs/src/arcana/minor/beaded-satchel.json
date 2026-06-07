@@ -2,9 +2,8 @@
 	"_id": "fw2UzZ4zAC6EeWfg",
 	"_key": "!items!fw2UzZ4zAC6EeWfg",
 	"name": "A beaded satchel",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "beaded-satchel",
 		"front": {
 			"title": "A beaded satchel",
@@ -19,14 +18,14 @@
 				"slug": "beaded-satchel",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the satchel's secrets and gain the spirits' aid, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "imbibe-alcohol",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "commune-spirits",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "feed-satchel",
 						"content": {
 							"title": null,

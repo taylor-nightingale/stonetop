@@ -2,10 +2,9 @@
 	"_id": "owVnAXfeM4rOBEnw",
 	"_key": "!items!owVnAXfeM4rOBEnw",
 	"name": "Red Scepter",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/red-scepter.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "red-scepter",
 		"front": {
 			"title": "Red Scepter",
@@ -20,35 +19,35 @@
 				"slug": "red-scepter",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>hold the Scepter and wind blows through the openings in the crystal</em></strong>, It makes a soft howling noise.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>gesture at an open flame with the scepter</em></strong>, The flame flickers or flares as if blown by the wind.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>bleed a helpless, living creature and dip the Scepter's crystal in their still-warm blood</em></strong>, Mark 1 charge as the crystal soaks up the blood (to a maximum of 3). ◇◇◇</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>inflame</em></strong>, When you <strong>wield the Scepter and incite an individual to violent action</strong>, you may erase 1 charge to roll +CHA: <strong>on a 10+</strong>, they must pick 1 from the list below; <strong>on a 7-9</strong>, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.</p><ul><li>Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so</li><li>Resist, but suffer painful burns (2d4 damage, ignores armor).</li></ul><p>When you <strong>Inflame someone and they kill one or more living beings as a result</strong>, mark 1.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -84,7 +83,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c1",
 						"content": {
 							"title": null,
@@ -92,7 +91,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c2",
 						"content": {
 							"title": null,
@@ -100,7 +99,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c3",
 						"content": {
 							"title": null,
@@ -108,7 +107,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c4",
 						"content": {
 							"title": null,
@@ -116,7 +115,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c5",
 						"content": {
 							"title": null,
@@ -124,7 +123,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c6",
 						"content": {
 							"title": null,
@@ -132,7 +131,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c7",
 						"content": {
 							"title": null,
@@ -140,7 +139,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c8",
 						"content": {
 							"title": null,
@@ -148,7 +147,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "scepter-c9",
 						"content": {
 							"title": null,

@@ -2,10 +2,9 @@
 	"_id": "XJd42jHfouBYG8kL",
 	"_key": "!items!XJd42jHfouBYG8kL",
 	"name": "Hec'tumel Codex",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/hectumel-codex.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "hectumel-codex",
 		"front": {
 			"title": "Hec'tumel Codex",
@@ -20,21 +19,21 @@
 				"slug": "hectumel-codex",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>first run your fingers over the inscriptions</em></strong>, Your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>cast a Codex Spell, Casting penalty ◻◻◻◻◻</em></strong>, When you <strong>cast a spell learned from the Hec'tumel Codex</strong>, roll +INT: <strong>on a 10+</strong>, the spell works as described; <strong>on a 7-9</strong>, the spell works, but choose 1 from the list below; <strong>on a 6-</strong>, mark a consequence (see reverse) in addition to whatever the GM says.</p><ul><li>You draw unwelcome attention or put yourself in a spot (ask the GM how)</li><li>Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)</li></ul><p><strong>Call the Pale Lizard.</strong> Cast this spell at night. Hec'tumel (<em>Slithering One! Death Is Its Eyes!</em>) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.</p><p>When <strong>Hec'tumel spends the night teaching you a spell from the Codex</strong>, mark 1.</p><p>Each time you <strong>make a mark</strong>, choose one of the Codex Spells (see reverse)—you can now cast it. When you <strong>make the last mark</strong>, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -84,7 +83,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c1",
 						"content": {
 							"title": null,
@@ -92,7 +91,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c1a",
 						"content": {
 							"title": null,
@@ -100,7 +99,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c2",
 						"content": {
 							"title": null,
@@ -108,7 +107,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c2a",
 						"content": {
 							"title": null,
@@ -116,7 +115,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c3",
 						"content": {
 							"title": null,
@@ -124,7 +123,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c3a",
 						"content": {
 							"title": null,
@@ -132,7 +131,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "codex-c3b",
 						"content": {
 							"title": null,

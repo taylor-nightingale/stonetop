@@ -2,10 +2,9 @@
 	"_id": "AGA3VlOEiOEFNYFc",
 	"_key": "!items!AGA3VlOEiOEFNYFc",
 	"name": "Shield of the Wisent Witch",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/shield-of-the-wisent-witch.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "shield-of-the-wisent-witch",
 		"front": {
 			"title": "Shield of the Wisent Witch",
@@ -20,28 +19,28 @@
 				"slug": "shield-of-the-wisent-witch",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>bear the Shield openly</em></strong>, Natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>use the Shield to Defend with both feet planted firmly on the ground</em></strong>, So long as you hold Readiness you cannot be moved or tripped. When you <strong>spend Readiness to strike back at an attacker</strong>, you also break their momentum, knock them back, and/or send them reeling.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>perform the sacred rites of the forest witches, alone in the woods under a clear crescent moon</em></strong>, Mark 1.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -76,7 +75,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c1",
 						"content": {
 							"title": null,
@@ -84,7 +83,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c2",
 						"content": {
 							"title": null,
@@ -92,7 +91,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c3",
 						"content": {
 							"title": null,
@@ -100,7 +99,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c4",
 						"content": {
 							"title": null,
@@ -108,7 +107,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c5",
 						"content": {
 							"title": null,
@@ -116,7 +115,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c6",
 						"content": {
 							"title": null,
@@ -124,7 +123,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c7",
 						"content": {
 							"title": null,
@@ -132,7 +131,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "shield-c8",
 						"content": {
 							"title": null,

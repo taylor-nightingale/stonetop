@@ -2,9 +2,8 @@
 	"_id": "ar7PuU9uVx1zZrAb",
 	"_key": "!items!ar7PuU9uVx1zZrAb",
 	"name": "A crumbling arch",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "crumbling-arch",
 		"front": {
 			"title": "A crumbling arch",
@@ -19,14 +18,14 @@
 				"slug": "crumbling-arch",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn the secrets of the sanctifying mark, but to do so you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "purify-yourself",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "gaze-and-roll",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "memorize-sigil",
 						"content": {
 							"title": null,

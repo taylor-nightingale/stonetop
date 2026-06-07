@@ -1,0 +1,17 @@
+{
+	"_id": "19TOsNdQHdRzfrmu",
+	"_key": "!items!19TOsNdQHdRzfrmu",
+	"name": "Mummer's kit",
+	"type": "possession",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "mummers-kit",
+		"label": "Mummer's kit",
+		"description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc.",
+		"resource": null,
+		"outfitItems": [],
+		"choices": null,
+		"scaling": null,
+		"sortOrder": null
+	}
+}

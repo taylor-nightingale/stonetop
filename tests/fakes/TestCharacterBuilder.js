@@ -7,16 +7,6 @@ export class TestCharacterBuilder {
 		this._repos = new FakeRepositoryFactory();
 	}
 
-	withPlaybookRepo(repo) {
-		this._repos.playbook = repo ?? this._repos.playbook;
-		return this;
-	}
-
-	addPlaybook(playbook) {
-		this._repos.playbook.add(playbook);
-		return this;
-	}
-
 	withMoveRepo(repo) {
 		this._repos.moves = repo ?? this._repos.moves;
 		return this;
@@ -32,8 +22,8 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	addPostDeathMove(move) {
-		this._repos.moves.addPostDeath(move);
+	addInsertMove(move) {
+		this._repos.moves.addInsertMove(move);
 		return this;
 	}
 
@@ -52,8 +42,8 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	withPostDeathInsertRepo(repo) {
-		this._repos.postDeathInsert = repo ?? this._repos.postDeathInsert;
+	withPossessionRepo(repo) {
+		this._repos.possessions = repo ?? this._repos.possessions;
 		return this;
 	}
 

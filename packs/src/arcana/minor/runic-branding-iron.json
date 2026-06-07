@@ -2,9 +2,8 @@
 	"_id": "DU6SXX8XBC0CdDEf",
 	"_key": "!items!DU6SXX8XBC0CdDEf",
 	"name": "A runic branding iron",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "runic-branding-iron",
 		"front": {
 			"title": "A runic branding iron",
@@ -19,14 +18,14 @@
 				"slug": "runic-branding-iron",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the mysteries of this iron and claim its power as your own, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "decipher-runes",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "finish-etchings",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "heat-and-brand",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "allow-heal",
 						"content": {
 							"title": null,

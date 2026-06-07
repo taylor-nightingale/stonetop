@@ -15,127 +15,6 @@
 		},
 		"hp": 20,
 		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "ambition",
-							"description": "To increase your status or influence.",
-							"text": "Ambition"
-						},
-						{
-							"slug": "dispassion",
-							"description": "To disregard emotion or sentiment.",
-							"text": "Dispassion"
-						},
-						{
-							"slug": "harmony",
-							"description": "To seek a path that makes everyone happy.",
-							"text": "Harmony"
-						},
-						{
-							"slug": "orthodoxy",
-							"description": "To strictly adhere to rules and traditions.",
-							"text": "Orthodoxy"
-						},
-						{
-							"slug": "zeal",
-							"description": "To judge quickly and without doubt.",
-							"text": "Zeal"
-						}
-					]
-				}
-			]
-		},
-		"appearance": {
-			"slug": "appearance",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "eager-youth",
-							"text": "eager youth"
-						},
-						{
-							"slug": "in-my-prime",
-							"text": "in my prime"
-						},
-						{
-							"slug": "showing-my-years",
-							"text": "showing my years"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "calm-voice",
-							"text": "calm voice"
-						},
-						{
-							"slug": "booming-voice",
-							"text": "booming voice"
-						},
-						{
-							"slug": "a-voice-that-carries",
-							"text": "a voice that carries"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "hard-body",
-							"text": "hard body"
-						},
-						{
-							"slug": "powerful-frame",
-							"text": "powerful frame"
-						},
-						{
-							"slug": "slim",
-							"text": "slim"
-						},
-						{
-							"slug": "well-fed",
-							"text": "well-fed"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "polished-gear",
-							"text": "polished gear"
-						},
-						{
-							"slug": "robes-of-office",
-							"text": "robes of office"
-						},
-						{
-							"slug": "modest-clothes",
-							"text": "modest clothes"
-						}
-					]
-				}
-			]
-		},
 		"origin": [
 			{
 				"region": "Stonetop",
@@ -194,298 +73,6 @@
 				]
 			}
 		],
-		"lore": [
-			{
-				"slug": "chronicle-plus",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "The Chronicle",
-							"text": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "sturdy-vault",
-						"content": {
-							"title": null,
-							"text": "… is a sturdy vault from the time of the Makers."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "room-to-grow",
-						"content": {
-							"title": null,
-							"text": "… has plenty of room to grow."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hidden-underground",
-						"content": {
-							"title": null,
-							"text": "… is hidden underground."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "one-entrance",
-						"content": {
-							"title": null,
-							"text": "… has but one entrance, magically sealed."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "minor-magics",
-						"content": {
-							"title": null,
-							"text": "… bears minor magics to preserve its contents."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "warded",
-						"content": {
-							"title": null,
-							"text": "… is warded against spirits and magic."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "living-quarters",
-						"content": {
-							"title": null,
-							"text": "… includes your living quarters & office."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "chronicle-minus",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "But Alas, It…",
-							"text": "<p><em>(choose 2)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "outskirts",
-						"content": {
-							"title": null,
-							"text": "… sits on the outskirts, near the Old Wall."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "cramped",
-						"content": {
-							"title": null,
-							"text": "… is cramped, chaotic, and overflowing."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "crude-cellar",
-						"content": {
-							"title": null,
-							"text": "… is little more than a crude cellar."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "haunted",
-						"content": {
-							"title": null,
-							"text": "… seems to be haunted."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "dangerous-artifacts",
-						"content": {
-							"title": null,
-							"text": "… contains a few dangerous artifacts."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "lawkeeper-shrine",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "The Lawkeeper",
-							"text": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shrine-hub",
-						"content": {
-							"title": null,
-							"text": "… a hub of the community, a place of frequent rites, petitions, and celebrations."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shrine-high-holiday",
-						"content": {
-							"title": null,
-							"text": "… used only on high holidays, for each home keeps its own shrine above the hearth."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shrine-neglected",
-						"content": {
-							"title": null,
-							"text": "… neglected by most, tended only by you and a handful of believers."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shrine-grim",
-						"content": {
-							"title": null,
-							"text": "… a grim place of judgement and punishment, shunned by all but her chosen."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "shrine-new",
-						"content": {
-							"title": null,
-							"text": "… newly established, cramped and spare."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "lawkeeper-demands",
-				"list": [
-					{
-						"type": "heading",
-						"content": {
-							"title": "Of Her True Disciples, Aratis Demands…",
-							"text": "<p><em>(choose 3)</em></p>"
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "truth",
-						"content": {
-							"title": null,
-							"text": "… truth, honesty, and forthrightness."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "hospitality",
-						"content": {
-							"title": null,
-							"text": "… hospitality, freely given to all who ask for it."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "punishment",
-						"content": {
-							"title": null,
-							"text": "… the punishment of thieves & oathbreakers."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "diet-dress",
-						"content": {
-							"title": null,
-							"text": "… adherence to strict rules of diet and dress."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "heading",
-						"slug": "authority",
-						"content": {
-							"title": null,
-							"text": "… respect for authority, property, and rank."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		],
 		"backgrounds": [
 			{
 				"slug": "legacy",
@@ -513,110 +100,424 @@
 				"symbol-of-authority",
 				"scribes-kit"
 			],
-			"options": [
-				{
-					"slug": "symbol-of-authority",
-					"label": "Symbol of authority (pick 1)",
-					"choices": {
-						"slug": "symbol-of-authority",
-						"list": [
+			"slugs": [
+				"symbol-of-authority",
+				"scribes-kit",
+				"aviary",
+				"carpenters-tools",
+				"engineers-tools",
+				"smithy"
+			]
+		},
+		"choices": [
+			{
+				"slug": "appearance",
+				"list": [
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
 							{
-								"type": "pick",
-								"pickCount": 1,
-								"options": [
-									{
-										"slug": "authority-black-iron-maul",
-										"description": "utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)",
-										"outfitItems": [
-											{
-												"slug": "black-iron-maul",
-												"name": "Black iron maul, utterly immune to all magic",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>close, forceful, awkward</em>, +1 damage"
-											}
-										],
-										"text": "◇◇ Black iron maul"
-									},
-									{
-										"slug": "authority-makerglass-shield",
-										"description": "etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)",
-										"outfitItems": [
-											{
-												"slug": "makerglass-shield",
-												"name": "Makerglass shield, etched with Aratis's symbol",
-												"weight": 1,
-												"inventoryColumn": "regular",
-												"note": "<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+",
-												"armor": {
-													"modifier": 1
-												}
-											}
-										],
-										"text": "◇◇ Makerglass shield"
-									},
-									{
-										"slug": "authority-helm",
-										"description": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
-										"text": "Helm"
-									}
-								]
+								"slug": "eager-youth",
+								"text": "eager youth"
+							},
+							{
+								"slug": "in-my-prime",
+								"text": "in my prime"
+							},
+							{
+								"slug": "showing-my-years",
+								"text": "showing my years"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "calm-voice",
+								"text": "calm voice"
+							},
+							{
+								"slug": "booming-voice",
+								"text": "booming voice"
+							},
+							{
+								"slug": "a-voice-that-carries",
+								"text": "a voice that carries"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "hard-body",
+								"text": "hard body"
+							},
+							{
+								"slug": "powerful-frame",
+								"text": "powerful frame"
+							},
+							{
+								"slug": "slim",
+								"text": "slim"
+							},
+							{
+								"slug": "well-fed",
+								"text": "well-fed"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "polished-gear",
+								"text": "polished gear"
+							},
+							{
+								"slug": "robes-of-office",
+								"text": "robes of office"
+							},
+							{
+								"slug": "modest-clothes",
+								"text": "modest clothes"
 							}
 						]
 					}
-				},
-				{
-					"slug": "scribes-kit",
-					"label": "Scribe's kit",
-					"description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
-				},
-				{
-					"slug": "aviary",
-					"label": "Aviary",
-					"description": "a building with trained birds to carry messages. When you <em>send a message by trained bird</em>, the GM will tell you when (or if) you receive a reply, and what it says."
-				},
-				{
-					"slug": "carpenters-tools",
-					"label": "Carpenter's tools",
-					"description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
-				},
-				{
-					"slug": "engineers-tools",
-					"label": "Engineer's tools",
-					"description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-					"outfitItems": [
-						{
-							"slug": "engineer-tripod",
-							"name": "Tripod",
-							"weight": 1,
-							"inventoryColumn": "regular"
-						},
-						{
-							"slug": "engineer-block",
-							"name": "Block & Tackle",
-							"weight": 1,
-							"inventoryColumn": "regular"
+				]
+			},
+			{
+				"slug": "chronicle-plus",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "The Chronicle",
+							"text": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>"
 						}
-					]
-				},
+					},
+					{
+						"type": "entry",
+						"slug": "sturdy-vault",
+						"content": {
+							"title": null,
+							"text": "… is a sturdy vault from the time of the Makers."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "room-to-grow",
+						"content": {
+							"title": null,
+							"text": "… has plenty of room to grow."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hidden-underground",
+						"content": {
+							"title": null,
+							"text": "… is hidden underground."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "one-entrance",
+						"content": {
+							"title": null,
+							"text": "… has but one entrance, magically sealed."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "minor-magics",
+						"content": {
+							"title": null,
+							"text": "… bears minor magics to preserve its contents."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "warded",
+						"content": {
+							"title": null,
+							"text": "… is warded against spirits and magic."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "living-quarters",
+						"content": {
+							"title": null,
+							"text": "… includes your living quarters & office."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "chronicle-minus",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "But Alas, It…",
+							"text": "<p><em>(choose 2)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "outskirts",
+						"content": {
+							"title": null,
+							"text": "… sits on the outskirts, near the Old Wall."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "cramped",
+						"content": {
+							"title": null,
+							"text": "… is cramped, chaotic, and overflowing."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "crude-cellar",
+						"content": {
+							"title": null,
+							"text": "… is little more than a crude cellar."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "haunted",
+						"content": {
+							"title": null,
+							"text": "… seems to be haunted."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "dangerous-artifacts",
+						"content": {
+							"title": null,
+							"text": "… contains a few dangerous artifacts."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "lawkeeper-shrine",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "The Lawkeeper",
+							"text": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shrine-hub",
+						"content": {
+							"title": null,
+							"text": "… a hub of the community, a place of frequent rites, petitions, and celebrations."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shrine-high-holiday",
+						"content": {
+							"title": null,
+							"text": "… used only on high holidays, for each home keeps its own shrine above the hearth."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shrine-neglected",
+						"content": {
+							"title": null,
+							"text": "… neglected by most, tended only by you and a handful of believers."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shrine-grim",
+						"content": {
+							"title": null,
+							"text": "… a grim place of judgement and punishment, shunned by all but her chosen."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "shrine-new",
+						"content": {
+							"title": null,
+							"text": "… newly established, cramped and spare."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
+			{
+				"slug": "lawkeeper-demands",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Of Her True Disciples, Aratis Demands…",
+							"text": "<p><em>(choose 3)</em></p>"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "truth",
+						"content": {
+							"title": null,
+							"text": "… truth, honesty, and forthrightness."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "hospitality",
+						"content": {
+							"title": null,
+							"text": "… hospitality, freely given to all who ask for it."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "punishment",
+						"content": {
+							"title": null,
+							"text": "… the punishment of thieves & oathbreakers."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "diet-dress",
+						"content": {
+							"title": null,
+							"text": "… adherence to strict rules of diet and dress."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "authority",
+						"content": {
+							"title": null,
+							"text": "… respect for authority, property, and rank."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			}
+		],
+		"choiceValues": {},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
 				{
-					"slug": "smithy",
-					"label": "Smithy",
-					"description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
-					"outfitItems": [
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
 						{
-							"slug": "smithy-tongs",
-							"name": "Tongs",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
+							"slug": "ambition",
+							"description": "To increase your status or influence.",
+							"text": "Ambition"
 						},
 						{
-							"slug": "smithy-bellows",
-							"name": "Bellows",
-							"weight": 1,
-							"inventoryColumn": "regular",
-							"note": null
+							"slug": "dispassion",
+							"description": "To disregard emotion or sentiment.",
+							"text": "Dispassion"
+						},
+						{
+							"slug": "harmony",
+							"description": "To seek a path that makes everyone happy.",
+							"text": "Harmony"
+						},
+						{
+							"slug": "orthodoxy",
+							"description": "To strictly adhere to rules and traditions.",
+							"text": "Orthodoxy"
+						},
+						{
+							"slug": "zeal",
+							"description": "To judge quickly and without doubt.",
+							"text": "Zeal"
 						}
 					]
 				}

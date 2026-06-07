@@ -28,38 +28,40 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "damage",
-					"content": {
-						"title": null,
-						"text": "Damage"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "damage",
+						"content": {
+							"title": null,
+							"text": "Damage"
+						},
+						"input": {}
 					},
-					"input": {}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {}
 					},
-					"input": {}
-				},
-				{
-					"type": "heading",
-					"slug": "notes",
-					"content": {
-						"title": null,
-						"text": "Notes"
-					},
-					"input": {}
-				}
-			]
-		},
+					{
+						"type": "entry",
+						"slug": "notes",
+						"content": {
+							"title": null,
+							"text": "Notes"
+						},
+						"input": {}
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

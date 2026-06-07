@@ -2,10 +2,9 @@
 	"_id": "Iu7z09gddzRnpJRA",
 	"_key": "!items!Iu7z09gddzRnpJRA",
 	"name": "Whispering Rocks",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/whispering-rocks.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "whispering-rocks",
 		"front": {
 			"title": "Whispering Rocks",
@@ -15,14 +14,14 @@
 				"slug": "whispering-rocks",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>spend a few hours staring into the stones and listening to their whispers</em></strong>, Name someone you know but on whom you have never used this power before. Then, roll +INT: <strong>on a 10+</strong>, the stones reveal a secret about them; <strong>on a 7-9</strong>, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); <strong>on a 6-</strong>, the stones pry a secret from you.</p><p>When you <strong>reveal a secret to the stones</strong>, or they pry one from your mind, mark 1.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -52,7 +51,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c1",
 						"content": {
 							"title": null,
@@ -60,7 +59,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c2",
 						"content": {
 							"title": null,
@@ -68,7 +67,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c3",
 						"content": {
 							"title": null,
@@ -76,7 +75,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c4",
 						"content": {
 							"title": null,
@@ -84,7 +83,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c5",
 						"content": {
 							"title": null,
@@ -92,7 +91,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "rocks-c6",
 						"content": {
 							"title": null,

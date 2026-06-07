@@ -2,9 +2,8 @@
 	"_id": "tK6INN8NQR0SsTtu",
 	"_key": "!items!tK6INN8NQR0SsTtu",
 	"name": "A silvery glass bottle",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "silvery-glass-bottle",
 		"front": {
 			"title": "A silvery glass bottle",
@@ -19,14 +18,14 @@
 				"slug": "silvery-glass-bottle",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can unlock the secrets of this old glass bottle, but you must either…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "find-teacher",
 						"content": {
 							"title": null,
@@ -37,14 +36,14 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "or…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fill-and-drink",
 						"content": {
 							"title": null,

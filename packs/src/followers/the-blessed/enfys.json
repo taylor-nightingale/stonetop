@@ -28,129 +28,126 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": {
-			"slug": "choices",
-			"list": [
-				{
-					"type": "heading",
-					"slug": "weapon",
-					"content": {
-						"title": null,
-						"text": "Weapon"
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "weapon",
+						"content": {
+							"title": null,
+							"text": "Weapon"
+						},
+						"input": {
+							"default": "bronze knife d4 (hand)"
+						}
 					},
-					"input": {
-						"default": "bronze knife d4 (hand)"
-					}
-				},
-				{
-					"type": "heading",
-					"slug": "cost",
-					"content": {
-						"title": null,
-						"text": "Cost"
+					{
+						"type": "entry",
+						"slug": "cost",
+						"content": {
+							"title": null,
+							"text": "Cost"
+						},
+						"input": {
+							"default": "knowledge, secret lore; Loyalty"
+						}
 					},
-					"input": {
-						"default": "knowledge, secret lore; Loyalty"
-					}
-				},
-				{
-					"type": "heading",
-					"content": {
-						"title": "Pick 1 on each line",
-						"text": null
-					}
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "he",
-							"text": "he"
-						},
-						{
-							"slug": "she",
-							"text": "she"
-						},
-						{
-							"slug": "they",
-							"text": "they"
-						},
-						{
-							"type": "heading",
-							"slug": "custom",
-							"content": {
-								"title": null,
-								"text": null
+					{
+						"type": "entry",
+						"content": {
+							"title": "Pick 1 on each line",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "he",
+								"text": "he"
 							},
-							"input": {}
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "just-a-child",
-							"text": "just a child"
-						},
-						{
-							"slug": "on-the-cusp",
-							"text": "on the cusp"
-						},
-						{
-							"slug": "a-young-adult",
-							"text": "a young adult"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "carefully-chosen",
-							"text": "carefully chosen"
-						},
-						{
-							"slug": "marked-by-danu",
-							"text": "marked by Danu"
-						},
-						{
-							"slug": "orphaned",
-							"text": "orphaned"
-						}
-					]
-				},
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"inline": true,
-					"options": [
-						{
-							"slug": "carefree",
-							"text": "carefree"
-						},
-						{
-							"slug": "curious",
-							"text": "curious"
-						},
-						{
-							"slug": "moody",
-							"text": "moody"
-						},
-						{
-							"slug": "secretive",
-							"text": "secretive"
-						}
-					]
-				}
-			]
-		},
+							{
+								"slug": "she",
+								"text": "she"
+							},
+							{
+								"slug": "they",
+								"text": "they"
+							},
+							{
+								"slug": "custom",
+								"type": "input"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "just-a-child",
+								"text": "just a child"
+							},
+							{
+								"slug": "on-the-cusp",
+								"text": "on the cusp"
+							},
+							{
+								"slug": "a-young-adult",
+								"text": "a young adult"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "carefully-chosen",
+								"text": "carefully chosen"
+							},
+							{
+								"slug": "marked-by-danu",
+								"text": "marked by Danu"
+							},
+							{
+								"slug": "orphaned",
+								"text": "orphaned"
+							}
+						]
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "carefree",
+								"text": "carefree"
+							},
+							{
+								"slug": "curious",
+								"text": "curious"
+							},
+							{
+								"slug": "moody",
+								"text": "moody"
+							},
+							{
+								"slug": "secretive",
+								"text": "secretive"
+							}
+						]
+					}
+				]
+			}
+		],
 		"description": ""
 	},
 	"flags": {},

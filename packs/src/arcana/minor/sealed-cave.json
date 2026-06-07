@@ -2,9 +2,8 @@
 	"_id": "Yp5NsS7sTv9xXpYz",
 	"_key": "!items!Yp5NsS7sTv9xXpYz",
 	"name": "A sealed cave",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "sealed-cave",
 		"front": {
 			"title": "A sealed cave",
@@ -19,14 +18,14 @@
 				"slug": "sealed-cave",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "You can learn their mysteries, but…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "careful-transcription",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-ennui",
 						"content": {
 							"title": null,

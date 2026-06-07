@@ -2,9 +2,8 @@
 	"_id": "IZ1XCC3CGH5HiIJk",
 	"_key": "!items!IZ1XCC3CGH5HiIJk",
 	"name": "A redwood basin",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "redwood-basin",
 		"front": {
 			"title": "A redwood basin",
@@ -19,14 +18,14 @@
 				"slug": "redwood-basin",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "To unlock the mysteries of the basin, you must…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "befriend-spirit",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "learn-from-fae",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "fill-with-years",
 						"content": {
 							"title": null,
@@ -59,7 +58,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "When you mark the last requirement and unlock this arcanum, mark your current age on the other side. Then trigger the Bittersweet Elixir move."

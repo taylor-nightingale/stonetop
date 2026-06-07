@@ -2,9 +2,8 @@
 	"_id": "lC8AFF0FIJ2KkClm",
 	"_key": "!items!lC8AFF0FIJ2KkClm",
 	"name": "A makerglass chime",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "makerglass-chime",
 		"front": {
 			"title": "A makerglass chime",
@@ -19,14 +18,14 @@
 				"slug": "makerglass-chime",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "grasp-and-roll",
 						"content": {
 							"title": null,
@@ -37,7 +36,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "weeks-control",
 						"content": {
 							"title": null,
@@ -48,7 +47,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "risk-hearing",
 						"content": {
 							"title": null,

@@ -1,0 +1,21 @@
+export class PossessionData extends foundry.abstract.TypeDataModel {
+	static defineSchema() {
+		const f = foundry.data.fields;
+		return {
+			slug:         new f.StringField({ nullable: true, initial: null }),
+			label:        new f.StringField({ initial: "" }),
+			description:  new f.StringField({ initial: "" }),
+			resource:     new f.ObjectField({ nullable: true, initial: null }),
+			outfitItems:  new f.ArrayField(new f.ObjectField()),
+			choices:      new f.ObjectField({ nullable: true, initial: null }),
+			scaling:      new f.ObjectField({ nullable: true, initial: null }),
+			sortOrder:    new f.NumberField({ nullable: true, initial: null }),
+			selected:     new f.BooleanField({ initial: false }),
+			preselected:  new f.BooleanField({ initial: false }),
+			uses:         new f.NumberField({ initial: 0, integer: true }),
+			pickValues:   new f.ObjectField({ initial: {} }),
+			choiceUses:   new f.ObjectField({ initial: {} }),
+			playbookSlug: new f.StringField({ nullable: true, initial: null }),
+		};
+	}
+}

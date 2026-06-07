@@ -2,10 +2,9 @@
 	"_id": "1EvcBv0ExiwnuHfA",
 	"_key": "!items!1EvcBv0ExiwnuHfA",
 	"name": "Ring of Daagon",
-	"type": "equipment",
+	"type": "arcanum",
 	"img": "systems/stonetop/assets/arcana/ring-of-daagon.png",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "ring-of-daagon",
 		"front": {
 			"title": "Ring of Daagon",
@@ -15,28 +14,28 @@
 				"slug": "ring-of-daagon",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>don the Ring</em></strong>, You feel the presence of every body of water within a few miles, natural or not, even if it is underground.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>wear the Ring and caress its reptilian head</em></strong>, The air around you becomes damper and cooler. If you continue to caress it for a minute or so, a mist gathers near the ground and grows higher and thicker as long as you continue. A few minutes of caressing the Ring will blanket your immediate surroundings in thick, obscuring fog. Half an hour will blanket the countryside. The fog persists for as long as you caress the Ring, and then dissipates naturally based on the prevailing weather.</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "<p>When you <strong><em>have used the Ring to summon an obscuring fog and a named creature dies within that fog</em></strong>, The Ring will ask you (silently, in your mind, not so much with words as with a deep longing) <em>May I take this one?</em> Should you assent, the creature's body will be gone—vanished into the mists—as soon as no mortal is directly paying it heed. The first time this happens during each fog you summon, mark 1.</p><p>When you <strong>make the last mark</strong>, you unlock the ring's mysteries and may Call Up the Deep Ones (see reverse) while wearing the ring. The ring itself becomes a follower.</p><p><strong>The Ring</strong> — <em>deep-wise, greedy, patient, knowledgeable, magical</em> — Instinct: to give nothing (not even secrets or info) away — ➤ Speak mind-to-mind; ➤ Reveal a secret, for a price; ➤ Know someone's desires — Cost: devouring fallen, named creatures (Loyalty ◻◻◻)</p>"
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "marks",
 						"content": {
 							"title": null,
@@ -66,7 +65,7 @@
 				"slug": "consequences",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c1",
 						"content": {
 							"title": null,
@@ -74,7 +73,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c1a",
 						"content": {
 							"title": null,
@@ -82,7 +81,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c2",
 						"content": {
 							"title": null,
@@ -90,7 +89,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c2a",
 						"content": {
 							"title": null,
@@ -98,7 +97,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c3",
 						"content": {
 							"title": null,
@@ -106,7 +105,7 @@
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "daagon-c4",
 						"content": {
 							"title": null,

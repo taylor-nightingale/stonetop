@@ -2,9 +2,8 @@
 	"_id": "gx3VAA5ABD7FfXgh",
 	"_key": "!items!gx3VAA5ABD7FfXgh",
 	"name": "A cracked flute",
-	"type": "equipment",
+	"type": "arcanum",
 	"system": {
-		"equipmentType": "arcanum",
 		"slug": "cracked-flute",
 		"front": {
 			"title": "A cracked flute",
@@ -19,14 +18,14 @@
 				"slug": "cracked-flute",
 				"list": [
 					{
-						"type": "heading",
+						"type": "entry",
 						"content": {
 							"title": null,
 							"text": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: <strong>on a 10+</strong>, mark 1 circle; <strong>on a 7-9</strong>, mark 1 circle but you summon an irate zephyr spirit; <strong>on a 6-</strong>, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
 						}
 					},
 					{
-						"type": "heading",
+						"type": "entry",
 						"slug": "practice",
 						"content": {
 							"title": null,
@@ -48,13 +47,19 @@
 				"slug": "cracked-flute",
 				"list": [
 					{
-						"type": "follower",
 						"slug": "andalau-of-the-flute",
 						"track": {
 							"max": 1
 						},
 						"inlineDisplay": true,
-						"title": ""
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": ""
+						},
+						"followers": [
+							"andalau-of-the-flute"
+						]
 					}
 				]
 			},

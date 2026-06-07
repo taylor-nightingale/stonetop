@@ -11,21 +11,21 @@
 			"slug": "stone-wall",
 			"list": [
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": "Stone Wall",
 						"text": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all...</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
@@ -36,7 +36,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "stonecutter",
 					"content": {
 						"title": null,
@@ -47,7 +47,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "equipment-tools",
 					"content": {
 						"title": null,
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"slug": "pull-together",
 					"content": {
 						"title": null,
@@ -69,7 +69,7 @@
 					}
 				},
 				{
-					"type": "heading",
+					"type": "entry",
 					"content": {
 						"title": null,
 						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.</p><p>Henceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.</p>"
