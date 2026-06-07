@@ -1,4 +1,5 @@
 import { CharacterMoves } from "../actors/character/CharacterMoves.js";
+import { info } from "../utils/logger.js";
 import { toSlug } from "../utils/slug.js";
 import { CharacterPossessions } from "../actors/character/CharacterPossessions.js";
 import { CharacterArcana } from "../actors/character/CharacterArcana.js";
@@ -8,9 +9,24 @@ import { ResourceController } from "../actors/character/ResourceController.js";
 
 const SCOPE = "stonetop";
 
+const VALID_ITEM_TYPES = new Set([
+	"move", "playbook", "possession", "arcanum", "npc", "insert", "outfitItem", "equipment",
+]);
+
 // ── Public exports ────────────────────────────────────────────────────────────
 
+export async function migrateStaleItemTypes(actor) {
+	const stale = [...actor.items].filter(i => !VALID_ITEM_TYPES.has(i.type));
+	if (stale.length) await actor.deleteEmbeddedDocuments("Item", stale.map(i => i._id));
+}
+
+function _logArcanumFlipped(actor, label) {
+	const arcanums = [...actor.items].filter(i => i.type === "arcanum");
+	for (const a of arcanums) info(`  [${label}] ${a.system?.slug}: flipped=${a.system?.flipped}`);
+}
+
 export async function migrateCharacter(actor, repos, insertRepo = null) {
+	await migrateStaleItemTypes(actor);
 	await migrateCharacterFlags(actor);
 	await migrateCharacterMoves(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
@@ -19,18 +35,24 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	const resourceController  = new ResourceController(actor);
 
 	await migrateArcana(actor, repos.arcana, repos.followers);
+	_logArcanumFlipped(actor, "after migrateArcana");
 	await migrateArcanumPackData(actor, repos.arcana);
+	_logArcanumFlipped(actor, "after migrateArcanumPackData");
 	await migrateFollowers(actor, repos.followers, resourceController);
+	_logArcanumFlipped(actor, "after migrateFollowers");
 
 	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
+	_logArcanumFlipped(actor, "after migratePossessions");
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
 	await migrateInsertMoveCategories(actor);
 	await migrateInsertChoiceValues(actor);
 	await migrateEmbeddedEquipment(actor);
+	_logArcanumFlipped(actor, "after migrateEmbeddedEquipment");
 	await migrateChoiceValues(actor);
 	await migratePlaybookChoiceValues(actor);
+	_logArcanumFlipped(actor, "after migratePlaybookChoiceValues");
 }
 
 // ── A. Flag → system scalar copies ───────────────────────────────────────────
@@ -41,7 +63,7 @@ export async function migrateCharacterFlags(actor) {
 	const f = key => actor.getFlag(SCOPE, key);
 
 	await actor.update({
-		"system.attributes.hp.max":          f("vitals.maxHP")              ?? 0,
+		"system.attributes.hp.max":          Math.max(f("vitals.maxHP") ?? 0, actor.system?.attributes?.hp?.max ?? 0),
 		"system.playbookSlug":               f("playbook.slug")             ?? "",
 		"system.background.selected":        f("background.selected")       ?? "",
 		"system.instinct.custom":            f("instinct.custom")           ?? "",
@@ -116,13 +138,30 @@ export async function migrateCharacterMoves(actor, moveRepo) {
 
 	const playbookItem = [...actor.items].find(i => i.type === "playbook");
 	if (playbookItem?.system?.slug) {
-		await moves.initPlaybookCategory(playbookItem.system);
+		await moves.initPlaybookCategory({ ...playbookItem.system, name: playbookItem.name });
+		await _migratePlaybookMoveAcquired(actor, categories, playbookItem.system.slug);
 	}
 
 	for (const cat of categories.filter(c => c.key.startsWith("post-death-"))) {
 		const insertSlug = cat.key.replace("post-death-", "");
 		await moves.addCategory(`insert-${insertSlug}`, cat.label ?? insertSlug, insertSlug);
 	}
+}
+
+async function _migratePlaybookMoveAcquired(actor, categories, playbookSlug) {
+	const catKey = `playbook-${playbookSlug}`;
+	const flagCat = categories.find(c => c.key === catKey);
+	if (!flagCat) return;
+	const acquired = flagCat.moves.filter(m => !m.isStarting && m.selection?.value > 0 && m.compendiumId);
+	if (!acquired.length) return;
+	const updates = acquired.flatMap(flagMove => {
+		const item = [...actor.items].find(
+			i => i.type === "move" && i.system?.categoryKey === catKey && i.system?.compendiumId === flagMove.compendiumId,
+		);
+		if (!item) return [];
+		return [{ _id: item._id, system: { acquired: true, instanceCount: flagMove.selection.value } }];
+	});
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 
 // ── C. Playbook item specialPossessions format ────────────────────────────────
@@ -224,15 +263,20 @@ export async function migrateArcana(actor, arcanaRepo, followerRepo) {
 	for (const slug of ownedSlugs) {
 		await arcana.addArcanum(slug);
 		const item = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug);
+		info(`migrateArcana [${slug}]: item found=${!!item} id=${item?._id} currentFlipped=${item?.system?.flipped}`);
 		if (!item) continue;
-		await actor.updateEmbeddedDocuments("Item", [{
+		const update = {
 			_id: item._id,
 			system: {
 				flipped:          flippedSet.has(slug),
-				unlockValues:     unlockMap[slug]  ?? {},
-				backChoiceValues: backMap[slug]    ?? {},
+				unlockValues:     { [slug]: unlockMap[slug] ?? {} },
+				backChoiceValues: { [slug]: backMap[slug]   ?? {} },
 			},
-		}]);
+		};
+		info(`migrateArcana [${slug}]: sending update flipped=${update.system.flipped} unlockValues=${JSON.stringify(update.system.unlockValues)}`);
+		await actor.updateEmbeddedDocuments("Item", [update]);
+		const after = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug);
+		info(`migrateArcana [${slug}]: after update flipped=${after?.system?.flipped} unlockValues=${JSON.stringify(after?.system?.unlockValues)}`);
 	}
 }
 
@@ -245,9 +289,27 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 	const state      = actor.getFlag(SCOPE, "followers.state") ?? {};
 
 	const followers = new CharacterFollowers(actor, followerRepo, resourceController);
+	const [blank] = await followerRepo.findBySlugs(["blank"]);
 
 	for (const slug of ownedSlugs) {
-		await followers.addFollower(slug);
+		if (slug.startsWith("custom-")) {
+			const s = state[slug] ?? {};
+			await actor.createEmbeddedDocuments("Item", [{
+				name: s.name ?? "New Follower", type: "npc",
+				system: {
+					slug, arcanaSlug: null, tags: s.tags ?? "",
+					hp:     { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 },
+					armor:  { value: s.armor ?? 0, note: "" },
+					damage: { die: s.damage ?? null, label: "", tags: "" },
+					instinct: "", loyalty: { value: 0, max: 3 },
+					choices: blank?.choices ?? null, specialQualities: "",
+					choiceValues: { choices: s.values?.choices ?? {} },
+					owned: true,
+				},
+			}]);
+		} else {
+			await followers.addFollower(slug);
+		}
 	}
 
 	// Apply mutable state
@@ -255,11 +317,12 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 		const item = [...actor.items].find(i => i.type === "npc" && i.system?.slug === slug);
 		if (!item) continue;
 		const update = { _id: item._id, system: {} };
-		if (s.hp    != null) update.system.hp    = { value: s.hp };
-		if (s.hpMax != null) update.system.hp    = { ...(update.system.hp ?? {}), max: s.hpMax };
-		if (s.armor != null) update.system.armor = { value: s.armor };
-		if (s.damage != null) update.system.damage = { die: s.damage };
+		if (s.hp != null || s.hpMax != null)
+			update.system.hp = { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 };
+		if (s.armor != null) update.system.armor = { value: s.armor, note: "" };
+		if (s.damage != null) update.system.damage = { die: s.damage, label: "", tags: "" };
 		if (s.name  != null) update.name = s.name;
+		if (s.values?.choices) update.system.choiceValues = { choices: s.values.choices };
 		await actor.updateEmbeddedDocuments("Item", [update]);
 	}
 }
@@ -326,8 +389,8 @@ export async function migrateInsertChoiceValues(actor) {
 	const existingValues = insertItem.system?.choiceValues ?? {};
 	if (Object.keys(existingValues).length) return;
 
-	const pdChoices = actor.system?.postDeathChoices?.values ?? {};
-	const pdLore    = actor.system?.postDeathLore?.values    ?? {};
+	const pdChoices = actor.getFlag(SCOPE, "postDeathChoices.values") ?? {};
+	const pdLore    = actor.getFlag(SCOPE, "postDeathLore.values")    ?? {};
 	const merged    = { ...pdLore, ...pdChoices };
 	if (!Object.keys(merged).length) return;
 

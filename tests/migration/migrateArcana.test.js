@@ -74,7 +74,7 @@ describe("migrateArcana — mutable state", () => {
 		expect(arcanum.system.flipped).toBe(false);
 	});
 
-	it("applies unlockValues from arcana.unlock flag", async () => {
+	it("applies unlockValues from arcana.unlock flag, nested under arcanum slug", async () => {
 		const actor = makeActor({
 			"arcana.owned":  ["maw"],
 			"arcana.unlock": { "maw": { "opt-a": 1 } },
@@ -82,10 +82,10 @@ describe("migrateArcana — mutable state", () => {
 		const repo = makeArcanaRepo([{ slug: "maw", name: "Maw", front: FRONT, back: BACK }]);
 		await migrateArcana(actor, repo, makeFollowerRepo());
 		const arcanum = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === "maw");
-		expect(arcanum.system.unlockValues).toEqual({ "opt-a": 1 });
+		expect(arcanum.system.unlockValues).toEqual({ "maw": { "opt-a": 1 } });
 	});
 
-	it("applies backChoiceValues from arcana.backChoices flag", async () => {
+	it("applies backChoiceValues from arcana.backChoices flag, nested under arcanum slug", async () => {
 		const actor = makeActor({
 			"arcana.owned":       ["maw"],
 			"arcana.backChoices": { "maw": { "follower-adra": 1 } },
@@ -93,6 +93,6 @@ describe("migrateArcana — mutable state", () => {
 		const repo = makeArcanaRepo([{ slug: "maw", name: "Maw", front: FRONT, back: BACK }]);
 		await migrateArcana(actor, repo, makeFollowerRepo());
 		const arcanum = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === "maw");
-		expect(arcanum.system.backChoiceValues).toEqual({ "follower-adra": 1 });
+		expect(arcanum.system.backChoiceValues).toEqual({ "maw": { "follower-adra": 1 } });
 	});
 });

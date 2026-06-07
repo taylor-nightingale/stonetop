@@ -40,3 +40,38 @@ describe("NpcData with initial data", () => {
 		expect(d.instinct).toBe("to hunt");
 	});
 });
+
+describe("NpcData.migrateData", () => {
+	it("coerces PBTA-format hp object to flat number", () => {
+		const source = { hp: { value: 8, min: 0, max: 12 } };
+		NpcData.migrateData(source);
+		expect(source.hp).toBe(8);
+	});
+
+	it("coerces PBTA-format armor object to flat number", () => {
+		const source = { armor: { value: 2, note: "plate" } };
+		NpcData.migrateData(source);
+		expect(source.armor).toBe(2);
+	});
+
+	it("falls back to 0 when PBTA object has no value field", () => {
+		const source = { hp: {}, armor: {} };
+		NpcData.migrateData(source);
+		expect(source.hp).toBe(0);
+		expect(source.armor).toBe(0);
+	});
+
+	it("leaves flat numbers unchanged", () => {
+		const source = { hp: 10, armor: 3 };
+		NpcData.migrateData(source);
+		expect(source.hp).toBe(10);
+		expect(source.armor).toBe(3);
+	});
+
+	it("leaves null hp and armor unchanged", () => {
+		const source = { hp: null, armor: null };
+		NpcData.migrateData(source);
+		expect(source.hp).toBeNull();
+		expect(source.armor).toBeNull();
+	});
+});

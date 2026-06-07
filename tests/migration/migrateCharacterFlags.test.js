@@ -23,6 +23,20 @@ describe("migrateCharacterFlags — vitals", () => {
 		await migrateCharacterFlags(actor);
 		expect(actor.system.attributes.hp.max).toBe(22);
 	});
+
+	it("prefers the PBTA system value when it is larger than the flag", async () => {
+		const actor = makeActor({ "vitals.maxHP": 9 });
+		actor.system.attributes.hp.max = 16;
+		await migrateCharacterFlags(actor);
+		expect(actor.system.attributes.hp.max).toBe(16);
+	});
+
+	it("uses the flag value when it is larger than the system value", async () => {
+		const actor = makeActor({ "vitals.maxHP": 20 });
+		actor.system.attributes.hp.max = 8;
+		await migrateCharacterFlags(actor);
+		expect(actor.system.attributes.hp.max).toBe(20);
+	});
 });
 
 describe("migrateCharacterFlags — playbook", () => {

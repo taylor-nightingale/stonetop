@@ -122,6 +122,98 @@ describe("migrateCharacterMoves — basic moves re-created", () => {
 	});
 });
 
+// ── playbook moves re-created with correct name ───────────────────────────────
+
+describe("migrateCharacterMoves — playbook category uses item.name as label", () => {
+	it("creates playbook moves with categoryLabel set to the playbook document name", async () => {
+		const foxMove = new FakeCompendiumMoveBuilder()
+			.withName("The Spirits Speak")
+			.withPlaybook("The Fox")
+			.asStarting()
+			.build();
+		const repo = new FakeMoveRepository([foxMove]);
+		const playbookItem = {
+			_id: "pb1", type: "playbook", name: "The Fox",
+			system: { slug: "the-fox", startingMovesNote: null },
+		};
+		const actor = makeActor({}, [playbookItem]);
+		await migrateCharacterMoves(actor, repo);
+		const created = actor.createdDocs.find(d => d.name === "The Spirits Speak");
+		expect(created?.system.categoryLabel).toBe("The Fox");
+	});
+});
+
+// ── non-starting acquired moves marked acquired ───────────────────────────────
+
+describe("migrateCharacterMoves — non-starting acquired moves are marked acquired", () => {
+	it("sets acquired=true and instanceCount on non-starting moves with selection.value > 0", async () => {
+		const acquiredMove = new FakeCompendiumMoveBuilder()
+			.withName("Barkskin")
+			.withPlaybook("The Blessed")
+			.build();  // isStarting=false; _id = "barkskin"
+		const repo = new FakeMoveRepository([acquiredMove]);
+		const playbookItem = {
+			_id: "pb1", type: "playbook", name: "The Blessed",
+			system: { slug: "the-blessed", startingMovesNote: null },
+		};
+		const actor = makeActor(
+			{ "moves.categories": [
+				{ key: "playbook-the-blessed", moves: [
+					{ slug: "barkskin", compendiumId: "barkskin", isStarting: false, selection: { max: 1, value: 1 }, ownedIds: ["old-id"] },
+				]},
+			]},
+			[playbookItem],
+		);
+		await migrateCharacterMoves(actor, repo);
+		const update = actor.updatedDocs.find(u => u.system?.acquired === true);
+		expect(update).toBeDefined();
+		expect(update.system.instanceCount).toBe(1);
+	});
+
+	it("does not update non-starting moves with selection.value = 0", async () => {
+		const unacquiredMove = new FakeCompendiumMoveBuilder()
+			.withName("Lightning Rod")
+			.withPlaybook("The Blessed")
+			.build();
+		const repo = new FakeMoveRepository([unacquiredMove]);
+		const playbookItem = {
+			_id: "pb1", type: "playbook", name: "The Blessed",
+			system: { slug: "the-blessed", startingMovesNote: null },
+		};
+		const actor = makeActor(
+			{ "moves.categories": [
+				{ key: "playbook-the-blessed", moves: [
+					{ slug: "lightning-rod", compendiumId: "lightning-rod", isStarting: false, selection: { max: 1, value: 0 }, ownedIds: [] },
+				]},
+			]},
+			[playbookItem],
+		);
+		await migrateCharacterMoves(actor, repo);
+		const acquiredUpdate = actor.updatedDocs.find(u => u.system?.acquired === true);
+		expect(acquiredUpdate).toBeUndefined();
+	});
+
+	it("skips moves with no compendiumId", async () => {
+		const move = new FakeCompendiumMoveBuilder().withName("Barkskin").withPlaybook("The Blessed").build();
+		const repo = new FakeMoveRepository([move]);
+		const playbookItem = {
+			_id: "pb1", type: "playbook", name: "The Blessed",
+			system: { slug: "the-blessed", startingMovesNote: null },
+		};
+		const actor = makeActor(
+			{ "moves.categories": [
+				{ key: "playbook-the-blessed", moves: [
+					{ slug: "barkskin", compendiumId: null, isStarting: false, selection: { max: 1, value: 1 }, ownedIds: ["old-id"] },
+				]},
+			]},
+			[playbookItem],
+		);
+		await migrateCharacterMoves(actor, repo);
+		const acquiredUpdate = actor.updatedDocs.find(u => u.system?.acquired === true);
+		expect(acquiredUpdate).toBeUndefined();
+	});
+});
+
 // ── no flag data ──────────────────────────────────────────────────────────────
 
 describe("migrateCharacterMoves — no flag data", () => {

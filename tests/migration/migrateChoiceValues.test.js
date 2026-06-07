@@ -165,12 +165,12 @@ describe("migrateInsertMoveCategories", () => {
 
 // ── migrateInsertChoiceValues ─────────────────────────────────────────────────
 
-function makeActorWithInsert({ insertSystem = {}, actorSystem = {} } = {}) {
-	const actor = new FakeActorBuilder().withItems([
+function makeActorWithInsert({ insertSystem = {}, flags = {} } = {}) {
+	const builder = new FakeActorBuilder().withItems([
 		{ _id: "ins-1", type: "insert", name: "Revenant", system: { slug: "revenant", choiceValues: {}, ...insertSystem } },
-	]).build();
-	Object.assign(actor.system, actorSystem);
-	return actor;
+	]);
+	builder._flagsBuilder.withFlags(flags);
+	return builder.build();
 }
 
 describe("migrateInsertChoiceValues", () => {
@@ -188,7 +188,7 @@ describe("migrateInsertChoiceValues", () => {
 
 	it("merges postDeathChoices.values onto insert item choiceValues", async () => {
 		const actor = makeActorWithInsert({
-			actorSystem: { postDeathChoices: { values: { instinct: { denial: 1 } } } },
+			flags: { "postDeathChoices.values": { instinct: { denial: 1 } } },
 		});
 		await migrateInsertChoiceValues(actor);
 		expect(actor.items.get("ins-1").system.choiceValues).toEqual({ instinct: { denial: 1 } });
@@ -196,7 +196,7 @@ describe("migrateInsertChoiceValues", () => {
 
 	it("merges postDeathLore.values onto insert item choiceValues", async () => {
 		const actor = makeActorWithInsert({
-			actorSystem: { postDeathLore: { values: { "terrible-purpose": { longing: 1 } } } },
+			flags: { "postDeathLore.values": { "terrible-purpose": { longing: 1 } } },
 		});
 		await migrateInsertChoiceValues(actor);
 		expect(actor.items.get("ins-1").system.choiceValues).toEqual({ "terrible-purpose": { longing: 1 } });
@@ -204,9 +204,9 @@ describe("migrateInsertChoiceValues", () => {
 
 	it("merges both postDeathChoices and postDeathLore into a single choiceValues object", async () => {
 		const actor = makeActorWithInsert({
-			actorSystem: {
-				postDeathChoices: { values: { instinct: { denial: 1 } } },
-				postDeathLore:    { values: { "terrible-purpose": { longing: 1 } } },
+			flags: {
+				"postDeathChoices.values": { instinct: { denial: 1 } },
+				"postDeathLore.values":    { "terrible-purpose": { longing: 1 } },
 			},
 		});
 		await migrateInsertChoiceValues(actor);
@@ -216,10 +216,8 @@ describe("migrateInsertChoiceValues", () => {
 		});
 	});
 
-	it("skips when both postDeathChoices and postDeathLore are empty", async () => {
-		const actor = makeActorWithInsert({
-			actorSystem: { postDeathChoices: { values: {} }, postDeathLore: { values: {} } },
-		});
+	it("skips when both postDeathChoices and postDeathLore are absent from flags", async () => {
+		const actor = makeActorWithInsert({});
 		await migrateInsertChoiceValues(actor);
 		expect(actor.updatedDocs).toHaveLength(0);
 	});
