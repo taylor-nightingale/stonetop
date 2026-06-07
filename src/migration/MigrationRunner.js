@@ -13,7 +13,7 @@ export class MigrationRunner {
 	}
 
 	async run() {
-		info("Running world migration to 0.10.0…");
+		info("Running world migration to 0.10.1…");
 		await _migrateResourceFlags();
 		for (const actor of [...(game.actors ?? [])]) {
 			try {

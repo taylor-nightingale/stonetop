@@ -30,6 +30,8 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateCharacterFlags(actor);
 	await migrateCharacterMoves(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
+	await migratePlaybookChoices(actor, repos.playbooks);
+	await migratePlaybookIntroductions(actor, repos.playbooks);
 
 	const outfitItems         = new ActorOutfitItems(actor);
 	const resourceController  = new ResourceController(actor);
@@ -468,6 +470,45 @@ export async function migratePlaybookChoiceValues(actor) {
 		_id:    pbItem._id,
 		system: { choiceValues: { ...existing, ...toMerge } },
 	}]);
+}
+
+// ── N. Playbook introductions (0.10.0 → 0.10.1) ──────────────────────────────
+
+export async function migratePlaybookIntroductions(actor, playbookRepo) {
+	const pbItem = [...actor.items].find(i => i.type === "playbook") ?? null;
+	if (!pbItem) return;
+
+	const intro = pbItem.system?.introductions;
+	if (intro && !Array.isArray(intro) && intro.step4?.list?.[0]?.input !== undefined) return;
+
+	const slug = pbItem.system?.slug;
+	if (!slug) return;
+
+	const compendium = await playbookRepo.findBySlug(slug);
+	const newIntro = compendium?.introductions ?? null;
+	if (!newIntro) return;
+
+	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { introductions: newIntro } }]);
+}
+
+// ── O. Playbook choices refresh (0.10.0 → 0.10.1) ────────────────────────────
+
+export async function migratePlaybookChoices(actor, playbookRepo) {
+	const pbItem = [...actor.items].find(i => i.type === "playbook") ?? null;
+	if (!pbItem) return;
+
+	const slug = pbItem.system?.slug;
+	if (!slug) return;
+
+	const compendium = await playbookRepo.findBySlug(slug);
+	const compendiumChoices = compendium?.choices ?? [];
+	if (!compendiumChoices.length) return;
+
+	const currentSlugs = new Set((pbItem.system?.choices ?? []).map(g => g.slug));
+	const hasAll = compendiumChoices.every(g => currentSlugs.has(g.slug));
+	if (hasAll) return;
+
+	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { choices: compendiumChoices } }]);
 }
 
 // ── M. Repair arcanum items with empty front/back ─────────────────────────────

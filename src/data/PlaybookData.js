@@ -15,7 +15,7 @@ export class PlaybookData extends foundry.abstract.TypeDataModel {
 			instinct:           new f.ObjectField({ nullable: true, initial: null }),
 			choices:            new f.ArrayField(new f.ObjectField()),
 			choiceValues:       new f.ObjectField(),
-			introductions:      new f.ArrayField(new f.ObjectField()),
+			introductions:      new f.ObjectField({ nullable: true, initial: null }),
 			instinctValues:     new f.ObjectField(),
 			appearanceValues:   new f.ObjectField(),
 			backgroundValues:   new f.ObjectField(),

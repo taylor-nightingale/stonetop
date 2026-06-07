@@ -17,11 +17,26 @@
 		},
 		"sheet": {
 			"tabs": {
+				"playbook": "Playbook",
 				"moves": "Moves",
-				"details": "Details",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
 				"followers": "Followers"
+			},
+			"playbook": {
+				"emptyHint": "Select or drag a playbook here to start.",
+				"selectPlaceholder": "Select a playbook",
+				"introductions": {
+					"title": "Introductions",
+					"preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",
+					"step1": "On your first turn, <strong>introduce yourself</strong> by name, pronouns, background, origin, and appearance.",
+					"step2": "On your second turn, <strong>describe your special possessions</strong> and how you contribute to the village (beyond working the fields).",
+					"step4Preamble": "On your next turn, <strong>answer one of the following</strong>, naming one or more NPCs who live in Stonetop.",
+					"step5": "Go around again. Answer another question from 4, or pass. When everyone has passed, go on.",
+					"step6Preamble": "On your next turn, <strong>ask your fellow PCs one of these</strong>. When others ask you, answer as you like.",
+					"step7": "Go around again. Ask another question from 6, or pass. When everyone has passed, go on.",
+					"step8": "Add your home to the steading playbook. When everyone is done, let spring break forth!"
+				}
 			}
 		},
 		"rollMode": {

@@ -1,4 +1,5 @@
 import { FakeWorldItemStore } from "./FakeWorldItemStore.js";
+import { PlaybookSummary } from "../../src/actors/character/repositories/PlaybookSummary.js";
 
 export class FakePlaybookRepository {
 	_worldStore = new FakeWorldItemStore();
@@ -20,5 +21,16 @@ export class FakePlaybookRepository {
 
 	add(playbook) {
 		this._playbooks[playbook.slug] = playbook;
+	}
+
+	async getAllPlaybooks() {
+		const packSlugs = new Set(Object.keys(this._playbooks));
+		const packEntries = Object.values(this._playbooks)
+			.map(pb => new PlaybookSummary(pb.name, pb.slug));
+		const worldItems = await this._worldStore.filterEntries(
+			i => i.type === "playbook" && !packSlugs.has(i.system?.slug)
+		);
+		const worldEntries = worldItems.map(i => new PlaybookSummary(i.name, i.system.slug));
+		return [...packEntries, ...worldEntries].sort((a, b) => a.name.localeCompare(b.name));
 	}
 }

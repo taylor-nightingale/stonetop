@@ -1,4 +1,5 @@
 import { FoundryPackStore } from "./FoundryPackStore.js";
+import { PlaybookSummary } from "./PlaybookSummary.js";
 
 export class FoundryPlaybookRepository {
 	constructor() {
@@ -23,5 +24,21 @@ export class FoundryPlaybookRepository {
 		const pb = worldDoc.asPlaybook();
 		this._cache.set(slug, pb);
 		return pb;
+	}
+
+	async getAllPlaybooks() {
+		const packEntries = await this._store.getAll();
+		const packSlugs   = new Set(packEntries.map(e => e.system?.slug).filter(Boolean));
+
+		const packSummaries = packEntries
+			.filter(e => e.system?.slug)
+			.map(e => new PlaybookSummary(e.name, e.system.slug));
+
+		const worldSummaries = (game.items?.contents ?? [])
+			.filter(i => i.type === "playbook" && i.system?.slug && !packSlugs.has(i.system.slug))
+			.map(i => new PlaybookSummary(i.name, i.system.slug));
+
+		return [...packSummaries, ...worldSummaries]
+			.sort((a, b) => a.name.localeCompare(b.name));
 	}
 }

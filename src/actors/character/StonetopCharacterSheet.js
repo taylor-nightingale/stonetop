@@ -1,8 +1,10 @@
 import {PossessionUseButton} from "./elements/possession-use-button.js";
+import { FoundryPlaybookRepository } from "./repositories/FoundryPlaybookRepository.js";
 
 export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
 		_stonetopCharacter;
+		_playbookRepository = new FoundryPlaybookRepository();
 
 		constructor(...args) {
 			super(...args);
@@ -12,7 +14,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		static get defaultOptions() {
 			return foundry.utils.mergeObject(super.defaultOptions, {
 				classes: ["pbta", "stonetop", "sheet", "actor", "character"],
-				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "moves" }],
+				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "playbook" }],
 				dragDrop: [{ dragSelector: ".items-list .item" }],
 			});
 		}
@@ -24,6 +26,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		async getData() {
 			const context = await super.getData();
 			context.stonetop = await this._stonetopCharacter.buildSnapshot();
+			context.availablePlaybooks = await this._playbookRepository.getAllPlaybooks();
 			return context;
 		}
 
@@ -84,6 +87,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				ev.stopPropagation();
 				this._stonetopCharacter.setDebility(el.dataset.slug, el.checked);
 			}, true);
+			html.find(".stonetop-playbook-select").on("change", this._onSelectPlaybook.bind(this));
 			html.find("[name=stonetop-background]").on("change", this._onBackgroundChange.bind(this));
 			html.find(".stonetop-instinct-custom").on("change", ev =>
 				this._stonetopCharacter.instinct.selectCustom(ev.currentTarget.value.trim())
@@ -313,6 +317,22 @@ export function createStonetopCharacterSheetClass(Base) {
 			const { others } = await this._stonetopCharacter.onDropItems(nonArcana);
 			const toEmbed = [...newArcana, ...others];
 			if (toEmbed.length) await super._onDropItemCreate(toEmbed);
+		}
+
+		async _onSelectPlaybook(ev) {
+			const slug = ev.currentTarget.value;
+			if (!slug) return;
+			const pack = game.packs.get("stonetop.playbooks");
+			if (pack) {
+				const entry = pack.index.find(e => e.system?.slug === slug);
+				if (entry) {
+					const doc = await pack.getDocument(entry._id);
+					if (doc) { await this._onDropItemCreate([doc.toObject()]); return; }
+				}
+			}
+			const worldDoc = (game.items?.contents ?? [])
+				.find(i => i.type === "playbook" && i.system?.slug === slug);
+			if (worldDoc) await this._onDropItemCreate([worldDoc.toObject()]);
 		}
 
 		async _onBackgroundChange(ev) {

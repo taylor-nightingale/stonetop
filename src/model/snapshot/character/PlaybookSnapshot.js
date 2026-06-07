@@ -1,3 +1,18 @@
+// ── Introductions ─────────────────────────────────────────────────────────────
+
+/**
+ * @property {string|null} step3
+ * @property {ChoiceGroup|null} npcGroup - step 4 NPC questions
+ * @property {ChoiceGroup|null} pcGroup  - step 6 PC questions
+ */
+export class IntroductionsSnapshot {
+	constructor(step3, npcGroup, pcGroup) {
+		this.step3    = step3;
+		this.npcGroup = npcGroup;
+		this.pcGroup  = pcGroup;
+	}
+}
+
 // ── Origin ────────────────────────────────────────────────────────────────────
 
 /** One origin region option. */
@@ -75,6 +90,7 @@ export class BackgroundSection {
  * @property {ChoiceGroup[]} loreGroups - all choices that are not appearance
  * @property {BackgroundSection} background
  * @property {OriginSection} origin
+ * @property {IntroductionsSnapshot|null} introductions
  */
 export class PlaybookSnapshot {
 	constructor(b) {
@@ -91,6 +107,7 @@ export class PlaybookSnapshot {
 		this.loreGroups       = b._loreGroups;
 		this.background       = b._background;
 		this.origin           = b._origin;
+		this.introductions    = b._introductions ?? null;
 	}
 }
 
@@ -107,5 +124,6 @@ export class PlaybookSnapshotBuilder {
 	withLoreGroups(v)       { this._loreGroups       = v; return this; }
 	withBackground(v)       { this._background       = v; return this; }
 	withOrigin(v)           { this._origin           = v; return this; }
+	withIntroductions(v)    { this._introductions    = v; return this; }
 	build()                 { return new PlaybookSnapshot(this); }
 }

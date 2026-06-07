@@ -13,22 +13,16 @@
   increasing your total XP by 1.
 * Add prosperity to inventory tab
 * Update all of our compendium items to include the json structure for adding outfit items
-* lore entry and choice should be the same data model.
-* other inventory section is missing
 * dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
 * tethered arcana needs format fixes
 * localize steading defaults
 * Figure out how to add items from pick rows.
-* getting the rules text and roll results showing in the roll chat.
-* displaying info in the compendium
-* support editing and adding compendium items
+* support editing/displaying and adding compendium items
   * followers
   * outfitItems
   * playbooks
   * moves
 * bullet points everywhere should use our icon just like in the steading sheet.
-* add playbook dropdown
-* selecting moves flickers the check box before selecting
 * steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
@@ -40,8 +34,6 @@
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 
-=== Bugs
-* selecting a move flickers the check box, but selects it
 
 
 

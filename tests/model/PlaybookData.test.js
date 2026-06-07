@@ -26,7 +26,11 @@ describe("PlaybookData defaults", () => {
 		expect(d.backgrounds).toEqual([]);
 		expect(d.origin).toEqual([]);
 		expect(d.choices).toEqual([]);
-		expect(d.introductions).toEqual([]);
+	});
+
+	it("defaults introductions to null", () => {
+		const d = new PlaybookData();
+		expect(d.introductions).toBeNull();
 	});
 
 	it("defaults choiceValues to empty object and specialPossessions to null", () => {
