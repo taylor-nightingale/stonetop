@@ -98,7 +98,7 @@ export class ChoiceGroup {
 			: null;
 		// Support both { content.text } (entry) and { title } (legacy follower)
 		const text    = item.content?.text ?? item.title ?? null;
-		const content = { title: item.content?.title ?? null, text };
+		const content = { title: item.content?.title ?? null, subHeading: item.content?.subHeading ?? null, subNote: item.content?.subNote ?? null, text };
 
 		// Resolve follower slugs — new: item.followers[]; legacy: item.type === "follower" uses item.slug
 		const followerSlugs = item.followers?.length

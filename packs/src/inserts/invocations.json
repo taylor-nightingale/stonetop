@@ -1,0 +1,149 @@
+{
+    "name": "Invocations",
+    "type": "insert",
+    "img": "",
+    "system": {
+        "slug": "lightbearer-invocations-insert",
+        "description": "<p>Lightbearer, you start knowing 2 Invocations. Each time you reach an even-numbered level, learn 1 new Invocation.</p><p>While one Invocation is <em>ongoing</em>, you can't use another. You can end an Invocation whenever you wish, and it will end immediately if your holy light is extinguished. An invocation's range is equal to that of its light source.</p>",
+        "actorType": "character",
+        "attributes": {},
+        "choices": [
+            {
+                "slug": "lightbearer-invocations",
+                "list": [
+                    {
+                        "type": "entry",
+                        "slug": "bath-of-healing-light",
+                        "content": {
+                            "title": null,
+                            "subHeading": "Bath of Healing Light",
+                            "text": "<p>Cup your hands around your light and focus it. Your patient... (pick 2): <ul><li>Regains 5 HP (can pick this twice)</li><li>Clears a debility (can pick this twice)</li><li>Has one of their problematic wounds stabilized</li><li>Recovers from a minor condition (drunk, etc.)</li></ul> <strong>Reduced:</strong> pick only 1 (instead of 2). <br> <strong>Empowered:</strong> add these to your possible choices: <ul><li>Regains 10 HP (can pick this twice)</li><li>Fully recovers from a problematic wound</li><li>Is cured of a dire affliction, poison, or disease</li></ul></p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "blinding-light",
+                        "content": {
+                            "title": null,
+                            "subHeading": "Blinding Light",
+                            "subNote": "(ongoing)",
+                            "text": "<p>Your light blazes. Any in range who look at it are temporarily blinded. Those not looking at it directly must avert their eyes. You are unaffected.<br><br><strong>Reduced:</strong> the light flares only for a moment.<br><strong>Empowered:</strong> if you wish, your allies are unaffected.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "cleansing-light",
+                        "content": {
+                            "title": null,
+                            "subHeading": "Cleansing Light",
+                            "text": "<p>Your light flares, dispelling magical effects within range. Potent, lasting magics are merely suppressed, and slowly return to power once removed from your light.<br><br><strong>Reduced:</strong> potent, lasting magics are unaffected; other magical effects are merely suppressed.<br><strong>Empowered:</strong> the invocation is <em>ongoing</em>; while it lasts, any magical effects created in or brought into range are dispelled/suppressed.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "cold-light-of-day",
+                        "content": {
+                            "title": null,
+                            "subHeading": "Cold Light of Day",
+                            "subNote": "(ongoing)",
+                            "text": "<p>All in your light appears as it really is, without the benefit of illusion, shapeshifting, or disguise.<br><br><strong>Reduced:</strong> it lasts only a few moments, just long enough to glimpse the truth.<br><strong>Empowered:</strong> illusions in the light are dispelled and shapeshifters in the light are momentarily stunned.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "dancing-light",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Dancing Light",
+                            "text": "<p>Your light takes to the air, floating as you direct it, untethered from its fuel. You can move it anywhere that you can see it, and even change its shape or color.<br><br><strong>Reduced:</strong> it dims, reducing its range by one step.<br><strong>Empowered:</strong> you can use another Invocation through the Dancing Light while it is <em>ongoing</em>.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "go-back-to-the-shadow",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Go Back to the Shadow",
+                            "text": "<p>Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.<br><br><strong>Reduced:</strong> affected spirits take only 1d8 damage.<br><strong>Empowered:</strong> a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "hold-back-the-darkness",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Hold Back the Darkness",
+                            "text": "<p>Spirits and creatures of darkness are repelled by your light and cannot approach. The cowardly or mindless flee outright. Those forced into range of your light deal damage with disadvantage.<br><br><strong>Reduced:</strong> you must maintain an unbroken litany of prayers in order to maintain the effect.<br><strong>Empowered:</strong> affected entities that are forced into range of your light are vulnerable to mundane weapons, their supernatural defenses suppressed.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "moth-to-a-flame",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Moth to a Flame",
+                            "text": "<p>Name an individual or type of mortal creature. They gaze raptly at your light and will follow it, slowly. The effect ends if they take damage.<br><br><strong>Reduced:</strong> it lasts only briefly OR only some of the named creatures are affected (GM's choice).<br><strong>Empowered:</strong> the effect continues for a few moments after they first take damage. Taking damage a second time ends the effect immediately.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "terrible-as-the-dawn",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Terrible as the Dawn",
+                            "text": "<p>Name an individual or type of mortal creature. Your light fills them with dread, causing them to recoil and back away. The cowardly flee outright.<br><br><strong>Reduced:</strong> all mortal creatures but you are affected, including your allies.<br><strong>Empowered:</strong> even the brave must cower or flee.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "type": "entry",
+                        "slug": "warmth-of-the-sun",
+                        "content": {
+                            "title": null,
+                            "subNote": "(ongoing)",
+                            "subHeading": "Dancing Light",
+                            "text": "<p>While in your light, you and your allies are free of fear and doubt, and unharmed by extreme cold.<br><br><strong>Reduced:</strong> only one person in the light is protected.<br><strong>Empowered:</strong> the light also protects from necromantic and life-draining effects.</p>"
+                        },
+                        "track": {
+                            "max": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "flags": {},
+    "_id": "cq1fHGIURiMTda6c",
+    "_key": "!items!cq1fHGIURiMTda6c"
+}
