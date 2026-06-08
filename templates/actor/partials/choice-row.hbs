@@ -31,20 +31,41 @@
 {{! Entry without followers: content/track/input }}
 {{#if content.title}}{{> "stonetop.section-heading" title=content.title}}{{/if}}
 {{#if track}}
-<div class="stonetop-choice-track">
-    <span class="stonetop-choice-track-checks">
-        {{#each track.checks}}
-        <input type="checkbox"
-               class="stonetop-cg-track"
-               data-cg-context="{{../cgContext}}"
-               data-cg-group="{{../cgGroup}}"
-               data-cg-option="{{../track.slug}}"
-               data-cg-index="{{@index}}"
-               {{#if this}}checked{{/if}}>
-        {{/each}}
-    </span>
+{{#if content.subHeading}}
+<div class="stonetop-choice-track stonetop-column">
+    <div class="stonetop-choice-header-wrapper">
+        <span class="stonetop-choice-track-checks">
+            {{#each track.checks}}
+            <input type="checkbox"
+                class="stonetop-cg-track"
+                data-cg-context="{{../cgContext}}"
+                data-cg-group="{{../cgGroup}}"
+                data-cg-option="{{../track.slug}}"
+                data-cg-index="{{@index}}"
+                {{#if this}}checked{{/if}}>
+            {{/each}}
+        </span>
+        {{> "stonetop.section-sub-heading" subHeading=content.subHeading subNote=content.subNote}}
+    </div>   
     <span class="stonetop-choice-track-desc">{{{content.text}}}</span>
 </div>
+{{else}}
+<div class="stonetop-choice-track stonetop-row">
+    <div class="stonetop-choice-track-checks">
+        {{#each track.checks}}
+        <input type="checkbox"
+            class="stonetop-cg-track"
+            data-cg-context="{{../cgContext}}"
+            data-cg-group="{{../cgGroup}}"
+            data-cg-option="{{../track.slug}}"
+            data-cg-index="{{@index}}"
+            {{#if this}}checked{{/if}}>
+        {{/each}}
+    </div>
+    <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{{content.text}}}</span>
+</div>
+{{/if}}
+
 {{else if content.text}}
 <div class="stonetop-choice-description">{{{content.text}}}</div>
 {{/if}}

@@ -44,7 +44,7 @@
 						"slug": "stoke-conflict",
 						"content": {
 							"title": null,
-							"text": "Stoke conflict, confusion, distrust"
+							"text": "<p>Stoke conflict, confusion, distrust</p>"
 						},
 						"track": {
 							"max": 1
@@ -55,7 +55,7 @@
 						"slug": "erode-hope",
 						"content": {
 							"title": null,
-							"text": "Erode hope/faith/honor/self-image"
+							"text": "<p>Erode hope/faith/honor/self-image</p>"
 						},
 						"track": {
 							"max": 1
@@ -66,7 +66,7 @@
 						"slug": "hide-bury",
 						"content": {
 							"title": null,
-							"text": "Hide/bury/smother things or ideas"
+							"text": "<p>Hide/bury/smother things or ideas</p>"
 						},
 						"track": {
 							"max": 1
@@ -77,7 +77,7 @@
 						"slug": "deprive",
 						"content": {
 							"title": null,
-							"text": "Deprive others of what they need"
+							"text": "<p>Deprive others of what they need</p>"
 						},
 						"track": {
 							"max": 1
@@ -88,7 +88,7 @@
 						"slug": "inflict-harm",
 						"content": {
 							"title": null,
-							"text": "Inflict harm, cruelly and unnecessarily"
+							"text": "<p>Inflict harm, cruelly and unnecessarily</p>"
 						},
 						"track": {
 							"max": 1
@@ -99,7 +99,7 @@
 						"slug": "desecrate",
 						"content": {
 							"title": null,
-							"text": "Desecrate/mutilate/ruin things of value"
+							"text": "<p>Desecrate/mutilate/ruin things of value</p>"
 						},
 						"track": {
 							"max": 1
@@ -110,7 +110,7 @@
 						"slug": "shock-terrify",
 						"content": {
 							"title": null,
-							"text": "Shock/terrify/horrify others"
+							"text": "<p>Shock/terrify/horrify others</p>"
 						},
 						"track": {
 							"max": 1
