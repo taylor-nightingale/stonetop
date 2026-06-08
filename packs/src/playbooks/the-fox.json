@@ -57,7 +57,7 @@
           "Greagir",
           "Maired",
           "Nainsi",
-          "Na\u00edclas",
+          "Naíclas",
           "Saraid"
         ]
       },
@@ -113,7 +113,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "There Was That Time You\u2026",
+              "title": "There Was That Time You…",
               "text": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. <em>(choose 1 per tale)</em></p>"
             }
           },
@@ -122,7 +122,7 @@
             "slug": "lost-great-wood",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in the Great Wood."
+              "text": "… got lost in the Great Wood."
             },
             "track": {
               "max": 1
@@ -133,7 +133,7 @@
             "slug": "lost-flats",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in the Flats."
+              "text": "… got lost in the Flats."
             },
             "track": {
               "max": 1
@@ -144,7 +144,7 @@
             "slug": "lost-steplands",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in the Steplands."
+              "text": "… got lost in the Steplands."
             },
             "track": {
               "max": 1
@@ -155,7 +155,7 @@
             "slug": "lost-ferrers-fen",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in Ferrier's Fen."
+              "text": "… got lost in Ferrier's Fen."
             },
             "track": {
               "max": 1
@@ -166,7 +166,7 @@
             "slug": "lost-foothills",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in the Foothills."
+              "text": "… got lost in the Foothills."
             },
             "track": {
               "max": 1
@@ -177,7 +177,7 @@
             "slug": "lost-huffel-peaks",
             "content": {
               "title": null,
-              "text": "\u2026 got lost in the Huffel Peaks."
+              "text": "… got lost in the Huffel Peaks."
             },
             "track": {
               "max": 1
@@ -188,7 +188,7 @@
             "slug": "crinwin-raid",
             "content": {
               "title": null,
-              "text": "\u2026 were on watch when the crinwin raided."
+              "text": "… were on watch when the crinwin raided."
             },
             "track": {
               "max": 1
@@ -199,7 +199,7 @@
             "slug": "ruined-tower",
             "content": {
               "title": null,
-              "text": "\u2026 dared each other to explore the Ruined Tower."
+              "text": "… dared each other to explore the Ruined Tower."
             },
             "track": {
               "max": 1
@@ -210,7 +210,7 @@
             "slug": "hillfolk",
             "content": {
               "title": null,
-              "text": "\u2026 managed to rile up a small band of Hillfolk."
+              "text": "… managed to rile up a small band of Hillfolk."
             },
             "track": {
               "max": 1
@@ -221,7 +221,7 @@
             "slug": "labyrinth",
             "content": {
               "title": null,
-              "text": "\u2026 braved the Labyrinth, just a little."
+              "text": "… braved the Labyrinth, just a little."
             },
             "track": {
               "max": 1
@@ -232,7 +232,7 @@
             "slug": "old-mans-book",
             "content": {
               "title": null,
-              "text": "\u2026 stole that crazy old man's book."
+              "text": "… stole that crazy old man's book."
             },
             "track": {
               "max": 1
@@ -243,7 +243,7 @@
             "slug": "barrow-mounds",
             "content": {
               "title": null,
-              "text": "\u2026 went poking about the old Barrow Mounds."
+              "text": "… went poking about the old Barrow Mounds."
             },
             "track": {
               "max": 1
@@ -257,7 +257,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "And You Ended Up\u2026",
+              "title": "And You Ended Up…",
               "text": "<p><em>(choose 1 or 2 per tale)</em></p>"
             }
           },
@@ -266,7 +266,7 @@
             "slug": "running",
             "content": {
               "title": null,
-              "text": "\u2026 running for your life from something."
+              "text": "… running for your life from something."
             },
             "track": {
               "max": 1
@@ -277,7 +277,7 @@
             "slug": "well-placed-blow",
             "content": {
               "title": null,
-              "text": "\u2026 landing a well-placed blow."
+              "text": "… landing a well-placed blow."
             },
             "track": {
               "max": 1
@@ -288,7 +288,7 @@
             "slug": "strange-gather",
             "content": {
               "title": null,
-              "text": "\u2026 interrupting a strange, creepy gathering."
+              "text": "… interrupting a strange, creepy gathering."
             },
             "track": {
               "max": 1
@@ -299,7 +299,7 @@
             "slug": "big-beast",
             "content": {
               "title": null,
-              "text": "\u2026 stumbling on a beast, bigger'n anything."
+              "text": "… stumbling on a beast, bigger'n anything."
             },
             "track": {
               "max": 1
@@ -310,7 +310,7 @@
             "slug": "treasure",
             "content": {
               "title": null,
-              "text": "\u2026 with a sack full of treasure."
+              "text": "… with a sack full of treasure."
             },
             "track": {
               "max": 1
@@ -321,7 +321,7 @@
             "slug": "someone-fight",
             "content": {
               "title": null,
-              "text": "\u2026 getting someone to fight them for you."
+              "text": "… getting someone to fight them for you."
             },
             "track": {
               "max": 1
@@ -332,7 +332,7 @@
             "slug": "ghost",
             "content": {
               "title": null,
-              "text": "\u2026 face to face with a ghost/Fae/demon."
+              "text": "… face to face with a ghost/Fae/demon."
             },
             "track": {
               "max": 1
@@ -343,7 +343,7 @@
             "slug": "strange-runes",
             "content": {
               "title": null,
-              "text": "\u2026 finding those strange old runes."
+              "text": "… finding those strange old runes."
             },
             "track": {
               "max": 1
@@ -354,7 +354,7 @@
             "slug": "fine-looking",
             "content": {
               "title": null,
-              "text": "\u2026 getting to know that fine-looking fellow/lady/person/couple."
+              "text": "… getting to know that fine-looking fellow/lady/person/couple."
             },
             "track": {
               "max": 1
@@ -368,7 +368,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "But All You've Got Left to Show for It Is\u2026",
+              "title": "But All You've Got Left to Show for It Is…",
               "text": ""
             }
           },
@@ -377,7 +377,7 @@
             "slug": "story-no-one-believes",
             "content": {
               "title": null,
-              "text": "\u2026 a story no one believes."
+              "text": "… a story no one believes."
             },
             "track": {
               "max": 1
@@ -388,7 +388,7 @@
             "slug": "nasty-scar",
             "content": {
               "title": null,
-              "text": "\u2026 a nasty scar; wanna see?"
+              "text": "… a nasty scar; wanna see?"
             },
             "track": {
               "max": 1
@@ -399,7 +399,7 @@
             "slug": "nightmares",
             "content": {
               "title": null,
-              "text": "\u2026 the occasional nightmare."
+              "text": "… the occasional nightmare."
             },
             "track": {
               "max": 1
@@ -410,7 +410,7 @@
             "slug": "map-with-runes",
             "content": {
               "title": null,
-              "text": "\u2026 this map with runes no one can read."
+              "text": "… this map with runes no one can read."
             },
             "track": {
               "max": 1
@@ -421,7 +421,7 @@
             "slug": "mystery-key",
             "content": {
               "title": null,
-              "text": "\u2026 this key that opens who-knows-what."
+              "text": "… this key that opens who-knows-what."
             },
             "track": {
               "max": 1
@@ -539,88 +539,91 @@
         ]
       }
     },
-    "appearance": [
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "young-pup",
-            "text": "young pup"
-          },
-          {
-            "slug": "responsible-adult",
-            "text": "\"responsible\" adult"
-          },
-          {
-            "slug": "cagey-old-timer",
-            "text": "cagey old-timer"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "a-pleasant-voice",
-            "text": "a pleasant voice"
-          },
-          {
-            "slug": "sharp-and-nasally",
-            "text": "sharp & nasally"
-          },
-          {
-            "slug": "well-spoken",
-            "text": "well-spoken"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "lithe",
-            "text": "lithe"
-          },
-          {
-            "slug": "heavyset",
-            "text": "heavyset"
-          },
-          {
-            "slug": "gangly",
-            "text": "gangly"
-          },
-          {
-            "slug": "like-a-whippin-stick",
-            "text": "like a whippin' stick"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "a-light-step",
-            "text": "a light step"
-          },
-          {
-            "slug": "a-brisk-stride",
-            "text": "a brisk stride"
-          },
-          {
-            "slug": "more-like-a-strut",
-            "text": "more like a strut"
-          }
-        ]
-      }
-    ],
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "young-pup",
+              "text": "young pup"
+            },
+            {
+              "slug": "responsible-adult",
+              "text": "\"responsible\" adult"
+            },
+            {
+              "slug": "cagey-old-timer",
+              "text": "cagey old-timer"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "a-pleasant-voice",
+              "text": "a pleasant voice"
+            },
+            {
+              "slug": "sharp-and-nasally",
+              "text": "sharp & nasally"
+            },
+            {
+              "slug": "well-spoken",
+              "text": "well-spoken"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "lithe",
+              "text": "lithe"
+            },
+            {
+              "slug": "heavyset",
+              "text": "heavyset"
+            },
+            {
+              "slug": "gangly",
+              "text": "gangly"
+            },
+            {
+              "slug": "like-a-whippin-stick",
+              "text": "like a whippin' stick"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "a-light-step",
+              "text": "a light step"
+            },
+            {
+              "slug": "a-brisk-stride",
+              "text": "a brisk stride"
+            },
+            {
+              "slug": "more-like-a-strut",
+              "text": "more like a strut"
+            }
+          ]
+        }
+      ]
+    },
     "instinct": {
       "slug": "instinct",
       "list": [

@@ -40,11 +40,11 @@ export class DebilitySnapshot {
 }
 
 export class ContentSection {
-	constructor(slug, label, note, items) {
+	constructor(slug, label, note, text) {
 		this.slug = slug;
 		this.label = label;
 		this.note = note;
-		this.items = items;
+		this.text = text;
 	}
 }
 
@@ -54,6 +54,7 @@ export class SteadingSnapshot {
 								placesOfInterest, notes, residents, neighbors,
 								contentDescription, content, assets, improvements,
 								residentNames, residentTraits,
+								moves,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -69,5 +70,25 @@ export class SteadingSnapshot {
 		this.improvements = improvements;
 		this.residentNames = residentNames;
 		this.residentTraits = residentTraits;
+		this.npcTraitColumns = splitIntoColumns(residentTraits ?? [], 5);
+		this.residentTraitsText = (residentTraits ?? []).join("\n");
+		this.improvementColumns = splitIntoImprovementColumns(improvements ?? []);
+		this.moves = moves ?? null;
 	}
+}
+
+function splitIntoImprovementColumns(items) {
+	const third = Math.ceil(items.length / 3);
+	return {
+		left:   items.slice(0, third),
+		middle: items.slice(third, third * 2),
+		right:  items.slice(third * 2),
+	};
+}
+
+function splitIntoColumns(items, columnCount) {
+	const rowsPerColumn = Math.ceil(items.length / columnCount) || 1;
+	return Array.from({ length: columnCount }, (_, i) =>
+		items.slice(i * rowsPerColumn, (i + 1) * rowsPerColumn)
+	);
 }

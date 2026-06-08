@@ -381,84 +381,87 @@
         ]
       }
     },
-    "appearance": [
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "fledgling",
-            "text": "fledgling"
-          },
-          {
-            "slug": "prime-specimen",
-            "text": "prime specimen"
-          },
-          {
-            "slug": "long-in-the-tooth",
-            "text": "long in the tooth"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "barking-voice",
-            "text": "barking voice"
-          },
-          {
-            "slug": "growling-voice",
-            "text": "growling voice"
-          },
-          {
-            "slug": "sing-song-voice",
-            "text": "sing-song voice"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "compact-and-sturdy",
-            "text": "compact & sturdy"
-          },
-          {
-            "slug": "long-and-lean",
-            "text": "long & lean"
-          },
-          {
-            "slug": "wolfish",
-            "text": "wolfish"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "shaggy",
-            "text": "shaggy"
-          },
-          {
-            "slug": "threadbare",
-            "text": "threadbare"
-          },
-          {
-            "slug": "well-groomed",
-            "text": "well-groomed"
-          }
-        ]
-      }
-    ],
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "fledgling",
+              "text": "fledgling"
+            },
+            {
+              "slug": "prime-specimen",
+              "text": "prime specimen"
+            },
+            {
+              "slug": "long-in-the-tooth",
+              "text": "long in the tooth"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "barking-voice",
+              "text": "barking voice"
+            },
+            {
+              "slug": "growling-voice",
+              "text": "growling voice"
+            },
+            {
+              "slug": "sing-song-voice",
+              "text": "sing-song voice"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "compact-and-sturdy",
+              "text": "compact & sturdy"
+            },
+            {
+              "slug": "long-and-lean",
+              "text": "long & lean"
+            },
+            {
+              "slug": "wolfish",
+              "text": "wolfish"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "shaggy",
+              "text": "shaggy"
+            },
+            {
+              "slug": "threadbare",
+              "text": "threadbare"
+            },
+            {
+              "slug": "well-groomed",
+              "text": "well-groomed"
+            }
+          ]
+        }
+      ]
+    },
     "instinct": {
       "slug": "instinct",
       "list": [

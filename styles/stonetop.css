@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: "StonetopUI";
-	t src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -123,6 +123,33 @@ body,
 
 .pbta.sheet .sheet-tab {
 	margin-top: 0px;
+}
+
+/* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
+
+.stonetop .stonetop-icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 2px;
+	opacity: 0.5;
+	transition: opacity 0.15s;
+	line-height: 1;
+}
+
+.stonetop .stonetop-icon-btn:hover {
+	opacity: 1;
+}
+
+.stonetop .stonetop-icon-btn img {
+	width: 16px;
+	height: 16px;
+	display: block;
+	border: none !important;
+	border-radius: 0 !important;
 }
 
 /* ── Sheet tabs ──────────────────────────────────────────────────────────────── */
@@ -926,26 +953,17 @@ body,
 }
 
 .stonetop-origin-names {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	gap: 4px;
 	margin-top: 4px;
+	line-height: 1.6;
 }
 
 .stonetop-origin-name {
-	background: none;
-	border: 1px solid var(--color-border-light-2);
-	border-radius: 3px;
-	padding: 2px 6px;
-	font-size: 0.8rem;
+	font-size: 0.78rem;
 	cursor: pointer;
-	font-family: inherit;
-	width: fit-content;
 }
 
 .stonetop-origin-name:hover {
-	background: rgba(0, 0, 0, 0.05);
+	text-decoration: underline;
 }
 
 /* ~ Selection fields */
@@ -1004,6 +1022,7 @@ body,
 	font-size: 0.7em;
 	font-style: italic;
 	font-weight: normal;
+	font-family: var(--font-primary);
 	color: var(--color-text-dark-secondary);
 }
 
@@ -1055,7 +1074,7 @@ body,
 }
 
 .stonetop-item-name {
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	line-height: 1.3;
 }
 
@@ -1127,6 +1146,7 @@ body,
 .stonetop-item-description {
 	padding-left: 20px;
 	font-size: 0.8rem;
+	font-weight: normal;
 	color: var(--color-text-dark-secondary);
 	line-height: 1.4;
 	margin-top: 1px;
@@ -1134,6 +1154,21 @@ body,
 
 .stonetop-item-description p {
 	margin: 0 0 2px;
+}
+
+.stonetop-insert-description {
+	font-size: 0.8rem;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--color-text-dark-secondary);
+	line-height: 1.4;
+	margin-bottom: 6px;
+}
+
+.stonetop-insert-description em,
+.stonetop-insert-description strong {
+	font-weight: normal;
+	font-style: normal;
 }
 
 .stonetop-bg-choices,
@@ -1161,6 +1196,7 @@ body,
 }
 
 .stonetop-choice-track-desc {
+	font-size: 0.8rem;
 	line-height: 1.3;
 	font-weight: normal;
 	font-family: var(--font-primary);
@@ -1258,7 +1294,7 @@ body,
 	align-items: center;
 	gap: 6px;
 	padding: 2px 0;
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 }
 
 .stonetop-sub-choice-label {
@@ -1304,7 +1340,7 @@ body,
 	align-items: center;
 	gap: 4px;
 	margin: 1px 0;
-	font-size: 0.9em;
+	font-size: 0.8rem;
 }
 
 .stonetop-inv-diamonds {
@@ -1379,7 +1415,7 @@ body,
 }
 
 .stonetop-inv-resource-label {
-	font-size: 0.75em;
+	font-size: 0.7rem;
 	margin-left: 1px;
 }
 
@@ -1409,7 +1445,7 @@ body,
 	margin-left: auto;
 	color: var(--color-text-dark-secondary);
 	cursor: pointer;
-	font-size: 0.75em;
+	font-size: 0.7rem;
 }
 
 .stonetop-inv-item:hover .stonetop-inv-delete {
@@ -1417,7 +1453,7 @@ body,
 }
 
 .stonetop-inv-add-btn {
-	font-size: 0.8em;
+	font-size: 0.75rem;
 	padding: 1px 6px;
 	margin-top: 4px;
 	cursor: pointer;
@@ -1636,18 +1672,21 @@ body,
 .stonetop-supplies-pool {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	flex-wrap: wrap;
+	gap: 4px;
 	margin: 6px 0 2px;
 }
 
 .stonetop-supplies-pool-diamonds {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	gap: 2px;
+	flex-wrap: wrap;
+	gap: 1px;
+	min-width: 0;
 }
 
 .stonetop-supplies-pool-gap {
-	width: 6px;
+	width: 4px;
 	display: inline-block;
 }
 
@@ -2116,191 +2155,311 @@ body,
 	font-size: 0.85rem;
 }
 
-/* ===== Steading Sheet ===== */
+/* ===== Steading Sheet (new panel-frame system) ===== */
 
-.stonetop-steading-sheet {
+/* Base form layout */
+form.stonetop.sheet.steading {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 0;
 	padding: 8px;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+/* ── Panel frame ─────────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-panel-frame {
+	position: relative;
+	padding: 14px 14px 10px;
 	box-sizing: border-box;
 }
 
-/* Header */
-.st-header {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	padding-bottom: 6px;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+.stonetop.sheet.steading .panel-corner,
+.stonetop.sheet.steading .panel-edge {
+	position: absolute;
+	pointer-events: none;
 }
 
-.st-logo {
-	height: 38px;
-	width: auto;
-	flex-shrink: 0;
-	border: none !important;
-	border-radius: 0 !important;
+.stonetop.sheet.steading .panel-corner {
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	z-index: 2;
 }
 
-.st-name {
-	flex: 1;
-	font-size: 1.1rem;
-	border: none;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
-	background: transparent;
+.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("../assets/sheet/panel-corner-tl.png"); }
+.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("../assets/sheet/panel-corner-tr.png"); }
+.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("../assets/sheet/panel-corner-bl.png"); }
+.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("../assets/sheet/panel-corner-br.png"); }
+
+.stonetop.sheet.steading .panel-edge-top {
+	top: 0; left: 16px; right: 16px; height: 8px;
+	background: url("../assets/sheet/panel-edge-top.png") repeat-x top left / auto 8px;
+	z-index: 1;
+}
+.stonetop.sheet.steading .panel-edge-bottom {
+	bottom: 0; left: 16px; right: 16px; height: 8px;
+	background: url("../assets/sheet/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
+	z-index: 1;
+}
+.stonetop.sheet.steading .panel-edge-left {
+	top: 16px; bottom: 16px; left: 0; width: 8px;
+	background: url("../assets/sheet/panel-edge-left.png") repeat-y top left / 8px auto;
+	z-index: 1;
+}
+.stonetop.sheet.steading .panel-edge-right {
+	top: 16px; bottom: 16px; right: 0; width: 8px;
+	background: url("../assets/sheet/panel-edge-right.png") repeat-y top right / 8px auto;
+	z-index: 1;
 }
 
-/* Top row: Fortunes | Surplus | Size+Pop */
-.st-top-row {
-	display: flex;
-	gap: 8px;
-	align-items: stretch;
+.stonetop.sheet.steading .steading-panel-frame > :not(.panel-corner):not(.panel-edge) {
+	position: relative;
+	z-index: 3;
 }
 
-.st-stat-box {
-	display: flex;
-	flex-direction: column;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 4px;
-	overflow: hidden;
-	flex-shrink: 0;
-}
-
-.st-stat-icon {
-	width: 100%;
-	display: block;
-	max-height: 64px;
-	object-fit: cover;
-	object-position: center top;
-	border: none !important;
-	border-radius: 0 !important;
-}
-
-.st-stat-content {
-	padding: 5px 8px;
-	display: flex;
-	flex-direction: column;
-	gap: 1px;
-}
-
-.st-stat-title {
-	font-weight: bold;
+.stonetop.sheet.steading .steading-panel-frame h2 {
 	font-size: 0.8rem;
-	margin: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin: 0 0 4px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-.st-stat-note {
-	font-size: 0.7rem;
+/* ── Header grid ─────────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .sheet-header.steading-top {
+	padding: 0;
+	margin-bottom: 6px;
+}
+
+.stonetop.sheet.steading .steading-header-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.stonetop.sheet.steading .steading-stat-panel {
+	display: flex;
+	flex-direction: column;
+	min-width: 90px;
+}
+
+.stonetop.sheet.steading .steading-fortunes   { order: 1; }
+.stonetop.sheet.steading .steading-surplus    { order: 2; }
+.stonetop.sheet.steading .steading-size       { order: 3; }
+.stonetop.sheet.steading .steading-population { order: 4; }
+.stonetop.sheet.steading .steading-prosperity { order: 5; }
+.stonetop.sheet.steading .steading-defenses   { order: 6; }
+.stonetop.sheet.steading .steading-debilities-panel { order: 7; flex: 1; }
+
+/* ── Start line ──────────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-start-line {
+	font-size: 0.68rem;
 	font-style: italic;
 	color: var(--color-text-dark-secondary, #555);
-	margin: 0 0 3px;
+	margin: 0 0 5px;
+	padding-bottom: 4px;
+	position: relative;
 }
 
-.st-radio-label {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	font-size: 0.8rem;
-	cursor: pointer;
-	padding: 1px 0;
+.stonetop.sheet.steading .steading-start-line::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	height: 1px;
+	background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
 }
 
-.st-radio-label.is-selected {
-	font-weight: bold;
-}
+/* ── Radio options ───────────────────────────────────────────────────────────── */
 
-/* Surplus number input */
-.stonetop-surplus-input {
-	width: 64px;
-	font-size: 1.4rem;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	padding: 2px 4px;
-	text-align: center;
-	background: transparent;
-	margin-top: 4px;
-}
-
-/* Size + Population divided box fills remaining space */
-.st-stat-box--divided {
-	flex: 1;
-}
-
-.st-stat-box--assets {
-	flex: 2;
-}
-
-.st-asset-coinage {
-	padding: 5px 8px;
-	border-top: 1px solid var(--color-border-light-primary, #ccc);
-	display: flex;
-	flex-direction: column;
-	gap: 3px;
-}
-
-.st-stat-divider {
-	height: 5px;
-	margin: 2px 8px;
-	background-image: url("../assets/sheet/divider-horizontal-thin.png");
-	background-repeat: repeat-x;
-	background-position: center;
-	background-size: auto 5px;
-}
-
-/* Mid row: Prosperity | Defenses */
-.st-mid-row {
-	display: flex;
-	gap: 8px;
-}
-
-.st-mid-block {
-	flex: 1;
-	display: flex;
-	gap: 10px;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 4px;
-	padding: 6px 8px;
-}
-
-.st-mid-stat {
-	flex-shrink: 0;
-	min-width: 110px;
-}
-
-.st-item-list {
-	flex: 1;
+.stonetop.sheet.steading .steading-rating-options {
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
 }
 
-.st-item-list-title {
-	font-weight: bold;
+.stonetop.sheet.steading .steading-rating-option,
+.stonetop.sheet.steading .steading-debility-option {
+	display: flex;
+	align-items: flex-start;
+	gap: 5px;
+	cursor: pointer;
+	padding: 1px 0;
+}
+
+.stonetop.sheet.steading .steading-box-input,
+.stonetop.sheet.steading .steading-circle-input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.stonetop.sheet.steading .steading-box,
+.stonetop.sheet.steading .steading-circle {
+	display: inline-block;
+	flex-shrink: 0;
+	width: 11px;
+	height: 11px;
+	margin-top: 2px;
+	border: 1px solid rgba(0,0,0,0.4);
+	background: rgba(255,255,255,0.5);
+}
+
+.stonetop.sheet.steading .steading-box {
+	border-radius: 1px;
+}
+
+.stonetop.sheet.steading .steading-circle {
+	border-radius: 50%;
+}
+
+.stonetop.sheet.steading .steading-box-input:checked + .steading-box,
+.stonetop.sheet.steading .steading-circle-input:checked + .steading-circle {
+	background: rgba(80, 55, 30, 0.75);
+	border-color: rgba(80, 55, 30, 0.9);
+}
+
+.stonetop.sheet.steading .steading-option-text {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.72rem;
+	line-height: 1.3;
+}
+
+.stonetop.sheet.steading .steading-option-text small {
+	font-size: 0.65rem;
+	color: var(--color-text-dark-secondary, #666);
+}
+
+/* ── Surplus input ───────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-surplus-input {
+	width: 56px;
+	font-size: 1.6rem;
+	font-family: var(--font-primary);
+	text-align: center;
+	border: 1px solid rgba(0,0,0,0.25);
+	border-radius: 3px;
+	padding: 2px 4px;
+	background: rgba(255,255,255,0.4);
+	margin-top: 4px;
+}
+
+.stonetop.sheet.steading .steading-surplus-input::-webkit-outer-spin-button,
+.stonetop.sheet.steading .steading-surplus-input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* ── Stat roll button ────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-stat-roll {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-family: "StonetopUI", serif;
 	font-size: 0.8rem;
-	margin: 0 0 3px;
-	padding-bottom: 2px;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: inherit;
 }
 
-.st-item-list ul {
-	list-style: none;
-	padding-left: 0;
-	margin: 0 0 4px;
+.stonetop.sheet.steading .steading-stat-roll:hover {
+	color: var(--color-text-hyperlink, #4b4a44);
+	text-decoration: underline;
 }
 
-.st-item-list ul li {
+/* ── Debilities panel ────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-debilities-panel h2 {
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.stonetop.sheet.steading .steading-debility-list {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.stonetop.sheet.steading .steading-debility-option span:last-child {
+	font-size: 0.72rem;
+	line-height: 1.35;
+}
+
+.stonetop.sheet.steading .steading-debility-option small {
+	display: block;
+	font-size: 0.65rem;
+	color: var(--color-text-dark-secondary, #555);
+	font-style: italic;
+}
+
+/* ── Overview tab ────────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-overview-grid {
+	display: flex;
+	gap: 0;
+	height: 100%;
+	min-height: 300px;
+}
+
+.stonetop.sheet.steading .steading-overview-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.stonetop.sheet.steading .steading-overview-divider {
+	width: 8px;
+	flex-shrink: 0;
+	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	margin: 0 4px;
+}
+
+.stonetop.sheet.steading .steading-overview-field {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 200px;
+}
+
+.stonetop.sheet.steading .steading-overview-field textarea {
+	flex: 1;
+	resize: none;
+	border: none;
+	background: transparent;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	padding: 4px 0;
+	font-family: var(--font-primary);
+}
+
+/* Bullet-list entry rows (Resources, Defenses, Assets) */
+
+.stonetop.sheet.steading .steading-attr-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	flex: 1;
+}
+
+.stonetop.sheet.steading .steading-attr-row {
 	display: flex;
 	align-items: center;
-	gap: 4px;
-	font-size: 0.78rem;
-	line-height: 1.4;
+	gap: 3px;
 }
 
-/* Bullet image — editable rows and plain lists (not checkbox lists) */
-.st-extra-row::before,
-.st-item-list ul li::before,
-.st-resident-traits-list li::before {
+.stonetop.sheet.steading .steading-attr-row::before {
 	content: '';
 	display: block;
 	width: 10px;
@@ -2309,657 +2468,427 @@ body,
 	flex-shrink: 0;
 }
 
-.st-extra-row {
-	display: flex;
-	align-items: center;
-	gap: 3px;
-}
-
-.stonetop-attr-extra {
+.stonetop.sheet.steading .steading-attr-row input[type="text"] {
 	flex: 1;
+	border: none;
+	border-bottom: 1px solid transparent;
+	background: transparent;
 	font-size: 0.78rem;
-	border: 1px solid transparent;
-	border-radius: 2px;
-	background: transparent;
-	padding: 1px 4px;
-}
-
-.stonetop-attr-extra:focus {
-	border-color: var(--color-border-light-primary, #ccc);
-	background: white;
-}
-
-.stonetop-attr-extra-remove {
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-	opacity: 0.5;
-	line-height: 1;
-	font-size: 0.7rem;
-}
-
-.stonetop-attr-extra-remove:hover {
-	opacity: 1;
-	color: var(--color-level-error, #c00);
-}
-
-.stonetop-attr-extra-add {
-	align-self: flex-start;
-	font-size: 0.72rem;
-	padding: 1px 5px;
-	background: transparent;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-	margin-top: 2px;
-}
-
-.stonetop-attr-extra-add:hover {
-	background: rgba(0, 0, 0, 0.05);
-}
-
-/* Bottom row: Places | Debilities | Notes */
-.st-bottom-row {
-	display: flex;
-	gap: 10px;
-	align-items: flex-start;
-}
-
-.st-section-title {
-	font-weight: bold;
-	font-size: 1.1rem;
-	margin: 0 0 5px;
-	padding-bottom: 2px;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
-}
-
-/* Inline heading row: title + subtitle on one line */
-.st-section-heading {
-	display: flex;
-	align-items: baseline;
-	gap: 8px;
-	margin-bottom: 6px;
-}
-
-.st-section-heading .st-section-title {
-	margin: 0;
-	padding-bottom: 0;
-	border-bottom: none;
-	flex-shrink: 0;
-}
-
-.st-section-subtitle {
-	font-size: 0.82rem;
-	font-weight: normal;
-	font-style: normal;
-	color: var(--color-text-dark-primary, #111);
-}
-
-/* Places of Interest */
-.st-places {
-	flex: 1.2;
-	display: flex;
-	flex-direction: column;
-}
-
-.st-places-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 3px 10px;
-	margin-bottom: 5px;
-}
-
-.st-place {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	font-size: 0.8rem;
-}
-
-.st-place-key {
-	font-weight: bold;
-	flex-shrink: 0;
-	min-width: 18px;
-}
-
-.st-place-title {
-	flex: 1;
-}
-
-.stonetop-place-field {
-	flex: 1;
-	font-size: 0.8rem;
-	border: 1px solid transparent;
-	border-radius: 2px;
-	background: transparent;
-	padding: 1px 3px;
-}
-
-.stonetop-place-field:focus {
-	border-color: var(--color-border-light-primary, #ccc);
-	background: white;
-}
-
-.stonetop-place-remove {
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-	opacity: 0.5;
-	line-height: 1;
-	font-size: 0.7rem;
-}
-
-.stonetop-place-remove:hover {
-	opacity: 1;
-	color: var(--color-level-error, #c00);
-}
-
-.stonetop-place-add {
-	align-self: flex-start;
-	font-size: 0.72rem;
-	padding: 1px 5px;
-	background: transparent;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-}
-
-.stonetop-place-add:hover {
-	background: rgba(0, 0, 0, 0.05);
-}
-
-/* Debilities column */
-.st-debilities-col {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-
-/* Override character-sheet centering for the steading row layout */
-.stonetop-steading-sheet .stonetop-debility {
-	flex: unset;
-	flex-direction: row;
-	align-items: flex-start;
-	gap: 6px;
-}
-
-.st-debility-text {
-	display: flex;
-	flex-direction: column;
-	gap: 1px;
-}
-
-.st-debility-desc {
-	font-size: 0.8rem;
-	line-height: 1.3;
-}
-
-.st-debility-note {
-	font-size: 0.71rem;
-	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
-}
-
-/* Notes column */
-.st-notes-col {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-
-.st-notes-textarea {
-	flex: 1;
-	min-height: 110px;
-	max-height: 200px;
-	field-sizing: content;
-	font-size: 0.8rem;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	padding: 4px;
-	background: transparent;
-}
-
-/* Lower sections: Content, Assets, Residents, Neighbors, Improvements */
-.stonetop-steading-section {
-	border-top: 1px solid var(--color-border-light-primary, #ccc);
-	padding-top: 8px;
-}
-
-.stonetop-steading-content-group {
-	display: flex;
-	flex-direction: column;
-	gap: 3px;
-	margin-bottom: 8px;
-}
-
-.stonetop-steading-content-group strong {
-	font-size: 0.8rem;
-}
-
-.stonetop-steading-content-row {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-}
-
-.stonetop-content-item {
-	flex: 1;
-	font-size: 0.8rem;
-	border: 1px solid transparent;
-	border-radius: 2px;
-	background: transparent;
-	padding: 1px 4px;
-}
-
-.stonetop-content-item:focus {
-	border-color: var(--color-border-light-primary, #ccc);
-	background: white;
-}
-
-.stonetop-content-remove,
-.stonetop-resident-remove,
-.stonetop-neighbor-person-remove,
-.stonetop-neighbor-place-remove {
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-	opacity: 0.5;
-	font-size: 0.75rem;
-}
-
-.stonetop-content-remove:hover,
-.stonetop-resident-remove:hover,
-.stonetop-neighbor-person-remove:hover,
-.stonetop-neighbor-place-remove:hover {
-	opacity: 1;
-	color: var(--color-level-error, #c00);
-}
-
-.stonetop-content-add,
-.stonetop-resident-add,
-.stonetop-neighbor-person-add,
-.stonetop-neighbor-place-add {
-	font-size: 0.72rem;
-	padding: 1px 5px;
-	background: transparent;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	cursor: pointer;
-	color: var(--color-text-dark-secondary, #555);
-	margin-top: 3px;
-}
-
-.stonetop-content-add:hover,
-.stonetop-resident-add:hover,
-.stonetop-neighbor-person-add:hover,
-.stonetop-neighbor-place-add:hover {
-	background: rgba(0, 0, 0, 0.05);
-}
-
-/* Coinage */
-.stonetop-steading-coinage {
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	margin-bottom: 6px;
-	font-size: 0.82rem;
-}
-
-.stonetop-coinage-title {
-	font-weight: bold;
-	min-width: 56px;
-	text-transform: capitalize;
-}
-
-.stonetop-steading-coinage label {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-}
-
-.stonetop-coinage-input {
-	width: 56px;
-	font-size: 0.82rem;
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 3px;
-	padding: 2px 4px;
-	text-align: right;
-	background: transparent;
-}
-
-/* Residents / Neighbors tables */
-.stonetop-steading-table {
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 0.82rem;
-	margin-bottom: 4px;
-}
-
-.stonetop-steading-table th {
-	text-align: left;
-	font-size: 0.74rem;
-	color: #444;
-	background: #f0ede8;
-	text-shadow: none;
-	padding: 2px 4px;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
-}
-
-.stonetop-steading-table td {
+	font-family: var(--font-primary);
 	padding: 1px 2px;
 }
 
-.stonetop-steading-table td input[type="text"] {
-	width: 100%;
-	border: 1px solid transparent;
-	border-radius: 2px;
-	background: transparent;
-	padding: 2px 4px;
-	font-size: 0.82rem;
+.stonetop.sheet.steading .steading-attr-row input[type="text"]:focus {
+	border-bottom-color: rgba(0,0,0,0.3);
+	outline: none;
 }
 
-.stonetop-steading-table td input[type="text"]:focus {
-	border-color: var(--color-border-light-primary, #ccc);
-	background: white;
-}
-
-.stonetop-steading-table td a {
-	cursor: pointer;
-}
-
-/* Neighbors tab */
-.st-neighbors-layout {
-	display: flex;
-	gap: 12px;
-	align-items: flex-start;
-}
-
-.st-neighbor-people-col {
-	flex: 2 1 0;
-	min-width: 0;
-}
-
-.st-neighbor-places-col {
-	flex: 1 1 0;
-	min-width: 0;
+.stonetop.sheet.steading .steading-assets-column {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 }
 
-.st-neighbor-place-box {
-	border: 1px solid var(--color-border-light-primary, #ccc);
-	border-radius: 4px;
-	padding: 6px 8px;
+.stonetop.sheet.steading .steading-assets-text-field {
+	flex: 1;
 }
 
-.st-neighbor-place-header {
-	display: flex;
-	align-items: baseline;
-	gap: 6px;
-	padding-bottom: 3px;
-	margin-bottom: 4px;
-	border-bottom: 1px solid var(--color-border-light-primary, #ccc);
+.stonetop.sheet.steading .steading-assets-text-field textarea {
+	min-height: 80px;
 }
 
-.st-neighbor-place-name {
-	font-weight: bold;
-	font-size: 0.85rem;
-}
-
-.st-neighbor-place-subtitle {
-	font-size: 0.74rem;
-	color: var(--color-text-dark-secondary, #555);
-	font-style: italic;
-}
-
-.st-neighbor-place-body {
-	display: flex;
-	flex-direction: column;
+.stonetop.sheet.steading .steading-asset-currency-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 4px;
 }
 
-.stonetop-neighbor-place-note {
-	width: 100%;
-	resize: vertical;
-	min-height: 3em;
-	font-size: 0.82rem;
-	padding: 2px 4px;
-	box-sizing: border-box;
+.stonetop.sheet.steading .steading-asset-currency-frame {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 3px;
+	padding: 4px 6px;
+	background: rgba(255,255,255,0.3);
+	font-size: 0.65rem;
+	cursor: default;
 }
 
-.st-neighbor-place-names-col {
+.stonetop.sheet.steading .steading-asset-currency-frame span {
+	font-size: 0.65rem;
+	color: var(--color-text-dark-secondary, #555);
+	white-space: nowrap;
+}
+
+.stonetop.sheet.steading .steading-asset-currency-frame input {
+	width: 100%;
+	text-align: center;
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	background: transparent;
+	font-size: 0.85rem;
+	font-family: var(--font-primary);
+	padding: 1px 2px;
+}
+
+/* ── Residents tab ───────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-residents-grid {
+	display: flex;
+	gap: 0;
+	margin-bottom: 8px;
+	min-height: 200px;
+}
+
+.stonetop.sheet.steading .steading-residents-roster {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.stonetop.sheet.steading .steading-residents-divider {
+	width: 8px;
+	flex-shrink: 0;
+	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	margin: 0 4px;
+}
+
+.stonetop.sheet.steading .steading-resident-names {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.stonetop.sheet.steading .steading-names-text {
+	font-size: 0.72rem;
+	line-height: 1.5;
+	color: var(--color-text-dark-secondary, #555);
+	margin: 0;
+	overflow-y: auto;
+}
+
+.stonetop.sheet.steading .steading-residents-table {
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
 }
 
-.st-neighbor-names-label {
-	font-size: 0.72rem;
+.stonetop.sheet.steading .steading-residents-header,
+.stonetop.sheet.steading .steading-resident-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr auto;
+	gap: 4px;
+	align-items: center;
+}
+
+.stonetop.sheet.steading .steading-residents-header span {
+	font-size: 0.68rem;
 	font-weight: bold;
 	color: var(--color-text-dark-secondary, #555);
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
-	margin: 0;
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-.st-neighbor-place-names-text {
-	font-size: 0.82rem;
-	line-height: 1.5;
-	margin: 0;
+.stonetop.sheet.steading .steading-resident-row input[type="text"] {
+	border: none;
+	border-bottom: 1px solid transparent;
+	background: transparent;
+	font-size: 0.78rem;
+	font-family: var(--font-primary);
+	padding: 1px 2px;
+	width: 100%;
 }
 
-/* Residents tab */
-.st-residents-layout {
+.stonetop.sheet.steading .steading-resident-row input[type="text"]:focus {
+	border-bottom-color: rgba(0,0,0,0.3);
+	outline: none;
+}
+
+.stonetop.sheet.steading .steading-add-resident {
+	margin-top: 4px;
+	align-self: flex-start;
+}
+
+/* NPC Traits */
+
+.stonetop.sheet.steading .steading-npc-traits {
+	margin-top: 0;
+}
+
+.stonetop.sheet.steading .steading-npc-traits-heading {
 	display: flex;
-	gap: 12px;
-	align-items: flex-start;
+	align-items: baseline;
+	gap: 8px;
+	margin-bottom: 6px;
 }
 
-.st-residents-col {
-	flex: 1 1 0;
-	min-width: 0;
+.stonetop.sheet.steading .steading-npc-traits-heading h2 {
+	margin: 0;
+	border-bottom: none;
 }
 
-.st-residents-sidebar {
-	flex: 0 0 250px;
-	display: flex;
-	flex-direction: column;
+.stonetop.sheet.steading .steading-npc-traits-heading span {
+	font-size: 0.72rem;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .steading-npc-traits-source {
+	display: none;
+}
+
+.stonetop.sheet.steading .steading-npc-traits-columns {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 	gap: 6px;
 }
 
-.st-sidebar-label {
+.stonetop.sheet.steading .steading-npc-traits-column {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.stonetop.sheet.steading .steading-npc-trait {
 	font-size: 0.72rem;
+	line-height: 1.5;
+	color: var(--color-text-dark-primary, #222);
+}
+
+/* ── Neighbors tab ───────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-neighbors-grid {
+	display: flex;
+	gap: 0;
+	min-height: 300px;
+}
+
+.stonetop.sheet.steading .steading-neighbors-roster {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.stonetop.sheet.steading .steading-neighbors-divider {
+	width: 8px;
+	flex-shrink: 0;
+	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	margin: 0 4px;
+}
+
+.stonetop.sheet.steading .steading-neighbors-header {
+	grid-template-columns: 1fr 1fr 2fr 1fr auto;
+}
+
+.stonetop.sheet.steading .steading-neighbor-places {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	overflow-y: auto;
+}
+
+.stonetop.sheet.steading .steading-neighbor-place {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.stonetop.sheet.steading .steading-neighbor-place h2 small {
+	font-size: 0.65rem;
+	font-weight: normal;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .steading-neighbor-text-field {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.stonetop.sheet.steading .steading-neighbor-text-field span {
+	font-size: 0.65rem;
 	font-weight: bold;
 	color: var(--color-text-dark-secondary, #555);
 	text-transform: uppercase;
-	letter-spacing: 0.04em;
-	margin: 0;
+	letter-spacing: 0.3px;
 }
 
-.st-resident-names-list {
-	font-size: 0.74rem;
+.stonetop.sheet.steading .steading-neighbor-text-field textarea {
+	resize: none;
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	background: transparent;
+	font-size: 0.72rem;
+	font-family: var(--font-primary);
 	line-height: 1.4;
-	margin: 0;
+	min-height: 36px;
+	padding: 1px 2px;
 }
 
-.st-residents-sidebar img {
-	width: 100%;
-	border-radius: 3px;
-	display: block;
+.stonetop.sheet.steading .steading-neighbor-text-field textarea:focus {
+	outline: none;
+	border-bottom-color: rgba(0,0,0,0.35);
 }
 
-/* NPC Sheet Styling */
+/* ── Improvements tab ────────────────────────────────────────────────────────── */
 
-.npc {
-	min-width: 315px;
-	min-height: 425px;
+.stonetop.sheet.steading .steading-improvements-grid {
+	display: flex;
+	gap: 0;
+	align-items: flex-start;
 }
 
-.npc .stonetop-follower-card::before {
-	background-image: none;
+.stonetop.sheet.steading .steading-improvement-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
-.npc .stonetop-follower-card {
-	background: none;
+.stonetop.sheet.steading .steading-improvements-divider {
+	width: 8px;
+	align-self: stretch;
+	flex-shrink: 0;
+	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	margin: 0 4px;
 }
 
-.stonetop-npc-attrs {
-	padding-top: 5px;
-	padding-bottom: 5px;
+.stonetop.sheet.steading .steading-improvement-group {
+	display: flex;
+	flex-direction: column;
 }
 
-.npc .stonetop-follower-attrs {
-	grid-template-columns: 88px 88px 110px;
+/* ── Notes tab ───────────────────────────────────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-notes-grid {
+	display: flex;
+	gap: 0;
+	min-height: 300px;
 }
 
-#npc-damage {
-	min-width: 50px;
-	field-sizing: content;
+.stonetop.sheet.steading .steading-notes-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
-#npc-armor-box {
-	max-width: 88px;
+.stonetop.sheet.steading .steading-notes-divider {
+	width: 8px;
+	flex-shrink: 0;
+	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	margin: 0 4px;
 }
 
-/* NPC Traits — dynamic multi-column */
-.st-resident-traits-list li {
+.stonetop.sheet.steading .steading-notes-field {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.stonetop.sheet.steading .steading-notes-field textarea {
+	flex: 1;
+	resize: none;
+	border: none;
+	background: transparent;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	padding: 4px 0;
+	font-family: var(--font-primary);
+}
+
+.stonetop.sheet.steading .steading-notes-content-column {
+	gap: 6px;
+}
+
+.stonetop.sheet.steading .steading-notes-content-field {
+	flex: 1;
+}
+
+.stonetop.sheet.steading .stonetop-content-textarea {
+	flex: 1;
+	resize: none;
+	border: none;
+	background: transparent;
+	font-size: 0.78rem;
+	line-height: 1.5;
+	padding: 2px 0;
+	font-family: var(--font-primary);
+}
+
+.stonetop.sheet.steading .steading-notes-content-field h2 small {
+	font-size: 0.65rem;
+	font-weight: normal;
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .stonetop-steading-content-items {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.stonetop.sheet.steading .stonetop-steading-content-row {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.stonetop.sheet.steading .stonetop-steading-content-row input[type="text"] {
+	flex: 1;
+	border: none;
+	border-bottom: 1px solid transparent;
+	background: transparent;
+	font-size: 0.78rem;
+	font-family: var(--font-primary);
+	padding: 1px 2px;
+}
+
+.stonetop.sheet.steading .stonetop-steading-content-row input[type="text"]:focus {
+	border-bottom-color: rgba(0,0,0,0.3);
+	outline: none;
+}
+
+/* Places of Interest */
+
+.stonetop.sheet.steading .stonetop-places-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	margin-bottom: 4px;
+}
+
+.stonetop.sheet.steading .stonetop-places-row {
 	display: flex;
 	align-items: center;
 	gap: 4px;
 }
 
-.st-resident-traits-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	column-count: 6;
-	column-width: 130px;
-	column-fill: auto;
-	max-height: calc(14 * 1.6em);
-	overflow: hidden;
-	font-size: 0.82rem;
-	line-height: 1.6;
-}
-
-/* Improvements */
-.stonetop-choice-entry {
-	margin-bottom: 4px;
-}
-
-.st-content-desc {
-	font-size: 0.74rem;
+.stonetop.sheet.steading .stonetop-place-key {
+	font-size: 0.72rem;
+	font-weight: bold;
 	color: var(--color-text-dark-secondary, #555);
-	line-height: 1.4;
-	margin-bottom: 6px;
+	flex-shrink: 0;
+	width: 16px;
 }
 
-.st-content-desc p {
-	margin: 0 0 5px;
+.stonetop.sheet.steading .stonetop-places-row input[type="text"] {
+	flex: 1;
+	border: none;
+	border-bottom: 1px solid transparent;
+	background: transparent;
+	font-size: 0.78rem;
+	font-family: var(--font-primary);
+	padding: 1px 2px;
 }
 
-.st-content-desc p:last-child {
-	margin-bottom: 0;
-}
-
-.st-content-note {
-	font-size: 0.71rem;
-	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
-	font-weight: normal;
-}
-
-/* Improvements — multi-column like character sheet moves */
-.st-improvements-list {
-	column-count: 2;
-	column-gap: 16px;
-	margin-top: 4px;
-}
-
-.st-improvements-list .stonetop-choice-entry {
-	break-inside: avoid;
-	margin-bottom: 4px;
-}
-
-.stonetop-move-result {
-	margin-top: 0.5em;
-	padding: 0.4em 0.6em;
-	border-left: 3px solid currentColor;
-	font-style: italic;
-}
-
-.stonetop-move-result--success {
-	color: #2d6a2d;
-	border-color: #2d6a2d;
-}
-
-.stonetop-move-result--partial {
-	color: #7a6000;
-	border-color: #7a6000;
-}
-
-.stonetop-move-result--failure {
-	color: #8b0000;
-	border-color: #8b0000;
-}
-
-.stonetop-roll-dice {
-	display: flex;
-	align-items: center;
-	gap: 0.35em;
-	flex-wrap: wrap;
-	margin-bottom: 0.5em;
-	font-size: 1.05em;
-}
-
-.stonetop-die {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 1.6em;
-	height: 1.6em;
-	background: #2a2a2a;
-	color: #f0f0f0;
-	border-radius: 3px;
-	font-weight: bold;
-}
-
-.stonetop-dice-group--dropped {
-	opacity: 0.4;
-}
-
-.stonetop-die--dropped {
-	background: #555;
-	text-decoration: line-through;
-}
-
-.stonetop-roll-mode {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.1em 0.45em;
-	border-radius: 3px;
-	font-size: 0.8em;
-	font-weight: bold;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-}
-
-.stonetop-roll-mode--adv {
-	background: #1a6b2e;
-	color: #c8f0d0;
-}
-
-.stonetop-roll-mode--dis {
-	background: #7a1a1a;
-	color: #f0c8c8;
-}
-
-.stonetop-roll-mod {
-	font-weight: bold;
-}
-
-.stonetop-roll-total {
-	font-weight: bold;
+.stonetop.sheet.steading .stonetop-places-row input[type="text"]:focus {
+	border-bottom-color: rgba(0,0,0,0.3);
+	outline: none;
 }
 
 /* ============================================================

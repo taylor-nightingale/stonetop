@@ -53,12 +53,10 @@
 		    cgContext="instinct"}}
 		{{/if}}
 
-		{{#if stonetop.playbook.appearanceGroup}}
+		{{#if stonetop.playbook.appearanceGroups.length}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
-			{{#each stonetop.playbook.appearanceGroup.list}}
-			{{> "stonetop.choice-row" cgContext="appearance" namePrefix="stonetop-appearance"}}
-			{{/each}}
+			{{> "stonetop.choice-section" groups=stonetop.playbook.appearanceGroups cgContext="appearance"}}
 		</div>
 		{{/if}}
 
@@ -73,9 +71,7 @@
 					<strong>{{region}}</strong>
 				</label>
 				<div class="stonetop-origin-names">
-					{{#each names}}
-					<button type="button" class="stonetop-origin-name">{{this}}</button>
-					{{/each}}
+					{{#each names}}<span class="stonetop-origin-name">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
 				</div>
 			</div>
 			{{/each}}

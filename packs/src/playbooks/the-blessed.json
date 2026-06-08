@@ -105,7 +105,7 @@
       {
         "slug": "initiate",
         "label": "Initiate",
-        "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p><p>There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers \u2014 see the Initiates of Danu insert. Who are they? Pick 2 or 3:</p>",
+        "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p><p>There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:</p>",
         "moves": [
           "rites-of-the-land"
         ],
@@ -230,7 +230,7 @@
             "type": "entry",
             "content": {
               "title": "Sacred Pouch",
-              "text": "<p>Your sacred pouch (<em>magical</em>) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When <strong><em>anyone but you looks inside your sacred pouch and touches the materials therein</em></strong>, the Stock is ruined.</p><p>When you <strong><em>have a few days of downtime in familiar terrain</em></strong., you may replenish your Stock.</p><p>When you <strong><em>Forage</strong></em>, you can produce Stock instead of provisions.</p>"
+              "text": "<p>Your sacred pouch (<em>magical</em>) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When <strong><em>anyone but you looks inside your sacred pouch and touches the materials therein</em></strong>, the Stock is ruined.</p><p>When you <strong><em>have a few days of downtime in familiar terrain</em></strong., you may replenish your Stock.</p><p>When you <strong><em>Forage</em></strong>, you can produce Stock instead of provisions.</p>"
             }
           },
           {
@@ -398,7 +398,7 @@
             "type": "entry",
             "content": {
               "title": null,
-              "text": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2\u20133)</em></p>"
+              "text": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
             }
           },
           {
@@ -601,92 +601,95 @@
         ]
       }
     },
-    "appearance": [
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "fresh-faced",
-            "text": "fresh-faced"
-          },
-          {
-            "slug": "hale-and-hearty",
-            "text": "hale & hearty"
-          },
-          {
-            "slug": "gray-and-wizened",
-            "text": "gray & wizened"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "imperious-voice",
-            "text": "imperious voice"
-          },
-          {
-            "slug": "raspy-voice",
-            "text": "raspy voice"
-          },
-          {
-            "slug": "soothing-voice",
-            "text": "soothing voice"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "curvy",
-            "text": "curvy"
-          },
-          {
-            "slug": "strapping",
-            "text": "strapping"
-          },
-          {
-            "slug": "rail-thin",
-            "text": "rail-thin"
-          },
-          {
-            "slug": "solid",
-            "text": "solid"
-          },
-          {
-            "slug": "willowy",
-            "text": "willowy"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "ceremonial-robes",
-            "text": "ceremonial robes"
-          },
-          {
-            "slug": "furs-leather",
-            "text": "furs, leather"
-          },
-          {
-            "slug": "work-clothes",
-            "text": "work clothes"
-          }
-        ]
-      }
-    ],
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "fresh-faced",
+              "text": "fresh-faced"
+            },
+            {
+              "slug": "hale-and-hearty",
+              "text": "hale & hearty"
+            },
+            {
+              "slug": "gray-and-wizened",
+              "text": "gray & wizened"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "imperious-voice",
+              "text": "imperious voice"
+            },
+            {
+              "slug": "raspy-voice",
+              "text": "raspy voice"
+            },
+            {
+              "slug": "soothing-voice",
+              "text": "soothing voice"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "curvy",
+              "text": "curvy"
+            },
+            {
+              "slug": "strapping",
+              "text": "strapping"
+            },
+            {
+              "slug": "rail-thin",
+              "text": "rail-thin"
+            },
+            {
+              "slug": "solid",
+              "text": "solid"
+            },
+            {
+              "slug": "willowy",
+              "text": "willowy"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "ceremonial-robes",
+              "text": "ceremonial robes"
+            },
+            {
+              "slug": "furs-leather",
+              "text": "furs, leather"
+            },
+            {
+              "slug": "work-clothes",
+              "text": "work clothes"
+            }
+          ]
+        }
+      ]
+    },
     "instinct": {
       "slug": "instinct",
       "list": [

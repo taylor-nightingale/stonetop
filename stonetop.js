@@ -45,7 +45,7 @@ Hooks.once("init", () => {
 	Handlebars.registerHelper("resourceChecks", resource => {
 		if (!resource) return [];
 		const { current, max, labels } = resource;
-		return Array.from({ length: max }, (_, i) => ({ checked: i < current, label: labels[i] || null }));
+		return Array.from({ length: max ?? 0 }, (_, i) => ({ checked: i < (current ?? 0), label: labels?.[i] || null }));
 	});
 
 	Handlebars.registerHelper("poolGroups", pool => {

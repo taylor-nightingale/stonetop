@@ -9,7 +9,7 @@
     "slug": "the-seeker",
     "actorType": "character",
     "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
-    "startingMovesNote": "You start with Well Versed, Work With What You\u2019ve Got, plus 1 from your Background.",
+    "startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
     "damage": {
       "value": "d6"
     },
@@ -129,7 +129,7 @@
             "type": "entry",
             "content": {
               "title": "Collection",
-              "text": "<p>In your travels and investigations you have acquired arcana\u2014artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+              "text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
             }
           }
         ]
@@ -185,7 +185,7 @@
             "slug": "when-unlocked",
             "content": {
               "title": null,
-              "text": "<p>You\u2019ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+              "text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
             },
             "input": {}
           }
@@ -340,88 +340,91 @@
         ]
       }
     },
-    "appearance": [
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "curiously-young",
-            "text": "curiously young"
-          },
-          {
-            "slug": "world-weary",
-            "text": "world-weary"
-          },
-          {
-            "slug": "bent-with-years",
-            "text": "bent with years"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "haunted-voice",
-            "text": "haunted voice"
-          },
-          {
-            "slug": "rich-voice",
-            "text": "rich voice"
-          },
-          {
-            "slug": "whispery",
-            "text": "whispery"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "ink-stained-fingers",
-            "text": "ink-stained fingers"
-          },
-          {
-            "slug": "sinewy-hands",
-            "text": "sinewy hands"
-          },
-          {
-            "slug": "soft-hands",
-            "text": "soft hands"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "bony-limbed",
-            "text": "bony limbed"
-          },
-          {
-            "slug": "lean-and-lanky",
-            "text": "lean & lanky"
-          },
-          {
-            "slug": "short",
-            "text": "short"
-          },
-          {
-            "slug": "thick-set",
-            "text": "thick-set"
-          }
-        ]
-      }
-    ],
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "curiously-young",
+              "text": "curiously young"
+            },
+            {
+              "slug": "world-weary",
+              "text": "world-weary"
+            },
+            {
+              "slug": "bent-with-years",
+              "text": "bent with years"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "haunted-voice",
+              "text": "haunted voice"
+            },
+            {
+              "slug": "rich-voice",
+              "text": "rich voice"
+            },
+            {
+              "slug": "whispery",
+              "text": "whispery"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "ink-stained-fingers",
+              "text": "ink-stained fingers"
+            },
+            {
+              "slug": "sinewy-hands",
+              "text": "sinewy hands"
+            },
+            {
+              "slug": "soft-hands",
+              "text": "soft hands"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "bony-limbed",
+              "text": "bony limbed"
+            },
+            {
+              "slug": "lean-and-lanky",
+              "text": "lean & lanky"
+            },
+            {
+              "slug": "short",
+              "text": "short"
+            },
+            {
+              "slug": "thick-set",
+              "text": "thick-set"
+            }
+          ]
+        }
+      ]
+    },
     "instinct": {
       "slug": "instinct",
       "list": [

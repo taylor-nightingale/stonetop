@@ -1,24 +1,29 @@
-import { PlaybookSnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
-import { IntroductionsSnapshot } from "../../model/snapshot/character/PlaybookSnapshot.js";
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
-import { InstinctController } from "./InstinctController.js";
+import {PlaybookSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
+import {IntroductionsSnapshot} from "../../model/snapshot/character/PlaybookSnapshot.js";
+import {ChoiceGroup, ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
+import {InstinctController} from "./InstinctController.js";
 
 export class CharacterPlaybook {
 	constructor(actor, background, factory, origin) {
-		this._actor      = actor;
+		this._actor = actor;
 		this._background = background;
-		this._origin     = origin;
-		this._ctrl       = factory.forItemType("playbook", "choiceValues");
-		this._instinct   = new InstinctController(this._ctrl);
+		this._origin = origin;
+		this._ctrl = factory.forItemType("playbook", "choiceValues");
+		this._instinct = new InstinctController(this._ctrl);
 	}
 
-	setVitals(vitals) { this._vitals = vitals; }
-	setMoves(moves)   { this._moves  = moves; }
+	setVitals(vitals) {
+		this._vitals = vitals;
+	}
+
+	setMoves(moves) {
+		this._moves = moves;
+	}
 
 	async getData() {
 		const item = [...this._actor.items].find(i => i.type === "playbook");
 		if (!item) return null;
-		return { ...item.system, name: item.name, img: item.img };
+		return {...item.system, name: item.name, img: item.img};
 	}
 
 	getSlug() {
@@ -45,7 +50,7 @@ export class CharacterPlaybook {
 	}
 
 	async selectPlaybook(stonetopPlaybook) {
-		await this._actor.update({ "system.playbookSlug": stonetopPlaybook.slug });
+		await this._actor.update({"system.playbookSlug": stonetopPlaybook.slug});
 		const bgMoveNames = new Set(
 			stonetopPlaybook.backgrounds?.find(b => b.slug === this._background.selectedSlug)?.moves ?? []
 		);
@@ -84,23 +89,19 @@ export class CharacterPlaybook {
 	async buildPlaybookSnapshot() {
 		const data = await this.getData();
 		if (!data) return null;
-		const choiceValues     = new ChoiceValues(data.choiceValues ?? {});
-		const instinctGroup    = data.instinct ? ChoiceGroup.fromPackData(data.instinct, choiceValues) : null;
+		const choiceValues = new ChoiceValues(data.choiceValues ?? {});
+		const instinctGroup = data.instinct ? ChoiceGroup.fromPackData(data.instinct, choiceValues) : null;
 		const instinctSelected = InstinctController.computeSelected(instinctGroup, choiceValues);
-		const choices          = (data.choices ?? []).map(g => ChoiceGroup.fromPackData(g, choiceValues));
-		const appearanceGroup  = data.appearance
-			? ChoiceGroup.fromPackData({ slug: "appearance", list: data.appearance }, choiceValues)
-			: null;
-		const loreGroups       = choices;
-		const introData        = data.introductions && !Array.isArray(data.introductions) && data.introductions.step4
-			? data.introductions
-			: null;
-		const introductions    = introData ? new IntroductionsSnapshot(
+		const choices = (data.choices ?? []).map(g => ChoiceGroup.fromPackData(g, choiceValues));
+		const appearanceGroups = data.appearance ? [ChoiceGroup.fromPackData(data.appearance, choiceValues)] : [];
+		const loreGroups = choices;
+		const introData = data.introductions && !Array.isArray(data.introductions) && data.introductions.step4 ? data.introductions : null;
+		const introductions = introData ? new IntroductionsSnapshot(
 			introData.step3 ?? null,
 			introData.step4 ? ChoiceGroup.fromPackData(introData.step4, choiceValues) : null,
 			introData.step6 ? ChoiceGroup.fromPackData(introData.step6, choiceValues) : null,
 		) : null;
-		const background       = await this._background.buildSnapshot(data.backgrounds ?? []);
+		const background = await this._background.buildSnapshot(data.backgrounds ?? []);
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
@@ -110,7 +111,7 @@ export class CharacterPlaybook {
 			.withChoices(choices)
 			.withInstinctGroup(instinctGroup)
 			.withInstinctSelected(instinctSelected)
-			.withAppearanceGroup(appearanceGroup)
+			.withAppearanceGroups(appearanceGroups)
 			.withLoreGroups(loreGroups)
 			.withBackground(background)
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))

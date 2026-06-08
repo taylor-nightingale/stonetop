@@ -9,6 +9,7 @@ import {NeighborPlaces} from "./NeighborPlaces.js";
 import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
 import {SteadingImprovements} from "./SteadingImprovements.js";
+import {SteadingMoves} from "./SteadingMoves.js";
 
 export class StonetopSteading {
 	constructor(actor, improvementsRepo) {
@@ -22,6 +23,7 @@ export class StonetopSteading {
 		this.content          = new SteadingContent(actor);
 		this.assets           = new SteadingAssets(actor);
 		this.improvements     = new SteadingImprovements(actor, improvementsRepo);
+		this.moves            = new SteadingMoves(actor);
 	}
 
 	get type() {
@@ -48,6 +50,7 @@ export class StonetopSteading {
 		if (rollStat === "prosperity") return attr.prosperity?.current ?? null;
 		if (rollStat === "defenses")   return attr.defenses?.current   ?? null;
 		if (rollStat === "fortunes")   return this._actor.system.fortunes ?? null;
+		if (rollStat === "surplus")    return this._actor.system.surplus  ?? null;
 		return null;
 	}
 
@@ -79,6 +82,7 @@ export class StonetopSteading {
 		await this._actor.update({"system.notes": value});
 	}
 
+
 	async buildSnapshot() {
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
@@ -103,6 +107,7 @@ export class StonetopSteading {
 			improvements:       await this.improvements.buildSnapshot(),
 			residentNames:      this._actor.system.residentNames,
 			residentTraits:     this._actor.system.residentTraits,
+			moves:              await this.moves.buildSnapshot(),
 		});
 	}
 }

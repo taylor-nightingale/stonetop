@@ -94,12 +94,12 @@
       {
         "slug": "penitent",
         "label": "Penitent",
-        "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers\u2014some of them at least\u2014to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+        "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
       },
       {
         "slug": "luminary",
         "label": "Luminary",
-        "description": "<p>You're a natural leader\u2014your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
+        "description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
       }
     ],
     "specialPossessions": {
@@ -122,7 +122,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "The Last Time the Militia Saw Serious Action, It Was\u2026",
+              "title": "The Last Time the Militia Saw Serious Action, It Was…",
               "text": "<p><em>(pick 1)</em></p>"
             }
           },
@@ -131,7 +131,7 @@
             "slug": "crinwin-raid",
             "content": {
               "title": null,
-              "text": "\u2026 to repel a nighttime raid by crinwin from the Great Wood."
+              "text": "… to repel a nighttime raid by crinwin from the Great Wood."
             },
             "track": {
               "max": 1
@@ -142,7 +142,7 @@
             "slug": "bandits",
             "content": {
               "title": null,
-              "text": "\u2026 to drive off bandits who'd taken up near the Ruined Tower."
+              "text": "… to drive off bandits who'd taken up near the Ruined Tower."
             },
             "track": {
               "max": 1
@@ -153,7 +153,7 @@
             "slug": "hillfolk",
             "content": {
               "title": null,
-              "text": "\u2026 to fend off Hillfolk pursuing a blood feud."
+              "text": "… to fend off Hillfolk pursuing a blood feud."
             },
             "track": {
               "max": 1
@@ -164,7 +164,7 @@
             "slug": "brennan-claws",
             "content": {
               "title": null,
-              "text": "\u2026 against Brennan and his Claws, before they settled in Marshedge."
+              "text": "… against Brennan and his Claws, before they settled in Marshedge."
             },
             "track": {
               "max": 1
@@ -175,7 +175,7 @@
             "slug": "hagr",
             "content": {
               "title": null,
-              "text": "\u2026 to face a brutish hagr, come down from the Foothills to wreak havoc."
+              "text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
             },
             "track": {
               "max": 1
@@ -186,7 +186,7 @@
             "slug": "beasts",
             "content": {
               "title": null,
-              "text": "\u2026 to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
+              "text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
             },
             "track": {
               "max": 1
@@ -388,84 +388,87 @@
         ]
       }
     },
-    "appearance": [
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "upstart-youth",
-            "text": "upstart youth"
-          },
-          {
-            "slug": "experienced-and-sober",
-            "text": "experienced & sober"
-          },
-          {
-            "slug": "grizzled",
-            "text": "grizzled"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "clear-voice",
-            "text": "clear voice"
-          },
-          {
-            "slug": "resonant-voice",
-            "text": "resonant voice"
-          },
-          {
-            "slug": "rumbling-voice",
-            "text": "rumbling voice"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "stern-frown",
-            "text": "stern frown"
-          },
-          {
-            "slug": "grim-set-jaw",
-            "text": "grim-set jaw"
-          },
-          {
-            "slug": "knowing-smirk",
-            "text": "knowing smirk"
-          }
-        ]
-      },
-      {
-        "type": "pick",
-        "pickCount": 1,
-        "inline": true,
-        "options": [
-          {
-            "slug": "badge-of-office",
-            "text": "badge of office"
-          },
-          {
-            "slug": "spit-and-polish",
-            "text": "spit & polish"
-          },
-          {
-            "slug": "timeworn-gear",
-            "text": "timeworn gear"
-          }
-        ]
-      }
-    ],
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "upstart-youth",
+              "text": "upstart youth"
+            },
+            {
+              "slug": "experienced-and-sober",
+              "text": "experienced & sober"
+            },
+            {
+              "slug": "grizzled",
+              "text": "grizzled"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "clear-voice",
+              "text": "clear voice"
+            },
+            {
+              "slug": "resonant-voice",
+              "text": "resonant voice"
+            },
+            {
+              "slug": "rumbling-voice",
+              "text": "rumbling voice"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "stern-frown",
+              "text": "stern frown"
+            },
+            {
+              "slug": "grim-set-jaw",
+              "text": "grim-set jaw"
+            },
+            {
+              "slug": "knowing-smirk",
+              "text": "knowing smirk"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "badge-of-office",
+              "text": "badge of office"
+            },
+            {
+              "slug": "spit-and-polish",
+              "text": "spit & polish"
+            },
+            {
+              "slug": "timeworn-gear",
+              "text": "timeworn gear"
+            }
+          ]
+        }
+      ]
+    },
     "instinct": {
       "slug": "instinct",
       "list": [

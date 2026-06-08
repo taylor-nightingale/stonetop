@@ -69,7 +69,7 @@ const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 		{ slug: "vessel",    moves: ["channel"] },
 	])
 	.withInstinct(INSTINCT_GROUP)
-	.withAppearance(APPEARANCE_GROUP.list)
+	.withAppearance(APPEARANCE_GROUP)
 	.withChoices([LORE_GROUP])
 	.withOrigin([{ region: "The Reach", names: ["Aldric"] }])
 	.build();
@@ -177,10 +177,11 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.choices).toHaveLength(0);
 	});
 
-	it("snapshot.appearanceGroup is built from system.appearance", async () => {
+	it("snapshot.appearanceGroups is built from system.appearance", async () => {
 		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
-		expect(snap.appearanceGroup).toBeInstanceOf(ChoiceGroup);
-		expect(snap.appearanceGroup.slug).toBe("appearance");
+		expect(snap.appearanceGroups).toHaveLength(1);
+		expect(snap.appearanceGroups[0]).toBeInstanceOf(ChoiceGroup);
+		expect(snap.appearanceGroups[0].slug).toBe("appearance");
 	});
 
 	it("snapshot.loreGroups contains all choices from system.choices", async () => {
@@ -189,19 +190,19 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.loreGroups[0].slug).toBe("lore-1");
 	});
 
-	it("snapshot.appearanceGroup is null when system.appearance is not defined", async () => {
+	it("snapshot.appearanceGroups is empty when system.appearance is not defined", async () => {
 		const item = new TestPlaybookItemBuilder()
 			.withSlug("the-blessed").withName("The Blessed")
 			.withChoices([LORE_GROUP])
 			.build();
 		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
-		expect(snap.appearanceGroup).toBeNull();
+		expect(snap.appearanceGroups).toHaveLength(0);
 	});
 
 	it("snapshot.loreGroups is empty when system.choices is empty", async () => {
 		const item = new TestPlaybookItemBuilder()
 			.withSlug("the-blessed").withName("The Blessed")
-			.withAppearance(APPEARANCE_GROUP.list)
+			.withAppearance(APPEARANCE_GROUP)
 			.build();
 		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
 		expect(snap.loreGroups).toHaveLength(0);
