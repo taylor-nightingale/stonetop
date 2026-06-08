@@ -8,7 +8,10 @@
 		"slug": "herb-garden",
 		"label": "Herb garden",
 		"description": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature).",
-		"resource": null,
+		"resource": {
+			"max": 4,
+			"title": "Bendis root"
+		},
 		"outfitItems": [
 			{
 				"slug": "herb-spades",

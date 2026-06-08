@@ -30,6 +30,11 @@ export function createStonetopSteadingSheetClass(Base) {
 			super.activateListeners(html);
 			if (!this.isEditable) return;
 
+			// Roll mode
+			html.find("[name=stonetop-roll-mode]").on("change", ev => {
+				this._stonetopSteading.setRollMode(ev.currentTarget.value);
+			});
+
 			// Fortunes
 			html.find(".steading-box-input[name='stonetop-fortunes']").on("change", async ev => {
 				await this._stonetopSteading.setFortunes(parseInt(ev.currentTarget.value));

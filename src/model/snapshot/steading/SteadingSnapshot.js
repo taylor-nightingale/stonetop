@@ -62,7 +62,7 @@ export class SteadingSnapshot {
 								placesOfInterest, notes, residents, neighbors,
 								contentDescription, content, assets, improvements,
 								residentNames, residentTraits,
-								moves,
+								moves, rollMode,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -81,7 +81,8 @@ export class SteadingSnapshot {
 		this.npcTraitColumns = splitIntoColumns(residentTraits ?? [], 5);
 		this.residentTraitsText = (residentTraits ?? []).join("\n");
 		this.improvementColumns = splitIntoImprovementColumns(improvements ?? []);
-		this.moves = moves ?? null;
+		this.moves    = moves    ?? null;
+		this.rollMode = rollMode ?? "normal";
 	}
 }
 

@@ -1,6 +1,9 @@
 <form class="{{cssClass}}" autocomplete="off">
 
 	<header class="sheet-header steading-top">
+		<div class="steading-name-row">
+			<img class="steading-logo" src="systems/stonetop/assets/steading/stonetop.png" alt="Stonetop">
+		</div>
 		<section class="steading-header-grid">
 
 			{{!-- Fortunes --}}
@@ -164,6 +167,36 @@
 							<span>{{{description}}} <small>{{note}}</small></span>
 						</label>
 					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Roll Mode --}}
+			<div class="steading-stat-panel steading-panel-frame steading-roll-mode">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>{{localize "stonetop.rollMode.label"}}</h2>
+				<div class="steading-rating-options">
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.normal"}}</span></span>
+					</label>
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.adv"}}</span></span>
+					</label>
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.dis"}}</span></span>
+					</label>
 				</div>
 			</div>
 
@@ -348,6 +381,7 @@
 					<span class="panel-edge panel-edge-left"></span>
 					<h2>Names</h2>
 					<p class="steading-names-text">{{stonetop.residentNames}}</p>
+					<img class="steading-residents-img" src="systems/stonetop/assets/steading/residents.png" alt="">
 				</section>
 
 			</div>

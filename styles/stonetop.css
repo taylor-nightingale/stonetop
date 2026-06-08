@@ -125,6 +125,27 @@ body,
 	margin-top: 0px;
 }
 
+/* ── Generic bullet icons (applies to all rich-text ul lists) ───────────────── */
+
+.stonetop.sheet ul:not(.stonetop-outfit-loads) {
+	list-style: none;
+	padding-left: 14px;
+}
+
+.stonetop.sheet ul:not(.stonetop-outfit-loads) li {
+	position: relative;
+}
+
+.stonetop.sheet ul:not(.stonetop-outfit-loads) li::before {
+	content: '';
+	position: absolute;
+	left: -12px;
+	top: 0.35em;
+	width: 8px;
+	height: 8px;
+	background: url('/systems/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
+}
+
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
 
 .stonetop .stonetop-icon-btn {
@@ -138,6 +159,8 @@ body,
 	opacity: 0.5;
 	transition: opacity 0.15s;
 	line-height: 1;
+	flex: none;
+	width: auto;
 }
 
 .stonetop .stonetop-icon-btn:hover {
@@ -1628,6 +1651,53 @@ body,
 	background: currentColor;
 }
 
+/* ── Chat card: dice + results (globally scoped — used in chat, not just sheets) ── */
+
+.stonetop-roll-dice {
+	display: flex;
+	align-items: center;
+	gap: 0.35em;
+	flex-wrap: wrap;
+	margin-bottom: 0.5em;
+	font-size: 1.05em;
+}
+
+.stonetop-die {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.6em;
+	height: 1.6em;
+	background: #2a2a2a;
+	color: #f0f0f0;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+.stonetop-die--dropped {
+	opacity: 0.35;
+	background: #555;
+	text-decoration: line-through;
+}
+
+.stonetop-dice-separator { opacity: 0.4; }
+
+.stonetop-roll-mod   { font-weight: bold; }
+.stonetop-roll-total { font-weight: bold; }
+
+.stonetop-move-result {
+	margin-top: 0.5em;
+	padding: 0.4em 0.6em;
+	border-left: 3px solid currentColor;
+	font-style: italic;
+}
+
+.stonetop-move-result--success { color: #2d6a2d; border-color: #2d6a2d; }
+.stonetop-move-result--partial { color: #7a6000; border-color: #7a6000; }
+.stonetop-move-result--failure { color: #8b0000; border-color: #8b0000; }
+
+/* ── Roll mode picker (inventory/equipment tabs) ── */
+
 .stonetop-roll-mode-radio {
 	appearance: none;
 	width: 10px;
@@ -2228,13 +2298,29 @@ form.stonetop.sheet.steading {
 	margin: 0 0 4px;
 	padding-bottom: 3px;
 	border-bottom: 1px solid rgba(0,0,0,0.15);
+	display: flex;
+	align-items: center;
+	min-height: 1.4em;
 }
 
 /* ── Header grid ─────────────────────────────────────────────────────────────── */
 
 .stonetop.sheet.steading .sheet-header.steading-top {
+	flex-direction: column;
 	padding: 0;
 	margin-bottom: 6px;
+}
+
+.stonetop.sheet.steading .steading-name-row {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 8px;
+}
+
+.stonetop.sheet.steading .steading-logo {
+	height: 60px;
+	width: auto;
+	border: none;
 }
 
 .stonetop.sheet.steading .steading-header-grid {
@@ -2256,6 +2342,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-prosperity { order: 5; }
 .stonetop.sheet.steading .steading-defenses   { order: 6; }
 .stonetop.sheet.steading .steading-debilities-panel { order: 7; flex: 1; }
+.stonetop.sheet.steading .steading-roll-mode        { order: 8; }
 
 /* ── Start line ──────────────────────────────────────────────────────────────── */
 
@@ -2569,6 +2656,14 @@ form.stonetop.sheet.steading {
 	overflow-y: auto;
 }
 
+.stonetop.sheet.steading .steading-residents-img {
+	width: 100%;
+	height: auto;
+	margin-top: 6px;
+	opacity: 0.85;
+	border: none;
+}
+
 .stonetop.sheet.steading .steading-residents-table {
 	display: flex;
 	flex-direction: column;
@@ -2678,7 +2773,8 @@ form.stonetop.sheet.steading {
 	margin: 0 4px;
 }
 
-.stonetop.sheet.steading .steading-neighbors-header {
+.stonetop.sheet.steading .steading-neighbors-header,
+.stonetop.sheet.steading .steading-neighbor-row {
 	grid-template-columns: 1fr 1fr 2fr 1fr auto;
 }
 

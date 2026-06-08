@@ -111,5 +111,3 @@ All issues resolved. See git history for details.
 
 All choice-row, instinct, background, move, arcanum, and follower sections must use these shared values — no one-off `font-size` or `font-weight` overrides unless there is a specific documented reason.
 
-
-the remove button for resources, defenses and assets is flex and takes up 90% of the space, pushing the actual content to a small box on the left. the remove button in neighbors wraps to the next line. it should be inline.

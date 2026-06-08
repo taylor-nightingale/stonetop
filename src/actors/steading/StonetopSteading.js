@@ -31,7 +31,11 @@ export class StonetopSteading {
 	}
 
 	get rollMode() {
-		return "def";
+		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
+	}
+
+	async setRollMode(mode) {
+		await this._actor.setFlag("stonetop", "rollMode", mode);
 	}
 
 	getRollableStats() {
@@ -45,12 +49,14 @@ export class StonetopSteading {
 	}
 
 	resolveBonus(rollStat) {
-		const attr = this._actor.system.attributes;
-		if (rollStat === "population") return attr.population?.current ?? null;
-		if (rollStat === "prosperity") return attr.prosperity?.current ?? null;
-		if (rollStat === "defenses")   return attr.defenses?.current   ?? null;
-		if (rollStat === "fortunes")   return this._actor.system.fortunes ?? null;
-		if (rollStat === "surplus")    return this._actor.system.surplus  ?? null;
+		const sys  = this._actor.system;
+		const attr = sys.attributes;
+		const f    = SteadingDefaults;
+		if (rollStat === "fortunes")   return f.fortunes.bonuses[sys.fortunes]                       ?? null;
+		if (rollStat === "surplus")    return sys.surplus                                             ?? null;
+		if (rollStat === "population") return f.attributes.population.bonuses[attr.population?.current] ?? null;
+		if (rollStat === "prosperity") return f.attributes.prosperity.bonuses[attr.prosperity?.current] ?? null;
+		if (rollStat === "defenses")   return f.attributes.defenses.bonuses[attr.defenses?.current]     ?? null;
 		return null;
 	}
 
@@ -108,6 +114,7 @@ export class StonetopSteading {
 			residentNames:      this._actor.system.residentNames,
 			residentTraits:     this._actor.system.residentTraits,
 			moves:              await this.moves.buildSnapshot(),
+			rollMode:           this.rollMode,
 		});
 	}
 }
