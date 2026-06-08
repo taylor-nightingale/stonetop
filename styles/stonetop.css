@@ -1205,10 +1205,12 @@ body,
 }
 
 .stonetop-column {
+	display: flex;
 	flex-direction: column;
 }
 
 .stonetop-row {
+	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
@@ -1268,6 +1270,7 @@ body,
 .stonetop-item-requirement {
 	font-size: 0.75rem;
 	font-style: italic;
+	padding-left: 20px;
 	color: var(--color-text-dark-secondary);
 }
 
