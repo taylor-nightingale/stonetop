@@ -45,7 +45,7 @@ Hooks.once("init", () => {
 	Handlebars.registerHelper("resourceChecks", resource => {
 		if (!resource) return [];
 		const { current, max, labels } = resource;
-		return Array.from({ length: max }, (_, i) => ({ checked: i < current, label: labels[i] || null }));
+		return Array.from({ length: max ?? 0 }, (_, i) => ({ checked: i < (current ?? 0), label: labels?.[i] || null }));
 	});
 
 	Handlebars.registerHelper("poolGroups", pool => {
@@ -101,7 +101,7 @@ Hooks.once("init", () => {
 		label: "Stonetop NPC Sheet",
 	});
 
-	const StonetopSteadingSheet = createStonetopSteadingSheetClass(foundry.appv1.sheets.ActorSheet);
+	const StonetopSteadingSheet = createStonetopSteadingSheetClass(StonetopActorSheet);
 	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopSteadingSheet, {
 		types: ["steading"],
 		makeDefault: true,
@@ -119,7 +119,8 @@ Hooks.once("init", () => {
 		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
 		"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
 		"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",
-		"stonetop.tab-details":      "systems/stonetop/templates/actor/partials/tab-details.hbs",
+		"stonetop.tab-playbook":           "systems/stonetop/templates/actor/partials/tab-playbook.hbs",
+		"stonetop.introductions-section":  "systems/stonetop/templates/actor/partials/introductions-section.hbs",
 		"stonetop.tab-moves":        "systems/stonetop/templates/actor/partials/tab-moves.hbs",
 		"stonetop.tab-equipment":    "systems/stonetop/templates/actor/partials/tab-equipment.hbs",
 		"stonetop.tab-arcana":       "systems/stonetop/templates/actor/partials/tab-arcana.hbs",
@@ -129,6 +130,7 @@ Hooks.once("init", () => {
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
+		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",
 		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
 		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",

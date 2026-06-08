@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { CharacterPlaybook } from "../../../src/actors/character/CharacterPlaybook.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { PlaybookSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { IntroductionsSnapshot } from "../../../src/model/snapshot/character/PlaybookSnapshot.js";
 import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
@@ -48,6 +49,15 @@ const LORE_GROUP = { slug: "lore-1", list: [
 	{ type: "entry", slug: "shrine-loved", content: { title: null, text: "Loved shrine." }, track: { max: 1 } },
 ]};
 
+const NPC_GROUP = { slug: "intro-npc", list: [
+	{ slug: "closest-kin", type: "entry", content: { title: null, text: "Who is your closest kin?" }, track: { max: 1 } },
+	{ slug: "heart-soul",  type: "entry", content: { title: null, text: "Whose heart is entwined with yours?" }, track: { max: 1 } },
+]};
+const PC_GROUP = { slug: "intro-pc", list: [
+	{ slug: "spirits", type: "entry", content: { title: null, text: "Which one of you do the spirits whisper of?" }, track: { max: 1 } },
+]};
+const INTRO = { step3: "On your third turn, describe your sacred pouch.", step4: NPC_GROUP, step6: PC_GROUP };
+
 const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 	.withSlug("the-blessed")
 	.withName("The Blessed")
@@ -59,7 +69,8 @@ const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 		{ slug: "vessel",    moves: ["channel"] },
 	])
 	.withInstinct(INSTINCT_GROUP)
-	.withChoices([APPEARANCE_GROUP, LORE_GROUP])
+	.withAppearance(APPEARANCE_GROUP)
+	.withChoices([LORE_GROUP])
 	.withOrigin([{ region: "The Reach", names: ["Aldric"] }])
 	.build();
 
@@ -85,10 +96,11 @@ describe("CharacterPlaybook.getData", () => {
 		expect(data.img).toBe("img.webp");
 	});
 
-	it("includes system fields like backgrounds, instinct and choices", async () => {
+	it("includes system fields like backgrounds, instinct, appearance and choices", async () => {
 		const data = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).getData();
 		expect(data.backgrounds).toEqual(PLAYBOOK_ITEM.system.backgrounds);
 		expect(data.instinct).toEqual(PLAYBOOK_ITEM.system.instinct);
+		expect(data.appearance).toEqual(PLAYBOOK_ITEM.system.appearance);
 		expect(data.choices).toEqual(PLAYBOOK_ITEM.system.choices);
 	});
 });
@@ -121,12 +133,11 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.instinctGroup.slug).toBe("instinct");
 	});
 
-	it("snapshot.choices contains non-instinct ChoiceGroups from item.system.choices", async () => {
+	it("snapshot.choices contains lore ChoiceGroups from item.system.choices (not appearance)", async () => {
 		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
-		expect(snap.choices).toHaveLength(2);
+		expect(snap.choices).toHaveLength(1);
 		expect(snap.choices[0]).toBeInstanceOf(ChoiceGroup);
-		expect(snap.choices[0].slug).toBe("appearance");
-		expect(snap.choices[1].slug).toBe("lore-1");
+		expect(snap.choices[0].slug).toBe("lore-1");
 	});
 
 	it("snapshot.instinctSelected is null when no instinct value saved", async () => {
@@ -166,19 +177,19 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.choices).toHaveLength(0);
 	});
 
-	it("snapshot.appearanceGroup is the ChoiceGroup with slug 'appearance'", async () => {
+	it("snapshot.appearanceGroup is built from system.appearance", async () => {
 		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
 		expect(snap.appearanceGroup).toBeInstanceOf(ChoiceGroup);
 		expect(snap.appearanceGroup.slug).toBe("appearance");
 	});
 
-	it("snapshot.loreGroups contains all non-appearance choices", async () => {
+	it("snapshot.loreGroups contains all choices from system.choices", async () => {
 		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
 		expect(snap.loreGroups).toHaveLength(1);
 		expect(snap.loreGroups[0].slug).toBe("lore-1");
 	});
 
-	it("snapshot.appearanceGroup is null when no appearance group in choices", async () => {
+	it("snapshot.appearanceGroup is null when system.appearance is not defined", async () => {
 		const item = new TestPlaybookItemBuilder()
 			.withSlug("the-blessed").withName("The Blessed")
 			.withChoices([LORE_GROUP])
@@ -187,13 +198,55 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.appearanceGroup).toBeNull();
 	});
 
-	it("snapshot.loreGroups is empty when choices has only an appearance group", async () => {
+	it("snapshot.loreGroups is empty when system.choices is empty", async () => {
 		const item = new TestPlaybookItemBuilder()
 			.withSlug("the-blessed").withName("The Blessed")
-			.withChoices([APPEARANCE_GROUP])
+			.withAppearance(APPEARANCE_GROUP)
 			.build();
 		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
 		expect(snap.loreGroups).toHaveLength(0);
+	});
+
+	it("snapshot.introductions is null when no introductions defined", async () => {
+		const item = new TestPlaybookItemBuilder().withSlug("the-blessed").withName("The Blessed").build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.introductions).toBeNull();
+	});
+
+	it("snapshot.introductions is an IntroductionsSnapshot when defined", async () => {
+		const item = new TestPlaybookItemBuilder().withIntroductions(INTRO).build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.introductions).toBeInstanceOf(IntroductionsSnapshot);
+	});
+
+	it("snapshot.introductions.step3 holds the playbook-specific text", async () => {
+		const item = new TestPlaybookItemBuilder().withIntroductions(INTRO).build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.introductions.step3).toBe("On your third turn, describe your sacred pouch.");
+	});
+
+	it("snapshot.introductions.npcGroup is a ChoiceGroup with slug intro-npc", async () => {
+		const item = new TestPlaybookItemBuilder().withIntroductions(INTRO).build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.introductions.npcGroup).toBeInstanceOf(ChoiceGroup);
+		expect(snap.introductions.npcGroup.slug).toBe("intro-npc");
+	});
+
+	it("snapshot.introductions.pcGroup is a ChoiceGroup with slug intro-pc", async () => {
+		const item = new TestPlaybookItemBuilder().withIntroductions(INTRO).build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		expect(snap.introductions.pcGroup).toBeInstanceOf(ChoiceGroup);
+		expect(snap.introductions.pcGroup.slug).toBe("intro-pc");
+	});
+
+	it("snapshot.introductions.npcGroup reflects checked state from choiceValues", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withIntroductions(INTRO)
+			.withChoiceValues({ "intro-npc": { "closest-kin": 1 } })
+			.build();
+		const snap = await makePlaybook(makeActor("the-blessed", [item])).buildPlaybookSnapshot();
+		const row = snap.introductions.npcGroup.list.find(r => r.slug === "closest-kin");
+		expect(row.track.checks[0]).toBe(true);
 	});
 });
 

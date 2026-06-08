@@ -6,9 +6,9 @@
 	       value="{{instinctSelected}}"
 	       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
 	{{#if instinctGroup}}
-	<div class="stonetop-instinct-options">
+	<div class="stonetop-choice-entry stonetop-instinct-options" data-slug="{{instinctGroup.slug}}">
 		{{#each instinctGroup.list}}
-		{{> "stonetop.choice-row" radio=true namePrefix=../namePrefix cgContext=../cgContext}}
+		{{> "stonetop.choice-row" radio=true namePrefix=../namePrefix cgContext=../cgContext cgGroup=../instinctGroup.slug}}
 		{{/each}}
 	</div>
 	{{/if}}

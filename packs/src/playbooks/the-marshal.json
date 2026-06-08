@@ -1,401 +1,509 @@
 {
-	"_id": "SOzcXGFCdybiyHfO",
-	"_key": "!items!SOzcXGFCdybiyHfO",
-	"img": "systems/stonetop/assets/playbooks/the-marshal.png",
-	"name": "The Marshal",
-	"type": "playbook",
-	"flags": {},
-	"system": {
-		"slug": "the-marshal",
-		"actorType": "character",
-		"description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
-		"startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
-		"damage": {
-			"value": "d8"
-		},
-		"hp": 20,
-		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"origin": [
-			{
-				"region": "Stonetop",
-				"names": [
-					"Bethan",
-					"Cadfael",
-					"Ffraid",
-					"Gwythyr",
-					"Llewelyn",
-					"Meredith",
-					"Rhianna",
-					"Urien"
-				]
-			},
-			{
-				"region": "Gordin's Delve",
-				"names": []
-			},
-			{
-				"region": "Marshedge",
-				"names": [
-					"Brigh",
-					"Cathal",
-					"Conn",
-					"Donal",
-					"Fionna",
-					"Laith",
-					"Talulla",
-					"Torin"
-				]
-			},
-			{
-				"region": "The Steplands (Hillfolk)",
-				"names": [
-					"Adl",
-					"Aeln",
-					"Clotild",
-					"Judoc",
-					"Katrn",
-					"Mygl",
-					"Pirn",
-					"Sera"
-				]
-			},
-			{
-				"region": "The Manmarch",
-				"names": [
-					"Berkhard",
-					"Gerhild",
-					"Hartig",
-					"Hilde",
-					"Sabrinne",
-					"Ulrike",
-					"Urrsla",
-					"Weillem"
-				]
-			},
-			{
-				"region": "Lygos or some other point south",
-				"names": [
-					"Ameer",
-					"Calixta",
-					"Hadar",
-					"Kelila",
-					"Sulaim",
-					"Ursa",
-					"Xandros"
-				]
-			}
-		],
-		"backgrounds": [
-			{
-				"slug": "scion",
-				"label": "Scion",
-				"description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
-			},
-			{
-				"slug": "penitent",
-				"label": "Penitent",
-				"description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
-			},
-			{
-				"slug": "luminary",
-				"label": "Luminary",
-				"description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"chirurgeons-tools",
-				"distillery",
-				"engineers-tools",
-				"personal-symbol",
-				"scribes-tools",
-				"weapons-of-war"
-			]
-		},
-		"choices": [
-			{
-				"slug": "appearance",
-				"list": [
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "upstart-youth",
-								"text": "upstart youth"
-							},
-							{
-								"slug": "experienced-and-sober",
-								"text": "experienced & sober"
-							},
-							{
-								"slug": "grizzled",
-								"text": "grizzled"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "clear-voice",
-								"text": "clear voice"
-							},
-							{
-								"slug": "resonant-voice",
-								"text": "resonant voice"
-							},
-							{
-								"slug": "rumbling-voice",
-								"text": "rumbling voice"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "stern-frown",
-								"text": "stern frown"
-							},
-							{
-								"slug": "grim-set-jaw",
-								"text": "grim-set jaw"
-							},
-							{
-								"slug": "knowing-smirk",
-								"text": "knowing smirk"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "badge-of-office",
-								"text": "badge of office"
-							},
-							{
-								"slug": "spit-and-polish",
-								"text": "spit & polish"
-							},
-							{
-								"slug": "timeworn-gear",
-								"text": "timeworn gear"
-							}
-						]
-					}
-				]
-			},
-			{
-				"slug": "war-stories-action",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "The Last Time the Militia Saw Serious Action, It Was…",
-							"text": "<p><em>(pick 1)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "crinwin-raid",
-						"content": {
-							"title": null,
-							"text": "… to repel a nighttime raid by crinwin from the Great Wood."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "bandits",
-						"content": {
-							"title": null,
-							"text": "… to drive off bandits who'd taken up near the Ruined Tower."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hillfolk",
-						"content": {
-							"title": null,
-							"text": "… to fend off Hillfolk pursuing a blood feud."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "brennan-claws",
-						"content": {
-							"title": null,
-							"text": "… against Brennan and his Claws, before they settled in Marshedge."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hagr",
-						"content": {
-							"title": null,
-							"text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "beasts",
-						"content": {
-							"title": null,
-							"text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "war-stories-questions",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "Answer At Least 3 of the Following",
-							"text": ""
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "when",
-						"content": {
-							"title": null,
-							"text": "When exactly did it happen?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "who-died",
-						"content": {
-							"title": null,
-							"text": "Who lost their life, and who mourns them?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "who-maimed",
-						"content": {
-							"title": null,
-							"text": "Who from Stonetop was maimed, and how?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "saved-day",
-						"content": {
-							"title": null,
-							"text": "Who saved the day, and how?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "enemy-away",
-						"content": {
-							"title": null,
-							"text": "How did the enemy get away, and whom do you still blame for it?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "honor",
-						"content": {
-							"title": null,
-							"text": "Who comported themselves with honor?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "bugging",
-						"content": {
-							"title": null,
-							"text": "What's been bugging you about it ever since?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "worried",
-						"content": {
-							"title": null,
-							"text": "What's got you even more worried now?"
-						},
-						"input": {}
-					}
-				]
-			}
-		],
-		"choiceValues": {},
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "authority",
-							"description": "To take charge and throw your weight around.",
-							"text": "Authority"
-						},
-						{
-							"slug": "caution",
-							"description": "To keep everyone safe, to agonize over decisions.",
-							"text": "Caution"
-						},
-						{
-							"slug": "drive",
-							"description": "To take on ever more responsibility.",
-							"text": "Drive"
-						},
-						{
-							"slug": "honor",
-							"description": "To keep your word, to follow a moral code.",
-							"text": "Honor"
-						},
-						{
-							"slug": "ruthlessness",
-							"description": "To do whatever it takes to win or survive.",
-							"text": "Ruthlessness"
-						}
-					]
-				}
-			]
-		}
-	}
+  "_id": "SOzcXGFCdybiyHfO",
+  "_key": "!items!SOzcXGFCdybiyHfO",
+  "img": "systems/stonetop/assets/playbooks/the-marshal.png",
+  "name": "The Marshal",
+  "type": "playbook",
+  "flags": {},
+  "system": {
+    "slug": "the-marshal",
+    "actorType": "character",
+    "description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
+    "startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
+    "damage": {
+      "value": "d8"
+    },
+    "hp": 20,
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Bethan",
+          "Cadfael",
+          "Ffraid",
+          "Gwythyr",
+          "Llewelyn",
+          "Meredith",
+          "Rhianna",
+          "Urien"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Brigh",
+          "Cathal",
+          "Conn",
+          "Donal",
+          "Fionna",
+          "Laith",
+          "Talulla",
+          "Torin"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Adl",
+          "Aeln",
+          "Clotild",
+          "Judoc",
+          "Katrn",
+          "Mygl",
+          "Pirn",
+          "Sera"
+        ]
+      },
+      {
+        "region": "The Manmarch",
+        "names": [
+          "Berkhard",
+          "Gerhild",
+          "Hartig",
+          "Hilde",
+          "Sabrinne",
+          "Ulrike",
+          "Urrsla",
+          "Weillem"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Ameer",
+          "Calixta",
+          "Hadar",
+          "Kelila",
+          "Sulaim",
+          "Ursa",
+          "Xandros"
+        ]
+      }
+    ],
+    "backgrounds": [
+      {
+        "slug": "scion",
+        "label": "Scion",
+        "description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
+      },
+      {
+        "slug": "penitent",
+        "label": "Penitent",
+        "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+      },
+      {
+        "slug": "luminary",
+        "label": "Luminary",
+        "description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "slugs": [
+        "chirurgeons-tools",
+        "distillery",
+        "engineers-tools",
+        "personal-symbol",
+        "scribes-tools",
+        "weapons-of-war"
+      ]
+    },
+    "choices": [
+      {
+        "slug": "war-stories-action",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "The Last Time the Militia Saw Serious Action, It Was…",
+              "text": "<p><em>(pick 1)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "crinwin-raid",
+            "content": {
+              "title": null,
+              "text": "… to repel a nighttime raid by crinwin from the Great Wood."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "bandits",
+            "content": {
+              "title": null,
+              "text": "… to drive off bandits who'd taken up near the Ruined Tower."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "hillfolk",
+            "content": {
+              "title": null,
+              "text": "… to fend off Hillfolk pursuing a blood feud."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "brennan-claws",
+            "content": {
+              "title": null,
+              "text": "… against Brennan and his Claws, before they settled in Marshedge."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "hagr",
+            "content": {
+              "title": null,
+              "text": "… to face a brutish hagr, come down from the Foothills to wreak havoc."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "beasts",
+            "content": {
+              "title": null,
+              "text": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village."
+            },
+            "track": {
+              "max": 1
+            }
+          }
+        ]
+      },
+      {
+        "slug": "war-stories-questions",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "Answer At Least 3 of the Following",
+              "text": ""
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "when",
+            "content": {
+              "title": null,
+              "text": "When exactly did it happen?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "who-died",
+            "content": {
+              "title": null,
+              "text": "Who lost their life, and who mourns them?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "who-maimed",
+            "content": {
+              "title": null,
+              "text": "Who from Stonetop was maimed, and how?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "saved-day",
+            "content": {
+              "title": null,
+              "text": "Who saved the day, and how?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "enemy-away",
+            "content": {
+              "title": null,
+              "text": "How did the enemy get away, and whom do you still blame for it?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "honor",
+            "content": {
+              "title": null,
+              "text": "Who comported themselves with honor?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "bugging",
+            "content": {
+              "title": null,
+              "text": "What's been bugging you about it ever since?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "worried",
+            "content": {
+              "title": null,
+              "text": "What's got you even more worried now?"
+            },
+            "input": {}
+          }
+        ]
+      }
+    ],
+    "introductions": {
+      "step3": "On your third turn, <strong>tell us the town's war stories</strong>, plus the answers to the questions you chose.",
+      "step4": {
+        "slug": "intro-npc",
+        "list": [
+          {
+            "slug": "closest-kin",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is your closest kin?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "lover-spouse",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is your lover/spouse/betrothed?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "lieutenant",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is your lieutenant?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "kin-dead-decisions",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Whose kin is dead because of your decisions?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      },
+      "step6": {
+        "slug": "intro-pc",
+        "list": [
+          {
+            "slug": "part-of-crew",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you is or was part of my crew?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "promised-safe",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you have I promised to keep safe?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "still-doubts",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you do I still have doubts about?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "ignored-orders",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you ignored my orders and got someone killed?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      }
+    },
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "upstart-youth",
+              "text": "upstart youth"
+            },
+            {
+              "slug": "experienced-and-sober",
+              "text": "experienced & sober"
+            },
+            {
+              "slug": "grizzled",
+              "text": "grizzled"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "clear-voice",
+              "text": "clear voice"
+            },
+            {
+              "slug": "resonant-voice",
+              "text": "resonant voice"
+            },
+            {
+              "slug": "rumbling-voice",
+              "text": "rumbling voice"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "stern-frown",
+              "text": "stern frown"
+            },
+            {
+              "slug": "grim-set-jaw",
+              "text": "grim-set jaw"
+            },
+            {
+              "slug": "knowing-smirk",
+              "text": "knowing smirk"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "badge-of-office",
+              "text": "badge of office"
+            },
+            {
+              "slug": "spit-and-polish",
+              "text": "spit & polish"
+            },
+            {
+              "slug": "timeworn-gear",
+              "text": "timeworn gear"
+            }
+          ]
+        }
+      ]
+    },
+    "instinct": {
+      "slug": "instinct",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "options": [
+            {
+              "slug": "authority",
+              "description": "To take charge and throw your weight around.",
+              "text": "Authority"
+            },
+            {
+              "slug": "caution",
+              "description": "To keep everyone safe, to agonize over decisions.",
+              "text": "Caution"
+            },
+            {
+              "slug": "drive",
+              "description": "To take on ever more responsibility.",
+              "text": "Drive"
+            },
+            {
+              "slug": "honor",
+              "description": "To keep your word, to follow a moral code.",
+              "text": "Honor"
+            },
+            {
+              "slug": "ruthlessness",
+              "description": "To do whatever it takes to win or survive.",
+              "text": "Ruthlessness"
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

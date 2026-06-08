@@ -6,10 +6,12 @@ export class TestPlaybookItemBuilder {
 	_statsNote          = "";
 	_backgrounds        = [];
 	_instinct           = null;
+	_appearance         = null;
 	_choices            = [];
 	_choiceValues       = {};
 	_origin             = [];
 	_specialPossessions = null;
+	_introductions      = null;
 
 	withSlug(slug)               { this._slug               = slug; return this; }
 	withName(name)               { this._name               = name; return this; }
@@ -18,10 +20,12 @@ export class TestPlaybookItemBuilder {
 	withStatsNote(n)             { this._statsNote          = n;    return this; }
 	withBackgrounds(b)           { this._backgrounds        = b;    return this; }
 	withInstinct(def)            { this._instinct           = def;  return this; }
+	withAppearance(list)         { this._appearance         = list; return this; }
 	withChoices(c)               { this._choices            = c;    return this; }
 	withChoiceValues(v)          { this._choiceValues       = v;    return this; }
 	withOrigin(o)                { this._origin             = o;    return this; }
 	withSpecialPossessions(sp)   { this._specialPossessions = sp;   return this; }
+	withIntroductions(intro)     { this._introductions      = intro; return this; }
 
 	_buildSystem() {
 		return {
@@ -30,6 +34,7 @@ export class TestPlaybookItemBuilder {
 			statsNote:          this._statsNote,
 			backgrounds:        this._backgrounds,
 			instinct:           this._instinct,
+			appearance:         this._appearance,
 			choices:            this._choices,
 			choiceValues:       this._choiceValues,
 			origin:             this._origin,
@@ -38,7 +43,7 @@ export class TestPlaybookItemBuilder {
 			hp:                 0,
 			damage:             { value: null },
 			startingMovesNote:  "",
-			introductions:      [],
+			introductions:      this._introductions,
 		};
 	}
 

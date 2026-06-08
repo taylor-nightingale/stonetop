@@ -1,500 +1,608 @@
 {
-	"_id": "thDOuItwerMnLc0i",
-	"_key": "!items!thDOuItwerMnLc0i",
-	"img": "systems/stonetop/assets/playbooks/the-heavy.png",
-	"name": "The Heavy",
-	"type": "playbook",
-	"flags": {},
-	"system": {
-		"slug": "the-heavy",
-		"actorType": "character",
-		"description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
-		"startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
-		"damage": {
-			"value": "d10"
-		},
-		"hp": 20,
-		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-		"origin": [
-			{
-				"region": "Stonetop",
-				"names": [
-					"Aerona",
-					"Arthfael",
-					"Cadmor",
-					"Esyllt",
-					"Pedr",
-					"Rhonwen",
-					"Terrwen",
-					"Trystan"
-				]
-			},
-			{
-				"region": "Gordin's Delve",
-				"names": []
-			},
-			{
-				"region": "Marshedge",
-				"names": [
-					"Aengus",
-					"Bairbre",
-					"Bronach",
-					"Flann",
-					"Laughn",
-					"Muirdoc",
-					"Quinn",
-					"Treasa"
-				]
-			},
-			{
-				"region": "The Steplands (Hillfolk)",
-				"names": [
-					"Andr",
-					"Gabel",
-					"Kaetl",
-					"Mael",
-					"Maela",
-					"Par",
-					"Ral",
-					"Umbert"
-				]
-			},
-			{
-				"region": "The Manmarch",
-				"names": [
-					"Bathhilde",
-					"Clothar",
-					"Ganter",
-					"Hiltrude",
-					"Ludig",
-					"Luise",
-					"Modd",
-					"Wiland"
-				]
-			},
-			{
-				"region": "Lygos or some other point south",
-				"names": [
-					"Arihl",
-					"Akios",
-					"Bhadur",
-					"Seble",
-					"Shahnaz",
-					"Shay",
-					"Tisi",
-					"Zubin"
-				]
-			}
-		],
-		"backgrounds": [
-			{
-				"slug": "sheriff",
-				"label": "Sheriff",
-				"description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
-			},
-			{
-				"slug": "blood-soaked-past",
-				"label": "Blood-Soaked Past",
-				"description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
-			},
-			{
-				"slug": "storm-marked",
-				"label": "Storm-Marked",
-				"description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"distillery",
-				"chirurgeons-tools",
-				"husbandry-tools",
-				"smithy",
-				"stoneworkers-tools",
-				"weapons-of-war"
-			]
-		},
-		"choices": [
-			{
-				"slug": "appearance",
-				"list": [
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "young-and-brash",
-								"text": "young & brash"
-							},
-							{
-								"slug": "in-my-prime",
-								"text": "in my prime"
-							},
-							{
-								"slug": "old-and-leathery",
-								"text": "old & leathery"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "gravelly-voice",
-								"text": "gravelly voice"
-							},
-							{
-								"slug": "hearty-voice",
-								"text": "hearty voice"
-							},
-							{
-								"slug": "soft-spoken",
-								"text": "soft-spoken"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "giant-frame",
-								"text": "giant frame"
-							},
-							{
-								"slug": "just-ripped",
-								"text": "just ripped"
-							},
-							{
-								"slug": "stocky",
-								"text": "stocky"
-							},
-							{
-								"slug": "wiry",
-								"text": "wiry"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "distinctive-scars",
-								"text": "distinctive scars"
-							},
-							{
-								"slug": "off-broken-nose",
-								"text": "off-broken nose"
-							},
-							{
-								"slug": "missing-bits",
-								"text": "missing bits"
-							}
-						]
-					}
-				]
-			},
-			{
-				"slug": "violence-fame",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "Just About Everyone Here Talks About the Time You…",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "thunder-drake",
-						"content": {
-							"title": null,
-							"text": "… drove off a thunder drake that got too close to town."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hagr",
-						"content": {
-							"title": null,
-							"text": "… killed that hagr in the Foothills."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "crinwin-dozen",
-						"content": {
-							"title": null,
-							"text": "… slew a dozen crinwin in one battle."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "adventurers",
-						"content": {
-							"title": null,
-							"text": "… tossed those adventurers out of town."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "ivan",
-						"content": {
-							"title": null,
-							"text": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "bleeding",
-						"content": {
-							"title": null,
-							"text": "… dragged yourself (and another?) into town, bleeding from a dozen wounds."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "lightning",
-						"content": {
-							"title": null,
-							"text": "… were struck by lightning and woke up covered in these marks."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "violence-shadows",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "But Folks Are Less Keen to Discuss…",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "blood-look",
-						"content": {
-							"title": null,
-							"text": "… the look in your eye when you spilled all that blood."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hard-cases",
-						"content": {
-							"title": null,
-							"text": "… those hard cases who showed up looking for you."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "shouting",
-						"content": {
-							"title": null,
-							"text": "… the shouting matches between you and your love."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "claws",
-						"content": {
-							"title": null,
-							"text": "… the time you spent as one of Brennan's Claws."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "urbgen",
-						"content": {
-							"title": null,
-							"text": "… what happened to Urbgen, even if he did have it coming."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "seizures",
-						"content": {
-							"title": null,
-							"text": "… your uncontrollable seizures, where you claw those weird marks in the dirt."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			{
-				"slug": "violence-fears",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "What Keeps You Up at Night?",
-							"text": "<p><em>(pick 1 or 2)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "temper",
-						"content": {
-							"title": null,
-							"text": "That thrice-damned temper of yours."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "someone-coming",
-						"content": {
-							"title": null,
-							"text": "The worry that someone's coming after you."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "crinwin-bolder",
-						"content": {
-							"title": null,
-							"text": "The feeling that the crinwin are getting bolder."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "brennan",
-						"content": {
-							"title": null,
-							"text": "Wondering what Brennan's up to, now that he's the marshal of Marshedge."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "dark-visions",
-						"content": {
-							"title": null,
-							"text": "Dark visions of things moving in the earth, restless, whispering, and hungry."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "family",
-						"content": {
-							"title": null,
-							"text": "The question of who'll look after your family when you get yourself killed."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "truth",
-						"content": {
-							"title": null,
-							"text": "The worry that they'll all learn the truth about you, sooner or later."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		],
-		"choiceValues": {},
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "peace",
-							"description": "To avoid (further) bloodshed or violence.",
-							"text": "Peace"
-						},
-						{
-							"slug": "pride",
-							"description": "To maintain your dignity, to demand respect.",
-							"text": "Pride"
-						},
-						{
-							"slug": "recklessness",
-							"description": "To act without thought to the consequences.",
-							"text": "Recklessness"
-						},
-						{
-							"slug": "trouble",
-							"description": "To stick your nose in where it's unwelcome.",
-							"text": "Trouble"
-						},
-						{
-							"slug": "violence",
-							"description": "To solve problems by force.",
-							"text": "Violence"
-						}
-					]
-				}
-			]
-		}
-	}
+  "_id": "thDOuItwerMnLc0i",
+  "_key": "!items!thDOuItwerMnLc0i",
+  "img": "systems/stonetop/assets/playbooks/the-heavy.png",
+  "name": "The Heavy",
+  "type": "playbook",
+  "flags": {},
+  "system": {
+    "slug": "the-heavy",
+    "actorType": "character",
+    "description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
+    "startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
+    "damage": {
+      "value": "d10"
+    },
+    "hp": 20,
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Aerona",
+          "Arthfael",
+          "Cadmor",
+          "Esyllt",
+          "Pedr",
+          "Rhonwen",
+          "Terrwen",
+          "Trystan"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Aengus",
+          "Bairbre",
+          "Bronach",
+          "Flann",
+          "Laughn",
+          "Muirdoc",
+          "Quinn",
+          "Treasa"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Andr",
+          "Gabel",
+          "Kaetl",
+          "Mael",
+          "Maela",
+          "Par",
+          "Ral",
+          "Umbert"
+        ]
+      },
+      {
+        "region": "The Manmarch",
+        "names": [
+          "Bathhilde",
+          "Clothar",
+          "Ganter",
+          "Hiltrude",
+          "Ludig",
+          "Luise",
+          "Modd",
+          "Wiland"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Arihl",
+          "Akios",
+          "Bhadur",
+          "Seble",
+          "Shahnaz",
+          "Shay",
+          "Tisi",
+          "Zubin"
+        ]
+      }
+    ],
+    "backgrounds": [
+      {
+        "slug": "sheriff",
+        "label": "Sheriff",
+        "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+      },
+      {
+        "slug": "blood-soaked-past",
+        "label": "Blood-Soaked Past",
+        "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
+      },
+      {
+        "slug": "storm-marked",
+        "label": "Storm-Marked",
+        "description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "slugs": [
+        "distillery",
+        "chirurgeons-tools",
+        "husbandry-tools",
+        "smithy",
+        "stoneworkers-tools",
+        "weapons-of-war"
+      ]
+    },
+    "choices": [
+      {
+        "slug": "violence-fame",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "Just About Everyone Here Talks About the Time You…",
+              "text": "<p><em>(pick 1 or 2)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "thunder-drake",
+            "content": {
+              "title": null,
+              "text": "… drove off a thunder drake that got too close to town."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "hagr",
+            "content": {
+              "title": null,
+              "text": "… killed that hagr in the Foothills."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "crinwin-dozen",
+            "content": {
+              "title": null,
+              "text": "… slew a dozen crinwin in one battle."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "adventurers",
+            "content": {
+              "title": null,
+              "text": "… tossed those adventurers out of town."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "ivan",
+            "content": {
+              "title": null,
+              "text": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "bleeding",
+            "content": {
+              "title": null,
+              "text": "… dragged yourself (and another?) into town, bleeding from a dozen wounds."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "lightning",
+            "content": {
+              "title": null,
+              "text": "… were struck by lightning and woke up covered in these marks."
+            },
+            "track": {
+              "max": 1
+            }
+          }
+        ]
+      },
+      {
+        "slug": "violence-shadows",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "But Folks Are Less Keen to Discuss…",
+              "text": "<p><em>(pick 1 or 2)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "blood-look",
+            "content": {
+              "title": null,
+              "text": "… the look in your eye when you spilled all that blood."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "hard-cases",
+            "content": {
+              "title": null,
+              "text": "… those hard cases who showed up looking for you."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "shouting",
+            "content": {
+              "title": null,
+              "text": "… the shouting matches between you and your love."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "claws",
+            "content": {
+              "title": null,
+              "text": "… the time you spent as one of Brennan's Claws."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "urbgen",
+            "content": {
+              "title": null,
+              "text": "… what happened to Urbgen, even if he did have it coming."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "seizures",
+            "content": {
+              "title": null,
+              "text": "… your uncontrollable seizures, where you claw those weird marks in the dirt."
+            },
+            "track": {
+              "max": 1
+            }
+          }
+        ]
+      },
+      {
+        "slug": "violence-fears",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "What Keeps You Up at Night?",
+              "text": "<p><em>(pick 1 or 2)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "temper",
+            "content": {
+              "title": null,
+              "text": "That thrice-damned temper of yours."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "someone-coming",
+            "content": {
+              "title": null,
+              "text": "The worry that someone's coming after you."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "crinwin-bolder",
+            "content": {
+              "title": null,
+              "text": "The feeling that the crinwin are getting bolder."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "brennan",
+            "content": {
+              "title": null,
+              "text": "Wondering what Brennan's up to, now that he's the marshal of Marshedge."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "dark-visions",
+            "content": {
+              "title": null,
+              "text": "Dark visions of things moving in the earth, restless, whispering, and hungry."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "family",
+            "content": {
+              "title": null,
+              "text": "The question of who'll look after your family when you get yourself killed."
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "truth",
+            "content": {
+              "title": null,
+              "text": "The worry that they'll all learn the truth about you, sooner or later."
+            },
+            "track": {
+              "max": 1
+            }
+          }
+        ]
+      }
+    ],
+    "introductions": {
+      "step3": "On your third turn, <strong>tell us about your history of violence</strong>, and what keeps you up at night.",
+      "step4": {
+        "slug": "intro-npc",
+        "list": [
+          {
+            "slug": "closest-kin",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is your closest kin?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "lover-spouse",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is your lover/spouse/betrothed?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "needs-protection",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who most needs/deserves your protection?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "earn-forgiveness",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Whose forgiveness do you strive to earn?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      },
+      "step6": {
+        "slug": "intro-pc",
+        "list": [
+          {
+            "slug": "dragged-home",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you once dragged me home, bleeding and unconscious?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "have-my-back",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you can I trust to always have my back?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "stayed-hand",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you has stayed my hand?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "traded-blows",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you has traded blows with me?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      }
+    },
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "young-and-brash",
+              "text": "young & brash"
+            },
+            {
+              "slug": "in-my-prime",
+              "text": "in my prime"
+            },
+            {
+              "slug": "old-and-leathery",
+              "text": "old & leathery"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "gravelly-voice",
+              "text": "gravelly voice"
+            },
+            {
+              "slug": "hearty-voice",
+              "text": "hearty voice"
+            },
+            {
+              "slug": "soft-spoken",
+              "text": "soft-spoken"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "giant-frame",
+              "text": "giant frame"
+            },
+            {
+              "slug": "just-ripped",
+              "text": "just ripped"
+            },
+            {
+              "slug": "stocky",
+              "text": "stocky"
+            },
+            {
+              "slug": "wiry",
+              "text": "wiry"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "distinctive-scars",
+              "text": "distinctive scars"
+            },
+            {
+              "slug": "off-broken-nose",
+              "text": "off-broken nose"
+            },
+            {
+              "slug": "missing-bits",
+              "text": "missing bits"
+            }
+          ]
+        }
+      ]
+    },
+    "instinct": {
+      "slug": "instinct",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "options": [
+            {
+              "slug": "peace",
+              "description": "To avoid (further) bloodshed or violence.",
+              "text": "Peace"
+            },
+            {
+              "slug": "pride",
+              "description": "To maintain your dignity, to demand respect.",
+              "text": "Pride"
+            },
+            {
+              "slug": "recklessness",
+              "description": "To act without thought to the consequences.",
+              "text": "Recklessness"
+            },
+            {
+              "slug": "trouble",
+              "description": "To stick your nose in where it's unwelcome.",
+              "text": "Trouble"
+            },
+            {
+              "slug": "violence",
+              "description": "To solve problems by force.",
+              "text": "Violence"
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

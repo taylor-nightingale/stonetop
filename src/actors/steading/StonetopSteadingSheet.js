@@ -8,10 +8,10 @@ export function createStonetopSteadingSheetClass(Base) {
 		static get defaultOptions() {
 			return foundry.utils.mergeObject(super.defaultOptions, {
 				classes: ["stonetop", "sheet", "actor", "steading"],
-				width:   800,
-				height:  900,
+				width:   1180,
+				height:  760,
 				scrollY: [".window-content"],
-				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "content" }],
+				tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "overview" }],
 				submitOnChange: true,
 			});
 		}
@@ -30,18 +30,23 @@ export function createStonetopSteadingSheetClass(Base) {
 			super.activateListeners(html);
 			if (!this.isEditable) return;
 
+			// Roll mode
+			html.find("[name=stonetop-roll-mode]").on("change", ev => {
+				this._stonetopSteading.setRollMode(ev.currentTarget.value);
+			});
+
 			// Fortunes
-			html.find(".stonetop-fortunes-radio").on("change", async ev => {
+			html.find(".steading-box-input[name='stonetop-fortunes']").on("change", async ev => {
 				await this._stonetopSteading.setFortunes(parseInt(ev.currentTarget.value));
 			});
 
 			// Surplus
-			html.find(".stonetop-surplus-input").on("change", async ev => {
+			html.find(".steading-surplus-input").on("change", async ev => {
 				await this._stonetopSteading.setSurplus(parseInt(ev.currentTarget.value) || 0);
 			});
 
-			// Attributes
-			html.find(".stonetop-attr-radio").on("change", async ev => {
+			// Attributes (size, population, prosperity, defenses)
+			html.find(".steading-box-input[data-attr]").on("change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
 				await this._stonetopSteading.attributes.setCurrent(attr, parseInt(ev.currentTarget.value));
 			});
@@ -58,7 +63,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			});
 
 			// Debilities
-			html.find(".stonetop-debility-check").on("change", async ev => {
+			html.find(".steading-circle-input").on("change", async ev => {
 				await this._stonetopSteading.debilities.setDebility(ev.currentTarget.dataset.slug, ev.currentTarget.checked);
 			});
 
@@ -67,17 +72,10 @@ export function createStonetopSteadingSheetClass(Base) {
 				await this._stonetopSteading.setNotes(ev.currentTarget.value);
 			});
 
-			// Content
-			html.find(".stonetop-content-add").on("click", async ev => {
-				await this._stonetopSteading.content.addItem(ev.currentTarget.dataset.type);
-			});
-			html.find(".stonetop-content-remove").on("click", async ev => {
-				const { type, index } = ev.currentTarget.dataset;
-				await this._stonetopSteading.content.removeItem(type, parseInt(index));
-			});
-			html.find(".stonetop-content-item").on("change", async ev => {
-				const { type, index } = ev.currentTarget.dataset;
-				await this._stonetopSteading.content.updateItem(type, parseInt(index), ev.currentTarget.value);
+
+			// Content (free-text textarea per category)
+			html.find(".stonetop-content-textarea").on("change", async ev => {
+				await this._stonetopSteading.content.updateText(ev.currentTarget.dataset.type, ev.currentTarget.value);
 			});
 
 			// Asset items
@@ -112,6 +110,13 @@ export function createStonetopSteadingSheetClass(Base) {
 			});
 			html.find(".stonetop-resident-traits").on("change", async ev => {
 				await this._stonetopSteading.residents.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+
+
+			// NPC traits source textarea
+			html.find(".steading-npc-traits-source").on("change", async ev => {
+				const traits = ev.currentTarget.value.split("\n").map(t => t.trim()).filter(Boolean);
+				await this._actor.update({"system.residentTraits": traits});
 			});
 
 			// Neighbors — people

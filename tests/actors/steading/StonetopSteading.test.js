@@ -2,11 +2,13 @@ import { describe, it, expect } from "vitest";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+import { FakeSteadingMovesRepository } from "../../fakes/FakeSteadingMovesRepository.js";
 
-const fakeRepo = {getAll: async () => []};
+const fakeImprovementsRepo = {getAll: async () => []};
+const fakeMoves = new FakeSteadingMovesRepository();
 
 function make() {
-	return new StonetopSteading(new FakeSteadingBuilder().build(), fakeRepo);
+	return new StonetopSteading(new FakeSteadingBuilder().build(), fakeImprovementsRepo, fakeMoves);
 }
 
 describe("StonetopSteading.buildSnapshot", () => {

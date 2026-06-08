@@ -9,9 +9,10 @@ import {NeighborPlaces} from "./NeighborPlaces.js";
 import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
 import {SteadingImprovements} from "./SteadingImprovements.js";
+import {SteadingMoves} from "./SteadingMoves.js";
 
 export class StonetopSteading {
-	constructor(actor, improvementsRepo) {
+	constructor(actor, improvementsRepo, movesRepo) {
 		this._actor          = actor;
 		this.placesOfInterest = new PlacesOfInterest(actor);
 		this.attributes       = new SteadingAttributes(actor);
@@ -22,6 +23,7 @@ export class StonetopSteading {
 		this.content          = new SteadingContent(actor);
 		this.assets           = new SteadingAssets(actor);
 		this.improvements     = new SteadingImprovements(actor, improvementsRepo);
+		this.moves            = new SteadingMoves(actor, movesRepo);
 	}
 
 	get type() {
@@ -29,7 +31,11 @@ export class StonetopSteading {
 	}
 
 	get rollMode() {
-		return "def";
+		return this._actor.getFlag("stonetop", "rollMode") ?? "def";
+	}
+
+	async setRollMode(mode) {
+		await this._actor.setFlag("stonetop", "rollMode", mode);
 	}
 
 	getRollableStats() {
@@ -43,11 +49,13 @@ export class StonetopSteading {
 	}
 
 	resolveBonus(rollStat) {
-		const attr = this._actor.system.attributes;
+		const sys  = this._actor.system;
+		const attr = sys.attributes;
+		if (rollStat === "fortunes")   return sys.fortunes                  ?? null;
+		if (rollStat === "surplus")    return sys.surplus                   ?? null;
 		if (rollStat === "population") return attr.population?.current ?? null;
 		if (rollStat === "prosperity") return attr.prosperity?.current ?? null;
 		if (rollStat === "defenses")   return attr.defenses?.current   ?? null;
-		if (rollStat === "fortunes")   return this._actor.system.fortunes ?? null;
 		return null;
 	}
 
@@ -79,6 +87,7 @@ export class StonetopSteading {
 		await this._actor.update({"system.notes": value});
 	}
 
+
 	async buildSnapshot() {
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
@@ -103,6 +112,8 @@ export class StonetopSteading {
 			improvements:       await this.improvements.buildSnapshot(),
 			residentNames:      this._actor.system.residentNames,
 			residentTraits:     this._actor.system.residentTraits,
+			moves:              await this.moves.buildSnapshot(),
+			rollMode:           this.rollMode,
 		});
 	}
 }

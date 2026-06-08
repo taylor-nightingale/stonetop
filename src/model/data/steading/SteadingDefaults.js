@@ -3,6 +3,7 @@ export const SteadingDefaults = {
 		title:   "Fortunes",
 		note:    "Starts at +1",
 		current: 2,
+		bonuses: [-1, 0, 1, 2, 3],
 		options: ["-1", "+0", "+1", "+2", "+3"],
 	},
 	surplus: {
@@ -24,16 +25,19 @@ export const SteadingDefaults = {
 		population: {
 			title:   "Population",
 			note:    "Starts at +0",
+			bonuses: [-1, 0, 1, 2, 3],
 			options: ["-1", "+0", "+1", "+2", "+3"],
 		},
 		prosperity: {
 			title:   "Prosperity",
 			note:    "Starts at +0",
+			bonuses: [-1, 0, 1, 2, 3],
 			options: ["-1", "+0", "+1", "+2", "+3"],
 		},
 		defenses: {
 			title:   "Defenses",
 			note:    "Starts at +0",
+			bonuses: [-1, 0, 1, 2, 3],
 			options: [
 				"-1 <em>feeble</em>",
 				"+0 <em>mediocre</em>",

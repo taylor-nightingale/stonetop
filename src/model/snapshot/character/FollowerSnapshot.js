@@ -1,3 +1,18 @@
+export class ArmorSnapshot {
+	constructor(value, note) {
+		this.value = value;
+		this.note  = note;
+	}
+}
+
+export class FollowerDamageSnapshot {
+	constructor(value, label, tags) {
+		this.value = value;
+		this.label = label;
+		this.tags  = tags;
+	}
+}
+
 /**
  * Snapshot of a single owned follower card.
  *
@@ -6,8 +21,8 @@
  * @property {string|null}              tags        — DW-style tags string
  * @property {number}                   hp
  * @property {number}                   hpMax
- * @property {{value:number,note:string}|null} armor
- * @property {{die:string,label:string,tags:string}|null} damage
+ * @property {ArmorSnapshot|null}       armor
+ * @property {FollowerDamageSnapshot|null} damage
  * @property {string}                   instinct
  * @property {string}                   specialQuality
  * @property {ResourceSnapshot|null}    loyalty

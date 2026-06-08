@@ -1,718 +1,826 @@
 {
-	"_id": "MlxHjzcHt0f2ACqH",
-	"_key": "!items!MlxHjzcHt0f2ACqH",
-	"img": "systems/stonetop/assets/playbooks/the-would-be-hero.png",
-	"name": "The Would-Be Hero",
-	"type": "playbook",
-	"flags": {},
-	"system": {
-		"slug": "the-would-be-hero",
-		"actorType": "character",
-		"description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
-		"startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
-		"damage": {
-			"value": "d6"
-		},
-		"hp": 16,
-		"statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
-		"origin": [
-			{
-				"region": "Stonetop",
-				"names": [
-					"Anwen",
-					"Caradoc",
-					"Dafyd",
-					"Glenys",
-					"Madoc",
-					"Morwenna",
-					"Siwan",
-					"Wynfor"
-				]
-			},
-			{
-				"region": "Barrier Pass",
-				"names": [
-					"Bala",
-					"Cotota",
-					"Ganzorig",
-					"Gerelma",
-					"Ibahka",
-					"Jungshoi",
-					"Mukhali",
-					"Taichu"
-				]
-			},
-			{
-				"region": "The Steplands (Hillfolk)",
-				"names": [
-					"Annie",
-					"Cosette",
-					"Denl",
-					"Hugenne",
-					"Jag",
-					"Marc",
-					"Oanz",
-					"Sandre"
-				]
-			},
-			{
-				"region": "Gordin's Delve",
-				"names": []
-			},
-			{
-				"region": "Marshedge",
-				"names": [
-					"Bridin",
-					"Clian",
-					"Engis",
-					"Fearghul",
-					"Lan",
-					"Neasa",
-					"Nill",
-					"Una"
-				]
-			},
-			{
-				"region": "Lygos or some other point south",
-				"names": [
-					"Chara",
-					"Davud",
-					"Korina",
-					"Omid",
-					"Parvaneh",
-					"Tamir",
-					"Takish",
-					"Yannis"
-				]
-			}
-		],
-		"backgrounds": [
-			{
-				"slug": "impetuous-youth",
-				"label": "Impetuous Youth",
-				"description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <strong><em>make a move and come up short</em></strong>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
-			},
-			{
-				"slug": "driven",
-				"label": "Driven",
-				"choices": {
-					"slug": "driven",
-					"list": [
-						{
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:"
-							}
-						},
-						{
-							"type": "entry",
-							"slug": "loved-one",
-							"content": {
-								"title": null,
-								"text": "A loved one was killed or abducted"
-							},
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "entry",
-							"slug": "gave-life",
-							"content": {
-								"title": null,
-								"text": "Someone gave their life to save you"
-							},
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "entry",
-							"slug": "idol",
-							"content": {
-								"title": null,
-								"text": "Your idol sacrificed themselves to save many"
-							},
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "entry",
-							"slug": "dark-mystery",
-							"content": {
-								"title": null,
-								"text": "You stumbled upon a dark mystery"
-							},
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "entry",
-							"slug": "mistake",
-							"content": {
-								"title": null,
-								"text": "You must make amends for a terrible mistake"
-							},
-							"track": {
-								"max": 1
-							}
-						},
-						{
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
-							}
-						}
-					]
-				}
-			},
-			{
-				"slug": "destined",
-				"label": "Destined",
-				"choices": {
-					"slug": "destined",
-					"list": [
-						{
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"
-							}
-						},
-						{
-							"type": "pick",
-							"pickCount": 3,
-							"inline": true,
-							"options": [
-								{
-									"slug": "anointed",
-									"text": "anointed"
-								},
-								{
-									"slug": "marked",
-									"text": "marked at birth"
-								},
-								{
-									"slug": "coming",
-									"text": "your coming foretold"
-								}
-							]
-						},
-						{
-							"type": "pick",
-							"pickCount": 5,
-							"inline": true,
-							"options": [
-								{
-									"slug": "destroy",
-									"text": "destroy"
-								},
-								{
-									"slug": "discover",
-									"text": "discover"
-								},
-								{
-									"slug": "free",
-									"text": "free"
-								},
-								{
-									"slug": "protect",
-									"text": "protect"
-								},
-								{
-									"slug": "protect",
-									"text": "restore"
-								}
-							]
-						},
-						{
-							"type": "pick",
-							"pickCount": 4,
-							"inline": true,
-							"options": [
-								{
-									"slug": "unify",
-									"text": "unify"
-								},
-								{
-									"slug": "blood",
-									"text": "blood"
-								},
-								{
-									"slug": "civilization",
-									"text": "civilization"
-								},
-								{
-									"slug": "darkness",
-									"text": "darkness"
-								}
-							]
-						},
-						{
-							"type": "pick",
-							"pickCount": 6,
-							"inline": true,
-							"options": [
-								{
-									"slug": "earth",
-									"text": "earth & stone"
-								},
-								{
-									"slug": "fire",
-									"text": "fire"
-								},
-								{
-									"slug": "ice",
-									"text": "ice"
-								},
-								{
-									"slug": "light",
-									"text": "light"
-								},
-								{
-									"slug": "life",
-									"text": "life"
-								},
-								{
-									"slug": "storms",
-									"text": "storms"
-								}
-							]
-						},
-						{
-							"type": "pick",
-							"pickCount": 5,
-							"inline": true,
-							"options": [
-								{
-									"slug": "war",
-									"text": "war"
-								},
-								{
-									"slug": "water",
-									"text": "water"
-								},
-								{
-									"slug": "fae",
-									"text": "the Fae"
-								},
-								{
-									"slug": "gods",
-									"text": " the gods"
-								},
-								{
-									"slug": "makers",
-									"text": " the Makers"
-								}
-							]
-						},
-						{
-							"type": "pick",
-							"pickCount": 2,
-							"inline": true,
-							"options": [
-								{
-									"slug": "stone",
-									"text": "the Stone"
-								},
-								{
-									"slug": "things",
-									"text": "the Things Below"
-								}
-							]
-						},
-						{
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"
-							}
-						}
-					]
-				},
-				"resource": {
-					"max": 3
-				}
-			}
-		],
-		"specialPossessions": {
-			"pickNote": "Pick 2",
-			"pickCount": 2,
-			"preselected": [],
-			"slugs": [
-				"a-good-dog",
-				"heap-of-expectations",
-				"husbandry-tools",
-				"personal-token",
-				"smithy",
-				"stoneworkers-tools",
-				"tannery"
-			]
-		},
-		"choices": [
-			{
-				"slug": "appearance",
-				"list": [
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "still-a-child",
-								"text": "still a child"
-							},
-							{
-								"slug": "young-and-beautiful",
-								"text": "young & beautiful"
-							},
-							{
-								"slug": "all-grown-up",
-								"text": "all grown up"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "quiet-voice",
-								"text": "quiet voice"
-							},
-							{
-								"slug": "earnest-voice",
-								"text": "earnest voice"
-							},
-							{
-								"slug": "soft-voice",
-								"text": "soft voice"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "big",
-								"text": "big"
-							},
-							{
-								"slug": "scrawny",
-								"text": "scrawny"
-							},
-							{
-								"slug": "sinewy",
-								"text": "sinewy"
-							},
-							{
-								"slug": "slender",
-								"text": "slender"
-							},
-							{
-								"slug": "thick",
-								"text": "thick"
-							}
-						]
-					},
-					{
-						"type": "pick",
-						"pickCount": 1,
-						"inline": true,
-						"options": [
-							{
-								"slug": "back-unbowed",
-								"text": "back unbowed"
-							},
-							{
-								"slug": "jaw-firmly-set",
-								"text": "jaw firmly set"
-							},
-							{
-								"slug": "soulful-eyes",
-								"text": "soulful eyes"
-							}
-						]
-					}
-				]
-			},
-			{
-				"slug": "fear-and-anger",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "Fear & anger",
-							"text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "fire",
-						"content": {
-							"title": null,
-							"text": "Fire, burning, the smell of charred flesh"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "not-serious",
-						"content": {
-							"title": null,
-							"text": "That they won't take you seriously"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "not-cut-out",
-						"content": {
-							"title": null,
-							"text": "That you really aren't cut out for this"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "death-loved-ones",
-						"content": {
-							"title": null,
-							"text": "The death of your family or loved ones"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "alone",
-						"content": {
-							"title": null,
-							"text": "Being alone and helpless"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "violence",
-						"content": {
-							"title": null,
-							"text": "Violence, bloodshed, and pain"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "monsters",
-						"content": {
-							"title": null,
-							"text": "Monsters"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "capable-of",
-						"content": {
-							"title": null,
-							"text": "What you're capable of"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "must-do",
-						"content": {
-							"title": null,
-							"text": "What you must do"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "bullying",
-						"content": {
-							"title": null,
-							"text": "Bullying, slavery, and oppression"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cruelty",
-						"content": {
-							"title": null,
-							"text": "Wanton cruelty and unnecessary suffering"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "injustice",
-						"content": {
-							"title": null,
-							"text": "Injustice and inequality"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cowardice",
-						"content": {
-							"title": null,
-							"text": "Cowardice, treachery, and selfishness"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "despoiling",
-						"content": {
-							"title": null,
-							"text": "The despoiling of beauty and innocence"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "threats-loved-ones",
-						"content": {
-							"title": null,
-							"text": "Threats to your loved ones"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "innocents",
-						"content": {
-							"title": null,
-							"text": "Violence to children, animals, the innocent"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "perversions",
-						"content": {
-							"title": null,
-							"text": "Perversions of nature"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "when-trouble",
-						"content": {
-							"title": null,
-							"text": "When did your fear or anger last cause you trouble?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "what-did",
-						"content": {
-							"title": null,
-							"text": "What did you do?"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "how-turned",
-						"content": {
-							"title": null,
-							"text": "How did it turn out?"
-						},
-						"input": {}
-					}
-				]
-			}
-		],
-		"choiceValues": {},
-		"instinct": {
-			"slug": "instinct",
-			"list": [
-				{
-					"type": "pick",
-					"pickCount": 1,
-					"options": [
-						{
-							"slug": "defiance",
-							"description": "To refuse to back down, give up, give in.",
-							"text": "Defiance"
-						},
-						{
-							"slug": "doubt",
-							"description": "To question yourself, your actions, your worth.",
-							"text": "Doubt"
-						},
-						{
-							"slug": "earnestness",
-							"description": "To prove yourself, to yourself and others.",
-							"text": "Earnestness"
-						},
-						{
-							"slug": "optimism",
-							"description": "To assume the best, and that things are simple.",
-							"text": "Optimism"
-						},
-						{
-							"slug": "sacrifice",
-							"description": "To put the needs/wants of others above your own.",
-							"text": "Sacrifice"
-						}
-					]
-				}
-			]
-		}
-	}
+  "_id": "MlxHjzcHt0f2ACqH",
+  "_key": "!items!MlxHjzcHt0f2ACqH",
+  "img": "systems/stonetop/assets/playbooks/the-would-be-hero.png",
+  "name": "The Would-Be Hero",
+  "type": "playbook",
+  "flags": {},
+  "system": {
+    "slug": "the-would-be-hero",
+    "actorType": "character",
+    "description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
+    "startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
+    "damage": {
+      "value": "d6"
+    },
+    "hp": 16,
+    "statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Anwen",
+          "Caradoc",
+          "Dafyd",
+          "Glenys",
+          "Madoc",
+          "Morwenna",
+          "Siwan",
+          "Wynfor"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Bala",
+          "Cotota",
+          "Ganzorig",
+          "Gerelma",
+          "Ibahka",
+          "Jungshoi",
+          "Mukhali",
+          "Taichu"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Annie",
+          "Cosette",
+          "Denl",
+          "Hugenne",
+          "Jag",
+          "Marc",
+          "Oanz",
+          "Sandre"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Bridin",
+          "Clian",
+          "Engis",
+          "Fearghul",
+          "Lan",
+          "Neasa",
+          "Nill",
+          "Una"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Chara",
+          "Davud",
+          "Korina",
+          "Omid",
+          "Parvaneh",
+          "Tamir",
+          "Takish",
+          "Yannis"
+        ]
+      }
+    ],
+    "backgrounds": [
+      {
+        "slug": "impetuous-youth",
+        "label": "Impetuous Youth",
+        "description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <strong><em>make a move and come up short</em></strong>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
+      },
+      {
+        "slug": "driven",
+        "label": "Driven",
+        "choices": {
+          "slug": "driven",
+          "list": [
+            {
+              "type": "entry",
+              "content": {
+                "title": null,
+                "text": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:"
+              }
+            },
+            {
+              "type": "entry",
+              "slug": "loved-one",
+              "content": {
+                "title": null,
+                "text": "A loved one was killed or abducted"
+              },
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "entry",
+              "slug": "gave-life",
+              "content": {
+                "title": null,
+                "text": "Someone gave their life to save you"
+              },
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "entry",
+              "slug": "idol",
+              "content": {
+                "title": null,
+                "text": "Your idol sacrificed themselves to save many"
+              },
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "entry",
+              "slug": "dark-mystery",
+              "content": {
+                "title": null,
+                "text": "You stumbled upon a dark mystery"
+              },
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "entry",
+              "slug": "mistake",
+              "content": {
+                "title": null,
+                "text": "You must make amends for a terrible mistake"
+              },
+              "track": {
+                "max": 1
+              }
+            },
+            {
+              "type": "entry",
+              "content": {
+                "title": null,
+                "text": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "slug": "destined",
+        "label": "Destined",
+        "choices": {
+          "slug": "destined",
+          "list": [
+            {
+              "type": "entry",
+              "content": {
+                "title": null,
+                "text": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:"
+              }
+            },
+            {
+              "type": "pick",
+              "pickCount": 3,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "anointed",
+                  "text": "anointed"
+                },
+                {
+                  "slug": "marked",
+                  "text": "marked at birth"
+                },
+                {
+                  "slug": "coming",
+                  "text": "your coming foretold"
+                }
+              ]
+            },
+            {
+              "type": "pick",
+              "pickCount": 5,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "destroy",
+                  "text": "destroy"
+                },
+                {
+                  "slug": "discover",
+                  "text": "discover"
+                },
+                {
+                  "slug": "free",
+                  "text": "free"
+                },
+                {
+                  "slug": "protect",
+                  "text": "protect"
+                },
+                {
+                  "slug": "protect",
+                  "text": "restore"
+                }
+              ]
+            },
+            {
+              "type": "pick",
+              "pickCount": 4,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "unify",
+                  "text": "unify"
+                },
+                {
+                  "slug": "blood",
+                  "text": "blood"
+                },
+                {
+                  "slug": "civilization",
+                  "text": "civilization"
+                },
+                {
+                  "slug": "darkness",
+                  "text": "darkness"
+                }
+              ]
+            },
+            {
+              "type": "pick",
+              "pickCount": 6,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "earth",
+                  "text": "earth & stone"
+                },
+                {
+                  "slug": "fire",
+                  "text": "fire"
+                },
+                {
+                  "slug": "ice",
+                  "text": "ice"
+                },
+                {
+                  "slug": "light",
+                  "text": "light"
+                },
+                {
+                  "slug": "life",
+                  "text": "life"
+                },
+                {
+                  "slug": "storms",
+                  "text": "storms"
+                }
+              ]
+            },
+            {
+              "type": "pick",
+              "pickCount": 5,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "war",
+                  "text": "war"
+                },
+                {
+                  "slug": "water",
+                  "text": "water"
+                },
+                {
+                  "slug": "fae",
+                  "text": "the Fae"
+                },
+                {
+                  "slug": "gods",
+                  "text": " the gods"
+                },
+                {
+                  "slug": "makers",
+                  "text": " the Makers"
+                }
+              ]
+            },
+            {
+              "type": "pick",
+              "pickCount": 2,
+              "inline": true,
+              "options": [
+                {
+                  "slug": "stone",
+                  "text": "the Stone"
+                },
+                {
+                  "slug": "things",
+                  "text": "the Things Below"
+                }
+              ]
+            },
+            {
+              "type": "entry",
+              "content": {
+                "title": null,
+                "text": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"
+              }
+            }
+          ]
+        },
+        "resource": {
+          "max": 3
+        }
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "slugs": [
+        "a-good-dog",
+        "heap-of-expectations",
+        "husbandry-tools",
+        "personal-token",
+        "smithy",
+        "stoneworkers-tools",
+        "tannery"
+      ]
+    },
+    "choices": [
+      {
+        "slug": "fear-and-anger",
+        "list": [
+          {
+            "type": "entry",
+            "content": {
+              "title": "Fear & anger",
+              "text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "fire",
+            "content": {
+              "title": null,
+              "text": "Fire, burning, the smell of charred flesh"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "not-serious",
+            "content": {
+              "title": null,
+              "text": "That they won't take you seriously"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "not-cut-out",
+            "content": {
+              "title": null,
+              "text": "That you really aren't cut out for this"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "death-loved-ones",
+            "content": {
+              "title": null,
+              "text": "The death of your family or loved ones"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "alone",
+            "content": {
+              "title": null,
+              "text": "Being alone and helpless"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "violence",
+            "content": {
+              "title": null,
+              "text": "Violence, bloodshed, and pain"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "monsters",
+            "content": {
+              "title": null,
+              "text": "Monsters"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "capable-of",
+            "content": {
+              "title": null,
+              "text": "What you're capable of"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "must-do",
+            "content": {
+              "title": null,
+              "text": "What you must do"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "bullying",
+            "content": {
+              "title": null,
+              "text": "Bullying, slavery, and oppression"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "cruelty",
+            "content": {
+              "title": null,
+              "text": "Wanton cruelty and unnecessary suffering"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "injustice",
+            "content": {
+              "title": null,
+              "text": "Injustice and inequality"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "cowardice",
+            "content": {
+              "title": null,
+              "text": "Cowardice, treachery, and selfishness"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "despoiling",
+            "content": {
+              "title": null,
+              "text": "The despoiling of beauty and innocence"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "threats-loved-ones",
+            "content": {
+              "title": null,
+              "text": "Threats to your loved ones"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "innocents",
+            "content": {
+              "title": null,
+              "text": "Violence to children, animals, the innocent"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "perversions",
+            "content": {
+              "title": null,
+              "text": "Perversions of nature"
+            },
+            "track": {
+              "max": 1
+            }
+          },
+          {
+            "type": "entry",
+            "slug": "when-trouble",
+            "content": {
+              "title": null,
+              "text": "When did your fear or anger last cause you trouble?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "what-did",
+            "content": {
+              "title": null,
+              "text": "What did you do?"
+            },
+            "input": {}
+          },
+          {
+            "type": "entry",
+            "slug": "how-turned",
+            "content": {
+              "title": null,
+              "text": "How did it turn out?"
+            },
+            "input": {}
+          }
+        ]
+      }
+    ],
+    "introductions": {
+      "step3": "On your third turn, <strong>tell us of your fear &amp; anger</strong>, and of the last time they caused you trouble.",
+      "step4": {
+        "slug": "intro-npc",
+        "list": [
+          {
+            "slug": "heart-to-win",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Whose heart do you hope to win?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "counting-on-you",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who is counting on you?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "understands-path",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who quietly understands the path you are on?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "prove-wrong",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Who do you intend to prove wrong?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      },
+      "step6": {
+        "slug": "intro-pc",
+        "list": [
+          {
+            "slug": "closest-truest-friend",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you is my closest, truest friend?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "believes-in-me",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you believes in me, despite it all?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "promised-teach",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you has promised to teach me?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          },
+          {
+            "slug": "have-i-hurt",
+            "type": "entry",
+            "content": {
+              "title": null,
+              "text": "Which one of you have I hurt, through what I have done or what I've failed to do?"
+            },
+            "track": {
+              "max": 1
+            },
+            "input": {}
+          }
+        ]
+      }
+    },
+    "appearance": {
+      "slug": "appearance",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "still-a-child",
+              "text": "still a child"
+            },
+            {
+              "slug": "young-and-beautiful",
+              "text": "young & beautiful"
+            },
+            {
+              "slug": "all-grown-up",
+              "text": "all grown up"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "quiet-voice",
+              "text": "quiet voice"
+            },
+            {
+              "slug": "earnest-voice",
+              "text": "earnest voice"
+            },
+            {
+              "slug": "soft-voice",
+              "text": "soft voice"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "big",
+              "text": "big"
+            },
+            {
+              "slug": "scrawny",
+              "text": "scrawny"
+            },
+            {
+              "slug": "sinewy",
+              "text": "sinewy"
+            },
+            {
+              "slug": "slender",
+              "text": "slender"
+            },
+            {
+              "slug": "thick",
+              "text": "thick"
+            }
+          ]
+        },
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "inline": true,
+          "options": [
+            {
+              "slug": "back-unbowed",
+              "text": "back unbowed"
+            },
+            {
+              "slug": "jaw-firmly-set",
+              "text": "jaw firmly set"
+            },
+            {
+              "slug": "soulful-eyes",
+              "text": "soulful eyes"
+            }
+          ]
+        }
+      ]
+    },
+    "instinct": {
+      "slug": "instinct",
+      "list": [
+        {
+          "type": "pick",
+          "pickCount": 1,
+          "options": [
+            {
+              "slug": "defiance",
+              "description": "To refuse to back down, give up, give in.",
+              "text": "Defiance"
+            },
+            {
+              "slug": "doubt",
+              "description": "To question yourself, your actions, your worth.",
+              "text": "Doubt"
+            },
+            {
+              "slug": "earnestness",
+              "description": "To prove yourself, to yourself and others.",
+              "text": "Earnestness"
+            },
+            {
+              "slug": "optimism",
+              "description": "To assume the best, and that things are simple.",
+              "text": "Optimism"
+            },
+            {
+              "slug": "sacrifice",
+              "description": "To put the needs/wants of others above your own.",
+              "text": "Sacrifice"
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

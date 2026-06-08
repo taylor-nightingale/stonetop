@@ -290,6 +290,8 @@ export class StonetopCharacter {
 				return await this._arcana.setUnlockCount(group, option, count);
 			case "playbook-choice":
 			case "lore":
+			case "intro-npc":
+			case "intro-pc":
 				return await this._playbook.setChoiceCount(group, option, count);
 			case "background":
 				return await this._background.setChoiceValue(group, option, count);
@@ -315,6 +317,8 @@ export class StonetopCharacter {
 		switch (context) {
 			case "playbook-choice":
 			case "lore":
+			case "intro-npc":
+			case "intro-pc":
 				return await this._playbook.setChoiceText(group, option, value);
 			case "follower":
 				return await this._followers.setChoiceText(group, option, value);

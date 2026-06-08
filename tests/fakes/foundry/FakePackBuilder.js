@@ -23,4 +23,8 @@ export class FakePackBuilder {
 	static movesPack() {
 		return new FakePackBuilder("moves");
 	}
+
+	static playbooksPack() {
+		return new FakePackBuilder("playbooks");
+	}
 }

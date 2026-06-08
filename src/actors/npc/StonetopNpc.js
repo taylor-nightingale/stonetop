@@ -1,4 +1,4 @@
-import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
+import { NpcSnapshotBuilder } from "../../model/snapshot/NpcSnapshot.js";
 
 export class StonetopNpc {
 	constructor(actor) {
@@ -26,13 +26,13 @@ export class StonetopNpc {
 	async setDescription(value)    { await this._actor.update({ "system.description": value }); }
 
 	async buildSnapshot() {
-		return new FollowerSnapshotBuilder()
+		return new NpcSnapshotBuilder()
 			.withHp(this.hp)
 			.withHpMax(this.maxHp)
 			.withArmor(this.armor)
 			.withDamage(this.damage)
 			.withInstinct(this.instinct)
-			.withSpecialQuality(this.specialQuality)
+			.withSpecialQualities(this.specialQuality)
 			.withDescription(this.description)
 			.build();
 	}

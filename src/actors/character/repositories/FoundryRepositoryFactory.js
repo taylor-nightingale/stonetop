@@ -3,6 +3,7 @@ import {FoundryOutfitItemRepository} from "./FoundryOutfitItemRepository.js";
 import {FoundryArcanaRepository} from "./FoundryArcanaRepository.js";
 import {FoundryFollowerRepository} from "./FoundryFollowerRepository.js";
 import {FoundryPossessionRepository} from "./FoundryPossessionRepository.js";
+import {FoundryPlaybookRepository} from "./FoundryPlaybookRepository.js";
 
 export class FoundryRepositoryFactory {
 	get moves() {
@@ -23,5 +24,9 @@ export class FoundryRepositoryFactory {
 
 	get possessions() {
 		return this._possessions ??= new FoundryPossessionRepository();
+	}
+
+	get playbooks() {
+		return this._playbooks ??= new FoundryPlaybookRepository();
 	}
 }

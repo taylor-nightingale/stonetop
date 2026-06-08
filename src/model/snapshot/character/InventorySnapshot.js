@@ -145,7 +145,7 @@ export class PossessionsSnapshot {
  * @property {string|null} preselectedSource
  * @property {Resource|null} resource
  * @property {string|null} usesLabel
- * @property {Object|null} choices
+ * @property {ChoiceGroup|null} choices
  */
 export class PossessionItemSnapshot {
 	constructor(b) {

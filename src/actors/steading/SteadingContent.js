@@ -1,9 +1,9 @@
 import {ContentSection} from "../../model/snapshot/steading/SteadingSnapshot.js";
 
 const SECTIONS = [
-	{slug: "excluded",        label: "Excluded Content",  note: "(Not part of the game, on-camera or off)"},
-	{slug: "veiled",          label: "Veiled Content",    note: "(Part of the fiction, but only off-camera)"},
-	{slug: "specialHandling", label: "Special Handling",  note: null},
+	{slug: "excluded",        label: "Excluded Content",  note: "(Not part of the game, on-camera or off)", textKey: "excludedText"},
+	{slug: "veiled",          label: "Veiled Content",    note: "(Part of the fiction, but only off-camera)", textKey: "veiledText"},
+	{slug: "specialHandling", label: "Special Handling",  note: null, textKey: "specialHandlingText"},
 ];
 
 export class SteadingContent {
@@ -34,8 +34,14 @@ export class SteadingContent {
 		await this._actor.update({"system.content": {...state, [section]: list}});
 	}
 
+	async updateText(section, value) {
+		const textKey = SECTIONS.find(s => s.slug === section)?.textKey;
+		if (!textKey) return;
+		await this._actor.update({[`system.content.${textKey}`]: value});
+	}
+
 	buildSnapshot() {
 		const state = this._state;
-		return SECTIONS.map(s => new ContentSection(s.slug, s.label, s.note, state[s.slug] ?? []));
+		return SECTIONS.map(s => new ContentSection(s.slug, s.label, s.note, state[s.textKey] ?? "", state[s.slug] ?? []));
 	}
 }

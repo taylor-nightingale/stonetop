@@ -47,21 +47,21 @@
 
 		<section class="sheet-main flexcol">
 			<nav class="sheet-tabs tabs" data-group="primary">
+				<a class="item" data-tab="playbook">{{localize "stonetop.sheet.tabs.playbook"}}</a>
 				<a class="item" data-tab="moves">{{localize "stonetop.sheet.tabs.moves"}}</a>
 				<a class="item" data-tab="inventory">{{localize "stonetop.sheet.tabs.inventory"}}</a>
 				<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>
 				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
-				<a class="item" data-tab="details">{{localize "stonetop.sheet.tabs.details"}}</a>
 			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
 			</nav>
 
 			<div class="stonetop-sheet-layout">
 				<section class="sheet-body">
+					{{> "stonetop.tab-playbook"}}
 					{{> "stonetop.tab-moves"}}
 					{{> "stonetop.tab-equipment"}}
 					{{> "stonetop.tab-arcana"}}
 					{{> "stonetop.tab-followers"}}
-					{{> "stonetop.tab-details"}}
 					{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this}}{{/each}}
 				</section>
 

@@ -1,6 +1,18 @@
-<div class="tab details" data-group="primary" data-tab="details">
+<div class="tab playbook" data-group="primary" data-tab="playbook">
 	<section class="sheet-tab">
-	<div class="stonetop-details-columns">
+
+	{{#unless stonetop.playbook}}
+	<div class="stonetop-playbook-empty">
+		<p class="stonetop-playbook-empty-hint">{{localize "stonetop.sheet.playbook.emptyHint"}}</p>
+		<select class="stonetop-playbook-select" name="stonetop-playbook-select">
+			<option value="">— {{localize "stonetop.sheet.playbook.selectPlaceholder"}} —</option>
+			{{#each availablePlaybooks}}
+			<option value="{{slug}}">{{name}}</option>
+			{{/each}}
+		</select>
+	</div>
+	{{else}}
+	<div class="stonetop-playbook-columns">
 
 		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore"}}
 
@@ -44,9 +56,9 @@
 		{{#if stonetop.playbook.appearanceGroup}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
-			{{#each stonetop.playbook.appearanceGroup.list}}
-			{{> "stonetop.choice-row" cgContext="appearance" namePrefix="stonetop-appearance"}}
-			{{/each}}
+			{{#with stonetop.playbook.appearanceGroup}}
+			{{> "stonetop.choice-group" cgContext="appearance"}}
+			{{/with}}
 		</div>
 		{{/if}}
 
@@ -61,9 +73,7 @@
 					<strong>{{region}}</strong>
 				</label>
 				<div class="stonetop-origin-names">
-					{{#each names}}
-					<button type="button" class="stonetop-origin-name">{{this}}</button>
-					{{/each}}
+					{{#each names}}<span class="stonetop-origin-name">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
 				</div>
 			</div>
 			{{/each}}
@@ -71,5 +81,12 @@
 		{{/if}}
 
 	</div>
+
+	{{#if stonetop.playbook.introductions}}
+	<div class="stonetop-panel-divider" aria-hidden="true"></div>
+	{{> "stonetop.introductions-section" intro=stonetop.playbook.introductions}}
+	{{/if}}
+	{{/unless}}
+
 	</section>
 </div>

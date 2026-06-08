@@ -60,4 +60,12 @@ export class StonetopPlaybook {
 	get lore() {
 		return this._stonetopItem.system?.lore ?? [];
 	}
+
+	get choices() {
+		return this._stonetopItem.system?.choices ?? [];
+	}
+
+	get introductions() {
+		return this._stonetopItem.system?.introductions ?? null;
+	}
 }

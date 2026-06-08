@@ -1,0 +1,58 @@
+<div class="stonetop-introductions-section">
+	<h3 class="stonetop-introductions-title">{{localize "stonetop.sheet.playbook.introductions.title"}}</h3>
+	<p class="stonetop-introductions-preamble">{{{localize "stonetop.sheet.playbook.introductions.preamble"}}}</p>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">1</span>
+		<p>{{{localize "stonetop.sheet.playbook.introductions.step1"}}}</p>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">2</span>
+		<p>{{{localize "stonetop.sheet.playbook.introductions.step2"}}}</p>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">3</span>
+		<p>{{{intro.step3}}}</p>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">4</span>
+		<div class="stonetop-intro-questions">
+			<p>{{{localize "stonetop.sheet.playbook.introductions.step4Preamble"}}}</p>
+			{{#with intro.npcGroup}}
+			{{#each list}}
+			{{> "stonetop.choice-row" cgContext="intro-npc" cgGroup=../slug}}
+			{{/each}}
+			{{/with}}
+		</div>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">5</span>
+		<p>{{{localize "stonetop.sheet.playbook.introductions.step5"}}}</p>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">6</span>
+		<div class="stonetop-intro-questions">
+			<p>{{{localize "stonetop.sheet.playbook.introductions.step6Preamble"}}}</p>
+			{{#with intro.pcGroup}}
+			{{#each list}}
+			{{> "stonetop.choice-row" cgContext="intro-pc" cgGroup=../slug}}
+			{{/each}}
+			{{/with}}
+		</div>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">7</span>
+		<p>{{{localize "stonetop.sheet.playbook.introductions.step7"}}}</p>
+	</div>
+
+	<div class="stonetop-intro-step">
+		<span class="stonetop-intro-step-num">8</span>
+		<p>{{{localize "stonetop.sheet.playbook.introductions.step8"}}}</p>
+	</div>
+</div>
