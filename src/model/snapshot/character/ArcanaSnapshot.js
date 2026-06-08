@@ -25,7 +25,7 @@ export class ArcanumBackSnapshot {
 		this.resource     = b._resource;
 		this.choices      = b._choices      ?? null;
 		this.moves        = b._moves        ?? [];
-		this.consequences = b._consequences ?? null;
+		this.consequences = b._consequences ?? null; // ChoiceGroup|null
 		this.unlockAt     = b._unlockAt     ?? null;
 	}
 }

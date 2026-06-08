@@ -53,10 +53,12 @@
 		    cgContext="instinct"}}
 		{{/if}}
 
-		{{#if stonetop.playbook.appearanceGroups.length}}
+		{{#if stonetop.playbook.appearanceGroup}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
-			{{> "stonetop.choice-section" groups=stonetop.playbook.appearanceGroups cgContext="appearance"}}
+			{{#with stonetop.playbook.appearanceGroup}}
+			{{> "stonetop.choice-group" cgContext="appearance"}}
+			{{/with}}
 		</div>
 		{{/if}}
 

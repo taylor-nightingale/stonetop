@@ -1,9 +1,17 @@
+export class SelectOptionSnapshot {
+	constructor(label, index, selected) {
+		this.label    = label;
+		this.index    = index;
+		this.selected = selected;
+	}
+}
+
 export class FortunesSnapshot {
 	constructor(title, note, current, options) {
 		this.title = title;
 		this.note = note;
 		this.current = current;
-		this.options = options.map((label, i) => ({label, index: i, selected: i === current}));
+		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, i === current));
 	}
 }
 
@@ -24,7 +32,7 @@ export class AttributeSnapshot {
 		// Current selection
 		this.current = current;
 		// Selectable options, ex. -1, 0, +1
-		this.options = options.map((label, i) => ({label, index: i, selected: i === current}));
+		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, i === current));
 		// List of strings for things like "resources" or "fortifications"
 		this.items = items;
 	}

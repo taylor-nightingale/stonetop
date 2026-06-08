@@ -1,4 +1,4 @@
-import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
+import { FollowerSnapshotBuilder, ArmorSnapshot, FollowerDamageSnapshot } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
 
@@ -151,8 +151,8 @@ export class CharacterFollowers {
 			.withTags(sys.tags ?? null)
 			.withHp(sys.hp?.value ?? 0)
 			.withHpMax(sys.hp?.max ?? 0)
-			.withArmor({ value: sys.armor?.value ?? 0, note: sys.armor?.note ?? "" })
-			.withDamage(damageDie ? { value: damageDie, label: sys.damage?.label ?? "", tags: sys.damage?.tags ?? "" } : null)
+			.withArmor(new ArmorSnapshot(sys.armor?.value ?? 0, sys.armor?.note ?? ""))
+			.withDamage(damageDie ? new FollowerDamageSnapshot(damageDie, sys.damage?.label ?? "", sys.damage?.tags ?? "") : null)
 			.withInstinct(sys.instinct ?? "")
 			.withLoyalty(ResourceController.build({ max: sys.loyalty?.max ?? 3, title: null, labels: [] }, loyalty))
 			.withChoices(sys.choices?.length ? ChoiceGroup.fromPackData(sys.choices[0], values) : null)

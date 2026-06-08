@@ -21,7 +21,7 @@ export class RequirementSnapshot {
  * @property {boolean} selectable      - computed: can the player increment selection?
  * @property {RequirementSnapshot|null} requirement
  * @property {string|null} requiresLabel
- * @property {{ max: number, title: string|null, labels: string[], current: number }|null} resource
+ * @property {ResourceSnapshot|null} resource
  */
 export class MoveSnapshot {
 	constructor(b) {

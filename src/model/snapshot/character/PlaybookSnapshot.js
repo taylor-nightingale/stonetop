@@ -86,7 +86,7 @@ export class BackgroundSection {
  * @property {ChoiceGroup[]} choices - all non-instinct choice groups
  * @property {ChoiceGroup|null} instinctGroup
  * @property {string|null} instinctSelected - computed display label for instinct
- * @property {ChoiceGroup[]} appearanceGroups
+ * @property {ChoiceGroup|null} appearanceGroup
  * @property {ChoiceGroup[]} loreGroups - all choices that are not appearance
  * @property {BackgroundSection} background
  * @property {OriginSection} origin
@@ -100,11 +100,11 @@ export class PlaybookSnapshot {
 		this.titleImg         = b._slug ? `systems/stonetop/assets/playbooks/${b._slug}-title.png` : null;
 		this.description      = b._description;
 		this.statsNote        = b._statsNote;
-		this.choices          = b._choices;
-		this.instinctGroup    = b._instinctGroup;
-		this.instinctSelected = b._instinctSelected;
-		this.appearanceGroups = b._appearanceGroups ?? [];
-		this.loreGroups       = b._loreGroups;
+		this.choices          = b._choices          ?? [];
+		this.instinctGroup    = b._instinctGroup    ?? null;
+		this.instinctSelected = b._instinctSelected ?? null;
+		this.appearanceGroup  = b._appearanceGroup  ?? null;
+		this.loreGroups       = b._loreGroups       ?? [];
 		this.background       = b._background;
 		this.origin           = b._origin;
 		this.introductions    = b._introductions ?? null;
@@ -120,7 +120,7 @@ export class PlaybookSnapshotBuilder {
 	withChoices(v)          { this._choices          = v; return this; }
 	withInstinctGroup(v)    { this._instinctGroup    = v; return this; }
 	withInstinctSelected(v) { this._instinctSelected = v; return this; }
-	withAppearanceGroups(v) { this._appearanceGroups = v; return this; }
+	withAppearanceGroup(v)  { this._appearanceGroup  = v; return this; }
 	withLoreGroups(v)       { this._loreGroups       = v; return this; }
 	withBackground(v)       { this._background       = v; return this; }
 	withOrigin(v)           { this._origin           = v; return this; }

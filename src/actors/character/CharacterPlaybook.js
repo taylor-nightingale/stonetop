@@ -93,7 +93,7 @@ export class CharacterPlaybook {
 		const instinctGroup = data.instinct ? ChoiceGroup.fromPackData(data.instinct, choiceValues) : null;
 		const instinctSelected = InstinctController.computeSelected(instinctGroup, choiceValues);
 		const choices = (data.choices ?? []).map(g => ChoiceGroup.fromPackData(g, choiceValues));
-		const appearanceGroups = data.appearance ? [ChoiceGroup.fromPackData(data.appearance, choiceValues)] : [];
+		const appearanceGroup  = data.appearance ? ChoiceGroup.fromPackData(data.appearance, choiceValues) : null;
 		const loreGroups = choices;
 		const introData = data.introductions && !Array.isArray(data.introductions) && data.introductions.step4 ? data.introductions : null;
 		const introductions = introData ? new IntroductionsSnapshot(
@@ -111,7 +111,7 @@ export class CharacterPlaybook {
 			.withChoices(choices)
 			.withInstinctGroup(instinctGroup)
 			.withInstinctSelected(instinctSelected)
-			.withAppearanceGroups(appearanceGroups)
+			.withAppearanceGroup(appearanceGroup)
 			.withLoreGroups(loreGroups)
 			.withBackground(background)
 			.withOrigin(this._origin.buildSnapshot(data.origin ?? []))

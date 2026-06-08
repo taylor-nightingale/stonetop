@@ -130,6 +130,7 @@ Hooks.once("init", () => {
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
+		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",
 		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
 		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",

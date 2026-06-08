@@ -1,11 +1,7 @@
 {{#if groups.length}}
 <div class="details-section">
-    {{#each groups}}
-    <div class="stonetop-choice-entry" data-slug="{{slug}}">
-        {{#each list}}
-        {{> "stonetop.choice-row" cgContext=../../cgContext cgGroup=../slug}}
-        {{/each}}
-    </div>
-    {{/each}}
+	{{#each groups}}
+	{{> "stonetop.choice-group" cgContext=../cgContext}}
+	{{/each}}
 </div>
 {{/if}}
