@@ -1,6 +1,5 @@
 * Implement special moves
 * Support for followers (follower moves)
-* support for steading (homefront moves)
 * Short for “experience points.” You start
   with no XP. You mark XP…
   ...		 when you roll for a move and get a 6-
@@ -21,12 +20,10 @@
   * followers
   * outfitItems
   * playbooks
-  * moves
-* bullet points everywhere should use our icon just like in the steading sheet.
-* steading sheet UI — steading sheet needs roll trigger elements wired to _onRoll; the infrastructure exists after this plan but the sheet has no buttons yet
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * modal popup for rolling needs better formatting and a button for adv/dis/normal
+* Many arcana need json updates
 
 == Nice to have
 * toggle to turn off non-selected character options

@@ -48,11 +48,12 @@ export class DebilitySnapshot {
 }
 
 export class ContentSection {
-	constructor(slug, label, note, text) {
+	constructor(slug, label, note, text, items = []) {
 		this.slug = slug;
 		this.label = label;
 		this.note = note;
 		this.text = text;
+		this.items = items;
 	}
 }
 

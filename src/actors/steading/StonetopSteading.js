@@ -12,7 +12,7 @@ import {SteadingImprovements} from "./SteadingImprovements.js";
 import {SteadingMoves} from "./SteadingMoves.js";
 
 export class StonetopSteading {
-	constructor(actor, improvementsRepo) {
+	constructor(actor, improvementsRepo, movesRepo) {
 		this._actor          = actor;
 		this.placesOfInterest = new PlacesOfInterest(actor);
 		this.attributes       = new SteadingAttributes(actor);
@@ -23,7 +23,7 @@ export class StonetopSteading {
 		this.content          = new SteadingContent(actor);
 		this.assets           = new SteadingAssets(actor);
 		this.improvements     = new SteadingImprovements(actor, improvementsRepo);
-		this.moves            = new SteadingMoves(actor);
+		this.moves            = new SteadingMoves(actor, movesRepo);
 	}
 
 	get type() {
@@ -31,7 +31,7 @@ export class StonetopSteading {
 	}
 
 	get rollMode() {
-		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
+		return this._actor.getFlag("stonetop", "rollMode") ?? "def";
 	}
 
 	async setRollMode(mode) {
@@ -51,12 +51,11 @@ export class StonetopSteading {
 	resolveBonus(rollStat) {
 		const sys  = this._actor.system;
 		const attr = sys.attributes;
-		const f    = SteadingDefaults;
-		if (rollStat === "fortunes")   return f.fortunes.bonuses[sys.fortunes]                       ?? null;
-		if (rollStat === "surplus")    return sys.surplus                                             ?? null;
-		if (rollStat === "population") return f.attributes.population.bonuses[attr.population?.current] ?? null;
-		if (rollStat === "prosperity") return f.attributes.prosperity.bonuses[attr.prosperity?.current] ?? null;
-		if (rollStat === "defenses")   return f.attributes.defenses.bonuses[attr.defenses?.current]     ?? null;
+		if (rollStat === "fortunes")   return sys.fortunes                  ?? null;
+		if (rollStat === "surplus")    return sys.surplus                   ?? null;
+		if (rollStat === "population") return attr.population?.current ?? null;
+		if (rollStat === "prosperity") return attr.prosperity?.current ?? null;
+		if (rollStat === "defenses")   return attr.defenses?.current   ?? null;
 		return null;
 	}
 

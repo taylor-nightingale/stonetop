@@ -42,6 +42,6 @@ export class SteadingContent {
 
 	buildSnapshot() {
 		const state = this._state;
-		return SECTIONS.map(s => new ContentSection(s.slug, s.label, s.note, state[s.textKey] ?? ""));
+		return SECTIONS.map(s => new ContentSection(s.slug, s.label, s.note, state[s.textKey] ?? "", state[s.slug] ?? []));
 	}
 }
