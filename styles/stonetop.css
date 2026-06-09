@@ -598,6 +598,15 @@ body,
 	margin-bottom: 12px;
 }
 
+/* Insert tabs: let the section flow across both columns; keep individual tracks together */
+.tab.insert .stonetop-playbook-columns .details-section {
+	break-inside: auto;
+}
+
+.tab.insert .stonetop-playbook-columns .stonetop-choice-track {
+	break-inside: avoid;
+}
+
 .stonetop-playbook-empty {
 	display: flex;
 	flex-direction: column;
@@ -1772,6 +1781,125 @@ body,
 .stonetop-roll-mode-header .stonetop-outfit-loads {
 	flex-direction: row;
 	gap: 10px;
+}
+
+/* ── Roll-pick dialog ─────────────────────────────────────────────────────── */
+
+.stonetop-roll-dialog .window-content {
+	padding: 8px;
+	background: var(--stonetop-bg);
+}
+
+.stonetop-roll-pick-content {
+	position: relative;
+	background: white;
+	padding: 10px 12px;
+	margin-bottom: 8px;
+	font-size: 0.9em;
+}
+
+.stonetop-roll-pick-content::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: url("../assets/sheet/panel-corner-tl.png"),
+		url("../assets/sheet/panel-corner-tr.png"),
+		url("../assets/sheet/panel-corner-bl.png"),
+		url("../assets/sheet/panel-corner-br.png"),
+		url("../assets/sheet/panel-edge-top.png"),
+		url("../assets/sheet/panel-edge-bottom.png"),
+		url("../assets/sheet/panel-edge-left.png"),
+		url("../assets/sheet/panel-edge-right.png");
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	background-position: left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+}
+
+.stonetop-roll-pick-content > * {
+	position: relative;
+	z-index: 1;
+}
+
+.stonetop-roll-pick-content .stonetop-roll-mode-header {
+	flex-wrap: wrap;
+}
+
+.stonetop-roll-pick-content .stonetop-outfit-loads {
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.stonetop-roll-dialog .form-footer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	padding: 0;
+	border: none;
+}
+
+.stonetop-roll-dialog .dialog-button {
+	flex: 1 1 auto;
+	position: relative;
+	background-color: white;
+	border: none;
+	min-width: 70px;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 1.2;
+}
+
+.stonetop-roll-dialog .dialog-button::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: url("../assets/sheet/panel-corner-tl.png"),
+		url("../assets/sheet/panel-corner-tr.png"),
+		url("../assets/sheet/panel-corner-bl.png"),
+		url("../assets/sheet/panel-corner-br.png"),
+		url("../assets/sheet/panel-edge-top.png"),
+		url("../assets/sheet/panel-edge-bottom.png"),
+		url("../assets/sheet/panel-edge-left.png"),
+		url("../assets/sheet/panel-edge-right.png");
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	background-position: left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+}
+
+.stonetop-roll-dialog .dialog-button > * {
+	position: relative;
+	z-index: 1;
+}
+
+.stonetop-roll-dialog .dialog-button:hover {
+	text-decoration: underline;
+	box-shadow: none;
+}
+
+.stonetop-roll-pick-mod {
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1;
 }
 
 /* -- Supplies pool -------------------------------------------- */

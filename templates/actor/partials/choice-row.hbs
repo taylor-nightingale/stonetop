@@ -1,3 +1,40 @@
+{{#*inline "follower-check"}}
+<input type="checkbox" class="stonetop-arcanum-follower-check"
+       data-cg-context="{{cgContext}}"
+       data-slug="{{cgGroup}}"
+       data-option="{{slug}}"
+       data-index="0"
+       {{#if (lookup track.checks 0)}}checked{{/if}}>
+{{/inline}}
+{{#*inline "track-checks"}}
+{{#each track.checks}}
+<input type="checkbox"
+    class="stonetop-cg-track"
+    data-cg-context="{{../cgContext}}"
+    data-cg-group="{{../cgGroup}}"
+    data-cg-option="{{../track.slug}}"
+    data-cg-index="{{@index}}"
+    {{#if this}}checked{{/if}}>
+{{/each}}
+{{/inline}}
+{{#*inline "pick-input"}}
+<input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
+       class="stonetop-item-check{{#if ../cgContext}} stonetop-cg-pick{{/if}}{{#unless ../cgContext}} {{../inputClass}}{{/unless}}"
+       {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
+       {{#if ../cgContext}}
+       data-cg-context="{{../cgContext}}"
+       data-cg-group="{{../cgGroup}}"
+       data-cg-option="{{slug}}"
+       data-cg-siblings="{{../siblingSlugsCsv}}"
+       data-display-label="{{text}}{{#if withDescription}} — {{description}}{{/if}}"
+       {{else}}
+       {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
+       {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
+       data-row-key="{{../rowKey}}"
+       data-choice-slug="{{slug}}"
+       {{/if}}
+       {{#if checked}}checked{{/if}}>
+{{/inline}}
 {{#if (eq type "entry")}}
 {{! Entry row }}
 {{#if followers}}
@@ -5,23 +42,13 @@
 <div class="stonetop-arcanum-follower">
     {{#if inlineDisplay}}
     {{#if track}}
-    <input type="checkbox" class="stonetop-arcanum-follower-check"
-           data-cg-context="{{cgContext}}"
-           data-slug="{{cgGroup}}"
-           data-option="{{slug}}"
-           data-index="0"
-           {{#if (lookup track.checks 0)}}checked{{/if}}>
+    {{> follower-check}}
     {{/if}}
     {{#each followers}}{{> "stonetop.follower-card" this}}{{/each}}
     {{else if content.text}}
     <label class="stonetop-arcanum-follower-label">
         {{#if track}}
-        <input type="checkbox" class="stonetop-arcanum-follower-check"
-               data-cg-context="{{cgContext}}"
-               data-slug="{{cgGroup}}"
-               data-option="{{slug}}"
-               data-index="0"
-               {{#if (lookup track.checks 0)}}checked{{/if}}>
+        {{> follower-check}}
         {{/if}}
         {{{content.text}}}
     </label>
@@ -35,32 +62,16 @@
 <div class="stonetop-choice-track stonetop-column">
     <div class="stonetop-choice-header-wrapper">
         <span class="stonetop-choice-track-checks">
-            {{#each track.checks}}
-            <input type="checkbox"
-                class="stonetop-cg-track"
-                data-cg-context="{{../cgContext}}"
-                data-cg-group="{{../cgGroup}}"
-                data-cg-option="{{../track.slug}}"
-                data-cg-index="{{@index}}"
-                {{#if this}}checked{{/if}}>
-            {{/each}}
+            {{> track-checks}}
         </span>
         {{> "stonetop.section-sub-heading" subHeading=content.subHeading subNote=content.subNote}}
-    </div>   
+    </div>
     <span class="stonetop-choice-track-desc">{{{content.text}}}</span>
 </div>
 {{else}}
 <div class="stonetop-choice-track stonetop-row">
     <div class="stonetop-choice-track-checks">
-        {{#each track.checks}}
-        <input type="checkbox"
-            class="stonetop-cg-track"
-            data-cg-context="{{../cgContext}}"
-            data-cg-group="{{../cgGroup}}"
-            data-cg-option="{{../track.slug}}"
-            data-cg-index="{{@index}}"
-            {{#if this}}checked{{/if}}>
-        {{/each}}
+        {{> track-checks}}
     </div>
     <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{{content.text}}}</span>
 </div>
@@ -87,22 +98,7 @@
     {{! Pick mode — card layout when option has a description }}
     <label class="stonetop-item{{#if checked}} is-checked{{/if}}">
         <div class="stonetop-item-header">
-            <input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
-                   class="stonetop-item-check{{#if ../cgContext}} stonetop-cg-pick{{/if}}{{#unless ../cgContext}} {{../inputClass}}{{/unless}}"
-                   {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
-                   {{#if ../cgContext}}
-                   data-cg-context="{{../cgContext}}"
-                   data-cg-group="{{../cgGroup}}"
-                   data-cg-option="{{slug}}"
-                   data-cg-siblings="{{../siblingSlugsCsv}}"
-                   data-display-label="{{text}} — {{description}}"
-                   {{else}}
-                   {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
-                   {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
-                   data-row-key="{{../rowKey}}"
-                   data-choice-slug="{{slug}}"
-                   {{/if}}
-                   {{#if checked}}checked{{/if}}>
+            {{> pick-input withDescription=true}}
             <strong class="stonetop-item-name">{{text}}</strong>
         </div>
         <div class="stonetop-item-description">{{description}}</div>
@@ -110,22 +106,7 @@
     {{else}}
     {{! Pick mode — inline (no description) }}
     <label class="stonetop-choice-option-label{{#if checked}} is-checked{{/if}}">
-        <input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
-               class="stonetop-item-check{{#if ../cgContext}} stonetop-cg-pick{{/if}}{{#unless ../cgContext}} {{../inputClass}}{{/unless}}"
-               {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
-               {{#if ../cgContext}}
-               data-cg-context="{{../cgContext}}"
-               data-cg-group="{{../cgGroup}}"
-               data-cg-option="{{slug}}"
-               data-cg-siblings="{{../siblingSlugsCsv}}"
-               data-display-label="{{text}}"
-               {{else}}
-               {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
-               {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
-               data-row-key="{{../rowKey}}"
-               data-choice-slug="{{slug}}"
-               {{/if}}
-               {{#if checked}}checked{{/if}}>
+        {{> pick-input}}
         {{#if (eq type "input")}}
         <input type="text"
                class="stonetop-cg-text"

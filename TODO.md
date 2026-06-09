@@ -22,8 +22,13 @@
   * playbooks
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
-* modal popup for rolling needs better formatting and a button for adv/dis/normal
 * Many arcana need json updates
+* Add button to create an link an NPC to residents and neighbors.
+* Add journal linking to places of interest
+* allow NPC's to be dragged onto sheets as a follower
+
+* Number inputs should have an plus minus button around them (visible on hover)
+* character sheet tab for bio/notes
 
 == Nice to have
 * toggle to turn off non-selected character options

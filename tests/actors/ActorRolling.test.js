@@ -5,6 +5,7 @@ import { FakeActorBuilder } from "../fakes/FakeActorBuilder.js";
 import { FakeStonetopCharacter } from "../fakes/FakeStonetopCharacter.js";
 import { FakeRoll } from "../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../fakes/foundry/FakeChatMessage.js";
+import { FakeDialog } from "../fakes/foundry/FakeDialog.js";
 
 // -- helpers -------------------------------------------------------------------
 
@@ -26,8 +27,10 @@ function statRequest(stat, rollMode = "def") {
 beforeEach(() => {
 	FakeRoll.reset();
 	FakeChatMessage.reset();
+	FakeDialog.reset();
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
+	vi.stubGlobal("Dialog", FakeDialog);
 	vi.stubGlobal("game", {i18n: {localize: k => k}});
 });
 
@@ -118,5 +121,80 @@ describe("ActorRolling.execute — description only", () => {
 		expect(FakeRoll.lastInstance).toBeNull();
 		expect(FakeChatMessage.lastCreated.content).toContain("Charm Someone");
 		expect(FakeChatMessage.lastCreated.content).toContain("Roll to persuade.");
+	});
+});
+
+// -- _pickStat -----------------------------------------------------------------
+
+describe("ActorRolling._pickStat", () => {
+	it("creates one button per stat", () => {
+		const stats = [{key: "str", name: "STR", value: 2}, {key: "dex", name: "DEX", value: 0}];
+		ActorRolling._pickStat("Roll", stats, "def");
+		expect(Object.keys(FakeDialog.lastConfig.buttons)).toEqual(["str", "dex"]);
+	});
+
+	it("resolves {stat, rollMode} when a button is clicked", async () => {
+		const promise = ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "def");
+		FakeDialog.clickButton("str", "adv");
+		expect(await promise).toEqual({stat: "str", rollMode: "adv"});
+	});
+
+	it("resolves null when the dialog is closed", async () => {
+		const promise = ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "def");
+		FakeDialog.close();
+		expect(await promise).toBeNull();
+	});
+
+	it("content includes all three roll mode options", () => {
+		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "def");
+		const content = FakeDialog.lastConfig.content;
+		expect(content).toContain('value="adv"');
+		expect(content).toContain('value="def"');
+		expect(content).toContain('value="dis"');
+	});
+
+	it("pre-selects the supplied initialRollMode", () => {
+		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "adv");
+		expect(FakeDialog.lastConfig.content).toMatch(/value="adv"[^>]*checked/);
+	});
+
+	it("adds stonetop-roll-dialog class via dialog options", () => {
+		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "def");
+		expect(FakeDialog.lastOptions.classes).toContain("stonetop-roll-dialog");
+	});
+});
+
+// -- execute — ask stat --------------------------------------------------------
+
+describe("ActorRolling.execute — ask stat", () => {
+	function makeAskRolling(bonuses = {}) {
+		const rolling = makeRolling({bonuses});
+		rolling._actor.typedActor.getRollableStats = () =>
+			Object.entries(bonuses).map(([k, v]) => ({key: k, name: k.toUpperCase(), value: v}));
+		return rolling;
+	}
+
+	it("uses the stat returned by _pickStat", async () => {
+		const rolling = makeAskRolling({str: 1});
+		const p = rolling.execute(RollRequest.fromStat("ask", "def"));
+		FakeDialog.clickButton("str", "def");
+		await p;
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
+	});
+
+	it("uses the rollMode from dialog, overriding request.rollMode", async () => {
+		const rolling = makeAskRolling({str: 1});
+		const p = rolling.execute(RollRequest.fromStat("ask", "def"));
+		FakeDialog.clickButton("str", "adv");
+		await p;
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kh2 + 1");
+	});
+
+	it("aborts without rolling when the dialog is closed", async () => {
+		const rolling = makeAskRolling({str: 1});
+		const p = rolling.execute(RollRequest.fromStat("ask", "def"));
+		FakeDialog.close();
+		await p;
+		expect(FakeRoll.lastInstance).toBeNull();
 	});
 });

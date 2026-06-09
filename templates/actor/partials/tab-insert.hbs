@@ -12,8 +12,7 @@
 		{{#if insert.description}}
 		<div class="stonetop-insert-description">{{{insert.description}}}</div>
 		{{/if}}
-		<div class="stonetop-details-columns">
-			{{> "stonetop.choice-section" groups=insert.choices cgContext="insert"}}
+		<div class="stonetop-playbook-columns">
 			{{#if insert.instinctGroup}}
 			{{> "stonetop.instinct-section"
 			    instinctSelected=insert.instinctSelected
@@ -21,6 +20,7 @@
 			    namePrefix=insert.id
 			    cgContext="insert-pick"}}
 			{{/if}}
+			{{> "stonetop.choice-section" groups=insert.choices cgContext="insert"}}
 		</div>
 	</section>
 </div>

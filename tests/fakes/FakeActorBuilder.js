@@ -62,9 +62,9 @@ export class FakeActorBuilder {
 	_hp = {value: 8, max: 8};
 	_statBuilder = new FakeStatBuilder();
 	_debilities = {
-		weakened: {value: false, stat: ["str", "dex"]},
-		dazed: {value: false, stat: ["int", "wis"]},
-		miserable: {value: false, stat: ["con", "cha"]},
+		weakened: {value: false},
+		dazed: {value: false},
+		miserable: {value: false},
 	};
 
 	withStats(statBuilder) {
