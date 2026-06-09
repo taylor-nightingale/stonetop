@@ -31,8 +31,8 @@ export class CharacterDebilities {
 
 	applyDebilityRollMode(stat, options) {
 		const debilityOptions = this._actor.system?.attributes?.debilities?.options ?? {};
-		const hasActiveDebility = Object.values(debilityOptions).some(
-			opt => opt.value && Array.isArray(opt.stat) && opt.stat.includes(stat)
+		const hasActiveDebility = _DEBILITY_DEFS.some(
+			def => def.stats.includes(stat) && !!(debilityOptions[def.key]?.value)
 		);
 		if (!hasActiveDebility) return options;
 		if (options.rollMode === "adv") return {...options, rollMode: "def"};
