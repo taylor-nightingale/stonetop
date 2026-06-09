@@ -24,6 +24,12 @@
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * modal popup for rolling needs better formatting and a button for adv/dis/normal
 * Many arcana need json updates
+* Add button to create an link an NPC to residents and neighbors.
+* Add journal linking to places of interest
+* allow NPC's to be dragged onto sheets as a follower
+* Instead of a drop down of attributes -> roll. Just add buttons for each attribute to roll them.
+* Number inputs should have an plus minus button around them (visible on hover)
+* character sheet tab for bio/notes
 
 == Nice to have
 * toggle to turn off non-selected character options

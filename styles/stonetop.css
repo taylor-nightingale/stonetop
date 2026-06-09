@@ -598,6 +598,15 @@ body,
 	margin-bottom: 12px;
 }
 
+/* Insert tabs: let the section flow across both columns; keep individual tracks together */
+.tab.insert .stonetop-playbook-columns .details-section {
+	break-inside: auto;
+}
+
+.tab.insert .stonetop-playbook-columns .stonetop-choice-track {
+	break-inside: avoid;
+}
+
 .stonetop-playbook-empty {
 	display: flex;
 	flex-direction: column;
