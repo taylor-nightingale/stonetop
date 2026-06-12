@@ -25,9 +25,15 @@ export class FakeMoveRepository {
 			?? null;
 	}
 
+	async getMovesByType(moveType) {
+		const world = await this._worldStore.filterEntries(e => e.system?.moveType === moveType);
+		return [...this._basicMoves, ...world]
+			.filter(m => (m.system?.moveType ?? "basic") === moveType)
+			.map(m => new Move(m));
+	}
+
 	async getBasicMoves() {
-		const world = await this._worldStore.filterEntries(e => e.system?.moveType === "basic");
-		return [...this._basicMoves, ...world].map(m => new Move(m));
+		return this.getMovesByType("basic");
 	}
 
 	async getBasicMoveDocument(id) {

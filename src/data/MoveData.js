@@ -1,15 +1,8 @@
+import { migrateChoicesField } from "../migration/migrateChoices.js";
+
 export class MoveData extends foundry.abstract.TypeDataModel {
 	static migrateData(source) {
-		if (source.choices?.list) {
-			source.choices.list = source.choices.list.map(row => {
-				if (row.type === "follower")
-					return { ...row, type: "entry", followers: [row.slug],
-						content: { title: null, text: row.title ?? "" } };
-				if (row.type === "heading")
-					return { ...row, type: "entry" };
-				return row;
-			});
-		}
+		migrateChoicesField(source.choices);
 		return super.migrateData(source);
 	}
 

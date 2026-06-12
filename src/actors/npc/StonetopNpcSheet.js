@@ -56,15 +56,20 @@ export function createStonetopNpcSheetClass(Base) {
 				await this._stonetopNpc.setInstinct(ev.currentTarget.value);
 			});
 
+			// Tags
+			html.find("#npc-tags").on("change", async ev => {
+				await this._stonetopNpc.setTags(ev.currentTarget.value);
+			});
+
+			// Moves
+			html.find("#npc-moves").on("change", async ev => {
+				await this._stonetopNpc.setMoves(ev.currentTarget.value);
+			});
+
 			 // Description
 			html.find(".stonetop-follower-description-textarea").on("change", async ev => {
 				await this._stonetopNpc.setDescription(ev.currentTarget.value);
 			});
-
-            // Description
-			/*html.find(".npc-damage").on("change", async ev => {
-				await this._stonetopNpc.setDescription(ev.currentTarget.value);
-			});*/
 
 		}
 

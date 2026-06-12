@@ -397,6 +397,40 @@ describe("CharacterMoves.initBasicMoves", () => {
 
 		expect(actor.createdDocs.length).toBe(docsAfterFirst + 1);
 	});
+
+	it("also seeds special and follower moves as side-bar categories under basic", async () => {
+		const repo = new FakeMoveRepository([], [
+			new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Death's Door").withMoveType("special").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Order Followers").withMoveType("follower").asStarting().build(),
+		]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.initBasicMoves();
+
+		const cats = (await m.buildSnapshot()).categories;
+		const byKey = Object.fromEntries(cats.map(c => [c.key, c]));
+		// All three are side-bar, ordered basic → special → follower.
+		expect(cats.map(c => c.key)).toEqual(["basic", "special", "follower"]);
+		expect(byKey.special.renderStyle).toBe("side-bar");
+		expect(byKey.follower.renderStyle).toBe("side-bar");
+		expect(byKey.special.moves[0].name).toBe("Death's Door");
+		expect(byKey.follower.moves[0].name).toBe("Order Followers");
+		expect(actor.createdDocs.find(d => d.name === "Death's Door").system.categoryKey).toBe("special");
+	});
+
+	it("is idempotent across all reference categories", async () => {
+		const repo = new FakeMoveRepository([], [
+			new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Death's Door").withMoveType("special").asStarting().build(),
+		]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.initBasicMoves();
+		const firstLen = actor.createdDocs.length;
+		await m.initBasicMoves();
+		expect(actor.createdDocs.length).toBe(firstLen);
+	});
 });
 
 // ── initPlaybookCategory ──────────────────────────────────────────────────────

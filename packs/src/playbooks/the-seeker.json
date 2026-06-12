@@ -151,7 +151,9 @@
               "title": null,
               "text": "Where did you acquire it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -160,7 +162,9 @@
               "title": null,
               "text": "From whose grasp did you wrest it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -169,7 +173,9 @@
               "title": null,
               "text": "Who else wants it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -178,7 +184,9 @@
               "title": null,
               "text": "What did it cost you?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -187,7 +195,9 @@
               "title": null,
               "text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.When and how did that happen?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -208,7 +218,9 @@
               "title": null,
               "text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -217,7 +229,9 @@
               "title": null,
               "text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -226,7 +240,9 @@
               "title": null,
               "text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
@@ -246,7 +262,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "always-return-home",
@@ -258,7 +276,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lost-without-you",
@@ -270,7 +290,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "learn-from-you",
@@ -282,7 +304,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -299,7 +323,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "great-beauty",
@@ -311,7 +337,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "staring-horizon",
@@ -323,7 +351,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lacked-stomach",
@@ -335,7 +365,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

@@ -4,9 +4,7 @@ export class FollowerSideEffectHandler {
 	}
 
 	async apply(target, namespace, optionSlug, count) {
-		const slugs = target.followers?.length
-			? target.followers
-			: (target.type === "follower" ? [target.slug] : []);
+		const slugs = target.followers ?? [];
 		for (const slug of slugs) {
 			if (count > 0) await this._followers.addFollower(slug);
 			else           await this._followers.removeFollower(slug);

@@ -5,14 +5,27 @@
 	       value="{{content.title}}">
 </label>
 <label class="choices-field">
+	<span>Title note</span>
+	<input type="text"
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.titleNote"
+	       value="{{content.titleNote}}">
+</label>
+<label class="choices-field">
+	<span>Subtitle</span>
+	<input type="text"
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.subtitle"
+	       value="{{content.subtitle}}">
+</label>
+<label class="choices-field">
+	<span>Subtitle note</span>
+	<input type="text"
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.subtitleNote"
+	       value="{{content.subtitleNote}}">
+</label>
+<label class="choices-field">
 	<span>Text</span>
 	<textarea
 	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.text">{{content.text}}</textarea>
-</label>
-<label class="choices-field">
-	<span>Note</span>
-	<textarea
-	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="note">{{note}}</textarea>
 </label>
 <div class="choices-field">
 	<span>Followers</span>

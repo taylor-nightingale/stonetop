@@ -236,9 +236,9 @@
           {
             "type": "entry",
             "content": {
-              "text": "Your sacred pouch is..."
-            },
-            "note": "choose 1 on each line"
+              "text": "Your sacred pouch is...",
+              "titleNote": "choose 1 on each line"
+            }
           },
           {
             "type": "pick",
@@ -312,9 +312,9 @@
           {
             "type": "entry",
             "content": {
-              "text": "What remarkable trait does it possess?"
-            },
-            "note": "choose 1"
+              "text": "What remarkable trait does it possess?",
+              "titleNote": "choose 1"
+            }
           },
           {
             "type": "pick",
@@ -507,7 +507,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "heart-soul-entwined",
@@ -519,7 +521,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "secret-ways",
@@ -531,7 +535,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "beloved-goddess",
@@ -543,7 +549,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -560,7 +568,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "sacred-rite",
@@ -572,7 +582,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "blood-oath",
@@ -584,7 +596,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "doubts-danu",
@@ -596,7 +610,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

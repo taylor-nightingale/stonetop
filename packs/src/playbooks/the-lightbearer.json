@@ -511,7 +511,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "heart-flames",
@@ -523,7 +525,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "kindness-generosity",
@@ -535,7 +539,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "needs-light",
@@ -547,7 +553,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -564,7 +572,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "shares-faith",
@@ -576,7 +586,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "scoffs-mercy",
@@ -588,7 +600,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "needs-guidance",
@@ -600,7 +614,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

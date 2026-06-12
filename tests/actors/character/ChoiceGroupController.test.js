@@ -116,20 +116,20 @@ describe("ChoiceGroupController — clearValues", () => {
 // ── Follower side effects ─────────────────────────────────────────────────────
 
 describe("ChoiceGroupController — follower side effects", () => {
-	it("setCount(1) on legacy follower row adds the follower", async () => {
+	it("setCount(1) on an entry row with a single follower adds the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("setCount(0) on legacy follower row removes the follower", async () => {
+	it("setCount(0) on an entry row with a single follower removes the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);

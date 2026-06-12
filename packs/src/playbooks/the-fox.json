@@ -445,7 +445,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "heart-reins",
@@ -457,7 +459,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "respect-world",
@@ -469,7 +473,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "unpayable-debt",
@@ -481,7 +487,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -498,7 +506,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "brings-problems",
@@ -510,7 +520,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "saved-bacon",
@@ -522,7 +534,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "trusts-not",
@@ -534,7 +548,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

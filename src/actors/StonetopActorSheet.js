@@ -1,5 +1,6 @@
 import { buildFocusSelector } from "./buildFocusSelector.js";
 import { activateEditToggles } from "../utils/editToggle.js";
+import { enrichRichTokens } from "../utils/enrichGameText.js";
 
 export class StonetopActorSheet extends foundry.appv1.sheets.ActorSheet {
 	async getData() {
@@ -9,6 +10,8 @@ export class StonetopActorSheet extends foundry.appv1.sheets.ActorSheet {
 	async _render(force, options) {
 		const selector = buildFocusSelector(document.activeElement, this.element[0]);
 		await super._render(force, options);
+		// Markdown is already rendered by the {{md}} helper; upgrade explicit rolls/@UUID links.
+		await enrichRichTokens(this.element[0], { rollData: this.actor?.getRollData?.() ?? {} });
 		if (selector) this.element[0]?.querySelector(selector)?.focus();
 	}
 

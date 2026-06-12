@@ -42,10 +42,10 @@
 		{{/if}}
 	</div>
 	<div class="stonetop-arcanum-body">
-		{{{back.description}}}
+		<div class="stonetop-rich">{{{md back.description}}}</div>
 		{{#each back.moves}}
 		<p class="stonetop-arcanum-move-trigger"><strong>{{name}}</strong>{{#if subtitle}} <span class="stonetop-arcanum-move-subtitle">{{subtitle}}</span>{{/if}}</p>
-		{{{text}}}
+		<div class="stonetop-rich">{{{md text}}}</div>
 		{{/each}}
 		{{#if back.choices}}
 		<div class="stonetop-arcanum-back-choices">
@@ -87,7 +87,7 @@
 		</div>
 	</div>
 	<div class="stonetop-arcanum-body">
-		{{{front.description}}}
+		<div class="stonetop-rich">{{{md front.description}}}</div>
 		<div class="stonetop-arcanum-unlock">
 			{{#each front.unlock.list}}
 			{{> "stonetop.choice-row" cgContext="arcana-unlock" cgGroup=../slug}}

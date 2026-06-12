@@ -33,6 +33,17 @@ describe("StonetopNpc — getters reflect pre-seeded system values", () => {
 	it("specialQuality returns system.specialQuality", () => expect(makeNpc({ specialQuality: "undead" }).specialQuality).toBe("undead"));
 	it("instinct returns system.instinct", () => expect(makeNpc({ instinct: "to feed" }).instinct).toBe("to feed"));
 	it("description returns system.description", () => expect(makeNpc({ description: "Horrible." }).description).toBe("Horrible."));
+	it("tags returns system.tags", () => expect(makeNpc({ tags: "fae, woodland" }).tags).toBe("fae, woodland"));
+	it("moves returns system.moves", () => expect(makeNpc({ moves: "- Bite" }).moves).toBe("- Bite"));
+});
+
+describe("StonetopNpc — moves and tags in the snapshot", () => {
+	it("exposes tags and renders moves markdown as an enriched list", async () => {
+		const snap = await makeNpc({ tags: "fae", moves: "- Bite d6\n- Vanish" }).buildSnapshot();
+		expect(snap.tags).toBe("fae");
+		expect(snap.moves).toBe("- Bite d6\n- Vanish");
+		expect(snap.movesHtml).toBe("<ul><li>Bite [[/r d6]]</li><li>Vanish</li></ul>");
+	});
 });
 
 describe("StonetopNpc — buildSnapshot enriches game text", () => {

@@ -21,7 +21,7 @@ describe("migrateGroupDefs — heading rows", () => {
 		expect(result["instinct"].list[0].type).toBe("entry");
 	});
 
-	it("preserves all other heading row fields", () => {
+	it("preserves the slug and folds note into content.titleNote", () => {
 		const defs = {
 			"instinct": {
 				list: [{ slug: "the-call", type: "heading", title: "The Call", note: "a note" }],
@@ -29,7 +29,8 @@ describe("migrateGroupDefs — heading rows", () => {
 		};
 		const result = migrateGroupDefs(defs);
 		expect(result["instinct"].list[0].slug).toBe("the-call");
-		expect(result["instinct"].list[0].note).toBe("a note");
+		expect(result["instinct"].list[0].content.titleNote).toBe("a note");
+		expect(result["instinct"].list[0].note).toBeUndefined();
 	});
 });
 
@@ -61,17 +62,18 @@ describe("migrateGroupDefs — follower rows", () => {
 			},
 		};
 		const result = migrateGroupDefs(defs);
-		expect(result["background"].list[0].content).toEqual({ title: null, text: "Adra" });
+		expect(result["background"].list[0].content.text).toBe("Adra");
+		expect(result["background"].list[0].title).toBeUndefined();
 	});
 
-	it("uses empty string for content.text when title is missing", () => {
+	it("leaves content.text unset when title is missing", () => {
 		const defs = {
 			"background": {
 				list: [{ slug: "adra", type: "follower" }],
 			},
 		};
 		const result = migrateGroupDefs(defs);
-		expect(result["background"].list[0].content).toEqual({ title: null, text: "" });
+		expect(result["background"].list[0].content.text).toBeUndefined();
 	});
 });
 

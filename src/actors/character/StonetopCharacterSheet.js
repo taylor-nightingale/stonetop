@@ -126,8 +126,14 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-notes").on("change", async ev => {
 				await this._stonetopCharacter.setInventoryOtherItems(ev.currentTarget.value);
 			});
+			// Narrow-layout moves sidebar: toggle the slide-over overlay.
+			html.find(".stonetop-moves-toggle").on("click", ev => {
+				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
+			});
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
+				// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
+				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.remove("moves-open");
 				if (!compendiumId) return;
 				const pack = game.packs.get("stonetop.moves");
 				const doc  = (pack ? await pack.getDocument(compendiumId) : null)

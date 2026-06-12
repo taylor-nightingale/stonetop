@@ -17,6 +17,8 @@ export class StonetopNpc {
 	get specialQuality() { return this._actor.system?.specialQuality ?? ""; }
 	get instinct()       { return this._actor.system?.instinct       ?? ""; }
 	get description()    { return this._actor.system?.description    ?? ""; }
+	get tags()           { return this._actor.system?.tags           ?? ""; }
+	get moves()          { return this._actor.system?.moves          ?? ""; }
 
 	async setHp(value)             { await this._actor.update({ "system.hp.value": value }); }
 	async setMaxHp(value)          { await this._actor.update({ "system.hp.max": value }); }
@@ -25,6 +27,8 @@ export class StonetopNpc {
 	async setSpecialQuality(value) { await this._actor.update({ "system.specialQuality": value }); }
 	async setInstinct(value)       { await this._actor.update({ "system.instinct": value }); }
 	async setDescription(value)    { await this._actor.update({ "system.description": value }); }
+	async setTags(value)           { await this._actor.update({ "system.tags": value }); }
+	async setMoves(value)          { await this._actor.update({ "system.moves": value }); }
 
 	async buildSnapshot() {
 		const snap = new NpcSnapshotBuilder()
@@ -35,11 +39,13 @@ export class StonetopNpc {
 			.withInstinct(this.instinct)
 			.withSpecialQuality(this.specialQuality)
 			.withDescription(this.description)
+			.withTags(this.tags)
+			.withMoves(this.moves)
 			.build();
 		const rollData = this._actor.getRollData?.() ?? {};
 		const enrich = raw => enrichGameText(raw, { rollData });
-		[snap.damageHtml, snap.armorHtml, snap.specialQualityHtml, snap.instinctHtml, snap.descriptionHtml] =
-			await Promise.all([this.damage, this.armor, this.specialQuality, this.instinct, this.description].map(enrich));
+		[snap.damageHtml, snap.armorHtml, snap.specialQualityHtml, snap.instinctHtml, snap.descriptionHtml, snap.movesHtml] =
+			await Promise.all([this.damage, this.armor, this.specialQuality, this.instinct, this.description, this.moves].map(enrich));
 		return snap;
 	}
 }

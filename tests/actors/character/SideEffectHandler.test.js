@@ -22,22 +22,7 @@ describe("FollowerSideEffectHandler", () => {
 		expect(followers.isOwned("enfys")).toBe(false);
 	});
 
-	it("handles legacy target.type === 'follower' using target.slug", async () => {
-		const followers = new FakeFollowers();
-		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ type: "follower", slug: "gwendyl" }, "ns", "opt", 1);
-		expect(followers.isOwned("gwendyl")).toBe(true);
-	});
-
-	it("removes via legacy type when count === 0", async () => {
-		const followers = new FakeFollowers();
-		await followers.addFollower("gwendyl");
-		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ type: "follower", slug: "gwendyl" }, "ns", "opt", 0);
-		expect(followers.isOwned("gwendyl")).toBe(false);
-	});
-
-	it("no-ops when target has no followers and is not type follower", async () => {
+	it("no-ops when target has no followers field", async () => {
 		const followers = new FakeFollowers();
 		const handler = new FollowerSideEffectHandler(followers);
 		await handler.apply({ type: "entry", slug: "opt" }, "ns", "opt", 1);

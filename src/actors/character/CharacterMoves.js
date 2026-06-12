@@ -19,16 +19,24 @@ export class CharacterMoves {
 
 	setVitals(vitals) { this._vitals = vitals; }
 
+	// Reference moves are seeded onto every character and shown in the sidebar (not the moves
+	// tab): basic, plus the universal special moves and follower moves.
 	async initBasicMoves() {
-		const entries = await this._moveRepo.getBasicMoves();
-		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === "basic");
+		for (const moveType of ["basic", "special", "follower"]) {
+			await this._seedReferenceMoves(moveType);
+		}
+	}
+
+	async _seedReferenceMoves(moveType) {
+		const entries = await this._moveRepo.getMovesByType(moveType);
+		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === moveType);
 		const existingSlugs = new Set(existing.map(i => toSlug(i.name)));
 		const newEntries = entries.filter(m => !existingSlugs.has(m.slug));
 		if (!newEntries.length) return;
 		const docs = await Promise.all(newEntries.map(m => this._moveRepo.getBasicMoveDocument(m.id)));
 		await this._actor.createEmbeddedDocuments("Item",
 			docs.filter(Boolean).map((d, i) =>
-				_withCategoryFields(d.toObject(), "basic", true, { sortOrder: existing.length + i, compendiumId: d._id ?? null })
+				_withCategoryFields(d.toObject(), moveType, true, { sortOrder: existing.length + i, compendiumId: d._id ?? null })
 			)
 		);
 	}
@@ -274,13 +282,17 @@ function _computeSelectable(item) {
 function _categoryOrder(key) {
 	if (key.startsWith("playbook-")) return 0;
 	if (key === "basic")             return 1;
-	if (key.startsWith("insert-")) return 2;
-	if (key === "other")             return 3;
-	return 4;
+	if (key === "special")           return 2;
+	if (key === "follower")          return 3;
+	if (key.startsWith("insert-")) return 4;
+	if (key === "other")             return 5;
+	return 6;
 }
 
 function _categoryMetadata(catKey, catItems) {
-	if (catKey === "basic") return { key: "basic", label: "Basic Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "basic")    return { key: "basic",    label: "Basic Moves",    renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "special")  return { key: "special",  label: "Special Moves",  renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "follower") return { key: "follower", label: "Follower Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
 	if (catKey === "other") return { key: "other", label: "Other Moves", renderStyle: "standard", allowAdditional: true,  note: null };
 	const label = catItems[0]?.system?.categoryLabel ?? catKey;
 	const note  = catItems[0]?.system?.categoryNote  ?? null;

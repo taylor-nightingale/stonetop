@@ -6,6 +6,7 @@ import { CharacterArcana } from "../actors/character/CharacterArcana.js";
 import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
 import { ActorOutfitItems } from "../actors/character/ActorOutfitItems.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
+import { migrateChoiceRow } from "./migrateChoices.js";
 
 const SCOPE = "stonetop";
 
@@ -88,14 +89,7 @@ export async function migrateCharacterFlags(actor) {
 export function migrateGroupDefs(defs) {
 	if (!defs) return {};
 	for (const def of Object.values(defs)) {
-		def.list = (def.list ?? []).map(row => {
-			if (row.type === "follower")
-				return { ...row, type: "entry", followers: [row.slug],
-					content: { title: null, text: row.title ?? "" } };
-			if (row.type === "heading")
-				return { ...row, type: "entry" };
-			return row;
-		});
+		for (const row of def.list ?? []) migrateChoiceRow(row);
 	}
 	return defs;
 }

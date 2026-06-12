@@ -1009,6 +1009,8 @@ body,
 	flex: 1;
 	min-height: 0;
 	overflow: hidden;
+	position: relative;
+	container-type: inline-size;
 }
 
 .stonetop-sheet-layout .sheet-body {
@@ -1025,6 +1027,54 @@ body,
 	border-left: 1px solid var(--color-border-light-2);
 	padding-left: 12px;
 	overflow-y: auto;
+}
+
+/* Wide layout: the sidebar is an inline column; the toggle button is unnecessary. */
+.stonetop-moves-toggle { display: none; }
+
+/* Narrow layout: collapse the sidebar and reveal a toggle that slides it out as an overlay
+   on top of the current tab, so the tab content gets the full width by default. */
+@container (max-width: 900px) {
+	.stonetop-moves-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		z-index: 5;
+		width: 26px;
+		height: 26px;
+		padding: 0;
+		line-height: 1;
+		border: 1px solid var(--color-border-light-2);
+		border-radius: 4px;
+		background: var(--stonetop-bg, #f4ecd8);
+		cursor: pointer;
+	}
+	.stonetop-moves-toggle > i {
+		margin: 0;
+		line-height: 1;
+	}
+	.stonetop-moves-sidebar {
+		position: absolute;
+		top: 0;
+		right: 0;
+		/* Stop short of the bottom-right so Foundry's window resize grip stays reachable. */
+		height: calc(100% - 18px);
+		width: 240px;
+		max-width: 85%;
+		z-index: 4;
+		margin: 0;
+		padding: 28px 12px 12px;
+		background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/graphics/sheet-bg.png);
+		box-shadow: -6px 0 14px rgba(0, 0, 0, 0.3);
+		transform: translateX(100%);
+		transition: transform 0.2s ease;
+	}
+	.stonetop-sheet-layout.moves-open .stonetop-moves-sidebar {
+		transform: translateX(0);
+	}
 }
 
 .stonetop-moves-sidebar li {
@@ -3784,7 +3834,6 @@ form.stonetop.sheet.steading {
 	display: flex;
 	align-items: baseline;
 	gap: 6px;
-	margin: 2px 0;
 }
 .stonetop-creature-line > .stonetop-follower-label {
 	flex: 0 0 auto;
@@ -3832,11 +3881,19 @@ form.stonetop.sheet.steading {
 .stonetop-edit-toggle:hover { opacity: 1; }
 .stonetop-edit-toggle img { width: 12px; height: 12px; display: block; }
 
+/* Muted hint shown in an editable's display slot when the value is empty. */
+.stonetop-editable__placeholder { opacity: 0.5; font-style: italic; }
+/* Always-visible choice data-entry boxes. input.type "rich" gets a taller textarea. */
+.stonetop-choice-input { width: 100%; }
+.stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
+
 /* Split lines (armor│hp, cost│loyalty): the right item is pinned to the far right. */
 .stonetop-creature-line--split > .stonetop-follower-loyalty,
 .stonetop-creature-line--split > .stonetop-creature-hp { flex: 0 0 auto; }
 
-/* Armor+damage stacked on the left, a tall framed HP box on the right spanning both rows. */
+/* Armor/damage/instinct stacked on the left, a framed HP box on the right spanning all
+   three rows. The HP box stretches to the column height (it no longer forces extra height),
+   so every stat line shares one uniform 6px gap. */
 .stonetop-creature-statrow {
 	display: flex;
 	align-items: stretch;
@@ -3847,21 +3904,21 @@ form.stonetop.sheet.steading {
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	gap: 2px;
+	justify-content: flex-start;
+	gap: 6px;
 }
 
-/* Framed HP box (same frame graphic as the character's attributes), stretched to the
-   height of the armor+damage column. */
+/* Framed HP box (same frame graphic as the character's attributes). Fixed aspect, centered
+   beside the stat column — it never stretches, so narrow cards can't squash the frame. */
 .stonetop-creature-hp {
 	flex: 0 0 auto;
-	align-self: stretch;
+	align-self: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 74px;
-	min-height: 58px;
+	aspect-ratio: 74 / 58;
 	padding: 4px 8px;
 	background: url("../assets/sheet/frame-stat.png") no-repeat;
 	background-size: 100% 100%;
@@ -3893,3 +3950,6 @@ form.stonetop.sheet.steading {
 	align-items: baseline;
 	gap: 6px;
 }
+/* The enriched <ul> carries the browser's default 1em margin — drop it so the list sits
+   directly under the MOVES label like every other stat line. */
+.stonetop-creature-moves .stonetop-editable__display ul { margin: 0; }

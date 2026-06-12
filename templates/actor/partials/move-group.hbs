@@ -53,7 +53,7 @@
 				{{/if}}
 			</div>
 			{{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
-			<div class="stonetop-item-description">{{{description}}}</div>
+			<div class="stonetop-item-description stonetop-rich">{{{md description}}}</div>
 			{{#if choices}}
 			<div class="stonetop-move-choices">
 				{{#each choices.list}}

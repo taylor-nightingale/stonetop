@@ -23,6 +23,11 @@
 				{{> "stonetop.editable-field" html=damageHtml value=damage slug=slug
 					inputClass="stonetop-follower-damage"}}
 			</div>
+			<div class="stonetop-creature-line">
+				<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
+				{{> "stonetop.editable-field" html=instinctHtml value=instinct slug=slug
+					inputClass="stonetop-follower-instinct"}}
+			</div>
 		</div>
 		<div class="stonetop-creature-hp">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
@@ -34,12 +39,6 @@
 				       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
 			</div>
 		</div>
-	</div>
-
-	<div class="stonetop-creature-line">
-		<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
-		{{> "stonetop.editable-field" html=instinctHtml value=instinct slug=slug
-			inputClass="stonetop-follower-instinct"}}
 	</div>
 
 	<div class="stonetop-creature-moves stonetop-editable">

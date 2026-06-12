@@ -211,7 +211,9 @@
               "title": null,
               "text": "When exactly did it happen?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -220,7 +222,9 @@
               "title": null,
               "text": "Who lost their life, and who mourns them?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -229,7 +233,9 @@
               "title": null,
               "text": "Who from Stonetop was maimed, and how?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -238,7 +244,9 @@
               "title": null,
               "text": "Who saved the day, and how?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -247,7 +255,9 @@
               "title": null,
               "text": "How did the enemy get away, and whom do you still blame for it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -256,7 +266,9 @@
               "title": null,
               "text": "Who comported themselves with honor?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -265,7 +277,9 @@
               "title": null,
               "text": "What's been bugging you about it ever since?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -274,7 +288,9 @@
               "title": null,
               "text": "What's got you even more worried now?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
@@ -294,7 +310,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lover-spouse",
@@ -306,7 +324,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lieutenant",
@@ -318,7 +338,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "kin-dead-decisions",
@@ -330,7 +352,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -347,7 +371,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "promised-safe",
@@ -359,7 +385,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "still-doubts",
@@ -371,7 +399,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "ignored-orders",
@@ -383,7 +413,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

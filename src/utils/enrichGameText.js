@@ -18,19 +18,47 @@ export function autoRollDice(text) {
 }
 
 /**
- * Markdown -> HTML with bare dice turned into inline rolls. Foundry tokens ([[...]],
- * @Doc[...]) are shielded from the markdown pass (which would mangle their [ / ]).
+ * Markdown -> HTML. With `autoRoll` (default), bare dice become inline rolls; pass
+ * `{ autoRoll: false }` for prose, where "d6" should stay text. Foundry tokens ([[...]],
+ * @Doc[...]) are always shielded from the markdown pass (which would mangle their [ / ]).
  */
-export function toRollableMarkup(raw) {
+export function toRollableMarkup(raw, { autoRoll = true } = {}) {
 	if (!raw) return "";
 	const tokens = [];
-	const shielded = autoRollDice(raw).replace(TOKEN_RE, m => `\uf8ff${tokens.push(m) - 1}\uf8ff`);
+	const base = autoRoll ? autoRollDice(raw) : raw;
+	const shielded = base.replace(TOKEN_RE, m => `\uf8ff${tokens.push(m) - 1}\uf8ff`);
 	return snarkdown(shielded).replace(SENTINEL, (_, i) => tokens[Number(i)]);
 }
 
+/**
+ * Prose markdown -> HTML for the `{{md}}` helper: renders markdown and preserves any
+ * explicit [[ ]] rolls / @UUID links as text (a later enrichHTML pass makes them clickable),
+ * but does NOT auto-roll bare dice. Synchronous, so the template renders without flicker.
+ */
+export function renderMarkdown(raw) {
+	return toRollableMarkup(raw, { autoRoll: false });
+}
+
 /** Full pipeline: markdown + inline dice + @UUID links, via Foundry's enrichHTML (async). */
-export async function enrichGameText(raw, { rollData = {} } = {}) {
+export async function enrichGameText(raw, { rollData = {}, autoRoll = true } = {}) {
 	if (!raw) return "";
-	const html = toRollableMarkup(raw);
+	const html = toRollableMarkup(raw, { autoRoll });
 	return foundry.applications.ux.TextEditor.implementation.enrichHTML(html, { async: true, rollData });
+}
+
+/**
+ * Post-render pass: upgrade explicit Foundry tokens ([[ ]] rolls, @UUID links) inside
+ * already-rendered `.stonetop-rich` elements into clickable HTML. The markdown was rendered
+ * synchronously by the `{{md}}` helper, so this only runs enrichHTML \u2014 and only on elements
+ * that actually contain a token, so it's a no-op when there are none.
+ */
+export async function enrichRichTokens(root, { rollData = {} } = {}) {
+	if (!root) return;
+	const els = root.querySelectorAll(".stonetop-rich");
+	await Promise.all([...els].map(async el => {
+		if (el.dataset.tokensEnriched || !/\[\[|@\w+\[/.test(el.innerHTML)) return;
+		el.innerHTML = await foundry.applications.ux.TextEditor.implementation
+			.enrichHTML(el.innerHTML, { async: true, rollData });
+		el.dataset.tokensEnriched = "1";
+	}));
 }

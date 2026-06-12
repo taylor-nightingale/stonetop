@@ -10,6 +10,7 @@ import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
+import { renderMarkdown } from "./src/utils/enrichGameText.js";
 import { CharacterData } from "./src/data/CharacterData.js";
 import { NpcData } from "./src/data/NpcData.js";
 import { SteadingData } from "./src/data/SteadingData.js";
@@ -74,6 +75,11 @@ Hooks.once("init", () => {
 	});
 	Handlebars.registerHelper("gt", (a, b) => a > b);
 	Handlebars.registerHelper("eq", (a, b) => a === b);
+
+	// Render stored markdown -> HTML synchronously (no auto-roll for prose). Explicit
+	// [[ ]] rolls / @UUID links survive as text and are made clickable post-render by
+	// enrichRichTokens(). Use on .stonetop-rich containers: {{{md description}}}
+	Handlebars.registerHelper("md", text => new Handlebars.SafeString(renderMarkdown(text ?? "")));
 
 	Handlebars.registerHelper("repeatChecks", move => {
 		const sel = move?.selection;

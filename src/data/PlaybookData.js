@@ -1,4 +1,15 @@
+import { migrateChoicesField } from "../migration/migrateChoices.js";
+
 export class PlaybookData extends foundry.abstract.TypeDataModel {
+	static migrateData(source) {
+		migrateChoicesField(source.choices);
+		migrateChoicesField(source.specialPossessions);
+		// Introductions steps 4 & 6 are choice groups (NPC/PC question rows); step3 is a string.
+		migrateChoicesField(source.introductions?.step4);
+		migrateChoicesField(source.introductions?.step6);
+		return super.migrateData(source);
+	}
+
 	static defineSchema() {
 		const f = foundry.data.fields;
 		return {

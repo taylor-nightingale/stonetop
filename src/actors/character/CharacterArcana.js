@@ -25,12 +25,8 @@ export class CharacterArcana {
 		);
 	}
 
-	_followerRowsFor(item) {
-		return (item?.back?.choices?.list ?? []).filter(r => r.type === "follower");
-	}
-
 	_followerSlugsFor(item) {
-		return this._followerRowsFor(item).map(r => r.slug);
+		return (item?.back?.choices?.list ?? []).flatMap(r => r.followers ?? []);
 	}
 
 	async buildSnapshot(checkedMap = {}, resourceController = null) {
@@ -160,8 +156,8 @@ export class CharacterArcana {
 		const arcanum = embeddedItem ? _itemToArcanum(embeddedItem) : null;
 		if (embeddedItem) await this._actor.deleteEmbeddedDocuments("Item", [embeddedItem._id]);
 		await this._outfitItems?.deleteBySource("arcana:" + slug);
-		for (const row of this._followerRowsFor(arcanum)) {
-			await this._followers?.removeLinkedFollower(row.slug);
+		for (const followerSlug of this._followerSlugsFor(arcanum)) {
+			await this._followers?.removeLinkedFollower(followerSlug);
 		}
 	}
 
@@ -229,13 +225,13 @@ export class CharacterArcana {
 
 	async _syncFollowers(slug, item) {
 		if (!this._followers) return;
-		const rows = this._followerRowsFor(item);
-		if (!rows.length) return;
+		const followerSlugs = this._followerSlugsFor(item);
+		if (!followerSlugs.length) return;
 		const embeddedItem = _findArcanumItem(this._actor, slug);
 		const flipped = embeddedItem?.system?.flipped ?? false;
-		for (const row of rows) {
-			if (flipped) await this._followers.addFollower(row.slug);
-			else         await this._followers.removeFollower(row.slug);
+		for (const followerSlug of followerSlugs) {
+			if (flipped) await this._followers.addFollower(followerSlug);
+			else         await this._followers.removeFollower(followerSlug);
 		}
 	}
 }

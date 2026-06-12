@@ -61,7 +61,7 @@
 				{
 					"id": "chosen-of-the-storm-bringer",
 					"name": "Chosen of the Storm-bringer",
-					"text": "Add these to the list of potential manifestations granted by Storm's Fury:\n\n- Roll +CON to Let Fly with a bolt of lightning (2d6 damage, *thrown, forceful, loud, dangerous*, ignores armor)\n- Make a prodigious leap, buoyed by the wind\n- Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it"
+					"text": "Add these to the list of potential manifestations granted by Storm's Fury:\n\n- Roll +CON to Let Fly with a bolt of lightning ([[/r 2d6]] damage, *thrown, forceful, loud, dangerous*, ignores armor)\n- Make a prodigious leap, buoyed by the wind\n- Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it"
 				}
 			],
 			"consequences": {
@@ -72,7 +72,7 @@
 						"slug": "storm-c1",
 						"content": {
 							"title": null,
-							"text": "◻◻◻ Lightning begins to arc off of you, striking objects and creatures nearby at random for 2d6 damage (*near, forceful, loud*, ignores armor). This lasts until you calm down."
+							"text": "◻◻◻ Lightning begins to arc off of you, striking objects and creatures nearby at random for [[/r 2d6]] damage (*near, forceful, loud*, ignores armor). This lasts until you calm down."
 						}
 					},
 					{
@@ -112,7 +112,7 @@
 						"slug": "storm-c6",
 						"content": {
 							"title": null,
-							"text": "A terrible storm begins to form in your immediate area and pummels the entire region. Blizzards, tornados, floods—it's bad."
+							"text": "A terrible storm begins to form in your immediate area and pummels the entire region. Blizzards, tornadoes, floods—it's bad."
 						}
 					},
 					{

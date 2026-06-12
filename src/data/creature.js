@@ -1,6 +1,8 @@
 // Shared creature stat-block schema, composed (not inherited) by NpcData (Actor) and
 // NpcItemData (follower Item). See follower-npc-model.md.
 
+import { migrateChoicesField } from "../migration/migrateChoices.js";
+
 /** The stat block shared by NPCs and followers. Copied wholesale when dragging an NPC. */
 export function creatureFields() {
 	const f = foundry.data.fields;
@@ -101,6 +103,9 @@ export function migrateCreatureData(source) {
 		}
 		group.list = group.list.filter(e => !["weapon", "damage", "cost", "notes"].includes(e.slug));
 	}
+
+	// Normalize the remaining choice rows (heading/follower → entry, content renames, input.type).
+	migrateChoicesField(source.choices);
 
 	return source;
 }

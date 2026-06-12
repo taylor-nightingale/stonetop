@@ -39,3 +39,36 @@ describe("PlaybookData defaults", () => {
 		expect(d.specialPossessions).toBeNull();
 	});
 });
+
+describe("PlaybookData.migrateData", () => {
+	it("normalizes legacy rows in choices and specialPossessions", () => {
+		const source = {
+			choices: [{ slug: "g", list: [{ type: "heading", content: { subHeading: "H" } }] }],
+			specialPossessions: { slug: "sp", list: [{ type: "follower", slug: "enfys", title: "Enfys" }] },
+		};
+		PlaybookData.migrateData(source);
+		expect(source.choices[0].list[0].type).toBe("entry");
+		expect(source.choices[0].list[0].content.subtitle).toBe("H");
+		expect(source.specialPossessions.list[0].followers).toEqual(["enfys"]);
+	});
+
+	it("normalizes the introductions step4/step6 choice groups", () => {
+		const source = {
+			introductions: {
+				step3: "plain string, untouched",
+				step4: { slug: "intro-npc", list: [{ type: "heading", note: "(reload)", content: {} }] },
+				step6: { slug: "intro-pc", list: [{ type: "entry", content: { subNote: "(p1)" }, input: {} }] },
+			},
+		};
+		PlaybookData.migrateData(source);
+		expect(source.introductions.step3).toBe("plain string, untouched");
+		expect(source.introductions.step4.list[0].type).toBe("entry");
+		expect(source.introductions.step4.list[0].content.titleNote).toBe("(reload)");
+		expect(source.introductions.step6.list[0].content.subtitleNote).toBe("(p1)");
+		expect(source.introductions.step6.list[0].input.type).toBe("inline");
+	});
+
+	it("does not throw when introductions is absent", () => {
+		expect(() => PlaybookData.migrateData({})).not.toThrow();
+	});
+});

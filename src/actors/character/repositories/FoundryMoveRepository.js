@@ -74,12 +74,16 @@ export class FoundryMoveRepository {
 		return this._moveStore.getDocument(id);
 	}
 
-	async getBasicMoves() {
+	async getMovesByType(moveType) {
 		const [entries, worldEntries] = await Promise.all([
-			this._moveStore.filterEntries(e => e.system?.moveType === "basic"),
-			this._worldMoveStore.filterEntries(e => e.system?.moveType === "basic"),
+			this._moveStore.filterEntries(e => e.system?.moveType === moveType),
+			this._worldMoveStore.filterEntries(e => e.system?.moveType === moveType),
 		]);
 		return [...entries, ...worldEntries].map(e => new Move(e));
+	}
+
+	async getBasicMoves() {
+		return this.getMovesByType("basic");
 	}
 
 	async getBasicMoveDocument(id) {

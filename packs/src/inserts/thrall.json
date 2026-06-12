@@ -25,7 +25,9 @@
 							"title": null,
 							"text": "Name your master here, along with any titles that you know:"
 						},
-						"input": {}
+						"input": {
+							"type": "inline"
+						}
 					}
 				]
 			},

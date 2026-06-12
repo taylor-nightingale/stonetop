@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { autoRollDice, toRollableMarkup, enrichGameText } from "../../src/utils/enrichGameText.js";
+import { autoRollDice, toRollableMarkup, enrichGameText, renderMarkdown, enrichRichTokens } from "../../src/utils/enrichGameText.js";
+
+// Minimal stand-ins for DOM nodes (the suite runs in the node environment).
+function fakeEl(innerHTML) { return { innerHTML, dataset: {} }; }
+function fakeRoot(els) { return { querySelectorAll: () => els }; }
 
 describe("autoRollDice", () => {
 	it("wraps a bare die in an inline-roll", () => {
@@ -50,6 +54,35 @@ describe("toRollableMarkup (markdown + dice, Foundry tokens protected)", () => {
 	});
 });
 
+describe("toRollableMarkup — autoRoll option", () => {
+	it("leaves bare dice as plain text when autoRoll is false", () => {
+		expect(toRollableMarkup("from **d6** to d8", { autoRoll: false }))
+			.toBe("from <strong>d6</strong> to d8");
+	});
+
+	it("still protects and keeps explicit rolls/links when autoRoll is false", () => {
+		expect(toRollableMarkup("roll [[/r 2d6]] and see @UUID[Actor.x]{Garm}", { autoRoll: false }))
+			.toBe("roll [[/r 2d6]] and see @UUID[Actor.x]{Garm}");
+	});
+});
+
+describe("renderMarkdown (prose: markdown + tokens, no auto-roll)", () => {
+	it("renders markdown but does not auto-roll bare dice", () => {
+		expect(renderMarkdown("increase the die from **d6** to d8"))
+			.toBe("increase the die from <strong>d6</strong> to d8");
+	});
+
+	it("preserves explicit rolls and @UUID links for the async token pass", () => {
+		expect(renderMarkdown("deal [[/r d6]] — see @UUID[Item.x]{Sword}"))
+			.toBe("deal [[/r d6]] — see @UUID[Item.x]{Sword}");
+	});
+
+	it("returns empty string for empty input", () => {
+		expect(renderMarkdown("")).toBe("");
+		expect(renderMarkdown(null)).toBe("");
+	});
+});
+
 describe("enrichGameText", () => {
 	it("runs the markup through Foundry enrichHTML (stubbed pass-through)", async () => {
 		const out = await enrichGameText("**bronze** d6");
@@ -59,5 +92,29 @@ describe("enrichGameText", () => {
 
 	it("returns empty string for empty input", async () => {
 		expect(await enrichGameText("")).toBe("");
+	});
+});
+
+describe("enrichRichTokens (post-render token pass)", () => {
+	it("enriches only .stonetop-rich elements that contain a [[ ]] roll or @UUID token", async () => {
+		const withRoll = fakeEl("deal [[/r d6]] now");
+		const withLink = fakeEl("see @UUID[Actor.x]{Garm}");
+		const plain    = fakeEl("just <strong>prose</strong>");
+		await enrichRichTokens(fakeRoot([withRoll, withLink, plain]));
+		expect(withRoll.dataset.tokensEnriched).toBe("1");
+		expect(withLink.dataset.tokensEnriched).toBe("1");
+		expect(plain.dataset.tokensEnriched).toBeUndefined();
+	});
+
+	it("skips elements already marked enriched", async () => {
+		const el = fakeEl("deal [[/r d6]]");
+		el.dataset.tokensEnriched = "1";
+		el.innerHTML = "SENTINEL";
+		await enrichRichTokens(fakeRoot([el]));
+		expect(el.innerHTML).toBe("SENTINEL");
+	});
+
+	it("does nothing for a null root", async () => {
+		await expect(enrichRichTokens(null)).resolves.toBeUndefined();
 	});
 });

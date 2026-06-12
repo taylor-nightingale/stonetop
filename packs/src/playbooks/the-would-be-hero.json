@@ -565,7 +565,9 @@
               "title": null,
               "text": "When did your fear or anger last cause you trouble?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -574,7 +576,9 @@
               "title": null,
               "text": "What did you do?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -583,7 +587,9 @@
               "title": null,
               "text": "How did it turn out?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
@@ -603,7 +609,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "counting-on-you",
@@ -615,7 +623,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "understands-path",
@@ -627,7 +637,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "prove-wrong",
@@ -639,7 +651,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -656,7 +670,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "believes-in-me",
@@ -668,7 +684,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "promised-teach",
@@ -680,7 +698,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "have-i-hurt",
@@ -692,7 +712,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
