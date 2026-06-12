@@ -347,6 +347,10 @@ export class StonetopCharacter {
 		await this._followers.addCustomFollower();
 	}
 
+	async addFollowerFromActor(actor) {
+		await this._followers.addFromNpcActor(actor);
+	}
+
 	async setHP(hp) {
 		await this._vitals.setHP(hp);
 	}
@@ -401,6 +405,22 @@ export class StonetopCharacter {
 
 	async setFollowerArmor(slug, armor) {
 		await this._followers.setArmor(slug, armor);
+	}
+
+	async setFollowerInstinct(slug, instinct) {
+		await this._followers.setInstinct(slug, instinct);
+	}
+
+	async setFollowerMoves(slug, moves) {
+		await this._followers.setMoves(slug, moves);
+	}
+
+	async setFollowerCost(slug, cost) {
+		await this._followers.setCost(slug, cost);
+	}
+
+	async setFollowerNotes(slug, notes) {
+		await this._followers.setNotes(slug, notes);
 	}
 
 	async setFollowerDamage(slug, damage) {

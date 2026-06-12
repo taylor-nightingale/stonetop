@@ -41,10 +41,10 @@ function makeNpcItem(slug, overrides = {}) {
 		name: slug,
 		system: {
 			slug, owned: overrides.owned ?? false, tags: "",
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" },
-			damage: { die: null, label: "", tags: "" },
+			hp: { value: 6, max: 6 }, armor: "",
+			damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 },
-			choices: null, arcanaSlug: null, specialQualities: "", choiceValues: {},
+			choices: null, arcanaSlug: null, specialQuality: "", choiceValues: {},
 		},
 	};
 }
@@ -658,7 +658,7 @@ describe("CharacterArcana — follower sync", () => {
 		const actor = makeActor();
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
@@ -683,7 +683,7 @@ describe("CharacterArcana — follower sync", () => {
 		const actor = makeActor();
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const factory = new ChoiceGroupFactory(actor);
@@ -764,7 +764,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 		const actor = makeActor([makeArcanumItem(CRACKED_FLUTE)]);
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());

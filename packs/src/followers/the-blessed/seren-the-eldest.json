@@ -10,20 +10,12 @@
 		"tags": "Exceptional, story-wise, insightful, frail, magical",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 3
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
-		},
-		"damage": {
-			"die": "d4",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to hew to tradition\n-Consult the spirits, or abjure them\n-Spin a tale to make a point\n-Use shame and guilt as leverage",
+		"armor": "0",
+		"damage": "walking stick [[/r 1d4]] (_close_)",
+		"specialQuality": "",
+		"instinct": "to hew to tradition",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -32,28 +24,6 @@
 			{
 				"slug": "choices",
 				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "walking stick d4 (close)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "deference, good sense shown; Loyalty"
-						}
-					},
 					{
 						"type": "entry",
 						"content": {
@@ -148,7 +118,11 @@
 				]
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Consult the spirits, or abjure them\n- Spin a tale to make a point\n- Use shame and guilt as leverage",
+		"cost": "deference, good sense shown",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

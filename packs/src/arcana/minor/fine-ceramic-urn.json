@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A fine ceramic urn",
 				"weight": 1,
-				"note": "<em>beautiful, fragile, magical</em>",
+				"note": "*beautiful, fragile, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it's clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.</p>",
+			"description": "A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it's clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.",
 			"unlock": {
 				"slug": "fine-ceramic-urn",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Plaster of Joining",
 			"item": null,
-			"description": "<p>When you <strong><em>pour water, a pinch of blood, and special reagents (Value 1) into the urn and sing over it for a full day and night</em></strong>, the urn gains 1 use (3 uses max) of plaster.</p><p>When you <strong><em>use the plaster to join two or more pieces of stone, rock, or crystal</em></strong> and let the plaster set for a few hours, the pieces will fuse together. Different materials will fuse together seamlessly. Similar materials will fuse together seamlessly.</p><p>A single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.</p>",
+			"description": "When you **_pour water, a pinch of blood, and special reagents (Value 1) into the urn and sing over it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will fuse together seamlessly. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you pour water, a pinch of blood, and special reagents into the urn and sing over it for a full day and night",
-					"text": "<p>The urn gains 1 use (3 uses max) of plaster. Use the plaster to join two or more pieces of stone, rock, or crystal; let set for a few hours and the pieces fuse together seamlessly.</p>"
+					"text": "The urn gains 1 use (3 uses max) of plaster. Use the plaster to join two or more pieces of stone, rock, or crystal; let set for a few hours and the pieces fuse together seamlessly."
 				}
 			]
 		}

@@ -36,7 +36,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("drop", (ev) => {
 				ev.stopImmediatePropagation();
 				const data = TextEditor.getDragEventData(ev);
-				if (data?.type === "Item") this._onDropItem(ev, data);
+				if (data?.type === "Item")  this._onDropItem(ev, data);
+				if (data?.type === "Actor") this._onDropActor(ev, data);
 			}, true);
 			if (!this.isEditable) return;
 
@@ -296,7 +297,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-follower-armor");
 				if (!input) return;
-				this._stonetopCharacter.setFollowerArmor(input.dataset.slug, Number(input.value));
+				this._stonetopCharacter.setFollowerArmor(input.dataset.slug, input.value.trim());
 			}, true);
 
 			html[0].addEventListener("change", ev => {
@@ -304,6 +305,36 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (!input) return;
 				this._stonetopCharacter.setFollowerDamage(input.dataset.slug, input.value.trim());
 			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-instinct");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerInstinct(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-moves");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerMoves(input.dataset.slug, input.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-cost");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerCost(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-notes");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerNotes(input.dataset.slug, input.value);
+			}, true);
+		}
+
+		async _onDropActor(ev, data) {
+			const actor = await fromUuid(data.uuid);
+			if (!actor || actor.type !== "npc") return;
+			await this._stonetopCharacter.addFollowerFromActor(actor);
 		}
 
 		async _onDropItemCreate(itemData) {

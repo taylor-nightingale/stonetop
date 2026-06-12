@@ -35,16 +35,17 @@ function makeFollowerItem(data, overrides = {}) {
 			slug:             data.slug,
 			owned:            overrides.owned ?? false,
 			tags:             data.tags ?? "",
-			hp:               { value: data.hp?.value ?? 0, min: 0, max: data.hp?.max ?? 0 },
-			armor:            { value: data.armor?.value ?? 0, note: data.armor?.note ?? "" },
-			damage:           data.damage
-				? { die: data.damage.value ?? data.damage.die ?? null, label: data.damage.label ?? "", tags: data.damage.tags ?? "" }
-				: { die: null, label: "", tags: "" },
+			hp:               { value: data.hp?.value ?? 0, max: data.hp?.max ?? 0 },
+			armor:            data.armor ?? "",
+			damage:           data.damage ?? "",
 			instinct:         data.instinct ?? "",
+			moves:            data.moves ?? "",
+			cost:             data.cost ?? "",
 			loyalty:          { value: 0, max: data.loyalty?.max ?? 3 },
 			choices:          data.choices ?? null,
 			arcanaSlug:       data.arcanaSlug ?? null,
-			specialQualities: data.specialQualities ?? "",
+			specialQuality:   data.specialQuality ?? "",
+			notes:            data.notes ?? "",
 			choiceValues:     {},
 		},
 	};
@@ -56,16 +57,16 @@ const ENFYS_DATA = {
 	slug:    "enfys",
 	name:    "Enfys, the Acolyte",
 	tags:    "Bird-wise, innocent",
-	hp:      { value: 6, min: 0, max: 6 },
-	armor:   { value: 0, note: "" },
-	damage:  { value: "d4", label: "", tags: "" },
-	instinct: "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off",
+	hp:      { value: 6, max: 6 },
+	armor:   "",
+	damage:  "bronze knife d4 (hand)",
+	instinct: "to get distracted",
+	moves:   "- Speak with birds\n- Ask a difficult question\n- Wander off",
+	cost:    "knowledge, secret lore; Loyalty",
 	loyalty: { value: 0, max: 3 },
 	choices: [{
 		slug: "choices",
 		list: [
-			{ type: "heading", slug: "weapon", content: { text: "Weapon" }, input: { default: "bronze knife d4 (hand)" } },
-			{ type: "heading", slug: "cost",   content: { text: "Cost" },   input: { default: "knowledge, secret lore; Loyalty" } },
 			{ type: "heading", content: { title: "Pick 1 on each line" } },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "he", text: "he" }, { slug: "she", text: "she" }, { slug: "they", text: "they" }] },
 			{ type: "pick", pickCount: 1, inline: true, options: [{ slug: "just-a-child", text: "just a child" }, { slug: "on-the-cusp", text: "on the cusp" }] },
@@ -79,9 +80,9 @@ const PICKER_DATA = {
 	slug:    "test-picker",
 	name:    "Test Picker",
 	tags:    null,
-	hp:      { value: 4, min: 0, max: 4 },
-	armor:   { value: 0, note: "" },
-	damage:  null,
+	hp:      { value: 4, max: 4 },
+	armor:   "",
+	damage:  "",
 	instinct: "",
 	loyalty: { value: 0, max: 2 },
 	choices: [{
@@ -98,9 +99,9 @@ const CUSTOM_DATA = {
 	slug:    "test-custom",
 	name:    "Test Custom",
 	tags:    null,
-	hp:      { value: 3, min: 0, max: 3 },
-	armor:   { value: 0, note: "" },
-	damage:  null,
+	hp:      { value: 3, max: 3 },
+	armor:   "",
+	damage:  "",
 	instinct: "",
 	loyalty: { value: 0, max: 2 },
 };
@@ -213,9 +214,30 @@ describe("CharacterFollowers — state mutations", () => {
 	it("setArmor is reflected in buildSnapshot", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		await cf.setArmor("enfys", 2);
+		await cf.setArmor("enfys", "2 (resilience), 0 vs. bronze");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.armor.value).toBe(2);
+		expect(snap.armor).toBe("2 (resilience), 0 vs. bronze");
+	});
+
+	it("exposes enriched instinct and a moves list rendered as a <ul>", async () => {
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+		await cf.addFollower("enfys");
+		await cf.setInstinct("enfys", "to **protect**");
+		await cf.setMoves("enfys", "- Bite d6\n- Lash out (d8+1)");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.instinctHtml).toBe("to <strong>protect</strong>");
+		expect(snap.movesHtml).toBe("<ul><li>Bite [[/r d6]]</li><li>Lash out ([[/r d8+1]])</li></ul>");
+	});
+
+	it("exposes enriched damage and armor HTML alongside the raw strings", async () => {
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+		await cf.addFollower("enfys");
+		await cf.setDamage("enfys", "**bronze knife** d4 (hand)");
+		await cf.setArmor("enfys", "*tough* hide");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.damage).toBe("**bronze knife** d4 (hand)");
+		expect(snap.damageHtml).toBe("<strong>bronze knife</strong> [[/r d4]] (hand)");
+		expect(snap.armorHtml).toBe("<em>tough</em> hide");
 	});
 
 	it("setDamage is reflected in buildSnapshot", async () => {
@@ -223,7 +245,7 @@ describe("CharacterFollowers — state mutations", () => {
 		await cf.addFollower("enfys");
 		await cf.setDamage("enfys", "d6");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage.value).toBe("d6");
+		expect(snap.damage).toBe("d6");
 	});
 });
 
@@ -291,29 +313,28 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.armor.value).toBe(0);
-		expect(snap.armor.note).toBe("");
+		expect(snap.armor).toBe("");
 	});
 
 	it("damage defaults to pack die when no state", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage.value).toBe("d4");
+		expect(snap.damage).toBe("bronze knife d4 (hand)");
 	});
 
 	it("instinct comes from pack data", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.instinct).toBe("to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off");
+		expect(snap.instinct).toBe("to get distracted");
 	});
 
-	it("damage is null when pack damage is null", async () => {
+	it("damage is empty string when pack damage is null", async () => {
 		const cf = makeCf(new FakeFollowerRepository([PICKER]));
 		await cf.addFollower("test-picker");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage).toBeNull();
+		expect(snap.damage).toBe("");
 	});
 });
 
@@ -381,23 +402,12 @@ describe("CharacterFollowers — choices snapshot", () => {
 		expect(heading.content.title).toBe("Pick 1 on each line");
 	});
 
-	it("heading input rows default to pack default value", async () => {
+	it("filters promoted entries (weapon/damage/cost/notes) out of the pick rows", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
 		const [snap] = await cf.buildSnapshot();
-		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
-		expect(weaponRow.input.value).toBe("bronze knife d4 (hand)");
-		const costRow = snap.choices.list.find(r => r.slug === "cost");
-		expect(costRow.input.value).toBe("knowledge, secret lore; Loyalty");
-	});
-
-	it("saved text value overrides pack default", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
-		await cf.addFollower("enfys");
-		await cf.setChoiceText("enfys", "weapon-input", "iron axe d6 (hand)");
-		const [snap] = await cf.buildSnapshot();
-		const weaponRow = snap.choices.list.find(r => r.slug === "weapon");
-		expect(weaponRow.input.value).toBe("iron axe d6 (hand)");
+		expect(snap.choices.list.find(r => r.slug === "weapon")).toBeUndefined();
+		expect(snap.choices.list.find(r => r.slug === "cost")).toBeUndefined();
 	});
 
 	it("pick rows have correct options and are unchecked by default", async () => {
@@ -455,19 +465,12 @@ const BLANK_DATA = {
 	slug:    "blank",
 	name:    "New Follower",
 	tags:    null,
-	hp:      { value: 6, min: 0, max: 6 },
-	armor:   { value: 0, note: "" },
-	damage:  { value: "d6", label: "", tags: "" },
+	hp:      { value: 6, max: 6 },
+	armor:   "",
+	damage:  "",
 	instinct: "",
 	loyalty: { value: 0, max: 3 },
-	choices: [{
-		slug: "choices",
-		list: [
-			{ type: "heading", slug: "damage", content: { text: "Damage" }, input: {} },
-			{ type: "heading", slug: "cost",   content: { text: "Cost" },   input: {} },
-			{ type: "heading", slug: "notes",  content: { text: "Notes" },  input: {} },
-		],
-	}],
+	choices: [{ slug: "choices", list: [] }],
 };
 
 const BLANK = new Follower(BLANK_DATA);
@@ -494,7 +497,7 @@ describe("CharacterFollowers — addCustomFollower", () => {
 		expect(snap.name).toBe("New Follower");
 		expect(snap.hp).toBe(6);
 		expect(snap.hpMax).toBe(6);
-		expect(snap.armor.value).toBe(0);
+		expect(snap.armor).toBe("");
 	});
 });
 
@@ -509,12 +512,12 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		expect(snaps[0].slug).toMatch(/^custom-/);
 	});
 
-	it("custom snapshot uses blank follower choices as template when blank in repo", async () => {
+	it("custom snapshot from blank has its promoted entries filtered out of pick rows", async () => {
 		const cf = makeCf(new FakeFollowerRepository([BLANK]));
 		await cf.addCustomFollower();
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.choices).not.toBeNull();
-		expect(snap.choices.list.find(r => r.slug === "cost")).toBeDefined();
+		expect(snap.choices.list.find(r => r.slug === "cost")).toBeUndefined();
 	});
 
 	it("custom snapshot has null choices when blank not available", async () => {
@@ -539,22 +542,22 @@ describe("CharacterFollowers — custom follower snapshot", () => {
 		expect(snap.loyalty.max).toBe(3);
 	});
 
-	it("custom armor snapshot is an object with value and note", async () => {
+	it("custom armor snapshot is the prose string", async () => {
 		const cf = makeCf(new FakeFollowerRepository([BLANK]));
 		await cf.addCustomFollower();
 		const slug = cf.ownedSlugs[0];
-		await cf.setArmor(slug, 2);
+		await cf.setArmor(slug, "2 (shield)");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.armor).toEqual({ value: 2, note: "" });
+		expect(snap.armor).toBe("2 (shield)");
 	});
 
-	it("custom damage snapshot is an object with die", async () => {
+	it("custom damage snapshot is the prose string", async () => {
 		const cf = makeCf(new FakeFollowerRepository([BLANK]));
 		await cf.addCustomFollower();
 		const slug = cf.ownedSlugs[0];
-		await cf.setDamage(slug, "d8");
+		await cf.setDamage(slug, "bronze knife d8 (hand)");
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.damage).toEqual({ value: "d8", label: "", tags: "" });
+		expect(snap.damage).toBe("bronze knife d8 (hand)");
 	});
 });
 
@@ -565,9 +568,9 @@ describe("CharacterFollowers — arcanaSlug", () => {
 		slug:       "bronze-protector",
 		name:       "Bronze protector",
 		tags:       "Construct, spirit, durable",
-		hp:         { value: 13, min: 0, max: 13 },
-		armor:      { value: 3, note: "" },
-		damage:     { value: "d8", label: "pummel", tags: "band" },
+		hp:         { value: 13, max: 13 },
+		armor:      "3",
+		damage:     "pummel d8 (band)",
 		instinct:   "",
 		loyalty:    { value: 0, max: 3 },
 		arcanaSlug: "metal-man",
@@ -586,5 +589,99 @@ describe("CharacterFollowers — arcanaSlug", () => {
 		await cf.addFollower("bronze-protector");
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.arcanaSlug).toBe("metal-man");
+	});
+});
+
+// -- Tests: addFromNpcActor (drag an NPC actor onto the sheet) -----------------
+
+function makeNpcActor(overrides = {}) {
+	return {
+		name: overrides.name ?? "Garm the Guard",
+		type: "npc",
+		system: {
+			hp:             overrides.hp             ?? { value: 8, max: 10 },
+			armor:          overrides.armor          ?? "2 (resilience)",
+			damage:         overrides.damage         ?? "claws d8 (hand)",
+			specialQuality: overrides.specialQuality ?? "Fierce",
+			instinct:       overrides.instinct       ?? "to protect the gate",
+			description:    overrides.description    ?? "A grizzled guard.",
+		},
+	};
+}
+
+describe("CharacterFollowers — addFromNpcActor", () => {
+	function makeCfWithActor(repo = null) {
+		const actor = makeActor();
+		const cf = new CharacterFollowers(
+			actor,
+			repo ?? new FakeFollowerRepository(),
+			makeResourceController(),
+			new ChoiceGroupFactory(actor),
+		);
+		return { actor, cf };
+	}
+
+	it("creates an owned custom- follower", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		expect(cf.ownedSlugs).toHaveLength(1);
+		expect(cf.ownedSlugs[0]).toMatch(/^custom-/);
+	});
+
+	it("maps the NPC name to the item name", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.name).toBe("Garm the Guard");
+	});
+
+	it("maps hp and maxHp to hp value and max", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.hp).toBe(8);
+		expect(snap.hpMax).toBe(10);
+	});
+
+	it("uses hp value for max when the NPC max is 0", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor({ hp: { value: 8, max: 0 } }));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.hpMax).toBe(8);
+	});
+
+	it("copies the NPC armor string", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.armor).toBe("2 (resilience)");
+	});
+
+	it("copies the NPC damage prose string", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.damage).toBe("claws d8 (hand)");
+	});
+
+	it("maps instinct", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.instinct).toBe("to protect the gate");
+	});
+
+	it("maps specialQuality to specialQuality", async () => {
+		const { actor, cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const created = actor.createdDocs.at(-1);
+		expect(created.system.specialQuality).toBe("Fierce");
+	});
+
+	it("maps description", async () => {
+		const { actor, cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor());
+		const created = actor.createdDocs.at(-1);
+		expect(created.system.description).toBe("A grizzled guard.");
 	});
 });

@@ -4,7 +4,7 @@
   "system": {
     "moveType": "post-death",
     "playbook": "revenant",
-    "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
+    "description": "You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, *Make Camp*, *Recover* or *Convalesce*.",
     "rollStat": null
   },
   "folder": "PltWcwhA5PwgziBO",

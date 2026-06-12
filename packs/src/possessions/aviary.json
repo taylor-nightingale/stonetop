@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "aviary",
 		"label": "Aviary",
-		"description": "a building with trained birds to carry messages. When you <em>send a message by trained bird</em>, the GM will tell you when (or if) you receive a reply, and what it says.",
+		"description": "a building with trained birds to carry messages. When you *send a message by trained bird*, the GM will tell you when (or if) you receive a reply, and what it says.",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

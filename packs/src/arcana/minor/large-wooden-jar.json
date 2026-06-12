@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A large wooden jar",
 				"weight": 2,
-				"note": "<em>cumbersome, fragile, magical</em>",
+				"note": "*cumbersome, fragile, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear.</p><p><strong>If the jar is opened</strong>, all its magic is lost.</p>",
+			"description": "30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear.\n\n**If the jar is opened**, all its magic is lost.",
 			"unlock": {
 				"slug": "large-wooden-jar",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Impudent Polymorph",
 			"item": null,
-			"description": "<p>When you <strong><em>interrupt the idyllic afterlife of the Green Lord bound to the jar and demand that it change your form</em></strong>, describe the change and pick as many as you dare:</p><ul><li>The change lasts as long as you like (else, it lasts until you get a 6- on a move)</li><li>The change is quick and easy (else, it takes minutes or even hours)</li><li>You adapt to the new form quickly (else, mark a debility)</li><li>Pick 2 of your stats; swap their values until the change ends</li></ul><p>Then roll +CHA: <strong>on a 10+</strong>, the spirit works the change, just as you asked; <strong>on a 7-9</strong>, it works the change, but you gain Ire equal to the number of choices you've made; <strong>on a 6-</strong>, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire.</p>",
+			"description": "When you **_interrupt the idyllic afterlife of the Green Lord bound to the jar and demand that it change your form_**, describe the change and pick as many as you dare:\n\n- The change lasts as long as you like (else, it lasts until you get a 6- on a move)\n- The change is quick and easy (else, it takes minutes or even hours)\n- You adapt to the new form quickly (else, mark a debility)\n- Pick 2 of your stats; swap their values until the change ends\nThen roll +CHA: **on a 10+**, the spirit works the change, just as you asked; **on a 7-9**, it works the change, but you gain Ire equal to the number of choices you've made; **on a 6-**, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire.",
 			"resource": {
 				"max": 8,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you interrupt the idyllic afterlife of the Green Lord bound to the jar and demand that it change your form",
-					"text": "<p>Describe the change and pick as many qualities as you dare (lasting, quick, adapted form, stat swap). Roll +CHA: <strong>on a 10+</strong>, the spirit works the change as asked; <strong>on a 7-9</strong>, it works but you gain Ire equal to choices made; <strong>on a 6-</strong>, the spirit rebels, dealing 1d10 damage per Ire you hold.</p>"
+					"text": "Describe the change and pick as many qualities as you dare (lasting, quick, adapted form, stat swap). Roll +CHA: **on a 10+**, the spirit works the change as asked; **on a 7-9**, it works but you gain Ire equal to choices made; **on a 6-**, the spirit rebels, dealing 1d10 damage per Ire you hold."
 				}
 			]
 		}

@@ -8,20 +8,12 @@
 		"tags": "spirit, tiny, stealthy, mischievous",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 8
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
-		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to play and frolic\n-Manifest as a fluttering gust of wind (harmed only by salt)\n-Deliver a whispery message\n-Flit things about (dust, leaves, etc.)\n-Annoy or spook someone",
+		"armor": "0",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": "to play and frolic",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,22 +21,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "entertainment (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Manifest as a fluttering gust of wind (harmed only by salt)\n- Deliver a whispery message\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone",
+		"cost": "entertainment (Loyalty ◯◯◯)",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

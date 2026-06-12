@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A copper-banded staff",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A short staff, about 4 feet tall, tapering toward the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.</p>",
+			"description": "A short staff, about 4 feet tall, tapering toward the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.",
 			"unlock": {
 				"slug": "copper-banded-staff",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Staff of Magnetism",
 			"item": null,
-			"description": "<p>When <strong><em>lightning courses through the staff</em></strong>, it holds 3 Charge (max 3).</p><p>When <strong><em>the staff holds Charge and you focus your will and senses through it</em></strong>, you can sense iron, steel, cobalt, and nickel within <em>near</em> range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.</p><p>When you <strong><em>tap into the power stored within the staff</em></strong>, pick 1:</p><ul><li>Extend its effects up to <em>far</em> range</li><li>Move items quickly and suddenly, fast enough to attack or defend (<em>dangerous</em>)</li><li>Manipulate an object of considerable mass, as much as you could deadlift</li></ul><p>Each time you tap into the staff's power, roll 1d6. If you roll higher than the staff's current Charge, it loses 1 Charge.</p>",
+			"description": "When **_lightning courses through the staff_**, it holds 3 Charge (max 3).\n\nWhen **_the staff holds Charge and you focus your will and senses through it_**, you can sense iron, steel, cobalt, and nickel within *near* range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.\n\nWhen you **_tap into the power stored within the staff_**, pick 1:\n\n- Extend its effects up to *far* range\n- Move items quickly and suddenly, fast enough to attack or defend (*dangerous*)\n- Manipulate an object of considerable mass, as much as you could deadlift\nEach time you tap into the staff's power, roll 1d6. If you roll higher than the staff's current Charge, it loses 1 Charge.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When lightning courses through the staff",
-					"text": "<p>It holds 3 Charge (max 3). While the staff holds Charge and you focus your will through it, you can sense and slowly move iron, steel, cobalt, and nickel within near range. Tap into the power to extend range, move items quickly enough to attack, or manipulate heavy objects. Each tap: roll 1d6; if higher than current Charge, lose 1 Charge.</p>"
+					"text": "It holds 3 Charge (max 3). While the staff holds Charge and you focus your will through it, you can sense and slowly move iron, steel, cobalt, and nickel within near range. Tap into the power to extend range, move items quickly enough to attack, or manipulate heavy objects. Each tap: roll 1d6; if higher than current Charge, lose 1 Charge."
 				}
 			]
 		}

@@ -25,9 +25,10 @@
 * Many arcana need json updates
 * Add button to create an link an NPC to residents and neighbors.
 * Add journal linking to places of interest
-* allow NPC's to be dragged onto sheets as a follower
-
-* Number inputs should have an plus minus button around them (visible on hover)
+* Support threats
+* Seeker introductions are wrong
+*
+* Number inputs should have n plus minus button around them (visible on hover)
 * character sheet tab for bio/notes
 
 == Nice to have
@@ -35,6 +36,7 @@
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
+* support non-stonetop steading sheets
 
 
 

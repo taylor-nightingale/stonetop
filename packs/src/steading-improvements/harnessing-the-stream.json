@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Harnessing the Stream",
-						"text": "<p>A shallow creek flows just below the town. If only it could be harnessed!</p>"
+						"text": "A shallow creek flows just below the town. If only it could be harnessed!"
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> 2 of the following:</p>"
+						"text": "**Requires** 2 of the following:"
 					}
 				},
 				{
@@ -50,7 +50,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
+						"text": "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
 					}
 				}
 			]

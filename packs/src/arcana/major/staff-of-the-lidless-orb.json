@@ -14,7 +14,7 @@
 				"note": "close, magical, awkward",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A sphere of greenish glass, etched with a cat's-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.</p><p>And sometimes, you could swear, it seems to look about on its own.</p><p>But that's preposterous.</p>",
+			"description": "A sphere of greenish glass, etched with a cat's-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.\n\nAnd sometimes, you could swear, it seems to look about on its own.\n\nBut that's preposterous.",
 			"unlock": {
 				"slug": "staff-of-the-lidless-orb",
 				"list": [
@@ -22,7 +22,7 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>grip the Staff, close your eyes, and see through the Lidless Orb</em></strong>, Roll +CON: <strong>on a 10+</strong>, choose 3 from the list below; <strong>on a 7-9</strong>, choose 1.</p><ul><li>The orb sees through darkness, natural or magical</li><li>The orb sees through illusion, glamour, and invisibility</li><li>The orb can see strong emotions as auras radiating from people and lingering on places</li><li>You can move about and operate effectively while seeing through the orb (otherwise, not so much)</li></ul><p>Whatever you choose, the effect lasts until you open your eyes or let go of the staff.</p><p><strong>On a 6-</strong>, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.</p>"
+							"text": "When you **_grip the Staff, close your eyes, and see through the Lidless Orb_**, Roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much)\nWhatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to."
 						}
 					},
 					{
@@ -49,7 +49,7 @@
 				{
 					"id": "power-of-the-lidless-orb",
 					"name": "Power of the Lidless Orb",
-					"text": "<p>When you <strong>bear the staff and call upon the power of the Orb</strong>, choose one of the effects that you have marked:</p><ul><li>Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.</li><li>Hold the Orb before another creature's gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.</li><li>Hold the Orb before a mortal being's gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.</li><li>Point the Orb at a living victim and roll 2d4. If you roll higher than the victim's current HP, it's debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.</li></ul><p>After you've chosen the effect, roll +CON: <strong>on a 10+</strong>, the effect occurs as described; <strong>on a 7-9</strong>, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; <strong>on a 6-</strong>, ask the GM what happens (which may or may not involve marking a Consequence).</p>"
+					"text": "When you **bear the staff and call upon the power of the Orb**, choose one of the effects that you have marked:\n\n- Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.\n- Hold the Orb before another creature's gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.\n- Hold the Orb before a mortal being's gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.\n- Point the Orb at a living victim and roll 2d4. If you roll higher than the victim's current HP, it's debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.\nAfter you've chosen the effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; **on a 6-**, ask the GM what happens (which may or may not involve marking a Consequence)."
 				}
 			],
 			"consequences": {
@@ -60,7 +60,7 @@
 						"slug": "orb-eye-1",
 						"content": {
 							"title": null,
-							"text": "<p>One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.</p>"
+							"text": "One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected."
 						}
 					},
 					{
@@ -68,7 +68,7 @@
 						"slug": "orb-eye-1a",
 						"content": {
 							"title": null,
-							"text": "<p>Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the <em>miserable</em> debility.</p>"
+							"text": "Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the *miserable* debility."
 						}
 					},
 					{
@@ -76,7 +76,7 @@
 						"slug": "orb-scales",
 						"content": {
 							"title": null,
-							"text": "<p>You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.</p>"
+							"text": "You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed."
 						}
 					},
 					{
@@ -84,7 +84,7 @@
 						"slug": "orb-beauty",
 						"content": {
 							"title": null,
-							"text": "<p>You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and you hold a strange fascination.</p>"
+							"text": "You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and you hold a strange fascination."
 						}
 					},
 					{
@@ -92,7 +92,7 @@
 						"slug": "orb-beauty-a",
 						"content": {
 							"title": null,
-							"text": "<p>Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"</p>"
+							"text": "Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\""
 						}
 					},
 					{
@@ -100,7 +100,7 @@
 						"slug": "orb-beauty-b",
 						"content": {
 							"title": null,
-							"text": "<p>You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.</p>"
+							"text": "You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer."
 						}
 					},
 					{
@@ -108,7 +108,7 @@
 						"slug": "orb-elrash",
 						"content": {
 							"title": null,
-							"text": "<p>◻◻◻ You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.</p>"
+							"text": "◻◻◻ You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you."
 						}
 					}
 				]

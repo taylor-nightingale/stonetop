@@ -6,7 +6,7 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.</p>",
+		"description": "While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.",
 		"requirement": {
 			"level": 6,
 			"moves": [

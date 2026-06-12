@@ -10,10 +10,10 @@
 			"item": {
 				"name": "An old scroll case",
 				"weight": 1,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It's a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.</p>",
+			"description": "A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It's a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.",
 			"unlock": {
 				"slug": "old-scroll-case",
 				"list": [
@@ -74,12 +74,12 @@
 		"back": {
 			"title": "Laoj Daveth's Galvanic Infusion",
 			"item": null,
-			"description": "<p>When you <strong><em>touch a piece of aetherium and draw its power into yourself</em></strong>, roll +CON: <strong>on a 7+</strong>, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); <strong>but on a 7-9</strong>, the aetherium is drained and crumbles into a chalky mass of verdigris.</p><p>The spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused—gain advantage on any rolls with WIS.</p><p>If you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.</p><p>When <strong><em>the spell ends</em></strong>, you lose 1d8 HP.</p>",
+			"description": "When you **_touch a piece of aetherium and draw its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused—gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends_**, you lose 1d8 HP.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you touch a piece of aetherium and draw its power into yourself",
-					"text": "<p><strong>On a 10+</strong>, you absorb the power and gain 1d8 HP (even if this puts you above your max HP). <strong>On a 7-9</strong>, the aetherium is drained and crumbles into a chalky mass of verdigris.</p>"
+					"text": "**On a 10+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP). **On a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris."
 				}
 			]
 		}

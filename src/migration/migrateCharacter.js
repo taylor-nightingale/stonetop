@@ -300,11 +300,11 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 				name: s.name ?? "New Follower", type: "npc",
 				system: {
 					slug, arcanaSlug: null, tags: s.tags ?? "",
-					hp:     { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 },
-					armor:  { value: s.armor ?? 0, note: "" },
-					damage: { die: s.damage ?? null, label: "", tags: "" },
+					hp:     { value: s.hp ?? 0, max: s.hpMax ?? 0 },
+					armor:  s.armor != null ? String(s.armor) : "",
+					damage: s.damage ?? "",
 					instinct: "", loyalty: { value: 0, max: 3 },
-					choices: blank?.choices ?? null, specialQualities: "",
+					choices: blank?.choices ?? null, specialQuality: "",
 					choiceValues: { choices: s.values?.choices ?? {} },
 					owned: true,
 				},
@@ -320,9 +320,9 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 		if (!item) continue;
 		const update = { _id: item._id, system: {} };
 		if (s.hp != null || s.hpMax != null)
-			update.system.hp = { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 };
-		if (s.armor != null) update.system.armor = { value: s.armor, note: "" };
-		if (s.damage != null) update.system.damage = { die: s.damage, label: "", tags: "" };
+			update.system.hp = { value: s.hp ?? 0, max: s.hpMax ?? 0 };
+		if (s.armor != null) update.system.armor = String(s.armor);
+		if (s.damage != null) update.system.damage = s.damage;
 		if (s.name  != null) update.name = s.name;
 		if (s.values?.choices) update.system.choiceValues = { choices: s.values.choices };
 		await actor.updateEmbeddedDocuments("Item", [update]);

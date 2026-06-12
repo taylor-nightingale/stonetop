@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A strange skull and antlers",
 				"weight": null,
-				"note": "<em>immobile, magical</em>",
+				"note": "*immobile, magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A skull, the size of a horse's head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.</p>",
+			"description": "A skull, the size of a horse's head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.",
 			"unlock": {
 				"slug": "strange-skull-and-antlers",
 				"list": [
@@ -59,12 +59,12 @@
 		"back": {
 			"title": "The Green Lord's Shade",
 			"item": null,
-			"description": "<p>When you <strong><em>make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull</em></strong>, it manifests before you in shadows.</p><p>The shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (<strong>Instinct</strong> to fulfill its increasingly specific longings.)</p><p>While it rides you, the shade communicates only through impulse and desire. When it <strong><em>compels you to act against your wishes</em></strong>, mark XP if you comply. If you resist, you are Defying Danger.</p>",
+			"description": "When you **_make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull_**, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it **_compels you to act against your wishes_**, mark XP if you comply. If you resist, you are Defying Danger.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull",
-					"text": "<p>It manifests before you in shadows. The shade knows much about ancient times, the Green Lords, and their workings. It will demand the right to \"ride\" you before answering questions.</p>"
+					"text": "It manifests before you in shadows. The shade knows much about ancient times, the Green Lords, and their workings. It will demand the right to \"ride\" you before answering questions."
 				}
 			]
 		}

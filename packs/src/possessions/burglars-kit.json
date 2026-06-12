@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "burglars-kit",
 		"label": "Burglar's kit",
-		"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc.",
+		"description": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, *close, area*), ◇ a grappling hook, etc.",
 		"resource": null,
 		"outfitItems": [
 			{

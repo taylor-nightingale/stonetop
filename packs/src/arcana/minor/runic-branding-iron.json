@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A runic branding iron",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.</p>",
+			"description": "Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.",
 			"unlock": {
 				"slug": "runic-branding-iron",
 				"list": [
@@ -74,12 +74,12 @@
 		"back": {
 			"title": "Searing Touch",
 			"item": null,
-			"description": "<p>When you <strong><em>call up the fire from your soul and pour it into your hands</em></strong>, roll +CON: <strong>on a 7+</strong>, your hands blaze like white-hot iron (see below); <strong>but on a 10+</strong>, first pick 1; <strong>and on a 7-9</strong>, first pick 2:</p><ul><li>It takes minutes of intense focus</li><li>It burns your life force; lose 2d4 HP</li><li>The pain is terrible; mark a debility</li></ul><p><strong>On a 6-</strong>, whatever else the GM says, you cannot do this and must Convalesce.</p><p>While your <strong><em>hands are ablaze</em></strong>, your touch deals 1d10 damage (<em>band, messy, dangerous</em>, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection. Be careful.</p><p>Your hands blaze as long as you maintain your focus, up to a minute or maybe two.</p>",
+			"description": "When you **_call up the fire from your soul and pour it into your hands_**, roll +CON: **on a 7+**, your hands blaze like white-hot iron (see below); **but on a 10+**, first pick 1; **and on a 7-9**, first pick 2:\n\n- It takes minutes of intense focus\n- It burns your life force; lose 2d4 HP\n- The pain is terrible; mark a debility\n**On a 6-**, whatever else the GM says, you cannot do this and must Convalesce.\n\nWhile your **_hands are ablaze_**, your touch deals 1d10 damage (*band, messy, dangerous*, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection. Be careful.\n\nYour hands blaze as long as you maintain your focus, up to a minute or maybe two.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you call up the fire from your soul and pour it into your hands",
-					"text": "<p>Roll +CON: <strong>on a 7+</strong>, your hands blaze like white-hot iron; <strong>on a 10+</strong>, first pick 1; <strong>on a 7-9</strong>, first pick 2: takes minutes of focus; costs 2d4 HP; marks a debility. While blazing, your touch deals 1d10 damage (band, messy, dangerous, 1 piercing) and sets fire to wood, boils water, heats metal.</p>"
+					"text": "Roll +CON: **on a 7+**, your hands blaze like white-hot iron; **on a 10+**, first pick 1; **on a 7-9**, first pick 2: takes minutes of focus; costs 2d4 HP; marks a debility. While blazing, your touch deals 1d10 damage (band, messy, dangerous, 1 piercing) and sets fire to wood, boils water, heats metal."
 				}
 			]
 		}

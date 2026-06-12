@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A chain of rusty locks",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A chain, six links long, each link hung with a corroded bronze padlock. 1d4+1 locks bear a stylized face, frozen in a rusty grimace. The keys to these locks are lost to the ages.</p><p>When you <strong><em>hold one of the face-adorned locks and look into its eyes</em></strong>, you can hear the voice of the departed soul bound within: hateful, desperate, pleading to be set free.</p>",
+			"description": "A chain, six links long, each link hung with a corroded bronze padlock. 1d4+1 locks bear a stylized face, frozen in a rusty grimace. The keys to these locks are lost to the ages.\n\nWhen you **_hold one of the face-adorned locks and look into its eyes_**, you can hear the voice of the departed soul bound within: hateful, desperate, pleading to be set free.",
 			"unlock": {
 				"slug": "chain-of-rusty-locks",
 				"list": [
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "The Six Locks of Sajua",
 			"item": null,
-			"description": "<p>When you <strong><em>smear the blood of the dying onto an open Lock of Sajua and then close the lock</em></strong>, roll +CON: <strong>on a 10+</strong>, their soul is bound in the lock; <strong>on a 7-9</strong>, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.</p><p>When you <strong><em>extract a promise from a bound soul and then open the lock that binds it</em></strong>, the soul is compelled to fulfill the letter of its promise before it goes its own way. Tell the GM to treat it as a ghost (though not necessarily as a follower); the open lock serves as its tether, at least for now.</p><p>Each time you release a soul, mark 1 Disturbance and roll 1d6. If you roll less than your Disturbance, you hear the call of the Pale Hunter in the distance. Expect a visit soon.</p>",
+			"description": "When you **_smear the blood of the dying onto an open Lock of Sajua and then close the lock_**, roll +CON: **on a 10+**, their soul is bound in the lock; **on a 7-9**, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.\n\nWhen you **_extract a promise from a bound soul and then open the lock that binds it_**, the soul is compelled to fulfill the letter of its promise before it goes its own way. Tell the GM to treat it as a ghost (though not necessarily as a follower); the open lock serves as its tether, at least for now.\n\nEach time you release a soul, mark 1 Disturbance and roll 1d6. If you roll less than your Disturbance, you hear the call of the Pale Hunter in the distance. Expect a visit soon.",
 			"resource": {
 				"max": 7,
 				"maxStat": null,
@@ -73,7 +73,7 @@
 			"moves": [
 				{
 					"name": "When you smear the blood of the dying onto an open Lock of Sajua and then close the lock",
-					"text": "<p>Roll +CON: <strong>on a 10+</strong>, their soul is bound in the lock; <strong>on a 7-9</strong>, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.</p>"
+					"text": "Roll +CON: **on a 10+**, their soul is bound in the lock; **on a 7-9**, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens."
 				}
 			]
 		}

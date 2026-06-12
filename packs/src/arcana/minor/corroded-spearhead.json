@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A corroded spearhead",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>Hidden away in some vault or cave or Maker-ruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those faint traces of runes?</p>",
+			"description": "Hidden away in some vault or cave or Maker-ruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those faint traces of runes?",
 			"unlock": {
 				"slug": "corroded-spearhead",
 				"list": [
@@ -87,15 +87,15 @@
 			"item": {
 				"name": "Aetherium Spear",
 				"weight": 1,
-				"note": "<em>close,thrown,magical</em>, +1 damage",
+				"note": "*close,thrown,magical*, +1 damage",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>◇, <em>close, thrown, magical</em>, +1 damage</p><p>When you <strong><em>Clash with the aetherium spear and get a 7+</em></strong>, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (<em>forceful, loud</em>).</p><p>When you <strong><em>point the aetherium spear at your foes and bellow a thunderous warcy</em></strong>, mark a debility and unleash a blast of lightning (<em>far, area, forceful, loud, dangerous</em>), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). <strong>On a 6-</strong>, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.</p>",
+			"description": "◇, *close, thrown, magical*, +1 damage\n\nWhen you **_Clash with the aetherium spear and get a 7+_**, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful, loud*).\n\nWhen you **_point the aetherium spear at your foes and bellow a thunderous warcy_**, mark a debility and unleash a blast of lightning (*far, area, forceful, loud, dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you Clash with the aetherium spear and get a 7+",
-					"text": "<p>You can mark a debility to blast your foe with lightning, dealing +1d6 damage (<em>forceful, loud</em>). When you point the spear at your foes and bellow a thunderous warcry, mark a debility and unleash a blast of lightning (<em>far, area, forceful, loud, dangerous</em>), rolling +STR to Let Fly.</p>"
+					"text": "You can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful, loud*). When you point the spear at your foes and bellow a thunderous warcry, mark a debility and unleash a blast of lightning (*far, area, forceful, loud, dangerous*), rolling +STR to Let Fly."
 				}
 			]
 		}

@@ -19,28 +19,28 @@
 					"options": [
 						{
 							"slug": "authority-black-iron-maul",
-							"description": "utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)",
+							"description": "utterly immune to all magic (*close, forceful, awkward*, +1 damage)",
 							"outfitItems": [
 								{
 									"slug": "black-iron-maul",
 									"name": "Black iron maul, utterly immune to all magic",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>close, forceful, awkward</em>, +1 damage"
+									"note": "*close, forceful, awkward*, +1 damage"
 								}
 							],
 							"text": "◇◇ Black iron maul"
 						},
 						{
 							"slug": "authority-makerglass-shield",
-							"description": "etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)",
+							"description": "etched with Aratis's symbol (*indestructible*, +1 armor, +1 Readiness on a Defend 7+)",
 							"outfitItems": [
 								{
 									"slug": "makerglass-shield",
 									"name": "Makerglass shield, etched with Aratis's symbol",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+",
+									"note": "*indestructible*, +1 armor, +1 Readiness on a Defend 7+",
 									"armor": {
 										"modifier": 1
 									}

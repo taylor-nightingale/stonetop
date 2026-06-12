@@ -14,7 +14,7 @@
 				"note": "crude, slow, magical",
 				"inventoryColumn": null
 			},
-			"description": "<p>A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script.</p>",
+			"description": "A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script.",
 			"unlock": {
 				"slug": "hectumel-codex",
 				"list": [
@@ -22,14 +22,14 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>first run your fingers over the inscriptions</em></strong>, Your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.</p>"
+							"text": "When you **_first run your fingers over the inscriptions_**, Your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard."
 						}
 					},
 					{
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>cast a Codex Spell, Casting penalty ◻◻◻◻◻</em></strong>, When you <strong>cast a spell learned from the Hec'tumel Codex</strong>, roll +INT: <strong>on a 10+</strong>, the spell works as described; <strong>on a 7-9</strong>, the spell works, but choose 1 from the list below; <strong>on a 6-</strong>, mark a consequence (see reverse) in addition to whatever the GM says.</p><ul><li>You draw unwelcome attention or put yourself in a spot (ask the GM how)</li><li>Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)</li></ul><p><strong>Call the Pale Lizard.</strong> Cast this spell at night. Hec'tumel (<em>Slithering One! Death Is Its Eyes!</em>) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.</p><p>When <strong>Hec'tumel spends the night teaching you a spell from the Codex</strong>, mark 1.</p><p>Each time you <strong>make a mark</strong>, choose one of the Codex Spells (see reverse)—you can now cast it. When you <strong>make the last mark</strong>, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).</p>"
+							"text": "When you **_cast a Codex Spell, Casting penalty ◻◻◻◻◻_**, When you **cast a spell learned from the Hec'tumel Codex**, roll +INT: **on a 10+**, the spell works as described; **on a 7-9**, the spell works, but choose 1 from the list below; **on a 6-**, mark a consequence (see reverse) in addition to whatever the GM says.\n\n- You draw unwelcome attention or put yourself in a spot (ask the GM how)\n- Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)\n**Call the Pale Lizard.** Cast this spell at night. Hec'tumel (*Slithering One! Death Is Its Eyes!*) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.\n\nWhen **Hec'tumel spends the night teaching you a spell from the Codex**, mark 1.\n\nEach time you **make a mark**, choose one of the Codex Spells (see reverse)—you can now cast it. When you **make the last mark**, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse)."
 						}
 					},
 					{
@@ -56,27 +56,27 @@
 				{
 					"id": "call-up-the-dead",
 					"name": "Call Up the Dead",
-					"text": "<p>Touch a corpse; you conjure its shade, which must truthfully answer 3 questions. <strong>Empowered:</strong> Bind the shade to a tether as a revenant or a ghost; it must perform 3 tasks before being freed from your service.</p>"
+					"text": "Touch a corpse; you conjure its shade, which must truthfully answer 3 questions. **Empowered:** Bind the shade to a tether as a revenant or a ghost; it must perform 3 tasks before being freed from your service."
 				},
 				{
 					"id": "serpentine",
 					"name": "Serpentine",
-					"text": "<p>Your soul slithers from your mouth in the form of an albino viper (<em>tiny, stealthy, quick, venomous</em>), leaving your body insensate until you slither back in. Use your normal stats while in this form. <strong>Empowered:</strong> Rather than your soul leaving your body, you physically transform into a man-sized serpent (2 armor, <em>stealthy, quick, venomous, forceful, grabby</em>).</p>"
+					"text": "Your soul slithers from your mouth in the form of an albino viper (*tiny, stealthy, quick, venomous*), leaving your body insensate until you slither back in. Use your normal stats while in this form. **Empowered:** Rather than your soul leaving your body, you physically transform into a man-sized serpent (2 armor, *stealthy, quick, venomous, forceful, grabby*)."
 				},
 				{
 					"id": "snuff-the-spirit",
 					"name": "Snuff the Spirit",
-					"text": "<p>Name a living victim within <em>near</em> range and roll 2d6. If the victim has fewer current HP than your roll, it dies suddenly. <strong>Empowered:</strong> each living creature near your victim is also affected.</p>"
+					"text": "Name a living victim within *near* range and roll 2d6. If the victim has fewer current HP than your roll, it dies suddenly. **Empowered:** each living creature near your victim is also affected."
 				},
 				{
 					"id": "torpor",
 					"name": "Torpor",
-					"text": "<p>Lock eyes with someone and whisper soothing words. They start to fall asleep. If they resist, roll 3d4—if your roll exceeds their current HP, they fail. Once asleep, they do not age, need not eat/drink, and suffer no harm from poison or disease. They cannot be roused until they hear their name thrice-spoken. <strong>Empowered:</strong> Over 3d6 days, all physical harm heals, lost limbs (etc.) regenerate, poisons & diseases are cured, and the infirmities of age reverse.</p>"
+					"text": "Lock eyes with someone and whisper soothing words. They start to fall asleep. If they resist, roll 3d4—if your roll exceeds their current HP, they fail. Once asleep, they do not age, need not eat/drink, and suffer no harm from poison or disease. They cannot be roused until they hear their name thrice-spoken. **Empowered:** Over 3d6 days, all physical harm heals, lost limbs (etc.) regenerate, poisons & diseases are cured, and the infirmities of age reverse."
 				},
 				{
 					"id": "darksome-vessel",
 					"name": "Darksome Vessel",
-					"text": "<p>When you <strong>cast a Codex spell</strong>, on a 12+ you can choose the Empowered effect. When you <strong>choose to mark a consequence before casting a spell</strong>, don't roll; you get a 12+.</p>"
+					"text": "When you **cast a Codex spell**, on a 12+ you can choose the Empowered effect. When you **choose to mark a consequence before casting a spell**, don't roll; you get a 12+."
 				}
 			],
 			"consequences": {
@@ -87,7 +87,7 @@
 						"slug": "codex-c1",
 						"content": {
 							"title": null,
-							"text": "<p>Over a few days, you lose all body hair. Your skin pales and develops scaly patches.</p>"
+							"text": "Over a few days, you lose all body hair. Your skin pales and develops scaly patches."
 						}
 					},
 					{
@@ -95,7 +95,7 @@
 						"slug": "codex-c1a",
 						"content": {
 							"title": null,
-							"text": "<p>Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor.</p>"
+							"text": "Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor."
 						}
 					},
 					{
@@ -103,7 +103,7 @@
 						"slug": "codex-c2",
 						"content": {
 							"title": null,
-							"text": "<p>Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days.</p>"
+							"text": "Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days."
 						}
 					},
 					{
@@ -111,7 +111,7 @@
 						"slug": "codex-c2a",
 						"content": {
 							"title": null,
-							"text": "<p>Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic.</p>"
+							"text": "Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic."
 						}
 					},
 					{
@@ -119,7 +119,7 @@
 						"slug": "codex-c3",
 						"content": {
 							"title": null,
-							"text": "<p>Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to.</p>"
+							"text": "Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to."
 						}
 					},
 					{
@@ -127,7 +127,7 @@
 						"slug": "codex-c3a",
 						"content": {
 							"title": null,
-							"text": "<p>Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch.</p>"
+							"text": "Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch."
 						}
 					},
 					{
@@ -135,7 +135,7 @@
 						"slug": "codex-c3b",
 						"content": {
 							"title": null,
-							"text": "<p>Anything that you perceive, Hec'tumel perceives it too.</p>"
+							"text": "Anything that you perceive, Hec'tumel perceives it too."
 						}
 					}
 				]

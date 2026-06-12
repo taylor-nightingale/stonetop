@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A makerglass chime",
 				"weight": 2,
-				"note": "<em>indestructible, magical, loud, dangerous</em>",
+				"note": "*indestructible, magical, loud, dangerous*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.</p>",
+			"description": "A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.",
 			"unlock": {
 				"slug": "makerglass-chime",
 				"list": [
@@ -29,7 +29,7 @@
 						"slug": "grasp-and-roll",
 						"content": {
 							"title": null,
-							"text": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: <strong>on a 10+</strong>, you've got it; <strong>on a 7-9</strong>, mark a debility and you'll need to try again; <strong>on a 6-</strong>, ask the GM what goes terribly wrong."
+							"text": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: **on a 10+**, you've got it; **on a 7-9**, mark a debility and you'll need to try again; **on a 6-**, ask the GM what goes terribly wrong."
 						},
 						"track": {
 							"max": 1
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Make Pliant the Stone",
 			"item": null,
-			"description": "<p>When you <strong><em>strike the chime forcefully and will yourself to maintain your grip upon it</em></strong>, mark a debility and roll +CON.</p><p><strong>On a 10+</strong>, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.</p><p><strong>On a 7-9</strong>, pick 1:</p><ul><li>Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility</li><li>Realize that you can't control it and dampen the chime before it causes any harm (say how)</li></ul>",
+			"description": "When you **_strike the chime forcefully and will yourself to maintain your grip upon it_**, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n- Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n- Realize that you can't control it and dampen the chime before it causes any harm (say how)",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you strike the chime forcefully and will yourself to maintain your grip upon it",
-					"text": "<p>Mark a debility and roll +CON. <strong>On a 10+</strong>, you maintain control: while the chime rings (about a minute), any stone, crystal, or glass you touch becomes soft and malleable. <strong>On a 7-9</strong>, pick 1: maintain control but mark another debility; or dampen the chime before it causes harm.</p>"
+					"text": "Mark a debility and roll +CON. **On a 10+**, you maintain control: while the chime rings (about a minute), any stone, crystal, or glass you touch becomes soft and malleable. **On a 7-9**, pick 1: maintain control but mark another debility; or dampen the chime before it causes harm."
 				}
 			]
 		}

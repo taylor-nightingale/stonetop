@@ -14,21 +14,21 @@
 					"type": "entry",
 					"content": {
 						"title": "Standing Watch",
-						"text": "<p>Some full-time warriors would make us all safer, no?</p>"
+						"text": "Some full-time warriors would make us all safer, no?"
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following:</p><ul><li>A veteran warrior, able to command a crowd</li><li>At least 6 warriors, well-equipped and willing</li><li>The village leaders agreeing to support warriors who train and keep watch full-time</li></ul>"
+						"text": "**Requires** all of the following:\n\n- A veteran warrior, able to command a crowd\n- At least 6 warriors, well-equipped and willing\n- The village leaders agreeing to support warriors who train and keep watch full-time"
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.</p><p>When you specifically involve the watch in a move, treat Defenses as 1 higher than they are.</p>"
+						"text": "When you **_meet the requirements_**, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.\n\nWhen you specifically involve the watch in a move, treat Defenses as 1 higher than they are."
 					}
 				}
 			]

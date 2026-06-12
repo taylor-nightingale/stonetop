@@ -10,10 +10,10 @@
 			"item": {
 				"name": "An odd conveyance",
 				"weight": null,
-				"note": "<em>large, magical, fragile</em>",
+				"note": "*large, magical, fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>It's like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They're linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.</p><p>You suspect this is some sort of vehicle, but to unlock its mysteries you…</p>",
+			"description": "It's like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They're linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.\n\nYou suspect this is some sort of vehicle, but to unlock its mysteries you…",
 			"unlock": {
 				"slug": "odd-conveyance",
 				"list": [
@@ -74,12 +74,12 @@
 		"back": {
 			"title": "Groundskimmer",
 			"item": null,
-			"description": "<p>The groundskimmer can carry about as much as a fully-loaded wagon. When you <strong><em>grasp the tiller and focus</em></strong>, you can adjust how much the craft's aetherium repels the earth. When you <strong><em>properly adjust it to match its current load</em></strong>, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.</p><p><em>large, magical, dangerous</em>, requires a crew of 2</p><p>Bad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers' Roads in those regions is dangerous.</p>",
+			"description": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller and focus_**, you can adjust how much the craft's aetherium repels the earth. When you **_properly adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\n*large, magical, dangerous*, requires a crew of 2\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers' Roads in those regions is dangerous.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you grasp the tiller and focus",
-					"text": "<p>You can adjust how much the craft's aetherium repels the earth. When properly adjusted, it hovers a few feet above the earth and can sail across the landscape.</p>"
+					"text": "You can adjust how much the craft's aetherium repels the earth. When properly adjusted, it hovers a few feet above the earth and can sail across the landscape."
 				}
 			]
 		}

@@ -1,39 +1,36 @@
 import { describe, it, expect } from "vitest";
 import { NpcItemData } from "../../src/data/NpcItemData.js";
 
-describe("NpcItemData defaults", () => {
-	it("defaults slug and arcanaSlug to null", () => {
+describe("NpcItemData defaults (creature core + follower fields)", () => {
+	it("defaults slug, arcanaSlug, reference to null", () => {
 		const d = new NpcItemData();
 		expect(d.slug).toBeNull();
 		expect(d.arcanaSlug).toBeNull();
+		expect(d.reference).toBeNull();
 	});
 
-	it("defaults tags, specialQualities, instinct, description to empty string", () => {
+	it("defaults tags, specialQuality, instinct, description, notes to empty string", () => {
 		const d = new NpcItemData();
 		expect(d.tags).toBe("");
-		expect(d.specialQualities).toBe("");
+		expect(d.specialQuality).toBe("");
 		expect(d.instinct).toBe("");
 		expect(d.description).toBe("");
+		expect(d.notes).toBe("");
 	});
 
-	it("defaults hp to 0/0/0", () => {
+	it("defaults hp to { value: 0, max: 0 }", () => {
 		const d = new NpcItemData();
 		expect(d.hp.value).toBe(0);
-		expect(d.hp.min).toBe(0);
 		expect(d.hp.max).toBe(0);
+		expect(d.hp.min).toBeUndefined();
 	});
 
-	it("defaults armor to value=0 and empty note", () => {
-		const d = new NpcItemData();
-		expect(d.armor.value).toBe(0);
-		expect(d.armor.note).toBe("");
+	it("defaults armor to empty string", () => {
+		expect(new NpcItemData().armor).toBe("");
 	});
 
-	it("defaults damage die to null", () => {
-		const d = new NpcItemData();
-		expect(d.damage.die).toBeNull();
-		expect(d.damage.label).toBe("");
-		expect(d.damage.tags).toBe("");
+	it("defaults damage to empty prose string", () => {
+		expect(new NpcItemData().damage).toBe("");
 	});
 
 	it("defaults loyalty to value=0, max=3", () => {

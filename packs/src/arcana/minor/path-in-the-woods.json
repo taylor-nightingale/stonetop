@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A path in the woods",
 			"item": null,
-			"description": "<p>Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.</p><p>If you <strong><em>set forth upon the trail at midsummer</em></strong>, you can unlock its mysteries, but you must…</p>",
+			"description": "Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.\n\nIf you **_set forth upon the trail at midsummer_**, you can unlock its mysteries, but you must…",
 			"unlock": {
 				"slug": "path-in-the-woods",
 				"list": [
@@ -58,7 +58,7 @@
 		"back": {
 			"title": "Nerth Serpent's Vigor",
 			"item": null,
-			"description": "<p>When you <strong><em>crush the life from the Nerth Serpent and devour its still-warm heart</em></strong>, hold 3 Vitality. While you hold Vitality, you age very slowly.</p><p>Spend Vitality 1-for-1 to:</p><ul><li>Shrug off a poison, sickness, or curse</li><li>Survive a lethal wound or injury</li><li>Recover fully from a permanent injury or impairment (with a few days' rest)</li><li>Perform a feat of extraordinary strength, prowess, or endurance</li></ul><p>Each time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.</p><p><em>Note: Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth.</em></p>",
+			"description": "When you **_crush the life from the Nerth Serpent and devour its still-warm heart_**, hold 3 Vitality. While you hold Vitality, you age very slowly.\n\nSpend Vitality 1-for-1 to:\n\n- Shrug off a poison, sickness, or curse\n- Survive a lethal wound or injury\n- Recover fully from a permanent injury or impairment (with a few days' rest)\n- Perform a feat of extraordinary strength, prowess, or endurance\nEach time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.\n\n*Note: Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth.*",
 			"resource": {
 				"max": 3,
 				"maxStat": null,

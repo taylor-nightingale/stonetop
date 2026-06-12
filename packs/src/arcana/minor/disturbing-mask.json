@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A disturbing mask",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.</p><p><em>Note: weight 1 only when stowed; it weighs nothing when worn.</em></p>",
+			"description": "This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.\n\n*Note: weight 1 only when stowed; it weighs nothing when worn.*",
 			"unlock": {
 				"slug": "disturbing-mask",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Fetch's Mask",
 			"item": null,
-			"description": "<p>When you <strong><em>wear the mask and eat someone's hair, blood, fingernail, etc.</em></strong>, you and the mask become their flawless double until the next sunrise or until you remove the mask.</p><p>When you <strong><em>interact with an NPC known to whoever's visage you wear</em></strong>, roll +CHA: <strong>on a 10+</strong>, hold 3 Ken; <strong>on a 7-9</strong>, hold 1 Ken; <strong>on a 6-</strong>, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:</p><ul><li>What do they expect me to do/say?</li><li>What do they hope/want from me?</li><li>What secret do I keep from them?</li></ul><p>When you <strong><em>remove the mask after wearing someone's visage</em></strong>, roll +CON: <strong>on a 10+</strong>, it hurts but comes off okay; <strong>on a 7-9</strong>, your face is raw and painful, mark a debility; <strong>on a 6-</strong>, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.</p>",
+			"description": "When you **_wear the mask and eat someone's hair, blood, fingernail, etc._**, you and the mask become their flawless double until the next sunrise or until you remove the mask.\n\nWhen you **_interact with an NPC known to whoever's visage you wear_**, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:\n\n- What do they expect me to do/say?\n- What do they hope/want from me?\n- What secret do I keep from them?\nWhen you **_remove the mask after wearing someone's visage_**, roll +CON: **on a 10+**, it hurts but comes off okay; **on a 7-9**, your face is raw and painful, mark a debility; **on a 6-**, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you wear the mask and eat someone's hair, blood, fingernail, etc.",
-					"text": "<p>You and the mask become their flawless double until the next sunrise or until you remove the mask. When interacting with someone who knows your subject, roll +CHA: <strong>on a 10+</strong>, hold 3 Ken; <strong>on a 7-9</strong>, hold 1 Ken; <strong>on a 6-</strong>, they are deeply suspicious.</p>"
+					"text": "You and the mask become their flawless double until the next sunrise or until you remove the mask. When interacting with someone who knows your subject, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious."
 				}
 			]
 		}

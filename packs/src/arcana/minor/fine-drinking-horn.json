@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A fine drinking horn",
 				"weight": 1,
-				"note": "<em>beautiful, magical</em>",
+				"note": "*beautiful, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.</p><p>Since then, the horn has seemed to call to you, daring you to drink heavily from it.</p>",
+			"description": "You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.\n\nSince then, the horn has seemed to call to you, daring you to drink heavily from it.",
 			"unlock": {
 				"slug": "fine-drinking-horn",
 				"list": [
@@ -74,12 +74,12 @@
 		"back": {
 			"title": "Horn of Storms",
 			"item": null,
-			"description": "<p>When you <strong><em>get yourself good and drunk from the horn</em></strong>, mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. Until <strong><em>the storm passes</em></strong>, you can't clear debilities.</p><p>Assign one d4 to each of the following:</p><ul><li><strong>Onset:</strong> 1 = next day; 2-3 = in a few hours; 4 = within the hour.</li><li><strong>Intensity:</strong> 1 = dangerous to be out in; 2-3 = damages weak structures; 4 = lays waste to weak structures and damages sturdy ones.</li><li><strong>Reach:</strong> 1 = a mile or so; 2-3 = a dozen miles or so; 4 = dozens or scores of miles.</li><li><strong>Duration</strong> (once it gets going): 1 = less than an hour; 2-3 = a few hours; 4 = a day or so.</li></ul>",
+			"description": "When you **_get yourself good and drunk from the horn_**, mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. Until **_the storm passes_**, you can't clear debilities.\n\nAssign one d4 to each of the following:\n\n- **Onset:** 1 = next day; 2-3 = in a few hours; 4 = within the hour.\n- **Intensity:** 1 = dangerous to be out in; 2-3 = damages weak structures; 4 = lays waste to weak structures and damages sturdy ones.\n- **Reach:** 1 = a mile or so; 2-3 = a dozen miles or so; 4 = dozens or scores of miles.\n- **Duration** (once it gets going): 1 = less than an hour; 2-3 = a few hours; 4 = a day or so.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you get yourself good and drunk from the horn",
-					"text": "<p>Mark a debility. You call up a storm, centered on your location. Roll four d4s (one extra per additional debility marked). Assign one d4 each to: Onset (1=next day, 4=within the hour); Intensity (1=dangerous to be out, 4=damages sturdy structures); Reach (1=a mile, 4=scores of miles); Duration (1=under an hour, 4=a day). Until the storm passes, you can't clear debilities.</p>"
+					"text": "Mark a debility. You call up a storm, centered on your location. Roll four d4s (one extra per additional debility marked). Assign one d4 each to: Onset (1=next day, 4=within the hour); Intensity (1=dangerous to be out, 4=damages sturdy structures); Reach (1=a mile, 4=scores of miles); Duration (1=under an hour, 4=a day). Until the storm passes, you can't clear debilities."
 				}
 			]
 		}

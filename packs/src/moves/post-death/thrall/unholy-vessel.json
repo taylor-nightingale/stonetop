@@ -4,7 +4,7 @@
   "system": {
     "moveType": "post-death",
     "playbook": "thrall",
-    "description": "<p>When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.</p>",
+    "description": "When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.",
     "rollStat": null
   },
   "folder": "Xk9mThr4LLp0aZcN",

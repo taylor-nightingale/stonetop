@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "trapping-gear",
 		"label": "Trapping gear",
-		"description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you <em>spend an evening setting traps</em>, the GM will tell you what you catch by morning.",
+		"description": "snares, traps, lures, bait, stakes, ◇ a net, etc. When you *spend an evening setting traps*, the GM will tell you what you catch by morning.",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

@@ -1,0 +1,154 @@
+import { describe, it, expect } from "vitest";
+import { creatureFields, followerFields, migrateCreatureData } from "../../src/data/creature.js";
+
+describe("creatureFields / followerFields composition", () => {
+	it("creature fields include slug and reference but not follower bookkeeping", () => {
+		const keys = Object.keys(creatureFields());
+		expect(keys).toContain("slug");
+		expect(keys).toContain("reference");
+		expect(keys).toContain("hp");
+		expect(keys).toContain("armor");
+		expect(keys).toContain("damage");
+		expect(keys).toContain("specialQuality");
+		expect(keys).not.toContain("loyalty");
+		expect(keys).not.toContain("owned");
+		expect(keys).not.toContain("choices");
+	});
+
+	it("follower fields hold the bookkeeping but not the shared core", () => {
+		const keys = Object.keys(followerFields());
+		expect(keys).toEqual(expect.arrayContaining(["arcanaSlug", "owned", "loyalty", "choices", "choiceValues"]));
+		expect(keys).not.toContain("slug");
+		expect(keys).not.toContain("hp");
+	});
+});
+
+describe("migrateCreatureData — hp", () => {
+	it("folds NPC hp+maxHp numbers into {value, max}", () => {
+		const s = { hp: 8, maxHp: 10 };
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ value: 8, max: 10 });
+		expect(s.maxHp).toBeUndefined();
+	});
+
+	it("uses hp for max when only hp number is present", () => {
+		const s = { hp: 6 };
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ value: 6, max: 6 });
+	});
+
+	it("drops min from a legacy {value,min,max} object", () => {
+		const s = { hp: { value: 4, min: 0, max: 6 } };
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ value: 4, max: 6 });
+	});
+
+	it("leaves a {value, max} object effectively unchanged", () => {
+		const s = { hp: { value: 3, max: 9 } };
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ value: 3, max: 9 });
+	});
+});
+
+describe("migrateCreatureData — armor to prose", () => {
+	it("stringifies a flat NPC armor number", () => {
+		const s = { armor: 2 };
+		migrateCreatureData(s);
+		expect(s.armor).toBe("2");
+	});
+
+	it("flattens a legacy { value, note } armor into one string", () => {
+		const s = { armor: { value: 4, note: "(resilience), 0 vs. bronze" } };
+		migrateCreatureData(s);
+		expect(s.armor).toBe("4 (resilience), 0 vs. bronze");
+	});
+
+	it("stringifies a value-only armor object", () => {
+		const s = { armor: { value: 0, note: "" } };
+		migrateCreatureData(s);
+		expect(s.armor).toBe("0");
+	});
+
+	it("leaves an armor string untouched", () => {
+		const s = { armor: "3 (scales)" };
+		migrateCreatureData(s);
+		expect(s.armor).toBe("3 (scales)");
+	});
+});
+
+describe("migrateCreatureData — damage to prose", () => {
+	it("leaves an NPC damage string untouched", () => {
+		const s = { damage: "spindly fingers d8 (close)" };
+		migrateCreatureData(s);
+		expect(s.damage).toBe("spindly fingers d8 (close)");
+	});
+
+	it("flattens a {value} damage object to the die string", () => {
+		const s = { damage: { value: "d4", label: "", tags: "" } };
+		migrateCreatureData(s);
+		expect(s.damage).toBe("d4");
+	});
+
+	it("composes label, die and tags into prose", () => {
+		const s = { damage: { value: "d8", label: "pummel", tags: "band" } };
+		migrateCreatureData(s);
+		expect(s.damage).toBe("pummel d8 (band)");
+	});
+
+	it("reads legacy damage.die", () => {
+		const s = { damage: { die: "d6", label: "", tags: "" } };
+		migrateCreatureData(s);
+		expect(s.damage).toBe("d6");
+	});
+
+	it("yields empty string for an empty damage object", () => {
+		const s = { damage: { value: null, label: "", tags: "" } };
+		migrateCreatureData(s);
+		expect(s.damage).toBe("");
+	});
+});
+
+describe("migrateCreatureData — split instinct moves", () => {
+	it("splits bullet lines out of the instinct into markdown moves", () => {
+		const s = { instinct: "to get distracted\n-Speak with birds\n-Wander off" };
+		migrateCreatureData(s);
+		expect(s.instinct).toBe("to get distracted");
+		expect(s.moves).toBe("- Speak with birds\n- Wander off");
+	});
+
+	it("strips threat-style bullet glyphs (ä, >) and re-bullets as markdown", () => {
+		const s = { instinct: "to feed\nä Unfurl\n> Lash out (d6+2)" };
+		migrateCreatureData(s);
+		expect(s.instinct).toBe("to feed");
+		expect(s.moves).toBe("- Unfurl\n- Lash out (d6+2)");
+	});
+
+	it("leaves a single-line instinct alone", () => {
+		const s = { instinct: "to protect the gate" };
+		migrateCreatureData(s);
+		expect(s.instinct).toBe("to protect the gate");
+		expect(s.moves).toBeUndefined();
+	});
+
+	it("does not re-split when moves already exists", () => {
+		const s = { instinct: "to feed\n-Bite", moves: "" };
+		migrateCreatureData(s);
+		expect(s.instinct).toBe("to feed\n-Bite");
+		expect(s.moves).toBe("");
+	});
+});
+
+describe("migrateCreatureData — renames", () => {
+	it("renames specialQualities to specialQuality", () => {
+		const s = { specialQualities: "Fierce" };
+		migrateCreatureData(s);
+		expect(s.specialQuality).toBe("Fierce");
+		expect(s.specialQualities).toBeUndefined();
+	});
+
+	it("does not clobber an existing specialQuality", () => {
+		const s = { specialQuality: "Keep", specialQualities: "Drop" };
+		migrateCreatureData(s);
+		expect(s.specialQuality).toBe("Keep");
+	});
+});

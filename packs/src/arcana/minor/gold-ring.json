@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A gold ring",
 				"weight": null,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.</p>",
+			"description": "This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.",
 			"unlock": {
 				"slug": "gold-ring",
 				"list": [
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "Helior's Shining Ring",
 			"item": null,
-			"description": "<p>When you <strong><em>spend the better part of a day wearing the ring and worshipping Helior in full sunlight</em></strong>, hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.</p><p>Alas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.</p>",
+			"description": "When you **_spend the better part of a day wearing the ring and worshipping Helior in full sunlight_**, hold 1 Daylight.\n\nWhen you **_wear the ring in shadows or darkness and spend 1 Daylight_**, the ring shines forth with holy light (*near, area*) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.\n\nAlas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -73,7 +73,7 @@
 			"moves": [
 				{
 					"name": "When you spend the better part of a day wearing the ring and worshipping Helior in full sunlight",
-					"text": "<p>Hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at.</p>"
+					"text": "Hold 1 Daylight.\n\nWhen you **_wear the ring in shadows or darkness and spend 1 Daylight_**, the ring shines forth with holy light (*near, area*) that is painful for creatures of darkness to look at."
 				}
 			]
 		}

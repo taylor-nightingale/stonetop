@@ -1,4 +1,5 @@
 import { buildFocusSelector } from "./buildFocusSelector.js";
+import { activateEditToggles } from "../utils/editToggle.js";
 
 export class StonetopActorSheet extends foundry.appv1.sheets.ActorSheet {
 	async getData() {
@@ -13,6 +14,7 @@ export class StonetopActorSheet extends foundry.appv1.sheets.ActorSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html);
+		activateEditToggles(html[0]);
 		if (!this.isEditable) return;
 		html[0].addEventListener("click", async ev => {
 			const rollable = ev.target.closest(".rollable[data-roll]");

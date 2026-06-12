@@ -14,7 +14,7 @@
 				"note": "close, +1 damage, 1 piercing, messy, magical",
 				"inventoryColumn": null
 			},
-			"description": "<p>An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes.</p>",
+			"description": "An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes.",
 			"unlock": {
 				"slug": "blood-quenched-sword",
 				"list": [
@@ -22,28 +22,28 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>draw the Blood-quenched Sword</em></strong>, It leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath.</p>"
+							"text": "When you **_draw the Blood-quenched Sword_**, It leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath."
 						}
 					},
 					{
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>spill your own blood in order to return the Sword to its sheath</em></strong>, Take 1d4 damage (ignoring armor) and the scars from the cut never fade.</p>"
+							"text": "When you **_spill your own blood in order to return the Sword to its sheath_**, Take 1d4 damage (ignoring armor) and the scars from the cut never fade."
 						}
 					},
 					{
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>strike first in a fight with the Blood-quenched Sword</em></strong>, Gain advantage on your first roll.</p>"
+							"text": "When you **_strike first in a fight with the Blood-quenched Sword_**, Gain advantage on your first roll."
 						}
 					},
 					{
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>sheathe the Sword after using it to kill a living, bleeding foe</em></strong>, Mark 1 unless you have already done so since the last sunset.</p>"
+							"text": "When you **_sheathe the Sword after using it to kill a living, bleeding foe_**, Mark 1 unless you have already done so since the last sunset."
 						}
 					},
 					{
@@ -70,7 +70,7 @@
 				{
 					"id": "unquenched",
 					"name": "Unquenched",
-					"text": "<p>When you <strong>Clash with a living, bleeding foe with the Blood-quenched Sword</strong>, you may mark a Consequence to shift the result up one step (a 6- becomes a 7-9; a 7-9 becomes a 10-11; a 10-11 becomes 12+). You can do this only once per roll.</p><p>When you <strong>have marked 3 consequences</strong>, you gain A Flickering Flame.</p>"
+					"text": "When you **Clash with a living, bleeding foe with the Blood-quenched Sword**, you may mark a Consequence to shift the result up one step (a 6- becomes a 7-9; a 7-9 becomes a 10-11; a 10-11 becomes 12+). You can do this only once per roll.\n\nWhen you **have marked 3 consequences**, you gain A Flickering Flame."
 				},
 				{
 					"id": "a-flickering-flame",
@@ -80,7 +80,7 @@
 						"label": "Speed",
 						"max": 3
 					},
-					"text": "<p>Roll +CON: <strong>on a 10+</strong>, hold 3 Speed; <strong>on a 7-9</strong>, hold 2 Speed; <strong>on a 6-</strong>, hold 2 Speed, and mark a consequence.</p><p>During this battle, you may spend Speed, 1-for-1 to do the following:</p><ul><li>Attack any number of foes within your reach; roll Clash once and apply the result to all of them, but roll damage separately for each foe</li><li>Strike a weak point, ignoring your foe's armor</li><li>Disengage from a foe you are fighting</li><li>Name a foe on the scene but out of your reach; you cross the distance to them before any can react</li></ul><p>When you stop fighting, lose all Speed.</p>"
+					"text": "Roll +CON: **on a 10+**, hold 3 Speed; **on a 7-9**, hold 2 Speed; **on a 6-**, hold 2 Speed, and mark a consequence.\n\nDuring this battle, you may spend Speed, 1-for-1 to do the following:\n\n- Attack any number of foes within your reach; roll Clash once and apply the result to all of them, but roll damage separately for each foe\n- Strike a weak point, ignoring your foe's armor\n- Disengage from a foe you are fighting\n- Name a foe on the scene but out of your reach; you cross the distance to them before any can react\nWhen you stop fighting, lose all Speed."
 				}
 			],
 			"consequences": {
@@ -91,7 +91,7 @@
 						"slug": "sword-c1",
 						"content": {
 							"title": null,
-							"text": "<p>◻◻◻ You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.</p><p>When you <strong>attack the nearest living creature</strong>, you have advantage on damage rolls.</p><p>When you <strong>attempt to stay your hand</strong>, roll +WIS: <strong>on a 10+</strong>, you do so, and can choose to calm yourself and end the rage with a few moments focus; <strong>on a 7-9</strong>, you stay your hand, but must choose a different target for your rage; <strong>on a 6-</strong>, attack without mercy or doubt.</p>"
+							"text": "◻◻◻ You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.\n\nWhen you **attack the nearest living creature**, you have advantage on damage rolls.\n\nWhen you **attempt to stay your hand**, roll +WIS: **on a 10+**, you do so, and can choose to calm yourself and end the rage with a few moments focus; **on a 7-9**, you stay your hand, but must choose a different target for your rage; **on a 6-**, attack without mercy or doubt."
 						}
 					},
 					{
@@ -99,7 +99,7 @@
 						"slug": "sword-c2",
 						"content": {
 							"title": null,
-							"text": "<p>Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either <em>dazed</em> or <em>miserable</em> (your choice).</p>"
+							"text": "Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either *dazed* or *miserable* (your choice)."
 						}
 					},
 					{
@@ -107,7 +107,7 @@
 						"slug": "sword-c2a",
 						"content": {
 							"title": null,
-							"text": "<p>Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\"</p>"
+							"text": "Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\""
 						}
 					},
 					{
@@ -115,7 +115,7 @@
 						"slug": "sword-c3",
 						"content": {
 							"title": null,
-							"text": "<p>You can no longer sleep or rest without the Blood-quenched Sword at hand.</p>"
+							"text": "You can no longer sleep or rest without the Blood-quenched Sword at hand."
 						}
 					},
 					{
@@ -123,7 +123,7 @@
 						"slug": "sword-c4",
 						"content": {
 							"title": null,
-							"text": "<p>You no longer gain sustenance from food. When you <strong>slay a living, bleeding creature with the Sword</strong>, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead. ◻◻◻</p>"
+							"text": "You no longer gain sustenance from food. When you **slay a living, bleeding creature with the Sword**, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead. ◻◻◻"
 						}
 					},
 					{
@@ -131,7 +131,7 @@
 						"slug": "sword-c5",
 						"content": {
 							"title": null,
-							"text": "<p>You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else.</p>"
+							"text": "You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else."
 						}
 					}
 				]

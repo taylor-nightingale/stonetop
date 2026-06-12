@@ -10,10 +10,10 @@
 			"item": {
 				"name": "Runes around a ruined hall",
 				"weight": null,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.</p>",
+			"description": "In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.",
 			"unlock": {
 				"slug": "runes-around-a-ruined-hall",
 				"list": [
@@ -52,12 +52,12 @@
 		"back": {
 			"title": "The Fiery Veil",
 			"item": null,
-			"description": "<p>When you <strong><em>precisely inscribe the flowing runes of the fiery veil along the outside of an area</em></strong>, the area is warded for as long as the runes remain intact.</p><p>When anyone <strong><em>tries to scry on the warded area from afar, or view it from the spirit realm</em></strong>, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.</p>",
+			"description": "When you **_precisely inscribe the flowing runes of the fiery veil along the outside of an area_**, the area is warded for as long as the runes remain intact.\n\nWhen anyone **_tries to scry on the warded area from afar, or view it from the spirit realm_**, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you precisely inscribe the flowing runes of the fiery veil along the outside of an area",
-					"text": "<p>The area is warded for as long as the runes remain intact. When anyone tries to scry on the warded area from afar, or view it from the spirit realm, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.</p>"
+					"text": "The area is warded for as long as the runes remain intact. When anyone tries to scry on the warded area from afar, or view it from the spirit realm, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames."
 				}
 			]
 		}

@@ -1,4 +1,5 @@
-import { FollowerSnapshotBuilder, ArmorSnapshot, FollowerDamageSnapshot } from "../../model/snapshot/character/FollowerSnapshot.js";
+import { FollowerSnapshotBuilder } from "../../model/snapshot/character/FollowerSnapshot.js";
+import { enrichGameText } from "../../utils/enrichGameText.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
 
@@ -63,11 +64,39 @@ export class CharacterFollowers {
 			name: blank?.name ?? "New Follower", type: "npc",
 			system: {
 				slug, arcanaSlug: null, tags: "", owned: true, choiceValues: {},
-				hp:      { value: blank?.hp?.max ?? 6, min: 0, max: blank?.hp?.max ?? 6 },
-				armor:   { value: blank?.armor?.value ?? 0, note: "" },
-				damage:  { die: null, label: "", tags: "" },
-				instinct: "", loyalty: { value: 0, max: 3 },
-				choices: blank?.choices ?? null, specialQualities: "",
+				hp:      { value: blank?.hp?.max ?? 6, max: blank?.hp?.max ?? 6 },
+				armor:   blank?.armor ?? "",
+				damage:  "",
+				instinct: "", moves: "", cost: "", notes: "",
+				loyalty: { value: 0, max: 3 },
+				choices: blank?.choices ?? null, specialQuality: "",
+			},
+		}]);
+	}
+
+	async addFromNpcActor(npcActor) {
+		const sys     = npcActor.system ?? {};
+		const slug    = `custom-${Date.now()}`;
+		const [blank] = await this._followerRepo.findBySlugs(["blank"]);
+		await this._actor.createEmbeddedDocuments("Item", [{
+			name: npcActor.name, type: "npc",
+			system: {
+				// creature core copied from the NPC (shared schema → direct copy)
+				tags:           sys.tags ?? "",
+				hp:             { value: sys.hp?.value ?? 0, max: (sys.hp?.max || sys.hp?.value) ?? 0 },
+				armor:          sys.armor ?? "",
+				damage:         sys.damage ?? "",
+				specialQuality: sys.specialQuality ?? "",
+				instinct:       sys.instinct ?? "",
+				moves:          sys.moves ?? "",
+				description:    sys.description ?? "",
+				notes:          sys.notes ?? "",
+				reference:      sys.reference ?? null,
+				// follower bookkeeping
+				slug, arcanaSlug: null, owned: true,
+				loyalty:        { value: 0, max: 3 },
+				choices:        blank?.choices ?? [],
+				choiceValues:   {},
 			},
 		}]);
 	}
@@ -103,13 +132,37 @@ export class CharacterFollowers {
 	async setArmor(slug, armor) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { armor: { value: armor } } }]);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { armor } }]);
 	}
 
 	async setDamage(slug, damage) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { damage: { die: damage } } }]);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { damage } }]);
+	}
+
+	async setInstinct(slug, instinct) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { instinct } }]);
+	}
+
+	async setMoves(slug, moves) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { moves } }]);
+	}
+
+	async setCost(slug, cost) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { cost } }]);
+	}
+
+	async setNotes(slug, notes) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { notes } }]);
 	}
 
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
@@ -137,6 +190,16 @@ export class CharacterFollowers {
 
 		const result = ownedItems.map(item => this._buildFollowerSnapshotFromItem(item));
 		for (const item of staticItems) result.push(this._buildFollowerSnapshotFromItem(item));
+
+		const rollData = this._actor.getRollData?.() ?? {};
+		await Promise.all(result.map(async snap => {
+			snap.damageHtml   = await enrichGameText(snap.damage, { rollData });
+			snap.armorHtml    = await enrichGameText(snap.armor, { rollData });
+			snap.instinctHtml = await enrichGameText(snap.instinct, { rollData });
+			snap.movesHtml    = await enrichGameText(snap.moves, { rollData });
+			snap.costHtml     = await enrichGameText(snap.cost, { rollData });
+			snap.notesHtml    = await enrichGameText(snap.notes, { rollData });
+		}));
 		return result;
 	}
 
@@ -144,17 +207,20 @@ export class CharacterFollowers {
 		const sys      = item.system;
 		const values   = new ChoiceValues(sys?.choiceValues ?? {});
 		const loyalty  = this._resourceController.getCurrent("followers", sys.slug);
-		const damageDie = sys.damage?.die ?? null;
 		return new FollowerSnapshotBuilder()
 			.withSlug(sys.slug)
 			.withName(item.name)
 			.withTags(sys.tags ?? null)
 			.withHp(sys.hp?.value ?? 0)
 			.withHpMax(sys.hp?.max ?? 0)
-			.withArmor(new ArmorSnapshot(sys.armor?.value ?? 0, sys.armor?.note ?? ""))
-			.withDamage(damageDie ? new FollowerDamageSnapshot(damageDie, sys.damage?.label ?? "", sys.damage?.tags ?? "") : null)
+			.withArmor(sys.armor ?? "")
+			.withDamage(sys.damage ?? "")
 			.withInstinct(sys.instinct ?? "")
+			.withMoves(sys.moves ?? "")
+			.withCost(sys.cost ?? "")
 			.withLoyalty(ResourceController.build({ max: sys.loyalty?.max ?? 3, title: null, labels: [] }, loyalty))
+			.withDescription(sys.description ?? "")
+			.withNotes(sys.notes ?? "")
 			.withChoices(sys.choices?.length ? ChoiceGroup.fromPackData(sys.choices[0], values) : null)
 			.withArcanaSlug(sys.arcanaSlug ?? null)
 			.build();
@@ -167,18 +233,20 @@ function _findFollowerItem(actor, slug) {
 
 function _followerToSystemFields(follower) {
 	return {
-		slug:             follower.slug,
-		arcanaSlug:       follower.arcanaSlug ?? null,
-		tags:             follower.tags ?? "",
-		hp:               { value: follower.hp?.value ?? 0, min: 0, max: follower.hp?.max ?? 0 },
-		armor:            { value: follower.armor?.value ?? 0, note: follower.armor?.note ?? "" },
-		damage:           follower.damage
-			? { die: follower.damage.value ?? follower.damage.die ?? null, label: follower.damage.label ?? "", tags: follower.damage.tags ?? "" }
-			: { die: null, label: "", tags: "" },
-		instinct:         follower.instinct ?? "",
-		loyalty:          { value: 0, max: follower.loyalty?.max ?? 3 },
-		choices:          follower.choices ?? null,
-		specialQualities: follower.specialQualities ?? "",
-		choiceValues:     {},
+		slug:           follower.slug,
+		arcanaSlug:     follower.arcanaSlug ?? null,
+		tags:           follower.tags ?? "",
+		hp:             { value: follower.hp?.value ?? 0, max: follower.hp?.max ?? 0 },
+		armor:          follower.armor ?? "",
+		damage:         follower.damage ?? "",
+		instinct:       follower.instinct ?? "",
+		moves:          follower.moves ?? "",
+		cost:           follower.cost ?? "",
+		loyalty:        { value: 0, max: follower.loyalty?.max ?? 3 },
+		choices:        follower.choices ?? null,
+		specialQuality: follower.specialQuality ?? "",
+		description:    follower.description ?? "",
+		notes:          follower.notes ?? "",
+		choiceValues:   {},
 	};
 }

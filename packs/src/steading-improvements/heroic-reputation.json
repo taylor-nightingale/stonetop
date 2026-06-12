@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Heroic Reputation",
-						"text": "<p>Few have heard of Stonetop's heroes. Yet.</p>"
+						"text": "Few have heard of Stonetop's heroes. Yet."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> any 3 of the following:</p>"
+						"text": "**Requires** any 3 of the following:"
 					}
 				},
 				{
@@ -94,7 +94,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, gain the following move:</p><p>When you first meet someone from beyond Stonetop, roll +Fortunes: <strong>on a 10+</strong>, say what they've heard about you or Stonetop, and gain advantage on your next move against them; <strong>on a 7-9</strong>, say what they've heard; <strong>on a 6-</strong>, the GM decides what they've heard.</p>"
+						"text": "When you **_meet the requirements_**, gain the following move:\n\nWhen you first meet someone from beyond Stonetop, roll +Fortunes: **on a 10+**, say what they've heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they've heard; **on a 6-**, the GM decides what they've heard."
 					}
 				}
 			]

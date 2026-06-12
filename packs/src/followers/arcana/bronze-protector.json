@@ -8,20 +8,12 @@
 		"tags": "construct, spirit, durable, vigilant, overbearing, mute, gullible",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 13
 		},
-		"armor": {
-			"value": 3,
-			"note": ""
-		},
-		"damage": {
-			"die": "d8",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to be overzealous in guarding you\n-fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP\n-Loom menacingly, belching smoke\n-Start fires, cause collateral damage\n-Run low on fuel",
+		"armor": "3",
+		"damage": "d8",
+		"specialQuality": "",
+		"instinct": "to be overzealous in guarding you",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +21,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "pummel d8 (band)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "profuse gratitude (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP\n- Loom menacingly, belching smoke\n- Start fires, cause collateral damage\n- Run low on fuel",
+		"cost": "profuse gratitude (Loyalty ◯◯◯)",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

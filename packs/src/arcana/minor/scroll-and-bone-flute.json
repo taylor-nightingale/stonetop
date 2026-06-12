@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A scroll & a bone flute",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a bone flute (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.</p>",
+			"description": "A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a bone flute (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.",
 			"unlock": {
 				"slug": "scroll-and-bone-flute",
 				"list": [
@@ -52,7 +52,7 @@
 		"back": {
 			"title": "Song of the Dool Trees",
 			"item": null,
-			"description": "<p>When you <strong><em>stand among dool trees and play the proper tune on a flute of a murderer's bone</em></strong>, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.</p>",
+			"description": "When you **_stand among dool trees and play the proper tune on a flute of a murderer's bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.",
 			"resource": null,
 			"choices": {
 				"slug": "scroll-and-bone-flute",
@@ -77,7 +77,7 @@
 			"moves": [
 				{
 					"name": "When you stand among dool trees and play the proper tune on a flute of a murderer's bone",
-					"text": "<p>You summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.</p>"
+					"text": "You summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time."
 				}
 			]
 		}

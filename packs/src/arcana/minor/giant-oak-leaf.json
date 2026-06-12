@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A giant oak leaf",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?</p>",
+			"description": "About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?",
 			"unlock": {
 				"slug": "giant-oak-leaf",
 				"list": [
@@ -51,7 +51,7 @@
 						"slug": "tailor-fitting",
 						"content": {
 							"title": null,
-							"text": "… have it fitted to your exact measurements by a tailor of <em>exceptional</em> skill."
+							"text": "… have it fitted to your exact measurements by a tailor of *exceptional* skill."
 						},
 						"track": {
 							"max": 1
@@ -65,15 +65,15 @@
 			"item": {
 				"name": "Goldleaf Cloak",
 				"weight": 1,
-				"note": "<em>warm, magical</em>",
+				"note": "*warm, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you <strong><em>wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements</em></strong>, then all of these are true:</p><ul><li>You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.</li><li>You are immune to effects that calm or dampen your emotions.</li><li>You are surrounded by a constant golden glow (<em>band, area</em>), making it nearly impossible to hide.</li></ul><p>When you <strong><em>die and are buried in the earth, wrapped in your goldleaf cloak</em></strong>, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.</p>",
+			"description": "When you **_wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements_**, then all of these are true:\n\n- You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n- You are immune to effects that calm or dampen your emotions.\n- You are surrounded by a constant golden glow (*band, area*), making it nearly impossible to hide.\nWhen you **_die and are buried in the earth, wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements",
-					"text": "<p>All of these are true: You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force. You are immune to effects that calm or dampen your emotions. You are surrounded by a constant golden glow (<em>band, area</em>), making it nearly impossible to hide.</p><p>When you <strong><em>die and are buried in the earth, wrapped in your goldleaf cloak</em></strong>, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.</p>"
+					"text": "All of these are true: You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force. You are immune to effects that calm or dampen your emotions. You are surrounded by a constant golden glow (*band, area*), making it nearly impossible to hide.\n\nWhen you **_die and are buried in the earth, wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters."
 				}
 			]
 		}

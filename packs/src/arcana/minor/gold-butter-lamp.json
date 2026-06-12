@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A gold butter lamp",
 				"weight": 2,
-				"note": "<em>magical, reach, area</em>",
+				"note": "*magical, reach, area*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>An oversized, highly decorated lamp, more like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.</p><p>It's worth a fortune (Value 4), but there's more to this lamp than meets the eye.</p>",
+			"description": "An oversized, highly decorated lamp, more like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.\n\nIt's worth a fortune (Value 4), but there's more to this lamp than meets the eye.",
 			"unlock": {
 				"slug": "gold-butter-lamp",
 				"list": [
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Revealing Light",
 			"item": null,
-			"description": "<p>When you <strong><em>spend a day preparing the special ingredients (Value 1) according to the secret recipe</em></strong>, you get a ◇ jar of magic butter (○○○○○ hours).</p><p>When you <strong><em>light the lamp and intone the mantra</em></strong>, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:</p><ul><li>Active spirits are visible, even if they are not manifest</li><li>Illusions, glamours, and veils are stripped away</li><li>Shapechangers can be seen for what they truly are</li><li>Hidden things radiate a bright aura</li><li>Lies spoken are visible as black smoke that lingers near the ground</li></ul><p>Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.</p>",
+			"description": "When you **_spend a day preparing the special ingredients (Value 1) according to the secret recipe_**, you get a ◇ jar of magic butter (○○○○○ hours).\n\nWhen you **_light the lamp and intone the mantra_**, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:\n\n- Active spirits are visible, even if they are not manifest\n- Illusions, glamours, and veils are stripped away\n- Shapechangers can be seen for what they truly are\n- Hidden things radiate a bright aura\n- Lies spoken are visible as black smoke that lingers near the ground\nAlas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you light the lamp and intone the mantra",
-					"text": "<p>The lamp gives off a pale, heatless light so long as you continue to chant. Within this light: active spirits are visible; illusions are stripped away; shapechangers are seen as they truly are; hidden things radiate aura; lies appear as black smoke. Alas, it draws the ire of any wraiths nearby.</p>"
+					"text": "The lamp gives off a pale, heatless light so long as you continue to chant. Within this light: active spirits are visible; illusions are stripped away; shapechangers are seen as they truly are; hidden things radiate aura; lies appear as black smoke. Alas, it draws the ire of any wraiths nearby."
 				}
 			]
 		}

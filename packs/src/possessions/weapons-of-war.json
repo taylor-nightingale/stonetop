@@ -25,10 +25,10 @@
 									"name": "Sword, iron",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>close</em>, +1 damage"
+									"note": "*close*, +1 damage"
 								}
 							],
-							"text": "◇ Sword, iron (<em>close</em>, +1 damage)"
+							"text": "◇ Sword, iron (*close*, +1 damage)"
 						},
 						{
 							"slug": "battleaxe",
@@ -38,10 +38,10 @@
 									"name": "Battleaxe, iron",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>close, messy</em>"
+									"note": "*close, messy*"
 								}
 							],
-							"text": "◇ Battleaxe, iron (<em>close, messy</em>)"
+							"text": "◇ Battleaxe, iron (*close, messy*)"
 						},
 						{
 							"slug": "warhammer",
@@ -51,10 +51,10 @@
 									"name": "Warhammer, iron",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>close</em>, 2 piercing"
+									"note": "*close*, 2 piercing"
 								}
 							],
-							"text": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
+							"text": "◇ Warhammer, iron (*close*, 2 piercing)"
 						},
 						{
 							"slug": "mace-or-flail",
@@ -64,10 +64,10 @@
 									"name": "Mace or flail, iron",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>close, forceful</em>"
+									"note": "*close, forceful*"
 								}
 							],
-							"text": "◇ Mace or flail, iron (<em>close, forceful</em>)"
+							"text": "◇ Mace or flail, iron (*close, forceful*)"
 						},
 						{
 							"slug": "crossbow",
@@ -77,7 +77,7 @@
 									"name": "Crossbow",
 									"weight": 1,
 									"inventoryColumn": "regular",
-									"note": "<em>far</em>, +1 damage, <em>reload, x</em> piercing",
+									"note": "*far*, +1 damage, *reload, x* piercing",
 									"resource": {
 										"max": 2,
 										"title": null,
@@ -88,7 +88,7 @@
 									}
 								}
 							],
-							"text": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x piercing)"
+							"text": "◇ Crossbow (*far*, +1 damage, *reload*, x piercing)"
 						}
 					]
 				}

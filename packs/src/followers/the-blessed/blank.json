@@ -10,19 +10,11 @@
 		"tags": "",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 6
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
-		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
+		"armor": "0",
+		"damage": "[[/r 1d6]]",
+		"specialQuality": "",
 		"instinct": "",
 		"loyalty": {
 			"value": 0,
@@ -31,38 +23,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "damage",
-						"content": {
-							"title": null,
-							"text": "Damage"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {}
-					},
-					{
-						"type": "entry",
-						"slug": "notes",
-						"content": {
-							"title": null,
-							"text": "Notes"
-						},
-						"input": {}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "",
+		"cost": "",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

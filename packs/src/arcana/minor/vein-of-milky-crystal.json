@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A vein of milky crystal",
 				"weight": null,
-				"note": "<em>magical, beautiful, immobile</em>",
+				"note": "*magical, beautiful, immobile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.</p>",
+			"description": "Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.",
 			"unlock": {
 				"slug": "vein-of-milky-crystal",
 				"list": [
@@ -76,10 +76,10 @@
 			"item": {
 				"name": "Moonstone",
 				"weight": 1,
-				"note": "<em>beautiful, magical, fragile</em>",
+				"note": "*beautiful, magical, fragile*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you <strong><em>spend a night beneath the full moon</em></strong>, directing its light into the moonstone, it gains 1 hour of light (max 5).</p><p>When you <strong><em>hold the moonstone aloft in darkness and utter a sacred word</em></strong>, it shines with pale white light (<em>area, near</em>) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.</p><p>When the <strong><em>moonstone is your only light source and you shout the proper word</em></strong>, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.</p>",
+			"description": "When you **_spend a night beneath the full moon_**, directing its light into the moonstone, it gains 1 hour of light (max 5).\n\nWhen you **_hold the moonstone aloft in darkness and utter a sacred word_**, it shines with pale white light (*area, near*) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.\n\nWhen the **_moonstone is your only light source and you shout the proper word_**, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.",
 			"resource": {
 				"max": 5,
 				"maxStat": null,
@@ -89,7 +89,7 @@
 			"moves": [
 				{
 					"name": "When you spend a night beneath the full moon",
-					"text": "<p>Directing its light into the moonstone, it gains 1 hour of light (max 5). Hold aloft in darkness and utter a sacred word: shines with pale white light (area, near) revealing undead and masked entities. Shout the proper word when it's your only light: blazes, all undead in range take 1d6 damage per hour remaining. Then goes dark until recharged.</p>"
+					"text": "Directing its light into the moonstone, it gains 1 hour of light (max 5). Hold aloft in darkness and utter a sacred word: shines with pale white light (area, near) revealing undead and masked entities. Shout the proper word when it's your only light: blazes, all undead in range take 1d6 damage per hour remaining. Then goes dark until recharged."
 				}
 			]
 		}

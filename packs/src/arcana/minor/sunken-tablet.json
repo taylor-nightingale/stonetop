@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A sunken tablet",
 				"weight": null,
-				"note": "<em>immobile</em>",
+				"note": "*immobile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Maker-runes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.</p>",
+			"description": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Maker-runes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.",
 			"unlock": {
 				"slug": "sunken-tablet",
 				"list": [
@@ -85,12 +85,12 @@
 		"back": {
 			"title": "Convocation of the Soil",
 			"item": null,
-			"description": "<p>When you <strong><em>spill your blood on the soil and speak the words of convocation</em></strong>, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.</p><p>When you <strong><em>cast this spell on the fields in early spring, spilling a scary amount of your blood</em></strong>, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn's harvest will generate 1d4+1 extra Surplus.</p><p>However, you must roll +WIS: <strong>on a 10+</strong>, there is no consequence; <strong>on a 7-9</strong>, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; <strong>on a 6-</strong>, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.</p>",
+			"description": "When you **_spill your blood on the soil and speak the words of convocation_**, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.\n\nWhen you **_cast this spell on the fields in early spring, spilling a scary amount of your blood_**, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn's harvest will generate 1d4+1 extra Surplus.\n\nHowever, you must roll +WIS: **on a 10+**, there is no consequence; **on a 7-9**, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; **on a 6-**, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you spill your blood on the soil and speak the words of convocation",
-					"text": "<p>The spirits of the soil will stir and wake, filling the soil with life. When cast on fields in early spring (mark all debilities, lose all but 1 HP), this autumn generates 1d4+1 extra Surplus. Roll +WIS: <strong>on a 10+</strong>, no consequence; <strong>on a 7-9</strong>, you must water the soil with the lifeblood of a large beast before midsummer; <strong>on a 6-</strong>, the spell works but stirs something dangerous.</p>"
+					"text": "The spirits of the soil will stir and wake, filling the soil with life. When cast on fields in early spring (mark all debilities, lose all but 1 HP), this autumn generates 1d4+1 extra Surplus. Roll +WIS: **on a 10+**, no consequence; **on a 7-9**, you must water the soil with the lifeblood of a large beast before midsummer; **on a 6-**, the spell works but stirs something dangerous."
 				}
 			]
 		}

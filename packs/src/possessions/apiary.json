@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "apiary",
 		"label": "Apiary",
-		"description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+		"description": "beeswax, candles (*close, area*, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
 		"resource": null,
 		"outfitItems": [
 			{

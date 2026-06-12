@@ -8,20 +8,12 @@
 		"tags": "spirit, terrifying, stealthy, devious",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 13
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
-		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to take things too far\n-powerless in bright light\n-Sense a victim's doubt and worries\n-Shape sound and shadow to unnerve and frighten\n-Manifest as its victim's fears (harmed only by one who masters their fear)",
+		"armor": "1",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": "to take things too far",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +21,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "feast on fear d6 (hand, close, ignores armor, disadvantage)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "new, exquisite fears (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- powerless in bright light\n- Sense a victim's doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim's fears (harmed only by one who masters their fear)",
+		"cost": "new, exquisite fears (Loyalty ◯◯◯)",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

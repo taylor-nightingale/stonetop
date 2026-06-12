@@ -9,9 +9,10 @@
 						<div class="stonetop-npc-attrs stonetop-follower-attrs">
 							<div class="stonetop-resource stonetop-resource--small stonetop-resource--follower">
 								<div class="flexrow">
-									<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button" data-roll="{{stonetop.damage}}">{{localize "stonetop.followers.damage"}}</button>
-									<input id="npc-damage" type="text" class="stonetop-resource__input" value="{{stonetop.damage}}" data-slug="{{slug}}">
-								</div>								
+									<span class="stonetop-resource__label">{{localize "stonetop.followers.damage"}}</span>
+									{{> "stonetop.editable-field" html=stonetop.damageHtml value=stonetop.damage
+										inputId="npc-damage" inputClass="stonetop-resource__input" slug=slug}}
+								</div>
 							</div>
 							<div class="stonetop-resource stonetop-resource--small stonetop-resource--follower">
 								<span class="stonetop-resource__label">{{localize "stonetop.followers.hp"}}</span>
@@ -21,9 +22,10 @@
 									<input id="npc-max-hp" type="number" class="stonetop-resource__input stonetop-follower-hp-max" min="0" value="{{stonetop.hpMax}}" data-slug="{{slug}}">
 								</div>
 							</div>
-							<div id="npc-armor-box" class="stonetop-resource stonetop-resource--small stonetop-resource--follower">
+							<div id="npc-armor-box" class="stonetop-creature-line">
 								<span class="stonetop-resource__label">{{localize "stonetop.followers.armor"}}</span>
-								<input id="npc-armor" class="stonetop-resource__input" type="number" min="0" value="{{stonetop.armor}}" data-slug="{{slug}}">
+								{{> "stonetop.editable-field" html=stonetop.armorHtml value=stonetop.armor
+									inputId="npc-armor" inputClass="stonetop-resource__input" slug=slug}}
 							</div>
 						</div>
 					</section>
@@ -32,11 +34,13 @@
 						<div class="flexcolumn">
 							<div>
 								<span class="stonetop-follower-label">Instinct</span>
-								<input id="npc-instinct" class="stonetop-follower-metadata-input" type="text" value="{{stonetop.instinct}}">
+								{{> "stonetop.editable-field" html=stonetop.instinctHtml value=stonetop.instinct
+									inputId="npc-instinct" inputClass="stonetop-follower-metadata-input" multiline=true slug=slug}}
 							</div>
 							<div>
 								<span class="stonetop-follower-label">Special Qualities</span>
-								<input id="npc-special-qualities" class="stonetop-follower-metadata-input" type="text" value="{{stonetop.specialQuality}}">
+								{{> "stonetop.editable-field" html=stonetop.specialQualityHtml value=stonetop.specialQuality
+									inputId="npc-special-qualities" inputClass="stonetop-follower-metadata-input" slug=slug}}
 							</div>
 						</div>
 					</section>
@@ -55,7 +59,8 @@
 			</div>
 			{{/if}}
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.description"}}</span>
-			<textarea class="stonetop-follower-description-textarea stonetop-notes st-notes-textarea" type="text" placeholder="" data-slug="{{slug}}" >{{stonetop.description}}</textarea>
+			{{> "stonetop.editable-field" html=stonetop.descriptionHtml value=stonetop.description slug=slug
+				multiline=true inputClass="stonetop-follower-description-textarea stonetop-notes st-notes-textarea"}}
 		</section>
 
 	</div>

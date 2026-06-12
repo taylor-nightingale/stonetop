@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A small, strange book",
 				"weight": null,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.</p>",
+			"description": "A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.",
 			"unlock": {
 				"slug": "small-strange-book",
 				"list": [
@@ -59,7 +59,7 @@
 		"back": {
 			"title": "Old Mother's Wine",
 			"item": null,
-			"description": "<p>When you <strong><em>sacrifice a memory to a berry-laden elder tree</em></strong>, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.</p><p>When you <strong><em>harvest the berries and spend a season making wine from them</em></strong>, gain a skin of Old Mother's Wine (5 uses, magical).</p>",
+			"description": "When you **_sacrifice a memory to a berry-laden elder tree_**, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.\n\nWhen you **_harvest the berries and spend a season making wine from them_**, gain a skin of Old Mother's Wine (5 uses, magical).",
 			"resource": {
 				"max": 6,
 				"maxStat": null,
@@ -69,7 +69,7 @@
 			"moves": [
 				{
 					"name": "When you get tipsy on Old Mother's Wine",
-					"text": "<p>Expend a use. For a night and a day, your eyes are open to Fae magic, meaning:</p><ul><li>You see the truth behind Fae illusions and glamours</li><li>You are immune to Fae enchantments</li><li>You can freely enter Fae domains and walk the Fae paths</li><li>Time passes normally for you while in Fae domains</li></ul>"
+					"text": "Expend a use. For a night and a day, your eyes are open to Fae magic, meaning:\n\n- You see the truth behind Fae illusions and glamours\n- You are immune to Fae enchantments\n- You can freely enter Fae domains and walk the Fae paths\n- Time passes normally for you while in Fae domains"
 				}
 			]
 		}

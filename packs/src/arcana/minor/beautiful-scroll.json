@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A beautiful scroll",
 				"weight": null,
-				"note": "<em>beautiful, fragile</em>",
+				"note": "*beautiful, fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?</p>",
+			"description": "Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?",
 			"unlock": {
 				"slug": "beautiful-scroll",
 				"list": [
@@ -85,7 +85,7 @@
 		"back": {
 			"title": "Little Friend",
 			"item": null,
-			"description": "<p>You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.</p>",
+			"description": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.",
 			"resource": null,
 			"choices": {
 				"slug": "beautiful-scroll",

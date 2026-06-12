@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A cracked flute",
 				"weight": 1,
-				"note": "<em>crude, magical</em>",
+				"note": "*crude, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there's some magic here.</p>",
+			"description": "A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there's some magic here.",
 			"unlock": {
 				"slug": "cracked-flute",
 				"list": [
@@ -21,7 +21,7 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: <strong>on a 10+</strong>, mark 1 circle; <strong>on a 7-9</strong>, mark 1 circle but you summon an irate zephyr spirit; <strong>on a 6-</strong>, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
+							"text": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
 						}
 					},
 					{
@@ -41,7 +41,7 @@
 		"back": {
 			"title": "Dancing Wind Spirit",
 			"item": null,
-			"description": "<p>When you <strong><em>play a tune to make the wind itself dance</em></strong>, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you <strong><em>dismiss the spirit while it holds no Loyalty</em></strong>, the flute splits and falls apart; the andalau is set free.</p>",
+			"description": "When you **_play a tune to make the wind itself dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.",
 			"resource": null,
 			"choices": {
 				"slug": "cracked-flute",
@@ -66,7 +66,7 @@
 			"moves": [
 				{
 					"name": "When you play a tune to make the wind itself dance",
-					"text": "<p>The andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you dismiss the spirit while it holds no Loyalty, the flute splits and falls apart; the andalau is set free.</p>"
+					"text": "The andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you dismiss the spirit while it holds no Loyalty, the flute splits and falls apart; the andalau is set free."
 				}
 			]
 		}

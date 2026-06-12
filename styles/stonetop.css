@@ -2222,11 +2222,13 @@ body,
 }
 
 .stonetop-followers-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
+	columns: 2;
+	column-gap: 10px;
 	padding: 8px;
-	align-items: start;
+}
+.stonetop-followers-grid > .stonetop-follower-card {
+	break-inside: avoid;
+	margin-bottom: 10px;
 }
 
 .stonetop-follower-card {
@@ -2305,19 +2307,25 @@ body,
 
 .stonetop-follower-delete {
 	position: absolute;
-	top: 4px;
-	right: 4px;
+	bottom: 8px;
+	right: 8px;
+	z-index: 2;
 	width: auto !important;
 	background: none;
 	border: none;
 	cursor: pointer;
-	color: var(--color-text-dark-secondary, #666);
 	line-height: 1;
-	padding: 2px 4px;
+	padding: 0;
+	opacity: 0.45;
+}
+.stonetop-follower-delete img {
+	width: 14px;
+	height: 14px;
+	display: block;
 }
 
 .stonetop-follower-delete:hover {
-	color: var(--color-level-error, #c00);
+	opacity: 1;
 }
 
 .stonetop-follower-attrs {
@@ -2325,11 +2333,6 @@ body,
 	grid-template-columns: 88px 88px 155px;
 	gap: 4px;
 	align-items: stretch;
-}
-
-.stonetop-follower-card .stonetop-follower-damage {
-	width: 28px;
-	font-size: 0.8rem;
 }
 
 .stonetop-follower-loyalty {
@@ -3774,3 +3777,119 @@ form.stonetop.sheet.steading {
 	color: #8b5c2a;
 }
 
+
+/* --- Rich editable fields (enriched display + pencil-toggle markdown editor) --- */
+/* Full-width prose stat line: label + editable field. */
+.stonetop-creature-line {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	margin: 2px 0;
+}
+.stonetop-creature-line > .stonetop-follower-label {
+	flex: 0 0 auto;
+}
+
+/* One behaviour for every editable field: it fills the line, the pencil sits at its right
+   edge on the same baseline (never wraps below), and grows in place when editing. */
+.stonetop-editable {
+	display: flex;
+	flex: 1 1 auto;
+	align-items: baseline;
+	gap: 4px;
+	min-width: 0;
+}
+.stonetop-editable__display {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.stonetop-editable__display p { margin: 0; display: inline; }
+.stonetop-editable__edit {
+	display: none;
+	flex: 1 1 auto;
+	min-width: 0;
+	width: 100%;
+}
+.stonetop-editable.is-editing .stonetop-editable__display { display: none; }
+.stonetop-editable.is-editing .stonetop-editable__edit { display: block; }
+.stonetop-edit-toggle {
+	flex: 0 0 auto;
+	align-self: baseline;
+	width: 14px;
+	height: 14px;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity 0.1s ease;
+}
+/* Pencils stay hidden until you hover the field (or while it's being edited). */
+.stonetop-creature-line:hover .stonetop-edit-toggle,
+.stonetop-creature-moves:hover .stonetop-edit-toggle,
+.stonetop-editable:hover .stonetop-edit-toggle,
+.stonetop-editable.is-editing .stonetop-edit-toggle { opacity: 0.5; }
+.stonetop-edit-toggle:hover { opacity: 1; }
+.stonetop-edit-toggle img { width: 12px; height: 12px; display: block; }
+
+/* Split lines (armor│hp, cost│loyalty): the right item is pinned to the far right. */
+.stonetop-creature-line--split > .stonetop-follower-loyalty,
+.stonetop-creature-line--split > .stonetop-creature-hp { flex: 0 0 auto; }
+
+/* Armor+damage stacked on the left, a tall framed HP box on the right spanning both rows. */
+.stonetop-creature-statrow {
+	display: flex;
+	align-items: stretch;
+	gap: 8px;
+}
+.stonetop-creature-statrow__fields {
+	flex: 1 1 auto;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2px;
+}
+
+/* Framed HP box (same frame graphic as the character's attributes), stretched to the
+   height of the armor+damage column. */
+.stonetop-creature-hp {
+	flex: 0 0 auto;
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 74px;
+	min-height: 58px;
+	padding: 4px 8px;
+	background: url("../assets/sheet/frame-stat.png") no-repeat;
+	background-size: 100% 100%;
+	color: #1a1a1a;
+	line-height: 1;
+}
+.stonetop-creature-hp > .stonetop-follower-label { font-size: 0.6rem; }
+.stonetop-creature-hp__row {
+	display: flex;
+	align-items: baseline;
+	gap: 2px;
+}
+.stonetop-creature-hp__input {
+	width: 1.5em;
+	text-align: center;
+	border: none;
+	background: transparent;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 0;
+	color: #1a1a1a;
+}
+
+/* Moves block: a standard enriched <ul> (same rendering as move descriptions), with a
+   pencil to edit the raw markdown. */
+.stonetop-creature-moves.stonetop-editable { display: block; }
+.stonetop-creature-moves-head {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+}

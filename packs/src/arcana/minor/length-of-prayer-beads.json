@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A length of prayer beads",
 				"weight": 1,
-				"note": "<em>magical, beautiful</em>",
+				"note": "*magical, beautiful*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement.</p>",
+			"description": "A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement.",
 			"unlock": {
 				"slug": "length-of-prayer-beads",
 				"list": [
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "Cold Mind, Iron Body",
 			"item": null,
-			"description": "<p>When you <strong><em>Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads</em></strong>, hold Preparation (as per the Bolster move).</p><p>While you <strong><em>hold at least 1 Preparation</em></strong>, you require only an hour of sleep each night, can endure cold weather without warm clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.</p><p>Also, you can spend 1 Preparation to:</p><ul><li>Add +1 to any roll, after it is made (maximum +1 per roll)</li><li>Clear a debility, or refuse to mark one</li><li>Perform a feat of extreme endurance</li><li>Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)</li></ul>",
+			"description": "When you **_Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads_**, hold Preparation (as per the Bolster move).\n\nWhile you **_hold at least 1 Preparation_**, you require only an hour of sleep each night, can endure cold weather without warm clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.\n\nAlso, you can spend 1 Preparation to:\n\n- Add +1 to any roll, after it is made (maximum +1 per roll)\n- Clear a debility, or refuse to mark one\n- Perform a feat of extreme endurance\n- Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -73,7 +73,7 @@
 			"moves": [
 				{
 					"name": "When you Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads",
-					"text": "<p>Hold Preparation (as per the Bolster move). While you hold at least 1 Preparation, you require only an hour of sleep, can endure cold without warm clothing, and need not consume supplies while traveling. Spend 1 Preparation to: add +1 to any roll; clear or refuse a debility; perform a feat of extreme endurance; ignore elemental harm.</p>"
+					"text": "Hold Preparation (as per the Bolster move). While you hold at least 1 Preparation, you require only an hour of sleep, can endure cold without warm clothing, and need not consume supplies while traveling. Spend 1 Preparation to: add +1 to any roll; clear or refuse a debility; perform a feat of extreme endurance; ignore elemental harm."
 				}
 			]
 		}

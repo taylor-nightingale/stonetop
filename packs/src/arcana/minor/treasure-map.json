@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A treasure map",
 				"weight": null,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.</p>",
+			"description": "A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.",
 			"unlock": {
 				"slug": "treasure-map",
 				"list": [
@@ -109,10 +109,10 @@
 			"item": {
 				"name": "The Silver Branch",
 				"weight": 1,
-				"note": "<em>magical, beautiful</em>",
+				"note": "*magical, beautiful*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.</p><p>When you <strong><em>jingle the silver branch</em></strong>, all who hear it (<em>reach</em>, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: <strong>on a 10+</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, all 3:</p><ul><li>The branch starts to fade; if already fading, it goes bare, its powers gone</li><li>Some (GM's choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime</li><li>Some (GM's choice of who) become obsessed with hearing it jingle again</li></ul>",
+			"description": "A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you **_jingle the silver branch_**, all who hear it (*reach*, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1 and the GM picks another; **on a 6-**, all 3:\n\n- The branch starts to fade; if already fading, it goes bare, its powers gone\n- Some (GM's choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n- Some (GM's choice of who) become obsessed with hearing it jingle again",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -126,7 +126,7 @@
 			"moves": [
 				{
 					"name": "When you jingle the silver branch",
-					"text": "<p>All who hear it (reach, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: <strong>on a 10+</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, all 3: the branch starts to fade (if already fading, it goes bare); some are blissed out for days or weeks; some become obsessed with hearing it again.</p>"
+					"text": "All who hear it (reach, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1 and the GM picks another; **on a 6-**, all 3: the branch starts to fade (if already fading, it goes bare); some are blissed out for days or weeks; some become obsessed with hearing it again."
 				}
 			]
 		}

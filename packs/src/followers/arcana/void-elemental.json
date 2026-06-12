@@ -8,20 +8,12 @@
 		"tags": "Spirit, primordial, confused, angry",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 15
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
-		},
-		"damage": {
-			"die": "d10",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to rage at all the noise and chaos\n-immune to most harm\n-Manifest as a black hole in reality\n-Snuff out a source of energy\n-Become confused, unsure what to do",
+		"armor": "1",
+		"damage": "d10",
+		"specialQuality": "",
+		"instinct": "to rage at all the noise and chaos",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +21,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "Loyalty ◯◯◯"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- immune to most harm\n- Manifest as a black hole in reality\n- Snuff out a source of energy\n- Become confused, unsure what to do",
+		"cost": "Loyalty ◯◯◯",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

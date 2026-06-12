@@ -8,20 +8,12 @@
 		"tags": "spirit, construct, tiny, naive, eager",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 8
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
-		},
-		"damage": {
-			"die": "d4",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to play / to learn / to flaunt\n-Manifest a form of dust/snow/vapor\n-Produce light (area, reach)\n-Carry/manipulate a ◇ item\n-Deliver a message\n-Spy on someone/something",
+		"armor": "0",
+		"damage": "d4",
+		"specialQuality": "",
+		"instinct": "to play / to learn / to flaunt",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +21,14 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "d4 (if that)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Manifest a form of dust/snow/vapor\n- Produce light (area, reach)\n- Carry/manipulate a ◇ item\n- Deliver a message\n- Spy on someone/something",
+		"cost": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)",
+		"notes": "",
+		"reference": null
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",
