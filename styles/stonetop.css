@@ -3887,6 +3887,47 @@ form.stonetop.sheet.steading {
 .stonetop-choice-input { width: 100%; }
 .stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
 
+/* ── Hover ▲▼ stepper on number inputs (wrapper added by activateSteppers) ──────── */
+.stonetop-stepper {
+	position: relative;
+	display: inline-flex;
+	vertical-align: middle;
+}
+/* Inputs that fill their container (resource boxes) — the wrapper must fill the same way. */
+.stonetop-stepper:has(> .stonetop-resource__input),
+.stonetop-stepper:has(> .stonetop-resource__max) {
+	display: block;
+	width: 100%;
+	align-self: stretch;
+}
+/* Drop the native spinners; the ▲▼ buttons replace them. */
+.stonetop-step::-webkit-inner-spin-button,
+.stonetop-step::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.stonetop-step { -moz-appearance: textfield; appearance: textfield; }
+
+.stonetop-stepper-btn {
+	position: absolute;
+	right: 0;
+	width: 13px;
+	height: 50%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 2px;
+	background: rgba(0, 0, 0, 0.08);
+	color: var(--color-text-dark-primary, #191813);
+	font-size: 7px;
+	line-height: 1;
+	cursor: pointer;
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+.stonetop-stepper-btn--up   { top: 0; }
+.stonetop-stepper-btn--down { bottom: 0; }
+.stonetop-stepper:hover .stonetop-stepper-btn { display: inline-flex; }
+.stonetop-stepper-btn:hover { background: rgba(0, 0, 0, 0.2); }
+
 /* Split lines (armor│hp, cost│loyalty): the right item is pinned to the far right. */
 .stonetop-creature-line--split > .stonetop-follower-loyalty,
 .stonetop-creature-line--split > .stonetop-creature-hp { flex: 0 0 auto; }
