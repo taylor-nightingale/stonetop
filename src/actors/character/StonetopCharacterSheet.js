@@ -126,6 +126,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-notes").on("change", async ev => {
 				await this._stonetopCharacter.setInventoryOtherItems(ev.currentTarget.value);
 			});
+			html.find(".stonetop-char-bio").on("change", async ev => {
+				await this._stonetopCharacter.setBio(ev.currentTarget.value);
+			});
+			html.find(".stonetop-char-notes").on("change", async ev => {
+				await this._stonetopCharacter.setNotes(ev.currentTarget.value);
+			});
 			// Narrow-layout moves sidebar: toggle the slide-over overlay.
 			html.find(".stonetop-moves-toggle").on("click", ev => {
 				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
@@ -283,10 +289,18 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setFollowerName(input.dataset.slug, input.value);
 			}, true);
 
+			html[0].addEventListener("click", ev => {
+				const chip = ev.target.closest(".stonetop-tag-chip");
+				if (!chip) return;
+				const slug = chip.closest("[data-slug]")?.dataset.slug;
+				this._stonetopCharacter.toggleFollowerTag(slug, chip.dataset.tag);
+			}, true);
+
 			html[0].addEventListener("change", ev => {
-				const input = ev.target.closest(".stonetop-follower-note-input");
-				if (!input) return;
-				this._stonetopCharacter.setFollowerNote(input.dataset.slug, input.value);
+				const input = ev.target.closest(".stonetop-tag-add");
+				if (!input?.value.trim()) return;
+				this._stonetopCharacter.toggleFollowerTag(input.dataset.slug, input.value.trim());
+				input.value = "";
 			}, true);
 
 			html[0].addEventListener("click", ev => {

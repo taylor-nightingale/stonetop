@@ -1,5 +1,6 @@
 import { NpcSnapshotBuilder } from "../../model/snapshot/NpcSnapshot.js";
 import { enrichGameText } from "../../utils/enrichGameText.js";
+import { Selection } from "../../model/data/Selection.js";
 
 export class StonetopNpc {
 	constructor(actor) {
@@ -17,7 +18,7 @@ export class StonetopNpc {
 	get specialQuality() { return this._actor.system?.specialQuality ?? ""; }
 	get instinct()       { return this._actor.system?.instinct       ?? ""; }
 	get description()    { return this._actor.system?.description    ?? ""; }
-	get tags()           { return this._actor.system?.tags           ?? ""; }
+	get tags()           { return Selection.fromStored(this._actor.system?.tags).text; }
 	get moves()          { return this._actor.system?.moves          ?? ""; }
 
 	async setHp(value)             { await this._actor.update({ "system.hp.value": value }); }
@@ -27,7 +28,8 @@ export class StonetopNpc {
 	async setSpecialQuality(value) { await this._actor.update({ "system.specialQuality": value }); }
 	async setInstinct(value)       { await this._actor.update({ "system.instinct": value }); }
 	async setDescription(value)    { await this._actor.update({ "system.description": value }); }
-	async setTags(value)           { await this._actor.update({ "system.tags": value }); }
+	async setTags(value)           { await this._actor.update({ "system.tags": Selection.fromStored(value, { options: this._actor.system?.tags?.options ?? [] }).toRaw() }); }
+	async toggleTag(tag)           { if (!tag) return; await this._actor.update({ "system.tags": Selection.fromStored(this._actor.system?.tags).toggle(tag).toRaw() }); }
 	async setMoves(value)          { await this._actor.update({ "system.moves": value }); }
 
 	async buildSnapshot() {

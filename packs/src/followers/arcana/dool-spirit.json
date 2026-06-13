@@ -5,7 +5,17 @@
 	"system": {
 		"slug": "dool-spirit",
 		"arcanaSlug": "scroll-and-bone-flute",
-		"tags": "spirit, terrifying, stealthy, devious",
+		"tags": {
+			"selected": [
+				"spirit",
+				"terrifying",
+				"stealthy",
+				"devious"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 13

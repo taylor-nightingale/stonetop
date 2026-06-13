@@ -51,6 +51,12 @@ export class StonetopCharacter {
 		return this._actor.type;
 	}
 
+	get bio()   { return this._actor.system?.description ?? ""; }
+	get notes() { return this._actor.system?.notes       ?? ""; }
+
+	async setBio(value)   { await this._actor.update({ "system.description": value }); }
+	async setNotes(value) { await this._actor.update({ "system.notes": value }); }
+
 	get background() {
 		return this._background;
 	}
@@ -91,6 +97,8 @@ export class StonetopCharacter {
 			.withInserts(inserts)
 			.withFollowers(followers)
 			.withRollMode(this.rollMode)
+			.withBio(this.bio)
+			.withNotes(this.notes)
 			.build();
 	}
 
@@ -215,6 +223,7 @@ export class StonetopCharacter {
 		if (playbookItem) {
 			const playbookData = playbookItem.asPlaybook();
 			await this._playbook.selectPlaybook(playbookData);
+			await this._followers.syncPlaybookFollowers(playbookData.slug);
 			await this._possessions.addPossessionsFromPlaybook(
 				playbookData.specialPossessions, playbookData.slug,
 			);
@@ -399,8 +408,8 @@ export class StonetopCharacter {
 		await this._followers.setName(slug, name);
 	}
 
-	async setFollowerNote(slug, note) {
-		await this._followers.setNote(slug, note);
+	async toggleFollowerTag(slug, tag) {
+		await this._followers.toggleTag(slug, tag);
 	}
 
 	async setFollowerArmor(slug, armor) {

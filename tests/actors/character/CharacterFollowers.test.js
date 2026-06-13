@@ -44,6 +44,7 @@ function makeFollowerItem(data, overrides = {}) {
 			loyalty:          { value: 0, max: data.loyalty?.max ?? 3 },
 			choices:          data.choices ?? null,
 			arcanaSlug:       data.arcanaSlug ?? null,
+			playbookSlug:     data.playbookSlug ?? null,
 			specialQuality:   data.specialQuality ?? "",
 			notes:            data.notes ?? "",
 			choiceValues:     {},
@@ -683,5 +684,81 @@ describe("CharacterFollowers — addFromNpcActor", () => {
 		await cf.addFromNpcActor(makeNpcActor());
 		const created = actor.createdDocs.at(-1);
 		expect(created.system.description).toBe("A grizzled guard.");
+	});
+});
+
+// -- syncPlaybookFollowers ----------------------------------------------------
+
+describe("CharacterFollowers.syncPlaybookFollowers", () => {
+	function setup(repoFollowers = []) {
+		const actor = makeActor();
+		const cf = new CharacterFollowers(
+			actor,
+			new FakeFollowerRepository(repoFollowers),
+			makeResourceController(),
+			new ChoiceGroupFactory(actor),
+		);
+		return { actor, cf };
+	}
+
+	const CREW = new Follower({
+		slug: "crew", name: "Crew", playbookSlug: "the-marshal",
+		hp: { value: 6, max: 6 }, armor: "0", damage: "d6",
+	});
+
+	it("embeds the playbook's followers as owned, carrying playbookSlug", async () => {
+		const { actor, cf } = setup([CREW]);
+		await cf.syncPlaybookFollowers("the-marshal");
+		const item = actor.createdDocs.find(d => d.system?.slug === "crew");
+		expect(item).toBeDefined();
+		expect(item.system.owned).toBe(true);
+		expect(item.system.playbookSlug).toBe("the-marshal");
+	});
+
+	it("does not duplicate an already-embedded playbook follower", async () => {
+		const { actor, cf } = setup([CREW]);
+		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
+		await cf.syncPlaybookFollowers("the-marshal");
+		expect(actor.createdDocs.filter(d => d.system?.slug === "crew")).toHaveLength(0);
+	});
+
+	it("removes a follower tied to a different playbook (playbook swap)", async () => {
+		const { actor, cf } = setup([]);
+		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
+		await cf.syncPlaybookFollowers("the-blessed");
+		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
+	});
+
+	it("leaves arcana/manual followers (no playbookSlug) untouched", async () => {
+		const { actor, cf } = setup([]);
+		actor.items.push(makeFollowerItem({ slug: "enfys" }, { owned: true }));
+		await cf.syncPlaybookFollowers("the-marshal");
+		expect([...actor.items].some(i => i.system?.slug === "enfys")).toBe(true);
+	});
+});
+
+// -- toggleTag ----------------------------------------------------------------
+
+describe("CharacterFollowers.toggleTag", () => {
+	function setup(itemTags) {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "crew" }, { owned: true }));
+		cf._actor.items.get("crew-item").system.tags = itemTags;
+		return cf;
+	}
+
+	it("adds a tag that isn't selected and reflects it as a selected chip", async () => {
+		const cf = setup({ selected: ["group"], options: ["group", "archers"], multi: true, allowCustom: true });
+		await cf.toggleTag("crew", "archers");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.tagSelection.has("archers")).toBe(true);
+		expect(snap.isGroup).toBe(true);
+	});
+
+	it("removes a tag that is already selected", async () => {
+		const cf = setup({ selected: ["group", "archers"], options: ["group", "archers"], multi: true, allowCustom: true });
+		await cf.toggleTag("crew", "archers");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.tagSelection.has("archers")).toBe(false);
 	});
 });

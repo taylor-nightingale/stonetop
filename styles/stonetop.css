@@ -418,7 +418,8 @@ body,
 	text-decoration: underline;
 }
 
-.stonetop-resource__input {
+.stonetop-resource__input,
+.stonetop-resource__max {
 	display: block;
 	border: none;
 	background: transparent;
@@ -3887,6 +3888,65 @@ form.stonetop.sheet.steading {
 .stonetop-choice-input { width: 100%; }
 .stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
 
+/* ── Tag chips (structured tags: toggle to select, free-text to add) ───────────── */
+.stonetop-tags {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+}
+.stonetop-tag-chip,
+.stonetop-npc-tag-chip {
+	display: inline-flex;
+	flex: 0 0 auto;
+	width: auto;
+	align-items: center;
+	padding: 0 7px;
+	height: 17px;
+	border: 1px solid var(--color-border-dark-3, #8a7b66);
+	border-radius: 999px;
+	background: transparent;
+	color: var(--color-text-dark-secondary, #4b4a44);
+	font-size: 0.7rem;
+	line-height: 1;
+	white-space: nowrap;
+	cursor: pointer;
+	opacity: 0.55;
+}
+/* Selected: a soft parchment-toned fill (no stark black), in line with the sheet. */
+.stonetop-tag-chip.is-selected,
+.stonetop-npc-tag-chip.is-selected {
+	background: rgba(75, 74, 68, 0.14);
+	border-color: var(--color-border-dark, #4b4a44);
+	color: var(--color-text-dark-primary, #191813);
+	font-weight: 600;
+	opacity: 1;
+}
+.stonetop-tag-chip:hover,
+.stonetop-npc-tag-chip:hover { opacity: 1; }
+.stonetop-tag-add,
+.stonetop-npc-tag-add {
+	flex: 0 1 70px;
+	min-width: 48px;
+	border: none;
+	border-bottom: 1px dotted var(--color-border-dark-3, #8a7b66);
+	background: transparent;
+	font-size: 0.7rem;
+}
+
+/* ── Notes-style textareas (inventory "other items", and the character Notes tab) ── */
+.st-notes-textarea {
+	width: 100%;
+	min-height: 8em;
+	resize: vertical;
+	font-family: var(--font-primary);
+	line-height: 1.4;
+}
+.stonetop-notes-tab .st-notes-textarea {
+	min-height: 14em;
+	margin-bottom: 12px;
+}
+
 /* ── Hover ▲▼ stepper on number inputs (wrapper added by activateSteppers) ──────── */
 .stonetop-stepper {
 	position: relative;
@@ -3907,9 +3967,9 @@ form.stonetop.sheet.steading {
 
 .stonetop-stepper-btn {
 	position: absolute;
-	right: 0;
-	width: 13px;
-	height: 50%;
+	right: 2px;
+	width: 12px;
+	height: calc(50% - 2px);
 	margin: 0;
 	padding: 0;
 	border: none;
@@ -3923,10 +3983,15 @@ form.stonetop.sheet.steading {
 	align-items: center;
 	justify-content: center;
 }
-.stonetop-stepper-btn--up   { top: 0; }
-.stonetop-stepper-btn--down { bottom: 0; }
+.stonetop-stepper-btn--up   { top: 2px; }
+.stonetop-stepper-btn--down { bottom: 2px; }
 .stonetop-stepper:hover .stonetop-stepper-btn { display: inline-flex; }
 .stonetop-stepper-btn:hover { background: rgba(0, 0, 0, 0.2); }
+/* Bordered/standalone inputs reserve room on hover so the value clears the buttons.
+   (Framed resource/HP inputs centre their number with empty space at the edge, so they
+   don't need this and would otherwise jiggle.) */
+.stonetop-stepper:hover > .steading-surplus-input,
+.stonetop-stepper:hover > .stonetop-coinage-input { padding-right: 16px; }
 
 /* Split lines (armor│hp, cost│loyalty): the right item is pinned to the far right. */
 .stonetop-creature-line--split > .stonetop-follower-loyalty,

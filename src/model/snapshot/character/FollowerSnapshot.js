@@ -14,11 +14,15 @@
  * @property {string}                   description
  * @property {ChoiceGroup|null}         choices
  */
+import { Selection } from "../../data/Selection.js";
+
 export class FollowerSnapshot {
 	constructor(b) {
 		this.slug           = b._slug;
 		this.name           = b._name;
-		this.tags           = b._tags;
+		this.tagSelection   = Selection.fromStored(b._tags);
+		this.tags           = this.tagSelection.text;   // display string (back-compat)
+		this.isGroup        = this.tagSelection.has("group");
 		this.hp             = b._hp;
 		this.hpMax          = b._hpMax;
 		this.armor          = b._armor;

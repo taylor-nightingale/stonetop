@@ -9,9 +9,10 @@ describe("NpcItemData defaults (creature core + follower fields)", () => {
 		expect(d.reference).toBeNull();
 	});
 
-	it("defaults tags, specialQuality, instinct, description, notes to empty string", () => {
+	it("defaults tags to an empty multi-selection and the rest to empty string", () => {
 		const d = new NpcItemData();
-		expect(d.tags).toBe("");
+		expect(d.tags.selected).toEqual([]);
+		expect(d.tags.multi).toBe(true);
 		expect(d.specialQuality).toBe("");
 		expect(d.instinct).toBe("");
 		expect(d.description).toBe("");

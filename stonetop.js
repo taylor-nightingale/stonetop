@@ -135,6 +135,7 @@ Hooks.once("init", () => {
 		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
 		"stonetop.editable-field":   "systems/stonetop/templates/actor/partials/editable-field.hbs",
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
+		"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",

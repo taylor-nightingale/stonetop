@@ -7,7 +7,22 @@
 	"system": {
 		"slug": "the-mighty-servant",
 		"arcanaSlug": "mindgem",
-		"tags": "large, construct, Maker-wise, beautiful, meek, hardy, slow, strong, exceptional",
+		"tags": {
+			"selected": [
+				"large",
+				"construct",
+				"Maker-wise",
+				"beautiful",
+				"meek",
+				"hardy",
+				"slow",
+				"strong",
+				"exceptional"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 24

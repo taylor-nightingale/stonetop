@@ -5,7 +5,18 @@
 	"system": {
 		"slug": "mantle-wraiths",
 		"arcanaSlug": "tattered-mantle",
-		"tags": "Group (3), spirit, undead, terrifying, vicious",
+		"tags": {
+			"selected": [
+				"Group (3)",
+				"spirit",
+				"undead",
+				"terrifying",
+				"vicious"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 13

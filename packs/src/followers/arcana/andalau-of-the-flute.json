@@ -5,7 +5,17 @@
 	"system": {
 		"slug": "andalau-of-the-flute",
 		"arcanaSlug": "cracked-flute",
-		"tags": "spirit, tiny, stealthy, mischievous",
+		"tags": {
+			"selected": [
+				"spirit",
+				"tiny",
+				"stealthy",
+				"mischievous"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 8

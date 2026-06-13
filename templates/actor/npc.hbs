@@ -2,8 +2,18 @@
 
 	{{> "stonetop.actor-header"}}
 
-	<input type="text" id="npc-tags" class="stonetop-follower-note-input" value="{{stonetop.tags}}"
-	       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
+	<div class="stonetop-tags stonetop-npc-tags">
+		{{#each stonetop.tagSelection.values}}
+		<button type="button" class="stonetop-npc-tag-chip is-selected" data-tag="{{this}}" title="Remove tag">{{this}}</button>
+		{{/each}}
+		<input type="text" class="stonetop-npc-tag-add" list="npc-tags-list"
+		       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
+		{{#if stonetop.tagSelection.unselectedOptions.length}}
+		<datalist id="npc-tags-list">
+			{{#each stonetop.tagSelection.unselectedOptions}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		{{/if}}
+	</div>
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">

@@ -8,8 +8,18 @@
 	{{/unless}}
 
 	<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
-	<input type="text" class="stonetop-follower-note-input" value="{{tags}}" data-slug="{{slug}}"
-	       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
+	<div class="stonetop-tags" data-slug="{{slug}}">
+		{{#each tagSelection.values}}
+		<button type="button" class="stonetop-tag-chip is-selected" data-tag="{{this}}" title="Remove tag">{{this}}</button>
+		{{/each}}
+		<input type="text" class="stonetop-tag-add" data-slug="{{slug}}" list="tags-{{slug}}"
+		       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
+		{{#if tagSelection.unselectedOptions.length}}
+		<datalist id="tags-{{slug}}">
+			{{#each tagSelection.unselectedOptions}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		{{/if}}
+	</div>
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">

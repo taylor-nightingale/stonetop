@@ -2,6 +2,22 @@
 // NpcItemData (follower Item). See follower-npc-model.md.
 
 import { migrateChoicesField } from "../migration/migrateChoices.js";
+import { Selection } from "../model/data/Selection.js";
+
+/**
+ * A first-class "pick from a list (+ optional custom)" field, used for tags (multi) and —
+ * later — instinct / cost (single). Stored shape mirrors Selection.toRaw().
+ * See follower-data-architecture.md.
+ */
+export function selectionField({ multi = false, allowCustom = true } = {}) {
+	const f = foundry.data.fields;
+	return new f.SchemaField({
+		selected:    new f.ArrayField(new f.StringField()),
+		options:     new f.ArrayField(new f.StringField()),
+		multi:       new f.BooleanField({ initial: multi }),
+		allowCustom: new f.BooleanField({ initial: allowCustom }),
+	});
+}
 
 /** The stat block shared by NPCs and followers. Copied wholesale when dragging an NPC. */
 export function creatureFields() {
@@ -9,7 +25,7 @@ export function creatureFields() {
 	return {
 		slug:           new f.StringField({ nullable: true, initial: null }),
 		reference:      new f.StringField({ nullable: true, initial: null }), // lore-entry slug
-		tags:           new f.StringField({ initial: "" }),
+		tags:           selectionField({ multi: true }),
 		hp:             new f.SchemaField({
 			value: new f.NumberField({ initial: 0, integer: true }),
 			max:   new f.NumberField({ initial: 0, integer: true }),
@@ -29,6 +45,7 @@ export function followerFields() {
 	const f = foundry.data.fields;
 	return {
 		arcanaSlug:   new f.StringField({ nullable: true, initial: null }),
+		playbookSlug: new f.StringField({ nullable: true, initial: null }),
 		owned:        new f.BooleanField({ initial: false }),
 		cost:         new f.StringField({ initial: "" }),
 		loyalty:      new f.SchemaField({
@@ -46,6 +63,11 @@ export function followerFields() {
  * Mutates and returns `source`.
  */
 export function migrateCreatureData(source) {
+	// tags: legacy free string "a, b, c" -> structured multi-selection
+	if (source.tags === undefined || typeof source.tags === "string") {
+		source.tags = Selection.fromStored(source.tags ?? "", { multi: true }).toRaw();
+	}
+
 	// hp: flat NPC number (+ maxHp) OR legacy {value,min,max} -> {value, max}
 	if (source.hp !== undefined || source.maxHp !== undefined) {
 		const hp    = source.hp;

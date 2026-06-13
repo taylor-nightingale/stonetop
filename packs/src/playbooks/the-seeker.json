@@ -248,7 +248,7 @@
       }
     ],
     "introductions": {
-      "step3": "On your third turn, **tell us what you're worried about** (see \"Something wicked this way comes\").",
+      "step3": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -267,11 +267,11 @@
             }
           },
           {
-            "slug": "always-return-home",
+            "slug": "spouse-lover-betrothed",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "To whom do you always return home?"
+              "text": "Who is your spouse/lover/betrothed?"
             },
             "track": {
               "max": 1
@@ -281,11 +281,11 @@
             }
           },
           {
-            "slug": "lost-without-you",
+            "slug": "trust-more",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Who would be lost without you?"
+              "text": "Whom do you trust, even more than yourself?"
             },
             "track": {
               "max": 1
@@ -295,11 +295,11 @@
             }
           },
           {
-            "slug": "learn-from-you",
+            "slug": "secretly-watch",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Who has much to learn from you?"
+              "text": "Whom do you secretly watch over, and why?"
             },
             "track": {
               "max": 1
@@ -314,11 +314,11 @@
         "slug": "intro-pc",
         "list": [
           {
-            "slug": "fears-wider-world",
+            "slug": "key-discovery",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you fears the wider world?"
+              "text": "Which one of you led me to a key discovery?"
             },
             "track": {
               "max": 1
@@ -328,11 +328,11 @@
             }
           },
           {
-            "slug": "great-beauty",
+            "slug": "been-at-my-side",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you has shown me great beauty?"
+              "text": "Which one of you has been at my side the entire way?"
             },
             "track": {
               "max": 1
@@ -342,11 +342,11 @@
             }
           },
           {
-            "slug": "staring-horizon",
+            "slug": "fears-path",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you have I caught sometimes staring out at the horizon?"
+              "text": "Which one of you most fears the path I tread?"
             },
             "track": {
               "max": 1
@@ -356,11 +356,11 @@
             }
           },
           {
-            "slug": "lacked-stomach",
+            "slug": "keeping-secrets",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you lacked the stomach to put something out of its misery?"
+              "text": "Which one of you is keeping secrets from me?"
             },
             "track": {
               "max": 1

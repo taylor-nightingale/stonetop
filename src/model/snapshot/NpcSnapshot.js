@@ -1,10 +1,14 @@
+import { Selection } from "../data/Selection.js";
+
 export class NpcSnapshot {
 	constructor(b) {
 		this.hp               = b._hp;
 		this.hpMax            = b._hpMax;
 		this.armor            = b._armor;
 		this.damage           = b._damage;
-		this.tags             = b._tags             ?? "";
+		this.tagSelection     = Selection.fromStored(b._tags);
+		this.tags             = this.tagSelection.text;
+		this.isGroup          = this.tagSelection.has("group");
 		this.specialQuality   = b._specialQuality   ?? "";
 		this.instinct         = b._instinct         ?? "";
 		this.moves            = b._moves            ?? [];

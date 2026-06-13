@@ -5,7 +5,18 @@
 	"system": {
 		"slug": "all-mighty-thistlewisk",
 		"arcanaSlug": "stone-idol",
-		"tags": "Fae, tiny, magical, devious, arrogant",
+		"tags": {
+			"selected": [
+				"Fae",
+				"tiny",
+				"magical",
+				"devious",
+				"arrogant"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 15

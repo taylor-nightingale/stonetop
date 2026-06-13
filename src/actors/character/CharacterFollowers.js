@@ -2,6 +2,7 @@ import { FollowerSnapshotBuilder } from "../../model/snapshot/character/Follower
 import { enrichGameText } from "../../utils/enrichGameText.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
+import { Selection } from "../../model/data/Selection.js";
 
 export class CharacterFollowers {
 	constructor(actor, followerRepo, resourceController, factory = null) {
@@ -31,6 +32,27 @@ export class CharacterFollowers {
 			name: follower.name, type: "npc",
 			system: { ..._followerToSystemFields(follower), owned: true },
 		}]);
+	}
+
+	// Embed the followers tied to the active playbook (owned), and drop any left over from a
+	// previously-selected playbook. Called when the playbook is chosen/changed.
+	async syncPlaybookFollowers(playbookSlug) {
+		for (const item of [...this._actor.items]) {
+			if (item.type !== "npc") continue;
+			const ps = item.system?.playbookSlug;
+			if (ps && ps !== playbookSlug) {
+				await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
+			}
+		}
+		if (!playbookSlug) return;
+		const followers = await this._followerRepo.findByPlaybook(playbookSlug);
+		for (const follower of followers) {
+			if (_findFollowerItem(this._actor, follower.slug)) continue;
+			await this._actor.createEmbeddedDocuments("Item", [{
+				name: follower.name, type: "npc",
+				system: { ..._followerToSystemFields(follower), owned: true },
+			}]);
+		}
 	}
 
 	async embedLinkedFollowers(slugs) {
@@ -63,7 +85,7 @@ export class CharacterFollowers {
 		await this._actor.createEmbeddedDocuments("Item", [{
 			name: blank?.name ?? "New Follower", type: "npc",
 			system: {
-				slug, arcanaSlug: null, tags: "", owned: true, choiceValues: {},
+				slug, arcanaSlug: null, tags: Selection.fromStored(blank?.tags).toRaw(), owned: true, choiceValues: {},
 				hp:      { value: blank?.hp?.max ?? 6, max: blank?.hp?.max ?? 6 },
 				armor:   blank?.armor ?? "",
 				damage:  "",
@@ -82,7 +104,7 @@ export class CharacterFollowers {
 			name: npcActor.name, type: "npc",
 			system: {
 				// creature core copied from the NPC (shared schema → direct copy)
-				tags:           sys.tags ?? "",
+				tags:           Selection.fromStored(sys.tags).toRaw(),
 				hp:             { value: sys.hp?.value ?? 0, max: (sys.hp?.max || sys.hp?.value) ?? 0 },
 				armor:          sys.armor ?? "",
 				damage:         sys.damage ?? "",
@@ -122,7 +144,15 @@ export class CharacterFollowers {
 	async setTags(slug, tags) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tags } }]);
+		const stored = Selection.fromStored(tags, { options: item.system?.tags?.options ?? [] }).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tags: stored } }]);
+	}
+
+	async toggleTag(slug, tag) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item || !tag) return;
+		const stored = Selection.fromStored(item.system?.tags).toggle(tag).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tags: stored } }]);
 	}
 
 	async setLoyalty(slug, loyalty) {
@@ -235,7 +265,8 @@ function _followerToSystemFields(follower) {
 	return {
 		slug:           follower.slug,
 		arcanaSlug:     follower.arcanaSlug ?? null,
-		tags:           follower.tags ?? "",
+		playbookSlug:   follower.playbookSlug ?? null,
+		tags:           Selection.fromStored(follower.tags).toRaw(),
 		hp:             { value: follower.hp?.value ?? 0, max: follower.hp?.max ?? 0 },
 		armor:          follower.armor ?? "",
 		damage:         follower.damage ?? "",

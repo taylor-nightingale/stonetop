@@ -5,7 +5,18 @@
 	"system": {
 		"slug": "tulpa",
 		"arcanaSlug": "beautiful-scroll",
-		"tags": "spirit, construct, tiny, naive, eager",
+		"tags": {
+			"selected": [
+				"spirit",
+				"construct",
+				"tiny",
+				"naive",
+				"eager"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 8

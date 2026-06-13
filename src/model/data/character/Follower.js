@@ -12,6 +12,7 @@ export class Follower {
 		this.loyalty          = data.loyalty          ?? { value: 0, max: 0 };
 		this.choices          = data.choices          ?? null;
 		this.arcanaSlug       = data.arcanaSlug       ?? null;
+		this.playbookSlug     = data.playbookSlug     ?? null;
 		this.specialQuality   = data.specialQuality   ?? "";
 		this.description      = data.description       ?? "";
 		this.notes            = data.notes            ?? "";

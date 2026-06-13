@@ -56,9 +56,13 @@ export function createStonetopNpcSheetClass(Base) {
 				await this._stonetopNpc.setInstinct(ev.currentTarget.value);
 			});
 
-			// Tags
-			html.find("#npc-tags").on("change", async ev => {
-				await this._stonetopNpc.setTags(ev.currentTarget.value);
+			// Tags — clickable chips + free-text add
+			html.find(".stonetop-npc-tag-chip").on("click", async ev => {
+				await this._stonetopNpc.toggleTag(ev.currentTarget.dataset.tag);
+			});
+			html.find(".stonetop-npc-tag-add").on("change", async ev => {
+				const value = ev.currentTarget.value.trim();
+				if (value) await this._stonetopNpc.toggleTag(value);
 			});
 
 			// Moves

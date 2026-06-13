@@ -21,7 +21,14 @@
 				"moves": "Moves",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
-				"followers": "Followers"
+				"followers": "Followers",
+				"notes": "Notes"
+			},
+			"notes": {
+				"bio": "Bio",
+				"bioPlaceholder": "Who is your character? Appearance, history, demeanor…",
+				"notes": "Notes",
+				"notesPlaceholder": "Session notes, reminders, goals…"
 			},
 			"playbook": {
 				"emptyHint": "Select or drag a playbook here to start.",

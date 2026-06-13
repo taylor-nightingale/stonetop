@@ -24,9 +24,6 @@
 * Add button to create or break a link to an NPC to residents and neighbors.
 * Add journal linking to places of interest
 * Support threats
-* Seeker introductions are wrong
-
-* character sheet tab for bio/notes
 
 == Nice to have
 * toggle to turn off non-selected character options

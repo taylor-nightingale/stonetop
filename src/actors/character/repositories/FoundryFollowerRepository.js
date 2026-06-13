@@ -28,4 +28,16 @@ export class FoundryFollowerRepository {
 	async findBySlugs(slugs) {
 		return (await Promise.all(slugs.map(s => this.findBySlug(s)))).filter(Boolean);
 	}
+
+	async findByPlaybook(playbookSlug) {
+		const [entries, worldEntries] = await Promise.all([
+			this._store.filterEntries(e => e.system?.playbookSlug === playbookSlug),
+			this._worldStore.filterEntries(e => e.system?.playbookSlug === playbookSlug),
+		]);
+		const docs = await Promise.all(entries.map(e => this._store.getDocument(e._id)));
+		return [
+			...docs.map(doc => new Follower({ name: doc.name, ...doc.system })),
+			...worldEntries.map(e => new Follower({ name: e.name, ...e.system })),
+		];
+	}
 }

@@ -5,7 +5,17 @@
 	"system": {
 		"slug": "unliving-chimera",
 		"arcanaSlug": "rusty-cauldron",
-		"tags": "Undead, construct, terrifying, clumsy",
+		"tags": {
+			"selected": [
+				"Undead",
+				"construct",
+				"terrifying",
+				"clumsy"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 3

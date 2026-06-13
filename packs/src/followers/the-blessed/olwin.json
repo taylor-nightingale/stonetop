@@ -7,7 +7,17 @@
 	"system": {
 		"slug": "olwin",
 		"arcanaSlug": null,
-		"tags": "Fates-wise, beautiful, passionate, magical",
+		"tags": {
+			"selected": [
+				"Fates-wise",
+				"beautiful",
+				"passionate",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
 		"hp": {
 			"value": 0,
 			"max": 6

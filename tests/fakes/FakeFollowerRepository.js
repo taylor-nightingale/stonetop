@@ -17,4 +17,12 @@ export class FakeFollowerRepository {
 		const world = await this._worldStore.filterEntries(e => slugs.includes(e.system?.slug));
 		return [...this._followers.filter(f => slugs.includes(f.slug)), ...world];
 	}
+
+	async findByPlaybook(playbookSlug) {
+		const world = await this._worldStore.filterEntries(e => e.system?.playbookSlug === playbookSlug);
+		return [
+			...this._followers.filter(f => f.playbookSlug === playbookSlug),
+			...world.map(e => ({ name: e.name, ...e.system })),
+		];
+	}
 }
