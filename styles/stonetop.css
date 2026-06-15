@@ -2469,9 +2469,9 @@ body,
    clipped by the follower card's per-child z-index:1 stacking contexts (the bug that broke the
    floating-dropdown attempts). */
 .stonetop-combo {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
 	gap: 2px;
 	flex: 1 1 auto;
 	min-width: 0;
@@ -2505,21 +2505,27 @@ body,
 }
 .stonetop-combo-toggle:hover { opacity: 1; }
 .stonetop-combo-list {
-	flex: 1 1 100%;       /* full-width new row, in normal flow */
-	margin: 2px 0;
+	position: fixed;      /* portaled to <body>, positioned at the input by comboBox.js */
+	z-index: 10000;
+	margin: 0;
 	padding: 2px;
 	list-style: none;
 	max-height: 220px;
 	overflow-y: auto;
 	background: var(--stonetop-bg, #f4ecd8);
+	/* Portaled out of the sheet scope, so set the sheet's dark text color explicitly
+	   (otherwise it inherits Foundry's default link/yellow text from <body>). */
+	color: var(--color-text-dark-primary, #191813);
 	border: 1px solid var(--color-border-dark);
-	border-radius: 2px;
+	border-radius: 3px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
 }
 .stonetop-combo-list[hidden] { display: none; }
 .stonetop-combo-option {
 	padding: 3px 6px;
 	font-size: 0.82rem;
 	line-height: 1.3;
+	color: inherit;       /* not Foundry's default <li> color (the list is portaled to <body>) */
 	cursor: pointer;
 	border-radius: 2px;
 }
