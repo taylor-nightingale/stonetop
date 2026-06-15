@@ -7,13 +7,13 @@
 		"slug": "hatchet",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "hand, thrown",
 		"note": "x piercing",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 16,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "hand, thrown"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

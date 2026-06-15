@@ -7,7 +7,44 @@
 	"system": {
 		"slug": "the-mighty-servant",
 		"arcanaSlug": "mindgem",
-		"tags": {
+		"hp": {
+			"value": 0,
+			"max": 24
+		},
+		"armor": "4",
+		"damage": "stone fists d10+1 (hand, close, disadvantage)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to misunderstand"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"description": "",
+		"moves": "- living stone, tireless",
+		"cost": {
+			"selected": [
+				"wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
 			"selected": [
 				"large",
 				"construct",
@@ -22,30 +59,7 @@
 			"options": [],
 			"multi": true,
 			"allowCustom": true
-		},
-		"hp": {
-			"value": 0,
-			"max": 24
-		},
-		"armor": "4",
-		"damage": "stone fists d10+1 (hand, close, disadvantage)",
-		"specialQuality": "",
-		"instinct": "to misunderstand",
-		"loyalty": {
-			"value": 0,
-			"max": 3
-		},
-		"choices": [
-			{
-				"slug": "choices",
-				"list": []
-			}
-		],
-		"description": "",
-		"moves": "- living stone, tireless",
-		"cost": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)",
-		"notes": "",
-		"reference": null
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

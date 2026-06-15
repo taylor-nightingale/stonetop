@@ -7,7 +7,6 @@
 		"slug": "bow-arrows",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "near",
 		"note": "x piercing",
 		"resource": {
 			"max": 2,
@@ -20,7 +19,8 @@
 		"twoCol": false,
 		"sortOrder": 22,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "near"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

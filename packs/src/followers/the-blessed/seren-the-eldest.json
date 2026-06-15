@@ -7,18 +7,6 @@
 	"system": {
 		"slug": "seren-the-eldest",
 		"arcanaSlug": null,
-		"tags": {
-			"selected": [
-				"Exceptional",
-				"story-wise",
-				"insightful",
-				"frail",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 3
@@ -26,7 +14,14 @@
 		"armor": "0",
 		"damage": "walking stick [[/r 1d4]] (_close_)",
 		"specialQuality": "",
-		"instinct": "to hew to tradition",
+		"instinct": {
+			"selected": [
+				"to hew to tradition"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -131,9 +126,28 @@
 		],
 		"description": "",
 		"moves": "- Consult the spirits, or abjure them\n- Spin a tale to make a point\n- Use shame and guilt as leverage",
-		"cost": "deference, good sense shown",
+		"cost": {
+			"selected": [
+				"deference, good sense shown"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Exceptional",
+				"story-wise",
+				"insightful",
+				"frail",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

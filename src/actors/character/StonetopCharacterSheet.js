@@ -292,14 +292,14 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("click", ev => {
 				const chip = ev.target.closest(".stonetop-tag-chip");
 				if (!chip) return;
-				const slug = chip.closest("[data-slug]")?.dataset.slug;
-				this._stonetopCharacter.toggleFollowerTag(slug, chip.dataset.tag);
+				const wrap = chip.closest(".stonetop-tags");
+				this._toggleTag(wrap, chip.dataset.tag);
 			}, true);
 
 			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-tag-add");
 				if (!input?.value.trim()) return;
-				this._stonetopCharacter.toggleFollowerTag(input.dataset.slug, input.value.trim());
+				this._toggleTag(input.closest(".stonetop-tags"), input.value.trim());
 				input.value = "";
 			}, true);
 
@@ -349,6 +349,35 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (!input) return;
 				this._stonetopCharacter.setFollowerNotes(input.dataset.slug, input.value);
 			}, true);
+
+			// Group members (per-member name + HP, add/remove)
+			html[0].addEventListener("change", ev => {
+				const name = ev.target.closest(".stonetop-member-name");
+				if (name) return void this._stonetopCharacter.setFollowerMemberName(name.dataset.slug, Number(name.dataset.index), name.value);
+				const hp = ev.target.closest(".stonetop-member-hp-value");
+				if (hp) return void this._stonetopCharacter.setFollowerMemberHp(hp.dataset.slug, Number(hp.dataset.index), hp.value);
+				const max = ev.target.closest(".stonetop-member-hp-max");
+				if (max) return void this._stonetopCharacter.setFollowerMemberHpMax(max.dataset.slug, Number(max.dataset.index), max.value);
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const add = ev.target.closest(".stonetop-member-add");
+				if (add) return void this._stonetopCharacter.addFollowerMember(add.dataset.slug);
+				const remove = ev.target.closest(".stonetop-member-remove");
+				if (remove) return void this._stonetopCharacter.removeFollowerMember(remove.dataset.slug, Number(remove.dataset.index));
+			}, true);
+		}
+
+		// Toggle a tag/trait on a follower, or on one of its group members when the chip wrap
+		// carries data-member-index. Shared by the chip-click and add-dropdown handlers.
+		_toggleTag(wrap, value) {
+			if (!wrap || !value) return;
+			const { slug, field, memberIndex } = wrap.dataset;
+			if (memberIndex !== undefined) {
+				this._stonetopCharacter.toggleFollowerMemberSelection(slug, Number(memberIndex), field, value);
+			} else {
+				this._stonetopCharacter.toggleFollowerSelection(slug, field, value);
+			}
 		}
 
 		async _onDropActor(ev, data) {

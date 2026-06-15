@@ -18,10 +18,11 @@ describe("NpcData defaults (composed creature core)", () => {
 
 	it("defaults tags to an empty multi-selection and the rest to empty string", () => {
 		const d = new NpcData();
-		expect(d.tags.selected).toEqual([]);
-		expect(d.tags.multi).toBe(true);
+		expect(d.tagList.selected).toEqual([]);
+		expect(d.tagList.multi).toBe(true);
+		expect(d.instinct.selected).toEqual([]);
+		expect(d.instinct.multi).toBe(false);
 		expect(d.specialQuality).toBe("");
-		expect(d.instinct).toBe("");
 		expect(d.description).toBe("");
 		expect(d.notes).toBe("");
 	});

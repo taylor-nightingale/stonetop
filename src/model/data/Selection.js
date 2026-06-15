@@ -26,7 +26,10 @@ export class Selection {
 	static fromStored(raw, { multi = true, options = [], allowCustom = true } = {}) {
 		if (raw instanceof Selection) return raw;
 		if (typeof raw === "string") {
-			const selected = raw.split(",").map(t => t.trim()).filter(Boolean);
+			// Multi splits on commas; single keeps the whole string (it may contain commas).
+			const selected = multi
+				? raw.split(",").map(t => t.trim()).filter(Boolean)
+				: (raw.trim() ? [raw.trim()] : []);
 			return new Selection({ selected, options, multi, allowCustom });
 		}
 		if (raw && typeof raw === "object") return new Selection(raw);

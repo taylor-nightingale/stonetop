@@ -7,13 +7,13 @@
 		"slug": "snow-shoes",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 11,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

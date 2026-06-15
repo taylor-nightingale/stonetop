@@ -2,18 +2,7 @@
 
 	{{> "stonetop.actor-header"}}
 
-	<div class="stonetop-tags stonetop-npc-tags">
-		{{#each stonetop.tagSelection.values}}
-		<button type="button" class="stonetop-npc-tag-chip is-selected" data-tag="{{this}}" title="Remove tag">{{this}}</button>
-		{{/each}}
-		<input type="text" class="stonetop-npc-tag-add" list="npc-tags-list"
-		       placeholder="{{localize 'stonetop.followers.notePlaceholder'}}">
-		{{#if stonetop.tagSelection.unselectedOptions.length}}
-		<datalist id="npc-tags-list">
-			{{#each stonetop.tagSelection.unselectedOptions}}<option value="{{this}}"></option>{{/each}}
-		</datalist>
-		{{/if}}
-	</div>
+	{{> "stonetop.selection-chips" sel=stonetop.tagSelection slug=slug field="tagList" placeholder=(localize "stonetop.followers.notePlaceholder")}}
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">
@@ -29,8 +18,7 @@
 			</div>
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
-				{{> "stonetop.editable-field" html=stonetop.instinctHtml value=stonetop.instinct slug=slug
-					inputId="npc-instinct" inputClass="stonetop-follower-instinct"}}
+				{{> "stonetop.selection-input" sel=stonetop.instinctSelection slug=slug field="instinct" inputClass="stonetop-npc-instinct" placeholder=(localize "stonetop.followers.instinct")}}
 			</div>
 		</div>
 		<div class="stonetop-creature-hp">

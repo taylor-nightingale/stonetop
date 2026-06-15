@@ -45,7 +45,7 @@ describe("migrateFollowers — custom followers", () => {
 		expect(created.system.hp).toEqual({ value: 8, max: 10 });
 		expect(created.system.armor).toBe("1");
 		expect(created.system.damage).toBe("d6");
-		expect(created.system.tags).toBe("gruff");
+		expect(created.system.tagList).toBe("gruff");
 	});
 
 	it("uses fallback values when state fields are absent", async () => {

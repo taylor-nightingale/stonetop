@@ -7,18 +7,6 @@
 	"system": {
 		"slug": "gwendyl",
 		"arcanaSlug": null,
-		"tags": {
-			"selected": [
-				"Herb-wise",
-				"gossipy",
-				"tireless",
-				"healer",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 6
@@ -26,7 +14,14 @@
 		"armor": "0",
 		"damage": "iron knife [[/r 1d6]] (_hand_)",
 		"specialQuality": "",
-		"instinct": "to take offense",
+		"instinct": {
+			"selected": [
+				"to take offense"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -131,9 +126,28 @@
 		],
 		"description": "",
 		"moves": "- Tend to the sick, injured, women in labor\n- Weave a talisman of fertility or good luck\n- Point out a flaw in a person or plan",
-		"cost": "consideration, affection",
+		"cost": {
+			"selected": [
+				"consideration, affection"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Herb-wise",
+				"gossipy",
+				"tireless",
+				"healer",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

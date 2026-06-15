@@ -7,17 +7,6 @@
 	"system": {
 		"slug": "olwin",
 		"arcanaSlug": null,
-		"tags": {
-			"selected": [
-				"Fates-wise",
-				"beautiful",
-				"passionate",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 6
@@ -25,7 +14,14 @@
 		"armor": "1",
 		"damage": "iron spear [[/r 1d6]] (_close, thrown_)",
 		"specialQuality": "",
-		"instinct": "to lack discretion",
+		"instinct": {
+			"selected": [
+				"to lack discretion"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -134,9 +130,27 @@
 		],
 		"description": "",
 		"moves": "- Perform a divination\n- Speak a (dire) prophecy\n- Make a big deal about something",
-		"cost": "tenderness, respect",
+		"cost": {
+			"selected": [
+				"tenderness, respect"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Fates-wise",
+				"beautiful",
+				"passionate",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

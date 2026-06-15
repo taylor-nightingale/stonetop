@@ -85,11 +85,11 @@ export class CharacterFollowers {
 		await this._actor.createEmbeddedDocuments("Item", [{
 			name: blank?.name ?? "New Follower", type: "npc",
 			system: {
-				slug, arcanaSlug: null, tags: Selection.fromStored(blank?.tags).toRaw(), owned: true, choiceValues: {},
+				slug, arcanaSlug: null, tagList: Selection.fromStored(blank?.tags).toRaw(), owned: true, choiceValues: {},
 				hp:      { value: blank?.hp?.max ?? 6, max: blank?.hp?.max ?? 6 },
 				armor:   blank?.armor ?? "",
 				damage:  "",
-				instinct: "", moves: "", cost: "", notes: "",
+				instinct: Selection.fromStored("").toRaw(), moves: "", cost: Selection.fromStored("").toRaw(), notes: "",
 				loyalty: { value: 0, max: 3 },
 				choices: blank?.choices ?? null, specialQuality: "",
 			},
@@ -104,12 +104,12 @@ export class CharacterFollowers {
 			name: npcActor.name, type: "npc",
 			system: {
 				// creature core copied from the NPC (shared schema → direct copy)
-				tags:           Selection.fromStored(sys.tags).toRaw(),
+				tagList:   Selection.fromStored(sys.tagList).toRaw(),
 				hp:             { value: sys.hp?.value ?? 0, max: (sys.hp?.max || sys.hp?.value) ?? 0 },
 				armor:          sys.armor ?? "",
 				damage:         sys.damage ?? "",
 				specialQuality: sys.specialQuality ?? "",
-				instinct:       sys.instinct ?? "",
+				instinct:       Selection.fromStored(sys.instinct).toRaw(),
 				moves:          sys.moves ?? "",
 				description:    sys.description ?? "",
 				notes:          sys.notes ?? "",
@@ -144,19 +144,61 @@ export class CharacterFollowers {
 	async setTags(slug, tags) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		const stored = Selection.fromStored(tags, { options: item.system?.tags?.options ?? [] }).toRaw();
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tags: stored } }]);
+		const stored = Selection.fromStored(tags, { options: item.system?.tagList?.options ?? [] }).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tagList: stored } }]);
 	}
 
-	async toggleTag(slug, tag) {
+	// Toggle a value in any Selection field (tags, instinct, cost). Single-select fields
+	// replace; multi-select add/remove (handled by Selection.toggle).
+	async toggleSelection(slug, field, value) {
 		const item = _findFollowerItem(this._actor, slug);
-		if (!item || !tag) return;
-		const stored = Selection.fromStored(item.system?.tags).toggle(tag).toRaw();
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { tags: stored } }]);
+		if (!item || !field || !value) return;
+		const stored = Selection.fromStored(item.system?.[field]).toggle(value).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { [field]: stored } }]);
 	}
 
 	async setLoyalty(slug, loyalty) {
 		await this._resourceController.set("followers", slug, loyalty);
+	}
+
+	// --- Group members: each owns its HP; the new member starts at the group's shared max. ---
+	async addMember(slug) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		const max = item.system?.hp?.max ?? 0;
+		const blank = { name: "", hp: { value: max, max }, tags: Selection.multi([]).toRaw(), traits: Selection.multi([]).toRaw() };
+		const members = [..._members(item), blank];
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { members } }]);
+	}
+
+	async removeMember(slug, index) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		const members = _members(item);
+		if (index < 0 || index >= members.length) return;
+		members.splice(index, 1);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { members } }]);
+	}
+
+	async setMemberName(slug, index, name)  { await this._updateMember(slug, index, m => ({ ...m, name })); }
+	async setMemberHp(slug, index, value)   { await this._updateMember(slug, index, m => ({ ...m, hp: { ...m.hp, value: Number(value) } })); }
+	async setMemberHpMax(slug, index, max)  { await this._updateMember(slug, index, m => ({ ...m, hp: { ...m.hp, max: Number(max) } })); }
+
+	// Toggle a per-member tag or trait (field = "tags" | "traits").
+	async toggleMemberSelection(slug, index, field, value) {
+		if (!value || (field !== "tags" && field !== "traits")) return;
+		await this._updateMember(slug, index, m => ({
+			...m, [field]: Selection.fromStored(m[field], { multi: true }).toggle(value).toRaw(),
+		}));
+	}
+
+	async _updateMember(slug, index, fn) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		const members = _members(item);
+		if (index < 0 || index >= members.length) return;
+		members[index] = fn(members[index]);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { members } }]);
 	}
 
 	async setArmor(slug, armor) {
@@ -174,7 +216,8 @@ export class CharacterFollowers {
 	async setInstinct(slug, instinct) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { instinct } }]);
+		const stored = Selection.fromStored(instinct, { multi: false, options: item.system?.instinct?.options ?? [] }).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { instinct: stored } }]);
 	}
 
 	async setMoves(slug, moves) {
@@ -186,7 +229,8 @@ export class CharacterFollowers {
 	async setCost(slug, cost) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { cost } }]);
+		const stored = Selection.fromStored(cost, { multi: false, options: item.system?.cost?.options ?? [] }).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { cost: stored } }]);
 	}
 
 	async setNotes(slug, notes) {
@@ -240,7 +284,7 @@ export class CharacterFollowers {
 		return new FollowerSnapshotBuilder()
 			.withSlug(sys.slug)
 			.withName(item.name)
-			.withTags(sys.tags ?? null)
+			.withTags(sys.tagList ?? null)
 			.withHp(sys.hp?.value ?? 0)
 			.withHpMax(sys.hp?.max ?? 0)
 			.withArmor(sys.armor ?? "")
@@ -253,6 +297,9 @@ export class CharacterFollowers {
 			.withNotes(sys.notes ?? "")
 			.withChoices(sys.choices?.length ? ChoiceGroup.fromPackData(sys.choices[0], values) : null)
 			.withArcanaSlug(sys.arcanaSlug ?? null)
+			.withMembers(sys.members ?? [])
+			.withMemberSuggestions(sys.memberSuggestions ?? { names: [], tags: [], traits: [] })
+			.withMembersNote(sys.membersNote ?? "")
 			.build();
 	}
 }
@@ -261,23 +308,43 @@ function _findFollowerItem(actor, slug) {
 	return [...actor.items].find(i => i.type === "npc" && i.system?.slug === slug) ?? null;
 }
 
+// Plain-object clone of a follower's members (Foundry replaces arrays wholesale on update).
+function _members(item) {
+	return (item.system?.members ?? []).map(m => ({
+		name: m.name ?? "",
+		hp:   { value: m.hp?.value ?? 0, max: m.hp?.max ?? 0 },
+		tags:   Selection.fromStored(m.tags,   { multi: true }).toRaw(),
+		traits: Selection.fromStored(m.traits, { multi: true }).toRaw(),
+	}));
+}
+
 function _followerToSystemFields(follower) {
 	return {
 		slug:           follower.slug,
 		arcanaSlug:     follower.arcanaSlug ?? null,
 		playbookSlug:   follower.playbookSlug ?? null,
-		tags:           Selection.fromStored(follower.tags).toRaw(),
-		hp:             { value: follower.hp?.value ?? 0, max: follower.hp?.max ?? 0 },
+		tagList:   Selection.fromStored(follower.tags).toRaw(),
+		// New followers start at full HP (pack data stores value 0 as a template default).
+		hp:             { value: follower.hp?.max ?? 0, max: follower.hp?.max ?? 0 },
 		armor:          follower.armor ?? "",
 		damage:         follower.damage ?? "",
-		instinct:       follower.instinct ?? "",
+		instinct:       Selection.fromStored(follower.instinct).toRaw(),
 		moves:          follower.moves ?? "",
-		cost:           follower.cost ?? "",
+		cost:           Selection.fromStored(follower.cost).toRaw(),
 		loyalty:        { value: 0, max: follower.loyalty?.max ?? 3 },
 		choices:        follower.choices ?? null,
 		specialQuality: follower.specialQuality ?? "",
 		description:    follower.description ?? "",
 		notes:          follower.notes ?? "",
 		choiceValues:   {},
+		// Group members embed at full HP too (their stored value mirrors max on creation).
+		members:        (follower.members ?? []).map(m => ({
+			name: m.name ?? "",
+			hp:   { value: m.hp?.max ?? 0, max: m.hp?.max ?? 0 },
+			tags:   Selection.fromStored(m.tags,   { multi: true }).toRaw(),
+			traits: Selection.fromStored(m.traits, { multi: true }).toRaw(),
+		})),
+		memberSuggestions: follower.memberSuggestions ?? { names: [], tags: [], traits: [] },
+		membersNote:    follower.membersNote ?? "",
 	};
 }

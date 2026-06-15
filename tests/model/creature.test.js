@@ -112,28 +112,28 @@ describe("migrateCreatureData — split instinct moves", () => {
 	it("splits bullet lines out of the instinct into markdown moves", () => {
 		const s = { instinct: "to get distracted\n-Speak with birds\n-Wander off" };
 		migrateCreatureData(s);
-		expect(s.instinct).toBe("to get distracted");
+		expect(s.instinct.selected).toEqual(["to get distracted"]);
 		expect(s.moves).toBe("- Speak with birds\n- Wander off");
 	});
 
 	it("strips threat-style bullet glyphs (ä, >) and re-bullets as markdown", () => {
 		const s = { instinct: "to feed\nä Unfurl\n> Lash out (d6+2)" };
 		migrateCreatureData(s);
-		expect(s.instinct).toBe("to feed");
+		expect(s.instinct.selected).toEqual(["to feed"]);
 		expect(s.moves).toBe("- Unfurl\n- Lash out (d6+2)");
 	});
 
 	it("leaves a single-line instinct alone", () => {
 		const s = { instinct: "to protect the gate" };
 		migrateCreatureData(s);
-		expect(s.instinct).toBe("to protect the gate");
+		expect(s.instinct.selected).toEqual(["to protect the gate"]);
 		expect(s.moves).toBeUndefined();
 	});
 
 	it("does not re-split when moves already exists", () => {
 		const s = { instinct: "to feed\n-Bite", moves: "" };
 		migrateCreatureData(s);
-		expect(s.instinct).toBe("to feed\n-Bite");
+		expect(s.instinct.selected).toEqual(["to feed\n-Bite"]);
 		expect(s.moves).toBe("");
 	});
 });
@@ -150,5 +150,49 @@ describe("migrateCreatureData — renames", () => {
 		const s = { specialQuality: "Keep", specialQualities: "Drop" };
 		migrateCreatureData(s);
 		expect(s.specialQuality).toBe("Keep");
+	});
+});
+
+// Foundry reserves `system.tags` on items and wipes it on every update, so creatures store
+// their tags under `tagList`. (Confirmed in-app via Quench: any update to an npc item
+// clears system.tags.selected, while a sibling selectionField named `cost` survives.)
+describe("migrateCreatureData — tags → tagList", () => {
+	it("moves a legacy Selection-shaped `tags` to `tagList` and drops `tags`", () => {
+		const s = { tags: { selected: ["group"], options: ["group", "brave"], multi: true, allowCustom: true } };
+		migrateCreatureData(s);
+		expect(s.tags).toBeUndefined();
+		expect(s.tagList.selected).toEqual(["group"]);
+		expect(s.tagList.options).toEqual(["group", "brave"]);
+	});
+
+	it("converts a legacy free-string `tags` to a tagList Selection", () => {
+		const s = { tags: "brave, bold" };
+		migrateCreatureData(s);
+		expect(s.tags).toBeUndefined();
+		expect(s.tagList.selected).toEqual(["brave", "bold"]);
+		expect(s.tagList.multi).toBe(true);
+	});
+
+	it("leaves an absent tagList absent (the schema field's initial supplies the default)", () => {
+		// Migration must NOT inject a default for an absent tagList: Foundry re-runs migrateData on
+		// the partial {changed-keys} diff of every update, where tagList is absent, and injecting an
+		// empty Selection there would clobber the stored tags on every edit.
+		const s = {};
+		migrateCreatureData(s);
+		expect(s.tagList).toBeUndefined();
+	});
+
+	it("does not inject an instinct/cost default for an absent field", () => {
+		const s = {};
+		migrateCreatureData(s);
+		expect(s.instinct).toBeUndefined();
+		expect(s.cost).toBeUndefined();
+	});
+
+	it("leaves an existing tagList Selection untouched", () => {
+		const s = { tagList: { selected: ["x"], options: [], multi: true, allowCustom: true } };
+		migrateCreatureData(s);
+		expect(s.tagList.selected).toEqual(["x"]);
+		expect(s.tags).toBeUndefined();
 	});
 });

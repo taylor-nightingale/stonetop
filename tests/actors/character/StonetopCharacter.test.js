@@ -190,3 +190,20 @@ describe("StonetopCharacter — bio and notes", () => {
 		expect(actor.system.notes).toBe("new notes");
 	});
 });
+
+// -- setChoicePick routing (regression: lore/playbook picks must save) --------
+
+describe("StonetopCharacter.setChoicePick — playbook choice routing", () => {
+	function makeChar() {
+		return new TestCharacterBuilder(new FakeActorBuilder().build()).build();
+	}
+
+	it.each(["lore", "playbook-choice", "instinct", "appearance", "intro-npc", "intro-pc"])(
+		"routes '%s' picks to playbook.selectChoice", async (context) => {
+			const char = makeChar();
+			const spy = vi.spyOn(char._playbook, "selectChoice").mockResolvedValue();
+			await char.setChoicePick(context, "sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
+			expect(spy).toHaveBeenCalledWith("sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
+		},
+	);
+});

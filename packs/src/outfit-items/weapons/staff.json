@@ -7,13 +7,13 @@
 		"slug": "staff",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "close",
 		"note": "",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 19,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "close"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

@@ -1,282 +1,247 @@
 {
-  "name": "Crew",
-  "type": "npc",
-  "img": "icons/svg/item-bag.svg",
-  "system": {
-    "slug": "crew",
-    "arcanaSlug": null,
-    "playbookSlug": "the-marshal",
-    "tags": {
-      "selected": [
-        "group"
-      ],
-      "options": [
-        "group",
-        "archers",
-        "athletic",
-        "brave",
-        "cunning",
-        "devoted",
-        "hardy",
-        "intimidating",
-        "observant",
-        "patient",
-        "respected",
-        "stealthy",
-        "warriors",
-        "exceptional (requires Heroes to the Last)"
-      ],
-      "multi": true,
-      "allowCustom": true
-    },
-    "hp": {
-      "value": 6,
-      "max": 6
-    },
-    "armor": "0",
-    "damage": "d6",
-    "specialQuality": "",
-    "instinct": "",
-    "loyalty": {
-      "value": 0,
-      "max": 3
-    },
-    "choices": [
-      {
-        "slug": "choices",
-        "list": [
-          {
-            "type": "entry",
-            "content": {
-              "title": "Instinct",
-              "titleNote": "pick 1"
-            }
-          },
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "instinct-bicker",
-                "content": {
-                  "title": "To bicker, infight, and hold grudges"
-                }
-              },
-              {
-                "slug": "instinct-tradition",
-                "content": {
-                  "title": "To hew to tradition and superstition"
-                }
-              },
-              {
-                "slug": "instinct-baser",
-                "content": {
-                  "title": "To indulge their baser instincts"
-                }
-              },
-              {
-                "slug": "instinct-lord",
-                "content": {
-                  "title": "To lord over others"
-                }
-              },
-              {
-                "slug": "instinct-risks",
-                "content": {
-                  "title": "To take needless risks"
-                }
-              },
-              {
-                "slug": "instinct-too-far",
-                "content": {
-                  "title": "To take things too far"
-                }
-              },
-              {
-                "slug": "instinct-other",
-                "type": "input",
-                "content": {
-                  "title": ""
-                }
-              }
-            ]
-          },
-          {
-            "type": "entry",
-            "content": {
-              "title": "Cost",
-              "titleNote": "pick 1"
-            }
-          },
-          {
-            "type": "pick",
-            "pickCount": 1,
-            "options": [
-              {
-                "slug": "cost-merry",
-                "content": {
-                  "title": "Merry-making, as a group"
-                }
-              },
-              {
-                "slug": "cost-recognition",
-                "content": {
-                  "title": "Public recognition and respect, honor"
-                }
-              },
-              {
-                "slug": "cost-risks",
-                "content": {
-                  "title": "Risks taken, by you, to help them"
-                }
-              },
-              {
-                "slug": "cost-victories",
-                "content": {
-                  "title": "Victories won against worthy foes"
-                }
-              },
-              {
-                "slug": "cost-wealth",
-                "content": {
-                  "title": "Wealth gained for themselves or Stonetop"
-                }
-              },
-              {
-                "slug": "cost-other",
-                "type": "input",
-                "content": {
-                  "title": ""
-                }
-              }
-            ]
-          },
-          {
-            "type": "entry",
-            "content": {
-              "title": "Inventory"
-            }
-          },
-          {
-            "type": "pick",
-            "pickCount": 7,
-            "options": [
-              {
-                "slug": "inv-hatchet",
-                "content": {
-                  "title": "Hatchet, iron (hand, thrown, x piercing)"
-                }
-              },
-              {
-                "slug": "inv-spear",
-                "content": {
-                  "title": "Spear, iron (close, thrown, x piercing)"
-                }
-              },
-              {
-                "slug": "inv-bow",
-                "content": {
-                  "title": "Bow & iron arrows (near, x piercing, low ammo, all out)"
-                }
-              },
-              {
-                "slug": "inv-shield",
-                "content": {
-                  "title": "Shield (+1 armor, +1 Readiness on a 7+ to Defend)"
-                }
-              },
-              {
-                "slug": "inv-hides",
-                "content": {
-                  "title": "Thick hides (1 armor, warm)"
-                }
-              },
-              {
-                "slug": "inv-cloak",
-                "content": {
-                  "title": "Cloak (warm)"
-                }
-              },
-              {
-                "slug": "inv-supplies",
-                "content": {
-                  "title": "Supplies (4+Prosperity uses per crew member)"
-                }
-              }
-            ]
-          },
-          {
-            "type": "entry",
-            "content": {
-              "title": "Individuals",
-              "text": "When one stands out, give them a name, a tag, and one or more traits."
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "individual-1",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          },
-          {
-            "type": "entry",
-            "slug": "individual-2",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          },
-          {
-            "type": "entry",
-            "slug": "individual-3",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          },
-          {
-            "type": "entry",
-            "slug": "individual-4",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          },
-          {
-            "type": "entry",
-            "slug": "individual-5",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          },
-          {
-            "type": "entry",
-            "slug": "individual-6",
-            "input": {
-              "placeholder": "name — tag, traits",
-              "type": "inline"
-            },
-            "content": {}
-          }
-        ]
-      }
-    ],
-    "description": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
-    "moves": "",
-    "cost": "",
-    "notes": "**Group tag:** multiple individuals who share stats and often act as one. Members share the same tags, max HP, armor, damage, instinct, GM moves, and cost, and a common pool of Loyalty — but each has their own current HP.",
-    "reference": null
-  },
-  "flags": {},
-  "_id": "r6ywYcOmBxqhQ5Xg",
-  "_key": "!items!r6ywYcOmBxqhQ5Xg",
+	"name": "Crew",
+	"type": "npc",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "crew",
+		"arcanaSlug": null,
+		"playbookSlug": "the-marshal",
+		"hp": {
+			"value": 6,
+			"max": 6
+		},
+		"members": [
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			}
+		],
+		"membersNote": "When one stands out, give them a name, a tag, and one or more traits.",
+		"memberSuggestions": {
+			"names": [
+				"Aled",
+				"Culhwich",
+				"Eira",
+				"Gerat",
+				"Glaw",
+				"Harri",
+				"Lowri",
+				"Mervyn",
+				"Nesta"
+			],
+			"tags": [
+				"animal-lover",
+				"big",
+				"bully",
+				"cynical",
+				"drunkard",
+				"eager",
+				"gambler",
+				"greedy",
+				"grumpy",
+				"gullible",
+				"heartthrob",
+				"honest",
+				"kind",
+				"lewd",
+				"little",
+				"naive",
+				"old",
+				"popular",
+				"proud",
+				"rookie",
+				"reckless",
+				"shameless",
+				"sharp-eyed",
+				"short-tempered"
+			],
+			"traits": [
+				"__'s kid/sibling/parent/cousin/__",
+				"bald",
+				"crush on __",
+				"grudge against __",
+				"hates __",
+				"idolizes __",
+				"jokes",
+				"messy",
+				"missing eye/finger/hand/__",
+				"misses their kids",
+				"nightmares",
+				"recently married",
+				"religious",
+				"scars",
+				"skinny",
+				"sharp-tongued",
+				"sings",
+				"snores",
+				"tells tall tales",
+				"too serious",
+				"troubles at home",
+				"whistles",
+				"whittler"
+			]
+		},
+		"armor": "0",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [],
+			"options": [
+				"To bicker, infight, and hold grudges",
+				"To hew to tradition and superstition",
+				"To indulge their baser instincts",
+				"To lord over others",
+				"To take needless risks",
+				"To take things too far"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Inventory"
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 7,
+						"options": [
+							{
+								"slug": "inv-hatchet",
+								"content": {
+									"title": "Hatchet, iron (hand, thrown, x piercing)"
+								}
+							},
+							{
+								"slug": "inv-spear",
+								"content": {
+									"title": "Spear, iron (close, thrown, x piercing)"
+								}
+							},
+							{
+								"slug": "inv-bow",
+								"content": {
+									"title": "Bow & iron arrows (near, x piercing, low ammo, all out)"
+								}
+							},
+							{
+								"slug": "inv-shield",
+								"content": {
+									"title": "Shield (+1 armor, +1 Readiness on a 7+ to Defend)"
+								}
+							},
+							{
+								"slug": "inv-hides",
+								"content": {
+									"title": "Thick hides (1 armor, warm)"
+								}
+							},
+							{
+								"slug": "inv-cloak",
+								"content": {
+									"title": "Cloak (warm)"
+								}
+							},
+							{
+								"slug": "inv-supplies",
+								"content": {
+									"title": "Supplies (4+Prosperity uses per crew member)"
+								}
+							}
+						]
+					}
+				]
+			}
+		],
+		"description": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
+		"moves": "",
+		"cost": {
+			"selected": [],
+			"options": [
+				"Merry-making, as a group",
+				"Public recognition and respect, honor",
+				"Risks taken, by you, to help them",
+				"Victories won against worthy foes",
+				"Wealth gained for themselves or Stonetop"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": null,
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"group"
+			],
+			"options": [
+				"group",
+				"archers",
+				"athletic",
+				"brave",
+				"cunning",
+				"devoted",
+				"hardy",
+				"intimidating",
+				"observant",
+				"patient",
+				"respected",
+				"stealthy",
+				"warriors",
+				"exceptional (requires Heroes to the Last)"
+			],
+			"multi": true,
+			"allowCustom": true
+		}
+	},
+	"flags": {},
+	"_id": "r6ywYcOmBxqhQ5Xg",
+	"_key": "!items!r6ywYcOmBxqhQ5Xg",
 	"folder": "DG13f6LZciAS2H0t"
 }

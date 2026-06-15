@@ -59,6 +59,12 @@ describe("Selection.fromStored + text", () => {
 		expect(Selection.fromStored(undefined).values).toEqual([]);
 	});
 
+	it("single-select keeps the whole string (does not split on commas)", () => {
+		const s = Selection.fromStored("to feed, then flee", { multi: false });
+		expect(s.values).toEqual(["to feed, then flee"]);
+		expect(s.multi).toBe(false);
+	});
+
 	it("text round-trips a legacy string", () => {
 		expect(Selection.fromStored("fae, woodland").text).toBe("fae, woodland");
 	});

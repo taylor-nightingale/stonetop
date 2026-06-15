@@ -7,13 +7,13 @@
 		"slug": "sawdust",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 7,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpSnd0001X"

@@ -7,20 +7,6 @@
 	"system": {
 		"slug": "astor",
 		"arcanaSlug": "blackwood-fetishes",
-		"tags": {
-			"selected": [
-				"undead",
-				"spirit",
-				"hunter",
-				"cunning",
-				"jealous",
-				"sarcastic",
-				"warrior"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 13
@@ -28,7 +14,14 @@
 		"armor": "1",
 		"damage": "ghostly spear d8 (reach, ignores armor)",
 		"specialQuality": "",
-		"instinct": "to comply maliciously",
+		"instinct": {
+			"selected": [
+				"to comply maliciously"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -41,9 +34,30 @@
 		],
 		"description": "",
 		"moves": "- Stalk assigned prey\n- Manifest a ghostly presence (harmed only by silver or salt)\n- Make a pessimistic observation",
-		"cost": "proof of honor, nobility (Loyalty ◯◯◯)",
+		"cost": {
+			"selected": [
+				"proof of honor, nobility (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"undead",
+				"spirit",
+				"hunter",
+				"cunning",
+				"jealous",
+				"sarcastic",
+				"warrior"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

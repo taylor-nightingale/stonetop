@@ -7,13 +7,13 @@
 		"slug": "firewood",
 		"inventoryColumn": "regular",
 		"weight": 2,
-		"tags": "reach, area",
 		"note": "enough to last 1 full night",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 15,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "reach, area"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWrm0001X"

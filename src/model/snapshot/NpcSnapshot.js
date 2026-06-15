@@ -10,7 +10,8 @@ export class NpcSnapshot {
 		this.tags             = this.tagSelection.text;
 		this.isGroup          = this.tagSelection.has("group");
 		this.specialQuality   = b._specialQuality   ?? "";
-		this.instinct         = b._instinct         ?? "";
+		this.instinctSelection = Selection.fromStored(b._instinct);
+		this.instinct         = this.instinctSelection.text;
 		this.moves            = b._moves            ?? [];
 		this.description      = b._description      ?? "";
 		this.cost             = b._cost             ?? "";

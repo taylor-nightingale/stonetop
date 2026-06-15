@@ -7,7 +7,6 @@
 		"slug": "shield",
 		"inventoryColumn": "regular",
 		"weight": 2,
-		"tags": "",
 		"note": "+1 armor, +1 Readiness on 7+ to Defend",
 		"resource": null,
 		"twoCol": false,
@@ -15,7 +14,8 @@
 		"armor": {
 			"modifier": 1
 		},
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpAmr0001X"

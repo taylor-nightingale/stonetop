@@ -7,7 +7,6 @@
 		"slug": "sling",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "near, reload, awkward",
 		"note": "",
 		"resource": {
 			"max": 2,
@@ -20,7 +19,8 @@
 		"twoCol": false,
 		"sortOrder": 2,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "near, reload, awkward"
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

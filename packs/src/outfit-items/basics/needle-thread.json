@@ -7,13 +7,13 @@
 		"slug": "needle-thread",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 5,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

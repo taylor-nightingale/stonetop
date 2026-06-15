@@ -7,17 +7,6 @@
 	"system": {
 		"slug": "enfys",
 		"arcanaSlug": null,
-		"tags": {
-			"selected": [
-				"Bird-wise",
-				"innocent",
-				"magical",
-				"well-informed"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 6
@@ -25,7 +14,14 @@
 		"armor": "0",
 		"damage": "bronze knife [[/r 1d4]] (_hand_)",
 		"specialQuality": "",
-		"instinct": "to get distracted",
+		"instinct": {
+			"selected": [
+				"to get distracted"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -130,9 +126,27 @@
 		],
 		"description": "",
 		"moves": "- Speak with birds\n- Ask a difficult question\n- Wander off",
-		"cost": "knowledge, secret lore",
+		"cost": {
+			"selected": [
+				"knowledge, secret lore"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Bird-wise",
+				"innocent",
+				"magical",
+				"well-informed"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

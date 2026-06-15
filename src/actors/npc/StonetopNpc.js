@@ -16,9 +16,9 @@ export class StonetopNpc {
 	get armor()          { return this._actor.system?.armor          ?? ""; }
 	get damage()         { return this._actor.system?.damage         ?? ""; }
 	get specialQuality() { return this._actor.system?.specialQuality ?? ""; }
-	get instinct()       { return this._actor.system?.instinct       ?? ""; }
+	get instinct()       { return Selection.fromStored(this._actor.system?.instinct).text; }
 	get description()    { return this._actor.system?.description    ?? ""; }
-	get tags()           { return Selection.fromStored(this._actor.system?.tags).text; }
+	get tags()           { return Selection.fromStored(this._actor.system?.tagList).text; }
 	get moves()          { return this._actor.system?.moves          ?? ""; }
 
 	async setHp(value)             { await this._actor.update({ "system.hp.value": value }); }
@@ -26,10 +26,10 @@ export class StonetopNpc {
 	async setArmor(value)          { await this._actor.update({ "system.armor": value }); }
 	async setDamage(value)         { await this._actor.update({ "system.damage": value }); }
 	async setSpecialQuality(value) { await this._actor.update({ "system.specialQuality": value }); }
-	async setInstinct(value)       { await this._actor.update({ "system.instinct": value }); }
+	async setInstinct(value)       { await this._actor.update({ "system.instinct": Selection.fromStored(value, { multi: false, options: this._actor.system?.instinct?.options ?? [] }).toRaw() }); }
 	async setDescription(value)    { await this._actor.update({ "system.description": value }); }
-	async setTags(value)           { await this._actor.update({ "system.tags": Selection.fromStored(value, { options: this._actor.system?.tags?.options ?? [] }).toRaw() }); }
-	async toggleTag(tag)           { if (!tag) return; await this._actor.update({ "system.tags": Selection.fromStored(this._actor.system?.tags).toggle(tag).toRaw() }); }
+	async setTags(value)           { await this._actor.update({ "system.tagList": Selection.fromStored(value, { options: this._actor.system?.tagList?.options ?? [] }).toRaw() }); }
+	async toggleSelection(field, value) { if (!field || !value) return; await this._actor.update({ [`system.${field}`]: Selection.fromStored(this._actor.system?.[field]).toggle(value).toRaw() }); }
 	async setMoves(value)          { await this._actor.update({ "system.moves": value }); }
 
 	async buildSnapshot() {

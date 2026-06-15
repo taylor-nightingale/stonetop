@@ -7,7 +7,6 @@
 		"slug": "oil-lamp",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "close, area, crude",
 		"note": "",
 		"resource": {
 			"max": 3,
@@ -21,7 +20,8 @@
 		"twoCol": false,
 		"sortOrder": 13,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "close, area, crude"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWrm0001X"

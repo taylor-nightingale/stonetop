@@ -5,17 +5,6 @@
 	"system": {
 		"slug": "void-elemental",
 		"arcanaSlug": "oversized-crown",
-		"tags": {
-			"selected": [
-				"Spirit",
-				"primordial",
-				"confused",
-				"angry"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 15
@@ -23,7 +12,14 @@
 		"armor": "1",
 		"damage": "d10",
 		"specialQuality": "",
-		"instinct": "to rage at all the noise and chaos",
+		"instinct": {
+			"selected": [
+				"to rage at all the noise and chaos"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -36,9 +32,27 @@
 		],
 		"description": "",
 		"moves": "- immune to most harm\n- Manifest as a black hole in reality\n- Snuff out a source of energy\n- Become confused, unsure what to do",
-		"cost": "Loyalty ◯◯◯",
+		"cost": {
+			"selected": [
+				"Loyalty ◯◯◯"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Spirit",
+				"primordial",
+				"confused",
+				"angry"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

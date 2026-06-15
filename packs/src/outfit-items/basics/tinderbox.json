@@ -7,13 +7,13 @@
 		"slug": "tinderbox",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "",
 		"note": "slow",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 4,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

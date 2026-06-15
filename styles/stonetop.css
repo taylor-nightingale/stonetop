@@ -1134,7 +1134,8 @@ body,
 	gap: 6px;
 }
 
-.stonetop-item-check {
+.stonetop-item-check,
+.stonetop-cg-track {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	width: 14px !important;
@@ -1147,11 +1148,13 @@ body,
 	margin: 0;
 }
 
-.stonetop-item-check:checked {
+.stonetop-item-check:checked,
+.stonetop-cg-track:checked {
 	background-color: var(--color-text-dark-primary) !important;
 }
 
-.stonetop-item-check:disabled {
+.stonetop-item-check:disabled,
+.stonetop-cg-track:disabled {
 	opacity: 0.35;
 	cursor: default;
 }
@@ -1799,7 +1802,7 @@ body,
 	width: 10px;
 	height: 10px;
 	border: 1.5px solid currentColor;
-	border-radius: 50%;
+	border-radius: 2px;
 	background: transparent;
 	cursor: pointer;
 	padding: 0;
@@ -2154,7 +2157,7 @@ body,
 	width: 14px;
 	height: 14px;
 	border: 1px solid var(--color-border-dark);
-	border-radius: 50%;
+	border-radius: 2px;
 	background: transparent;
 	cursor: pointer;
 	padding: 0;
@@ -2338,6 +2341,190 @@ body,
 	border-bottom-color: var(--color-border-dark);
 }
 
+/* Group followers: a list of members, each owning its HP (the card's own HP box is hidden). */
+.stonetop-members {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+.stonetop-members-head {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.stonetop-member-add {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto !important;
+	flex: 0 0 auto;
+	padding: 0 2px;
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	cursor: pointer;
+	opacity: 0.55;
+}
+.stonetop-member-add img {
+	width: 12px;
+	height: 12px;
+	display: block;
+}
+.stonetop-member-add:hover { opacity: 1; }
+.stonetop-member-note {
+	margin: 2px 0 4px;
+	font-size: 0.74rem;
+	font-style: italic;
+	opacity: 0.75;
+	line-height: 1.35;
+}
+.stonetop-member {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 4px 0;
+	border-top: 1px solid var(--color-border-light-2, rgba(0,0,0,0.1));
+}
+.stonetop-member-top {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+}
+/* Specific enough (and width:auto) to beat Foundry's .window-app input width, so flex-grow wins. */
+.stonetop-member-top .stonetop-member-name {
+	flex: 1 1 auto;
+	width: auto;
+	min-width: 0;
+	font-size: 0.9rem;
+	font-weight: bold;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid transparent;
+	outline: none;
+}
+.stonetop-member-top .stonetop-member-name:hover,
+.stonetop-member-top .stonetop-member-name:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-member-row {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+.stonetop-member-fieldlabel {
+	flex: 0 0 auto;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.6;
+	min-width: 2.8em;
+}
+.stonetop-member-suggest {
+	margin: 4px 0 0;
+	font-size: 0.72rem;
+	font-style: italic;
+	opacity: 0.7;
+	line-height: 1.35;
+}
+.stonetop-member-hp {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: baseline;
+	gap: 2px;
+}
+.stonetop-member-hp .stonetop-member-hp-value,
+.stonetop-member-hp .stonetop-member-hp-max {
+	width: 2.4em;
+	text-align: center;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid transparent;
+	outline: none;
+}
+.stonetop-member-hp input:hover,
+.stonetop-member-hp input:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-member-remove {
+	flex: 0 0 auto;
+	width: auto !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	cursor: pointer;
+	opacity: 0.45;
+	line-height: 1;
+	padding: 0 2px;
+}
+.stonetop-member-remove img {
+	width: 14px;
+	height: 14px;
+	display: block;
+}
+.stonetop-member-remove:hover { opacity: 1; }
+
+/* Inline-expanding combobox (instinct, cost, tag/trait adder): a text input you can type into +
+   a ▾ that drops the FULL option list. The list opens in NORMAL FLOW (flex-wraps to its own full
+   row below the input, pushing content down) — never absolutely positioned — so it can't be
+   clipped by the follower card's per-child z-index:1 stacking contexts (the bug that broke the
+   floating-dropdown attempts). */
+.stonetop-combo {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 2px;
+	flex: 1 1 auto;
+	min-width: 0;
+	position: relative;
+}
+.stonetop-combo--add { flex: 0 0 auto; }
+.stonetop-combo-input {
+	flex: 1 1 auto;
+	width: auto !important;
+	min-width: 4em;
+	font-size: 0.85rem;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid transparent;
+	outline: none;
+}
+.stonetop-combo-input:hover,
+.stonetop-combo-input:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-combo-toggle {
+	flex: 0 0 auto;
+	width: auto !important;
+	padding: 0 2px;
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	color: inherit;
+	font-size: 0.7rem;
+	line-height: 1;
+	cursor: pointer;
+	opacity: 0.55;
+}
+.stonetop-combo-toggle:hover { opacity: 1; }
+.stonetop-combo-list {
+	flex: 1 1 100%;       /* full-width new row, in normal flow */
+	margin: 2px 0;
+	padding: 2px;
+	list-style: none;
+	max-height: 220px;
+	overflow-y: auto;
+	background: var(--stonetop-bg, #f4ecd8);
+	border: 1px solid var(--color-border-dark);
+	border-radius: 2px;
+}
+.stonetop-combo-list[hidden] { display: none; }
+.stonetop-combo-option {
+	padding: 3px 6px;
+	font-size: 0.82rem;
+	line-height: 1.3;
+	cursor: pointer;
+	border-radius: 2px;
+}
+.stonetop-combo-option:hover { background: rgba(75, 74, 68, 0.16); }
+
 .stonetop-follower-note-input {
 	display: block;
 	width: 100%;
@@ -2407,7 +2594,7 @@ body,
 .stonetop-follower-loyalty-pip {
 	width: 16px;
 	height: 16px;
-	border-radius: 50%;
+	border-radius: 2px;
 	border: 1px solid var(--color-border-dark);
 	background: transparent;
 	cursor: pointer;

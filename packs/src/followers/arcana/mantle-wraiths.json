@@ -5,18 +5,6 @@
 	"system": {
 		"slug": "mantle-wraiths",
 		"arcanaSlug": "tattered-mantle",
-		"tags": {
-			"selected": [
-				"Group (3)",
-				"spirit",
-				"undead",
-				"terrifying",
-				"vicious"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 13
@@ -24,7 +12,14 @@
 		"armor": "1",
 		"damage": "d8",
 		"specialQuality": "",
-		"instinct": "to run rampant",
+		"instinct": {
+			"selected": [
+				"to run rampant"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -37,9 +32,28 @@
 		],
 		"description": "",
 		"moves": "- powerless in daylight\n- Whisper their longings to the wearer\n- Manifest a form of shadow and cold (harmed only by silver and salt)\n- Hurl themselves at the living\n- Suck the vitality from their prey",
-		"cost": "souls feasted upon (Loyalty ◯◯◯)",
+		"cost": {
+			"selected": [
+				"souls feasted upon (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Group (3)",
+				"spirit",
+				"undead",
+				"terrifying",
+				"vicious"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

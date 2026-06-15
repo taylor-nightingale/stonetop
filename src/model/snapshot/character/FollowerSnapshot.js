@@ -27,15 +27,31 @@ export class FollowerSnapshot {
 		this.hpMax          = b._hpMax;
 		this.armor          = b._armor;
 		this.damage         = b._damage;
-		this.instinct       = b._instinct;
+		this.instinctSelection = Selection.fromStored(b._instinct);
+		this.instinct       = this.instinctSelection.text;  // display string (back-compat)
 		this.moves          = b._moves ?? "";
 		this.specialQuality = b._specialQuality;
-		this.cost           = b._cost ?? "";
+		this.costSelection  = Selection.fromStored(b._cost);
+		this.cost           = this.costSelection.text;
 		this.loyalty        = b._loyalty;
 		this.description    = b._description;
 		this.notes          = b._notes ?? "";
 		this.choices        = b._choices;
 		this.arcanaSlug     = b._arcanaSlug ?? null;
+		// Group members (only meaningful when isGroup): each owns its HP + name/tags/traits.
+		// Member tags/traits store only `selected`; options come from the group's suggestions.
+		const sugg = b._memberSuggestions ?? { names: [], tags: [], traits: [] };
+		this.memberSuggestions = { names: sugg.names ?? [], tags: sugg.tags ?? [], traits: sugg.traits ?? [] };
+		this.membersNote    = b._membersNote ?? "";
+		const memberSel = (stored, options) =>
+			Selection.multi(Selection.fromStored(stored, { multi: true }).values, { options });
+		this.members        = (b._members ?? []).map((m, index) => ({
+			index,
+			name: m.name ?? "",
+			hp:   { value: m.hp?.value ?? 0, max: m.hp?.max ?? 0 },
+			tagSelection:   memberSel(m.tags,   this.memberSuggestions.tags),
+			traitSelection: memberSel(m.traits, this.memberSuggestions.traits),
+		}));
 	}
 }
 
@@ -56,5 +72,8 @@ export class FollowerSnapshotBuilder {
 	withNotes(v)           { this._notes           = v; return this; }
 	withChoices(v)         { this._choices         = v; return this; }
 	withArcanaSlug(v)      { this._arcanaSlug      = v; return this; }
+	withMembers(v)         { this._members         = v; return this; }
+	withMemberSuggestions(v) { this._memberSuggestions = v; return this; }
+	withMembersNote(v)     { this._membersNote      = v; return this; }
 	build()                { return new FollowerSnapshot(this); }
 }

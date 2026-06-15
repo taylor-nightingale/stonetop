@@ -34,7 +34,7 @@ function makeFollowerItem(data, overrides = {}) {
 		system: {
 			slug:             data.slug,
 			owned:            overrides.owned ?? false,
-			tags:             data.tags ?? "",
+			tagList:     data.tags ?? "",
 			hp:               { value: data.hp?.value ?? 0, max: data.hp?.max ?? 0 },
 			armor:            data.armor ?? "",
 			damage:           data.damage ?? "",
@@ -48,6 +48,7 @@ function makeFollowerItem(data, overrides = {}) {
 			specialQuality:   data.specialQuality ?? "",
 			notes:            data.notes ?? "",
 			choiceValues:     {},
+			members:          data.members ?? [],
 		},
 	};
 }
@@ -127,6 +128,15 @@ describe("CharacterFollowers — ownership", () => {
 		await cf.addFollower("enfys");
 		await cf.addFollower("enfys");
 		expect(cf.ownedSlugs.filter(s => s === "enfys").length).toBe(1);
+	});
+
+	it("embeds a defined follower at full HP even when the pack stores value 0", async () => {
+		const tmpl = new Follower({ slug: "rook", name: "Rook", hp: { value: 0, max: 8 } });
+		const cf = makeCf(new FakeFollowerRepository([tmpl]));
+		await cf.addFollower("rook");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.hp).toBe(8);
+		expect(snap.hpMax).toBe(8);
 	});
 
 	it("removeFollower removes slug from ownedSlugs", async () => {
@@ -247,6 +257,103 @@ describe("CharacterFollowers — state mutations", () => {
 		await cf.setDamage("enfys", "d6");
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.damage).toBe("d6");
+	});
+});
+
+// -- Tests: group members -----------------------------------------------------
+
+const CREW_DATA = {
+	slug: "crew",
+	name: "The Crew",
+	tags: { selected: ["group"], options: ["group"], multi: true, allowCustom: true },
+	hp:   { value: 6, max: 6 },
+	members: [
+		{ name: "Aedith", hp: { value: 6, max: 6 } },
+		{ name: "Bryn",   hp: { value: 6, max: 6 } },
+	],
+	memberSuggestions: { names: ["Aled", "Eira"], tags: ["big", "brave"], traits: ["scars", "snores"] },
+};
+const CREW = new Follower(CREW_DATA);
+
+describe("CharacterFollowers — group members", () => {
+	async function addCrew() {
+		const cf = makeCf(new FakeFollowerRepository([CREW]));
+		await cf.addFollower("crew");
+		return cf;
+	}
+
+	it("embeds group members and flags the follower as a group", async () => {
+		const [snap] = await (await addCrew()).buildSnapshot();
+		expect(snap.isGroup).toBe(true);
+		expect(snap.members).toHaveLength(2);
+		expect(snap.members[0]).toMatchObject({ index: 0, name: "Aedith", hp: { value: 6, max: 6 } });
+	});
+
+	it("addMember appends a member at full (shared-max) HP", async () => {
+		const cf = await addCrew();
+		await cf.addMember("crew");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.members).toHaveLength(3);
+		expect(snap.members[2].hp).toEqual({ value: 6, max: 6 });
+	});
+
+	it("removeMember drops the member at the given index", async () => {
+		const cf = await addCrew();
+		await cf.removeMember("crew", 0);
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.members.map(m => m.name)).toEqual(["Bryn"]);
+	});
+
+	it("setMemberName / setMemberHp update only the targeted member", async () => {
+		const cf = await addCrew();
+		await cf.setMemberName("crew", 1, "Bryn the Bold");
+		await cf.setMemberHp("crew", 1, 2);
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.members[0]).toMatchObject({ name: "Aedith", hp: { value: 6, max: 6 } });
+		expect(snap.members[1]).toMatchObject({ name: "Bryn the Bold", hp: { value: 2, max: 6 } });
+	});
+
+	it("each member's tag/trait dropdown options come from the group's memberSuggestions", async () => {
+		const [snap] = await (await addCrew()).buildSnapshot();
+		expect(snap.memberSuggestions.names).toEqual(["Aled", "Eira"]);
+		expect(snap.members[0].tagSelection.options).toEqual(["big", "brave"]);
+		expect(snap.members[0].traitSelection.options).toEqual(["scars", "snores"]);
+	});
+
+	it("adding or removing a member leaves the FOLLOWER's own tags untouched (regression)", async () => {
+		const cf = await addCrew();
+		await cf.addMember("crew");
+		let [snap] = await cf.buildSnapshot();
+		expect(snap.isGroup).toBe(true);
+		expect(snap.tagSelection.values).toContain("group");
+		await cf.removeMember("crew", 0);
+		[snap] = await cf.buildSnapshot();
+		expect(snap.isGroup).toBe(true);
+		expect(snap.tagSelection.values).toContain("group");
+	});
+
+	it("member tags are independent: toggling one member's tag never touches another member or the follower", async () => {
+		const cf = await addCrew();
+		await cf.toggleMemberSelection("crew", 0, "tags", "big");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.members[0].tagSelection.values).toEqual(["big"]);
+		expect(snap.members[1].tagSelection.values).toEqual([]);
+		expect(snap.tagSelection.values).not.toContain("big");
+		expect(snap.tagSelection.values).toContain("group");
+	});
+
+	it("toggleMemberSelection adds/removes a tag or trait on one member only", async () => {
+		const cf = await addCrew();
+		await cf.toggleMemberSelection("crew", 0, "tags", "big");
+		await cf.toggleMemberSelection("crew", 0, "traits", "scars");
+		let [snap] = await cf.buildSnapshot();
+		expect(snap.members[0].tagSelection.values).toEqual(["big"]);
+		expect(snap.members[0].traitSelection.values).toEqual(["scars"]);
+		expect(snap.members[1].tagSelection.values).toEqual([]);
+		// toggling again removes it
+		await cf.toggleMemberSelection("crew", 0, "tags", "big");
+		[snap] = await cf.buildSnapshot();
+		expect(snap.members[0].tagSelection.values).toEqual([]);
 	});
 });
 
@@ -737,19 +844,19 @@ describe("CharacterFollowers.syncPlaybookFollowers", () => {
 	});
 });
 
-// -- toggleTag ----------------------------------------------------------------
+// -- toggleSelection ----------------------------------------------------------------
 
-describe("CharacterFollowers.toggleTag", () => {
+describe("CharacterFollowers.toggleSelection", () => {
 	function setup(itemTags) {
 		const cf = makeCf(new FakeFollowerRepository([]));
 		cf._actor.items.push(makeFollowerItem({ slug: "crew" }, { owned: true }));
-		cf._actor.items.get("crew-item").system.tags = itemTags;
+		cf._actor.items.get("crew-item").system.tagList = itemTags;
 		return cf;
 	}
 
 	it("adds a tag that isn't selected and reflects it as a selected chip", async () => {
 		const cf = setup({ selected: ["group"], options: ["group", "archers"], multi: true, allowCustom: true });
-		await cf.toggleTag("crew", "archers");
+		await cf.toggleSelection("crew", "tagList", "archers");
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.tagSelection.has("archers")).toBe(true);
 		expect(snap.isGroup).toBe(true);
@@ -757,8 +864,48 @@ describe("CharacterFollowers.toggleTag", () => {
 
 	it("removes a tag that is already selected", async () => {
 		const cf = setup({ selected: ["group", "archers"], options: ["group", "archers"], multi: true, allowCustom: true });
-		await cf.toggleTag("crew", "archers");
+		await cf.toggleSelection("crew", "tagList", "archers");
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.tagSelection.has("archers")).toBe(false);
+	});
+
+	it("single-select instinct replaces the previous pick", async () => {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "crew" }, { owned: true }));
+		cf._actor.items.get("crew-item").system.instinct =
+			{ selected: ["to lord over others"], options: ["to lord over others", "to take needless risks"], multi: false, allowCustom: true };
+		await cf.toggleSelection("crew", "instinct", "to take needless risks");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.instinctSelection.values).toEqual(["to take needless risks"]);
+		expect(snap.instinct).toBe("to take needless risks");
+	});
+});
+
+// -- Regression: an unrelated edit must not wipe a follower's global tagList ----------
+// Foundry re-runs migrateData on the partial {changed-keys} update diff; a migration that
+// default-injects an absent field clobbers the stored value on every edit. FakeActor mirrors
+// that re-run, so these fail if migrateCreatureData ever defaults an absent tagList/instinct
+// again. See migrate-data-runs-on-update-diff.md.
+describe("CharacterFollowers — an edit keeps the global tagList (migrate-on-diff guard)", () => {
+	function makeCrew() {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem(
+			{ slug: "crew", members: [{ name: "Aedith", hp: { value: 6, max: 6 } }] }, { owned: true }));
+		cf._actor.items.get("crew-item").system.tagList =
+			{ selected: ["group"], options: ["group", "archers"], multi: true, allowCustom: true };
+		return cf;
+	}
+	const groupTag = cf => cf._actor.items.get("crew-item").system.tagList.selected;
+
+	it("survives an armor edit", async () => {
+		const cf = makeCrew();
+		await cf.setArmor("crew", "2 (shields)");
+		expect(groupTag(cf)).toEqual(["group"]);
+	});
+
+	it("survives adding a member", async () => {
+		const cf = makeCrew();
+		await cf.addMember("crew");
+		expect(groupTag(cf)).toEqual(["group"]);
 	});
 });

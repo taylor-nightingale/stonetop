@@ -22,6 +22,7 @@ import { ImprovementData } from "./src/data/ImprovementData.js";
 import { NpcItemData }     from "./src/data/NpcItemData.js";
 import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 import { PossessionData }  from "./src/data/PossessionData.js";
+import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no-op unless Quench is installed)
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
@@ -136,6 +137,8 @@ Hooks.once("init", () => {
 		"stonetop.editable-field":   "systems/stonetop/templates/actor/partials/editable-field.hbs",
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 		"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",
+		"stonetop.selection-chips":   "systems/stonetop/templates/actor/partials/selection-chips.hbs",
+		"stonetop.selection-input":   "systems/stonetop/templates/actor/partials/selection-input.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",

@@ -1,6 +1,6 @@
-// One-time, idempotent converter: turn the legacy free-string `system.tags` on npc items
-// (followers / NPCs) into the structured Selection shape. Outfit-item tags are a different
-// field and are left alone.
+// One-time, idempotent converter: turn the legacy free-string Selection fields on npc items
+// (followers / NPCs) into the structured Selection shape — `tags` (multi), `instinct` and
+// `cost` (single). Outfit-item tags are a different field and are left alone.
 //
 //   node scripts/migrate-tags-packs.js
 //
@@ -29,9 +29,16 @@ let changed = 0;
 for (const file of walk(SRC)) {
 	const before = readFileSync(file, "utf8");
 	const doc = JSON.parse(before);
-	if (doc.type !== "npc" || typeof doc.system?.tags !== "string") continue;
-
-	doc.system.tags = Selection.fromStored(doc.system.tags, { multi: true }).toRaw();
+	if (doc.type !== "npc") continue;
+	const sys = doc.system ?? {};
+	let touched = false;
+	for (const [field, multi] of [["tags", true], ["instinct", false], ["cost", false]]) {
+		if (typeof sys[field] === "string") {
+			sys[field] = Selection.fromStored(sys[field], { multi }).toRaw();
+			touched = true;
+		}
+	}
+	if (!touched) continue;
 
 	const indent  = detectIndent(before);
 	const trailing = before.endsWith("\n") ? "\n" : "";

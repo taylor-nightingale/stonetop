@@ -312,6 +312,9 @@ export class StonetopCharacter {
 	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
 		switch (context) {
 			case "playbook-choice":
+			case "lore":
+			case "intro-npc":
+			case "intro-pc":
 			case "instinct":
 			case "appearance":
 				return await this._playbook.selectChoice(group, option, siblingsCsv);
@@ -408,8 +411,8 @@ export class StonetopCharacter {
 		await this._followers.setName(slug, name);
 	}
 
-	async toggleFollowerTag(slug, tag) {
-		await this._followers.toggleTag(slug, tag);
+	async toggleFollowerSelection(slug, field, value) {
+		await this._followers.toggleSelection(slug, field, value);
 	}
 
 	async setFollowerArmor(slug, armor) {
@@ -435,4 +438,12 @@ export class StonetopCharacter {
 	async setFollowerDamage(slug, damage) {
 		await this._followers.setDamage(slug, damage);
 	}
+
+	// Group members
+	async addFollowerMember(slug)                 { await this._followers.addMember(slug); }
+	async removeFollowerMember(slug, index)       { await this._followers.removeMember(slug, index); }
+	async setFollowerMemberName(slug, index, name)  { await this._followers.setMemberName(slug, index, name); }
+	async setFollowerMemberHp(slug, index, value)   { await this._followers.setMemberHp(slug, index, value); }
+	async setFollowerMemberHpMax(slug, index, max)  { await this._followers.setMemberHpMax(slug, index, max); }
+	async toggleFollowerMemberSelection(slug, index, field, value) { await this._followers.toggleMemberSelection(slug, index, field, value); }
 }

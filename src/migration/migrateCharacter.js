@@ -293,7 +293,7 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 			await actor.createEmbeddedDocuments("Item", [{
 				name: s.name ?? "New Follower", type: "npc",
 				system: {
-					slug, arcanaSlug: null, tags: s.tags ?? "",
+					slug, arcanaSlug: null, tagList: s.tags ?? "",
 					hp:     { value: s.hp ?? 0, max: s.hpMax ?? 0 },
 					armor:  s.armor != null ? String(s.armor) : "",
 					damage: s.damage ?? "",

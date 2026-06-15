@@ -7,13 +7,13 @@
 		"slug": "shovel",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 9,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

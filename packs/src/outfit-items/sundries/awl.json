@@ -7,13 +7,13 @@
 		"slug": "awl",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 1,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpSnd0001X"

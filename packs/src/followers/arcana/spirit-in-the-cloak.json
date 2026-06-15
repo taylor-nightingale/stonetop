@@ -5,17 +5,6 @@
 	"system": {
 		"slug": "spirit-in-the-cloak",
 		"arcanaSlug": "cloak-richly-embroidered",
-		"tags": {
-			"selected": [
-				"spirit",
-				"magical",
-				"proud",
-				"mute"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 13
@@ -23,7 +12,14 @@
 		"armor": "1",
 		"damage": "d6",
 		"specialQuality": "",
-		"instinct": "to \"not hear\" your commands",
+		"instinct": {
+			"selected": [
+				"to \"not hear\" your commands"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -36,9 +32,27 @@
 		],
 		"description": "",
 		"moves": "- Bear its master aloft on a cushion of swirling winds\n- Manifest a storm as it flies\n- Wreak havoc on its surroundings\n- Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
-		"cost": "flying about for hours (Loyalty ◯◯◯)",
+		"cost": {
+			"selected": [
+				"flying about for hours (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"spirit",
+				"magical",
+				"proud",
+				"mute"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

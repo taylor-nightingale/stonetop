@@ -5,20 +5,6 @@
 	"system": {
 		"slug": "bronze-protector",
 		"arcanaSlug": "metal-man",
-		"tags": {
-			"selected": [
-				"construct",
-				"spirit",
-				"durable",
-				"vigilant",
-				"overbearing",
-				"mute",
-				"gullible"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 13
@@ -26,7 +12,14 @@
 		"armor": "3",
 		"damage": "d8",
 		"specialQuality": "",
-		"instinct": "to be overzealous in guarding you",
+		"instinct": {
+			"selected": [
+				"to be overzealous in guarding you"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -39,9 +32,30 @@
 		],
 		"description": "",
 		"moves": "- fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP\n- Loom menacingly, belching smoke\n- Start fires, cause collateral damage\n- Run low on fuel",
-		"cost": "profuse gratitude (Loyalty ◯◯◯)",
+		"cost": {
+			"selected": [
+				"profuse gratitude (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"construct",
+				"spirit",
+				"durable",
+				"vigilant",
+				"overbearing",
+				"mute",
+				"gullible"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

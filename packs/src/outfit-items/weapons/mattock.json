@@ -7,13 +7,13 @@
 		"slug": "mattock",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "hand",
 		"note": "",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 17,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "hand"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

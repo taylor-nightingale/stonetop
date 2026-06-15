@@ -7,7 +7,6 @@
 		"slug": "supplies",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "4+Prosperity uses",
 		"resource": {
 			"max": 6,
@@ -24,7 +23,8 @@
 		"twoCol": false,
 		"sortOrder": 1,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpSup0001X"

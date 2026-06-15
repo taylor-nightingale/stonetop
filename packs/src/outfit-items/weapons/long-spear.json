@@ -7,13 +7,13 @@
 		"slug": "long-spear",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "reach",
 		"note": "x piercing",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 21,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "reach"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

@@ -51,18 +51,18 @@ export function createStonetopNpcSheetClass(Base) {
 				await this._stonetopNpc.setSpecialQuality(ev.currentTarget.value);
 			});
 
-            // Instinct
-			html.find("#npc-instinct").on("change", async ev => {
-				await this._stonetopNpc.setInstinct(ev.currentTarget.value);
+			// Selection chips (tags, instinct) — toggle on click, add via free-text box.
+			html.find(".stonetop-tag-chip").on("click", async ev => {
+				const wrap = ev.currentTarget.closest(".stonetop-tags");
+				await this._stonetopNpc.toggleSelection(wrap?.dataset.field, ev.currentTarget.dataset.tag);
 			});
-
-			// Tags — clickable chips + free-text add
-			html.find(".stonetop-npc-tag-chip").on("click", async ev => {
-				await this._stonetopNpc.toggleTag(ev.currentTarget.dataset.tag);
-			});
-			html.find(".stonetop-npc-tag-add").on("change", async ev => {
+			html.find(".stonetop-tag-add").on("change", async ev => {
 				const value = ev.currentTarget.value.trim();
-				if (value) await this._stonetopNpc.toggleTag(value);
+				if (value) await this._stonetopNpc.toggleSelection(ev.currentTarget.dataset.field, value);
+			});
+			// Instinct (single-select input + dropdown, not chips)
+			html.find(".stonetop-npc-instinct").on("change", async ev => {
+				await this._stonetopNpc.setInstinct(ev.currentTarget.value.trim());
 			});
 
 			// Moves

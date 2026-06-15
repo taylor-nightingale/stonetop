@@ -5,18 +5,6 @@
 	"system": {
 		"slug": "tulpa",
 		"arcanaSlug": "beautiful-scroll",
-		"tags": {
-			"selected": [
-				"spirit",
-				"construct",
-				"tiny",
-				"naive",
-				"eager"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
 		"hp": {
 			"value": 0,
 			"max": 8
@@ -24,7 +12,14 @@
 		"armor": "0",
 		"damage": "d4",
 		"specialQuality": "",
-		"instinct": "to play / to learn / to flaunt",
+		"instinct": {
+			"selected": [
+				"to play / to learn / to flaunt"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -37,9 +32,28 @@
 		],
 		"description": "",
 		"moves": "- Manifest a form of dust/snow/vapor\n- Produce light (area, reach)\n- Carry/manipulate a ◇ item\n- Deliver a message\n- Spy on someone/something",
-		"cost": "respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)",
+		"cost": {
+			"selected": [
+				"respect given / new experiences / comfort/compassion (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
 		"notes": "",
-		"reference": null
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"spirit",
+				"construct",
+				"tiny",
+				"naive",
+				"eager"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

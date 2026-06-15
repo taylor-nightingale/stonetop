@@ -2,7 +2,7 @@ export class Follower {
 	constructor(data) {
 		this.slug             = data.slug;
 		this.name             = data.name;
-		this.tags             = data.tags             ?? null;
+		this.tags             = data.tagList     ?? data.tags ?? null;
 		this.hp               = data.hp               ?? { value: 0, max: 0 };
 		this.armor            = data.armor            ?? "";
 		this.damage           = data.damage           ?? "";
@@ -16,5 +16,8 @@ export class Follower {
 		this.specialQuality   = data.specialQuality   ?? "";
 		this.description      = data.description       ?? "";
 		this.notes            = data.notes            ?? "";
+		this.members          = data.members          ?? [];
+		this.memberSuggestions = data.memberSuggestions ?? { names: [], tags: [], traits: [] };
+		this.membersNote      = data.membersNote      ?? "";
 	}
 }
