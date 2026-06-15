@@ -986,6 +986,7 @@ describe("CharacterFollowers — animal companion", () => {
 		expect(snap.companionTypeSelection.options).toContain("bird");
 		expect(snap.companionOptionsSelection.multi).toBe(true);
 		expect(snap.companionPickCount).toBe(4);
+		expect(snap.companionStartOptions).toEqual(["tiny"]); // the "(start with …)" defaults
 	});
 
 	it("a non-companion follower reports isCompanion false", async () => {
@@ -993,5 +994,12 @@ describe("CharacterFollowers — animal companion", () => {
 		cf._actor.items.push(makeFollowerItem({ slug: "enfys" }, { owned: true }));
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.isCompanion).toBe(false);
+	});
+
+	it("the Type dropdown lists the catalog even before a type is picked", async () => {
+		const cf = makeCompanion(); // no setCompanionType yet
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.companionTypeSelection.options).toEqual(["bird"]);
+		expect(snap.companionTypeSelection.values).toEqual([]);
 	});
 });

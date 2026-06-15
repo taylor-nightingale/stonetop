@@ -58,11 +58,16 @@ export class FollowerSnapshot {
 		const c = b._companion ?? {};
 		this.isCompanion    = !!c.enabled;
 		const catalog       = Array.isArray(c.catalog) ? c.catalog : [];
-		this.companionTypeSelection = Selection.fromStored(c.type, { options: catalog.map(t => t.name) });
+		// The Type dropdown's options are ALWAYS the catalog names — not whatever is stored on the
+		// `type` selection (which is empty until a type is first picked). fromStored ignores its
+		// `options` arg for an object value, so set it explicitly.
+		this.companionTypeSelection = Selection.fromStored(c.type, { multi: false });
+		this.companionTypeSelection.options = catalog.map(t => t.name);
 		this.companionOptionsSelection = Selection.fromStored(c.options, { multi: true });
 		const chosen        = catalog.find(t => this.companionTypeSelection.values.includes(t.name)
 			|| this.companionTypeSelection.values.includes(t.slug));
-		this.companionPickCount = chosen?.pickCount ?? 0;
+		this.companionPickCount   = chosen?.pickCount ?? 0;
+		this.companionStartOptions = chosen?.defaults ?? []; // the pre-checked "(start with …)" picks
 	}
 }
 

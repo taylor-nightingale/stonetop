@@ -15,7 +15,7 @@
 			{{> "stonetop.selection-input" sel=companionTypeSelection slug=slug field="companionType" inputClass="stonetop-companion-type" placeholder=(localize "stonetop.followers.companionType")}}
 		</div>
 		<div class="stonetop-companion-options">
-			<span class="stonetop-follower-label">{{localize "stonetop.followers.companionOptions"}}{{#if companionPickCount}} <span class="stonetop-companion-pick">(pick {{companionPickCount}})</span>{{/if}}</span>
+			<span class="stonetop-follower-label">{{#if companionPickCount}}Pick {{companionPickCount}} more{{#if companionStartOptions.length}} <span class="stonetop-companion-pick">(start with {{#each companionStartOptions}}{{{md this}}}{{#unless @last}}, {{/unless}}{{/each}})</span>{{/if}}{{else}}{{localize "stonetop.followers.companionOptions"}}{{/if}}</span>
 			{{> "stonetop.selection-chips" sel=companionOptionsSelection slug=slug field="companionOptions" placeholder=(localize "stonetop.followers.addOption")}}
 		</div>
 	</div>

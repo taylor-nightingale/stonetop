@@ -55,6 +55,31 @@ describe("activateComboBoxes", () => {
 		expect(list.querySelectorAll(".stonetop-combo-option")).toHaveLength(3);
 	});
 
+	it("clicking the input opens the list (even with no value typed)", () => {
+		const { input, list } = makeCombo(["brave", "cunning"]);
+		click(input);
+		expect(list.hidden).toBe(false);
+	});
+
+	it("selecting an option commits, blurs the input, and dismisses the list", () => {
+		const { input, list } = makeCombo(["brave", "cunning"]);
+		const blurSpy = vi.spyOn(input, "blur");
+		fire(input, "focusin");
+		click(list.querySelector('[data-value="cunning"]'));
+		expect(input.value).toBe("cunning");
+		expect(blurSpy).toHaveBeenCalled();
+		expect(list.hidden).toBe(true);
+	});
+
+	it("scrolling inside the list keeps it open; a page scroll closes it", () => {
+		const { input, list } = makeCombo(["brave", "cunning"]);
+		fire(input, "focusin");
+		list.dispatchEvent(new Event("scroll", { bubbles: true }));   // scroll within the list
+		expect(list.hidden).toBe(false);
+		document.body.dispatchEvent(new Event("scroll", { bubbles: true })); // page scroll
+		expect(list.hidden).toBe(true);
+	});
+
 	describe("fill-in-the-blank (__)", () => {
 		it("a one-blank option opens an inline fill row instead of committing", () => {
 			const { combo, input, list } = makeCombo(["brave", "crush on __"]);

@@ -157,9 +157,17 @@ export function activateComboBoxes() {
 			const value = option.dataset.value ?? option.textContent.trim();
 			const combo = input.closest(".stonetop-combo");
 			close();
-			if (value.includes("__")) startFill(combo, input, value); // fill the blank(s) first
-			else commit(input, value);
+			if (value.includes("__")) {
+				startFill(combo, input, value);       // fill the blank(s) first (keeps focus)
+			} else {
+				commit(input, value);
+				input.blur();                          // selecting defocuses + dismisses the dropdown
+			}
+			return;
 		}
+		// Clicking the input itself (re)opens its dropdown, even if it's already focused.
+		const clickedInput = ev.target.closest(".stonetop-combo-input");
+		if (clickedInput) openFor(clickedInput);
 	});
 
 	document.addEventListener("keydown", ev => {
@@ -180,7 +188,11 @@ export function activateComboBoxes() {
 		}
 	});
 
-	// The list is fixed to the viewport, so scrolling/resizing would detach it — just close.
-	window.addEventListener("scroll", () => close(), true);
+	// The list is fixed to the viewport, so scrolling the PAGE would detach it — close. But ignore
+	// scrolling INSIDE the list itself (its own overflow), or the list couldn't be scrolled.
+	window.addEventListener("scroll", ev => {
+		if (open && (ev.target === open.list || open.list?.contains?.(ev.target))) return;
+		close();
+	}, true);
 	window.addEventListener("resize", () => close());
 }
