@@ -5,7 +5,6 @@
 	"system": {
 		"slug": "crew",
 		"arcanaSlug": null,
-		"playbookSlug": "the-marshal",
 		"hp": {
 			"value": 6,
 			"max": 6

@@ -36,21 +36,26 @@ export class CharacterFollowers {
 
 	// Embed the followers tied to the active playbook (owned), and drop any left over from a
 	// previously-selected playbook. Called when the playbook is chosen/changed.
-	async syncPlaybookFollowers(playbookSlug) {
+	async syncPlaybookFollowers(playbookSlug, followerSlugs = []) {
+		// Remove the previous playbook's granted followers. The grant marker is the item flag
+		// `stonetop.grantedByPlaybook`; fall back to the legacy `system.playbookSlug` so followers
+		// embedded before Phase 4 are still cleaned up on swap.
 		for (const item of [...this._actor.items]) {
 			if (item.type !== "npc") continue;
-			const ps = item.system?.playbookSlug;
-			if (ps && ps !== playbookSlug) {
+			const grantedBy = item.flags?.stonetop?.grantedByPlaybook ?? item.system?.playbookSlug;
+			if (grantedBy && grantedBy !== playbookSlug) {
 				await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
 			}
 		}
-		if (!playbookSlug) return;
-		const followers = await this._followerRepo.findByPlaybook(playbookSlug);
+		if (!playbookSlug || !followerSlugs?.length) return;
+		// The playbook lists its follower slugs; embed each (owned), stamped with the grant flag.
+		const followers = await this._followerRepo.findBySlugs(followerSlugs);
 		for (const follower of followers) {
 			if (_findFollowerItem(this._actor, follower.slug)) continue;
 			await this._actor.createEmbeddedDocuments("Item", [{
 				name: follower.name, type: "npc",
 				system: { ..._followerToSystemFields(follower), owned: true },
+				flags: { stonetop: { grantedByPlaybook: playbookSlug } },
 			}]);
 		}
 	}
@@ -239,6 +244,39 @@ export class CharacterFollowers {
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { notes } }]);
 	}
 
+	// Animal companion: `system.companion` is atomic (one opaque object), so every writer
+	// read-modify-writes the WHOLE object — a partial path would drop sibling keys.
+
+	// Pick a Type: pre-fill the editable hp/armor/damage from its template, set the chosen type,
+	// and reset the options pool + pre-checked defaults to that type's. (Pre-fill, not computed —
+	// the user can type over hp/armor/damage afterwards.)
+	async setCompanionType(slug, typeSlug) {
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		const companion = _companion(item);
+		const t = (companion.catalog ?? []).find(x => x.slug === typeSlug || x.name === typeSlug);
+		if (!t) return;
+		companion.type    = { selected: [t.name], options: (companion.catalog ?? []).map(x => x.name), multi: false, allowCustom: true };
+		companion.options = { selected: [...(t.defaults ?? [])], options: [...(t.options ?? [])], multi: true, allowCustom: true };
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: {
+			companion,
+			hp:     { value: t.hp?.value ?? t.hp?.max ?? 0, max: t.hp?.max ?? t.hp?.value ?? 0 },
+			armor:  t.armor ?? "",
+			damage: t.damage ?? "",
+		} }]);
+	}
+
+	// Toggle one entry in the companion options pool (the nested multi-select; the generic
+	// toggleSelection can't reach `companion.options`).
+	async toggleCompanionOption(slug, value) {
+		if (!value) return;
+		const item = _findFollowerItem(this._actor, slug);
+		if (!item) return;
+		const companion = _companion(item);
+		companion.options = Selection.fromStored(companion.options, { multi: true }).toggle(value).toRaw();
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { companion } }]);
+	}
+
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
@@ -300,6 +338,7 @@ export class CharacterFollowers {
 			.withMembers(sys.members ?? [])
 			.withMemberSuggestions(sys.memberSuggestions ?? { names: [], tags: [], traits: [] })
 			.withMembersNote(sys.membersNote ?? "")
+			.withCompanion(sys.companion ?? {})
 			.build();
 	}
 }
@@ -318,11 +357,22 @@ function _members(item) {
 	}));
 }
 
+// Deep-ish clone of a follower's atomic `companion` object (Foundry replaces ObjectFields
+// wholesale on update, so writers must hand back the full object).
+function _companion(item) {
+	const c = item.system?.companion ?? {};
+	return {
+		enabled: !!c.enabled,
+		type:    { ...(c.type    ?? { selected: [], options: [], multi: false, allowCustom: true }) },
+		options: { ...(c.options ?? { selected: [], options: [], multi: true,  allowCustom: true }) },
+		catalog: Array.isArray(c.catalog) ? c.catalog.map(t => ({ ...t })) : [],
+	};
+}
+
 function _followerToSystemFields(follower) {
 	return {
 		slug:           follower.slug,
 		arcanaSlug:     follower.arcanaSlug ?? null,
-		playbookSlug:   follower.playbookSlug ?? null,
 		tagList:   Selection.fromStored(follower.tags).toRaw(),
 		// New followers start at full HP (pack data stores value 0 as a template default).
 		hp:             { value: follower.hp?.max ?? 0, max: follower.hp?.max ?? 0 },
@@ -346,5 +396,6 @@ function _followerToSystemFields(follower) {
 		})),
 		memberSuggestions: follower.memberSuggestions ?? { names: [], tags: [], traits: [] },
 		membersNote:    follower.membersNote ?? "",
+		companion:      follower.companion ?? { enabled: false, type: { selected: [], options: [], multi: false, allowCustom: true }, options: { selected: [], options: [], multi: true, allowCustom: true }, catalog: [] },
 	};
 }

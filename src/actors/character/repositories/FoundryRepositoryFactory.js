@@ -4,6 +4,7 @@ import {FoundryArcanaRepository} from "./FoundryArcanaRepository.js";
 import {FoundryFollowerRepository} from "./FoundryFollowerRepository.js";
 import {FoundryPossessionRepository} from "./FoundryPossessionRepository.js";
 import {FoundryPlaybookRepository} from "./FoundryPlaybookRepository.js";
+import {FoundryInsertRepository} from "./FoundryInsertRepository.js";
 
 export class FoundryRepositoryFactory {
 	get moves() {
@@ -28,5 +29,9 @@ export class FoundryRepositoryFactory {
 
 	get playbooks() {
 		return this._playbooks ??= new FoundryPlaybookRepository();
+	}
+
+	get inserts() {
+		return this._inserts ??= new FoundryInsertRepository();
 	}
 }

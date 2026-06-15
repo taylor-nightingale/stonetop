@@ -37,7 +37,7 @@ export class StonetopCharacter {
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
 		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers, factory);
-		this._inserts     = new CharacterInserts(actor, factory, this._moves);
+		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
@@ -223,7 +223,8 @@ export class StonetopCharacter {
 		if (playbookItem) {
 			const playbookData = playbookItem.asPlaybook();
 			await this._playbook.selectPlaybook(playbookData);
-			await this._followers.syncPlaybookFollowers(playbookData.slug);
+			await this._followers.syncPlaybookFollowers(playbookData.slug, playbookData.followers);
+			await this._inserts.syncPlaybookInserts(playbookData.slug, playbookData.inserts);
 			await this._possessions.addPossessionsFromPlaybook(
 				playbookData.specialPossessions, playbookData.slug,
 			);
@@ -421,6 +422,14 @@ export class StonetopCharacter {
 
 	async setFollowerInstinct(slug, instinct) {
 		await this._followers.setInstinct(slug, instinct);
+	}
+
+	async setFollowerCompanionType(slug, type) {
+		await this._followers.setCompanionType(slug, type);
+	}
+
+	async toggleFollowerCompanionOption(slug, value) {
+		await this._followers.toggleCompanionOption(slug, value);
 	}
 
 	async setFollowerMoves(slug, moves) {

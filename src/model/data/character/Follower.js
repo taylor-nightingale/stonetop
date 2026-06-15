@@ -19,5 +19,6 @@ export class Follower {
 		this.members          = data.members          ?? [];
 		this.memberSuggestions = data.memberSuggestions ?? { names: [], tags: [], traits: [] };
 		this.membersNote      = data.membersNote      ?? "";
+		this.companion        = data.companion        ?? null;
 	}
 }

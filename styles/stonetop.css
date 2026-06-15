@@ -2531,6 +2531,80 @@ body,
 }
 .stonetop-combo-option:hover { background: rgba(75, 74, 68, 0.16); }
 
+/* Inline fill-in-the-blank editor for `__` trait suggestions (comboBox.js). While filling, the
+   add-combo takes its own full-width line in the tags row so the blanks can't run off the card. */
+.stonetop-combo.is-filling { flex: 1 1 100%; }
+.stonetop-fill {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 2px 4px;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	font-size: 0.85rem;
+}
+.stonetop-fill-blank {
+	flex: 1 1 5em;
+	min-width: 3em;
+	max-width: 100%;
+	width: auto !important;
+	box-sizing: border-box;
+	font-size: 0.85rem;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--color-border-dark);
+	outline: none;
+}
+.stonetop-fill-confirm,
+.stonetop-fill-cancel {
+	flex: 0 0 auto;
+	width: auto !important;
+	padding: 0 3px;
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	line-height: 1;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+.stonetop-fill-confirm { color: #2e7d32; }
+.stonetop-fill-cancel  { color: #b23b3b; }
+.stonetop-fill-confirm:hover,
+.stonetop-fill-cancel:hover { opacity: 0.7; }
+
+/* Animal companion (Ranger): Type dropdown + "pick N" options pool. */
+.stonetop-companion { display: flex; flex-direction: column; gap: 4px; }
+.stonetop-companion-options { display: flex; flex-direction: column; gap: 2px; }
+.stonetop-companion-pick { font-size: 0.7rem; font-style: italic; opacity: 0.6; }
+
+/* Foundry's core button styling boxes our icon-only buttons (background, border, box-shadow
+   glow, focus outline). Null it with the sheet-scoped prefix `.stonetop.sheet` (the sheet's own
+   wrapper class) so we outrank Foundry's `.window-app button`. See the
+   foundry-button-input-css-overrides memory. Covers +, ✕, the card delete, the edit pencil,
+   the combo ▾ toggle, and the fill-in ✓/✕. */
+.stonetop.sheet .stonetop-member-add,
+.stonetop.sheet .stonetop-member-remove,
+.stonetop.sheet .stonetop-follower-delete,
+.stonetop.sheet .stonetop-edit-toggle,
+.stonetop.sheet .stonetop-combo-toggle,
+.stonetop.sheet .stonetop-fill-confirm,
+.stonetop.sheet .stonetop-fill-cancel {
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+/* The actual "black box": Foundry borders <img> by default. Null it on the icon images (same as
+   the working `.stonetop-icon-btn img`). */
+.stonetop-member-add img,
+.stonetop-member-remove img,
+.stonetop-follower-delete img,
+.stonetop-edit-toggle img {
+	border: none !important;
+	border-radius: 0 !important;
+}
+
 .stonetop-follower-note-input {
 	display: block;
 	width: 100%;

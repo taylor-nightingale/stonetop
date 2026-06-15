@@ -28,6 +28,18 @@ describe("PlaybookData defaults", () => {
 		expect(d.choices).toEqual([]);
 	});
 
+	it("defaults the playbook-grant lists (followers, inserts) to empty arrays", () => {
+		const d = new PlaybookData();
+		expect(d.followers).toEqual([]);
+		expect(d.inserts).toEqual([]);
+	});
+
+	it("keeps follower/insert grant slugs as string arrays", () => {
+		const d = new PlaybookData({ followers: ["crew", "animal-companion"], inserts: ["lightbearer-invocations-insert"] });
+		expect(d.followers).toEqual(["crew", "animal-companion"]);
+		expect(d.inserts).toEqual(["lightbearer-invocations-insert"]);
+	});
+
 	it("defaults introductions to null", () => {
 		const d = new PlaybookData();
 		expect(d.introductions).toBeNull();

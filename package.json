@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "happy-dom": "^20.10.3",
     "vitest": "^4.1.7"
   },
   "dependencies": {

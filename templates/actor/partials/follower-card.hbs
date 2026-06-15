@@ -8,7 +8,20 @@
 	{{/unless}}
 
 	<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
+	{{#if isCompanion}}
+	<div class="stonetop-companion">
+		<div class="stonetop-creature-line">
+			<span class="stonetop-follower-label">{{localize "stonetop.followers.companionType"}}</span>
+			{{> "stonetop.selection-input" sel=companionTypeSelection slug=slug field="companionType" inputClass="stonetop-companion-type" placeholder=(localize "stonetop.followers.companionType")}}
+		</div>
+		<div class="stonetop-companion-options">
+			<span class="stonetop-follower-label">{{localize "stonetop.followers.companionOptions"}}{{#if companionPickCount}} <span class="stonetop-companion-pick">(pick {{companionPickCount}})</span>{{/if}}</span>
+			{{> "stonetop.selection-chips" sel=companionOptionsSelection slug=slug field="companionOptions" placeholder=(localize "stonetop.followers.addOption")}}
+		</div>
+	</div>
+	{{else}}
 	{{> "stonetop.selection-chips" sel=tagSelection slug=slug field="tagList" placeholder=(localize "stonetop.followers.notePlaceholder")}}
+	{{/if}}
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">

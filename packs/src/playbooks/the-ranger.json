@@ -8,6 +8,8 @@
   "system": {
     "slug": "the-ranger",
     "actorType": "character",
+    "followers": ["animal-companion"],
+    "inserts": [],
     "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
     "startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice.",
     "damage": {

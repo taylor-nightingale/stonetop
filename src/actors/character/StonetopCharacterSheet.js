@@ -333,6 +333,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			}, true);
 
 			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-companion-type");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerCompanionType(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-follower-moves");
 				if (!input) return;
 				this._stonetopCharacter.setFollowerMoves(input.dataset.slug, input.value);
@@ -375,6 +381,9 @@ export function createStonetopCharacterSheetClass(Base) {
 			const { slug, field, memberIndex } = wrap.dataset;
 			if (memberIndex !== undefined) {
 				this._stonetopCharacter.toggleFollowerMemberSelection(slug, Number(memberIndex), field, value);
+			} else if (field === "companionOptions") {
+				// companion options live nested in the atomic `companion` object, not a top-level field
+				this._stonetopCharacter.toggleFollowerCompanionOption(slug, value);
 			} else {
 				this._stonetopCharacter.toggleFollowerSelection(slug, field, value);
 			}

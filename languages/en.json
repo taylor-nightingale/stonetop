@@ -77,6 +77,9 @@
 			"traits": "Traits",
 			"addTag": "tag",
 			"addTrait": "trait",
+			"companionType": "Type",
+			"companionOptions": "Options",
+			"addOption": "option",
 			"suggestedNames": "Suggested names",
 			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear."
 		},

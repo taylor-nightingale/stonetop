@@ -809,37 +809,49 @@ describe("CharacterFollowers.syncPlaybookFollowers", () => {
 	}
 
 	const CREW = new Follower({
-		slug: "crew", name: "Crew", playbookSlug: "the-marshal",
+		slug: "crew", name: "Crew",
 		hp: { value: 6, max: 6 }, armor: "0", damage: "d6",
 	});
+	const grantedItem = (slug, by) => {
+		const it = makeFollowerItem({ slug }, { owned: true });
+		it.flags = { stonetop: { grantedByPlaybook: by } };
+		return it;
+	};
 
-	it("embeds the playbook's followers as owned, carrying playbookSlug", async () => {
+	it("embeds the playbook's listed followers as owned, stamped with the grant flag", async () => {
 		const { actor, cf } = setup([CREW]);
-		await cf.syncPlaybookFollowers("the-marshal");
+		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
 		const item = actor.createdDocs.find(d => d.system?.slug === "crew");
 		expect(item).toBeDefined();
 		expect(item.system.owned).toBe(true);
-		expect(item.system.playbookSlug).toBe("the-marshal");
+		expect(item.flags?.stonetop?.grantedByPlaybook).toBe("the-marshal");
 	});
 
-	it("does not duplicate an already-embedded playbook follower", async () => {
+	it("does not duplicate an already-embedded granted follower", async () => {
 		const { actor, cf } = setup([CREW]);
-		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
-		await cf.syncPlaybookFollowers("the-marshal");
+		actor.items.push(grantedItem("crew", "the-marshal"));
+		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
 		expect(actor.createdDocs.filter(d => d.system?.slug === "crew")).toHaveLength(0);
 	});
 
-	it("removes a follower tied to a different playbook (playbook swap)", async () => {
+	it("removes a follower granted by a different playbook on swap", async () => {
 		const { actor, cf } = setup([]);
-		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
-		await cf.syncPlaybookFollowers("the-blessed");
+		actor.items.push(grantedItem("crew", "the-marshal"));
+		await cf.syncPlaybookFollowers("the-blessed", []);
 		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
 	});
 
-	it("leaves arcana/manual followers (no playbookSlug) untouched", async () => {
+	it("still cleans up a legacy `system.playbookSlug` follower (back-compat)", async () => {
+		const { actor, cf } = setup([]);
+		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
+		await cf.syncPlaybookFollowers("the-blessed", []);
+		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
+	});
+
+	it("leaves manual followers (no grant marker) untouched", async () => {
 		const { actor, cf } = setup([]);
 		actor.items.push(makeFollowerItem({ slug: "enfys" }, { owned: true }));
-		await cf.syncPlaybookFollowers("the-marshal");
+		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
 		expect([...actor.items].some(i => i.system?.slug === "enfys")).toBe(true);
 	});
 });
@@ -907,5 +919,79 @@ describe("CharacterFollowers — an edit keeps the global tagList (migrate-on-di
 		const cf = makeCrew();
 		await cf.addMember("crew");
 		expect(groupTag(cf)).toEqual(["group"]);
+	});
+});
+
+// -- Animal companion (Ranger) -------------------------------------------------
+describe("CharacterFollowers — animal companion", () => {
+	const BIRD = {
+		slug: "bird", name: "bird", variants: ["falcon"],
+		hp: { value: 5, max: 5 }, armor: "1 (size)", damage: "d4 (hand)",
+		pickCount: 4,
+		options: ["+4 HP", "fast", "tiny", "__"], defaults: ["tiny"],
+	};
+	function makeCompanion() {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "comp" }, { owned: true }));
+		cf._actor.items.get("comp-item").system.companion = {
+			enabled: true,
+			type:    { selected: [], options: [], multi: false, allowCustom: true },
+			options: { selected: [], options: [], multi: true, allowCustom: true },
+			catalog: [BIRD],
+		};
+		return cf;
+	}
+	const sysOf = cf => cf._actor.items.get("comp-item").system;
+
+	it("setCompanionType pre-fills hp/armor/damage and resets the options pool + defaults", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "bird");
+		const sys = sysOf(cf);
+		expect(sys.hp).toEqual({ value: 5, max: 5 });
+		expect(sys.armor).toBe("1 (size)");
+		expect(sys.damage).toBe("d4 (hand)");
+		expect(sys.companion.type.selected).toEqual(["bird"]);
+		expect(sys.companion.options.options).toEqual(["+4 HP", "fast", "tiny", "__"]);
+		expect(sys.companion.options.selected).toEqual(["tiny"]);
+	});
+
+	it("toggleCompanionOption adds and removes within the pool (whole object written back)", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "bird");
+		await cf.toggleCompanionOption("comp", "fast");
+		expect(sysOf(cf).companion.options.selected).toEqual(["tiny", "fast"]);
+		await cf.toggleCompanionOption("comp", "tiny");
+		expect(sysOf(cf).companion.options.selected).toEqual(["fast"]);
+		// the catalog + enabled flag survive option edits
+		expect(sysOf(cf).companion.enabled).toBe(true);
+		expect(sysOf(cf).companion.catalog).toHaveLength(1);
+	});
+
+	it("editing armor keeps the companion type/options intact (migrate-on-diff guard)", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "bird");
+		await cf.setArmor("comp", "2");
+		const c = sysOf(cf).companion;
+		expect(c.type.selected).toEqual(["bird"]);
+		expect(c.options.selected).toEqual(["tiny"]);
+		expect(c.enabled).toBe(true);
+	});
+
+	it("buildSnapshot exposes isCompanion + type options from the catalog + pickCount", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "bird");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.isCompanion).toBe(true);
+		expect(snap.companionTypeSelection.values).toEqual(["bird"]);
+		expect(snap.companionTypeSelection.options).toContain("bird");
+		expect(snap.companionOptionsSelection.multi).toBe(true);
+		expect(snap.companionPickCount).toBe(4);
+	});
+
+	it("a non-companion follower reports isCompanion false", async () => {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "enfys" }, { owned: true }));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.isCompanion).toBe(false);
 	});
 });

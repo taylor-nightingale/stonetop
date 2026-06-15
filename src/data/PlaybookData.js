@@ -22,6 +22,10 @@ export class PlaybookData extends foundry.abstract.TypeDataModel {
 			startingMovesNote:  new f.StringField({ initial: "" }),
 			backgrounds:        new f.ArrayField(new f.ObjectField()),
 			origin:             new f.ArrayField(new f.ObjectField()),
+			// The playbook is the source of truth for what it auto-adds (follower-data-architecture
+			// §4): follower & insert slugs granted on select, removed on swap.
+			followers:          new f.ArrayField(new f.StringField()),
+			inserts:            new f.ArrayField(new f.StringField()),
 			specialPossessions: new f.ObjectField({ nullable: true, initial: null }),
 			instinct:           new f.ObjectField({ nullable: true, initial: null }),
 			appearance:         new f.ObjectField({ nullable: true, initial: null }),

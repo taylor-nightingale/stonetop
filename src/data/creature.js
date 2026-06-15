@@ -75,6 +75,19 @@ export function followerFields() {
 		memberSuggestions: new f.ObjectField({ initial: { names: [], tags: [], traits: [] } }),
 		// Guidance shown above the members list (e.g. the Crew's "when one stands out…" note).
 		membersNote: new f.StringField({ initial: "" }),
+		// Animal companion (Ranger). ALL companion state in one opaque ObjectField, mirroring
+		// `members`: a single grouped object can't collide with sibling fields and is never reached
+		// by migrateCreatureData (so it can't be default-injected on a partial update — the
+		// migrate-on-diff landmine). PLAIN-object initial (a function initial is reset on update).
+		// Atomic: writers read-modify-write the WHOLE object (see CharacterFollowers.setCompanionType
+		// / toggleCompanionOption). `catalog` = the selectable types (each a stat template + its own
+		// "pick N more" pool). See follower-data-architecture.md §3.
+		companion: new f.ObjectField({ initial: {
+			enabled: false,
+			type:    { selected: [], options: [], multi: false, allowCustom: true },
+			options: { selected: [], options: [], multi: true,  allowCustom: true },
+			catalog: [],
+		} }),
 	};
 }
 

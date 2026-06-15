@@ -56,6 +56,72 @@ export function activateComboBoxes() {
 		position();
 	}
 
+	function commit(input, value) {
+		input.value = value;
+		input.dispatchEvent(new Event("change", { bubbles: true }));
+	}
+
+	// -- Fill-in-the-blank (Mad-Libs) for options containing `__` -----------------------
+	// Picking e.g. "crush on __" replaces the input with an inline row: the static text with a
+	// small <input> per blank + ✓/✕. Confirm assembles the filled string and commits it as a
+	// (custom) chip. The template option stays in the list for reuse.
+	let fill = null; // { combo, input, toggle, editor, parts, blanks: [inputs] }
+
+	function cancelFill() {
+		if (!fill) return;
+		fill.editor.remove();
+		fill.input.hidden = false;
+		if (fill.toggle) fill.toggle.hidden = false;
+		fill.combo.classList.remove("is-filling");
+		fill = null;
+	}
+
+	function confirmFill() {
+		if (!fill) return;
+		const assembled = fill.parts
+			.map((p, i) => p + (i < fill.blanks.length ? fill.blanks[i].value.trim() : ""))
+			.join("");
+		const input = fill.input;
+		cancelFill();
+		commit(input, assembled);
+	}
+
+	function startFill(combo, input, value) {
+		cancelFill();
+		const toggle = combo.querySelector(".stonetop-combo-toggle");
+		const parts = value.split("__");
+		const editor = document.createElement("span");
+		editor.className = "stonetop-fill";
+		const blanks = [];
+		parts.forEach((p, i) => {
+			if (p) editor.appendChild(document.createTextNode(p));
+			if (i < parts.length - 1) {
+				const b = document.createElement("input");
+				b.type = "text";
+				b.size = 6;                       // small intrinsic width; CSS lets it flex/wrap
+				b.className = "stonetop-fill-blank";
+				editor.appendChild(b);
+				blanks.push(b);
+			}
+		});
+		const mkBtn = (cls, label) => {
+			const btn = document.createElement("button");
+			btn.type = "button";
+			btn.className = cls;
+			btn.textContent = label;
+			return btn;
+		};
+		editor.appendChild(mkBtn("stonetop-fill-confirm", "✓"));
+		editor.appendChild(mkBtn("stonetop-fill-cancel", "✕"));
+
+		input.hidden = true;
+		if (toggle) toggle.hidden = true;
+		combo.classList.add("is-filling"); // take a full-width line so the row can't overflow
+		combo.appendChild(editor);
+		fill = { combo, input, toggle, editor, parts, blanks };
+		blanks[0]?.focus();
+	}
+
 	// Open when an input gains focus (so the list shows as you start typing).
 	document.addEventListener("focusin", ev => {
 		const input = comboInput(ev.target);
@@ -68,11 +134,16 @@ export function activateComboBoxes() {
 			ev.preventDefault();
 			return;
 		}
-		// Outside click closes (the list is on <body>, so check both the combo and the list).
-		if (open && !ev.target.closest(".stonetop-combo") && !ev.target.closest(".stonetop-combo-list")) close();
+		// Outside click closes the list (on <body>, so check the combo + the list) and any fill row.
+		const inCombo = ev.target.closest(".stonetop-combo");
+		const inList  = ev.target.closest(".stonetop-combo-list");
+		if (open && !inCombo && !inList) close();
+		if (fill && ev.target.closest(".stonetop-combo") !== fill.combo) cancelFill();
 	}, true);
 
 	document.addEventListener("click", ev => {
+		if (ev.target.closest(".stonetop-fill-confirm")) { confirmFill(); return; }
+		if (ev.target.closest(".stonetop-fill-cancel"))  { cancelFill();  return; }
 		const toggle = ev.target.closest(".stonetop-combo-toggle");
 		if (toggle) {
 			const input = toggle.closest(".stonetop-combo")?.querySelector(".stonetop-combo-input");
@@ -83,13 +154,21 @@ export function activateComboBoxes() {
 		const option = ev.target.closest(".stonetop-combo-option");
 		if (option && open) {
 			const input = open.input;
-			input.value = option.dataset.value ?? option.textContent.trim();
+			const value = option.dataset.value ?? option.textContent.trim();
+			const combo = input.closest(".stonetop-combo");
 			close();
-			input.dispatchEvent(new Event("change", { bubbles: true }));
+			if (value.includes("__")) startFill(combo, input, value); // fill the blank(s) first
+			else commit(input, value);
 		}
 	});
 
 	document.addEventListener("keydown", ev => {
+		const blank = ev.target.closest?.(".stonetop-fill-blank");
+		if (blank) {
+			if (ev.key === "Enter") { ev.preventDefault(); confirmFill(); }
+			else if (ev.key === "Escape") cancelFill();
+			return;
+		}
 		const input = comboInput(ev.target);
 		if (!input) return;
 		if (ev.key === "Enter") {

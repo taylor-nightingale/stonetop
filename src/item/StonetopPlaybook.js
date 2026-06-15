@@ -57,6 +57,14 @@ export class StonetopPlaybook {
 		return this._stonetopItem.system?.specialPossessions ?? null;
 	}
 
+	get followers() {
+		return this._stonetopItem.system?.followers ?? [];
+	}
+
+	get inserts() {
+		return this._stonetopItem.system?.inserts ?? [];
+	}
+
 	get lore() {
 		return this._stonetopItem.system?.lore ?? [];
 	}

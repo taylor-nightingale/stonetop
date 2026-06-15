@@ -52,6 +52,17 @@ export class FollowerSnapshot {
 			tagSelection:   memberSel(m.tags,   this.memberSuggestions.tags),
 			traitSelection: memberSel(m.traits, this.memberSuggestions.traits),
 		}));
+		// Animal companion (only meaningful when isCompanion). One grouped object holds the chosen
+		// type + options (raw Selections) and the catalog of selectable types. The Type dropdown's
+		// options are the catalog names; the options-pool's options ride on the stored selection.
+		const c = b._companion ?? {};
+		this.isCompanion    = !!c.enabled;
+		const catalog       = Array.isArray(c.catalog) ? c.catalog : [];
+		this.companionTypeSelection = Selection.fromStored(c.type, { options: catalog.map(t => t.name) });
+		this.companionOptionsSelection = Selection.fromStored(c.options, { multi: true });
+		const chosen        = catalog.find(t => this.companionTypeSelection.values.includes(t.name)
+			|| this.companionTypeSelection.values.includes(t.slug));
+		this.companionPickCount = chosen?.pickCount ?? 0;
 	}
 }
 
@@ -75,5 +86,6 @@ export class FollowerSnapshotBuilder {
 	withMembers(v)         { this._members         = v; return this; }
 	withMemberSuggestions(v) { this._memberSuggestions = v; return this; }
 	withMembersNote(v)     { this._membersNote      = v; return this; }
+	withCompanion(v)       { this._companion        = v; return this; }
 	build()                { return new FollowerSnapshot(this); }
 }
