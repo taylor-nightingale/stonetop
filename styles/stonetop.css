@@ -177,11 +177,19 @@ body,
 
 /* ── Sheet tabs ──────────────────────────────────────────────────────────────── */
 
-/* Strip the PBTA h3 underline — section-heading.hbs provides the panel-divider instead */
+/* Strip the PBTA h3 underline — section-heading.hbs provides the panel-divider instead.
+   Section-title scale: every section-heading h3 across the sheet is 1rem (see introductions /
+   creation h3, which were already 1rem). */
 .stonetop.sheet .stonetop-move-group-title,
 .stonetop.sheet .stonetop-introductions-title {
+	font-size: 1rem;
 	border-bottom: none;
 	margin-bottom: 0;
+}
+
+/* Sub-heading scale: section-sub-heading h4 matches the choice-track subtitle h4 (0.95rem). */
+.stonetop.sheet .stonetop-move-group-sub-heading {
+	font-size: 0.95rem;
 }
 
 /* Remove PBTA border on the tabs section and add breathing room above */
@@ -635,7 +643,6 @@ body,
 }
 
 .stonetop-introductions-title {
-	font-size: 1rem;
 	margin: 0 0 6px;
 }
 
