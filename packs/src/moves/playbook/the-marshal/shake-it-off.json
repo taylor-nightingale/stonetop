@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "shake-it-off"
   },
   "folder": "AFEGaCzrd5eKoPuV"
 }

@@ -524,6 +524,16 @@ describe("CharacterMoves.addCategory", () => {
 		expect((await m.buildSnapshot()).categories.some(c => c.key === "insert-revenant" && c.label === "Revenant")).toBe(true);
 	});
 
+	it("unions slug-referenced moves with tag-based ones (de-duped by slug)", async () => {
+		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
+		repo.addBasic(new FakeCompendiumMoveBuilder().withName("Spirit Sight").build()); // resolvable by slug
+		const actor = makeActor();
+		await makeMoves({repo, actor}).addCategory("insert-revenant", "Revenant", "revenant", ["spirit-sight"]);
+		const names = actor.createdDocs.map(d => d.name);
+		expect(names).toContain("Haunt");        // tag-based association
+		expect(names).toContain("Spirit Sight"); // slug-referenced
+	});
+
 	it("does nothing when category already exists", async () => {
 		const repo = new FakeMoveRepository([], [], [new FakeCompendiumMoveBuilder().withName("Haunt").build()]);
 		const actor = makeActor();

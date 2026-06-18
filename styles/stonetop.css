@@ -608,6 +608,11 @@ body,
 	break-inside: avoid;
 }
 
+/* Keep a single entry whole — never split its title from its subtitle/track across columns */
+.tab.insert .stonetop-playbook-columns .stonetop-choice-entry {
+	break-inside: avoid;
+}
+
 .stonetop-playbook-empty {
 	display: flex;
 	flex-direction: column;
@@ -4326,3 +4331,25 @@ form.stonetop.sheet.steading {
 /* The enriched <ul> carries the browser's default 1em margin — drop it so the list sits
    directly under the MOVES label like every other stat line. */
 .stonetop-creature-moves .stonetop-editable__display ul { margin: 0; }
+
+/* -- Custom insert item sheet (StonetopInsertSheet) ----------------------------- */
+.stonetop-insert-sheet-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.stonetop-insert-sheet-icon { width: 48px; height: 48px; flex: 0 0 auto; border: none !important; }
+.stonetop-insert-sheet-name { flex: 1 1 auto; font-size: 1.3rem; font-weight: bold; }
+.stonetop-insert-sheet-body { display: flex; flex-direction: column; gap: 8px; }
+.stonetop-insert-sheet-label { font-weight: bold; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
+.stonetop-insert-sheet-description { width: 100%; min-height: 120px; resize: vertical; }
+.stonetop-insert-sheet-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--color-border-light-2, #c9c7b8); padding-top: 8px; }
+.stonetop-insert-sheet-section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 4px 6px; resize: vertical; overflow: auto; }
+.stonetop-insert-sheet-instinct-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.stonetop-insert-sheet-instinct-row { display: flex; align-items: center; gap: 6px; }
+.stonetop-insert-sheet-instinct-row .insert-instinct-string { flex: 1 1 auto; }
+.stonetop-insert-sheet-instinct-row .insert-instinct-remove-string { flex: 0 0 auto; }
+.stonetop-insert-sheet-choices-group { border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px; margin-bottom: 6px; }
+.stonetop-insert-sheet-choices-group-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+.stonetop-insert-sheet-choices-slug { font-size: 0.78rem; opacity: 0.6; font-style: italic; }
+.stonetop-insert-sheet-move-list { list-style: none; margin: 0; padding: 0; }
+.stonetop-insert-sheet-move { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 4px; }
+.stonetop-insert-sheet-move .insert-move-open { flex: 1 1 auto; cursor: pointer; }
+.stonetop-insert-sheet-move .insert-move-open:hover { text-decoration: underline; }

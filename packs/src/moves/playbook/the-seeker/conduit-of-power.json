@@ -9,7 +9,8 @@
 		"description": "When you **_would mark a Consequence from a major arcanum_**, you can mark 1 box here instead, with no negative effect. (These marks never clear.)",
 		"resource": {
 			"max": 3
-		}
+		},
+		"slug": "conduit-of-power"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

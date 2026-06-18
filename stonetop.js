@@ -6,6 +6,7 @@ import { createStonetopCharacterSheetClass } from "./src/actors/character/Stonet
 import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
 import { createStonetopNpcSheetClass } from "./src/actors/npc/StonetopNpcSheet.js";
 import { createStonetopMoveSheetClass } from "./src/item/StonetopMoveSheet.js";
+import { createStonetopInsertSheetClass } from "./src/item/StonetopInsertSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
@@ -122,6 +123,13 @@ Hooks.once("init", () => {
 		label: "Stonetop Move Sheet",
 	});
 
+	const StonetopInsertSheet = createStonetopInsertSheetClass(foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopInsertSheet, {
+		types: ["insert"],
+		makeDefault: true,
+		label: "Stonetop Insert Sheet",
+	});
+
 	foundry.applications.handlebars.loadTemplates({
 		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
 		"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
@@ -149,6 +157,7 @@ Hooks.once("init", () => {
 		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
 		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
 		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
+		"stonetop.choice-group-editor":   "systems/stonetop/templates/item/partials/choice-group-editor.hbs",
 	});
 });
 

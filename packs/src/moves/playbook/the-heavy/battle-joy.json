@@ -21,7 +21,8 @@
         "value": "Mark a debility but don't mark XP."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "battle-joy"
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

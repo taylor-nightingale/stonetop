@@ -26,7 +26,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "cryptologist"
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

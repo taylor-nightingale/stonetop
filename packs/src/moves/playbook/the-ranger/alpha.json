@@ -28,7 +28,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "alpha"
   },
   "folder": "TOPlmLzP0PF3i9CM"
 }

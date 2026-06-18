@@ -26,7 +26,8 @@
         "value": "Your light snuffs out and the attack is unimpeded."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "luminous-shield"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

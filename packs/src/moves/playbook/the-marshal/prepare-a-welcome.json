@@ -30,7 +30,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "prepare-a-welcome"
   },
   "folder": "AFEGaCzrd5eKoPuV"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "When you **_approach a beast calmly and show no fear_**, it will not harm you (though it may threaten you and test your nerve). When you **_lay your hand gently upon a beast_**, it calms to your touch."
+		"description": "When you **_approach a beast calmly and show no fear_**, it will not harm you (though it may threaten you and test your nerve). When you **_lay your hand gently upon a beast_**, it calms to your touch.",
+		"slug": "into-the-lions-den"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

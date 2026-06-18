@@ -18,7 +18,8 @@
         "value": "Makes a hard GM move (Up to GM interpretation)."
       }
     },
-    "rollStat": "ask"
+    "rollStat": "ask",
+    "slug": "interfere"
   },
   "_id": "NIzfTEDyTEujEV6M",
   "_key": "!items!NIzfTEDyTEujEV6M",

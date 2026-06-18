@@ -84,7 +84,16 @@
 			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear."
 		},
 		"insert": {
-			"remove": "Remove"
+			"remove": "Remove",
+			"description": "Description",
+			"moves": "Moves",
+			"addMove": "Add move",
+			"namePlaceholder": "Insert name",
+			"instinct": "Instinct",
+			"addInstinct": "Add instinct",
+			"removeInstinct": "Remove instinct",
+			"choices": "Choices",
+			"addChoices": "Add choices group"
 		},
 		"arcana": {
 			"empty": "Drag arcana here from the Arcana compendium.",

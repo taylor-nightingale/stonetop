@@ -21,7 +21,8 @@
         "value": "Pick 1 but ask the GM what you've missed."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "formidable"
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

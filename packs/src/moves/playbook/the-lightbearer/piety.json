@@ -10,7 +10,8 @@
 		"resource": {
 			"title": "Blessing",
 			"max": 1
-		}
+		},
+		"slug": "piety"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

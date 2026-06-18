@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "heliors-unblinking-eye"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

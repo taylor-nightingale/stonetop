@@ -11,7 +11,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Heavy"
-		}
+		},
+		"slug": "seasoned-warrior"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

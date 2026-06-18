@@ -19,7 +19,8 @@
         "value": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "undying"
   },
   "folder": "PltWcwhA5PwgziBO",
   "_id": "hTcheRc8Pk3kJxuW",

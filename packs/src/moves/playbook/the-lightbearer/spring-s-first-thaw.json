@@ -21,7 +21,8 @@
         "value": "Their heart hardens and you can't use this move on them again."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "springs-first-thaw"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

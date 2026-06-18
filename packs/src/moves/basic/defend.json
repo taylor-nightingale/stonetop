@@ -18,7 +18,8 @@
         "value": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation)."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "defend"
   },
   "_id": "ZmGI9G0EiVXqtpP3",
   "_key": "!items!ZmGI9G0EiVXqtpP3",

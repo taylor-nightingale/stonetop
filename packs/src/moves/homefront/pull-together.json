@@ -21,7 +21,8 @@
         "value": "Establish badness"
       }
     },
-    "rollStat": "population"
+    "rollStat": "population",
+    "slug": "pull-together"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

@@ -10,7 +10,8 @@
 		"description": "When you **_are outnumbered or facing a foe bigger than you_**, you get +1 armor and deal +1d6 damage. (Replaces Better Part of Valor. First use crosses off \"Would-be\" on the front page.)",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "undaunted"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

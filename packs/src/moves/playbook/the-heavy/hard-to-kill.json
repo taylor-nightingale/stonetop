@@ -22,7 +22,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "hard-to-kill"
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

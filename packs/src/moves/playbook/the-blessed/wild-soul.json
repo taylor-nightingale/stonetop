@@ -11,7 +11,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Blessed"
-		}
+		},
+		"slug": "wild-soul"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

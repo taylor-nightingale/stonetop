@@ -29,6 +29,7 @@ function _logArcanumFlipped(actor, label) {
 export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateStaleItemTypes(actor);
 	await migrateCharacterFlags(actor);
+	await migrateEmbeddedMoveSlugs(actor);
 	await migrateCharacterMoves(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookChoices(actor, repos.playbooks);
@@ -92,6 +93,15 @@ export function migrateGroupDefs(defs) {
 		for (const row of def.list ?? []) migrateChoiceRow(row);
 	}
 	return defs;
+}
+
+// ── B0. Stamp stable slugs onto embedded move items that lack one ───────────────
+
+export async function migrateEmbeddedMoveSlugs(actor) {
+	const updates = [...actor.items]
+		.filter(i => i.type === "move" && !i.system?.slug)
+		.map(i => ({ _id: i._id, system: { slug: toSlug(i.name) } }));
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 
 // ── B. Embedded move items ────────────────────────────────────────────────────

@@ -7,7 +7,8 @@
 		"playbook": "The Ranger",
 		"moveType": "playbook",
 		"isStartingMove": true,
-		"description": "When **_a journey requires you to Defy Danger or Struggle as One_**, treat a 6- as a 7-9."
+		"description": "When **_a journey requires you to Defy Danger or Struggle as One_**, treat a 6- as a 7-9.",
+		"slug": "home-on-the-range"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

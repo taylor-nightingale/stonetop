@@ -21,7 +21,8 @@
         "value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "burgle"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

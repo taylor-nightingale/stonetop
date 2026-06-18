@@ -21,7 +21,8 @@
         "value": "They suffer the harm normally."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "amulets-talismans"
   },
   "folder": "twBI9Q4lZycODbDk"
 }

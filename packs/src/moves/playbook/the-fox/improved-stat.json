@@ -7,7 +7,8 @@
 		"playbook": "The Fox",
 		"moveType": "playbook",
 		"description": "Each time you take this move, increase one of your stats by 1 (to a max of +2).",
-		"repeatMax": 3
+		"repeatMax": 3,
+		"slug": "improved-stat"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

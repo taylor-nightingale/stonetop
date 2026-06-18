@@ -5,7 +5,9 @@ export class Move {
 	constructor(data) {
 		this.id          = data._id;
 		this.name        = data.name;
-		this.slug        = toSlug(data.name);
+		// Prefer the stored, stable slug (survives renames); fall back to the name-derived one for
+		// moves authored before slugs were stamped (packs + worlds get backfilled by migration).
+		this.slug        = data.system?.slug || toSlug(data.name);
 		this.playbook    = data.system?.playbook        ?? null;
 		this.rollStat    = data.system?.rollStat        ?? null;
 		this.description = data.system?.description     ?? null;

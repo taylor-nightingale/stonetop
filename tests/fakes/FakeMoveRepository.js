@@ -54,8 +54,18 @@ export class FakeMoveRepository {
 		return this._insertMoves.map(m => new Move(m));
 	}
 
+	async getMovesBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		const index = await this.buildSlugIndex();
+		return slugs.map(s => index.get(s)).filter(Boolean);
+	}
+
 	async getInsertMoveDocument(id) {
-		return this._insertMoves.find(m => m._id === id) ?? null;
+		return this._insertMoves.find(m => m._id === id)
+			?? this._playbookMoves.find(m => m._id === id)
+			?? this._basicMoves.find(m => m._id === id)
+			?? await this._worldStore.getDocument(id)
+			?? null;
 	}
 
 	addInsertMove(move) {

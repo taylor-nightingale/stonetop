@@ -27,7 +27,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "wielder-of-the-white-flame"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

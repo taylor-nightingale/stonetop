@@ -20,7 +20,8 @@
         "value": "Your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the Revenant or Ghost insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert"
       }
     },
-    "rollStat": "prompt"
+    "rollStat": "prompt",
+    "slug": "deaths-door"
   },
   "folder": "d4FNbbTV42H21u5y"
 }

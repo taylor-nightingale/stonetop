@@ -64,10 +64,19 @@ export class CharacterMoves {
 		);
 	}
 
-	async addCategory(key, label, slug) {
+	async addCategory(key, label, slug, moveSlugs = []) {
 		const exists = [...this._actor.items].some(i => i.type === "move" && i.system?.categoryKey === key);
 		if (exists) return;
-		const entries = await this._moveRepo.getInsertMoves(slug);
+		// An insert's moves come from two sources, unioned + de-duped by slug: legacy tag-based
+		// association (`move.system.playbook === slug`, used by built-in inserts) and the insert's
+		// own `system.moves` slug references (custom inserts attach existing moves this way).
+		const [tagged, referenced] = await Promise.all([
+			this._moveRepo.getInsertMoves(slug),
+			this._moveRepo.getMovesBySlugs(moveSlugs),
+		]);
+		const bySlug = new Map();
+		for (const m of [...tagged, ...referenced]) bySlug.set(m.slug, m);
+		const entries = [...bySlug.values()];
 		const docs = await Promise.all(entries.map(m => this._moveRepo.getInsertMoveDocument(m.id)));
 		await this._actor.createEmbeddedDocuments("Item",
 			docs.filter(Boolean).map((doc, i) =>

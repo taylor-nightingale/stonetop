@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "When you **_Defend_**, you can spend 1 Readiness to stand fast, holding your position despite what befalls you."
+		"description": "When you **_Defend_**, you can spend 1 Readiness to stand fast, holding your position despite what befalls you.",
+		"slug": "bulwark"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

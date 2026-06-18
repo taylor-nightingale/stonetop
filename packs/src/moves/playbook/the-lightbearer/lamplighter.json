@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "When you **_whisper to a flammable object (a torch, a wick, kindling, etc.)_**, it ignites in moments."
+		"description": "When you **_whisper to a flammable object (a torch, a wick, kindling, etc.)_**, it ignites in moments.",
+		"slug": "lamplighter"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

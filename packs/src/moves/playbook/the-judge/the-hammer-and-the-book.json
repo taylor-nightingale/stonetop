@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "the-hammer-and-the-book"
   },
   "folder": "jISe56pNVdmHJLgu"
 }

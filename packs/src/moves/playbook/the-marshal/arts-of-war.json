@@ -10,7 +10,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Marshal"
-		}
+		},
+		"slug": "arts-of-war"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

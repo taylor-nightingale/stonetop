@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "rise-like-the-sun"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

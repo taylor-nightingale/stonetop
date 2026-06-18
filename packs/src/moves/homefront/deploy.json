@@ -21,7 +21,8 @@
         "value": "Establish badness"
       }
     },
-    "rollStat": "defenses"
+    "rollStat": "defenses",
+    "slug": "deploy"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

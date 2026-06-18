@@ -8,7 +8,8 @@
 		"moveType": "playbook",
 		"isStartingMove": true,
 		"description": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.\n\n- The Last Door, death, and the undead\n- The civilizations of humanity\n- The Fae and their strange ways\n- The Makers and their arts\n- The primordial powers\n- The Things Below\n- The wild world and its spirits\nWhen you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
-		"repeatMax": 3
+		"repeatMax": 3,
+		"slug": "well-versed"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

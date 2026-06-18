@@ -22,7 +22,8 @@
         "value": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "danger-sense"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

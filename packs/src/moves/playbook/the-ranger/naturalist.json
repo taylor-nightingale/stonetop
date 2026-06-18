@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "When you **_Know Things about beasts, natural environs, or spirits of the wild_**, you have advantage."
+		"description": "When you **_Know Things about beasts, natural environs, or spirits of the wild_**, you have advantage.",
+		"slug": "naturalist"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

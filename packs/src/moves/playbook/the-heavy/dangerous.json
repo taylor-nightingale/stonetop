@@ -10,7 +10,8 @@
 		"description": "When you **_deal your damage_**, you have advantage.",
 		"requirement": {
 			"playbook": "The Heavy"
-		}
+		},
+		"slug": "dangerous"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

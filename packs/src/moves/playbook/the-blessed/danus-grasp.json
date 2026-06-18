@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "danus-grasp"
   },
   "folder": "twBI9Q4lZycODbDk"
 }

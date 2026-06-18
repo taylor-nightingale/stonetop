@@ -18,7 +18,8 @@
         "value": "Things get bad... things burn. (Up to GM interpretation)"
       }
     },
-    "rollStat": "ask"
+    "rollStat": "ask",
+    "slug": "defy-danger"
   },
   "_id": "aG2lARep6mTB5C1n",
   "_key": "!items!aG2lARep6mTB5C1n",

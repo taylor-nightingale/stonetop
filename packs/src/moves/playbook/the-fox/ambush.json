@@ -22,7 +22,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "ambush"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

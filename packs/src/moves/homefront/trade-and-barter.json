@@ -21,7 +21,8 @@
         "value": "Don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season."
       }
     },
-    "rollStat": "prosperity"
+    "rollStat": "prosperity",
+    "slug": "trade-barter"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

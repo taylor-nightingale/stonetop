@@ -11,7 +11,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Would-Be Hero"
-		}
+		},
+		"slug": "versatile"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

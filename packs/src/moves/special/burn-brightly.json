@@ -5,7 +5,8 @@
   "type": "move",
   "system": {
     "moveType": "special",
-    "description": "When you **_have enough XP to Level Up_** (6 + twice your current level), you may spend 2 XP after any roll you make to add +1 to that roll (max +1 per roll)."
+    "description": "When you **_have enough XP to Level Up_** (6 + twice your current level), you may spend 2 XP after any roll you make to add +1 to that roll (max +1 per roll).",
+    "slug": "burn-brightly"
   },
   "folder": "d4FNbbTV42H21u5y"
 }

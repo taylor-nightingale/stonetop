@@ -9,7 +9,8 @@
 		"description": "When **_you'd mark a debility_**, you can mark this move instead to no ill effect. Clear it as you would a debility.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "walk-it-off"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

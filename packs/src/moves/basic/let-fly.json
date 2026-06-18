@@ -18,7 +18,8 @@
         "value": "Up to GM"
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "let-fly"
   },
   "_id": "RktcnT4RufsMLv2D",
   "_key": "!items!RktcnT4RufsMLv2D",

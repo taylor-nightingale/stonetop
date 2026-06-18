@@ -28,7 +28,7 @@ export class FakeMoves {
 	get removedCategories() { return this._removedCategories; }
 	get addedCategories()   { return this._addedCategories; }
 
-	async addCategory(type, name, slug) { this._addedCategories.push({ type, name, slug }); }
+	async addCategory(type, name, slug, moveSlugs = []) { this._addedCategories.push({ type, name, slug, moveSlugs }); }
 	async removeCategory(type)          { this._removedCategories.push(type); }
 
 	setSnapshotsForCategory(category, snapshots) { this._snapshotsByCategory[category] = snapshots; }

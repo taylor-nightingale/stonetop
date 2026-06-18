@@ -5,7 +5,8 @@
     "moveType": "post-death",
     "playbook": "ghost",
     "description": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.\n\nWhen you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
-    "rollStat": null
+    "rollStat": null,
+    "slug": "tethered"
   },
   "_id": "BEzYLYEKsMzLVSMm",
   "_key": "!items!BEzYLYEKsMzLVSMm",

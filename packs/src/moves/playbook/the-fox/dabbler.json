@@ -11,7 +11,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Fox"
-		}
+		},
+		"slug": "dabbler"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

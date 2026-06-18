@@ -12,7 +12,7 @@ export class CharacterInserts {
 
 	async onInsertDropped(item) {
 		const slug = item.system?.slug ?? null;
-		await this._moves.addCategory(`insert-${slug}`, item.name, slug);
+		await this._moves.addCategory(`insert-${slug}`, item.name, slug, item.system?.moves ?? []);
 	}
 
 	// Grant the inserts a playbook declares (follower-data-architecture §4): remove the previous
@@ -37,7 +37,7 @@ export class CharacterInserts {
 			data.type  = "insert";
 			data.flags = { ...(data.flags ?? {}), stonetop: { ...(data.flags?.stonetop ?? {}), grantedByPlaybook: playbookSlug } };
 			await this._actor.createEmbeddedDocuments("Item", [data]);
-			await this._moves.addCategory(`insert-${slug}`, data.name, slug);
+			await this._moves.addCategory(`insert-${slug}`, data.name, slug, data.system?.moves ?? []);
 		}
 	}
 

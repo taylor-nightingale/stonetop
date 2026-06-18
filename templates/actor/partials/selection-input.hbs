@@ -9,7 +9,7 @@
 	{{#if sel.options.length}}
 	<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>
 	<ul class="stonetop-combo-list" hidden>
-		{{#each sel.options}}<li class="stonetop-combo-option" data-value="{{this}}">{{this}}</li>{{/each}}
+		{{#each sel.options}}<li class="stonetop-combo-option" data-value="{{this}}">{{{md this}}}</li>{{/each}}
 	</ul>
 	{{/if}}
 </span>

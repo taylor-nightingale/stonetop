@@ -18,7 +18,8 @@
         "value": "Up to GM"
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "persuade-vs-npcs"
   },
   "_id": "Hfpdz9YXksUfEBav",
   "_key": "!items!Hfpdz9YXksUfEBav",

@@ -25,7 +25,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "silver-tongued"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

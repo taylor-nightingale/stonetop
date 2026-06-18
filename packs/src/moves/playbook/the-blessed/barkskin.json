@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "When you **_are touching the earth_**, you have 2 armor. When you **_mark another with 1 Stock_**, they gain this benefit so long as the mark remains."
+		"description": "When you **_are touching the earth_**, you have 2 armor. When you **_mark another with 1 Stock_**, they gain this benefit so long as the mark remains.",
+		"slug": "barkskin"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

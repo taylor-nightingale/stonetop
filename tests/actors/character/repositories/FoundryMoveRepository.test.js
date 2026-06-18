@@ -180,6 +180,19 @@ describe("FoundryMoveRepository", () => {
 			const second = await repo.getInsertMoves("revenant");
 			expect(second).toBe(first);
 		});
+
+		it("includes insert moves from BOTH the compendium and the world (custom inserts)", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("Custom Invocation").withPlaybook("revenant").build();
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.movesPack().withItem(REVENANT_MOVE_A).withItem(REVENANT_MOVE_B))
+				.withWorldItem(worldMove)
+				.build();
+
+			const repo = new FoundryMoveRepository();
+			const moves = names(await repo.getInsertMoves("revenant"));
+			expect(moves).toEqual(expect.arrayContaining(["Unliving", "Undying", "Custom Invocation"]));
+			expect(moves).toHaveLength(3);
+		});
 	});
 
 	describe("getInsertMoveDocument", () => {
@@ -196,6 +209,32 @@ describe("FoundryMoveRepository", () => {
 			const repo = new FoundryMoveRepository();
 			const doc = await repo.getInsertMoveDocument(REVENANT_MOVE_A._id);
 			expect(doc).toEqual(REVENANT_MOVE_A);
+		});
+
+		it("falls back to a world move when not in the pack (the insert move picker copies these)", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("Custom Move").build();
+			new FakeGameBuilder().withWorldItem(worldMove).build();
+			const repo = new FoundryMoveRepository();
+			expect(await repo.getInsertMoveDocument(worldMove._id)).toEqual(worldMove);
+		});
+	});
+
+	describe("getMovesBySlugs", () => {
+		it("returns [] for an empty list", async () => {
+			new FakeGameBuilder().build();
+			expect(await new FoundryMoveRepository().getMovesBySlugs([])).toEqual([]);
+		});
+
+		it("resolves slugs across compendium + world, preserves order, drops unknowns", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("Custom Move").build(); // slug: custom-move
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.movesPack().withItem(REVENANT_MOVE_A)) // slug: unliving
+				.withWorldItem(worldMove)
+				.build();
+			const repo = new FoundryMoveRepository();
+			const moves = await repo.getMovesBySlugs(["custom-move", "nope", "unliving"]);
+			expect(moves.map(m => m.slug)).toEqual(["custom-move", "unliving"]);
+			expect(moves[0]).toBeInstanceOf(Move);
 		});
 	});
 });

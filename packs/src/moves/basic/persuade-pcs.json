@@ -18,7 +18,8 @@
         "value": "Up to GM"
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "persuade-vs-pcs"
   },
   "_id": "adMx5sWi2flZIkxp",
   "_key": "!items!adMx5sWi2flZIkxp",

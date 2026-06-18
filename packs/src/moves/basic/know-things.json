@@ -18,7 +18,8 @@
         "value": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "know-things"
   },
   "_id": "tLTyWFFkpaiArJLS",
   "_key": "!items!tLTyWFFkpaiArJLS",

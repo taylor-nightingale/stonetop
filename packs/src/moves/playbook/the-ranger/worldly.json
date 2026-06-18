@@ -11,7 +11,8 @@
 		"requirement": {
 			"level": 2,
 			"playbook": "The Ranger"
-		}
+		},
+		"slug": "worldly"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

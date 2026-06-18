@@ -18,7 +18,8 @@
         "value": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
       }
     },
-    "rollStat": "str"
+    "rollStat": "str",
+    "slug": "clash"
   },
   "_id": "BimI7FEmyjmgznOW",
   "_key": "!items!BimI7FEmyjmgznOW",
