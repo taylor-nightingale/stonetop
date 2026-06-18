@@ -211,7 +211,9 @@ describe("ChoiceGroupController — outfitItems side effects", () => {
 			{ outfitItems: { prefix: "cg", items } },
 		);
 		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
-		expect(items.getItems("cg:weapons:sword-opt")).toEqual([SWORD]);
+		const [created] = items.getItems("cg:weapons:sword-opt");
+		expect(created.type).toBe("outfitItem");
+		expect(items.getSlugs("cg:weapons:sword-opt")).toEqual(["sword"]);
 	});
 
 	it("switching option removes previous outfit items and syncs new ones", async () => {
@@ -226,7 +228,7 @@ describe("ChoiceGroupController — outfitItems side effects", () => {
 		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
 		await ctrl.selectOption("weapons", "bow-opt",   "sword-opt,bow-opt");
 		expect(items.hasSource("cg:weapons:sword-opt")).toBe(false);
-		expect(items.getItems("cg:weapons:bow-opt")).toEqual([BOW]);
+		expect(items.getSlugs("cg:weapons:bow-opt")).toEqual(["bow"]);
 	});
 
 	it("setCount(0) on entry row with outfitItems removes that source", async () => {

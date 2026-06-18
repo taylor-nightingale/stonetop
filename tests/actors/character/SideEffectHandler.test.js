@@ -49,6 +49,17 @@ describe("OutfitItemSideEffectHandler", () => {
 		expect(items.hasSource("bg:initiate:enfys")).toBe(true);
 	});
 
+	it("wraps each outfit item as a proper outfitItem payload (type + system + source)", async () => {
+		const items = new FakeOutfitItems();
+		const handler = new OutfitItemSideEffectHandler("bg", items);
+		await handler.apply({ outfitItems: [SWORD] }, "initiate", "enfys", 1);
+		const [created] = items.getItems("bg:initiate:enfys");
+		expect(created.type).toBe("outfitItem");                 // was undefined → validation error
+		expect(created.name).toBe("Sword");
+		expect(created.system.slug).toBe("sword");
+		expect(created.system.source).toBe("bg:initiate:enfys"); // so deleteBySource can find it
+	});
+
 	it("deletes items when count === 0", async () => {
 		const items = new FakeOutfitItems();
 		await items.sync("bg:initiate:enfys", [SWORD]);
