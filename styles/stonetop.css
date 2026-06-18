@@ -1008,6 +1008,41 @@ body,
 
 /* -- Sheet layout (sidebar persists across all tabs) ------- */
 
+/* Full-height chain: make form → sheet-wrapper → sheet-main fill the window so
+   .stonetop-sheet-layout (and the persistent moves sidebar) span the whole sheet height instead of
+   only the current tab's content. The leaf rules below already assume a definite height; these wire
+   up the trunk. Character sheet only. */
+.stonetop.sheet.character .window-content {
+	display: flex;
+	flex-direction: column;
+}
+.stonetop.sheet.character .window-content form {
+	flex: 1;
+	min-height: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+.stonetop.sheet.character .sheet-wrapper {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+/* Only the main (tabs + content) column absorbs the free height; the header and stats/vitals keep
+   their natural size, so no gap opens up between the attributes and the tabs. */
+.stonetop.sheet.character .sheet-wrapper > * {
+	flex: 0 0 auto;
+}
+.stonetop.sheet.character .sheet-wrapper > .sheet-main {
+	flex: 1 1 auto;
+	min-height: 0;
+}
+/* Inside the main column, the tab nav keeps its natural height; only the layout below it grows. */
+.stonetop.sheet.character .sheet-main > .sheet-tabs {
+	flex: 0 0 auto;
+}
+
 .stonetop-sheet-layout {
 	display: flex;
 	align-items: flex-start;
@@ -1030,6 +1065,9 @@ body,
 .stonetop-moves-sidebar {
 	width: 220px;
 	flex-shrink: 0;
+	/* Override the layout's `align-items: flex-start` so the sidebar + its divider span the full
+	   sheet height instead of stopping at the current tab's content. */
+	align-self: stretch;
 	border-left: 1px solid var(--color-border-light-2);
 	padding-left: 12px;
 	overflow-y: auto;
@@ -1066,8 +1104,8 @@ body,
 		position: absolute;
 		top: 0;
 		right: 0;
-		/* Stop short of the bottom-right so Foundry's window resize grip stays reachable. */
-		height: calc(100% - 18px);
+		/* Stretch to the full sheet height like the wide layout (no internal scroll cap). */
+		height: 100%;
 		width: 240px;
 		max-width: 85%;
 		z-index: 4;
@@ -1080,6 +1118,12 @@ body,
 	}
 	.stonetop-sheet-layout.moves-open .stonetop-moves-sidebar {
 		transform: translateX(0);
+	}
+	/* Clear the sidebar toggle (top:2 right:2, 26px wide) so it doesn't cover the insert delete icon.
+	   Descendant selector raises specificity above the later base `.stonetop-insert-remove` rule so
+	   this wins regardless of source order. */
+	.stonetop-sheet-layout .stonetop-insert-remove {
+		right: 32px;
 	}
 }
 
@@ -2591,6 +2635,7 @@ body,
 .stonetop.sheet .stonetop-member-add,
 .stonetop.sheet .stonetop-member-remove,
 .stonetop.sheet .stonetop-follower-delete,
+.stonetop.sheet .stonetop-insert-remove,
 .stonetop.sheet .stonetop-edit-toggle,
 .stonetop.sheet .stonetop-combo-toggle,
 .stonetop.sheet .stonetop-fill-confirm,
@@ -2605,9 +2650,34 @@ body,
 .stonetop-member-add img,
 .stonetop-member-remove img,
 .stonetop-follower-delete img,
+.stonetop-insert-remove img,
 .stonetop-edit-toggle img {
 	border: none !important;
 	border-radius: 0 !important;
+}
+
+/* Insert tab header: name on the left, delete icon pinned to the top-right (no button box). */
+.stonetop-insert-header {
+	position: relative;
+}
+.stonetop-insert-remove {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	width: auto !important;
+	padding: 0;
+	line-height: 1;
+	cursor: pointer;
+	opacity: 0.45;
+}
+.stonetop-insert-remove img {
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+.stonetop-insert-remove:hover {
+	opacity: 1;
 }
 
 .stonetop-follower-note-input {
