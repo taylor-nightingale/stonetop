@@ -2331,24 +2331,41 @@ body,
 	text-align: center;
 }
 
+/* Fixed 2-column grid (was CSS multi-column masonry). A grid places cards row-major and never
+   re-balances column heights on resize, so dragging the resize handle stays responsive with 3+
+   followers. `align-items: stretch` makes both cards in a row share the taller one's height — the
+   shorter card simply extends down (blank space below its notes) so the row looks even. */
 .stonetop-followers-grid {
-	columns: 2;
-	column-gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: stretch;
+	gap: 10px;
 	padding: 8px;
 }
-.stonetop-followers-grid > .stonetop-follower-card {
-	break-inside: avoid;
-	margin-bottom: 10px;
+/* When a card is stretched to match its taller row-mate, the leftover space should go to the Notes
+   block (the last section) rather than a blank gap at the card bottom — so the shorter card just gets
+   a roomier notes area. Only grows when there IS leftover space; natural-height cards are unchanged.
+   NOTE: the base `.stonetop-editable { flex: 1 1 auto }` makes BOTH the Moves and Notes blocks grow,
+   so first pin every follower editable to no-grow, then re-grant grow to Notes only. */
+.stonetop-follower-card .stonetop-creature-moves.stonetop-editable {
+	flex: 0 0 auto;
+}
+.stonetop-follower-card .stonetop-follower-notes-block.stonetop-editable {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+.stonetop-follower-card .stonetop-follower-notes-block .stonetop-editable__display,
+.stonetop-follower-card .stonetop-follower-notes-block .stonetop-editable__edit {
+	flex: 1 1 auto;
 }
 
 .stonetop-follower-card {
 	position: relative;
-	/* Skip layout/paint of off-screen follower cards (e.g. while dragging the resize handle), so the
-	   window tracks the pointer instead of re-laying-out every card each frame. `contain-intrinsic-size:
-	   auto` remembers each card's last real height as the placeholder, so the masonry columns still
-	   balance sensibly. Implies contain: layout/style/paint. */
-	content-visibility: auto;
-	contain-intrinsic-size: auto 14rem;
+	/* Isolate each card's internal relayout from its siblings so editing one card doesn't reflow the
+	   others (the grid no longer re-balances, so this is all the containment we need). */
+	contain: layout style;
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
