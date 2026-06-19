@@ -39,11 +39,28 @@ export function renderMarkdown(raw) {
 	return toRollableMarkup(raw, { autoRoll: false });
 }
 
+// Cross-render memo cache. The followers tab re-runs ~6 enrichGameText calls per follower on every
+// re-render (each tag/item edit, each tab switch), and enrichHTML is the dominant cost. The same
+// prose enriches identically across renders, so cache it. Only cache text with NO `@` reference,
+// since that output can depend on `rollData` (e.g. "@str"); literal-dice prose does not. Bounded.
+const _enrichCache = new Map();
+const _ENRICH_CACHE_MAX = 1000;
+
+export function clearEnrichCache() { _enrichCache.clear(); }
+
 /** Full pipeline: markdown + inline dice + @UUID links, via Foundry's enrichHTML (async). */
 export async function enrichGameText(raw, { rollData = {}, autoRoll = true } = {}) {
 	if (!raw) return "";
+	const cacheable = !raw.includes("@");
+	const key = `${autoRoll}|${raw}`;
+	if (cacheable && _enrichCache.has(key)) return _enrichCache.get(key);
 	const html = toRollableMarkup(raw, { autoRoll });
-	return foundry.applications.ux.TextEditor.implementation.enrichHTML(html, { async: true, rollData });
+	const out  = await foundry.applications.ux.TextEditor.implementation.enrichHTML(html, { async: true, rollData });
+	if (cacheable) {
+		if (_enrichCache.size >= _ENRICH_CACHE_MAX) _enrichCache.clear();
+		_enrichCache.set(key, out);
+	}
+	return out;
 }
 
 /**

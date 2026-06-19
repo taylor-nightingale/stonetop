@@ -68,6 +68,10 @@ export class FollowerSnapshot {
 			|| this.companionTypeSelection.values.includes(t.slug));
 		this.companionPickCount   = chosen?.pickCount ?? 0;
 		this.companionStartOptions = chosen?.defaults ?? []; // the pre-checked "(start with …)" picks
+		// Inventory (shared outfit catalog + this follower's checked map). null when the catalog
+		// isn't loaded. `ownedItems` = the display view; `sections` = the full catalog (edit view).
+		this.inventory      = b._inventory ?? null;
+		this.hasInventory   = !!this.inventory;
 	}
 }
 
@@ -92,5 +96,6 @@ export class FollowerSnapshotBuilder {
 	withMemberSuggestions(v) { this._memberSuggestions = v; return this; }
 	withMembersNote(v)     { this._membersNote      = v; return this; }
 	withCompanion(v)       { this._companion        = v; return this; }
+	withInventory(v)       { this._inventory        = v; return this; }
 	build()                { return new FollowerSnapshot(this); }
 }

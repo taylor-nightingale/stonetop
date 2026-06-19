@@ -1,13 +1,12 @@
 import {
 	LoadOptionSnapshot,
 	LoadSnapshotBuilder,
-	OutfitItemSnapshotBuilder,
-	OutfitSection,
 	OutfitSnapshotBuilder,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
+import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
 
 export class CharacterInventory {
 	constructor(actor, inventoryRepo, outfitItems, resourceController) {
@@ -81,21 +80,7 @@ export class CharacterInventory {
 
 	async buildSnapshot(level) {
 		const checked = this.checked;
-
-		const mapItem = (outfitItem) => {
-			return new OutfitItemSnapshotBuilder()
-				.withSlug(outfitItem.slug)
-				.withName(outfitItem.name)
-				.withTags(outfitItem.tags)
-				.withNote(outfitItem.note)
-				.withWeight(outfitItem.weight)
-				.withChecked(checked[outfitItem.slug] ?? false)
-				.withResource(this._resourceController.buildSnapshot("inventory", outfitItem.resource, outfitItem.slug))
-				.withIsCustom(outfitItem.ownedId != null)
-				.withOwnedId(outfitItem.ownedId ?? null)
-				.withTwoCol(outfitItem.twoCol)
-				.build();
-		};
+		const resourceFn = oi => this._resourceController.buildSnapshot("inventory", oi.resource, oi.slug);
 
 		const embeddedItems = this._outfitItems.getAll().map(i => {
 			const sys    = i.system ?? {};
@@ -117,9 +102,9 @@ export class CharacterInventory {
 
 		return new OutfitSnapshotBuilder()
 			.withLoad(this.buildLoadSnapshot(this.loadLevel))
-			.withRegularSections(_buildSections(repoItems, embeddedItems, "regular", mapItem))
+			.withRegularSections(buildOutfitColumn(repoItems, embeddedItems, checked, "regular", resourceFn))
 			.withRegularPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.regularPool))
-			.withSmallSections(_buildSections(repoItems, embeddedItems, "small", mapItem))
+			.withSmallSections(buildOutfitColumn(repoItems, embeddedItems, checked, "small", resourceFn))
 			.withSmallPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.smallPool))
 			.withOtherItems(this.otherItems)
 			.build();
@@ -145,26 +130,4 @@ export class CharacterInventory {
 
 function _loc(key) {
 	return typeof game !== "undefined" ? game.i18n.localize(key) : key;
-}
-
-function _buildSections(repoItems, embeddedItems, column, mapItem) {
-	const colRepo     = repoItems.filter(i => i.inventoryColumn === column);
-	const colEmbedded = embeddedItems.filter(i => i.inventoryColumn === column);
-
-	// Group repo items by folder-derived group, preserving encounter order
-	const groupMap = new Map();
-	for (const item of colRepo) {
-		const g = item.group;
-		if (!groupMap.has(g)) groupMap.set(g, []);
-		groupMap.get(g).push(mapItem(item));
-	}
-
-	const sections = [...groupMap.entries()].map(([name, items]) => new OutfitSection(name, items));
-
-	// Embedded items (arcana, possessions, custom) always trail as their own section
-	if (colEmbedded.length > 0) {
-		sections.push(new OutfitSection(null, colEmbedded.map(mapItem)));
-	}
-
-	return sections;
 }

@@ -1,0 +1,61 @@
+{{!-- Shared outfit-item rendering for a single inventory column. Params:
+       sections   — OutfitSection[] (each {name, items})
+       addColumn  — when set, render the "+ add item" button with this data-column (omit for read-only)
+     Item checkboxes carry data-slug = item slug (same for character + follower); the follower path is
+     distinguished by the enclosing .stonetop-follower-inventory[data-slug] wrapper, so the handlers
+     branch without per-element follower attributes. Sections are split into two-line twoCol grids vs
+     plain rows by the outfitSegments helper; rows show diamonds + label + tags/note + resource +
+     custom-delete. --}}
+{{#each sections}}
+{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
+{{#each (outfitSegments items)}}
+{{#if isGrid}}
+<div class="stonetop-inv-twocol-grid">
+	{{#each items}}
+	<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
+		<span class="stonetop-inv-diamonds">
+			{{#each (times weight)}}
+			<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
+			       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
+			{{/each}}
+		</span>
+		<span class="stonetop-inv-label">{{name}}
+			{{#if tags}}<span class="stonetop-inv-tags">{{tags}}</span>{{/if}}
+			{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
+		</span>
+		{{#if isCustom}}
+		<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
+		{{/if}}
+	</div>
+	{{/each}}
+</div>
+{{else}}
+{{#each items}}
+<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
+	<span class="stonetop-inv-diamonds">
+		{{#each (times weight)}}
+		<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
+		       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
+		{{/each}}
+	</span>
+	<span class="stonetop-inv-label">{{name}}
+		{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
+	</span>
+	{{#if resource}}
+	<span class="stonetop-inv-resources">
+		{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
+	</span>
+	{{/if}}
+	{{#if isCustom}}
+	<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
+	{{/if}}
+</div>
+{{/each}}
+{{/if}}
+{{/each}}
+{{/each}}
+{{#if addColumn}}
+<button type="button" class="stonetop-inv-add-btn" data-column="{{addColumn}}">
+	<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addItem"}}
+</button>
+{{/if}}

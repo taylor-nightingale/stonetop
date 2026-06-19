@@ -1003,3 +1003,136 @@ describe("CharacterFollowers — animal companion", () => {
 		expect(snap.companionTypeSelection.values).toEqual([]);
 	});
 });
+
+// -- Tests: follower inventory (shared outfit catalog) ------------------------
+
+const OUTFIT = [
+	{ slug: "hatchet", name: "Hatchet, iron", weight: 1, tags: "hand, thrown", note: "x piercing", inventoryColumn: "regular", group: "Weapons" },
+	{ slug: "shield",  name: "Shield",        weight: 2, tags: "",             note: null,          inventoryColumn: "regular", group: "Armor" },
+	{ slug: "hides",   name: "Thick hides",   weight: 2, tags: "",             note: "1 armor",     inventoryColumn: "regular", group: "Armor" },
+	{ slug: "pack",    name: "Pack",          weight: 3, tags: "",             note: null,          inventoryColumn: "regular", group: "Travel" },
+	{ slug: "torch",   name: "Torch",         weight: 1, tags: "",             note: null,          inventoryColumn: "small",   group: "Sundries" },
+];
+const FOLLOWER_TMPL = new Follower({ slug: "crew", name: "Crew", hp: { value: 6, max: 6 } });
+const FOLLOWER_TMPL_2 = new Follower({ slug: "enfys", name: "Enfys", hp: { value: 4, max: 4 } });
+
+function makeCfInv(invItems = OUTFIT) {
+	const actor = makeActor();
+	const cf = new CharacterFollowers(
+		actor, new FakeFollowerRepository([FOLLOWER_TMPL, FOLLOWER_TMPL_2]), makeResourceController(),
+		new ChoiceGroupFactory(actor), { getAll: async () => invItems },
+	);
+	return cf;
+}
+
+const ownedSlugs = inv => inv.ownedSections.flatMap(s => s.items.map(i => i.slug));
+
+describe("CharacterFollowers — inventory", () => {
+	it("setInvItemChecked is reflected in the inventory snapshot owned subset", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.setInvItemChecked("crew", "hatchet", true);
+		const [snap] = await cf.buildSnapshot();
+		expect(ownedSlugs(snap.inventory)).toEqual(["hatchet"]);
+		expect(snap.inventory.hasAny).toBe(true);
+	});
+
+	it("the full catalog is built ONLY when this follower's inventory is open (perf)", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.setInvItemChecked("crew", "hatchet", true);
+
+		let [snap] = await cf.buildSnapshot();           // closed by default
+		expect(snap.inventory.editing).toBe(false);
+		expect(snap.inventory.sections).toEqual([]);      // no catalog DOM for a closed follower
+
+		cf.setOpenInventories(["crew"]);
+		[snap] = await cf.buildSnapshot();                // expanded
+		expect(snap.inventory.editing).toBe(true);
+		const catalogSlugs = snap.inventory.sections.flatMap(s => s.items.map(i => i.slug));
+		expect(catalogSlugs).toEqual(expect.arrayContaining(["hatchet", "shield", "hides", "pack"]));
+		expect(catalogSlugs).not.toContain("torch");      // "small" items excluded
+	});
+
+	it("checking gear on one follower does NOT affect another follower", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.addFollower("enfys");
+		await cf.setInvItemChecked("crew", "hatchet", true);
+		const snaps = await cf.buildSnapshot();
+		const byName = Object.fromEntries(snaps.map(s => [s.name, s]));
+		expect(ownedSlugs(byName.Crew.inventory)).toEqual(["hatchet"]);
+		expect(ownedSlugs(byName.Enfys.inventory)).toEqual([]); // isolated
+	});
+
+	it("unchecking removes the item from the owned subset", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.setInvItemChecked("crew", "hatchet", true);
+		await cf.setInvItemChecked("crew", "hatchet", false);
+		const [snap] = await cf.buildSnapshot();
+		expect(ownedSlugs(snap.inventory)).toEqual([]);
+		expect(snap.inventory.hasAny).toBe(false);
+	});
+
+	it("custom items: add → held + appears in catalog; remove → gone", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.addInvCustomItem("crew", "Lucky charm", 1);
+		cf.setOpenInventories(["crew"]);
+		let [snap] = await cf.buildSnapshot();
+		const custom = snap.inventory.sections.flatMap(s => s.items).find(i => i.name === "Lucky charm");
+		expect(custom).toBeTruthy();
+		expect(custom.isCustom).toBe(true);       // deletable
+		expect(custom.checked).toBe(true);        // auto-held on add
+		expect(ownedSlugs(snap.inventory)).toContain(custom.slug);
+
+		await cf.removeInvCustomItem("crew", custom.slug);
+		[snap] = await cf.buildSnapshot();
+		expect(snap.inventory.sections.flatMap(s => s.items).some(i => i.name === "Lucky charm")).toBe(false);
+	});
+
+	it("setInvResource is reflected in the item's resource snapshot", async () => {
+		const cf = makeCfInv([{ slug: "bow", name: "Bow", weight: 1, inventoryColumn: "regular", group: "Weapons", resource: { max: 2, title: null, labels: [] } }]);
+		await cf.addFollower("crew");
+		await cf.setInvItemChecked("crew", "bow", true);
+		await cf.setInvResource("crew", "bow", 1);
+		cf.setOpenInventories(["crew"]);
+		const [snap] = await cf.buildSnapshot();
+		const bow = snap.inventory.sections.flatMap(s => s.items).find(i => i.slug === "bow");
+		expect(bow.resource.current).toBe(1);
+	});
+
+	it("computes total weight and an informational load band from checked items", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.setInvItemChecked("crew", "hatchet", true); // 1 → light
+		let [snap] = await cf.buildSnapshot();
+		expect(snap.inventory.totalWeight).toBe(1);
+		expect(snap.inventory.band).toBe("light");
+		await cf.setInvItemChecked("crew", "shield", true);  // +2
+		await cf.setInvItemChecked("crew", "hides", true);   // +2 → 5 → normal
+		[snap] = await cf.buildSnapshot();
+		expect(snap.inventory.totalWeight).toBe(5);
+		expect(snap.inventory.band).toBe("normal");
+		expect(snap.inventory.loadNormal).toBe(true);
+	});
+
+	it("checking past Heavy is allowed — load is guidance, never a cap", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		for (const s of ["hatchet", "shield", "hides", "pack"]) await cf.setInvItemChecked("crew", s, true);
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.inventory.totalWeight).toBe(8); // 1+2+2+3, over the 7+ threshold
+		expect(snap.inventory.band).toBe("heavy");
+		expect(snap.inventory.loadHeavy).toBe(true);
+	});
+
+	it("inventory is null when no outfit catalog is wired (no inventory repo)", async () => {
+		const cf = makeCf(new FakeFollowerRepository([FOLLOWER_TMPL])); // 4-arg ctor, no inv repo
+		await cf.addFollower("crew");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.inventory).toBeNull();
+		expect(snap.hasInventory).toBe(false);
+	});
+});

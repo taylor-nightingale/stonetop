@@ -1,9 +1,39 @@
 import { describe, it, expect } from "vitest";
-import { autoRollDice, toRollableMarkup, enrichGameText, renderMarkdown, enrichRichTokens } from "../../src/utils/enrichGameText.js";
+import { autoRollDice, toRollableMarkup, enrichGameText, renderMarkdown, enrichRichTokens, clearEnrichCache } from "../../src/utils/enrichGameText.js";
 
 // Minimal stand-ins for DOM nodes (the suite runs in the node environment).
 function fakeEl(innerHTML) { return { innerHTML, dataset: {} }; }
 function fakeRoot(els) { return { querySelectorAll: () => els }; }
+
+describe("enrichGameText caching", () => {
+	it("serves a second identical call from cache (skips enrichHTML)", async () => {
+		clearEnrichCache();
+		let calls = 0;
+		const orig = foundry.applications.ux.TextEditor.implementation.enrichHTML;
+		foundry.applications.ux.TextEditor.implementation.enrichHTML = async html => { calls++; return html; };
+		try {
+			await enrichGameText("deal d8 damage");
+			await enrichGameText("deal d8 damage");
+			expect(calls).toBe(1); // second call cached
+		} finally {
+			foundry.applications.ux.TextEditor.implementation.enrichHTML = orig;
+		}
+	});
+
+	it("does NOT cache rollData-dependent text (contains @)", async () => {
+		clearEnrichCache();
+		let calls = 0;
+		const orig = foundry.applications.ux.TextEditor.implementation.enrichHTML;
+		foundry.applications.ux.TextEditor.implementation.enrichHTML = async html => { calls++; return html; };
+		try {
+			await enrichGameText("deal @str damage");
+			await enrichGameText("deal @str damage");
+			expect(calls).toBe(2); // re-enriched each time
+		} finally {
+			foundry.applications.ux.TextEditor.implementation.enrichHTML = orig;
+		}
+	});
+});
 
 describe("autoRollDice", () => {
 	it("wraps a bare die in an inline-roll", () => {

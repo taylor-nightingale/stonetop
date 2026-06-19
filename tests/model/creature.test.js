@@ -17,9 +17,45 @@ describe("creatureFields / followerFields composition", () => {
 
 	it("follower fields hold the bookkeeping but not the shared core", () => {
 		const keys = Object.keys(followerFields());
-		expect(keys).toEqual(expect.arrayContaining(["arcanaSlug", "owned", "loyalty", "choices", "choiceValues"]));
+		expect(keys).toEqual(expect.arrayContaining(["arcanaSlug", "owned", "loyalty", "choices", "choiceValues", "inventory"]));
 		expect(keys).not.toContain("slug");
 		expect(keys).not.toContain("hp");
+	});
+
+	it("inventory field defaults to { checked, customItems, resources }", () => {
+		expect(followerFields().inventory.initialize(undefined)).toEqual({ checked: {}, customItems: [], resources: {} });
+	});
+});
+
+describe("migrateCreatureData — legacy Crew inventory → inventory.checked", () => {
+	const crewSource = () => ({
+		choices: [{ slug: "choices", list: [
+			{ type: "entry", content: { title: "Inventory" } },
+			{ type: "pick", pickCount: 7, options: [
+				{ slug: "inv-hatchet", content: { title: "Hatchet, iron (hand, thrown)" } },
+				{ slug: "inv-bow",     content: { title: "Bow & iron arrows" } },
+				{ slug: "inv-hides",   content: { title: "Thick hides (1 armor)" } },
+			] },
+		] }],
+		choiceValues: { choices: { "inv-hatchet": 1, "inv-hides": 1 } },
+	});
+
+	it("maps the taken picks to shared outfit-item slugs", () => {
+		const s = crewSource();
+		migrateCreatureData(s);
+		expect(s.inventory.checked).toEqual({ hatchet: true, "thick-hides": true }); // inv-bow not taken
+	});
+
+	it("drops the Inventory entry + the inv-* pick row from choices", () => {
+		const s = crewSource();
+		migrateCreatureData(s);
+		expect(s.choices[0].list).toEqual([]);
+	});
+
+	it("does NOT inject inventory when there is no Inventory choice row (migrate-on-diff safe)", () => {
+		const s = { name: "Crew", hp: 6 }; // a partial update diff carries no choices
+		migrateCreatureData(s);
+		expect(s.inventory).toBeUndefined();
 	});
 });
 
@@ -47,6 +83,18 @@ describe("migrateCreatureData — hp", () => {
 		const s = { hp: { value: 3, max: 9 } };
 		migrateCreatureData(s);
 		expect(s.hp).toEqual({ value: 3, max: 9 });
+	});
+
+	it("does NOT inject max on a value-only partial update (migrate-on-diff: stepping HP must not reset max)", () => {
+		const s = { hp: { value: 4 } }; // the diff Foundry re-migrates when you step current HP
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ value: 4 });   // max absent → SchemaField merge keeps the stored max
+	});
+
+	it("does NOT inject value on a max-only partial update", () => {
+		const s = { hp: { max: 7 } };
+		migrateCreatureData(s);
+		expect(s.hp).toEqual({ max: 7 });     // value absent → stored value preserved
 	});
 });
 

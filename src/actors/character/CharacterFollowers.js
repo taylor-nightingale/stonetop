@@ -3,13 +3,67 @@ import { enrichGameText } from "../../utils/enrichGameText.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { ResourceController } from "./ResourceController.js";
 import { Selection } from "../../model/data/Selection.js";
+import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
 
 export class CharacterFollowers {
-	constructor(actor, followerRepo, resourceController, factory = null) {
+	constructor(actor, followerRepo, resourceController, factory = null, inventoryRepo = null) {
 		this._actor              = actor;
 		this._followerRepo       = followerRepo;
 		this._resourceController = resourceController;
 		this._factory            = factory;
+		this._inventoryRepo      = inventoryRepo; // shared outfit-item catalog (same as the character)
+		this._openInventories    = new Set();     // follower slugs whose inventory catalog is expanded
+	}
+
+	// Which followers have their inventory catalog open (transient sheet state, set before each
+	// build). Only an open follower renders the full catalog — otherwise every card would carry the
+	// whole outfit list, making tag/item edits re-render slowly.
+	setOpenInventories(slugs) {
+		this._openInventories = slugs instanceof Set ? slugs : new Set(slugs ?? []);
+	}
+
+	// Read-modify-write the WHOLE inventory object atomically (opaque ObjectField — the partial diff
+	// must carry it intact, or Foundry's migrate-on-diff would clobber it).
+	async _updateInventory(followerSlug, mutate) {
+		const item = _findFollowerItem(this._actor, followerSlug);
+		if (!item) return;
+		const inv  = item.system?.inventory ?? {};
+		const next = {
+			checked:     { ...(inv.checked ?? {}) },
+			customItems: [...(inv.customItems ?? [])],
+			resources:   { ...(inv.resources ?? {}) },
+		};
+		mutate(next);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { inventory: next } }]);
+	}
+
+	// Take/drop an item for one follower. No cap — checking is unrestricted (load is guidance).
+	async setInvItemChecked(followerSlug, itemSlug, on) {
+		await this._updateInventory(followerSlug, inv => { inv.checked[itemSlug] = !!on; });
+	}
+
+	// Add a custom gear item to a follower (followers can't embed Items, so it lives inline). Auto-held.
+	async addInvCustomItem(followerSlug, name, weight) {
+		const slug = `custom-${foundry.utils.randomID(8)}`;
+		await this._updateInventory(followerSlug, inv => {
+			inv.customItems.push({
+				slug, name: name || "Item", weight: Math.max(1, Number(weight) || 1),
+				tags: "", note: null, inventoryColumn: "regular", twoCol: false,
+			});
+			inv.checked[slug] = true;
+		});
+	}
+
+	async removeInvCustomItem(followerSlug, itemSlug) {
+		await this._updateInventory(followerSlug, inv => {
+			inv.customItems = inv.customItems.filter(c => c.slug !== itemSlug);
+			delete inv.checked[itemSlug];
+			delete inv.resources[itemSlug];
+		});
+	}
+
+	async setInvResource(followerSlug, itemSlug, count) {
+		await this._updateInventory(followerSlug, inv => { inv.resources[itemSlug] = count; });
 	}
 
 	get ownedSlugs() {
@@ -300,8 +354,11 @@ export class CharacterFollowers {
 
 		if (!ownedItems.length && !staticItems.length) return [];
 
-		const result = ownedItems.map(item => this._buildFollowerSnapshotFromItem(item));
-		for (const item of staticItems) result.push(this._buildFollowerSnapshotFromItem(item));
+		// Fetch the shared outfit-item catalog once (async) and pass it into each follower's snapshot.
+		const repoItems = this._inventoryRepo ? await this._inventoryRepo.getAll() : [];
+
+		const result = ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, repoItems));
+		for (const item of staticItems) result.push(this._buildFollowerSnapshotFromItem(item, repoItems));
 
 		const rollData = this._actor.getRollData?.() ?? {};
 		await Promise.all(result.map(async snap => {
@@ -315,7 +372,7 @@ export class CharacterFollowers {
 		return result;
 	}
 
-	_buildFollowerSnapshotFromItem(item) {
+	_buildFollowerSnapshotFromItem(item, repoItems = []) {
 		const sys      = item.system;
 		const values   = new ChoiceValues(sys?.choiceValues ?? {});
 		const loyalty  = this._resourceController.getCurrent("followers", sys.slug);
@@ -339,7 +396,45 @@ export class CharacterFollowers {
 			.withMemberSuggestions(sys.memberSuggestions ?? { names: [], tags: [], traits: [] })
 			.withMembersNote(sys.membersNote ?? "")
 			.withCompanion(sys.companion ?? {})
+			.withInventory(this._buildFollowerInventory(sys.slug, sys.inventory ?? {}, repoItems))
 			.build();
+	}
+
+	// Build the follower's inventory snapshot — parity with the character (twoCol grids, resources,
+	// custom items), via the shared buildOutfitColumn. Regular column only. Load is computed from total
+	// checked weight and is informational (highlighted band, never a cap — guide-don't-enforce).
+	// Returns null when there is nothing to show (no catalog loaded and no custom items).
+	//
+	// The full `sections` (catalog) is built ONLY when this follower's inventory is open — building it
+	// for every follower on every render is what makes tag/item edits sluggish. `ownedSections`
+	// (checked items only) drives the compact view.
+	_buildFollowerInventory(slug, inv, repoItems) {
+		const regular     = repoItems.filter(i => i.inventoryColumn === "regular");
+		const customItems = (inv.customItems ?? []).map(c => ({ ...c, inventoryColumn: "regular", ownedId: c.slug }));
+		if (!regular.length && !customItems.length) return null;
+
+		const checked    = inv.checked ?? {};
+		const resources  = inv.resources ?? {};
+		const editing    = this._openInventories.has(slug);
+		const resourceFn = oi => oi.resource ? ResourceController.build(oi.resource, resources[oi.slug] ?? 0) : null;
+
+		const owned       = [...regular, ...customItems].filter(i => checked[i.slug]);
+		const totalWeight = owned.reduce((s, i) => s + (i.weight ?? 0), 0);
+		const band        = loadBand(totalWeight);
+		const hasAny      = owned.length > 0;
+
+		return {
+			editing,
+			hasAny,
+			showDetails:   editing || hasAny, // hide load band + list for an empty, collapsed follower
+			ownedSections: buildOutfitColumn(regular.filter(i => checked[i.slug]), customItems.filter(i => checked[i.slug]), checked, "regular", resourceFn),
+			sections:      editing ? buildOutfitColumn(repoItems, customItems, checked, "regular", resourceFn) : [],
+			totalWeight,
+			band,
+			loadLight:     band === "light",
+			loadNormal:    band === "normal",
+			loadHeavy:     band === "heavy",
+		};
 	}
 }
 

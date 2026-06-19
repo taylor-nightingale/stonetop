@@ -1,0 +1,35 @@
+{{!-- Follower inventory — parity with the character inventory tab via the shared outfit-items partial
+      (twoCol two-line rows, resources, custom-delete). The enclosing .stonetop-follower-inventory
+      [data-slug] wrapper is how the inventory handlers route to the follower path. Compact view = what
+      they HAVE; the full catalog (with "+ add") renders only when this follower is expanded
+      (server-side toggle). Load band is computed + highlighted but never a cap. Context = follower. --}}
+{{#if hasInventory}}
+<div class="stonetop-follower-inventory{{#if inventory.editing}} is-editing{{/if}}" data-slug="{{slug}}">
+	<div class="stonetop-follower-inventory-head">
+		<span class="stonetop-follower-label">{{localize "stonetop.followers.inventory"}}</span>
+		{{#if inventory.showDetails}}
+		<span class="stonetop-follower-load" title="{{localize 'stonetop.followers.loadTitle'}}">
+			<span class="stonetop-follower-load-band{{#if inventory.loadLight}} is-active{{/if}}">{{localize "stonetop.followers.loadLight"}}</span>
+			<span class="stonetop-follower-load-band{{#if inventory.loadNormal}} is-active{{/if}}">{{localize "stonetop.followers.loadNormal"}}</span>
+			<span class="stonetop-follower-load-band{{#if inventory.loadHeavy}} is-active{{/if}}">{{localize "stonetop.followers.loadHeavy"}}</span>
+		</span>
+		{{/if}}
+		<button type="button" class="stonetop-follower-inv-toggle" data-slug="{{slug}}"
+		        title="{{#if inventory.editing}}{{localize 'stonetop.followers.inventoryDone'}}{{else}}{{localize 'stonetop.followers.inventoryToggle'}}{{/if}}">
+			<img src="systems/stonetop/assets/icons/edit-icon.png" alt="{{localize 'stonetop.followers.inventoryToggle'}}">
+		</button>
+	</div>
+
+	{{#if inventory.editing}}
+	{{!-- Expanded: the full catalog of what they CAN take, plus "+ add" custom gear --}}
+	<div class="stonetop-follower-inventory-catalog">
+		{{> "stonetop.outfit-items" sections=inventory.sections addColumn="regular"}}
+	</div>
+	{{else if inventory.hasAny}}
+	{{!-- Compact: only what the follower HAS --}}
+	<div class="stonetop-follower-inventory-list">
+		{{> "stonetop.outfit-items" sections=inventory.ownedSections}}
+	</div>
+	{{/if}}
+</div>
+{{/if}}

@@ -25,7 +25,7 @@ export class StonetopCharacter {
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
 		const factory = new ChoiceGroupFactory(actor);
-		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory);
+		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory, repos.inventory);
 		factory.register(new FollowerSideEffectHandler(this._followers));
 		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
 
@@ -422,6 +422,28 @@ export class StonetopCharacter {
 
 	async setFollowerInstinct(slug, instinct) {
 		await this._followers.setInstinct(slug, instinct);
+	}
+
+	async setFollowerInvItemChecked(followerSlug, itemSlug, checked) {
+		await this._followers.setInvItemChecked(followerSlug, itemSlug, checked);
+	}
+
+	async addFollowerInvCustomItem(followerSlug, name, weight) {
+		await this._followers.addInvCustomItem(followerSlug, name, weight);
+	}
+
+	async removeFollowerInvCustomItem(followerSlug, itemSlug) {
+		await this._followers.removeInvCustomItem(followerSlug, itemSlug);
+	}
+
+	async setFollowerInvResource(followerSlug, itemSlug, count) {
+		await this._followers.setInvResource(followerSlug, itemSlug, count);
+	}
+
+	// Transient: which followers have their inventory catalog expanded (the sheet owns this state and
+	// passes it in before each snapshot build).
+	setOpenFollowerInventories(slugs) {
+		this._followers.setOpenInventories(slugs);
 	}
 
 	async setFollowerCompanionType(slug, type) {

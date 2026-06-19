@@ -142,6 +142,8 @@ Hooks.once("init", () => {
 		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
 		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
 		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
+		"stonetop.follower-inventory": "systems/stonetop/templates/actor/partials/follower-inventory.hbs",
+		"stonetop.outfit-items":       "systems/stonetop/templates/actor/partials/outfit-items.hbs",
 		"stonetop.editable-field":   "systems/stonetop/templates/actor/partials/editable-field.hbs",
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 		"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",

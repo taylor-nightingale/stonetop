@@ -81,7 +81,15 @@
 			"companionOptions": "Options",
 			"addOption": "option",
 			"suggestedNames": "Suggested names",
-			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear."
+			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
+			"inventory": "Inventory",
+			"inventoryToggle": "Add/remove gear",
+			"inventoryDone": "Done",
+			"noGear": "No gear",
+			"loadTitle": "Load (total weight carried) — a guide, not a limit",
+			"loadLight": "Light",
+			"loadNormal": "Normal",
+			"loadHeavy": "Heavy"
 		},
 		"insert": {
 			"remove": "Remove",

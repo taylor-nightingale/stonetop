@@ -88,8 +88,27 @@ export function followerFields() {
 			options: { selected: [], options: [], multi: true,  allowCustom: true },
 			catalog: [],
 		} }),
+		// Follower inventory — parity with the character inventory, but stored inline (a follower is an
+		// embedded Item and can't own embedded Items). Opaque ObjectField (atomic read-modify-write
+		// like `companion`/`members`; never default-injected by migrateCreatureData — the
+		// migrate-on-diff landmine). `checked`: which items (shared-catalog + custom) are held;
+		// `customItems`: the follower's own gear defs {slug,name,weight,tags,note,inventoryColumn,twoCol};
+		// `resources`: per-item resource counts (ammo etc.). Load is computed + informational (never a
+		// cap). PLAIN-object initial. See follower-data-architecture.md.
+		inventory: new f.ObjectField({ initial: { checked: {}, customItems: [], resources: {} } }),
 	};
 }
+
+// Legacy "Inventory" choice picks (Crew) → shared outfit-item slugs for `inventory.checked`.
+const CREW_INV_SLUG = {
+	"inv-hatchet":  "hatchet",
+	"inv-spear":    "spear",
+	"inv-bow":      "bow-arrows",
+	"inv-shield":   "shield",
+	"inv-hides":    "thick-hides",
+	"inv-cloak":    "cloak",
+	"inv-supplies": "supplies",
+};
 
 /**
  * Normalize legacy creature data into the shared shapes. Runs for both Actor and Item:
@@ -118,12 +137,21 @@ export function migrateCreatureData(source) {
 		source.tagList = Selection.fromStored(source.tagList, { multi: true }).toRaw();
 	}
 
-	// hp: flat NPC number (+ maxHp) OR legacy {value,min,max} -> {value, max}
-	if (source.hp !== undefined || source.maxHp !== undefined) {
-		const hp    = source.hp;
-		const value = typeof hp === "number" ? hp : (hp?.value ?? 0);
-		const max   = (typeof hp === "object" ? hp?.max : undefined) ?? source.maxHp ?? value;
-		source.hp = { value, max };
+	// hp: flat NPC number (+ maxHp) OR legacy {value,min,max} -> {value, max}.
+	// CRITICAL (migrate-on-diff): a partial update carries only the changed key, e.g. {hp:{value:4}}
+	// when you step current HP. NEVER inject the absent sibling (max here) — doing so clobbered the
+	// stored max with the current value (the "stepping HP resets max" bug). Only transform genuinely
+	// legacy shapes (a number, a `min` field, or a split `maxHp`); leave a partial {value}/{max}
+	// object as-is so Foundry's SchemaField merge preserves the unchanged sibling.
+	if (typeof source.hp === "number") {
+		source.hp = { value: source.hp, max: source.maxHp ?? source.hp };
+		delete source.maxHp;
+	} else if (source.hp && typeof source.hp === "object") {
+		if ("min" in source.hp) delete source.hp.min;
+		if (source.maxHp !== undefined && source.hp.max === undefined) source.hp.max = source.maxHp;
+		delete source.maxHp;
+	} else if (source.maxHp !== undefined) {
+		source.hp = { max: source.maxHp };
 		delete source.maxHp;
 	}
 
@@ -174,6 +202,26 @@ export function migrateCreatureData(source) {
 			if (val && !source[field]) source[field] = val;
 		}
 		group.list = group.list.filter(e => !["weapon", "damage", "cost", "notes"].includes(e.slug));
+	}
+
+	// Legacy follower inventory: the "Inventory" entry + a `pick` of inv-* options (the Crew) becomes
+	// `inventory.checked` against the shared outfit-item slugs; then those rows are dropped from
+	// `choices`. Only when those rows are actually present — never default-inject `inventory` (the
+	// migrate-on-diff landmine: a partial update diff has no `choices`, so this block is skipped).
+	if (group?.list?.length) {
+		const hasInvRows = group.list.some(e =>
+			e.content?.title === "Inventory" ||
+			(e.options ?? []).some(o => o.slug?.startsWith?.("inv-")));
+		if (hasInvRows) {
+			const cv = source.choiceValues?.choices ?? {};
+			if (source.inventory === undefined) source.inventory = { checked: {} };
+			for (const [legacy, slug] of Object.entries(CREW_INV_SLUG)) {
+				if ((cv[legacy] ?? 0) > 0) source.inventory.checked[slug] = true;
+			}
+			group.list = group.list.filter(e =>
+				e.content?.title !== "Inventory" &&
+				!(e.options ?? []).some(o => o.slug?.startsWith?.("inv-")));
+		}
 	}
 
 	// instinct & cost: legacy free string -> single-select Selection (run after the instinct

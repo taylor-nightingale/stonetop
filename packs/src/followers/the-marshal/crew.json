@@ -138,67 +138,7 @@
 			"value": 0,
 			"max": 3
 		},
-		"choices": [
-			{
-				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": "Inventory"
-						}
-					},
-					{
-						"type": "pick",
-						"pickCount": 7,
-						"options": [
-							{
-								"slug": "inv-hatchet",
-								"content": {
-									"title": "Hatchet, iron (hand, thrown, x piercing)"
-								}
-							},
-							{
-								"slug": "inv-spear",
-								"content": {
-									"title": "Spear, iron (close, thrown, x piercing)"
-								}
-							},
-							{
-								"slug": "inv-bow",
-								"content": {
-									"title": "Bow & iron arrows (near, x piercing, low ammo, all out)"
-								}
-							},
-							{
-								"slug": "inv-shield",
-								"content": {
-									"title": "Shield (+1 armor, +1 Readiness on a 7+ to Defend)"
-								}
-							},
-							{
-								"slug": "inv-hides",
-								"content": {
-									"title": "Thick hides (1 armor, warm)"
-								}
-							},
-							{
-								"slug": "inv-cloak",
-								"content": {
-									"title": "Cloak (warm)"
-								}
-							},
-							{
-								"slug": "inv-supplies",
-								"content": {
-									"title": "Supplies (4+Prosperity uses per crew member)"
-								}
-							}
-						]
-					}
-				]
-			}
-		],
+		"choices": [],
 		"description": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
 		"moves": "",
 		"cost": {
@@ -237,6 +177,17 @@
 			],
 			"multi": true,
 			"allowCustom": true
+		},
+		"inventory": {
+			"checked": {
+				"hatchet": true,
+				"spear": true,
+				"bow-arrows": true,
+				"shield": true,
+				"thick-hides": true,
+				"cloak": true,
+				"supplies": true
+			}
 		}
 	},
 	"flags": {},

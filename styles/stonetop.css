@@ -2343,6 +2343,12 @@ body,
 
 .stonetop-follower-card {
 	position: relative;
+	/* Skip layout/paint of off-screen follower cards (e.g. while dragging the resize handle), so the
+	   window tracks the pointer instead of re-laying-out every card each frame. `contain-intrinsic-size:
+	   auto` remembers each card's last real height as the placeholder, so the masonry columns still
+	   balance sensibly. Implies contain: layout/style/paint. */
+	content-visibility: auto;
+	contain-intrinsic-size: auto 14rem;
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
@@ -2644,6 +2650,7 @@ body,
 .stonetop.sheet .stonetop-follower-delete,
 .stonetop.sheet .stonetop-insert-remove,
 .stonetop.sheet .stonetop-edit-toggle,
+.stonetop.sheet .stonetop-follower-inv-toggle,
 .stonetop.sheet .stonetop-combo-toggle,
 .stonetop.sheet .stonetop-fill-confirm,
 .stonetop.sheet .stonetop-fill-cancel {
@@ -2658,6 +2665,7 @@ body,
 .stonetop-member-remove img,
 .stonetop-follower-delete img,
 .stonetop-insert-remove img,
+.stonetop-follower-inv-toggle img,
 .stonetop-edit-toggle img {
 	border: none !important;
 	border-radius: 0 !important;
@@ -2771,6 +2779,55 @@ body,
 	display: flex;
 	flex-direction: column;
 	gap: 3px;
+}
+
+/* Follower inventory (shared outfit catalog). Reuses .stonetop-inv-item / .stonetop-inv-diamond.
+   Compact view = owned only; the catalog (full list) renders only when expanded (server-side). */
+.stonetop-follower-inventory { margin-top: 6px; }
+.stonetop-follower-inventory-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.stonetop-follower-inv-toggle {
+	flex: 0 0 auto;
+	width: auto !important;
+	padding: 0;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.stonetop-follower-inv-toggle:hover,
+.stonetop-follower-inventory.is-editing .stonetop-follower-inv-toggle { opacity: 1; }
+.stonetop-follower-inv-toggle img { width: 12px; height: 12px; display: block; }
+.stonetop-follower-load {
+	display: inline-flex;
+	gap: 4px;
+	margin-left: auto;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+.stonetop-follower-load-band {
+	opacity: 0.4;
+}
+.stonetop-follower-load-band.is-active {
+	opacity: 1;
+	font-weight: bold;
+}
+.stonetop-follower-inventory-list,
+.stonetop-follower-inventory-catalog {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	margin-top: 2px;
+}
+.stonetop-follower-inventory-empty { opacity: 0.5; font-style: italic; font-size: 0.8rem; }
+.stonetop-follower-inventory .stonetop-inv-section-name {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	opacity: 0.6;
+	margin-top: 4px;
 }
 
 .stonetop-follower-card .stonetop-choice-description {
