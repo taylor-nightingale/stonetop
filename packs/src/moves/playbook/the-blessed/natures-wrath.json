@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "<p>Danu's Grasp gains the area tag and can affect any creature. A mortal reduced to 0 HP is subdued or killed (your choice) rather than bound in stone.</p>",
+		"description": "Danu's Grasp gains the area tag and can affect any creature. A mortal reduced to 0 HP is subdued or killed (your choice) rather than bound in stone.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Danu's Grasp"
 			]
-		}
+		},
+		"slug": "natures-wrath"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

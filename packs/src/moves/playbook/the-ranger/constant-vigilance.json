@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>Unless you're dazed, you're never caught off guard—not even when asleep or if you roll a 6-. When you <strong><em>intercept a sudden threat (to yourself or an ally)</em></strong>, you have advantage on whatever move you make.</p>",
+		"description": "Unless you're dazed, you're never caught off guard—not even when asleep or if you roll a 6-. When you **_intercept a sudden threat (to yourself or an ally)_**, you have advantage on whatever move you make.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "constant-vigilance"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

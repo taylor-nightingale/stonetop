@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A time-worn missive",
 				"weight": null,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"</p>",
+			"description": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"",
 			"unlock": {
 				"slug": "time-worn-missive",
 				"list": [
@@ -87,7 +87,7 @@
 			"item": {
 				"name": "Pouch of powdered cinnabar",
 				"weight": 1,
-				"note": "<em>warm, magical</em>",
+				"note": "*warm, magical*",
 				"inventoryColumn": "regular",
 				"resource": {
 					"max": 9,
@@ -106,11 +106,11 @@
 					]
 				}
 			},
-			"description": "<p>When you <strong><em>use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion</em></strong>, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.</p><p>When you <strong><em>stand before one portal and hold the sigils of another portal perfectly in your mind</em></strong>, mark a debility to manifest those sigils as lines of glowing light. When you <strong><em>then invoke the axiom of local contagion</em></strong>, roll +INT: <strong>on a 10+</strong>, the portals open, but close as soon as your focus falters; <strong>on a 7-9</strong>, as a 10+ but only if you mark another debility; <strong>on a 6-</strong>, mark a debility and pass out from the strain.</p>",
+			"description": "When you **_use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
 			"moves": [
 				{
 					"name": "When you use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion",
-					"text": "<p>A passage opens between the portals and remains until you leave their presence or dismiss the axiom. When you stand before one portal and hold the sigils of another in mind, mark a debility and roll +INT: <strong>on a 10+</strong>, the portals open but close as soon as your focus falters; <strong>on a 7-9</strong>, as 10+ but only if you mark another debility; <strong>on a 6-</strong>, mark a debility and pass out.</p>"
+					"text": "A passage opens between the portals and remains until you leave their presence or dismiss the axiom. When you stand before one portal and hold the sigils of another in mind, mark a debility and roll +INT: **on a 10+**, the portals open but close as soon as your focus falters; **on a 7-9**, as 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out."
 				}
 			]
 		}

@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>stand ready to fight alongside like-minded allies</em></strong>, anything capable of fear recognizes you as a serious threat and treats you accordingly.</p>",
+		"description": "When you **_stand ready to fight alongside like-minded allies_**, anything capable of fear recognizes you as a serious threat and treats you accordingly.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Speak Softly"
 			]
-		}
+		},
+		"slug": "peace-through-strength"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

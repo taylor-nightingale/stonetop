@@ -7,7 +7,6 @@
 		"slug": "javelins",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "thrown",
 		"note": "x piercing, +1 damage",
 		"resource": {
 			"max": 1,
@@ -19,7 +18,8 @@
 		"twoCol": false,
 		"sortOrder": 24,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "thrown"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

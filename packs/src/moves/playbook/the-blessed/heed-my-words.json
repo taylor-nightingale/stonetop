@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Persuade by talking sense or warning against foolishness</em></strong>, you have advantage.</p>"
+		"description": "When you **_Persuade by talking sense or warning against foolishness_**, you have advantage.",
+		"slug": "heed-my-words"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

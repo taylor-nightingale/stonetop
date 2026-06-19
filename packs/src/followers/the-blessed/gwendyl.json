@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "gwendyl",
 		"arcanaSlug": null,
-		"tags": "Herb-wise, gossipy, tireless, healer, magical",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 6
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
+		"armor": "0",
+		"damage": "iron knife [[/r 1d6]] (_hand_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to take offense"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to take offense\n-Tend to the sick, injured, women in labor\n-Weave a talisman of fertility or good luck\n-Point out a flaw in a person or plan",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -32,28 +30,6 @@
 			{
 				"slug": "choices",
 				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "iron knife d6 (hand)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "consideration, affection; Loyalty"
-						}
-					},
 					{
 						"type": "entry",
 						"content": {
@@ -148,7 +124,30 @@
 				]
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Tend to the sick, injured, women in labor\n- Weave a talisman of fertility or good luck\n- Point out a flaw in a person or plan",
+		"cost": {
+			"selected": [
+				"consideration, affection"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Herb-wise",
+				"gossipy",
+				"tireless",
+				"healer",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

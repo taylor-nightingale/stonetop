@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Ambush with a hand weapon</em></strong>, you have advantage on your damage roll.</p>",
+		"description": "When you **_Ambush with a hand weapon_**, you have advantage on your damage roll.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Ambush"
 			]
-		}
+		},
+		"slug": "cheap-shot"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>carry a normal or light load and move with care</em></strong>, you make no noise and leave no sign of your passing. When you <strong><em>hide yourself in a natural environment</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>"
+		"description": "When you **_carry a normal or light load and move with care_**, you make no noise and leave no sign of your passing. When you **_hide yourself in a natural environment_**, you remain unseen until you draw attention to yourself, move positions, or attack.",
+		"slug": "stalker"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

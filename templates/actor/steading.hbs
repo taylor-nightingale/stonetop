@@ -45,7 +45,7 @@
 					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
 				</h2>
 				<div class="steading-start-line">{{{stonetop.surplus.note}}}</div>
-				<input class="steading-surplus-input" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
+				<input class="steading-surplus-input stonetop-step" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
 			</div>
 
 			{{!-- Size --}}
@@ -164,7 +164,7 @@
 						<label class="steading-debility-option">
 							<input class="steading-circle-input" type="checkbox" data-slug="{{slug}}" {{#if active}}checked{{/if}}>
 							<span class="steading-circle" aria-hidden="true"></span>
-							<span>{{{description}}} <small>{{note}}</small></span>
+							<span class="stonetop-rich">{{{md description}}} <small>{{note}}</small></span>
 						</label>
 					{{/each}}
 				</div>
@@ -308,17 +308,17 @@
 						{{#each stonetop.assets.coinage}}
 							<label class="steading-asset-currency-frame">
 								<span>{{title}} Purses</span>
-								<input type="number" class="stonetop-coinage-input" min="0"
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
 								       data-index="{{@index}}" data-field="purses" value="{{purses}}">
 							</label>
 							<label class="steading-asset-currency-frame">
 								<span>{{title}} Handfuls</span>
-								<input type="number" class="stonetop-coinage-input" min="0"
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
 								       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
 							</label>
 							<label class="steading-asset-currency-frame">
 								<span>{{title}} Coins</span>
-								<input type="number" class="stonetop-coinage-input" min="0"
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
 								       data-index="{{@index}}" data-field="coins" value="{{coins}}">
 							</label>
 						{{/each}}

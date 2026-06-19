@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A creepy cave",
 			"item": null,
-			"description": "<p>There's a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.</p><p>The cave bears the lingering taint of a Thing Below, but has been cut off from its power.</p>",
+			"description": "There's a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.\n\nThe cave bears the lingering taint of a Thing Below, but has been cut off from its power.",
 			"unlock": {
 				"slug": "creepy-cave",
 				"list": [
@@ -58,12 +58,12 @@
 		"back": {
 			"title": "The Flesh Is Like Clay",
 			"item": null,
-			"description": "<p>When you <strong><em>cruelly kill a warm-blooded being in the cave</em></strong>, one of similar size to yourself, and <strong><em>smear both its blood and yours upon the stones</em></strong>, mark 1:</p><ul><li>□ Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.</li><li>□ Gain one of your victim's physical traits (their strength, their speed, their looks, their strong heart, etc.).</li><li>□ Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.).</li></ul><p><em>Each time you use this power</em>, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave's power are gone.</p>",
+			"description": "When you **_cruelly kill a warm-blooded being in the cave_**, one of similar size to yourself, and **_smear both its blood and yours upon the stones_**, mark 1:\n\n- □ Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n- □ Gain one of your victim's physical traits (their strength, their speed, their looks, their strong heart, etc.).\n- □ Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.).\n*Each time you use this power*, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave's power are gone.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you cruelly kill a warm-blooded being in the cave, one of similar size to yourself, and smear both its blood and yours upon the stones",
-					"text": "<p>Mark 1 of 3 permanent improvements: gain unholy resilience (+2 max HP, +1 armor vs. non-bronze); gain one of your victim's physical traits; or heal a permanent injury. Each use marks all three debilities. After three uses, the cave's power is gone.</p>"
+					"text": "Mark 1 of 3 permanent improvements: gain unholy resilience (+2 max HP, +1 armor vs. non-bronze); gain one of your victim's physical traits; or heal a permanent injury. Each use marks all three debilities. After three uses, the cave's power is gone."
 				}
 			]
 		}

@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Expanded Trades",
-						"text": "<p>Specialization is the key to prosperity!</p>"
+						"text": "Specialization is the key to prosperity!"
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> one of the following improvements, to free up enough time to support more tradesfolk:</p>"
+						"text": "**Requires** one of the following improvements, to free up enough time to support more tradesfolk:"
 					}
 				},
 				{
@@ -61,7 +61,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>And establishing at least 3 of the following:</p>"
+						"text": "And establishing at least 3 of the following:"
 					}
 				},
 				{
@@ -91,7 +91,7 @@
 					"slug": "weaver",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> weaver with good tools (Value 2) and a reliable supply of Whitefang wool"
+						"text": "An *exceptional* weaver with good tools (Value 2) and a reliable supply of Whitefang wool"
 					},
 					"track": {
 						"max": 1
@@ -102,7 +102,7 @@
 					"slug": "potter",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> potter with good tools (Value 2) and a reliable source of excellent clay"
+						"text": "An *exceptional* potter with good tools (Value 2) and a reliable source of excellent clay"
 					},
 					"track": {
 						"max": 1
@@ -113,7 +113,7 @@
 					"slug": "smith",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> smith with a newer, hotter forge (Value 3)"
+						"text": "An *exceptional* smith with a newer, hotter forge (Value 3)"
 					},
 					"track": {
 						"max": 1
@@ -124,7 +124,7 @@
 					"slug": "other-tradesperson",
 					"content": {
 						"title": null,
-						"text": "Some other <em>exceptional</em> tradesperson, with the appropriate tools and supplies (Value 2 or 3)"
+						"text": "Some other *exceptional* tradesperson, with the appropriate tools and supplies (Value 2 or 3)"
 					},
 					"track": {
 						"max": 1
@@ -134,7 +134,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p>"
+						"text": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1."
 					}
 				}
 			]

@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Seeker",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>wish to use an arcanum's move or option without having unlocked it</em></strong>, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: <strong><em>on a 7+</em></strong>, you get it to work this once; <strong>on a 10+</strong>, also mark one step towards unlocking the arcanum's mysteries.</p>",
+    "description": "When you **_wish to use an arcanum's move or option without having unlocked it_**, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: **_on a 7+_**, you get it to work this once; **on a 10+**, also mark one step towards unlocking the arcanum's mysteries.",
     "requirement": {
       "level": 6,
       "moves": [
@@ -27,7 +27,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "improvise"
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

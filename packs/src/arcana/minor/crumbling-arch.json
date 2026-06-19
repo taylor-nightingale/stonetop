@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A crumbling arch",
 				"weight": null,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>On a rare dry spot in Ferrier's Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.</p>",
+			"description": "On a rare dry spot in Ferrier's Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.",
 			"unlock": {
 				"slug": "crumbling-arch",
 				"list": [
@@ -40,7 +40,7 @@
 						"slug": "gaze-and-roll",
 						"content": {
 							"title": null,
-							"text": "… calm your mind, gaze upon the sigil, and roll +WIS: <strong>on a 10+</strong>, the sigil becomes clear; <strong>on a 7-9</strong>, the sigil will become clear after a few more days in contemplation; <strong>on a 6-</strong>, the sigil is beyond your ability to learn."
+							"text": "… calm your mind, gaze upon the sigil, and roll +WIS: **on a 10+**, the sigil becomes clear; **on a 7-9**, the sigil will become clear after a few more days in contemplation; **on a 6-**, the sigil is beyond your ability to learn."
 						},
 						"track": {
 							"max": 1
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Sanctifying Mark",
 			"item": null,
-			"description": "<p>When you <strong><em>mark an object with the sigil of sanctification</em></strong>, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.</p><p>When a <strong><em>being of darkness, chaos, or death first tests the power of your mark</em></strong>, roll +INT: <strong>on a 10+</strong>, all such creatures are kept at bay so long as your mark remains inviolate; <strong>on a 7-9</strong>, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.</p>",
+			"description": "When you **_mark an object with the sigil of sanctification_**, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.\n\nWhen a **_being of darkness, chaos, or death first tests the power of your mark_**, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you mark an object with the sigil of sanctification",
-					"text": "<p>It repels beings of darkness, chaos, and death. Each time you place the mark, part of you becomes paler. When a being of darkness, chaos, or death first tests the power of your mark, roll +INT: <strong>on a 10+</strong>, all such creatures are kept at bay so long as your mark remains inviolate; <strong>on a 7-9</strong>, such creatures feel the urge to flee and are held back for now.</p>"
+					"text": "It repels beings of darkness, chaos, and death. Each time you place the mark, part of you becomes paler. When a being of darkness, chaos, or death first tests the power of your mark, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now."
 				}
 			]
 		}

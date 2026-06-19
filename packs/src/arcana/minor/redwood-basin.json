@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A redwood basin",
 				"weight": 2,
-				"note": "<em>magical, beautiful</em>",
+				"note": "*magical, beautiful*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren't looking; it's never exactly the same twice.</p>",
+			"description": "A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren't looking; it's never exactly the same twice.",
 			"unlock": {
 				"slug": "redwood-basin",
 				"list": [
@@ -70,7 +70,7 @@
 		"back": {
 			"title": "Bittersweet Elixir",
 			"item": null,
-			"description": "<p>When you <strong><em>fill the basin with a few years of your life</em></strong>, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):</p><ul><li>□ Your mood shifts, dramatically (how?)</li><li>□ You see the Last Door (what's it like?)</li><li>□ Reduce STR, DEX, or CON by 1</li><li>□ You have less than a year to live</li></ul><p>When someone <strong><em>drinks down all of the bittersweet elixir, straight from the basin</em></strong>, they pick 1:</p><ul><li>Regain all HP, clear all debilities, and heal any active problematic wounds</li><li>Purge themselves of all poison/disease</li><li>Fully recover from a permanent injury by next season's end, or sooner</li></ul>",
+			"description": "When you **_fill the basin with a few years of your life_**, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):\n\n- □ Your mood shifts, dramatically (how?)\n- □ You see the Last Door (what's it like?)\n- □ Reduce STR, DEX, or CON by 1\n- □ You have less than a year to live\nWhen someone **_drinks down all of the bittersweet elixir, straight from the basin_**, they pick 1:\n\n- Regain all HP, clear all debilities, and heal any active problematic wounds\n- Purge themselves of all poison/disease\n- Fully recover from a permanent injury by next season's end, or sooner",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you fill the basin with a few years of your life",
-					"text": "<p>It becomes a draught of honey and regret. Either mark the next age (and update your look), or mark one: your mood shifts dramatically; you see the Last Door; reduce STR, DEX, or CON by 1; you have less than a year to live. When someone drinks it all, they pick 1: regain all HP and clear debilities; purge poison/disease; fully recover from a permanent injury by next season.</p>"
+					"text": "It becomes a draught of honey and regret. Either mark the next age (and update your look), or mark one: your mood shifts dramatically; you see the Last Door; reduce STR, DEX, or CON by 1; you have less than a year to live. When someone drinks it all, they pick 1: regain all HP and clear debilities; purge poison/disease; fully recover from a permanent injury by next season."
 				}
 			]
 		}

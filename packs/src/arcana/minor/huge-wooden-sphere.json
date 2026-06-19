@@ -7,8 +7,8 @@
 		"slug": "huge-wooden-sphere",
 		"front": {
 			"title": "A huge wooden sphere",
-			"note": "<em>immobile</em>",
-			"description": "<p>Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.</p>",
+			"note": "*immobile*",
+			"description": "Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.",
 			"unlock": {
 				"slug": "huge-wooden-sphere",
 				"list": [
@@ -96,10 +96,10 @@
 			"item": {
 				"name": "Ffyrnig Tonic",
 				"weight": 1,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).</p>",
+			"description": "When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -109,7 +109,7 @@
 			"moves": [
 				{
 					"name": "When you take a draught of ffyrnig tonic",
-					"text": "<p>Pick 1:</p><ul><li>Regain HP equal to ½ your max</li><li>Clear a debility</li></ul><p>Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness.</p><p>When you <strong><em>drink a second draught of ffyrnig tonic before getting a good night's sleep</em></strong>, it has no effect other than to make you ill (mark a debility).</p>"
+					"text": "Pick 1:\n\n- Regain HP equal to ½ your max\n- Clear a debility\nAlso, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness.\n\nWhen you **_drink a second draught of ffyrnig tonic before getting a good night's sleep_**, it has no effect other than to make you ill (mark a debility)."
 				}
 			]
 		}

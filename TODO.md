@@ -1,5 +1,3 @@
-* Implement special moves
-* Support for followers (follower moves)
 * Short for “experience points.” You start
   with no XP. You mark XP…
   ...		 when you roll for a move and get a 6-
@@ -23,18 +21,16 @@
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * Many arcana need json updates
-* Add button to create an link an NPC to residents and neighbors.
+* Add button to create or break a link to an NPC to residents and neighbors.
 * Add journal linking to places of interest
-* allow NPC's to be dragged onto sheets as a follower
-
-* Number inputs should have an plus minus button around them (visible on hover)
-* character sheet tab for bio/notes
+* Support threats
 
 == Nice to have
 * toggle to turn off non-selected character options
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
+* support non-stonetop steading sheets
 
 
 

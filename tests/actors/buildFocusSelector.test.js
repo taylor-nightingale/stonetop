@@ -101,4 +101,37 @@ describe("buildFocusSelector", () => {
 		});
 		expect(buildFocusSelector(el, inContainer(el))).toBe('.stonetop-resident-name[data-id="abc"]');
 	});
+
+	it("disambiguates a class-only radio by name+value (regression: origin scrolled to top)", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "stonetop-item-check",
+			name: "stonetop-origin",
+			value: "Stonetop",
+		});
+		expect(buildFocusSelector(el, inContainer(el)))
+			.toBe('.stonetop-item-check[name="stonetop-origin"][value="Stonetop"]');
+	});
+
+	it("uses name+value for a named input with no stonetop class", () => {
+		const el = Object.assign(new FakeDOMElement(), { name: "foo", value: "bar" });
+		expect(buildFocusSelector(el, inContainer(el))).toBe('[name="foo"][value="bar"]');
+	});
+
+	it("combines slug+index for group-member inputs (so editing member 2 doesn't refocus member 1)", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "stonetop-member-name",
+			dataset: { slug: "crew", index: "1" },
+		});
+		expect(buildFocusSelector(el, inContainer(el)))
+			.toBe('.stonetop-member-name[data-slug="crew"][data-index="1"]');
+	});
+
+	it("identifies a tag chip by slug+tag (so removing it doesn't scroll to another chip)", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "stonetop-tag-chip is-selected",
+			dataset: { slug: "crew", tag: "group" },
+		});
+		expect(buildFocusSelector(el, inContainer(el)))
+			.toBe('.stonetop-tag-chip[data-slug="crew"][data-tag="group"]');
+	});
 });

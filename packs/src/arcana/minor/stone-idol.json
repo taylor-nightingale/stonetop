@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A stone idol",
 				"weight": 1,
-				"note": "<em>crude, magical</em>",
+				"note": "*crude, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum's sneering face, a thorny tail, and flowers for its ears.</p><p>The idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol.</p>",
+			"description": "Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum's sneering face, a thorny tail, and flowers for its ears.\n\nThe idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol.",
 			"unlock": {
 				"slug": "stone-idol",
 				"list": [
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "The Angry Little God",
 			"item": null,
-			"description": "<p>When you <strong><em>put the idol in a prominent place and beseech it to attend its humble servant</em></strong>, it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.</p>",
+			"description": "When you **_put the idol in a prominent place and beseech it to attend its humble servant_**, it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.",
 			"resource": null,
 			"choices": {
 				"slug": "stone-idol",
@@ -88,7 +88,7 @@
 			"moves": [
 				{
 					"name": "When you put the idol in a prominent place and beseech it to attend its humble servant",
-					"text": "<p>It wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.</p>"
+					"text": "It wakes (but is still inert). Treat it as a follower, though it hardly considers itself one."
 				}
 			]
 		}

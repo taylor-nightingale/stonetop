@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+		"description": "Increase one of your stats by +1 (to a max of +3).",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"All 6 marks in Potential for Greatness"
 			]
-		}
+		},
+		"slug": "superior-stat"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

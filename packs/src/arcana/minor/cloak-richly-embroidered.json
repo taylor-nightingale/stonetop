@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A cloak, richly embroidered",
 				"weight": 1,
-				"note": "<em>magical, warm</em>",
+				"note": "*magical, warm*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>An exquisitely fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn't there.</p><p>When you <strong><em>don the cloak</em></strong>, you become aware of the presence bound within, thrumming and impatient.</p>",
+			"description": "An exquisitely fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn't there.\n\nWhen you **_don the cloak_**, you become aware of the presence bound within, thrumming and impatient.",
 			"unlock": {
 				"slug": "cloak-richly-embroidered",
 				"list": [
@@ -65,10 +65,10 @@
 			"item": {
 				"name": "Flying Cloak",
 				"weight": 1,
-				"note": "<em>magical, warm</em>",
+				"note": "*magical, warm*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you <strong><em>wear the cloak and speak the word of command</em></strong>, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.</p>",
+			"description": "When you **_wear the cloak and speak the word of command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.",
 			"resource": null,
 			"choices": {
 				"slug": "cloak-richly-embroidered",
@@ -93,7 +93,7 @@
 			"moves": [
 				{
 					"name": "When you wear the cloak and speak the word of command",
-					"text": "<p>The storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.</p>"
+					"text": "The storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it."
 				}
 			]
 		}

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>are subject to physical or mental restraint</em></strong>, you may mark a debility to immediately break free of that restraint.</p>"
+		"description": "When you **_are subject to physical or mental restraint_**, you may mark a debility to immediately break free of that restraint.",
+		"slug": "unfettered"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

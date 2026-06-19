@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>lead an NPC through danger and return them to safety</em></strong>, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.</p>",
+		"description": "When you **_lead an NPC through danger and return them to safety_**, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "noble-mien"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

@@ -28,7 +28,11 @@
 	<div class="move-sheet-body">
 
 		<section class="move-sheet-description editor">
+			{{#if editable}}
 			<div class="editor-content" data-edit="system.description">{{{system.description}}}</div>
+			{{else}}
+			<div class="editor-content stonetop-rich">{{{md system.description}}}</div>
+			{{/if}}
 		</section>
 
 		{{#if showResults}}
@@ -39,7 +43,7 @@
 				<textarea name="system.moveResults.success.value" rows="3"
 				          placeholder="{{localize "stonetop.item.move.results.successPlaceholder"}}">{{system.moveResults.success.value}}</textarea>
 				{{else}}
-				<div class="move-sheet-result-text">{{{system.moveResults.success.value}}}</div>
+				<div class="move-sheet-result-text stonetop-rich">{{{md system.moveResults.success.value}}}</div>
 				{{/if}}
 			</div>
 			<div class="move-sheet-result">
@@ -48,7 +52,7 @@
 				<textarea name="system.moveResults.partial.value" rows="3"
 				          placeholder="{{localize "stonetop.item.move.results.partialPlaceholder"}}">{{system.moveResults.partial.value}}</textarea>
 				{{else}}
-				<div class="move-sheet-result-text">{{{system.moveResults.partial.value}}}</div>
+				<div class="move-sheet-result-text stonetop-rich">{{{md system.moveResults.partial.value}}}</div>
 				{{/if}}
 			</div>
 			<div class="move-sheet-result">
@@ -57,7 +61,7 @@
 				<textarea name="system.moveResults.failure.value" rows="3"
 				          placeholder="{{localize "stonetop.item.move.results.failurePlaceholder"}}">{{system.moveResults.failure.value}}</textarea>
 				{{else}}
-				<div class="move-sheet-result-text">{{{system.moveResults.failure.value}}}</div>
+				<div class="move-sheet-result-text stonetop-rich">{{{md system.moveResults.failure.value}}}</div>
 				{{/if}}
 			</div>
 		</section>

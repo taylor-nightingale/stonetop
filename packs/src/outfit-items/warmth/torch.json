@@ -7,13 +7,13 @@
 		"slug": "torch",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "reach, area, dangerous",
 		"note": "lasts ~1 hour",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 12,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "reach, area, dangerous"
 	},
 	"flags": {},
 	"folder": "StOnEtOpWrm0001X"

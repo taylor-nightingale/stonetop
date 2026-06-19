@@ -3,11 +3,11 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When you <strong><em>fight in melee or close quarters</em></strong>, roll +STR: <strong>on a 10+</strong>, your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy's attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack</li></ul><p><strong><em>On a 7-9</em></strong>, your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.</p>",
+    "description": "When you **_fight in melee or close quarters_**, roll +STR: **on a 10+**, your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack\n**_On a 7-9_**, your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.",
     "moveResults": {
       "success": {
         "label": "10+",
-        "value": "Your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy's attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack</li></ul>"
+        "value": "Your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack"
       },
       "partial": {
         "label": "7-9",
@@ -18,7 +18,8 @@
         "value": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)"
       }
     },
-    "rollStat": "str"
+    "rollStat": "str",
+    "slug": "clash"
   },
   "_id": "BimI7FEmyjmgznOW",
   "_key": "!items!BimI7FEmyjmgznOW",

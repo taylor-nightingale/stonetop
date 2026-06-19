@@ -1,0 +1,55 @@
+{
+	"_id": "BlankFollower001",
+	"_key": "!items!BlankFollower001",
+	"name": "New Follower",
+	"type": "npc",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "blank",
+		"arcanaSlug": null,
+		"hp": {
+			"value": 0,
+			"max": 6
+		},
+		"armor": "0",
+		"damage": "[[/r 1d6]]",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"description": "",
+		"moves": "",
+		"cost": {
+			"selected": [],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [],
+			"options": [
+				"group",
+				"exceptional"
+			],
+			"multi": true,
+			"allowCustom": true
+		}
+	},
+	"flags": {},
+	"folder": null
+}

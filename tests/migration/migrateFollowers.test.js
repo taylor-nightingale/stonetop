@@ -42,10 +42,10 @@ describe("migrateFollowers — custom followers", () => {
 		expect(created.name).toBe("Grizzle");
 		expect(created.type).toBe("npc");
 		expect(created.system.owned).toBe(true);
-		expect(created.system.hp).toEqual({ value: 8, min: 0, max: 10 });
-		expect(created.system.armor).toEqual({ value: 1, note: "" });
-		expect(created.system.damage).toEqual({ die: "d6", label: "", tags: "" });
-		expect(created.system.tags).toBe("gruff");
+		expect(created.system.hp).toEqual({ value: 8, max: 10 });
+		expect(created.system.armor).toBe("1");
+		expect(created.system.damage).toBe("d6");
+		expect(created.system.tagList).toBe("gruff");
 	});
 
 	it("uses fallback values when state fields are absent", async () => {
@@ -58,7 +58,7 @@ describe("migrateFollowers — custom followers", () => {
 		await migrateFollowers(actor, repo, makeResourceController(actor));
 		const created = actor.createdDocs.find(d => d.system?.slug === slug);
 		expect(created?.name).toBe("New Follower");
-		expect(created?.system.hp).toEqual({ value: 0, min: 0, max: 0 });
+		expect(created?.system.hp).toEqual({ value: 0, max: 0 });
 	});
 
 	it("does not call followerRepo for custom followers", async () => {
@@ -106,8 +106,8 @@ describe("migrateFollowers — static follower choice values", () => {
 		const choices = { "they": 1, "a-young-adult": 1, "curious": 1 };
 		const followerData = {
 			slug: "enfys", name: "Enfys", tags: "", hp: { value: 0, max: 6 },
-			armor: { value: 0, note: "" }, damage: { value: "d4" }, loyalty: { max: 3 },
-			instinct: "", choices: null, specialQualities: "",
+			armor: "", damage: { value: "d4" }, loyalty: { max: 3 },
+			instinct: "", choices: null, specialQuality: "",
 		};
 		const actor = makeActor({
 			"followers.owned": ["enfys"],
@@ -124,8 +124,8 @@ describe("migrateFollowers — static followers still use repo", () => {
 	it("creates a static follower via addFollower when slug has no custom- prefix", async () => {
 		const followerData = {
 			slug: "enfys", name: "Enfys", tags: "", hp: { value: 0, max: 6 },
-			armor: { value: 0, note: "" }, damage: { value: "d4" }, loyalty: { max: 3 },
-			instinct: "", choices: null, specialQualities: "",
+			armor: "", damage: { value: "d4" }, loyalty: { max: 3 },
+			instinct: "", choices: null, specialQuality: "",
 		};
 		const actor = makeActor({
 			"followers.owned": ["enfys"],

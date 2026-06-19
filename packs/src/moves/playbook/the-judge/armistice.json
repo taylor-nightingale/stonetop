@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>approach an enemy to negotiate in good faith</em></strong>, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.</p>",
+		"description": "When you **_approach an enemy to negotiate in good faith_**, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Bear Witness"
 			]
-		}
+		},
+		"slug": "armistice"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

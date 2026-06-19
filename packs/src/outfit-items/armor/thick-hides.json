@@ -7,7 +7,6 @@
 		"slug": "thick-hides",
 		"inventoryColumn": "regular",
 		"weight": 2,
-		"tags": "warm",
 		"note": "1 armor",
 		"resource": null,
 		"twoCol": false,
@@ -15,7 +14,8 @@
 		"armor": {
 			"base": 1
 		},
-		"source": null
+		"source": null,
+		"tagList": "warm"
 	},
 	"flags": {},
 	"folder": "StOnEtOpAmr0001X"

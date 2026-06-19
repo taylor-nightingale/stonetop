@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>carry a light load and act with care</em></strong>, you move silently. When you <strong><em>hide in shadows or darkness</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>"
+		"description": "When you **_carry a light load and act with care_**, you move silently. When you **_hide in shadows or darkness_**, you remain unseen until you draw attention to yourself, move positions, or attack.",
+		"slug": "catlike"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

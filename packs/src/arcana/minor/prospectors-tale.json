@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A prospector's tale",
 			"item": null,
-			"description": "<p>\"An Ustrina once offered me a mirror, a flawless thing framed in gold. It showed me, but... a better me, you see? They said who made it, one of the Forge Lords, I think? Said she 'poured her Sublime Words into it,' whatever that means. I couldn't pay their price. But I'll never forget that mirror, or how it made me feel.\"</p><p>That old man turned up dead, but you suspect there's some truth to his story.</p>",
+			"description": "\"An Ustrina once offered me a mirror, a flawless thing framed in gold. It showed me, but... a better me, you see? They said who made it, one of the Forge Lords, I think? Said she 'poured her Sublime Words into it,' whatever that means. I couldn't pay their price. But I'll never forget that mirror, or how it made me feel.\"\n\nThat old man turned up dead, but you suspect there's some truth to his story.",
 			"unlock": {
 				"slug": "prospectors-tale",
 				"list": [
@@ -69,7 +69,7 @@
 		"back": {
 			"title": "Sublime Words",
 			"item": null,
-			"description": "<p>When you <strong><em>spend supplies (Value 2) and a full season a-crafting, chanting the Sublime Words all the while</em></strong>, roll +WIS. No matter what, you've damaged your voice (mark a status above) and made a thing of true beauty (Value 4). <strong>On a 10+</strong>, pick 1 and further damage your voice; <strong>on a 7-9</strong>, pick 1 and further damage your voice:</p><ul><li>Its beauty will persist through the ages</li><li>It eases pain and lifts grief</li><li>It inspires others to better themselves</li></ul><p><strong>On a 6-</strong>, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed.</p><p>When you <strong><em>rest your voice for a season</em></strong> (no shouting, little talking, not using the Sublime Words), clear one status above.</p>",
+			"description": "When you **_spend supplies (Value 2) and a full season a-crafting, chanting the Sublime Words all the while_**, roll +WIS. No matter what, you've damaged your voice (mark a status above) and made a thing of true beauty (Value 4). **On a 10+**, pick 1 and further damage your voice; **on a 7-9**, pick 1 and further damage your voice:\n\n- Its beauty will persist through the ages\n- It eases pain and lifts grief\n- It inspires others to better themselves\n**On a 6-**, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed.\n\nWhen you **_rest your voice for a season_** (no shouting, little talking, not using the Sublime Words), clear one status above.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -83,7 +83,7 @@
 			"moves": [
 				{
 					"name": "When you spend supplies (Value 2) and a full season a-crafting, chanting the Sublime Words all the while",
-					"text": "<p>No matter what, you've damaged your voice and made a thing of true beauty (Value 4). <strong>On a 10+</strong>, pick 1: beauty persists through the ages; eases pain and lifts grief; inspires others to better themselves. <strong>On a 7-9</strong>, pick 1 and further damage your voice. <strong>On a 6-</strong>, it stokes greed and fear.</p>"
+					"text": "No matter what, you've damaged your voice and made a thing of true beauty (Value 4). **On a 10+**, pick 1: beauty persists through the ages; eases pain and lifts grief; inspires others to better themselves. **On a 7-9**, pick 1 and further damage your voice. **On a 6-**, it stokes greed and fear."
 				}
 			]
 		}

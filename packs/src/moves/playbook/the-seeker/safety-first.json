@@ -6,11 +6,12 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>spend an hour or so preparing your mystical defenses</em></strong>, hold 2 Protection. When you <strong><em>are affected by harmful magic</em></strong>, spend 1 Protection either to gain advantage on any roll to resist it or to halve its damage/effects.</p>",
+		"description": "When you **_spend an hour or so preparing your mystical defenses_**, hold 2 Protection. When you **_are affected by harmful magic_**, spend 1 Protection either to gain advantage on any roll to resist it or to halve its damage/effects.",
 		"resource": {
 			"title": "Protection",
 			"max": 2
-		}
+		},
+		"slug": "safety-first"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

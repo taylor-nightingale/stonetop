@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "enfys",
 		"arcanaSlug": null,
-		"tags": "Bird-wise, innocent, magical, well-informed",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 6
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
+		"armor": "0",
+		"damage": "bronze knife [[/r 1d4]] (_hand_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to get distracted"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d4",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to get distracted\n-Speak with birds\n-Ask a difficult question\n-Wander off",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -32,28 +30,6 @@
 			{
 				"slug": "choices",
 				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "bronze knife d4 (hand)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "knowledge, secret lore; Loyalty"
-						}
-					},
 					{
 						"type": "entry",
 						"content": {
@@ -148,7 +124,29 @@
 				]
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Speak with birds\n- Ask a difficult question\n- Wander off",
+		"cost": {
+			"selected": [
+				"knowledge, secret lore"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Bird-wise",
+				"innocent",
+				"magical",
+				"well-informed"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

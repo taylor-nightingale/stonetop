@@ -6,14 +6,15 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>Each time you take this move, pick 1:</p><ul><li>They are <em>exceptional</em> (and roll +2 instead of +1)</li><li>They get +4 HP and +1 armor</li><li>They develop some unique ability or trait</li></ul>",
+		"description": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They get +4 HP and +1 armor\n- They develop some unique ability or trait",
 		"repeatMax": 2,
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Magnificent Specimen"
 			]
-		}
+		},
+		"slug": "beast-of-legend"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

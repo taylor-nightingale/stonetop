@@ -92,17 +92,17 @@
       {
         "slug": "patriot",
         "label": "Patriot",
-        "description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        "description": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum."
       },
       {
         "slug": "antiquarian",
         "label": "Antiquarian",
-        "description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        "description": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum."
       },
       {
         "slug": "witch-hunter",
         "label": "Witch Hunter",
-        "description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.</p>"
+        "description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum."
       }
     ],
     "specialPossessions": {
@@ -129,7 +129,7 @@
             "type": "entry",
             "content": {
               "title": "Collection",
-              "text": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it.</p>"
+              "text": "In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it."
             }
           }
         ]
@@ -141,7 +141,7 @@
             "type": "entry",
             "content": {
               "title": "Major Arcanum",
-              "text": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>"
+              "text": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:"
             }
           },
           {
@@ -151,7 +151,9 @@
               "title": null,
               "text": "Where did you acquire it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -160,7 +162,9 @@
               "title": null,
               "text": "From whose grasp did you wrest it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -169,7 +173,9 @@
               "title": null,
               "text": "Who else wants it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -178,16 +184,20 @@
               "title": null,
               "text": "What did it cost you?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
             "slug": "when-unlocked",
             "content": {
               "title": null,
-              "text": "<p>You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.<p><p>When and how did that happen?</p>"
+              "text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.When and how did that happen?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -198,7 +208,7 @@
             "type": "entry",
             "content": {
               "title": "Minor Arcana",
-              "text": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>"
+              "text": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides."
             }
           },
           {
@@ -208,7 +218,9 @@
               "title": null,
               "text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -217,7 +229,9 @@
               "title": null,
               "text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -226,13 +240,15 @@
               "title": null,
               "text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>tell us what you're worried about</strong> (see \"Something wicked this way comes\").",
+      "step3": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -246,43 +262,51 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "always-return-home",
+            "slug": "spouse-lover-betrothed",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "To whom do you always return home?"
+              "text": "Who is your spouse/lover/betrothed?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "lost-without-you",
+            "slug": "trust-more",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Who would be lost without you?"
+              "text": "Whom do you trust, even more than yourself?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "learn-from-you",
+            "slug": "secretly-watch",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Who has much to learn from you?"
+              "text": "Whom do you secretly watch over, and why?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -290,52 +314,60 @@
         "slug": "intro-pc",
         "list": [
           {
-            "slug": "fears-wider-world",
+            "slug": "key-discovery",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you fears the wider world?"
+              "text": "Which one of you led me to a key discovery?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "great-beauty",
+            "slug": "been-at-my-side",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you has shown me great beauty?"
+              "text": "Which one of you has been at my side the entire way?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "staring-horizon",
+            "slug": "fears-path",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you have I caught sometimes staring out at the horizon?"
+              "text": "Which one of you most fears the path I tread?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
-            "slug": "lacked-stomach",
+            "slug": "keeping-secrets",
             "type": "entry",
             "content": {
               "title": null,
-              "text": "Which one of you lacked the stomach to put something out of its misery?"
+              "text": "Which one of you is keeping secrets from me?"
             },
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

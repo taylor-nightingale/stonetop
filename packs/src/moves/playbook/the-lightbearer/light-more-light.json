@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>consecrate a flame</em></strong>, it burns brighter than normal. A rushlight or candle illuminates to reach range, an oil lamp, lantern, or torch out to near range, and a bullseye lantern out to far range.</p>",
+		"description": "When you **_consecrate a flame_**, it burns brighter than normal. A rushlight or candle illuminates to reach range, an oil lamp, lantern, or torch out to near range, and a bullseye lantern out to far range.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Consecrated Flame"
 			]
-		}
+		},
+		"slug": "light-more-light"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

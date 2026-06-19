@@ -5,7 +5,8 @@
   "type": "move",
   "system": {
     "moveType": "special",
-    "description": "<p>When a <strong><em>session ends</em></strong>, point out how you demonstrated or struggled with your instinct. If you can, mark XP.</p><p>Say how your relationship with or opinion of a PC, NPC, or group has changed. If you can, mark XP.</p><p>Answer these questions as a group. For each “yes,” everyone marks XP.<ul><li>Did we learn more about the world or its history?</li><li>Did we defeat a threat to Stonetop or the region?</li><li>Did we improve our standing with our neighbors?</li><li>Did we make a lasting improvement to Stonetop, or tangible progress towards doing so?</li></ul></p><p>Praise something about the session (in the fiction or around the table) that you enjoyed or appreciated.</p><p>Finally, offer up a wish for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.</p>"
+    "description": "When a **_session ends_**, point out how you demonstrated or struggled with your instinct. If you can, mark XP.\n\nSay how your relationship with or opinion of a PC, NPC, or group has changed. If you can, mark XP.\n\nAnswer these questions as a group. For each “yes,” everyone marks XP.\n\n- Did we learn more about the world or its history?\n- Did we defeat a threat to Stonetop or the region?\n- Did we improve our standing with our neighbors?\n- Did we make a lasting improvement to Stonetop, or tangible progress towards doing so?\n\nPraise something about the session (in the fiction or around the table) that you enjoyed or appreciated.\n\nFinally, offer up a wish for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.",
+    "slug": "end-of-session"
   },
   "folder": "d4FNbbTV42H21u5y"
 }

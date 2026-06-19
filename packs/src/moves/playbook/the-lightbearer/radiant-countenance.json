@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>give someone your fond attention</em></strong>, you can then Persuade them with advantage. If they are a follower, you can instead choose to Strengthen Your Bond (as if you paid their cost).</p>"
+		"description": "When you **_give someone your fond attention_**, you can then Persuade them with advantage. If they are a follower, you can instead choose to Strengthen Your Bond (as if you paid their cost).",
+		"slug": "radiant-countenance"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

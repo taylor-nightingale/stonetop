@@ -6,11 +6,12 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>Take a move from the Fox, Heavy, Judge, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.</p>",
+		"description": "Take a move from the Fox, Heavy, Judge, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.",
 		"requirement": {
 			"level": 2,
 			"playbook": "The Marshal"
-		}
+		},
+		"slug": "arts-of-war"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

@@ -74,12 +74,16 @@ export class FoundryMoveRepository {
 		return this._moveStore.getDocument(id);
 	}
 
-	async getBasicMoves() {
+	async getMovesByType(moveType) {
 		const [entries, worldEntries] = await Promise.all([
-			this._moveStore.filterEntries(e => e.system?.moveType === "basic"),
-			this._worldMoveStore.filterEntries(e => e.system?.moveType === "basic"),
+			this._moveStore.filterEntries(e => e.system?.moveType === moveType),
+			this._worldMoveStore.filterEntries(e => e.system?.moveType === moveType),
 		]);
 		return [...entries, ...worldEntries].map(e => new Move(e));
+	}
+
+	async getBasicMoves() {
+		return this.getMovesByType("basic");
 	}
 
 	async getBasicMoveDocument(id) {
@@ -88,14 +92,31 @@ export class FoundryMoveRepository {
 
 	async getInsertMoves(insertSlug) {
 		if (this._insertMoveCache.has(insertSlug)) return this._insertMoveCache.get(insertSlug);
-		const entries = await this._moveStore.filterEntries(e => e.system?.playbook === insertSlug);
-		const moves   = entries.map(e => new Move(e));
+		// An insert's moves are moves tagged `system.playbook === <insert slug>`. Look in BOTH the
+		// compendium and the world (custom inserts authored in Foundry tag world moves), like
+		// getPlaybookMoves does.
+		const [entries, worldEntries] = await Promise.all([
+			this._moveStore.filterEntries(e => e.system?.playbook === insertSlug),
+			this._worldMoveStore.filterEntries(e => e.system?.playbook === insertSlug),
+		]);
+		const moves = [...entries, ...worldEntries].map(e => new Move(e));
 		this._insertMoveCache.set(insertSlug, moves);
 		return moves;
 	}
 
+	// Resolve referenced moves (custom inserts store a `system.moves` list of slugs) to Move objects,
+	// across both stores. Unknown slugs are dropped. Preserves the requested order.
+	async getMovesBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		const index = await this.buildSlugIndex();
+		return slugs.map(s => index.get(s)).filter(Boolean);
+	}
+
 	async getInsertMoveDocument(id) {
-		return this._moveStore.getDocument(id);
+		// Insert moves can be compendium OR world items; try the pack, fall back to the world.
+		let doc = null;
+		try { doc = await this._moveStore.getDocument(id); } catch { /* not a compendium id */ }
+		return doc ?? this._worldMoveStore.getDocument(id);
 	}
 
 	async buildSlugIndex() {

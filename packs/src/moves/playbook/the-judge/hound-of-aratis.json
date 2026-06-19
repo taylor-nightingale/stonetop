@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask \"What here is tainted by chaos?\" for free, even <strong>on a 6-</strong>.</p>"
+		"description": "When you **_Seek Insight_**, you can always ask \"What here is tainted by chaos?\" for free, even **on a 6-**.",
+		"slug": "hound-of-aratis"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

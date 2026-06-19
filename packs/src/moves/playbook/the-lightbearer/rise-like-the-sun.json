@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>draw attention to yourself by word or deed</em></strong>, roll +CHA: <strong>on a 10+</strong>, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; <strong><em>on a 7-9</em></strong>, everyone turns and looks.</p>",
+    "description": "When you **_draw attention to yourself by word or deed_**, roll +CHA: **on a 10+**, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; **_on a 7-9_**, everyone turns and looks.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "rise-like-the-sun"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

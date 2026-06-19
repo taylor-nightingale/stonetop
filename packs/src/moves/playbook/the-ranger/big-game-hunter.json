@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>strike at the weak spot of a large or huge creature</em></strong>, you deal +2 damage.</p>"
+		"description": "When you **_strike at the weak spot of a large or huge creature_**, you deal +2 damage.",
+		"slug": "big-game-hunter"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

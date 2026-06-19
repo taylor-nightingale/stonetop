@@ -8,7 +8,7 @@
 		"front": {
 			"title": "Carvings in a cave",
 			"item": null,
-			"description": "<p>At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.</p>",
+			"description": "At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.",
 			"unlock": {
 				"slug": "carvings-in-a-cave",
 				"list": [
@@ -69,7 +69,7 @@
 		"back": {
 			"title": "Shell Game of Souls",
 			"item": null,
-			"description": "<p>Your flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:</p><p>When you <strong><em>roll a 6- on Death's Door</em></strong>, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.</p>",
+			"description": "Your flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:\n\nWhen you **_roll a 6- on Death's Door_**, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.",
 			"resource": {
 				"max": null,
 				"maxStat": "con",
@@ -79,7 +79,7 @@
 			"moves": [
 				{
 					"name": "When you touch a dying, intelligent being, speaking their name and words of binding",
-					"text": "<p>Roll +INT: <strong>on a 10+</strong>, you bind their soul to your flesh; <strong>on a 7-9</strong>, you bind their soul but weaken yours—reduce your max HP by 1d4+1.</p>"
+					"text": "Roll +INT: **on a 10+**, you bind their soul to your flesh; **on a 7-9**, you bind their soul but weaken yours—reduce your max HP by 1d4+1."
 				}
 			]
 		}

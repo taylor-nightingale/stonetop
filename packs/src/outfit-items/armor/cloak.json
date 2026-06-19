@@ -7,13 +7,13 @@
 		"slug": "cloak",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "warm",
 		"note": "",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 27,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "warm"
 	},
 	"flags": {},
 	"folder": "StOnEtOpAmr0001X"

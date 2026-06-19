@@ -90,7 +90,7 @@
       {
         "slug": "impetuous-youth",
         "label": "Impetuous Youth",
-        "description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <strong><em>make a move and come up short</em></strong>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
+        "description": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!\n\nWhen you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks."
       },
       {
         "slug": "driven",
@@ -164,7 +164,7 @@
               "type": "entry",
               "content": {
                 "title": null,
-                "text": "<p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+                "text": "You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level."
               }
             }
           ]
@@ -329,7 +329,7 @@
               "type": "entry",
               "content": {
                 "title": null,
-                "text": "<p>At the <strong><em>start of a session</em></strong>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.</p><p><strong><em>Until your destiny is fulfilled</em></strong>, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.</p>"
+                "text": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.\n\n**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+."
               }
             }
           ]
@@ -361,7 +361,7 @@
             "type": "entry",
             "content": {
               "title": "Fear & anger",
-              "text": "<p>What Do You Fear Most? <em>(choose 1, maybe 2)</em></p>"
+              "text": "What Do You Fear Most? *(choose 1, maybe 2)*"
             }
           },
           {
@@ -467,7 +467,7 @@
             "type": "entry",
             "content": {
               "title": null,
-              "text": "<p>What Makes You Burn with Righteous Anger? <em>(choose 2, maybe 3)</em></p>"
+              "text": "What Makes You Burn with Righteous Anger? *(choose 2, maybe 3)*"
             }
           },
           {
@@ -565,7 +565,9 @@
               "title": null,
               "text": "When did your fear or anger last cause you trouble?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -574,7 +576,9 @@
               "title": null,
               "text": "What did you do?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -583,13 +587,15 @@
               "title": null,
               "text": "How did it turn out?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>tell us of your fear &amp; anger</strong>, and of the last time they caused you trouble.",
+      "step3": "On your third turn, **tell us of your fear & anger**, and of the last time they caused you trouble.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -603,7 +609,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "counting-on-you",
@@ -615,7 +623,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "understands-path",
@@ -627,7 +637,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "prove-wrong",
@@ -639,7 +651,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -656,7 +670,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "believes-in-me",
@@ -668,7 +684,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "promised-teach",
@@ -680,7 +698,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "have-i-hurt",
@@ -692,7 +712,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

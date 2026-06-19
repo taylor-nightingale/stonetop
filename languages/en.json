@@ -21,7 +21,14 @@
 				"moves": "Moves",
 				"inventory": "Inventory",
 				"arcana": "Arcana",
-				"followers": "Followers"
+				"followers": "Followers",
+				"notes": "Notes"
+			},
+			"notes": {
+				"bio": "Bio",
+				"bioPlaceholder": "Who is your character? Appearance, history, demeanor…",
+				"notes": "Notes",
+				"notesPlaceholder": "Session notes, reminders, goals…"
 			},
 			"playbook": {
 				"emptyHint": "Select or drag a playbook here to start.",
@@ -51,14 +58,50 @@
 			"hp": "HP",
 			"armor": "Armor",
 			"damage": "Damage",
+			"note": "Note",
+			"instinct": "Instinct",
+			"cost": "Cost",
+			"notes": "Notes",
 			"loyalty": "Loyalty",
 			"moves": "Moves",
+			"specialQuality": "Special Qualities",
 			"description": "Description",
 			"notePlaceholder": "Tags…",
-			"add": "Add Follower"
+			"add": "Add Follower",
+			"members": "Members",
+			"memberName": "Name…",
+			"addMember": "Add member",
+			"removeMember": "Remove member",
+			"customTag": "Type your own…",
+			"tags": "Tags",
+			"traits": "Traits",
+			"addTag": "tag",
+			"addTrait": "trait",
+			"companionType": "Type",
+			"companionOptions": "Options",
+			"addOption": "option",
+			"suggestedNames": "Suggested names",
+			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
+			"inventory": "Inventory",
+			"inventoryToggle": "Add/remove gear",
+			"inventoryDone": "Done",
+			"noGear": "No gear",
+			"loadTitle": "Load (total weight carried) — a guide, not a limit",
+			"loadLight": "Light",
+			"loadNormal": "Normal",
+			"loadHeavy": "Heavy"
 		},
 		"insert": {
-			"remove": "Remove"
+			"remove": "Remove",
+			"description": "Description",
+			"moves": "Moves",
+			"addMove": "Add move",
+			"namePlaceholder": "Insert name",
+			"instinct": "Instinct",
+			"addInstinct": "Add instinct",
+			"removeInstinct": "Remove instinct",
+			"choices": "Choices",
+			"addChoices": "Add choices group"
 		},
 		"arcana": {
 			"empty": "Drag arcana here from the Arcana compendium.",

@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>attack something you know to be tainted by chaos</em></strong>, deal +1d6 damage.</p>",
+		"description": "When you **_attack something you know to be tainted by chaos_**, deal +1d6 damage.",
 		"requirement": {
 			"moves": [
 				"Hound of Aratis"
 			]
-		}
+		},
+		"slug": "like-a-dog-with-a-bone"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

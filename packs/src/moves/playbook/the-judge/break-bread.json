@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>share a proper meal with someone and each of you eats their fill</em></strong>, each of you recovers 1d8 (extra) HP.</p>"
+		"description": "When you **_share a proper meal with someone and each of you eats their fill_**, each of you recovers 1d8 (extra) HP.",
+		"slug": "break-bread"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

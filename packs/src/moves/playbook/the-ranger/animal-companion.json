@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>You are accompanied by a beast of uncommon loyalty and cleverness. See the Animal Companion insert for details.</p>"
+		"description": "You are accompanied by a beast of uncommon loyalty and cleverness. See the Animal Companion insert for details.",
+		"slug": "animal-companion"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

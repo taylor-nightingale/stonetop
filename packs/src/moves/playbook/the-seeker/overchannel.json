@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you may mark a debility instead.</p>",
+		"description": "When you **_would mark a Consequence from a major arcanum_**, you may mark a debility instead.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Conduit of Power"
 			]
-		}
+		},
+		"slug": "overchannel"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

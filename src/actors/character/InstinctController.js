@@ -18,7 +18,7 @@ export class InstinctController {
 
 	static computeSelected(instinctGroup, choiceValues) {
 		const checked = instinctGroup?.list[0]?.options?.find(o => o.checked) ?? null;
-		if (checked) return `${checked.text} — ${checked.description}`;
+		if (checked) return checked.description ? `${checked.text} — ${checked.description}` : checked.text;
 		return choiceValues.toRaw()?.instinct?.__custom || null;
 	}
 }

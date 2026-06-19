@@ -25,9 +25,15 @@ export class FakeMoveRepository {
 			?? null;
 	}
 
+	async getMovesByType(moveType) {
+		const world = await this._worldStore.filterEntries(e => e.system?.moveType === moveType);
+		return [...this._basicMoves, ...world]
+			.filter(m => (m.system?.moveType ?? "basic") === moveType)
+			.map(m => new Move(m));
+	}
+
 	async getBasicMoves() {
-		const world = await this._worldStore.filterEntries(e => e.system?.moveType === "basic");
-		return [...this._basicMoves, ...world].map(m => new Move(m));
+		return this.getMovesByType("basic");
 	}
 
 	async getBasicMoveDocument(id) {
@@ -48,8 +54,18 @@ export class FakeMoveRepository {
 		return this._insertMoves.map(m => new Move(m));
 	}
 
+	async getMovesBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		const index = await this.buildSlugIndex();
+		return slugs.map(s => index.get(s)).filter(Boolean);
+	}
+
 	async getInsertMoveDocument(id) {
-		return this._insertMoves.find(m => m._id === id) ?? null;
+		return this._insertMoves.find(m => m._id === id)
+			?? this._playbookMoves.find(m => m._id === id)
+			?? this._basicMoves.find(m => m._id === id)
+			?? await this._worldStore.getDocument(id)
+			?? null;
 	}
 
 	addInsertMove(move) {

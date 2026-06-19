@@ -4,22 +4,23 @@
   "system": {
     "moveType": "post-death",
     "playbook": "revenant",
-    "description": "<p>Neither poison nor disease do you harm. You feel little pain. When you <strong><em>take damage from cutting, stabbing, or crushing</em></strong>, take half damage (after armor, rounded up).</p><p>When you are <strong><em>reduced to 0 HP</em></strong>, roll +CON.: <strong>on a 10+</strong>, regain half your max HP and choose 1; <strong>on a 7-9</strong>, regain half your max HP and choose 2; <strong>on a 6-</strong>, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.</p><ul><li>Mark a consequence (see reverse)</li><li>You're out of the action until the next sunset</li><li>Your body is permanently maimed in some way of the GM's choosing</li></ul><p>If <strong><em>your body is completely destroyed</em></strong> (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.</p>",
+    "description": "Neither poison nor disease do you harm. You feel little pain. When you **_take damage from cutting, stabbing, or crushing_**, take half damage (after armor, rounded up).\n\nWhen you are **_reduced to 0 HP_**, roll +CON.: **on a 10+**, regain half your max HP and choose 1; **on a 7-9**, regain half your max HP and choose 2; **on a 6-**, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.\n\n- Mark a consequence (see reverse)\n- You're out of the action until the next sunset\n- Your body is permanently maimed in some way of the GM's choosing\nIf **_your body is completely destroyed_** (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.",
     "moveResults": {
       "success": {
         "label": "10+",
-        "value": "<p>Regain half your max HP and choose 1 from the list.</p>"
+        "value": "Regain half your max HP and choose 1 from the list."
       },
       "partial": {
         "label": "7-9",
-        "value": "<p>Regain half your max HP and choose 2 from the list.</p>"
+        "value": "Regain half your max HP and choose 2 from the list."
       },
       "failure": {
         "label": "6-",
-        "value": "<p>Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.</p>"
+        "value": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "undying"
   },
   "folder": "PltWcwhA5PwgziBO",
   "_id": "hTcheRc8Pk3kJxuW",

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>As long as you avoid overt hostility, no enemy will consider you a threat.</p><p>When you <strong><em>first make your move against an enemy who underestimates you</em></strong>, you have advantage.</p>"
+		"description": "As long as you avoid overt hostility, no enemy will consider you a threat.\n\nWhen you **_first make your move against an enemy who underestimates you_**, you have advantage.",
+		"slug": "underestimated"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

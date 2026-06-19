@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Inn",
-						"text": "<p>The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.</p>"
+						"text": "The public house offers a common room and shelter for a few horses, but it's hardly a proper inn."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
+						"text": "**Requires** all of the following, in order:"
 					}
 				},
 				{
@@ -83,7 +83,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.</p><p>Henceforth, when the seasons change, whoever is friendliest rolls +Fortunes: <strong>on a 10+</strong>, ask the GM 3 questions about the wider world; <strong>on a 7-9</strong>, ask 1 question; <strong>on a 6-</strong>, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.</p><p>Once per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities.</p>"
+						"text": "When you **_meet the requirements_**, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.\n\nHenceforth, when the seasons change, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.\n\nOnce per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities."
 					}
 				}
 			]

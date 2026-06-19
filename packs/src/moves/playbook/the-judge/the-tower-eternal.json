@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defy Danger against magic</em></strong>, treat a result of 6- as a 7-9.</p>",
+		"description": "When you **_Defy Danger against magic_**, treat a result of 6- as a 7-9.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "the-tower-eternal"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

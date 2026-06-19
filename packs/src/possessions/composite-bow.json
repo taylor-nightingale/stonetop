@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "composite-bow",
 		"label": "Composite bow",
-		"description": "<em>near/far</em>, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor.",
+		"description": "*near/far*, 2 piercing. A powerful, well-crafted bow that can reach far and punch through armor.",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

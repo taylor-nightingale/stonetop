@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "olwin",
 		"arcanaSlug": null,
-		"tags": "Fates-wise, beautiful, passionate, magical",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 6
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
+		"armor": "1",
+		"damage": "iron spear [[/r 1d6]] (_close, thrown_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to lack discretion"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to lack discretion\n-Perform a divination\n-Speak a (dire) prophecy\n-Make a big deal about something",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -32,28 +30,6 @@
 			{
 				"slug": "choices",
 				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "iron spear d6 (close, thrown)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "tenderness, respect; Loyalty"
-						}
-					},
 					{
 						"type": "entry",
 						"content": {
@@ -152,7 +128,29 @@
 				]
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Perform a divination\n- Speak a (dire) prophecy\n- Make a big deal about something",
+		"cost": {
+			"selected": [
+				"tenderness, respect"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Fates-wise",
+				"beautiful",
+				"passionate",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

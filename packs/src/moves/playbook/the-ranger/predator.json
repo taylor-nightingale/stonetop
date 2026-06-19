@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, add the following to the list of questions you can ask. When <strong><em>acting on the answer to either question</em></strong>, deal an extra 1d4 damage.</p><ul><li>Who or what here is the easiest prey?</li><li>How is ________ weak or vulnerable?</li></ul>"
+		"description": "When you **_Seek Insight_**, add the following to the list of questions you can ask. When **_acting on the answer to either question_**, deal an extra 1d4 damage.\n\n- Who or what here is the easiest prey?\n- How is ________ weak or vulnerable?",
+		"slug": "predator"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

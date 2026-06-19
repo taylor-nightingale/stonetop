@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Invoke the Sun God</em></strong>, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations.</p>",
+		"description": "When you **_Invoke the Sun God_**, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Invoke the Sun God"
 			]
-		}
+		},
+		"slug": "burn-twice-as-bright"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

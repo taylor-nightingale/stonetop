@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>travel through the wilderness</em></strong>, you can procure 1d6 uses of provisions each day (roll with disadvantage in winter or barren terrain). Provisions can substitute for supplies when you Make Camp.</p>"
+		"description": "When you **_travel through the wilderness_**, you can procure 1d6 uses of provisions each day (roll with disadvantage in winter or barren terrain). Provisions can substitute for supplies when you Make Camp.",
+		"slug": "on-the-hoof"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>jump in to help another character who just rolled</em></strong>, tell us how and ask the GM what else is required or what the consequences will be. If you accept, increase your ally's roll by +1.</p>"
+		"description": "When you **_jump in to help another character who just rolled_**, tell us how and ask the GM what else is required or what the consequences will be. If you accept, increase your ally's roll by +1.",
+		"slug": "many-hands-make-light-work"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

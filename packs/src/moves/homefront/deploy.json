@@ -6,7 +6,7 @@
   "system": {
     "playbook": "Stonetop",
     "moveType": "homefront",
-    "description": "<p>When you <strong><em>send a steading's people into danger or rally them against an attack</em></strong>, roll +Defenses: <strong>on a 10+</strong>, it goes as well as can be expected; <strong>on a 7-9</strong>, it works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.<ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul></p>",
+    "description": "When you **_send a steading's people into danger or rally them against an attack_**, roll +Defenses: **on a 10+**, it goes as well as can be expected; **on a 7-9**, it works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -14,14 +14,15 @@
       },
       "partial": {
         "label": "7-9",
-        "value": "It works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.<ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul>"
+        "value": "It works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die"
       },
       "failure": {
         "label": "6-",
         "value": "Establish badness"
       }
     },
-    "rollStat": "defenses"
+    "rollStat": "defenses",
+    "slug": "deploy"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

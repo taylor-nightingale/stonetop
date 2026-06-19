@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Seeker",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>study encoded, forgotten, or arcane marks or writing</em></strong>, roll +INT: <strong>on a 10+</strong>, you can fully decipher them in just a few minutes; <strong><em>on a 7-9</em></strong>, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.</p>",
+    "description": "When you **_study encoded, forgotten, or arcane marks or writing_**, roll +INT: **on a 10+**, you can fully decipher them in just a few minutes; **_on a 7-9_**, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.",
     "requirement": {
       "moves": [
         "Polyglot"
@@ -26,7 +26,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "cryptologist"
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>The grunts, barks, chirps, and calls of natural beasts are as a language to you. You can understand their intentions and communicate basic ideas. When you <strong><em>Persuade a beast</em></strong>, you can choose to roll +WIS.</p>"
+		"description": "The grunts, barks, chirps, and calls of natural beasts are as a language to you. You can understand their intentions and communicate basic ideas. When you **_Persuade a beast_**, you can choose to roll +WIS.",
+		"slug": "wild-speech"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

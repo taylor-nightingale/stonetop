@@ -7,10 +7,11 @@
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
 		"replaces": "In Over Your Head",
-		"description": "<p>When you <strong><em>first leap into danger to protect someone</em></strong>, don't roll to Defend. Instead, treat it as though you rolled a 10+.</p><p>When you <strong><em>Defend</em></strong>, you can spend 1 Readiness to lock eyes with an attacker; they have disadvantage on damage rolls against you and your ward for the rest of the fight. (Replaces In Over Your Head. First use crosses off \"Would-be\" on the front page.)</p>",
+		"description": "When you **_first leap into danger to protect someone_**, don't roll to Defend. Instead, treat it as though you rolled a 10+.\n\nWhen you **_Defend_**, you can spend 1 Readiness to lock eyes with an attacker; they have disadvantage on damage rolls against you and your ward for the rest of the fight. (Replaces In Over Your Head. First use crosses off \"Would-be\" on the front page.)",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "big-damn-hero"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

@@ -6,7 +6,8 @@
   "system": {
     "playbook": "Stonetop",
     "moveType": "homefront",
-    "description": "<p>When <strong><em>calamity befalls the steading or panic spreads</em></strong>, reduce Fortunes by 1 (min -1). \n <strong><em>When Fortunes would drop below -1 for any reason</em></strong> (not just calamity or panic), then the GM picks 1 instead: <ul><li>The steading marks diminished from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)</li><li>The steading marks lacking due to shortages/hoarding/distrust (treat Prosperity as 1 lower)</li><li>The steading marks malcontent from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)</li><li>Folks start to leave; reduce Population by 1</li></ul></p>"
+    "description": "When **_calamity befalls the steading or panic spreads_**, reduce Fortunes by 1 (min -1).\n **_When Fortunes would drop below -1 for any reason_** (not just calamity or panic), then the GM picks 1 instead:\n\n- The steading marks diminished from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)\n- The steading marks lacking due to shortages/hoarding/distrust (treat Prosperity as 1 lower)\n- The steading marks malcontent from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)\n- Folks start to leave; reduce Population by 1",
+    "slug": "meet-with-disaster"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

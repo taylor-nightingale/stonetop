@@ -5,23 +5,21 @@
 	"system": {
 		"slug": "all-mighty-thistlewisk",
 		"arcanaSlug": "stone-idol",
-		"tags": "Fae, tiny, magical, devious, arrogant",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 15
 		},
-		"armor": {
-			"value": 6,
-			"note": ""
+		"armor": "6",
+		"damage": "d10",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to heap abuse on its worshippers"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d10",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to heap abuse on its worshippers\n-inert; disembodied voice\n-Make unreasonable demands\n-Consume the essence of foodstuffs\n-Sense one's idle thoughts/memories\n-Weave powerful illusions and hallucinations (near, area)\n-Grow bored/huffy and go to sleep",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +27,33 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "void touch d10 w/advantage (band, grabby, ignores armor)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "obeisance and ever-larger offerings of food (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- inert; disembodied voice\n- Make unreasonable demands\n- Consume the essence of foodstuffs\n- Sense one's idle thoughts/memories\n- Weave powerful illusions and hallucinations (near, area)\n- Grow bored/huffy and go to sleep",
+		"cost": {
+			"selected": [
+				"obeisance and ever-larger offerings of food (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Fae",
+				"tiny",
+				"magical",
+				"devious",
+				"arrogant"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

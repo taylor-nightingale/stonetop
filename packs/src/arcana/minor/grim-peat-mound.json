@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A grim peat mound",
 			"item": null,
-			"description": "<p>Not far from Marshedge, a ways into Ferrier's Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town's founding, the people of Marshedge have buried certain criminals here, alive.</p><p>Over the years, the land has birthed a spirit that hungers for the dying breaths of the <strong>condemned</strong> (<em>Book II</em>, page 85). It is young and eager, and can be set to work upon criminals, but only if you…</p>",
+			"description": "Not far from Marshedge, a ways into Ferrier's Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town's founding, the people of Marshedge have buried certain criminals here, alive.\n\nOver the years, the land has birthed a spirit that hungers for the dying breaths of the **condemned** (*Book II*, page 85). It is young and eager, and can be set to work upon criminals, but only if you…",
 			"unlock": {
 				"slug": "grim-peat-mound",
 				"list": [
@@ -47,12 +47,12 @@
 		"back": {
 			"title": "The Tomb-bog's Mark",
 			"item": null,
-			"description": "<p>When you <strong><em>use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime</em></strong>, you can place a geas upon them. Phrase it as one of the following:</p><ul><li>You must never again ____.</li><li>Henceforth, you must always seek to ____ when you have the chance.</li></ul><p>Should they <strong><em>fail to follow the geas</em></strong>, their life is forfeit and the tomb-bog spirit will track them down and smother them.</p><p>Should they <strong><em>prove themselves innocent to the tomb-bog spirit</em></strong>, your life is forfeit instead.</p>",
+			"description": "When you **_use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime_**, you can place a geas upon them. Phrase it as one of the following:\n\n- You must never again ____.\n- Henceforth, you must always seek to ____ when you have the chance.\nShould they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them.\n\nShould they **_prove themselves innocent to the tomb-bog spirit_**, your life is forfeit instead.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime",
-					"text": "<p>You can place a geas upon them. Phrase it as one of the following:</p><ul><li>You must never again ____.</li><li>Henceforth, you must always seek to ____ when you have the chance.</li></ul><p>Should they <strong><em>fail to follow the geas</em></strong>, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they <strong><em>prove themselves innocent to the tomb-bog spirit</em></strong>, your life is forfeit instead.</p>"
+					"text": "You can place a geas upon them. Phrase it as one of the following:\n\n- You must never again ____.\n- Henceforth, you must always seek to ____ when you have the chance.\nShould they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they **_prove themselves innocent to the tomb-bog spirit_**, your life is forfeit instead."
 				}
 			]
 		}

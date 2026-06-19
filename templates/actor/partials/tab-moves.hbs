@@ -32,11 +32,6 @@
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}
 		{{> "stonetop.move-group" title=label note=note moves=moves categoryKey=key allowAdditional=allowAdditional}}
-		{{#if allowAdditional}}
-		<button type="button" class="item-control item-create" data-type="move" data-move-type="{{key}}" title="{{localize 'stonetop.character.moves.addMove'}}">
-			<i class="fas fa-plus"></i>
-		</button>
-		{{/if}}
 		{{/if}}
 		{{/each}}
 

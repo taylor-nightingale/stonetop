@@ -4,8 +4,9 @@
   "system": {
     "moveType": "post-death",
     "playbook": "thrall",
-    "description": "<p>When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.</p>",
-    "rollStat": null
+    "description": "When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.",
+    "rollStat": null,
+    "slug": "unholy-vessel"
   },
   "folder": "Xk9mThr4LLp0aZcN",
   "_id": "Thr4llUnhVsl0004",

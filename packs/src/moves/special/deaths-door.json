@@ -5,7 +5,7 @@
   "type": "move",
   "system": {
     "moveType": "special",
-    "description": "<p>When you <strong><em>are dying</em></strong>, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: <strong>on a 10+</strong>, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; <strong>on a 7-9</strong>, the Lady waves you off—you're no longer dying but you're out of the action; <strong>on a 6-</strong>, your time has come—choose 1: <ul><li>Make one last move as if you rolled a 12+, then step through the Last Door</li><li>Refuse to go; gain the Revenant or Ghost insert</li><li>Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert</li></ul></p>",
+    "description": "When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the Revenant or Ghost insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -17,10 +17,11 @@
       },
       "failure": {
         "label": "6-",
-        "value": "Your time has come—choose 1: <ul><li>Make one last move as if you rolled a 12+, then step through the Last Door</li><li>Refuse to go; gain the Revenant or Ghost insert</li><li>Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert</li></ul>"
+        "value": "Your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the Revenant or Ghost insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert"
       }
     },
-    "rollStat": "prompt"
+    "rollStat": "prompt",
+    "slug": "deaths-door"
   },
   "folder": "d4FNbbTV42H21u5y"
 }

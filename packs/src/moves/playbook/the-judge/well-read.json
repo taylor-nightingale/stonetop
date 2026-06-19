@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>name the source in which you read about the matter at hand</em></strong>, roll +WIS to Know Things instead of +INT.</p>"
+		"description": "When you **_name the source in which you read about the matter at hand_**, roll +WIS to Know Things instead of +INT.",
+		"slug": "well-read"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

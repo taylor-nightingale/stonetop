@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A giant's dormitory",
 				"weight": null,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.</p><p>When you <strong><em>enter the dormitory</em></strong>, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…</p>",
+			"description": "In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.\n\nWhen you **_enter the dormitory_**, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…",
 			"unlock": {
 				"slug": "giants-dormitory",
 				"list": [
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Aalz Galt's Sudden Sinkhole",
 			"item": null,
-			"description": "<p>When you <strong><em>sing a rumbling note and focus your will upon a point of earth or stone</em></strong>, mark a debility and roll +INT.</p><p><strong>On a 10+</strong>, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.</p><p><strong>On a 7-9</strong>, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).</p>",
+			"description": "When you **_sing a rumbling note and focus your will upon a point of earth or stone_**, mark a debility and roll +INT.\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you sing a rumbling note and focus your will upon a point of earth or stone",
-					"text": "<p>Mark a debility and roll +INT. <strong>On a 10+</strong>, the earth or stone beneath crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. <strong>On a 7-9</strong>, as above, but mark another debility and take 2d4 damage (ignores armor).</p>"
+					"text": "Mark a debility and roll +INT. **On a 10+**, the earth or stone beneath crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. **On a 7-9**, as above, but mark another debility and take 2d4 damage (ignores armor)."
 				}
 			]
 		}

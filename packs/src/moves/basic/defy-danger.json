@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When <strong><em>danger looms, the stakes are high, and you do something chancy</em></strong>, check if another move applies. If not, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, you pull it off as well as one could hope; <strong><em>on a 7-9</em></strong>, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).</p>",
+    "description": "When **_danger looms, the stakes are high, and you do something chancy_**, check if another move applies. If not, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, you pull it off as well as one could hope; **_on a 7-9_**, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -18,7 +18,8 @@
         "value": "Things get bad... things burn. (Up to GM interpretation)"
       }
     },
-    "rollStat": "ask"
+    "rollStat": "ask",
+    "slug": "defy-danger"
   },
   "_id": "aG2lARep6mTB5C1n",
   "_key": "!items!aG2lARep6mTB5C1n",

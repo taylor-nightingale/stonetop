@@ -4,7 +4,7 @@
   "system": {
     "moveType": "post-death",
     "playbook": "thrall",
-    "description": "<p>When the GM compels you to act on your impulse, gain 1 Favor if you act as bidden. If you resist, roll +WIS: <strong>on a 10+</strong>, your actions are your own; <strong>on a 7–9</strong>, choose 1:</p><ul><li>Struggle for control until someone or something snaps you out of it</li><li>Start acting as compelled, putting yourself or an ally in a spot before you regain control</li><li>Harm yourself (d6 damage, ignores armor) to regain control</li></ul><p><strong>On a 6–</strong>, you come to your senses later, having done gods-know-what.</p><p>When you act on your impulse without being compelled to do so, and your actions cause you or your allies trouble, gain 1 Favor.</p>",
+    "description": "When the GM compels you to act on your impulse, gain 1 Favor if you act as bidden. If you resist, roll +WIS: **on a 10+**, your actions are your own; **on a 7–9**, choose 1:\n\n- Struggle for control until someone or something snaps you out of it\n- Start acting as compelled, putting yourself or an ally in a spot before you regain control\n- Harm yourself (d6 damage, ignores armor) to regain control\n**On a 6–**, you come to your senses later, having done gods-know-what.\n\nWhen you act on your impulse without being compelled to do so, and your actions cause you or your allies trouble, gain 1 Favor.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -19,7 +19,8 @@
         "value": "You come to your senses later, having done gods-know-what."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "urges"
   },
   "folder": "Xk9mThr4LLp0aZcN",
   "_id": "Thr4llUrg3s00002",

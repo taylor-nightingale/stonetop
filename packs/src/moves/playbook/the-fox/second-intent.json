@@ -6,14 +6,15 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defend and spend 1 Readiness to Parry & Riposte</em></strong>, also pick 1 option from the Ambush list.</p>",
+		"description": "When you **_Defend and spend 1 Readiness to Parry & Riposte_**, also pick 1 option from the Ambush list.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Parry & Riposte",
 				"Ambush"
 			]
-		}
+		},
+		"slug": "second-intent"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

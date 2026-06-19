@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A rusty cauldron",
 				"weight": null,
-				"note": "<em>immobile, magical</em>",
+				"note": "*immobile, magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that's rust.</p><p>The thing has a sinister feel, and you can sense its power.</p>",
+			"description": "Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that's rust.\n\nThe thing has a sinister feel, and you can sense its power.",
 			"unlock": {
 				"slug": "rusty-cauldron",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Unliving Chimera",
 			"item": null,
-			"description": "<p>When you <strong><em>boil the bones of beasts in the cauldron and stir in your own fresh blood</em></strong>, mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (<em>bear-like, owl-like</em>, etc.).</p><p>For each debility you marked, pick 1:</p><ul><li>It is stable (else, it falls apart in a day)</li><li>It is not <em>clumsy</em></li><li>Replace its instinct with \"to shun light\"</li></ul>",
+			"description": "When you **_boil the bones of beasts in the cauldron and stir in your own fresh blood_**, mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (*bear-like, owl-like*, etc.).\n\nFor each debility you marked, pick 1:\n\n- It is stable (else, it falls apart in a day)\n- It is not *clumsy*\n- Replace its instinct with \"to shun light\"",
 			"resource": null,
 			"choices": {
 				"slug": "rusty-cauldron",
@@ -99,7 +99,7 @@
 			"moves": [
 				{
 					"name": "When you boil the bones of beasts in the cauldron and stir in your own fresh blood",
-					"text": "<p>Mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower. For each debility marked, pick 1: it is stable (else falls apart in a day); it is not clumsy; replace its instinct with \"to shun light.\"</p>"
+					"text": "Mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower. For each debility marked, pick 1: it is stable (else falls apart in a day); it is not clumsy; replace its instinct with \"to shun light.\""
 				}
 			]
 		}

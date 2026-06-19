@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Struggle as One</em></strong>, you and one ally of your choice have advantage.</p>",
+		"description": "When you **_Struggle as One_**, you and one ally of your choice have advantage.",
 		"requirement": {
 			"moves": [
 				"Many Hands Make Light Work"
 			]
-		}
+		},
+		"slug": "a-bundle-of-sticks-unbroken"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

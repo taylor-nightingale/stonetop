@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>channel Helior's essence into an object you carry</em></strong>, roll +WIS: <strong>on a 10+</strong>, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object, and you may Invoke the Sun God right now as if you rolled a 10+; <strong><em>on a 7-9</em></strong>, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object.</p>",
+    "description": "When you **_channel Helior's essence into an object you carry_**, roll +WIS: **on a 10+**, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object, and you may Invoke the Sun God right now as if you rolled a 10+; **_on a 7-9_**, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object.",
     "requirement": {
       "level": 6,
       "moves": [
@@ -27,7 +27,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "wielder-of-the-white-flame"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

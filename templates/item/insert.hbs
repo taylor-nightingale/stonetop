@@ -1,0 +1,85 @@
+<form class="stonetop sheet item insert" autocomplete="off">
+
+	<header class="stonetop-insert-sheet-header">
+		<img class="stonetop-insert-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
+		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{data.name}}"
+		       placeholder="{{localize 'stonetop.insert.namePlaceholder'}}"
+		       {{#unless editable}}disabled{{/unless}}>
+	</header>
+
+	<div class="stonetop-insert-sheet-body">
+
+		<section class="stonetop-insert-sheet-section editor">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.insert.description"}}</label>
+			{{#if editable}}
+			<div class="editor-content" data-edit="system.description">{{{system.description}}}</div>
+			{{else}}
+			<div class="editor-content stonetop-rich">{{{md system.description}}}</div>
+			{{/if}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.insert.instinct"}}</label>
+				{{#if editable}}
+				<button type="button" class="insert-instinct-add-string">{{localize "stonetop.insert.addInstinct"}}</button>
+				{{/if}}
+			</div>
+			<ul class="stonetop-insert-sheet-instinct-list">
+				{{#each instinctStrings}}
+				<li class="stonetop-insert-sheet-instinct-row">
+					<input type="text" class="insert-instinct-string" data-index="{{@index}}" value="{{this}}"
+					       {{#unless ../editable}}disabled{{/unless}}>
+					{{#if ../editable}}
+					<button type="button" class="insert-instinct-remove-string" data-index="{{@index}}"
+					        title="{{localize 'stonetop.insert.removeInstinct'}}">✕</button>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.insert.choices"}}</label>
+				{{#if editable}}
+				<button type="button" class="insert-choices-add-group">{{localize "stonetop.insert.addChoices"}}</button>
+				{{/if}}
+			</div>
+			{{#each choicesGroups}}
+			<div class="stonetop-insert-sheet-choices-group">
+				<div class="stonetop-insert-sheet-choices-group-head">
+					<span class="stonetop-insert-sheet-choices-slug">{{slug}}</span>
+					{{#if ../editable}}
+					<button type="button" class="insert-choices-remove-group" data-index="{{index}}">×</button>
+					{{/if}}
+				</div>
+				{{> "stonetop.choice-group-editor" cgPath=cgPath rows=rows}}
+			</div>
+			{{/each}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.insert.moves"}}</label>
+				{{#if editable}}
+				<button type="button" class="insert-add-move">
+					<i class="fas fa-plus"></i> {{localize "stonetop.insert.addMove"}}
+				</button>
+				{{/if}}
+			</div>
+			<ul class="stonetop-insert-sheet-move-list">
+				{{#each insertMoves}}
+				<li class="stonetop-insert-sheet-move {{#if missing}}stonetop-insert-sheet-move--missing{{/if}}">
+					<a class="insert-move-open" data-move-id="{{id}}" data-move-slug="{{slug}}">{{name}}</a>
+					{{#if ../editable}}
+					<button type="button" class="insert-move-delete" data-move-id="{{id}}" data-move-slug="{{slug}}"
+					        title="{{localize 'stonetop.insert.remove'}}">✕</button>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+
+	</div>
+</form>

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Clash and your foe survives</em></strong>, you gain advantage the next time you Clash with them.</p>"
+		"description": "When you **_Clash and your foe survives_**, you gain advantage the next time you Clash with them.",
+		"slug": "relentless"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

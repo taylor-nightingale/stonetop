@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Palisade",
-						"text": "<p>A wall of sharpened logs, 10' tall, to keep evil at bay.</p>"
+						"text": "A wall of sharpened logs, 10' tall, to keep evil at bay."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
+						"text": "**Requires** all of the following, in order:"
 					}
 				},
 				{
@@ -61,14 +61,14 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>Pulling Together, costing a month and 1 Surplus.</p>"
+						"text": "Pulling Together, costing a month and 1 Surplus."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.</p><p>Henceforth, when you take advantage of the palisade, you have advantage to Deploy.</p>"
+						"text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy."
 					}
 				}
 			]

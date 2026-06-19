@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+		"description": "Increase one of your stats by +1 (to a max of +3).",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "superior-stat"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

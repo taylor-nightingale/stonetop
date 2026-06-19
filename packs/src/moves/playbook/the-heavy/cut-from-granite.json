@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>Gain +1 armor (stacks with other sources) and increase your max HP by another 2 (+6 HP total from both moves).</p>",
+		"description": "Gain +1 armor (stacks with other sources) and increase your max HP by another 2 (+6 HP total from both moves).",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Carved Out of Wood"
 			]
-		}
+		},
+		"slug": "cut-from-granite"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

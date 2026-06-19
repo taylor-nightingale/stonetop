@@ -7,12 +7,13 @@
 		"playbook": "The Blessed",
 		"moveType": "playbook",
 		"isStartingMove": true,
-		"description": "<p>When you <strong><em>spend 1 Stock and perform a short rite</em></strong>, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.</p>",
+		"description": "When you **_spend 1 Stock and perform a short rite_**, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.",
 		"requirement": {
 			"moves": [
 				"Spirit Tongue"
 			]
-		}
+		},
+		"slug": "call-the-spirits"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

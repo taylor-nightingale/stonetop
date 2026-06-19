@@ -90,17 +90,17 @@
       {
         "slug": "sheriff",
         "label": "Sheriff",
-        "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>do what you say</li><li>dig in/take cover/flee</li> or <li>attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+        "description": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.\n\nWhen you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do."
       },
       {
         "slug": "blood-soaked-past",
         "label": "Blood-Soaked Past",
-        "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
+        "description": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.\n\nWhen you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.\n\nWhen you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage."
       },
       {
         "slug": "storm-marked",
         "label": "Storm-Marked",
-        "description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>"
+        "description": "You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?\n\nYou start with the **Storm Markings** major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed."
       }
     ],
     "specialPossessions": {
@@ -124,7 +124,7 @@
             "type": "entry",
             "content": {
               "title": "Just About Everyone Here Talks About the Time You…",
-              "text": "<p><em>(pick 1 or 2)</em></p>"
+              "text": "*(pick 1 or 2)*"
             }
           },
           {
@@ -213,7 +213,7 @@
             "type": "entry",
             "content": {
               "title": "But Folks Are Less Keen to Discuss…",
-              "text": "<p><em>(pick 1 or 2)</em></p>"
+              "text": "*(pick 1 or 2)*"
             }
           },
           {
@@ -291,7 +291,7 @@
             "type": "entry",
             "content": {
               "title": "What Keeps You Up at Night?",
-              "text": "<p><em>(pick 1 or 2)</em></p>"
+              "text": "*(pick 1 or 2)*"
             }
           },
           {
@@ -375,7 +375,7 @@
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>tell us about your history of violence</strong>, and what keeps you up at night.",
+      "step3": "On your third turn, **tell us about your history of violence**, and what keeps you up at night.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -389,7 +389,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lover-spouse",
@@ -401,7 +403,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "needs-protection",
@@ -413,7 +417,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "earn-forgiveness",
@@ -425,7 +431,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -442,7 +450,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "have-my-back",
@@ -454,7 +464,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "stayed-hand",
@@ -466,7 +478,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "traded-blows",
@@ -478,7 +492,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Censure someone</em></strong>, your voice deals 1d4 damage to them (near, loud, ignores armor).</p>",
+		"description": "When you **_Censure someone_**, your voice deals 1d4 damage to them (near, loud, ignores armor).",
 		"requirement": {
 			"level": 2,
 			"moves": [
 				"Censure"
 			]
-		}
+		},
+		"slug": "castigate"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

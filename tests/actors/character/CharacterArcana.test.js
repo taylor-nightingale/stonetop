@@ -41,10 +41,10 @@ function makeNpcItem(slug, overrides = {}) {
 		name: slug,
 		system: {
 			slug, owned: overrides.owned ?? false, tags: "",
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" },
-			damage: { die: null, label: "", tags: "" },
+			hp: { value: 6, max: 6 }, armor: "",
+			damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 },
-			choices: null, arcanaSlug: null, specialQualities: "", choiceValues: {},
+			choices: null, arcanaSlug: null, specialQuality: "", choiceValues: {},
 		},
 	};
 }
@@ -569,7 +569,7 @@ const CRACKED_FLUTE = {
 		choices: {
 			slug: "cracked-flute",
 			list: [
-				{ type: "follower", slug: "andalau-of-the-flute", inlineDisplay: true, title: "", track: { max: 1 } },
+				{ type: "entry", slug: "andalau-of-the-flute", followers: ["andalau-of-the-flute"], inlineDisplay: true, content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -592,7 +592,7 @@ const STONE_IDOL = {
 		choices: {
 			slug: "stone-idol",
 			list: [
-				{ type: "follower", slug: "all-mighty-thistlewisk", inlineDisplay: true, title: "", track: { max: 1 } },
+				{ type: "entry", slug: "all-mighty-thistlewisk", followers: ["all-mighty-thistlewisk"], inlineDisplay: true, content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -658,7 +658,7 @@ describe("CharacterArcana — follower sync", () => {
 		const actor = makeActor();
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
@@ -683,7 +683,7 @@ describe("CharacterArcana — follower sync", () => {
 		const actor = makeActor();
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const factory = new ChoiceGroupFactory(actor);
@@ -764,7 +764,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 		const actor = makeActor([makeArcanumItem(CRACKED_FLUTE)]);
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
-			hp: { value: 6, min: 0, max: 6 }, armor: { value: 0, note: "" }, damage: null,
+			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());

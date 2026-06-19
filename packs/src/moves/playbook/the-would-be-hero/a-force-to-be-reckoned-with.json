@@ -7,10 +7,11 @@
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
 		"replaces": "Underestimated",
-		"description": "<p>Any intelligent creature who looks you in the eye or hears the steel in your voice instinctively knows that you are a force to be reckoned with, and treats you appropriately.</p><p>When you <strong><em>Defy Danger against something trying to harm or constrain you</em></strong>, on a 12+ you turn the tables on them (the GM will say how, or ask you to). (Replaces Underestimated. First use crosses off \"Would-be\" on the front page.)</p>",
+		"description": "Any intelligent creature who looks you in the eye or hears the steel in your voice instinctively knows that you are a force to be reckoned with, and treats you appropriately.\n\nWhen you **_Defy Danger against something trying to harm or constrain you_**, on a 12+ you turn the tables on them (the GM will say how, or ask you to). (Replaces Underestimated. First use crosses off \"Would-be\" on the front page.)",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "a-force-to-be-reckoned-with"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

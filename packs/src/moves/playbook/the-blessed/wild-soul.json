@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Blessed",
 		"moveType": "playbook",
-		"description": "<p>Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.</p>",
+		"description": "Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.",
 		"repeatMax": 2,
 		"requirement": {
 			"level": 2,
 			"playbook": "The Blessed"
-		}
+		},
+		"slug": "wild-soul"
 	},
 	"folder": "twBI9Q4lZycODbDk"
 }

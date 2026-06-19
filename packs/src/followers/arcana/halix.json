@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "halix",
 		"arcanaSlug": "blackwood-fetishes",
-		"tags": "undead, spirit, magical, hedonistic, cautious, devious, stealthy, exceptional",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 10
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
+		"armor": "1",
+		"damage": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to second-guess your decisions"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to second-guess your decisions\n-Manifest a ghostly presence (harmed only by silver or salt)\n-Possess an inebriated victim\n-Spot a weakness, want, or fear\n-Spin plots and falsehoods",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -31,22 +29,36 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "pleasures of the flesh (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Manifest a ghostly presence (harmed only by silver or salt)\n- Possess an inebriated victim\n- Spot a weakness, want, or fear\n- Spin plots and falsehoods",
+		"cost": {
+			"selected": [
+				"pleasures of the flesh (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"undead",
+				"spirit",
+				"magical",
+				"hedonistic",
+				"cautious",
+				"devious",
+				"stealthy",
+				"exceptional"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

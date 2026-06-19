@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Seeker",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>inspect a work of artifice or magic for a fatal flaw</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, the GM will reveal the best way to destroy/sabotage it; <strong>on a 10+</strong>, you or an ally also gain advantage to act on the info.</p>",
+    "description": "When you **_inspect a work of artifice or magic for a fatal flaw_**, roll +INT: **_on a 7+_**, the GM will reveal the best way to destroy/sabotage it; **on a 10+**, you or an ally also gain advantage to act on the info.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "everything-burns"
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

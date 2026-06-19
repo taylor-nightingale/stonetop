@@ -7,7 +7,8 @@
 		"playbook": "The Fox",
 		"moveType": "playbook",
 		"isStartingMove": false,
-		"description": "<p>When you <strong><em>wield a weapon with speed and grace</em></strong>, roll +DEX to Clash (instead of +STR).</p>"
+		"description": "When you **_wield a weapon with speed and grace_**, roll +DEX to Clash (instead of +STR).",
+		"slug": "skill-at-arms"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

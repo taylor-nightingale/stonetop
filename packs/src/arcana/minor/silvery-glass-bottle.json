@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A silvery glass bottle",
 				"weight": 1,
-				"note": "<em>fragile, magical</em>",
+				"note": "*fragile, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>About 10 inches tall, tapered at the top, made of old warped glass that's shot through with silvery streaks, like the trails that slugs leave. The patterns in the glass seem different each time you look, almost shifting as you watch. It makes you eyes water, your head spin.</p>",
+			"description": "About 10 inches tall, tapered at the top, made of old warped glass that's shot through with silvery streaks, like the trails that slugs leave. The patterns in the glass seem different each time you look, almost shifting as you watch. It makes you eyes water, your head spin.",
 			"unlock": {
 				"slug": "silvery-glass-bottle",
 				"list": [
@@ -59,7 +59,7 @@
 		"back": {
 			"title": "Witch Bottle",
 			"item": null,
-			"description": "<p>When you <strong><em>tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle</em></strong>, hold 3 Sway over them. The cinders continue to burn and glow until the Sway is gone. Each time you release 1 Sway while speaking their true name to…</p><ul><li>Twist their senses, making them perceive something untrue</li><li>Plague them with nightmares until they wash in rain or snow</li><li>Cause an emotion in their heart to swell, possibly overwhelming them</li></ul><p>If the person you currently hold Sway over finds and breaks the Witch Bottle, you will yourself suffer all the torments you have ever inflicted with it.</p>",
+			"description": "When you **_tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle_**, hold 3 Sway over them. The cinders continue to burn and glow until the Sway is gone. Each time you release 1 Sway while speaking their true name to…\n\n- Twist their senses, making them perceive something untrue\n- Plague them with nightmares until they wash in rain or snow\n- Cause an emotion in their heart to swell, possibly overwhelming them\nIf the person you currently hold Sway over finds and breaks the Witch Bottle, you will yourself suffer all the torments you have ever inflicted with it.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -69,7 +69,7 @@
 			"moves": [
 				{
 					"name": "When you tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle",
-					"text": "<p>Hold 3 Sway over them. Spend 1 Sway while speaking their true name to: twist their senses; plague them with nightmares; or cause an overwhelming emotion. If they break the bottle, you suffer all torments you've inflicted.</p>"
+					"text": "Hold 3 Sway over them. Spend 1 Sway while speaking their true name to: twist their senses; plague them with nightmares; or cause an overwhelming emotion. If they break the bottle, you suffer all torments you've inflicted."
 				}
 			]
 		}

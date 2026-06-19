@@ -10,24 +10,24 @@
 	<div class="stonetop-resource stonetop-resource--wide">
 		<span class="stonetop-resource__label">HP</span>
 		<div class="stonetop-resource__split">
-			<input class="stonetop-resource__input stonetop-char-hp" type="number"
+			<input class="stonetop-resource__input stonetop-char-hp stonetop-step" type="number"
 			       value="{{stonetop.vitals.hp.value}}" min="0">
 			<span>/</span>
-			<input class="stonetop-resource__max stonetop-char-max-hp" type="number"
+			<input class="stonetop-resource__max stonetop-char-max-hp stonetop-step" type="number"
 			       value="{{stonetop.vitals.hp.max}}" min="0">
 		</div>
 	</div>
 
 	<div class="stonetop-resource stonetop-resource--small">
 		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.armor"}}</span>
-		<input class="stonetop-resource__input stonetop-char-armor" type="number"
+		<input class="stonetop-resource__input stonetop-char-armor stonetop-step" type="number"
 		       value="{{stonetop.vitals.armor}}" min="0">
 	</div>
 
 	<div class="stonetop-resource stonetop-resource--wide">
 		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.xp"}}</span>
 		<div class="stonetop-resource__split">
-			<input class="stonetop-resource__input stonetop-char-xp" type="number"
+			<input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number"
 			       value="{{stonetop.vitals.xp.value}}" min="0">
 			<span>/</span>
 			<span class="stonetop-resource__max">{{stonetop.vitals.xp.max}}</span>
@@ -36,7 +36,7 @@
 
 	<div class="stonetop-resource stonetop-resource--small">
 		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
-		<input class="stonetop-resource__input stonetop-char-level" type="number"
+		<input class="stonetop-resource__input stonetop-char-level stonetop-step" type="number"
 		       value="{{stonetop.vitals.level}}" min="1">
 	</div>
 

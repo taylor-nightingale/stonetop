@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.</p>",
+		"description": "You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Stentorian"
 			]
-		}
+		},
+		"slug": "focus-fire"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

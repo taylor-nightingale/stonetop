@@ -1,0 +1,249 @@
+{
+	"name": "Animal Companion",
+	"type": "npc",
+	"img": "icons/svg/wing.svg",
+	"system": {
+		"slug": "animal-companion",
+		"arcanaSlug": null,
+		"hp": {
+			"value": 0,
+			"max": 0
+		},
+		"armor": "",
+		"damage": "",
+		"instinct": {
+			"selected": [],
+			"options": [
+				"To bully and threaten",
+				"To fill its belly",
+				"To get distracted",
+				"To give chase",
+				"To make mischief",
+				"To startle and panic",
+				"to run rampant"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [],
+			"options": [
+				"Play, grooming, training, affection",
+				"Time off on its own, free to roam",
+				"Cozy quarters, comfort, ample food"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"companion": {
+			"enabled": true,
+			"type": {
+				"selected": [],
+				"options": [],
+				"multi": false,
+				"allowCustom": true
+			},
+			"options": {
+				"selected": [],
+				"options": [],
+				"multi": true,
+				"allowCustom": true
+			},
+			"catalog": [
+				{
+					"slug": "bird",
+					"name": "Bird",
+					"variants": [
+						"falcon",
+						"eagle",
+						"owl",
+						"buzzard",
+						"magpie"
+					],
+					"hp": {
+						"value": 5,
+						"max": 5
+					},
+					"armor": "1 (size)",
+					"damage": "[[/r 1d4]] (hand)",
+					"pickCount": 4,
+					"options": [
+						"Improved damage die (d6)",
+						"+4 HP",
+						"+1 armor (agility)",
+						"attack-bird",
+						"cautious",
+						"clever",
+						"fast",
+						"mimic",
+						"sharp-eyed",
+						"stealthy",
+						"thieving",
+						"tiny",
+						"tireless"
+					],
+					"defaults": [
+						"tiny"
+					]
+				},
+				{
+					"slug": "critter",
+					"name": "Critter",
+					"variants": [
+						"cat",
+						"fox",
+						"possum",
+						"raccoon",
+						"weasel"
+					],
+					"hp": {
+						"value": 5,
+						"max": 5
+					},
+					"armor": "1 (size)",
+					"damage": "[[/r 1d4]] (hand)",
+					"pickCount": 5,
+					"options": [
+						"+4 HP",
+						"+1 armor (agility)",
+						"agile",
+						"adorable",
+						"annoying",
+						"burrowing",
+						"cautious",
+						"clever",
+						"climber",
+						"dextrous",
+						"keen-eared",
+						"keen-eyed",
+						"keen-nosed",
+						"quick",
+						"stealthy",
+						"stinky",
+						"tiny",
+						"thieving"
+					],
+					"defaults": [
+						"tiny"
+					]
+				},
+				{
+					"slug": "brute",
+					"name": "Brute",
+					"variants": [
+						"bear",
+						"boar",
+						"wolverine",
+						"aurochs",
+						"drake"
+					],
+					"hp": {
+						"value": 12,
+						"max": 12
+					},
+					"armor": "0",
+					"damage": "[[/r 1d6]] (hand)",
+					"pickCount": 3,
+					"options": [
+						"+1 armor (hide, scales, etc.)",
+						"Damage is +2 damage, _forceful_",
+						"Damage is _messy_, 1 piercing",
+						"large (+4 HP, +1 damage, +_close_)",
+						"easy-going",
+						"fearless",
+						"gluttonous",
+						"keen-nosed",
+						"powerful",
+						"protective",
+						"quick",
+						"terrifying",
+						"tough"
+					],
+					"defaults": [
+						"tough"
+					]
+				},
+				{
+					"slug": "predator",
+					"name": "Predator",
+					"variants": [
+						"hound",
+						"wolf",
+						"cougar",
+						"drake"
+					],
+					"hp": {
+						"value": 8,
+						"max": 8
+					},
+					"armor": "0",
+					"damage": "[[/r 1d8]] (hand, grabby)",
+					"pickCount": 3,
+					"options": [
+						"+4 HP",
+						"+1 armor (hide)",
+						"Damage is _messy_, 1 piercing",
+						"agile",
+						"climber",
+						"clever",
+						"enduring",
+						"fast",
+						"fierce",
+						"keen-eared",
+						"keen-eyed",
+						"pack-hunter",
+						"keen-nosed",
+						"patient",
+						"powerful",
+						"stealthy",
+						"terrifying"
+					],
+					"defaults": [
+						"fierce"
+					]
+				},
+				{
+					"slug": "steed",
+					"name": "Steed",
+					"variants": [
+						"horse",
+						"mule"
+					],
+					"hp": {
+						"value": 12,
+						"max": 12
+					},
+					"armor": "0",
+					"damage": "[[/r 1d6+1]] (hand, close)",
+					"pickCount": 4,
+					"options": [
+						"+4 HP",
+						"+1 armor (hide)",
+						"Damage is +2 damage, _forceful_",
+						"aggressive",
+						"agile",
+						"beautiful",
+						"calm",
+						"clever",
+						"hardy",
+						"keen-nosed",
+						"large",
+						"powerful",
+						"swift"
+					],
+					"defaults": [
+						"large"
+					]
+				}
+			]
+		}
+	},
+	"flags": {},
+	"_id": "yYN8Ugc9FBGLgR7J",
+	"_key": "!items!yYN8Ugc9FBGLgR7J",
+	"folder": "R4S6KvgFve38gnan"
+}

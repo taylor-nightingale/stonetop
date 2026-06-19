@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>Take a move from the Blessed, Fox, Heavy, Marshal, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't pick Improved Stat or Superior Stat.</p>",
+		"description": "Take a move from the Blessed, Fox, Heavy, Marshal, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't pick Improved Stat or Superior Stat.",
 		"repeatMax": 2,
 		"requirement": {
 			"level": 2,
 			"playbook": "The Ranger"
-		}
+		},
+		"slug": "worldly"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

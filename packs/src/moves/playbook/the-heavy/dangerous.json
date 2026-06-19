@@ -7,10 +7,11 @@
 		"playbook": "The Heavy",
 		"moveType": "playbook",
 		"isStartingMove": true,
-		"description": "<p>When you <strong><em>deal your damage</em></strong>, you have advantage.</p>",
+		"description": "When you **_deal your damage_**, you have advantage.",
 		"requirement": {
 			"playbook": "The Heavy"
-		}
+		},
+		"slug": "dangerous"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

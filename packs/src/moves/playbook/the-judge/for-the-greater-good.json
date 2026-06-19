@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Persuade someone to act in defense of their community or civilization at large</em></strong>, you have advantage.</p>"
+		"description": "When you **_Persuade someone to act in defense of their community or civilization at large_**, you have advantage.",
+		"slug": "for-the-greater-good"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

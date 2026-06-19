@@ -6,6 +6,7 @@ import { CharacterArcana } from "../actors/character/CharacterArcana.js";
 import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
 import { ActorOutfitItems } from "../actors/character/ActorOutfitItems.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
+import { migrateChoiceRow } from "./migrateChoices.js";
 
 const SCOPE = "stonetop";
 
@@ -28,6 +29,7 @@ function _logArcanumFlipped(actor, label) {
 export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateStaleItemTypes(actor);
 	await migrateCharacterFlags(actor);
+	await migrateEmbeddedMoveSlugs(actor);
 	await migrateCharacterMoves(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookChoices(actor, repos.playbooks);
@@ -88,16 +90,18 @@ export async function migrateCharacterFlags(actor) {
 export function migrateGroupDefs(defs) {
 	if (!defs) return {};
 	for (const def of Object.values(defs)) {
-		def.list = (def.list ?? []).map(row => {
-			if (row.type === "follower")
-				return { ...row, type: "entry", followers: [row.slug],
-					content: { title: null, text: row.title ?? "" } };
-			if (row.type === "heading")
-				return { ...row, type: "entry" };
-			return row;
-		});
+		for (const row of def.list ?? []) migrateChoiceRow(row);
 	}
 	return defs;
+}
+
+// ── B0. Stamp stable slugs onto embedded move items that lack one ───────────────
+
+export async function migrateEmbeddedMoveSlugs(actor) {
+	const updates = [...actor.items]
+		.filter(i => i.type === "move" && !i.system?.slug)
+		.map(i => ({ _id: i._id, system: { slug: toSlug(i.name) } }));
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 
 // ── B. Embedded move items ────────────────────────────────────────────────────
@@ -299,12 +303,12 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 			await actor.createEmbeddedDocuments("Item", [{
 				name: s.name ?? "New Follower", type: "npc",
 				system: {
-					slug, arcanaSlug: null, tags: s.tags ?? "",
-					hp:     { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 },
-					armor:  { value: s.armor ?? 0, note: "" },
-					damage: { die: s.damage ?? null, label: "", tags: "" },
+					slug, arcanaSlug: null, tagList: s.tags ?? "",
+					hp:     { value: s.hp ?? 0, max: s.hpMax ?? 0 },
+					armor:  s.armor != null ? String(s.armor) : "",
+					damage: s.damage ?? "",
 					instinct: "", loyalty: { value: 0, max: 3 },
-					choices: blank?.choices ?? null, specialQualities: "",
+					choices: blank?.choices ?? null, specialQuality: "",
 					choiceValues: { choices: s.values?.choices ?? {} },
 					owned: true,
 				},
@@ -320,9 +324,9 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 		if (!item) continue;
 		const update = { _id: item._id, system: {} };
 		if (s.hp != null || s.hpMax != null)
-			update.system.hp = { value: s.hp ?? 0, min: 0, max: s.hpMax ?? 0 };
-		if (s.armor != null) update.system.armor = { value: s.armor, note: "" };
-		if (s.damage != null) update.system.damage = { die: s.damage, label: "", tags: "" };
+			update.system.hp = { value: s.hp ?? 0, max: s.hpMax ?? 0 };
+		if (s.armor != null) update.system.armor = String(s.armor);
+		if (s.damage != null) update.system.damage = s.damage;
 		if (s.name  != null) update.name = s.name;
 		if (s.values?.choices) update.system.choiceValues = { choices: s.values.choices };
 		await actor.updateEmbeddedDocuments("Item", [update]);

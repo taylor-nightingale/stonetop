@@ -7,13 +7,13 @@
 		"slug": "mess-kit",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "requires fire & water, makes Supplies last longer",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 4,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

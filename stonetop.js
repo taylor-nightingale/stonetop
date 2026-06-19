@@ -6,10 +6,12 @@ import { createStonetopCharacterSheetClass } from "./src/actors/character/Stonet
 import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
 import { createStonetopNpcSheetClass } from "./src/actors/npc/StonetopNpcSheet.js";
 import { createStonetopMoveSheetClass } from "./src/item/StonetopMoveSheet.js";
+import { createStonetopInsertSheetClass } from "./src/item/StonetopInsertSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
+import { renderMarkdown } from "./src/utils/enrichGameText.js";
 import { CharacterData } from "./src/data/CharacterData.js";
 import { NpcData } from "./src/data/NpcData.js";
 import { SteadingData } from "./src/data/SteadingData.js";
@@ -21,6 +23,7 @@ import { ImprovementData } from "./src/data/ImprovementData.js";
 import { NpcItemData }     from "./src/data/NpcItemData.js";
 import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 import { PossessionData }  from "./src/data/PossessionData.js";
+import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no-op unless Quench is installed)
 
 // -- INIT ------------------------------------------------------
 // Fires before the world loads. Document classes and settings must
@@ -75,6 +78,11 @@ Hooks.once("init", () => {
 	Handlebars.registerHelper("gt", (a, b) => a > b);
 	Handlebars.registerHelper("eq", (a, b) => a === b);
 
+	// Render stored markdown -> HTML synchronously (no auto-roll for prose). Explicit
+	// [[ ]] rolls / @UUID links survive as text and are made clickable post-render by
+	// enrichRichTokens(). Use on .stonetop-rich containers: {{{md description}}}
+	Handlebars.registerHelper("md", text => new Handlebars.SafeString(renderMarkdown(text ?? "")));
+
 	Handlebars.registerHelper("repeatChecks", move => {
 		const sel = move?.selection;
 		if (!sel || sel.max <= 1) return [];
@@ -115,6 +123,13 @@ Hooks.once("init", () => {
 		label: "Stonetop Move Sheet",
 	});
 
+	const StonetopInsertSheet = createStonetopInsertSheetClass(foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopInsertSheet, {
+		types: ["insert"],
+		makeDefault: true,
+		label: "Stonetop Insert Sheet",
+	});
+
 	foundry.applications.handlebars.loadTemplates({
 		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
 		"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
@@ -127,7 +142,13 @@ Hooks.once("init", () => {
 		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
 		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
 		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
+		"stonetop.follower-inventory": "systems/stonetop/templates/actor/partials/follower-inventory.hbs",
+		"stonetop.outfit-items":       "systems/stonetop/templates/actor/partials/outfit-items.hbs",
+		"stonetop.editable-field":   "systems/stonetop/templates/actor/partials/editable-field.hbs",
 		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
+		"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",
+		"stonetop.selection-chips":   "systems/stonetop/templates/actor/partials/selection-chips.hbs",
+		"stonetop.selection-input":   "systems/stonetop/templates/actor/partials/selection-input.hbs",
 		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
 		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",
@@ -138,6 +159,7 @@ Hooks.once("init", () => {
 		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
 		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
 		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
+		"stonetop.choice-group-editor":   "systems/stonetop/templates/item/partials/choice-group-editor.hbs",
 	});
 });
 

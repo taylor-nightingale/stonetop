@@ -5,7 +5,8 @@
   "type": "move",
   "system": {
     "moveType": "follower",
-    "description": "<p>When you <strong><em>pay your followers cost</em></strong>, and you haven't done so recently, they hold +1 Loyalty (max 3).</p><p>Spend your followers Loyalty 1-for-1 to have them: <ul><li>Overcome their fear to do as you say</li><li>Resist acting on their instinct/tags/traits</li><li>Do something they don't want to do (so long as it's not abhorent or suicidal)</li></ul></p><p>When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.</p>"
+    "description": "When you **_pay your followers cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).\n\nSpend your followers Loyalty 1-for-1 to have them:\n\n- Overcome their fear to do as you say\n- Resist acting on their instinct/tags/traits\n- Do something they don't want to do (so long as it's not abhorent or suicidal)\n\nWhen a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.",
+    "slug": "strengthen-your-bond"
   },
   "folder": "Sy0QFAuDfpopSSA0"
 }

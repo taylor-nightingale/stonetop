@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>deal damage to a foe that has harmed you or one of your allies</em></strong>, deal +1d4 damage.</p>"
+		"description": "When you **_deal damage to a foe that has harmed you or one of your allies_**, deal +1d4 damage.",
+		"slug": "payback"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

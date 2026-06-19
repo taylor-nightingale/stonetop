@@ -8,6 +8,8 @@
   "system": {
     "slug": "the-marshal",
     "actorType": "character",
+    "followers": ["crew"],
+    "inserts": [],
     "description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
     "startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
     "damage": {
@@ -89,17 +91,17 @@
       {
         "slug": "scion",
         "label": "Scion",
-        "description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>"
+        "description": "You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.\n\nYou start with the **Veteran Crew** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew)."
       },
       {
         "slug": "penitent",
         "label": "Penitent",
-        "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+        "description": "Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.\n\nWhen you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.\n\nWhen you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks)."
       },
       {
         "slug": "luminary",
         "label": "Luminary",
-        "description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves. Go mark it now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>"
+        "description": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks)."
       }
     ],
     "specialPossessions": {
@@ -123,7 +125,7 @@
             "type": "entry",
             "content": {
               "title": "The Last Time the Militia Saw Serious Action, It Was…",
-              "text": "<p><em>(pick 1)</em></p>"
+              "text": "*(pick 1)*"
             }
           },
           {
@@ -211,7 +213,9 @@
               "title": null,
               "text": "When exactly did it happen?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -220,7 +224,9 @@
               "title": null,
               "text": "Who lost their life, and who mourns them?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -229,7 +235,9 @@
               "title": null,
               "text": "Who from Stonetop was maimed, and how?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -238,7 +246,9 @@
               "title": null,
               "text": "Who saved the day, and how?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -247,7 +257,9 @@
               "title": null,
               "text": "How did the enemy get away, and whom do you still blame for it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -256,7 +268,9 @@
               "title": null,
               "text": "Who comported themselves with honor?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -265,7 +279,9 @@
               "title": null,
               "text": "What's been bugging you about it ever since?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -274,13 +290,15 @@
               "title": null,
               "text": "What's got you even more worried now?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>tell us the town's war stories</strong>, plus the answers to the questions you chose.",
+      "step3": "On your third turn, **tell us the town's war stories**, plus the answers to the questions you chose.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -294,7 +312,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lover-spouse",
@@ -306,7 +326,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lieutenant",
@@ -318,7 +340,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "kin-dead-decisions",
@@ -330,7 +354,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -347,7 +373,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "promised-safe",
@@ -359,7 +387,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "still-doubts",
@@ -371,7 +401,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "ignored-orders",
@@ -383,7 +415,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

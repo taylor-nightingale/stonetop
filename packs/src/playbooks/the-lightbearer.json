@@ -8,6 +8,8 @@
   "system": {
     "slug": "the-lightbearer",
     "actorType": "character",
+    "followers": [],
+    "inserts": ["lightbearer-invocations-insert"],
     "description": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
     "startingMovesNote": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice.",
     "damage": {
@@ -77,17 +79,17 @@
       {
         "slug": "auspicious-birth",
         "label": "Auspicious Birth",
-        "description": "<p>You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?</p><p>Whatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.</p><p>When <strong><em>one of your moves has you mark a debility</em></strong>, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.</p>"
+        "description": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce."
       },
       {
         "slug": "itinerant-mystic",
         "label": "Itinerant Mystic",
-        "description": "<p>They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.</p><p>When you <strong><em>go off a-wandering</em></strong>, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.</p>"
+        "description": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less."
       },
       {
         "slug": "soul-on-fire",
         "label": "Soul on Fire",
-        "description": "<p>You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.</p><p>There, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.</p><p>When you <strong><em>Persuade a group by preaching charity, mercy, and hope and roll a 7+</em></strong>, aside from the usual effect, choose 1: <ul><li>your name and your message spread</li><li>someone approaches you, now or later, eager to know more.</li></ul></p>"
+        "description": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more."
       }
     ],
     "specialPossessions": {
@@ -112,7 +114,7 @@
             "type": "entry",
             "content": {
               "title": "The Worship of Helior Is…",
-              "text": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. <em>(choose 1)</em></p>"
+              "text": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. *(choose 1)*"
             }
           },
           {
@@ -179,7 +181,7 @@
             "type": "entry",
             "content": {
               "title": "He Is Worshipped Through…",
-              "text": "<p><em>(choose 1 or 2)</em></p>"
+              "text": "*(choose 1 or 2)*"
             }
           },
           {
@@ -279,7 +281,7 @@
             "type": "entry",
             "content": {
               "title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-              "text": "<p><em>(choose 1)</em></p>"
+              "text": "*(choose 1)*"
             }
           },
           {
@@ -335,7 +337,7 @@
             "type": "entry",
             "content": {
               "title": "Your Predecessor, the Previous Lightbearer…",
-              "text": "<p><em>(choose 2 or 3)</em></p>"
+              "text": "*(choose 2 or 3)*"
             }
           },
           {
@@ -435,7 +437,7 @@
             "type": "entry",
             "content": {
               "title": "You Came Into Your Powers…",
-              "text": "<p><em>(choose 1)</em></p>"
+              "text": "*(choose 1)*"
             }
           },
           {
@@ -497,7 +499,7 @@
       }
     ],
     "introductions": {
-      "step3": "On your third turn, praise the day! <strong>Tell us of Helior</strong>, his worship and his shrine. <strong>Tell us, too, of the prior Lightbearer</strong> and how you gained your powers.",
+      "step3": "On your third turn, praise the day! **Tell us of Helior**, his worship and his shrine. **Tell us, too, of the prior Lightbearer** and how you gained your powers.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -511,7 +513,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "heart-flames",
@@ -523,7 +527,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "kindness-generosity",
@@ -535,7 +541,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "needs-light",
@@ -547,7 +555,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -564,7 +574,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "shares-faith",
@@ -576,7 +588,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "scoffs-mercy",
@@ -588,7 +602,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "needs-guidance",
@@ -600,7 +616,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

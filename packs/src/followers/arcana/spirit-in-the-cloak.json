@@ -5,23 +5,21 @@
 	"system": {
 		"slug": "spirit-in-the-cloak",
 		"arcanaSlug": "cloak-richly-embroidered",
-		"tags": "spirit, magical, proud, mute",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 13
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
+		"armor": "1",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to \"not hear\" your commands"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to \"not hear\" your commands\n-Bear its master aloft on a cushion of swirling winds\n-Manifest a storm as it flies\n-Wreak havoc on its surroundings\n-Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +27,32 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "lashing wind, rain, debris d6 (near, area)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "flying about for hours (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Bear its master aloft on a cushion of swirling winds\n- Manifest a storm as it flies\n- Wreak havoc on its surroundings\n- Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
+		"cost": {
+			"selected": [
+				"flying about for hours (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"spirit",
+				"magical",
+				"proud",
+				"mute"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>wish to invent a spell or magical effect</em></strong>, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative.</p>",
+		"description": "When you **_wish to invent a spell or magical effect_**, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "arcane-adept"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

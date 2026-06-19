@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Mill",
-						"text": "<p>We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.</p>"
+						"text": "We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following:</p>"
+						"text": "**Requires** all of the following:"
 					}
 				},
 				{
@@ -29,7 +29,7 @@
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> engineer/foreman"
+						"text": "An *exceptional* engineer/foreman"
 					},
 					"track": {
 						"max": 1
@@ -83,7 +83,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.</p><p>Henceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.</p>"
+						"text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use."
 					}
 				}
 			]

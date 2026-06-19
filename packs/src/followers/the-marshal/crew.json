@@ -1,0 +1,197 @@
+{
+	"name": "Crew",
+	"type": "npc",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "crew",
+		"arcanaSlug": null,
+		"hp": {
+			"value": 6,
+			"max": 6
+		},
+		"members": [
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			}
+		],
+		"membersNote": "When one stands out, give them a name, a tag, and one or more traits.",
+		"memberSuggestions": {
+			"names": [
+				"Aled",
+				"Culhwich",
+				"Eira",
+				"Gerat",
+				"Glaw",
+				"Harri",
+				"Lowri",
+				"Mervyn",
+				"Nesta"
+			],
+			"tags": [
+				"animal-lover",
+				"big",
+				"bully",
+				"cynical",
+				"drunkard",
+				"eager",
+				"gambler",
+				"greedy",
+				"grumpy",
+				"gullible",
+				"heartthrob",
+				"honest",
+				"kind",
+				"lewd",
+				"little",
+				"naive",
+				"old",
+				"popular",
+				"proud",
+				"rookie",
+				"reckless",
+				"shameless",
+				"sharp-eyed",
+				"short-tempered"
+			],
+			"traits": [
+				"__'s kid/sibling/parent/cousin/__",
+				"bald",
+				"crush on __",
+				"grudge against __",
+				"hates __",
+				"idolizes __",
+				"jokes",
+				"messy",
+				"missing eye/finger/hand/__",
+				"misses their kids",
+				"nightmares",
+				"recently married",
+				"religious",
+				"scars",
+				"skinny",
+				"sharp-tongued",
+				"sings",
+				"snores",
+				"tells tall tales",
+				"too serious",
+				"troubles at home",
+				"whistles",
+				"whittler"
+			]
+		},
+		"armor": "0",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [],
+			"options": [
+				"To bicker, infight, and hold grudges",
+				"To hew to tradition and superstition",
+				"To indulge their baser instincts",
+				"To lord over others",
+				"To take needless risks",
+				"To take things too far"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [],
+		"description": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
+		"moves": "",
+		"cost": {
+			"selected": [],
+			"options": [
+				"Merry-making, as a group",
+				"Public recognition and respect, honor",
+				"Risks taken, by you, to help them",
+				"Victories won against worthy foes",
+				"Wealth gained for themselves or Stonetop"
+			],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": null,
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"group"
+			],
+			"options": [
+				"group",
+				"archers",
+				"athletic",
+				"brave",
+				"cunning",
+				"devoted",
+				"hardy",
+				"intimidating",
+				"observant",
+				"patient",
+				"respected",
+				"stealthy",
+				"warriors",
+				"exceptional (requires Heroes to the Last)"
+			],
+			"multi": true,
+			"allowCustom": true
+		},
+		"inventory": {
+			"checked": {
+				"hatchet": true,
+				"spear": true,
+				"bow-arrows": true,
+				"shield": true,
+				"thick-hides": true,
+				"cloak": true,
+				"supplies": true
+			}
+		}
+	},
+	"flags": {},
+	"_id": "r6ywYcOmBxqhQ5Xg",
+	"_key": "!items!r6ywYcOmBxqhQ5Xg",
+	"folder": "DG13f6LZciAS2H0t"
+}

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>are outnumbered or facing a foe bigger than you</em></strong>, you have advantage to hide from, escape from, or sneak past them.</p>"
+		"description": "When you **_are outnumbered or facing a foe bigger than you_**, you have advantage to hide from, escape from, or sneak past them.",
+		"slug": "better-part-of-valor"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A metal man",
 				"weight": null,
-				"note": "<em>magical, fragile</em>",
+				"note": "*magical, fragile*",
 				"inventoryColumn": null
 			},
-			"description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
+			"description": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
 			"unlock": {
 				"slug": "metal-man",
 				"list": [
@@ -29,7 +29,7 @@
 						"slug": "repair-body",
 						"content": {
 							"title": null,
-							"text": "… repair the body, taking a full season for an <em>exceptional</em> smith (Value 3)."
+							"text": "… repair the body, taking a full season for an *exceptional* smith (Value 3)."
 						},
 						"track": {
 							"max": 1
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "Bronze Protector",
 			"item": null,
-			"description": "<p>As long as <strong><em>fire burns in in the stove-like chest</em></strong>, the hearth spirit will animate the construct. Treat it as a follower.</p>",
+			"description": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.",
 			"resource": {
 				"max": 4,
 				"maxStat": null,
@@ -93,7 +93,7 @@
 			"moves": [
 				{
 					"name": "As long as fire burns in the stove-like chest",
-					"text": "<p>The hearth spirit will animate the construct. Treat it as a follower.</p>"
+					"text": "The hearth spirit will animate the construct. Treat it as a follower."
 				}
 			]
 		}

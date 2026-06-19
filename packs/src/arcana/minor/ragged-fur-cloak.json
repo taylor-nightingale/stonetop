@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A ragged fur cloak",
 				"weight": 1,
-				"note": "<em>warm, magical</em>",
+				"note": "*warm, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill.</p><p>When you <strong><em>don the cloak</em></strong>, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.</p>",
+			"description": "The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill.\n\nWhen you **_don the cloak_**, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.",
 			"unlock": {
 				"slug": "ragged-fur-cloak",
 				"list": [
@@ -63,7 +63,7 @@
 		"back": {
 			"title": "Darkwalker Cloak",
 			"item": null,
-			"description": "<p>When you <strong><em>open your own veins and drench the fur with your own fresh blood</em></strong>, lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.</p><p>When you <strong><em>suffer a blow or physical injury while wearing the Darkwalker Cloak</em></strong>, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm at all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.</p><p>When <strong><em>direct sunlight or holy light touch the Darkwalker Cloak, or anyone but you dons it</em></strong>, it loses all its Charges.</p>",
+			"description": "When you **_open your own veins and drench the fur with your own fresh blood_**, lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.\n\nWhen you **_suffer a blow or physical injury while wearing the Darkwalker Cloak_**, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm at all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.\n\nWhen **_direct sunlight or holy light touch the Darkwalker Cloak, or anyone but you dons it_**, it loses all its Charges.",
 			"resource": {
 				"max": 4,
 				"maxStat": null,
@@ -73,7 +73,7 @@
 			"moves": [
 				{
 					"name": "When you open your own veins and drench the fur with your own fresh blood",
-					"text": "<p>Lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. When you suffer a blow while wearing the cloak, it loses 1 Charge and you transform briefly into a cloud of shadow, suffering no harm.</p>"
+					"text": "Lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. When you suffer a blow while wearing the cloak, it loses 1 Charge and you transform briefly into a cloud of shadow, suffering no harm."
 				}
 			]
 		}

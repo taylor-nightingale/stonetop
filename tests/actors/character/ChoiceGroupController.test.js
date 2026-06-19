@@ -116,20 +116,20 @@ describe("ChoiceGroupController — clearValues", () => {
 // ── Follower side effects ─────────────────────────────────────────────────────
 
 describe("ChoiceGroupController — follower side effects", () => {
-	it("setCount(1) on legacy follower row adds the follower", async () => {
+	it("setCount(1) on an entry row with a single follower adds the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("setCount(0) on legacy follower row removes the follower", async () => {
+	it("setCount(0) on an entry row with a single follower removes the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "follower", slug: "enfys", title: "Enfys", track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);
@@ -211,7 +211,9 @@ describe("ChoiceGroupController — outfitItems side effects", () => {
 			{ outfitItems: { prefix: "cg", items } },
 		);
 		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
-		expect(items.getItems("cg:weapons:sword-opt")).toEqual([SWORD]);
+		const [created] = items.getItems("cg:weapons:sword-opt");
+		expect(created.type).toBe("outfitItem");
+		expect(items.getSlugs("cg:weapons:sword-opt")).toEqual(["sword"]);
 	});
 
 	it("switching option removes previous outfit items and syncs new ones", async () => {
@@ -226,7 +228,7 @@ describe("ChoiceGroupController — outfitItems side effects", () => {
 		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
 		await ctrl.selectOption("weapons", "bow-opt",   "sword-opt,bow-opt");
 		expect(items.hasSource("cg:weapons:sword-opt")).toBe(false);
-		expect(items.getItems("cg:weapons:bow-opt")).toEqual([BOW]);
+		expect(items.getSlugs("cg:weapons:bow-opt")).toEqual(["bow"]);
 	});
 
 	it("setCount(0) on entry row with outfitItems removes that source", async () => {

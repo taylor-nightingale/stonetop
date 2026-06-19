@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>first encounter a living language in play</em></strong>, describe your proficiency with it (if any) and how you came to acquire it.</p><p>When you <strong><em>Know Things about any script, text, runes or symbols that you encounter</em></strong>, you have advantage.</p>"
+		"description": "When you **_first encounter a living language in play_**, describe your proficiency with it (if any) and how you came to acquire it.\n\nWhen you **_Know Things about any script, text, runes or symbols that you encounter_**, you have advantage.",
+		"slug": "polyglot"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

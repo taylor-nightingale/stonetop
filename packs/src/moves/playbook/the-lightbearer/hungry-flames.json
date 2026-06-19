@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>deal damage with a holy light</em></strong>, you deal +1d6 damage and your target is engulfed in holy light and flames.</p>",
+		"description": "When you **_deal damage with a holy light_**, you deal +1d6 damage and your target is engulfed in holy light and flames.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Purifying Flames"
 			]
-		}
+		},
+		"slug": "hungry-flames"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

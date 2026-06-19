@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>look closely on another and see their soul laid bare</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; <strong><em>on a 7-9</em></strong>, ask them 1 question from the list. In any case, they must answer truthfully.</p><ul><li>Of what are they most ashamed?</li><li>What do they most desire or covet?</li><li>What hope have they abandoned?</li><li>Who or what is most precious to them?</li></ul>",
+    "description": "When you **_look closely on another and see their soul laid bare_**, roll +WIS: **on a 10+**, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; **_on a 7-9_**, ask them 1 question from the list. In any case, they must answer truthfully.\n\n- Of what are they most ashamed?\n- What do they most desire or covet?\n- What hope have they abandoned?\n- Who or what is most precious to them?",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "all-is-illuminated"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

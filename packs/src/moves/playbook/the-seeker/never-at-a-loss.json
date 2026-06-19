@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Know Things and roll a 6-</em></strong>, you may choose to not mark XP. If you don't mark XP, the worst that happens is that the GM tells you nothing interesting or useful about the subject, but instead tells you how you could learn more.</p>"
+		"description": "When you **_Know Things and roll a 6-_**, you may choose to not mark XP. If you don't mark XP, the worst that happens is that the GM tells you nothing interesting or useful about the subject, but instead tells you how you could learn more.",
+		"slug": "never-at-a-loss"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Market",
-						"text": "<p>Stonetop is at most an afterthought for traders in the region. We need to change that.</p>"
+						"text": "Stonetop is at most an afterthought for traders in the region. We need to change that."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> 1 of the following:</p>"
+						"text": "**Requires** 1 of the following:"
 					}
 				},
 				{
@@ -50,7 +50,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>And these:</p>"
+						"text": "And these:"
 					}
 				},
 				{
@@ -90,7 +90,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Prosperity by 1. If you <strong><em>cease to meet the requirements</em></strong>, decrease Prosperity by 1.</p><p>When the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus.</p>"
+						"text": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.\n\nWhen the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus."
 					}
 				}
 			]

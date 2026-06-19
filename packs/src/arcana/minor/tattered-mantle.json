@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A tattered mantle",
 				"weight": 1,
-				"note": "<em>warm, magical</em>",
+				"note": "*warm, magical*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.</p>",
+			"description": "Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.",
 			"unlock": {
 				"slug": "tattered-mantle",
 				"list": [
@@ -52,7 +52,7 @@
 		"back": {
 			"title": "Mantle Wraiths",
 			"item": null,
-			"description": "<p>When you <strong><em>let slip the wraiths tethered to the mantle</em></strong>, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>",
+			"description": "When you **_let slip the wraiths tethered to the mantle_**, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.",
 			"resource": null,
 			"choices": {
 				"slug": "tattered-mantle",
@@ -77,7 +77,7 @@
 			"moves": [
 				{
 					"name": "When you let slip the wraiths tethered to the mantle",
-					"text": "<p>Treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p>"
+					"text": "Treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them."
 				}
 			]
 		}

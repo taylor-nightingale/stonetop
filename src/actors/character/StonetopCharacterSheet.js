@@ -25,6 +25,10 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async getData() {
 			const context = await super.getData();
+			// Which follower inventory catalogs are expanded — sheet-instance state that survives
+			// re-render, so only the open follower renders the (large) outfit catalog.
+			this._openFollowerInventories ??= new Set();
+			this._stonetopCharacter.setOpenFollowerInventories(this._openFollowerInventories);
 			context.stonetop = await this._stonetopCharacter.buildSnapshot();
 			context.availablePlaybooks = await this._playbookRepository.getAllPlaybooks();
 			return context;
@@ -36,7 +40,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("drop", (ev) => {
 				ev.stopImmediatePropagation();
 				const data = TextEditor.getDragEventData(ev);
-				if (data?.type === "Item") this._onDropItem(ev, data);
+				if (data?.type === "Item")  this._onDropItem(ev, data);
+				if (data?.type === "Actor") this._onDropActor(ev, data);
 			}, true);
 			if (!this.isEditable) return;
 
@@ -125,8 +130,20 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-notes").on("change", async ev => {
 				await this._stonetopCharacter.setInventoryOtherItems(ev.currentTarget.value);
 			});
+			html.find(".stonetop-char-bio").on("change", async ev => {
+				await this._stonetopCharacter.setBio(ev.currentTarget.value);
+			});
+			html.find(".stonetop-char-notes").on("change", async ev => {
+				await this._stonetopCharacter.setNotes(ev.currentTarget.value);
+			});
+			// Narrow-layout moves sidebar: toggle the slide-over overlay.
+			html.find(".stonetop-moves-toggle").on("click", ev => {
+				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
+			});
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
+				// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
+				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.remove("moves-open");
 				if (!compendiumId) return;
 				const pack = game.packs.get("stonetop.moves");
 				const doc  = (pack ? await pack.getDocument(compendiumId) : null)
@@ -276,10 +293,18 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setFollowerName(input.dataset.slug, input.value);
 			}, true);
 
+			html[0].addEventListener("click", ev => {
+				const chip = ev.target.closest(".stonetop-tag-chip");
+				if (!chip) return;
+				const wrap = chip.closest(".stonetop-tags");
+				this._toggleTag(wrap, chip.dataset.tag);
+			}, true);
+
 			html[0].addEventListener("change", ev => {
-				const input = ev.target.closest(".stonetop-follower-note-input");
-				if (!input) return;
-				this._stonetopCharacter.setFollowerNote(input.dataset.slug, input.value);
+				const input = ev.target.closest(".stonetop-tag-add");
+				if (!input?.value.trim()) return;
+				this._toggleTag(input.closest(".stonetop-tags"), input.value.trim());
+				input.value = "";
 			}, true);
 
 			html[0].addEventListener("click", ev => {
@@ -296,7 +321,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			html[0].addEventListener("change", ev => {
 				const input = ev.target.closest(".stonetop-follower-armor");
 				if (!input) return;
-				this._stonetopCharacter.setFollowerArmor(input.dataset.slug, Number(input.value));
+				this._stonetopCharacter.setFollowerArmor(input.dataset.slug, input.value.trim());
 			}, true);
 
 			html[0].addEventListener("change", ev => {
@@ -304,6 +329,88 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (!input) return;
 				this._stonetopCharacter.setFollowerDamage(input.dataset.slug, input.value.trim());
 			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-instinct");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerInstinct(input.dataset.slug, input.value.trim());
+			}, true);
+
+			// Expand/collapse a follower's inventory catalog. Server-side toggle (re-render) so only
+			// the open follower carries the full outfit list, and the open state survives the
+			// re-render that checking an item triggers.
+			html[0].addEventListener("click", ev => {
+				const btn = ev.target.closest(".stonetop-follower-inv-toggle");
+				if (!btn) return;
+				ev.preventDefault();
+				const slug = btn.dataset.slug;
+				this._openFollowerInventories ??= new Set();
+				if (this._openFollowerInventories.has(slug)) this._openFollowerInventories.delete(slug);
+				else this._openFollowerInventories.add(slug);
+				this.render(false);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-companion-type");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerCompanionType(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-moves");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerMoves(input.dataset.slug, input.value);
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-cost");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerCost(input.dataset.slug, input.value.trim());
+			}, true);
+
+			html[0].addEventListener("change", ev => {
+				const input = ev.target.closest(".stonetop-follower-notes");
+				if (!input) return;
+				this._stonetopCharacter.setFollowerNotes(input.dataset.slug, input.value);
+			}, true);
+
+			// Group members (per-member name + HP, add/remove)
+			html[0].addEventListener("change", ev => {
+				const name = ev.target.closest(".stonetop-member-name");
+				if (name) return void this._stonetopCharacter.setFollowerMemberName(name.dataset.slug, Number(name.dataset.index), name.value);
+				const hp = ev.target.closest(".stonetop-member-hp-value");
+				if (hp) return void this._stonetopCharacter.setFollowerMemberHp(hp.dataset.slug, Number(hp.dataset.index), hp.value);
+				const max = ev.target.closest(".stonetop-member-hp-max");
+				if (max) return void this._stonetopCharacter.setFollowerMemberHpMax(max.dataset.slug, Number(max.dataset.index), max.value);
+			}, true);
+
+			html[0].addEventListener("click", ev => {
+				const add = ev.target.closest(".stonetop-member-add");
+				if (add) return void this._stonetopCharacter.addFollowerMember(add.dataset.slug);
+				const remove = ev.target.closest(".stonetop-member-remove");
+				if (remove) return void this._stonetopCharacter.removeFollowerMember(remove.dataset.slug, Number(remove.dataset.index));
+			}, true);
+		}
+
+		// Toggle a tag/trait on a follower, or on one of its group members when the chip wrap
+		// carries data-member-index. Shared by the chip-click and add-dropdown handlers.
+		_toggleTag(wrap, value) {
+			if (!wrap || !value) return;
+			const { slug, field, memberIndex } = wrap.dataset;
+			if (memberIndex !== undefined) {
+				this._stonetopCharacter.toggleFollowerMemberSelection(slug, Number(memberIndex), field, value);
+			} else if (field === "companionOptions") {
+				// companion options live nested in the atomic `companion` object, not a top-level field
+				this._stonetopCharacter.toggleFollowerCompanionOption(slug, value);
+			} else {
+				this._stonetopCharacter.toggleFollowerSelection(slug, field, value);
+			}
+		}
+
+		async _onDropActor(ev, data) {
+			const actor = await fromUuid(data.uuid);
+			if (!actor || actor.type !== "npc") return;
+			await this._stonetopCharacter.addFollowerFromActor(actor);
 		}
 
 		async _onDropItemCreate(itemData) {
@@ -394,22 +501,33 @@ export function createStonetopCharacterSheetClass(Base) {
 			await this._stonetopCharacter.selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs);
 		}
 
+		// A shared outfit item lives in the character inventory tab OR inside a follower card's
+		// `.stonetop-follower-inventory` wrapper — the wrapper's data-slug routes to the follower path.
+		_followerInvSlug(el) {
+			return el.closest?.(".stonetop-follower-inventory")?.dataset.slug ?? null;
+		}
+
 		async _onInventoryItemCheck(ev) {
-			await this._stonetopCharacter.setInventoryItemChecked(
-				ev.currentTarget.dataset.slug, ev.currentTarget.checked
-			);
+			const el = ev.currentTarget;
+			const fSlug = this._followerInvSlug(el);
+			if (fSlug) return this._stonetopCharacter.setFollowerInvItemChecked(fSlug, el.dataset.slug, el.checked);
+			await this._stonetopCharacter.setInventoryItemChecked(el.dataset.slug, el.checked);
 		}
 
 		async _onInventoryResource(ev) {
-			const { slug, index } = ev.currentTarget.dataset;
-			const isChecked = ev.currentTarget.classList.contains("is-checked");
+			const el = ev.currentTarget;
+			const { slug, index } = el.dataset;
+			const isChecked = el.classList.contains("is-checked");
 			const newVal = isChecked ? Number(index) : Number(index) + 1;
+			const fSlug = this._followerInvSlug(el);
+			if (fSlug) return this._stonetopCharacter.setFollowerInvResource(fSlug, slug, newVal);
 			await this._stonetopCharacter.setInventoryResource(slug, newVal);
 		}
 
 		async _onAddInventoryItem(ev) {
 			const column = ev.currentTarget.dataset.column;
 			const isRegular = column === "regular";
+			const fSlug = this._followerInvSlug(ev.currentTarget);
 			const content = isRegular
 				? `<div style="display:grid;gap:6px;padding:6px">
 					<label>${game.i18n.localize("stonetop.inventory.addItemName")} <input name="name" type="text" style="width:100%"></label>
@@ -425,8 +543,10 @@ export function createStonetopCharacterSheetClass(Base) {
 						callback: html => {
 							const name = html.find("[name=name]").val().trim();
 							if (!name) return;
-							if (isRegular) {
-								const weight = parseInt(html.find("[name=weight]").val()) || 1;
+							const weight = isRegular ? (parseInt(html.find("[name=weight]").val()) || 1) : 1;
+							if (fSlug) {
+								this._stonetopCharacter.addFollowerInvCustomItem(fSlug, name, weight);
+							} else if (isRegular) {
 								this._stonetopCharacter.addCustomInventoryItem(name, weight);
 							} else {
 								this._stonetopCharacter.addCustomSmallItem(name);
@@ -458,7 +578,10 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		async _onDeleteCustomInventoryItem(ev) {
-			await this._stonetopCharacter.removeCustomInventoryItem(ev.currentTarget.dataset.ownedId);
+			const el = ev.currentTarget;
+			const fSlug = this._followerInvSlug(el);
+			if (fSlug) return this._stonetopCharacter.removeFollowerInvCustomItem(fSlug, el.dataset.ownedId);
+			await this._stonetopCharacter.removeCustomInventoryItem(el.dataset.ownedId);
 		}
 	};
 }

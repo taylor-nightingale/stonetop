@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Ranger",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>take your time and calmly line up the perfect shot</em></strong>, either deal your damage or roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal your damage and pick 1.</p><ul><li>Ignore armor or deal +1d4 damage (your call)</li><li>Stun, hobble, or hinder them</li><li>Make them trip or drop what they're holding</li><li>Do no harm; don't deal your damage after all</li></ul>",
+    "description": "When you **_take your time and calmly line up the perfect shot_**, either deal your damage or roll +DEX: **on a 10+**, deal your damage and pick 2; **_on a 7-9_**, deal your damage and pick 1.\n\n- Ignore armor or deal +1d4 damage (your call)\n- Stun, hobble, or hinder them\n- Make them trip or drop what they're holding\n- Do no harm; don't deal your damage after all",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "call-the-shot"
   },
   "folder": "TOPlmLzP0PF3i9CM"
 }

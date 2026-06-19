@@ -5,23 +5,21 @@
 	"system": {
 		"slug": "andalau-of-the-flute",
 		"arcanaSlug": "cracked-flute",
-		"tags": "spirit, tiny, stealthy, mischievous",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 8
 		},
-		"armor": {
-			"value": 0,
-			"note": ""
+		"armor": "0",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to play and frolic"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to play and frolic\n-Manifest as a fluttering gust of wind (harmed only by salt)\n-Deliver a whispery message\n-Flit things about (dust, leaves, etc.)\n-Annoy or spook someone",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,22 +27,32 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "entertainment (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Manifest as a fluttering gust of wind (harmed only by salt)\n- Deliver a whispery message\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone",
+		"cost": {
+			"selected": [
+				"entertainment (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"spirit",
+				"tiny",
+				"stealthy",
+				"mischievous"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

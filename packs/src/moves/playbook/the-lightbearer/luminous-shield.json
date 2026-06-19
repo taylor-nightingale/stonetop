@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>brandish a holy light to turn aside an attack against body, mind, or soul</em></strong>, roll +CHA: <strong>on a 10+</strong>, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; <strong><em>on a 7-9</em></strong>, the attack is deflected but your holy light flickers and dims, threatening to go out; <strong>on a 6-</strong>, your light snuffs out and the attack is unimpeded.</p>",
+    "description": "When you **_brandish a holy light to turn aside an attack against body, mind, or soul_**, roll +CHA: **on a 10+**, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; **_on a 7-9_**, the attack is deflected but your holy light flickers and dims, threatening to go out; **on a 6-**, your light snuffs out and the attack is unimpeded.",
     "requirement": {
       "moves": [
         "A Candle Against the Dark"
@@ -26,7 +26,8 @@
         "value": "Your light snuffs out and the attack is unimpeded."
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "luminous-shield"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

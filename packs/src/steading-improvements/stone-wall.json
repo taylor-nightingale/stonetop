@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Stone Wall",
-						"text": "<p>No mere palisade of wood, but a mighty rampart. We have the stone, after all...</p>"
+						"text": "No mere palisade of wood, but a mighty rampart. We have the stone, after all..."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
+						"text": "**Requires** all of the following, in order:"
 					}
 				},
 				{
@@ -29,7 +29,7 @@
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> engineer/foreman"
+						"text": "An *exceptional* engineer/foreman"
 					},
 					"track": {
 						"max": 1
@@ -72,7 +72,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.</p><p>Henceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.</p>"
+						"text": "When you **_meet the requirements_**, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.\n\nHenceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal."
 					}
 				}
 			]

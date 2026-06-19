@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Censure someone</em></strong>, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.</p>",
+		"description": "When you **_Censure someone_**, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Censure"
 			]
-		}
+		},
+		"slug": "condemn"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

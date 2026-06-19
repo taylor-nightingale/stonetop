@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>defeat a perversion of nature</em></strong>, you can ask the GM 2 of the following and get a useful answer:</p><ul><li>Will it come back? If so, how can I stop it?</li><li>Will its taint spread? If so, how can I contain it?</li><li>What useful (but grisly) bits can I harvest?</li><li>What else can I learn about it or its ilk?</li></ul>"
+		"description": "When you **_defeat a perversion of nature_**, you can ask the GM 2 of the following and get a useful answer:\n\n- Will it come back? If so, how can I stop it?\n- Will its taint spread? If so, how can I contain it?\n- What useful (but grisly) bits can I harvest?\n- What else can I learn about it or its ilk?",
+		"slug": "warden-of-the-wild"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>and your allies need to get out of here</em></strong>, name your escape route and roll +INT: <strong>on a 10+</strong>, you're gone; <strong><em>on a 7-9</em></strong>, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.</p>",
+    "description": "When you **_and your allies need to get out of here_**, name your escape route and roll +INT: **on a 10+**, you're gone; **_on a 7-9_**, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.",
     "requirement": {
       "level": 6
     },
@@ -24,7 +24,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "eye-on-the-door"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Ranger",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>assert dominance over another (beast, spirit, Fae, or person)</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong>, they must pick 1 from the list below; <strong>on a 10+</strong>, you also have advantage on your next roll against them.</p><ul><li>Accept your authority, at least for now</li><li>Slink away or flee, then avoid you</li><li>Fight you for dominance</li></ul>",
+    "description": "When you **_assert dominance over another (beast, spirit, Fae, or person)_**, roll +WIS: **_on a 7+_**, they must pick 1 from the list below; **on a 10+**, you also have advantage on your next roll against them.\n\n- Accept your authority, at least for now\n- Slink away or flee, then avoid you\n- Fight you for dominance",
     "requirement": {
       "level": 6,
       "moves": [
@@ -28,7 +28,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "alpha"
   },
   "folder": "TOPlmLzP0PF3i9CM"
 }

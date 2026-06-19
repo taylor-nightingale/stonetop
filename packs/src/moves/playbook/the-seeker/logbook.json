@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>You have a logbook (2 uses, slow) that doesn't take up space in your inventory. When you <strong><em>(and only you) consult your logbook and expend a use</em></strong>, you can ignore a Know Things roll you just made and treat the result as a 10+. When <strong><em>the Seasons Change</em></strong>, reset your logbook to 2 uses.</p>",
+		"description": "You have a logbook (2 uses, slow) that doesn't take up space in your inventory. When you **_(and only you) consult your logbook and expend a use_**, you can ignore a Know Things roll you just made and treat the result as a 10+. When **_the Seasons Change_**, reset your logbook to 2 uses.",
 		"resource": {
 			"max": 2
-		}
+		},
+		"slug": "logbook"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

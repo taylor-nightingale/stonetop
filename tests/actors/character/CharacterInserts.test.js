@@ -3,6 +3,7 @@ import { CharacterInserts } from "../../../src/actors/character/CharacterInserts
 import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
+import { FakeInsertRepository } from "../../fakes/FakeInsertRepository.js";
 import { TestInsertItemBuilder } from "../../fakes/TestInsertItemBuilder.js";
 import { InsertSnapshot } from "../../../src/model/snapshot/character/InsertSnapshot.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
@@ -10,9 +11,9 @@ import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.j
 const REVENANT = new TestInsertItemBuilder().withSlug("revenant").withName("Revenant").build();
 const GHOST    = new TestInsertItemBuilder().withId("insert-item-2").withSlug("ghost").withName("Ghost").build();
 
-function makeInserts({ items = [], moves = new FakeMoves() } = {}) {
+function makeInserts({ items = [], moves = new FakeMoves(), repo = null } = {}) {
 	const actor = new FakeActorBuilder().withItems(items).build();
-	return { actor, inserts: new CharacterInserts(actor, new ChoiceGroupFactory(actor), moves) };
+	return { actor, inserts: new CharacterInserts(actor, new ChoiceGroupFactory(actor), moves, repo) };
 }
 
 // ── onInsertDropped ───────────────────────────────────────────────────────────
@@ -23,7 +24,7 @@ describe("CharacterInserts.onInsertDropped", () => {
 		const { inserts } = makeInserts({ moves });
 		await inserts.onInsertDropped(REVENANT);
 		expect(moves.addedCategories).toContainEqual({
-			type: "insert-revenant", name: "Revenant", slug: "revenant",
+			type: "insert-revenant", name: "Revenant", slug: "revenant", moveSlugs: [],
 		});
 	});
 
@@ -206,5 +207,43 @@ describe("CharacterInserts interactions", () => {
 		const snap = (await inserts.buildSnapshot())[0];
 		expect(snap.instinctGroup.list[0].options.find(o => o.slug === "denial").checked).toBe(true);
 		expect(snap.instinctGroup.list[0].options.find(o => o.slug === "obsession").checked).toBe(false);
+	});
+});
+
+// ── syncPlaybookInserts (playbook grants, follower-data-architecture §4) ───────
+
+describe("CharacterInserts.syncPlaybookInserts", () => {
+	const INVOC = { name: "Invocations", type: "insert", img: null, system: { slug: "invoc" } };
+	const grantedInsert = (slug, by) =>
+		({ _id: `${slug}-item`, type: "insert", name: slug, system: { slug }, flags: { stonetop: { grantedByPlaybook: by } } });
+
+	it("embeds the listed insert (stamped) and registers its move category", async () => {
+		const moves = new FakeMoves();
+		const { actor, inserts } = makeInserts({ moves, repo: new FakeInsertRepository([INVOC]) });
+		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+		const doc = actor.createdDocs.find(d => d.system?.slug === "invoc");
+		expect(doc).toBeDefined();
+		expect(doc.type).toBe("insert");
+		expect(doc.flags?.stonetop?.grantedByPlaybook).toBe("the-lightbearer");
+		expect(moves.addedCategories).toContainEqual({ type: "insert-invoc", name: "Invocations", slug: "invoc", moveSlugs: [] });
+	});
+
+	it("does not duplicate an already-embedded granted insert", async () => {
+		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([INVOC]) });
+		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+		expect(actor.createdDocs.filter(d => d.system?.slug === "invoc")).toHaveLength(0);
+	});
+
+	it("removes an insert granted by a different playbook on swap", async () => {
+		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([]) });
+		await inserts.syncPlaybookInserts("the-marshal", []);
+		expect([...actor.items].some(i => i.system?.slug === "invoc")).toBe(false);
+	});
+
+	it("leaves a manually-dropped insert (no grant flag) untouched", async () => {
+		const manual = { _id: "rev-item", type: "insert", name: "Revenant", system: { slug: "revenant" } };
+		const { actor, inserts } = makeInserts({ items: [manual], repo: new FakeInsertRepository([INVOC]) });
+		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+		expect([...actor.items].some(i => i.system?.slug === "revenant")).toBe(true);
 	});
 });

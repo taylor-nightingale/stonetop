@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Persuade using violence or threats</em></strong>, you have advantage.</p>"
+		"description": "When you **_Persuade using violence or threats_**, you have advantage.",
+		"slug": "intimidating"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

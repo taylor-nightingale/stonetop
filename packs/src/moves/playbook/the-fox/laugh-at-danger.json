@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>are about to roll +CON and you make a joke about the adversity you face</em></strong>, you can roll +CHA instead.</p>"
+		"description": "When you **_are about to roll +CON and you make a joke about the adversity you face_**, you can roll +CHA instead.",
+		"slug": "laugh-at-danger"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

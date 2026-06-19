@@ -7,7 +7,6 @@
 		"slug": "extra-arrows",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "x piercing",
 		"resource": {
 			"max": 3,
@@ -21,7 +20,8 @@
 		"twoCol": false,
 		"sortOrder": 23,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

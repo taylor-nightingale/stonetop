@@ -32,6 +32,13 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem()).backgrounds).toEqual([]);
 	});
 
+	it("followers / inserts return the playbook's grant lists, defaulting to []", () => {
+		expect(new StonetopPlaybook(makeItem({ followers: ["crew"] })).followers).toEqual(["crew"]);
+		expect(new StonetopPlaybook(makeItem({ inserts: ["invoc"] })).inserts).toEqual(["invoc"]);
+		expect(new StonetopPlaybook(makeItem()).followers).toEqual([]);
+		expect(new StonetopPlaybook(makeItem()).inserts).toEqual([]);
+	});
+
 	it("instinct returns the instinct ChoiceGroup", () => {
 		const inst = { slug: "instinct", list: [] };
 		expect(new StonetopPlaybook(makeItem({ instinct: inst })).instinct).toEqual(inst);

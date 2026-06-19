@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>Take a move from the Fox, Marshal, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. (You can't pick Improved Stat or Superior Stat.)</p>",
+		"description": "Take a move from the Fox, Marshal, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. (You can't pick Improved Stat or Superior Stat.)",
 		"repeatMax": 3,
 		"requirement": {
 			"level": 2,
 			"playbook": "The Heavy"
-		}
+		},
+		"slug": "seasoned-warrior"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

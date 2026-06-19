@@ -52,16 +52,21 @@
 				<a class="item" data-tab="inventory">{{localize "stonetop.sheet.tabs.inventory"}}</a>
 				<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>
 				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
+				<a class="item" data-tab="notes">{{localize "stonetop.sheet.tabs.notes"}}</a>
 			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
 			</nav>
 
 			<div class="stonetop-sheet-layout">
+				<button type="button" class="stonetop-moves-toggle" title="{{localize 'stonetop.sheet.tabs.moves'}}">
+					<i class="fas fa-bolt"></i>
+				</button>
 				<section class="sheet-body">
 					{{> "stonetop.tab-playbook"}}
 					{{> "stonetop.tab-moves"}}
 					{{> "stonetop.tab-equipment"}}
 					{{> "stonetop.tab-arcana"}}
 					{{> "stonetop.tab-followers"}}
+					{{> "stonetop.tab-notes"}}
 					{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this}}{{/each}}
 				</section>
 

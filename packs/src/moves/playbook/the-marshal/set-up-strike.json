@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Clash and get a 7+</em></strong>, you can choose to deal damage with disadvantage. If you do, you create an opening for an ally to act on, as if you provided Aid. Describe it!</p>"
+		"description": "When you **_Clash and get a 7+_**, you can choose to deal damage with disadvantage. If you do, you create an opening for an ally to act on, as if you provided Aid. Describe it!",
+		"slug": "set-up-strike"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

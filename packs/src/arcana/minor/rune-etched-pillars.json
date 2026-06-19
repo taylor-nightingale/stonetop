@@ -7,8 +7,8 @@
 		"slug": "rune-etched-pillars",
 		"front": {
 			"title": "Rune-etched pillars",
-			"note": "<em>magical</em>",
-			"description": "<p>Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.</p><p>Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…</p>",
+			"note": "*magical*",
+			"description": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.\n\nFour pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…",
 			"unlock": {
 				"slug": "rune-etched-pillars",
 				"list": [
@@ -58,12 +58,12 @@
 		"back": {
 			"title": "Shattering Words of Aalz Childric",
 			"item": null,
-			"description": "<p>When you <strong><em>carve the shattering words of Aalz Childric into stone or rock</em></strong>, designate a key word or phrase.</p><p>When you or another <strong><em>speaks the key word or phrase and wills the spell to trigger</em></strong>, you roll +CON: <strong>on a 10+</strong>, the rune-carved stone shatters and is immediately reduced to rubble; <strong>on a 7-9</strong>, the stone cracks and buckles, slowly breaking apart into a number of pieces.</p>",
+			"description": "When you **_carve the shattering words of Aalz Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you carve the shattering words of Aalz Childric into stone or rock",
-					"text": "<p>Designate a key word or phrase. When you or another speaks the key word or phrase and wills the spell to trigger, roll +CON: <strong>on a 10+</strong>, the rune-carved stone shatters and is immediately reduced to rubble; <strong>on a 7-9</strong>, the stone cracks and buckles, slowly breaking apart into a number of pieces.</p>"
+					"text": "Designate a key word or phrase. When you or another speaks the key word or phrase and wills the spell to trigger, roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces."
 				}
 			]
 		}

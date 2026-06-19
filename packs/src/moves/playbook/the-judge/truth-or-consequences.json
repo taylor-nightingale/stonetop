@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>look into someone's eyes and gaze upon their soul</em></strong>, you can ask their player, \"Are you lying or hiding something from me?\" and get an honest answer. If the answer is \"Yes,\" you have advantage on your next roll against them.</p><p>When you <strong><em>lie or otherwise deceive someone through words</em></strong>, you have disadvantage on your next roll against them.</p>"
+		"description": "When you **_look into someone's eyes and gaze upon their soul_**, you can ask their player, \"Are you lying or hiding something from me?\" and get an honest answer. If the answer is \"Yes,\" you have advantage on your next roll against them.\n\nWhen you **_lie or otherwise deceive someone through words_**, you have disadvantage on your next roll against them.",
+		"slug": "truth-or-consequences"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

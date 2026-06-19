@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A stretched vellum",
 				"weight": 2,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.</p>",
+			"description": "Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.",
 			"unlock": {
 				"slug": "stretched-vellum",
 				"list": [
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Chimeric Transmogrification",
 			"item": null,
-			"description": "<p>When you <strong><em>hold forth a bit of one beast (fur, bone, etc.) and speak the words of chimeric transmogrification upon another</em></strong>, roll +INT: <strong>on a 10+</strong>, the spell works; <strong>on a 7-9</strong>, the spell works but you must mark a debility.</p><p>When <strong><em>the spell works</em></strong>, roll 1d10+CON. If your roll <strong><em>equals or exceeds the target's current HP</em></strong>, name a feature of the beast you hold—the target's form twists and buckles, gaining that feature until they sleep for a few hours. <strong>If you roll less than the target's current HP</strong>, their form twists and buckles, but they fight off the transformation. <strong>Either way</strong>, the bit of the beast you hold is lost, shriveling away to nothing.</p>",
+			"description": "When you **_hold forth a bit of one beast (fur, bone, etc.) and speak the words of chimeric transmogrification upon another_**, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but you must mark a debility.\n\nWhen **_the spell works_**, roll 1d10+CON. If your roll **_equals or exceeds the target's current HP_**, name a feature of the beast you hold—the target's form twists and buckles, gaining that feature until they sleep for a few hours. **If you roll less than the target's current HP**, their form twists and buckles, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you hold forth a bit of one beast and speak the words of chimeric transmogrification upon another",
-					"text": "<p>Roll +INT: <strong>on a 10+</strong>, the spell works; <strong>on a 7-9</strong>, the spell works but you must mark a debility. If your roll equals or exceeds the target's current HP, name a feature of the beast—the target gains that feature until they sleep. If you roll less, their form twists but they fight it off. Either way, the bit of beast is lost.</p>"
+					"text": "Roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but you must mark a debility. If your roll equals or exceeds the target's current HP, name a feature of the beast—the target gains that feature until they sleep. If you roll less, their form twists but they fight it off. Either way, the bit of beast is lost."
 				}
 			]
 		}

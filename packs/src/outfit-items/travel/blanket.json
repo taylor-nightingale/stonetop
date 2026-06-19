@@ -7,13 +7,13 @@
 		"slug": "blanket",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "warm",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 6,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "warm"
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

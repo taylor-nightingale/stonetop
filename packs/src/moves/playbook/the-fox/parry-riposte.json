@@ -6,12 +6,13 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defend with a weapon that you can wield quickly</em></strong>, you can spend 1 Readiness to both halve an attack's effects/damage and strike back at the attacker (deal your damage with disadvantage), instead of spending 1 Readiness for each.</p>",
+		"description": "When you **_Defend with a weapon that you can wield quickly_**, you can spend 1 Readiness to both halve an attack's effects/damage and strike back at the attacker (deal your damage with disadvantage), instead of spending 1 Readiness for each.",
 		"requirement": {
 			"moves": [
 				"Skill at Arms"
 			]
-		}
+		},
+		"slug": "parry-riposte"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

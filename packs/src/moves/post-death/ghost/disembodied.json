@@ -4,8 +4,9 @@
   "system": {
     "moveType": "post-death",
     "playbook": "ghost",
-    "description": "<p>Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.</p><p>You normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you <strong><em>manifest a ghostly presence in shadows or darkness,</em></strong> the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:</p><ul><li>You appear solid and whole, much as you did in life</li><li>You can speak clearly and intelligibly</li><li>Your touch (or ghostly weapons) can harm the living (ignores armor)</li></ul><p>You remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.</p>",
-    "rollStat": null
+    "description": "Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.\n\nYou normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you **_manifest a ghostly presence in shadows or darkness,_** the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:\n\n- You appear solid and whole, much as you did in life\n- You can speak clearly and intelligibly\n- Your touch (or ghostly weapons) can harm the living (ignores armor)\nYou remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.",
+    "rollStat": null,
+    "slug": "disembodied"
   },
   "_id": "Lxgjs0ejCPx4fNmk",
   "_key": "!items!Lxgjs0ejCPx4fNmk",

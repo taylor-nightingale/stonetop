@@ -5,12 +5,13 @@
 		<div class="stonetop-insert-header">
 			<h3 class="stonetop-insert-name">{{insert.name}}</h3>
 			<button type="button" class="stonetop-insert-remove"
-			        data-insert-item-id="{{insert.id}}">
-				{{localize "stonetop.insert.remove"}}
+			        data-insert-item-id="{{insert.id}}"
+			        title="{{localize 'stonetop.insert.remove'}}">
+				<img src="systems/stonetop/assets/icons/delete-icon.png" alt="{{localize 'stonetop.insert.remove'}}">
 			</button>
 		</div>
 		{{#if insert.description}}
-		<div class="stonetop-insert-description">{{{insert.description}}}</div>
+		<div class="stonetop-insert-description stonetop-rich">{{{md insert.description}}}</div>
 		{{/if}}
 		<div class="stonetop-playbook-columns">
 			{{#if insert.instinctGroup}}

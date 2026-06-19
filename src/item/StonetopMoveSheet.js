@@ -67,6 +67,11 @@ export function createStonetopMoveSheetClass(Base) {
 
 		async getData() {
 			const context = await super.getData();
+			// Stamp a stable slug once so references to this move survive a later rename. Set from the
+			// name if possible, else a random id; never recomputed afterward.
+			if (!this.item.system.slug) {
+				await this.item.update({ "system.slug": toSlug(this.item.name) || `move-${foundry.utils.randomID(8)}` });
+			}
 			context.system          = this.item.system;
 			context.rollStatChoices = ROLL_STAT_CHOICES;
 			context.moveTypeChoices = MOVE_TYPE_CHOICES;

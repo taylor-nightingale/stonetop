@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>roll +DEX to Clash</em></strong>, on a 12+ you deal your damage, avoid your enemy's attack, and impress/embarrass/overawe your foes.</p>",
+		"description": "When you **_roll +DEX to Clash_**, on a 12+ you deal your damage, avoid your enemy's attack, and impress/embarrass/overawe your foes.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Skill at Arms"
 			]
-		}
+		},
+		"slug": "battle-dancer"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

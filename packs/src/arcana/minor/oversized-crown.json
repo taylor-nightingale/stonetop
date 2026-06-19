@@ -10,10 +10,10 @@
 			"item": {
 				"name": "An oversized crown",
 				"weight": 1,
-				"note": "<em>beautiful, magical, fireproof</em>",
+				"note": "*beautiful, magical, fireproof*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A circlet of black, glossy metal set with eight spires of aetherium. It's sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.</p><p>When you <strong><em>touch the crown with bare flesh and open your mind</em></strong>, you can speak to the primordial spirit to which the crown is attuned.</p>",
+			"description": "A circlet of black, glossy metal set with eight spires of aetherium. It's sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.\n\nWhen you **_touch the crown with bare flesh and open your mind_**, you can speak to the primordial spirit to which the crown is attuned.",
 			"unlock": {
 				"slug": "oversized-crown",
 				"list": [
@@ -76,10 +76,10 @@
 			"item": {
 				"name": "Void Elemental",
 				"weight": 1,
-				"note": "<em>beautiful, magical, fireproof</em>",
+				"note": "*beautiful, magical, fireproof*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you <strong><em>touch the crown and speak the Words of Being</em></strong>, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you <strong><em>touch the crown and chant the Words of Unbeing</em></strong>, the spirit can return to the void—if it wants.</p>",
+			"description": "When you **_touch the crown and speak the Words of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant the Words of Unbeing_**, the spirit can return to the void—if it wants.",
 			"resource": {
 				"max": 3,
 				"maxStat": null,
@@ -109,7 +109,7 @@
 			"moves": [
 				{
 					"name": "When you touch the crown and speak the Words of Being",
-					"text": "<p>The spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you touch the crown and chant the Words of Unbeing, the spirit can return to the void—if it wants.</p>"
+					"text": "The spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you touch the crown and chant the Words of Unbeing, the spirit can return to the void—if it wants."
 				}
 			]
 		}

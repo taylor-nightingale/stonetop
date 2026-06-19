@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When you <strong><em>take an easy shot with a ranged weapon</em></strong>, deal your damage. If <strong><em>the shot is tricky or you’re under pressure</em></strong>, first roll +DEX: <strong>on a 10+</strong>, you have a clear shot, deal your damage; <strong>on a 7-9</strong>, pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>",
+    "description": "When you **_take an easy shot with a ranged weapon_**, deal your damage. If **_the shot is tricky or you’re under pressure_**, first roll +DEX: **on a 10+**, you have a clear shot, deal your damage; **on a 7-9**, pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -11,14 +11,15 @@
       },
       "partial": {
         "label": "7-9",
-        "value": "<p>Pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>"
+        "value": "Pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice"
       },
       "failure": {
         "label": "6-",
         "value": "Up to GM"
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "let-fly"
   },
   "_id": "RktcnT4RufsMLv2D",
   "_key": "!items!RktcnT4RufsMLv2D",

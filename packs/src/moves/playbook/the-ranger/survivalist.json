@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Forage</em></strong>, pick 1 extra choice (even <strong>on a 6-</strong>, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options.</p>"
+		"description": "When you **_Forage_**, pick 1 extra choice (even **on a 6-**, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options.",
+		"slug": "survivalist"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

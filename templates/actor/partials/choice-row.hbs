@@ -17,23 +17,25 @@
     {{#if this}}checked{{/if}}>
 {{/each}}
 {{/inline}}
+{{! Row-level fields come via `row=..` (an inline partial resets the `../` chain, so they
+    cannot be reached with `../`); the option comes via `opt=this`. }}
 {{#*inline "pick-input"}}
-<input type="{{#if ../radio}}radio{{else}}checkbox{{/if}}"
-       class="stonetop-item-check{{#if ../cgContext}} stonetop-cg-pick{{/if}}{{#unless ../cgContext}} {{../inputClass}}{{/unless}}"
-       {{#if ../radio}}name="{{../namePrefix}}-{{../rowKey}}"{{/if}}
-       {{#if ../cgContext}}
-       data-cg-context="{{../cgContext}}"
-       data-cg-group="{{../cgGroup}}"
-       data-cg-option="{{slug}}"
-       data-cg-siblings="{{../siblingSlugsCsv}}"
-       data-display-label="{{text}}{{#if withDescription}} — {{description}}{{/if}}"
+<input type="{{#if row.radio}}radio{{else}}checkbox{{/if}}"
+       class="stonetop-item-check{{#if row.cgContext}} stonetop-cg-pick{{/if}}{{#unless row.cgContext}} {{row.inputClass}}{{/unless}}"
+       {{#if row.radio}}name="{{row.namePrefix}}-{{row.rowKey}}"{{/if}}
+       {{#if row.cgContext}}
+       data-cg-context="{{row.cgContext}}"
+       data-cg-group="{{row.cgGroup}}"
+       data-cg-option="{{opt.slug}}"
+       data-cg-siblings="{{row.siblingSlugsCsv}}"
+       data-display-label="{{opt.text}}{{#if withDescription}} — {{opt.description}}{{/if}}"
        {{else}}
-       {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
-       {{#if ../siblingSlugsCsv}}data-sibling-slugs-csv="{{../siblingSlugsCsv}}"{{/if}}
-       data-row-key="{{../rowKey}}"
-       data-choice-slug="{{slug}}"
+       {{#if row.possessionSlug}}data-possession-slug="{{row.possessionSlug}}"{{/if}}
+       {{#if row.siblingSlugsCsv}}data-sibling-slugs-csv="{{row.siblingSlugsCsv}}"{{/if}}
+       data-row-key="{{row.rowKey}}"
+       data-choice-slug="{{opt.slug}}"
        {{/if}}
-       {{#if checked}}checked{{/if}}>
+       {{#if opt.checked}}checked{{/if}}>
 {{/inline}}
 {{#if (eq type "entry")}}
 {{! Entry row }}
@@ -50,43 +52,58 @@
         {{#if track}}
         {{> follower-check}}
         {{/if}}
-        {{{content.text}}}
+        <span class="stonetop-rich">{{{md content.text}}}</span>
     </label>
     {{/if}}
 </div>
 {{else}}
 {{! Entry without followers: content/track/input }}
-{{#if content.title}}{{> "stonetop.section-heading" title=content.title}}{{/if}}
+{{#if content.title}}{{> "stonetop.section-heading" title=content.title note=content.titleNote}}{{/if}}
 {{#if track}}
-{{#if content.subHeading}}
+{{#if content.subtitle}}
 <div class="stonetop-choice-track stonetop-column">
     <div class="stonetop-choice-header-wrapper">
         <span class="stonetop-choice-track-checks">
             {{> track-checks}}
         </span>
-        {{> "stonetop.section-sub-heading" subHeading=content.subHeading subNote=content.subNote}}
+        {{> "stonetop.section-sub-heading" subtitle=content.subtitle subtitleNote=content.subtitleNote}}
     </div>
-    <span class="stonetop-choice-track-desc">{{{content.text}}}</span>
+    <span class="stonetop-choice-track-desc stonetop-rich">{{{md content.text}}}</span>
 </div>
 {{else}}
 <div class="stonetop-choice-track stonetop-row">
     <div class="stonetop-choice-track-checks">
         {{> track-checks}}
     </div>
-    <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{{content.text}}}</span>
+    <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row stonetop-rich">{{{md content.text}}}</span>
 </div>
 {{/if}}
 
 {{else if content.text}}
-<div class="stonetop-choice-description">{{{content.text}}}</div>
+<div class="stonetop-choice-description stonetop-rich">{{{md content.text}}}</div>
 {{/if}}
 {{#if input}}
 <div class="stonetop-choice-option stonetop-choice-option--text">
-    <textarea class="stonetop-cg-text"
+    {{#if cgContext}}
+    {{! Always-visible data-entry box. input.type "rich" → multiline; "inline" → single-line. }}
+    {{#if (eq input.type "rich")}}
+    <textarea class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--rich"
               data-cg-context="{{cgContext}}"
               data-cg-group="{{cgGroup}}"
               data-cg-option="{{input.slug}}"
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
+    {{else}}
+    <input type="text" class="stonetop-cg-text stonetop-choice-input"
+           data-cg-context="{{cgContext}}"
+           data-cg-group="{{cgGroup}}"
+           data-cg-option="{{input.slug}}"
+           value="{{input.value}}"
+           {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>
+    {{/if}}
+    {{else}}
+    {{! Read-only preview (e.g. the move item sheet): just show the value. }}
+    <span class="stonetop-choice-input-preview">{{#if input.value}}{{input.value}}{{else}}<span class="stonetop-editable__placeholder">{{input.placeholder}}</span>{{/if}}</span>
+    {{/if}}
 </div>
 {{/if}}
 {{/if}}
@@ -98,7 +115,7 @@
     {{! Pick mode — card layout when option has a description }}
     <label class="stonetop-item{{#if checked}} is-checked{{/if}}">
         <div class="stonetop-item-header">
-            {{> pick-input withDescription=true}}
+            {{> pick-input row=.. opt=this withDescription=true}}
             <strong class="stonetop-item-name">{{text}}</strong>
         </div>
         <div class="stonetop-item-description">{{description}}</div>
@@ -106,7 +123,7 @@
     {{else}}
     {{! Pick mode — inline (no description) }}
     <label class="stonetop-choice-option-label{{#if checked}} is-checked{{/if}}">
-        {{> pick-input}}
+        {{> pick-input row=.. opt=this}}
         {{#if (eq type "input")}}
         <input type="text"
                class="stonetop-cg-text"

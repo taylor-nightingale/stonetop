@@ -25,7 +25,7 @@ export class StonetopCharacter {
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
 		const factory = new ChoiceGroupFactory(actor);
-		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory);
+		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory, repos.inventory);
 		factory.register(new FollowerSideEffectHandler(this._followers));
 		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
 
@@ -37,7 +37,7 @@ export class StonetopCharacter {
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
 		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers, factory);
-		this._inserts     = new CharacterInserts(actor, factory, this._moves);
+		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
@@ -50,6 +50,12 @@ export class StonetopCharacter {
 	get type() {
 		return this._actor.type;
 	}
+
+	get bio()   { return this._actor.system?.description ?? ""; }
+	get notes() { return this._actor.system?.notes       ?? ""; }
+
+	async setBio(value)   { await this._actor.update({ "system.description": value }); }
+	async setNotes(value) { await this._actor.update({ "system.notes": value }); }
 
 	get background() {
 		return this._background;
@@ -91,6 +97,8 @@ export class StonetopCharacter {
 			.withInserts(inserts)
 			.withFollowers(followers)
 			.withRollMode(this.rollMode)
+			.withBio(this.bio)
+			.withNotes(this.notes)
 			.build();
 	}
 
@@ -215,6 +223,8 @@ export class StonetopCharacter {
 		if (playbookItem) {
 			const playbookData = playbookItem.asPlaybook();
 			await this._playbook.selectPlaybook(playbookData);
+			await this._followers.syncPlaybookFollowers(playbookData.slug, playbookData.followers);
+			await this._inserts.syncPlaybookInserts(playbookData.slug, playbookData.inserts);
 			await this._possessions.addPossessionsFromPlaybook(
 				playbookData.specialPossessions, playbookData.slug,
 			);
@@ -303,6 +313,9 @@ export class StonetopCharacter {
 	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
 		switch (context) {
 			case "playbook-choice":
+			case "lore":
+			case "intro-npc":
+			case "intro-pc":
 			case "instinct":
 			case "appearance":
 				return await this._playbook.selectChoice(group, option, siblingsCsv);
@@ -345,6 +358,10 @@ export class StonetopCharacter {
 
 	async addCustomFollower() {
 		await this._followers.addCustomFollower();
+	}
+
+	async addFollowerFromActor(actor) {
+		await this._followers.addFromNpcActor(actor);
 	}
 
 	async setHP(hp) {
@@ -395,15 +412,69 @@ export class StonetopCharacter {
 		await this._followers.setName(slug, name);
 	}
 
-	async setFollowerNote(slug, note) {
-		await this._followers.setNote(slug, note);
+	async toggleFollowerSelection(slug, field, value) {
+		await this._followers.toggleSelection(slug, field, value);
 	}
 
 	async setFollowerArmor(slug, armor) {
 		await this._followers.setArmor(slug, armor);
 	}
 
+	async setFollowerInstinct(slug, instinct) {
+		await this._followers.setInstinct(slug, instinct);
+	}
+
+	async setFollowerInvItemChecked(followerSlug, itemSlug, checked) {
+		await this._followers.setInvItemChecked(followerSlug, itemSlug, checked);
+	}
+
+	async addFollowerInvCustomItem(followerSlug, name, weight) {
+		await this._followers.addInvCustomItem(followerSlug, name, weight);
+	}
+
+	async removeFollowerInvCustomItem(followerSlug, itemSlug) {
+		await this._followers.removeInvCustomItem(followerSlug, itemSlug);
+	}
+
+	async setFollowerInvResource(followerSlug, itemSlug, count) {
+		await this._followers.setInvResource(followerSlug, itemSlug, count);
+	}
+
+	// Transient: which followers have their inventory catalog expanded (the sheet owns this state and
+	// passes it in before each snapshot build).
+	setOpenFollowerInventories(slugs) {
+		this._followers.setOpenInventories(slugs);
+	}
+
+	async setFollowerCompanionType(slug, type) {
+		await this._followers.setCompanionType(slug, type);
+	}
+
+	async toggleFollowerCompanionOption(slug, value) {
+		await this._followers.toggleCompanionOption(slug, value);
+	}
+
+	async setFollowerMoves(slug, moves) {
+		await this._followers.setMoves(slug, moves);
+	}
+
+	async setFollowerCost(slug, cost) {
+		await this._followers.setCost(slug, cost);
+	}
+
+	async setFollowerNotes(slug, notes) {
+		await this._followers.setNotes(slug, notes);
+	}
+
 	async setFollowerDamage(slug, damage) {
 		await this._followers.setDamage(slug, damage);
 	}
+
+	// Group members
+	async addFollowerMember(slug)                 { await this._followers.addMember(slug); }
+	async removeFollowerMember(slug, index)       { await this._followers.removeMember(slug, index); }
+	async setFollowerMemberName(slug, index, name)  { await this._followers.setMemberName(slug, index, name); }
+	async setFollowerMemberHp(slug, index, value)   { await this._followers.setMemberHp(slug, index, value); }
+	async setFollowerMemberHpMax(slug, index, max)  { await this._followers.setMemberHpMax(slug, index, max); }
+	async toggleFollowerMemberSelection(slug, index, field, value) { await this._followers.toggleMemberSelection(slug, index, field, value); }
 }

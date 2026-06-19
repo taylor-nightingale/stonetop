@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A whispering... word?",
 				"weight": null,
-				"note": "<em>magical, immobile, terrifying</em>",
+				"note": "*magical, immobile, terrifying*",
 				"inventoryColumn": null
 			},
-			"description": "<p>Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.</p>",
+			"description": "Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.",
 			"unlock": {
 				"slug": "whispering-word",
 				"list": [
@@ -74,12 +74,12 @@
 		"back": {
 			"title": "Baleful Utterance",
 			"item": null,
-			"description": "<p>When you <strong><em>speak the dread word</em></strong>, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.</p><p>Then roll +CON: <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, pick 1 in addition to whatever else the GM says; regardless, if the item you destroyed was <em>indestructible</em>, pick 1 more:</p><ul><li>Your throat burns and your tongue blisters; mark <em>miserable</em> and you can barely whisper for a few days.</li><li>1d4 other objects of the GM's choice also shatter/unravel/are unmade.</li><li>This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.</li></ul>",
+			"description": "When you **_speak the dread word_**, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.\n\nThen roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, pick 1 in addition to whatever else the GM says; regardless, if the item you destroyed was *indestructible*, pick 1 more:\n\n- Your throat burns and your tongue blisters; mark *miserable* and you can barely whisper for a few days.\n- 1d4 other objects of the GM's choice also shatter/unravel/are unmade.\n- This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you speak the dread word",
-					"text": "<p>Name an object that your voice can reach—it shatters, unravels, or is otherwise unmade. Roll +CON: <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, pick 1 plus whatever the GM says: your throat burns (mark miserable); 1d4 other objects are also unmade; this place becomes corrupted.</p>"
+					"text": "Name an object that your voice can reach—it shatters, unravels, or is otherwise unmade. Roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, pick 1 plus whatever the GM says: your throat burns (mark miserable); 1d4 other objects are also unmade; this place becomes corrupted."
 				}
 			]
 		}

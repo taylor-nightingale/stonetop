@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>spend the night gazing into a flame</em></strong>, ask the GM to reveal an impending doom or grim portent that will come to pass unless you intervene, and how you might yet do so.</p>"
+		"description": "When you **_spend the night gazing into a flame_**, ask the GM to reveal an impending doom or grim portent that will come to pass unless you intervene, and how you might yet do so.",
+		"slug": "and-behold-a-pale-horse"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>seek out and receive honest advice</em></strong>, gain advantage on your next roll to follow that advice.</p>"
+		"description": "When you **_seek out and receive honest advice_**, gain advantage on your next roll to follow that advice.",
+		"slug": "inquiring-minds"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

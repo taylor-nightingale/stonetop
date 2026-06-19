@@ -5,23 +5,21 @@
 	"system": {
 		"slug": "mantle-wraiths",
 		"arcanaSlug": "tattered-mantle",
-		"tags": "Group (3), spirit, undead, terrifying, vicious",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 13
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
+		"armor": "1",
+		"damage": "d8",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to run rampant"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d8",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to run rampant\n-powerless in daylight\n-Whisper their longings to the wearer\n-Manifest a form of shadow and cold (harmed only by silver and salt)\n-Hurl themselves at the living\n-Suck the vitality from their prey",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +27,33 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "life drain d8 (band, ignores armor)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "souls feasted upon (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- powerless in daylight\n- Whisper their longings to the wearer\n- Manifest a form of shadow and cold (harmed only by silver and salt)\n- Hurl themselves at the living\n- Suck the vitality from their prey",
+		"cost": {
+			"selected": [
+				"souls feasted upon (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Group (3)",
+				"spirit",
+				"undead",
+				"terrifying",
+				"vicious"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

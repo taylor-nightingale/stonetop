@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>interact with someone</em></strong>, you can ask their player if they find you attractive and get an honest answer (usually \"yes\").</p><p>When you <strong><em>Persuade by using your considerable charms as leverage</em></strong>, you have advantage.</p>"
+		"description": "When you **_interact with someone_**, you can ask their player if they find you attractive and get an honest answer (usually \"yes\").\n\nWhen you **_Persuade by using your considerable charms as leverage_**, you have advantage.",
+		"slug": "irresistible"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

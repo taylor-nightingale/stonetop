@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>hold Readiness (from Defend)</em></strong>, you cannot be forced from your position. Also, you can spend 1 Readiness to completely ignore the effects/damage of an attack that you suffer. (Replaces Bulwark.)</p>",
+		"description": "When you **_hold Readiness (from Defend)_**, you cannot be forced from your position. Also, you can spend 1 Readiness to completely ignore the effects/damage of an attack that you suffer. (Replaces Bulwark.)",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Bulwark"
 			]
-		}
+		},
+		"slug": "a-mighty-rampart"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

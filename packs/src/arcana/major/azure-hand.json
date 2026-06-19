@@ -14,7 +14,7 @@
 				"note": "close, magical, awkward",
 				"inventoryColumn": null
 			},
-			"description": "<p>A thick staff of gray metal, topped with a plate of aetherium in the shape of a stylized hand. The palm is embossed with a cloud and lightning bolt, and the whole thing is more than a little top-heavy. It smells of ozone, and your spine never ceases to tingle in its presence.</p>",
+			"description": "A thick staff of gray metal, topped with a plate of aetherium in the shape of a stylized hand. The palm is embossed with a cloud and lightning bolt, and the whole thing is more than a little top-heavy. It smells of ozone, and your spine never ceases to tingle in its presence.",
 			"unlock": {
 				"slug": "azure-hand",
 				"list": [
@@ -22,14 +22,14 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>bear the Azure Hand</em></strong>, You sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it.</p>"
+							"text": "When you **_bear the Azure Hand_**, You sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it."
 						}
 					},
 					{
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "<p>When you <strong><em>brandish the Azure Hand at a source of elemental energy</em></strong>, Roll +CON: <strong>on a 10+</strong>, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; <strong>on a 7-9</strong>, as a 10+, but the vortex is unstable and maintaining it requires all your focus.</p><ul><li>Direct the energy into a vessel able to contain it</li><li>Discharge the energy harmlessly into the earth</li><li>Fling the energy, rolling +INT to Let Fly (<em>thrown, dangerous</em>), inflicting damage and other effects of the GM's choosing</li><li>Use the energy to fuel or empower some other magic.</li></ul><p><strong>On a 6-</strong>, instead of marking XP, mark 1.</p><p>Each time you mark 1, ask the GM how the power goes out of control.</p>"
+							"text": "When you **_brandish the Azure Hand at a source of elemental energy_**, Roll +CON: **on a 10+**, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; **on a 7-9**, as a 10+, but the vortex is unstable and maintaining it requires all your focus.\n\n- Direct the energy into a vessel able to contain it\n- Discharge the energy harmlessly into the earth\n- Fling the energy, rolling +INT to Let Fly (*thrown, dangerous*), inflicting damage and other effects of the GM's choosing\n- Use the energy to fuel or empower some other magic.\n**On a 6-**, instead of marking XP, mark 1.\n\nEach time you mark 1, ask the GM how the power goes out of control."
 						}
 					},
 					{
@@ -60,18 +60,18 @@
 						"label": "Stored Energy",
 						"max": 1
 					},
-					"text": "<p>When you <strong>gather elemental power about the Azure Hand</strong>, you can choose to store the energy in the staff itself. It no longer requires your touch or focus to maintain. You cannot do this again until you use up the energy contained within (see reverse).</p>"
+					"text": "When you **gather elemental power about the Azure Hand**, you can choose to store the energy in the staff itself. It no longer requires your touch or focus to maintain. You cannot do this again until you use up the energy contained within (see reverse)."
 				},
 				{
 					"id": "eye-of-the-storm",
 					"name": "Eye of the Storm",
-					"text": "<p>When you <strong>grasp the Azure Hand and impose your will on the elements around you</strong>, roll +CON: <strong>on a 10+</strong>, the elements calm or diminish in their power, and choose 2 from the list below; <strong>on a 7-9</strong>, the elements calm or diminish, and choose 1.</p><ul><li>You suffer no consequence (otherwise, mark one)</li><li>The effect is far reaching, up to a mile around you (otherwise, it extends just a few paces)</li><li>You can maintain the effect easily (otherwise, it takes all of your concentration)</li></ul>"
+					"text": "When you **grasp the Azure Hand and impose your will on the elements around you**, roll +CON: **on a 10+**, the elements calm or diminish in their power, and choose 2 from the list below; **on a 7-9**, the elements calm or diminish, and choose 1.\n\n- You suffer no consequence (otherwise, mark one)\n- The effect is far reaching, up to a mile around you (otherwise, it extends just a few paces)\n- You can maintain the effect easily (otherwise, it takes all of your concentration)"
 				},
 				{
 					"id": "resonance",
 					"name": "Resonance",
 					"subtitle": "Requires: Battery, Eye of the Storm",
-					"text": "<p>When you <strong>have captured a tremendous elemental force</strong> (like that from a storm or wildfire) and <strong>then channel it into the eddies of air or earth</strong>, pick 1 from the list below and roll +INT: <strong>on a 10+</strong>, it comes to pass; <strong>on a 7-9</strong>, it will come to pass if you choose to mark a consequence; <strong>on a 6-</strong>, mark a consequence and prepare for the worst.</p><ul><li>A potent storm or earthquake builds, unleashing itself within the next few hours.</li><li>The weather for the next few weeks is abnormal, hotter or colder, wetter or dryer, windier or more still, per your desires (though nothing too extreme).</li><li>The weather for the next few months is generally favorable; any steading in the area gains advantage to its next Seasons Change roll.</li></ul>"
+					"text": "When you **have captured a tremendous elemental force** (like that from a storm or wildfire) and **then channel it into the eddies of air or earth**, pick 1 from the list below and roll +INT: **on a 10+**, it comes to pass; **on a 7-9**, it will come to pass if you choose to mark a consequence; **on a 6-**, mark a consequence and prepare for the worst.\n\n- A potent storm or earthquake builds, unleashing itself within the next few hours.\n- The weather for the next few weeks is abnormal, hotter or colder, wetter or dryer, windier or more still, per your desires (though nothing too extreme).\n- The weather for the next few months is generally favorable; any steading in the area gains advantage to its next Seasons Change roll."
 				}
 			],
 			"consequences": {
@@ -82,7 +82,7 @@
 						"slug": "azure-c1",
 						"content": {
 							"title": null,
-							"text": "<p>◻◻◻ You are burned by the power you attempt to wield. Mark a debility and take 2d4 damage (ignores armor).</p>"
+							"text": "◻◻◻ You are burned by the power you attempt to wield. Mark a debility and take 2d4 damage (ignores armor)."
 						}
 					},
 					{
@@ -90,7 +90,7 @@
 						"slug": "azure-c2",
 						"content": {
 							"title": null,
-							"text": "<p>You become bound to the staff. You can call it to your hand from up to <em>far</em> range, but you fully suffer the effects of any harm or magic visited upon it.</p>"
+							"text": "You become bound to the staff. You can call it to your hand from up to *far* range, but you fully suffer the effects of any harm or magic visited upon it."
 						}
 					},
 					{
@@ -98,7 +98,7 @@
 						"slug": "azure-c3",
 						"content": {
 							"title": null,
-							"text": "<p>Your eyes become a solid bluish white, darkening or brightening with your mood. You now see energy patterns, glowing brightly, which can obscure facial expressions and other details unless you focus.</p>"
+							"text": "Your eyes become a solid bluish white, darkening or brightening with your mood. You now see energy patterns, glowing brightly, which can obscure facial expressions and other details unless you focus."
 						}
 					},
 					{
@@ -106,7 +106,7 @@
 						"slug": "azure-c4",
 						"content": {
 							"title": null,
-							"text": "<p>Your skin takes on a bluish tint; your hair is streaked with white; the air about you thrums with power. Sensitive beings can easily sense your presence, even from afar.</p>"
+							"text": "Your skin takes on a bluish tint; your hair is streaked with white; the air about you thrums with power. Sensitive beings can easily sense your presence, even from afar."
 						}
 					},
 					{
@@ -114,7 +114,7 @@
 						"slug": "azure-c5",
 						"content": {
 							"title": null,
-							"text": "<p>Henceforth, any storm in your presence is unnaturally strong. If you spend a summer or a winter in a steading or within a day's march of one, the steading loses 1d4-1 Surplus due to storms.</p>"
+							"text": "Henceforth, any storm in your presence is unnaturally strong. If you spend a summer or a winter in a steading or within a day's march of one, the steading loses 1d4-1 Surplus due to storms."
 						}
 					},
 					{
@@ -122,7 +122,7 @@
 						"slug": "azure-c6",
 						"content": {
 							"title": null,
-							"text": "<p>Your body pulses with barely controlled energy. Henceforth, when you <strong>roll +CON and get a 6-</strong>, you unleash bolts of elemental power all about you (1d10 damage, <em>near, area, forceful, dangerous</em>) in addition to whatever else the GM says.</p>"
+							"text": "Your body pulses with barely controlled energy. Henceforth, when you **roll +CON and get a 6-**, you unleash bolts of elemental power all about you (1d10 damage, *near, area, forceful, dangerous*) in addition to whatever else the GM says."
 						}
 					}
 				]

@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>Each time you take this move, your companion gains 2 additional options of your choice.</p>",
+		"description": "Each time you take this move, your companion gains 2 additional options of your choice.",
 		"repeatMax": 2,
 		"requirement": {
 			"moves": [
 				"Animal Companion"
 			]
-		}
+		},
+		"slug": "magnificent-specimen"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

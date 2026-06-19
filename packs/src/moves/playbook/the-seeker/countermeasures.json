@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>witness a magical effect</em></strong>, you may ask the GM, \"How can this be countered or interrupted?\" and get an honest answer. You or an ally gain advantage on your next roll to act on the answer.</p>"
+		"description": "When you **_witness a magical effect_**, you may ask the GM, \"How can this be countered or interrupted?\" and get an honest answer. You or an ally gain advantage on your next roll to act on the answer.",
+		"slug": "countermeasures"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

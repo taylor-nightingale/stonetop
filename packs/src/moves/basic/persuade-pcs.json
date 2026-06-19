@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When you <strong><em>press or entice a PC and they resist</em></strong>, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.</p><p>If they say “yes,” you can roll +CHA: <strong>on a 10+</strong>, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; <strong>on a 7-9</strong>, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).</p>",
+    "description": "When you **_press or entice a PC and they resist_**, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.\n\nIf they say “yes,” you can roll +CHA: **on a 10+**, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; **on a 7-9**, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -18,7 +18,8 @@
         "value": "Up to GM"
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "persuade-vs-pcs"
   },
   "_id": "adMx5sWi2flZIkxp",
   "_key": "!items!adMx5sWi2flZIkxp",

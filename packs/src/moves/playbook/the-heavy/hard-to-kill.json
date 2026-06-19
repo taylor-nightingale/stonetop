@@ -7,7 +7,7 @@
     "playbook": "The Heavy",
     "moveType": "playbook",
     "isStartingMove": true,
-    "description": "<p>When you <strong><em>are at Death's Door</em></strong>, you can roll +CON or +nothing (your choice). <strong><em>On a 7-9</em></strong>, you can mark a debility of your choice to regain 1 HP.</p>",
+    "description": "When you **_are at Death's Door_**, you can roll +CON or +nothing (your choice). **_On a 7-9_**, you can mark a debility of your choice to regain 1 HP.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -22,7 +22,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "con"
+    "rollStat": "con",
+    "slug": "hard-to-kill"
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }

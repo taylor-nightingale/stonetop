@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When you try to foil another PC’s action and neither of you back down, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, they pick 1 from the list below; <strong><em>on a 7-9</em></strong>, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.</p><ul><li>Do it anyway, but with disadvantage on their (next) roll</li><li>Relent, change course, or otherwise allow their move to be foiled</li></ul>",
+    "description": "When you try to foil another PC’s action and neither of you back down, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, they pick 1 from the list below; **_on a 7-9_**, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.\n\n- Do it anyway, but with disadvantage on their (next) roll\n- Relent, change course, or otherwise allow their move to be foiled",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -18,7 +18,8 @@
         "value": "Makes a hard GM move (Up to GM interpretation)."
       }
     },
-    "rollStat": "ask"
+    "rollStat": "ask",
+    "slug": "interfere"
   },
   "_id": "NIzfTEDyTEujEV6M",
   "_key": "!items!NIzfTEDyTEujEV6M",

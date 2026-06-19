@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When <strong><em>another PC rescues you from danger</em></strong>, mark XP.</p>"
+		"description": "When **_another PC rescues you from danger_**, mark XP.",
+		"slug": "in-over-your-head"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

@@ -105,7 +105,7 @@
       {
         "slug": "initiate",
         "label": "Initiate",
-        "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the <strong>Rites of the Land</strong> move.</p><p>There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:</p>",
+        "description": "Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the **Rites of the Land** move.\n\nThere are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:",
         "moves": [
           "rites-of-the-land"
         ],
@@ -196,7 +196,7 @@
         "moves": [
           "trackless-step"
         ],
-        "description": "<p>Maybe not by <em>wolves</em>, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?</p><p>Regardless, you get the <strong>Trackless Step</strong> move. Also, when you <em><strong>Forage</strong></em>, you have advantage.</p><p>For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when <em><strong>your wild ways offend or alienate you from someone</strong></em>, mark XP.</p>"
+        "description": "Maybe not by *wolves*, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?\n\nRegardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.\n\nFor some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP."
       },
       {
         "slug": "vessel",
@@ -204,7 +204,7 @@
         "moves": [
           "danus-grasp"
         ],
-        "description": "<p>A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the <strong>Danu's Grasp</strong> move. When you <strong><em>would spend 1 Stock from your sacred pouch</strong></em>, you may choose to lose 2d4 HP instead.</p>"
+        "description": "A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the **Danu's Grasp** move. When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead."
       }
     ],
     "specialPossessions": {
@@ -230,15 +230,15 @@
             "type": "entry",
             "content": {
               "title": "Sacred Pouch",
-              "text": "<p>Your sacred pouch (<em>magical</em>) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When <strong><em>anyone but you looks inside your sacred pouch and touches the materials therein</em></strong>, the Stock is ruined.</p><p>When you <strong><em>have a few days of downtime in familiar terrain</em></strong., you may replenish your Stock.</p><p>When you <strong><em>Forage</em></strong>, you can produce Stock instead of provisions.</p>"
+              "text": "Your sacred pouch (*magical*) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When **_anyone but you looks inside your sacred pouch and touches the materials therein_**, the Stock is ruined.\n\nWhen you **_have a few days of downtime in familiar terrain_**, you may replenish your Stock.\n\n When you **_Forage_**, you can produce Stock instead of provisions."
             }
           },
           {
             "type": "entry",
             "content": {
-              "text": "Your sacred pouch is..."
-            },
-            "note": "choose 1 on each line"
+              "text": "Your sacred pouch is...",
+              "titleNote": "choose 1 on each line"
+            }
           },
           {
             "type": "pick",
@@ -312,9 +312,9 @@
           {
             "type": "entry",
             "content": {
-              "text": "What remarkable trait does it possess?"
-            },
-            "note": "choose 1"
+              "text": "What remarkable trait does it possess?",
+              "titleNote": "choose 1"
+            }
           },
           {
             "type": "pick",
@@ -347,7 +347,7 @@
             "type": "entry",
             "content": {
               "title": "The Earth Mother",
-              "text": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>"
+              "text": "Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... *(choose 1)*"
             }
           },
           {
@@ -398,7 +398,7 @@
             "type": "entry",
             "content": {
               "title": null,
-              "text": "<p>What do the folk of Stonetop leave as offerings? <em>(choose 2–3)</em></p>"
+              "text": "What do the folk of Stonetop leave as offerings? *(choose 2–3)*"
             }
           },
           {
@@ -493,7 +493,7 @@
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>describe your sacred pouch</strong> and its remarkable trait. Then, <strong>tell us about Danu's shrine</strong> in Stonetop and how she is worshipped.",
+      "step3": "On your third turn, **describe your sacred pouch** and its remarkable trait. Then, **tell us about Danu's shrine** in Stonetop and how she is worshipped.",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -507,7 +507,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "heart-soul-entwined",
@@ -519,7 +521,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "secret-ways",
@@ -531,7 +535,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "beloved-goddess",
@@ -543,7 +549,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -560,7 +568,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "sacred-rite",
@@ -572,7 +582,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "blood-oath",
@@ -584,7 +596,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "doubts-danu",
@@ -596,7 +610,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

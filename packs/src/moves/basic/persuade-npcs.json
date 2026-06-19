@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "<p>When you <strong><em>press or entice an NPC</em></strong>, say what you want them to do (or not do). If they <strong><em>have reason to resist</em></strong>, roll +DEX: <strong>on a 10+</strong>, they either do as you want or reveal the easiest way to convince them;<strong>on a 7-9</strong>, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.</p>",
+    "description": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +DEX: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -18,7 +18,8 @@
         "value": "Up to GM"
       }
     },
-    "rollStat": "cha"
+    "rollStat": "cha",
+    "slug": "persuade-vs-npcs"
   },
   "_id": "Hfpdz9YXksUfEBav",
   "_key": "!items!Hfpdz9YXksUfEBav",

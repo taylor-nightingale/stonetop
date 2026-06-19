@@ -7,13 +7,13 @@
 		"slug": "bedroll",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "recover 1d6 extra HP when you Make Camp",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 5,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

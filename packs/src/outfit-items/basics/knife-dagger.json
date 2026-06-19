@@ -7,13 +7,13 @@
 		"slug": "knife-dagger",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"tags": "hand",
 		"note": "",
 		"resource": null,
 		"twoCol": false,
 		"sortOrder": 1,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": "hand"
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

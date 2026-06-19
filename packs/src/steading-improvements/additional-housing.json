@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Additional Housing",
-						"text": "<p>It's getting crowded! We need more room to live.</p>"
+						"text": "It's getting crowded! We need more room to live."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> either one of these:</p>"
+						"text": "**Requires** either one of these:"
 					}
 				},
 				{
@@ -29,7 +29,7 @@
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> engineer/foreman, to design much roomier houses on the current land"
+						"text": "An *exceptional* engineer/foreman, to design much roomier houses on the current land"
 					},
 					"track": {
 						"max": 1
@@ -50,14 +50,14 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.</p>"
+						"text": "And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes."
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1 and add any new homes to the map. Henceforth, <strong><em>when you consume Surplus in winter,</em></strong> consider Population to be 1 lower than it is.</p>"
+						"text": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is."
 					}
 				}
 			]

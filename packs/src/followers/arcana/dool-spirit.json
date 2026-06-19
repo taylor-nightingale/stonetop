@@ -5,23 +5,21 @@
 	"system": {
 		"slug": "dool-spirit",
 		"arcanaSlug": "scroll-and-bone-flute",
-		"tags": "spirit, terrifying, stealthy, devious",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 13
 		},
-		"armor": {
-			"value": 1,
-			"note": ""
+		"armor": "1",
+		"damage": "d6",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to take things too far"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to take things too far\n-powerless in bright light\n-Sense a victim's doubt and worries\n-Shape sound and shadow to unnerve and frighten\n-Manifest as its victim's fears (harmed only by one who masters their fear)",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -29,33 +27,32 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "feast on fear d6 (hand, close, ignores armor, disadvantage)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "new, exquisite fears (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- powerless in bright light\n- Sense a victim's doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim's fears (harmed only by one who masters their fear)",
+		"cost": {
+			"selected": [
+				"new, exquisite fears (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"spirit",
+				"terrifying",
+				"stealthy",
+				"devious"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK",

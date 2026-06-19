@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>Increase your max HP by 4.</p>"
+		"description": "Increase your max HP by 4.",
+		"slug": "carved-out-of-wood"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

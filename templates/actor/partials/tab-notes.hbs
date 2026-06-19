@@ -1,0 +1,13 @@
+<div class="tab notes" data-group="primary" data-tab="notes">
+	<section class="sheet-tab stonetop-notes-tab">
+
+		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.bio")}}
+		<textarea class="st-notes-textarea stonetop-char-bio"
+		          placeholder="{{localize 'stonetop.sheet.notes.bioPlaceholder'}}">{{stonetop.bio}}</textarea>
+
+		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.notes")}}
+		<textarea class="st-notes-textarea stonetop-char-notes"
+		          placeholder="{{localize 'stonetop.sheet.notes.notesPlaceholder'}}">{{stonetop.notes}}</textarea>
+
+	</section>
+</div>

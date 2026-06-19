@@ -7,7 +7,6 @@
 		"slug": "extra-oil",
 		"inventoryColumn": "regular",
 		"weight": 1,
-		"tags": "",
 		"note": "for lamp/lantern, useless as a weapon",
 		"resource": {
 			"max": 4,
@@ -22,7 +21,8 @@
 		"twoCol": false,
 		"sortOrder": 14,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpWrm0001X"

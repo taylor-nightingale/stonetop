@@ -4,8 +4,9 @@
   "system": {
     "moveType": "post-death",
     "playbook": "ghost",
-    "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
-    "rollStat": null
+    "description": "You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, *Make Camp*, *Recover* or *Convalesce*.",
+    "rollStat": null,
+    "slug": "unliving"
   },
   "_id": "zIsxcgaf6aucrYiC",
   "_key": "!items!zIsxcgaf6aucrYiC",

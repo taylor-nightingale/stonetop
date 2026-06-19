@@ -6,13 +6,14 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defy Danger (or Struggle as One) by keeping calm and carrying on</em></strong>, treat a 6- as a 7-9.</p>",
+		"description": "When you **_Defy Danger (or Struggle as One) by keeping calm and carrying on_**, treat a 6- as a 7-9.",
 		"requirement": {
 			"level": 6,
 			"moves": [
 				"Frosty"
 			]
-		}
+		},
+		"slug": "stone-cold"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>wield a holy light against a creature of darkness</em></strong>, it counts as a weapon (d10 damage, hand, close, area, 2 piercing) and you can choose to roll +WIS to Clash.</p>"
+		"description": "When you **_wield a holy light against a creature of darkness_**, it counts as a weapon (d10 damage, hand, close, area, 2 piercing) and you can choose to roll +WIS to Clash.",
+		"slug": "purifying-flames"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

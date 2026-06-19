@@ -7,7 +7,7 @@
     "playbook": "The Seeker",
     "moveType": "playbook",
     "isStartingMove": true,
-    "description": "<p>When you <strong><em>cleverly use your environment to harm or impede your foe(s)</em></strong>, roll +INT: <strong>on a 10+</strong>, pick 2; <strong><em>on a 7-9</em></strong>, pick 1:</p><ul><li>Interrupt or thwart their action(s)</li><li>Create an opportunity that grants you or an ally advantage on the next roll to exploit it</li><li>Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)</li></ul>",
+    "description": "When you **_cleverly use your environment to harm or impede your foe(s)_**, roll +INT: **on a 10+**, pick 2; **_on a 7-9_**, pick 1:\n\n- Interrupt or thwart their action(s)\n- Create an opportunity that grants you or an ally advantage on the next roll to exploit it\n- Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -22,7 +22,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "work-with-what-youve-got"
   },
   "folder": "Xq0anhaGDBnO4A5B"
 }

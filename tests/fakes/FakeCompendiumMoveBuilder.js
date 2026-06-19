@@ -86,6 +86,7 @@ export class FakeCompendiumMoveBuilder {
 		return {
 			_id: slug,
 			name,
+			type: "move",   // real items carry a top-level type; WorldItemStore filters on it
 			system,
 			toObject() {
 				return {name, type: "move", system};

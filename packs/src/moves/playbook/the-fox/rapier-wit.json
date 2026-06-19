@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>pierce an NPC's pride with a well-placed quip</em></strong>, they must do 1 (their choice):</p><ul><li>Attack, doing +1d4 damage if they hit but giving you advantage on your next roll against them</li><li>Stoop to your level and respond in kind</li><li>Spend a few moments fuming, sputtering, or controlling their temper</li></ul>"
+		"description": "When you **_pierce an NPC's pride with a well-placed quip_**, they must do 1 (their choice):\n\n- Attack, doing +1d4 damage if they hit but giving you advantage on your next roll against them\n- Stoop to your level and respond in kind\n- Spend a few moments fuming, sputtering, or controlling their temper",
+		"slug": "rapier-wit"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

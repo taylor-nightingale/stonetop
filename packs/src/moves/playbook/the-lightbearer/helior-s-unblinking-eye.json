@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Lightbearer",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>stare into the sun long enough to lose your vision</em></strong>, name a person or place that you know and roll +WIS: <strong>on a 10+</strong>, you briefly glimpse your subject as if from a great height, and choose 2 from the list below; <strong><em>on a 7-9</em></strong>, you briefly glimpse your subject as if from a great height, and choose 1.</p><ul><li>The glimpse lasts as long as you wish</li><li>Your point of view shifts to very close range</li><li>You recover your vision quickly</li></ul>",
+    "description": "When you **_stare into the sun long enough to lose your vision_**, name a person or place that you know and roll +WIS: **on a 10+**, you briefly glimpse your subject as if from a great height, and choose 2 from the list below; **_on a 7-9_**, you briefly glimpse your subject as if from a great height, and choose 1.\n\n- The glimpse lasts as long as you wish\n- Your point of view shifts to very close range\n- You recover your vision quickly",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "heliors-unblinking-eye"
   },
   "folder": "iPC15k3PnwMGDZE3"
 }

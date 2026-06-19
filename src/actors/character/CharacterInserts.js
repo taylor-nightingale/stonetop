@@ -3,15 +3,42 @@ import { InsertSnapshotBuilder } from "../../model/snapshot/character/InsertSnap
 import { InstinctController } from "./InstinctController.js";
 
 export class CharacterInserts {
-	constructor(actor, factory, moves) {
+	constructor(actor, factory, moves, insertRepo = null) {
 		this._actor   = actor;
 		this._factory = factory;
 		this._moves   = moves;
+		this._insertRepo = insertRepo;
 	}
 
 	async onInsertDropped(item) {
 		const slug = item.system?.slug ?? null;
-		await this._moves.addCategory(`insert-${slug}`, item.name, slug);
+		await this._moves.addCategory(`insert-${slug}`, item.name, slug, item.system?.moves ?? []);
+	}
+
+	// Grant the inserts a playbook declares (follower-data-architecture §4): remove the previous
+	// playbook's granted inserts, embed the listed ones (stamped with the grant flag) + register
+	// their move category. `addCategory` is idempotent, so the create-descendant hook re-firing for
+	// the new insert item (which also calls onInsertDropped) is a harmless no-op.
+	async syncPlaybookInserts(playbookSlug, insertSlugs = []) {
+		for (const item of [...this._actor.items]) {
+			if (item.type !== "insert") continue;
+			const grantedBy = item.flags?.stonetop?.grantedByPlaybook;
+			if (grantedBy && grantedBy !== playbookSlug) await this.removeInsert(item._id);
+		}
+		if (!playbookSlug || !insertSlugs?.length || !this._insertRepo) return;
+		for (const slug of insertSlugs) {
+			if ([...this._actor.items].some(i => i.type === "insert" && i.system?.slug === slug)) continue;
+			const doc = await this._insertRepo.findBySlug(slug);
+			if (!doc) continue;
+			const data = typeof doc.toObject === "function"
+				? doc.toObject()
+				: { name: doc.name, type: "insert", img: doc.img ?? null, system: doc.system };
+			delete data._id; delete data._key;
+			data.type  = "insert";
+			data.flags = { ...(data.flags ?? {}), stonetop: { ...(data.flags?.stonetop ?? {}), grantedByPlaybook: playbookSlug } };
+			await this._actor.createEmbeddedDocuments("Item", [data]);
+			await this._moves.addCategory(`insert-${slug}`, data.name, slug, data.system?.moves ?? []);
+		}
 	}
 
 	async removeInsert(itemId) {

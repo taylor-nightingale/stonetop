@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>are in darkness</em></strong>, you are able to see by the light of your inner fire. When you <strong><em>take damage from cold or fire</em></strong>, reduce that damage by 2.</p>"
+		"description": "When you **_are in darkness_**, you are able to see by the light of your inner fire. When you **_take damage from cold or fire_**, reduce that damage by 2.",
+		"slug": "fire-within"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

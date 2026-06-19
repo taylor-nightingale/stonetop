@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "the-mighty-servant",
 		"arcanaSlug": "mindgem",
-		"tags": "large, construct, Maker-wise, beautiful, meek, hardy, slow, strong, exceptional",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 24
 		},
-		"armor": {
-			"value": 4,
-			"note": ""
+		"armor": "4",
+		"damage": "stone fists d10+1 (hand, close, disadvantage)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to misunderstand"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "stone fists d10+1 (hand, close, disadvantage)",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to misunderstand\n-living stone, tireless",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -31,22 +29,37 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
-						}
-					}
-				]
+				"list": []
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- living stone, tireless",
+		"cost": {
+			"selected": [
+				"wonder, excitement, joy, discovery (Loyalty ◯◯◯)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"large",
+				"construct",
+				"Maker-wise",
+				"beautiful",
+				"meek",
+				"hardy",
+				"slow",
+				"strong",
+				"exceptional"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

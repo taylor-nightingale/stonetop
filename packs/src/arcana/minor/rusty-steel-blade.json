@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A rusty steel blade",
 				"weight": 1,
-				"note": "<em>close, crude</em>",
+				"note": "*close, crude*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>It was clearly once a fine, fine blade. The steel holds a pattern of rustle-sworls, at least where the rust hasn't taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it's been left out for hours in the summer sun.</p>",
+			"description": "It was clearly once a fine, fine blade. The steel holds a pattern of rustle-sworls, at least where the rust hasn't taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it's been left out for hours in the summer sun.",
 			"unlock": {
 				"slug": "rusty-steel-blade",
 				"list": [
@@ -65,10 +65,10 @@
 			"item": {
 				"name": "Flaming Sword",
 				"weight": 1,
-				"note": "<em>close, beautiful</em>, +1 damage, 1 piercing",
+				"note": "*close, beautiful*, +1 damage, 1 piercing",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>When you <strong><em>call on the fire spirit within</em></strong>, the blade erupts in flames (+<em>magical, +dangerous</em>) and casts light (<em>reach, area</em>). The hilt gets hot; wear thick gloves!</p><p>When you <strong><em>Clash with the Flaming Sword</em></strong>, after you resolve the move and deal damage, increase the Blaze die one step.</p><p>When you <strong><em>roll to make a move while wielding the sword</em></strong>, take damage equal to the Blaze die (ignores armor).</p><p>When you <strong><em>deal damage with the sword</em></strong>, add the Blaze die.</p><p>When you <strong><em>sheathe the sword</em></strong>, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour.</p>",
+			"description": "When you **_call on the fire spirit within_**, the blade erupts in flames (+*magical, +dangerous*) and casts light (*reach, area*). The hilt gets hot; wear thick gloves!\n\nWhen you **_Clash with the Flaming Sword_**, after you resolve the move and deal damage, increase the Blaze die one step.\n\nWhen you **_roll to make a move while wielding the sword_**, take damage equal to the Blaze die (ignores armor).\n\nWhen you **_deal damage with the sword_**, add the Blaze die.\n\nWhen you **_sheathe the sword_**, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour.",
 			"resource": {
 				"max": 5,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you call on the fire spirit within",
-					"text": "<p>The blade erupts in flames (+magical, +dangerous) and casts light (reach, area). When you Clash with the Flaming Sword, increase the Blaze die one step. Roll to make a move while wielding: take damage equal to the Blaze die (ignores armor). Deal damage: add the Blaze die. Sheathe: fire goes out, cannot relit until Blaze is nil. Reduce Blaze die once each hour.</p>"
+					"text": "The blade erupts in flames (+magical, +dangerous) and casts light (reach, area). When you Clash with the Flaming Sword, increase the Blaze die one step. Roll to make a move while wielding: take damage equal to the Blaze die (ignores armor). Deal damage: add the Blaze die. Sheathe: fire goes out, cannot relit until Blaze is nil. Reduce Blaze die once each hour."
 				}
 			]
 		}

@@ -12,13 +12,12 @@ export class ChoiceOption {
 }
 
 export class EntryRow {
-	constructor(slug, content = {title: null, text: null}, note = null, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = []) {
+	constructor(slug, content = {}, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = []) {
 		this.type          = "entry";
 		this.slug          = slug;
-		this.content       = content;       // { title: string|null, text: string|null }
-		this.note          = note;
+		this.content       = content;       // { title, titleNote, subtitle, subtitleNote, text }
 		this.track         = track;         // null | { slug, checks: bool[], requires? }
-		this.input         = input;         // null | { slug, placeholder, value }
+		this.input         = input;         // null | { slug, placeholder, value, type: "inline"|"rich" }
 		this.followers     = followers;     // FollowerSnapshot[]
 		this.inlineDisplay = inlineDisplay;
 		this.outfitItems   = outfitItems;   // OutfitItem[]
@@ -77,9 +76,11 @@ export class ChoiceGroup {
 	}
 
 	static buildRow(item, values, es, idx, followersBySlug = {}) {
-		if (item.type === "entry" || item.type === "heading" || item.type === "follower")
-			return this.buildEntryRow(item, values, es, followersBySlug);
-		return this.buildPickRow(item, es, idx, values);
+		// Picks carry an explicit type in pack data but are identified only by an `options`
+		// array in character groupDefs — route both to buildPickRow.
+		return (item.type === "pick" || Array.isArray(item.options))
+			? this.buildPickRow(item, es, idx, values)
+			: this.buildEntryRow(item, values, es, followersBySlug);
 	}
 
 	static buildEntryRow(item, values, es, followersBySlug = {}) {
@@ -94,22 +95,23 @@ export class ChoiceGroup {
 				slug:        `${item.slug}-input`,
 				placeholder: item.input.placeholder ?? null,
 				value:       values.getText(es, `${item.slug}-input`) || (item.input.default ?? ""),
+				type:        item.input.type ?? "inline",
 			}
 			: null;
-		// Support both { content.text } (entry) and { title } (legacy follower)
-		const text    = item.content?.text ?? item.title ?? null;
-		const content = { title: item.content?.title ?? null, subHeading: item.content?.subHeading ?? null, subNote: item.content?.subNote ?? null, text };
+		const c = item.content ?? {};
+		const content = {
+			title:        c.title ?? null,
+			titleNote:    c.titleNote ?? null,
+			subtitle:     c.subtitle ?? null,
+			subtitleNote: c.subtitleNote ?? null,
+			text:         c.text ?? null,
+		};
 
-		// Resolve follower slugs — new: item.followers[]; legacy: item.type === "follower" uses item.slug
-		const followerSlugs = item.followers?.length
-			? item.followers
-			: (item.type === "follower" ? [item.slug] : []);
-		const followers = followerSlugs.map(s => followersBySlug[s] ?? null).filter(Boolean);
+		const followers = (item.followers ?? []).map(s => followersBySlug[s] ?? null).filter(Boolean);
 
 		return new EntryRow(
 			item.slug ?? null,
 			content,
-			item.note ?? null,
 			track,
 			input,
 			followers,

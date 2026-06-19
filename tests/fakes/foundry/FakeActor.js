@@ -1,4 +1,5 @@
 import {FakeFlags} from "./FakeFlags.js";
+import {migrateCreatureData} from "../../../src/data/creature.js";
 
 export class FakeActor {
 	_createdDocs = [];
@@ -47,7 +48,13 @@ export class FakeActor {
 			if (!item) continue;
 			if (update.name !== undefined) item.name = update.name;
 			if (update.system) {
-				for (const [key, value] of Object.entries(update.system)) {
+				// Faithful to Foundry: it re-runs the data model's migrateData on the partial
+				// {changed-keys} diff before merging it. A migration that default-injects an absent
+				// field would clobber the stored value here — exactly the bug this guards against.
+				const diff = item.type === "npc"
+					? migrateCreatureData(JSON.parse(JSON.stringify(update.system)))
+					: update.system;
+				for (const [key, value] of Object.entries(diff)) {
 					item.system[key] = value;
 				}
 			}

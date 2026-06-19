@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A timeless vault",
 				"weight": null,
-				"note": "<em>magical</em>",
+				"note": "*magical*",
 				"inventoryColumn": null
 			},
-			"description": "<p>High in the hills or mountains, a pair of massive stone doors are set into the hillside. The markings outside are faded and covered in lichen. The doors aren't locked; one lies a bit ajar. Inside, the vault and its contents are untouched by time, free of dust or mold. Clearly some magic is afoot.</p>",
+			"description": "High in the hills or mountains, a pair of massive stone doors are set into the hillside. The markings outside are faded and covered in lichen. The doors aren't locked; one lies a bit ajar. Inside, the vault and its contents are untouched by time, free of dust or mold. Clearly some magic is afoot.",
 			"unlock": {
 				"slug": "timeless-vault",
 				"list": [
@@ -63,12 +63,12 @@
 		"back": {
 			"title": "Preserving Runes",
 			"item": null,
-			"description": "<p>When you <strong><em>trace the runes along the inside of a room or container</em></strong>, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:</p><ul><li>The container/room is more than a few feet long in any dimension</li><li>The container is portable (else, the effect ends if it is moved)</li><li>The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed)</li></ul><p>Once the runes are in place, roll +CON: <strong>on a 10+</strong>, you regain the lost HP normally; <strong>on a 7-9</strong>, you can't regain the lost HP until a season passes <em>or</em> the effect ends, whichever comes first; <strong>on a 6-</strong>, you can't regain the lost HP until the effect ends and then a season passes (and don't mark XP).</p>",
+			"description": "When you **_trace the runes along the inside of a room or container_**, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:\n\n- The container/room is more than a few feet long in any dimension\n- The container is portable (else, the effect ends if it is moved)\n- The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed)\nOnce the runes are in place, roll +CON: **on a 10+**, you regain the lost HP normally; **on a 7-9**, you can't regain the lost HP until a season passes *or* the effect ends, whichever comes first; **on a 6-**, you can't regain the lost HP until the effect ends and then a season passes (and don't mark XP).",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you trace the runes along the inside of a room or container",
-					"text": "<p>They gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each additional quality you choose. Then roll +CON: <strong>on a 10+</strong>, you regain the lost HP normally; <strong>on a 7-9</strong>, you can't regain the lost HP until a season passes or the effect ends; <strong>on a 6-</strong>, you can't regain the lost HP until the effect ends and a season passes.</p>"
+					"text": "They gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each additional quality you choose. Then roll +CON: **on a 10+**, you regain the lost HP normally; **on a 7-9**, you can't regain the lost HP until a season passes or the effect ends; **on a 6-**, you can't regain the lost HP until the effect ends and a season passes."
 				}
 			]
 		}

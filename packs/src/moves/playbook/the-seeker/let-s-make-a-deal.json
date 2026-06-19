@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, add \"What do they really want or need?\" to the list of questions. When you <strong><em>Persuade by offering them something that you know they want or need</em></strong>, treat a 7-9 as a 10+.</p>"
+		"description": "When you **_Seek Insight_**, add \"What do they really want or need?\" to the list of questions. When you **_Persuade by offering them something that you know they want or need_**, treat a 7-9 as a 10+.",
+		"slug": "lets-make-a-deal"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

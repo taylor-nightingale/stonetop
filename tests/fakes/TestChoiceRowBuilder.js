@@ -1,3 +1,5 @@
+import { migrateChoiceRow } from "../../src/migration/migrateChoices.js";
+
 export class TestChoiceRowBuilder {
 	_type;
 	_slug          = null;
@@ -35,6 +37,11 @@ export class TestChoiceRowBuilder {
 	withOutfitItems(items)       { this._outfitItems    = items;         return this; }
 
 	build() {
+		const row = this._buildRaw();
+		return row.type === "pick" ? row : migrateChoiceRow(row);
+	}
+
+	_buildRaw() {
 		if (this._type === "entry") return {
 			type:          "entry",
 			slug:          this._slug,

@@ -7,7 +7,7 @@
     "playbook": "The Fox",
     "moveType": "playbook",
     "isStartingMove": false,
-    "description": "<p>When you <strong><em>get the drop on a nearby foe</em></strong>, you can deal your damage or opt to roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal damage and pick 1:</p><ul><li>Deal +1d4 damage</li><li>Stop them from making noise/raising an alarm</li><li>Slip away before they can react</li><li>Create an opportunity; you or an ally gains advantage on the next move to act on it</li></ul>",
+    "description": "When you **_get the drop on a nearby foe_**, you can deal your damage or opt to roll +DEX: **on a 10+**, deal your damage and pick 2; **_on a 7-9_**, deal damage and pick 1:\n\n- Deal +1d4 damage\n- Stop them from making noise/raising an alarm\n- Slip away before they can react\n- Create an opportunity; you or an ally gains advantage on the next move to act on it",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -22,7 +22,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "ambush"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

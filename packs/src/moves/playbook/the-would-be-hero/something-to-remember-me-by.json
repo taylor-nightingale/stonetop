@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>spend Readiness (from Defend) to strike back at an attacker</em></strong>, you deal +1d4 damage and scar, mark, or diminish them in some way (the GM will say how, or ask you to).</p>"
+		"description": "When you **_spend Readiness (from Defend) to strike back at an attacker_**, you deal +1d4 damage and scar, mark, or diminish them in some way (the GM will say how, or ask you to).",
+		"slug": "something-to-remember-me-by"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

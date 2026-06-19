@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>wield a holy light but go otherwise unarmed</em></strong>, you have 2 Armor.</p>"
+		"description": "When you **_wield a holy light but go otherwise unarmed_**, you have 2 Armor.",
+		"slug": "a-candle-against-the-dark"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }

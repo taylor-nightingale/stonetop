@@ -22,22 +22,7 @@ describe("FollowerSideEffectHandler", () => {
 		expect(followers.isOwned("enfys")).toBe(false);
 	});
 
-	it("handles legacy target.type === 'follower' using target.slug", async () => {
-		const followers = new FakeFollowers();
-		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ type: "follower", slug: "gwendyl" }, "ns", "opt", 1);
-		expect(followers.isOwned("gwendyl")).toBe(true);
-	});
-
-	it("removes via legacy type when count === 0", async () => {
-		const followers = new FakeFollowers();
-		await followers.addFollower("gwendyl");
-		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ type: "follower", slug: "gwendyl" }, "ns", "opt", 0);
-		expect(followers.isOwned("gwendyl")).toBe(false);
-	});
-
-	it("no-ops when target has no followers and is not type follower", async () => {
+	it("no-ops when target has no followers field", async () => {
 		const followers = new FakeFollowers();
 		const handler = new FollowerSideEffectHandler(followers);
 		await handler.apply({ type: "entry", slug: "opt" }, "ns", "opt", 1);
@@ -62,6 +47,17 @@ describe("OutfitItemSideEffectHandler", () => {
 		const handler = new OutfitItemSideEffectHandler("bg", items);
 		await handler.apply({ outfitItems: [SWORD] }, "initiate", "enfys", 1);
 		expect(items.hasSource("bg:initiate:enfys")).toBe(true);
+	});
+
+	it("wraps each outfit item as a proper outfitItem payload (type + system + source)", async () => {
+		const items = new FakeOutfitItems();
+		const handler = new OutfitItemSideEffectHandler("bg", items);
+		await handler.apply({ outfitItems: [SWORD] }, "initiate", "enfys", 1);
+		const [created] = items.getItems("bg:initiate:enfys");
+		expect(created.type).toBe("outfitItem");                 // was undefined → validation error
+		expect(created.name).toBe("Sword");
+		expect(created.system.slug).toBe("sword");
+		expect(created.system.source).toBe("bg:initiate:enfys"); // so deleteBySource can find it
 	});
 
 	it("deletes items when count === 0", async () => {

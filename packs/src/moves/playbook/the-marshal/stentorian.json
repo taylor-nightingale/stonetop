@@ -6,11 +6,12 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>raise your voice</em></strong>, it carries far and cuts through even the din of battle. When you <strong><em>go into battle</em></strong>, hold 2 Command. Spend 1 Command to shout an order or warning and pick 1:</p><ul><li>PCs get advantage on their next roll to do as you say</li><li>You have advantage to Order Followers or Deploy</li></ul>",
+		"description": "When you **_raise your voice_**, it carries far and cuts through even the din of battle. When you **_go into battle_**, hold 2 Command. Spend 1 Command to shout an order or warning and pick 1:\n\n- PCs get advantage on their next roll to do as you say\n- You have advantage to Order Followers or Deploy",
 		"resource": {
 			"title": "Command",
 			"max": 2
-		}
+		},
+		"slug": "stentorian"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

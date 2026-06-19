@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Seeker",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>roll to study or use an arcanum</em></strong>, you can roll +INT instead of the stat you'd normally roll.</p>",
+		"description": "When you **_roll to study or use an arcanum_**, you can roll +INT instead of the stat you'd normally roll.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "mind-over-magic"
 	},
 	"folder": "Xq0anhaGDBnO4A5B"
 }

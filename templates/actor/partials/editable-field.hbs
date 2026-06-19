@@ -1,0 +1,16 @@
+{{!--
+	Single-slot rich field: enriched HTML display + a raw-markdown editor revealed by the
+	pencil. Params: html (enriched), value (raw markdown), inputClass, inputId, slug,
+	placeholder, multiline.
+--}}
+<span class="stonetop-editable">
+	<span class="stonetop-editable__display">{{{html}}}</span>
+	{{#if multiline}}
+	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}" placeholder="{{placeholder}}">{{value}}</textarea>
+	{{else}}
+	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{value}}" data-slug="{{slug}}" placeholder="{{placeholder}}">
+	{{/if}}
+	<button type="button" class="stonetop-edit-toggle" title="Edit">
+		<img src="systems/stonetop/assets/icons/edit-icon.png" alt="edit">
+	</button>
+</span>

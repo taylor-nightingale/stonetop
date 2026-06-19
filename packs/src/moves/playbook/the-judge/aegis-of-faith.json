@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>wield a shield</em></strong>, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows.</p>"
+		"description": "When you **_wield a shield_**, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows.",
+		"slug": "aegis-of-faith"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

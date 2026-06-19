@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A vellum scroll",
 				"weight": 1,
-				"note": "<em>fragile</em>",
+				"note": "*fragile*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?</p>",
+			"description": "A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?",
 			"unlock": {
 				"slug": "vellum-scroll",
 				"list": [
@@ -74,7 +74,7 @@
 		"back": {
 			"title": "Wishing Candles",
 			"item": null,
-			"description": "<p>When you <strong><em>spend a few days following the unsavory recipe from the scroll</em></strong> (Value 1), gain 1d4+1 Wishing Candles.</p><p>When you <strong><em>burn a Wishing Candle and utter the ugly incantation</em></strong>, say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.</p><p><strong>1d6 COST</strong></p><ol><li>The crops fail/2d4 Surplus is lost</li><li>One of the village's resources or assets is lost/stolen/ruined/etc.</li><li>A neighbor takes seriously ill or suffers a freak accident/loss</li><li>Weird events plague the village; panic looms</li><li>No cost to speak of, this time</li><li>No cost to speak of, this time</li></ol>",
+			"description": "When you **_spend a few days following the unsavory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the ugly incantation_**, say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.\n\n**1d6 COST**\n\n- The crops fail/2d4 Surplus is lost\n- One of the village's resources or assets is lost/stolen/ruined/etc.\n- A neighbor takes seriously ill or suffers a freak accident/loss\n- Weird events plague the village; panic looms\n- No cost to speak of, this time\n- No cost to speak of, this time",
 			"resource": {
 				"max": 5,
 				"maxStat": null,
@@ -84,7 +84,7 @@
 			"moves": [
 				{
 					"name": "When you burn a Wishing Candle and utter the ugly incantation",
-					"text": "<p>Say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.</p>"
+					"text": "Say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick."
 				}
 			]
 		}

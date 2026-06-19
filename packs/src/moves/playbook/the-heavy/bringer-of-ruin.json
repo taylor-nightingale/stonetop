@@ -6,10 +6,11 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>roll a 12+ to Clash and your foe survives</em></strong>, name something they possess (like their sword, their position, a limb, their dignity, etc.), but nothing that would kill them outright. Whatever you name, it is broken, shattered, lost. Tell us how.</p>",
+		"description": "When you **_roll a 12+ to Clash and your foe survives_**, name something they possess (like their sword, their position, a limb, their dignity, etc.), but nothing that would kill them outright. Whatever you name, it is broken, shattered, lost. Tell us how.",
 		"requirement": {
 			"level": 6
-		}
+		},
+		"slug": "bringer-of-ruin"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

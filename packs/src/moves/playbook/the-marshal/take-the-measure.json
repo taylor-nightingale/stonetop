@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>size someone up</em></strong>, ask their player one of the questions below and get an honest answer. If they fear or respect you (their call), you can ask another question. You can't use this move on them again until your relationship significantly changes.</p><ul><li>Can I trust them (to _____)?</li><li>What do they intend to do?</li><li>How are they most useful/dangerous?</li><li>What weakness of theirs can I exploit?</li></ul>"
+		"description": "When you **_size someone up_**, ask their player one of the questions below and get an honest answer. If they fear or respect you (their call), you can ask another question. You can't use this move on them again until your relationship significantly changes.\n\n- Can I trust them (to _____)?\n- What do they intend to do?\n- How are they most useful/dangerous?\n- What weakness of theirs can I exploit?",
+		"slug": "take-the-measure"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

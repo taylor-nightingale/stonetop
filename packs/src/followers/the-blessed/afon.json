@@ -7,23 +7,21 @@
 	"system": {
 		"slug": "afon",
 		"arcanaSlug": null,
-		"tags": "Fae-wise, devious, magical, self-sufficient, stealthy",
 		"hp": {
 			"value": 0,
-			"min": 0,
 			"max": 8
 		},
-		"armor": {
-			"value": 2,
-			"note": ""
+		"armor": "2",
+		"damage": "bronze hatchet [[/r 1d6]] (_hand_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to act impulsively"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
 		},
-		"damage": {
-			"die": "d6",
-			"label": "",
-			"tags": ""
-		},
-		"specialQualities": "",
-		"instinct": "to act impulsively\n-Weave a minor glamor\n-Appear or disappear unexpectedly\n-Speak an uncomfortable truth",
 		"loyalty": {
 			"value": 0,
 			"max": 3
@@ -32,28 +30,6 @@
 			{
 				"slug": "choices",
 				"list": [
-					{
-						"type": "entry",
-						"slug": "weapon",
-						"content": {
-							"title": null,
-							"text": "Weapon"
-						},
-						"input": {
-							"default": "bronze hatchet d6 (hand)"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cost",
-						"content": {
-							"title": null,
-							"text": "Cost"
-						},
-						"input": {
-							"default": "wonder, joy; Loyalty"
-						}
-					},
 					{
 						"type": "entry",
 						"content": {
@@ -144,7 +120,30 @@
 				]
 			}
 		],
-		"description": ""
+		"description": "",
+		"moves": "- Weave a minor glamor\n- Appear or disappear unexpectedly\n- Speak an uncomfortable truth",
+		"cost": {
+			"selected": [
+				"wonder, joy"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"notes": "",
+		"reference": null,
+		"tagList": {
+			"selected": [
+				"Fae-wise",
+				"devious",
+				"magical",
+				"self-sufficient",
+				"stealthy"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		}
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

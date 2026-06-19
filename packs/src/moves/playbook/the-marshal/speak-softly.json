@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>offer peace but your enemy refuses</em></strong>, gain advantage on your next roll against them.</p>"
+		"description": "When you **_offer peace but your enemy refuses_**, gain advantage on your next roll against them.",
+		"slug": "speak-softly"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

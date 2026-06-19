@@ -7,13 +7,13 @@
 		"slug": "sledge",
 		"inventoryColumn": "regular",
 		"weight": 2,
-		"tags": "",
 		"note": "",
 		"resource": null,
 		"twoCol": true,
 		"sortOrder": 10,
 		"armor": null,
-		"source": null
+		"source": null,
+		"tagList": ""
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

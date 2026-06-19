@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>roll 10+ to Know Things</em></strong>, you or an ally gain advantage on the next roll to act on what you learn.</p>"
+		"description": "When you **_roll 10+ to Know Things_**, you or an ally gain advantage on the next roll to act on what you learn.",
+		"slug": "knowledge-is-power"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

@@ -67,6 +67,8 @@ export class CharacterSnapshot {
 		this.inserts         = b._inserts ?? [];
 		this.followers       = b._followers ?? [];
 		this.rollMode        = b._rollMode;
+		this.bio             = b._bio   ?? "";
+		this.notes           = b._notes ?? "";
 	}
 }
 
@@ -83,5 +85,7 @@ export class CharacterSnapshotBuilder {
 	withInserts(v)         { this._inserts         = v; return this; }
 	withFollowers(v)       { this._followers       = v; return this; }
 	withRollMode(v)        { this._rollMode        = v; return this; }
+	withBio(v)             { this._bio             = v; return this; }
+	withNotes(v)           { this._notes           = v; return this; }
 	build()                { return new CharacterSnapshot(this); }
 }

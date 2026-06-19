@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, you can ask, \"What here stinks of the unnatural?\" for free, even <strong>on a 6-</strong>.</p>"
+		"description": "When you **_Seek Insight_**, you can ask, \"What here stinks of the unnatural?\" for free, even **on a 6-**.",
+		"slug": "sniff-out-corruption"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

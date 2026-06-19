@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Defy Danger by keeping calm and carrying on</em></strong>, <strong>on a 10+</strong> you can also ask the GM a question that you could ask when Seeking Insight. You have advantage on your next move to act on the answer.</p>"
+		"description": "When you **_Defy Danger by keeping calm and carrying on_**, **on a 10+** you can also ask the GM a question that you could ask when Seeking Insight. You have advantage on your next move to act on the answer.",
+		"slug": "frosty"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

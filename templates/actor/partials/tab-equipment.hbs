@@ -54,59 +54,7 @@
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{#each stonetop.outfit.regularSections}}
-			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
-			{{#each (outfitSegments items)}}
-		{{#if isGrid}}
-			<div class="stonetop-inv-twocol-grid">
-				{{#each items}}
-				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-					<span class="stonetop-inv-diamonds">
-						{{#each (times weight)}}
-						<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
-						       data-slug="{{../slug}}"
-						       {{#if ../checked}}checked{{/if}}>
-						{{/each}}
-					</span>
-					<span class="stonetop-inv-label">{{name}}
-						{{#if tags}}<span class="stonetop-inv-tags">{{tags}}</span>{{/if}}
-						{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
-					</span>
-					{{#if isCustom}}
-					<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
-					{{/if}}
-				</div>
-				{{/each}}
-			</div>
-			{{else}}
-			{{#each items}}
-			<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-				<span class="stonetop-inv-diamonds">
-					{{#each (times weight)}}
-					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
-					       data-slug="{{../slug}}"
-					       {{#if ../checked}}checked{{/if}}>
-					{{/each}}
-				</span>
-				<span class="stonetop-inv-label">{{name}}
-					{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
-				</span>
-				{{#if resource}}
-				<span class="stonetop-inv-resources">
-					{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
-				</span>
-				{{/if}}
-				{{#if isCustom}}
-				<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
-				{{/if}}
-			</div>
-			{{/each}}
-			{{/if}}
-			{{/each}}
-			{{/each}}
-			<button type="button" class="stonetop-inv-add-btn" data-column="regular">
-				<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addItem"}}
-			</button>
+			{{> "stonetop.outfit-items" sections=stonetop.outfit.regularSections addColumn="regular"}}
 		</div>
 
 		{{!-- Small items (right column) --}}
@@ -200,13 +148,13 @@
 					{{/if}}
 				</div>
 				{{#if description}}
-				<div class="stonetop-item-description">{{{description}}}</div>
+				<div class="stonetop-item-description stonetop-rich">{{{md description}}}</div>
 				{{/if}}
 				{{#if choices}}
 				<div class="stonetop-choice-rows">
 				{{#each choices.list}}
 					{{#if (eq type "entry")}}
-					<p class="stonetop-choice-row-heading">{{{content.title}}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
+					<p class="stonetop-choice-row-heading stonetop-rich">{{{md content.title}}}{{#if content.titleNote}} <em>({{{md content.titleNote}}})</em>{{/if}}</p>
 					{{else if radio}}
 					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-radio" namePrefix="stonetop" possessionSlug=../slug}}
 					{{else}}

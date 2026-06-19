@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>honestly think another PC is in the wrong and call them on it</em></strong>, they have disadvantage on any rolls against you until you two work it out.</p>"
+		"description": "When you **_honestly think another PC is in the wrong and call them on it_**, they have disadvantage on any rolls against you until you two work it out.",
+		"slug": "tough-love"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

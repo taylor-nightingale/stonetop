@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Blessed",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>draw a malady from a patient's body, mind, or soul</em></strong>, spend 1 Stock and roll +WIS.</p>",
+    "description": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS.",
     "requirement": {
       "level": 6,
       "moves": [
@@ -27,7 +27,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "suck-the-poison-out"
   },
   "folder": "twBI9Q4lZycODbDk"
 }

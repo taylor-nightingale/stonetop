@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>perform sleight of hand on an unwary mark</em></strong>, you succeed and no one's the wiser. If you're being watched, roll +DEX: <strong>on a 10+</strong>, you succeed and no one's the wiser; <strong><em>on a 7-9</em></strong>, you succeed OR no one's the wiser (your choice).</p>",
+    "description": "When you **_perform sleight of hand on an unwary mark_**, you succeed and no one's the wiser. If you're being watched, roll +DEX: **on a 10+**, you succeed and no one's the wiser; **_on a 7-9_**, you succeed OR no one's the wiser (your choice).",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "dex"
+    "rollStat": "dex",
+    "slug": "light-fingers"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

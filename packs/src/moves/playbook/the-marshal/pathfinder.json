@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Marshal",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>lead your people to Pull Together or Deploy beyond sight of home</em></strong>, you have advantage.</p>"
+		"description": "When you **_lead your people to Pull Together or Deploy beyond sight of home_**, you have advantage.",
+		"slug": "pathfinder"
 	},
 	"folder": "AFEGaCzrd5eKoPuV"
 }

@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Fox",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>engage an NPC in conversation</em></strong>, you can ask the GM 1 of these and get an honest answer:</p><ul><li>What are they expecting me to do?</li><li>What, in general, are they trying to hide?</li><li>What do they want to happen?</li></ul>"
+		"description": "When you **_engage an NPC in conversation_**, you can ask the GM 1 of these and get an honest answer:\n\n- What are they expecting me to do?\n- What, in general, are they trying to hide?\n- What do they want to happen?",
+		"slug": "under-your-skin"
 	},
 	"folder": "xnEoWIXTKWl4oAJz"
 }

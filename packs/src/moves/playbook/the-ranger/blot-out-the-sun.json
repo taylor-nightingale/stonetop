@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Ranger",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Let Fly with a bow</em></strong>, you can deplete your ammunition (mark the next ammo status after your weapon) before you roll. If you do, choose 1:</p><ul><li>Gain advantage on your damage roll</li><li>Add the area tag to your attack; roll damage separately for each target</li></ul>"
+		"description": "When you **_Let Fly with a bow_**, you can deplete your ammunition (mark the next ammo status after your weapon) before you roll. If you do, choose 1:\n\n- Gain advantage on your damage roll\n- Add the area tag to your attack; roll damage separately for each target",
+		"slug": "blot-out-the-sun"
 	},
 	"folder": "TOPlmLzP0PF3i9CM"
 }

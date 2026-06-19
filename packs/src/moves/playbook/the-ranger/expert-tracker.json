@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Ranger",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>Seek Insight by searching for or studying the signs left by passing creatures</em></strong>, you can ask \"What happened here recently?\" for free, even <strong>on a 6-</strong>.</p><p>When you <strong><em>follow a creature's trail</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong> you follow it to a significant change in terrain or activity; <strong>on a 10+</strong>, you can ask the GM a reasonable question about your quarry and get a useful answer.</p>",
+    "description": "When you **_Seek Insight by searching for or studying the signs left by passing creatures_**, you can ask \"What happened here recently?\" for free, even **on a 6-**.\n\nWhen you **_follow a creature's trail_**, roll +WIS: **_on a 7+_** you follow it to a significant change in terrain or activity; **on a 10+**, you can ask the GM a reasonable question about your quarry and get a useful answer.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "The GM makes a move."
       }
     },
-    "rollStat": "wis"
+    "rollStat": "wis",
+    "slug": "expert-tracker"
   },
   "folder": "TOPlmLzP0PF3i9CM"
 }

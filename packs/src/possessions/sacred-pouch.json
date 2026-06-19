@@ -1,12 +1,12 @@
 {
 	"_id": "zQrcS9vrd831E83T",
 	"_key": "!items!zQrcS9vrd831E83T",
-	"name": "Sacred pouch (<em>magical</em>)",
+	"name": "Sacred pouch (*magical*)",
 	"type": "possession",
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "sacred-pouch",
-		"label": "Sacred pouch (<em>magical</em>)",
+		"label": "Sacred pouch (*magical*)",
 		"description": "See playbook tab",
 		"resource": {
 			"max": 3,

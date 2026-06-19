@@ -2,6 +2,8 @@
   "name": "stonetop",
   "type": "module",
   "scripts": {
+    "postinstall": "node scripts/vendor-deps.js",
+    "vendor": "node scripts/vendor-deps.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "pack": "node scripts/pack.js",
@@ -10,6 +12,10 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "happy-dom": "^20.10.3",
     "vitest": "^4.1.7"
+  },
+  "dependencies": {
+    "snarkdown": "^2.0.0"
   }
 }

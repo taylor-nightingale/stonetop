@@ -27,10 +27,12 @@ describe("MoveData.migrateData — heading rows", () => {
 		expect(result.list[0].type).toBe("entry");
 	});
 
-	it("preserves all other heading row fields", () => {
+	it("preserves all other heading row fields (note folds into content.titleNote)", () => {
 		const row = { type: "heading", slug: "h1", note: "a note", track: null };
 		const result = migrate({ slug: "choices", list: [row] });
-		expect(result.list[0]).toMatchObject({ type: "entry", slug: "h1", note: "a note", track: null });
+		expect(result.list[0]).toMatchObject({ type: "entry", slug: "h1", track: null });
+		expect(result.list[0].content.titleNote).toBe("a note");
+		expect(result.list[0].note).toBeUndefined();
 	});
 });
 
@@ -47,12 +49,13 @@ describe("MoveData.migrateData — follower rows", () => {
 
 	it("moves title into content.text", () => {
 		const result = migrate({ slug: "choices", list: [{ type: "follower", slug: "adra", title: "Adra" }] });
-		expect(result.list[0].content).toEqual({ title: null, text: "Adra" });
+		expect(result.list[0].content.text).toBe("Adra");
+		expect(result.list[0].title).toBeUndefined();
 	});
 
-	it("uses empty string for content.text when title is missing", () => {
+	it("leaves content.text unset when title is missing", () => {
 		const result = migrate({ slug: "choices", list: [{ type: "follower", slug: "adra" }] });
-		expect(result.list[0].content).toEqual({ title: null, text: "" });
+		expect(result.list[0].content.text).toBeUndefined();
 	});
 });
 

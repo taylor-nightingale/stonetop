@@ -6,7 +6,7 @@
   "system": {
     "playbook": "The Fox",
     "moveType": "playbook",
-    "description": "<p>When you <strong><em>sneak off on your own into a dangerous place</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, you make it back, and the GM says where you got to and what you learned. Then, <strong>on a 10+</strong>, also pick 2; <strong><em>on a 7-9</em></strong>, also pick 1:</p><ul><li>You got away clean, rousing no suspicion</li><li>You swiped something valuable (GM's choice)</li><li>You set something up to exploit on your return</li><li>Ask a Seek Insight question about what you saw</li></ul><p>On a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).</p>",
+    "description": "When you **_sneak off on your own into a dangerous place_**, roll +INT: **_on a 7+_**, you make it back, and the GM says where you got to and what you learned. Then, **on a 10+**, also pick 2; **_on a 7-9_**, also pick 1:\n\n- You got away clean, rousing no suspicion\n- You swiped something valuable (GM's choice)\n- You set something up to exploit on your return\n- Ask a Seek Insight question about what you saw\nOn a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -21,7 +21,8 @@
         "value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
       }
     },
-    "rollStat": "int"
+    "rollStat": "int",
+    "slug": "burgle"
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

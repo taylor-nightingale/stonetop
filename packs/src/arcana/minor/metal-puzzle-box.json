@@ -10,10 +10,10 @@
 			"item": {
 				"name": "A metal puzzle box",
 				"weight": 1,
-				"note": "<em>indestructible</em>",
+				"note": "*indestructible*",
 				"inventoryColumn": "regular"
 			},
-			"description": "<p>A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.</p>",
+			"description": "A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.",
 			"unlock": {
 				"slug": "metal-puzzle-box",
 				"list": [
@@ -29,7 +29,7 @@
 						"slug": "roll-to-open",
 						"content": {
 							"title": null,
-							"text": "… roll +INT to open the box: <strong>on a 10+</strong>, it takes a few days of fiddling; <strong>on a 7-9</strong>, it takes a few obsessive weeks; <strong>on a 6-</strong>, it's beyond you."
+							"text": "… roll +INT to open the box: **on a 10+**, it takes a few days of fiddling; **on a 7-9**, it takes a few obsessive weeks; **on a 6-**, it's beyond you."
 						},
 						"track": {
 							"max": 1
@@ -85,12 +85,12 @@
 		"back": {
 			"title": "Runes of Creation",
 			"item": null,
-			"description": "<p>When you <strong><em>carefully inscribe an object with the runes of creation</em></strong>, pick 1 desired effect:</p><ul><li>It will flow into any shape you imagine</li><li>It will become <em>indestructible</em></li><li>It will become <em>beautiful</em></li><li>It will blaze with terrible heat (1d10 damage, <em>messy</em>), if only for a moment</li></ul><p>When you <strong><em>speak the Silent Word that completes the spell</em></strong> (<em>far</em> range), mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: <strong>on a 10+</strong>, the GM picks 1; <strong>on a 7-9</strong>, the GM picks 2; <strong>on a 6-</strong>, all 3:</p><ul><li>Mark another debility &amp; lose 1d10 HP</li><li>The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.</li><li>The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM's choosing</li></ul>",
+			"description": "When you **_carefully inscribe an object with the runes of creation_**, pick 1 desired effect:\n\n- It will flow into any shape you imagine\n- It will become *indestructible*\n- It will become *beautiful*\n- It will blaze with terrible heat (1d10 damage, *messy*), if only for a moment\nWhen you **_speak the Silent Word that completes the spell_** (*far* range), mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: **on a 10+**, the GM picks 1; **on a 7-9**, the GM picks 2; **on a 6-**, all 3:\n\n- Mark another debility & lose 1d10 HP\n- The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.\n- The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM's choosing",
 			"resource": null,
 			"moves": [
 				{
 					"name": "When you carefully inscribe an object with the runes of creation",
-					"text": "<p>Pick 1 effect: the object flows into any shape; becomes indestructible; becomes beautiful; or blazes with terrible heat (1d10 damage, messy). Then speak the Silent Word (far range), mark a debility, and roll +CON: <strong>on a 10+</strong>, GM picks 1; <strong>on a 7-9</strong>, GM picks 2; <strong>on a 6-</strong>, all 3: mark another debility &amp; lose 1d10 HP; elements run amok; effect lasts only while you focus.</p>"
+					"text": "Pick 1 effect: the object flows into any shape; becomes indestructible; becomes beautiful; or blazes with terrible heat (1d10 damage, messy). Then speak the Silent Word (far range), mark a debility, and roll +CON: **on a 10+**, GM picks 1; **on a 7-9**, GM picks 2; **on a 6-**, all 3: mark another debility & lose 1d10 HP; elements run amok; effect lasts only while you focus."
 				}
 			]
 		}

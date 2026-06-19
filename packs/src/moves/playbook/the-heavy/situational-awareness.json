@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Heavy",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>Seek Insight</em></strong>, add the following to the list of questions you can ask:</p><ul><li>Who or what here is the biggest threat?</li><li>What is my enemy's true position?</li><li>What here can I use as a weapon?</li></ul><p>When <strong><em>a fight breaks out</em></strong>, ask the GM 1 question that you could ask when Seeking Insight.</p>"
+		"description": "When you **_Seek Insight_**, add the following to the list of questions you can ask:\n\n- Who or what here is the biggest threat?\n- What is my enemy's true position?\n- What here can I use as a weapon?\nWhen **_a fight breaks out_**, ask the GM 1 question that you could ask when Seeking Insight.",
+		"slug": "situational-awareness"
 	},
 	"folder": "QAZ4iqkCm6GtadAu"
 }

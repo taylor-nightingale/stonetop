@@ -7,7 +7,7 @@
 		"playbook": "The Would-Be Hero",
 		"moveType": "playbook",
 		"isStartingMove": true,
-		"description": "<p>Once per level, <strong><em>when you roll a stat and get a 10+</em></strong>, mark one of the following (note the level during which you marked it). You don't have to mark them in order.</p>",
+		"description": "Once per level, **_when you roll a stat and get a 10+_**, mark one of the following (note the level during which you marked it). You don't have to mark them in order.",
 		"choices": {
 			"slug": "choices",
 			"list": [
@@ -22,7 +22,8 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				},
 				{
@@ -36,7 +37,8 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				},
 				{
@@ -50,7 +52,8 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				},
 				{
@@ -64,7 +67,8 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				},
 				{
@@ -78,7 +82,8 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				},
 				{
@@ -92,14 +97,16 @@
 						"max": 1
 					},
 					"input": {
-						"placeholder": "level checked"
+						"placeholder": "level checked",
+						"type": "inline"
 					}
 				}
 			]
 		},
 		"requirement": {
 			"playbook": "The Would-Be Hero"
-		}
+		},
+		"slug": "potential-for-greatness"
 	},
 	"folder": "dgktpzqUfX5DWqqE"
 }

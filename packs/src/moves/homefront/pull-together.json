@@ -6,7 +6,7 @@
   "system": {
     "playbook": "Stonetop",
     "moveType": "homefront",
-    "description": "<p>When you <strong><em>set a community to work on improvements</em></strong>, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: <strong>on a 10+</strong>, the job gets done; <strong>on a 7-9</strong>, pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul></p>",
+    "description": "When you **_set a community to work on improvements_**, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: **on a 10+**, the job gets done; **on a 7-9**, pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -14,14 +14,15 @@
       },
       "partial": {
         "label": "7-9",
-        "value": "Pick 1: <ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforseen cost, requirement, or challenge; address it and the job gets done</li></ul>"
+        "value": "Pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done"
       },
       "failure": {
         "label": "6-",
         "value": "Establish badness"
       }
     },
-    "rollStat": "population"
+    "rollStat": "population",
+    "slug": "pull-together"
   },
   "folder": "PA4a369HV9WVxpI3"
 }

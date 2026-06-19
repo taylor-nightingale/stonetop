@@ -49,6 +49,15 @@ describe("Move", () => {
 		expect(new Move(PLAYBOOK_ENTRY).playbook).toBe("The Blessed");
 	});
 
+	it("derives slug from name when system.slug is absent", () => {
+		expect(new Move(BASIC_ENTRY).slug).toBe("defy-danger");
+	});
+
+	it("prefers the stored system.slug over the name (survives renames)", () => {
+		const renamed = { _id: "m1", name: "Totally Different Name", system: { slug: "defy-danger" } };
+		expect(new Move(renamed).slug).toBe("defy-danger");
+	});
+
 	it("stores rollStat", () => {
 		expect(new Move(PLAYBOOK_ENTRY).rollStat).toBe("wis");
 	});

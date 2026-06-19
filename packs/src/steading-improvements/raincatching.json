@@ -14,14 +14,14 @@
 					"type": "entry",
 					"content": {
 						"title": "Raincatching",
-						"text": "<p>Filling the cistern takes so much work. Surely, we can do better!</p>"
+						"text": "Filling the cistern takes so much work. Surely, we can do better!"
 					}
 				},
 				{
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p><strong>Requires</strong> all of the following, in order:</p>"
+						"text": "**Requires** all of the following, in order:"
 					}
 				},
 				{
@@ -29,7 +29,7 @@
 					"slug": "engineer-foreman",
 					"content": {
 						"title": null,
-						"text": "An <em>exceptional</em> engineer/foreman, to design a cunning system of roofs, gutters, and conduits"
+						"text": "An *exceptional* engineer/foreman, to design a cunning system of roofs, gutters, and conduits"
 					},
 					"track": {
 						"max": 1
@@ -61,7 +61,7 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "<p>When you <strong><em>meet the requirements</em></strong>, increase Fortunes by 1, add \"Raincatching\" to the Resources list.</p><p>Henceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus.</p>"
+						"text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Raincatching\" to the Resources list.\n\nHenceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
 					}
 				}
 			]

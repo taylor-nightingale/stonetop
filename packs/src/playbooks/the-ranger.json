@@ -8,6 +8,8 @@
   "system": {
     "slug": "the-ranger",
     "actorType": "character",
+    "followers": ["animal-companion"],
+    "inserts": [],
     "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
     "startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice.",
     "damage": {
@@ -99,17 +101,17 @@
       {
         "slug": "mighty-hunter",
         "label": "Mighty Hunter",
-        "description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move. Go mark them now.</p>"
+        "description": "You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.\n\nYou start with both the **Expert Tracker** move and the **Stalker** move. Go mark them now."
       },
       {
         "slug": "wide-wanderer",
         "label": "Wide Wanderer",
-        "description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each: <ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)>/li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul></p><p>You start with the <strong>Mental Map</strong> move. Mark it now.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>"
+        "description": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)>/li>**Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.\n\nWhen you *Know Things about the wider world*, you can roll +WIS instead of +INT. When you *arrive somewhere you've visited before* (your call), tell the GM when you were last here, and the GM will tell you how it's changed."
       },
       {
         "slug": "beast-bonded",
         "label": "Beast-Bonded",
-        "description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move. Go mark it now.</p><p>When you <strong><em>focus on your animal companion for a few moments</em><strong>, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>"
+        "description": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th."
       }
     ],
     "specialPossessions": {
@@ -136,7 +138,7 @@
             "type": "entry",
             "content": {
               "title": "Something Wicked This Way Comes",
-              "text": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? <em>(choose 1)</em></p>"
+              "text": "You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? *(choose 1)*"
             }
           },
           {
@@ -213,7 +215,9 @@
               "title": null,
               "text": "What, exactly, do you think it is?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -222,7 +226,9 @@
               "title": null,
               "text": "What did you see, and how close did you have to get to see it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -231,7 +237,9 @@
               "title": null,
               "text": "Whom or what have you lost to it?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -240,7 +248,9 @@
               "title": null,
               "text": "What did it leave behind?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -249,7 +259,9 @@
               "title": null,
               "text": "What do you think it wants?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -258,7 +270,9 @@
               "title": null,
               "text": "Who refuses to believe you?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "type": "entry",
@@ -267,13 +281,15 @@
               "title": null,
               "text": "Who can tell you more, if you can only convince them?"
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }
     ],
     "introductions": {
-      "step3": "On your third turn, <strong>tell us what you're worried about</strong> (see \"Something wicked this way comes\").",
+      "step3": "On your third turn, **tell us what you're worried about** (see \"Something wicked this way comes\").",
       "step4": {
         "slug": "intro-npc",
         "list": [
@@ -287,7 +303,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "always-return-home",
@@ -299,7 +317,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lost-without-you",
@@ -311,7 +331,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "learn-from-you",
@@ -323,7 +345,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       },
@@ -340,7 +364,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "great-beauty",
@@ -352,7 +378,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "staring-horizon",
@@ -364,7 +392,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           },
           {
             "slug": "lacked-stomach",
@@ -376,7 +406,9 @@
             "track": {
               "max": 1
             },
-            "input": {}
+            "input": {
+              "type": "inline"
+            }
           }
         ]
       }

@@ -160,3 +160,50 @@ describe("StonetopCharacter.selectBackground", () => {
 });
 
 
+
+// -- bio and notes ------------------------------------------------------------
+
+describe("StonetopCharacter — bio and notes", () => {
+	function makeCharWith(system = {}) {
+		const actor = new FakeActorBuilder().build();
+		Object.assign(actor.system, system);
+		return { char: new TestCharacterBuilder(actor).build(), actor };
+	}
+
+	it("bio returns system.description", () => {
+		expect(makeCharWith({ description: "A wanderer." }).char.bio).toBe("A wanderer.");
+	});
+
+	it("notes returns system.notes", () => {
+		expect(makeCharWith({ notes: "remember the thing" }).char.notes).toBe("remember the thing");
+	});
+
+	it("setBio updates system.description", async () => {
+		const { char, actor } = makeCharWith();
+		await char.setBio("new bio");
+		expect(actor.system.description).toBe("new bio");
+	});
+
+	it("setNotes updates system.notes", async () => {
+		const { char, actor } = makeCharWith();
+		await char.setNotes("new notes");
+		expect(actor.system.notes).toBe("new notes");
+	});
+});
+
+// -- setChoicePick routing (regression: lore/playbook picks must save) --------
+
+describe("StonetopCharacter.setChoicePick — playbook choice routing", () => {
+	function makeChar() {
+		return new TestCharacterBuilder(new FakeActorBuilder().build()).build();
+	}
+
+	it.each(["lore", "playbook-choice", "instinct", "appearance", "intro-npc", "intro-pc"])(
+		"routes '%s' picks to playbook.selectChoice", async (context) => {
+			const char = makeChar();
+			const spy = vi.spyOn(char._playbook, "selectChoice").mockResolvedValue();
+			await char.setChoicePick(context, "sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
+			expect(spy).toHaveBeenCalledWith("sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
+		},
+	);
+});

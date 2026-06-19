@@ -6,7 +6,8 @@
 	"system": {
 		"playbook": "The Judge",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>speak the truth with conviction and candor</em></strong>, none can doubt you. They might deny what you say, but in their hearts they recognize the truth.</p>"
+		"description": "When you **_speak the truth with conviction and candor_**, none can doubt you. They might deny what you say, but in their hearts they recognize the truth.",
+		"slug": "bear-witness"
 	},
 	"folder": "jISe56pNVdmHJLgu"
 }

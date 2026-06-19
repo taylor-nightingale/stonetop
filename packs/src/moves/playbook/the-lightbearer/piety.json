@@ -6,11 +6,12 @@
 	"system": {
 		"playbook": "The Lightbearer",
 		"moveType": "playbook",
-		"description": "<p>When you <strong><em>spend at least an hour in proper worship to Helior</em></strong>, hold 1 Blessing. Other faithful PCs who partake in this worship also hold 1 Blessing. At any time, you can spend 1 Blessing to add +1 to a roll you just made in pursuit of a righteous cause.</p>",
+		"description": "When you **_spend at least an hour in proper worship to Helior_**, hold 1 Blessing. Other faithful PCs who partake in this worship also hold 1 Blessing. At any time, you can spend 1 Blessing to add +1 to a roll you just made in pursuit of a righteous cause.",
 		"resource": {
 			"title": "Blessing",
 			"max": 1
-		}
+		},
+		"slug": "piety"
 	},
 	"folder": "iPC15k3PnwMGDZE3"
 }
