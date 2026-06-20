@@ -12,6 +12,12 @@
 		</select>
 	</div>
 	{{else}}
+	{{#if (or stonetop.playbook.titleImg stonetop.playbook.description)}}
+	<div class="stonetop-playbook-intro">
+		{{#if stonetop.playbook.titleImg}}<img class="stonetop-playbook-title-img" src="{{stonetop.playbook.titleImg}}" alt="{{stonetop.playbook.name}}">{{/if}}
+		{{#if stonetop.playbook.description}}<p class="stonetop-playbook-description stonetop-rich">{{{md stonetop.playbook.description}}}</p>{{/if}}
+	</div>
+	{{/if}}
 	<div class="stonetop-playbook-columns">
 
 		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore"}}

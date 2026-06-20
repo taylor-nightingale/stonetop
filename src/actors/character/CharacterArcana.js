@@ -112,6 +112,20 @@ export class CharacterArcana {
 			.setCount(arcanumSlug, optionSlug, count);
 	}
 
+	async setUnlockPick(arcanumSlug, optionSlug, siblingsCsv) {
+		const item = _findArcanumItem(this._actor, arcanumSlug);
+		if (!item) return;
+		await this._factory.forItem(item._id, "unlockValues")
+			.selectOption(arcanumSlug, optionSlug, siblingsCsv);
+	}
+
+	async setUnlockText(arcanumSlug, optionSlug, text) {
+		const item = _findArcanumItem(this._actor, arcanumSlug);
+		if (!item) return;
+		await this._factory.forItem(item._id, "unlockValues")
+			.setText(arcanumSlug, optionSlug, text);
+	}
+
 	async setBackChoiceValue(arcanumSlug, optionSlug, count) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;

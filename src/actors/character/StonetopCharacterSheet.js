@@ -140,6 +140,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-moves-toggle").on("click", ev => {
 				ev.currentTarget.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
 			});
+			// Collapse the header + stats/portrait so the tabbed content fills the sheet.
+			html.find(".stonetop-top-toggle").on("click", ev => {
+				ev.currentTarget.closest(".sheet-wrapper")?.classList.toggle("top-collapsed");
+			});
 			html.find(".stonetop-basic-move-open").on("click", async ev => {
 				const { compendiumId } = ev.currentTarget.dataset;
 				// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.

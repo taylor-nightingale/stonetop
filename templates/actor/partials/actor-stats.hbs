@@ -6,7 +6,7 @@
 		       name="system.stats.{{@key}}.value"
 		       value="{{value}}" min="-3" max="3"
 		       {{#unless ../editable}}disabled{{/unless}}>
-		<span class="stonetop-stat-abbr">({{abbr}})</span>
+		<span class="stonetop-stat-abbr rollable" data-roll="{{@key}}">{{abbr}}</span>
 	</div>
 	{{/each}}
 </div>

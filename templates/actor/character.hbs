@@ -3,46 +3,36 @@
 
 		{{> "stonetop.actor-header"}}
 
-		<section class="sheet-top flexcol">
-			{{#if stonetop.playbook}}
-			<div class="stonetop-playbook-header">
-				<div class="stonetop-playbook-header-left">
-					{{#if stonetop.playbook.titleImg}}
-					<img class="stonetop-playbook-title-img" src="{{stonetop.playbook.titleImg}}" alt="{{stonetop.playbook.name}}">
-					{{/if}}
-					{{#if stonetop.playbook.description}}
-					<p class="stonetop-playbook-description">{{stonetop.playbook.description}}</p>
-					{{/if}}
+		<section class="sheet-top flexrow">
+			<div class="stonetop-stats-column">
+				{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
+
+				<div class="stonetop-stats-section">
+					{{> "stonetop.actor-stats" stats=stonetop.stats}}
 				</div>
-				{{#if stonetop.playbook.img}}
-				<img class="stonetop-playbook-icon" src="{{stonetop.playbook.img}}" alt="">
-				{{/if}}
-			</div>
-			{{/if}}
-
-			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
-
-			<div class="stonetop-stats-section">
-				{{> "stonetop.actor-stats" stats=stonetop.stats}}
-			</div>
-			<div class="stonetop-debilities">
-				{{#each stonetop.debilities}}
-				<div class="stonetop-debility">
-					<label class="stonetop-debility-control">
-						<span class="stonetop-debility-divider"></span>
-						<input type="checkbox" class="stonetop-debility-check"
-						       data-slug="{{key}}"
-						       {{#if active}}checked{{/if}}>
-						<span class="stonetop-debility-label">{{key}}</span>
-					</label>
+				<div class="stonetop-debilities">
+					{{#each stonetop.debilities}}
+					<div class="stonetop-debility">
+						<label class="stonetop-debility-control">
+							<span class="stonetop-debility-divider"></span>
+							<input type="checkbox" class="stonetop-debility-check"
+							       data-slug="{{key}}"
+							       {{#if active}}checked{{/if}}>
+							<span class="stonetop-debility-label">{{key}}</span>
+						</label>
+					</div>
+					{{/each}}
 				</div>
-				{{/each}}
+
+				<div class="stonetop-vitals-section">
+					{{> "stonetop.actor-attributes"}}
+				</div>
 			</div>
 
-			<div class="stonetop-vitals-section">
-				{{> "stonetop.actor-attributes"}}
+			<div class="stonetop-actor-portrait">
+				<img class="stonetop-actor-portrait-img" src="{{actor.img}}" data-edit="img"
+				     alt="{{actor.name}}" title="{{actor.name}}">
 			</div>
-
 		</section>
 
 		<section class="sheet-main flexcol">
@@ -54,6 +44,9 @@
 				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
 				<a class="item" data-tab="notes">{{localize "stonetop.sheet.tabs.notes"}}</a>
 			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
+				<button type="button" class="stonetop-top-toggle" title="{{localize 'stonetop.sheet.collapseTop'}}">
+					<i class="fas fa-chevron-up"></i>
+				</button>
 			</nav>
 
 			<div class="stonetop-sheet-layout">

@@ -25,6 +25,9 @@
 * Add button to create or break a link to an NPC to residents and neighbors.
 * Add journal linking to places of interest
 * Support threats
+* Add artifacts on p41 b2
+* npcs should use the same tags pill selection as followers
+*
 
 == Nice to have
 * toggle to turn off non-selected character options

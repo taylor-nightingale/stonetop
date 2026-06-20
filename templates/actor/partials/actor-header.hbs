@@ -1,5 +1,10 @@
 <header class="sheet-header flexrow">
+	{{#if stonetop.playbook.img}}
+	<img class="profile-img stonetop-header-playbook-icon" src="{{stonetop.playbook.img}}"
+	     alt="{{stonetop.playbook.name}}" title="{{stonetop.playbook.name}}">
+	{{else}}
 	<img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" title="{{actor.name}}">
+	{{/if}}
 	<div class="header-fields">
 		<h1 class="charname">
 			<input name="name" type="text" value="{{actor.name}}"

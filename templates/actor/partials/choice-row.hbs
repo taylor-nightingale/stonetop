@@ -79,8 +79,15 @@
 </div>
 {{/if}}
 
-{{else if content.text}}
+{{else}}
+{{! No track: still render the entry's subtitle/subtitleNote (the track branch above is the only
+    other place they're emitted), then the body text. }}
+{{#if content.subtitle}}
+{{> "stonetop.section-sub-heading" subtitle=content.subtitle subtitleNote=content.subtitleNote}}
+{{/if}}
+{{#if content.text}}
 <div class="stonetop-choice-description stonetop-rich">{{{md content.text}}}</div>
+{{/if}}
 {{/if}}
 {{#if input}}
 <div class="stonetop-choice-option stonetop-choice-option--text">

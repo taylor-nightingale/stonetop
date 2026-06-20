@@ -1,5 +1,12 @@
 /* Custom CSS */
 
+/* Foundry core puts a 1px border on every <img> inside a sheet/app window
+   (.window-app img). We never want borders around icons/portraits, so strip them
+   once here authoritatively instead of adding per-element `border: none` overrides. */
+.stonetop.sheet img {
+	border: none;
+}
+
 @font-face {
 	font-family: "StonetopUI";
 	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
@@ -235,6 +242,40 @@ body,
 	filter: brightness(1.05);
 }
 
+/* Collapse toggle: pinned to the right edge of the tab row. */
+.stonetop-top-toggle {
+	margin-left: auto;
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	flex: 0 0 auto;
+	padding: 0;
+	line-height: 1;
+	border: 1px solid var(--color-border-light-2);
+	border-radius: 4px;
+	background: var(--stonetop-bg, #f4ecd8);
+	cursor: pointer;
+}
+
+.stonetop-top-toggle > i {
+	margin: 0;
+	line-height: 1;
+	transition: transform 0.15s ease;
+}
+
+/* When collapsed, hide the header + stats/portrait and flip the chevron. */
+.stonetop.sheet.character .sheet-wrapper.top-collapsed > .sheet-header,
+.stonetop.sheet.character .sheet-wrapper.top-collapsed > .sheet-top {
+	display: none;
+}
+
+.sheet-wrapper.top-collapsed .stonetop-top-toggle > i {
+	transform: rotate(180deg);
+}
+
 .stonetop.sheet .sheet-tabs .item.active {
 	transform: translateY(2px);
 	filter: brightness(1.08);
@@ -272,10 +313,17 @@ body,
 }
 
 .stonetop-stat-abbr {
-	font-size: 12px;
+	font-size: 10px;
 	font-variant: small-caps;
 	color: var(--color-text-dark-secondary);
 	line-height: 1;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	white-space: nowrap;
+	background: #fff;
+	padding: 0 5px;
 }
 
 /* ── Section panel border ────────────────────────────────────────────────────── */
@@ -324,22 +372,74 @@ body,
 	min-width: 813px;
 }
 
+/* ── Sheet-top: stats column + actor portrait ───────────────────────────────── */
+
+.stonetop.sheet.character .sheet-top.flexrow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	gap: 12px;
+}
+
+.stonetop-stats-column {
+	flex: 0 0 auto;
+}
+
+/* Frame is the flex item; it has no in-flow content (the img is absolutely positioned),
+   so it contributes zero intrinsic height and the row height is driven solely by the
+   stats column. align-self: stretch then sizes the frame to that height. */
+.stonetop-actor-portrait {
+	flex: 1 1 0;
+	min-width: 0;
+	min-height: 0;
+	align-self: stretch;
+	position: relative;
+}
+
+.stonetop-actor-portrait-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border: none;
+}
+
+.stonetop-header-playbook-icon {
+	object-fit: contain;
+}
+
+/* Foundry's default actor icon (mystery-man.svg) is a near-white silhouette that
+   disappears against the white sheet. Give ONLY the placeholder a soft slategrey panel
+   so it stays visible; any real portrait (different src) is untouched. */
+.stonetop-actor-portrait-img[src$="mystery-man.svg"],
+.stonetop-header-playbook-icon[src$="mystery-man.svg"] {
+	background: slategrey;
+	border-radius: 6px;
+	padding: 8px;
+}
+
 /* ── Stats row ──────────────────────────────────────────────────────────────── */
 
 .stonetop-stats-row {
 	display: grid;
-	grid-template-columns: repeat(6, 120px);
+	grid-template-columns: repeat(6, 96px);
 	gap: 4px;
+	margin: 10px 0;
 }
 
 .stonetop-stat {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	text-align: center;
-	width: 120px;
-	height: 95px;
-	padding: 8px;
+	position: relative;
+	overflow: visible;
+	width: 96px;
+	height: 76px;
+	padding: 6px;
 	background-image: url("../assets/sheet/frame-stat.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -347,15 +447,20 @@ body,
 
 .stonetop-stat-roll {
 	border: none;
-	background: transparent;
+	background: #fff;
 	font-weight: bold;
-	font-size: 13px;
-	height: 20px;
-	line-height: 20px;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
 	cursor: pointer;
-	padding: 0;
-	width: 100%;
+	padding: 0 5px;
+	width: auto;
 	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
 }
 
 .stonetop-stat-roll:hover {
@@ -366,10 +471,10 @@ body,
 	border: none;
 	background: transparent;
 	text-align: center;
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: bold;
-	height: 36px;
-	line-height: 36px;
+	height: 29px;
+	line-height: 29px;
 	width: 100%;
 	padding: 0;
 }
@@ -378,8 +483,43 @@ body,
 
 .stonetop-resource-row {
 	display: grid;
-	grid-template-columns: 120px 210px 120px 210px 120px;
+	grid-template-columns: 96px 146px 96px 146px 96px;
 	gap: 4px;
+	margin: 10px 0;
+}
+
+.stonetop-resource-row .stonetop-resource {
+	position: relative;
+	overflow: visible;
+	height: 76px;
+	padding: 6px;
+}
+
+.stonetop-resource-row .stonetop-resource__label,
+.stonetop-resource-row .stonetop-damage-roll {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	width: auto;
+	margin: 0;
+	white-space: nowrap;
+	background: #fff;
+	padding: 0 5px;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+}
+
+.stonetop-resource-row .stonetop-resource__input,
+.stonetop-resource-row .stonetop-resource__max {
+	font-size: 21px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.stonetop-resource-row .stonetop-resource__split > span {
+	font-size: 20px;
 }
 
 .stonetop-resource {
@@ -522,7 +662,7 @@ body,
 .stonetop-debilities {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	width: 740px;
+	width: 596px;
 	margin: 2px 0;
 }
 
@@ -1655,33 +1795,16 @@ body,
 	min-width: 0;
 }
 
-/* -- Playbook icon -------------------------------------------- */
-.stonetop-playbook-header {
-	display: flex;
-	align-items: flex-start;
-	gap: 8px;
+/* -- Playbook tab intro (title image + description) ----------- */
+.stonetop-playbook-intro {
 	margin-bottom: 8px;
-}
-
-.stonetop-playbook-header-left {
-	flex: 1;
-	min-width: 0;
 }
 
 .stonetop-playbook-title-img {
 	display: block;
-	height: 56px;
+	height: 45px;
 	width: auto;
 	margin-bottom: 4px;
-	border: none;
-}
-
-.stonetop-playbook-icon {
-	width: 100px;
-	height: 100px;
-	flex-shrink: 0;
-	object-fit: contain;
-	opacity: 0.85;
 	border: none;
 }
 
@@ -2141,25 +2264,43 @@ body,
 	font-size: inherit;
 }
 
+/* Breathing room between a tracked entry's checkboxes and its subtitle. */
+.stonetop-arcanum-body .stonetop-choice-header-wrapper {
+	gap: 10px;
+}
+
 .stonetop-arcanum-footer {
 	padding: 4px 6px;
 	border-top: 1px solid var(--color-border-dark);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 6px;
 }
 
 .stonetop-arcanum-delete {
-	font-size: 0.75em;
-	padding: 2px 0;
-	width: 20%;
+	width: auto !important;
+	flex: 0 0 auto;
+	background: none;
+	border: none;
 	cursor: pointer;
+	line-height: 1;
+	padding: 0;
+	opacity: 0.45;
+}
+.stonetop-arcanum-delete img {
+	width: 14px;
+	height: 14px;
+	display: block;
+}
+.stonetop-arcanum-delete:hover {
+	opacity: 1;
 }
 
 .stonetop-arcanum-flip-btn {
 	font-size: 0.75em;
 	padding: 2px 0;
-	width: 80%;
+	flex: 1 1 auto;
 }
 
 .stonetop-arcanum-unlock-lead {
@@ -2217,15 +2358,17 @@ body,
 	flex-wrap: wrap;
 }
 
+/* Match the other resource tracks on the sheet (background / follower loyalty): round filled dots. */
 .stonetop-arcanum-resource-btn {
 	appearance: none;
-	width: 14px;
-	height: 14px;
-	border: 1px solid var(--color-border-dark);
-	border-radius: 2px;
-	background: transparent;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 2px solid var(--color-text-dark-primary);
+	background: none;
 	cursor: pointer;
 	padding: 0;
+	flex-shrink: 0;
 }
 
 .stonetop-arcanum-resource-btn.is-checked {
@@ -2674,6 +2817,7 @@ body,
 .stonetop.sheet .stonetop-member-add,
 .stonetop.sheet .stonetop-member-remove,
 .stonetop.sheet .stonetop-follower-delete,
+.stonetop.sheet .stonetop-arcanum-delete,
 .stonetop.sheet .stonetop-insert-remove,
 .stonetop.sheet .stonetop-edit-toggle,
 .stonetop.sheet .stonetop-follower-inv-toggle,
@@ -2690,6 +2834,7 @@ body,
 .stonetop-member-add img,
 .stonetop-member-remove img,
 .stonetop-follower-delete img,
+.stonetop-arcanum-delete img,
 .stonetop-insert-remove img,
 .stonetop-follower-inv-toggle img,
 .stonetop-edit-toggle img {

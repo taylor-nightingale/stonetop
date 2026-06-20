@@ -24,6 +24,7 @@
 				"followers": "Followers",
 				"notes": "Notes"
 			},
+			"collapseTop": "Collapse / expand header",
 			"notes": {
 				"bio": "Bio",
 				"bioPlaceholder": "Who is your character? Appearance, history, demeanor…",
@@ -133,7 +134,7 @@
 			"resourceLabels": "Labels",
 			"unlock": "Unlock",
 			"choices": "Choices",
-			"mysteryMoves": "Mystery moves",
+			"mysteryMoves": "Moves",
 			"consequences": "Consequences",
 			"unlockAt": "Unlock at",
 			"moveName": "Move name",

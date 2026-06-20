@@ -41,8 +41,12 @@ export function buildArcanumSnapshot(arcanum, {
 } = {}) {
 	const item = arcanum;
 
+	// Unlock/back-choice VALUES are keyed by the ARCANUM slug (see migrateArcana + the card's
+	// cgGroup=slug writes). Canonical packs author the group slug == arcanum slug so it lines up,
+	// but a custom arcanum's group keeps its literal slug ("unlock"/"choices"); force the namespace
+	// to the arcanum slug so reads match the writer regardless of how the group was authored.
 	const unlock = item.front.unlock
-		? ChoiceGroup.fromPackData(item.front.unlock, unlockValues)
+		? ChoiceGroup.fromPackData({ ...item.front.unlock, slug: item.slug }, unlockValues)
 		: null;
 
 	const front = new ArcanumFrontSnapshotBuilder()
@@ -69,7 +73,7 @@ export function buildArcanumSnapshot(arcanum, {
 		: null;
 
 	const backChoices = item.back.choices
-		? ChoiceGroup.fromPackData(item.back.choices, backChoiceValues, followersBySlug)
+		? ChoiceGroup.fromPackData({ ...item.back.choices, slug: item.slug }, backChoiceValues, followersBySlug)
 		: null;
 
 	const consequences = item.back.consequences
