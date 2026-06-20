@@ -1,0 +1,24 @@
+{{!-- Optional Resource (pool/track) editor. Params: resource (the Resource object or null), path
+      (e.g. "system.back.resource"). max/title auto-save via name=; labels is comma-separated. --}}
+<div class="stonetop-arcanum-resource-editor">
+	<div class="stonetop-arcanum-subhead">
+		<span>{{localize "stonetop.arcanum.resource"}}</span>
+		<button type="button" class="arcanum-resource-toggle" data-path="{{path}}">
+			{{#if resource}}{{localize "stonetop.arcanum.remove"}}{{else}}{{localize "stonetop.arcanum.add"}}{{/if}}
+		</button>
+	</div>
+	{{#if resource}}
+	<div class="stonetop-arcanum-fields">
+		<label>{{localize "stonetop.arcanum.resourceMax"}}
+			<input type="number" min="0" name="{{path}}.max" value="{{resource.max}}">
+		</label>
+		<label>{{localize "stonetop.arcanum.resourceTitle"}}
+			<input type="text" name="{{path}}.title" value="{{resource.title}}">
+		</label>
+		<label>{{localize "stonetop.arcanum.resourceLabels"}}
+			<input type="text" class="arcanum-resource-labels" data-path="{{path}}"
+			       value="{{join resource.labels}}" placeholder="comma, separated, labels">
+		</label>
+	</div>
+	{{/if}}
+</div>

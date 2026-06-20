@@ -1,0 +1,137 @@
+<form class="stonetop sheet item arcanum" autocomplete="off">
+
+	<header class="stonetop-insert-sheet-header">
+		<img class="stonetop-insert-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
+		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{data.name}}"
+		       placeholder="{{localize 'stonetop.arcanum.namePlaceholder'}}"
+		       {{#unless editable}}disabled{{/unless}}>
+	</header>
+
+	<div class="stonetop-arcanum-layout">
+
+		{{!-- ── EDITOR (left) ─────────────────────────────────────── --}}
+		<div class="stonetop-arcanum-editor">
+
+			<div class="stonetop-arcanum-core">
+				<label class="stonetop-arcanum-field--check">
+					<input type="checkbox" name="system.major" {{#if major}}checked{{/if}}>
+					<span>{{localize "stonetop.arcanum.major"}}</span>
+				</label>
+				<label class="stonetop-arcanum-field--narrow">{{localize "stonetop.arcanum.weight"}}
+					<input type="number" min="0" name="system.weight" value="{{system.weight}}">
+				</label>
+				<span class="stonetop-arcanum-slug">{{system.slug}}</span>
+			</div>
+
+			{{!-- ── FRONT ─────────────────────────────────────────────── --}}
+			<section class="stonetop-arcanum-side">
+				<h2 class="stonetop-arcanum-side-title">{{localize "stonetop.arcanum.front"}}</h2>
+
+				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
+					<input type="text" name="system.front.title" value="{{front.title}}">
+				</label>
+
+				{{> "stonetop.arcanum-item-def" item=frontItem path="system.front.item"}}
+
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.arcanum.description"}}</label>
+				<div class="editor stonetop-arcanum-editor-box">
+				{{#if editable}}
+				<div class="editor-content" data-edit="system.front.description">{{{front.description}}}</div>
+				{{else}}
+				<div class="editor-content stonetop-rich">{{{md front.description}}}</div>
+				{{/if}}
+				</div>
+
+				<div class="stonetop-arcanum-subhead">
+					<span>{{localize "stonetop.arcanum.unlock"}}</span>
+					{{#if hasUnlock}}
+					<button type="button" class="arcanum-group-remove" data-path="system.front.unlock">{{localize "stonetop.arcanum.remove"}}</button>
+					{{else}}
+					<button type="button" class="arcanum-group-add" data-path="system.front.unlock" data-slug="unlock">{{localize "stonetop.arcanum.add"}}</button>
+					{{/if}}
+				</div>
+				{{#if hasUnlock}}{{> "stonetop.choice-group-editor" cgPath="system.front.unlock" rows=unlockRows}}{{/if}}
+			</section>
+
+			{{!-- ── BACK ──────────────────────────────────────────────── --}}
+			<section class="stonetop-arcanum-side">
+				<h2 class="stonetop-arcanum-side-title">{{localize "stonetop.arcanum.back"}}</h2>
+
+				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
+					<input type="text" name="system.back.title" value="{{back.title}}">
+				</label>
+
+				<label class="stonetop-arcanum-field--check">
+					<input type="checkbox" name="system.back.itemSameAsFront" {{#if back.itemSameAsFront}}checked{{/if}}>
+					<span>{{localize "stonetop.arcanum.itemSameAsFront"}}</span>
+				</label>
+				{{#unless back.itemSameAsFront}}
+				{{> "stonetop.arcanum-item-def" item=backItem path="system.back.item"}}
+				{{/unless}}
+
+				{{> "stonetop.arcanum-resource" resource=back.resource path="system.back.resource"}}
+
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.arcanum.description"}}</label>
+				<div class="editor stonetop-arcanum-editor-box">
+				{{#if editable}}
+				<div class="editor-content" data-edit="system.back.description">{{{back.description}}}</div>
+				{{else}}
+				<div class="editor-content stonetop-rich">{{{md back.description}}}</div>
+				{{/if}}
+				</div>
+
+				<div class="stonetop-arcanum-subhead">
+					<span>{{localize "stonetop.arcanum.choices"}}</span>
+					{{#if hasBackChoices}}
+					<button type="button" class="arcanum-group-remove" data-path="system.back.choices">{{localize "stonetop.arcanum.remove"}}</button>
+					{{else}}
+					<button type="button" class="arcanum-group-add" data-path="system.back.choices" data-slug="choices">{{localize "stonetop.arcanum.add"}}</button>
+					{{/if}}
+				</div>
+				{{#if hasBackChoices}}{{> "stonetop.choice-group-editor" cgPath="system.back.choices" rows=backChoiceRows}}{{/if}}
+
+				{{#if major}}
+				{{!-- Major-only: mystery moves, consequences, unlock-at --}}
+				<div class="stonetop-arcanum-subhead">
+					<span>{{localize "stonetop.arcanum.mysteryMoves"}}</span>
+					<button type="button" class="arcanum-move-add">{{localize "stonetop.arcanum.add"}}</button>
+				</div>
+				<div class="stonetop-arcanum-moves">
+					{{#each mysteryMoves}}
+					{{> "stonetop.arcanum-mystery-move" move=this index=@index}}
+					{{/each}}
+				</div>
+
+				<div class="stonetop-arcanum-subhead">
+					<span>{{localize "stonetop.arcanum.consequences"}}</span>
+					{{#if hasConsequences}}
+					<button type="button" class="arcanum-group-remove" data-path="system.back.consequences">{{localize "stonetop.arcanum.remove"}}</button>
+					{{else}}
+					<button type="button" class="arcanum-group-add" data-path="system.back.consequences" data-slug="consequences">{{localize "stonetop.arcanum.add"}}</button>
+					{{/if}}
+				</div>
+				{{#if hasConsequences}}{{> "stonetop.choice-group-editor" cgPath="system.back.consequences" rows=consequenceRows}}{{/if}}
+
+				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.unlockAt"}}
+					<input type="text" name="system.back.unlockAt" value="{{back.unlockAt}}">
+				</label>
+				{{/if}}
+			</section>
+
+		</div>
+
+		{{!-- ── LIVE PREVIEW (right, sticky) — same render as the character card ── --}}
+		<aside class="stonetop-arcanum-preview-pane">
+			<div class="stonetop-arcanum-preview-head">
+				<span>{{localize "stonetop.arcanum.preview"}}</span>
+				<button type="button" class="arcanum-preview-flip">
+					{{#if previewFlipped}}{{localize "stonetop.arcanum.showFront"}}{{else}}{{localize "stonetop.arcanum.showBack"}}{{/if}}
+				</button>
+			</div>
+			<div class="stonetop-arcanum-preview">
+				{{> "stonetop.arcanum-cards" items=preview}}
+			</div>
+		</aside>
+
+	</div>
+</form>

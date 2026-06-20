@@ -1,0 +1,36 @@
+{{!-- Optional inventory-item definition for an arcanum side. Params: item (the item object or null),
+      path (e.g. "system.front.item"). Scalars auto-save via name=; the item's resource reuses the
+      arcanum-resource partial at "{path}.resource". --}}
+<div class="stonetop-arcanum-item-def">
+	<div class="stonetop-arcanum-subhead">
+		<span>{{localize "stonetop.arcanum.item"}}</span>
+		<button type="button" class="arcanum-item-toggle" data-path="{{path}}">
+			{{#if item}}{{localize "stonetop.arcanum.remove"}}{{else}}{{localize "stonetop.arcanum.add"}}{{/if}}
+		</button>
+	</div>
+	{{#if item}}
+	<div class="stonetop-arcanum-fields">
+		<label class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemName"}}</span>
+			<input type="text" name="{{path}}.name" value="{{item.name}}">
+		</label>
+		<label class="stonetop-arcanum-field--narrow"><span>{{localize "stonetop.arcanum.itemWeight"}}</span>
+			<input type="number" min="0" name="{{path}}.weight" value="{{item.weight}}">
+		</label>
+		<label class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemTags"}}</span>
+			<input type="text" name="{{path}}.tags" value="{{item.tags}}">
+		</label>
+		<label class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemNote"}}</span>
+			<input type="text" name="{{path}}.note" value="{{item.note}}">
+		</label>
+		<label class="stonetop-arcanum-field--narrow"><span>{{localize "stonetop.arcanum.itemColumn"}}</span>
+			<select name="{{path}}.inventoryColumn">
+				<option value="" {{#unless item.inventoryColumn}}selected{{/unless}}>—</option>
+				<option value="regular" {{#if (eq item.inventoryColumn "regular")}}selected{{/if}}>regular</option>
+				<option value="small" {{#if (eq item.inventoryColumn "small")}}selected{{/if}}>small</option>
+			</select>
+		</label>
+		<label class="stonetop-arcanum-field--check"><input type="checkbox" name="{{path}}.twoCol" {{#if item.twoCol}}checked{{/if}}><span>{{localize "stonetop.arcanum.itemTwoCol"}}</span></label>
+	</div>
+	{{> "stonetop.arcanum-resource" resource=item.resource path=(concat path ".resource")}}
+	{{/if}}
+</div>

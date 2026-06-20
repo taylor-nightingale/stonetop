@@ -6,7 +6,7 @@ An unofficial [Foundry VTT](https://foundryvtt.com) system for playing [Stonetop
 
 ## Prerequisites
 
-- Foundry VTT v14
+- Foundry VTT v13 or v14
 
 ## Installation
 

@@ -9,6 +9,7 @@
   mark in the XP box on your playbook,
   increasing your total XP by 1.
 * Add prosperity to inventory tab
+* add steading move automations for debilities
 * Update all of our compendium items to include the json structure for adding outfit items
 * dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
 * tethered arcana needs format fixes

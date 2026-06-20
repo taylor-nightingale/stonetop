@@ -12,44 +12,12 @@
 {{#if isGrid}}
 <div class="stonetop-inv-twocol-grid">
 	{{#each items}}
-	<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-		<span class="stonetop-inv-diamonds">
-			{{#each (times weight)}}
-			<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
-			       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
-			{{/each}}
-		</span>
-		<span class="stonetop-inv-label">{{name}}
-			{{#if tags}}<span class="stonetop-inv-tags">{{tags}}</span>{{/if}}
-			{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
-		</span>
-		{{#if isCustom}}
-		<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
-		{{/if}}
-	</div>
+	{{> "stonetop.outfit-item-row"}}
 	{{/each}}
 </div>
 {{else}}
 {{#each items}}
-<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-	<span class="stonetop-inv-diamonds">
-		{{#each (times weight)}}
-		<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
-		       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
-		{{/each}}
-	</span>
-	<span class="stonetop-inv-label">{{name}}
-		{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
-	</span>
-	{{#if resource}}
-	<span class="stonetop-inv-resources">
-		{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
-	</span>
-	{{/if}}
-	{{#if isCustom}}
-	<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
-	{{/if}}
-</div>
+{{> "stonetop.outfit-item-row"}}
 {{/each}}
 {{/if}}
 {{/each}}

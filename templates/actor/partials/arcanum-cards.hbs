@@ -11,29 +11,7 @@
 	<div class="stonetop-arcanum-header">
 		<div class="stonetop-arcanum-header-left">
 			<span class="stonetop-arcanum-title">{{back.title}}</span>
-			{{#if back.item}}
-			<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-				{{#if back.item.weight}}
-				<span class="stonetop-inv-diamonds">
-					{{#each (times back.item.weight)}}
-					<input type="checkbox"
-					       class="stonetop-inventory-item-check stonetop-inv-diamond"
-					       data-slug="{{../slug}}"
-					       {{#if ../checked}}checked{{/if}}>
-					{{/each}}
-				</span>
-				{{/if}}
-				{{#unless (eq back.item.name back.title)}}
-				<span class="stonetop-inv-label">{{back.item.name}}</span>
-				{{/unless}}
-				{{#if back.item.note}}<span class="stonetop-inv-note">{{{back.item.note}}}</span>{{/if}}
-				{{#if back.item.resource}}
-				<span class="stonetop-inv-resources">
-					{{> "stonetop.resource-track" resource=back.item.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
-				</span>
-				{{/if}}
-			</div>
-			{{/if}}
+			{{#if back.item}}{{> "stonetop.outfit-item-row" back.item}}{{/if}}
 		</div>
 		{{#if back.resource}}
 		<div class="stonetop-arcanum-header-resource">
@@ -69,21 +47,7 @@
 	<div class="stonetop-arcanum-header">
 		<div class="stonetop-arcanum-header-left">
 			<span class="stonetop-arcanum-title">{{front.title}}</span>
-			{{#if front.item}}
-			<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
-				{{#if front.item.weight}}
-				<span class="stonetop-inv-diamonds">
-					{{#each (times front.item.weight)}}
-					<input type="checkbox"
-					       class="stonetop-inventory-item-check stonetop-inv-diamond"
-					       data-slug="{{../slug}}"
-					       {{#if ../checked}}checked{{/if}}>
-					{{/each}}
-				</span>
-				{{/if}}
-				{{#if front.item.note}}<span class="stonetop-inv-note">{{{front.item.note}}}</span>{{/if}}
-			</div>
-			{{/if}}
+			{{#if front.item}}{{> "stonetop.outfit-item-row" front.item}}{{/if}}
 		</div>
 	</div>
 	<div class="stonetop-arcanum-body">

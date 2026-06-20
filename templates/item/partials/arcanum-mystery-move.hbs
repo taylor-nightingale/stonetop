@@ -1,0 +1,29 @@
+{{!-- One back "mystery move" row (major arcana). Params: move, index. All fields save through the
+      .arcanum-move-field change handler (data-index + data-field); the array is rewritten whole. --}}
+<div class="stonetop-arcanum-move">
+	<div class="stonetop-arcanum-move-head">
+		<input type="text" class="arcanum-move-field" data-index="{{index}}" data-field="name"
+		       value="{{move.name}}" placeholder="{{localize 'stonetop.arcanum.moveName'}}">
+		<button type="button" class="arcanum-move-up"     data-index="{{index}}" title="↑">↑</button>
+		<button type="button" class="arcanum-move-down"   data-index="{{index}}" title="↓">↓</button>
+		<button type="button" class="arcanum-move-remove" data-index="{{index}}" title="×">×</button>
+	</div>
+	<input type="text" class="arcanum-move-field" data-index="{{index}}" data-field="subtitle"
+	       value="{{move.subtitle}}" placeholder="{{localize 'stonetop.arcanum.moveSubtitle'}}">
+	<textarea class="arcanum-move-field" data-index="{{index}}" data-field="text"
+	          placeholder="{{localize 'stonetop.arcanum.moveText'}}">{{move.text}}</textarea>
+	<input type="text" class="arcanum-move-field" data-index="{{index}}" data-field="followerSlug"
+	       value="{{move.followerSlug}}" placeholder="{{localize 'stonetop.arcanum.moveFollower'}}">
+	<div class="stonetop-arcanum-move-tracker">
+		<span>{{localize "stonetop.arcanum.moveTracker"}}</span>
+		{{#if move.tracker}}
+		<input type="text" class="arcanum-move-field" data-index="{{index}}" data-field="tracker.label"
+		       value="{{move.tracker.label}}" placeholder="label">
+		<input type="number" min="1" class="arcanum-move-field" data-index="{{index}}" data-field="tracker.max"
+		       value="{{move.tracker.max}}">
+		<button type="button" class="arcanum-move-toggle-tracker" data-index="{{index}}">×</button>
+		{{else}}
+		<button type="button" class="arcanum-move-toggle-tracker" data-index="{{index}}">+ {{localize "stonetop.arcanum.moveTracker"}}</button>
+		{{/if}}
+	</div>
+</div>

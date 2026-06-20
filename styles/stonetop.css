@@ -2132,6 +2132,15 @@ body,
 	padding-left: 1.2em;
 }
 
+/* Issue #7/#8: inside an arcanum card the "text" content role is ONE size everywhere — the plain
+   card description, a choice/unlock entry's description, and a tracked entry's description all match
+   the body size. Font size must vary only by content role (title/subtitle/note/text), never by
+   whether a row is a track, input, or pick. (Scoped to the card so other sheets keep their sizes.) */
+.stonetop-arcanum-body .stonetop-choice-description,
+.stonetop-arcanum-body .stonetop-choice-track-desc {
+	font-size: inherit;
+}
+
 .stonetop-arcanum-footer {
 	padding: 4px 6px;
 	border-top: 1px solid var(--color-border-dark);
@@ -4504,3 +4513,75 @@ form.stonetop.sheet.steading {
 .stonetop-insert-sheet-move { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 4px; }
 .stonetop-insert-sheet-move .insert-move-open { flex: 1 1 auto; cursor: pointer; }
 .stonetop-insert-sheet-move .insert-move-open:hover { text-decoration: underline; }
+
+/* -- Arcanum item sheet (StonetopArcanumSheet) — reuses .stonetop-insert-sheet-* layout ------- */
+.stonetop-arcanum-core { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.stonetop-arcanum-field--check { display: inline-flex; align-items: center; gap: 5px; }
+.stonetop-arcanum-field--narrow { display: inline-flex; align-items: center; gap: 4px; }
+.stonetop-arcanum-field--narrow input { width: 56px; }
+.stonetop-arcanum-slug { margin-left: auto; font-size: 0.75rem; opacity: 0.5; font-style: italic; }
+.stonetop-arcanum-title-field { display: block; margin: 4px 0; }
+.stonetop-arcanum-title-field input { width: 100%; }
+.stonetop-arcanum-subhead {
+	display: flex; align-items: center; justify-content: space-between; gap: 8px;
+	margin: 8px 0 2px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
+}
+.stonetop-arcanum-item-def, .stonetop-arcanum-resource-editor {
+	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px; margin: 4px 0;
+}
+.stonetop-arcanum-fields { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.stonetop-arcanum-fields label { display: flex; flex-direction: row; align-items: center; font-size: 0.75rem; gap: 6px; }
+.stonetop-arcanum-fields label > span { flex: 0 0 auto; white-space: nowrap; }
+.stonetop-arcanum-fields label input,
+.stonetop-arcanum-fields label select { flex: 1 1 auto; min-width: 0; }
+.stonetop-arcanum-field--wide { flex: 1 1 100%; }
+.stonetop-arcanum-field--narrow { flex: 0 0 auto; }
+.stonetop-arcanum-field--narrow input { flex: 0 0 auto; width: 4.5em; }
+.stonetop-arcanum-field--check { flex: 0 0 auto; }
+.stonetop-arcanum-field--check input { flex: 0 0 auto; width: auto; }
+.stonetop-arcanum-moves { display: flex; flex-direction: column; gap: 6px; }
+.stonetop-arcanum-move {
+	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px;
+	display: flex; flex-direction: column; gap: 4px;
+}
+.stonetop-arcanum-move-head { display: flex; align-items: center; gap: 4px; }
+.stonetop-arcanum-move-head input { flex: 1 1 auto; }
+.stonetop-arcanum-move textarea { width: 100%; min-height: 48px; resize: vertical; }
+.stonetop-arcanum-move-tracker { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; }
+.stonetop-arcanum-move-tracker input[type=number] { width: 50px; }
+
+/* Two-column layout: editor (scrolls) + sticky live preview on the right. */
+.stonetop-arcanum-layout { display: flex; gap: 16px; align-items: flex-start; }
+.stonetop-arcanum-editor { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.stonetop-arcanum-preview-pane {
+	flex: 0 0 320px;
+	position: sticky;
+	top: 0;
+	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.stonetop-arcanum-preview-head {
+	display: flex; align-items: center; justify-content: space-between; gap: 8px;
+	font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
+}
+/* The preview reuses the real card render but is non-interactive; hide the card's own footer. */
+.stonetop-arcanum-preview { pointer-events: none; }
+.stonetop-arcanum-preview .stonetop-arcanum-footer { display: none; }
+.stonetop-arcanum-preview .stonetop-arcanum-card { width: 100%; }
+
+/* Bigger, clearly separated FRONT / BACK headers. */
+.stonetop-arcanum-side { margin-top: 14px; }
+.stonetop-arcanum-side-title {
+	font-size: 1.1rem; font-weight: bold; margin: 0 0 6px; padding-bottom: 4px;
+	border-bottom: 2px solid var(--color-border-dark, #7a7971); text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* Description editor — a definite-height box whose content scrolls inside it, so the active
+   ProseMirror editor (toolbar + content) can never overflow onto the unlock section below it. */
+.stonetop-arcanum-editor-box { position: relative; height: 200px; margin: 2px 0 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; }
+.stonetop-arcanum-editor-box .editor-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 4px 6px; }
+/* When Foundry swaps in the active ProseMirror editor, keep its toolbar + scrolling container inside the box. */
+.stonetop-arcanum-editor-box.prosemirror { padding: 0; }
+.stonetop-arcanum-editor-box .editor-container { flex: 1 1 auto; min-height: 0; overflow: hidden; }
