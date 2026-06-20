@@ -8,6 +8,7 @@ import { createStonetopNpcSheetClass } from "./src/actors/npc/StonetopNpcSheet.j
 import { createStonetopMoveSheetClass } from "./src/item/StonetopMoveSheet.js";
 import { createStonetopInsertSheetClass } from "./src/item/StonetopInsertSheet.js";
 import { createStonetopArcanumSheetClass } from "./src/item/StonetopArcanumSheet.js";
+import { createStonetopPossessionSheetClass } from "./src/item/StonetopPossessionSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
@@ -138,6 +139,13 @@ Hooks.once("init", () => {
 		types: ["arcanum"],
 		makeDefault: true,
 		label: "Stonetop Arcanum Sheet",
+	});
+
+	const StonetopPossessionSheet = createStonetopPossessionSheetClass(foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopPossessionSheet, {
+		types: ["possession"],
+		makeDefault: true,
+		label: "Stonetop Possession Sheet",
 	});
 
 	foundry.applications.handlebars.loadTemplates({

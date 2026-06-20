@@ -6,7 +6,6 @@ import { Possession } from "../../../../src/model/data/character/Possession.js";
 
 const POSSESSION_SYSTEM = {
 	slug:        "sacred-pouch",
-	label:       "Sacred Pouch",
 	description: "A small pouch",
 	resource:    { max: 3, title: "Stock", labels: [] },
 	outfitItems: [],
@@ -17,7 +16,6 @@ const POSSESSION_SYSTEM = {
 
 const OTHER_SYSTEM = {
 	slug:        "apiary",
-	label:       "Apiary",
 	description: "Bees",
 	resource:    null,
 	outfitItems: [],
@@ -35,7 +33,7 @@ function makePack(entries = [], systemBySlug = {}) {
 		getDocument: vi.fn(async (id) => {
 			const entry = entries.find(e => e._id === id);
 			const slug  = entry?.system?.slug;
-			return { system: systemBySlug[slug] };
+			return { name: entry?.name, system: systemBySlug[slug] };
 		}),
 	};
 }
@@ -68,7 +66,7 @@ describe("FoundryPossessionRepository", () => {
 
 		it("returns a Possession when slug is found", async () => {
 			const pack = makePack(
-				[{ _id: "abc123xyz0000001", system: { slug: "sacred-pouch" } }],
+				[{ _id: "abc123xyz0000001", name: "Sacred Pouch", system: { slug: "sacred-pouch" } }],
 				{ "sacred-pouch": POSSESSION_SYSTEM },
 			);
 			stubGame(pack);
@@ -76,7 +74,7 @@ describe("FoundryPossessionRepository", () => {
 			const result = await repo.findBySlug("sacred-pouch");
 			expect(result).toBeInstanceOf(Possession);
 			expect(result.slug).toBe("sacred-pouch");
-			expect(result.label).toBe("Sacred Pouch");
+			expect(result.name).toBe("Sacred Pouch");
 			expect(result.resource.max).toBe(3);
 		});
 

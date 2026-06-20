@@ -123,6 +123,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			html.find(".stonetop-inv-delete").on("click", this._onDeleteCustomInventoryItem.bind(this));
 			html.find(".stonetop-outfit-load-radio").on("change", this._onOutfitLoad.bind(this));
 			html.find(".stonetop-possession-check").on("change", this._onPossessionCheck.bind(this));
+			html.find(".stonetop-possession-delete").on("click", this._onDeletePossession.bind(this));
 			html.find(".stonetop-possession-sub-check").on("change", this._onPossessionSubCheck.bind(this));
 			html.find(".stonetop-possession-sub-radio").on("change", this._onPossessionSubRadio.bind(this));
 			html.find(".stonetop-regular-pool-btn").on("change", this._onRegularPool.bind(this));
@@ -478,6 +479,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			} else {
 				await this._stonetopCharacter.deselectPossession(slug);
 			}
+		}
+
+		async _onDeletePossession(ev) {
+			await this._stonetopCharacter.deletePossession(ev.currentTarget.dataset.slug);
 		}
 
 		async _onPossessionUseChange(ev) {

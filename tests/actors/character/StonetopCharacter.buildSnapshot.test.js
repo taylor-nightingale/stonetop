@@ -66,7 +66,7 @@ describe("buildSnapshot — possessions: snapshot when playbook configured", () 
 		const actor = new FakeActorBuilder().withItems([
 			{ _id: "pb", type: "playbook", name: "The Blessed", system: { slug: "blessed", specialPossessions: sp } },
 			{ _id: "ap", type: "possession", name: "Apiary",
-				system: { slug: "apiary", label: "Apiary", description: "", resource: null, outfitItems: [],
+				system: { slug: "apiary", description: "", resource: null, outfitItems: [],
 					choices: null, scaling: null, sortOrder: null, selected: false, preselected: false,
 					uses: 0, pickValues: {}, choiceUses: {}, playbookSlug: "blessed" } },
 		]).withPlaybook("blessed").build();

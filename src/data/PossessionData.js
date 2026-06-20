@@ -3,6 +3,9 @@ import { migrateChoicesField } from "../migration/migrateChoices.js";
 export class PossessionData extends foundry.abstract.TypeDataModel {
 	static migrateData(source) {
 		migrateChoicesField(source.choices);
+		// `label` was a redundant duplicate of the item name — the item `name` is now the single
+		// source of truth, so drop any stored copy.
+		delete source.label;
 		return super.migrateData(source);
 	}
 
@@ -10,7 +13,6 @@ export class PossessionData extends foundry.abstract.TypeDataModel {
 		const f = foundry.data.fields;
 		return {
 			slug:         new f.StringField({ nullable: true, initial: null }),
-			label:        new f.StringField({ initial: "" }),
 			description:  new f.StringField({ initial: "" }),
 			resource:     new f.ObjectField({ nullable: true, initial: null }),
 			outfitItems:  new f.ArrayField(new f.ObjectField()),

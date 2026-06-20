@@ -12,7 +12,7 @@ export class FoundryPossessionRepository {
 		const entry = await this._store.findEntry(e => e.system?.slug === slug);
 		if (!entry) return null;
 		const doc = await this._store.getDocument(entry._id);
-		const possession = new Possession(doc.system);
+		const possession = new Possession(doc.system, doc.name);
 		this._cache.set(slug, possession);
 		return possession;
 	}

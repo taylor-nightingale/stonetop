@@ -27,7 +27,7 @@
 * Support threats
 * Add artifacts on p41 b2
 * npcs should use the same tags pill selection as followers
-*
+* standing watch improvement not formatted correctly
 
 == Nice to have
 * toggle to turn off non-selected character options
@@ -35,7 +35,7 @@
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 * support non-stonetop steading sheets
-
+c
 
 
 

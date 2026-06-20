@@ -6,9 +6,8 @@ describe("PossessionData defaults", () => {
 		expect(new PossessionData().slug).toBeNull();
 	});
 
-	it("defaults label and description to empty string", () => {
+	it("defaults description to empty string", () => {
 		const d = new PossessionData();
-		expect(d.label).toBe("");
 		expect(d.description).toBe("");
 	});
 
@@ -46,10 +45,14 @@ describe("PossessionData defaults", () => {
 });
 
 describe("PossessionData with initial data", () => {
-	it("accepts slug and label", () => {
-		const d = new PossessionData({ slug: "sacred-pouch", label: "Sacred pouch" });
+	it("accepts slug", () => {
+		const d = new PossessionData({ slug: "sacred-pouch" });
 		expect(d.slug).toBe("sacred-pouch");
-		expect(d.label).toBe("Sacred pouch");
+	});
+
+	it("drops a legacy label field (name is now the source of truth)", () => {
+		const d = new PossessionData({ slug: "sacred-pouch", label: "Sacred pouch" });
+		expect(d.label).toBeUndefined();
 	});
 
 	it("accepts resource object", () => {

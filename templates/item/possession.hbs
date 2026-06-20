@@ -1,0 +1,125 @@
+<form class="stonetop sheet item possession" autocomplete="off">
+
+	<header class="stonetop-insert-sheet-header">
+		<img class="stonetop-insert-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
+		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{data.name}}"
+		       placeholder="{{localize 'stonetop.possession.namePlaceholder'}}"
+		       {{#unless editable}}disabled{{/unless}}>
+	</header>
+
+	<div class="stonetop-insert-sheet-body">
+
+		<section class="stonetop-insert-sheet-section editor">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.possession.description"}}</label>
+			{{#if editable}}
+			<div class="editor-content" data-edit="system.description">{{{system.description}}}</div>
+			{{else}}
+			<div class="editor-content stonetop-rich">{{{md system.description}}}</div>
+			{{/if}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.possession.resource"}}</label>
+			</div>
+			{{> "stonetop.arcanum-resource" resource=system.resource path="system.resource"}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.possession.choices"}}</label>
+				{{#if editable}}
+					{{#if system.choices}}
+					<button type="button" class="possession-choices-remove-group">{{localize "stonetop.possession.removeChoices"}}</button>
+					{{else}}
+					<button type="button" class="possession-choices-add-group">{{localize "stonetop.possession.addChoices"}}</button>
+					{{/if}}
+				{{/if}}
+			</div>
+			{{#if system.choices}}
+			<div class="stonetop-insert-sheet-choices-group">
+				{{> "stonetop.choice-group-editor" cgPath="system.choices" rows=choicesRows}}
+			</div>
+			{{/if}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.possession.outfitItems"}}</label>
+				{{#if editable}}
+				<button type="button" class="possession-outfit-add">
+					<i class="fas fa-plus"></i> {{localize "stonetop.possession.addOutfitItem"}}
+				</button>
+				{{/if}}
+			</div>
+			<div class="stonetop-possession-outfit-list">
+				{{#each system.outfitItems}}
+				<div class="stonetop-possession-outfit-row">
+					<label class="stonetop-possession-outfit-field stonetop-possession-outfit-field--wide"><span>{{localize "stonetop.possession.itemName"}}</span>
+						<input type="text" class="possession-outfit-field" data-index="{{@index}}" data-field="name"
+						       value="{{this.name}}" {{#unless ../editable}}disabled{{/unless}}>
+					</label>
+					<label class="stonetop-possession-outfit-field stonetop-possession-outfit-field--narrow"><span>{{localize "stonetop.possession.itemWeight"}}</span>
+						<input type="number" min="0" class="possession-outfit-field" data-index="{{@index}}" data-field="weight"
+						       value="{{this.weight}}" {{#unless ../editable}}disabled{{/unless}}>
+					</label>
+					<label class="stonetop-possession-outfit-field stonetop-possession-outfit-field--narrow"><span>{{localize "stonetop.possession.itemColumn"}}</span>
+						<select class="possession-outfit-field" data-index="{{@index}}" data-field="inventoryColumn" {{#unless ../editable}}disabled{{/unless}}>
+							<option value="regular" {{#if (eq this.inventoryColumn "regular")}}selected{{/if}}>regular</option>
+							<option value="small" {{#if (eq this.inventoryColumn "small")}}selected{{/if}}>small</option>
+						</select>
+					</label>
+					{{#if ../editable}}
+					<button type="button" class="possession-outfit-remove" data-index="{{@index}}"
+					        title="{{localize 'stonetop.possession.remove'}}">✕</button>
+					{{/if}}
+				</div>
+				{{/each}}
+			</div>
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.possession.scaling"}}</label>
+				{{#if editable}}
+				<button type="button" class="possession-scaling-toggle">
+					{{#if system.scaling}}{{localize "stonetop.possession.removeScaling"}}{{else}}{{localize "stonetop.possession.addScaling"}}{{/if}}
+				</button>
+				{{/if}}
+			</div>
+			{{#if system.scaling}}
+			<p class="stonetop-possession-scaling-note">{{localize "stonetop.possession.scalingNote"}}</p>
+			<label class="stonetop-possession-scaling-field"><span>{{localize "stonetop.possession.perEvenLevel"}}</span>
+				<input type="number" name="system.scaling.perEvenLevel" value="{{system.scaling.perEvenLevel}}" {{#unless editable}}disabled{{/unless}}>
+			</label>
+			<div class="stonetop-possession-scaling-head">
+				<span>{{localize "stonetop.possession.perMove"}}</span>
+				{{#if editable}}
+				<button type="button" class="possession-scaling-move-add">
+					<i class="fas fa-plus"></i> {{localize "stonetop.possession.addPerMove"}}
+				</button>
+				{{/if}}
+			</div>
+			<div class="stonetop-possession-scaling-moves">
+				{{#each system.scaling.perMove}}
+				<div class="stonetop-possession-scaling-move-row">
+					<label class="stonetop-possession-outfit-field stonetop-possession-outfit-field--wide"><span>{{localize "stonetop.possession.moveSlug"}}</span>
+						<input type="text" class="possession-scaling-move-field" data-index="{{@index}}" data-field="moveSlug"
+						       value="{{this.moveSlug}}" {{#unless ../editable}}disabled{{/unless}}>
+					</label>
+					<label class="stonetop-possession-outfit-field stonetop-possession-outfit-field--narrow"><span>{{localize "stonetop.possession.amount"}}</span>
+						<input type="number" class="possession-scaling-move-field" data-index="{{@index}}" data-field="amount"
+						       value="{{this.amount}}" {{#unless ../editable}}disabled{{/unless}}>
+					</label>
+					{{#if ../editable}}
+					<button type="button" class="possession-scaling-move-remove" data-index="{{@index}}"
+					        title="{{localize 'stonetop.possession.remove'}}">✕</button>
+					{{/if}}
+				</div>
+				{{/each}}
+			</div>
+			{{/if}}
+		</section>
+
+	</div>
+</form>

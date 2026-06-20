@@ -1635,6 +1635,18 @@ body,
 	display: inline;
 }
 
+.stonetop-possession-delete {
+	display: none;
+	margin-left: auto;
+	color: var(--color-text-dark-secondary);
+	cursor: pointer;
+	font-size: 0.75em;
+}
+
+.stonetop-item:hover .stonetop-possession-delete {
+	display: inline;
+}
+
 /* -- Inventory ------------------------------------------------ */
 
 .stonetop-inventory {
@@ -4658,6 +4670,29 @@ form.stonetop.sheet.steading {
 .stonetop-insert-sheet-move { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 4px; }
 .stonetop-insert-sheet-move .insert-move-open { flex: 1 1 auto; cursor: pointer; }
 .stonetop-insert-sheet-move .insert-move-open:hover { text-decoration: underline; }
+
+/* -- Possession item sheet (StonetopPossessionSheet) — reuses .stonetop-insert-sheet-* layout -- */
+.stonetop-possession-outfit-list,
+.stonetop-possession-scaling-moves { display: flex; flex-direction: column; gap: 6px; }
+.stonetop-possession-outfit-row,
+.stonetop-possession-scaling-move-row {
+	display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px;
+}
+.stonetop-possession-outfit-field { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; }
+.stonetop-possession-outfit-field > span { flex: 0 0 auto; white-space: nowrap; }
+.stonetop-possession-outfit-field input,
+.stonetop-possession-outfit-field select { flex: 1 1 auto; min-width: 0; }
+.stonetop-possession-outfit-field--wide { flex: 1 1 100%; }
+.stonetop-possession-outfit-field--narrow { flex: 0 0 auto; }
+.stonetop-possession-outfit-field--narrow input { flex: 0 0 auto; width: 4.5em; }
+.stonetop-possession-scaling-field { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; margin: 2px 0; }
+.stonetop-possession-scaling-field input { width: 4.5em; }
+.stonetop-possession-scaling-head {
+	display: flex; align-items: center; justify-content: space-between; gap: 8px;
+	margin: 6px 0 2px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
+}
+.stonetop-possession-scaling-note { font-size: 0.75rem; opacity: 0.7; margin: 2px 0; }
 
 /* -- Arcanum item sheet (StonetopArcanumSheet) — reuses .stonetop-insert-sheet-* layout ------- */
 .stonetop-arcanum-core { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }

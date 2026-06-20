@@ -21,7 +21,40 @@
 					"type": "entry",
 					"content": {
 						"title": null,
-						"text": "**Requires** all of the following:\n\n- A veteran warrior, able to command a crowd\n- At least 6 warriors, well-equipped and willing\n- The village leaders agreeing to support warriors who train and keep watch full-time"
+						"text": "**Requires** all of the following:"
+					}
+				},
+				{
+					"type": "entry",
+					"slug": "veteran-warrior",
+					"content": {
+						"title": null,
+						"text": "A veteran warrior, able to command a crowd"
+					},
+					"track": {
+						"max": 1
+					}
+				},
+				{
+					"type": "entry",
+					"slug": "six-warriors",
+					"content": {
+						"title": null,
+						"text": "At least 6 warriors, well-equipped and willing"
+					},
+					"track": {
+						"max": 1
+					}
+				},
+				{
+					"type": "entry",
+					"slug": "village-leaders",
+					"content": {
+						"title": null,
+						"text": "The village leaders agreeing to support warriors who train and keep watch full-time"
+					},
+					"track": {
+						"max": 1
 					}
 				},
 				{

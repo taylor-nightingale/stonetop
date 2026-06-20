@@ -1,7 +1,10 @@
 export class Possession {
-	constructor(data) {
+	// `name` is the possession's display title — it lives on the item/document (`item.name`), not in
+	// `system`, so callers that have the document pass it in; those building from `system` alone
+	// (outfit-item / choice syncing) can omit it.
+	constructor(data, name = "") {
 		this.slug        = data.slug        ?? null;
-		this.label       = data.label       ?? "";
+		this.name        = name             ?? "";
 		this.description = data.description ?? "";
 		this.resource    = data.resource    ?? null;
 		this.outfitItems = data.outfitItems ?? [];

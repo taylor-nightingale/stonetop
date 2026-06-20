@@ -139,8 +139,9 @@
 					       data-slug="{{slug}}"
 					       {{#if checked}}checked{{/if}}
 					       {{#if disabled}}disabled{{/if}}>
-					<strong class="stonetop-item-name">{{{label}}}</strong>
+					<strong class="stonetop-item-name stonetop-rich">{{{md label}}}</strong>
 					{{#if preselectedSource}}<span class="stonetop-item-source">{{preselectedSource}}</span>{{/if}}
+					{{#if removable}}<a class="stonetop-possession-delete" data-slug="{{slug}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-trash"></i></a>{{/if}}
 					{{#if resource}}
 					<span class="stonetop-item-resources">
 						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=slug}}
@@ -153,9 +154,7 @@
 				{{#if choices}}
 				<div class="stonetop-choice-rows">
 				{{#each choices.list}}
-					{{#if (eq type "entry")}}
-					<p class="stonetop-choice-row-heading stonetop-rich">{{{md content.title}}}{{#if content.titleNote}} <em>({{{md content.titleNote}}})</em>{{/if}}</p>
-					{{else if radio}}
+					{{#if radio}}
 					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-radio" namePrefix="stonetop" possessionSlug=../slug}}
 					{{else}}
 					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-check" possessionSlug=../slug}}

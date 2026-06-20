@@ -43,12 +43,11 @@ export class TestPossessionBuilder {
 	build() {
 		return new Possession({
 			slug:        this._slug,
-			label:       this._label,
 			description: this._description,
 			resource:    this._resource,
 			outfitItems: this._outfitItems,
 			choices:     this._choices,
 			scaling:     this._scaling,
-		});
+		}, this._label);
 	}
 }
