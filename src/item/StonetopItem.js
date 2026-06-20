@@ -7,7 +7,7 @@ export function createStonetopItemClass(BaseItem) {
 			return new StonetopPlaybook(this);
 		}
 
-		async roll({ rollMode = "def", descriptionOnly = false } = {}) {
+		async roll({ rollMode = "normal", descriptionOnly = false } = {}) {
 			if (!this.actor) {
 				const speaker = ChatMessage.getSpeaker({ actor: undefined });
 				return ChatMessage.create({ speaker, content: `<h3>${this.name}</h3>${this.system?.description ?? ""}` });

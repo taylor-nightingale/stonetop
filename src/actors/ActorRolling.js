@@ -83,15 +83,15 @@ export class ActorRolling {
 		}
 	}
 
-	static async _pickStat(title, stats, initialRollMode = "def") {
+	static async _pickStat(title, stats, initialRollMode = "normal") {
 		return new Promise(resolve => {
 			const modes = [
 				{key: "adv", labelKey: "stonetop.rollMode.adv"},
-				{key: "def", labelKey: "stonetop.rollMode.normal"},
+				{key: "normal", labelKey: "stonetop.rollMode.normal"},
 				{key: "dis", labelKey: "stonetop.rollMode.dis"},
 			];
 			const modeHtml = modes.map(m =>
-				`<li><label class="stonetop-outfit-load-label${m.key === initialRollMode ? " is-checked" : ""}">` +
+				`<li><label class="stonetop-outfit-load-label">` +
 				`<input type="radio" class="stonetop-roll-mode-radio" name="rollMode" value="${m.key}"${m.key === initialRollMode ? " checked" : ""}>` +
 				`${game.i18n.localize(m.labelKey)}</label></li>`
 			).join("");

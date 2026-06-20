@@ -35,7 +35,7 @@ export class CharacterDebilities {
 			def => def.stats.includes(stat) && !!(debilityOptions[def.key]?.value)
 		);
 		if (!hasActiveDebility) return options;
-		if (options.rollMode === "adv") return {...options, rollMode: "def"};
+		if (options.rollMode === "adv") return {...options, rollMode: "normal"};
 		if (options.rollMode === "dis") return options;
 		return {...options, rollMode: "dis"};
 	}

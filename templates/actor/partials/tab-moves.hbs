@@ -1,34 +1,6 @@
 <div class="tab moves" data-group="primary" data-tab="moves">
 	<section class="sheet-tab">
 
-		{{!-- Roll Mode --}}
-		<div class="stonetop-outfit-header">
-			<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
-			<ul class="stonetop-outfit-loads">
-				<li>
-					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-						       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-						<span>{{localize "stonetop.rollMode.normal"}}</span>
-					</label>
-				</li>
-				<li>
-					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-						       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-						<span>{{localize "stonetop.rollMode.adv"}}</span>
-					</label>
-				</li>
-				<li>
-					<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-						       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-						<span>{{localize "stonetop.rollMode.dis"}}</span>
-					</label>
-				</li>
-			</ul>
-		</div>
-
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}
 		{{> "stonetop.move-group" title=label note=note moves=moves categoryKey=key allowAdditional=allowAdditional}}

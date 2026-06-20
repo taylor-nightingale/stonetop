@@ -31,7 +31,7 @@ export class StonetopSteading {
 	}
 
 	get rollMode() {
-		return this._actor.getFlag("stonetop", "rollMode") ?? "def";
+		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
 	}
 
 	async setRollMode(mode) {
