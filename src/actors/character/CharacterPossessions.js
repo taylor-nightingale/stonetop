@@ -97,6 +97,20 @@ export class CharacterPossessions {
 		}]);
 	}
 
+	// Persist any other choice-group value on a possession — entry fill-tracks (count) and
+	// text/fill-in inputs (text). Keyed by the possession slug, which buildSnapshot forces the
+	// choice group's slug to match so reads line up with these writes.
+	async setChoiceValue(possessionSlug, optionSlug, value) {
+		const item = _findPossessionItem(this._actor, possessionSlug);
+		if (!item) return;
+		const cv = new ChoiceValues(item.system?.pickValues ?? {});
+		await this._actor.updateEmbeddedDocuments("Item", [{
+			_id: item._id,
+			system: { pickValues: cv.set(possessionSlug, optionSlug, value).toRaw() },
+		}]);
+		await this.syncPossessionItems(possessionSlug);
+	}
+
 	async addPossessionsFromPlaybook(sp, playbookSlug) {
 		if (!sp || !this._possessionRepo) return;
 		const { preselected = [], slugs = [] } = sp;
@@ -213,7 +227,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(isSelected && p.choices ? ChoiceGroup.fromPackData(p.choices, pickValues) : null)
+				.withChoices(isSelected && p.choices ? ChoiceGroup.fromPackData({ ...p.choices, slug: p.slug }, pickValues) : null)
 				.build();
 		});
 
@@ -238,7 +252,7 @@ export class CharacterPossessions {
 				.withRemovable(true)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(p.choices ? ChoiceGroup.fromPackData(p.choices, pickValues) : null)
+				.withChoices(p.choices ? ChoiceGroup.fromPackData({ ...p.choices, slug: p.slug }, pickValues) : null)
 				.build());
 		}
 

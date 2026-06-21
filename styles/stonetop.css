@@ -1636,15 +1636,21 @@ body,
 }
 
 .stonetop-possession-delete {
-	display: none;
+	visibility: hidden;
 	margin-left: auto;
 	color: var(--color-text-dark-secondary);
 	cursor: pointer;
 	font-size: 0.75em;
 }
 
+/* When a resource is present it owns the auto-margin; the delete just sits a small fixed gap to
+   its right. Using visibility (not display) keeps the slot reserved so nothing shifts on hover. */
+.stonetop-item-resources + .stonetop-possession-delete {
+	margin-left: 6px;
+}
+
 .stonetop-item:hover .stonetop-possession-delete {
-	display: inline;
+	visibility: visible;
 }
 
 /* -- Inventory ------------------------------------------------ */

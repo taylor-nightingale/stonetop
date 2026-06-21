@@ -206,6 +206,12 @@ export function createStonetopCharacterSheetClass(Base) {
 				if (!el) return;
 				const { cgContext, cgGroup, cgOption, cgIndex } = el.dataset;
 				const count = el.checked ? Number(cgIndex) + 1 : Number(cgIndex);
+				const possEl = el.closest("[data-possession-slug]");
+				if (possEl) {
+					await this._stonetopCharacter.setPossessionChoiceValue(
+						possEl.dataset.possessionSlug, cgOption, count);
+					return;
+				}
 				const insertEl = el.closest("[data-insert-item-id]");
 				if (insertEl) {
 					await this._stonetopCharacter.setInsertChoiceCount(
@@ -234,7 +240,14 @@ export function createStonetopCharacterSheetClass(Base) {
 
 			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-cg-text");
-				if (!el?.dataset.cgContext) return;
+				if (!el) return;
+				const possEl = el.closest("[data-possession-slug]");
+				if (possEl) {
+					await this._stonetopCharacter.setPossessionChoiceValue(
+						possEl.dataset.possessionSlug, el.dataset.cgOption, el.value);
+					return;
+				}
+				if (!el.dataset.cgContext) return;
 				const { cgContext, cgGroup, cgOption } = el.dataset;
 				const insertEl = el.closest("[data-insert-item-id]");
 				if (insertEl) {

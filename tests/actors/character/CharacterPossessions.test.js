@@ -588,6 +588,58 @@ describe("CharacterPossessions — outfit item integration", () => {
 	});
 });
 
+// -- setChoiceValue: entry tracks / text inputs ────────────────────────────────
+
+describe("CharacterPossessions — setChoiceValue", () => {
+	const [smithy] = outfitPossessions();
+
+	it("persists a numeric track value under the possession slug in pickValues", async () => {
+		const actor = makeActor([makePossessionItem(smithy)]);
+		const cp = new CharacterPossessions(actor, makeMoves(), makeOutfitItems());
+		await cp.setChoiceValue("smithy", "forge-track", 2);
+		const item = [...actor.items].find(i => i.system.slug === "smithy");
+		expect(item.system.pickValues.smithy["forge-track"]).toBe(2);
+	});
+
+	it("persists a text input value", async () => {
+		const actor = makeActor([makePossessionItem(smithy)]);
+		const cp = new CharacterPossessions(actor, makeMoves(), makeOutfitItems());
+		await cp.setChoiceValue("smithy", "note-input", "a sword");
+		const item = [...actor.items].find(i => i.system.slug === "smithy");
+		expect(item.system.pickValues.smithy["note-input"]).toBe("a sword");
+	});
+});
+
+// -- choice-value keying: group slug is forced to the possession slug ───────────
+
+describe("CharacterPossessions — choice-value keying", () => {
+	it("renders selected picks when the choice group slug differs from the possession slug", async () => {
+		const possession = new TestPossessionBuilder()
+			.withSlug("sacred-pouch")
+			.withChoices(new TestChoiceGroupBuilder()
+				.withSlug("choices") // authoring sheet default — not the possession slug
+				.addChoice(TestChoiceRowBuilder.pick().withOptions(
+					{ slug: "mace", label: "Mace" },
+					{ slug: "axe",  label: "Axe" },
+				))
+				.build())
+			.build();
+		const actor = makeActor([
+			makePlaybookItem(baseSp()),
+			makePossessionItem(possession, {
+				playbookSlug: "test-playbook", selected: true,
+				pickValues: { "sacred-pouch": { mace: 1 } }, // keyed by possession slug
+			}),
+		]);
+		const cp = new CharacterPossessions(actor, makeMoves());
+		const snap = await cp.buildSnapshot(1);
+		const item = snap.items.find(i => i.slug === "sacred-pouch");
+		const pickRow = item.choices.list.find(r => r.type === "choice");
+		expect(pickRow.options.find(o => o.slug === "mace").checked).toBe(true);
+		expect(pickRow.options.find(o => o.slug === "axe").checked).toBe(false);
+	});
+});
+
 // -- buildSnapshot — embedded items ────────────────────────────────────────────
 
 describe("CharacterPossessions — buildSnapshot — embedded items", () => {

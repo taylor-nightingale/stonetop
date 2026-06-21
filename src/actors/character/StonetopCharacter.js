@@ -160,6 +160,10 @@ export class StonetopCharacter {
 		await this._possessions.deletePossession(slug);
 	}
 
+	async setPossessionChoiceValue(possessionSlug, optionSlug, value) {
+		await this._possessions.setChoiceValue(possessionSlug, optionSlug, value);
+	}
+
 	async setPossessionUses(slug, count) {
 		await this._possessions.setUses(slug, count);
 	}
