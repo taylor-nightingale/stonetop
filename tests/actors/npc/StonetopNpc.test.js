@@ -44,6 +44,25 @@ describe("StonetopNpc — moves and tags in the snapshot", () => {
 		expect(snap.moves).toBe("- Bite d6\n- Vanish");
 		expect(snap.movesHtml).toBe("<ul><li>Bite [[/r d6]]</li><li>Vanish</li></ul>");
 	});
+
+	// Parity with the follower card: the snapshot must carry the stored Selection's options
+	// through to tagSelection so the chip UI offers the same "add from list" dropdown.
+	it("preserves tag options/multi for the pill UI (same as followers)", async () => {
+		const tagList = { selected: ["group"], options: ["group", "intelligent", "large"], multi: true, allowCustom: true };
+		const snap = await makeNpc({ tagList }).buildSnapshot();
+		expect(snap.tagSelection.multi).toBe(true);
+		expect(snap.tagSelection.values).toEqual(["group"]);
+		expect(snap.tagSelection.unselectedOptions).toEqual(["intelligent", "large"]);
+		expect(snap.isGroup).toBe(true);
+	});
+
+	// Instinct is single-select: a comma in the value must NOT be split into two selections.
+	it("keeps a comma-containing instinct as one single-select value", async () => {
+		const instinct = { selected: ["to protect, no matter the cost"], options: [], multi: false, allowCustom: true };
+		const snap = await makeNpc({ instinct }).buildSnapshot();
+		expect(snap.instinctSelection.multi).toBe(false);
+		expect(snap.instinctSelection.values).toEqual(["to protect, no matter the cost"]);
+	});
 });
 
 describe("StonetopNpc — buildSnapshot enriches game text", () => {

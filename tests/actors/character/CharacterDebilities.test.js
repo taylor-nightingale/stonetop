@@ -78,18 +78,18 @@ describe("CharacterDebilities.buildDebilitiesSnapshot", () => {
 describe("CharacterDebilities.applyDebilityRollMode", () => {
 	it("no debility active — passes rollMode through unchanged", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor());
-		expect(debilities.applyDebilityRollMode("str", {rollMode: "def"})).toEqual({rollMode: "def"});
+		expect(debilities.applyDebilityRollMode("str", {rollMode: "normal"})).toEqual({rollMode: "normal"});
 		expect(debilities.applyDebilityRollMode("str", {rollMode: "adv"})).toEqual({rollMode: "adv"});
 	});
 
 	it("debility active, stat affected, rollMode def → dis", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyDebilityRollMode("str", {rollMode: "def"})).toEqual({rollMode: "dis"});
+		expect(debilities.applyDebilityRollMode("str", {rollMode: "normal"})).toEqual({rollMode: "dis"});
 	});
 
 	it("debility active, stat affected, rollMode adv → def (cancel)", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyDebilityRollMode("str", {rollMode: "adv"})).toEqual({rollMode: "def"});
+		expect(debilities.applyDebilityRollMode("str", {rollMode: "adv"})).toEqual({rollMode: "normal"});
 	});
 
 	it("debility active, stat affected, rollMode dis → dis (unchanged)", () => {
@@ -99,19 +99,19 @@ describe("CharacterDebilities.applyDebilityRollMode", () => {
 
 	it("debility active but for a different stat — passes through unchanged", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyDebilityRollMode("int", {rollMode: "def"})).toEqual({rollMode: "def"});
+		expect(debilities.applyDebilityRollMode("int", {rollMode: "normal"})).toEqual({rollMode: "normal"});
 	});
 
 	it("dazed covers int and wis, rollMode def → dis", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({dazed: true}));
-		expect(debilities.applyDebilityRollMode("int", {rollMode: "def"})).toEqual({rollMode: "dis"});
-		expect(debilities.applyDebilityRollMode("wis", {rollMode: "def"})).toEqual({rollMode: "dis"});
+		expect(debilities.applyDebilityRollMode("int", {rollMode: "normal"})).toEqual({rollMode: "dis"});
+		expect(debilities.applyDebilityRollMode("wis", {rollMode: "normal"})).toEqual({rollMode: "dis"});
 	});
 
 	it("preserves other options fields while changing rollMode", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
 		expect(debilities.applyDebilityRollMode("str", {rollMode: "adv", extra: "value"}))
-			.toEqual({rollMode: "def", extra: "value"});
+			.toEqual({rollMode: "normal", extra: "value"});
 	});
 });
 
@@ -120,18 +120,18 @@ describe("CharacterDebilities.applyDebilityRollMode", () => {
 describe("CharacterDebilities.applyRollMode", () => {
 	it("returns rollMode unchanged when no debility is active", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor());
-		expect(debilities.applyRollMode("str", "def")).toBe("def");
+		expect(debilities.applyRollMode("str", "normal")).toBe("normal");
 		expect(debilities.applyRollMode("str", "adv")).toBe("adv");
 	});
 
 	it("returns 'dis' when relevant debility is active and rollMode is 'def'", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyRollMode("str", "def")).toBe("dis");
+		expect(debilities.applyRollMode("str", "normal")).toBe("dis");
 	});
 
 	it("returns 'def' when relevant debility cancels advantage", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyRollMode("str", "adv")).toBe("def");
+		expect(debilities.applyRollMode("str", "adv")).toBe("normal");
 	});
 
 	it("returns 'dis' when debility is active and rollMode is already 'dis'", () => {
@@ -141,6 +141,6 @@ describe("CharacterDebilities.applyRollMode", () => {
 
 	it("passes through unchanged when debility covers a different stat", () => {
 		const debilities = new CharacterDebilities(makeDebilityActor({weakened: true}));
-		expect(debilities.applyRollMode("wis", "def")).toBe("def");
+		expect(debilities.applyRollMode("wis", "normal")).toBe("normal");
 	});
 });

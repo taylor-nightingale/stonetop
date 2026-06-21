@@ -38,10 +38,13 @@ export class StonetopNpc {
 			.withHpMax(this.maxHp)
 			.withArmor(this.armor)
 			.withDamage(this.damage)
-			.withInstinct(this.instinct)
+			// Pass the raw stored Selections (not .text) so tagSelection / instinctSelection keep
+			// their options/multi/allowCustom — same construction as the follower card, so NPC tags
+			// get the identical pill UI (and instinct isn't comma-split as if it were multi-select).
+			.withInstinct(this._actor.system?.instinct ?? "")
 			.withSpecialQuality(this.specialQuality)
 			.withDescription(this.description)
-			.withTags(this.tags)
+			.withTags(this._actor.system?.tagList ?? null)
 			.withMoves(this.moves)
 			.build();
 		const rollData = this._actor.getRollData?.() ?? {};

@@ -14,7 +14,7 @@ export class FakeDialog {
 	static get lastConfig() { return FakeDialog._instance?._config ?? null; }
 	static get lastOptions() { return FakeDialog._instance?._options ?? null; }
 
-	static clickButton(statKey, rollMode = "def") {
+	static clickButton(statKey, rollMode = "normal") {
 		const html = { find: () => ({ val: () => rollMode }) };
 		FakeDialog._instance._config.buttons[statKey].callback(html);
 	}

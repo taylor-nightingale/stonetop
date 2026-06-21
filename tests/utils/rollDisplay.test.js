@@ -97,7 +97,7 @@ describe("RollDisplay — ADV/DIS badge", () => {
 	});
 
 	it("shows no badge for a normal roll", () => {
-		const html = display.build(NORMAL, { name: "Test", rollMode: "def", resultKey: "partial" });
+		const html = display.build(NORMAL, { name: "Test", rollMode: "normal", resultKey: "partial" });
 		expect(html).not.toContain("stonetop-roll-mode");
 	});
 });

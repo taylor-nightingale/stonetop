@@ -85,7 +85,7 @@ describe("StonetopSteading — notes", () => {
 
 describe("StonetopSteading.rollMode", () => {
 	it("always returns 'def'", () => {
-		expect(make().rollMode).toBe("def");
+		expect(make().rollMode).toBe("normal");
 	});
 });
 
@@ -144,7 +144,7 @@ describe("StonetopSteading.resolveBonus", () => {
 describe("StonetopSteading.applyRollMode", () => {
 	it("passes rollMode through unchanged", () => {
 		expect(make().applyRollMode("population", "adv")).toBe("adv");
-		expect(make().applyRollMode("fortunes", "def")).toBe("def");
+		expect(make().applyRollMode("fortunes", "normal")).toBe("normal");
 		expect(make().applyRollMode("defenses", "dis")).toBe("dis");
 	});
 });

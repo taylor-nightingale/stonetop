@@ -26,8 +26,6 @@
 * Add journal linking to places of interest
 * Support threats
 * Add artifacts on p41 b2
-* npcs should use the same tags pill selection as followers
-* standing watch improvement not formatted correctly
 
 == Nice to have
 * toggle to turn off non-selected character options

@@ -414,7 +414,8 @@ body,
    disappears against the white sheet. Give ONLY the placeholder a soft slategrey panel
    so it stays visible; any real portrait (different src) is untouched. */
 .stonetop-actor-portrait-img[src$="mystery-man.svg"],
-.stonetop-header-playbook-icon[src$="mystery-man.svg"] {
+.stonetop-header-playbook-icon[src$="mystery-man.svg"],
+.profile-img[src$="mystery-man.svg"] {
 	background: slategrey;
 	border-radius: 6px;
 	padding: 8px;
@@ -4490,8 +4491,7 @@ form.stonetop.sheet.steading {
 	align-items: center;
 	gap: 4px;
 }
-.stonetop-tag-chip,
-.stonetop-npc-tag-chip {
+.stonetop-tag-chip {
 	display: inline-flex;
 	flex: 0 0 auto;
 	width: auto;
@@ -4509,18 +4509,15 @@ form.stonetop.sheet.steading {
 	opacity: 0.55;
 }
 /* Selected: a soft parchment-toned fill (no stark black), in line with the sheet. */
-.stonetop-tag-chip.is-selected,
-.stonetop-npc-tag-chip.is-selected {
+.stonetop-tag-chip.is-selected {
 	background: rgba(75, 74, 68, 0.14);
 	border-color: var(--color-border-dark, #4b4a44);
 	color: var(--color-text-dark-primary, #191813);
 	font-weight: 600;
 	opacity: 1;
 }
-.stonetop-tag-chip:hover,
-.stonetop-npc-tag-chip:hover { opacity: 1; }
-.stonetop-tag-add,
-.stonetop-npc-tag-add {
+.stonetop-tag-chip:hover { opacity: 1; }
+.stonetop-tag-add {
 	flex: 0 1 70px;
 	min-width: 48px;
 	border: none;

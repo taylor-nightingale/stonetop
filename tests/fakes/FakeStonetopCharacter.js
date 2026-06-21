@@ -1,5 +1,5 @@
 export class FakeStonetopCharacter {
-	rollMode = "def";
+	rollMode = "normal";
 	type = "character";
 	_bonuses = {};
 
