@@ -89,6 +89,11 @@ Hooks.once("init", () => {
 	// enrichRichTokens(). Use on .stonetop-rich containers: {{{md description}}}
 	Handlebars.registerHelper("md", text => new Handlebars.SafeString(renderMarkdown(text ?? "")));
 
+	// Render stored markdown -> HTML synchronously (no auto-roll for prose). Explicit
+	// [[ ]] rolls / @UUID links survive as text and are made clickable post-render by
+	// enrichRichTokens(). Use on .stonetop-rich containers: {{{md description}}}
+	Handlebars.registerHelper("md", text => new Handlebars.SafeString(renderMarkdown(text ?? "")));
+
 	Handlebars.registerHelper("repeatChecks", move => {
 		const sel = move?.selection;
 		if (!sel || sel.max <= 1) return [];

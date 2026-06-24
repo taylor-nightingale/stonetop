@@ -25,7 +25,6 @@
 * Add button to create or break a link to an NPC to residents and neighbors.
 * Add journal linking to places of interest
 * Support threats
-* Add artifacts on p41 b2
 
 == Nice to have
 * toggle to turn off non-selected character options
