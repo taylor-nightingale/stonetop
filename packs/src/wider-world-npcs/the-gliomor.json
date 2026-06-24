@@ -1,0 +1,46 @@
+{
+  "_id": "ztPwpPjTYSq31FZn",
+  "_key": "!actors!ztPwpPjTYSq31FZn",
+  "name": "The Gliomor",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-gliomor",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "cautious",
+        "terrifying",
+        "ancient"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "armor": "3 (carapace)",
+    "damage": "smaller claw d12+3 (reach, grabby), bigger claw d12+5 with advan- tage (reach, forceful, messy, 3 piercing)",
+    "specialQuality": "heals injuries in a few hours, regenerates limbs in a few days",
+    "instinct": {
+      "selected": [
+        "to eat pretty much anything"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Poke its eyestalks out of the water or above grass\n- Burst into view, making the mind reel with horror\n- Scuttle back quickly, to escape danger or to drag off prey\n- Spew forth a cloud of sickening, blinding, corrosive goo: d8 damage (area, close)\n\nAn enormous albino crayfish, older than the Fen itself. If you encounter it, pray it’s not hungry. But fat chance of that.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

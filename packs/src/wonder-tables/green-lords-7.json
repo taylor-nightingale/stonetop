@@ -1,0 +1,118 @@
+{
+  "_id": "mnoMWY7Z0LnsTi2Z",
+  "_key": "!tables!mnoMWY7Z0LnsTi2Z",
+  "name": "Green Lords — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "03mAQ1jFhnWpcFwq",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.03mAQ1jFhnWpcFwq",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A strange skull and antlers</strong> (page 520)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0525aoOOLWw2KROb",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.0525aoOOLWw2KROb",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A giant oak leaf</strong> (page 517)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sx7sUa8wfUzAoZLB",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.sx7sUa8wfUzAoZLB",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A huge wooden sphere</strong> (page 513)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LZhXC6OonmDOQDoG",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.LZhXC6OonmDOQDoG",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A stretched vellum</strong> (page 521)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kClS6dEX9AfiGz6E",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.kClS6dEX9AfiGz6E",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A patch of rainbow moss</strong> (page 521)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g63vBvbJk7pt30vJ",
+      "_key": "!tables.results!mnoMWY7Z0LnsTi2Z.g63vBvbJk7pt30vJ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A crumbling arch</strong> (page 520)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

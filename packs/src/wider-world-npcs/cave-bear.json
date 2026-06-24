@@ -1,0 +1,44 @@
+{
+  "_id": "aCqbeSD9T9UCO4mG",
+  "_key": "!actors!aCqbeSD9T9UCO4mG",
+  "name": "Cave bear",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cave-bear",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (fur, hide)",
+    "damage": "claws, bite, hug d10+4 (hand, close, forceful, messy, 1 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to fill its belly, to protect its young"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Rend, maul, crush\n- Move with surprising speed and grace\n- Sniff out food, or trouble\n\nGreat big silver-brown things, eating any- thing they can dig up or catch. They mostly hibernate through winter, and get especial- ly bold and ornery in autumn as they try to fatten up. They’ve been known to wake up and forage even in winter, though. They lair in big caves, usually two mates and maybe their cubs. Out and about, the bulls are usually found on their own; the sows on their own, or with their cubs. They’re not usually aggressive towards people—unless surprised, extra hungry, or protecting the cubs. Then? Watch out.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

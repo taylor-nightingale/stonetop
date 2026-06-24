@@ -1,0 +1,118 @@
+{
+  "_id": "BZ3IVz4dwXKGfgHO",
+  "_key": "!tables!BZ3IVz4dwXKGfgHO",
+  "name": "Rime Lords — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "risT7yKfwrxFuXa5",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.risT7yKfwrxFuXa5",
+      "type": "text",
+      "name": "",
+      "description": "Dwelling (home, dormitory, barracks, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lLNtsd4sqkvF1XDH",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.lLNtsd4sqkvF1XDH",
+      "type": "text",
+      "name": "",
+      "description": "Infrastructure (stepwell, aqueduct, road, bridge, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b03cyd6Pm8LWW732",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.b03cyd6Pm8LWW732",
+      "type": "text",
+      "name": "",
+      "description": "Storage (cellar, vault, library, granary, cemetery, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "shbA60AWJSLNvpid",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.shbA60AWJSLNvpid",
+      "type": "text",
+      "name": "",
+      "description": "Production (workshop, kitchen, farm, abattoir, mine, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZGz1P2YZya7JRoEK",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.ZGz1P2YZya7JRoEK",
+      "type": "text",
+      "name": "",
+      "description": "Fortification (wall, rampart, gatehouse, tower, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yxbbKMiDIz9MjKAb",
+      "_key": "!tables.results!BZ3IVz4dwXKGfgHO.yxbbKMiDIz9MjKAb",
+      "type": "text",
+      "name": "",
+      "description": "Study/practice (shrine, meditation chamber, prayer hall, training hall, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

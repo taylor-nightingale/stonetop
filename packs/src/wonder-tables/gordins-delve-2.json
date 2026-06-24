@@ -1,0 +1,102 @@
+{
+  "_id": "cLWgdRCJF3Glpoqe",
+  "_key": "!tables!cLWgdRCJF3Glpoqe",
+  "name": "Gordin's Delve — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cRTvzKewZ9sGL5w1",
+      "_key": "!tables.results!cLWgdRCJF3Glpoqe.cRTvzKewZ9sGL5w1",
+      "type": "text",
+      "name": "",
+      "description": "Cultist or worshiper of the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2dw0UxoaWlDfVxAE",
+      "_key": "!tables.results!cLWgdRCJF3Glpoqe.2dw0UxoaWlDfVxAE",
+      "type": "text",
+      "name": "",
+      "description": "A shady, strange, or desperate character, out of place",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YOtdZ3VOIn5ACf1h",
+      "_key": "!tables.results!cLWgdRCJF3Glpoqe.YOtdZ3VOIn5ACf1h",
+      "type": "text",
+      "name": "",
+      "description": "Mining crew, or part of one",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "D5FNPWcMbEBm93oU",
+      "_key": "!tables.results!cLWgdRCJF3Glpoqe.D5FNPWcMbEBm93oU",
+      "type": "text",
+      "name": "",
+      "description": "Someone alone, taking something to/from a mine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wwFONKV4pKzemm4d",
+      "_key": "!tables.results!cLWgdRCJF3Glpoqe.wwFONKV4pKzemm4d",
+      "type": "text",
+      "name": "",
+      "description": "Prospector, or (1 in 6 chance) some <strong>Ustrina</strong> (page 464)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

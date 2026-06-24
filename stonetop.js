@@ -14,6 +14,7 @@ import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { info } from "./src/utils/logger.js";
 import { renderMarkdown } from "./src/utils/enrichGameText.js";
+import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
 import { CharacterData } from "./src/data/CharacterData.js";
 import { NpcData } from "./src/data/NpcData.js";
 import { SteadingData } from "./src/data/SteadingData.js";
@@ -46,6 +47,7 @@ Hooks.once("init", () => {
 	});
 
 	registerSettings();
+	registerDrawTableEnricher();
 
 	Handlebars.registerHelper("resourceChecks", resource => {
 		if (!resource) return [];

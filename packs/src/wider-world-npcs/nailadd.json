@@ -1,0 +1,44 @@
+{
+  "_id": "5ZJTpbYPvIEDMMce",
+  "_key": "!actors!5ZJTpbYPvIEDMMce",
+  "name": "Nailadd",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "nailadd",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cunning",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "2 (carapace)",
+    "damage": "and numbs the wounded area.",
+    "specialQuality": "webs, prodigious leaps",
+    "instinct": {
+      "selected": [
+        "to capture prey and slowly consume it"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Leap on prey and knock it prone\n- Inject a paralytic venom\n- Drag helpless prey into the canopy and cocoon it\n\nSo far, these hound-sized spiders have thankfully avoided hunters and trappers in the Wood. They certainly haven’t come near town. But they’re out there, rest assured, and growing in numbers. Something interesting: Nailadd venom paralyzes prey, rather than killing it. Something useful: You can harvest the venom (d4 uses, dangerous, reload, Value 1) from an intact corpse. When you coat a blade in nailadd venom, it deals +1d4 extra",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

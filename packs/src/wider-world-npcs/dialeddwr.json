@@ -1,0 +1,45 @@
+{
+  "_id": "pRXbwtx5P0yWwnNV",
+  "_key": "!actors!pRXbwtx5P0yWwnNV",
+  "name": "Dialeddwr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "dialeddwr",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "undead",
+        "terrifying",
+        "implacable"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "4 (resilience), 0 vs. silver or fire",
+    "damage": "choking grip or powerful blows d8+2 w/advantage (hand, grabby, forceful)",
+    "specialQuality": "cannot open doors, eat, or drink",
+    "instinct": {
+      "selected": [
+        "to avenge"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Pass for alive, except in sunlight\n- Unerringly track a target\n- Lock eyes with someone, show them the meaning of fear\n- Bask in moonlight to regenerate even terrible wounds\n\nSometimes, when a great wrong is done, when a good person is cruelly slain, when the killers go unpunished… well, some- times they come back. Called back by a prayer or perhaps a spell. Or sent back by their fellow victims. Or guided back by one of the Lady’s own crows. They dig themselves free of their graves, reborn and whole. And vengeance shall be theirs.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

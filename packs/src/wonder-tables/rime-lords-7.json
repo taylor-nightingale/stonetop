@@ -1,0 +1,102 @@
+{
+  "_id": "yNo2mEi4GFX0wAhc",
+  "_key": "!tables!yNo2mEi4GFX0wAhc",
+  "name": "Rime Lords — Form",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "JFe9vwZO9BX4XqwB",
+      "_key": "!tables.results!yNo2mEi4GFX0wAhc.JFe9vwZO9BX4XqwB",
+      "type": "text",
+      "name": "",
+      "description": "Fragment (chip/shard/chunk/etc.), from something larger",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m7xVc9f2cVbKHlpU",
+      "_key": "!tables.results!yNo2mEi4GFX0wAhc.m7xVc9f2cVbKHlpU",
+      "type": "text",
+      "name": "",
+      "description": "Enigmatic shape (cube/sphere/spiral/etc.), its purpose unclear",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ClO2gnwgbq3ceCSR",
+      "_key": "!tables.results!yNo2mEi4GFX0wAhc.ClO2gnwgbq3ceCSR",
+      "type": "text",
+      "name": "",
+      "description": "Mundane object (tool/utensil/ container/etc.), though perhaps not easily recognized as such",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H1UEA2EtEDcD9CJ1",
+      "_key": "!tables.results!yNo2mEi4GFX0wAhc.H1UEA2EtEDcD9CJ1",
+      "type": "text",
+      "name": "",
+      "description": "Art or decoration (jewel/statue/ tiles/torc/amulet/ring/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7eKCtmP86Eu4b3Kl",
+      "_key": "!tables.results!yNo2mEi4GFX0wAhc.7eKCtmP86Eu4b3Kl",
+      "type": "text",
+      "name": "",
+      "description": "Construction (door/stairway/arch/ bricks/walls/etc.), likely <em>immobile</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "Newv1zlvWebmq0ng",
+  "_key": "!tables!Newv1zlvWebmq0ng",
+  "name": "Forge Lords — Condition (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "gKk09ZVxlqHGLdtu",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.gKk09ZVxlqHGLdtu",
+      "type": "text",
+      "name": "",
+      "description": "Sluggish/low power/inert",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UCE1oX8m1AEnYw6D",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.UCE1oX8m1AEnYw6D",
+      "type": "text",
+      "name": "",
+      "description": "Rusted/corroded/damaged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ogNOghEAPYFpg9rJ",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.ogNOghEAPYFpg9rJ",
+      "type": "text",
+      "name": "",
+      "description": "Trapped/pinned/buried/bound",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b7INqFB97ey3OkDD",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.b7INqFB97ey3OkDD",
+      "type": "text",
+      "name": "",
+      "description": "Behaving erratically",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zs85VZsevrj801Z2",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.zs85VZsevrj801Z2",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jq8TwNzFqwHArKqd",
+      "_key": "!tables.results!Newv1zlvWebmq0ng.jq8TwNzFqwHArKqd",
+      "type": "text",
+      "name": "",
+      "description": "Fully functional",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18015,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

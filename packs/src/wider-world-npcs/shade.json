@@ -1,0 +1,45 @@
+{
+  "_id": "KDLN3vJeBGiOhKg8",
+  "_key": "!actors!KDLN3vJeBGiOhKg8",
+  "name": "Shade",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "shade",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "undead",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "none",
+    "specialQuality": "banished by daylight",
+    "instinct": {
+      "selected": [
+        "(pick 1 or roll 1d6) 1: to refuse to go back, 2: to fulfill its longings, 3-4: to bemoan its fate, 5-6: to return to its rest"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a whisper and a dim image, unable to affect the physical world\n- Share what it knew in life\n- Reveal a secret learned in death\n- “Ride” a willing/prepared host\n- Possess an intact and uninterred corpse, creating a pyped (page 82)\n\nShades are the souls of the quiet dead, called back through the Last Door. Or perhaps they are merely echoes of a dead person’s personality, given shape by magic. Either way, they might be called up at the Crossroads (page 270), via an arcanum like a strange skull and antlers (page 520), or by some other form of necromancy. A shade can ride a living, willing host, or one who has been properly prepared (with arcane markings, by bearing an appropriate object, via a potion, etc.). It can withstand daylight while doing so, but only with great effort. It experiences what its host experi- ences, and can communicate with its host via only impulse and desire. When a shade rides you and compels you to act against your will, mark XP if you do as it wants. If you resist, you are Defying Danger.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

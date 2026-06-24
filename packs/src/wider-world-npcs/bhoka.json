@@ -1,0 +1,46 @@
+{
+  "_id": "6yIzxYeSzJbuGZ5l",
+  "_key": "!actors!6yIzxYeSzJbuGZ5l",
+  "name": "Bhoka",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "bhoka",
+    "reference": "the-whitefang-mountains",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "cautious",
+        "magical",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (hide)",
+    "damage": "talons 1d10+3 (hand, close, grabby, forceful)",
+    "specialQuality": "blinded by full daylight or holy light, takes +1d4 damage from bronze",
+    "instinct": {
+      "selected": [
+        "see below"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Slink through trees and shadows\n\nThese hulking brutes dwell in dark places: caves, north-facing slopes, and deep moun- tain forests. They’re hairy things, hunched and wild, only vaguely looking like people. They’d be little more than dangerous beasts, easily avoided, if they weren’t driven by an obsessive vice—and if they didn’t wield the wild elements themselves.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -167,6 +167,8 @@
 			"moveTracker": "Tracker",
 			"add": "Add",
 			"remove": "Remove",
+			"edit": "Edit",
+			"done": "Done",
 			"preview": "Live preview",
 			"showFront": "Show front",
 			"showBack": "Show back"

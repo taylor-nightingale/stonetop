@@ -1,0 +1,118 @@
+{
+  "_id": "UVfn8e6EErdG8Nph",
+  "_key": "!tables!UVfn8e6EErdG8Nph",
+  "name": "North Manmarch — Signs of violence",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "j8QXZjrESKTAyylj",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.j8QXZjrESKTAyylj",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ghost</strong> (page 76) lingering near its murder, more confused than dangerous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vm3pbXZGFwHMKNob",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.Vm3pbXZGFwHMKNob",
+      "type": "text",
+      "name": "",
+      "description": "A burnt hamlet, thoroughly looted, its inhabitants slaughtered",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "t8Li3tfkhyOOJjAk",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.t8Li3tfkhyOOJjAk",
+      "type": "text",
+      "name": "",
+      "description": "Dead bodies: burnt on a pyre, heads on spikes, swinging from trees, or left to rot",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ivyqEn3TI2mmyS5x",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.ivyqEn3TI2mmyS5x",
+      "type": "text",
+      "name": "",
+      "description": "Survivors of a raid, some injured, likely desperate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "29OT5t8uMwsicnz7",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.29OT5t8uMwsicnz7",
+      "type": "text",
+      "name": "",
+      "description": "Sounds of a fight, or calls for help",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fFUtwrNAPGpUJKDr",
+      "_key": "!tables.results!UVfn8e6EErdG8Nph.fFUtwrNAPGpUJKDr",
+      "type": "text",
+      "name": "",
+      "description": "The dead from a recent skirmish, un-looted except by scavengers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 34002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

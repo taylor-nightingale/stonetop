@@ -1,0 +1,214 @@
+{
+  "_id": "ZLf2PxeeCw0IsDQB",
+  "_key": "!tables!ZLf2PxeeCw0IsDQB",
+  "name": "APPENDIX B: Artifact Creation — Function",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "qSha8DhhDvAVMp11",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.qSha8DhhDvAVMp11",
+      "type": "text",
+      "name": "",
+      "description": "Create/conjure/craft",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bKndoFTdwWnf2p7w",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.bKndoFTdwWnf2p7w",
+      "type": "text",
+      "name": "",
+      "description": "Defend/repel/secure",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sZjFvFKnA2XGKCFF",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.sZjFvFKnA2XGKCFF",
+      "type": "text",
+      "name": "",
+      "description": "Destroy/slay/consume",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TZmDCazwxG5eXrcb",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.TZmDCazwxG5eXrcb",
+      "type": "text",
+      "name": "",
+      "description": "Contain/bind/capture",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VtVWGYnJUr13v6DL",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.VtVWGYnJUr13v6DL",
+      "type": "text",
+      "name": "",
+      "description": "Enhance/refine/purify",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "igW1iU0UUId7O4Zk",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.igW1iU0UUId7O4Zk",
+      "type": "text",
+      "name": "",
+      "description": "Reduce/diminish/suppress",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cUlUS8Fb9KKMZtmr",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.cUlUS8Fb9KKMZtmr",
+      "type": "text",
+      "name": "",
+      "description": "Sustain/heal/repair",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lBITnHN7QKyJ6SUS",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.lBITnHN7QKyJ6SUS",
+      "type": "text",
+      "name": "",
+      "description": "Sense/identify/reveal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XKE3D50WlOZ8lnAX",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.XKE3D50WlOZ8lnAX",
+      "type": "text",
+      "name": "",
+      "description": "Hide/disguise/confuse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uTYQUHhKiXhXf0Lt",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.uTYQUHhKiXhXf0Lt",
+      "type": "text",
+      "name": "",
+      "description": "Manipulate/control/compel",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vk0ekaIccblV0iTU",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.Vk0ekaIccblV0iTU",
+      "type": "text",
+      "name": "",
+      "description": "Transform/combine/reshape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eGEtgsgGYrVCBTXH",
+      "_key": "!tables.results!ZLf2PxeeCw0IsDQB.eGEtgsgGYrVCBTXH",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice and combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

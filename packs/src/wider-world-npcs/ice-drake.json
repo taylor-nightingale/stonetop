@@ -1,0 +1,45 @@
+{
+  "_id": "2MMNn9gKaG1gHZIm",
+  "_key": "!actors!2MMNn9gKaG1gHZIm",
+  "name": "Ice drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ice-drake",
+    "reference": "the-whitefang-mountains",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "cautious",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "0",
+    "damage": "claws, beak, or wing-buffet d4 (hand)",
+    "specialQuality": "cold-proof, camouflaged, winged",
+    "instinct": {
+      "selected": [
+        "to spook easily and overreact"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Burrow/dig into snow or ice, to forage or hide\n- Shake off a blast of clinging, freezing mist, 1d4 damage (close, area, reload)\n- Scatter and flee to the skies\n\nLike cranes, long-legged and long-necked, with long whipping tails. They’re hardly a threat in warmer months. But in winter— when their scales and feathers grow laden with hoarfrost—shepherds watch for their sign and avoid them. Wander into their midst, and you’ll get coated in a clinging, frozen mist that often leads to hypother- mia & frostbite (page 489). Ice drake fat and blood never freezes. Properly rendered in a kitchen, it makes an oil used to insulate leather and wool garments. A flock of 8-12 drakes yields a jar of ice drake oil (Value 1 locally, Value 3 in the south).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

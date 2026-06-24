@@ -1,0 +1,118 @@
+{
+  "_id": "4tPZFvxhLKAaAm0s",
+  "_key": "!tables!4tPZFvxhLKAaAm0s",
+  "name": "The Ruined Tower — Remnants of the past",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Awv1ZOi8DZBTznHE",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.Awv1ZOi8DZBTznHE",
+      "type": "text",
+      "name": "",
+      "description": "Exposed stonework, marred by cataclysmic violence (melted, shattered, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wxi3dcvxWFQFf6q0",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.Wxi3dcvxWFQFf6q0",
+      "type": "text",
+      "name": "",
+      "description": "Bits of ancient daily life (pots, tools, utensils, etc.), probably broken, possibly giant-sized",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i5KHB0NzC4FdRIkV",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.i5KHB0NzC4FdRIkV",
+      "type": "text",
+      "name": "",
+      "description": "Signs of squatters/explorers: bones, litter, graffiti, excavation, crude construction, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OavXjbpsljCXLaU9",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.OavXjbpsljCXLaU9",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Vitrified remains</strong> (page 339)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eZMuufC7xCA4VqqH",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.eZMuufC7xCA4VqqH",
+      "type": "text",
+      "name": "",
+      "description": "Ancient writing or artwork, faded/ obscured but still legible (<em>immobile</em>, <em>fragile</em>, Value 0-2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bs0U2Taj9JkPVuc3",
+      "_key": "!tables.results!4tPZFvxhLKAaAm0s.Bs0U2Taj9JkPVuc3",
+      "type": "text",
+      "name": "",
+      "description": "A building/room, undisturbed for centuries, with treasure! (page 345) you’d otherwise find only in the depths",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

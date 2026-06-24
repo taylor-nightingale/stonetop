@@ -1,0 +1,214 @@
+{
+  "_id": "FBzxX0JOvqmQpWap",
+  "_key": "!tables!FBzxX0JOvqmQpWap",
+  "name": "APPENDIX B: Artifact Creation — More common",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "riPHLXPTW2OOJQTf",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.riPHLXPTW2OOJQTf",
+      "type": "text",
+      "name": "",
+      "description": "Agriculture: seed, spade, flail, hoe, fork, scythe, plow, millstone, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qO0XwS3d3eoPOTmf",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.qO0XwS3d3eoPOTmf",
+      "type": "text",
+      "name": "",
+      "description": "Construction: nail, brick, tile, trowel, timber, masonry, wall, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Lv4mCmS6WxnScNt4",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.Lv4mCmS6WxnScNt4",
+      "type": "text",
+      "name": "",
+      "description": "Container: lock/key, pouch, box, urn, chest, cell, vault, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JNjxiNhFyAYpihWz",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.JNjxiNhFyAYpihWz",
+      "type": "text",
+      "name": "",
+      "description": "Domestic: utensil, spindle, vessel, broom, foodstuffs, crib, loom, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Mz7UcQxO7mQzJEvr",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.Mz7UcQxO7mQzJEvr",
+      "type": "text",
+      "name": "",
+      "description": "Fire: incense, oil, candle, lamp, lantern, sconce, brazier, hearth, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EM78jQglwhh1Vinm",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.EM78jQglwhh1Vinm",
+      "type": "text",
+      "name": "",
+      "description": "Liquid: oil, spirits, vial, wineskin, cup, jug, barrel, fount, bath, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "snby4e2YXda0PAj3",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.snby4e2YXda0PAj3",
+      "type": "text",
+      "name": "",
+      "description": "Protection: talisman, helm, cloak, armor, shield, door, wall, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "12ySobQSYf40zhgk",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.12ySobQSYf40zhgk",
+      "type": "text",
+      "name": "",
+      "description": "Remains: ashes, scale, fang, horn, organ, bone, hide, skeleton, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5cgEZmlrXs3rfPWk",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.5cgEZmlrXs3rfPWk",
+      "type": "text",
+      "name": "",
+      "description": "Textile: fibers, scarf, footwear, rope, clothes, furs, bedding, tapestry, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qsrxbNKhy9zviwyI",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.qsrxbNKhy9zviwyI",
+      "type": "text",
+      "name": "",
+      "description": "Tool: needle, file, chisel, saw, mallet, shovel, anvil, workspace, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "50xn2VP6b5xGBwJW",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.50xn2VP6b5xGBwJW",
+      "type": "text",
+      "name": "",
+      "description": "Trade: coin, coins, satchel, scales, wheel, sled, cart, wagon, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9EmRPDW85xDS4tGO",
+      "_key": "!tables.results!FBzxX0JOvqmQpWap.9EmRPDW85xDS4tGO",
+      "type": "text",
+      "name": "",
+      "description": "Violence: knife, poison, sword, rod, staff, bow, spear, banner, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56015,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

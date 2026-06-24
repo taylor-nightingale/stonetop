@@ -1,0 +1,47 @@
+{
+  "_id": "fMrTKVKyAZSd65UF",
+  "_key": "!actors!fMrTKVKyAZSd65UF",
+  "name": "Barrow wight",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "barrow-wight",
+    "reference": "barrow-builders",
+    "tagList": {
+      "selected": [
+        "Group",
+        "undead",
+        "corrupted",
+        "terrifying",
+        "hardy",
+        "hoarder"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "4 (resilience), 2 vs. bronze or fire (mail)",
+    "damage": "rusty sword d8+2 (close, forceful) or crushing grip d8+2 (hand, grabby, forceful)",
+    "specialQuality": "bound to their barrow",
+    "instinct": {
+      "selected": [
+        "to protect their hoard"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Utter an echoing warning\n- Block an exit\n- Stand fast, refusing to be moved\n- Keep fighting with or reattach a severed limb\n\nAs you might expect, grave robbing was always a problem for the Barrow Builders. But a clever sorcerer had a solution! So many hateful spirits roamed the world in those days. Why not bind some to the corpses of the deceased, and let the dead guard their own treasure?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

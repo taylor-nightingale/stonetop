@@ -1,0 +1,44 @@
+{
+  "_id": "kngIQgtU8E8m5zAp",
+  "_key": "!actors!kngIQgtU8E8m5zAp",
+  "name": "Horned drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "horned-drake",
+    "reference": "south-manmarch",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "3 (stony hide)",
+    "damage": "d8+3",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to get curious, to play fight), whom they aggressively defend."
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Issue a honking call\n- Stand its ground, still as a rock\n- Lurch suddenly into a charge\n- Absorb raw elemental power (regaining 1d8 HP)\n\nThe behemoth of the southern grasslands is striking for its great size, the quartz-like plates of its segmented hide, and its fearsome horns. The horns vary greatly from beast to beast, ranging from a single spike on its snout or forehead to a rack of five or six curved points edging the flanges of its massive skull. An intimidating beast, even at rest. To the Hillfolk, the downing of a d’lkornek (“thorn-dragon”) is a hero’s feat, to be fol- lowed by a week of harvest and celebration at the kill site. Something interesting: Some scholars hold that the Stone Lords imbued horned drakes with elemental qualities. Specimens of their hide are commonly mistaken for dolostone or some other mineral, and Hillfolk prize their horns (Value 3). Something useful: The horns of a d’lkornek act like power-crystals (page 389), but larger and with great capacity. They are extremely dangerous to harvest; a wise butcher slowly bleeds away their energy over the course of days. Adult horned drakes might be accompanied by their young (group, large, hardy; HP 14;",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.hx1EiGo418JBGmVD]{South Manmarch} (Book p.350-355)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,134 @@
+{
+  "_id": "6mAyzDGQyl4dvRGG",
+  "_key": "!tables!6mAyzDGQyl4dvRGG",
+  "name": "Spirits of the wild — Marker",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "0t87WWDpWqAGIgWb",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.0t87WWDpWqAGIgWb",
+      "type": "text",
+      "name": "",
+      "description": "Nothing you can put your finger on, just the sense of being watched",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DEinPaguHhfFjMt0",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.DEinPaguHhfFjMt0",
+      "type": "text",
+      "name": "",
+      "description": "A place that resonates strongly with the spirit’s theme",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xCic3eemoYdOVBon",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.xCic3eemoYdOVBon",
+      "type": "text",
+      "name": "",
+      "description": "A remarkable natural feature, particularly large/beautiful/ancient/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PGsSq4UzP2W9UiyY",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.PGsSq4UzP2W9UiyY",
+      "type": "text",
+      "name": "",
+      "description": "An unusual feature, probably natural but strange or out of place",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OnXLRF33REbCkGEa",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.OnXLRF33REbCkGEa",
+      "type": "text",
+      "name": "",
+      "description": "An idol or altar, ancient and crumbling/buried/submerged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zspqyYpe30aavdW9",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.zspqyYpe30aavdW9",
+      "type": "text",
+      "name": "",
+      "description": "An idol or altar, made by the locals",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GNK2TMQTHQ0WyKhg",
+      "_key": "!tables.results!6mAyzDGQyl4dvRGG.GNK2TMQTHQ0WyKhg",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice with a d10, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 41001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

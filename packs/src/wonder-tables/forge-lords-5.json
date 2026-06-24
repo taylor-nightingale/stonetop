@@ -1,0 +1,118 @@
+{
+  "_id": "JJ8ecMdRAHuDFL1p",
+  "_key": "!tables!JJ8ecMdRAHuDFL1p",
+  "name": "Forge Lords — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "h6ry16FGd2oQ5hS4",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.h6ry16FGd2oQ5hS4",
+      "type": "text",
+      "name": "",
+      "description": "Domes/arches/columns/arcades",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RNmRENhrNZL6qW9v",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.RNmRENhrNZL6qW9v",
+      "type": "text",
+      "name": "",
+      "description": "Ceramics and glasswork: mosaics, tile, urns, stained glass, mirrors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YGVqCQA09evaQCjD",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.YGVqCQA09evaQCjD",
+      "type": "text",
+      "name": "",
+      "description": "Enamel/glaze/gilding/flowing runes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2P705cpO1XvqoED2",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.2P705cpO1XvqoED2",
+      "type": "text",
+      "name": "",
+      "description": "Bricks/marble slabs/carved porphyry",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AoSOKFz6PiNyalOb",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.AoSOKFz6PiNyalOb",
+      "type": "text",
+      "name": "",
+      "description": "Statues/reliefs (bronze or marble)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6srBPeARzvcEBIBH",
+      "_key": "!tables.results!JJ8ecMdRAHuDFL1p.6srBPeARzvcEBIBH",
+      "type": "text",
+      "name": "",
+      "description": "Furnaces/crucibles/chimneys/ chains/gears",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

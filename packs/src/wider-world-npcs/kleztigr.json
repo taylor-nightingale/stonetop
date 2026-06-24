@@ -1,0 +1,47 @@
+{
+  "_id": "6yuIWlaZaMAWqW0o",
+  "_key": "!actors!6yuIWlaZaMAWqW0o",
+  "name": "Kleztigr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "kleztigr",
+    "reference": "the-steplands",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "cagey",
+        "stealthy",
+        "agile",
+        "powerful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (reflexes)",
+    "damage": "huge saber-like fangs d10+3 w/ advantage (hand, grabby, messy, 1 piercing), claws or pounce d10+1 w/ advantage (close)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to bring down a good, solid meal"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Follow prey for hours, even days\n- Pounce on prey from hiding (reach, forceful, grabby)\n- Inflict a deadly, bleeding wound\n\nLike a cougar (page 206) but twice as big, with 8-inch fangs hanging out of their mouths. Hillfolk tales claim they once were much more common, pets of the Stone Lords even. Now they are (thankfully) rare.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

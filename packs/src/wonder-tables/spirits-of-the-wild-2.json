@@ -1,0 +1,118 @@
+{
+  "_id": "ZhMHIPMX0goXwDRI",
+  "_key": "!tables!ZhMHIPMX0goXwDRI",
+  "name": "Spirits of the wild — Activity",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "VgpOwEFogvd0guTu",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.VgpOwEFogvd0guTu",
+      "type": "text",
+      "name": "",
+      "description": "Missing, dissipated, greatly weakened",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gHBJK6A7Op116DY5",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.gHBJK6A7Op116DY5",
+      "type": "text",
+      "name": "",
+      "description": "Imprisoned, probably seeking release",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "htapDnYPBarECQyl",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.htapDnYPBarECQyl",
+      "type": "text",
+      "name": "",
+      "description": "Slumbering, waiting for something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kvYfmKWsNDlT2VTe",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.kvYfmKWsNDlT2VTe",
+      "type": "text",
+      "name": "",
+      "description": "Sporadic, often slumbering or away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BN9VMlEV7jSHGxmY",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.BN9VMlEV7jSHGxmY",
+      "type": "text",
+      "name": "",
+      "description": "Alert, aware, unlikely to manifest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4x4II3vo7OmOKnRQ",
+      "_key": "!tables.results!ZhMHIPMX0goXwDRI.4x4II3vo7OmOKnRQ",
+      "type": "text",
+      "name": "",
+      "description": "Alert, aware, manifesting freely",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 41002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

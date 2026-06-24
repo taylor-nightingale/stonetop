@@ -1,0 +1,46 @@
+{
+  "_id": "LyIUVPYmvrfGLYCx",
+  "_key": "!actors!LyIUVPYmvrfGLYCx",
+  "name": "Wraith",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "wraith",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "undead",
+        "stealthy",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "life drain d10 (hand, ignores armor)",
+    "specialQuality": "bound to its tether (usually), powerless in daylight",
+    "instinct": {
+      "selected": [
+        "to feast upon living souls"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a form of shadow and cold (harmed only by silver and salt)\n- Hurl itself at the living\n- Suck vitality from its prey\n\nWraiths are cursed with endless hunger. They are damaged souls, wounded by dark magic, another wraith, or the dehumaniz- ing effects of starvation or addiction. They are little more than beasts, driven by the emptiness within, with only the vaguest sense of who they once were. Other ghosts might become wraiths when their tethers are destroyed. If they linger in the world, they find themselves filled with gnawing need, and must sustain themselves on the living. These unbound wraiths are weaker, but often form packs with others of their kind (group, vicious instead of stealthy, 13 HP each, d8 damage, afraid of firelight). When a wraith reduces you to 0 HP and you survive, your soul is wounded. Reduce your max HP by 4. Until your soul is healed, your instinct becomes “Hunger: to fill the emptiness inside you with excess,” and should you roll a 6- on Death’s Door, you die and become a wraith (a monster in the GM’s control).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

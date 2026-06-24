@@ -1,0 +1,102 @@
+{
+  "_id": "BGMEF5RPfeufV4gq",
+  "_key": "!tables!BGMEF5RPfeufV4gq",
+  "name": "Gordin's Delve — Signs of violence/disaster",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "VWsW5CQsTM59RjID",
+      "_key": "!tables.results!BGMEF5RPfeufV4gq.VWsW5CQsTM59RjID",
+      "type": "text",
+      "name": "",
+      "description": "A scene of wanton carnage",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l1B76vNZnGyGxbCQ",
+      "_key": "!tables.results!BGMEF5RPfeufV4gq.l1B76vNZnGyGxbCQ",
+      "type": "text",
+      "name": "",
+      "description": "A dead monster from the <strong>Labyrinth</strong> (page 242), bloody trail leading off",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6GxhCKzGTCD52SGt",
+      "_key": "!tables.results!BGMEF5RPfeufV4gq.6GxhCKzGTCD52SGt",
+      "type": "text",
+      "name": "",
+      "description": "One or more dead bodies",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3yCwJkKV0hvVASh5",
+      "_key": "!tables.results!BGMEF5RPfeufV4gq.3yCwJkKV0hvVASh5",
+      "type": "text",
+      "name": "",
+      "description": "A recent collapse, possibly with survivors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kYmCXdtnhMcVTG8J",
+      "_key": "!tables.results!BGMEF5RPfeufV4gq.kYmCXdtnhMcVTG8J",
+      "type": "text",
+      "name": "",
+      "description": "Sounds of a fight, or a call for help",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

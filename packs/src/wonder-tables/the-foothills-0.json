@@ -1,0 +1,182 @@
+{
+  "_id": "yTYV5hXz8D6DSoKR",
+  "_key": "!tables!yTYV5hXz8D6DSoKR",
+  "name": "The Foothills — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "5ACvYESgQukhJJbv",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.5ACvYESgQukhJJbv",
+      "type": "text",
+      "name": "",
+      "description": "Large pond/small lake",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YHTo7G7FWGmSV1pG",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.YHTo7G7FWGmSV1pG",
+      "type": "text",
+      "name": "",
+      "description": "Creek, stream, gulley",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QXfbMeykP3lmlmc7",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.QXfbMeykP3lmlmc7",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope: barren, treacherous, unstable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nCJIiBDUhGiHz26L",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.nCJIiBDUhGiHz26L",
+      "type": "text",
+      "name": "",
+      "description": "Dense thicket/brush",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8Nqa2O6yC8rLr9LK",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.8Nqa2O6yC8rLr9LK",
+      "type": "text",
+      "name": "",
+      "description": "Swath/copse of one type of tree",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vyivZqXRMysUhEEk",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.vyivZqXRMysUhEEk",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope or valley",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "M32bsI5BQZmd2tPG",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.M32bsI5BQZmd2tPG",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope: forested, overgrown",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UVZKUkllHmbGdTOB",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.UVZKUkllHmbGdTOB",
+      "type": "text",
+      "name": "",
+      "description": "Sheer rock face, bluff, rocky outcrop",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FRZr64CkdGHElnMr",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.FRZr64CkdGHElnMr",
+      "type": "text",
+      "name": "",
+      "description": "Clearing, meadow, burn site",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E3kyHISFhOFIDd1d",
+      "_key": "!tables.results!yTYV5hXz8D6DSoKR.E3kyHISFhOFIDd1d",
+      "type": "text",
+      "name": "",
+      "description": "Cave, cavern, grotto",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 16000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

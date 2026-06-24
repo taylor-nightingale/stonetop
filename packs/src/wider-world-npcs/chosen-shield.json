@@ -1,0 +1,45 @@
+{
+  "_id": "PLzOnY4BxpmsJZFE",
+  "_key": "!actors!PLzOnY4BxpmsJZFE",
+  "name": "Chosen shield",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "chosen-shield",
+    "reference": "north-manmarch",
+    "tagList": {
+      "selected": [
+        "Group",
+        "organized",
+        "brave",
+        "vicious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "3 (iron hauberk, shield)",
+    "damage": "iron battleaxe d8 (close, messy, 1 piercing), spear d8 (close, thrown, 1 piercing), knife d6 (hand, 1 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to suffer no insult or disrespect"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Lash out with sudden, casual violence\n- Fight with grim purpose or reckless abandon\n- Pry apart an enemy’s defenses\n\nThe chosen shields are a chief’s best: the most loyal, the bravest, the bloodiest. They’re professional fighters, their chief’s bodyguards, enforcers, and lieutenants. They sit closest to the chief by the fire, and share the best haunches of meat. They take a share, too, of their chief’s loot and their chief’s glory. The wise chief lets them have it, for a chief is nothing without their chosen shields. And when a chief is toppled, it’s usually one of their chosen shields that does the toppling.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

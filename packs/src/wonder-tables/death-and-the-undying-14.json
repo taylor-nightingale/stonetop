@@ -1,0 +1,182 @@
+{
+  "_id": "KwLjc8KuzLHNd72x",
+  "_key": "!tables!KwLjc8KuzLHNd72x",
+  "name": "Death and the undying — Ability (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "fxQ2vy3BCazn0FIU",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.fxQ2vy3BCazn0FIU",
+      "type": "text",
+      "name": "",
+      "description": "Uncanny speed/grace/prowess",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0wQQLtoALmBkaf7B",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.0wQQLtoALmBkaf7B",
+      "type": "text",
+      "name": "",
+      "description": "Unholy strength (<em>forceful</em>, +2 damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8bY06oP4jQeFweGy",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.8bY06oP4jQeFweGy",
+      "type": "text",
+      "name": "",
+      "description": "Unnatural resilience (+4 HP, +4 armor except vs. silver or fire)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "k2dgQrSVXYayx9Nn",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.k2dgQrSVXYayx9Nn",
+      "type": "text",
+      "name": "",
+      "description": "Can regenerate/reform/rise again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Tqx4iNzdZ7kYL60S",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.Tqx4iNzdZ7kYL60S",
+      "type": "text",
+      "name": "",
+      "description": "Limbs that can keep acting and reattach even if severed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GEg9F6OurUXk4Bcj",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.GEg9F6OurUXk4Bcj",
+      "type": "text",
+      "name": "",
+      "description": "Minions (bugs, its own severed hand or floating eye, a crow, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4AP5sQqWvpphzIKl",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.4AP5sQqWvpphzIKl",
+      "type": "text",
+      "name": "",
+      "description": "Mesmerizing/terrifying gaze",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QkNsIFpYHLIcpmxh",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.QkNsIFpYHLIcpmxh",
+      "type": "text",
+      "name": "",
+      "description": "Aura of cold/heat/smoke/rot/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zvWRvW0m1F2NbDuk",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.zvWRvW0m1F2NbDuk",
+      "type": "text",
+      "name": "",
+      "description": "Magic, related to how they died",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ja7TPPuBiE3fgsh5",
+      "_key": "!tables.results!KwLjc8KuzLHNd72x.Ja7TPPuBiE3fgsh5",
+      "type": "text",
+      "name": "",
+      "description": "Shapeshifting (mist/beasts/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

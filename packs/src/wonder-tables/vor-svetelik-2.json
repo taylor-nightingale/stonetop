@@ -1,0 +1,214 @@
+{
+  "_id": "UBEsqldlNWcFmZZq",
+  "_key": "!tables!UBEsqldlNWcFmZZq",
+  "name": "Vor Svetelik — Green lord ruin",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "iQuUPF0150F03n3B",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.iQuUPF0150F03n3B",
+      "type": "text",
+      "name": "",
+      "description": "Arched, petrified trees, forming a half-cylinder. Largely collapsed. The remains shelter a stone slab (3 by 6 paces) and empty canopic jars.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r6FacH8s6NTXQl5s",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.r6FacH8s6NTXQl5s",
+      "type": "text",
+      "name": "",
+      "description": "Buried vault, cracked, mostly full of dirt. Inner walls lined with bas relief vines in runic shapes.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YMmn5Jv23TH43BbI",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.YMmn5Jv23TH43BbI",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling walls of a ziggurat. “Inside” of walls bear shifting mosaics of colorful moss, showing history of the Fae.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uzzMv6sXailFDEcQ",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.uzzMv6sXailFDEcQ",
+      "type": "text",
+      "name": "",
+      "description": "Earth-covered mound. Entrance sealed by living roots (part with command word). Purple crystals line interior, gently glowing.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vaBuDlKXaOZIFljC",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.vaBuDlKXaOZIFljC",
+      "type": "text",
+      "name": "",
+      "description": "Foundation of white/green/gray stones, hints of faded scrollwork, hinting at long-gone structures.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tIK3UIljEDh0ip5i",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.tIK3UIljEDh0ip5i",
+      "type": "text",
+      "name": "",
+      "description": "Half-buried dome, ~15 paces across. Exposed timbers of uncut tree trunks. Broken gate of woven antler.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rbEfE0EeYMcmEcug",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.rbEfE0EeYMcmEcug",
+      "type": "text",
+      "name": "",
+      "description": "Half-dozen structures of rust-red trees, grown in beehive shapes. Untouched by time. Inside: cauldrons, misshapen bones, carapaces.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tqASMQW5SW00hXOO",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.tqASMQW5SW00hXOO",
+      "type": "text",
+      "name": "",
+      "description": "House-sized pile of dirt, hints of worked stone beneath. Inside: a modest dwelling lit by glowing ambers.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5GWEPV0cbXYWxZp7",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.5GWEPV0cbXYWxZp7",
+      "type": "text",
+      "name": "",
+      "description": "Intact cellar, too small for Makers. Door is stuck, but works. Lit by glowing lichen. Holds ancient foodstuffs; crumbles at touch or breeze.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BK8BkNibkWrNA1Wk",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.BK8BkNibkWrNA1Wk",
+      "type": "text",
+      "name": "",
+      "description": "Massive tree trunk, ~10 paces wide, broken off at top. Remaining wood glints of silver. Entrance to hollow is embossed with ivory runes. Black sap drips from interior walls.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0PkqaB97zcpCDvCt",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.0PkqaB97zcpCDvCt",
+      "type": "text",
+      "name": "",
+      "description": "Ramparts of iron-infused trees, sporting long thorns, blocking what once were streets. Rusted, crumbling, uprooted in places.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "goMhZvILdZlECcOU",
+      "_key": "!tables.results!UBEsqldlNWcFmZZq.goMhZvILdZlECcOU",
+      "type": "text",
+      "name": "",
+      "description": "Underground “cage” made of tree roots infused with iron. Still intact, no apparent entrances. The above are just examples. See page 214 if you need to create more or different ruins.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

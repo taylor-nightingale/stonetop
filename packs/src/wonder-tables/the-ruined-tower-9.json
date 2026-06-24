@@ -1,0 +1,134 @@
+{
+  "_id": "f6UuNCMbz4uhGT1f",
+  "_key": "!tables!f6UuNCMbz4uhGT1f",
+  "name": "The Ruined Tower — Shape",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "L3lYb118Bst5HL8k",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.L3lYb118Bst5HL8k",
+      "type": "text",
+      "name": "",
+      "description": "Hallway, relatively narrow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tmzOI7SD5ColrU5q",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.tmzOI7SD5ColrU5q",
+      "type": "text",
+      "name": "",
+      "description": "Square/rectangle/block",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4caWluiSPr5bv3YC",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.4caWluiSPr5bv3YC",
+      "type": "text",
+      "name": "",
+      "description": "Intersection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MdhnkHHBm1bDORXd",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.MdhnkHHBm1bDORXd",
+      "type": "text",
+      "name": "",
+      "description": "Round/sphere/dome/bowl",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MVmSY8AnOIrPvohC",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.MVmSY8AnOIrPvohC",
+      "type": "text",
+      "name": "",
+      "description": "Hexagon/octagon/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7rus10cTTCUk7kUQ",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.7rus10cTTCUk7kUQ",
+      "type": "text",
+      "name": "",
+      "description": "Irregular (L-shape, blob, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eF4m3LSoFAHcBt9B",
+      "_key": "!tables.results!f6UuNCMbz4uhGT1f.eF4m3LSoFAHcBt9B",
+      "type": "text",
+      "name": "",
+      "description": "Cluster: roll d10, 1d4+1 times",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

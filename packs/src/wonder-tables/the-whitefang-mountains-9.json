@@ -1,0 +1,214 @@
+{
+  "_id": "qG9SiK6szn8ecyQk",
+  "_key": "!tables!qG9SiK6szn8ecyQk",
+  "name": "The Whitefang Mountains — No one here...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "3376HEIWW7xcCPgv",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.3376HEIWW7xcCPgv",
+      "type": "text",
+      "name": "",
+      "description": "… bears weapons (or type of weapon)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DYbzPmYXr8GTNQfl",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.DYbzPmYXr8GTNQfl",
+      "type": "text",
+      "name": "",
+      "description": "… consumes meat/alcohol/___",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WPbLI6czd26vNDYH",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.WPbLI6czd26vNDYH",
+      "type": "text",
+      "name": "",
+      "description": "… cuts their hair/grooms/bathes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4v12ItOeNiurea7p",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.4v12ItOeNiurea7p",
+      "type": "text",
+      "name": "",
+      "description": "… discusses a particular topic/practice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kn8Z5NtEhP4cqMHF",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.kn8Z5NtEhP4cqMHF",
+      "type": "text",
+      "name": "",
+      "description": "… eats/sleeps/has sex/ages past a certain point",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jOHPONLkoBEdB1jC",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.jOHPONLkoBEdB1jC",
+      "type": "text",
+      "name": "",
+      "description": "… fears deep water (they swim, fish, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AJtZvdj6RygqkZwp",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.AJtZvdj6RygqkZwp",
+      "type": "text",
+      "name": "",
+      "description": "… goes into the woods/up the mountain/beyond the vale/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cO4BUMIwkwa8Xhp7",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.cO4BUMIwkwa8Xhp7",
+      "type": "text",
+      "name": "",
+      "description": "… speaks aloud/inside/to strangers/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hFKqdZs35MFvOGfh",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.hFKqdZs35MFvOGfh",
+      "type": "text",
+      "name": "",
+      "description": "… touches another’s skin/hair/shadow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nmEwGcmReBWH9UmL",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.nmEwGcmReBWH9UmL",
+      "type": "text",
+      "name": "",
+      "description": "… shows their skin/face/hair/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "p3YrmQVnTYOi7jbG",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.p3YrmQVnTYOi7jbG",
+      "type": "text",
+      "name": "",
+      "description": "… speaks ill of others/admits hardship",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1wtF8qMfQZWeu03Z",
+      "_key": "!tables.results!qG9SiK6szn8ecyQk.1wtF8qMfQZWeu03Z",
+      "type": "text",
+      "name": "",
+      "description": "… tolerates a particular color/material",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

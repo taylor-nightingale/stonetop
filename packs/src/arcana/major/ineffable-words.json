@@ -3,7 +3,7 @@
 	"_key": "!items!h3TJn019UWsb6UBC",
 	"name": "Ineffable Words",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/ineffable-words.png",
+	"img": "systems/stonetop/assets/content/arcana/ineffable-words.png",
 	"system": {
 		"slug": "ineffable-words",
 		"front": {

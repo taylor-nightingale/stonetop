@@ -1,0 +1,182 @@
+{
+  "_id": "NG8lqk2Q7YgFBg6z",
+  "_key": "!tables!NG8lqk2Q7YgFBg6z",
+  "name": "Stone Lords — Peril",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "tIHsFT1Gxx4AR4YH",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.tIHsFT1Gxx4AR4YH",
+      "type": "text",
+      "name": "",
+      "description": "Discharges energy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iIyIkP1Na2p4ZUEi",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.iIyIkP1Na2p4ZUEi",
+      "type": "text",
+      "name": "",
+      "description": "Crushes/smashes/grinds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nU4mk5lgSFfbeMax",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.nU4mk5lgSFfbeMax",
+      "type": "text",
+      "name": "",
+      "description": "Captures/imprisons/isolates/ separates",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JJisVZiF9e4TtjFI",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.JJisVZiF9e4TtjFI",
+      "type": "text",
+      "name": "",
+      "description": "Forbids/punishes certain actions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uDDx0c6AdgZ2Kxuy",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.uDDx0c6AdgZ2Kxuy",
+      "type": "text",
+      "name": "",
+      "description": "Drains energy/emotion/memory",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e3CUBtV7XvEU1IZi",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.e3CUBtV7XvEU1IZi",
+      "type": "text",
+      "name": "",
+      "description": "Overwhelms senses/emotions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gjTY2ocOVY7oHVLH",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.gjTY2ocOVY7oHVLH",
+      "type": "text",
+      "name": "",
+      "description": "Lures/entices/deceives",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tr0sgbTfaCqHzmVr",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.tr0sgbTfaCqHzmVr",
+      "type": "text",
+      "name": "",
+      "description": "Draws attention",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VXYieOfJPiiZtB2C",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.VXYieOfJPiiZtB2C",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JmV9CHJFZNvvb1uq",
+      "_key": "!tables.results!NG8lqk2Q7YgFBg6z.JmV9CHJFZNvvb1uq",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10, but make it grandiose— it doesn’t just capture, it petrifies; it doesn’t just grind, it reduces something to dust, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

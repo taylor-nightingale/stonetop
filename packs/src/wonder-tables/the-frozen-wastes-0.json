@@ -1,0 +1,150 @@
+{
+  "_id": "ae2zYIe54XqTBD1m",
+  "_key": "!tables!ae2zYIe54XqTBD1m",
+  "name": "The Frozen Wastes — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "xdsK61f3E1gDxruK",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.xdsK61f3E1gDxruK",
+      "type": "text",
+      "name": "",
+      "description": "Kettle lake, small but dozens or hundreds of feet deep",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "maLnvVOf6BwEEtHt",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.maLnvVOf6BwEEtHt",
+      "type": "text",
+      "name": "",
+      "description": "Stretch of shallow standing water/ice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DH91loABQXQTAbDu",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.DH91loABQXQTAbDu",
+      "type": "text",
+      "name": "",
+      "description": "Wide open expanse, just grass and shrub for miles",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wHwQcbiGz6M8Y6Jq",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.wHwQcbiGz6M8Y6Jq",
+      "type": "text",
+      "name": "",
+      "description": "Large patch of mud/frozen mud",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3C2txsbfDmsIUwKG",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.3C2txsbfDmsIUwKG",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope/low ridge/small rise",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PGnUhW0kCZz3DMKL",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.PGnUhW0kCZz3DMKL",
+      "type": "text",
+      "name": "",
+      "description": "Low moraine, a small hill of broken stones and loose soil",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tLSKBa3cDmDb47UG",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.tLSKBa3cDmDb47UG",
+      "type": "text",
+      "name": "",
+      "description": "Rocky outcrop, a dozen feet tall at most",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QbShpqf5G5hVzqyU",
+      "_key": "!tables.results!ae2zYIe54XqTBD1m.QbShpqf5G5hVzqyU",
+      "type": "text",
+      "name": "",
+      "description": "Single, notable tree",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 19000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

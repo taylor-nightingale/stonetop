@@ -1,0 +1,214 @@
+{
+  "_id": "DEfLgrNdC3CLUk6B",
+  "_key": "!tables!DEfLgrNdC3CLUk6B",
+  "name": "Blackwater Lake — Ruin or barrow",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Jp9p1cattXXBBQMK",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.Jp9p1cattXXBBQMK",
+      "type": "text",
+      "name": "",
+      "description": "Partly collapsed mound of earth and stones, each carved with fearrunes. Holds bones, clay vessels full of rotted grain.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EpbnUQQdqGP8JHuc",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.EpbnUQQdqGP8JHuc",
+      "type": "text",
+      "name": "",
+      "description": "Warehouse-sized bunker of massive blocks, buried at a severe angle. Bay doors visible, heavily marred, but still intact.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hKhy5oswA9BRW1W6",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.hKhy5oswA9BRW1W6",
+      "type": "text",
+      "name": "",
+      "description": "Warren of human-sized rooms, dug into outer ridge. Confusing layout, odd angles, unstable, lit by glowing crystals.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tpV2DNK9iAHEZYbl",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.tpV2DNK9iAHEZYbl",
+      "type": "text",
+      "name": "",
+      "description": "Door into the ridge, leading to a crude, vaulted room. Holds a 12’ statue of a squat, fishy beast. Its mouth opens to a deep shaft.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "w6jycgou403c5e1G",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.w6jycgou403c5e1G",
+      "type": "text",
+      "name": "",
+      "description": "Dozens of makerglass tubes, each smaller than the last, lined up in ranks and fused together. Chime hauntingly when struck.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "08KtnYYLH4pQ6IGi",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.08KtnYYLH4pQ6IGi",
+      "type": "text",
+      "name": "",
+      "description": "Walls of a cubical stone room with many niches. Tilted ~30°. Crystalline fixture in one wall. Words spoken here blare from somewhere across the lake.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "C7kpG7LllsqD56Q9",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.C7kpG7LllsqD56Q9",
+      "type": "text",
+      "name": "",
+      "description": "Series of dissimilar rooms and tunnels, leading to a massive underground amphitheater, like a cyst in the earth. Largely flooded.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lDEtpaKP0VagMQtu",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.lDEtpaKP0VagMQtu",
+      "type": "text",
+      "name": "",
+      "description": "Stone head, bigger than a house, barely recognizable. Eye sockets open to a chamber. Interior walls covered in runes, useless levers.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s1pzaF1d6xskaomN",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.s1pzaF1d6xskaomN",
+      "type": "text",
+      "name": "",
+      "description": "Barrow on the ridge, hidden by trees, brush. An open doorway. Inside: a withered corpse bound by bronze, a pile of offerings.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tPWd0thHLC9gGW81",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.tPWd0thHLC9gGW81",
+      "type": "text",
+      "name": "",
+      "description": "Small hill of stacked stones; one slab hides a door. Inside, an icy crystal lures in wraiths, binds them; scores are trapped already.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zDXrc2lPMxKoBCTS",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.zDXrc2lPMxKoBCTS",
+      "type": "text",
+      "name": "",
+      "description": "Cavernous, buried room, tilted but mostly whole. Full of chisels and <strong>warded pavestones</strong> (page 271): mostly smashed, a few in progress, some buried but intact.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QaxUBPRYUgEq34Lo",
+      "_key": "!tables.results!DEfLgrNdC3CLUk6B.QaxUBPRYUgEq34Lo",
+      "type": "text",
+      "name": "",
+      "description": "Onion-shaped dome of stone, ~30’ across. Hollow, an opening facing down, water pooling impossibly on the ceiling inside.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

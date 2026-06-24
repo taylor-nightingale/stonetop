@@ -1,0 +1,102 @@
+{
+  "_id": "arF36KkNh0gtckKj",
+  "_key": "!tables!arF36KkNh0gtckKj",
+  "name": "The Whitefang Mountains — Natural resource",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "jhtkChzgI7dav9OC",
+      "_key": "!tables.results!arF36KkNh0gtckKj.jhtkChzgI7dav9OC",
+      "type": "text",
+      "name": "",
+      "description": "Vein of ore/mineral deposits/valuable stone (slate, marble, pigments, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7yoBW5oKdesLysUD",
+      "_key": "!tables.results!arF36KkNh0gtckKj.7yoBW5oKdesLysUD",
+      "type": "text",
+      "name": "",
+      "description": "Game, dangerous to hunt: <strong>cave</strong> <strong>bears</strong> (page 205), <strong>mammoth</strong> (page 177), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "N3da3gsyZQtpwVDq",
+      "_key": "!tables.results!arF36KkNh0gtckKj.N3da3gsyZQtpwVDq",
+      "type": "text",
+      "name": "",
+      "description": "Game, hard to reach/prone to bolt: monkeys, hares, goats, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QFNi22kORU4sIAkl",
+      "_key": "!tables.results!arF36KkNh0gtckKj.QFNi22kORU4sIAkl",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fOMFyCaGORTF5Bz3",
+      "_key": "!tables.results!arF36KkNh0gtckKj.fOMFyCaGORTF5Bz3",
+      "type": "text",
+      "name": "",
+      "description": "Safe place to rest, take shelter",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

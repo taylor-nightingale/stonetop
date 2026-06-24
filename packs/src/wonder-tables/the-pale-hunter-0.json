@@ -1,0 +1,86 @@
+{
+  "_id": "aYVbacTFAOHHklN3",
+  "_key": "!tables!aYVbacTFAOHHklN3",
+  "name": "The Pale Hunter — Quarry",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LwQHeAjvzCYxHwXE",
+      "_key": "!tables.results!aYVbacTFAOHHklN3.LwQHeAjvzCYxHwXE",
+      "type": "text",
+      "name": "",
+      "description": "Nothing… yet.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eiteItZFd9egJN42",
+      "_key": "!tables.results!aYVbacTFAOHHklN3.eiteItZFd9egJN42",
+      "type": "text",
+      "name": "",
+      "description": "Paltry prey: a fox/rabbit/boar/deer, <strong>crinwin</strong> (page 58), a fool who crossed his path, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QqFLSPZL3ChnhLzV",
+      "_key": "!tables.results!aYVbacTFAOHHklN3.QqFLSPZL3ChnhLzV",
+      "type": "text",
+      "name": "",
+      "description": "Worthy prey: a <strong>ceirwmawr</strong> (page 205), a <strong>raselbaedd</strong> (page 209), a <strong>beast warden</strong> (page 360), a <strong>Fae</strong> (page 94) with whom he’s made a bet, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tRQABHYKwt8f2jy9",
+      "_key": "!tables.results!aYVbacTFAOHHklN3.tRQABHYKwt8f2jy9",
+      "type": "text",
+      "name": "",
+      "description": "Undead prey: a <strong>ghost</strong> (page 76) or <strong>revenant</strong> (page 80), caught in the open, away from any <strong>dool trees</strong> (page 73).",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 35000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

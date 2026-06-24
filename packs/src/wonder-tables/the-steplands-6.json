@@ -1,0 +1,118 @@
+{
+  "_id": "fJ8W89onBNOyiOPB",
+  "_key": "!tables!fJ8W89onBNOyiOPB",
+  "name": "The Steplands — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "5puslSJEnPfGP0bx",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.5puslSJEnPfGP0bx",
+      "type": "text",
+      "name": "",
+      "description": "Small, contained, only a few chambers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "luw0C8nSUYRFqWW4",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.luw0C8nSUYRFqWW4",
+      "type": "text",
+      "name": "",
+      "description": "Long, narrow, meandering",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QsbQNiHaDzHdOhkk",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.QsbQNiHaDzHdOhkk",
+      "type": "text",
+      "name": "",
+      "description": "Twisting, interlaced tunnels; multiple chambers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S1r2sgiNr5t6CCT5",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.S1r2sgiNr5t6CCT5",
+      "type": "text",
+      "name": "",
+      "description": "A few distinct sets of chambers, connected by long twisting tunnels",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v6JLKC1Btsqxmg0k",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.v6JLKC1Btsqxmg0k",
+      "type": "text",
+      "name": "",
+      "description": "Few small passages to a larger, massive chamber",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MYICB8HgqwjpCnYI",
+      "_key": "!tables.results!fJ8W89onBNOyiOPB.MYICB8HgqwjpCnYI",
+      "type": "text",
+      "name": "",
+      "description": "Large and open main tunnel, smaller side passages and chambers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "EO4CeJao8uLZkSMX",
+  "_key": "!actors!EO4CeJao8uLZkSMX",
+  "name": "Hand of Daagon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hand-of-daagon",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "emanation",
+        "terrifying",
+        "cautious",
+        "curious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "many hands d12+1 (hand, close, grabby, ignores armor)",
+    "specialQuality": "blind tremorsense  reaches through matter like it was water",
+    "instinct": {
+      "selected": [
+        "to feed the Mouth"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sink into the stone, or emerge from it\n- Provoke abject revulsion\n- Reach through armor, clothing, flesh, bone to take what is most valued\n- Retreat with its prize, back to the water\n\nIn a deep deep cave, where light has never shined, there is a lake. In that lake, there is a Mouth of Daagon: ever-hungry, ever- greedy, consuming all that it is offered. And in the caverns around that lake? There you will find the Hand: ever-groping, ever-grasping, dragging all it finds of value back to the Mouth.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

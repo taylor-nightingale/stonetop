@@ -1,0 +1,43 @@
+{
+  "_id": "8KbAMQ6NhwN36qGm",
+  "_key": "!actors!8KbAMQ6NhwN36qGm",
+  "name": "Thunder drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "thunder-drake",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "3 (scales, crest)",
+    "damage": "gore, trample, swat d10+3 (hand, close, forceful, messy, 1 piercing)",
+    "specialQuality": "lightning-proof, hard of hearing",
+    "instinct": {
+      "selected": [
+        "to protect its turf"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Bellow (near, area, loud, forceful, reload)\n- Burrow and gnaw through rock\n- Sometimes: belch forth a bolt of lightning, d10+3 damage (near, forceful, loud, ignores armor)\n\nSometimes, out on the Flats, you’ll see what looks to be small hills in the distance. I advise you to steer clear. They probably aren’t hills, really, but huge piles of dirt that a thunder drake has moved as it digs. And hoo boy, you do not want to stumble into one of them on their home turf. Something interesting: Thunder drakes eat mostly grass and shrubs, but they have a taste for certain ores. They spend their time grazing, sleeping, and digging up rocks. Something useful: They particularly savor the taste of copper, and relish aetherium (page 404). If they find a source of it, they’ll chew it right up and spend the next few days belching lightning bolts. When you are near a thunder drake when it bellows, roll +CON: on a 10+, pick 1; on a 7-9, pick 2; on a 6-, all 3. Drop what you’re holding and cover your ears Stagger back a few steps You’re deafened and disoriented for a few moments",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

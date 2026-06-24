@@ -1,0 +1,54 @@
+{
+  "_id": "nyXcMR2i124xwZca",
+  "_key": "!tables!nyXcMR2i124xwZca",
+  "name": "APPENDIX B: Artifact Creation — What is it?",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Q6rVrA9agl78wry9",
+      "_key": "!tables.results!nyXcMR2i124xwZca.Q6rVrA9agl78wry9",
+      "type": "text",
+      "name": "",
+      "description": "Something more common (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BZromNB1VMdSUFSR",
+      "_key": "!tables.results!nyXcMR2i124xwZca.BZromNB1VMdSUFSR",
+      "type": "text",
+      "name": "",
+      "description": "Something less common (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

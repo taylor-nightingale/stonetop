@@ -1,0 +1,118 @@
+{
+  "_id": "sEm8NWD85a95Opj8",
+  "_key": "!tables!sEm8NWD85a95Opj8",
+  "name": "South Manmarch — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "IJugsk4UH6WT4Qhe",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.IJugsk4UH6WT4Qhe",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous page) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4KXTBgrZk1OvnJE5",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.4KXTBgrZk1OvnJE5",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bE1V8tCbDWn98LT6",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.bE1V8tCbDWn98LT6",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b72YXF03JY7zj105",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.b72YXF03JY7zj105",
+      "type": "text",
+      "name": "",
+      "description": "beast (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WLpKOoLhC5sRe1mr",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.WLpKOoLhC5sRe1mr",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Y2Fyz8CsY2AhJPxf",
+      "_key": "!tables.results!sEm8NWD85a95Opj8.Y2Fyz8CsY2AhJPxf",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "ZuafsJzFTivMta0Z",
+  "_key": "!tables!ZuafsJzFTivMta0Z",
+  "name": "Barrow Builders — Origin",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "mra4VA4RtVkPjbjd",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.mra4VA4RtVkPjbjd",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Green Lord ruin</strong> (page 214)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MpB5w4ISfXmNZ2bJ",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.MpB5w4ISfXmNZ2bJ",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Rime Lord ruin</strong> (page 320)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UGnuzRyGFTJGgBNO",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.UGnuzRyGFTJGgBNO",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Tempest Lord ruin</strong> (page 402)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FwiwCa1YufhS1tEq",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.FwiwCa1YufhS1tEq",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Forge Lord ruin</strong> (page 160)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CPuQWE628cCdnO4u",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.CPuQWE628cCdnO4u",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Stone Lord ruin</strong> (page 386)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oD8AHdW0m2D0fdeh",
+      "_key": "!tables.results!ZuafsJzFTivMta0Z.oD8AHdW0m2D0fdeh",
+      "type": "text",
+      "name": "",
+      "description": "A ruin of multiple groups (roll 1d10 twice)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

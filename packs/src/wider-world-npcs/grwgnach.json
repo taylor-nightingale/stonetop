@@ -1,0 +1,46 @@
+{
+  "_id": "jscnbPRnQ5h4DWAe",
+  "_key": "!actors!jscnbPRnQ5h4DWAe",
+  "name": "Grwgnach",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "grwgnach",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "spirit",
+        "magical",
+        "mesmerizing"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 27,
+      "max": 27
+    },
+    "armor": "2 (reflexes, swarm)",
+    "damage": "whirlwind of pecks, claws, buffets d8+3 (hand, area, disadvantage)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to absorb individual identity"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest in a murmuration of starlings (nigh impossible to harm with personal weapons)\n- Strip a swath of land clean of seed, saplings, insects\n- Overwhelm with sound and the weight of numbers\n\nWhen the sun sets, starlings flock in absurd numbers: thousands upon thou- sands dancing and wheeling in the sky, like a chittering thunderhead, like a cloud of living smoke. Farmers do what they can to keep starlings far from town, and not just because they eat precious seeds and bury the land in drop- pings. They do so for fear of the grwgnach.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

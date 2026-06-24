@@ -1,0 +1,118 @@
+{
+  "_id": "bf5wQeCNuru2rhgD",
+  "_key": "!tables!bf5wQeCNuru2rhgD",
+  "name": "Three Coven Lake — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PP2HvHsi77Ldc5iq",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.PP2HvHsi77Ldc5iq",
+      "type": "text",
+      "name": "",
+      "description": "Scheming/deceitful/in disguise",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KtniVuvniRIkcnQ3",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.KtniVuvniRIkcnQ3",
+      "type": "text",
+      "name": "",
+      "description": "Afraid/injured/in trouble",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QiWB7pJIgY6B7Del",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.QiWB7pJIgY6B7Del",
+      "type": "text",
+      "name": "",
+      "description": "Wary/furtive/sneaking about",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "w60TZRdw0gjydWTI",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.w60TZRdw0gjydWTI",
+      "type": "text",
+      "name": "",
+      "description": "Annoyed/struggling/working",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yj1EaUKrMg9SsU8C",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.yj1EaUKrMg9SsU8C",
+      "type": "text",
+      "name": "",
+      "description": "Unaware/indifferent/at rest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "x0aEf7pcE5dwzbIc",
+      "_key": "!tables.results!bf5wQeCNuru2rhgD.x0aEf7pcE5dwzbIc",
+      "type": "text",
+      "name": "",
+      "description": "Friendly/curious/playful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

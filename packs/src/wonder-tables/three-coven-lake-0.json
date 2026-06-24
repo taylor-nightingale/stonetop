@@ -1,0 +1,150 @@
+{
+  "_id": "bUS4LYy217XbUN0E",
+  "_key": "!tables!bUS4LYy217XbUN0E",
+  "name": "Three Coven Lake — Bluffs terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PpBRTLarXyfM5FEo",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.PpBRTLarXyfM5FEo",
+      "type": "text",
+      "name": "",
+      "description": "Cliff/ledge/cleft/crevice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oY0UItCfOcmK55NK",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.oY0UItCfOcmK55NK",
+      "type": "text",
+      "name": "",
+      "description": "Scree/rubble/boulders",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ECJbgYaJcWCjV7Yo",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.ECJbgYaJcWCjV7Yo",
+      "type": "text",
+      "name": "",
+      "description": "Overhang/plateau/outcrop",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PJLKlcR4nsHsMi4F",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.PJLKlcR4nsHsMi4F",
+      "type": "text",
+      "name": "",
+      "description": "Tree(s)/shrub(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zRCyRjaCHV03Xq2x",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.zRCyRjaCHV03Xq2x",
+      "type": "text",
+      "name": "",
+      "description": "Waterfall/pool/travertine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QJHZ4JW7jj7Xh590",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.QJHZ4JW7jj7Xh590",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Barrow</strong> (page 39)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "u4apbe4FRiG69K0X",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.u4apbe4FRiG69K0X",
+      "type": "text",
+      "name": "",
+      "description": "Walkway/stairs/balcony, carved into the stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ofAhBA5oKBW5Ql4f",
+      "_key": "!tables.results!bUS4LYy217XbUN0E.ofAhBA5oKBW5Ql4f",
+      "type": "text",
+      "name": "",
+      "description": "stone lord site (page 442)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

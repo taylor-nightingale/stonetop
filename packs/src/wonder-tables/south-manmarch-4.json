@@ -1,0 +1,118 @@
+{
+  "_id": "PoBSHvAGpz4G8dH5",
+  "_key": "!tables!PoBSHvAGpz4G8dH5",
+  "name": "South Manmarch — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "t9O6zJoSN8gr1jPw",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.t9O6zJoSN8gr1jPw",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7ERZq9faRzbFlP53",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.7ERZq9faRzbFlP53",
+      "type": "text",
+      "name": "",
+      "description": "A tomb, site, or artifact of the <strong>Barrow Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JZtBHnt4YvMG2fYR",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.JZtBHnt4YvMG2fYR",
+      "type": "text",
+      "name": "",
+      "description": "A battlefield or remains (below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "srjYRELlMFaiWuYM",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.srjYRELlMFaiWuYM",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or fortification of the <strong>Stone</strong> <strong>Lords</strong> (page 382)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mbwQYVIRM7MgiAyQ",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.mbwQYVIRM7MgiAyQ",
+      "type": "text",
+      "name": "",
+      "description": "A place sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nsc8ChQQuyjV8koR",
+      "_key": "!tables.results!PoBSHvAGpz4G8dH5.nsc8ChQQuyjV8koR",
+      "type": "text",
+      "name": "",
+      "description": "A new settlement",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

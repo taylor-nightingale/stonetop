@@ -1,0 +1,102 @@
+{
+  "_id": "xubZn3rIZxcumRHH",
+  "_key": "!tables!xubZn3rIZxcumRHH",
+  "name": "Stone Lords — Form (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OD9oRJt1U3ABs1l9",
+      "_key": "!tables.results!xubZn3rIZxcumRHH.OD9oRJt1U3ABs1l9",
+      "type": "text",
+      "name": "",
+      "description": "Mechanism/construction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xb57tMWCOTXySGia",
+      "_key": "!tables.results!xubZn3rIZxcumRHH.xb57tMWCOTXySGia",
+      "type": "text",
+      "name": "",
+      "description": "Rune(s): engraved in stone, worked into tile, formed out of architecture",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nyKlHO5WZtlkOiBu",
+      "_key": "!tables.results!xubZn3rIZxcumRHH.nyKlHO5WZtlkOiBu",
+      "type": "text",
+      "name": "",
+      "description": "Crystal(s)/gem(s)/glass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZBwrXGngftVhWSAT",
+      "_key": "!tables.results!xubZn3rIZxcumRHH.ZBwrXGngftVhWSAT",
+      "type": "text",
+      "name": "",
+      "description": "Strange stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Pxao0AAQa8bsry4y",
+      "_key": "!tables.results!xubZn3rIZxcumRHH.Pxao0AAQa8bsry4y",
+      "type": "text",
+      "name": "",
+      "description": "Makerglass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "4KXwyf4irEuM6qjM",
+  "_key": "!tables!4KXwyf4irEuM6qjM",
+  "name": "APPENDIX B: Artifact Creation — Drawback",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "CET6J5sTZYt0Qf8g",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.CET6J5sTZYt0Qf8g",
+      "type": "text",
+      "name": "",
+      "description": "Scarring: leaves a lasting thematic mark on you/the target",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "p1uWky5jD6xv08KW",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.p1uWky5jD6xv08KW",
+      "type": "text",
+      "name": "",
+      "description": "Dangerous: can have destructive, unwanted side effects",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jHiaBPpylDeNx4aZ",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.jHiaBPpylDeNx4aZ",
+      "type": "text",
+      "name": "",
+      "description": "Demanding: takes great effort to cast/trigger/maintain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EH5sfdYh9a0MSHSq",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.EH5sfdYh9a0MSHSq",
+      "type": "text",
+      "name": "",
+      "description": "Discordant: draws unwanted attention",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yHOxJs1HKuqk4N5o",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.yHOxJs1HKuqk4N5o",
+      "type": "text",
+      "name": "",
+      "description": "Fickle: fails at inopportune times",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JHa53NBaSSRqyBgq",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.JHa53NBaSSRqyBgq",
+      "type": "text",
+      "name": "",
+      "description": "Weak: easily countered by will/ fortitude/preparation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xnK04p01CoYbwCL0",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.xnK04p01CoYbwCL0",
+      "type": "text",
+      "name": "",
+      "description": "Indiscriminate: imprecise in its targets/duration/effect",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MPa9CMk9vP4ro2ix",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.MPa9CMk9vP4ro2ix",
+      "type": "text",
+      "name": "",
+      "description": "Withering: weakens you/the artifact/the target",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r2omwgD47zh1AEQP",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.r2omwgD47zh1AEQP",
+      "type": "text",
+      "name": "",
+      "description": "Restricted: works only in specific, thematic conditions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vGhledjep87GaZtK",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.vGhledjep87GaZtK",
+      "type": "text",
+      "name": "",
+      "description": "Costly: requires sacrifice, consumes resources",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WC0urVp1N1109KBS",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.WC0urVp1N1109KBS",
+      "type": "text",
+      "name": "",
+      "description": "Slow: takes time to cast/manifest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z4kuaPPrWCOE3Mvk",
+      "_key": "!tables.results!4KXwyf4irEuM6qjM.z4kuaPPrWCOE3Mvk",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

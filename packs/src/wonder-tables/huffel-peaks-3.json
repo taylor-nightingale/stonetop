@@ -1,0 +1,102 @@
+{
+  "_id": "0wir9RDCWFdmAziG",
+  "_key": "!tables!0wir9RDCWFdmAziG",
+  "name": "Huffel Peaks — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Z2Vm0wMTIC6iHIho",
+      "_key": "!tables.results!0wir9RDCWFdmAziG.Z2Vm0wMTIC6iHIho",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ih2YsJ35RQNY6ixw",
+      "_key": "!tables.results!0wir9RDCWFdmAziG.Ih2YsJ35RQNY6ixw",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by death and the undying (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vXphgLwppje8Nyiu",
+      "_key": "!tables.results!0wir9RDCWFdmAziG.vXphgLwppje8Nyiu",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the ﻿<strong>Stone</strong> <strong>Lords</strong> (page 382), maybe claimed by the ﻿<strong>Barrow Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YJkRNTrZ3oWI8PzX",
+      "_key": "!tables.results!0wir9RDCWFdmAziG.YJkRNTrZ3oWI8PzX",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Forge</strong> <strong>Lords</strong> (page 156), perhaps inhabited by <strong>Ustrina</strong> (page 464)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3ycASRtx1KXGIyyy",
+      "_key": "!tables.results!0wir9RDCWFdmAziG.3ycASRtx1KXGIyyy",
+      "type": "text",
+      "name": "",
+      "description": "A place sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 27003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

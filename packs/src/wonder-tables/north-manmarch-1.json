@@ -1,0 +1,118 @@
+{
+  "_id": "PYJADSTFIQipirBn",
+  "_key": "!tables!PYJADSTFIQipirBn",
+  "name": "North Manmarch — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "GxVFOQAt4B4Y5wFe",
+      "_key": "!tables.results!PYJADSTFIQipirBn.GxVFOQAt4B4Y5wFe",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous column) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pUGRyTIhBwByLE53",
+      "_key": "!tables.results!PYJADSTFIQipirBn.pUGRyTIhBwByLE53",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uivtxJDgvxdOdvb5",
+      "_key": "!tables.results!PYJADSTFIQipirBn.uivtxJDgvxdOdvb5",
+      "type": "text",
+      "name": "",
+      "description": "signs of violence (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CQ1BCN63psQijbSQ",
+      "_key": "!tables.results!PYJADSTFIQipirBn.CQ1BCN63psQijbSQ",
+      "type": "text",
+      "name": "",
+      "description": "Beasts: maybe game (deer, turkey, pheasant, etc.) or a grazing herd watched by a youth and some dogs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pZDHlw6GcDwBYW1n",
+      "_key": "!tables.results!PYJADSTFIQipirBn.pZDHlw6GcDwBYW1n",
+      "type": "text",
+      "name": "",
+      "description": "Farmers: working the land, hunting, or heading somewhere",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CJvGamML81RIRtMx",
+      "_key": "!tables.results!PYJADSTFIQipirBn.CJvGamML81RIRtMx",
+      "type": "text",
+      "name": "",
+      "description": "Warriors: not hostile, certainly wary",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 34001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

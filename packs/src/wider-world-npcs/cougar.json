@@ -1,0 +1,45 @@
+{
+  "_id": "AhnVyOi0LrUk9NRA",
+  "_key": "!actors!AhnVyOi0LrUk9NRA",
+  "name": "Cougar",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cougar",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "stealthy",
+        "cautious",
+        "athletic"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "",
+    "damage": "bite d10 (hand, grabby)",
+    "specialQuality": "keen night vision and sense of smell",
+    "instinct": {
+      "selected": [
+        "to catch prey unawares"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Move into position, silently and unseen\n- Pounce on prey, dragging them down (forceful)\n- Bite down and rake (messy)\n\nThey don’t usually hunt people. But when game is scarce, or some fool provokes them, they sometimes get a taste for human blood. Even then, they mostly leave groups alone, waiting for someone to fall behind or wander off. Mostly.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

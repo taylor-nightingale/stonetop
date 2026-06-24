@@ -1,0 +1,118 @@
+{
+  "_id": "c6FdZWSlNoCnwEx6",
+  "_key": "!tables!c6FdZWSlNoCnwEx6",
+  "name": "The Steplands — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "xiAiIwWWepOotssd",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.xiAiIwWWepOotssd",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (previous column) and roll again.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qsRTwqecKMHm0S5a",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.qsRTwqecKMHm0S5a",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9q8EF96fD6RGgXBX",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.9q8EF96fD6RGgXBX",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sAKgYaQ7AovtvZm0",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.sAKgYaQ7AovtvZm0",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JRe9XugeUXIszXHR",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.JRe9XugeUXIszXHR",
+      "type": "text",
+      "name": "",
+      "description": "A hillfolk encounter (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uvDHUR5Xsc0EnTZL",
+      "_key": "!tables.results!c6FdZWSlNoCnwEx6.uvDHUR5Xsc0EnTZL",
+      "type": "text",
+      "name": "",
+      "description": "Some other encounter (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

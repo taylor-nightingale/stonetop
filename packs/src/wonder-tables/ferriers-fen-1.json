@@ -1,0 +1,118 @@
+{
+  "_id": "KrUzRrtcBFKC9Ck7",
+  "_key": "!tables!KrUzRrtcBFKC9Ck7",
+  "name": "Ferrier's Fen — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "tOREEKx6HMtEURS3",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.tOREEKx6HMtEURS3",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous page) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9VJypm7rrD0n5u4z",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.9VJypm7rrD0n5u4z",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6nsK9yFpXCUN2pZE",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.6nsK9yFpXCUN2pZE",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pXyqQ0CzMnISVyrW",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.pXyqQ0CzMnISVyrW",
+      "type": "text",
+      "name": "",
+      "description": "Site or artifact of the <strong>Green Lords</strong> (page 210) likely tainted by the <strong>Things Below</strong> (page 412), at least partially buried or submerged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QiZd4aCosqeOhnzC",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.QiZd4aCosqeOhnzC",
+      "type": "text",
+      "name": "",
+      "description": "Some other point of interest (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qGB77KgOepxiiBgS",
+      "_key": "!tables.results!KrUzRrtcBFKC9Ck7.qGB77KgOepxiiBgS",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 13001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

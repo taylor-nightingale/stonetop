@@ -1,0 +1,102 @@
+{
+  "_id": "2RF86HNZSFVFBoPY",
+  "_key": "!tables!2RF86HNZSFVFBoPY",
+  "name": "Tempest Lords — Sign",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "B6dvdCgaBsgXiCkr",
+      "_key": "!tables.results!2RF86HNZSFVFBoPY.B6dvdCgaBsgXiCkr",
+      "type": "text",
+      "name": "",
+      "description": "A place bearing <strong>scars of unchecked</strong> <strong>power</strong> (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WHCxdLRTd51N8FB4",
+      "_key": "!tables.results!2RF86HNZSFVFBoPY.WHCxdLRTd51N8FB4",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Fragments of a ship or sky-island</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qKdb6kxJYAbLIcbQ",
+      "_key": "!tables.results!2RF86HNZSFVFBoPY.qKdb6kxJYAbLIcbQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Enigmatic structures</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RW2W0nadOhzMVatb",
+      "_key": "!tables.results!2RF86HNZSFVFBoPY.RW2W0nadOhzMVatb",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>elemental spirit</strong> (page 360) of sky, storm, weather, etc.; bound and tethered",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZTTNJ98xLPIxYMDE",
+      "_key": "!tables.results!2RF86HNZSFVFBoPY.ZTTNJ98xLPIxYMDE",
+      "type": "text",
+      "name": "",
+      "description": "Ruins of other ﻿<strong>Makers</strong> (page 264) or the ﻿<strong>Barrow Builders</strong> (page 34): blasted, shattered, ﻿vitrified",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "VfT8Bvc2rMhbhSNe",
+  "_key": "!tables!VfT8Bvc2rMhbhSNe",
+  "name": "Barrow Builders — Limitation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "yHfYLDzIyKq8bBLL",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.yHfYLDzIyKq8bBLL",
+      "type": "text",
+      "name": "",
+      "description": "They can’t leave its presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m9T8BcPpPi4sZglu",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.m9T8BcPpPi4sZglu",
+      "type": "text",
+      "name": "",
+      "description": "It must be fed/charged/maintained",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UyYjUwtPtXQVs8gn",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.UyYjUwtPtXQVs8gn",
+      "type": "text",
+      "name": "",
+      "description": "It must be relocated often",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m7Oi0kmfmhVHQrxB",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.m7Oi0kmfmhVHQrxB",
+      "type": "text",
+      "name": "",
+      "description": "Its destruction results in their instant, terrible, final death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PEL7zWdT0NBD0qYQ",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.PEL7zWdT0NBD0qYQ",
+      "type": "text",
+      "name": "",
+      "description": "If “killed,” they require outside aid to be restored",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dT6hXPcMha8LgfOC",
+      "_key": "!tables.results!VfT8Bvc2rMhbhSNe.dT6hXPcMha8LgfOC",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5017,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

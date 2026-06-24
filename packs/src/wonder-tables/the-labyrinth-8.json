@@ -1,0 +1,118 @@
+{
+  "_id": "Q3HEGTDJV9YZyLsP",
+  "_key": "!tables!Q3HEGTDJV9YZyLsP",
+  "name": "The Labyrinth — Gift",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "68zUus5Yl3GdhRpw",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.68zUus5Yl3GdhRpw",
+      "type": "text",
+      "name": "",
+      "description": "Eat flesh to regenerate wounds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AvUqcDGHeTnNUEKt",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.AvUqcDGHeTnNUEKt",
+      "type": "text",
+      "name": "",
+      "description": "Soundless movement",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9eWmLVDNyXrV7j8l",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.9eWmLVDNyXrV7j8l",
+      "type": "text",
+      "name": "",
+      "description": "Immunity to poison, fire, and cold",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hyWnmV5CQisdjgRH",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.hyWnmV5CQisdjgRH",
+      "type": "text",
+      "name": "",
+      "description": "Brutal strength (+2 damage, <em>forceful</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cp25VTxgHXVs3AFp",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.cp25VTxgHXVs3AFp",
+      "type": "text",
+      "name": "",
+      "description": "Throat sac, exhales poison gas (d4, <em>close</em>, <em>area</em>, <em>reload</em>, <em>debilitating</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IXDWt5lsS0Pjs17W",
+      "_key": "!tables.results!Q3HEGTDJV9YZyLsP.IXDWt5lsS0Pjs17W",
+      "type": "text",
+      "name": "",
+      "description": "Wordless communication",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

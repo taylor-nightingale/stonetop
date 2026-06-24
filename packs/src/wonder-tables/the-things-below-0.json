@@ -1,0 +1,214 @@
+{
+  "_id": "nSZ4SZdIQpUDTYWi",
+  "_key": "!tables!nSZ4SZdIQpUDTYWi",
+  "name": "The Things Below — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LBgl6B3AUpaf8XS3",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.LBgl6B3AUpaf8XS3",
+      "type": "text",
+      "name": "",
+      "description": "Darkness/cold/despair: the swallowing of light, warmth, and hope (obsidian, hoarfrost)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6ckb2S6nl827Nkm9",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.6ckb2S6nl827Nkm9",
+      "type": "text",
+      "name": "",
+      "description": "Denial/shame/secrets/deceit: the rejection of truth, forgiveness, trust (pearls, eyes, masks)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E52AS2SWOBEUEgPI",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.E52AS2SWOBEUEgPI",
+      "type": "text",
+      "name": "",
+      "description": "Delusion/delirium/nightmare: the loss of self, the breaking of minds and wills (quicksilver, mirrors, reflections)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oe7VSPx3vmumj9kV",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.oe7VSPx3vmumj9kV",
+      "type": "text",
+      "name": "",
+      "description": "Hunger/need/addiction: lack and desperation, the howling want (wind, fangs, meat)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pli6mM43HWYl0bsT",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.pli6mM43HWYl0bsT",
+      "type": "text",
+      "name": "",
+      "description": "Cruelty/torture/violence/rage: the urge to hurt, kill, and dominate (red crystal, spilled blood)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0CV9zlHUDSas1bFq",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.0CV9zlHUDSas1bFq",
+      "type": "text",
+      "name": "",
+      "description": "Destruction/chaos/ruin/ignorance: the tower crumbling; anxiety and loss (fire, ash, dust)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6jmrMdWsjCJd8wDl",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.6jmrMdWsjCJd8wDl",
+      "type": "text",
+      "name": "",
+      "description": "Wounds/injury/pain: the rending of flesh, the breaking of bone (blood, bones, claws, blades)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tzex2yOAeHx7BXgD",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.tzex2yOAeHx7BXgD",
+      "type": "text",
+      "name": "",
+      "description": "Corruption/disease/decay: the loss of strength, wholeness, wellness (vermin, poison, acid, filth)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9CsFXWRYzJQJkeOP",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.9CsFXWRYzJQJkeOP",
+      "type": "text",
+      "name": "",
+      "description": "Gluttony/greed/jealousy: the need for more, ever more (mouths, serpents, gems, swarms)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QJ1b6KamY7wFdbyl",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.QJ1b6KamY7wFdbyl",
+      "type": "text",
+      "name": "",
+      "description": "Confinement/suffocation/pressure/ abuse: the crushing weight of helplessness (chains, water, earth)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ON2sJjG5tfcZGUpy",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.ON2sJjG5tfcZGUpy",
+      "type": "text",
+      "name": "",
+      "description": "Mutation/transformation/roiling flesh: the malleability of the body (wax, clay, slime, tentacles)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SkMCLnjbepygA1Wr",
+      "_key": "!tables.results!nSZ4SZdIQpUDTYWi.SkMCLnjbepygA1Wr",
+      "type": "text",
+      "name": "",
+      "description": "Death/undeath/loss/grief: the end of all things, the refusal to let go (skulls, tombs, pyres)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

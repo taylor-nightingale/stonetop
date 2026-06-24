@@ -1,0 +1,86 @@
+{
+  "_id": "6MhebiDhtdJmMj80",
+  "_key": "!tables!6MhebiDhtdJmMj80",
+  "name": "The Steplands — Discovery (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "l7zKxgYMwRAzW6yY",
+      "_key": "!tables.results!6MhebiDhtdJmMj80.l7zKxgYMwRAzW6yY",
+      "type": "text",
+      "name": "",
+      "description": "Connection to another cave system",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "771yKktUBMDMuSkj",
+      "_key": "!tables.results!6MhebiDhtdJmMj80.771yKktUBMDMuSkj",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QemTO8fc2VTL4vmC",
+      "_key": "!tables.results!6MhebiDhtdJmMj80.QemTO8fc2VTL4vmC",
+      "type": "text",
+      "name": "",
+      "description": "Signs of a (prior) inhabitant (previous column), like a site, artifact(s), or remains",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jv2b12IEcEeD7IWB",
+      "_key": "!tables.results!6MhebiDhtdJmMj80.jv2b12IEcEeD7IWB",
+      "type": "text",
+      "name": "",
+      "description": "A relatively good place to rest/hide",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

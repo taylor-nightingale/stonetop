@@ -1,0 +1,118 @@
+{
+  "_id": "XjKisQXF7es8xWAa",
+  "_key": "!tables!XjKisQXF7es8xWAa",
+  "name": "Fae — Role in the war",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "A4KAK0qZnQgHSF1o",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.A4KAK0qZnQgHSF1o",
+      "type": "text",
+      "name": "",
+      "description": "Victim/casualty/refugee/prisoner",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bp78rWKF00jo5Dst",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.Bp78rWKF00jo5Dst",
+      "type": "text",
+      "name": "",
+      "description": "Uninvolved/dissident/loyalist",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "o8kHXt4kqw7R31HD",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.o8kHXt4kqw7R31HD",
+      "type": "text",
+      "name": "",
+      "description": "Conscript/recruit/soldier",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gt9dHPWRbNPK2ayK",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.gt9dHPWRbNPK2ayK",
+      "type": "text",
+      "name": "",
+      "description": "Scout/saboteur/spy/traitor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nCJng7saLzCNY5ER",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.nCJng7saLzCNY5ER",
+      "type": "text",
+      "name": "",
+      "description": "Marshal/chief/overseer/enforcer",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PMJmcO9hUsPV28dz",
+      "_key": "!tables.results!XjKisQXF7es8xWAa.PMJmcO9hUsPV28dz",
+      "type": "text",
+      "name": "",
+      "description": "Hero/ringleader/mastermind",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

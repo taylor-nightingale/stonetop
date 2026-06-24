@@ -1,0 +1,45 @@
+{
+  "_id": "DQC8s3w7GTgTKIgO",
+  "_key": "!actors!DQC8s3w7GTgTKIgO",
+  "name": "Aurochs",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "aurochs",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "ornery",
+        "powerful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "",
+    "damage": "gore d8+5 (close, forceful, messy, 1 piercing), kick/trample d8+3 (hand, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to spook or to get angry, in equal measure"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Send an attacker flying\n- Stampede (area, forceful, messy)\n- Wheel suddenly, with surprising grace and speed\n- Keep going past when it should be dead or dying\n\nBig, powerful, wild cattle with horns longer than your arm and thicker than your hand can grip around. Even the does have big horns, and aren’t shy about using them.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

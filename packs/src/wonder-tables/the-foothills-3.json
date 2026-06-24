@@ -1,0 +1,118 @@
+{
+  "_id": "e2GIDcMQC62TOXHQ",
+  "_key": "!tables!e2GIDcMQC62TOXHQ",
+  "name": "The Foothills — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "yNijE0GcpB4O0xaG",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.yNijE0GcpB4O0xaG",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>chimera</strong> (page 218), wary or indifferent but not outright hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O7HkhBksLJ0NXBtb",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.O7HkhBksLJ0NXBtb",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Fae</strong> (page 94), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "07qtXRhi6mUZspVx",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.07qtXRhi6mUZspVx",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>tulpa</strong> (page 324), likely tethered to a nearby Rime Lord site",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OQH131R8sq9DborM",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.OQH131R8sq9DborM",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iZTm5YXqO8Cntb7f",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.iZTm5YXqO8Cntb7f",
+      "type": "text",
+      "name": "",
+      "description": "A dangerous beast—like a <strong>boar</strong> (page 204), <strong>cave bear</strong> (page 205), <strong>cougar</strong> (page 206), <strong>ice drake</strong> (page 491), <strong>mountain apes</strong> (page 494), or <strong>wolves</strong> (page 209)—wary or indifferent, but easily provoked",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qtcsfMGuj0KvAuqQ",
+      "_key": "!tables.results!e2GIDcMQC62TOXHQ.qtcsfMGuj0KvAuqQ",
+      "type": "text",
+      "name": "",
+      "description": "Game: good eating but prone to bolt (deer, rabbits, pheasant, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 16003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

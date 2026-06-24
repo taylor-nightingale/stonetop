@@ -1,0 +1,45 @@
+{
+  "_id": "lDWX9IDiocyh4pzo",
+  "_key": "!actors!lDWX9IDiocyh4pzo",
+  "name": "Cavalry",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cavalry",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "large",
+        "organized",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "2 (shield, iron scale)",
+    "damage": "iron-tipped long spear d6+4 (reach, forceful), or sword d6+4 (close, forceful), or bow d6 (far)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to attack where the foe is weak"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Circle around their enemy\n- Attack on the move\n- Form a wedge and charge, d6+4 w/ advantage (reach, close, hand, area, forceful, messy, 1 piercing)",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

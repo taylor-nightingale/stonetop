@@ -1,0 +1,118 @@
+{
+  "_id": "Gkm7eF2EEDGMrTFW",
+  "_key": "!tables!Gkm7eF2EEDGMrTFW",
+  "name": "Aratis, the Lawkeeper — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DqgycE2uuQM2xAHg",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.DqgycE2uuQM2xAHg",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A grim peat mound</strong> (page 511)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2YrbrRazwpYGKfPy",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.2YrbrRazwpYGKfPy",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A sealed cave</strong> (page 519)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DBr7dDdh7PVzebsP",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.DBr7dDdh7PVzebsP",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A timeless vault</strong> (page 518)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "X5cseLBaHBNfoPru",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.X5cseLBaHBNfoPru",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A crumbling arch</strong> (page 520)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gOXOk7jRgszfpa7B",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.gOXOk7jRgszfpa7B",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A silvery signet ring</strong> (page 535)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sT0ism4oCKVhnZu9",
+      "_key": "!tables.results!Gkm7eF2EEDGMrTFW.sT0ism4oCKVhnZu9",
+      "type": "text",
+      "name": "",
+      "description": "Some other dangerous minor arcanum, with potential to spread chaos, locked away for safekeeping.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 3001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

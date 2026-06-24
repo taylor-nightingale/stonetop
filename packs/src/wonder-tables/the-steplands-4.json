@@ -1,0 +1,86 @@
+{
+  "_id": "YMR4uJSg8EfK6C2u",
+  "_key": "!tables!YMR4uJSg8EfK6C2u",
+  "name": "The Steplands — Other encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "0MeDApdEkFdWM2Nd",
+      "_key": "!tables.results!YMR4uJSg8EfK6C2u.0MeDApdEkFdWM2Nd",
+      "type": "text",
+      "name": "",
+      "description": "Deadly beast, not actively hostile but easily provoked: a <strong>brawzbedr</strong> (page 377), <strong>cave bear</strong> (page 205), <strong>thunder drake</strong> (page 135), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MTAXFiRzomTjmDHa",
+      "_key": "!tables.results!YMR4uJSg8EfK6C2u.MTAXFiRzomTjmDHa",
+      "type": "text",
+      "name": "",
+      "description": "Potential game, but big and dangerous if provoked: <strong>boars</strong> (page 204), <strong>aurochs</strong> (page 131), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z5Vn1HhIzLhH3ZHs",
+      "_key": "!tables.results!YMR4uJSg8EfK6C2u.z5Vn1HhIzLhH3ZHs",
+      "type": "text",
+      "name": "",
+      "description": "Game, mostly harmless but prone to bolt: deer, fowl, rabbits, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NsEprRJOMrlIlGJ2",
+      "_key": "!tables.results!YMR4uJSg8EfK6C2u.NsEprRJOMrlIlGJ2",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

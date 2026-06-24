@@ -1,0 +1,47 @@
+{
+  "_id": "BXverLMvcOjCoPYN",
+  "_key": "!actors!BXverLMvcOjCoPYN",
+  "name": "“Typical” Fomoraij",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "typical-fomoraij",
+    "reference": "fomoraij",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "magical",
+        "cunning",
+        "cautious",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "mighty blows d12+3 (hand, close, forceful)",
+    "specialQuality": "can sense anything that happens in its lair (but might not think to)",
+    "instinct": {
+      "selected": [
+        "[Use constraint as a guide]"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Overawe anyone in its presence\n- Twist, mutate, or transform living things with a gesture\n- Wield nearby plants and beasts as extensions of itself\n- Regenerate wounds from anything but orichalcum (page 162)\n\nNo Fomoraij is truly typical; use the stats above as a starting point. A Fomoraij’s constraint (page 137) dictates its in- stinct. Add or change its tags, stats, special qualities, and moves based on the themes (page 416), constraint, lair, and forms (page 137) that you’ve identified.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{Fomoraij} (Book p.136-143)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

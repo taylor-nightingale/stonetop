@@ -3,7 +3,7 @@
 	"_key": "!items!dHcuHmC9HhiqBfGo",
 	"name": "Staff of the Lidless Orb",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/staff-of-the-lidless-orb.png",
+	"img": "systems/stonetop/assets/content/arcana/staff-of-the-lidless-orb.png",
 	"system": {
 		"slug": "staff-of-the-lidless-orb",
 		"front": {

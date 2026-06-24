@@ -1,0 +1,43 @@
+{
+  "_id": "XlcG1Oep88oHC1hH",
+  "_key": "!actors!XlcG1Oep88oHC1hH",
+  "name": "Frythanc fledgling",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "frythanc-fledgling",
+    "reference": "huffel-peaks",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0 (scales)",
+    "damage": "talons d8+2 (hand, forceful), beak d8 with disadvantage (hand)",
+    "specialQuality": "exceptional eyesight  terrible hearing",
+    "instinct": {
+      "selected": [
+        "to eat and grow"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Cling to rock faces, camouflaged\n- Strafe their prey\n- Knock prey off a ledge\n\nThe full-grown frythancs that hunt the Flats (page 126) are terrors. Their young, thankfully, keep to the mountains. There, they hunt goats and sheep and the occa- sional unwary traveler. The fledglings aren’t nearly as dangerous as their full-grown parents, but still, let’s see how you do when birds with 12-foot wingspans try to tear you off some switchback trail.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.VAh2hWUYrYMaVuVJ]{Huffel Peaks} (Book p.236-241)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

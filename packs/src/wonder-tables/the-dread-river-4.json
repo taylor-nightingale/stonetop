@@ -1,0 +1,86 @@
+{
+  "_id": "jwtOnDPNbjuxDy9q",
+  "_key": "!tables!jwtOnDPNbjuxDy9q",
+  "name": "The Dread River — What taints it",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "6eqQcZtln1Dsly6F",
+      "_key": "!tables.results!jwtOnDPNbjuxDy9q.6eqQcZtln1Dsly6F",
+      "type": "text",
+      "name": "",
+      "description": "The <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mW4tTCuMV1OhzsRQ",
+      "_key": "!tables.results!jwtOnDPNbjuxDy9q.mW4tTCuMV1OhzsRQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Death and the undying</strong> (page 68)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "W6eqBBrwDlMKb33L",
+      "_key": "!tables.results!jwtOnDPNbjuxDy9q.W6eqBBrwDlMKb33L",
+      "type": "text",
+      "name": "",
+      "description": "Both of the above",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "po7XcZxnDEdMtMAH",
+      "_key": "!tables.results!jwtOnDPNbjuxDy9q.po7XcZxnDEdMtMAH",
+      "type": "text",
+      "name": "",
+      "description": "Nothing, strangely",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 11004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

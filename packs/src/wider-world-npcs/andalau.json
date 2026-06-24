@@ -1,0 +1,46 @@
+{
+  "_id": "8jW7EKTasBFFQTab",
+  "_key": "!actors!8jW7EKTasBFFQTab",
+  "name": "Andalau",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "andalau",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "tiny",
+        "spirit",
+        "stealthy",
+        "mischievous"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "armor": "2 (tiny, agile)",
+    "damage": "none",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to play and frolic"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a fluttering gust of wind (harmed only by lead or salt)\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone\n- Deliver a whispery message\n\nThere are places where the wind dances constantly, fluttering and flitting, and here the andalau dwell. They are more prone to mischief than violence. Win their favor, and you might convince them to help you—especially if it involves going somewhere new or playing pranks. Just don’t be surprised when their attention flits elsewhere.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

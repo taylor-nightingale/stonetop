@@ -1,0 +1,49 @@
+{
+  "_id": "QFxXEiZM7bygvDBQ",
+  "_key": "!actors!QFxXEiZM7bygvDBQ",
+  "name": "Grimstew",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "grimstew",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "small",
+        "fae",
+        "magical",
+        "tough",
+        "stealthy",
+        "cautious",
+        "ugly"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience), 1 vs. iron (thick fur)",
+    "damage": "crushing grip d10+2 (hand, grabby, forceful)",
+    "specialQuality": "Fae nature (page 98)",
+    "instinct": {
+      "selected": [
+        "to fill the emptiness inside"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Stalk a mortal, curious and lonely\n- Offer aid, in exchange for company\n- Perform an impossible labor\n- Grow when angered: +large, +4 HP, +3 damage, +close, +reach\n- Get hungry, eat a companion",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

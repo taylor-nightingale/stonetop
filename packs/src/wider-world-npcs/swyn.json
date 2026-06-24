@@ -1,0 +1,50 @@
+{
+  "_id": "88DpqNPBskXpUUdA",
+  "_key": "!actors!88DpqNPBskXpUUdA",
+  "name": "Swyn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "swyn",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "corrupted",
+        "stealthy",
+        "magical",
+        "devious",
+        "cautious",
+        "hoarder"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "4 (resilience), 2 vs. bronze (scales)",
+    "damage": "bite & constriction d10+3 (hand, close, forceful, grabby)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to indulge its ego"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Appear out of nowhere and lock eyes\n- Hold its prey fast with gaze and soothing words\n- Plant a suggestion in its victim’s mind\n- Turn the weak-willed into fawning servants\n\nSwyn are great serpents with simian heads and hypnotic eyes. The Green Lords bred them out of desperation, borrowing secrets from the Things Below. They wanted spy- masters and saboteurs. What they got was a race of petty, craven narcissists. Each swyn fancies itself the greatest, the most beautiful, the most magnificent of beings. They have exacting tastes, far more subtle and refined than any of their peers. But should you embarrass, defy, or simply bore one, expect to be brutally devoured. Few of these creatures survive, thankfully. The Fae hunt them and they shun others of their kind, jealous of territory and wealth. But every dozen years or so, some urge drives them all to the ruins of Vor Svetelik (page 468), entourage in tow, where they engage in ostentatious displays and mating rituals. There, amidst the sick white trees, the next brood of swyn are seeded. There, perhaps, these foul things might be wiped out once and for all. When the swyn compels you to act against your will, mark XP if you do what it wants. If you resist, you are Defying Danger.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,102 @@
+{
+  "_id": "TcJLg4LCRNBYNZ7q",
+  "_key": "!tables!TcJLg4LCRNBYNZ7q",
+  "name": "Vor Svetelik — Artifact of...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "SBsOWESJIQ7F3LEL",
+      "_key": "!tables.results!TcJLg4LCRNBYNZ7q.SBsOWESJIQ7F3LEL",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wKwX6gzMLrTOmTKZ",
+      "_key": "!tables.results!TcJLg4LCRNBYNZ7q.wKwX6gzMLrTOmTKZ",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Fomoraij</strong> (page 136)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O4geuuzwGfwB9GCF",
+      "_key": "!tables.results!TcJLg4LCRNBYNZ7q.O4geuuzwGfwB9GCF",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Fae</strong> (page 94)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RGxBOhfiKiWKSnly",
+      "_key": "!tables.results!TcJLg4LCRNBYNZ7q.RGxBOhfiKiWKSnly",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Stone Lords</strong> (page 388)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4PIdGWsdVcmxlrmB",
+      "_key": "!tables.results!TcJLg4LCRNBYNZ7q.4PIdGWsdVcmxlrmB",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Green Lords</strong> (page 210)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

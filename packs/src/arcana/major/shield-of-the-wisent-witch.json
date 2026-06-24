@@ -3,7 +3,7 @@
 	"_key": "!items!AGA3VlOEiOEFNYFc",
 	"name": "Shield of the Wisent Witch",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/shield-of-the-wisent-witch.png",
+	"img": "systems/stonetop/assets/content/arcana/shield-of-the-wisent-witch.png",
 	"system": {
 		"slug": "shield-of-the-wisent-witch",
 		"front": {

@@ -1,0 +1,48 @@
+{
+  "_id": "cmPHClbhFxy3BDjl",
+  "_key": "!actors!cmPHClbhFxy3BDjl",
+  "name": "Auntie Sallow",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "auntie-sallow",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "fae",
+        "magical",
+        "stealthy",
+        "corrupted",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience), 1 vs. iron (bark)",
+    "damage": "choking fingers/tendrils d10+1 (hand, close, reach, grabby)",
+    "specialQuality": "Fae nature (page 98)  takes +1d4 damage from bronze; leaches color from surroundings; knows whatever her moths know",
+    "instinct": {
+      "selected": [
+        "to “protect” beauty and innocence"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Disperse into an eclipse of moths\n- Find someone needing her “help”\n- Show them their fears/nightmares\n- Lure/drag them back to her home\n- Bury them in the cool safe mud, forever\n\nShe appears out of the shadows, when the fear rises up to take you. Tall and grim and looming, draped in willow branches, moths flitting all about. She reaches out a bony hand. “Hush dear,” she whispers. “Hush. Auntie Sallow is here to help.” She was beautiful, once. The minder of a sacred grove. A place of clean water, but- terflies, and bees. But then came war. Fire and poison and the sundering of earth. Schemes and lies. Grief and endless pain. ’Twas in grief that L’bin’bozia (page 421) found her. Gave her the strength to help. To find the innocent who suffered, the beautiful in despair. To offer succor, and the safety of her master’s cool embrace.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

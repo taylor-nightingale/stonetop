@@ -1,0 +1,49 @@
+{
+  "_id": "e5JstiQYlBCLRWCS",
+  "_key": "!actors!e5JstiQYlBCLRWCS",
+  "name": "The Bear of Winter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-bear-of-winter",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "fae",
+        "magical",
+        "hoarder",
+        "devious",
+        "fierce",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "5 (resilience, ice), 2 vs. iron (hide, ice)",
+    "damage": "bite or maul d12+5 (close, hand, reach, forceful, grabby, messy, 1 piercing)",
+    "specialQuality": "Fae nature (page 98)  immune to cold; aura of wintry weath- er, matching his mood",
+    "instinct": {
+      "selected": [
+        "to protect his status and holdings"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Weave ice and snow, glamours and illusions, entire Fae domains\n- Send a minion (spirit, beast, or indebted Fae) to do his bidding\n- Wield the wintry elements\n- Take the form of a scarred old man or a storm of sleet and snow\n- Make use of a forgotten artifact\n\nWhen winter snows blanket the Great Wood, the Bear roams the land. He’s most often met as a great and snuffling beast, big as a house, icicles clinging to his fur. His retinue follows: nervously, discretely, wait- ing upon his call. He visits the many Fae who owe him favors and those who have pledged him their support. None are happy to see him. None dare turn him away. The Bear, you see, is among the most pow- erful of the Fae. Snapped his own master’s neck. Gobbled down its corpse. He freed hundreds of Fae from servitude. He lever- aged the debts they owed him to become something of a feudal lord. The Bear’s domain is a great cave, full of hoarded riches and slinking servants. It has many entrances and exits, each leading to a different cave mouth in the world, but only when that cave mouth is surrounded by drifts of snow.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

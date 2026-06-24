@@ -1,0 +1,118 @@
+{
+  "_id": "YDv0Gc8DVKkXGHQX",
+  "_key": "!tables!YDv0Gc8DVKkXGHQX",
+  "name": "APPENDIX B: Artifact Creation — Knowledge imparted",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UgkP4RhQ29npMSxN",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.UgkP4RhQ29npMSxN",
+      "type": "text",
+      "name": "",
+      "description": "The truth/secrets behind a group or figure of legend",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b6QQMMpqZK7cIdwI",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.b6QQMMpqZK7cIdwI",
+      "type": "text",
+      "name": "",
+      "description": "The weakness/history/origins/lair of a major established threat",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m1xiezp4ZnEp6Dvk",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.m1xiezp4ZnEp6Dvk",
+      "type": "text",
+      "name": "",
+      "description": "The hazards/secrets/history/location of a mysterious or legendary place",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hv27ZDT4KTu0fYCB",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.hv27ZDT4KTu0fYCB",
+      "type": "text",
+      "name": "",
+      "description": "The workings/secrets/history/location of a magical item or arcanum",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZkAgANfPpHODWsnj",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.ZkAgANfPpHODWsnj",
+      "type": "text",
+      "name": "",
+      "description": "An artifice or technique lost to antiquity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FBPqHouYlqGmuVxh",
+      "_key": "!tables.results!YDv0Gc8DVKkXGHQX.FBPqHouYlqGmuVxh",
+      "type": "text",
+      "name": "",
+      "description": "The workings of a ritual/spell—pick or roll for its function and drawback (page 504), then return here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

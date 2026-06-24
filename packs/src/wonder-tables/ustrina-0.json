@@ -1,0 +1,150 @@
+{
+  "_id": "Y2Gm0WOo4DxjGLZU",
+  "_key": "!tables!Y2Gm0WOo4DxjGLZU",
+  "name": "Ustrina — What they’re offering",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "bVBKtFmvNI8MIJtT",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.bVBKtFmvNI8MIJtT",
+      "type": "text",
+      "name": "",
+      "description": "Shards of pottery, scraps of frayed fabric, odd pits of stone, or other junk (Value 0) that they genuinely regard as precious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "311AN3KuBXd63jsk",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.311AN3KuBXd63jsk",
+      "type": "text",
+      "name": "",
+      "description": "Finely wrought items (Value 2) like an exquisite bronze statuette, a silver-alloy dagger (<em>hand</em>), a goldembroidered cloak (<em>warm</em>), a perfectly balanced short sword (<em>hand</em>, <em>close</em>, +1 damage, 1 piercing), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NTRvxBnzayQATa5H",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.NTRvxBnzayQATa5H",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>curiosity or wonder</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g1dI43YkzDVORQIe",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.g1dI43YkzDVORQIe",
+      "type": "text",
+      "name": "",
+      "description": "Precious metals or jewels (Value 3), like a bar of gold, a chest of ancient silver coins, a gem-encrusted gold ring, a few sapphires",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uGVM1k4C6GXytdzw",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.uGVM1k4C6GXytdzw",
+      "type": "text",
+      "name": "",
+      "description": "1d4 small ingots of <strong>orichalcum</strong> (page 162)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "n736h67Fv3WN6PJc",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.n736h67Fv3WN6PJc",
+      "type": "text",
+      "name": "",
+      "description": "Some <strong>artifact</strong> (page 164) of the Forge Lords",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0PTFj5xzlkFGfXE7",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.0PTFj5xzlkFGfXE7",
+      "type": "text",
+      "name": "",
+      "description": "An artifact from one of the other <strong>Makers</strong> (page 264)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gf0pgy2ehpQt5zBC",
+      "_key": "!tables.results!Y2Gm0WOo4DxjGLZU.gf0pgy2ehpQt5zBC",
+      "type": "text",
+      "name": "",
+      "description": "Some “priceless” treasure (Value 4), like a sapphire the size of your eye, a chest of gold coins, a bejeweled gold crown, a cartload (<em>immobile</em>) of fine steel swords (<em>close</em>, +1 damage, 1 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 51000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

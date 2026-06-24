@@ -1,0 +1,46 @@
+{
+  "_id": "fiLcZYdQTGxz20UV",
+  "_key": "!actors!fiLcZYdQTGxz20UV",
+  "name": "The Chained Beast",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-chained-beast",
+    "reference": "three-coven-lake",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "corrupted",
+        "aquatic",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "2 (fur and scales)",
+    "damage": "toothy maw d10+3 w/advantage (close, grabby, messy, 1 piercing) or raking claws d10+1 (hand, messy, 1 piercing)",
+    "specialQuality": "chained to a heavy block of makerglass, takes +1d6 damage from bronze, soothed by a well-sung song",
+    "instinct": {
+      "selected": [
+        "to gorge itself"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Scent blood, anywhere in the lake\n- Shoot through the water\n- Snatch prey, pull it under\n- Regenerate any wound not dealt by bronze\n- Drag its mooring across the lakebed, slowly and painfully\n\nIt was a gift from the Things Below, a pres- ent to some Barrow Builder tyrant. They bound it fast and kept in the waters nearby, feeding it a steady of diet of screaming, bleeding victims. It’s still out there, sleep- ing for years or decades at a time, roused by copious amounts of fresh blood in the lake—or by a few drops somewhere nearby.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.uHM6ZyjcWV4QEF22]{Three Coven Lake} (Book p.438-447)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

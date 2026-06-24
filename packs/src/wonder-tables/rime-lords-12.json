@@ -1,0 +1,198 @@
+{
+  "_id": "eBvxpzmKvU8OGhbn",
+  "_key": "!tables!eBvxpzmKvU8OGhbn",
+  "name": "Rime Lords — Ability",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cxCMfdzXGSRcPCWs",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.cxCMfdzXGSRcPCWs",
+      "type": "text",
+      "name": "",
+      "description": "Possession (people and/or things)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4V5G8cNJafP9pyI2",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.4V5G8cNJafP9pyI2",
+      "type": "text",
+      "name": "",
+      "description": "Emotional influence/control",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4HAYVt9WJuotvD1v",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.4HAYVt9WJuotvD1v",
+      "type": "text",
+      "name": "",
+      "description": "Elemental manipulation (ice/wind/ water/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ld2FJMdF7MDziDuE",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.Ld2FJMdF7MDziDuE",
+      "type": "text",
+      "name": "",
+      "description": "Energy manipulation (light/heat/ cold/darkness/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bU6xAtAQT3W4bamC",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.bU6xAtAQT3W4bamC",
+      "type": "text",
+      "name": "",
+      "description": "Invisibility/stealth/observation/ tracking",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xl6A87ulYIKcnGbR",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.xl6A87ulYIKcnGbR",
+      "type": "text",
+      "name": "",
+      "description": "Depths of knowledge/lore/ experience",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WgvKjiJMuQzuta77",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.WgvKjiJMuQzuta77",
+      "type": "text",
+      "name": "",
+      "description": "Mind-reading/aura-sense/ true-seeing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BGv4iY5wKKo7bplW",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.BGv4iY5wKKo7bplW",
+      "type": "text",
+      "name": "",
+      "description": "Illusions/false senses/thoughtforms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BCX12I1uWKcEgDyf",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.BCX12I1uWKcEgDyf",
+      "type": "text",
+      "name": "",
+      "description": "Strength/speed/prowess/mobility",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "initruAb4URYaYK7",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.initruAb4URYaYK7",
+      "type": "text",
+      "name": "",
+      "description": "Dangerous physical attack(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1QBjQsXdvrJwXBlg",
+      "_key": "!tables.results!eBvxpzmKvU8OGhbn.1QBjQsXdvrJwXBlg",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

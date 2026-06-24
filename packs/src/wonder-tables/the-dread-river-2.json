@@ -1,0 +1,86 @@
+{
+  "_id": "0xE9syAgMBsdDRA3",
+  "_key": "!tables!0xE9syAgMBsdDRA3",
+  "name": "The Dread River — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "X95CFAsnBeCmDPRR",
+      "_key": "!tables.results!0xE9syAgMBsdDRA3.X95CFAsnBeCmDPRR",
+      "type": "text",
+      "name": "",
+      "description": "Big and dangerous beast, easily provoked: <strong>aurochs</strong> (page 131), <strong>boar</strong> (page 204), a <strong>cave bear</strong> (page 205), a <strong>thunder drake</strong> (page 135), a <strong>horned drake</strong> (page 354), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gra8VCbCsLVwJ1Ju",
+      "_key": "!tables.results!0xE9syAgMBsdDRA3.gra8VCbCsLVwJ1Ju",
+      "type": "text",
+      "name": "",
+      "description": "Game, mostly harmless and prone to bolt: deer, water fowl, rabbits, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UfBo0iIqK8y0EoLG",
+      "_key": "!tables.results!0xE9syAgMBsdDRA3.UfBo0iIqK8y0EoLG",
+      "type": "text",
+      "name": "",
+      "description": "<strong>People</strong> (page 90), exploring, in trouble, or hiding out",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cdSKFTlxhErH7An5",
+      "_key": "!tables.results!0xE9syAgMBsdDRA3.cdSKFTlxhErH7An5",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 11002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

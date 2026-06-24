@@ -1,0 +1,44 @@
+{
+  "_id": "86iSeHyXE0JX8cTV",
+  "_key": "!actors!86iSeHyXE0JX8cTV",
+  "name": "Fanatic",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fanatic",
+    "reference": "helior-the-daybringer",
+    "tagList": {
+      "selected": [
+        "Group",
+        "organized",
+        "devoted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "0",
+    "damage": "weapons d8 (tags by weapon)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect their beliefs"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Make a passionate argument\n- Suffer for the cause\n- Do evil for the greater good\n\nA Lightbearer often attracts faithful fol- lowers, as do some of Helior’s more char- ismatic devotees. Some of these followers might take things a little far.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MMGebhUaITllcNJR]{Helior, the Daybringer} (Book p.224-227)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

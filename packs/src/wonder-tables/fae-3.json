@@ -1,0 +1,214 @@
+{
+  "_id": "IWPJ1EVQxBmVmCZi",
+  "_key": "!tables!IWPJ1EVQxBmVmCZi",
+  "name": "Fae — Aspects",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "RYLxbCyjbmIqSCUM",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.RYLxbCyjbmIqSCUM",
+      "type": "text",
+      "name": "",
+      "description": "Predatory/clawed/fanged/powerful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DpcW803DR6z0Aakm",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.DpcW803DR6z0Aakm",
+      "type": "text",
+      "name": "",
+      "description": "Horned/antlered/hooved/prancing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DrwG6PFPPk0QvYuX",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.DrwG6PFPPk0QvYuX",
+      "type": "text",
+      "name": "",
+      "description": "Furry/tailed/plump/scampering",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "45SV73JzjtHYrRep",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.45SV73JzjtHYrRep",
+      "type": "text",
+      "name": "",
+      "description": "Winged/beaked/feathered/spindly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ik4O2RMrnSvAtvI3",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.ik4O2RMrnSvAtvI3",
+      "type": "text",
+      "name": "",
+      "description": "Scaly/squamous/slimy/sinuous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "p3kV21D7diSwLu2z",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.p3kV21D7diSwLu2z",
+      "type": "text",
+      "name": "",
+      "description": "Iridescent/chitinous/bug-like/alien",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EopVoL7HG9SFWV2j",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.EopVoL7HG9SFWV2j",
+      "type": "text",
+      "name": "",
+      "description": "Treeish/weedish/prickly/stoic/stiff",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y31EjL4s6aDMuwuN",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.y31EjL4s6aDMuwuN",
+      "type": "text",
+      "name": "",
+      "description": "Leafy/flowering/winding/delicate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pjaGEzl0vSkXLgRG",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.pjaGEzl0vSkXLgRG",
+      "type": "text",
+      "name": "",
+      "description": "Ethereal/fluid/frosty/graceful/aloof",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1sxupdLcCZ6IfBAk",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.1sxupdLcCZ6IfBAk",
+      "type": "text",
+      "name": "",
+      "description": "Earthy/rocky/craggy/dirty/stolid",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LDmWRJJrLFJbL2Je",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.LDmWRJJrLFJbL2Je",
+      "type": "text",
+      "name": "",
+      "description": "Glittery/starry/luminous/fiery",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wNDHUUBKffQjfLLa",
+      "_key": "!tables.results!IWPJ1EVQxBmVmCZi.wNDHUUBKffQjfLLa",
+      "type": "text",
+      "name": "",
+      "description": "Puppet-like/artificial/made/hollow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "_id": "BRGKbSZAcbEiIiZn",
+  "_key": "!tables!BRGKbSZAcbEiIiZn",
+  "name": "The Things Below — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PgU3LhZIDdmQmVmW",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.PgU3LhZIDdmQmVmW",
+      "type": "text",
+      "name": "",
+      "description": "Nothing to mark it but the terrain itself",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "igU7Cf1e9pI8FZoF",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.igU7Cf1e9pI8FZoF",
+      "type": "text",
+      "name": "",
+      "description": "A distinctive (un)natural landmark (big tree, natural arch, spring, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "03QNwP8D1j4NJOE8",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.03QNwP8D1j4NJOE8",
+      "type": "text",
+      "name": "",
+      "description": "Signs of great destruction (ash fields, crevasse, lava flow, mudslide, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rOPwj5bF81ZV2m2B",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.rOPwj5bF81ZV2m2B",
+      "type": "text",
+      "name": "",
+      "description": "A beast’s lair/burrow/den",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jqCqcMPoEgKsjkdR",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.jqCqcMPoEgKsjkdR",
+      "type": "text",
+      "name": "",
+      "description": "A tomb/barrow/memorial, left by the locals or their ancestors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wsNfAOveP4IPjCiV",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.wsNfAOveP4IPjCiV",
+      "type": "text",
+      "name": "",
+      "description": "An old dwelling/gathering place of the locals or their ancestors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eGmyH55dcWG9f5YY",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.eGmyH55dcWG9f5YY",
+      "type": "text",
+      "name": "",
+      "description": "A ruin of <strong>the Makers</strong> (page 264), or a lingering sign of their presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RBxuPqKdrWEu1aR9",
+      "_key": "!tables.results!BRGKbSZAcbEiIiZn.RBxuPqKdrWEu1aR9",
+      "type": "text",
+      "name": "",
+      "description": "Deep water, the depths obscure, conceals the site (roll 1d8)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

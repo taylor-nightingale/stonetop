@@ -1,0 +1,54 @@
+{
+  "_id": "fyIshADiNQUFQANZ",
+  "_key": "!tables!fyIshADiNQUFQANZ",
+  "name": "Green Lords — Site",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "IgTaOj6GaO3c4FtL",
+      "_key": "!tables.results!fyIshADiNQUFQANZ.IgTaOj6GaO3c4FtL",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Lingering signs</strong> of their presence and influence (at right)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NtHAIhuQlNTW29fO",
+      "_key": "!tables.results!fyIshADiNQUFQANZ.NtHAIhuQlNTW29fO",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ruin</strong> (page 214)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "qth1FDZfMJnXiBP7",
+  "_key": "!actors!qth1FDZfMJnXiBP7",
+  "name": "Nine-fingered stranger",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "nine-fingered-stranger",
+    "reference": "tor-the-rain-maker",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "magical",
+        "enigmatic",
+        "moody",
+        "curious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "armor": "4 (resilience), 0 vs. black iron",
+    "damage": "by weapon d10+2 (tags by weapon, +forceful)",
+    "specialQuality": "unable/unwilling to solve problems (only causes/presents them); unaware of its true nature",
+    "instinct": {
+      "selected": [
+        "to test people, set events in motion"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a nine-fingered man\n- Present a challenge (next column)\n- Cloud their judgement, make this all seem reasonable\n- Bestow a (dubious?) gift or curse\n- Vanish mysteriously\n\nMany tales tell of a stranger met in an un- likely place. The stranger is in some sort of pickle, or challenges our hero, or presents a tempting opportunity. Whatever else happens, the stranger ends up vanishing, but not before our hero notices his missing finger—and realizes that they just met Tor. When the tale’s hero rises to the occasion, they win a gift from the stranger: a treasure or a magic item, a secret or a prophecy, or maybe just some useful bit of advice. But when the “hero” comes up short, they wind up cursed or “win” some treasure that brings them ruin and woe.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zvIOZzdCnXIsNrNx]{Tor, the Rain-maker} (Book p.452-455, 457)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "w0wTcF5IOERKGXZW",
+  "_key": "!tables!w0wTcF5IOERKGXZW",
+  "name": "Rime Lords — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "5vtKYgkQJHT9ngYJ",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.5vtKYgkQJHT9ngYJ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>An oversized codex</strong> (page 515)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pcFWJ683Km34HB3e",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.pcFWJ683Km34HB3e",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A sealed cave</strong> (page 519)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Gjrn4bOxXKivyCMr",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.Gjrn4bOxXKivyCMr",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A timeless vault</strong> (page 518)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vg3crOVk1Yq88BaS",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.Vg3crOVk1Yq88BaS",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A length of prayer beads</strong> (page 526)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "90RRoHXyJxoo4yCJ",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.90RRoHXyJxoo4yCJ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A beautiful scroll</strong> (page 527)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1JvPbbkbPjou8Bzw",
+      "_key": "!tables.results!w0wTcF5IOERKGXZW.1JvPbbkbPjou8Bzw",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A gold butter lamp</strong> (page 527)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

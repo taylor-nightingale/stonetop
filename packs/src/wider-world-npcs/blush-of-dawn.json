@@ -1,0 +1,46 @@
+{
+  "_id": "SrUUHByNwvXYrm3q",
+  "_key": "!actors!SrUUHByNwvXYrm3q",
+  "name": "Blush-of-Dawn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "blush-of-dawn",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "fae",
+        "magical",
+        "beautiful",
+        "passionate"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "4 (resilience), 0 vs. iron",
+    "damage": "fiery touch d8 w/disadvantage (hand)",
+    "specialQuality": "Fae nature (page 98)  radiant",
+    "instinct": {
+      "selected": [
+        "to be adored"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sing a song to stir the blood\n- Inspire passion/jealousy/devotion\n- Steal away into their Fae domain, perhaps with a new prize in tow\n- Set devotees to a task/challenge\n- Blaze brightly, blind onlookers\n\nThey were the shining jewel in some Green Lord’s paradise, the bright beauty of a rising sun made flesh. They were happy and in love. (Or so they thought, for can a being bred to love truly do so?) Then their master’s tomb was plundered by the rebels. Their world was upended. They were bereft, vulnerable, alone and unloved. They had no interest in freedom, only the safe warm surety of other beings’ full re- gard. Fortunately, for them, such adoration was easy to find. Their domain is a stately pavilion in a summer glade, forever in that moment just before the dawn. It’s filled with fawning victims of their charms: lovers and would-be lovers, abducted children, devotees.  And on the outskirts: the cast- out wretches, those who’ve lost favor but whose jealous adoration still feeds the Blush-of-Dawn.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

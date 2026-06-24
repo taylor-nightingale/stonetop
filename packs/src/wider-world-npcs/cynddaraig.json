@@ -1,0 +1,45 @@
+{
+  "_id": "RXzF1tDPFG4QLO86",
+  "_key": "!actors!RXzF1tDPFG4QLO86",
+  "name": "Cynddaraig",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cynddaraig",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "terrifying",
+        "fearless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "2 (scales)",
+    "damage": "three-inch long teeth d10+3 (close, reach, grabby, messy, 3 piercing, advantage)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to dominate its territory"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Roar and unfurl its quills, making even brave warriors quail\n- Bite a limb clean off\n- To lose itself in primal fury\n\nThe mighty “rage drake,” almost 10 feet tall and 20 feet from nose to tip of tail. Its jaws are full of knives. Blood-red patterns surround its eyes. A frill of feathered quills sprouts from its neck and runs down its back. Maybe a half-dozen of them stalk the whole Great Wood, and one hasn’t been spotted near Stonetop for generations (Tor be praised). Something interesting: They prey mostly on large game (wisents, tal gerdwyr, etc.). They’ll attack people, but rarely hunt them. Something useful: They attack people to establish dominance, seeing us as rivals. An appropriate offering or show of obeisance might calm one enough for you to get the hell out of there.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

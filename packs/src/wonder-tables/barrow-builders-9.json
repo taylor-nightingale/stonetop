@@ -1,0 +1,150 @@
+{
+  "_id": "FUdHLu49YVZOUvHl",
+  "_key": "!tables!FUdHLu49YVZOUvHl",
+  "name": "Barrow Builders — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7RQHzEZBXVDsK2O6",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.7RQHzEZBXVDsK2O6",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Haunted</strong> (page 72), marked by dool trees",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qKqOEfxTs6iNq4HT",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.qKqOEfxTs6iNq4HT",
+      "type": "text",
+      "name": "",
+      "description": "Corrupted by the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rDzxw9HCX2r1ojox",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.rDzxw9HCX2r1ojox",
+      "type": "text",
+      "name": "",
+      "description": "Protective spirit(s)/construct(s)/demon(s)/spell(s)/trap(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "43pSNWtuCzW1CzXw",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.43pSNWtuCzW1CzXw",
+      "type": "text",
+      "name": "",
+      "description": "Connects to <strong>caves</strong> (page 380)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vFCs1pUZBwxddESN",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.vFCs1pUZBwxddESN",
+      "type": "text",
+      "name": "",
+      "description": "Inhabited by local beasts/bandits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "txjNgFO0D1cfGtPK",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.txjNgFO0D1cfGtPK",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458) growing on/in/near it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UoRl5Vn7tJeCfy3G",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.UoRl5Vn7tJeCfy3G",
+      "type": "text",
+      "name": "",
+      "description": "Treasure (roll 1d6 to inform how much remains)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BuBRP9Xweamhi78Z",
+      "_key": "!tables.results!FUdHLu49YVZOUvHl.BuBRP9Xweamhi78Z",
+      "type": "text",
+      "name": "",
+      "description": "Roll again, twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

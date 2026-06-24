@@ -1,0 +1,44 @@
+{
+  "_id": "wAUmmVutiKyDfFYw",
+  "_key": "!actors!wAUmmVutiKyDfFYw",
+  "name": "Skirmisher",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "skirmisher",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "stealthy",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "0",
+    "damage": "long bow d6 (far), or sling d6 (near, reload), or short swords (hand, close)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to avoid a fair fight"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Unleash a volley, then retreat\n- Cover distance quickly\n- Attack a flank",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

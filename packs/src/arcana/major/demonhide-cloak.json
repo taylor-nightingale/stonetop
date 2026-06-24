@@ -3,7 +3,7 @@
 	"_key": "!items!d7al3ApmX5jiP5GW",
 	"name": "Demonhide Cloak",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/demonhide-cloak.png",
+	"img": "systems/stonetop/assets/content/arcana/demonhide-cloak.png",
 	"system": {
 		"slug": "demonhide-cloak",
 		"front": {

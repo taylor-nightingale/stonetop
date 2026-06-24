@@ -1,0 +1,118 @@
+{
+  "_id": "oCk2qCobxtzrgSge",
+  "_key": "!tables!oCk2qCobxtzrgSge",
+  "name": "Rime Lords — Sign",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DJaAufjWRELEAFc5",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.DJaAufjWRELEAFc5",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Something preserved</strong> in ice/cold/ stasis (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rNWi7yniM6FDzkRg",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.rNWi7yniM6FDzkRg",
+      "type": "text",
+      "name": "",
+      "description": "<strong>An entity, pacified</strong> by the Rime Lords or their disciples (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WC5sDJ6SBIlybOwi",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.WC5sDJ6SBIlybOwi",
+      "type": "text",
+      "name": "",
+      "description": "Fragments of old construction (roads, stairs, walls, foundations, chimneys, etc.), built by their disciples, barely visible after centuries of wind, snow, and ice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "axs3Uo7Upy4tLwzh",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.axs3Uo7Upy4tLwzh",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>thoughtform</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "awBG4Ac7BjAGBpZK",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.awBG4Ac7BjAGBpZK",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>monument,</strong> <strong>or marker</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SBbS8JJcRhaOrU2L",
+      "_key": "!tables.results!oCk2qCobxtzrgSge.SBbS8JJcRhaOrU2L",
+      "type": "text",
+      "name": "",
+      "description": "A formation of <strong>dark ice</strong> (page 322)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

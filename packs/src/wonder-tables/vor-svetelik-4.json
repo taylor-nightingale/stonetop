@@ -1,0 +1,118 @@
+{
+  "_id": "mqToyPEOePtO0lXN",
+  "_key": "!tables!mqToyPEOePtO0lXN",
+  "name": "Vor Svetelik — Sign of battle",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "NR2MB7aFyLEYCzzV",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.NR2MB7aFyLEYCzzV",
+      "type": "text",
+      "name": "",
+      "description": "Bones/bodies of pre-Forest Folk, Stone Lords, or their human servants, bearing the marks of violence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s13uuor2F0PhnTpN",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.s13uuor2F0PhnTpN",
+      "type": "text",
+      "name": "",
+      "description": "Bleached bones of a Green Lord, peeking out of dirt or rubble, entwined with root or vine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g7AjaNlP4Gu78jmY",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.g7AjaNlP4Gu78jmY",
+      "type": "text",
+      "name": "",
+      "description": "A shattered construct of the Stone Lords",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ReZhpmhcZUM8sPGn",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.ReZhpmhcZUM8sPGn",
+      "type": "text",
+      "name": "",
+      "description": "Structures laid to waste: shattered, sliced clean through, dissolved, cracked apart, scattered as though dropped from a great height, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "584p3Y64zyfYy8zK",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.584p3Y64zyfYy8zK",
+      "type": "text",
+      "name": "",
+      "description": "The psychic imprint of mortals and Fae dying in battle, perhaps even a haunted <strong>Fae domain</strong> (page 102)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6HslxmM1miMeaEmW",
+      "_key": "!tables.results!mqToyPEOePtO0lXN.6HslxmM1miMeaEmW",
+      "type": "text",
+      "name": "",
+      "description": "The earth itself, still scarred by terrible magic: rent, blackened, melted, vitrified, petrified, reduced to ash, still-smoking after all these centuries, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

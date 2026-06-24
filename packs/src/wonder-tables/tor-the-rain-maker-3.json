@@ -1,0 +1,118 @@
+{
+  "_id": "iKZIJIljbqYemq02",
+  "_key": "!tables!iKZIJIljbqYemq02",
+  "name": "Tor, the Rain-maker — Challenge",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Mal0uL73PeYkgOkC",
+      "_key": "!tables.results!iKZIJIljbqYemq02.Mal0uL73PeYkgOkC",
+      "type": "text",
+      "name": "",
+      "description": "A test of might (a duel, a wrestling match, a beast to slay, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KRVe4thvqcRj7WUf",
+      "_key": "!tables.results!iKZIJIljbqYemq02.KRVe4thvqcRj7WUf",
+      "type": "text",
+      "name": "",
+      "description": "A test of prowess (a race, a climb, an archery contest, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9dJyJtA5AXYDUcSj",
+      "_key": "!tables.results!iKZIJIljbqYemq02.9dJyJtA5AXYDUcSj",
+      "type": "text",
+      "name": "",
+      "description": "A test of endurance (a drinking contest, a long trudge, an all-night watch, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TQQI2SjEbS8DohtT",
+      "_key": "!tables.results!iKZIJIljbqYemq02.TQQI2SjEbS8DohtT",
+      "type": "text",
+      "name": "",
+      "description": "A test of courage (a terror to face, a fate to accept, an injustice to prevent, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ACDa8KdjdtArAf0y",
+      "_key": "!tables.results!iKZIJIljbqYemq02.ACDa8KdjdtArAf0y",
+      "type": "text",
+      "name": "",
+      "description": "A test of honor (a chance to steal, or cheat, or rig a bet, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KIn8tRXBYajdOuRw",
+      "_key": "!tables.results!iKZIJIljbqYemq02.KIn8tRXBYajdOuRw",
+      "type": "text",
+      "name": "",
+      "description": "A test of kindness (someone wretched to help, some wrong to put right, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 49003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

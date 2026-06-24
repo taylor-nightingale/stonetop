@@ -1,0 +1,118 @@
+{
+  "_id": "znGpqMgJUVQfTHE7",
+  "_key": "!tables!znGpqMgJUVQfTHE7",
+  "name": "Blackwater Lake — Unnerving tableau",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "TArdPJdGmpCp5ggU",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.TArdPJdGmpCp5ggU",
+      "type": "text",
+      "name": "",
+      "description": "An altar, trappings of ceremony, blood stains, slimy trails",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9BVi8pC6i2vnQeG8",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.9BVi8pC6i2vnQeG8",
+      "type": "text",
+      "name": "",
+      "description": "Wards/bindings on an open entrance, marred and broken",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TCINUivfJAPWAXu4",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.TCINUivfJAPWAXu4",
+      "type": "text",
+      "name": "",
+      "description": "A slowly rotting pile of skin, like it was sloughed off",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CrajyDxamHm6NTYO",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.CrajyDxamHm6NTYO",
+      "type": "text",
+      "name": "",
+      "description": "Skeleton(s), dry and brittle, tiny little bite marks (?) all over the bones",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BUWgseakg9Ti2znt",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.BUWgseakg9Ti2znt",
+      "type": "text",
+      "name": "",
+      "description": "Partial skeleton(s); some of the bones are missing, others seem… melted",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bkD9zcKM9rgESF6e",
+      "_key": "!tables.results!znGpqMgJUVQfTHE7.bkD9zcKM9rgESF6e",
+      "type": "text",
+      "name": "",
+      "description": "A large mammal, like a horse or aurochs; staggers out into the lake, gets yanked below water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

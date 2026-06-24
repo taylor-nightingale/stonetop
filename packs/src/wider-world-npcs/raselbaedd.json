@@ -1,0 +1,43 @@
+{
+  "_id": "RDJHi6cS8zrC4RHr",
+  "_key": "!actors!RDJHi6cS8zrC4RHr",
+  "name": "Raselbaedd",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "raselbaedd",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "4 (hide, unnatural resilience)",
+    "damage": "gore d10+5 (hand, close, forceful, messy, 3 piercing)",
+    "specialQuality": "iron hide, always hungry, easily provoked, afraid of fire",
+    "instinct": {
+      "selected": [
+        "to hold a grudge"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Rip things apart: armor, weapons, flesh\n- Eat almost anything\n- Refuse to back off or let go, even when dying\n- Recover from even mortal wounds, over time\n\nWhen a boar lives long enough, and survives enough close calls, and dines year after year on the roots and nuts of ferro trees, it eventually becomes a raselbaedd. The size of a horse, with tusks like short spears and a hide that’s crisscrossed with scars and that bristles with broken blades. When you deal 2 damage or less to a rasel- baedd, before armor, your weapon chips or shatters on its hide. A raselbaedd’s hide (immobile, Value 2) can be harvested by a competent hunter with a fine steel blade (2 piercing, Value 2). It can then be fashioned into 1d4  raselbaedd cuirasses (2 armor, Value 3). Doing so requires: An exceptional tanner An upgraded workshop with fine steel tools (Value 3) A season of labor per cuirass",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

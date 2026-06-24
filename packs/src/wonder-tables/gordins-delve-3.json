@@ -1,0 +1,102 @@
+{
+  "_id": "tlLunuJr1vmx400K",
+  "_key": "!tables!tlLunuJr1vmx400K",
+  "name": "Gordin's Delve — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "bWD23zHjTl6x791S",
+      "_key": "!tables.results!tlLunuJr1vmx400K.bWD23zHjTl6x791S",
+      "type": "text",
+      "name": "",
+      "description": "Planning treachery or betrayal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cn7B43GHyt4EYD4X",
+      "_key": "!tables.results!tlLunuJr1vmx400K.cn7B43GHyt4EYD4X",
+      "type": "text",
+      "name": "",
+      "description": "Aggressively unfriendly, even hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "awyj17PvNcLVQsTX",
+      "_key": "!tables.results!tlLunuJr1vmx400K.awyj17PvNcLVQsTX",
+      "type": "text",
+      "name": "",
+      "description": "In dire need of assistance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iP3PsvtjJE6cExLS",
+      "_key": "!tables.results!tlLunuJr1vmx400K.iP3PsvtjJE6cExLS",
+      "type": "text",
+      "name": "",
+      "description": "Wary, tight-lipped, suspicious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "W5HDlEDWuEU6Xa5d",
+      "_key": "!tables.results!tlLunuJr1vmx400K.W5HDlEDWuEU6Xa5d",
+      "type": "text",
+      "name": "",
+      "description": "Friendly enough",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

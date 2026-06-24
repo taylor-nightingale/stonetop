@@ -1,0 +1,118 @@
+{
+  "_id": "RzOA0yteV0o8WJe9",
+  "_key": "!tables!RzOA0yteV0o8WJe9",
+  "name": "Green Lords — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UyyLChFhMxfAPSgW",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.UyyLChFhMxfAPSgW",
+      "type": "text",
+      "name": "",
+      "description": "Sprawling compound of “smaller” buildings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VpOYgSgwsq7yCNuG",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.VpOYgSgwsq7yCNuG",
+      "type": "text",
+      "name": "",
+      "description": "Single, smaller building",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UjjK18kpHWrUCXHP",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.UjjK18kpHWrUCXHP",
+      "type": "text",
+      "name": "",
+      "description": "Earth-covered mound",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wjfHGabA9XW7FYnY",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.wjfHGabA9XW7FYnY",
+      "type": "text",
+      "name": "",
+      "description": "Ancient trees, rooms and structures built into hollows and on crooks",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5xRrxuIpEglxssrF",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.5xRrxuIpEglxssrF",
+      "type": "text",
+      "name": "",
+      "description": "Underground vault(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mmFO6xpu00trPYbG",
+      "_key": "!tables.results!RzOA0yteV0o8WJe9.mmFO6xpu00trPYbG",
+      "type": "text",
+      "name": "",
+      "description": "Ziggurat/pyramid/dome",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

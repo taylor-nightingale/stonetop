@@ -1,0 +1,118 @@
+{
+  "_id": "YH2nhAFLeCrQE5wn",
+  "_key": "!tables!YH2nhAFLeCrQE5wn",
+  "name": "The Flats — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "GkstoQostFFgnrAH",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.GkstoQostFFgnrAH",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>shade</strong> (page 85), called up at the <strong>Crossroads</strong> (page 270), or the <strong>pyped</strong> (page 82) that it’s become",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GtaP32wtR3HEDB9t",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.GtaP32wtR3HEDB9t",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aEGluKSPootxd4JB",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.aEGluKSPootxd4JB",
+      "type": "text",
+      "name": "",
+      "description": "Critter(s)—fox, skunk, stoat, hares, prairie dogs, starlings, vultures, etc. —curious, annoying, maybe just cute",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PCJEKP75f2qcdCUq",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.PCJEKP75f2qcdCUq",
+      "type": "text",
+      "name": "",
+      "description": "Beast(s)—ground sloth, giant ibis, <strong>shellback drake</strong> (page 134)—big, majestic, mostly indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JDNml8ayTAnNmXil",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.JDNml8ayTAnNmXil",
+      "type": "text",
+      "name": "",
+      "description": "A herd: <strong>aurochs</strong> (page 131), deer, wild sheep, <strong>wild horses</strong> (page 135), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ll7Ljn67TYDHcB5H",
+      "_key": "!tables.results!YH2nhAFLeCrQE5wn.ll7Ljn67TYDHcB5H",
+      "type": "text",
+      "name": "",
+      "description": "A band of <strong>Hillfolk</strong> (page 228), or maybe just their camp",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

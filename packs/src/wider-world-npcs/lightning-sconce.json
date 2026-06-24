@@ -1,0 +1,42 @@
+{
+  "_id": "DD8WeNZkzd8FBOUz",
+  "_key": "!actors!DD8WeNZkzd8FBOUz",
+  "name": "Lightning sconce",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "lightning-sconce",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Magical",
+        "construct",
+        "immobile"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 1,
+      "max": 1
+    },
+    "armor": "4 (tiny, metal fittings, made of crystal)",
+    "damage": "lightning 1d6+2 (near, forceful, reload, ignores armor) A glowing gem, set in a fixture of aethe- rium. Found in pairs, or sets of up to six. Each set is keyed to something (a pass phrase, a hand signal, a color of robes, a style of locket, etc.). Get too close without the key, and zzzolt, they start blasting.",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

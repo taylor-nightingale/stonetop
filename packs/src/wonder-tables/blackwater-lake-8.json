@@ -1,0 +1,70 @@
+{
+  "_id": "DRYpBEBSLx3mrsDN",
+  "_key": "!tables!DRYpBEBSLx3mrsDN",
+  "name": "Blackwater Lake — Number appearing",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7p3WhnwTVHFUcVJK",
+      "_key": "!tables.results!DRYpBEBSLx3mrsDN.7p3WhnwTVHFUcVJK",
+      "type": "text",
+      "name": "",
+      "description": "Many, at least half a dozen (<em>horde</em>; HP 3; Damage d6)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "usFhhokayhEJD31Q",
+      "_key": "!tables.results!DRYpBEBSLx3mrsDN.usFhhokayhEJD31Q",
+      "type": "text",
+      "name": "",
+      "description": "A few, like 2-5 (<em>group</em>; HP 6; Damage d8)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vRvyQgin4AincoeN",
+      "_key": "!tables.results!DRYpBEBSLx3mrsDN.vRvyQgin4AincoeN",
+      "type": "text",
+      "name": "",
+      "description": "Just one (<em>solitary</em>; HP 12; damage d10)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "JooRisSxlZxdvIDZ",
+  "_key": "!tables!JooRisSxlZxdvIDZ",
+  "name": "APPENDIX B: Artifact Creation — Less common",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "2B6XoPNlEyE7snSD",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.2B6XoPNlEyE7snSD",
+      "type": "text",
+      "name": "",
+      "description": "Art: pigments, brushes, carving, figurine, chisel, painting, statuary, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QkGpwklMzH7r8y1X",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.QkGpwklMzH7r8y1X",
+      "type": "text",
+      "name": "",
+      "description": "Beauty: cosmetics, jewelry, comb, torc, circlet, mirror, robes, regalia, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9IubOwGnsfPD4pxg",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.9IubOwGnsfPD4pxg",
+      "type": "text",
+      "name": "",
+      "description": "Curiosity: wonder, device, enigma, doohickey, toy, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3ZAqnZSqNscNhQan",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.3ZAqnZSqNscNhQan",
+      "type": "text",
+      "name": "",
+      "description": "Husbandry: collar, brush, prod, bridle, saddle, harness, stable, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tD0gGoSL7QpvjdQq",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.tD0gGoSL7QpvjdQq",
+      "type": "text",
+      "name": "",
+      "description": "Raw material: powder, salt, chemics, grains, ingot, ore, slab, timber, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5jTXeCkyIvDRFzW9",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.5jTXeCkyIvDRFzW9",
+      "type": "text",
+      "name": "",
+      "description": "Music: notation, bell, chime, flute, rattle, horn, lyre, lute, drum, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "N39NKAr7uCWuQz1B",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.N39NKAr7uCWuQz1B",
+      "type": "text",
+      "name": "",
+      "description": "Natural: flower, feather, shell, rock, wood, tree, spring, cave, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "98kcWGRtAZ9QON69",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.98kcWGRtAZ9QON69",
+      "type": "text",
+      "name": "",
+      "description": "Prosthesis: eye, teeth, hand, foot, arm, leg, crutch, wheelchair, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nXmldaiEwpIhEvFp",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.nXmldaiEwpIhEvFp",
+      "type": "text",
+      "name": "",
+      "description": "Religion: symbol, offering, idol, altar, ceremonial ___ (roll again)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "de557q6rpv7cgPYB",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.de557q6rpv7cgPYB",
+      "type": "text",
+      "name": "",
+      "description": "Specialized equipment: astrolabe, level, gear, decanter, still, kiln, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VjSVmeOGyizzocsR",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.VjSVmeOGyizzocsR",
+      "type": "text",
+      "name": "",
+      "description": "Writing: ink, runes, stylus, scroll, parchment, tablet, codex, archive, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iyXhsBZjRGfxOHcr",
+      "_key": "!tables.results!JooRisSxlZxdvIDZ.iyXhsBZjRGfxOHcr",
+      "type": "text",
+      "name": "",
+      "description": "Highly decorated and/or exquisitely made more common object (previous column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56016,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

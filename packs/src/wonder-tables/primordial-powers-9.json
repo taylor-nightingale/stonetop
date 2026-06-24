@@ -1,0 +1,118 @@
+{
+  "_id": "ihc71JwEBObe7pL4",
+  "_key": "!tables!ihc71JwEBObe7pL4",
+  "name": "Primordial powers — Form",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Kh873dsU57SOvspd",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.Kh873dsU57SOvspd",
+      "type": "text",
+      "name": "",
+      "description": "Ore/lump/meteorite",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EeRM1n6ebfbmNMAB",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.EeRM1n6ebfbmNMAB",
+      "type": "text",
+      "name": "",
+      "description": "Raw material (spool/ingot/rod/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cZLHSdwvOPshxLXZ",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.cZLHSdwvOPshxLXZ",
+      "type": "text",
+      "name": "",
+      "description": "Charm/talisman/jewelry/symbol",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "No6KlXfovvFPzqYq",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.No6KlXfovvFPzqYq",
+      "type": "text",
+      "name": "",
+      "description": "Tool (nail/hammer/tongs/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PsjH7wrTkCXH4sIk",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.PsjH7wrTkCXH4sIk",
+      "type": "text",
+      "name": "",
+      "description": "Weapon/shield/armor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2YEHdeZ1cFpoBgpo",
+      "_key": "!tables.results!ihc71JwEBObe7pL4.2YEHdeZ1cFpoBgpo",
+      "type": "text",
+      "name": "",
+      "description": "Construction (door/plating/throne/ etc.), likely <em>immobile</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

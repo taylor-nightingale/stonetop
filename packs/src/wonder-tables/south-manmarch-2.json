@@ -1,0 +1,70 @@
+{
+  "_id": "4smj1mCChbLKEBDf",
+  "_key": "!tables!4smj1mCChbLKEBDf",
+  "name": "South Manmarch — Beast",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7sZfhmlaqJ4Wjf0Z",
+      "_key": "!tables.results!4smj1mCChbLKEBDf.7sZfhmlaqJ4Wjf0Z",
+      "type": "text",
+      "name": "",
+      "description": "Mostly harmless but prone to bolt: deer, hares, prairie dogs, birds, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CxCzAcWni3MIzbeR",
+      "_key": "!tables.results!4smj1mCChbLKEBDf.CxCzAcWni3MIzbeR",
+      "type": "text",
+      "name": "",
+      "description": "A herd: <strong>aurochs</strong> (page 131), goats, sheep, <strong>wild horses</strong> (page 135), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "296rUEcFlAHEw38C",
+      "_key": "!tables.results!4smj1mCChbLKEBDf.296rUEcFlAHEw38C",
+      "type": "text",
+      "name": "",
+      "description": "Something big and majestic: a <strong>brawzbedr</strong> (page 377), a giant ibis, a <strong>horned drake</strong> (page 354), a <strong>thunder drake</strong> (page 135), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

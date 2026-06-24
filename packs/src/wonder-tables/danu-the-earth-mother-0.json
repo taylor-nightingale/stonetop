@@ -1,0 +1,166 @@
+{
+  "_id": "4126dxJHpyte1a7G",
+  "_key": "!tables!4126dxJHpyte1a7G",
+  "name": "Danu, the Earth Mother — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "HBUIC7GpoLZ7IbkH",
+      "_key": "!tables.results!4126dxJHpyte1a7G.HBUIC7GpoLZ7IbkH",
+      "type": "text",
+      "name": "",
+      "description": "The earth itself/soil/stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fwLi9IRJaS5MW1RL",
+      "_key": "!tables.results!4126dxJHpyte1a7G.fwLi9IRJaS5MW1RL",
+      "type": "text",
+      "name": "",
+      "description": "Beasts of the land/birds of the air",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "riF1fAGr7sFqEmAB",
+      "_key": "!tables.results!4126dxJHpyte1a7G.riF1fAGr7sFqEmAB",
+      "type": "text",
+      "name": "",
+      "description": "Growing things (plants, fungus, agriculture, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bz5KwPhh9UAJM7ie",
+      "_key": "!tables.results!4126dxJHpyte1a7G.Bz5KwPhh9UAJM7ie",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Spirits of the wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BbMu1wFeU2wuYC84",
+      "_key": "!tables.results!4126dxJHpyte1a7G.BbMu1wFeU2wuYC84",
+      "type": "text",
+      "name": "",
+      "description": "Wild, untamed places",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kaH5gevSSp2XXuBB",
+      "_key": "!tables.results!4126dxJHpyte1a7G.kaH5gevSSp2XXuBB",
+      "type": "text",
+      "name": "",
+      "description": "Fertility/reproduction/(re)birth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4XAbWElfCg5lYUWf",
+      "_key": "!tables.results!4126dxJHpyte1a7G.4XAbWElfCg5lYUWf",
+      "type": "text",
+      "name": "",
+      "description": "Secrets/mysteries/bindings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T9PNpAJaDffIxn5s",
+      "_key": "!tables.results!4126dxJHpyte1a7G.T9PNpAJaDffIxn5s",
+      "type": "text",
+      "name": "",
+      "description": "The natural order/seasons/cycles",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "K5cwOhVhUBjglL4N",
+      "_key": "!tables.results!4126dxJHpyte1a7G.K5cwOhVhUBjglL4N",
+      "type": "text",
+      "name": "",
+      "description": "Healing/purging/protection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 9000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

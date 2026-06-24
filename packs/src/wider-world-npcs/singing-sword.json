@@ -1,0 +1,46 @@
+{
+  "_id": "I500LCdBq0tqKuQz",
+  "_key": "!actors!I500LCdBq0tqKuQz",
+  "name": "Singing sword",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "singing-sword",
+    "reference": "forge-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "small",
+        "construct",
+        "lonely",
+        "dutiful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "4 (quick, made of metal)",
+    "damage": "cut, thrust, slash d10 w/advantage (hand, messy, 2 piercing)",
+    "specialQuality": "flies, fireproof, blind, heat-sense, bound to its hall",
+    "instinct": {
+      "selected": [
+        "to defend its hall, to ease its loneliness"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Make a strange, ethereal song\n- Strike a warning blow, deft but nonlethal\n- Respond enthusiastically to music\n- Block their path with a razor’s edge\n\nThis naked blade needs no wielder. It danc- es about the air, making music as it moves: every bob a hum; every slice a whistle. It was set here long ago, as guardian to this crumbling hall. For ages it has kept its vigil. Yet, this is not some mindless thing waiting to cut down foes. It remembers and yearns for the days in which this hall was filled with light and laughter and—joy of joys—music! And so it waits. In the dark. Singing songs to itself that have not been heard by any living mortal ear. It waits, dutiful, and wor- ries that it has misremembered the music it once knew. It waits. In the dark. Alone.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

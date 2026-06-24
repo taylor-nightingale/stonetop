@@ -1,0 +1,198 @@
+{
+  "_id": "mJdMFqd5v4eC9X83",
+  "_key": "!tables!mJdMFqd5v4eC9X83",
+  "name": "Forge Lords — Attribute",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "TLFO36Ks6r6o9153",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.TLFO36Ks6r6o9153",
+      "type": "text",
+      "name": "",
+      "description": "Nothing of note, just animated metal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sf8sIC84AyiqzAdn",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.sf8sIC84AyiqzAdn",
+      "type": "text",
+      "name": "",
+      "description": "Beautiful/musical/sublime",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HQMvzLrYQrbscUF5",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.HQMvzLrYQrbscUF5",
+      "type": "text",
+      "name": "",
+      "description": "Terrifying/unnerving/imposing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H9aoxDX0lEIszTSE",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.H9aoxDX0lEIszTSE",
+      "type": "text",
+      "name": "",
+      "description": "Strong/durable/powerful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1K73obO7aG7Phsio",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.1K73obO7aG7Phsio",
+      "type": "text",
+      "name": "",
+      "description": "Perceptive/wise/cunning/devious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ihf060iPRf9DNKcL",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.ihf060iPRf9DNKcL",
+      "type": "text",
+      "name": "",
+      "description": "Fiery/destructive/vicious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s2qTEuS655V4Hqys",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.s2qTEuS655V4Hqys",
+      "type": "text",
+      "name": "",
+      "description": "Multipart/group/horde",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b4CSSwp7eBceT8TN",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.b4CSSwp7eBceT8TN",
+      "type": "text",
+      "name": "",
+      "description": "Disguised/camouflaged/innocuous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EW3fvXihwMqRQjGI",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.EW3fvXihwMqRQjGI",
+      "type": "text",
+      "name": "",
+      "description": "Fast/agile/mobile/flies",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6g4pf0KWGrLaftzf",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.6g4pf0KWGrLaftzf",
+      "type": "text",
+      "name": "",
+      "description": "Attuned to energy/elements/magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XW9U0ymdQUiYtCVT",
+      "_key": "!tables.results!mJdMFqd5v4eC9X83.XW9U0ymdQUiYtCVT",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

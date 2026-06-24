@@ -1,0 +1,118 @@
+{
+  "_id": "MkYQA4sQG1GWEbqu",
+  "_key": "!tables!MkYQA4sQG1GWEbqu",
+  "name": "Tempest Lords — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cGREpkGlU6dsKpor",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.cGREpkGlU6dsKpor",
+      "type": "text",
+      "name": "",
+      "description": "Metal beams/cables/lattices/trusses",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OcY4dzaug6cDDksD",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.OcY4dzaug6cDDksD",
+      "type": "text",
+      "name": "",
+      "description": "Open spaces: shafts, atriums, vaulted ceilings, overlooks, windows, skylights",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h5iljvSTTWSZzdXw",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.h5iljvSTTWSZzdXw",
+      "type": "text",
+      "name": "",
+      "description": "Lines of power: <strong>aetherium inlays</strong> (page 341), runes, conduits, nodes, currents",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S9xNtozHbpXUSYFS",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.S9xNtozHbpXUSYFS",
+      "type": "text",
+      "name": "",
+      "description": "Stylized mosaics/statuary: geometric patterns, fractals, celestial bodies, angelic beings, ships",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GdLXz4oOZA4qHtLG",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.GdLXz4oOZA4qHtLG",
+      "type": "text",
+      "name": "",
+      "description": "Brass fixtures, pipes and pumps, water and steam, gears and flywheels",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JSHSxbDqiB3w4h2E",
+      "_key": "!tables.results!MkYQA4sQG1GWEbqu.JSHSxbDqiB3w4h2E",
+      "type": "text",
+      "name": "",
+      "description": "Verticality: standing stones, menhirs, obelisks, towers, spires, masts",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "FDwnRzC4OseFLYWp",
+  "_key": "!actors!FDwnRzC4OseFLYWp",
+  "name": "Legionary",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "legionary",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "organized",
+        "hardy",
+        "disciplined"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "3 (shield, iron scale)",
+    "damage": "iron short sword d6 (hand, close), or spear d6 (close, thrown)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to conquer"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Fight in tight-knit formation\n- Hold the line\n- Advance implacably",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "KIQNP6NEfzwoNokv",
+  "_key": "!actors!KIQNP6NEfzwoNokv",
+  "name": "Draventao",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "draventao",
+    "reference": "forge-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "hoarder",
+        "paranoid",
+        "terrifying",
+        "fierce"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "armor": "4 (scales, steel plates)",
+    "damage": "bite d12+3 w/ advantage (close, reach, forceful, messy, grabby, 1 piercing)",
+    "specialQuality": "fireproof, bestial intellect, slumbers for years at a time",
+    "instinct": {
+      "selected": [
+        "to protect itself and its hoard, from threats real or imagined"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Lure or drive intruders into a trap\n- Attack with sudden, terrible ferocity that makes even stout hearts falter\n- Suck in air, stoking its inner flames\n- Breath sticky fire, d10+3 damage (near, area, grabby, messy, reload, ignores armor)\n\nPicture a long and sinuous beast with serpentine scales, curled upon a pile of treasure, covered in a layer of long-cold soot or ash. Bits of rusted steel protrude from its flesh. Smoke drifts lazily from its nostrils. Charred and jagged teeth poke out from its sneering lips. An eye snaps open. It fixes you with a glare like a red-hot coal. Hard to believe that this thing, this beast, was once a Maker. But it was. It was. A draventao is what remains of a Forge Lord. It survived the Time of Cataclysm (page 413), when its rivals moved against it, when its allies betrayed it, when even its loved ones came for it in the dark. It survived by Changing, by letting its inner fire burn until its heart was a blackened coal of wrath. It shed its once-beautiful form. It forced its servants to bolt living metal onto its now-twisted flesh and bones. Then it ate those servants.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "R2MUT1Pj3NIzH35H",
+  "_key": "!actors!R2MUT1Pj3NIzH35H",
+  "name": "Llamudwr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "llamudwr",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "corrupted",
+        "cautious",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "stinging tail d10+1 (reach), crunching bite d10+1 (hand, grabby, messy, 1 piercing)",
+    "specialQuality": "clumsy when grounded, hates the sun",
+    "instinct": {
+      "selected": [
+        "to fill its belly and retreat beneath the water"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Lurk unseen, pick a target, and wait until sunset\n- Leap out of the water with shocking speed",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "C16Mn1wtlnUxv4Cn",
+  "_key": "!tables!C16Mn1wtlnUxv4Cn",
+  "name": "The Ruined Tower — Wonder",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "WdSx3SYGHcsCLHLx",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.WdSx3SYGHcsCLHLx",
+      "type": "text",
+      "name": "",
+      "description": "A fountain, its hidden pumps powered by aetherium.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HoNlkC7IGDEAG9r1",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.HoNlkC7IGDEAG9r1",
+      "type": "text",
+      "name": "",
+      "description": "Nexus of pipes, pumps, boilers. By a stairwell, kept up by <strong>patchwork</strong> <strong>constructs</strong> (page 348).",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TfcKBFzZe4e2JOs2",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.TfcKBFzZe4e2JOs2",
+      "type": "text",
+      "name": "",
+      "description": "Deep pit, smooth walls, a <strong>jellied</strong> <strong>horror</strong> (page 92) trapped below. Used as a midden pit.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bK0ZLDPRaFjBB9Xw",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.bK0ZLDPRaFjBB9Xw",
+      "type": "text",
+      "name": "",
+      "description": "A huge stone slab, with fittings that make hot, steady flame on demand.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FOSIUFsDWs55QYZO",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.FOSIUFsDWs55QYZO",
+      "type": "text",
+      "name": "",
+      "description": "Room full of plants (<em>exotic</em>, <em>useful</em>, <em>valuable</em>, <em>dangerous</em>). Lit by a makerglass sun, watered by pipes, tended by a fertility spirit.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Xl4zWDvizliHtG58",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.Xl4zWDvizliHtG58",
+      "type": "text",
+      "name": "",
+      "description": "Huge orrery. Bits are melted, fused, burnt out; “stars” stuck in a potent cosmic alignment.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lpfPejNsQEVqf7tA",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.lpfPejNsQEVqf7tA",
+      "type": "text",
+      "name": "",
+      "description": "Knee-high dust, shapes itself into whatever an occupant thinks of. Crumbles if removed from room.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DyToyfb4H8PQTtUo",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.DyToyfb4H8PQTtUo",
+      "type": "text",
+      "name": "",
+      "description": "Freestanding arch. Pass through and you vanish. Exit ~5 seconds later, seems instantaneous to you.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2iQ3phhwUZydglvp",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.2iQ3phhwUZydglvp",
+      "type": "text",
+      "name": "",
+      "description": "Tight-packed aetherium inlays. Hazy images show what anyone in the room is about to do.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MX0DZpe5AnM7zVpe",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.MX0DZpe5AnM7zVpe",
+      "type": "text",
+      "name": "",
+      "description": "Sliding tiles in walls/ceiling/floor change gravity’s direction and/or intensity in the room.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aJeJttT9yLTsNMY5",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.aJeJttT9yLTsNMY5",
+      "type": "text",
+      "name": "",
+      "description": "Airless room with small floating black sphere, annihilates any matter it touches.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2o6Q4Vbsb9peVQ98",
+      "_key": "!tables.results!C16Mn1wtlnUxv4Cn.2o6Q4Vbsb9peVQ98",
+      "type": "text",
+      "name": "",
+      "description": "Black lightning crackles between two prongs, ~3’ apart. Fine glass dust all around. A <strong>vitrifying bolt</strong> (page 408), just barely contained.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

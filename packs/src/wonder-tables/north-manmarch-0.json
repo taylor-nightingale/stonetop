@@ -1,0 +1,182 @@
+{
+  "_id": "CiQRpA6aO3dSaH9T",
+  "_key": "!tables!CiQRpA6aO3dSaH9T",
+  "name": "North Manmarch — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EKqWNMrhTMJ7Mv9N",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.EKqWNMrhTMJ7Mv9N",
+      "type": "text",
+      "name": "",
+      "description": "Spring/pond/creek/stream",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jd2c8I7LgYoi1BPQ",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.jd2c8I7LgYoi1BPQ",
+      "type": "text",
+      "name": "",
+      "description": "Ditch/wash/gully/ravine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AbBlmpdjjYHoH1KO",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.AbBlmpdjjYHoH1KO",
+      "type": "text",
+      "name": "",
+      "description": "Copse/thicket/grove of trees",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "63Gr0Ma3TxRTgtIg",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.63Gr0Ma3TxRTgtIg",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope/rocky outcrop/large hill",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i2IzYhm5BvSanbnD",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.i2IzYhm5BvSanbnD",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope/low ridge/small hill",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KyI7SvpcsMBepDgd",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.KyI7SvpcsMBepDgd",
+      "type": "text",
+      "name": "",
+      "description": "Open meadow, grass waist-high or shorter",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kaBwHKSSVVN42IXH",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.kaBwHKSSVVN42IXH",
+      "type": "text",
+      "name": "",
+      "description": "Footpath/wagon ruts/trail",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CCLK58lCAyzDPpHr",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.CCLK58lCAyzDPpHr",
+      "type": "text",
+      "name": "",
+      "description": "Farmland/pasture",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tFGxjenETJADlbJR",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.tFGxjenETJADlbJR",
+      "type": "text",
+      "name": "",
+      "description": "Fence/low wall/embankment",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VS1wA8XLNWCz68zC",
+      "_key": "!tables.results!CiQRpA6aO3dSaH9T.VS1wA8XLNWCz68zC",
+      "type": "text",
+      "name": "",
+      "description": "Hamlet/hillfort/isolated longhouse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 34000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

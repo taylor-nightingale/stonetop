@@ -1,0 +1,44 @@
+{
+  "_id": "Ow2elNbxdgCxbbGo",
+  "_key": "!actors!Ow2elNbxdgCxbbGo",
+  "name": "Wolf",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "wolf",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Group",
+        "organized",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0",
+    "damage": "bite d8 (hand, grabby) Qualities keen sense of smell",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to bring down the weakest prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Follow prey for miles on end\n- Surround, flank, and harry\n- Clamp down, eventually crushing bone",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

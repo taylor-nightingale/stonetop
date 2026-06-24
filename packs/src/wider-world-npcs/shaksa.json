@@ -1,0 +1,47 @@
+{
+  "_id": "SxAFxS7m0auMBhLq",
+  "_key": "!actors!SxAFxS7m0auMBhLq",
+  "name": "Shaksa",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "shaksa",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "construct",
+        "hoarder",
+        "magical",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "antler of jagged bone d10+2 (close, messy, 1 piercing) or stone hooves d8 (hand)",
+    "specialQuality": "tethered to its cemetery, can only leave to track looters/vandals",
+    "instinct": {
+      "selected": [
+        "to preserve the sanctity of the dead"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Fill an intruder with dread\n- Manifest a form of bone and grave- dirt (unharmed by stabbing; vulnera- ble to rain/running water)\n- Track a looter or vandal, unerringly\n\nThe Rime Lords and their disciples created shaksa to guard over cemeteries and char- nel grounds. They usually watch, unseen and unmanifest. A shaksa manifests only within its ceme- tery, appearing as a powerful goat made of rock and soil, with a human (?) skull for a head, three eyes of floating light, and a single great antler of jagged bone. Once manifest, it can leave the cemetery in pursuit of looters or vandals. Should this form be destroyed, the spirit returns to the cemetery and cannot remanifest until the next sunset.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "3HVWCC6CtRnVpl3K",
+  "_key": "!tables!3HVWCC6CtRnVpl3K",
+  "name": "The Dread River — Greater curse",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vWpiqN77KqUQN8XL",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.vWpiqN77KqUQN8XL",
+      "type": "text",
+      "name": "",
+      "description": "Horrors pursue you, intent on dragging you and the item back to the ruins, killing any who cross their path. Destroy or bind them, and more will come.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WANumV0G2smGQJWD",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.WANumV0G2smGQJWD",
+      "type": "text",
+      "name": "",
+      "description": "You contract a <strong>disease</strong> (page 122); it merely makes you miserable, but infects those nearby with a deadly sickness.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KI7SgdBoWiviJElf",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.KI7SgdBoWiviJElf",
+      "type": "text",
+      "name": "",
+      "description": "Those around you find themselves on edge, their emotions running raw, and are subject to <strong>whispers</strong> <strong>and visions</strong> (page 428). Unstable folk quickly succumb.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xMzawBq4WXeAG6SF",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.xMzawBq4WXeAG6SF",
+      "type": "text",
+      "name": "",
+      "description": "You grow thin, haggard, and unwell. Mark a debility each week, which you cannot clear. Should you die, you become a <strong>revenant</strong> (<em>Book</em> <em>I</em>, page 150), tethered to the item, obsessed with either protecting it or returning it to where it was found (your choice).",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cWWi6py0xjwYrHIL",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.cWWi6py0xjwYrHIL",
+      "type": "text",
+      "name": "",
+      "description": "Wherever you go, plants wither, food spoils, crops fail, beasts grow barren and sickly.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GxIyuSOVsUS0TiBi",
+      "_key": "!tables.results!3HVWCC6CtRnVpl3K.GxIyuSOVsUS0TiBi",
+      "type": "text",
+      "name": "",
+      "description": "Those who die in your presence are unable to pass through the Last Door. They linger as <strong>revenants</strong> (page 80) or <strong>ghosts</strong> (page 76).",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 11006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

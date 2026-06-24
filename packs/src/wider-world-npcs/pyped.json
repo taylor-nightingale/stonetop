@@ -1,0 +1,45 @@
+{
+  "_id": "CNDGGGC4LayKh13j",
+  "_key": "!actors!CNDGGGC4LayKh13j",
+  "name": "Pyped",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "pyped",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "undead",
+        "terrifying",
+        "craven"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (speed)",
+    "damage": ") harmed by salt (1d8 damage, hand, close); foul stench; sustained by bone marrow",
+    "specialQuality": "burned by silver (+1d4",
+    "instinct": {
+      "selected": [
+        "to avoid the Last Door"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Move with a surprising, jerky speed\n- Jumble up its memories with those of its host & those whose bones it’s eaten\n- Possess a new corpse, if it can/must\n\nWhen an ﻿untethered ﻿ghost (page 76) or a shade (page 85) possesses an empty corpse, it becomes a pyped. They are wretched things, all rotting flesh and lurching movements, hungering for sweet marrow, scavenging on carrion and graves. But hun- ger can make them bold. Bold enough to hunt the weak and sick at the edge of a village, or a lone traveler caught unawares. Pypeds rise only from corpses that are relatively intact, and which have not undergone proper funeral rites. If a pyped is destroyed, the spirit within will seek a new, viable corpse. A shade must find one before the sun banishes it. An untethered ghost must find one before its memories fade and it becomes a wraith (page 79).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

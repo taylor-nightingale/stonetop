@@ -1,0 +1,166 @@
+{
+  "_id": "RsLaKWnpQ7xGwIQt",
+  "_key": "!tables!RsLaKWnpQ7xGwIQt",
+  "name": "Stone Lords — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "A8zqH1jmzWxBdFGQ",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.A8zqH1jmzWxBdFGQ",
+      "type": "text",
+      "name": "",
+      "description": "Rock and stone: excavated and shaped into grandiose structures",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3f9LDwxteYpOQEFB",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.3f9LDwxteYpOQEFB",
+      "type": "text",
+      "name": "",
+      "description": "Crystals/gems/<strong>makerglass</strong> (page 388): decorative, practical, or thrumming with power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "spXpbtveJpJyESBe",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.spXpbtveJpJyESBe",
+      "type": "text",
+      "name": "",
+      "description": "Songs/resonance/vibrations/echoes: to empower, shape, transform, or destroy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pIt6kLX7wowGgjpr",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.pIt6kLX7wowGgjpr",
+      "type": "text",
+      "name": "",
+      "description": "Seals/bindings/things trapped in stone: creatures/spirits/ideas/ memories/free will",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OayuCinJo9QFId9j",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.OayuCinJo9QFId9j",
+      "type": "text",
+      "name": "",
+      "description": "Constructs/stone given life, or an approximation thereof",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xJkJegW9KyOpPFyA",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.xJkJegW9KyOpPFyA",
+      "type": "text",
+      "name": "",
+      "description": "Authority/order/hierarchy/tradition",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "R05Y9EHMoj38a6Xe",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.R05Y9EHMoj38a6Xe",
+      "type": "text",
+      "name": "",
+      "description": "Human servants (slaves?): their corruption by the <strong>Things Below</strong> (page 412), their revolt, the <strong>Barrow</strong> <strong>Builders</strong> (page 34) they became",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cULdkuk7frO6x2ew",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.cULdkuk7frO6x2ew",
+      "type": "text",
+      "name": "",
+      "description": "Bonds broken/seals opened/collapse and chaos/the Things Below set loose",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mgs7phfOzpzVlpPD",
+      "_key": "!tables.results!RsLaKWnpQ7xGwIQt.mgs7phfOzpzVlpPD",
+      "type": "text",
+      "name": "",
+      "description": "Sized for giants, and roll 1d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_id": "ocgFXIuo1RHCff0C",
+  "_key": "!actors!ocgFXIuo1RHCff0C",
+  "name": "Star-mole",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "star-mole",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "cautious",
+        "devious",
+        "organized",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "0",
+    "damage": "caustic spit or blood d6 w/disad- vantage (hand, close, messy, 1 piercing)",
+    "specialQuality": "blind tremorsense  bioluminescent",
+    "instinct": {
+      "selected": [
+        "to lure predators into traps"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Soften stone with its spit, then dig through it\n- Spurt caustic blood when hurt\n- Scamper away, hide, act as bait\n- Trigger a collapse or cave-in\n\nBig, naked mole-rats, like 5’ long, with saggy skin, glowing freckles, and clusters of wriggling feelers on their noses. They eat vermin and fungus that grow near leaking pipes. They also tunnel through bedrock, collapse passages, and expose sealed-off rooms. Every so often, they wake a skittering horror (page 348) from its torpor. This spells doom for the colony, unless they can trap it or cut off access to the nest. They’ll treat the PCs as a similar threat.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

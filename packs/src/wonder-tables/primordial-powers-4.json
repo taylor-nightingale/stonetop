@@ -1,0 +1,118 @@
+{
+  "_id": "JTaEo7ENCxNb9sPu",
+  "_key": "!tables!JTaEo7ENCxNb9sPu",
+  "name": "Primordial powers — Manifestation (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "KH2kqIil98kxy16U",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.KH2kqIil98kxy16U",
+      "type": "text",
+      "name": "",
+      "description": "Pure energy/light/fire: harmed only by black iron",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jjSXvevXAYtvp1oa",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.jjSXvevXAYtvp1oa",
+      "type": "text",
+      "name": "",
+      "description": "A construct/animate statue: -<em>spirit</em>, Armor 6, or 4 vs. black iron",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T0ugpI0MP367W04j",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.T0ugpI0MP367W04j",
+      "type": "text",
+      "name": "",
+      "description": "A mass of vapor/dust/ash/soil/ etc.: takes half damage except from black iron",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EvBSx5H3jxCncGGn",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.EvBSx5H3jxCncGGn",
+      "type": "text",
+      "name": "",
+      "description": "A ripple in reality: +<em>stealthy</em>, harmed only by black iron",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LiJksPRGGhaVLb5E",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.LiJksPRGGhaVLb5E",
+      "type": "text",
+      "name": "",
+      "description": "Someone plucked from the mind of whoever it interacts with",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qFnoPmodZGEnxCTT",
+      "_key": "!tables.results!JTaEo7ENCxNb9sPu.qFnoPmodZGEnxCTT",
+      "type": "text",
+      "name": "",
+      "description": "An impossible entity, surreal and weird and awe-inspiring",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "bMDw8Vwxznj9hMRv",
+  "_key": "!tables!bMDw8Vwxznj9hMRv",
+  "name": "Fae — Talent",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "BIifK0ZZm9JmmMoV",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.BIifK0ZZm9JmmMoV",
+      "type": "text",
+      "name": "",
+      "description": "Illusion/glamour",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I0zFgMr6dlXfZ5Wi",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.I0zFgMr6dlXfZ5Wi",
+      "type": "text",
+      "name": "",
+      "description": "Shapechanging/transformations",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "URC9DZUUszTUFdmm",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.URC9DZUUszTUFdmm",
+      "type": "text",
+      "name": "",
+      "description": "Feats of strength/stamina/ labor/skill",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Fy3dwGfk1m6CMOe5",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.Fy3dwGfk1m6CMOe5",
+      "type": "text",
+      "name": "",
+      "description": "Influencing the inanimate/the elements/beasts or birds or bugs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BMJprllGbGpEuKzU",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.BMJprllGbGpEuKzU",
+      "type": "text",
+      "name": "",
+      "description": "Flying/burrowing/phasing/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hoq1PcirLMV4mRtX",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.hoq1PcirLMV4mRtX",
+      "type": "text",
+      "name": "",
+      "description": "Messing with time, space, causality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bIqOso7Y5HdgUYjZ",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.bIqOso7Y5HdgUYjZ",
+      "type": "text",
+      "name": "",
+      "description": "Well-versed in powerful, old magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XRHSy7gE0hMSRfWh",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.XRHSy7gE0hMSRfWh",
+      "type": "text",
+      "name": "",
+      "description": "Enchanting visage/voice/ music/touch",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "t8kXhkl3n0VdVmQo",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.t8kXhkl3n0VdVmQo",
+      "type": "text",
+      "name": "",
+      "description": "Invisibility/camouflage/stealth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7LSgLB2z3uv82RBp",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.7LSgLB2z3uv82RBp",
+      "type": "text",
+      "name": "",
+      "description": "Cursing/blessing/giving/taking",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bJUkm7M34fT9d1sU",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.bJUkm7M34fT9d1sU",
+      "type": "text",
+      "name": "",
+      "description": "Fae domains: creating/changing them, ensnaring others in them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wGff3EGL0ZECJUGx",
+      "_key": "!tables.results!bMDw8Vwxznj9hMRv.wGff3EGL0ZECJUGx",
+      "type": "text",
+      "name": "",
+      "description": "Insight/prophecy/dreams and memories laid bare",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

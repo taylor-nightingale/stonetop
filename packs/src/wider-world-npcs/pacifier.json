@@ -1,0 +1,45 @@
+{
+  "_id": "jJEgoIty8Ig9Wwuz",
+  "_key": "!actors!jJEgoIty8Ig9Wwuz",
+  "name": "Pacifier",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "pacifier",
+    "reference": "stone-lords",
+    "tagList": {
+      "selected": [
+        "Group",
+        "small",
+        "construct",
+        "amorphous"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "4 (just a stone sphere)",
+    "damage": "stupefying pulse of sound d6 (reach, area, reload, ignores armor)",
+    "specialQuality": "must recharge after a few hours; limited autonomy; blind; tremorsense; has trouble with stairs; vulnerable to blunt, forceful attacks",
+    "instinct": {
+      "selected": [
+        "to keep mortals docile"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense and follow strong emotions\n- Hum a soothing, pacifying sound (near, area)\n- Sound the alarm, call for reinforcements\n\nThey’re basically hollow stone spheres, maybe scratched and dinged but otherwise featureless. Often found in their little alcoves, charging. The Stone Lords would deploy them among the rowdier servants to keep things running smoothly. When you are in range of a pacifier’s hum, your emotions lose their edge. When you rouse yourself to act violently, urgently, or passionately, roll +WIS. If you are in range of multiple pacifiers humming in unison, you have disadvantage. On a 10+, you shake off the effect; on a 7-9, you shake off the effect but pick 1. Your mind is addled; mark dazed Your freedom is short-lived; the effect returns if you pause for any reason You get carried away or take things too far, resulting in a consequence of the GM’s choice",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

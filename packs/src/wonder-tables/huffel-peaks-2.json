@@ -1,0 +1,102 @@
+{
+  "_id": "Ae8JOJfWBwSnmHEq",
+  "_key": "!tables!Ae8JOJfWBwSnmHEq",
+  "name": "Huffel Peaks — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EzfM3XwS1vhlvOfW",
+      "_key": "!tables.results!Ae8JOJfWBwSnmHEq.EzfM3XwS1vhlvOfW",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Thraulgwyn</strong> (page 247): come out of the Labyrinth for some reason",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fS88kY6yKE4l9GL8",
+      "_key": "!tables.results!Ae8JOJfWBwSnmHEq.fS88kY6yKE4l9GL8",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Spirit of the wild</strong> (page 356): curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HLou4hqm387Lb55E",
+      "_key": "!tables.results!Ae8JOJfWBwSnmHEq.HLou4hqm387Lb55E",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Ustrina</strong> (page 464): travelling, scrounging, on patrol",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r4UtZsytmAwPtH7p",
+      "_key": "!tables.results!Ae8JOJfWBwSnmHEq.r4UtZsytmAwPtH7p",
+      "type": "text",
+      "name": "",
+      "description": "Miners/prospectors/loggers, likely based out of <strong>Gordin’s Delve</strong> (page 190): wary, on edge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VUfpMRzEQipxF69A",
+      "_key": "!tables.results!Ae8JOJfWBwSnmHEq.VUfpMRzEQipxF69A",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hillfolk</strong> (page 228): herding, hunting, encamped, or on patrol",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 27002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

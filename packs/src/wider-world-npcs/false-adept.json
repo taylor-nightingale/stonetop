@@ -1,0 +1,47 @@
+{
+  "_id": "BmPgxQO4rvPr0KwO",
+  "_key": "!actors!BmPgxQO4rvPr0KwO",
+  "name": "False adept",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "false-adept",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "undead",
+        "magical",
+        "devious",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "life-draining touch d8 (hand, ignores armor)",
+    "specialQuality": "tethered to some object  telepathic; powerful will",
+    "instinct": {
+      "selected": [
+        "to amass more followers, more power"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Attract followers with promises of greatness, easily achieved\n- Eat away at someone’s emotions/ memories/will\n- Possess a follower (or one’s corpse)\n- Siphon a follower’s lifeforce to mimic some art of the Rime Lords\n\nSome who practice the Rime Lord’s teach- ings push themselves beyond their limits. Their bodies fail but they become rage- filled specters (page 79) or ever-hungry wraiths (page 79). The Rime Lords had many techniques for dealing with such abominations. Imagine, though, an adept who saw their body and their life as a resource to expend rather than a liability to overcome. One who burned health and vitality to empower their practice. One who saw vast, unused potential in those around them. Such an adept might deliberately sever their mind and spirit from their body and gather a herd of followers (victims) around them, to serve as fuel for their mighty arts.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

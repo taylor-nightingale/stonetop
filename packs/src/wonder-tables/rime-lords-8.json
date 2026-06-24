@@ -1,0 +1,150 @@
+{
+  "_id": "CcvcYKWG5o15a6VU",
+  "_key": "!tables!CcvcYKWG5o15a6VU",
+  "name": "Rime Lords — Characteristic",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OzScETOZQspG3xLL",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.OzScETOZQspG3xLL",
+      "type": "text",
+      "name": "",
+      "description": "Breathtakingly beautiful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HDbxyuHDjIZAqsXC",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.HDbxyuHDjIZAqsXC",
+      "type": "text",
+      "name": "",
+      "description": "Dims light/color in its presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vanZva93qnv6GkYB",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.vanZva93qnv6GkYB",
+      "type": "text",
+      "name": "",
+      "description": "Absorbs/baffles sound",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kEkCRmSvEOjzdQH8",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.kEkCRmSvEOjzdQH8",
+      "type": "text",
+      "name": "",
+      "description": "Exceptionally hard, roll 1d6 for degree (otherwise, hard as mundane ice)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GW7qyNl2QEOUMQh6",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.GW7qyNl2QEOUMQh6",
+      "type": "text",
+      "name": "",
+      "description": "Presents a tangible barrier to spirits, even when unmanifest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AggdlOTuuG83Rv77",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.AggdlOTuuG83Rv77",
+      "type": "text",
+      "name": "",
+      "description": "Pieces persist when removed, instead of melting like normal ice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CO5irJ8ljnxtV5ca",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.CO5irJ8ljnxtV5ca",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d6 twice and combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v5VVA7HJmrSg0OaL",
+      "_key": "!tables.results!CcvcYKWG5o15a6VU.v5VVA7HJmrSg0OaL",
+      "type": "text",
+      "name": "",
+      "description": "Just (just) a bit of never-melting ice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_id": "vi6dTitMVtAxTZOE",
+  "_key": "!tables!vi6dTitMVtAxTZOE",
+  "name": "Titan Bones — How long",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "eVWO5uMQ7ppwfdnu",
+      "_key": "!tables.results!vi6dTitMVtAxTZOE.eVWO5uMQ7ppwfdnu",
+      "type": "text",
+      "name": "",
+      "description": "6 or 7 days, maybe longer",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WDE5aKNCJdltbnOF",
+      "_key": "!tables.results!vi6dTitMVtAxTZOE.WDE5aKNCJdltbnOF",
+      "type": "text",
+      "name": "",
+      "description": "4 to 5 days",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bBVcB8J7WPcWQSFn",
+      "_key": "!tables.results!vi6dTitMVtAxTZOE.bBVcB8J7WPcWQSFn",
+      "type": "text",
+      "name": "",
+      "description": "2 or 3 days",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ycFjpd8iniGA7IAn",
+      "_key": "!tables.results!vi6dTitMVtAxTZOE.ycFjpd8iniGA7IAn",
+      "type": "text",
+      "name": "",
+      "description": "A day or less, somehow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 48000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "327gsnvf4z5BQ1pY",
+  "_key": "!tables!327gsnvf4z5BQ1pY",
+  "name": "The Labyrinth — Instinct",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "COXtQ0kXefCsYdl9",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.COXtQ0kXefCsYdl9",
+      "type": "text",
+      "name": "",
+      "description": "To traumatize/punish them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RbE4YZRwA0b0X2Ub",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.RbE4YZRwA0b0X2Ub",
+      "type": "text",
+      "name": "",
+      "description": "To weaken/hurt/degrade them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NQ4XBd8NZptC6X8d",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.NQ4XBd8NZptC6X8d",
+      "type": "text",
+      "name": "",
+      "description": "To <strong>corrupt</strong> them (page 430)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "15ZFdAkBs3a9a6l8",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.15ZFdAkBs3a9a6l8",
+      "type": "text",
+      "name": "",
+      "description": "To turn them against each other",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VJNCG0XUxJ0cHnNh",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.VJNCG0XUxJ0cHnNh",
+      "type": "text",
+      "name": "",
+      "description": "To trap or ensnare them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HisEuFTAw7mOvcik",
+      "_key": "!tables.results!327gsnvf4z5BQ1pY.HisEuFTAw7mOvcik",
+      "type": "text",
+      "name": "",
+      "description": "To coalesce into a full-fledged <strong>emanation</strong> (page 436)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

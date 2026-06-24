@@ -1,0 +1,118 @@
+{
+  "_id": "9fE8hDPh8HwfrsFX",
+  "_key": "!tables!9fE8hDPh8HwfrsFX",
+  "name": "The Labyrinth — Mark",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "WhfvuHmiBrD1lEhK",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.WhfvuHmiBrD1lEhK",
+      "type": "text",
+      "name": "",
+      "description": "No eyes (they echolocate)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YpwXXVfKax20K7lz",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.YpwXXVfKax20K7lz",
+      "type": "text",
+      "name": "",
+      "description": "Too-long limbs, fingers, necks",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Fgou4x7GAv4otdPw",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.Fgou4x7GAv4otdPw",
+      "type": "text",
+      "name": "",
+      "description": "Covered in weeping sores",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lAe5UqffLsogYc3p",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.lAe5UqffLsogYc3p",
+      "type": "text",
+      "name": "",
+      "description": "Grotesque/horrific behaviors (even for thraulgwyn)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "u2QOsCiD76MW7M8a",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.u2QOsCiD76MW7M8a",
+      "type": "text",
+      "name": "",
+      "description": "Subject to hallucinations",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "64QFFEkX5AEx6ble",
+      "_key": "!tables.results!9fE8hDPh8HwfrsFX.64QFFEkX5AEx6ble",
+      "type": "text",
+      "name": "",
+      "description": "Fear open flame",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

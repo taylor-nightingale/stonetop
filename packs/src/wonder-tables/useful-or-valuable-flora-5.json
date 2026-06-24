@@ -1,0 +1,198 @@
+{
+  "_id": "3PlYlHxanIhHD07J",
+  "_key": "!tables!3PlYlHxanIhHD07J",
+  "name": "Useful or valuable flora — Distinctive trait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "xNctZpdqtv4VSlRz",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.xNctZpdqtv4VSlRz",
+      "type": "text",
+      "name": "",
+      "description": "Always found with some type of <strong>hazardous growth</strong> (page 219)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fefLLIVAEtMa5kU6",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.fefLLIVAEtMa5kU6",
+      "type": "text",
+      "name": "",
+      "description": "Always found with (hidden by?) another, less-useful growth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZpBnsrbEpqVzbx83",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.ZpBnsrbEpqVzbx83",
+      "type": "text",
+      "name": "",
+      "description": "Grows/blooms only in particular/ uncommon/unlikely conditions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EsOzhoKNzWHtel3C",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.EsOzhoKNzWHtel3C",
+      "type": "text",
+      "name": "",
+      "description": "Grows in a particular pattern",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZXMu1mKAeIrJyVwg",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.ZXMu1mKAeIrJyVwg",
+      "type": "text",
+      "name": "",
+      "description": "Attracts/houses some innocuous bug/bird/critter/spirit",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PBxQmJAe1xMiV2GH",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.PBxQmJAe1xMiV2GH",
+      "type": "text",
+      "name": "",
+      "description": "Intricate pattern/texture",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5AhvFD30OmAA1Dmv",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.5AhvFD30OmAA1Dmv",
+      "type": "text",
+      "name": "",
+      "description": "Distinct shape/configuration of leaves/stems/trunk/flowers/bulbs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ze9hdqdNnuRNMUGP",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.Ze9hdqdNnuRNMUGP",
+      "type": "text",
+      "name": "",
+      "description": "Leaves/flowers/seeds/fruits/pods that look like something else",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UBFibLoGXit4NFcN",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.UBFibLoGXit4NFcN",
+      "type": "text",
+      "name": "",
+      "description": "Strong, particular odor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WSDRQjRBLSeAKVM7",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.WSDRQjRBLSeAKVM7",
+      "type": "text",
+      "name": "",
+      "description": "Bright/garish/unusual color",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9oO5dIzurLO5sQ5E",
+      "_key": "!tables.results!3PlYlHxanIhHD07J.9oO5dIzurLO5sQ5E",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

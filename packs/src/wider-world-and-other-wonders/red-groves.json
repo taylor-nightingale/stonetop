@@ -1,0 +1,44 @@
+{
+  "_id": "QA1aP1FeKoG3h6Ev",
+  "_key": "!journal!QA1aP1FeKoG3h6Ev",
+  "name": "Red Groves",
+  "pages": [
+    {
+      "_id": "7MQyyY94wMXHasLr",
+      "_key": "!journal.pages!QA1aP1FeKoG3h6Ev.7MQyyY94wMXHasLr",
+      "name": "Red Groves",
+      "type": "text",
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "src": null,
+      "text": {
+        "format": 1,
+        "content": "<div class=\"stonetop-wonder\"><p class=\"wonder-pageref\">Book of the Wider World — p.314-315</p><figure class=\"art\"><img src=\"systems/stonetop/assets/content/wonders/shared/9c52c96475c2e6365fad5782da3623af54824c91fef16517bc2fb6de825a3262.png\"></figure><div class=\"page2col\"><div class=\"col\"><p>Half a day east of Stonetop is a copse of trees that turn blood red (leaves, bark, and all) at the autumnal equinox. By spring, the color has returned to normal. The <strong>Forest</strong> <strong>Folk</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{150}) warned the villagers to avoid this place. They never said why.</p>\n<ul><li class=\"swirl\">An iron tang in the air</li><li class=\"swirl\">The scrutiny of the forest upon you, heavy like a blanket</li><li class=\"swirl\">Words of warning, faintly heard in the breeze, in the rustling leaves, in the insect hum and birdsong.</li><li class=\"swirl\"><strong>Spring/Summer:</strong> bright green shoots/ leaves bursting from black bark and mud</li><li class=\"swirl\"><strong>Autumn/Winter:</strong> overwhelming, glossy red</li></ul>\n<p><strong>Tip:</strong> faintly whisper things like “turn back” or “not welcome” or “go away” and then pretend you didn’t say anything</p>\n<img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Lore</h2>\n<hr class=\"rule\">\n<p><strong>Something interesting:</strong> A dozen such groves dot the Great Wood. Some redden in the fall, others in spring. Some, like the one near Stonetop, are large and old; others are just a few young trees.</p>\n<p><strong>Something useful:</strong> When you <strong><em>enter a red</em></strong> <strong><em>grove</em></strong>, you draw the forest’s wrath unless…</p>\n<p>… you come naked and empty handed, having been ritually purified;<br>… you bear a dying spirit, wishing to pass on; or<br>… you are cloaked in subtle magic.</p>\n<p>Redwood serves as a conduit for <strong>spirits of</strong> <strong>the wild</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{356}). Some of the Forest Folks’ most powerful totems are made of redwood. Alas, harvesting redwood without the permission of the forest spirits is sure to draw their primal, relentless ire.</p></div><div class=\"col\"><img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Why are they so special?</h2>\n<hr class=\"rule\">\n<p>That’s for you to decide. Maybe...</p>\n<p>… they are where <strong>spirits of the wild</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{356}) are born and where they come to die;<br>… they each imprison some terrible evil;<br>… they each mark the grave of a champion of <strong>Danu</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7sKax2gyFoCWmwmb]{64}); or<br>… it’s different for each grove.</p></div></div><img class=\"braid-wide\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\"><div class=\"page2col\"><div class=\"col\"><img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Hooks</h2>\n<hr class=\"rule\">\n<ul><li class=\"swirl\">A dying <strong>glasbren</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{366}) seeks a mortal to convey her to the Red Grove.</li><li class=\"swirl\">The Red Grove is corrupted by the <strong>Things Below</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{412}). Its spirits are confused and unwell, and the Grove will soon start spawning horrors.</li><li class=\"swirl\">A villager steals a branch of redwood, and is cursed with the forest’s wrath.</li></ul>\n<img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Inhabitants</h2>\n<hr class=\"rule\">\n<p>Any <strong>spirit of the wild</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{356}) might be found here, but each grove hosts at least a few <strong>brennauwed</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{366}) and is protected by <strong>coedwaig</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{369}). <strong>Butcher</strong><strong>birds</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{204}) frequent the Groves while they are red.</p></div><div class=\"col\"><hr class=\"rule\">\n<h3><img class=\"icon\" src=\"systems/stonetop/assets/content/wonders/shared/5848908d72420c8028b4ce78590688bc3bea49acaa718bae3f50a4f7473a5b34.png\">The Forest’s Wrath</h3>\n<p>Threat (<em>affliction</em>) <strong>Instinct</strong> to punish the perpetrator and those who protect them</p>\n<p>The greater the transgression, the more quickly the curse escalates and the greater the penance required.</p>\n<ul><li>Nightmares, ire from beasts and birds, plants tend to wither and die</li><li>Friends and family are affected, too; birds and small beasts harass them in town</li><li>The whole village is affected; sleep is scarce, nerves frayed, the Wood is hostile</li><li>Saplings sprout in town overnight, or when folk aren’t looking</li><li><strong>Impending doom</strong>: Crops fail, livestock revolt, homes collapse, the granary rots</li></ul></div></div></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "system": {},
+      "sort": 0,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ],
+  "folder": null,
+  "sort": 3700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "bookPages": "314-315",
+      "slug": "red-groves"
+    }
+  }
+}

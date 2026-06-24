@@ -1,0 +1,43 @@
+{
+  "_id": "KJMUWt5ZoCy0kpPb",
+  "_key": "!actors!KJMUWt5ZoCy0kpPb",
+  "name": "Monk",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "monk",
+    "reference": "barrier-pass",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cautious",
+        "disciplined",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "0",
+    "damage": "staff d8 with disadvantage (close)",
+    "specialQuality": "spirit sight inured to hunger, cold, deprivation Empty Sky instinct to ignore the suffering or needs of others",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Remain unperturbed\n- Send their mind forth into the spirit world, their bodies insensate\n- Calm the elements around them\n\nUnmoved Mountain instinct to push and test themselves\n\n- Perform a feat of extreme athleticism or endurance\n- Endure or absorb raw elemental power\n- Refuse to adapt or change\n\nWhite Crystal instinct to impose order\n\n- Take charge\n- Do their duty\n- Suppress the emotions of others",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

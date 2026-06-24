@@ -1,0 +1,44 @@
+{
+  "_id": "fJsGAvcJMGO6kE5B",
+  "_key": "!actors!fJsGAvcJMGO6kE5B",
+  "name": "Mammoth",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mammoth",
+    "reference": "the-frozen-wastes",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "huge",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 15,
+      "max": 15
+    },
+    "armor": "1 (fur/hide)",
+    "damage": "tusks d6+5 (reach, forceful) or trample d6+5 (hand, area, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to suffer no insult or threat"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Trumpet in warning\n- Toss someone or something aside\n- Charge, often abruptly",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.kvSIGSOu6kzWWoyH]{The Frozen Wastes} (Book p.172-177)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

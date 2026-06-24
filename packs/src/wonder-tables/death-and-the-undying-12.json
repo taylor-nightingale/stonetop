@@ -1,0 +1,150 @@
+{
+  "_id": "N5bZ6Pz3rehNw7tn",
+  "_key": "!tables!N5bZ6Pz3rehNw7tn",
+  "name": "Death and the undying — Brought back by",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "NmE2kwWfL2aLNjwZ",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.NmE2kwWfL2aLNjwZ",
+      "type": "text",
+      "name": "",
+      "description": "A thirst for vengeance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3yDayyTKZHeeO4B3",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.3yDayyTKZHeeO4B3",
+      "type": "text",
+      "name": "",
+      "description": "A longing that transcends death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "efghJbABJsZbBL72",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.efghJbABJsZbBL72",
+      "type": "text",
+      "name": "",
+      "description": "Stubbornness/habit/will",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "98hHG8ozwvb7zKlM",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.98hHG8ozwvb7zKlM",
+      "type": "text",
+      "name": "",
+      "description": "Guilt, like heavy chains",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FHryiJLNEzr0QI7n",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.FHryiJLNEzr0QI7n",
+      "type": "text",
+      "name": "",
+      "description": "An oath/vow, stronger than iron",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BiTb29CcfLwMxo4A",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.BiTb29CcfLwMxo4A",
+      "type": "text",
+      "name": "",
+      "description": "A curse, well-deserved or not",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1AnAbu2jE6nYrYpr",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.1AnAbu2jE6nYrYpr",
+      "type": "text",
+      "name": "",
+      "description": "Their own designs, some dark ritual/deal/preparation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HsyL58N1kSygSFiF",
+      "_key": "!tables.results!N5bZ6Pz3rehNw7tn.HsyL58N1kSygSFiF",
+      "type": "text",
+      "name": "",
+      "description": "The will or working of another (and maybe roll 1d10 for why/how)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

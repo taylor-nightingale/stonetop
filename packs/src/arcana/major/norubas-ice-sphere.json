@@ -3,7 +3,7 @@
 	"_key": "!items!chYBosYSA5MmCYiS",
 	"name": "Noruba's Ice Sphere",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/norubas-ice-sphere.png",
+	"img": "systems/stonetop/assets/content/arcana/norubas-ice-sphere.png",
 	"system": {
 		"slug": "norubas-ice-sphere",
 		"front": {

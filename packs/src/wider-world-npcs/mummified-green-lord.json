@@ -1,0 +1,50 @@
+{
+  "_id": "GTKzYT003fEdpy7Z",
+  "_key": "!actors!GTKzYT003fEdpy7Z",
+  "name": "Mummified Green Lord",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mummified-green-lord",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "spirit",
+        "undead",
+        "magical",
+        "cunning",
+        "cautious",
+        "organized",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "4 (potent wards), 0 vs. fire",
+    "damage": "mighty blows d10+2 (hand, close, forceful)",
+    "specialQuality": "tethered to canopic jars, can sense all that happens in its tomb",
+    "instinct": {
+      "selected": [
+        "to preserve its glorious afterlife"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Animate its preserved corpse\n- Overawe anyone in its presence\n- Twist, mutate, or transform living things with a gesture\n- Wield nearby plants and beasts as extensions of itself\n- Regenerate its corpse, even if burned, unless its canopic jars destroyed\n\nThey lie entombed, their corpses embalmed, their souls bound to the heavily-warded canopic jars that store their most-vital organs. Yet those souls linger forever in Fae-woven realms of glamour and delight. In these realms, the Green Lords are as gods. They are loathe to leave them, and rarely need to. But should their existence be truly threatened, they will return to this world of base flesh, inhabit their long-dead bodies, and punish any intruders with the savagery of the cruelest beasts.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

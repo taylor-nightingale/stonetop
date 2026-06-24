@@ -1,0 +1,47 @@
+{
+  "_id": "BLZ2vmyHSoctJXyg",
+  "_key": "!actors!BLZ2vmyHSoctJXyg",
+  "name": "Anan Gllo",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "anan-gllo",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "undead",
+        "corrupted",
+        "tireless",
+        "fearless",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 11,
+      "max": 11
+    },
+    "armor": "5 (resilience, armor), 1 vs. bronze or fire",
+    "damage": "weapon d6 (tags by weapon) or crushing grip d4 (hand, grabby)",
+    "specialQuality": "weaken over time (see below)",
+    "instinct": {
+      "selected": [
+        "to follow orders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Advance implacably\n- Unnerve foes with their silence, their empty eyes\n- Fight on despite crippling injury\n\nThe Hillfolk (page 228) speak of dark times, when the Things Below (page 412) gave a gift to a petty chief. Depending on who tells the tale, it was a patch of loose soil or a deep pool of water, the hollow of a dool tree or a great cauldron of rusted iron. Regardless: a corpse placed within this ves- sel would rise as one of the Anan Gllo, the Empty Dead. The chief raised an undead army, and set out to make themselves king. Something interesting: The chief’s power was broken when a hero entered the vessel while still alive, giving their life to destroy it. A number of Anan Gllo linger, though, inert and waiting. Something useful: An Anan Gllo regains all its HP when it either drinks fresh blood or re-enters the vessel; it cannot otherwise regain HP. And every dawn, an Anan Gllo loses 1 HP. At 0 HP, it becomes inert until its HP are restored.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

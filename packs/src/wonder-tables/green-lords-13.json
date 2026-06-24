@@ -1,0 +1,182 @@
+{
+  "_id": "6S2U0vrZxFI3RWC6",
+  "_key": "!tables!6S2U0vrZxFI3RWC6",
+  "name": "Green Lords — Peril",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UBYDHMWTpXz4ToE6",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.UBYDHMWTpXz4ToE6",
+      "type": "text",
+      "name": "",
+      "description": "Crushes, strangles, cuts, stabs (possibly animate)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JSo4dnFIFH6Lycwm",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.JSo4dnFIFH6Lycwm",
+      "type": "text",
+      "name": "",
+      "description": "Eats away, dissolves, absorbs (tissue or specific material)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZBAFN3uDfmDlhFoV",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.ZBAFN3uDfmDlhFoV",
+      "type": "text",
+      "name": "",
+      "description": "Grows incredibly quickly, overwhelms, ensnares",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jJKK006YmCBWbOgb",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.jJKK006YmCBWbOgb",
+      "type": "text",
+      "name": "",
+      "description": "Infects, colonizes, sickens, changes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yBBz0dtuF4u9OLwE",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.yBBz0dtuF4u9OLwE",
+      "type": "text",
+      "name": "",
+      "description": "Poisons, weakens, subdues",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZZz4Wktb5TbeZc40",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.ZZz4Wktb5TbeZc40",
+      "type": "text",
+      "name": "",
+      "description": "Causes dizziness, hallucinations, delusions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r8cbq3Cnkmz35ZNJ",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.r8cbq3Cnkmz35ZNJ",
+      "type": "text",
+      "name": "",
+      "description": "Releases spores/pollen/etc. that irritate, obscure, agitate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MyNxAHfCngT2LAqe",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.MyNxAHfCngT2LAqe",
+      "type": "text",
+      "name": "",
+      "description": "Draws attention (via noise, phosphorescence, scent, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iDGLAjFxRDDimBA0",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.iDGLAjFxRDDimBA0",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice and combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RzV5KBp07suLrpKl",
+      "_key": "!tables.results!6S2U0vrZxFI3RWC6.RzV5KBp07suLrpKl",
+      "type": "text",
+      "name": "",
+      "description": "Roll again with 1d10 but make it weird—elemental, psychic, spiritual, extremely specific, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

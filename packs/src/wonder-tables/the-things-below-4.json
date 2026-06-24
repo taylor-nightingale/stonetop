@@ -1,0 +1,118 @@
+{
+  "_id": "c9ygXBKwjxkeUApr",
+  "_key": "!tables!c9ygXBKwjxkeUApr",
+  "name": "The Things Below — Cause",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "g2OpMYoubdllHVzg",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.g2OpMYoubdllHVzg",
+      "type": "text",
+      "name": "",
+      "description": "Erosion/shifting earth/ the implacable passage of time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zOkwWTn20HVIY0e3",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.zOkwWTn20HVIY0e3",
+      "type": "text",
+      "name": "",
+      "description": "A failed attempt to wield primordial power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nwBpQVw4pwMMHbRS",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.nwBpQVw4pwMMHbRS",
+      "type": "text",
+      "name": "",
+      "description": "An artifact/a sorcerer’s bones/ remains of a corrupted beast/etc., left to fester*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "An8YYh5fhRhQhpSj",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.An8YYh5fhRhQhpSj",
+      "type": "text",
+      "name": "",
+      "description": "An offering of flesh/blood/trauma, intentional or not*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PW4EkNmQgr8Zdh4V",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.PW4EkNmQgr8Zdh4V",
+      "type": "text",
+      "name": "",
+      "description": "A summoning/an invocation/ a misguided invitation*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Sfg0z1zD7ri0kXRP",
+      "_key": "!tables.results!c9ygXBKwjxkeUApr.Sfg0z1zD7ri0kXRP",
+      "type": "text",
+      "name": "",
+      "description": "A seal or binding that kept prior corruption in check, now weakened* (roll d10 again for the original corruption)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

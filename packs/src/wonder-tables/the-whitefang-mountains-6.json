@@ -1,0 +1,118 @@
+{
+  "_id": "Ps2prpInuwlHfZHi",
+  "_key": "!tables!Ps2prpInuwlHfZHi",
+  "name": "The Whitefang Mountains — Neighbors say they are...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "RQ5xGbbGokkjC6yc",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.RQ5xGbbGokkjC6yc",
+      "type": "text",
+      "name": "",
+      "description": "… monstrous/immoral/irresponsible",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gKTQPwhFIV0tomFv",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.gKTQPwhFIV0tomFv",
+      "type": "text",
+      "name": "",
+      "description": "… treacherous/greedy/lazy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bj4H6JbY5nEMPEoI",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.Bj4H6JbY5nEMPEoI",
+      "type": "text",
+      "name": "",
+      "description": "… arrogant/brave/reckless",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IFO55FZbgEu8yHYc",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.IFO55FZbgEu8yHYc",
+      "type": "text",
+      "name": "",
+      "description": "… boorish/primitive/lazy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DlFr0ncw3sFbpzVm",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.DlFr0ncw3sFbpzVm",
+      "type": "text",
+      "name": "",
+      "description": "… generous/gullible/friendly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DisIBJnwHrCkXEdp",
+      "_key": "!tables.results!Ps2prpInuwlHfZHi.DisIBJnwHrCkXEdp",
+      "type": "text",
+      "name": "",
+      "description": "… wise/noble/holy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

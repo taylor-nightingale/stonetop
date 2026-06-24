@@ -1,0 +1,102 @@
+{
+  "_id": "LpOZW5UXjHKeB3Jw",
+  "_key": "!tables!LpOZW5UXjHKeB3Jw",
+  "name": "The Makers' Roads — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "lMiF5b46YqGdXpRk",
+      "_key": "!tables.results!LpOZW5UXjHKeB3Jw.lMiF5b46YqGdXpRk",
+      "type": "text",
+      "name": "",
+      "description": "As hostile as the Roads allow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WzPqXsuquYwJ3IyE",
+      "_key": "!tables.results!LpOZW5UXjHKeB3Jw.WzPqXsuquYwJ3IyE",
+      "type": "text",
+      "name": "",
+      "description": "In dire need of assistance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PCLhmyGAHGie3TFk",
+      "_key": "!tables.results!LpOZW5UXjHKeB3Jw.PCLhmyGAHGie3TFk",
+      "type": "text",
+      "name": "",
+      "description": "Tight-lipped / unfriendly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pqRqV3YnPkRZQMNp",
+      "_key": "!tables.results!LpOZW5UXjHKeB3Jw.pqRqV3YnPkRZQMNp",
+      "type": "text",
+      "name": "",
+      "description": "Friendly enough",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A3b6XoKZRBCunVvq",
+      "_key": "!tables.results!LpOZW5UXjHKeB3Jw.A3b6XoKZRBCunVvq",
+      "type": "text",
+      "name": "",
+      "description": "Bearing useful news or opportunities",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 31001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

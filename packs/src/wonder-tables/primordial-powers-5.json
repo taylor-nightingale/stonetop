@@ -1,0 +1,214 @@
+{
+  "_id": "JrC0TMpkLravMUwE",
+  "_key": "!tables!JrC0TMpkLravMUwE",
+  "name": "Primordial powers — Powers",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "A8bMZdK9g0xosdjd",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.A8bMZdK9g0xosdjd",
+      "type": "text",
+      "name": "",
+      "description": "Smites at range (<em>far</em> or <em>near</em>, <em>area</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4MOzRp3BSMLlpCJV",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.4MOzRp3BSMLlpCJV",
+      "type": "text",
+      "name": "",
+      "description": "Manipulates the environment",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ENlzHT6FmCfWQvhf",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.ENlzHT6FmCfWQvhf",
+      "type": "text",
+      "name": "",
+      "description": "Teleports, or close enough",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uP5Iw5TSF3lwUIZq",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.uP5Iw5TSF3lwUIZq",
+      "type": "text",
+      "name": "",
+      "description": "Pierces deception, compels truth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pndvw9U6Qtvtze7u",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.pndvw9U6Qtvtze7u",
+      "type": "text",
+      "name": "",
+      "description": "Stuns/deafens/blinds/hobbles foes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1fYQEL3RA70V05kQ",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.1fYQEL3RA70V05kQ",
+      "type": "text",
+      "name": "",
+      "description": "Marks/curses/binds targets",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RqdXJRXPs0Liyy4y",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.RqdXJRXPs0Liyy4y",
+      "type": "text",
+      "name": "",
+      "description": "Compels mortals/lesser spirits to __",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kdfrK2RjN0p0jLnx",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.kdfrK2RjN0p0jLnx",
+      "type": "text",
+      "name": "",
+      "description": "Foresees the future, likely outcomes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v16yhPhFWQSMBWT8",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.v16yhPhFWQSMBWT8",
+      "type": "text",
+      "name": "",
+      "description": "Harms weapons used against them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WcYKyqZMwzNyZyXG",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.WcYKyqZMwzNyZyXG",
+      "type": "text",
+      "name": "",
+      "description": "Dispels/disenchants magical effects",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7E1e7CK5oyPgM9MN",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.7E1e7CK5oyPgM9MN",
+      "type": "text",
+      "name": "",
+      "description": "Quells emotions, instills peace",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BHP10M0toi8SKF7T",
+      "_key": "!tables.results!JrC0TMpkLravMUwE.BHP10M0toi8SKF7T",
+      "type": "text",
+      "name": "",
+      "description": "Something special, unique, thematic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

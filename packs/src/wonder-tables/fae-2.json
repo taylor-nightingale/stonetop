@@ -1,0 +1,118 @@
+{
+  "_id": "gmN8HPAM0m61M1Jy",
+  "_key": "!tables!gmN8HPAM0m61M1Jy",
+  "name": "Fae — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "oeQ5umrx63NRpUtw",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.oeQ5umrx63NRpUtw",
+      "type": "text",
+      "name": "",
+      "description": "<em>tiny</em> (bug- or bird-sized)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pHDB2eyJ6tmD6Bxa",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.pHDB2eyJ6tmD6Bxa",
+      "type": "text",
+      "name": "",
+      "description": "<em>tiny</em> (like a cat or smaller)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nn2mGBo812iwp7bH",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.nn2mGBo812iwp7bH",
+      "type": "text",
+      "name": "",
+      "description": "<em>small</em> (like a human child)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EZud6e2IeKix2uLK",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.EZud6e2IeKix2uLK",
+      "type": "text",
+      "name": "",
+      "description": "Human-sized",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TRKVSAFnabhncDyw",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.TRKVSAFnabhncDyw",
+      "type": "text",
+      "name": "",
+      "description": "<em>large</em> (like a horse)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JmOywGERSifyQBld",
+      "_key": "!tables.results!gmN8HPAM0m61M1Jy.JmOywGERSifyQBld",
+      "type": "text",
+      "name": "",
+      "description": "<em>huge</em> (elephant-sized, or bigger)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "xM1QJP5pt2X3mQga",
+  "_key": "!tables!xM1QJP5pt2X3mQga",
+  "name": "Stone Lords — Original purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pGGV5UjBQIrvhC0m",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.pGGV5UjBQIrvhC0m",
+      "type": "text",
+      "name": "",
+      "description": "Convenience/storage/infrastructure",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O2jmDrD8kqMo2SnH",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.O2jmDrD8kqMo2SnH",
+      "type": "text",
+      "name": "",
+      "description": "Entertainment/art/pleasure",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cyXQ45TyxxNibGtN",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.cyXQ45TyxxNibGtN",
+      "type": "text",
+      "name": "",
+      "description": "Violence/war/defense",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ioK5rBEr4FBmyN9v",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.ioK5rBEr4FBmyN9v",
+      "type": "text",
+      "name": "",
+      "description": "Production/power/industry",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e0ZYM0MUseG8XIlr",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.e0ZYM0MUseG8XIlr",
+      "type": "text",
+      "name": "",
+      "description": "Esoteric/research/worship",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iQQqMa0Eqp36I3C7",
+      "_key": "!tables.results!xM1QJP5pt2X3mQga.iQQqMa0Eqp36I3C7",
+      "type": "text",
+      "name": "",
+      "description": "Control/order/authority",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "y0M0Hct86dejcTQo",
+  "_key": "!tables!y0M0Hct86dejcTQo",
+  "name": "Stone Lords — Characteristic",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ne07F6pjGWSNjzYX",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.ne07F6pjGWSNjzYX",
+      "type": "text",
+      "name": "",
+      "description": "Breathtakingly beautiful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DuCD8TB9r6cLKHUl",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.DuCD8TB9r6cLKHUl",
+      "type": "text",
+      "name": "",
+      "description": "Glows/shines (roll 1d6 for scale)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O6S5JxuFRkGGKZtv",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.O6S5JxuFRkGGKZtv",
+      "type": "text",
+      "name": "",
+      "description": "Sings/hums/thrums (roll 1d6 for scale)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JLIiJ6iDefZjrumj",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.JLIiJ6iDefZjrumj",
+      "type": "text",
+      "name": "",
+      "description": "Absorbs something (heat/sound/ light/energy/vibration/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "88DLEaersTACi5y8",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.88DLEaersTACi5y8",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d6 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3iKp94qrUS12DLKY",
+      "_key": "!tables.results!y0M0Hct86dejcTQo.3iKp94qrUS12DLKY",
+      "type": "text",
+      "name": "",
+      "description": "Just (just) an indestructible object made of glass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

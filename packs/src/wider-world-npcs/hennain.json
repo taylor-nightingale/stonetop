@@ -1,0 +1,49 @@
+{
+  "_id": "TYLshFec1A0be6lO",
+  "_key": "!actors!TYLshFec1A0be6lO",
+  "name": "Hennain",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hennain",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "spirit",
+        "cautious",
+        "clever",
+        "magical",
+        "ancient",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 31,
+      "max": 31
+    },
+    "armor": "4 (woody, no vital organs)",
+    "damage": "walloping branches d12+5 (close, reach, area, forceful)",
+    "specialQuality": "tethered to its tree",
+    "instinct": {
+      "selected": [
+        "to take the long, long view"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Remain unmoved\n- See through any tree in the forest\n- Animate her own tree (almost impossible to harm with weapons, or even fire)\n- Call upon the power of Danu herself\n- Lay a lasting curse on a defiler\n\nOld grandmothers of the Wood, the hen- nain are few and ancient and mighty. They watch, and they wait, and they endure. It takes a dire threat indeed to rouse one, and even then it acts in slow and inscrutable ways. For a hennain cares not one bit for any given creature or tree; she cares only for the slow turn of the forest itself.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

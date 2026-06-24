@@ -1,0 +1,118 @@
+{
+  "_id": "J90fKda3YSImaZvm",
+  "_key": "!tables!J90fKda3YSImaZvm",
+  "name": "Gordin's Delve — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Oz0jE0NUavFBWAtT",
+      "_key": "!tables.results!J90fKda3YSImaZvm.Oz0jE0NUavFBWAtT",
+      "type": "text",
+      "name": "",
+      "description": "signs of violence/disaster (below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eQMGPtBTkaJS3FOC",
+      "_key": "!tables.results!J90fKda3YSImaZvm.eQMGPtBTkaJS3FOC",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Z1c9IjBeVqwFdbkf",
+      "_key": "!tables.results!J90fKda3YSImaZvm.Z1c9IjBeVqwFdbkf",
+      "type": "text",
+      "name": "",
+      "description": "A mine, abandoned or destroyed (perhaps mysteriously)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1F943UrGv312xftw",
+      "_key": "!tables.results!J90fKda3YSImaZvm.1F943UrGv312xftw",
+      "type": "text",
+      "name": "",
+      "description": "Possessions/gear, lost or discarded",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DeoHfCMsXbJaBmzo",
+      "_key": "!tables.results!J90fKda3YSImaZvm.DeoHfCMsXbJaBmzo",
+      "type": "text",
+      "name": "",
+      "description": "A vein of copper, hematite (iron ore), or galena (silver/lead ore)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lpy2NGMjuvGE6eYy",
+      "_key": "!tables.results!J90fKda3YSImaZvm.lpy2NGMjuvGE6eYy",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Forge</strong> <strong>Lords</strong> (page 156)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "I3HADITrqkXuA4Wh",
+  "_key": "!actors!I3HADITrqkXuA4Wh",
+  "name": "Totnatter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "totnatter",
+    "reference": "the-dread-river",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "stealthy",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "2",
+    "damage": "venomous bite d10+1 (reach, close, hand, 1 piercing)",
+    "specialQuality": "thermal vision extra- ordinary sense of smell",
+    "instinct": {
+      "selected": [
+        "to toy with its food"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Scent prey, track it down\n- Rattle its tail, paralyzing prey with fear\n- Pump them full of venom, then retreat\n- Follow, waiting for its prey to collapse\n\nThese grey-white rattlesnakes grow to absurd size, big enough to eat a boar, a deer, or even a person. Manmarchers say that they haunt the bluffs and ruins along the river, waiting months, years, or even decades between meals. While most rattlesnakes rattle to warn off threats or predators, totnatter use their rattles to hunt. They delight in the terror their rattle causes, and use it even when they could just bite their prey unawares. When a totnatter pumps its prey full of venom, start the following countdown: l  Their hands shake, their bodies shiver (mark weakened) l  They grow confused, thinking things that aren’t true (mark dazed) l  They struggle to breathe, to keep going (mark miserable) l  They are dying (roll for Death’s Door)",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

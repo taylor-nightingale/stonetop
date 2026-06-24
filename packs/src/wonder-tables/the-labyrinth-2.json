@@ -1,0 +1,214 @@
+{
+  "_id": "ISIWknKt6ZCFl84z",
+  "_key": "!tables!ISIWknKt6ZCFl84z",
+  "name": "The Labyrinth — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "rfAGXOgRfjf7knlr",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.rfAGXOgRfjf7knlr",
+      "type": "text",
+      "name": "",
+      "description": "Stream/spring/pool/lake",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tyHFnOpExrQP2Mof",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.tyHFnOpExrQP2Mof",
+      "type": "text",
+      "name": "",
+      "description": "Stalactites/sharkteeth/knobby, ball-like stone protrusions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HV5sXHdZifvHWQ7m",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.HV5sXHdZifvHWQ7m",
+      "type": "text",
+      "name": "",
+      "description": "Rubble/debris/boulders (possibly fused into other stone)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EkIpeuVdQ0kH2YtQ",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.EkIpeuVdQ0kH2YtQ",
+      "type": "text",
+      "name": "",
+      "description": "Dome shaped cupola overhead",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BKjGWLZTqyT5P51l",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.BKjGWLZTqyT5P51l",
+      "type": "text",
+      "name": "",
+      "description": "Hexagonal columns, packed tight",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "W4nI5EFbl0mXumso",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.W4nI5EFbl0mXumso",
+      "type": "text",
+      "name": "",
+      "description": "Apron/tongue/slipbank/gutters",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5PxdIDrDeoDrclIR",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.5PxdIDrDeoDrclIR",
+      "type": "text",
+      "name": "",
+      "description": "Flat, cracked, a hardened lava lake",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "x9nT0TGk5cDXGWHg",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.x9nT0TGk5cDXGWHg",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope/awkward ridges/ undulating or ropy floor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yIEqWUqKYJXG07ac",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.yIEqWUqKYJXG07ac",
+      "type": "text",
+      "name": "",
+      "description": "Intense heat/cold",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y4GK4qnGfdf7XGR2",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.y4GK4qnGfdf7XGR2",
+      "type": "text",
+      "name": "",
+      "description": "Cramped/narrow/low ceilings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EX9B3TX2rXSgzhmE",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.EX9B3TX2rXSgzhmE",
+      "type": "text",
+      "name": "",
+      "description": "Slippery mud/scree/oil/ooze",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HI9pTVKfvm9oINNg",
+      "_key": "!tables.results!ISIWknKt6ZCFl84z.HI9pTVKfvm9oINNg",
+      "type": "text",
+      "name": "",
+      "description": "Glowmoths, glimmercaps, <strong>red crys</strong><strong>tal</strong> (page 424), other light sources",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

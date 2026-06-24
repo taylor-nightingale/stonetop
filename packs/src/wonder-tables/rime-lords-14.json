@@ -1,0 +1,214 @@
+{
+  "_id": "BfQ1D2fC18ruqF5J",
+  "_key": "!tables!BfQ1D2fC18ruqF5J",
+  "name": "Rime Lords — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "3bbwuvt0cgbvONFM",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.3bbwuvt0cgbvONFM",
+      "type": "text",
+      "name": "",
+      "description": "Friendly/polite/helpful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QEYzLgJuYD1bdAGw",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.QEYzLgJuYD1bdAGw",
+      "type": "text",
+      "name": "",
+      "description": "Apathetic/bored/lonely",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s6ouuU9tzFwqN2T3",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.s6ouuU9tzFwqN2T3",
+      "type": "text",
+      "name": "",
+      "description": "Curious/playful/fickle",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ean9hc3xqGhqTAut",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.Ean9hc3xqGhqTAut",
+      "type": "text",
+      "name": "",
+      "description": "Resentful/duty-bound/compelled",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bAbesU6LngWinUSw",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.bAbesU6LngWinUSw",
+      "type": "text",
+      "name": "",
+      "description": "Proud/dedicated/honorable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SHHJwC2JceFAszCc",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.SHHJwC2JceFAszCc",
+      "type": "text",
+      "name": "",
+      "description": "Confused/erratic/distraught",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r7M3XIM21FeoRRU3",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.r7M3XIM21FeoRRU3",
+      "type": "text",
+      "name": "",
+      "description": "Boastful/aggressive/hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "swNaP9a4bFIZzO3K",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.swNaP9a4bFIZzO3K",
+      "type": "text",
+      "name": "",
+      "description": "Malicious/cruel/devious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H54x9q94SWgkzaTr",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.H54x9q94SWgkzaTr",
+      "type": "text",
+      "name": "",
+      "description": "Timid/shy/meek",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WFnsrNbuFsnNfsd2",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.WFnsrNbuFsnNfsd2",
+      "type": "text",
+      "name": "",
+      "description": "Focused/obsessive/anxious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S6r6Ku0NbAtA8oT5",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.S6r6Ku0NbAtA8oT5",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10, but make it extreme",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QHD2mA3bYlA463VZ",
+      "_key": "!tables.results!BfQ1D2fC18ruqF5J.QHD2mA3bYlA463VZ",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

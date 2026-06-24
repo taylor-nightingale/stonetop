@@ -1,0 +1,102 @@
+{
+  "_id": "KRHocI9rfmYnFnnA",
+  "_key": "!tables!KRHocI9rfmYnFnnA",
+  "name": "The Foothills — Folk from barrier pass",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "wa6vbkxxEgLdO57t",
+      "_key": "!tables.results!KRHocI9rfmYnFnnA.wa6vbkxxEgLdO57t",
+      "type": "text",
+      "name": "",
+      "description": "A war party of 4-8 guardians and/ or monks, hunting something dangerous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8ywCyX0M27VCPjpt",
+      "_key": "!tables.results!KRHocI9rfmYnFnnA.8ywCyX0M27VCPjpt",
+      "type": "text",
+      "name": "",
+      "description": "A patrol of 2-4 guardians, led by a White Crystal monk",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7e5Exdw7qGPfNDHz",
+      "_key": "!tables.results!KRHocI9rfmYnFnnA.7e5Exdw7qGPfNDHz",
+      "type": "text",
+      "name": "",
+      "description": "A monk and/or novice, on their own to study/practice/meditate/ make pilgrimage",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eNvy6tPqfnJKkDNX",
+      "_key": "!tables.results!KRHocI9rfmYnFnnA.eNvy6tPqfnJKkDNX",
+      "type": "text",
+      "name": "",
+      "description": "A logging crew (4-12 layfolk, plus a few guardians)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oVh7LioPsPP3mxsd",
+      "_key": "!tables.results!KRHocI9rfmYnFnnA.oVh7LioPsPP3mxsd",
+      "type": "text",
+      "name": "",
+      "description": "1-4 layfolk hunting or foraging",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 16002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

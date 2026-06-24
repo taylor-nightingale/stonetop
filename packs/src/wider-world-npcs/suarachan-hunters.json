@@ -1,0 +1,46 @@
+{
+  "_id": "IsyswfQxOL5G57kL",
+  "_key": "!actors!IsyswfQxOL5G57kL",
+  "name": "Suarachan hunters",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "suarachan-hunters",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy",
+        "cautious",
+        "organized",
+        "amphibious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "1 (scaly hide)",
+    "damage": "cudgel d8 (close, crude), snapping tongue d6 (reach), poison blowgun needles d6 (near)",
+    "specialQuality": "excellent night vision, salt burns their skin",
+    "instinct": {
+      "selected": [
+        "to bring home captives for sacrifice"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Surround their quarry unnoticed\n- Leap a shocking distance\n- Club someone senseless on the head\n- Tie a fast knot\n\nThey’re tall as a short man, hunched on too-long legs and too-long arms. A toad- like head juts forward from broad shoul- ders, the eyes entirely too big, the mouth entirely too wide. They’re covered in moist scales and horn-like growths, and draped in belts and bandoliers of woven grass. These are the suarachan most often en- countered, the ones that raid Marshedge and the ones that fen-walkers most fear. Truly, they spend more time fishing and hunting than seeking sacrifices, and they’re just as happy to claim a deer as a man. But deer are harder to catch, on the whole.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

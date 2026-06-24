@@ -1,0 +1,134 @@
+{
+  "_id": "LS9iKSWxshiCDWLl",
+  "_key": "!tables!LS9iKSWxshiCDWLl",
+  "name": "Death and the undying — How long",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ESxjkMxD9HvvN46X",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.ESxjkMxD9HvvN46X",
+      "type": "text",
+      "name": "",
+      "description": "Since the days of the <strong>Makers</strong> (page 264), at least",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S5xF4yFxQqOo2gOg",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.S5xF4yFxQqOo2gOg",
+      "type": "text",
+      "name": "",
+      "description": "Since the <strong>Time of Cataclysm</strong> (page 413), when the Makers fell",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YHpV3jMj9EbGjklV",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.YHpV3jMj9EbGjklV",
+      "type": "text",
+      "name": "",
+      "description": "Since the <strong>Barrow Builders</strong> (page 34), after the Makers’ fall",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9GOUG5p2HtlMa5sh",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.9GOUG5p2HtlMa5sh",
+      "type": "text",
+      "name": "",
+      "description": "For generations, longer than the living remember",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "p0qO8KIgWZR9CsCg",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.p0qO8KIgWZR9CsCg",
+      "type": "text",
+      "name": "",
+      "description": "For decades, within living memory",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "381uQdgXdQK7WUUU",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.381uQdgXdQK7WUUU",
+      "type": "text",
+      "name": "",
+      "description": "For the past decade at most",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1LVSSMYRBQIWcZgD",
+      "_key": "!tables.results!LS9iKSWxshiCDWLl.1LVSSMYRBQIWcZgD",
+      "type": "text",
+      "name": "",
+      "description": "Not long at all, a recent change",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

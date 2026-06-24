@@ -1,0 +1,118 @@
+{
+  "_id": "258i4ztTtnID0mLQ",
+  "_key": "!tables!258i4ztTtnID0mLQ",
+  "name": "Fomoraij — Means of control",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "oXJVCoTs5oBdPQc3",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.oXJVCoTs5oBdPQc3",
+      "type": "text",
+      "name": "",
+      "description": "By crushing their will",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0OryhHZa8aR3EPF2",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.0OryhHZa8aR3EPF2",
+      "type": "text",
+      "name": "",
+      "description": "By eating away at what they once were",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "B3uwI7W8U2kH8ZX3",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.B3uwI7W8U2kH8ZX3",
+      "type": "text",
+      "name": "",
+      "description": "By filling them with euphoria/ pleasure",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XOMsxwOPFQ0MuoBE",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.XOMsxwOPFQ0MuoBE",
+      "type": "text",
+      "name": "",
+      "description": "By promising them power/immortality/revenge/a cure/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WkSLyKTkyHHLloWi",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.WkSLyKTkyHHLloWi",
+      "type": "text",
+      "name": "",
+      "description": "By wracking them with pain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CGowh02cQ7rO10ne",
+      "_key": "!tables.results!258i4ztTtnID0mLQ.CGowh02cQ7rO10ne",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, or make up something new",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

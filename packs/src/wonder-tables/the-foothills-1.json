@@ -1,0 +1,118 @@
+{
+  "_id": "aFgG4R2Yb1gk5aag",
+  "_key": "!tables!aFgG4R2Yb1gk5aag",
+  "name": "The Foothills — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "U5iW6y5RqyddytNC",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.U5iW6y5RqyddytNC",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (page 147), and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8kFGHNsU4BMjg3U2",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.8kFGHNsU4BMjg3U2",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1SON0rjCVYXpE0lE",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.1SON0rjCVYXpE0lE",
+      "type": "text",
+      "name": "",
+      "description": "folk from barrier pass (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dbIInD8Vq0zvJic5",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.dbIInD8Vq0zvJic5",
+      "type": "text",
+      "name": "",
+      "description": "Some other encounter (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "M0soQG6D6RP1OHZr",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.M0soQG6D6RP1OHZr",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LvO3CBiyWbBxQF8d",
+      "_key": "!tables.results!aFgG4R2Yb1gk5aag.LvO3CBiyWbBxQF8d",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 16001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

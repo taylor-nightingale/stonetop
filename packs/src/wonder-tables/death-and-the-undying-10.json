@@ -1,0 +1,134 @@
+{
+  "_id": "FB03Efnew9Rn9ei0",
+  "_key": "!tables!FB03Efnew9Rn9ei0",
+  "name": "Death and the undying — Tether",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "brpuhCTFfTF7bK3u",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.brpuhCTFfTF7bK3u",
+      "type": "text",
+      "name": "",
+      "description": "Their corpse/remains/bones/hair",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nD0DFBZMIULPBWBR",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.nD0DFBZMIULPBWBR",
+      "type": "text",
+      "name": "",
+      "description": "The place where they died",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F1VZ5pp5R12DPLQf",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.F1VZ5pp5R12DPLQf",
+      "type": "text",
+      "name": "",
+      "description": "(Part of) their grave/pyre/altar/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yfVYLT316KrCOee1",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.yfVYLT316KrCOee1",
+      "type": "text",
+      "name": "",
+      "description": "The weapon that killed them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rrpaUVoBth9xv62v",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.rrpaUVoBth9xv62v",
+      "type": "text",
+      "name": "",
+      "description": "An item they once cherished",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XM3p30Hg9Gmayryc",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.XM3p30Hg9Gmayryc",
+      "type": "text",
+      "name": "",
+      "description": "A prominent place from their life",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pTvdGSdUVvMne1FR",
+      "_key": "!tables.results!FB03Efnew9Rn9ei0.pTvdGSdUVvMne1FR",
+      "type": "text",
+      "name": "",
+      "description": "The focus/source of whatever magic binds them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

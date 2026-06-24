@@ -1,0 +1,102 @@
+{
+  "_id": "vDwVdWelyvlugGCl",
+  "_key": "!tables!vDwVdWelyvlugGCl",
+  "name": "Green Lords — Composition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PsNEAUblpFr4Vkhi",
+      "_key": "!tables.results!vDwVdWelyvlugGCl.PsNEAUblpFr4Vkhi",
+      "type": "text",
+      "name": "",
+      "description": "Beast + beast",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4Ey9FmgDIuLJiAB0",
+      "_key": "!tables.results!vDwVdWelyvlugGCl.4Ey9FmgDIuLJiAB0",
+      "type": "text",
+      "name": "",
+      "description": "Beast + plant",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GkjQ6LujrB8GXfVf",
+      "_key": "!tables.results!vDwVdWelyvlugGCl.GkjQ6LujrB8GXfVf",
+      "type": "text",
+      "name": "",
+      "description": "Beast + mineral",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SjbqIZEXkMPhDTYj",
+      "_key": "!tables.results!vDwVdWelyvlugGCl.SjbqIZEXkMPhDTYj",
+      "type": "text",
+      "name": "",
+      "description": "Beast + roll again with 1d8",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fPzDaZP0T9AryNAY",
+      "_key": "!tables.results!vDwVdWelyvlugGCl.fPzDaZP0T9AryNAY",
+      "type": "text",
+      "name": "",
+      "description": "Person + roll again with 1d8",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

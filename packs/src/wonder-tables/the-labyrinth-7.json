@@ -1,0 +1,118 @@
+{
+  "_id": "JYgwcICweSJIvgEL",
+  "_key": "!tables!JYgwcICweSJIvgEL",
+  "name": "The Labyrinth — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "lpsfnRJIhsGCPOX2",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.lpsfnRJIhsGCPOX2",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412), perhaps a shrine tended by <strong>thraulgwyn</strong> (page 247) or <strong>cultists</strong> (page 435)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kGNiLZkXUPwhFPs7",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.kGNiLZkXUPwhFPs7",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>haunted site</strong> (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v62yKIDvDSP896fj",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.v62yKIDvDSP896fj",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>notable site</strong> (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g5rcvxqFXSUOL4nY",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.g5rcvxqFXSUOL4nY",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>thraulgwyn settlement</strong> (page 248)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7dsRdWFEvPvn5G0e",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.7dsRdWFEvPvn5G0e",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Forge Lord site</strong> (page 158), perhaps inhabited by Ustrina",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RrMpZlLmqWHQO1Y2",
+      "_key": "!tables.results!JYgwcICweSJIvgEL.RrMpZlLmqWHQO1Y2",
+      "type": "text",
+      "name": "",
+      "description": "A path up and out into the <strong>Huffel</strong> <strong>Peaks</strong> (page 236), or down into the <strong>Deeps</strong> (page 250)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

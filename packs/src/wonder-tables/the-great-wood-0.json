@@ -1,0 +1,166 @@
+{
+  "_id": "P8DPXNknsC2nxaFs",
+  "_key": "!tables!P8DPXNknsC2nxaFs",
+  "name": "The Great Wood — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "abyav55BkYa1qDql",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.abyav55BkYa1qDql",
+      "type": "text",
+      "name": "",
+      "description": "Pond, wetland, or lake",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3MMbLBRmYo0zzuqn",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.3MMbLBRmYo0zzuqn",
+      "type": "text",
+      "name": "",
+      "description": "Creek, stream, or river",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "louvus4Rp88v1zEM",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.louvus4Rp88v1zEM",
+      "type": "text",
+      "name": "",
+      "description": "Rocky outcropping, cave(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LC52w8GPziLfsfH2",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.LC52w8GPziLfsfH2",
+      "type": "text",
+      "name": "",
+      "description": "Clearing, meadow, sparse trees",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ck5w2WmgGZcbLjvs",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.ck5w2WmgGZcbLjvs",
+      "type": "text",
+      "name": "",
+      "description": "Dense thicket",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Fb4RJi1vzf1ERdOt",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.Fb4RJi1vzf1ERdOt",
+      "type": "text",
+      "name": "",
+      "description": "Swath of one type of tree",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cv5B2XsMWM51yepv",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.cv5B2XsMWM51yepv",
+      "type": "text",
+      "name": "",
+      "description": "Briars, thorns, nettles",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NYSvRiBQ0ItGFIzu",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.NYSvRiBQ0ItGFIzu",
+      "type": "text",
+      "name": "",
+      "description": "Slope, hill, ridge, ravine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1MUixikqlsaDxTsI",
+      "_key": "!tables.results!P8DPXNknsC2nxaFs.1MUixikqlsaDxTsI",
+      "type": "text",
+      "name": "",
+      "description": "Single, notable tree",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 23000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

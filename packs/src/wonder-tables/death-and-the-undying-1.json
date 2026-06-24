@@ -1,0 +1,102 @@
+{
+  "_id": "SWXSlXGllLrVMXgR",
+  "_key": "!tables!SWXSlXGllLrVMXgR",
+  "name": "Death and the undying — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PpDl2ZXef0nTA6OJ",
+      "_key": "!tables.results!SWXSlXGllLrVMXgR.PpDl2ZXef0nTA6OJ",
+      "type": "text",
+      "name": "",
+      "description": "A creepy (un)natural landmark (a dool tree, a skull-shaped rock, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YKz56Cb00ZZnch5W",
+      "_key": "!tables.results!SWXSlXGllLrVMXgR.YKz56Cb00ZZnch5W",
+      "type": "text",
+      "name": "",
+      "description": "A liminal place (a pass, a bridge, a tunnel, a gate, a crossroad, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1pFHwxenC9f7OMZW",
+      "_key": "!tables.results!SWXSlXGllLrVMXgR.1pFHwxenC9f7OMZW",
+      "type": "text",
+      "name": "",
+      "description": "A tomb/barrow/cemetery, left by the locals or their ancestors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TPwNZOFzplUgW2By",
+      "_key": "!tables.results!SWXSlXGllLrVMXgR.TPwNZOFzplUgW2By",
+      "type": "text",
+      "name": "",
+      "description": "An abandoned home/fort/steading",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "chNyx9344mqCGQq2",
+      "_key": "!tables.results!SWXSlXGllLrVMXgR.chNyx9344mqCGQq2",
+      "type": "text",
+      "name": "",
+      "description": "A ruin of the <strong>Makers</strong> (page 264) or the ﻿<strong>Barrow Builders</strong> (page 34), or a lingering sign of their presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

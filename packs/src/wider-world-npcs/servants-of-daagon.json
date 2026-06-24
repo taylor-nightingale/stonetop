@@ -1,0 +1,47 @@
+{
+  "_id": "EjgtwdjSyDLTAy0K",
+  "_key": "!actors!EjgtwdjSyDLTAy0K",
+  "name": "Servants of Daagon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "servants-of-daagon",
+    "reference": "blackwater-lake",
+    "tagList": {
+      "selected": [
+        "Terrifying",
+        "violent",
+        "wretched",
+        "either",
+        "corrupted or emanation",
+        "see below"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "armor": "variable",
+    "damage": "see below",
+    "specialQuality": "amphibious (or close enough)",
+    "instinct": {
+      "selected": [
+        "to devour, then to steal"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Emerge from deep water or thick fog\n- Snatch up something valued/treasured\n- See below\n\nHorrid things, wet and wriggling. Maybe they’re emanations (page 436) of Daagon, or mortal beings so thoroughly corrupted as to seem utterly alien to this world. They crawl forth. They feast on flesh and bone. They drag home wealth and beauty and treasured things to feed their master’s hunger. Choose or roll for their number appearing and their size. Then pick or roll for 1d4 traits and 1d4 additional moves. Think about things that live in the water. Imagine the creatures implied by the results.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.83TJVo6wM5U4TDgM]{Blackwater Lake} (Book p.48-57)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

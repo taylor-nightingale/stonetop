@@ -1,0 +1,46 @@
+{
+  "_id": "e95ZBEeZivt1PHYN",
+  "_key": "!actors!e95ZBEeZivt1PHYN",
+  "name": "Suarachan soothsayer",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "suarachan-soothsayer",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "corrupted",
+        "cunning",
+        "magical",
+        "amphibious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "0",
+    "damage": "poisonous skin d10 (hand), snapping tongue d4 (reach)",
+    "specialQuality": "excellent night vision, salt burns their skin, marked by the Things Below (page 432)",
+    "instinct": {
+      "selected": [
+        "to mollify the Things Below"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Secrete various poisons: debilitating, hallucinogenic, deadly\n- Commune with outsiders via poison-induced visions\n- Use a gift of the Things Below (page 432)\n\nA few suarachan—one or two per cho- rus—have bright, colorful scales that ooze with slime. They will often ingest their own hallucinatory toxins, communing with the horrors that lay sleeping, shushing them and soothing them, and promising them meals of screaming flesh, soon, soon. The suarachan lack language, per se. They can communicate basic concepts via their songs, but true communication requires a soothsayer’s touch. When you are affected by the hallucino- genic poison of a suarachan soothsayer, you can perceive spirits around you and speak to those who are active, as well as others affected by the poison. When the poison wears off, mark a debility (dazed if it’s available).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

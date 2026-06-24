@@ -1,0 +1,45 @@
+{
+  "_id": "HCP6uCTbdpRnnE0d",
+  "_key": "!actors!HCP6uCTbdpRnnE0d",
+  "name": "The Gwraig Wen",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-gwraig-wen",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "undead",
+        "forlorn"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "bare hands d6 w/disadvantage (hand)",
+    "specialQuality": "bound to within a few miles of her bones; can’t form new memories; leaves no footprints",
+    "instinct": {
+      "selected": [
+        "to drag others into her search"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest in moonlight as a pale, bedraggled woman\n- Ask for help, insist on it\n- Grow ever more agitated, flickering and vibrating as she does\n- Vent her rage with a deafening wail, d10 damage (near, area, loud, reload, ignores armor)\n- Vanish when no one’s looking\n\nThose who ply the Great Wood (page 200) tell an old tale of a bride, newly married to a handsome trapper. He failed to come home one night, and she unwisely entered the forest to find him, falling into a deep pond and drowning. Ever since, her ghost has roamed the woods on moonlit nights: wet and shivering, desperate and pleading, certain that her husband is still out there.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

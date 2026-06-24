@@ -1,0 +1,118 @@
+{
+  "_id": "Vw3IqMXX6v8e9RtK",
+  "_key": "!tables!Vw3IqMXX6v8e9RtK",
+  "name": "The Flats — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "SKN30sE6ChIv3OHC",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.SKN30sE6ChIv3OHC",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dnAvbqEHdj6uiRWe",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.dnAvbqEHdj6uiRWe",
+      "type": "text",
+      "name": "",
+      "description": "A tomb, ruin, or artifact of the <strong>Barrow Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ImDSLMQLWpRoazEi",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.ImDSLMQLWpRoazEi",
+      "type": "text",
+      "name": "",
+      "description": "A battlefield or remains (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c1r3yb8ccHuA9CoK",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.c1r3yb8ccHuA9CoK",
+      "type": "text",
+      "name": "",
+      "description": "Enigmatic terrain: crystalline growth, sheet of smooth/broken glass, geometric patterns, unnatural colors, grass growing in strange patterns, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3DVRfeA8acMZYb4P",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.3DVRfeA8acMZYb4P",
+      "type": "text",
+      "name": "",
+      "description": "A location important to the <strong>Makers</strong> (page 264): meeting place, fortification, shrine, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G8CfGYwATSNRKHe7",
+      "_key": "!tables.results!Vw3IqMXX6v8e9RtK.G8CfGYwATSNRKHe7",
+      "type": "text",
+      "name": "",
+      "description": "A site sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "SUhTbAEtufY7AgCI",
+  "_key": "!tables!SUhTbAEtufY7AgCI",
+  "name": "The Steplands — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Qx7bG2AJrSG9ZmwS",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.Qx7bG2AJrSG9ZmwS",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Npm4Yl5nsT11zhiP",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.Npm4Yl5nsT11zhiP",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by death or the undying (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xHXfwgSk16HXf8Yu",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.xHXfwgSk16HXf8Yu",
+      "type": "text",
+      "name": "",
+      "description": "A site or artifact of the <strong>Barrow</strong> <strong>Builder</strong>s (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FY3Rx7gGmv3v9GtP",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.FY3Rx7gGmv3v9GtP",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Hillfolk</strong> (page 228) encampment or sacred place, occupied or not",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fyO9iPdeXUkWCCex",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.fyO9iPdeXUkWCCex",
+      "type": "text",
+      "name": "",
+      "description": "A place sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rfltmzUZ53kj7Ew9",
+      "_key": "!tables.results!SUhTbAEtufY7AgCI.rfltmzUZ53kj7Ew9",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Stone</strong> <strong>Lords</strong> (page 382)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

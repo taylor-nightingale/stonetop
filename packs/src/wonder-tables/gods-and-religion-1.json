@@ -1,0 +1,118 @@
+{
+  "_id": "ssZsSeO1I1XM09tW",
+  "_key": "!tables!ssZsSeO1I1XM09tW",
+  "name": "Gods and religion — Relevant to",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cvMl26VmBl6tginw",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.cvMl26VmBl6tginw",
+      "type": "text",
+      "name": "",
+      "description": "A specific household/family",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3wHP9TzdWjnwSMiP",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.3wHP9TzdWjnwSMiP",
+      "type": "text",
+      "name": "",
+      "description": "A particular village/band/clan",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U6KkRpl5i9WLmujF",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.U6KkRpl5i9WLmujF",
+      "type": "text",
+      "name": "",
+      "description": "A minority within a larger people (e.g. Manmarcher smiths)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l8JpESbX3G3DFMII",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.l8JpESbX3G3DFMII",
+      "type": "text",
+      "name": "",
+      "description": "A whole people (e.g. Manmarchers)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ebsaSBjuUT9CDKBE",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.ebsaSBjuUT9CDKBE",
+      "type": "text",
+      "name": "",
+      "description": "A minority across multiple peoples (e.g. thieves everywhere)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EUKMdzLVpjQWRfUD",
+      "_key": "!tables.results!ssZsSeO1I1XM09tW.EUKMdzLVpjQWRfUD",
+      "type": "text",
+      "name": "",
+      "description": "Many different peoples",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 20001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

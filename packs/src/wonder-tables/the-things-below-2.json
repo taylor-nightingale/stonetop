@@ -1,0 +1,214 @@
+{
+  "_id": "1msbqFSgIj5sfgG8",
+  "_key": "!tables!1msbqFSgIj5sfgG8",
+  "name": "The Things Below — Instinct",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "sQDyT4QjvBmTTDZj",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.sQDyT4QjvBmTTDZj",
+      "type": "text",
+      "name": "",
+      "description": "To stoke conflict, confusion, distrust",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JVSbVCzWupQaNwfj",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.JVSbVCzWupQaNwfj",
+      "type": "text",
+      "name": "",
+      "description": "To erode hope/faith/honor/ self-image",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vh7Gvh9QbaqVWxmg",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.vh7Gvh9QbaqVWxmg",
+      "type": "text",
+      "name": "",
+      "description": "To hide/bury/smother things or ideas",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RvlUPgOvUgrBDkQT",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.RvlUPgOvUgrBDkQT",
+      "type": "text",
+      "name": "",
+      "description": "To deprive others of what they need",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FQSJIgB6otQ3LXsd",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.FQSJIgB6otQ3LXsd",
+      "type": "text",
+      "name": "",
+      "description": "To inflict harm, cruelly and unnecessarily",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KP7XMDYtL0VA62Mf",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.KP7XMDYtL0VA62Mf",
+      "type": "text",
+      "name": "",
+      "description": "To desecrate/mutilate/ruin things of value",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fmeYYEmfCgCNaTL2",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.fmeYYEmfCgCNaTL2",
+      "type": "text",
+      "name": "",
+      "description": "To shock/terrify/horrify others",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Mp8FAefgsHPEtbel",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.Mp8FAefgsHPEtbel",
+      "type": "text",
+      "name": "",
+      "description": "To wantonly devour and consume",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uqdUm2jCGtkrYUZQ",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.uqdUm2jCGtkrYUZQ",
+      "type": "text",
+      "name": "",
+      "description": "To befoul and corrupt beauty/ strength/dignity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Mi8KSy5FDOtlO6z2",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.Mi8KSy5FDOtlO6z2",
+      "type": "text",
+      "name": "",
+      "description": "To fight and hurt and kill and rage and hurt some more",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pCkeKSTD3QRFGDwh",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.pCkeKSTD3QRFGDwh",
+      "type": "text",
+      "name": "",
+      "description": "To dominate, punish, and crush",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HDJEDV0bN740PPqF",
+      "_key": "!tables.results!1msbqFSgIj5sfgG8.HDJEDV0bN740PPqF",
+      "type": "text",
+      "name": "",
+      "description": "To simply destroy, nothing more and nothing less",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "DQIujg0T0Pu620T3",
+  "_key": "!tables!DQIujg0T0Pu620T3",
+  "name": "The Labyrinth — Quirk",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "nbiC8j3GWcusLeT7",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.nbiC8j3GWcusLeT7",
+      "type": "text",
+      "name": "",
+      "description": "Hubristic and overconfident",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yJCDGRY3w8BXClem",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.yJCDGRY3w8BXClem",
+      "type": "text",
+      "name": "",
+      "description": "Bear an additional mark",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VE53ucmU7VZACDHJ",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.VE53ucmU7VZACDHJ",
+      "type": "text",
+      "name": "",
+      "description": "Build structures out of bones",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yS4XpWLoqiKlizua",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.yS4XpWLoqiKlizua",
+      "type": "text",
+      "name": "",
+      "description": "Venture out to the surface at night",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PvQb7gDc92P5vSRk",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.PvQb7gDc92P5vSRk",
+      "type": "text",
+      "name": "",
+      "description": "Revere <strong>magma worms</strong> (page 253)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EtV0mKt7BZ8aRGam",
+      "_key": "!tables.results!DQIujg0T0Pu620T3.EtV0mKt7BZ8aRGam",
+      "type": "text",
+      "name": "",
+      "description": "Intrigued by surface-dwellers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

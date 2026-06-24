@@ -1,0 +1,118 @@
+{
+  "_id": "idvShmtsCBcnmuzI",
+  "_key": "!tables!idvShmtsCBcnmuzI",
+  "name": "The Labyrinth — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pUYXOeHdFJ3as8t3",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.pUYXOeHdFJ3as8t3",
+      "type": "text",
+      "name": "",
+      "description": "Lave tube or magma worm tunnel",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7bNPDUZdaGfawFgV",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.7bNPDUZdaGfawFgV",
+      "type": "text",
+      "name": "",
+      "description": "Braided/branching tunnels",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FjkO51dTct6GXNQB",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.FjkO51dTct6GXNQB",
+      "type": "text",
+      "name": "",
+      "description": "Chamber, cavern, or alcove",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YjfU1lPYGBv8MBHl",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.YjfU1lPYGBv8MBHl",
+      "type": "text",
+      "name": "",
+      "description": "Steps, terraces, ledges",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g9FBoc7Rr4X7PaPI",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.g9FBoc7Rr4X7PaPI",
+      "type": "text",
+      "name": "",
+      "description": "Forge Lord construction, worked stone passage, or <strong>ruin</strong> (page 160)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h4jm1i0444yNjwCA",
+      "_key": "!tables.results!idvShmtsCBcnmuzI.h4jm1i0444yNjwCA",
+      "type": "text",
+      "name": "",
+      "description": "obstruction (see below), and roll 1d10 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

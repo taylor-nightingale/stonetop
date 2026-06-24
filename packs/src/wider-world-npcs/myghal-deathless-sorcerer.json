@@ -1,0 +1,48 @@
+{
+  "_id": "gwISfVAVQrbqJL1R",
+  "_key": "!actors!gwISfVAVQrbqJL1R",
+  "name": "MYGHAL, DEATHLESS SORCERER",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "myghal-deathless-sorcerer",
+    "reference": "barrow-builders",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "undead",
+        "corrupted",
+        "paranoid",
+        "magical",
+        "hoarder",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (wards)",
+    "damage": "word of false pain d8 (near, area, ignores armor)",
+    "specialQuality": "tethered to the device; broken body; aware of all that his servants perceive",
+    "instinct": {
+      "selected": [
+        "to jealously hoard secrets > Inflict false sensations on others > Fix someone with his terrible gaze > Reveal a plan or a horrid truth > Control his lithic servants like they were extensions of himself >  Recover from any wound, slowly and never fully"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "",
+    "description": "I write up his stat block like this:\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

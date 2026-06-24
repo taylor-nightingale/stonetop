@@ -1,0 +1,118 @@
+{
+  "_id": "r0FOpKhX3vP3q8ps",
+  "_key": "!tables!r0FOpKhX3vP3q8ps",
+  "name": "Vor Svetelik — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pEmCUAptDKEgrItI",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.pEmCUAptDKEgrItI",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (page 470) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S3bk1lTsCQN80KAf",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.S3bk1lTsCQN80KAf",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LeeJuFP3m1MprtHZ",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.LeeJuFP3m1MprtHZ",
+      "type": "text",
+      "name": "",
+      "description": "sign of battle (next column), strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SDmvqEAr9JXG9q90",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.SDmvqEAr9JXG9q90",
+      "type": "text",
+      "name": "",
+      "description": "An artifact of… (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HqGembEhkDkLUCiW",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.HqGembEhkDkLUCiW",
+      "type": "text",
+      "name": "",
+      "description": "encounter (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TZvqDC0mkUBwdHHV",
+      "_key": "!tables.results!r0FOpKhX3vP3q8ps.TZvqDC0mkUBwdHHV",
+      "type": "text",
+      "name": "",
+      "description": "A notable <strong>site</strong> (page 470) or point of interest (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

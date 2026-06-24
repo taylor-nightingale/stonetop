@@ -1,0 +1,182 @@
+{
+  "_id": "XxAAWGbH7LNwTYKz",
+  "_key": "!tables!XxAAWGbH7LNwTYKz",
+  "name": "APPENDIX B: Artifact Creation — Priceless because...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "MUaBPQhq8EjgQLv8",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.MUaBPQhq8EjgQLv8",
+      "type": "text",
+      "name": "",
+      "description": "Causes those who see it to covet it (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5K1kAGRkvdAQcpa7",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.5K1kAGRkvdAQcpa7",
+      "type": "text",
+      "name": "",
+      "description": "Great historical/religious importance (Value 4 to the right buyer)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KOtGPzAtaKyKwVgZ",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.KOtGPzAtaKyKwVgZ",
+      "type": "text",
+      "name": "",
+      "description": "Only a few (1d12?) were ever made, if you trust the tales (Value 4 to the right buyer)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "flGRFq75Ng7UTtnn",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.flGRFq75Ng7UTtnn",
+      "type": "text",
+      "name": "",
+      "description": "Haunting beauty (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1tBUlwmSubFp1Nti",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.1tBUlwmSubFp1Nti",
+      "type": "text",
+      "name": "",
+      "description": "Beyond meager mortal arts (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fBczETfISChsWYx5",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.fBczETfISChsWYx5",
+      "type": "text",
+      "name": "",
+      "description": "Made of or with precious metals/ gems/materials (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YvJ0HwVL4Gdk8Ykr",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.YvJ0HwVL4Gdk8Ykr",
+      "type": "text",
+      "name": "",
+      "description": "Transcendent, inspires those who see it (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iAW6OEJXmbvZIFZK",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.iAW6OEJXmbvZIFZK",
+      "type": "text",
+      "name": "",
+      "description": "Symbol of authority over a people (Value 5 to the right buyer)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7dhlmLZyaFDM8lKv",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.7dhlmLZyaFDM8lKv",
+      "type": "text",
+      "name": "",
+      "description": "It has some other property that makes it Value 4 or 5",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZNA30HVqppFJQgxn",
+      "_key": "!tables.results!XxAAWGbH7LNwTYKz.ZNA30HVqppFJQgxn",
+      "type": "text",
+      "name": "",
+      "description": "It’s a hoard of various treasures (Value 5, <em>immobile</em>); pick or roll 1d6 for <strong>form</strong> (page 505, step 3) as many times as you like",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

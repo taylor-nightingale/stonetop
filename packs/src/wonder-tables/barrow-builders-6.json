@@ -1,0 +1,118 @@
+{
+  "_id": "l6JYDB5L7NC2SYWE",
+  "_key": "!tables!l6JYDB5L7NC2SYWE",
+  "name": "Barrow Builders — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Zsz8ow5DPe4fzhYQ",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.Zsz8ow5DPe4fzhYQ",
+      "type": "text",
+      "name": "",
+      "description": "To honor the interred",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zoYcRo3yiTQoHFD4",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.zoYcRo3yiTQoHFD4",
+      "type": "text",
+      "name": "",
+      "description": "To bind/torment the interred",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i4uw9o9AG1edSChA",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.i4uw9o9AG1edSChA",
+      "type": "text",
+      "name": "",
+      "description": "To protect the interred",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mYbtcjTHydDdakZ8",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.mYbtcjTHydDdakZ8",
+      "type": "text",
+      "name": "",
+      "description": "To hide something away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SeIi7UyeZUZborAt",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.SeIi7UyeZUZborAt",
+      "type": "text",
+      "name": "",
+      "description": "To leverage/maintain fell magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vvdU1r8HZmQCgfM1",
+      "_key": "!tables.results!l6JYDB5L7NC2SYWE.vvdU1r8HZmQCgfM1",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10, twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

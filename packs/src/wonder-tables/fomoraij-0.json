@@ -1,0 +1,118 @@
+{
+  "_id": "W5zOFYz48X5w8te3",
+  "_key": "!tables!W5zOFYz48X5w8te3",
+  "name": "Fomoraij — Constraint",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "hcbHuU3iRfsYqkC2",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.hcbHuU3iRfsYqkC2",
+      "type": "text",
+      "name": "",
+      "description": "Confinement: by accident, by artifice, by its own size or nature (<strong>Instinct</strong> to capture others, to escape)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BXB7gMav9p43pilO",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.BXB7gMav9p43pilO",
+      "type": "text",
+      "name": "",
+      "description": "Disdain: of the world above, of the world that betrayed them (<strong>Instinct</strong> to punish anything that reminds it of its past)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ViLjlIia1ZV5LgS6",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.ViLjlIia1ZV5LgS6",
+      "type": "text",
+      "name": "",
+      "description": "Decay: of its mind, its power, its sense of self (<strong>Instinct</strong> to lash out)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bRMDpnCrYx4hEGGF",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.bRMDpnCrYx4hEGGF",
+      "type": "text",
+      "name": "",
+      "description": "Fear: of the Fae, of the Makers, of the much-hated light (<strong>Instinct</strong> to see threats everywhere)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "08dl4OKO6NfXnWVz",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.08dl4OKO6NfXnWVz",
+      "type": "text",
+      "name": "",
+      "description": "Obsession: with hoarding, experimenting, digging, etc., to the exclusion of all else (<strong>Instinct</strong> to pursue its obsession)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "befoIPBbfTAXeXrY",
+      "_key": "!tables.results!W5zOFYz48X5w8te3.befoIPBbfTAXeXrY",
+      "type": "text",
+      "name": "",
+      "description": "Patience: it waits, it gathers power, it makes preparations (<strong>Instinct</strong> to further its plans)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

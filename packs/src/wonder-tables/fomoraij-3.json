@@ -1,0 +1,70 @@
+{
+  "_id": "FCXZWoaGFyMAJGA5",
+  "_key": "!tables!FCXZWoaGFyMAJGA5",
+  "name": "Fomoraij — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vxNoro8lEiZvbcKR",
+      "_key": "!tables.results!FCXZWoaGFyMAJGA5.vxNoro8lEiZvbcKR",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A large wooden jar</strong> (page 525)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iHMITAWv0vJ6AdkU",
+      "_key": "!tables.results!FCXZWoaGFyMAJGA5.iHMITAWv0vJ6AdkU",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A rusty cauldron</strong> (page 524)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TjD43aiQVKSirGW2",
+      "_key": "!tables.results!FCXZWoaGFyMAJGA5.TjD43aiQVKSirGW2",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A strange pendant</strong> (page 518)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

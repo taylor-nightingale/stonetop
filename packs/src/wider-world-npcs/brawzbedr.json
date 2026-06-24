@@ -1,0 +1,45 @@
+{
+  "_id": "3HAcBrTg7IuP3RqP",
+  "_key": "!actors!3HAcBrTg7IuP3RqP",
+  "name": "Brawzbedr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "brawzbedr",
+    "reference": "the-steplands",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "stubborn",
+        "grumpy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "3 (thick hide, boney nodules)",
+    "damage": "tree-rending claws d10+7 w/ disadvantage (reach, close, forceful, messy, 1 piercing)",
+    "specialQuality": "poor vision and hearing  excellent sense of smell",
+    "instinct": {
+      "selected": [
+        "to overreact"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Not really notice something\n- Tear up trees like a child tears up grass\n- Swat at something that annoys it\n- Flail about in a rage (+area), then get tired\n\nThink of something like a badger or a sloth, but big as a house: 20 feet long, 9 feet at the shoulder, forearms nearly 12 feet long when you include those shovel-like claws. Mostly they just lumber about the Steplands, looking for their favorite trees to tear up and chew through, sometimes clearing whole slopes. Just about every- thing gives them a wide berth, when they can. Even apex predators like a kleztigr don’t think they’re worth the trouble. You’d think that they’d be easy to spot and avoid, and mostly you’d be right. But some- times you’ll round a bend or clear a slope and there one’ll be, just plodding along or munching on a log or taking a nap, and you’d best try to circle around, quiet-like.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

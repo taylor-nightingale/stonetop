@@ -1,0 +1,70 @@
+{
+  "_id": "BdRo5ArONZjBNTW8",
+  "_key": "!tables!BdRo5ArONZjBNTW8",
+  "name": "Blackwater Lake — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "X3ygPIHauR5QKJ0j",
+      "_key": "!tables.results!BdRo5ArONZjBNTW8.X3ygPIHauR5QKJ0j",
+      "type": "text",
+      "name": "",
+      "description": "Child-sized (<em>small</em>; reduce damage die one size, <em>hand</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ECj6meyGP5HUFiW7",
+      "_key": "!tables.results!BdRo5ArONZjBNTW8.ECj6meyGP5HUFiW7",
+      "type": "text",
+      "name": "",
+      "description": "Person-sized, wolf-sized, boarsized, etc. (<em>close</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZEnjO1FG04aepdD0",
+      "_key": "!tables.results!BdRo5ArONZjBNTW8.ZEnjO1FG04aepdD0",
+      "type": "text",
+      "name": "",
+      "description": "Horse-sized (<em>large</em>; +4 HP, +2 damage, <em>close</em>, <em>reach</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

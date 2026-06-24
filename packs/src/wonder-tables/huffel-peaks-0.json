@@ -1,0 +1,166 @@
+{
+  "_id": "9yeGtl4DiANrq8wx",
+  "_key": "!tables!9yeGtl4DiANrq8wx",
+  "name": "Huffel Peaks — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pDPmdG0WZzdXXOZR",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.pDPmdG0WZzdXXOZR",
+      "type": "text",
+      "name": "",
+      "description": "Lava/hot springs/geysers/mudpots/ fumaroles",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EGkUpTIRnklqQxv5",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.EGkUpTIRnklqQxv5",
+      "type": "text",
+      "name": "",
+      "description": "Crater/caldera/lava tubes/volcanic formations",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4DBE6FaWzyDmwEOk",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.4DBE6FaWzyDmwEOk",
+      "type": "text",
+      "name": "",
+      "description": "Stream/river/waterfall/lake/ boggy soil",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "auGaoRLvyn17QBqY",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.auGaoRLvyn17QBqY",
+      "type": "text",
+      "name": "",
+      "description": "Travertines/basalt columns or terraces/fairy chimneys/arches",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EgEuVXMXglRAvMNV",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.EgEuVXMXglRAvMNV",
+      "type": "text",
+      "name": "",
+      "description": "Sheer rock face/bluff/summit/peak",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WaBHvuBCA4FZpDEB",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.WaBHvuBCA4FZpDEB",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope/switchback trails/ ridgeline",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wIcvcB82JH8DoiFt",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.wIcvcB82JH8DoiFt",
+      "type": "text",
+      "name": "",
+      "description": "Ravine/canyon/gorge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1Fj3YELDBaunRGD2",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.1Fj3YELDBaunRGD2",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope/meadow/valley/pass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I6hsk1mXpz24e1qn",
+      "_key": "!tables.results!9yeGtl4DiANrq8wx.I6hsk1mXpz24e1qn",
+      "type": "text",
+      "name": "",
+      "description": "Cave, cavern, grotto",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 27000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

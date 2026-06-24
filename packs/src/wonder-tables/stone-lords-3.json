@@ -1,0 +1,118 @@
+{
+  "_id": "GTEfviNPJNlY6Tuc",
+  "_key": "!tables!GTEfviNPJNlY6Tuc",
+  "name": "Stone Lords — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "6JHSXm1BygN0v9Qk",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.6JHSXm1BygN0v9Qk",
+      "type": "text",
+      "name": "",
+      "description": "Tightly packed, human-sized structures/rooms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KeGgZGYzszsICzEm",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.KeGgZGYzszsICzEm",
+      "type": "text",
+      "name": "",
+      "description": "Single, bunker-like building",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TTsLak3biso0K7yF",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.TTsLak3biso0K7yF",
+      "type": "text",
+      "name": "",
+      "description": "Large, open space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YTYn0HcHXBNKIQCy",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.YTYn0HcHXBNKIQCy",
+      "type": "text",
+      "name": "",
+      "description": "Tower, rising/jutting out from a hill/mountain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "40b1gG2CYbU371s8",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.40b1gG2CYbU371s8",
+      "type": "text",
+      "name": "",
+      "description": "Chambers/tunnels dug into the sides of cliffs/hills/mountains",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dBgjnv3eNKuylKLZ",
+      "_key": "!tables.results!GTEfviNPJNlY6Tuc.dBgjnv3eNKuylKLZ",
+      "type": "text",
+      "name": "",
+      "description": "Grandiose building of impossible construction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

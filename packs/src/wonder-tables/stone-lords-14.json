@@ -1,0 +1,198 @@
+{
+  "_id": "Ox8rpGuYogVqOD14",
+  "_key": "!tables!Ox8rpGuYogVqOD14",
+  "name": "Stone Lords — Ability",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "G4JTAu3aElTAzjpf",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.G4JTAu3aElTAzjpf",
+      "type": "text",
+      "name": "",
+      "description": "Nothing of note, just animated stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jCHeFVXfCOAFnPBl",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.jCHeFVXfCOAFnPBl",
+      "type": "text",
+      "name": "",
+      "description": "Mental influence/control",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "j9UWM5zGI2WxtXFm",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.j9UWM5zGI2WxtXFm",
+      "type": "text",
+      "name": "",
+      "description": "Energy/elemental manipulation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s9wQlQ0euUKZbpDP",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.s9wQlQ0euUKZbpDP",
+      "type": "text",
+      "name": "",
+      "description": "Cunning/alertness/special senses",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iDGKIn6HobbYvMqD",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.iDGKIn6HobbYvMqD",
+      "type": "text",
+      "name": "",
+      "description": "Disguise/camouflage/stealth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CAI3sb1NacuaSOwQ",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.CAI3sb1NacuaSOwQ",
+      "type": "text",
+      "name": "",
+      "description": "Restraints/snares/subdual",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "80laKSJ4ZkMZhkdT",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.80laKSJ4ZkMZhkdT",
+      "type": "text",
+      "name": "",
+      "description": "Ranged/area attack",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HVFGnKAveChf119O",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.HVFGnKAveChf119O",
+      "type": "text",
+      "name": "",
+      "description": "Transformation/multipart form/ swarm",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nVH2wIwz2wm8pJn0",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.nVH2wIwz2wm8pJn0",
+      "type": "text",
+      "name": "",
+      "description": "Prowess/mobility/speed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "flK2AtbXy2SgPLwU",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.flK2AtbXy2SgPLwU",
+      "type": "text",
+      "name": "",
+      "description": "Destructive/vicious weaponry",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xtAGsriTnYMRlvJH",
+      "_key": "!tables.results!Ox8rpGuYogVqOD14.xtAGsriTnYMRlvJH",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

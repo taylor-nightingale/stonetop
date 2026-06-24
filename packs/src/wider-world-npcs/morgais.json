@@ -1,0 +1,48 @@
+{
+  "_id": "ewUCo5m7rbR2NjvC",
+  "_key": "!actors!ewUCo5m7rbR2NjvC",
+  "name": "Morgais",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "morgais",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "hoarder",
+        "devious",
+        "watery",
+        "beautiful",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "watery tendril 1d8 (close, reach, grabby)",
+    "specialQuality": "tethered to a skull or trinket, deep in its pond",
+    "instinct": {
+      "selected": [
+        "to collect drowned souls"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a youth or beast, shaped from water (unharmed by cutting or stabbing, unless made of bronze)\n- Entrance with beauty, song, or grace (see below)\n- Drag them under, revealing their loathsome nature\n- Laugh merrily as they drown\n\nThe spirits of even shallow ponds can be callous and uncaring. How much worse, then, are the spirits of those deeper pools that have claimed the lives of mortals? For—willing or not—they have made offering to Daagon, and let it in to their watery hearts. When you listen to the morgais’ song or let your gaze linger on its graceful form, your heart fills with longing. If you go to it will- ingly, mark XP. If you wish to turn away, roll +WIS: on a 10+, you see the ugliness beneath and can think clearly; on a 7-9, you shake yourself free but the longing remains—mark miserable or dazed (your choice); on a 6-, you approach before you realize what you’re doing.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

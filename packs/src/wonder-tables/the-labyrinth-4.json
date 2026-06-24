@@ -1,0 +1,102 @@
+{
+  "_id": "QqivrNCaWRclBLjd",
+  "_key": "!tables!QqivrNCaWRclBLjd",
+  "name": "The Labyrinth — Thraulgwyn",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "BZfCZNSLoWxIg93H",
+      "_key": "!tables.results!QqivrNCaWRclBLjd.BZfCZNSLoWxIg93H",
+      "type": "text",
+      "name": "",
+      "description": "A whole tribal band, on the move",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v0KJseCDrSRxY8WC",
+      "_key": "!tables.results!QqivrNCaWRclBLjd.v0KJseCDrSRxY8WC",
+      "type": "text",
+      "name": "",
+      "description": "A gang on patrol, wary but curious",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "shOSh0FLzb6E1ppm",
+      "_key": "!tables.results!QqivrNCaWRclBLjd.shOSh0FLzb6E1ppm",
+      "type": "text",
+      "name": "",
+      "description": "One or two, under attack by a rival band",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VAmldYw5EFIAegJ6",
+      "_key": "!tables.results!QqivrNCaWRclBLjd.VAmldYw5EFIAegJ6",
+      "type": "text",
+      "name": "",
+      "description": "Foragers, eager to invite guests home",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TcxA1W6DnhrN4hFt",
+      "_key": "!tables.results!QqivrNCaWRclBLjd.TcxA1W6DnhrN4hFt",
+      "type": "text",
+      "name": "",
+      "description": "Two groups in a tense parley",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

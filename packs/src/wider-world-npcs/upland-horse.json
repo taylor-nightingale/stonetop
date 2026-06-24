@@ -1,0 +1,47 @@
+{
+  "_id": "GBc6q3UEPOYXcfF4",
+  "_key": "!actors!GBc6q3UEPOYXcfF4",
+  "name": "Upland horse",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "upland-horse",
+    "reference": "hillfolk",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "powerful",
+        "keen-nosed",
+        "agile",
+        "brave"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "0",
+    "damage": "kick, trample d6+3 (hand, close, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to suffer no fools"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sniff trouble on the wind\n- Navigate tricky terrain or obstacles\n- Remain calm, unmoved\n- Find their own way\n\nHillfolk bands breed their horses for strength, agility, and courage. The best become steeds for Hillfolk riders. It takes a firm hand and a steady will to handle an Upland, but win one over and you’ve got a friend for life.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

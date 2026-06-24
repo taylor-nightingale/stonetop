@@ -1,0 +1,182 @@
+{
+  "_id": "5vWiENw3VYL7hvbd",
+  "_key": "!tables!5vWiENw3VYL7hvbd",
+  "name": "Blackwater Lake — Trait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DSGYRfi4FjDf9MmE",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.DSGYRfi4FjDf9MmE",
+      "type": "text",
+      "name": "",
+      "description": "Cowardly, hesitant (<em>craven</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WUs22DwNBYB9lSjU",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.WUs22DwNBYB9lSjU",
+      "type": "text",
+      "name": "",
+      "description": "Overwhelmed by hunger (<em>ravenous</em>; instinct is just “to devour”)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cKqTRmLTFJhbzUVx",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.cKqTRmLTFJhbzUVx",
+      "type": "text",
+      "name": "",
+      "description": "Surprisingly intelligent (<em>cunning</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "naVF3oqcNepYs6kK",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.naVF3oqcNepYs6kK",
+      "type": "text",
+      "name": "",
+      "description": "Aggressive (<em>fierce</em>; +2 HP, rolls damage with advantage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b7sordna2uacDcIG",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.b7sordna2uacDcIG",
+      "type": "text",
+      "name": "",
+      "description": "Blubbery/scaly hide (2 armor)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BIOvI2gV6XPNBcC9",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.BIOvI2gV6XPNBcC9",
+      "type": "text",
+      "name": "",
+      "description": "Powerful (<em>forceful</em>; +2 damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h63kAzObexCQg7MH",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.h63kAzObexCQg7MH",
+      "type": "text",
+      "name": "",
+      "description": "Big claws/fangs (<em>messy</em>; 1 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AIXfmalC9fzRWKFU",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.AIXfmalC9fzRWKFU",
+      "type": "text",
+      "name": "",
+      "description": "<em>Stealthy</em> and <em>cautious</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qLqUl5wy8BZejHhT",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.qLqUl5wy8BZejHhT",
+      "type": "text",
+      "name": "",
+      "description": "Tentacles/pincers/etc. (<em>reach</em>, <em>grabby</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "heAqc5ifzCWbeYC5",
+      "_key": "!tables.results!5vWiENw3VYL7hvbd.heAqc5ifzCWbeYC5",
+      "type": "text",
+      "name": "",
+      "description": "Projectiles (<em>near</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

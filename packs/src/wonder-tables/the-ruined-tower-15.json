@@ -1,0 +1,118 @@
+{
+  "_id": "ZHV0btIFrgLNIHNr",
+  "_key": "!tables!ZHV0btIFrgLNIHNr",
+  "name": "The Ruined Tower — Opportunity",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "e09aYchbmhhxRq29",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.e09aYchbmhhxRq29",
+      "type": "text",
+      "name": "",
+      "description": "Something <strong>Ferocedes</strong> (page 347) would want: a construct’s <strong>core</strong> (page 348), a part for the <strong>aetherium crucible</strong> (page 405), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kd4aFT44KRPn8FLK",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.kd4aFT44KRPn8FLK",
+      "type": "text",
+      "name": "",
+      "description": "A map/path to a place they seek",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CRm7OKXNRFyYGLtF",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.CRm7OKXNRFyYGLtF",
+      "type": "text",
+      "name": "",
+      "description": "A hidden door/room/passage (secret, buried, or obscured)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aBiUy4Gsat1aEZp1",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.aBiUy4Gsat1aEZp1",
+      "type": "text",
+      "name": "",
+      "description": "A good/safe place to rest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rTI21oOuzVomZQl6",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.rTI21oOuzVomZQl6",
+      "type": "text",
+      "name": "",
+      "description": "Lore about the portal: a <strong>time-worn</strong> <strong>missive</strong> (page 517), sigils of other portals, a treatise on the axiom of local contagion, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8hIIh1mnLl1mPVuz",
+      "_key": "!tables.results!ZHV0btIFrgLNIHNr.8hIIh1mnLl1mPVuz",
+      "type": "text",
+      "name": "",
+      "description": "A key (or similar), a way to bypass an obstacle elsewhere",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39015,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

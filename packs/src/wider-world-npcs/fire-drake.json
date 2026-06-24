@@ -1,0 +1,44 @@
+{
+  "_id": "YgQngNAZpgDXV4l5",
+  "_key": "!actors!YgQngNAZpgDXV4l5",
+  "name": "Fire drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fire-drake",
+    "reference": "huffel-peaks",
+    "tagList": {
+      "selected": [
+        "Group",
+        "aggressive",
+        "tough"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "2 (scales)",
+    "damage": "bite d8 (hand, grabby)",
+    "specialQuality": "fireproof caustic, burning blood",
+    "instinct": {
+      "selected": [
+        "to get riled up easily"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sound off in a deep, threatening chorus\n- Blast a jet of burning, caustic blood from its eyes, d8 damage (near, messy, reload, ignores armor), but lose 1d4 HP\n- Shake and worry and toss aside a foe it has bitten, d8+2 damage (hand, forceful)\n\nPicture a horned lizard, but big as a large boar and with a mouth full of short jagged teeth. They’re often encountered basking near hot springs or mudpots or other geothermal vents, soaking up the heat until they swell and glow like embers. Of course, once they notice you, they stop basking and start attacking. Something interesting: Fire drake blood is caustic and catches fire when exposed to air; a jar of it deals d6 damage (thrown, area, dangerous, ignores armor, Value 1), but good luck harvesting it. Something useful: The trick is to tap a vein with a metal tube, and drain the blood di- rectly into a wax-sealed jar. Just… be careful.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.VAh2hWUYrYMaVuVJ]{Huffel Peaks} (Book p.236-241)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "bJ7z3tOX0HkGQdMd",
+  "_key": "!tables!bJ7z3tOX0HkGQdMd",
+  "name": "Vor Svetelik — Explodes with...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "kcgqJHM3bF4MabcV",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.kcgqJHM3bF4MabcV",
+      "type": "text",
+      "name": "",
+      "description": "… iron-infused seeds, like shrapnel (d10 damage, <em>messy</em>, 1 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ubLR2YAZHaU72gdN",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.ubLR2YAZHaU72gdN",
+      "type": "text",
+      "name": "",
+      "description": "… concussive force (d4+2 damage, <em>forceful</em>, <em>loud</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5BZKzZXNHVwajibQ",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.5BZKzZXNHVwajibQ",
+      "type": "text",
+      "name": "",
+      "description": "… seeds that rapidly burst into thin, thorny, ensnaring vines (d6 damage, <em>grabby</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a70XVG2x2yDSKXH6",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.a70XVG2x2yDSKXH6",
+      "type": "text",
+      "name": "",
+      "description": "… a cloud of spores that blind/ sicken/choke/etc. (d4 damage, <em>debilitating</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xXqZOUckPox0s4JC",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.xXqZOUckPox0s4JC",
+      "type": "text",
+      "name": "",
+      "description": "… pollen that glows and/or attracts horrors (like <strong>blade wasps</strong>, next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4aULkQvNqitVdgEU",
+      "_key": "!tables.results!bJ7z3tOX0HkGQdMd.4aULkQvNqitVdgEU",
+      "type": "text",
+      "name": "",
+      "description": "… iron-infused spore-dust, clinging to any it touches",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "_id": "CZOAVYpApghLYMjd",
+  "_key": "!tables!CZOAVYpApghLYMjd",
+  "name": "Barrow Builders — Tell",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "9BF4p7z9uVZOWm01",
+      "_key": "!tables.results!CZOAVYpApghLYMjd.9BF4p7z9uVZOWm01",
+      "type": "text",
+      "name": "",
+      "description": "A brief warning before it goes off",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E62j5mm0y9wUZnxf",
+      "_key": "!tables.results!CZOAVYpApghLYMjd.E62j5mm0y9wUZnxf",
+      "type": "text",
+      "name": "",
+      "description": "A tiny detail, easy to miss",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cAm0hlzKdGwWjZ90",
+      "_key": "!tables.results!CZOAVYpApghLYMjd.cAm0hlzKdGwWjZ90",
+      "type": "text",
+      "name": "",
+      "description": "Unusual construction/decor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "54TrKtaCrB5hdpqH",
+      "_key": "!tables.results!CZOAVYpApghLYMjd.54TrKtaCrB5hdpqH",
+      "type": "text",
+      "name": "",
+      "description": "Bait",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xAOpmo4SBlEMciZh",
+      "_key": "!tables.results!CZOAVYpApghLYMjd.xAOpmo4SBlEMciZh",
+      "type": "text",
+      "name": "",
+      "description": "Clear signs—it’s obviously a trap",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

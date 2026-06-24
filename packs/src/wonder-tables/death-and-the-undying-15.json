@@ -1,0 +1,214 @@
+{
+  "_id": "03eQulXnR8kTydzD",
+  "_key": "!tables!03eQulXnR8kTydzD",
+  "name": "Death and the undying — Weakness (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "hfqahYlB9lxiqPFc",
+      "_key": "!tables.results!03eQulXnR8kTydzD.hfqahYlB9lxiqPFc",
+      "type": "text",
+      "name": "",
+      "description": "Daylight (blinded/burned/fears it)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "STWXHi3sj3qk03i0",
+      "_key": "!tables.results!03eQulXnR8kTydzD.STWXHi3sj3qk03i0",
+      "type": "text",
+      "name": "",
+      "description": "Fire (fears it/takes +1d4 damage/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h98GCGvwpgqbcRyu",
+      "_key": "!tables.results!03eQulXnR8kTydzD.h98GCGvwpgqbcRyu",
+      "type": "text",
+      "name": "",
+      "description": "Bound to a <strong>tether</strong> (page 77)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rxXgeoae1FW5z4YX",
+      "_key": "!tables.results!03eQulXnR8kTydzD.rxXgeoae1FW5z4YX",
+      "type": "text",
+      "name": "",
+      "description": "Hungers for blood/flesh/life/fear/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wyctCem94fPiAppi",
+      "_key": "!tables.results!03eQulXnR8kTydzD.wyctCem94fPiAppi",
+      "type": "text",
+      "name": "",
+      "description": "Unmistakable odor/aura",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FIrN1mRUvk04DKnc",
+      "_key": "!tables.results!03eQulXnR8kTydzD.FIrN1mRUvk04DKnc",
+      "type": "text",
+      "name": "",
+      "description": "Compulsively counts/cleans/sorts/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CFI9LCYCgkCH5RfV",
+      "_key": "!tables.results!03eQulXnR8kTydzD.CFI9LCYCgkCH5RfV",
+      "type": "text",
+      "name": "",
+      "description": "Easily frustrated/confused/provoked",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jXRiwVPycuasHPIy",
+      "_key": "!tables.results!03eQulXnR8kTydzD.jXRiwVPycuasHPIy",
+      "type": "text",
+      "name": "",
+      "description": "Burned by salt/rain/moonlight/__",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LkCBtvbDPk5Oap9G",
+      "_key": "!tables.results!03eQulXnR8kTydzD.LkCBtvbDPk5Oap9G",
+      "type": "text",
+      "name": "",
+      "description": "Repelled by a certain plant/animal/ symbol/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9b3uvbRXDTBxfLqZ",
+      "_key": "!tables.results!03eQulXnR8kTydzD.9b3uvbRXDTBxfLqZ",
+      "type": "text",
+      "name": "",
+      "description": "A taboo (can’t show its face, can’t cross running water, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KnjpnODNiL10hJRm",
+      "_key": "!tables.results!03eQulXnR8kTydzD.KnjpnODNiL10hJRm",
+      "type": "text",
+      "name": "",
+      "description": "Can’t abide singing/music/laughter",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RT04fDY9qLwfaG3J",
+      "_key": "!tables.results!03eQulXnR8kTydzD.RT04fDY9qLwfaG3J",
+      "type": "text",
+      "name": "",
+      "description": "Burns HP over time/to use its powers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10015,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

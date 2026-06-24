@@ -1,0 +1,118 @@
+{
+  "_id": "qBOTxhU4Tz4xEaM8",
+  "_key": "!tables!qBOTxhU4Tz4xEaM8",
+  "name": "Forge Lords — Animation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "jvKOXq23YWNBZhjq",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.jvKOXq23YWNBZhjq",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Red crystal</strong> (page 424)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jRpI9AZmFZXIgroJ",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.jRpI9AZmFZXIgroJ",
+      "type": "text",
+      "name": "",
+      "description": "A spirit, possessing it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bbf0Ti7SzP9njoTD",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.Bbf0Ti7SzP9njoTD",
+      "type": "text",
+      "name": "",
+      "description": "Fire/heat, harnessed by runes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XiC6NUylyL0HEpqS",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.XiC6NUylyL0HEpqS",
+      "type": "text",
+      "name": "",
+      "description": "Energy stored in <strong>aetherium</strong> (page 404)/<strong>makerglass</strong> (page 388)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SCmBDfMNORRO13UH",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.SCmBDfMNORRO13UH",
+      "type": "text",
+      "name": "",
+      "description": "A spark of its creator’s power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4ErPxazFwEZYGbGZ",
+      "_key": "!tables.results!qBOTxhU4Tz4xEaM8.4ErPxazFwEZYGbGZ",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

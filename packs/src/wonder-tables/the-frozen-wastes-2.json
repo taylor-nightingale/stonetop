@@ -1,0 +1,118 @@
+{
+  "_id": "xXpkCHbM0iE7l1lt",
+  "_key": "!tables!xXpkCHbM0iE7l1lt",
+  "name": "The Frozen Wastes — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "jxFLutyvgok7PhsL",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.jxFLutyvgok7PhsL",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>mammoth herder</strong> (page 177) encampment, now deserted",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0NV9WDbkFtlEyAFg",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.0NV9WDbkFtlEyAFg",
+      "type": "text",
+      "name": "",
+      "description": "Small animals (fox, hares, rodents, birds, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sEn8RA7bEP1bFnrq",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.sEn8RA7bEP1bFnrq",
+      "type": "text",
+      "name": "",
+      "description": "A herd of wild <strong>mammoths</strong> (page 177) or <strong>caribou</strong> (page 177), wary, easily spooked/provoked",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YmoLyj9C2gRNpjP7",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.YmoLyj9C2gRNpjP7",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356) or perhaps a <strong>tulpa</strong> (page 324), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vKt4EEcD9VyQ2j6M",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.vKt4EEcD9VyQ2j6M",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Mammoth herders</strong> (page 177), seen in the distance, avoiding you",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mGa5lWKCRbkl0eWW",
+      "_key": "!tables.results!xXpkCHbM0iE7l1lt.mGa5lWKCRbkl0eWW",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Mammoth herders</strong> (page 177), approaching warily",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 19002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

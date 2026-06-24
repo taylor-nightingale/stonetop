@@ -1,0 +1,45 @@
+{
+  "_id": "Gwqi3HJ2lLTEASBi",
+  "_key": "!actors!Gwqi3HJ2lLTEASBi",
+  "name": "Adventurer",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "adventurer",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Group",
+        "hoarder",
+        "devious",
+        "[pick 1 more]"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "armor": "1 to 3 (skill, armor, and/or shield)",
+    "damage": "whatever’s at hand d8 (hand, close, maybe forceful or messy)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to stir up trouble"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sniff out an opportunity, or reveal one\n- Escape danger in a way that endangers others\n- Act without scruple\n- Use a particular knack or skill\n\nThey make their way north now and then: scoundrels, mercenaries, treasure-hunt- ers… folk who just can’t make a go of a normal life. They’ll show up in Marshedge or Stonetop or Gordin’s Delve, in search of some big score. Or running from the consequences of the last one. Or both.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

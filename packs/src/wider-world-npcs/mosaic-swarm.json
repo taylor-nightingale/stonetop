@@ -1,0 +1,46 @@
+{
+  "_id": "2GD8UUc3NUkwTtvH",
+  "_key": "!actors!2GD8UUc3NUkwTtvH",
+  "name": "Mosaic swarm",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mosaic-swarm",
+    "reference": "stone-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "amorphous",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "3 (made of thousands of ceramic tiles)",
+    "damage": "jagged fists of ceramic d10+3 (hand, close, forceful)",
+    "specialQuality": "externally powered bug- like mind; blind; tremorsense; unharmed by piercing weapons; half damage from cutting weapons; vulnerable to attacks that are blunt and forceful or area",
+    "instinct": {
+      "selected": [
+        "to destroy intruders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Wait for intruders to get close, rattling softly\n- Explode into a cloud of whirling ceramic tiles, d8+1 damage (area, messy, 1 piercing)\n- Reform into a vaguely humanoid mass\n\nStone Lords adorned their halls with elab- orate tilework and mosaics. Most of them were decorative. Most of them. Something interesting: Either some spirit is possessing these tiles, or this is some sort of construct. If it’s a spirit, there must be a tether. If it’s a Stone Lord construct, well, the individual tiles are too small to power or direct themselves. Something useful: The mosaic’s frame remained on the wall, and it’s glowing blue—aetherium runes! Destroy the runes, and the construct should fall apart.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "FPhMjBrqwJFL7eBL",
+  "_key": "!tables!FPhMjBrqwJFL7eBL",
+  "name": "Primordial powers — Why it incarnated",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "6Gdw3sfYhDSQOG2P",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.6Gdw3sfYhDSQOG2P",
+      "type": "text",
+      "name": "",
+      "description": "As a punishment/penance/escape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KSBcVfOxux6tnBt5",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.KSBcVfOxux6tnBt5",
+      "type": "text",
+      "name": "",
+      "description": "Because potent magic summoned it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G5jHSdgmyRDTvh3F",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.G5jHSdgmyRDTvh3F",
+      "type": "text",
+      "name": "",
+      "description": "In pursuit of some agenda",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1eMM5M2iGokNCnfG",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.1eMM5M2iGokNCnfG",
+      "type": "text",
+      "name": "",
+      "description": "Out of curiosity/boredom/despair",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IvzbNVemKtFwV8fT",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.IvzbNVemKtFwV8fT",
+      "type": "text",
+      "name": "",
+      "description": "Through fate or cosmic accident",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XY6B1hLak6iFlvfR",
+      "_key": "!tables.results!FPhMjBrqwJFL7eBL.XY6B1hLak6iFlvfR",
+      "type": "text",
+      "name": "",
+      "description": "To learn, to experience the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

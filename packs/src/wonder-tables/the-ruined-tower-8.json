@@ -1,0 +1,118 @@
+{
+  "_id": "i7fZI7trIUTCy5DK",
+  "_key": "!tables!i7fZI7trIUTCy5DK",
+  "name": "The Ruined Tower — Signs",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Y0qMnJJuByGuM6j1",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.Y0qMnJJuByGuM6j1",
+      "type": "text",
+      "name": "",
+      "description": "Hums/whines, painfully loud to those who can sense spirits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8o98zDtDZLU2XO8H",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.8o98zDtDZLU2XO8H",
+      "type": "text",
+      "name": "",
+      "description": "Vibrations make odd patterns in soil, prevent growth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "reBmUgbXN4I2qp4U",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.reBmUgbXN4I2qp4U",
+      "type": "text",
+      "name": "",
+      "description": "Floats in a pocket of air, loosely covered by rock/soil",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sCPjtGefSTJhlHD5",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.sCPjtGefSTJhlHD5",
+      "type": "text",
+      "name": "",
+      "description": "Makes skin tingle, hair stand up",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0axBGNOwdIBikI0e",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.0axBGNOwdIBikI0e",
+      "type": "text",
+      "name": "",
+      "description": "Nearby soil/stone is blue-white, plants/lichen glow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rWiJn3IqgPZn8OnZ",
+      "_key": "!tables.results!i7fZI7trIUTCy5DK.rWiJn3IqgPZn8OnZ",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

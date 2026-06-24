@@ -1,0 +1,102 @@
+{
+  "_id": "t7SvbtmZa3EzwkiL",
+  "_key": "!tables!t7SvbtmZa3EzwkiL",
+  "name": "Three Coven Lake — Artifact of...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EKH9R8Tvw5XhmgKv",
+      "_key": "!tables.results!t7SvbtmZa3EzwkiL.EKH9R8Tvw5XhmgKv",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lXxANEPXvLmJGqXP",
+      "_key": "!tables.results!t7SvbtmZa3EzwkiL.lXxANEPXvLmJGqXP",
+      "type": "text",
+      "name": "",
+      "description": "… <strong>death and the undying</strong> (page 74)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MnNcKe39ZJ1SqDFw",
+      "_key": "!tables.results!t7SvbtmZa3EzwkiL.MnNcKe39ZJ1SqDFw",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Stone Lords</strong> (page 382)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FyKw7JqulghsHAtP",
+      "_key": "!tables.results!t7SvbtmZa3EzwkiL.FyKw7JqulghsHAtP",
+      "type": "text",
+      "name": "",
+      "description": "… some other group of <strong>Makers</strong> (page 264)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BR9pWmUPjACLqRO7",
+      "_key": "!tables.results!t7SvbtmZa3EzwkiL.BR9pWmUPjACLqRO7",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Barrow Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

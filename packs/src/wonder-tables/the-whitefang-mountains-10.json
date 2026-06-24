@@ -1,0 +1,118 @@
+{
+  "_id": "58x3lqEoAN2bpPOU",
+  "_key": "!tables!58x3lqEoAN2bpPOU",
+  "name": "The Whitefang Mountains — Trait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ktoIqst7lgUmkuhs",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.ktoIqst7lgUmkuhs",
+      "type": "text",
+      "name": "",
+      "description": "Oppresses/extorts/ignores nearby villages, rather than serving them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7JyWnENmyGjPqfZD",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.7JyWnENmyGjPqfZD",
+      "type": "text",
+      "name": "",
+      "description": "Recently lost its presiding adept; succession unclear",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ybwoHLDViMj6fbt9",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.ybwoHLDViMj6fbt9",
+      "type": "text",
+      "name": "",
+      "description": "Home to multiple sects, each led by a different adept",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oC0cxQbKOPgeT2xi",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.oC0cxQbKOPgeT2xi",
+      "type": "text",
+      "name": "",
+      "description": "Hides/protects one of the last thirteen <strong>Rime Lords</strong> (page 316)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "twypOcgFBqARQCxj",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.twypOcgFBqARQCxj",
+      "type": "text",
+      "name": "",
+      "description": "Very small (Population -1, only ~10 to 15 souls); roll again with d8",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l7uA9df88ODn9r9q",
+      "_key": "!tables.results!58x3lqEoAN2bpPOU.l7uA9df88ODn9r9q",
+      "type": "text",
+      "name": "",
+      "description": "Relatively large (<em>village</em>, up to ~300 residents); roll again with d8",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

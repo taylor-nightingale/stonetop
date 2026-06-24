@@ -1,0 +1,134 @@
+{
+  "_id": "zfVqV4bSRwKFInXv",
+  "_key": "!tables!zfVqV4bSRwKFInXv",
+  "name": "Gordin's Delve — Where they’re from",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "iqr5ZBwtlkOos0Es",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.iqr5ZBwtlkOos0Es",
+      "type": "text",
+      "name": "",
+      "description": "Lygos, or other points south",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sbcc9O96wdi8DIJH",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.sbcc9O96wdi8DIJH",
+      "type": "text",
+      "name": "",
+      "description": "Marshedge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r1DKLzgINebyiwvP",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.r1DKLzgINebyiwvP",
+      "type": "text",
+      "name": "",
+      "description": "The Manmarch",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gDyt6e8h9aFVe8gV",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.gDyt6e8h9aFVe8gV",
+      "type": "text",
+      "name": "",
+      "description": "Stonetop",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I8EeSCBxj3AQUK87",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.I8EeSCBxj3AQUK87",
+      "type": "text",
+      "name": "",
+      "description": "The Steplands (Hillfolk)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i2ON7fe31mbAcW8C",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.i2ON7fe31mbAcW8C",
+      "type": "text",
+      "name": "",
+      "description": "Barrier Pass (or beyond)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jJtG31BF8puAltEg",
+      "_key": "!tables.results!zfVqV4bSRwKFInXv.jJtG31BF8puAltEg",
+      "type": "text",
+      "name": "",
+      "description": "Grew up here; reroll for parents",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

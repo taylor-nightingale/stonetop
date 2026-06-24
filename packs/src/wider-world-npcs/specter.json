@@ -1,0 +1,47 @@
+{
+  "_id": "9VzwXsSZil4Ox4d0",
+  "_key": "!actors!9VzwXsSZil4Ox4d0",
+  "name": "Specter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "specter",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "undead",
+        "stealthy",
+        "terrifying",
+        "cruel"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "1 (lacks vitals)",
+    "damage": "telekinesis d10+2 (hand, close, near, grabby, forceful)",
+    "specialQuality": "bound to its tether one or more weaknesses (page 76)",
+    "instinct": {
+      "selected": [
+        "to torment the living"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Create eerie environmental effects (bleeding walls, green flames, etc.)\n- Manifest a form of flitting shadow (harmed only by silver or salt)\n- Manifest a nightmarish physical form\n- Speak through an unconscious or catatonic victim\n\nA specter is a soul consumed by hatred and envy, cruelty and rage. Maybe they were a sadistic murderer in life, or a victim whose death was so traumatic that they lash out at any living thing. Maybe they were a pin- ing ghost whose loved ones rejected them, or a fettered soul long- and cruelly-bound, now set free. Regardless: they are now a thing of spite and vengeance, wanting only to punish those with the temerity to live.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

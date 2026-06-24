@@ -1,0 +1,45 @@
+{
+  "_id": "sLC4Yt6V0IW3q4v4",
+  "_key": "!actors!sLC4Yt6V0IW3q4v4",
+  "name": "Adept",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "adept",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cautious",
+        "cunning",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "2 (toughness, skill)",
+    "damage": "freezing touch or aura d8 (hand or reach, area, ignores armor)",
+    "specialQuality": "cold-proof spirit sight  no longer ages; needs little food/drink/ sleep; powerful will",
+    "instinct": {
+      "selected": [
+        "see below"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Send their mind forth into the spirit world, their bodies in stasis\n- Reveal a teaching/technique of the Rime Lords\n- 1-4 additional moves (next page)\n\nThe Rime Lords taught that the self could be perfected. That the needs and frailties of the body could be purged. That the mind could free itself of the flesh and know the unseen world of spirits and fundamental forces. That the will could conquer all. The goal was nothing short of immortality, the preservation of the perfect self. For most of the Rime Lords’ mortal disciples, these teachings did little more than strengthen the body and clear the mind. But for some—the adepts—these teachings unlocked a fragment of their masters’ power. Rivalries were fierce among the adepts even when the Rime Lords walked the land. When the last Rime Lords disappeared, these rivalries flourished into schisms, sects, and violent purges. Some of the adepts fell. Others went into hiding. Still others passed their knowledge on, building schools and monasteries around them. To create an adept, start with the stats above. Pick or roll for an instinct and 1-4 moves to represent their capabilities.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

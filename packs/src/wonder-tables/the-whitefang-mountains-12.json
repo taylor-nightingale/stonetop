@@ -1,0 +1,118 @@
+{
+  "_id": "EENztDCqVuujVITM",
+  "_key": "!tables!EENztDCqVuujVITM",
+  "name": "The Whitefang Mountains — Special trait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ZkXs9RSOPcKI4NGX",
+      "_key": "!tables.results!EENztDCqVuujVITM.ZkXs9RSOPcKI4NGX",
+      "type": "text",
+      "name": "",
+      "description": "<em>Huge</em> (+4 HP, +2 damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "x9xOi8I71b6qDbPt",
+      "_key": "!tables.results!EENztDCqVuujVITM.x9xOi8I71b6qDbPt",
+      "type": "text",
+      "name": "",
+      "description": "Four or even six arms (+<em>area</em> to its damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kwNdHwSRtkU6vSau",
+      "_key": "!tables.results!EENztDCqVuujVITM.kwNdHwSRtkU6vSau",
+      "type": "text",
+      "name": "",
+      "description": "Lashing tongue/tail, 1d8+1 damage (<em>reach</em>, <em>grabby</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iFG7hnKphEU7FSeC",
+      "_key": "!tables.results!EENztDCqVuujVITM.iFG7hnKphEU7FSeC",
+      "type": "text",
+      "name": "",
+      "description": "Scales of ice/rock (Armor 3)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hY01RD9xYEuspfoC",
+      "_key": "!tables.results!EENztDCqVuujVITM.hY01RD9xYEuspfoC",
+      "type": "text",
+      "name": "",
+      "description": "Wings (can fly)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3u9uKUDZEnSuJZIk",
+      "_key": "!tables.results!EENztDCqVuujVITM.3u9uKUDZEnSuJZIk",
+      "type": "text",
+      "name": "",
+      "description": "Regenerates wounds, unless from ritually prepared weapons",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

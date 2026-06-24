@@ -1,0 +1,118 @@
+{
+  "_id": "hUGszQp6Jz5dc2Df",
+  "_key": "!tables!hUGszQp6Jz5dc2Df",
+  "name": "Stone Lords — Form",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Icb8cXK3r4SUR7vN",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.Icb8cXK3r4SUR7vN",
+      "type": "text",
+      "name": "",
+      "description": "Enigmatic shape (chip/shard/ chunk/block/sphere/etc.), its purpose unclear",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uSFsyLBirvTkbKDG",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.uSFsyLBirvTkbKDG",
+      "type": "text",
+      "name": "",
+      "description": "Mundane object (tool/utensil/container/lantern/etc.), though perhaps not easily recognized as such",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wdo2ExPByPkLu5OP",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.wdo2ExPByPkLu5OP",
+      "type": "text",
+      "name": "",
+      "description": "Object of war (weapon/armor/ shield/helm/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KKzWReqn9Nt4Ruoa",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.KKzWReqn9Nt4Ruoa",
+      "type": "text",
+      "name": "",
+      "description": "Art or decoration (jewel/statue/ tiles/torc/amulet/ring/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cKuLA9GaSPKePhPJ",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.cKuLA9GaSPKePhPJ",
+      "type": "text",
+      "name": "",
+      "description": "Musical instrument (bell/chime/ flute/horn/etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "W2E2Gyjb7qSUbycH",
+      "_key": "!tables.results!hUGszQp6Jz5dc2Df.W2E2Gyjb7qSUbycH",
+      "type": "text",
+      "name": "",
+      "description": "Construction (door/stairway/arch/ bricks/walls/etc.), likely <em>immobile</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

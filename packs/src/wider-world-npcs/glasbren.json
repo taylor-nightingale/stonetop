@@ -1,0 +1,47 @@
+{
+  "_id": "iXkjSTt5Q0XJMFmL",
+  "_key": "!actors!iXkjSTt5Q0XJMFmL",
+  "name": "Glasbren",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "glasbren",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "clever",
+        "magical",
+        "stealthy",
+        "beautiful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "2 (bark, no vital organs)",
+    "damage": "raking fingers d8 (hand, disadvantage)",
+    "specialQuality": "tethered to its tree",
+    "instinct": {
+      "selected": [
+        "to stretch and grow and experience life"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Travel freely between young trees\n- Spy on someone or something interesting\n- Manifest a beautiful form of moving wood (unharmed by stabbing, vulnerable to fire)\n- Call on the forest and its creatures for aid\n- Spread word through the Great Wood\n\nYoungest of the Brennauwed, a glasbren’s tree is barely more than a sapling. The world is full of wonder and life, and they would see it all. From time to time, a comely mortal will catch a glasbren’s eye. If the mortal proves kind and curious and full of life, it might reveal itself and shyly pursue a friend- ship—or more. When you give your heart or loyalty to a glasbren, your instinct becomes “Devotion: act in the glasbren’s interests.” The glasbren becomes a follower (Cost: wonder and excitement; holds 2 Loyalty to start). When a season passes without you spending time with the glasbren, alone at her tree, she loses all Loyalty and you mark misera- ble. You cannot clear this debility without spending time with her.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

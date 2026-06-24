@@ -1,0 +1,46 @@
+{
+  "_id": "EVqrxHQAhB9y8syg",
+  "_key": "!actors!EVqrxHQAhB9y8syg",
+  "name": "Cinderboar",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cinderboar",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Group",
+        "gluttonous",
+        "hardy",
+        "vicious",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "gore d8+2 (hand, forceful, messy, 1 piercing)",
+    "specialQuality": "fireproof hot as banked coals; bleeds oily, choking smoke",
+    "instinct": {
+      "selected": [
+        "to destroy, especially the most stable people/things"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Snort and giggle\n- Start a fire, incidentally\n- Gnaw through and eat anything, eventually\n- Refuse to die, persist beyond reason\n\nThere is a burnt and blasted place, where the Steplands (page 372) abut Ferrier’s Fen (page 116). It once boasted a Stone Lord (page 382) fortress: grand, a tower eternal, lit by a fiery gem. But the servants rebelled. The seals were sundered. Ta’l Themyin, the Burning Child, shattered the gem and toppled the tower and laughed and laughed and laughed. His rage still boils to the surface, poisoning any beast bold enough to forage in these ruins. His cruelty sends them forth, to uproot and topple, to sunder and burn.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "P3R0fvwhMbW0IwVz",
+  "_key": "!tables!P3R0fvwhMbW0IwVz",
+  "name": "The Flats — Pieces",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "GfL5SffUUlwG0lfN",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.GfL5SffUUlwG0lfN",
+      "type": "text",
+      "name": "",
+      "description": "Metal instruments or tools, possibly giant-sized, rent asunder, twisted, or surprisingly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A0nfCkjCwvgYniiE",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.A0nfCkjCwvgYniiE",
+      "type": "text",
+      "name": "",
+      "description": "Worked stone, or chunks thereof",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "t1nolr01hDzW2nN0",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.t1nolr01hDzW2nN0",
+      "type": "text",
+      "name": "",
+      "description": "Stone covered in scorched runes, possibly a bit of the <strong>Broken Roads</strong> (page 271)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YxAS6JsfL1TTAJM6",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.YxAS6JsfL1TTAJM6",
+      "type": "text",
+      "name": "",
+      "description": "A jagged piece of “indestructible” <strong>makerglass</strong> (page 388), cracked and broken",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2GPDERG0Yvepare9",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.2GPDERG0Yvepare9",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Aetherium</strong> ingot (page 404), crackling with power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2i3nxIL5MxIx0KDF",
+      "_key": "!tables.results!P3R0fvwhMbW0IwVz.2i3nxIL5MxIx0KDF",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>shard of the Storm Orb</strong> (page 339)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

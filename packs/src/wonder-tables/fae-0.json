@@ -1,0 +1,214 @@
+{
+  "_id": "qWzBGEOCxI51fWhD",
+  "_key": "!tables!qWzBGEOCxI51fWhD",
+  "name": "Fae — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "34oRvyDKwmfcBfp3",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.34oRvyDKwmfcBfp3",
+      "type": "text",
+      "name": "",
+      "description": "Fluidity of time and space: stasis, distortion, dilation, things where (and when) they oughtn’t be",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mpS9kLySwDDcmuRI",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.mpS9kLySwDDcmuRI",
+      "type": "text",
+      "name": "",
+      "description": "Enchantment, dreams and dreamlogic, the odd accepted as normal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l9QfHpMXHRtSHeNX",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.l9QfHpMXHRtSHeNX",
+      "type": "text",
+      "name": "",
+      "description": "Illusion/glamour, often hiding a base or even sordid reality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HtdbVua5GpRLbivY",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.HtdbVua5GpRLbivY",
+      "type": "text",
+      "name": "",
+      "description": "The intangible made real; metaphor made literal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xpJwSFC5HgssgJJa",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.xpJwSFC5HgssgJJa",
+      "type": "text",
+      "name": "",
+      "description": "Promises, deals, and loopholes; debts and insults weighing heavy as iron chains",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MIgKkHWFc02r3aqs",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.MIgKkHWFc02r3aqs",
+      "type": "text",
+      "name": "",
+      "description": "Opaque etiquette, strange norms, values upended, seeming amorality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hBV7AKcfj5vIB04O",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.hBV7AKcfj5vIB04O",
+      "type": "text",
+      "name": "",
+      "description": "Passions, whims, and excess; the autonomy of others ignored",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1wUqlN1El1sb6sHc",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.1wUqlN1El1sb6sHc",
+      "type": "text",
+      "name": "",
+      "description": "Extremes of beauty/ugliness, blurred lines between them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "drzSwlga9460q48A",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.drzSwlga9460q48A",
+      "type": "text",
+      "name": "",
+      "description": "Malleability of one’s looks, one’s identity, one’s true and secret heart",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tozILeQqIH3ZyFNc",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.tozILeQqIH3ZyFNc",
+      "type": "text",
+      "name": "",
+      "description": "Liminality: neither spirit nor flesh, here nor there, this nor that, real nor unreal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xaqbPlaTIlrGHXS8",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.xaqbPlaTIlrGHXS8",
+      "type": "text",
+      "name": "",
+      "description": "Deep ties to the natural world and <strong>spirits of the wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OBWzfc0QCNGAK2Am",
+      "_key": "!tables.results!qWzBGEOCxI51fWhD.OBWzfc0QCNGAK2Am",
+      "type": "text",
+      "name": "",
+      "description": "Enslavement by the <strong>Green Lords</strong> (page 210), the war against them, the lasting scars left by both",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "r0cNDO0tm9FuC7Ap",
+  "_key": "!tables!r0cNDO0tm9FuC7Ap",
+  "name": "South Manmarch — Battlefield or remains",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "sXE8qzHABxDN2w1f",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.sXE8qzHABxDN2w1f",
+      "type": "text",
+      "name": "",
+      "description": "Truly ancient: from the time of the <strong>Makers</strong> (page 264)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RFv5NuRXvKgv1606",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.RFv5NuRXvKgv1606",
+      "type": "text",
+      "name": "",
+      "description": "From the ﻿<strong>Time of Cataclysm</strong> (page 413), when humanity rebelled and woke the ﻿Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tAZwCqbWTc6HGtTT",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.tAZwCqbWTc6HGtTT",
+      "type": "text",
+      "name": "",
+      "description": "From a conflict among the <strong>Barrow</strong> <strong>Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7qrMaYYUh79nE21Z",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.7qrMaYYUh79nE21Z",
+      "type": "text",
+      "name": "",
+      "description": "From a previous attempt at settlement: burnt out, collapsed, overgrown",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vey9fHngX3AhIPcB",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.vey9fHngX3AhIPcB",
+      "type": "text",
+      "name": "",
+      "description": "Recent: Hillfolk, bandits, travelers, settlers, beasts",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cvRX1xTxbUzQUMC9",
+      "_key": "!tables.results!r0cNDO0tm9FuC7Ap.cvRX1xTxbUzQUMC9",
+      "type": "text",
+      "name": "",
+      "description": "Very recent: the buzzards and crows still feasting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

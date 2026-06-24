@@ -1,0 +1,118 @@
+{
+  "_id": "QBDQQTjeU31cEJq9",
+  "_key": "!tables!QBDQQTjeU31cEJq9",
+  "name": "Forge Lords — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "TIxSPeKHoZADc4NR",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.TIxSPeKHoZADc4NR",
+      "type": "text",
+      "name": "",
+      "description": "Dwelling (home, manor, barracks, apartments, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FFLCEAfkrBQ2EUvz",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.FFLCEAfkrBQ2EUvz",
+      "type": "text",
+      "name": "",
+      "description": "Infrastructure (aqueduct, cistern, bridge, tunnel, fortification, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LHkKFS3XFLHJnoTH",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.LHkKFS3XFLHJnoTH",
+      "type": "text",
+      "name": "",
+      "description": "Storage (vault, warehouse, treasury, granary, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O3VnPqRkBL5JLFWt",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.O3VnPqRkBL5JLFWt",
+      "type": "text",
+      "name": "",
+      "description": "Production (smithy, studio, mine, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KjKzAtJWFPXEHQzc",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.KjKzAtJWFPXEHQzc",
+      "type": "text",
+      "name": "",
+      "description": "Civic life (baths, market, gardens, monument, governance, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OeHIYxzaskFA1ni1",
+      "_key": "!tables.results!QBDQQTjeU31cEJq9.OeHIYxzaskFA1ni1",
+      "type": "text",
+      "name": "",
+      "description": "Pleasure (gallery, restaurant, theater, arena, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

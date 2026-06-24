@@ -1,7 +1,7 @@
 {
 	"name": "Thrall",
 	"type": "insert",
-	"img": "assets/post-death-inserts/Thrall.png",
+	"img": "systems/stonetop/assets/content/inserts/Thrall.png",
 	"system": {
 		"slug": "thrall",
 		"description": "When you *die but call one of the Things Below by name and beseech them to intercede*, they do. Death is averted, but you gain this insert and 1 Mark.",

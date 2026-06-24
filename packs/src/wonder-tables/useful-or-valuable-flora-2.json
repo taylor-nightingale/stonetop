@@ -1,0 +1,182 @@
+{
+  "_id": "XLgcP4AQpHFrtDTg",
+  "_key": "!tables!XLgcP4AQpHFrtDTg",
+  "name": "Useful or valuable flora — To folks back home",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DuC4AvQkOcPMLD4Z",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.DuC4AvQkOcPMLD4Z",
+      "type": "text",
+      "name": "",
+      "description": "A present, a curiosity, something pretty or nice (Value 0)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r5LzIBflQXzJZVxj",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.r5LzIBflQXzJZVxj",
+      "type": "text",
+      "name": "",
+      "description": "Material for common crafts /trades (fiber, wood, medicine, oil, salt, tannin, etc., Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U9DEWqrr6LxfLxUD",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.U9DEWqrr6LxfLxUD",
+      "type": "text",
+      "name": "",
+      "description": "A luxury (seasoning, perfume, dyes, cosmetics, etc., Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dWTSDgRfVeIv7jFy",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.dWTSDgRfVeIv7jFy",
+      "type": "text",
+      "name": "",
+      "description": "Something sketchy (a drug, a poison, etc., Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RiPQWw8yF70arNiY",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.RiPQWw8yF70arNiY",
+      "type": "text",
+      "name": "",
+      "description": "An offering, a charm, a ward, a counterspell, etc. (Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wmBF6vFRHsu4ijVj",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.wmBF6vFRHsu4ijVj",
+      "type": "text",
+      "name": "",
+      "description": "Food for many people (counts as 1 Surplus, <em>immobile</em>, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wuaPcWXFfK2I8V7l",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.wuaPcWXFfK2I8V7l",
+      "type": "text",
+      "name": "",
+      "description": "Raw material for a steading improvement, like a wagonload of timber (<em>immobile</em>, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tv19nByL75PMsF4l",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.tv19nByL75PMsF4l",
+      "type": "text",
+      "name": "",
+      "description": "High-quality materials (bright and permanent dye, potent medicinal herbs, etc., Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0SUYlMXOp0b5TE2e",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.0SUYlMXOp0b5TE2e",
+      "type": "text",
+      "name": "",
+      "description": "A wonder (glowing flowers, floats in the air, fashionably dangerous, etc., Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LDV4NVI6g2TaQvGZ",
+      "_key": "!tables.results!XLgcP4AQpHFrtDTg.LDV4NVI6g2TaQvGZ",
+      "type": "text",
+      "name": "",
+      "description": "A legendary substance (extends youth, ensnares the will, brings prophecy, etc. Value 3)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

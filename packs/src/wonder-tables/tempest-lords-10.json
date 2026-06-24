@@ -1,0 +1,102 @@
+{
+  "_id": "EiS7WaXoZ5EBM8SF",
+  "_key": "!tables!EiS7WaXoZ5EBM8SF",
+  "name": "Tempest Lords — Hp stats",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "3rMDRky5ejeUhe8H",
+      "_key": "!tables.results!EiS7WaXoZ5EBM8SF.3rMDRky5ejeUhe8H",
+      "type": "text",
+      "name": "",
+      "description": "1 to 5 <em>tiny</em>; Armor 1; Damage d8-2 (<em>hand</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l1akfUOe0iWNDC1g",
+      "_key": "!tables.results!EiS7WaXoZ5EBM8SF.l1akfUOe0iWNDC1g",
+      "type": "text",
+      "name": "",
+      "description": "6 to 11 <em>small</em>; Armor 2; Damage d8 (<em>hand</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yd0O52eNO8EWjfB6",
+      "_key": "!tables.results!EiS7WaXoZ5EBM8SF.yd0O52eNO8EWjfB6",
+      "type": "text",
+      "name": "",
+      "description": "12 to 18 Armor 2; Damage d10 (<em>hand</em>, <em>close</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8tRdbi15kVRLA8fj",
+      "_key": "!tables.results!EiS7WaXoZ5EBM8SF.8tRdbi15kVRLA8fj",
+      "type": "text",
+      "name": "",
+      "description": "19 to 23 <em>large</em>; Armor 3; Damage d10+3 (<em>hand</em>, <em>close</em>, <em>reach</em>, <em>forceful</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DTR2pxwW0GiEi4kb",
+      "_key": "!tables.results!EiS7WaXoZ5EBM8SF.DTR2pxwW0GiEi4kb",
+      "type": "text",
+      "name": "",
+      "description": "24 to 28 <em>huge</em>; Armor 3; Damage d10+5 (<em>hand</em>, <em>close</em>, <em>reach</em>, <em>area</em>, <em>forceful</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "35uBrPAev0ihBDXb",
+  "_key": "!actors!35uBrPAev0ihBDXb",
+  "name": "Cinderwraith",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cinderwraith",
+    "reference": "forge-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "spirit",
+        "undead",
+        "fiery",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "1 (amorphous)",
+    "damage": "blistering flames 1d10+1 (hand, grabby, messy, ignores armor)",
+    "specialQuality": "fireproof, dormant without fresh air to “breathe,” tethered to its bones",
+    "instinct": {
+      "selected": [
+        "to burn the living"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a leering pillar of fire and blackened hands (harmed only by water or silver)\n- Melt silver or bronze, weaken steel or iron, ignite wood, char flesh\n- Engulf a living being, char both flesh and soul (deal damage with advantage, inflict debilities, harm even fireproof foes)\n\nThe Forge Lords burned with an inner fire, a fire that threatened to consume them even when they lived. And when they died badly—slowly, desperately, betrayed and full of helpless rage—that fire could linger on. First it would burn away the Forge Lord’s flesh, and then its spirit, and then its soul. And then it would wait in the bones, like heat in banked coals. Wait for fresh air to give it new life, and fresh souls to burn for fuel.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

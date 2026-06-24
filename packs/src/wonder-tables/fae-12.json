@@ -1,0 +1,214 @@
+{
+  "_id": "E7kbgxyA7QVNp5C0",
+  "_key": "!tables!E7kbgxyA7QVNp5C0",
+  "name": "Fae — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "5CJK9CwOr8ZO9NVt",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.5CJK9CwOr8ZO9NVt",
+      "type": "text",
+      "name": "",
+      "description": "A Fae in mismatched finery, selling stolen wares; rejects all offers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fOZ15agYUMuXKYf2",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.fOZ15agYUMuXKYf2",
+      "type": "text",
+      "name": "",
+      "description": "One Fae savagely beating a servant; not a single eyebrow raised",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FHBhS0XFKM3TOjv0",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.FHBhS0XFKM3TOjv0",
+      "type": "text",
+      "name": "",
+      "description": "A kindly green fruit-seller implores the PCs to “sample” his wares",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UlPIE3PXlxPN4LIF",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.UlPIE3PXlxPN4LIF",
+      "type": "text",
+      "name": "",
+      "description": "A troupe’s bedazzling performance: fireworks, illusions, bored onlookers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3YK18zJcldIgbDcs",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.3YK18zJcldIgbDcs",
+      "type": "text",
+      "name": "",
+      "description": "A crone selling fine futures, fates altered, prophecies (re)written",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZrhvFbvZ2wLJwmt4",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.ZrhvFbvZ2wLJwmt4",
+      "type": "text",
+      "name": "",
+      "description": "A hand (paw?) on your purse, deftly attempting to “trade”",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bg1mI2V6kDes52DC",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.Bg1mI2V6kDes52DC",
+      "type": "text",
+      "name": "",
+      "description": "A tiny sub-market, in a beehive or a stump; astir with bug-sized Fae",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Kc4ainZ68VLw0YJD",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.Kc4ainZ68VLw0YJD",
+      "type": "text",
+      "name": "",
+      "description": "A scandalous, sensual revel in the street; stepped around by most",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EmyNXLCIWn7EtQGv",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.EmyNXLCIWn7EtQGv",
+      "type": "text",
+      "name": "",
+      "description": "Talking beasts, glum Fae, holloweyed children, collared and chained",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wq43brzUEBF2hh12",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.Wq43brzUEBF2hh12",
+      "type": "text",
+      "name": "",
+      "description": "An insult; a challenge shouted; a crowd gathering to watch",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f946O7kOm6H0SiLe",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.f946O7kOm6H0SiLe",
+      "type": "text",
+      "name": "",
+      "description": "Whispers and fuss as one of the <strong>Four Chieftains</strong> (page 111) pass by",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "u3tz7Jd79JFNeInc",
+      "_key": "!tables.results!E7kbgxyA7QVNp5C0.u3tz7Jd79JFNeInc",
+      "type": "text",
+      "name": "",
+      "description": "The host’s pavilion, thematic and grand, teeming with politics",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

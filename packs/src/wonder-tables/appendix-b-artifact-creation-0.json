@@ -1,0 +1,134 @@
+{
+  "_id": "D6YYI0E7CUAzmCA8",
+  "_key": "!tables!D6YYI0E7CUAzmCA8",
+  "name": "APPENDIX B: Artifact Creation — Nature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "CEDtgwuNSyv4Fxoc",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.CEDtgwuNSyv4Fxoc",
+      "type": "text",
+      "name": "",
+      "description": "It’s a <strong>mundane</strong> item, relic, or artifact (next column, step 2a)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0vfjDHCkCA7Hnktd",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.0vfjDHCkCA7Hnktd",
+      "type": "text",
+      "name": "",
+      "description": "It’s an object or amount of <strong>strange</strong> <strong>material</strong> (page 500, step 2b)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vbxLY50tmMtLGzgz",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.vbxLY50tmMtLGzgz",
+      "type": "text",
+      "name": "",
+      "description": "It’s <strong>priceless</strong> (page 500, step 2c)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xqXYBkhJAebsOEjp",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.xqXYBkhJAebsOEjp",
+      "type": "text",
+      "name": "",
+      "description": "It has an <strong>extraordinary property</strong> (page 501, step 2d)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EWmTegnEuEuOMrLm",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.EWmTegnEuEuOMrLm",
+      "type": "text",
+      "name": "",
+      "description": "It houses a <strong>spirit or sentience</strong> (page 502, step 2e)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZrXgc3vgv8pO6PUu",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.ZrXgc3vgv8pO6PUu",
+      "type": "text",
+      "name": "",
+      "description": "It’s a <strong>source of lore</strong> (page 503, step 2f)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fAbrjP0S4gHLPaUR",
+      "_key": "!tables.results!D6YYI0E7CUAzmCA8.fAbrjP0S4gHLPaUR",
+      "type": "text",
+      "name": "",
+      "description": "It produces a <strong>magical effect</strong> (page 504, step 2g)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

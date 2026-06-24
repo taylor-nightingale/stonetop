@@ -1,0 +1,46 @@
+{
+  "_id": "PjvbyLz6QDUr3CTN",
+  "_key": "!actors!PjvbyLz6QDUr3CTN",
+  "name": "Brennan",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "brennan",
+    "reference": "marshedge",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "organized",
+        "hoarder",
+        "cautious",
+        "devious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "3 (brigandine, shield)",
+    "damage": "steel sword d8+1 (close, 3 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to maintain or increase his power"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Identify and exploit a weakness\n- Choose the best person for the job\n- Hide his true strength or position\n- Out-think and out-maneuver",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eHmYRGms3Q9bzY70]{Marshedge} (Book p.274-280)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "bEh09IZsqLh5Ua6X",
+  "_key": "!tables!bEh09IZsqLh5Ua6X",
+  "name": "Spirits of the wild — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "V7v73CMHZkn6qUIy",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.V7v73CMHZkn6qUIy",
+      "type": "text",
+      "name": "",
+      "description": "Dangerous, possibly corrupted by <strong>the Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FzOYimeHfAXVrRAu",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.FzOYimeHfAXVrRAu",
+      "type": "text",
+      "name": "",
+      "description": "Vengeful, grumpy, protective, angry at intrusion",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HPnsYyEYTr9Jg2bV",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.HPnsYyEYTr9Jg2bV",
+      "type": "text",
+      "name": "",
+      "description": "Plaintive, needful, wronged, demanding",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "efxjMSmAt2369g0D",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.efxjMSmAt2369g0D",
+      "type": "text",
+      "name": "",
+      "description": "Aloof, shy, dismissive, has their own concerns",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AtpRRrk3dqqWX6U7",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.AtpRRrk3dqqWX6U7",
+      "type": "text",
+      "name": "",
+      "description": "Curious, playful, mischievous, friendly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fkiXINj6OWzg8E6Y",
+      "_key": "!tables.results!bEh09IZsqLh5Ua6X.fkiXINj6OWzg8E6Y",
+      "type": "text",
+      "name": "",
+      "description": "Content, pleasant, helpful, beneficent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 41003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

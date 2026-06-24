@@ -1,0 +1,118 @@
+{
+  "_id": "8olix6K51HUbPmcm",
+  "_key": "!tables!8olix6K51HUbPmcm",
+  "name": "The Steplands — Natural beast or spirit",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "RLpScOi5Q8NtgjXM",
+      "_key": "!tables.results!8olix6K51HUbPmcm.RLpScOi5Q8NtgjXM",
+      "type": "text",
+      "name": "",
+      "description": "Bats. So many <strong>bats</strong> (page 376)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RArJ1zNcvDWP8FdH",
+      "_key": "!tables.results!8olix6K51HUbPmcm.RArJ1zNcvDWP8FdH",
+      "type": "text",
+      "name": "",
+      "description": "Fish, salamanders, olms, crawfish— pale blind things dwelling in dark waters",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ICaAk8AzhdEiV1ly",
+      "_key": "!tables.results!8olix6K51HUbPmcm.ICaAk8AzhdEiV1ly",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Cave bears</strong> (page 205), a <strong>kleztigr</strong> (page 379), or similar large beast, making its den here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "czEHqAxsrZ41yE2H",
+      "_key": "!tables.results!8olix6K51HUbPmcm.czEHqAxsrZ41yE2H",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Grochslon</strong> (page 379), or some other subterranean predator",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zdD0MPrU0vZo4HHT",
+      "_key": "!tables.results!8olix6K51HUbPmcm.zdD0MPrU0vZo4HHT",
+      "type": "text",
+      "name": "",
+      "description": "Spirit, bound to or happily dwelling in this <strong>sacred site</strong> (page 362)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sSagJx1cyoHMRRby",
+      "_key": "!tables.results!8olix6K51HUbPmcm.sSagJx1cyoHMRRby",
+      "type": "text",
+      "name": "",
+      "description": "A malicious spirit, like a <strong>troelloff</strong> (page 371)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

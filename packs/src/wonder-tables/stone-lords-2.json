@@ -1,0 +1,102 @@
+{
+  "_id": "0otc9A2I0zv06lL7",
+  "_key": "!tables!0otc9A2I0zv06lL7",
+  "name": "Stone Lords — Sign",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "mtsmJMlfbiz5APhT",
+      "_key": "!tables.results!0otc9A2I0zv06lL7.mtsmJMlfbiz5APhT",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Something trapped</strong> in stone, crystal, or makerglass (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sTVSTNMUAXylAuLm",
+      "_key": "!tables.results!0otc9A2I0zv06lL7.sTVSTNMUAXylAuLm",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Strange geologies</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZssDFJ4vz4fkJtIz",
+      "_key": "!tables.results!0otc9A2I0zv06lL7.ZssDFJ4vz4fkJtIz",
+      "type": "text",
+      "name": "",
+      "description": "Fragments of old construction (stairs, walls, foundations, chimneys), all that’s left of once-grand structures",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eZIuIGwLFHKkbCAE",
+      "_key": "!tables.results!0otc9A2I0zv06lL7.eZIuIGwLFHKkbCAE",
+      "type": "text",
+      "name": "",
+      "description": "A stretch of the ﻿<strong>Makers’ Roads</strong> (page 270), intact or broken but unearthed/barely visible",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pKHNbaReHBRrZkAX",
+      "_key": "!tables.results!0otc9A2I0zv06lL7.pKHNbaReHBRrZkAX",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>monument, marker, or enigma</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

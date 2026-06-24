@@ -1,0 +1,46 @@
+{
+  "_id": "cOcBjoksYfljeF2f",
+  "_key": "!actors!cOcBjoksYfljeF2f",
+  "name": "Nemurvojak",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "nemurvojak",
+    "reference": "vor-svetelik",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "construct",
+        "undead",
+        "corrupted",
+        "fearless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 11,
+      "max": 11
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "iron-wood spears d6 w/advantage (close, messy, 1 piercing) or bare-hand- ed rending d4 with advantage (hand, grabby, messy, 1 piercing)",
+    "specialQuality": "bound by its last orders  shuns the sun or holy light",
+    "instinct": {
+      "selected": [
+        "to revel in their prey’s fear and suffering"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Rush a foe with an unearthly howl\n- Lash out with a mass of black, viny tendrils (reach, grabby)\n- Brutalize an already fallen foe\n\nWhen the Fae rebelled, some of the Green Lord’s mortal servants—the ancestors of the Forest Folk (page 150)—sided with the traitors. But not all. Most remained loyal, or at least too afraid of their masters to risk turning on them. Their loyalty, alas, did not save them. At first, the Green Lords would plant demon-seeds in only the bodies of servants who had already fallen. But when they saw just how effective those animated corpses were, well… the Green Lords were noth- ing if not practical. Many of these horrors remain in Vor Svetelik, bound by orders to protect the city or certain sites within. Thank the gods they were not allowed to roam free.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

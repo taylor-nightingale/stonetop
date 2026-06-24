@@ -1,0 +1,118 @@
+{
+  "_id": "TDbOOnwqqawZACCQ",
+  "_key": "!tables!TDbOOnwqqawZACCQ",
+  "name": "Useful or valuable flora — In the field",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "FG70QkR5lhNoHMTi",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.FG70QkR5lhNoHMTi",
+      "type": "text",
+      "name": "",
+      "description": "1d6× provisions (1d6 uses)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OTBQsLxbayWUJfP9",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.OTBQsLxbayWUJfP9",
+      "type": "text",
+      "name": "",
+      "description": "As a poultice/medicine/remedy; use in lieu of supplies to Recover or to treat a debility (1d6 uses)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bdRsdImAa1sfaPH5",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.bdRsdImAa1sfaPH5",
+      "type": "text",
+      "name": "",
+      "description": "Replenishes 1d6 Stock to a Blessed’s sacred pouch",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pWDDO6Xn0wLRPJ43",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.pWDDO6Xn0wLRPJ43",
+      "type": "text",
+      "name": "",
+      "description": "Fills a need (for shelter, fuel, kindling, water, material, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qEpL7Ku81tz1B2uk",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.qEpL7Ku81tz1B2uk",
+      "type": "text",
+      "name": "",
+      "description": "Grants a benefit (like a four-leaf clover that adds 1 to a single key roll, or moonwort that clears the mind of beguilement)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ccKJnjMmxjzyGl6U",
+      "_key": "!tables.results!TDbOOnwqqawZACCQ.ccKJnjMmxjzyGl6U",
+      "type": "text",
+      "name": "",
+      "description": "Provides a path forward or a solution to a problem (shrooms to commune with a spirit, a weed that masks your scent, poison fruit that might defeat a foe, bait for a trap, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

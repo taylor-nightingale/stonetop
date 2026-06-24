@@ -1,0 +1,166 @@
+{
+  "_id": "Ev7AB7Izv85kEmvM",
+  "_key": "!tables!Ev7AB7Izv85kEmvM",
+  "name": "Death and the undying — Ability",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "XWHnODaTxnAu9PNx",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.XWHnODaTxnAu9PNx",
+      "type": "text",
+      "name": "",
+      "description": "Causes eerie, unnatural phenomena",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I0fqKtRVm6MDNNHZ",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.I0fqKtRVm6MDNNHZ",
+      "type": "text",
+      "name": "",
+      "description": "Feels (feeds on?) emotions/vitality/ sensations of the living",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8JcHwPV9uYk1gLQk",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.8JcHwPV9uYk1gLQk",
+      "type": "text",
+      "name": "",
+      "description": "Can possess certain hosts/vessels",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IExEdFl7XBpg4ooN",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.IExEdFl7XBpg4ooN",
+      "type": "text",
+      "name": "",
+      "description": "Unearthly moan/wail/shriek",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HhxivEQCTaRai0xq",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.HhxivEQCTaRai0xq",
+      "type": "text",
+      "name": "",
+      "description": "Inflicts its pain/feelings on others",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IE4zR4wtV4sCbpL0",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.IE4zR4wtV4sCbpL0",
+      "type": "text",
+      "name": "",
+      "description": "Telekinesis (roll 1d6 for scope)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XQ5ROia3OvADHlaj",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.XQ5ROia3OvADHlaj",
+      "type": "text",
+      "name": "",
+      "description": "Nasty/vicious/ghostly attack",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2QwnpX9hJBHVPOK0",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.2QwnpX9hJBHVPOK0",
+      "type": "text",
+      "name": "",
+      "description": "Mind games/phantasms/ compulsions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DkXh8HSvoDsEafrE",
+      "_key": "!tables.results!Ev7AB7Izv85kEmvM.DkXh8HSvoDsEafrE",
+      "type": "text",
+      "name": "",
+      "description": "Can manifest in multiple forms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

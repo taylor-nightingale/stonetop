@@ -1,0 +1,118 @@
+{
+  "_id": "u100rTMmoQeHRphc",
+  "_key": "!tables!u100rTMmoQeHRphc",
+  "name": "Tempest Lords — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "NuEgcAoFfZnL10uW",
+      "_key": "!tables.results!u100rTMmoQeHRphc.NuEgcAoFfZnL10uW",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A half-buried plaque</strong> (page 510)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ck70rV4xIOtfmBaE",
+      "_key": "!tables.results!u100rTMmoQeHRphc.Ck70rV4xIOtfmBaE",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A cloak, richly embroidered</strong> (page 522)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G3bqC3CliuNtrLMa",
+      "_key": "!tables.results!u100rTMmoQeHRphc.G3bqC3CliuNtrLMa",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A corroded spearhead</strong> (page 531)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RfSAAI4CTSTzWg1Q",
+      "_key": "!tables.results!u100rTMmoQeHRphc.RfSAAI4CTSTzWg1Q",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A copper-banded staff</strong> (page 531)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FRdDhbXm8Uy4srIW",
+      "_key": "!tables.results!u100rTMmoQeHRphc.FRdDhbXm8Uy4srIW",
+      "type": "text",
+      "name": "",
+      "description": "<strong>An odd conveyance</strong> (page 532)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YZfdG57yCuWrR06b",
+      "_key": "!tables.results!u100rTMmoQeHRphc.YZfdG57yCuWrR06b",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A bow with no string</strong> (page 532)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

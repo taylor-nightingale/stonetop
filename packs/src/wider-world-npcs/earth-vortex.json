@@ -1,0 +1,48 @@
+{
+  "_id": "s8kbyO1XYiZhB1AT",
+  "_key": "!actors!s8kbyO1XYiZhB1AT",
+  "name": "Earth vortex",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "earth-vortex",
+    "reference": "tempest-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "size by HP",
+        "spirit",
+        "construct",
+        "amorphous",
+        "grumpy",
+        "clumsy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "armor": "by HP, +1 (made of rock)",
+    "damage": "smash (damage and tags by HP)",
+    "specialQuality": "half damage from stabbing or slashing weapons (unless magical)",
+    "instinct": {
+      "selected": [
+        "to topple and undermine"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a churning mass out of nearby earth, sand, and rocks\n- Pin a smaller foe (+grabby)\n- Grind a pinned foe, dealing damage w/advantage (+messy)\n- Ruin a sturdy object or structure (costs 1d4 HP)\n- Shake the earth (+area, +forceful, one range greater than normal; costs 1d4 HP)\n\nAn earth matrix absorbs power from pressure, blunt force, and seismic activity. It gains 1d4 HP from a week buried under earth or stone, from being at the bottom of a rockslide or cave-in, or from touching the ground during a major earthquake (not one it created). When you strike an earth matrix with a bludgeoning attack, it takes no damage. If the blow was forceful and its vortex has 10",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

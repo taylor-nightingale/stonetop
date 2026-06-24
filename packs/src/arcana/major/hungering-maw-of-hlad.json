@@ -3,7 +3,7 @@
 	"_key": "!items!ORqumno7ozfX3DFZ",
 	"name": "Hungering Maw of Hlad",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/hungering-maw-of-hlad.png",
+	"img": "systems/stonetop/assets/content/arcana/hungering-maw-of-hlad.png",
 	"system": {
 		"slug": "hungering-maw-of-hlad",
 		"front": {

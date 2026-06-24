@@ -1,0 +1,102 @@
+{
+  "_id": "ye36n592DyVzJ2u4",
+  "_key": "!tables!ye36n592DyVzJ2u4",
+  "name": "Titan Bones — Disposition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "JQku6ZtYCD8WGmDZ",
+      "_key": "!tables.results!ye36n592DyVzJ2u4.JQku6ZtYCD8WGmDZ",
+      "type": "text",
+      "name": "",
+      "description": "Angry about something, perhaps openly hostile, perhaps trying to hide it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tdy6PlEOhgftpScW",
+      "_key": "!tables.results!ye36n592DyVzJ2u4.tdy6PlEOhgftpScW",
+      "type": "text",
+      "name": "",
+      "description": "Blustering, proud, keen to show off and make a point",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vBE4FnTpsGJNGwgQ",
+      "_key": "!tables.results!ye36n592DyVzJ2u4.vBE4FnTpsGJNGwgQ",
+      "type": "text",
+      "name": "",
+      "description": "Out of sorts, possibly in trouble, maybe looking for help",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5ZZo2AMfcKGTBu99",
+      "_key": "!tables.results!ye36n592DyVzJ2u4.5ZZo2AMfcKGTBu99",
+      "type": "text",
+      "name": "",
+      "description": "Reserved, aloof, wondering what this is about, if it’s a waste of time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WhZgDxlZBBRh72Wd",
+      "_key": "!tables.results!ye36n592DyVzJ2u4.WhZgDxlZBBRh72Wd",
+      "type": "text",
+      "name": "",
+      "description": "Curious, eager to trade and share news",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 48002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

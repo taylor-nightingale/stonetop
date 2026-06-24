@@ -1,0 +1,118 @@
+{
+  "_id": "IASR3VsTGuAjCwd8",
+  "_key": "!tables!IASR3VsTGuAjCwd8",
+  "name": "Blackwater Lake — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pYCNsTZngktts70Q",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.pYCNsTZngktts70Q",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>thrall</strong> (page 435) of Daagon, heavily marked, full of shame",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S9ZK8ekrH6PRkMix",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.S9ZK8ekrH6PRkMix",
+      "type": "text",
+      "name": "",
+      "description": "A lone <strong>servant of Daagon</strong> (page 56), dragging something of value to the lake",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e0BkDGA8Z3mdHRHy",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.e0BkDGA8Z3mdHRHy",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>hdour</strong> (page 234), come to bargain with Daagon or its servants",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h2SEPCDwwafVw0cs",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.h2SEPCDwwafVw0cs",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356), likely <strong>corrupted</strong> (page 430) but still curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EccTSElxJsPZdYFB",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.EccTSElxJsPZdYFB",
+      "type": "text",
+      "name": "",
+      "description": "A confused wanderer, following a voice in their head",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cWuTHUPCZfCmCmDw",
+      "_key": "!tables.results!IASR3VsTGuAjCwd8.cWuTHUPCZfCmCmDw",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hillfolk</strong> (page 228): exiled, on the hunt, checking wards, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

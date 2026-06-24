@@ -1,0 +1,118 @@
+{
+  "_id": "zdtG1Dmw43vCQwfl",
+  "_key": "!tables!zdtG1Dmw43vCQwfl",
+  "name": "The Steplands — Inhabitant",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LlzYRXBFtNb3U9NB",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.LlzYRXBFtNb3U9NB",
+      "type": "text",
+      "name": "",
+      "description": "Thralls or victims of the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aavch2Di1CkDJAjb",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.aavch2Di1CkDJAjb",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Barrow Builders</strong> (page 34) or their victims",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "26vuyXzQK0tRsfFC",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.26vuyXzQK0tRsfFC",
+      "type": "text",
+      "name": "",
+      "description": "Truly ancient <strong>primordial powers</strong> (page 298)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LuhMyrfb9jkarJAG",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.LuhMyrfb9jkarJAG",
+      "type": "text",
+      "name": "",
+      "description": "natural beast or spirit (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "W0tPe4C8uF1QXcGV",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.W0tPe4C8uF1QXcGV",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Stone Lords</strong> (page 382) or their servants",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mSwFfPXDMSg6EVYI",
+      "_key": "!tables.results!zdtG1Dmw43vCQwfl.mSwFfPXDMSg6EVYI",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hillfolk</strong> (page 228) or those they have cast out",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

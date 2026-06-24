@@ -1,0 +1,118 @@
+{
+  "_id": "y03HZLsglqbtPU6b",
+  "_key": "!tables!y03HZLsglqbtPU6b",
+  "name": "Useful or valuable flora — Form-factor",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DQ1UzdND2SDT3DcR",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.DQ1UzdND2SDT3DcR",
+      "type": "text",
+      "name": "",
+      "description": "As a small item",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Jcr4nXt036f0RmWl",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.Jcr4nXt036f0RmWl",
+      "type": "text",
+      "name": "",
+      "description": "As a pouchful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rIZ8p3u7VvVtKE1z",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.rIZ8p3u7VvVtKE1z",
+      "type": "text",
+      "name": "",
+      "description": "As a sackful or bundle",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FJnLR1QaqFpQOHPC",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.FJnLR1QaqFpQOHPC",
+      "type": "text",
+      "name": "",
+      "description": "In large quantities (<em>immobile</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XYJ1S52cs5Lncs73",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.XYJ1S52cs5Lncs73",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d6 again, but it requires extensive effort to harvest/process/ make valuable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JuE52tDWfciq1LFF",
+      "_key": "!tables.results!y03HZLsglqbtPU6b.JuE52tDWfciq1LFF",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 again, but also it’s <em>fragile</em> and/or <em>cumbersome</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

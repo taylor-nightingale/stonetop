@@ -1,0 +1,214 @@
+{
+  "_id": "vHFvcLEpUMfZCPUk",
+  "_key": "!tables!vHFvcLEpUMfZCPUk",
+  "name": "The Ruined Tower — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "IngNCu13000ySTfD",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.IngNCu13000ySTfD",
+      "type": "text",
+      "name": "",
+      "description": "Obstruction: locked door, rubble, cave-in, barricade, many <strong>vitrified</strong> <strong>horrors</strong> (page 346), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PJIK4CxNMVm8wSBu",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.PJIK4CxNMVm8wSBu",
+      "type": "text",
+      "name": "",
+      "description": "Fungus/lichen/slime/vermin",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VnjD123YyCs8DWB0",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.VnjD123YyCs8DWB0",
+      "type": "text",
+      "name": "",
+      "description": "Drips/leaks/mud/standing water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iB6wtAIeJ3wkk5w4",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.iB6wtAIeJ3wkk5w4",
+      "type": "text",
+      "name": "",
+      "description": "Pipes, valves, pumps",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "thxf5Ms3CQOa2d78",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.thxf5Ms3CQOa2d78",
+      "type": "text",
+      "name": "",
+      "description": "Human-scale construction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "596vdAgyZYmyhpB6",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.596vdAgyZYmyhpB6",
+      "type": "text",
+      "name": "",
+      "description": "Stairs/ramp/chute/platforms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "32fLgRs2jmPzcv3P",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.32fLgRs2jmPzcv3P",
+      "type": "text",
+      "name": "",
+      "description": "Grandiose scale, a massive room",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IBAa66EPTS283SEh",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.IBAa66EPTS283SEh",
+      "type": "text",
+      "name": "",
+      "description": "Unplanned exit/passage (burrow, collapsed construction, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "D9OgsQxcyiHaGpf7",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.D9OgsQxcyiHaGpf7",
+      "type": "text",
+      "name": "",
+      "description": "Extensive and/or notably intact <strong>aetherium inlays</strong> (page 341); perhaps a metal pillar (one of the <strong>four spires</strong>, page 337)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d0xlT0WE5KBpT4wC",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.d0xlT0WE5KBpT4wC",
+      "type": "text",
+      "name": "",
+      "description": "A wonder (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TYy60eWwSWJAgVNq",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.TYy60eWwSWJAgVNq",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G75n0sXJiolVDsBc",
+      "_key": "!tables.results!vHFvcLEpUMfZCPUk.G75n0sXJiolVDsBc",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 three times",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

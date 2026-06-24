@@ -1,0 +1,118 @@
+{
+  "_id": "Q4TitjaTrBHBaTNs",
+  "_key": "!tables!Q4TitjaTrBHBaTNs",
+  "name": "Forge Lords — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "2kMAtlVVZnMzhkUQ",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.2kMAtlVVZnMzhkUQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Runes around a ruined hall</strong> (page 511)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tF8vzzoZcqsS6G99",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.tF8vzzoZcqsS6G99",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A richly woven rug</strong> (page 512)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "efhkHJi8eSgHD29t",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.efhkHJi8eSgHD29t",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A metal man</strong> (page 533)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HcuHiNu0TlXvUY1m",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.HcuHiNu0TlXvUY1m",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A prospector’s tale</strong> (page 533)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OPqiKhhd6H0c4BFa",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.OPqiKhhd6H0c4BFa",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A rusty steel blade</strong> (page 534)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Sq8TMy9mLtATUFWL",
+      "_key": "!tables.results!Q4TitjaTrBHBaTNs.Sq8TMy9mLtATUFWL",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A runic branding iron</strong> (page 534)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

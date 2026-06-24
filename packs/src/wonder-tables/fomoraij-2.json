@@ -1,0 +1,214 @@
+{
+  "_id": "Epf3kulGtCsSzPiv",
+  "_key": "!tables!Epf3kulGtCsSzPiv",
+  "name": "Fomoraij — Form",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uAF0DY9VwsDYFkv1",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.uAF0DY9VwsDYFkv1",
+      "type": "text",
+      "name": "",
+      "description": "A swarm of smaller things/a hivemind consciousness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kasPCWacEXG8pAyB",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.kasPCWacEXG8pAyB",
+      "type": "text",
+      "name": "",
+      "description": "Boneless/squeezing/amorphous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MBPvAA17zS4pZfF2",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.MBPvAA17zS4pZfF2",
+      "type": "text",
+      "name": "",
+      "description": "Fungal/lichenous/mossy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "380jraLtVOaFwBlt",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.380jraLtVOaFwBlt",
+      "type": "text",
+      "name": "",
+      "description": "Insectoid/shelled",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UqKjWwQGoiBEBxdm",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.UqKjWwQGoiBEBxdm",
+      "type": "text",
+      "name": "",
+      "description": "Too many limbs/eyes/mouths",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5LCzPnL83hPXq1Pe",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.5LCzPnL83hPXq1Pe",
+      "type": "text",
+      "name": "",
+      "description": "Massive/expansive/sprawling",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "V5Dw7E2Oo8uwMVR8",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.V5Dw7E2Oo8uwMVR8",
+      "type": "text",
+      "name": "",
+      "description": "Pallid/fleshy/knobby",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DdNh0JVSFpCRyO0n",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.DdNh0JVSFpCRyO0n",
+      "type": "text",
+      "name": "",
+      "description": "Powerful/burrowing/rending",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LZlGAUiIRwfoVVK4",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.LZlGAUiIRwfoVVK4",
+      "type": "text",
+      "name": "",
+      "description": "Plantlike (roots, rhizomes, bulbs)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fAluy5q6HizYi3dI",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.fAluy5q6HizYi3dI",
+      "type": "text",
+      "name": "",
+      "description": "Slimy/oozing/mucous",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EXyH0kWjsk6NxKpU",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.EXyH0kWjsk6NxKpU",
+      "type": "text",
+      "name": "",
+      "description": "Sporting tentacles/tendrils/feelers/ antennae",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5N2cSqLIfWiFej6h",
+      "_key": "!tables.results!Epf3kulGtCsSzPiv.5N2cSqLIfWiFej6h",
+      "type": "text",
+      "name": "",
+      "description": "Worm-like/slug-like/grub-like",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

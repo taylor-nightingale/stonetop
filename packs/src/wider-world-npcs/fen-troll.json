@@ -1,0 +1,47 @@
+{
+  "_id": "XujKcVGpDe1CXsj7",
+  "_key": "!actors!XujKcVGpDe1CXsj7",
+  "name": "Fen-troll",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fen-troll",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "corrupted",
+        "hoarder",
+        "gluttonous",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (thick hide)",
+    "damage": "bone-snapping grip d10+3 (hand, close, grabby, forceful), rending maw d10+3 (hand, messy, 1 piercing)",
+    "specialQuality": "sharp senses, horrid odor, ashamed of its visage",
+    "instinct": {
+      "selected": [
+        "to fill its belly and jealously guard its hoard"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Approach a victim from cover of dark, or fog, or murky water\n- Demand treasure to let them pass unharmed\n- Probably try to eat them anyway\n\nThey were human once, corrupted by the Fen and the foul forces flowing through it. Little remains of that humanity, though: a rough shape, half-forgotten words, a terrible anger at what it has lost. They prize finery and mundane goods, anything that reminds them of their for- mer life. Even more, they long for human connection. But hunger, shame, and greed usually lead them to lash out at any who show them kindness.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

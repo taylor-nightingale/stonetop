@@ -1,0 +1,118 @@
+{
+  "_id": "DgyK6EpEUmA9YRiQ",
+  "_key": "!tables!DgyK6EpEUmA9YRiQ",
+  "name": "Green Lords — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OWkQBrT7CqZdn0FU",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.OWkQBrT7CqZdn0FU",
+      "type": "text",
+      "name": "",
+      "description": "Huge slabs of smooth stone (white marble, granite, serpentine) carved with scrollwork and bas reliefs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ONwHAkoAQzaK0kpx",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.ONwHAkoAQzaK0kpx",
+      "type": "text",
+      "name": "",
+      "description": "Moss and lichen, of striking colors, growing in decorative patterns",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z5SBKkIZ4y7hjQkD",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.z5SBKkIZ4y7hjQkD",
+      "type": "text",
+      "name": "",
+      "description": "Amber, agate, geodes, even unworked boulders of interesting shape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gVYb6mvn4cCJBHC7",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.gVYb6mvn4cCJBHC7",
+      "type": "text",
+      "name": "",
+      "description": "Ivory, bone, horn, antler, fur, silk— sometimes fused with or growing from wood or stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QNWCTAzmKGJbymQR",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.QNWCTAzmKGJbymQR",
+      "type": "text",
+      "name": "",
+      "description": "Pillars, arches, or even walls of petrified wood, seemingly grown into shape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WttflVeCAeVHPDCk",
+      "_key": "!tables.results!DgyK6EpEUmA9YRiQ.WttflVeCAeVHPDCk",
+      "type": "text",
+      "name": "",
+      "description": "Vines and tendrils (often petrified or metal-infused) clinging to surfaces in branching whorls, sigils, and runes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

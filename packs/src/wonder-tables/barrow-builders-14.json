@@ -1,0 +1,214 @@
+{
+  "_id": "MO63yhx6KBFHCQUL",
+  "_key": "!tables!MO63yhx6KBFHCQUL",
+  "name": "Barrow Builders — Elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "eN9Olt5qwW7mUolS",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.eN9Olt5qwW7mUolS",
+      "type": "text",
+      "name": "",
+      "description": "Camouflage/illusion/deception",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hxlYbXQqxiXAyHvN",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.hxlYbXQqxiXAyHvN",
+      "type": "text",
+      "name": "",
+      "description": "Gravity/weight/mass/hardness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4UDNAJtmQMnRnb9O",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.4UDNAJtmQMnRnb9O",
+      "type": "text",
+      "name": "",
+      "description": "Blades/spikes/needles/pointy bits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9AIDU22n7zWq3vDP",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.9AIDU22n7zWq3vDP",
+      "type": "text",
+      "name": "",
+      "description": "Wire/rope/pulleys/contraptions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "voEfXwXjCEikgtez",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.voEfXwXjCEikgtez",
+      "type": "text",
+      "name": "",
+      "description": "Tension/pressure/springs/balance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4jVmVhZLTzQSv4ih",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.4jVmVhZLTzQSv4ih",
+      "type": "text",
+      "name": "",
+      "description": "Chemics/poison/acid/gas/fire",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HlMs7wHP8ovGi4Gy",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.HlMs7wHP8ovGi4Gy",
+      "type": "text",
+      "name": "",
+      "description": "Special materials (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bc09P2Yq0K50fZJe",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.Bc09P2Yq0K50fZJe",
+      "type": "text",
+      "name": "",
+      "description": "Runes/glyphs/sigils/marks/spells",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aaz52g5hU5RUToyw",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.aaz52g5hU5RUToyw",
+      "type": "text",
+      "name": "",
+      "description": "Light/dark/heat/cold/noise/quiet",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KFMg4qIilIOOLIiJ",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.KFMg4qIilIOOLIiJ",
+      "type": "text",
+      "name": "",
+      "description": "Thoughts/emotions/mind games",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eONqjjmhnlrhAwo0",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.eONqjjmhnlrhAwo0",
+      "type": "text",
+      "name": "",
+      "description": "Spirits/constructs/undead/vermin",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EoZcy2giVMsFki7D",
+      "_key": "!tables.results!MO63yhx6KBFHCQUL.EoZcy2giVMsFki7D",
+      "type": "text",
+      "name": "",
+      "description": "Previously triggered/disarmed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

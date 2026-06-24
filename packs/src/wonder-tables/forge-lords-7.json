@@ -1,0 +1,118 @@
+{
+  "_id": "6HzfqdMMC0Xz5Tem",
+  "_key": "!tables!6HzfqdMMC0Xz5Tem",
+  "name": "Forge Lords — Ustrina presence",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OXatM8cgrQEAiU5c",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.OXatM8cgrQEAiU5c",
+      "type": "text",
+      "name": "",
+      "description": "A settlement, actively inhabited",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JpL596OEn8BzUpy4",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.JpL596OEn8BzUpy4",
+      "type": "text",
+      "name": "",
+      "description": "Two or more groups, in conflict",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MtFeKsblGWKEKQBh",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.MtFeKsblGWKEKQBh",
+      "type": "text",
+      "name": "",
+      "description": "Pilgrims/scavengers/wardens/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vw7G4kGOqPV5UIR8",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.Vw7G4kGOqPV5UIR8",
+      "type": "text",
+      "name": "",
+      "description": "A settlement, unoccupied/ abandoned",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "L8oV5m7lQuhFyTFC",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.L8oV5m7lQuhFyTFC",
+      "type": "text",
+      "name": "",
+      "description": "Offerings/vandalism/excavations/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RTGqFhsP3oWagQYC",
+      "_key": "!tables.results!6HzfqdMMC0Xz5Tem.RTGqFhsP3oWagQYC",
+      "type": "text",
+      "name": "",
+      "description": "None to speak of",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

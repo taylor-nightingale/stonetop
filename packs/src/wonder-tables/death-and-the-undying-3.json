@@ -1,0 +1,182 @@
+{
+  "_id": "YmXhk6xdyUHLeBus",
+  "_key": "!tables!YmXhk6xdyUHLeBus",
+  "name": "Death and the undying — Origins",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DNiAaZKB6HTPFUAV",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.DNiAaZKB6HTPFUAV",
+      "type": "text",
+      "name": "",
+      "description": "The death of many, all at once",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tZLKC6cn2BmdQU0R",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.tZLKC6cn2BmdQU0R",
+      "type": "text",
+      "name": "",
+      "description": "The death of many, over time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XWTb7FJcvhKbwMJV",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.XWTb7FJcvhKbwMJV",
+      "type": "text",
+      "name": "",
+      "description": "The death of a few, intimate and intense",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mcRjBxm4Rf160Wys",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.mcRjBxm4Rf160Wys",
+      "type": "text",
+      "name": "",
+      "description": "The death of one, a singular event",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Zg18CLePvOG6cDVI",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.Zg18CLePvOG6cDVI",
+      "type": "text",
+      "name": "",
+      "description": "The desecration/violation of a grave",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kHFhCZT6y7P0FMFc",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.kHFhCZT6y7P0FMFc",
+      "type": "text",
+      "name": "",
+      "description": "The arrival of an artifact or tether",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S6K17y8maYekvf5o",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.S6K17y8maYekvf5o",
+      "type": "text",
+      "name": "",
+      "description": "Something about the place itself, attracting/ensnaring dark entities",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pQcyWB8uH5vJhkC7",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.pQcyWB8uH5vJhkC7",
+      "type": "text",
+      "name": "",
+      "description": "A ritual, magic, or artifice: failed or run amok",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uEmWKJ5hpGNslPSC",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.uEmWKJ5hpGNslPSC",
+      "type": "text",
+      "name": "",
+      "description": "A ritual, magic, or artifice: working as intended",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5yrQoX1S1Ie4lUZr",
+      "_key": "!tables.results!YmXhk6xdyUHLeBus.5yrQoX1S1Ie4lUZr",
+      "type": "text",
+      "name": "",
+      "description": "The loss or failure of an artifact/ ward/binding that kept the dead in check",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

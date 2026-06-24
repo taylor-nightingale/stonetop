@@ -1,0 +1,118 @@
+{
+  "_id": "mnQkg7Gx1d0HB3UG",
+  "_key": "!tables!mnQkg7Gx1d0HB3UG",
+  "name": "Fae — Bred to...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "59HP6Z24G5Ex0H8G",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.59HP6Z24G5Ex0H8G",
+      "type": "text",
+      "name": "",
+      "description": "…create/maintain a false afterlife",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AkmapT9CkPyfttO2",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.AkmapT9CkPyfttO2",
+      "type": "text",
+      "name": "",
+      "description": "…command/compel/enforce/punish",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aKwt6nTYxDEMq3eb",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.aKwt6nTYxDEMq3eb",
+      "type": "text",
+      "name": "",
+      "description": "…deceive/obscure/protect",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HGa9C9p79gVPX2xG",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.HGa9C9p79gVPX2xG",
+      "type": "text",
+      "name": "",
+      "description": "…entertain/enliven/beautify",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wKNdFHX89ydA3vWa",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.wKNdFHX89ydA3vWa",
+      "type": "text",
+      "name": "",
+      "description": "…nurture/protect/cultivate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r2iuwHTJmmC2VxrW",
+      "_key": "!tables.results!mnQkg7Gx1d0HB3UG.r2iuwHTJmmC2VxrW",
+      "type": "text",
+      "name": "",
+      "description": "…work/labor/toil/produce/build",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

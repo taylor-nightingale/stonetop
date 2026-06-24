@@ -1,0 +1,214 @@
+{
+  "_id": "I26Vkrljb8pGS0HR",
+  "_key": "!tables!I26Vkrljb8pGS0HR",
+  "name": "Fomoraij — Gift",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "icR7dzwDSXjbApGs",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.icR7dzwDSXjbApGs",
+      "type": "text",
+      "name": "",
+      "description": "A <em>reach</em>, <em>near</em>, or <em>far</em> attack (tentacles, spitting globs, flung spines, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E5hPxRfkLGDAMLsZ",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.E5hPxRfkLGDAMLsZ",
+      "type": "text",
+      "name": "",
+      "description": "A terrifying presence; an ability to spread panic/fear/horror",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ekAwvLNbWTUEEpgE",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.ekAwvLNbWTUEEpgE",
+      "type": "text",
+      "name": "",
+      "description": "An area attack (cloud of poison, blast of nettles, psychic scream, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "izPeYjelu9ev2qvB",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.izPeYjelu9ev2qvB",
+      "type": "text",
+      "name": "",
+      "description": "An amorphous/malleable/ shapechanging form",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RluCLYZVd4UDcmlb",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.RluCLYZVd4UDcmlb",
+      "type": "text",
+      "name": "",
+      "description": "An ongoing link to its master, an ability to share senses/thoughts/ words/power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "K4rPTSkN97F2db30",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.K4rPTSkN97F2db30",
+      "type": "text",
+      "name": "",
+      "description": "A way to spread its infection and/ or its master’s influence (intentionally, incidentally, or both)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H0T9wz28uLvOdnrr",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.H0T9wz28uLvOdnrr",
+      "type": "text",
+      "name": "",
+      "description": "Camouflage/stealth/ability to avoid notice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2c3NzLhSZxCm3bXg",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.2c3NzLhSZxCm3bXg",
+      "type": "text",
+      "name": "",
+      "description": "Exceptional strength/speed/ferocity/deadliness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pC2NdstPyTr899yy",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.pC2NdstPyTr899yy",
+      "type": "text",
+      "name": "",
+      "description": "Influence/control over the minds of others",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VtpKkgcRtlnPgaCi",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.VtpKkgcRtlnPgaCi",
+      "type": "text",
+      "name": "",
+      "description": "Minions/servants/ability to send out extensions of itself",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z68zOgf8dd6cVTjU",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.z68zOgf8dd6cVTjU",
+      "type": "text",
+      "name": "",
+      "description": "Mobility (jumping, flying, climbing, burrowing, squeezing, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "M3ywepPqz7rBFWAs",
+      "_key": "!tables.results!I26Vkrljb8pGS0HR.M3ywepPqz7rBFWAs",
+      "type": "text",
+      "name": "",
+      "description": "Unnatural resilience/vigor/durability",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

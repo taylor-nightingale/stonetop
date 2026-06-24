@@ -1,0 +1,102 @@
+{
+  "_id": "oQyyTC6TwQ4VDZBc",
+  "_key": "!tables!oQyyTC6TwQ4VDZBc",
+  "name": "Forge Lords — Structure (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vMheaIOaVWGNxoRB",
+      "_key": "!tables.results!oQyyTC6TwQ4VDZBc.vMheaIOaVWGNxoRB",
+      "type": "text",
+      "name": "",
+      "description": "Clockwork, pistons, springs, gears",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FQrKcCEkanzCZiVs",
+      "_key": "!tables.results!oQyyTC6TwQ4VDZBc.FQrKcCEkanzCZiVs",
+      "type": "text",
+      "name": "",
+      "description": "Mundane, metal object (pail, mirror, trumpet, sword, plow, oven, chariot, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hj9KH0T9nsNOttnj",
+      "_key": "!tables.results!oQyyTC6TwQ4VDZBc.hj9KH0T9nsNOttnj",
+      "type": "text",
+      "name": "",
+      "description": "Statue, representational (person, beast, creature)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kH6wmR0KfTRXjBiD",
+      "_key": "!tables.results!oQyyTC6TwQ4VDZBc.kH6wmR0KfTRXjBiD",
+      "type": "text",
+      "name": "",
+      "description": "Statue, abstract/stylized (shapes, patterns, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IOkEgpuJx4eBvX3a",
+      "_key": "!tables.results!oQyyTC6TwQ4VDZBc.IOkEgpuJx4eBvX3a",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

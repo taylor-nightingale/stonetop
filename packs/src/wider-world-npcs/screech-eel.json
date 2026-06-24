@@ -1,0 +1,46 @@
+{
+  "_id": "ykqSwBu5CbNHtHeF",
+  "_key": "!actors!ykqSwBu5CbNHtHeF",
+  "name": "Screech eel",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "screech-eel",
+    "reference": "three-coven-lake",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "aquatic",
+        "stealthy",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "1 (speed), 2 vs. attacks from above the water",
+    "damage": "tearing bite d6 (hand, messy, 1 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to feed on easy prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Slink up on potential prey\n- Screech to attract other eels (barely heard above the water)\n- Attack in a frenzied swarm, all bites and screeches and churning bloody water\n\nAbout 5’ or 6’ long. They mostly prey on fish or fowl, hunting silently and by them- selves. Somehow, though, they learned that people are delicious. Too big for one eel to tackle, sure. But people in the water are clumsy and oblivious. So when a screech eel spots someone in the water, it calls out to its friends. And when enough of them have gathered, they feast.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.uHM6ZyjcWV4QEF22]{Three Coven Lake} (Book p.438-447)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

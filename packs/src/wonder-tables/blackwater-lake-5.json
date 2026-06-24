@@ -1,0 +1,86 @@
+{
+  "_id": "p9QfOLi9de6Je8w7",
+  "_key": "!tables!p9QfOLi9de6Je8w7",
+  "name": "Blackwater Lake — Artifact of...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "huK5Fj7xYEpUC7ay",
+      "_key": "!tables.results!p9QfOLi9de6Je8w7.huK5Fj7xYEpUC7ay",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sIgwMy2CqnAyGLyp",
+      "_key": "!tables.results!p9QfOLi9de6Je8w7.sIgwMy2CqnAyGLyp",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Stone Lords</strong> (page 382)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DLjygMQUG5Y8Wvxt",
+      "_key": "!tables.results!p9QfOLi9de6Je8w7.DLjygMQUG5Y8Wvxt",
+      "type": "text",
+      "name": "",
+      "description": "… Some other group of <strong>Makers</strong> (page 264)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mqGPoZabvtC4nczz",
+      "_key": "!tables.results!p9QfOLi9de6Je8w7.mqGPoZabvtC4nczz",
+      "type": "text",
+      "name": "",
+      "description": "… the <strong>Barrow Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "5g0Tl1SWwrTZBIya",
+  "_key": "!tables!5g0Tl1SWwrTZBIya",
+  "name": "The Labyrinth — Asset",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "0VCnvRByujG8xfGJ",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.0VCnvRByujG8xfGJ",
+      "type": "text",
+      "name": "",
+      "description": "Metal weapons, lovingly cared for",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PX6tJE8L2xpKcPqs",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.PX6tJE8L2xpKcPqs",
+      "type": "text",
+      "name": "",
+      "description": "Means to brew a paralytic poison",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tC3PFJrOUqOoG15z",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.tC3PFJrOUqOoG15z",
+      "type": "text",
+      "name": "",
+      "description": "An additional gift",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4uzpPrQKhciHWQWM",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.4uzpPrQKhciHWQWM",
+      "type": "text",
+      "name": "",
+      "description": "Greater numbers (a <em>village</em>, ~150 souls)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gCYHzm3i9M9iHYNJ",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.gCYHzm3i9M9iHYNJ",
+      "type": "text",
+      "name": "",
+      "description": "A pet <strong>emanation</strong> (page 436)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E8No17bDNMbNLpT2",
+      "_key": "!tables.results!5g0Tl1SWwrTZBIya.E8No17bDNMbNLpT2",
+      "type": "text",
+      "name": "",
+      "description": "Still led by their <strong>deathless</strong> (page 46) founder, and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

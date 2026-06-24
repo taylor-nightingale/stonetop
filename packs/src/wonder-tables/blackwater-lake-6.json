@@ -1,0 +1,118 @@
+{
+  "_id": "avDmsR4J9nCCWCt3",
+  "_key": "!tables!avDmsR4J9nCCWCt3",
+  "name": "Blackwater Lake — Opportunity",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "h44UtTMsArKMuFe4",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.h44UtTMsArKMuFe4",
+      "type": "text",
+      "name": "",
+      "description": "A boat/raft (roll 1d6 for condition)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vUmfzcDrabPM51tZ",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.vUmfzcDrabPM51tZ",
+      "type": "text",
+      "name": "",
+      "description": "Large game (aurochs, deer, boar, etc.); confused, strangely docile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cGcqtuxFJLGMK6yO",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.cGcqtuxFJLGMK6yO",
+      "type": "text",
+      "name": "",
+      "description": "A treasure, left in shallow waters or set on a rock not far out from shore",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ht1Y9TPG8b0ic1Ff",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.ht1Y9TPG8b0ic1Ff",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hillfolk</strong> (page 228) in trouble and wary but grateful for help",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AdWrBEFJLADs76M5",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.AdWrBEFJLADs76M5",
+      "type": "text",
+      "name": "",
+      "description": "A good place to rest/restock/lay an ambush",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pwwKJNEQx9JOUtaQ",
+      "_key": "!tables.results!avDmsR4J9nCCWCt3.pwwKJNEQx9JOUtaQ",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>sacred site</strong> (page 362), somehow uncorrupted",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

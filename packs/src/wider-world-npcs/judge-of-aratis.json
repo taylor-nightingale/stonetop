@@ -1,0 +1,42 @@
+{
+  "_id": "T52QuZ0Z1PG3LBF6",
+  "_key": "!actors!T52QuZ0Z1PG3LBF6",
+  "name": "Judge of Aratis",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "judge-of-aratis",
+    "reference": "aratis-the-lawkeeper",
+    "tagList": {
+      "selected": [
+        "Group",
+        "leader",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "armor": "2 (shield, leather cuirass)",
+    "damage": "mallet d8 (hand) or maul d8+2 (close, forceful, awkward)",
+    "specialQuality": "bound by the require- ments of a true disciple (previous page), at least publicly Stalwart instinct to see things as black and white (+tough, +4 HP)",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Decry someone/thing, publicly\n- Enforce a law/tradition/contract, even despite good sense\n- Inspire others with their resolve\n\nAmbitious instinct to advance their own agenda (+cunning)\n\n- Make a reasonable-sounding ruling, to their own advantage\n- Suss out someone’s motives\n- Keep calm under pressure or scrutiny\n\nCircumspect instinct to try to make everyone happy (+friendly, +cautious, deals damage with disadvantage)\n\n- Stall, delay, make excuses\n- See both sides of an issue\n- Find a different way",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.RYrctZ8FYMypVSYu]{Aratis, the Lawkeeper} (Book p.22-25)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

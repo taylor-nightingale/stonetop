@@ -1,0 +1,45 @@
+{
+  "_id": "r2Gho8OM2nzHGJNl",
+  "_key": "!actors!r2Gho8OM2nzHGJNl",
+  "name": "Tomb-bog spirit",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "tomb-bog-spirit",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "terrifying",
+        "implacable"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "smothering grip d10+2 (hand, forceful, grabby)",
+    "specialQuality": "harms only those whose life is forfeit",
+    "instinct": {
+      "selected": [
+        "to consume the dying breaths of the condemned"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Track down one whose life is forfeit\n- Wait until they are alone\n- Shape a hulking form from peat, soil, and mud (takes half damage from stabbing, slashing, or fire)\n- Whisper its victim’s crimes, freezing them with fear\n\nIn Ferrier’s Fen (page 116), not far from Marshedge (page 274), there lies a peat mound where the town buries criminals alive. Over the years, the place has given birth to a spirit of death and punishment. The spirit is young and eager, and can be set to work upon criminals; see the grim peat mound (page 511) minor arcanum for details.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

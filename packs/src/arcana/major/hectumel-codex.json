@@ -3,7 +3,7 @@
 	"_key": "!items!XJd42jHfouBYG8kL",
 	"name": "Hec'tumel Codex",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/hectumel-codex.png",
+	"img": "systems/stonetop/assets/content/arcana/hectumel-codex.png",
 	"system": {
 		"slug": "hectumel-codex",
 		"front": {

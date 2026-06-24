@@ -1,0 +1,118 @@
+{
+  "_id": "3ghvBOQIwvbmPtrA",
+  "_key": "!tables!3ghvBOQIwvbmPtrA",
+  "name": "Tor, the Rain-maker — Manifestation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LQ2LHqeumgeQwk7R",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.LQ2LHqeumgeQwk7R",
+      "type": "text",
+      "name": "",
+      "description": "A brash youth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lt8muWCRmAsRMyDs",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.lt8muWCRmAsRMyDs",
+      "type": "text",
+      "name": "",
+      "description": "A formidable warrior",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FJZ44Goym0X4Zucw",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.FJZ44Goym0X4Zucw",
+      "type": "text",
+      "name": "",
+      "description": "A put-upon father",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rr5xvd0ZIuBWA0Zz",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.rr5xvd0ZIuBWA0Zz",
+      "type": "text",
+      "name": "",
+      "description": "A wealthy merchant",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9AqfErdrERqhUbdT",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.9AqfErdrERqhUbdT",
+      "type": "text",
+      "name": "",
+      "description": "A mysterious/cagey traveler",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wIoWTnEgDKVXEmkj",
+      "_key": "!tables.results!3ghvBOQIwvbmPtrA.wIoWTnEgDKVXEmkj",
+      "type": "text",
+      "name": "",
+      "description": "A hapless old man",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 49002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

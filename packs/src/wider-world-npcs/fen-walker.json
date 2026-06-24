@@ -1,0 +1,44 @@
+{
+  "_id": "qlG1rWUGfIic89j4",
+  "_key": "!actors!qlG1rWUGfIic89j4",
+  "name": "Fen-walker",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fen-walker",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Fen-wise",
+        "cautious",
+        "stealthy",
+        "observant",
+        "(and see below)"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "armor": "1 (leather cuirass)",
+    "damage": "knife d8 (hand), sling d6 (near, reload)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Spot/avoid a hidden hazard\n- Berate outsiders for carelessness\n- Do something gross or unpleasant without flinching",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

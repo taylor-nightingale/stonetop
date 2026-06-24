@@ -1,0 +1,44 @@
+{
+  "_id": "hzTdAj5xH99q5juG",
+  "_key": "!actors!hzTdAj5xH99q5juG",
+  "name": "Hlomren",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hlomren",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "tiny",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 1,
+      "max": 1
+    },
+    "armor": "3 (carapace, size)",
+    "damage": "(close, area) These red-shelled insects look like a cross between an ant and a beetle, but the size of a small cat. They form colonies a few-hundred large, typically on higher ground. A colony will harvest all the dead grass in a few miles, hibernate through winter, and then relocate in spring to a part of the Flats that hasn’t burned or been harvested in a few years. They mostly ignore people and other large animals, but they’ll swarm if threatened.",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect the colony"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Burrow into/out of/through loose soil\n- Swarm over a threat\n- Burst with acid when killed, d4",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

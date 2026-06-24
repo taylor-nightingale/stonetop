@@ -1,0 +1,118 @@
+{
+  "_id": "tlBzHZDFTDK0Ubh6",
+  "_key": "!tables!tlBzHZDFTDK0Ubh6",
+  "name": "The Golden Oak — Danger",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ibGYxYepJM6IDB6k",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.ibGYxYepJM6IDB6k",
+      "type": "text",
+      "name": "",
+      "description": "Enormous vermin—dog-sized, mansized, horse-sized, or worse—each with some uncanny trait or mutation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WfY7wqIWVGM7ycBQ",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.WfY7wqIWVGM7ycBQ",
+      "type": "text",
+      "name": "",
+      "description": "Gargantuan beasts, crashing about you, disinterested and unconcerned",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5xNQRMHSfhUSQKYO",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.5xNQRMHSfhUSQKYO",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Specters</strong> (page 79) of betrayed Green Lords, like roving storms of hate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WsJWwlhHJtdEeALY",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.WsJWwlhHJtdEeALY",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hollow Fae</strong> (page 114), trapped here for ages, mad with soul-hunger",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WP0GYJ0FmEMwVAWW",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.WP0GYJ0FmEMwVAWW",
+      "type": "text",
+      "name": "",
+      "description": "Pockets of dangerous old magic, ready to ensnare, rend, or mutate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BLiebXBXhCAX6Zuv",
+      "_key": "!tables.results!tlBzHZDFTDK0Ubh6.BLiebXBXhCAX6Zuv",
+      "type": "text",
+      "name": "",
+      "description": "An overwhelming urge to fight, to hurt, to kill. If they act on the impulse, they mark XP. If they resist, they are Defying Danger (probably with WIS).",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 21000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

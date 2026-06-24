@@ -1,0 +1,118 @@
+{
+  "_id": "I9aycw8HamtzWJEp",
+  "_key": "!tables!I9aycw8HamtzWJEp",
+  "name": "Gordin's Delve — What brought them",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "9GpBLfHs74GbMZpO",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.9GpBLfHs74GbMZpO",
+      "type": "text",
+      "name": "",
+      "description": "Seeking their fortune",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OmqLyv1zS56DHPdo",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.OmqLyv1zS56DHPdo",
+      "type": "text",
+      "name": "",
+      "description": "To join family/friends",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fT5GlbSsOcgXIicG",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.fT5GlbSsOcgXIicG",
+      "type": "text",
+      "name": "",
+      "description": "A bad turn, nowhere else to go",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oFHQ2GBDoW92pdyj",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.oFHQ2GBDoW92pdyj",
+      "type": "text",
+      "name": "",
+      "description": "On the run",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QavHOXb8roopG2E6",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.QavHOXb8roopG2E6",
+      "type": "text",
+      "name": "",
+      "description": "Happenstance, fate, dumb luck",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZslEUo4QaOPrB6dy",
+      "_key": "!tables.results!I9aycw8HamtzWJEp.ZslEUo4QaOPrB6dy",
+      "type": "text",
+      "name": "",
+      "description": "Dragged here against their will",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 22001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

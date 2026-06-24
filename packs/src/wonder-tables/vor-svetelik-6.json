@@ -1,0 +1,118 @@
+{
+  "_id": "NhSMudfShfBvnYaF",
+  "_key": "!tables!NhSMudfShfBvnYaF",
+  "name": "Vor Svetelik — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "fRpklqdZp5oG9UiG",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.fRpklqdZp5oG9UiG",
+      "type": "text",
+      "name": "",
+      "description": "A Fomoraij’s <strong>infected servant</strong> (page 140), single-mindedly pursuing some task (digging, building, searching, carving, writing, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4ru71UFeSWP1hdQq",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.4ru71UFeSWP1hdQq",
+      "type": "text",
+      "name": "",
+      "description": "A Fomoraij’s <strong>infected servant</strong> (page 140), desperately seeking release",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hy641480R68b4jBM",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.hy641480R68b4jBM",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356), curious, indifferent, or just confused",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rFZBO9H3tWvyCpuP",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.rFZBO9H3tWvyCpuP",
+      "type": "text",
+      "name": "",
+      "description": "Someone or something trapped in stasis (petrified; in a time-pocket, in a magical cell, etc.) but free-able",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WwsYpLlGCF3Kse3W",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.WwsYpLlGCF3Kse3W",
+      "type": "text",
+      "name": "",
+      "description": "The bound <strong>shade</strong> (page 85) of a Green Lord or their mortal servant, mournful and suspicious but not outright hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FKYBCZiOZ1dA92ch",
+      "_key": "!tables.results!NhSMudfShfBvnYaF.FKYBCZiOZ1dA92ch",
+      "type": "text",
+      "name": "",
+      "description": "Someone seeking relics or treasure: <strong>crinwin</strong> (page 58), ﻿<strong>Fae</strong> (page 94), southern ﻿adventurers or ﻿<strong>antiquari</strong><strong>ans</strong> (page 260), maybe even ﻿<strong>Forest</strong> <strong>Folk</strong> (page 150)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

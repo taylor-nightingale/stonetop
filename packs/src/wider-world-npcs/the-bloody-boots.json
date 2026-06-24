@@ -1,0 +1,46 @@
+{
+  "_id": "vdVBA6B2baj0t7HJ",
+  "_key": "!actors!vdVBA6B2baj0t7HJ",
+  "name": "The Bloody Boots",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-bloody-boots",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Group",
+        "small",
+        "fae",
+        "ugly",
+        "violent"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "4 (resilience), 2 vs. iron",
+    "damage": "oversized club d8 w/advantage (close, crude) or iron-shod boots d8+2 w/advantage (hand, forceful)",
+    "specialQuality": "Fae nature (page 98)  tolerates iron; can’t start violence",
+    "instinct": {
+      "selected": [
+        "to brawl, the nastier the better"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Insult, mock, heap abuse\n- Get in your face, dare you\n- Leverage their unlikely strength\n- Stomp someone who’s down (messy)\n\nA gang of hoodlums, with names like Hob- nail, Spitkicker, Big Thunk, Tusk, and Grub. Short, squat, brutes with lopsided limbs, mismatched parts, and craggy skin. They stomp about in oversized, iron-shod boots, delighting in the disgust of other Fae. Back in the day, they quarried stone for their masters. Didn’t even mind it much. But given the chance to fight and brawl and spill all the blood they could, well, no need to ask them twice. The Bloody Boots were among the most feared and storied troops of the war. First into the fray and dyeing their Red Pennant (page 109) in the blood of trodden foes. And after the war? Well, you can’t have thugs like them just rampaging about. Some little schemer bought and traded for every debt they ever had, then extracted a promise from each: no starting fights. They can finish a fight that someone else starts, and, oh, will they enjoy it. But just about every Fae still living knows better than to give them that chance.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

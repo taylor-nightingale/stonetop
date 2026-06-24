@@ -1,0 +1,48 @@
+{
+  "_id": "QLNiyG7Otf1wfdxo",
+  "_key": "!actors!QLNiyG7Otf1wfdxo",
+  "name": "Base archon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "base-archon",
+    "reference": "primordial-powers",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "primordial",
+        "spirit",
+        "construct",
+        "magical",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "5 (resilience, lacks vitals), 1 vs. black iron",
+    "damage": "physical blows d12+3 w/advantage (close, reach, forceful)",
+    "specialQuality": "ageless, immune to the elements, perceives thought and matter, omnilingual",
+    "instinct": {
+      "selected": [
+        "per its purpose 1d12 purpose 1 To seek out and destroy 2 To find, judge, and punish 3-4 To capture/retrieve 5-6 To warn/castigate/correct 7-12 To stand watch and protect"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

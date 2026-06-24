@@ -1,0 +1,48 @@
+{
+  "_id": "ajG2PWUZri5xa2Ji",
+  "_key": "!actors!ajG2PWUZri5xa2Ji",
+  "name": "Tcaventes, Shackle and Key",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "tcaventes-shackle-and-key",
+    "reference": "the-labyrinth",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "primordial",
+        "construct",
+        "magical",
+        "terrifying",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 25,
+      "max": 25
+    },
+    "armor": "6 (hard, warded, lacks vitals), 4 vs. black iron",
+    "damage": "word of force d12+3 (near, area, forceful) or four fists d12+3 with advan- tage (close, reach, forceful)",
+    "specialQuality": "ageless immune to the elements; perceives thought and matter; omnilingual",
+    "instinct": {
+      "selected": [
+        "to hide evidence of their failure, even from themselves"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense and neutralize threats with cold precision\n- Shift the environment to create or close an opening\n- Seal or unseal: a door, a binding, a mouth, a secret, etc.\n- Blaze suddenly with the blinding light of creation\n\nThey are an archon (page 302), forged by the First Creators to stand vigil over the Utterwell (page 252) and to act as a bulwark against the Things Below. They are Tcaventes, Shackle and Key. A flawless guardian. Or at least, they were. Over eons, even they succumbed to the whispers of the Things Below. The corruption leads to lapses of discipline that let their charges’ influence seep out through the Deeps. It amplifies their guilt, which leads to denial strong enough to drive Tcaventes mad.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.w4ZAM6a01JmgUtoI]{The Labyrinth} (Book p.242-255)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

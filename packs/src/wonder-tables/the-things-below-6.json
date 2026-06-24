@@ -1,0 +1,118 @@
+{
+  "_id": "575ZPcCDmulSLAHG",
+  "_key": "!tables!575ZPcCDmulSLAHG",
+  "name": "The Things Below — Gift",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7oTQmdqEgrJi0wQC",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.7oTQmdqEgrJi0wQC",
+      "type": "text",
+      "name": "",
+      "description": "A physical change (scales, rubbery flesh, gills, a tentacle, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hzy2ZjSLnGD2mTCJ",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.hzy2ZjSLnGD2mTCJ",
+      "type": "text",
+      "name": "",
+      "description": "An item of luxury or status (Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rcPnWYHjzi7xneKl",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.rcPnWYHjzi7xneKl",
+      "type": "text",
+      "name": "",
+      "description": "A precious item (Value 3)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5CXhxpD00w61XSPb",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.5CXhxpD00w61XSPb",
+      "type": "text",
+      "name": "",
+      "description": "A “priceless” item (Value 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nzbCZV39cMInHhwt",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.nzbCZV39cMInHhwt",
+      "type": "text",
+      "name": "",
+      "description": "A way to best your rivals or defeat your enemies",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wqk9WZQg8SbxU0iX",
+      "_key": "!tables.results!575ZPcCDmulSLAHG.Wqk9WZQg8SbxU0iX",
+      "type": "text",
+      "name": "",
+      "description": "A way to acquire great power or long life",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

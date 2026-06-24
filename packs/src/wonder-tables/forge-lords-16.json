@@ -1,0 +1,118 @@
+{
+  "_id": "JIX8Ki4xhXBCSbTY",
+  "_key": "!tables!JIX8Ki4xhXBCSbTY",
+  "name": "Forge Lords — Particular strength",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ssT4rywI7ZGfFBPc",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.ssT4rywI7ZGfFBPc",
+      "type": "text",
+      "name": "",
+      "description": "A steel-rending bite (3 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "heBx03ZVMXMLzVRi",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.heBx03ZVMXMLzVRi",
+      "type": "text",
+      "name": "",
+      "description": "Great size (<em>huge</em>, +4 HP, +2 damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "u5wzsCkip85scSRC",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.u5wzsCkip85scSRC",
+      "type": "text",
+      "name": "",
+      "description": "A glance that befuddles (<em>reach</em>, <em>area</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5vnZg4ZbDcVL1cDw",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.5vnZg4ZbDcVL1cDw",
+      "type": "text",
+      "name": "",
+      "description": "Breath that poisons as well as burns",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f1XLnIrMXi8VEupi",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.f1XLnIrMXi8VEupi",
+      "type": "text",
+      "name": "",
+      "description": "Blood that burns like lit naphtha, d10+1 damage (<em>hand</em>, <em>area</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JwnjclkaibMagVCl",
+      "_key": "!tables.results!JIX8Ki4xhXBCSbTY.JwnjclkaibMagVCl",
+      "type": "text",
+      "name": "",
+      "description": "A venomous stinger in its tail, d12+3 damage (<em>reach</em>, <em>forceful</em>, 1 piercing, weakens or paralyzes)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18016,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

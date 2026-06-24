@@ -3,7 +3,7 @@
 	"_key": "!items!44UwcP6QXmw0SUtR",
 	"name": "Azure Hand",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/azure-hand.png",
+	"img": "systems/stonetop/assets/content/arcana/azure-hand.png",
 	"system": {
 		"slug": "azure-hand",
 		"front": {

@@ -1,0 +1,102 @@
+{
+  "_id": "AoS9A3lFFWhESv7W",
+  "_key": "!tables!AoS9A3lFFWhESv7W",
+  "name": "Titan Bones — While they wait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Q4LBPfNO9psHbufG",
+      "_key": "!tables.results!AoS9A3lFFWhESv7W.Q4LBPfNO9psHbufG",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>danger</strong> (next page) manifests!",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sz2KfhOtFKulvASu",
+      "_key": "!tables.results!AoS9A3lFFWhESv7W.sz2KfhOtFKulvASu",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Travelers</strong> (page 272) approach on the road",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F8Q3Z5U6k8B31gsi",
+      "_key": "!tables.results!AoS9A3lFFWhESv7W.F8Q3Z5U6k8B31gsi",
+      "type": "text",
+      "name": "",
+      "description": "Folks get antsy/bored/irritable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SfztqbID6JyrTO3L",
+      "_key": "!tables.results!AoS9A3lFFWhESv7W.SfztqbID6JyrTO3L",
+      "type": "text",
+      "name": "",
+      "description": "Someone makes a discovery: something odd, out of place, recently unearthed, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ch4naSip3nb2yPEq",
+      "_key": "!tables.results!AoS9A3lFFWhESv7W.Ch4naSip3nb2yPEq",
+      "type": "text",
+      "name": "",
+      "description": "Time passes pleasantly (how so?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 48001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

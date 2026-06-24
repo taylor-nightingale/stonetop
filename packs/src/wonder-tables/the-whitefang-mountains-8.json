@@ -1,0 +1,214 @@
+{
+  "_id": "4gxKu75eUyx79coF",
+  "_key": "!tables!4gxKu75eUyx79coF",
+  "name": "The Whitefang Mountains — Everyone here...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uLY2cVJaXg6EtFLR",
+      "_key": "!tables.results!4gxKu75eUyx79coF.uLY2cVJaXg6EtFLR",
+      "type": "text",
+      "name": "",
+      "description": "… abides by a caste system",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bRTeYndGMHozA4ek",
+      "_key": "!tables.results!4gxKu75eUyx79coF.bRTeYndGMHozA4ek",
+      "type": "text",
+      "name": "",
+      "description": "… eats some unappetizing food",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fwYUCV63x2XXPK9Q",
+      "_key": "!tables.results!4gxKu75eUyx79coF.fwYUCV63x2XXPK9Q",
+      "type": "text",
+      "name": "",
+      "description": "… writes wishes/prayers on rags, flapping in the wind",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nizAhrma8lpG4DyM",
+      "_key": "!tables.results!4gxKu75eUyx79coF.nizAhrma8lpG4DyM",
+      "type": "text",
+      "name": "",
+      "description": "… is accompanied by a clever, loyal pet",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nOkWCvOYixHUHGrB",
+      "_key": "!tables.results!4gxKu75eUyx79coF.nOkWCvOYixHUHGrB",
+      "type": "text",
+      "name": "",
+      "description": "… is beautiful/strong/skilled in __/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QmdHjXNmZgXEAUYt",
+      "_key": "!tables.results!4gxKu75eUyx79coF.QmdHjXNmZgXEAUYt",
+      "type": "text",
+      "name": "",
+      "description": "… lives communally, with no personal possessions/space/family",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "835fFmFQkj9ZntWG",
+      "_key": "!tables.results!4gxKu75eUyx79coF.835fFmFQkj9ZntWG",
+      "type": "text",
+      "name": "",
+      "description": "… reads/studies/debates the teachings of a/the Rime Lord(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DxSLlpStywQHvwgL",
+      "_key": "!tables.results!4gxKu75eUyx79coF.DxSLlpStywQHvwgL",
+      "type": "text",
+      "name": "",
+      "description": "… refers to (certain?) things/people only indirectly, poetically",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "exttLK5ZfH3VvFHV",
+      "_key": "!tables.results!4gxKu75eUyx79coF.exttLK5ZfH3VvFHV",
+      "type": "text",
+      "name": "",
+      "description": "… speaks truth, however blunt/unkind",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XRWcXGTVvOoj784X",
+      "_key": "!tables.results!4gxKu75eUyx79coF.XRWcXGTVvOoj784X",
+      "type": "text",
+      "name": "",
+      "description": "… stops to pray/sing/meditate/ dance at specific times each day",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VZBvzbRVGOna00GL",
+      "_key": "!tables.results!4gxKu75eUyx79coF.VZBvzbRVGOna00GL",
+      "type": "text",
+      "name": "",
+      "description": "… trains as warriors/practices pacifism",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WxfNAdM1HU6Q98SQ",
+      "_key": "!tables.results!4gxKu75eUyx79coF.WxfNAdM1HU6Q98SQ",
+      "type": "text",
+      "name": "",
+      "description": "… wears/bears a particular type of clothing/accessory/decoration",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

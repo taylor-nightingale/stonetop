@@ -1,0 +1,45 @@
+{
+  "_id": "S9QqebPpXKzVXbxn",
+  "_key": "!actors!S9QqebPpXKzVXbxn",
+  "name": "The White Billies",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-white-billies",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "fae",
+        "athletic",
+        "raucous"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "4 (resilience), 0 vs. iron",
+    "damage": "headbutt d6+2 (hand, forceful)",
+    "specialQuality": "Fae nature (page 98)",
+    "instinct": {
+      "selected": [
+        "to suppress their grief"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Drag someone into their revels\n- Get huffy if refused\n- Lash out if forced to face the past\n\nMuscular folk with cloven hooves, birch- white fur, and horns in every size and shape. They seem so happy, their endless days spent dancing and singing, drinking and rutting, indulging in good-natured brawls. But when you look closer, you see the scars. You see the missing limbs, the broken horns. You see, briefly, the eyes so full of pain. But, no, no, it’s gone. Another dance! Another round! Another bawdy song! When you join the White Billies in their revels, lose 1d6 HP, mark a debility, and roll +CON: on a 10+, you keep your wits about you and learn something useful; on a 7-9, you regain your wits later, drunk and exhausted (mark another debility), with some new excess about to start; on a 6-, mark another debility and pick 1: You’ve upset them; real violence is imminent You come to later, alone, and who knows how long it’s been You’re enthralled, reveling endlessly until someone rescues you",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

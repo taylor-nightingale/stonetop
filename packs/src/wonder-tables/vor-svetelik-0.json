@@ -1,0 +1,150 @@
+{
+  "_id": "xOWKHOkLLktxxl9O",
+  "_key": "!tables!xOWKHOkLLktxxl9O",
+  "name": "Vor Svetelik — Surface terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "c320fptPwJFGebSj",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.c320fptPwJFGebSj",
+      "type": "text",
+      "name": "",
+      "description": "Stretch of true death, where nothing has grown or decayed for hundreds of years",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "q8auU5sDgSz0mW3C",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.q8auU5sDgSz0mW3C",
+      "type": "text",
+      "name": "",
+      "description": "Pool/fountain/stream/standing water—dark and unwholesome",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lKJsZWftUDNCYsWy",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.lKJsZWftUDNCYsWy",
+      "type": "text",
+      "name": "",
+      "description": "Hill/cliff/outcrop, perhaps a place where the land buckled and split*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8Br8OyIggHfYzYC7",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.8Br8OyIggHfYzYC7",
+      "type": "text",
+      "name": "",
+      "description": "Stretch of sickly white trees",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OBGPFKkvqvrBvGXt",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.OBGPFKkvqvrBvGXt",
+      "type": "text",
+      "name": "",
+      "description": "Infrastructure/bridge/aqueduct/ cistern/sewer*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TK177tqSZEGjeyvE",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.TK177tqSZEGjeyvE",
+      "type": "text",
+      "name": "",
+      "description": "green lord ruin* (see next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mfNTFgcI0l8HrsWP",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.mfNTFgcI0l8HrsWP",
+      "type": "text",
+      "name": "",
+      "description": "Rubble, peeking out from dirt and groundcover",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IM2XQUB3rwLBs6Wo",
+      "_key": "!tables.results!xOWKHOkLLktxxl9O.IM2XQUB3rwLBs6Wo",
+      "type": "text",
+      "name": "",
+      "description": "Crevasse/sinkhole, like a scar in the earth*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

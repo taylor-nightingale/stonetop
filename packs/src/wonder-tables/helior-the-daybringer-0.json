@@ -1,0 +1,166 @@
+{
+  "_id": "72kju6rknDSrZZOX",
+  "_key": "!tables!72kju6rknDSrZZOX",
+  "name": "Helior, the Daybringer — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "1bkoQLmoFngN3fpe",
+      "_key": "!tables.results!72kju6rknDSrZZOX.1bkoQLmoFngN3fpe",
+      "type": "text",
+      "name": "",
+      "description": "The sun/day/light",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IHc2uUGgEtILMjFz",
+      "_key": "!tables.results!72kju6rknDSrZZOX.IHc2uUGgEtILMjFz",
+      "type": "text",
+      "name": "",
+      "description": "Hope/courage/aspiration",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aktlCeVohntV6CJq",
+      "_key": "!tables.results!72kju6rknDSrZZOX.aktlCeVohntV6CJq",
+      "type": "text",
+      "name": "",
+      "description": "Mercy/charity/kindness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KIjYRJz1YS5xDlwe",
+      "_key": "!tables.results!72kju6rknDSrZZOX.KIjYRJz1YS5xDlwe",
+      "type": "text",
+      "name": "",
+      "description": "Truth/revelation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LqR4JOfdbvFFFjVU",
+      "_key": "!tables.results!72kju6rknDSrZZOX.LqR4JOfdbvFFFjVU",
+      "type": "text",
+      "name": "",
+      "description": "Fire/burning/warmth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y4ElRv98CEvxnPsP",
+      "_key": "!tables.results!72kju6rknDSrZZOX.y4ElRv98CEvxnPsP",
+      "type": "text",
+      "name": "",
+      "description": "Glory/awe/majesty",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "w7RXRAaV7EZWtTJE",
+      "_key": "!tables.results!72kju6rknDSrZZOX.w7RXRAaV7EZWtTJE",
+      "type": "text",
+      "name": "",
+      "description": "Radiance/beauty/intensity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1rb79ajYIDiCLf5S",
+      "_key": "!tables.results!72kju6rknDSrZZOX.1rb79ajYIDiCLf5S",
+      "type": "text",
+      "name": "",
+      "description": "Refuge/sanctity/defense",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wf77ZnpTWZIiAenl",
+      "_key": "!tables.results!72kju6rknDSrZZOX.Wf77ZnpTWZIiAenl",
+      "type": "text",
+      "name": "",
+      "description": "Purification/cleansing/redemption",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 25000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

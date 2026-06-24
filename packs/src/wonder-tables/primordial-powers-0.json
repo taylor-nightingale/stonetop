@@ -1,0 +1,214 @@
+{
+  "_id": "HS32DbH7UY1JzKC8",
+  "_key": "!tables!HS32DbH7UY1JzKC8",
+  "name": "Primordial powers — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "tcPAyOmS3QQV86V8",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.tcPAyOmS3QQV86V8",
+      "type": "text",
+      "name": "",
+      "description": "Vastness, enormity, incomprehensibility, the primordial void",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RyLCLLGhbcBwSLRG",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.RyLCLLGhbcBwSLRG",
+      "type": "text",
+      "name": "",
+      "description": "Truth, purity, quintessence, the raw stuff of creation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hhmoxuGQuDfImD82",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.hhmoxuGQuDfImD82",
+      "type": "text",
+      "name": "",
+      "description": "Fundamental forces: order, chaos, time, space, gravity, light, death, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Sd4kFqIeD2kmHbVz",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.Sd4kFqIeD2kmHbVz",
+      "type": "text",
+      "name": "",
+      "description": "The spirit world: consciousness, symbols and thought, the connection of all things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cTjo6Ps8PZ0mA1TO",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.cTjo6Ps8PZ0mA1TO",
+      "type": "text",
+      "name": "",
+      "description": "True names, words of power, speech that transcends language",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UEVjcQvHZBoZDgJv",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.UEVjcQvHZBoZDgJv",
+      "type": "text",
+      "name": "",
+      "description": "Celestial bodies: their movements, their mysteries, their influence on the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H5ItyJwzUPn2HyqF",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.H5ItyJwzUPn2HyqF",
+      "type": "text",
+      "name": "",
+      "description": "Paradox: destiny and free will, causal loops, infinity, mutually exclusive truths",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WCuwfilJW87fZ3X5",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.WCuwfilJW87fZ3X5",
+      "type": "text",
+      "name": "",
+      "description": "Natural forces and the shaping of the word: slow and subtle, violent and cataclysmic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1tcdYvHxqAWlDS8D",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.1tcdYvHxqAWlDS8D",
+      "type": "text",
+      "name": "",
+      "description": "The binding of the <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rpfklczHO4Kc6TTf",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.rpfklczHO4Kc6TTf",
+      "type": "text",
+      "name": "",
+      "description": "Mythic times and mythic deeds, the birth and death of gods and legends",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vd0FWxri3EKlXugs",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.Vd0FWxri3EKlXugs",
+      "type": "text",
+      "name": "",
+      "description": "Long-forgotten peoples/beings, from before the rise of the Makers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1gZRAmksFVq2TVKO",
+      "_key": "!tables.results!HS32DbH7UY1JzKC8.1gZRAmksFVq2TVKO",
+      "type": "text",
+      "name": "",
+      "description": "Portals, possibilities, other worlds, beings/things out of time and space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

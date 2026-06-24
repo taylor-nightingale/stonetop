@@ -1,0 +1,118 @@
+{
+  "_id": "gkkJNFxgeTUspOCz",
+  "_key": "!tables!gkkJNFxgeTUspOCz",
+  "name": "The Ruined Tower — Encounter (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PERrPXwomsveudyB",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.PERrPXwomsveudyB",
+      "type": "text",
+      "name": "",
+      "description": "A dangerous entity: imprisoned, bound, in stasis",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r2U0UQSZwtFeXM2m",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.r2U0UQSZwtFeXM2m",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>pyped</strong> (page 82), trawling the depths for bones to sup on",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CcK8j1w1EPO4KtSX",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.CcK8j1w1EPO4KtSX",
+      "type": "text",
+      "name": "",
+      "description": "The <strong>ghost</strong> (page 76) of someone who died in the attack, still running, trying to escape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uxLujFc8doIXpseA",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.uxLujFc8doIXpseA",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Star-moles</strong> (page 347): digging, foraging, or being hunted",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vPH4AQHlGKrjygHx",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.vPH4AQHlGKrjygHx",
+      "type": "text",
+      "name": "",
+      "description": "Uncanny fungus/lichen/vermin (glowing, humming, feeding on ghosts, etc.), maybe dangerous but not outright hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vaBu6mtHEN4fBFse",
+      "_key": "!tables.results!gkkJNFxgeTUspOCz.vaBu6mtHEN4fBFse",
+      "type": "text",
+      "name": "",
+      "description": "A ﻿<strong>patchwork ﻿construct</strong> (page 348), on some task for ﻿Ferocedes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

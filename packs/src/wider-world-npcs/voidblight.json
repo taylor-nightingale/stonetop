@@ -1,0 +1,47 @@
+{
+  "_id": "JeGP4UtHAg8GPxHh",
+  "_key": "!actors!JeGP4UtHAg8GPxHh",
+  "name": "Voidblight",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "voidblight",
+    "reference": "primordial-powers",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "spirit",
+        "primordial",
+        "stealthy",
+        "hungry",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "1 (lacks vitals)",
+    "damage": "spirit-rending bite d6+2 (hand, grabby)",
+    "specialQuality": "can harm only spirits and mortals sensitive to the spirit world; harmed only by other spirits or magic attacks",
+    "instinct": {
+      "selected": [
+        "to eat and spawn"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Follow the “scent” of a rift or a spirit-walker\n- Mimic a spirit it has eaten\n- Pounce on unsuspecting prey\n- After a good meal: spawn another of its kind\n\nTo those who can perceive them, they seem like many-limbed salamanders made of star- filled night. Their broad, flat, eyeless heads split open into rows of glittering teeth. They are alien things, spiritual scavengers and predators. They haunt forgotten cor- ners of the spirit world, the dead world- motes that float through the cosmic void. Mostly, they wait and hunger. But if they catch the scent of a traveler, or worse, a rift (page 311) into our world, they will follow it.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

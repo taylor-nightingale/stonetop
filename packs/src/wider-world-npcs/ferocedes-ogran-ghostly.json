@@ -1,0 +1,50 @@
+{
+  "_id": "8UOrRQNuPTrhMiJV",
+  "_key": "!actors!8UOrRQNuPTrhMiJV",
+  "name": "Ferocedes Ogran, ghostly",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ferocedes-ogran-ghostly",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Forge Lord",
+        "Solitary",
+        "large",
+        "spirit",
+        "undead",
+        "magical",
+        "organized",
+        "obsessive",
+        "absentminded"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "4 (metal, amorphous)",
+    "damage": "pummel d12+3 (close, reach, forceful) or barrage of metal d10+1 (near, area, messy, forceful, reload, 1 piercing)",
+    "specialQuality": "tethered to his forge, and can’t venture far from it; speaks Tem- pest Lord (understood by all)",
+    "instinct": {
+      "selected": [
+        "to preserve/restore the tower, to ignore harsh truths"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a cloud of ember and ash, a voice of crackling flame\n- Ask what they’ve brought him, if that one task is done yet, etc.\n- Fail to understand their speech\n- Grow annoyed, angry, violent\n- Manipulate metal, telekinetically\n- Repair metal, or shape it anew\n- Animate a body formed of metal tools, parts, and scrap\n\nIn life, he was a brilliant but awkward Maker. Rivals sabotaged him, and he left his people in shame. Stormcatcher took him in, trusted him, gave him purpose— and for that, Ferocedes was rabidly loyal. Loyal unto death, and beyond. He died without noticing it. He had no time to treat the wounds he had suffered. Stormcatcher needed his skills. Needed his creations. Needed him. So Ferocedes was already a ghost when Stormcatcher cast her final spell. And in the centuries since, he has fixated on his task: to reclaim, rebuild, and repair, little by little, with what tools he has, and preserve the memory of his friend.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

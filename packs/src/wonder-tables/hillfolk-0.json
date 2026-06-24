@@ -1,0 +1,214 @@
+{
+  "_id": "dXLPfgcoCrUmFDGz",
+  "_key": "!tables!dXLPfgcoCrUmFDGz",
+  "name": "Hillfolk — Trait",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "oDoEQiApVyrzH5aZ",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.oDoEQiApVyrzH5aZ",
+      "type": "text",
+      "name": "",
+      "description": "Particularly large or small, prosperous or poor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4Q817yXxF0vOCbfJ",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.4Q817yXxF0vOCbfJ",
+      "type": "text",
+      "name": "",
+      "description": "“Picked band,” made of unrelated adults, few children among them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8rMF9TXRQ25BDijT",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.8rMF9TXRQ25BDijT",
+      "type": "text",
+      "name": "",
+      "description": "Worship a particular deity, revere a particular spirit",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "43XbSzrTnUrZCVFz",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.43XbSzrTnUrZCVFz",
+      "type": "text",
+      "name": "",
+      "description": "Famous member, now or in the past",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OdwWNbJ25d8QwQCg",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.OdwWNbJ25d8QwQCg",
+      "type": "text",
+      "name": "",
+      "description": "Keep dangerous beasts (boars, drakes, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mCcAe1St694uyiU3",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.mCcAe1St694uyiU3",
+      "type": "text",
+      "name": "",
+      "description": "Ride something other than horses (aurochs, Huffel rams, big deer)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U5eA7AGB991I9sRO",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.U5eA7AGB991I9sRO",
+      "type": "text",
+      "name": "",
+      "description": "Tend to be large/slender/tall/ short/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i2eq73ZqkHFvTZFZ",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.i2eq73ZqkHFvTZFZ",
+      "type": "text",
+      "name": "",
+      "description": "Especially fierce/friendly/territorial/aggressive/political/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dXSCp8DPKjp8oU7r",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.dXSCp8DPKjp8oU7r",
+      "type": "text",
+      "name": "",
+      "description": "Extraordinarily large/fast/clever/ fearless/etc. horses",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F0SK6IoysrAFWhUH",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.F0SK6IoysrAFWhUH",
+      "type": "text",
+      "name": "",
+      "description": "Produce more than their share of spirit-talkers/hdours/<strong>gouzadn</strong> (page 378)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9E2luAcLRkHfHERE",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.9E2luAcLRkHfHERE",
+      "type": "text",
+      "name": "",
+      "description": "Guard a greatly feared and cursed ruin/barrow/area",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "93GIDNubqiohxMzE",
+      "_key": "!tables.results!dXLPfgcoCrUmFDGz.93GIDNubqiohxMzE",
+      "type": "text",
+      "name": "",
+      "description": "Not actually nomadic; they stay in cliff-dwellings all year",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 26000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

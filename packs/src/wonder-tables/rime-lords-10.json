@@ -1,0 +1,118 @@
+{
+  "_id": "o2lDndGf9OachVY2",
+  "_key": "!tables!o2lDndGf9OachVY2",
+  "name": "Rime Lords — Purpose (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "2u8K8BExHXy5dwHa",
+      "_key": "!tables.results!o2lDndGf9OachVY2.2u8K8BExHXy5dwHa",
+      "type": "text",
+      "name": "",
+      "description": "Battle/sparring/protection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y5zaBdqveRIoFUIb",
+      "_key": "!tables.results!o2lDndGf9OachVY2.y5zaBdqveRIoFUIb",
+      "type": "text",
+      "name": "",
+      "description": "Companionship/advice/diplomacy/ subterfuge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xPehbRvsDjBPDD9P",
+      "_key": "!tables.results!o2lDndGf9OachVY2.xPehbRvsDjBPDD9P",
+      "type": "text",
+      "name": "",
+      "description": "Labor/mundane tasks/convenience",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CJvWm1Vu2AqTvGrQ",
+      "_key": "!tables.results!o2lDndGf9OachVY2.CJvWm1Vu2AqTvGrQ",
+      "type": "text",
+      "name": "",
+      "description": "Curiosity/instruction/assistance/ practice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QI5AC3YbkWIo7AYk",
+      "_key": "!tables.results!o2lDndGf9OachVY2.QI5AC3YbkWIo7AYk",
+      "type": "text",
+      "name": "",
+      "description": "Something obscure, or very specific",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ArrZUTa04pnaHFXg",
+      "_key": "!tables.results!o2lDndGf9OachVY2.ArrZUTa04pnaHFXg",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

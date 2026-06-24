@@ -1,0 +1,118 @@
+{
+  "_id": "PbhO0fVOwwq6gMr8",
+  "_key": "!tables!PbhO0fVOwwq6gMr8",
+  "name": "Fomoraij — Infection",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "JKm20DELo9dRMkoc",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.JKm20DELo9dRMkoc",
+      "type": "text",
+      "name": "",
+      "description": "A bug/worm/vine, burrowed into their brain/spine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5g8rno00axn4Zv1r",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.5g8rno00axn4Zv1r",
+      "type": "text",
+      "name": "",
+      "description": "A foul substance, injected/inhaled/ imbibed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3El2B2QeQdPL3vkW",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.3El2B2QeQdPL3vkW",
+      "type": "text",
+      "name": "",
+      "description": "A fungus/plant, growing under their skin",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Oshz6GW6yllrf1P5",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.Oshz6GW6yllrf1P5",
+      "type": "text",
+      "name": "",
+      "description": "A spirit possessing their body, bound by intricate scars/tattoos",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1gJVy3JLQGdwQloG",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.1gJVy3JLQGdwQloG",
+      "type": "text",
+      "name": "",
+      "description": "A mass of vermin/a single horror, eating them from the inside out",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4FhdpYXJ1vw4h9Qw",
+      "_key": "!tables.results!PbhO0fVOwwq6gMr8.4FhdpYXJ1vw4h9Qw",
+      "type": "text",
+      "name": "",
+      "description": "One or more shards of <strong>red crystal</strong> (page 424) embedded in their skull",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

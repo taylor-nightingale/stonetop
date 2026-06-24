@@ -1,0 +1,118 @@
+{
+  "_id": "dVhH0EscwtDG5JPJ",
+  "_key": "!tables!dVhH0EscwtDG5JPJ",
+  "name": "Barrow Builders — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ABFQ69h9ZxgOIOhi",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.ABFQ69h9ZxgOIOhi",
+      "type": "text",
+      "name": "",
+      "description": "<strong>An old scroll case</strong> (page 508)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T757PwGFZE7NzZo8",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.T757PwGFZE7NzZo8",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A tattered mantle</strong> (page 512)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A9rAsIiTOjB2B5Od",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.A9rAsIiTOjB2B5Od",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A disturbing mask</strong> (page 529)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rBvVZiahKv2vt2eU",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.rBvVZiahKv2vt2eU",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A vellum scroll</strong> (page 530)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eGENtitRXGCKZR9q",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.eGENtitRXGCKZR9q",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A silvery signet ring</strong> (page 535)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qESIEfAGmEzZNI9g",
+      "_key": "!tables.results!dVhH0EscwtDG5JPJ.qESIEfAGmEzZNI9g",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A mummified hand</strong> (page 536)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

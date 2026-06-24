@@ -1,0 +1,46 @@
+{
+  "_id": "Z2Uo6v7oD8DQ2hi9",
+  "_key": "!actors!Z2Uo6v7oD8DQ2hi9",
+  "name": "Dool spirit",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "dool-spirit",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Group",
+        "spirit",
+        "terrifying",
+        "stealthy",
+        "devious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 13,
+      "max": 13
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "feast on fears d6 w/disadvantage (hand, close, ignores armor)",
+    "specialQuality": "powerless in bright light  bound to its tree or a victim’s bones",
+    "instinct": {
+      "selected": [
+        "to taste sweet, delicious fears"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense a victim’s doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim’s fears (harmed only by one who masters their fear)\n- Bind itself to a victim’s bones\n\nDool spirits hail from beyond the Last Door. They are not undead, for they never lived, but are native to the afterlife. They sometimes slip into this world, haunting the dool trees (page 73) from which they get their name. When a dool spirit takes a liking to a vic- tim’s fears, it leaves its tree and binds itself to that victim’s very bones. It proceeds to haunt them, and only them, driving them mad with fear. The spirit remains bound to that victim’s bones even in death, until a new dool tree sprouts where those bones",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "ojIZQFadAybcXDD7",
+  "_key": "!tables!ojIZQFadAybcXDD7",
+  "name": "The Labyrinth — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "scHFFRscqYgHrUS3",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.scHFFRscqYgHrUS3",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (previous page) and roll again.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wn5MpobN2XnQoq0e",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.Wn5MpobN2XnQoq0e",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ljnpIUa2XHInvzNB",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.ljnpIUa2XHInvzNB",
+      "type": "text",
+      "name": "",
+      "description": "An encounter with thraulgwyn (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U1NchVL9EJeQJaAU",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.U1NchVL9EJeQJaAU",
+      "type": "text",
+      "name": "",
+      "description": "Some other encounter (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "R1ILmzWI7x4iRrjJ",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.R1ILmzWI7x4iRrjJ",
+      "type": "text",
+      "name": "",
+      "description": "An opportunity (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0FXkfrKsrsCqchp4",
+      "_key": "!tables.results!ojIZQFadAybcXDD7.0FXkfrKsrsCqchp4",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (page 246)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

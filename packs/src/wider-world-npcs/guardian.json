@@ -1,0 +1,44 @@
+{
+  "_id": "A0tTVEIgpM3LBhIn",
+  "_key": "!actors!A0tTVEIgpM3LBhIn",
+  "name": "Guardian",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "guardian",
+    "reference": "barrier-pass",
+    "tagList": {
+      "selected": [
+        "Group",
+        "organized",
+        "skilled"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "3 (bronze shields, mail)",
+    "damage": "bronze mace d8 (close, forceful) or mancatcher d6 (reach, grabby) or bola d6 (thrown, grabby, awkward)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to subdue or drive off threats"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Deftly execute a group maneuver\n- Ensnare a foe\n- Club someone senseless\n- Resort to deadly force in the heat of the moment",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

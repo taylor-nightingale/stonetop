@@ -1,0 +1,102 @@
+{
+  "_id": "q5oXQJlkNggEhDHK",
+  "_key": "!tables!q5oXQJlkNggEhDHK",
+  "name": "The Ruined Tower — Discovery (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LwB5XpiMp1H0I9AY",
+      "_key": "!tables.results!q5oXQJlkNggEhDHK.LwB5XpiMp1H0I9AY",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F3XQge6blRzoQ2CJ",
+      "_key": "!tables.results!q5oXQJlkNggEhDHK.F3XQge6blRzoQ2CJ",
+      "type": "text",
+      "name": "",
+      "description": "A vignette of the fall of the tower (see below): a vitrified tableau, remains, physical evidence, psychic imprints, writing, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BccCk6Fa6Zz5VjAW",
+      "_key": "!tables.results!q5oXQJlkNggEhDHK.BccCk6Fa6Zz5VjAW",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rCB82E6qgO31q643",
+      "_key": "!tables.results!q5oXQJlkNggEhDHK.rCB82E6qgO31q643",
+      "type": "text",
+      "name": "",
+      "description": "An opportunity (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oYcBRA26EbJuMIcE",
+      "_key": "!tables.results!q5oXQJlkNggEhDHK.oYcBRA26EbJuMIcE",
+      "type": "text",
+      "name": "",
+      "description": "treasure! (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

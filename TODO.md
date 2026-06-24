@@ -33,8 +33,4 @@
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 * support non-stonetop steading sheets
-c
-
-
-
 

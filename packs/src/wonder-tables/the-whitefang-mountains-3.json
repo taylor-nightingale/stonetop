@@ -1,0 +1,102 @@
+{
+  "_id": "AxCsf5FVDB5hYGbf",
+  "_key": "!tables!AxCsf5FVDB5hYGbf",
+  "name": "The Whitefang Mountains — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "lpPwRxafPW1FiFSz",
+      "_key": "!tables.results!AxCsf5FVDB5hYGbf.lpPwRxafPW1FiFSz",
+      "type": "text",
+      "name": "",
+      "description": "A settlement (see below), overrun/destroyed by <strong>kyakaara</strong> (page 493)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bM6jhyow6U3RhJyr",
+      "_key": "!tables.results!AxCsf5FVDB5hYGbf.bM6jhyow6U3RhJyr",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F8V7NIKdpgybFFMV",
+      "_key": "!tables.results!AxCsf5FVDB5hYGbf.F8V7NIKdpgybFFMV",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by the dead or undying (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VNDRB8eKDn0lICkx",
+      "_key": "!tables.results!AxCsf5FVDB5hYGbf.VNDRB8eKDn0lICkx",
+      "type": "text",
+      "name": "",
+      "description": "A site sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356) or perhaps a <strong>Fae</strong> <strong>domain</strong> (page 102)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VzHP0DAE0RbmFbKT",
+      "_key": "!tables.results!AxCsf5FVDB5hYGbf.VzHP0DAE0RbmFbKT",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Rime</strong> <strong>Lords</strong> (page 316)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

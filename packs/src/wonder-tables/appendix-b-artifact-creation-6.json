@@ -1,0 +1,102 @@
+{
+  "_id": "XDV9IUo8RKeL6OgB",
+  "_key": "!tables!XDV9IUo8RKeL6OgB",
+  "name": "APPENDIX B: Artifact Creation — Type of binding",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "fiP5DOF0IBy7ajN7",
+      "_key": "!tables.results!XDV9IUo8RKeL6OgB.fiP5DOF0IBy7ajN7",
+      "type": "text",
+      "name": "",
+      "description": "Imprisoned and locked away (though imperfectly)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cFous7GDBAvVu7Gy",
+      "_key": "!tables.results!XDV9IUo8RKeL6OgB.cFous7GDBAvVu7Gy",
+      "type": "text",
+      "name": "",
+      "description": "Fettered, enslaved, forced to serve",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MUVDkddBgHLNCdKD",
+      "_key": "!tables.results!XDV9IUo8RKeL6OgB.MUVDkddBgHLNCdKD",
+      "type": "text",
+      "name": "",
+      "description": "Serves willingly, bound by its own nature/desires",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h1gfqxPk4wGVbyF6",
+      "_key": "!tables.results!XDV9IUo8RKeL6OgB.h1gfqxPk4wGVbyF6",
+      "type": "text",
+      "name": "",
+      "description": "Trapped by accident, desperation, twist of fate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dB4Wog32fD1rESPY",
+      "_key": "!tables.results!XDV9IUo8RKeL6OgB.dB4Wog32fD1rESPY",
+      "type": "text",
+      "name": "",
+      "description": "Dwells here naturally, spontaneously",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

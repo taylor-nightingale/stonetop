@@ -1,0 +1,86 @@
+{
+  "_id": "TrkbJXt5RvAgGk7P",
+  "_key": "!tables!TrkbJXt5RvAgGk7P",
+  "name": "Death and the undying — How tightly bound",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "rLFOxtIllHMRBm4I",
+      "_key": "!tables.results!TrkbJXt5RvAgGk7P.rLFOxtIllHMRBm4I",
+      "type": "text",
+      "name": "",
+      "description": "Can’t leave its immediate presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "q8ilDfcnlAhpyR41",
+      "_key": "!tables.results!TrkbJXt5RvAgGk7P.q8ilDfcnlAhpyR41",
+      "type": "text",
+      "name": "",
+      "description": "Must stay on the premises/site",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nF4xqc4cEABKfVx3",
+      "_key": "!tables.results!TrkbJXt5RvAgGk7P.nF4xqc4cEABKfVx3",
+      "type": "text",
+      "name": "",
+      "description": "Can roam a few miles; returns daily",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h5dwBJSyMiAg3hE8",
+      "_key": "!tables.results!TrkbJXt5RvAgGk7P.h5dwBJSyMiAg3hE8",
+      "type": "text",
+      "name": "",
+      "description": "Can wander far and wide, but must return periodically",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

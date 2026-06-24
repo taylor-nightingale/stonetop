@@ -1,0 +1,118 @@
+{
+  "_id": "KtN0zmAcF0FXdhy2",
+  "_key": "!tables!KtN0zmAcF0FXdhy2",
+  "name": "Death and the undying — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vM8ZTZdIXcCqERCD",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.vM8ZTZdIXcCqERCD",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Carvings in a cave</strong> (page 510)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d40phVUOGcNIDx15",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.d40phVUOGcNIDx15",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A grim peat mound</strong> (page 511)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8LUacVvsOdkhdtzT",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.8LUacVvsOdkhdtzT",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A tattered mantle</strong> (page 512)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hqmNNbdcGlSdU9IR",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.hqmNNbdcGlSdU9IR",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A scroll &amp; bone flute</strong> (page 514)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f932ufoxa0hPea4D",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.f932ufoxa0hPea4D",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A chain of rusty locks</strong> (page 515)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vIrxWp6CVZqH92wq",
+      "_key": "!tables.results!KtN0zmAcF0FXdhy2.vIrxWp6CVZqH92wq",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A vein of milky crystal</strong> (page 536)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

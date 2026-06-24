@@ -1,0 +1,118 @@
+{
+  "_id": "7uRQyH5W6y4bdnaq",
+  "_key": "!tables!7uRQyH5W6y4bdnaq",
+  "name": "The Dread River — Lesser curse",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "iLA5laYULAcgqCjM",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.iLA5laYULAcgqCjM",
+      "type": "text",
+      "name": "",
+      "description": "Food and drink become bland, then off-putting, then vile (yet you must still eat and drink)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wGUhzIb6BmgOobHk",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.wGUhzIb6BmgOobHk",
+      "type": "text",
+      "name": "",
+      "description": "Nightmares plague you and those with whom you share a roof; restful sleep is fleeting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mA31V0I1OhJN3va1",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.mA31V0I1OhJN3va1",
+      "type": "text",
+      "name": "",
+      "description": "Wild beasts attack you with unnatural frequency and focus; domestic beasts are agitated in your presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1EcXcCiloukDkFhm",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.1EcXcCiloukDkFhm",
+      "type": "text",
+      "name": "",
+      "description": "You age quickly, a year for every month",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hmXletn7tYWJwCLX",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.hmXletn7tYWJwCLX",
+      "type": "text",
+      "name": "",
+      "description": "You cannot abide the sound of singing/the touch of loved ones/ food cooked by another/any gift freely given/some other thing that ties you to other people",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m3w3a8DBH5Q6g7ut",
+      "_key": "!tables.results!7uRQyH5W6y4bdnaq.m3w3a8DBH5Q6g7ut",
+      "type": "text",
+      "name": "",
+      "description": "You hear <strong>whispers and visions</strong> (page 428), urging you to do things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 11005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

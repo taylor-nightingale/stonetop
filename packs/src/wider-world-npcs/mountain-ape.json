@@ -1,0 +1,45 @@
+{
+  "_id": "iZONPdl63NyuZU9s",
+  "_key": "!actors!iZONPdl63NyuZU9s",
+  "name": "Mountain ape",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mountain-ape",
+    "reference": "the-whitefang-mountains",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cautious",
+        "stealthy",
+        "hoarder"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "1 (thick fur, hide)",
+    "damage": "grasping hands d8+2 (reach, close, grabby, forceful)",
+    "specialQuality": "arboreal, cold proof, keen senses of smell and hearing",
+    "instinct": {
+      "selected": [
+        "to keep their secrets"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Hide in the trees or snowdrifts\n- Try to lure/spook intruders away\n- Reach out, snatch an intruder by surprise\n- Crush/rend/break a grabbed foe, d8+2 damage w/advantage (hand, forceful, messy, 1 piercing)\n\nLike orangutans but taller, more powerfully built, with thick, shaggy white hair. They dwell in small bands, in Rime Lord ruins (page 320) or sacred sites (page 362) that are far from any well-trod trails. They venture out to hunt and gather, but avoid people as much as they can. Each band of mountain apes collects things: a particular type of plant or flower, the bones of certain animals, bits of writing, dark ice (page 322), etc. They keep these hoards in a central place, hidden away, revered and treasured even more than their own children or their lives. Particularly large or well-established bands will have an alpha (large, leader, +6 HP, +1 damage) who does nothing but protect the hoard.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

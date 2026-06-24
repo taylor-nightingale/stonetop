@@ -1,0 +1,45 @@
+{
+  "_id": "2XjyN4COnOzWtm6E",
+  "_key": "!actors!2XjyN4COnOzWtm6E",
+  "name": "Wretch",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "wretch",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy",
+        "terrifying",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "malformed appendages d6 (hand, close, grabby)",
+    "specialQuality": "horribly misshapen, bound to their prison, burnt by bronze (+1d6 damage)",
+    "instinct": {
+      "selected": [
+        "to make the pain stop"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Moan, whisper, wail\n- Reveal themselves, terribly\n- Heal wounds, regrow limbs, get back up\n\nThe victims of L’bin’bozia (Flesh-Can- dle, the Wax Skull, Roiling Tomb) find themselves turned into… things. Furniture. Decoration. Masses of flesh where it’s hard to see where one poor soul ends and the other begins. They do not die of old age. They cannot starve. They must endure, trapped in the cave or the mire or the tomb, or wherever they met their fate. They must persist, in pain, begging for some outsider to come and end their suffering.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

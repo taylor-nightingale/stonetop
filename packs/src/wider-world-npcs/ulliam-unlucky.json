@@ -1,0 +1,46 @@
+{
+  "_id": "sibwFCG8Si3oyHSS",
+  "_key": "!actors!sibwFCG8Si3oyHSS",
+  "name": "Ulliam Unlucky",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ulliam-unlucky",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "undead",
+        "stealthy",
+        "terrifying",
+        "loyal"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "0",
+    "damage": "whatever’s at hand d8 w/disad- vantage (tags vary)",
+    "specialQuality": "burned/blinded by day- light; chill aura",
+    "instinct": {
+      "selected": [
+        "to pine for his family"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Keep out of sight, or try to\n- Get frustrated, agitated, angry\n- Lose his temper and drain heat from someone, d10 damage w/advantage (hand, close, reach, ignores armor)\n\nUlliam Unlucky dragged his family from Marshedge (page 274) up to Gordin’s Delve (page 190), in search of a better life. But things never did work out. Last time he went out prospecting, he got lost. Then the blizzard rolled in. And that’s how Ulliam died. But say what you will about Ulliam, he loved his wife and kids. Still does. Dragged his frozen self home to see ’em again. He knows they can’t see him like this, but he can’t keep himself from lurking. And when some lech comes sniffing around his wife, or some fool notices him and makes a fuss… well, there’s only so much a man can take. And that little spark of warmth he draws out of them?  Well, he’s starting to acquire a taste.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

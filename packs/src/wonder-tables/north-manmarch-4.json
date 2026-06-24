@@ -1,0 +1,214 @@
+{
+  "_id": "nVSfFFZxbJ7TOuNw",
+  "_key": "!tables!nVSfFFZxbJ7TOuNw",
+  "name": "North Manmarch — Flaw",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Tt07CuBJ0TYFzAOs",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.Tt07CuBJ0TYFzAOs",
+      "type": "text",
+      "name": "",
+      "description": "Debts owed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pSHr71U9E0H1lBy5",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.pSHr71U9E0H1lBy5",
+      "type": "text",
+      "name": "",
+      "description": "Difficult/bickering/ambitious underlings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fEZdB5anw0cLIeqz",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.fEZdB5anw0cLIeqz",
+      "type": "text",
+      "name": "",
+      "description": "A reputation for faithlessness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gDTnr41txSIIPU1D",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.gDTnr41txSIIPU1D",
+      "type": "text",
+      "name": "",
+      "description": "Few warriors who will answer their call",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9DCw5jEmnXrtFVgC",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.9DCw5jEmnXrtFVgC",
+      "type": "text",
+      "name": "",
+      "description": "Frailty, from age/sickness/corruption",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Kzgozn56xMalQPIB",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.Kzgozn56xMalQPIB",
+      "type": "text",
+      "name": "",
+      "description": "Many who curse their name",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "j6vwueMFFlgEGWjG",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.j6vwueMFFlgEGWjG",
+      "type": "text",
+      "name": "",
+      "description": "The need to prove themselves",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "93aZAs7AEHNSCNQ9",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.93aZAs7AEHNSCNQ9",
+      "type": "text",
+      "name": "",
+      "description": "Overconfidence; a belief in their own songs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QsIip3U2PL1bzjEJ",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.QsIip3U2PL1bzjEJ",
+      "type": "text",
+      "name": "",
+      "description": "A rigid sense of honor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ocU9EszMgkNUmIyj",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.ocU9EszMgkNUmIyj",
+      "type": "text",
+      "name": "",
+      "description": "Seething, venomous ambition",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U2diwgFmViOOqV9a",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.U2diwgFmViOOqV9a",
+      "type": "text",
+      "name": "",
+      "description": "A temper to rival Tor’s",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VjEn5pEbXD3NBymV",
+      "_key": "!tables.results!nVSfFFZxbJ7TOuNw.VjEn5pEbXD3NBymV",
+      "type": "text",
+      "name": "",
+      "description": "Utter lack of a warrior’s skills",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 34004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

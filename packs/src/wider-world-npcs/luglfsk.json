@@ -1,0 +1,45 @@
+{
+  "_id": "wSwNpsi6pd7LYGZy",
+  "_key": "!actors!wSwNpsi6pd7LYGZy",
+  "name": "Luglfsk",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "luglfsk",
+    "reference": "the-dread-river",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "amphibious",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "1 (hide)",
+    "damage": "electric shock d6 (hand, reload), or chew d4 (hand)",
+    "specialQuality": "lightning-proof",
+    "instinct": {
+      "selected": [
+        "to feed"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense a creature’s electrical field\n- Stun or paralyze with a touch, bzzzt\n- Swarm a stunned creature\n\nEach one is a few feet long, like a cuttlefish crossed with a giant maggot, squirming wet and gray, a face full of feelers whose touch stings like lightning. They spend most of their lives in the water, congregating near power-crystals (page 389) and aetherium artifacts (page 404) that have been claimed by the river. They seem entranced by the passive energy, almost lulled to sleep. But when they sense some- thing more dynamic, something meatier, they wriggle out of the water fast enough. Some Hillfolk claim that luglfsk are just tadpoles, and tell stories of larger, ma- ny-legged terrors that fling lightning from face-feelers that stretch as long as a man grows tall. But those are probably just spook-stories to scare travelers. Probably.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

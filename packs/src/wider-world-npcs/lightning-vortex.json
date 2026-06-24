@@ -1,0 +1,48 @@
+{
+  "_id": "0LCVe4ot9knSJG10",
+  "_key": "!actors!0LCVe4ot9knSJG10",
+  "name": "Lightning vortex",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "lightning-vortex",
+    "reference": "tempest-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "size by HP",
+        "spirit",
+        "construct",
+        "amorphous",
+        "brash",
+        "arrogant"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "armor": "by HP",
+    "damage": "zap (damage and tags by HP)",
+    "specialQuality": "flies harmed only by magical attacks",
+    "instinct": {
+      "selected": [
+        "to lash out"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a crackling pillar of lightning\n- Change position, incredibly fast (costs 1 HP)\n- Stun someone that they zap (costs 1d4 HP)\n- Fling a lightning bolt (+near, +forceful, +loud, ignores armor; costs 1d4 HP)\n- Tear the lightning from unattended aetherium, gaining 1d4 HP\n\nA lightning vortex absorbs power from, well, lightning. When it is struck by light- ning (mundane or magical), it gains HP instead of taking damage.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

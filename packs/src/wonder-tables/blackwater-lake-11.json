@@ -1,0 +1,118 @@
+{
+  "_id": "DWJH6YU3W8z20ODO",
+  "_key": "!tables!DWJH6YU3W8z20ODO",
+  "name": "Blackwater Lake — Additional move",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Gt1WOV16bUGlPgFx",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.Gt1WOV16bUGlPgFx",
+      "type": "text",
+      "name": "",
+      "description": "Wriggle free of danger/restraint",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Dz1corZVchIsY1pe",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.Dz1corZVchIsY1pe",
+      "type": "text",
+      "name": "",
+      "description": "Smother/constrict/engulf prey",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XOY4fIQaZDuIFlLW",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.XOY4fIQaZDuIFlLW",
+      "type": "text",
+      "name": "",
+      "description": "Mesmerize the weak-willed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OyiAIwzHY6rNnzHx",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.OyiAIwzHY6rNnzHx",
+      "type": "text",
+      "name": "",
+      "description": "Heal at a prodigious rate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ghqTx1B5wpK27HFE",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.ghqTx1B5wpK27HFE",
+      "type": "text",
+      "name": "",
+      "description": "Dissolve organic material",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jr7dAGJ7qKNz91ZB",
+      "_key": "!tables.results!DWJH6YU3W8z20ODO.jr7dAGJ7qKNz91ZB",
+      "type": "text",
+      "name": "",
+      "description": "Paralyze with venom/poison",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 6011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

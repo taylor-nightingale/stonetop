@@ -3,7 +3,7 @@
 	"_key": "!items!yNO9jDgDfo69SF1O",
 	"name": "Redwood Effigy",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/redwood-effigy.png",
+	"img": "systems/stonetop/assets/content/arcana/redwood-effigy.png",
 	"system": {
 		"slug": "redwood-effigy",
 		"front": {

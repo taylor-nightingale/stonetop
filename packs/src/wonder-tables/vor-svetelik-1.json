@@ -1,0 +1,150 @@
+{
+  "_id": "mRwH6Zi7RT0Vqt7o",
+  "_key": "!tables!mRwH6Zi7RT0Vqt7o",
+  "name": "Vor Svetelik — Undercity terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Z8QXvnOS6gRdDtTf",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.Z8QXvnOS6gRdDtTf",
+      "type": "text",
+      "name": "",
+      "description": "Flooded chamber",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ChSAxzc6DkEfSzPC",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.ChSAxzc6DkEfSzPC",
+      "type": "text",
+      "name": "",
+      "description": "Running water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WnFo7MGPzzGP5SlX",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.WnFo7MGPzzGP5SlX",
+      "type": "text",
+      "name": "",
+      "description": "Old tunnels/shafts, some stretching for miles",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ja1SmmjOF1xUOCIn",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.Ja1SmmjOF1xUOCIn",
+      "type": "text",
+      "name": "",
+      "description": "green lord ruin (see next page) or part of one, buried/sunken/toppled*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qEe4IVFiMGEGZ78Q",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.qEe4IVFiMGEGZ78Q",
+      "type": "text",
+      "name": "",
+      "description": "Burrow/warren/tunnels, dug out by… something*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kSdGfkfI0Nbz92Rt",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.kSdGfkfI0Nbz92Rt",
+      "type": "text",
+      "name": "",
+      "description": "Stairs/shaft/ladder/ramp, going up and/or further down*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "askBlmNj4a0ZTCIl",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.askBlmNj4a0ZTCIl",
+      "type": "text",
+      "name": "",
+      "description": "Crevasse, maybe open to the sky, maybe not*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bHUaaIvRwYPp1HKL",
+      "_key": "!tables.results!mRwH6Zi7RT0Vqt7o.bHUaaIvRwYPp1HKL",
+      "type": "text",
+      "name": "",
+      "description": "Sinkhole, leading down down down",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "irtRpHECoK8jv79I",
+  "_key": "!tables!irtRpHECoK8jv79I",
+  "name": "The Things Below — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uXMqUpJguXAei5Em",
+      "_key": "!tables.results!irtRpHECoK8jv79I.uXMqUpJguXAei5Em",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A strange pendant</strong> (page 518)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qHzmezl8GpYvInl5",
+      "_key": "!tables.results!irtRpHECoK8jv79I.qHzmezl8GpYvInl5",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A ragged fur cloak</strong> (page 528)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JCKtLpX1FK8p2ZwD",
+      "_key": "!tables.results!irtRpHECoK8jv79I.JCKtLpX1FK8p2ZwD",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A disturbing mask</strong> (page 529)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bg3GbQFDSpyySvZD",
+      "_key": "!tables.results!irtRpHECoK8jv79I.Bg3GbQFDSpyySvZD",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A silvery glass bottle</strong> (page 529)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1YjTEwq8MLEqAQXd",
+      "_key": "!tables.results!irtRpHECoK8jv79I.1YjTEwq8MLEqAQXd",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A vellum scroll</strong> (page 530)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FdWlSswOeXg9ErWF",
+      "_key": "!tables.results!irtRpHECoK8jv79I.FdWlSswOeXg9ErWF",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A whispering… word?</strong> (page 530)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "_id": "KlzOlcIHCgfcz5Rh",
+  "_key": "!tables!KlzOlcIHCgfcz5Rh",
+  "name": "Forge Lords — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "gZOxnGEMWA7uksOD",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.gZOxnGEMWA7uksOD",
+      "type": "text",
+      "name": "",
+      "description": "Fire and heat, lava, smoke and embers, ash and cinders",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3OqEm5XKjwpChbm6",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.3OqEm5XKjwpChbm6",
+      "type": "text",
+      "name": "",
+      "description": "Industry: forges and furnaces, crucibles and kilns, foundries and fuel, mills and mines, and all that they consume/produce",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HY596qCIao8iz39B",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.HY596qCIao8iz39B",
+      "type": "text",
+      "name": "",
+      "description": "Artistry: inspiration, invention, the pursuit of excellence/beauty/truth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WciLmOtLhCkfj2sN",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.WciLmOtLhCkfj2sN",
+      "type": "text",
+      "name": "",
+      "description": "Metal given life: clockwork constructs, spirit-vessels, prosthetics fused to flesh",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FhUNIOxEcygEQd24",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.FhUNIOxEcygEQd24",
+      "type": "text",
+      "name": "",
+      "description": "Weakness burnt away: to create, to transform, to destroy, to purify",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ObJt8YfH2a66NXpo",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.ObJt8YfH2a66NXpo",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Ustrina</strong> (page 464) servants/ factions/rivalries/secrets/plots/ loyalty/betrayal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "loJD7otARPpgFWbx",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.loJD7otARPpgFWbx",
+      "type": "text",
+      "name": "",
+      "description": "Passions enflamed: hunger, lust, envy, greed, obsession, paranoia, and wrath",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9mdursnEdU6X5oye",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.9mdursnEdU6X5oye",
+      "type": "text",
+      "name": "",
+      "description": "Cataclysm: eruptions, terror, slaughter, societal collapse, the descent into chaos",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cdb8ilWJRHFp3y3G",
+      "_key": "!tables.results!KlzOlcIHCgfcz5Rh.cdb8ilWJRHFp3y3G",
+      "type": "text",
+      "name": "",
+      "description": "Sized for giants, and roll 1d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_id": "qVdv4XgHfGfBD3yr",
+  "_key": "!actors!qVdv4XgHfGfBD3yr",
+  "name": "Pack drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "pack-drake",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "stealthy",
+        "organized",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "1 (quick reflexes)",
+    "damage": "sawtooth teeth d6 (hand, grabby)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to bring down easy prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Dart through tall grass, unseen\n- Surround their prey\n- Bite down and pull in one direction while a packmate pulls in the other (+messy)\n\nSneaky little dog-sized critters that prowl the Flats. Hunt in packs ranging from six to a couple dozen. Just the worst.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

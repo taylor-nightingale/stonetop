@@ -1,0 +1,118 @@
+{
+  "_id": "52BkxiPE192ZGN53",
+  "_key": "!tables!52BkxiPE192ZGN53",
+  "name": "Barrow Builders — Trigger",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "1KNZjtTvnqcXPxt5",
+      "_key": "!tables.results!52BkxiPE192ZGN53.1KNZjtTvnqcXPxt5",
+      "type": "text",
+      "name": "",
+      "description": "Stepping/entering/being/staying somewhere",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "K0DfMuAO4TP3QnZo",
+      "_key": "!tables.results!52BkxiPE192ZGN53.K0DfMuAO4TP3QnZo",
+      "type": "text",
+      "name": "",
+      "description": "Touching something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qOT4UDRYYvBAAM1C",
+      "_key": "!tables.results!52BkxiPE192ZGN53.qOT4UDRYYvBAAM1C",
+      "type": "text",
+      "name": "",
+      "description": "Moving something/picking it up",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kOw4K7bFTQS8ip1a",
+      "_key": "!tables.results!52BkxiPE192ZGN53.kOw4K7bFTQS8ip1a",
+      "type": "text",
+      "name": "",
+      "description": "Breaking/disturbing something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "smFWYY4BQQqqV8Zf",
+      "_key": "!tables.results!52BkxiPE192ZGN53.smFWYY4BQQqqV8Zf",
+      "type": "text",
+      "name": "",
+      "description": "Opening/closing something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pFGqG4xD3ZFh9nfD",
+      "_key": "!tables.results!52BkxiPE192ZGN53.pFGqG4xD3ZFh9nfD",
+      "type": "text",
+      "name": "",
+      "description": "Perceiving/examining/tinkering with something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

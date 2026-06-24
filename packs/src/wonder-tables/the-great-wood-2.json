@@ -1,0 +1,118 @@
+{
+  "_id": "cGJZYIkhCe0VhAeu",
+  "_key": "!tables!cGJZYIkhCe0VhAeu",
+  "name": "The Great Wood — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "J2DEuK4qYPmd3xRE",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.J2DEuK4qYPmd3xRE",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412) or the <strong>Fomoraij</strong> (page 136)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7pcYpwA5Bfr3dp2d",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.7pcYpwA5Bfr3dp2d",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by death and the undying (page 68)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I76cDVoVQID7g4Uk",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.I76cDVoVQID7g4Uk",
+      "type": "text",
+      "name": "",
+      "description": "A place bearing traces of the <strong>Forest</strong> <strong>Folk</strong> (page 150)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "s7FytFhYent9n7Yi",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.s7FytFhYent9n7Yi",
+      "type": "text",
+      "name": "",
+      "description": "A place sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1PVMDsjPxE9G72GZ",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.1PVMDsjPxE9G72GZ",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Fae</strong> <strong>domain</strong> (page 102) or <strong>waystone</strong> (page 478)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fqQcjmqbjj8IOlBV",
+      "_key": "!tables.results!cGJZYIkhCe0VhAeu.fqQcjmqbjj8IOlBV",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Green Lords</strong> (page 210)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 23002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

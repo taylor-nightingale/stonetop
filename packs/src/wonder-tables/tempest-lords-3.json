@@ -1,0 +1,150 @@
+{
+  "_id": "pIE8WWt2uOlh1plj",
+  "_key": "!tables!pIE8WWt2uOlh1plj",
+  "name": "Tempest Lords — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UXVb7hgI4K3aUFL8",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.UXVb7hgI4K3aUFL8",
+      "type": "text",
+      "name": "",
+      "description": "Cluster of smaller buildings around some central feature",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Wd6aidnFCGc19uRi",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.Wd6aidnFCGc19uRi",
+      "type": "text",
+      "name": "",
+      "description": "Single, larger building (block, dome, ziggurat, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Sy08KwJP6RloAnb5",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.Sy08KwJP6RloAnb5",
+      "type": "text",
+      "name": "",
+      "description": "Bunker/vault carved into the stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OHkN2rPgzYYcczQM",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.OHkN2rPgzYYcczQM",
+      "type": "text",
+      "name": "",
+      "description": "Platform/amphitheater/terrace(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jSCeDaYGXkYN0sIN",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.jSCeDaYGXkYN0sIN",
+      "type": "text",
+      "name": "",
+      "description": "Tower/spire",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GTRbSbT0fkLCvUCy",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.GTRbSbT0fkLCvUCy",
+      "type": "text",
+      "name": "",
+      "description": "Sky-island, crashed/grounded (and roll d6 again)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l6LhBTocAXvaoVEE",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.l6LhBTocAXvaoVEE",
+      "type": "text",
+      "name": "",
+      "description": "Sky-island, afloat but anchored/ fixed over a particular place (and roll d6 again)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "N5CvbNNBv076Suql",
+      "_key": "!tables.results!pIE8WWt2uOlh1plj.N5CvbNNBv076Suql",
+      "type": "text",
+      "name": "",
+      "description": "Sky-island, free-floating across the landscape (and roll d6 again)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

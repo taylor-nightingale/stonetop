@@ -1,0 +1,118 @@
+{
+  "_id": "aaucjRhYEoCTKwCy",
+  "_key": "!tables!aaucjRhYEoCTKwCy",
+  "name": "Stone Lords — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "KiYiibH3neTXe0m2",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.KiYiibH3neTXe0m2",
+      "type": "text",
+      "name": "",
+      "description": "Dwelling (home, barracks, dormitory, prison, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8r1nkCLFhpBd7oVm",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.8r1nkCLFhpBd7oVm",
+      "type": "text",
+      "name": "",
+      "description": "Infrastructure (aqueduct, rampart, road, bridge, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "22IuQ4FNQVFVuWow",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.22IuQ4FNQVFVuWow",
+      "type": "text",
+      "name": "",
+      "description": "Storage (vault, warehouse, library, museum, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uCDMFJU3P7nx3vin",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.uCDMFJU3P7nx3vin",
+      "type": "text",
+      "name": "",
+      "description": "Production (workshop, factory, mine, farm, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mHkVlABVeSoRTIbJ",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.mHkVlABVeSoRTIbJ",
+      "type": "text",
+      "name": "",
+      "description": "Esoteric (laboratory, experiment, power source, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CgVldlyJ6Fs8HyDM",
+      "_key": "!tables.results!aaucjRhYEoCTKwCy.CgVldlyJ6Fs8HyDM",
+      "type": "text",
+      "name": "",
+      "description": "Civic life (agora, theater, shrine, monument, tomb, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

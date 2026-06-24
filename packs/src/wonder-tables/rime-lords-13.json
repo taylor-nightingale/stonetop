@@ -1,0 +1,134 @@
+{
+  "_id": "uqGANMwFkb0tDGZg",
+  "_key": "!tables!uqGANMwFkb0tDGZg",
+  "name": "Rime Lords — Tether",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ziIrjld8HE0HVxIR",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.ziIrjld8HE0HVxIR",
+      "type": "text",
+      "name": "",
+      "description": "<em>Immobile</em> object: unable to leave its presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DbwCQytWXj7GOtaU",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.DbwCQytWXj7GOtaU",
+      "type": "text",
+      "name": "",
+      "description": "Small, portable object: unable to manipulate it or leave its presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "X279iMhO1FkKjaGv",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.X279iMhO1FkKjaGv",
+      "type": "text",
+      "name": "",
+      "description": "Sculpture or construct: can animate it, but cannot leave its presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZFdiLdZnM9pU2q8q",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.ZFdiLdZnM9pU2q8q",
+      "type": "text",
+      "name": "",
+      "description": "Building or complex: can freely move about within, but cannot leave",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VimqHGEOkqcuScDl",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.VimqHGEOkqcuScDl",
+      "type": "text",
+      "name": "",
+      "description": "Place or object (roll 1d6 for size/ scale): can travel but must periodically return",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JUu9Je9otnyJuKDw",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.JUu9Je9otnyJuKDw",
+      "type": "text",
+      "name": "",
+      "description": "Living creature/person: can leave their presence for short periods",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JdJpzhYosPoyPzKZ",
+      "_key": "!tables.results!uqGANMwFkb0tDGZg.JdJpzhYosPoyPzKZ",
+      "type": "text",
+      "name": "",
+      "description": "Untethered: free-roaming, independent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

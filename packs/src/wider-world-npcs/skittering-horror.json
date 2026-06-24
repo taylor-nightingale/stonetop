@@ -1,0 +1,46 @@
+{
+  "_id": "FJYSnqfA4Cy7sguh",
+  "_key": "!actors!FJYSnqfA4Cy7sguh",
+  "name": "Skittering horror",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "skittering-horror",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "emanation",
+        "terrifying",
+        "sadistic",
+        "aggressive"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "scythe-like limbs d6+2 w/advan- tage (hand, close, messy, 2 piercing except vs. bronze)",
+    "specialQuality": "spider-climb blind  senses life (heat, heartbeats, breathing, movement, etc.); disoriented by intense noise/heat",
+    "instinct": {
+      "selected": [
+        "to hurt, terrorize, kill"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Investigate sounds/signs of life\n- Chitter, trill, loudly drone\n- Call others to the hunt\n- Attack with shocking fury\n- Savage a fallen foe",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

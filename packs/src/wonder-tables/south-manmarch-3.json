@@ -1,0 +1,118 @@
+{
+  "_id": "OJNnuFNBd0iI7715",
+  "_key": "!tables!OJNnuFNBd0iI7715",
+  "name": "South Manmarch — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "wBBAue4o60PJsqHt",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.wBBAue4o60PJsqHt",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Hillfolk</strong> (page 228): encamped, herding, hunting, on patrol, come to trade, or maybe on a raid",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mZzzDQfoukf0WQrI",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.mZzzDQfoukf0WQrI",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Merchant</strong> caravan (page 259), coming or going",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SorRa7IFN4jVXC4N",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.SorRa7IFN4jVXC4N",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Bandits</strong> (page 355), encamped, scouting, returning from a raid",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HLTBzwuL3IrEMiEC",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.HLTBzwuL3IrEMiEC",
+      "type": "text",
+      "name": "",
+      "description": "Settlers, hoping to carve out a home here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vWxCXBipo6WfK0fV",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.vWxCXBipo6WfK0fV",
+      "type": "text",
+      "name": "",
+      "description": "Someone in dire straits; roll 1d4 again to see who",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aIjbS5ONcf10qSOF",
+      "_key": "!tables.results!OJNnuFNBd0iI7715.aIjbS5ONcf10qSOF",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

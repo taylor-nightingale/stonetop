@@ -1,0 +1,86 @@
+{
+  "_id": "8b8AQaQFYX5XFstd",
+  "_key": "!tables!8b8AQaQFYX5XFstd",
+  "name": "The Steplands — Water",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "gTSmP1kz00tNVsOV",
+      "_key": "!tables.results!8b8AQaQFYX5XFstd.gTSmP1kz00tNVsOV",
+      "type": "text",
+      "name": "",
+      "description": "Submerged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aaGE7aCGlGXyNUnw",
+      "_key": "!tables.results!8b8AQaQFYX5XFstd.aaGE7aCGlGXyNUnw",
+      "type": "text",
+      "name": "",
+      "description": "Partially flooded",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VRfcB56B1I58fOTp",
+      "_key": "!tables.results!8b8AQaQFYX5XFstd.VRfcB56B1I58fOTp",
+      "type": "text",
+      "name": "",
+      "description": "A stream or rivulet, flowing steadily",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "otsnaFbYV7b11WTd",
+      "_key": "!tables.results!8b8AQaQFYX5XFstd.otsnaFbYV7b11WTd",
+      "type": "text",
+      "name": "",
+      "description": "Just a trickle, drips, or seepage; maybe not even that",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

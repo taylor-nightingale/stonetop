@@ -1,0 +1,86 @@
+{
+  "_id": "A9WTIYfbVqMwvAFJ",
+  "_key": "!tables!A9WTIYfbVqMwvAFJ",
+  "name": "Barrow Builders — Site",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "VsdHOupYeFIEkNxC",
+      "_key": "!tables.results!A9WTIYfbVqMwvAFJ.VsdHOupYeFIEkNxC",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>cave</strong> (page 380), in which they or their victims lived/hid/died/ were interred (combine with 1 or 2 themes, page 35)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hwCg8ObQoCg6wxOj",
+      "_key": "!tables.results!A9WTIYfbVqMwvAFJ.hwCg8ObQoCg6wxOj",
+      "type": "text",
+      "name": "",
+      "description": "An old battlefield or mass grave, likely <strong>haunted</strong> (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e7MMMpH9fWt5bxlG",
+      "_key": "!tables.results!A9WTIYfbVqMwvAFJ.e7MMMpH9fWt5bxlG",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>reclaimed Maker-ruin</strong> (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CHNtmuk6HhCHELxY",
+      "_key": "!tables.results!A9WTIYfbVqMwvAFJ.CHNtmuk6HhCHELxY",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>barrow</strong> (page 39)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

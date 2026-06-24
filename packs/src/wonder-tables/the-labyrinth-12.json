@@ -1,0 +1,118 @@
+{
+  "_id": "WMnSUuOlJg0IDDZJ",
+  "_key": "!tables!WMnSUuOlJg0IDDZJ",
+  "name": "The Labyrinth — Crux",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ppYWBp32jMgLcJEL",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.ppYWBp32jMgLcJEL",
+      "type": "text",
+      "name": "",
+      "description": "Another traveler, trapped here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iI1zMhX9TzwZg05k",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.iI1zMhX9TzwZg05k",
+      "type": "text",
+      "name": "",
+      "description": "Details pulled from the PCs’ minds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9PsS4cemxPc9Dtwi",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.9PsS4cemxPc9Dtwi",
+      "type": "text",
+      "name": "",
+      "description": "Simulacra of known NPCs, convinced that they are real",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XmG6m5yzbCqSJX4Q",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.XmG6m5yzbCqSJX4Q",
+      "type": "text",
+      "name": "",
+      "description": "Simulacra of the PCs, convinced they are real",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sI7Cn151GPhvzIJc",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.sI7Cn151GPhvzIJc",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>artifact</strong> (page 424) of the Things Below, the tableau’s heart",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4ovx9GShkx7JdR9r",
+      "_key": "!tables.results!WMnSUuOlJg0IDDZJ.4ovx9GShkx7JdR9r",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

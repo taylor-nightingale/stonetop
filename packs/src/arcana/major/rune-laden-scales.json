@@ -3,7 +3,7 @@
 	"_key": "!items!3bCVrDBFlp75EfSr",
 	"name": "Rune-laden Scales",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/rune-laden-scales.png",
+	"img": "systems/stonetop/assets/content/arcana/rune-laden-scales.png",
 	"system": {
 		"slug": "rune-laden-scales",
 		"front": {

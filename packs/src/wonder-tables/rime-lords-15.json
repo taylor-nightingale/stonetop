@@ -1,0 +1,118 @@
+{
+  "_id": "fKBIHyGmcvKEkpDg",
+  "_key": "!tables!fKBIHyGmcvKEkpDg",
+  "name": "Rime Lords — Instinct",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DEVczV1ZH8bpOMAI",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.DEVczV1ZH8bpOMAI",
+      "type": "text",
+      "name": "",
+      "description": "To atone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FFi3EEtFfDCAiRQ6",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.FFi3EEtFfDCAiRQ6",
+      "type": "text",
+      "name": "",
+      "description": "To avoid disruption or distraction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iT1oGL0b4iSPoaST",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.iT1oGL0b4iSPoaST",
+      "type": "text",
+      "name": "",
+      "description": "To drive their students towards perfection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tPac1ZyMter5Rf1v",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.tPac1ZyMter5Rf1v",
+      "type": "text",
+      "name": "",
+      "description": "To prove their superiority",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "brYJQTJ52NXlycit",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.brYJQTJ52NXlycit",
+      "type": "text",
+      "name": "",
+      "description": "To tame chaos",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1WzR3eT392BIHHfO",
+      "_key": "!tables.results!fKBIHyGmcvKEkpDg.1WzR3eT392BIHHfO",
+      "type": "text",
+      "name": "",
+      "description": "To test themselves or their students",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38015,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

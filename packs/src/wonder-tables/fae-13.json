@@ -1,0 +1,118 @@
+{
+  "_id": "Uq3rwqiZUjsueVLQ",
+  "_key": "!tables!Uq3rwqiZUjsueVLQ",
+  "name": "Fae — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "lDeoLJLB7qBVpaQP",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.lDeoLJLB7qBVpaQP",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A small, strange book</strong> (page 509)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "327FQwjwrHBD38ge",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.327FQwjwrHBD38ge",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A giant oak leaf</strong> (page 517)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OiGuRcTbgHm6b3u7",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.OiGuRcTbgHm6b3u7",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A redwood basin</strong> (page 537)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v0GtqUDk7Hk2Wod6",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.v0GtqUDk7Hk2Wod6",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A humble broom</strong> (page 537)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HLbCdDcZhcHOauZt",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.HLbCdDcZhcHOauZt",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A stone idol</strong> (page 538)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1RFOXBBmH0h34Zof",
+      "_key": "!tables.results!Uq3rwqiZUjsueVLQ.1RFOXBBmH0h34Zof",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A treasure map</strong> (page 538)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

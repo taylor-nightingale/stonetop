@@ -1,0 +1,150 @@
+{
+  "_id": "4dIQx0aXp5MktERG",
+  "_key": "!tables!4dIQx0aXp5MktERG",
+  "name": "Death and the undying — Cause of death",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Yh6PMA9NO2sPFsLW",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.Yh6PMA9NO2sPFsLW",
+      "type": "text",
+      "name": "",
+      "description": "Old age/infirmity/malady/disease",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f58OnPqCf6jsdAFb",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.f58OnPqCf6jsdAFb",
+      "type": "text",
+      "name": "",
+      "description": "Suicide/despair/apathy/upset",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mBEpHqi7ebn2e0mY",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.mBEpHqi7ebn2e0mY",
+      "type": "text",
+      "name": "",
+      "description": "Exposure/cold/thirst/starvation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WbsJ1M3N3WvBgSB8",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.WbsJ1M3N3WvBgSB8",
+      "type": "text",
+      "name": "",
+      "description": "Injury/trauma/wounds/poison",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1Iwwt7JtNRoA2Jgv",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.1Iwwt7JtNRoA2Jgv",
+      "type": "text",
+      "name": "",
+      "description": "Burning/drowning/suffocation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1HckQPVeZQgQs9J4",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.1HckQPVeZQgQs9J4",
+      "type": "text",
+      "name": "",
+      "description": "Falling/accident/weather/disaster",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TRaeARw23pogjDjd",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.TRaeARw23pogjDjd",
+      "type": "text",
+      "name": "",
+      "description": "Exertion/exhaustion/shock/fright",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gMtyibXHoNvcjIRX",
+      "_key": "!tables.results!4dIQx0aXp5MktERG.gMtyibXHoNvcjIRX",
+      "type": "text",
+      "name": "",
+      "description": "Magic/an entity/a curse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

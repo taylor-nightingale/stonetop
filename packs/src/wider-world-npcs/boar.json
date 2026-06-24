@@ -1,0 +1,43 @@
+{
+  "_id": "wRZAw3W9VCTB7kRY",
+  "_key": "!actors!wRZAw3W9VCTB7kRY",
+  "name": "Boar",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "boar",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Group",
+        "gluttonous"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "0",
+    "damage": "gore d8 (hand, messy, 1 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect their territory"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Relentlessly charge their victim, over and over\n- Eat just about anything\n- Ignore pain or injury",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

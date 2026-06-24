@@ -1,0 +1,118 @@
+{
+  "_id": "3Hvt5bSO14drpXAy",
+  "_key": "!tables!3Hvt5bSO14drpXAy",
+  "name": "Gods and religion — Standing",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "j5hGiVXilfDfZbgX",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.j5hGiVXilfDfZbgX",
+      "type": "text",
+      "name": "",
+      "description": "Obscure, forgotten, misunderstood",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wywDeXYeWqoEHeBQ",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.wywDeXYeWqoEHeBQ",
+      "type": "text",
+      "name": "",
+      "description": "Avoided, propitiated, appeased",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XqPXgKmiFDxZ8R5r",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.XqPXgKmiFDxZ8R5r",
+      "type": "text",
+      "name": "",
+      "description": "Revered in secret",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RxMQ9K8JRTc86x2y",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.RxMQ9K8JRTc86x2y",
+      "type": "text",
+      "name": "",
+      "description": "Invoked only when needed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lF3jGaqjlanHZDp5",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.lF3jGaqjlanHZDp5",
+      "type": "text",
+      "name": "",
+      "description": "Given due respect and honor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QueXtjE7YH7eoplx",
+      "_key": "!tables.results!3Hvt5bSO14drpXAy.QueXtjE7YH7eoplx",
+      "type": "text",
+      "name": "",
+      "description": "Adored, praised, heaped with gratitude",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 20002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "vbnXbITijaEo7BN2",
+  "_key": "!actors!vbnXbITijaEo7BN2",
+  "name": "Nerth serpent",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "nerth-serpent",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "spirit",
+        "fearless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "4 (resilience), or 0 against bare hands",
+    "damage": "bite and constrict d10+3 (hand, close, reach, forceful, grabby)",
+    "specialQuality": "tethered to the Nerth Tree",
+    "instinct": {
+      "selected": [
+        "to test the might of supplicants"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Politely offer a chance to back down\n- Restrain an opponent’s limb\n- Whisssper a foe’s own doubts in their ear\n\nThe Nerth Tree grows in the Great Wood. It can only be found by one mortal each midsummer, by following a particular path in the woods (page 516). The roots are littered with bones of former supplicants. Hanging from the tree: a great serpent. Crush it and eats its heart, and you will gain its vitality. But good luck with that.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

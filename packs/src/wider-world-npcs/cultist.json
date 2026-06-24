@@ -1,0 +1,45 @@
+{
+  "_id": "kGBWcqX95cl2vaT9",
+  "_key": "!actors!kGBWcqX95cl2vaT9",
+  "name": "Cultist",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "cultist",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cautious",
+        "magical",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0 (or by worn armor)",
+    "damage": "d8 (tags by weapon)",
+    "specialQuality": "marked by the Things Below (page 432)",
+    "instinct": {
+      "selected": [
+        "to belong, to feel important"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Use one of their gifts (page 432)\n- Make a sacrifice for the cause\n- Have second thoughts, maybe?\n\nFolks are capable of all sorts of dark things, if someone else suggests they do them. Es- pecially if they’re desperate. Especially if the person leading them is someone they trust, or respect, or admire. And if that first little dark deed comes without any consequences, or any consequences to them? Well, then the next dark deed might not be so little, hmm?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

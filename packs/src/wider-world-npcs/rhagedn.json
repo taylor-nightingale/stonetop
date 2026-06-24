@@ -1,0 +1,44 @@
+{
+  "_id": "3BJ5kIUnNFjgMDhs",
+  "_key": "!actors!3BJ5kIUnNFjgMDhs",
+  "name": "Rhagedn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "rhagedn",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "construct",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (woody hide)",
+    "damage": "talons, antlers d6+2 (hand, messy, 1 piercing)",
+    "specialQuality": "clumsy fliers",
+    "instinct": {
+      "selected": [
+        "to protect their nests"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Shift into a better position while unobserved\n- Strafe their prey (forceful) and return to the skies\n- Roost on earth or stone or wood, sinking in talons, furling its wings, and becoming like woody stumps or boughs\n\nHunched humanoid forms carved of wood, with great wings, taloned feet, and heads crowned with branch-like antlers. They were made by the Green Lords to be sentinels and guardians, to watch over their borders and their most important sites. Now, ages and generations later, they still watch, and wait, and protect their nests. Something interesting: The tales say that the song of a redbreasted bluebird will keep the rhagedn still, letting folk pass unmolested. Something useful: It just so happens that you know how to whistle the tune (wheth- er or not you can whistle it well enough is questionable).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "8qUITD2uubsKvXIE",
+  "_key": "!tables!8qUITD2uubsKvXIE",
+  "name": "Ferrier's Fen — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "6CFbgKgCklHRq03p",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.6CFbgKgCklHRq03p",
+      "type": "text",
+      "name": "",
+      "description": "A lone <strong>suarachan</strong> (page 124), hoping to avoid notice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HgpWTM7ZvpnK6rRK",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.HgpWTM7ZvpnK6rRK",
+      "type": "text",
+      "name": "",
+      "description": "A mutated beast, like a deer with eight legs and five eyes, or a two-headed hare",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qV14lgpiVAWgGKeW",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.qV14lgpiVAWgGKeW",
+      "type": "text",
+      "name": "",
+      "description": "One or more <strong>spirits of the wild</strong> (page 356) or <strong>Fae</strong> (page 94), curious, indifferent, or forlorn",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oLoFZROQAbf5cOGe",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.oLoFZROQAbf5cOGe",
+      "type": "text",
+      "name": "",
+      "description": "Ample game, but unappetizing— crawfish, snails, turtles, frogs, fish, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cZ4j08EzqADuRnkv",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.cZ4j08EzqADuRnkv",
+      "type": "text",
+      "name": "",
+      "description": "Good game, but prone to bolt— deer, hare, water fowl, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bU5JQJ2JrpI9ZZH4",
+      "_key": "!tables.results!8qUITD2uubsKvXIE.bU5JQJ2JrpI9ZZH4",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>fen-walker</strong> (page 117), possibly in dire straits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 13002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_id": "dx2zXBXjy6sinKOb",
+  "_key": "!tables!dx2zXBXjy6sinKOb",
+  "name": "Stone Lords — Power",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7AKDBj244j7TynmP",
+      "_key": "!tables.results!dx2zXBXjy6sinKOb.7AKDBj244j7TynmP",
+      "type": "text",
+      "name": "",
+      "description": "Requires the presence of external source",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LPi2xFmrmFxUGoHY",
+      "_key": "!tables.results!dx2zXBXjy6sinKOb.LPi2xFmrmFxUGoHY",
+      "type": "text",
+      "name": "",
+      "description": "Stores power, but must return “home” to recharge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ke4FsFdTPkG0ujJF",
+      "_key": "!tables.results!dx2zXBXjy6sinKOb.ke4FsFdTPkG0ujJF",
+      "type": "text",
+      "name": "",
+      "description": "Self-charging, but limited range/ activity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FyBjHy2KayEZ72az",
+      "_key": "!tables.results!dx2zXBXjy6sinKOb.FyBjHy2KayEZ72az",
+      "type": "text",
+      "name": "",
+      "description": "Self-powered/indefinite charge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43016,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "_id": "iEWqcgtAwkBMifJZ",
+  "_key": "!tables!iEWqcgtAwkBMifJZ",
+  "name": "South Manmarch — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "SjP5g5i27MZ1aJsa",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.SjP5g5i27MZ1aJsa",
+      "type": "text",
+      "name": "",
+      "description": "Ash field/barrens/sand/rocky stretch",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f6k9VZ7oVt8S9Bpd",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.f6k9VZ7oVt8S9Bpd",
+      "type": "text",
+      "name": "",
+      "description": "Burrow/dugout/warren",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gd3ePrwwET3DFVHq",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.gd3ePrwwET3DFVHq",
+      "type": "text",
+      "name": "",
+      "description": "Sodden soil/mud/pocket wetland",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S6X63oXhEAxOf5ta",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.S6X63oXhEAxOf5ta",
+      "type": "text",
+      "name": "",
+      "description": "Spring/pond/creek/stream/river",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZnltrDo2H3PGez8a",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.ZnltrDo2H3PGez8a",
+      "type": "text",
+      "name": "",
+      "description": "Open meadow, waist-high grass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "feGDmwkRftMoBbh4",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.feGDmwkRftMoBbh4",
+      "type": "text",
+      "name": "",
+      "description": "Shortgrass prairie, vast and open",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hgOo38MU8a7qa6kp",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.hgOo38MU8a7qa6kp",
+      "type": "text",
+      "name": "",
+      "description": "Footpath/wagon ruts/trail",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SbDoJHCHvhE743iU",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.SbDoJHCHvhE743iU",
+      "type": "text",
+      "name": "",
+      "description": "Tree(s), savanna, thickets",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kIQ6FDmwq4px9kkg",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.kIQ6FDmwq4px9kkg",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope/low ridge/small hill",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aSHvlpF4OczcqVh0",
+      "_key": "!tables.results!iEWqcgtAwkBMifJZ.aSHvlpF4OczcqVh0",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope/rocky outcrop/large hill",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 40000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

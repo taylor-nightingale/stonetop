@@ -1,0 +1,166 @@
+{
+  "_id": "61TC1md7r2HsYlIl",
+  "_key": "!tables!61TC1md7r2HsYlIl",
+  "name": "Primordial powers — Constraint",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "KMoCRZNtM2AtuE3D",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.KMoCRZNtM2AtuE3D",
+      "type": "text",
+      "name": "",
+      "description": "Doesn’t realize what it is",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TRtdCeFBdEc7BP7N",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.TRtdCeFBdEc7BP7N",
+      "type": "text",
+      "name": "",
+      "description": "Is subservient to another",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8yABr2jISvuWVjHy",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.8yABr2jISvuWVjHy",
+      "type": "text",
+      "name": "",
+      "description": "Has a <strong>tether</strong> (page 358)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "doTPpiMCvPQKMzYh",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.doTPpiMCvPQKMzYh",
+      "type": "text",
+      "name": "",
+      "description": "Is bound by certain inviolate rules",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZYw3NVyO2Gknv2bG",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.ZYw3NVyO2Gknv2bG",
+      "type": "text",
+      "name": "",
+      "description": "Can incarnate only briefly, in or at certain circumstances/times",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qA5CxHXsGu8QGecl",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.qA5CxHXsGu8QGecl",
+      "type": "text",
+      "name": "",
+      "description": "Is subject to mortal urges/needs/ emotions/weakness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "obGJFMtlN3ndBZGz",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.obGJFMtlN3ndBZGz",
+      "type": "text",
+      "name": "",
+      "description": "Refuses to get involved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7PgswbeUB7GoGFQL",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.7PgswbeUB7GoGFQL",
+      "type": "text",
+      "name": "",
+      "description": "Is hunted by other supernatural beings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6ZJihPNPylfDiUWO",
+      "_key": "!tables.results!61TC1md7r2HsYlIl.6ZJihPNPylfDiUWO",
+      "type": "text",
+      "name": "",
+      "description": "Can’t use its power without dire consequences, for itself/the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

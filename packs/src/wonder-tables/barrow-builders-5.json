@@ -1,0 +1,70 @@
+{
+  "_id": "KULffOFzLh8S32EI",
+  "_key": "!tables!KULffOFzLh8S32EI",
+  "name": "Barrow Builders — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "fl3L3cTl8bUpoAYZ",
+      "_key": "!tables.results!KULffOFzLh8S32EI.fl3L3cTl8bUpoAYZ",
+      "type": "text",
+      "name": "",
+      "description": "Small: just a few paces across, no chambers to speak of",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MOnUCCOtbZ65pFsr",
+      "_key": "!tables.results!KULffOFzLh8S32EI.MOnUCCOtbZ65pFsr",
+      "type": "text",
+      "name": "",
+      "description": "Medium: big as a house, a few cramped halls/chambers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fXblpvNTxULYSGd7",
+      "_key": "!tables.results!KULffOFzLh8S32EI.fXblpvNTxULYSGd7",
+      "type": "text",
+      "name": "",
+      "description": "Large: a manmade hill, riddled with chambers/passages",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

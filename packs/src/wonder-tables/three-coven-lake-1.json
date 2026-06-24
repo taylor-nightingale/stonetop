@@ -1,0 +1,150 @@
+{
+  "_id": "EweNYaCJtfaaEbiT",
+  "_key": "!tables!EweNYaCJtfaaEbiT",
+  "name": "Three Coven Lake — Shoreline terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "RxkZWEnp30sJLC5f",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.RxkZWEnp30sJLC5f",
+      "type": "text",
+      "name": "",
+      "description": "Marsh/mire/mudflat",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5fgamVK0hVjmy08c",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.5fgamVK0hVjmy08c",
+      "type": "text",
+      "name": "",
+      "description": "Beach/shingle/shallows",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QBQVHDLrQhL8SJiG",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.QBQVHDLrQhL8SJiG",
+      "type": "text",
+      "name": "",
+      "description": "Drop-off/strong current/undertow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TRZJmCyJrAzc29tW",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.TRZJmCyJrAzc29tW",
+      "type": "text",
+      "name": "",
+      "description": "Jumble of boulders/rubble",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aI1NbIgpeuVJpRCL",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.aI1NbIgpeuVJpRCL",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Barrow</strong> (page 39)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EStah4EMxpKm1LIj",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.EStah4EMxpKm1LIj",
+      "type": "text",
+      "name": "",
+      "description": "stone lord site (page 442)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1Oh1I1ADRfjD0KZP",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.1Oh1I1ADRfjD0KZP",
+      "type": "text",
+      "name": "",
+      "description": "Island/sandbar and roll d10 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MTqaKPzw2lsgFq19",
+      "_key": "!tables.results!EweNYaCJtfaaEbiT.MTqaKPzw2lsgFq19",
+      "type": "text",
+      "name": "",
+      "description": "Cove/bay/inlet and roll d10 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_id": "nyBmbXeH9UoduEpN",
+  "_key": "!actors!nyBmbXeH9UoduEpN",
+  "name": "Bronze colossus",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "bronze-colossus",
+    "reference": "forge-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "construct",
+        "plodding",
+        "implacable"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 31,
+      "max": 31
+    },
+    "armor": "4 (metal, lacks organs)",
+    "damage": "trample d10+5 (hand, close, area, forceful) or crushing hands d10+5 (close, reach, forceful, grabby) or hurled object d10+5 (far, area, forceful, reload)",
+    "specialQuality": "fireproof, too big to hurt with most weapons, vulnerable to lightning",
+    "instinct": {
+      "selected": [
+        "to defend its creator’s honor"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Pretend to be “just” another statue\n- Come to life, screeching as it moves\n- Issue a booming challenge in a forgotten tongue\n- Block their path\n\nIt stands nearly 60 feet tall, a muscular Forge Lord cast in bronze. Similar statues loom about, each one grand and imposing. This statue, though, is shot through with blueish veins. And it feels like it’s watching you. Because it is. The colossus guards the entrance to its mas- ter’s domain. If someone approaches hon- orably, speaking in the Forge Lord’s tongue, it politely tells them to come again later, for its master is away. Intruders, blowhards, and thieves are dealt with forcibly. Something interesting: Those blueish veins are aetherium (page 404), and likely what animates the statue. Which, alas, means there’s no single weak-point. Maybe you could harm this thing by drawing the lightning from it. Something useful: Or you could, you know, just blast it with lightning and overload it.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

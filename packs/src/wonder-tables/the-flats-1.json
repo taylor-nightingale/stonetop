@@ -1,0 +1,118 @@
+{
+  "_id": "LL9WKNkJSPM4T5yD",
+  "_key": "!tables!LL9WKNkJSPM4T5yD",
+  "name": "The Flats — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "j4cIUzhrLAj6foGW",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.j4cIUzhrLAj6foGW",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous column) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TRKLUihLFxssak6O",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.TRKLUihLFxssak6O",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xmDg4vO3UDzH58cM",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.xmDg4vO3UDzH58cM",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>encounter</strong> (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r8BH2G7cR2uLsNRi",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.r8BH2G7cR2uLsNRi",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>point of interest</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dGE7tmc9DMyPo4kc",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.dGE7tmc9DMyPo4kc",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zgTYUUKF64QDDa2f",
+      "_key": "!tables.results!LL9WKNkJSPM4T5yD.zgTYUUKF64QDDa2f",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>piece of the Ruined Tower</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

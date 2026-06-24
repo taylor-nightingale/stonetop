@@ -1,0 +1,118 @@
+{
+  "_id": "g1nGGptL10nSKRw9",
+  "_key": "!tables!g1nGGptL10nSKRw9",
+  "name": "Forge Lords — Augmentation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EapKPI0yFKuUWpUT",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.EapKPI0yFKuUWpUT",
+      "type": "text",
+      "name": "",
+      "description": "Aetherium wings (Special quality +flies)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bAeoCsnAUrs7G6dP",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.bAeoCsnAUrs7G6dP",
+      "type": "text",
+      "name": "",
+      "description": "Clockwork claw with sword-like talons, 1d10+5 damage (<em>hand</em>, <em>close</em>, <em>messy</em>, <em>forceful</em>, 1 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lRPxU5aO2GCPU1SY",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.lRPxU5aO2GCPU1SY",
+      "type": "text",
+      "name": "",
+      "description": "Overlapping plates, protecting its belly (Armor 5 instead of 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3hYRReBv9a0hJ0LD",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.3hYRReBv9a0hJ0LD",
+      "type": "text",
+      "name": "",
+      "description": "Nasty spikes all over, d12+3 damage (<em>close</em>, <em>area</em>, <em>forceful</em>, <em>messy</em>, 1 piercing)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NQSIv8RPii9MK8MM",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.NQSIv8RPii9MK8MM",
+      "type": "text",
+      "name": "",
+      "description": "Implanted bellows, stoking its breath (+2 damage)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "awN03FAVA94uCE4Q",
+      "_key": "!tables.results!g1nGGptL10nSKRw9.awN03FAVA94uCE4Q",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18017,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

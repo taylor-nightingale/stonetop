@@ -1,0 +1,118 @@
+{
+  "_id": "joMG4g9tuvxwHVvS",
+  "_key": "!tables!joMG4g9tuvxwHVvS",
+  "name": "Three Coven Lake — Related to the portal",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "VdpTB0ChlsQDaSvD",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.VdpTB0ChlsQDaSvD",
+      "type": "text",
+      "name": "",
+      "description": "A reference to it (a sign, an icon, a written description, a rune, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G2A3zbi4JQBPZZdB",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.G2A3zbi4JQBPZZdB",
+      "type": "text",
+      "name": "",
+      "description": "A hint to its location (a map, directions, a detailed mural, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zSThCkzYtrCYYDPE",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.zSThCkzYtrCYYDPE",
+      "type": "text",
+      "name": "",
+      "description": "A means to charge it (like a <strong>power-crystal</strong>, page 389)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "18DD0KLjH1bJgLQc",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.18DD0KLjH1bJgLQc",
+      "type": "text",
+      "name": "",
+      "description": "Documentation: a <strong>time-worn</strong> <strong>missive</strong> (page 517), the sigils of other portals, a treatise on the axiom of local contagion, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GtiFuTA5lLqffrN4",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.GtiFuTA5lLqffrN4",
+      "type": "text",
+      "name": "",
+      "description": "A token that unlocks the door and bypasses the guardians",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a4yWyBmz0EaiRs61",
+      "_key": "!tables.results!joMG4g9tuvxwHVvS.a4yWyBmz0EaiRs61",
+      "type": "text",
+      "name": "",
+      "description": "The portal itself (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

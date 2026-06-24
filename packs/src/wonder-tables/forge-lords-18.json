@@ -1,0 +1,118 @@
+{
+  "_id": "5Dxt6M0U1gEvd7AF",
+  "_key": "!tables!5Dxt6M0U1gEvd7AF",
+  "name": "Forge Lords — What it remembers",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "imO6c58kieYVTEXK",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.imO6c58kieYVTEXK",
+      "type": "text",
+      "name": "",
+      "description": "A word that makes water boil and metal glow red hot (<em>near</em>, <em>reload</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xLxX8cBd5XL8CwLm",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.xLxX8cBd5XL8CwLm",
+      "type": "text",
+      "name": "",
+      "description": "The bosom friend who betrayed it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7S6SLE1BNGL3LTGB",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.7S6SLE1BNGL3LTGB",
+      "type": "text",
+      "name": "",
+      "description": "The child it could not save",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "30e02JLdeWJru8ls",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.30e02JLdeWJru8ls",
+      "type": "text",
+      "name": "",
+      "description": "The lover who died to protect it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Nc9jMqZpPsaHt78V",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.Nc9jMqZpPsaHt78V",
+      "type": "text",
+      "name": "",
+      "description": "The name by which others called it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A2uiUJ125wiIsKnM",
+      "_key": "!tables.results!5Dxt6M0U1gEvd7AF.A2uiUJ125wiIsKnM",
+      "type": "text",
+      "name": "",
+      "description": "The lullaby its mother sang to it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18018,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

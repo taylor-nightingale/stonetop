@@ -1,0 +1,214 @@
+{
+  "_id": "3ZZmHv27bOaZcPsf",
+  "_key": "!tables!3ZZmHv27bOaZcPsf",
+  "name": "The Things Below — Mark",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "AMsioMZPBPVYdodu",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.AMsioMZPBPVYdodu",
+      "type": "text",
+      "name": "",
+      "description": "Contagion/pollution/transmission of their corruption",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ngQFTIe9u9JrwG0W",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.ngQFTIe9u9JrwG0W",
+      "type": "text",
+      "name": "",
+      "description": "Compulsions (per <strong>whispers and</strong> <strong>visions</strong>, page 428)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5FcKy4u4BguwTqAm",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.5FcKy4u4BguwTqAm",
+      "type": "text",
+      "name": "",
+      "description": "Intolerance (to something natural/ pure/sacred)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8v1bjocHaSY2H7bX",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.8v1bjocHaSY2H7bX",
+      "type": "text",
+      "name": "",
+      "description": "Nightmares/visions/hallucinations",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TTr8salyfGIoteKT",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.TTr8salyfGIoteKT",
+      "type": "text",
+      "name": "",
+      "description": "Physical mutations (scales, reptilian eyes, claws, warped limbs, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5Hp3nf1NGLRTV5IV",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.5Hp3nf1NGLRTV5IV",
+      "type": "text",
+      "name": "",
+      "description": "Some sort of taboo (can’t cross a line of salt, can’t lie, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eLXK65gKcBVxTZ7G",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.eLXK65gKcBVxTZ7G",
+      "type": "text",
+      "name": "",
+      "description": "Strange appetites/needs/fascinations",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VgPtfXlTIa4Fu2Rg",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.VgPtfXlTIa4Fu2Rg",
+      "type": "text",
+      "name": "",
+      "description": "Unhealthy/unnatural appearance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "X3lJLEQg1eQzMDgo",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.X3lJLEQg1eQzMDgo",
+      "type": "text",
+      "name": "",
+      "description": "Unwholesome presence (puts children/natural beasts on edge)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bFEpeMa3DAEnodt4",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.bFEpeMa3DAEnodt4",
+      "type": "text",
+      "name": "",
+      "description": "Unnatural signs (no shadow, no reflection, aura of cold, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wJVLROBhIgHbmxqt",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.wJVLROBhIgHbmxqt",
+      "type": "text",
+      "name": "",
+      "description": "Vulnerability to bronze (its touch burns, its presence distracts)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mubeKRK9RoDiq1Jo",
+      "_key": "!tables.results!3ZZmHv27bOaZcPsf.mubeKRK9RoDiq1Jo",
+      "type": "text",
+      "name": "",
+      "description": "Wounds that heal slowly (but they regain HP normally)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

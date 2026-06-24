@@ -20,6 +20,17 @@ import { enrichRichTokens } from "../utils/enrichGameText.js";
 const BLANK_ITEM     = () => ({ name: "", weight: 1, tags: null, note: null, inventoryColumn: null, twoCol: false, resource: null });
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
 
+// "Entirely blank" = no authored content on either side (name is ignored — a freshly created item
+// always carries a default name). A blank arcanum opens straight in edit mode (nothing to view yet).
+function isArcanumBlank(front = {}, back = {}) {
+	const has = v => v != null && v !== "" && !(Array.isArray(v) && v.length === 0);
+	return !(
+		has(front.title) || has(front.description) || front.item != null || front.unlock != null ||
+		has(back.title)  || has(back.description)  || back.item  != null || back.resource != null ||
+		back.choices != null || (back.moves && back.moves.length) || back.consequences != null
+	);
+}
+
 export function createStonetopArcanumSheetClass(Base) {
 	return class StonetopArcanumSheet extends Base {
 		static get defaultOptions() {
@@ -37,6 +48,12 @@ export function createStonetopArcanumSheetClass(Base) {
 
 		async _render(force, options) {
 			await super._render(force, options);
+			// FormApplication._disableFields() disables EVERY button on a non-editable sheet (a locked
+			// compendium arcanum). The flip / view-toggle buttons are pure view state, not edits — keep
+			// them clickable so a locked arcanum can still show its back.
+			this.element?.[0]
+				?.querySelectorAll(".arcanum-preview-flip, .arcanum-edit-toggle")
+				.forEach(btn => { btn.disabled = false; });
 			// The preview card renders descriptions through {{md}}; upgrade explicit [[ ]] rolls /
 			// @UUID links the same way the character sheet does.
 			await enrichRichTokens(this.element?.[0], { rollData: this.item?.getRollData?.() ?? {} });
@@ -77,18 +94,29 @@ export function createStonetopArcanumSheetClass(Base) {
 			});
 			context.preview        = [buildArcanumSnapshot(arcanum, { flipped: this._previewFlipped })];
 			context.previewFlipped = this._previewFlipped;
+
+			// View-first: an existing arcanum opens as a rendered card with an Edit button; a blank one
+			// opens in the editor. A locked (non-editable) item is always view-only.
+			if (this._editMode === undefined) this._editMode = isArcanumBlank(front, back);
+			if (!this.isEditable) this._editMode = false;
+			context.editMode = this._editMode;
 			return context;
 		}
 
 		activateListeners(html) {
 			super.activateListeners(html);
-			if (!this.isEditable) return;
 
-			// Flip the live preview between front and back (sheet-local, re-render).
+			// Flip + edit/view toggle must work even on a locked (non-editable) compendium arcanum.
 			html.find(".arcanum-preview-flip").on("click", () => {
 				this._previewFlipped = !this._previewFlipped;
 				this.render(false);
 			});
+			html.find(".arcanum-edit-toggle").on("click", ev => {
+				this._editMode = ev.currentTarget.dataset.mode === "edit";
+				this.render(false);
+			});
+
+			if (!this.isEditable) return;
 
 			activateChoiceGroupEditors(this, html); // edits front.unlock / back.choices / back.consequences
 

@@ -1,0 +1,118 @@
+{
+  "_id": "tO0qvJqDoU2HAEZ7",
+  "_key": "!tables!tO0qvJqDoU2HAEZ7",
+  "name": "The Labyrinth — Opportunity",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "D1iGHNcjOJPYpmNA",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.D1iGHNcjOJPYpmNA",
+      "type": "text",
+      "name": "",
+      "description": "A good place to rest/hide/ ambush foes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "k1vseDinuGHpLEVc",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.k1vseDinuGHpLEVc",
+      "type": "text",
+      "name": "",
+      "description": "Potable water, edible fungi, cave fish, rockrats, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aXKD4pCRDlwxruJ3",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.aXKD4pCRDlwxruJ3",
+      "type": "text",
+      "name": "",
+      "description": "Portable light source: glimmercaps, <strong>red crystal</strong> (page 424), glowing <strong>makerglass</strong> (page 388), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FjtccfyJIe1DzrfC",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.FjtccfyJIe1DzrfC",
+      "type": "text",
+      "name": "",
+      "description": "A vein of coal/ore/copper/gold/gems",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6SFFoDNpeoR7IsaN",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.6SFFoDNpeoR7IsaN",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>artifact</strong> of the <strong>Forge Lords</strong> (page 164), <strong>Barrow Builders</strong> (page 40), or <strong>Things Below</strong> (page 424)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wF1HnQFpCe3Fvp3s",
+      "_key": "!tables.results!tO0qvJqDoU2HAEZ7.wF1HnQFpCe3Fvp3s",
+      "type": "text",
+      "name": "",
+      "description": "Sign of their objective/quarry",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

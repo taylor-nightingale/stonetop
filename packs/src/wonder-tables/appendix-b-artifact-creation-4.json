@@ -1,0 +1,214 @@
+{
+  "_id": "p0KwjzXdNlGRlpjm",
+  "_key": "!tables!p0KwjzXdNlGRlpjm",
+  "name": "APPENDIX B: Artifact Creation — Property",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "SsmxXCkEvvmfGD5A",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.SsmxXCkEvvmfGD5A",
+      "type": "text",
+      "name": "",
+      "description": "Moves and acts of its own accord",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NH4nIYyqMAvnphzD",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.NH4nIYyqMAvnphzD",
+      "type": "text",
+      "name": "",
+      "description": "Absorbs ___, stores its power (fire, lightning, hatred, stillness, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dUjcrWjClsZG8VZJ",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.dUjcrWjClsZG8VZJ",
+      "type": "text",
+      "name": "",
+      "description": "Seamlessly blends materials in an impossible way",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ziJksrLKAbJO5D0Z",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.ziJksrLKAbJO5D0Z",
+      "type": "text",
+      "name": "",
+      "description": "Emits ___ (flame, light, sound, silence, a feeling, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aoXD7cWkS6XDk7GK",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.aoXD7cWkS6XDk7GK",
+      "type": "text",
+      "name": "",
+      "description": "Is much, much ___ than it should be (heavier, harder, faster, quieter, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0MikUlouWw3DBcZC",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.0MikUlouWw3DBcZC",
+      "type": "text",
+      "name": "",
+      "description": "Cannot be ___ (broken, burned, melted, detected, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dolR6SRNhedqErRk",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.dolR6SRNhedqErRk",
+      "type": "text",
+      "name": "",
+      "description": "Fills those who look upon it with ___ (greed, rage, peace, joy, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JveZ3tpWEDZ44fP5",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.JveZ3tpWEDZ44fP5",
+      "type": "text",
+      "name": "",
+      "description": "Cuts right through/can harm ___ (stone, ghosts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "o6YqDYzkunhcyQST",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.o6YqDYzkunhcyQST",
+      "type": "text",
+      "name": "",
+      "description": "Can only/cannot be perceived by ___ (Fae, spirits, the dead, murderers, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Fw4DBieCefnm5fhJ",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.Fw4DBieCefnm5fhJ",
+      "type": "text",
+      "name": "",
+      "description": "Glows/thrums/vibrates in the presence of ___ (gold, magic, lies, poison, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "anKVCFEvIKdHYTcf",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.anKVCFEvIKdHYTcf",
+      "type": "text",
+      "name": "",
+      "description": "Protects against/repels ___ (emotional magic, fire/heat, ghosts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LQDVMGewlP1kRWjt",
+      "_key": "!tables.results!p0KwjzXdNlGRlpjm.LQDVMGewlP1kRWjt",
+      "type": "text",
+      "name": "",
+      "description": "Roll twice, but treat one of the results as a drawback or flaw",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "fYVMvHrTZiCO3nJl",
+  "_key": "!tables!fYVMvHrTZiCO3nJl",
+  "name": "The Foothills — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "RzCZWIVNUBhkzcwQ",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.RzCZWIVNUBhkzcwQ",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "spQaHDHRK25lQAYB",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.spQaHDHRK25lQAYB",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by death or the undying (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GpbOWcfAzraowVYe",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.GpbOWcfAzraowVYe",
+      "type": "text",
+      "name": "",
+      "description": "A site or artifact of the <strong>Barrow</strong> <strong>Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OxU7OKJ4Df7dhFg2",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.OxU7OKJ4Df7dhFg2",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Green</strong> <strong>Lords</strong> (page 210) or a <strong>Fae domain</strong> (page 102)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tACNHSi0sg3qJ7Y4",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.tACNHSi0sg3qJ7Y4",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Rime</strong> <strong>Lords</strong> (page 316) or their human disciples",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SAtnDtvVTLoF5JBn",
+      "_key": "!tables.results!fYVMvHrTZiCO3nJl.SAtnDtvVTLoF5JBn",
+      "type": "text",
+      "name": "",
+      "description": "A place sacred to the <strong>spirits of the wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 16004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

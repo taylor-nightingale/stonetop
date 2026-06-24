@@ -1,0 +1,102 @@
+{
+  "_id": "ig5GL6HdaJhqFGDa",
+  "_key": "!tables!ig5GL6HdaJhqFGDa",
+  "name": "Stone Lords — Sapience",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "2essrL4PhqRle0fF",
+      "_key": "!tables.results!ig5GL6HdaJhqFGDa.2essrL4PhqRle0fF",
+      "type": "text",
+      "name": "",
+      "description": "Puppet: requires active control by outside intellect",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oiMUqlkGtlYEjksd",
+      "_key": "!tables.results!ig5GL6HdaJhqFGDa.oiMUqlkGtlYEjksd",
+      "type": "text",
+      "name": "",
+      "description": "Bug-like: can follow limited range of programs/tasks",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RMA6HPafshytyF5P",
+      "_key": "!tables.results!ig5GL6HdaJhqFGDa.RMA6HPafshytyF5P",
+      "type": "text",
+      "name": "",
+      "description": "Beast-like: can take basic direction, complete some complex tasks independently",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PHH3xeAB3fDAlnN6",
+      "_key": "!tables.results!ig5GL6HdaJhqFGDa.PHH3xeAB3fDAlnN6",
+      "type": "text",
+      "name": "",
+      "description": "Automaton: can handle complex tasks, learn; lacks true emotion/ creativity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lZwLKNBWTKz4tZHO",
+      "_key": "!tables.results!ig5GL6HdaJhqFGDa.lZwLKNBWTKz4tZHO",
+      "type": "text",
+      "name": "",
+      "description": "Person: fully sapient, potentially quite intelligent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43017,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

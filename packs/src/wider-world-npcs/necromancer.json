@@ -1,0 +1,46 @@
+{
+  "_id": "A62aRyxD0FFKIY4v",
+  "_key": "!actors!A62aRyxD0FFKIY4v",
+  "name": "Necromancer",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "necromancer",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cautious",
+        "cunning",
+        "magical",
+        "death-wise"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "0 (or by worn armor)",
+    "damage": "silver-alloy knife d8 (hand)",
+    "specialQuality": "can sense active spirits",
+    "instinct": {
+      "selected": [
+        "to hoard secrets/knowledge"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Call up, speak with, bind, or lose control of an undead entity\n- Reveal or act on knowledge they should not possess\n- Send the undead against a foe\n- Cast a death-related spell (reload) ‘Tis an odd sort, who would have truck with spirits of the dead. But some are born with the Sight, and a morbid curiosity. If they can avoid getting themselves killed by hungry ghosts or outraged locals… well, the dead have all manner of secrets to teach.\n\nNecromancers often find themselves con- sorting with entities even darker than the dead, and are prone to corruption (page 430) by the Things Below. They are likely to possess one or more arcana (page 508), which they do not hesitate to use. And they are often attended by one or more bound entities.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

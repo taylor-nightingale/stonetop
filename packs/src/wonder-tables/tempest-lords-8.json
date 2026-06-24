@@ -1,0 +1,198 @@
+{
+  "_id": "PQMUCpuSRVx3STch",
+  "_key": "!tables!PQMUCpuSRVx3STch",
+  "name": "Tempest Lords — Characteristic",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "lwAlXBBRpSzo5N8R",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.lwAlXBBRpSzo5N8R",
+      "type": "text",
+      "name": "",
+      "description": "Breathtakingly beautiful",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AiHwbg2niewGpgym",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.AiHwbg2niewGpgym",
+      "type": "text",
+      "name": "",
+      "description": "Hard and strong as bronze",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "McwHagDaYpCbhVCQ",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.McwHagDaYpCbhVCQ",
+      "type": "text",
+      "name": "",
+      "description": "Absorbs/stores/discharges/ transforms an elemental force",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zHPX9pfsc6IEKvtK",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.zHPX9pfsc6IEKvtK",
+      "type": "text",
+      "name": "",
+      "description": "Suppresses/repels/directs/impedes a particular element/force",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MtbtkmtUbtY1H78V",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.MtbtkmtUbtY1H78V",
+      "type": "text",
+      "name": "",
+      "description": "Vibrates in ways that interact with spirits/magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A3z1Djc7o1PTsOR5",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.A3z1Djc7o1PTsOR5",
+      "type": "text",
+      "name": "",
+      "description": "Extremely light/levitates/defies or reverses gravity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CG5GN6Ab2CHU8DmP",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.CG5GN6Ab2CHU8DmP",
+      "type": "text",
+      "name": "",
+      "description": "Attunes to another item/locale, for communication/detection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DhSVAmJPG3J2nvmA",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.DhSVAmJPG3J2nvmA",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "epWPzxMxBvi2uRe2",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.epWPzxMxBvi2uRe2",
+      "type": "text",
+      "name": "",
+      "description": "Unstable, prone to discharge/failure (<em>dangerous</em>) and roll d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LtfQYkCsV4Gqg8bm",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.LtfQYkCsV4Gqg8bm",
+      "type": "text",
+      "name": "",
+      "description": "Relatively soft/ductile/malleable (<em>crude</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a2ZJDdvlkJ8tEX2k",
+      "_key": "!tables.results!PQMUCpuSRVx3STch.a2ZJDdvlkJ8tEX2k",
+      "type": "text",
+      "name": "",
+      "description": "Roll again with 1d8, but it becomes unstable and/or soft (as above) after any serious use",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

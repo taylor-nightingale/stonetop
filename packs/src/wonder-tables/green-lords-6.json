@@ -1,0 +1,86 @@
+{
+  "_id": "hjINjbFKz6HMxJoY",
+  "_key": "!tables!hjINjbFKz6HMxJoY",
+  "name": "Green Lords — Condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "jeZQkkO9R7eZsWLm",
+      "_key": "!tables.results!hjINjbFKz6HMxJoY.jeZQkkO9R7eZsWLm",
+      "type": "text",
+      "name": "",
+      "description": "Shattered and laid waste by time, war, or vandalism; mostly buried, submerged, and/or overgrown; its purpose unrecognizable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sswWlKueuUqtqDE4",
+      "_key": "!tables.results!hjINjbFKz6HMxJoY.sswWlKueuUqtqDE4",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling, largely buried, submerged, and/or overgrown",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eaT1MBXHt4qkCSwU",
+      "_key": "!tables.results!hjINjbFKz6HMxJoY.eaT1MBXHt4qkCSwU",
+      "type": "text",
+      "name": "",
+      "description": "Buried, submerged, and/or overgrown, but mostly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2W5hGReqUZ46EUTD",
+      "_key": "!tables.results!hjINjbFKz6HMxJoY.2W5hGReqUZ46EUTD",
+      "type": "text",
+      "name": "",
+      "description": "Fully visible and strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

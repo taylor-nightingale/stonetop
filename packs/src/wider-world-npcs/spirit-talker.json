@@ -1,0 +1,46 @@
+{
+  "_id": "hfAwargr55eBZ4y8",
+  "_key": "!actors!hfAwargr55eBZ4y8",
+  "name": "Spirit-talker",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "spirit-talker",
+    "reference": "hillfolk",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cautious",
+        "cunning",
+        "magical",
+        "spirit-wise"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "armor": "0 to 2 (thick hides, shield)",
+    "damage": "flint-tipped spear d8 (close, thrown, crude), club or adz d8 (hand, crude), or bow d8 (near)",
+    "specialQuality": "sensitive to the presence of active spirits",
+    "instinct": {
+      "selected": [
+        "to protect their people"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sharply rebuke a spirit or mortal\n- Commune with beasts, or the spirits of a place or thing\n- Take advantage of the terrain\n- Borrow and wield a friendly spirit’s power\n\nNow and then, a young Hillfolk shows signs of being touched by the spirits. The signs often come after a sickness or brush with death. They hear voices that aren’t there. They find themselves more comfortable with horse and hound than their fellow people. Sometimes, they lose the human tongue altogether and go feral, becoming a gouzadn (page 378). But when things go right—when they are guided by an elder, and pos- sessed of great self-control— they become a spirit-talker for their band.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

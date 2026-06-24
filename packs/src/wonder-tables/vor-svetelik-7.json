@@ -1,0 +1,118 @@
+{
+  "_id": "jCdNSTA6BYDHt44l",
+  "_key": "!tables!jCdNSTA6BYDHt44l",
+  "name": "Vor Svetelik — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OIVBKdTBkyfR3Act",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.OIVBKdTBkyfR3Act",
+      "type": "text",
+      "name": "",
+      "description": "A tunnel/path/connection to a <strong>Fomoraij’s lair</strong> (page 137), open, sealed, or ajar",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vpEze61eYgEx70U1",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.vpEze61eYgEx70U1",
+      "type": "text",
+      "name": "",
+      "description": "A number of <strong>waystones</strong> (page 478), cracked and ruined and dangerous to use",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gViAFi14AAm4yK1w",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.gViAFi14AAm4yK1w",
+      "type": "text",
+      "name": "",
+      "description": "A monument, honoring a Green Lord/Fomoraij with whom the PCs are familiar",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2kdMzbv9iH2nI42R",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.2kdMzbv9iH2nI42R",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A sacred site</strong> (page 362), home to a long-bound spirit, somehow untainted by the Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kseryWkTpc5wDkOk",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.kseryWkTpc5wDkOk",
+      "type": "text",
+      "name": "",
+      "description": "An exposed stretch of <strong>Makers’</strong> <strong>Road</strong> (page 270), its warding magic still intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aohUgLGurK6RJnJp",
+      "_key": "!tables.results!jCdNSTA6BYDHt44l.aohUgLGurK6RJnJp",
+      "type": "text",
+      "name": "",
+      "description": "<strong>The cracked portal</strong> (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 52007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "gpGPyga540Oh9ugJ",
+  "_key": "!tables!gpGPyga540Oh9ugJ",
+  "name": "The Things Below — Origin",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OPty1gNLstfz319O",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.OPty1gNLstfz319O",
+      "type": "text",
+      "name": "",
+      "description": "Arose in the aftermath of great devastation/atrocity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "u1PWiL6aWl2U55Fk",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.u1PWiL6aWl2U55Fk",
+      "type": "text",
+      "name": "",
+      "description": "Burst forth from a <strong>corrupted being</strong> (page 432) that absorbed too much power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GGGdsmKA4IF2hb9F",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.GGGdsmKA4IF2hb9F",
+      "type": "text",
+      "name": "",
+      "description": "Called forth, via a terrible ritual",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rBXDwryLPqCR7ovo",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.rBXDwryLPqCR7ovo",
+      "type": "text",
+      "name": "",
+      "description": "Given shape by worship/adoration/ feeding",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HzzGeqXHxrboG5aT",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.HzzGeqXHxrboG5aT",
+      "type": "text",
+      "name": "",
+      "description": "Let into the world by accident/ hubris, a failed attempt to bind/ cleanse/wield the power of the Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lfk0r65GyDiEZhQl",
+      "_key": "!tables.results!gpGPyga540Oh9ugJ.lfk0r65GyDiEZhQl",
+      "type": "text",
+      "name": "",
+      "description": "Spawned spontaneously from a truly <strong>corrupted site</strong> (page 422)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

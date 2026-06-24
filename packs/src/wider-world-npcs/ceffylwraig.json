@@ -1,0 +1,49 @@
+{
+  "_id": "98jNwU0hyCRKuDa3",
+  "_key": "!actors!98jNwU0hyCRKuDa3",
+  "name": "Ceffylwraig",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ceffylwraig",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "spirit",
+        "swift",
+        "tireless",
+        "cautious",
+        "magical",
+        "beautiful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "0",
+    "damage": "kicking hoofs d8+3 (hand, close, forceful, disadvantage)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to be fiercely independent"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Appear as a majestic horse among the herd\n- Slip free of any restraint, disappearing into the wind if need be\n- Guide the herd like it was a single, living entity\n- Curse someone with wild, unbridled emotions\n\nA herd of wild horses has a life, nay, a spirit all its own, a spirit as free and fickle as the wind. Take care, you who would poach wild horses for your own purpose, lest you find your heart turned against you! Something interesting: “Ceffylwraig” means “horse wife,” but she sees herself more as queen than wife: proud and haughty, disdainful of the weak and the slow, the herd her subjects more than her children. Something useful: A ceffylwraig is scornful and suspicious of praise or fancy words, but can be appeased by thoughtful gifts, offered with appropriate respect from proud women of noble bearing. What sort of gift do the ceffylwraig most value? What sort of gift will do in a pinch?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

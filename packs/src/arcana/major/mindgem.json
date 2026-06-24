@@ -3,7 +3,7 @@
 	"_key": "!items!iHawovCBsJJf4TyZ",
 	"name": "Mindgem",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/mindgem.png",
+	"img": "systems/stonetop/assets/content/arcana/mindgem.png",
 	"system": {
 		"slug": "mindgem",
 		"front": {

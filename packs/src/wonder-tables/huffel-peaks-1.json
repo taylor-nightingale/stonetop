@@ -1,0 +1,118 @@
+{
+  "_id": "Ta4yIzipPpaPavnX",
+  "_key": "!tables!Ta4yIzipPpaPavnX",
+  "name": "Huffel Peaks — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "N9yvUwB743ujjzj6",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.N9yvUwB743ujjzj6",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (previous column) and roll again.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mG29ufsVIMEUfErR",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.mG29ufsVIMEUfErR",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9KgHelBE2YIn7H9f",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.9KgHelBE2YIn7H9f",
+      "type": "text",
+      "name": "",
+      "description": "An entrance/exit to the <strong>Labyrinth</strong> (page 242)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fVqP0Sf5oHdASyWy",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.fVqP0Sf5oHdASyWy",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PzBvSZd4CSyG1cBS",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.PzBvSZd4CSyG1cBS",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uCAsCPxsMkG1wkGT",
+      "_key": "!tables.results!Ta4yIzipPpaPavnX.uCAsCPxsMkG1wkGT",
+      "type": "text",
+      "name": "",
+      "description": "A natural resource (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 27001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

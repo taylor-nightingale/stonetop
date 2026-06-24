@@ -1,0 +1,118 @@
+{
+  "_id": "2TjtyUhyZix6BTGL",
+  "_key": "!tables!2TjtyUhyZix6BTGL",
+  "name": "Primordial powers — Origin",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Pm6L3ZCZIQ7zfTZ3",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.Pm6L3ZCZIQ7zfTZ3",
+      "type": "text",
+      "name": "",
+      "description": "The intent of a (the) great spirit(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PdnVojjbua0PelFe",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.PdnVojjbua0PelFe",
+      "type": "text",
+      "name": "",
+      "description": "A confluence of geomantic/cosmic/ celestial forces",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9cpaD3kcBccXFVmV",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.9cpaD3kcBccXFVmV",
+      "type": "text",
+      "name": "",
+      "description": "A conflict between mythic beings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aG1Fi9IeNieKIJGN",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.aG1Fi9IeNieKIJGN",
+      "type": "text",
+      "name": "",
+      "description": "The death of a primordial entity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kNMo8rBB8um4sohK",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.kNMo8rBB8um4sohK",
+      "type": "text",
+      "name": "",
+      "description": "The presence of a primordial <strong>artifact</strong> (page 308)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cKl1Ck7Fglm1EGej",
+      "_key": "!tables.results!2TjtyUhyZix6BTGL.cKl1Ck7Fglm1EGej",
+      "type": "text",
+      "name": "",
+      "description": "The working (successful or not) of a potent spell or artifice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

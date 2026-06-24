@@ -1,0 +1,118 @@
+{
+  "_id": "A8wwNYpzw1vimbu5",
+  "_key": "!tables!A8wwNYpzw1vimbu5",
+  "name": "Forge Lords — Sign",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "10IX3dSQoRMrgfSw",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.10IX3dSQoRMrgfSw",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Aftermath of destruction</strong> (next column), a scar on the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "svjEwKzo1LCfHfcb",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.svjEwKzo1LCfHfcb",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Traces of industry</strong> (next column) from long ago",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VDgHIDs0G5e3lZsO",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.VDgHIDs0G5e3lZsO",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>fiery spirit</strong> (next page), bound to some useful purpose",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lIgpKjRpGOdTzvj7",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.lIgpKjRpGOdTzvj7",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>monument or marker</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ji4hG0WFaLb8niMC",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.Ji4hG0WFaLb8niMC",
+      "type": "text",
+      "name": "",
+      "description": "A stretch of the <strong>Makers’ Roads</strong> (page 270), intact, broken, and/or buried in tuff",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CChLFUCHtHFH5lw1",
+      "_key": "!tables.results!A8wwNYpzw1vimbu5.CChLFUCHtHFH5lw1",
+      "type": "text",
+      "name": "",
+      "description": "A hidden hoard, filled with <strong>various</strong> <strong>treasures</strong> (page 164)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

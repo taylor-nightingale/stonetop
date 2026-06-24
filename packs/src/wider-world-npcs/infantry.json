@@ -1,0 +1,43 @@
+{
+  "_id": "f7T5AFZQ06BGwF9M",
+  "_key": "!actors!f7T5AFZQ06BGwF9M",
+  "name": "Infantry",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "infantry",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (shield, linen cuirass)",
+    "damage": "iron-tipped long spear d6 (reach), or short sword d6 (hand, close)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to follow orders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Form a phalanx\n- Pin down or hem in their foe",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

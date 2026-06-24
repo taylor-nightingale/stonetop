@@ -1,0 +1,44 @@
+{
+  "_id": "DRZFrhX6fUooAw3j",
+  "_key": "!actors!DRZFrhX6fUooAw3j",
+  "name": "Beznpol",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "beznpol",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cautious",
+        "fierce"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "3",
+    "damage": "burrowing talons d10 (hand), needle teeth d8 (hand, messy, 3 piercing)",
+    "specialQuality": "acid-proof",
+    "instinct": {
+      "selected": [
+        "to constantly search for food"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Dig up serious quantities of soil\n- Bound out of the grass and onto prey\n- Spray a stupefying musk (reach, area, debilities)\n- Curl up into a ball of hard, jagged scales (4 armor)\n\nGreat big armored mustelids, like a cross between a stoat, a badger, and a pangolin, but like 6 feet long not counting the tail. They roam the Flats digging up burrows of just about anything, but they especially love to stir up a hlomren (page 134) nest and chomp chomp chomp. They’re far from the top of the food chain, though. If startled, they’ll spray musk and attempt to flee. If cornered, they’ll curl up and hope the attacker grows bored. A skilled tanner can turn a pair of hides into a magnificent   beznpol scale coat (2 armor, warm, protects against acid, Value 3). Hillfolk champions are known to wear them.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

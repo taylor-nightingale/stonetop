@@ -1,0 +1,46 @@
+{
+  "_id": "QJnJTLoZhVUuXGfq",
+  "_key": "!actors!QJnJTLoZhVUuXGfq",
+  "name": "Jellied horror",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "jellied-horror",
+    "reference": "the-dread-river",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "stealthy",
+        "amorphous",
+        "mindless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "pseudopod d10+1 (reach, hand, grabby, messy, 1 piercing)",
+    "specialQuality": "immune to stabbing takes half damage from weapons unless they’re forceful; acid-proof; harmed by chalk/quicklime/similar chemics",
+    "instinct": {
+      "selected": [
+        "to seep, to consume, to grow"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Lurk in water, moving slowly, seeking or waiting for food\n- Dissolve organic material—weapons, clothes, flesh, etc.\n- Engulf, d10+3 damage with advantage (hand, messy, ignores armor)\n\nSometimes, the waters of the Dread River overflow their banks and flood the cursed ruins and tainted places. And sometimes, when the floodwaters recede, they leave behind… something. Something that just isn’t right.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

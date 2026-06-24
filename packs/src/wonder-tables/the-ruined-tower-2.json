@@ -1,0 +1,118 @@
+{
+  "_id": "aif5QCtWcR1rHEuv",
+  "_key": "!tables!aif5QCtWcR1rHEuv",
+  "name": "The Ruined Tower — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ingDkJIsFb6Ck3lJ",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.ingDkJIsFb6Ck3lJ",
+      "type": "text",
+      "name": "",
+      "description": "Home/barracks/living space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8AnjtQzuvpaZMjCQ",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.8AnjtQzuvpaZMjCQ",
+      "type": "text",
+      "name": "",
+      "description": "Kitchen/laundry/bath/latrine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rY5UqwRAVBH4lgQI",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.rY5UqwRAVBH4lgQI",
+      "type": "text",
+      "name": "",
+      "description": "Gathering/meetings/civic life",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uB5E1DDlyYd5tHSU",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.uB5E1DDlyYd5tHSU",
+      "type": "text",
+      "name": "",
+      "description": "Storage/cellar/stable/tomb",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "en7yyJArNIiIOaHR",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.en7yyJArNIiIOaHR",
+      "type": "text",
+      "name": "",
+      "description": "Work/production/creation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SdTeMk9BM9qiFgdB",
+      "_key": "!tables.results!aif5QCtWcR1rHEuv.SdTeMk9BM9qiFgdB",
+      "type": "text",
+      "name": "",
+      "description": "Esoterica/experimentation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

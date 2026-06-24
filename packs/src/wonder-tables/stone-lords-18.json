@@ -1,0 +1,118 @@
+{
+  "_id": "WPIwzmOuGnbi8LIe",
+  "_key": "!tables!WPIwzmOuGnbi8LIe",
+  "name": "Stone Lords — Condition (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "y8OICc2cpzmTXSDz",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.y8OICc2cpzmTXSDz",
+      "type": "text",
+      "name": "",
+      "description": "No power/power source failing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kP5pUesFIOBobxJP",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.kP5pUesFIOBobxJP",
+      "type": "text",
+      "name": "",
+      "description": "Broken/impaired limb(s) or chassis",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Yz0lSCoTw64TBbKt",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.Yz0lSCoTw64TBbKt",
+      "type": "text",
+      "name": "",
+      "description": "Trapped/pinned/buried",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xG7FPFwdCocShJrd",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.xG7FPFwdCocShJrd",
+      "type": "text",
+      "name": "",
+      "description": "Behaving erratically",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LQRw7AtT3mU4KMlL",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.LQRw7AtT3mU4KMlL",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ezzbHTrFKFfvg9fE",
+      "_key": "!tables.results!WPIwzmOuGnbi8LIe.ezzbHTrFKFfvg9fE",
+      "type": "text",
+      "name": "",
+      "description": "Fully functional",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43018,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

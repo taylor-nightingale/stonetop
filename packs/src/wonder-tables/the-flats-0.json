@@ -1,0 +1,182 @@
+{
+  "_id": "cXQC9x5r5yFCXAM0",
+  "_key": "!tables!cXQC9x5r5yFCXAM0",
+  "name": "The Flats — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "JzJNv13e1dnoRxD0",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.JzJNv13e1dnoRxD0",
+      "type": "text",
+      "name": "",
+      "description": "Ash field, burnt stalks, recent wildfire",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JErXuRaFEGy5ypjY",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.JErXuRaFEGy5ypjY",
+      "type": "text",
+      "name": "",
+      "description": "Barren ground: sand, stone, dust",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xUeyevI8RdkyJbzO",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.xUeyevI8RdkyJbzO",
+      "type": "text",
+      "name": "",
+      "description": "Burrow, dugout, or warren",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9PvZNgeh8k23D9tJ",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.9PvZNgeh8k23D9tJ",
+      "type": "text",
+      "name": "",
+      "description": "Sodden soil, mud, or standing water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WkMVY1KJiqqsm5gS",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.WkMVY1KJiqqsm5gS",
+      "type": "text",
+      "name": "",
+      "description": "Dense thicket of tall (5&#39;-8&#39;), stiff stalks",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dqcO1JQPEdGvugET",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.dqcO1JQPEdGvugET",
+      "type": "text",
+      "name": "",
+      "description": "Open meadow, grass waist-high or shorter",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Z6rs2pJG2rYzWmf7",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.Z6rs2pJG2rYzWmf7",
+      "type": "text",
+      "name": "",
+      "description": "Low ridge, embankment, rise",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XOpCZZcyGi4w0hKH",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.XOpCZZcyGi4w0hKH",
+      "type": "text",
+      "name": "",
+      "description": "Tree(s), savanna, shrubs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hI6Z9OEoXMb3aYV7",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.hI6Z9OEoXMb3aYV7",
+      "type": "text",
+      "name": "",
+      "description": "Rocky outcropping, boulders, jagged stones",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T0uoIGf5Gtt0vIaK",
+      "_key": "!tables.results!cXQC9x5r5yFCXAM0.T0uoIGf5Gtt0vIaK",
+      "type": "text",
+      "name": "",
+      "description": "Gully, sinkhole, crater, fissure (maybe full of water)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

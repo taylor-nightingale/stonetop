@@ -1,0 +1,118 @@
+{
+  "_id": "336eA9CqHlrs0i6r",
+  "_key": "!tables!336eA9CqHlrs0i6r",
+  "name": "Fae — Entrance",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DD2GZ767iiUeOswc",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.DD2GZ767iiUeOswc",
+      "type": "text",
+      "name": "",
+      "description": "A shimmer, a feeling, little more",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eLHwkQ8GLDdGp883",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.eLHwkQ8GLDdGp883",
+      "type": "text",
+      "name": "",
+      "description": "Megalith(s)/a ﻿<strong>waystone</strong> (page 478)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fi3NRCzmh3rBvoCH",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.fi3NRCzmh3rBvoCH",
+      "type": "text",
+      "name": "",
+      "description": "A door/gate/opening, natural or made, literal or just an impression",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZgdHLZxuHlnOvvsm",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.ZgdHLZxuHlnOvvsm",
+      "type": "text",
+      "name": "",
+      "description": "A ring of toadstools or some other distinctive pattern of flora (perhaps <strong>useful or valuable</strong>, page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BEbMa3xnJAAID87Q",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.BEbMa3xnJAAID87Q",
+      "type": "text",
+      "name": "",
+      "description": "A path/a climb/a descent/a fall",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6LvkH7FuahKM7m3q",
+      "_key": "!tables.results!336eA9CqHlrs0i6r.6LvkH7FuahKM7m3q",
+      "type": "text",
+      "name": "",
+      "description": "Only active at certain times (in moonlight, at sunset, in winter, etc.) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

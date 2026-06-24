@@ -1,0 +1,48 @@
+{
+  "_id": "6bMHreRbWtIZBKFb",
+  "_key": "!actors!6bMHreRbWtIZBKFb",
+  "name": "Willow Witch",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "willow-witch",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Group",
+        "primordial",
+        "cautious",
+        "devious",
+        "organized",
+        "magical",
+        "all-wise"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (wards, resilience), 0 vs. black iron",
+    "damage": "gnarled fists and fingers d10+2 w/ disadvantage (hand, forceful, grabby)",
+    "specialQuality": "impossible to deceive or surprise; divide damage taken equally between the three witches (round down)",
+    "instinct": {
+      "selected": [
+        "to enforce the old ways, the old rules"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Frustrate, annoy, or provoke someone\n- Twist someone’s perceptions\n- Vanish, be elsewhere\n- Turn someone into a swamp creature\n\nTip: use a different voice and different physical position (left, center, right) for each witch, and shift between them as you talk, sometimes mid-sentence. When you press or entice the Willow Witch- es into changing their price or altering their deal, don’t roll. They will not be budged; the price is what it is.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,86 @@
+{
+  "_id": "VG4DKCCJX8hXeadH",
+  "_key": "!tables!VG4DKCCJX8hXeadH",
+  "name": "APPENDIX B: Artifact Creation — Red crystal/redwood",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "kyV75WfgUdzUtSvc",
+      "_key": "!tables.results!VG4DKCCJX8hXeadH.kyV75WfgUdzUtSvc",
+      "type": "text",
+      "name": "",
+      "description": "Full of untapped potential (Value 1 or 2 to the right buyer); proceed to <strong>form</strong> (page 505, step 3)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8UEDlbewgkAnBVdG",
+      "_key": "!tables.results!VG4DKCCJX8hXeadH.8UEDlbewgkAnBVdG",
+      "type": "text",
+      "name": "",
+      "description": "Has an <strong>extraordinary property</strong> (next page, step 2d)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rlp35oQPVkSrlS7s",
+      "_key": "!tables.results!VG4DKCCJX8hXeadH.rlp35oQPVkSrlS7s",
+      "type": "text",
+      "name": "",
+      "description": "Houses a <strong>spirit or sentience</strong> (page 502, step 2e)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c3uongsNJk6lF1B3",
+      "_key": "!tables.results!VG4DKCCJX8hXeadH.c3uongsNJk6lF1B3",
+      "type": "text",
+      "name": "",
+      "description": "Produces a <strong>magical effect</strong> (page 504, step 2g)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

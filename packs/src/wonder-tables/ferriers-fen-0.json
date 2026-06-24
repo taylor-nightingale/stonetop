@@ -1,0 +1,166 @@
+{
+  "_id": "GuACR5pUdFQoLhyd",
+  "_key": "!tables!GuACR5pUdFQoLhyd",
+  "name": "Ferrier's Fen — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "DK4MBUuEZ6GDCk7u",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.DK4MBUuEZ6GDCk7u",
+      "type": "text",
+      "name": "",
+      "description": "Open water, who knows how deep?",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "thWMSwq2BkvSQv4A",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.thWMSwq2BkvSQv4A",
+      "type": "text",
+      "name": "",
+      "description": "Shallow pool, pond, or stream",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LJ5BXlxiwGbvWjKu",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.LJ5BXlxiwGbvWjKu",
+      "type": "text",
+      "name": "",
+      "description": "Mud, muck, sodden soil, standing water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7jl7BNjGsSv9dneg",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.7jl7BNjGsSv9dneg",
+      "type": "text",
+      "name": "",
+      "description": "Peat, sphagnum moss, floating mats",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xIJbaa9EvwTxhoIx",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.xIJbaa9EvwTxhoIx",
+      "type": "text",
+      "name": "",
+      "description": "Grass, reeds, sedges, wildflowers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vehzEFUDVmMk7Nlf",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.vehzEFUDVmMk7Nlf",
+      "type": "text",
+      "name": "",
+      "description": "Shrubs and scattered pines",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U2PmQlNkaqdrsqvh",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.U2PmQlNkaqdrsqvh",
+      "type": "text",
+      "name": "",
+      "description": "Thicket of trees, or one big tree",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v4tffZUdibTe20to",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.v4tffZUdibTe20to",
+      "type": "text",
+      "name": "",
+      "description": "Dead tree(s), fallen log(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ri4989LIyzE7A7zF",
+      "_key": "!tables.results!GuACR5pUdFQoLhyd.ri4989LIyzE7A7zF",
+      "type": "text",
+      "name": "",
+      "description": "Hummock, hill, rocky outcrop",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 13000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

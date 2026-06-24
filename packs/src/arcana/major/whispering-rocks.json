@@ -3,7 +3,7 @@
 	"_key": "!items!Iu7z09gddzRnpJRA",
 	"name": "Whispering Rocks",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/whispering-rocks.png",
+	"img": "systems/stonetop/assets/content/arcana/whispering-rocks.png",
 	"system": {
 		"slug": "whispering-rocks",
 		"front": {

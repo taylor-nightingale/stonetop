@@ -1,0 +1,45 @@
+{
+  "_id": "GYvLHmG7iAaHEO3D",
+  "_key": "!actors!GYvLHmG7iAaHEO3D",
+  "name": "Shellback drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "shellback-drake",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cautious",
+        "hardy",
+        "patient"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "3 (carapace, scales)",
+    "damage": "snapping, bone-crushing bite d10 (hand, close, grabby, messy, 1 piercing)",
+    "specialQuality": "nearly blind, senses vibrations",
+    "instinct": {
+      "selected": [
+        "to lash out at “food” in range"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Burrow into soil\n- Wait for prey half-buried\n- Withdraw into its shell (Armor 5)\n\nLike a snapping turtle, but 6 feet long and 400 pounds, with big, badger-like claws. Way faster than you think. It’ll dig itself under a layer of soil, and wait long enough for the gwead to start growing over it. Then, when something comes near? SNAP! An intact shell is worth quite a bit (immo- bile, Value 2). But good luck killing one without cracking the shell.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

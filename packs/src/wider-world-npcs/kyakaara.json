@@ -1,0 +1,48 @@
+{
+  "_id": "E0T4lBBLBNmqVkwb",
+  "_key": "!actors!E0T4lBBLBNmqVkwb",
+  "name": "Kyakaara",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "kyakaara",
+    "reference": "the-whitefang-mountains",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy",
+        "organized",
+        "fearless",
+        "sadistic",
+        "terrifying",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "1 (toughness)",
+    "damage": "from bronze, see only in shades of red",
+    "specialQuality": "inured to cold, take +1d4",
+    "instinct": {
+      "selected": [
+        "to delight in pain, savor fear, and indulge in every cruelty"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Drive their prey to panic\n- Maim or traumatize someone\n- Surround, harry, dogpile, drag down\n- Drag off a captive, to eat or torture",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -3,7 +3,7 @@
 	"_key": "!items!V1Qsr1io0pFhT82S",
 	"name": "Blackwood Fetishes",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/blackwood-fetishes.png",
+	"img": "systems/stonetop/assets/content/arcana/blackwood-fetishes.png",
 	"system": {
 		"slug": "blackwood-fetishes",
 		"front": {

@@ -1,0 +1,46 @@
+{
+  "_id": "ZdtP50pAKeZwryaY",
+  "_key": "!actors!ZdtP50pAKeZwryaY",
+  "name": "Soithech",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "soithech",
+    "reference": "the-labyrinth",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "corrupted",
+        "devious",
+        "magical",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 18,
+      "max": 18
+    },
+    "armor": "5 (resilience, human hide), 1 vs. bronze",
+    "damage": "obsidian knife d10 (hand, crude)",
+    "specialQuality": "powerfully gifted and marked, as per their tribe (page 248)",
+    "instinct": {
+      "selected": [
+        "to maintain their status"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Foresee an opportunity or dire event\n- Play parties against each other\n- Use their gift, or one of their tribe’s sacred artifacts\n- Embody an aspect of their master\n\nMost thraulgwyn settlements are ruled by a soithech, a “vessel,” who claims descent from the tribe’s founder. They preach old ways and old hatreds, keeping their people in line with prophecies of glory and doom—some of which are even true. A soitech’s power is not just political. They manifest their tribe’s gift and mark with great intensity, and they can let the power of their patron Thing Below flow through them. When they do, they change to embody one of its aspects (page 417) and gain up to 3 additional gifts (page 432). Adjust their stat block accordingly.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.w4ZAM6a01JmgUtoI]{The Labyrinth} (Book p.242-255)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

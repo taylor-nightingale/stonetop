@@ -1,0 +1,118 @@
+{
+  "_id": "C6VeQcE1qZSwfeJY",
+  "_key": "!tables!C6VeQcE1qZSwfeJY",
+  "name": "Fae — Preoccupation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "JyyAljk4YOmFdLiD",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.JyyAljk4YOmFdLiD",
+      "type": "text",
+      "name": "",
+      "description": "Playing/reveling/tricking/subverting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "czOlfttNwusqd7VA",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.czOlfttNwusqd7VA",
+      "type": "text",
+      "name": "",
+      "description": "Ruling/enforcing/bullying/hurting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3NfFKKnrQtWZn21l",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.3NfFKKnrQtWZn21l",
+      "type": "text",
+      "name": "",
+      "description": "Striving/making/toiling/growing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "73VwXxdeKNmUmvzG",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.73VwXxdeKNmUmvzG",
+      "type": "text",
+      "name": "",
+      "description": "Collecting/hoarding/obsessing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Q0uOlND91zUfYHH1",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.Q0uOlND91zUfYHH1",
+      "type": "text",
+      "name": "",
+      "description": "Preening/politicking/gossiping",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m6nFAI1wsudDInNf",
+      "_key": "!tables.results!C6VeQcE1qZSwfeJY.m6nFAI1wsudDInNf",
+      "type": "text",
+      "name": "",
+      "description": "Guarding/watching/sulking/hiding",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

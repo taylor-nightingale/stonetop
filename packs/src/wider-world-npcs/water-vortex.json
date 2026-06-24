@@ -1,0 +1,48 @@
+{
+  "_id": "gLEysjpAIhntv0ow",
+  "_key": "!actors!gLEysjpAIhntv0ow",
+  "name": "Water vortex",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "water-vortex",
+    "reference": "tempest-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "size by HP",
+        "spirit",
+        "construct",
+        "amorphous",
+        "relentless",
+        "callous"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "armor": "by HP",
+    "damage": "pummel (damage and tags by HP)",
+    "specialQuality": "harmed only by magical weapons, cold, or forceful blunt attacks",
+    "instinct": {
+      "selected": [
+        "to adjust, flow, and adapt"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a churning wave out of water it touches\n- Vanish into/burst out of a body of water\n- Engulf a smaller foe (+grabby, see below)\n- Surge past foes, dragging them off their feet (+area, +forceful, costs 1d4 HP)\n- Move across a porous surface (costs 1d4 HP)\n\nA water matrix absorbs power from currents, tides, waves, and falling water. It gains 1d4 HP from a few days in a flowing stream, a few hours in a rushing river, or a few minutes in rapids or a major waterfall. When you are engulfed by a water vortex, hold 1d4 Breath. When you make a move while engulfed, and that move involves a roll, spend 1 Breath or mark a debility after rolling. If you can’t do either, you drown and are at Death’s Door.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "BNHdXVtOP12ndFM2",
+  "_key": "!actors!BNHdXVtOP12ndFM2",
+  "name": "Voice of the Eternal Maw",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "voice-of-the-eternal-maw",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "emanation",
+        "devious",
+        "terrifying",
+        "hungry"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "4 (resilience), 0 vs. bronze",
+    "damage": "scream d10 (near, area, reload, ignores armor) or unnaturally large and toothy maw d10+2 (hand, messy, 3 piercing)",
+    "specialQuality": "tethered to the vortex, unable to leave the mountain",
+    "instinct": {
+      "selected": [
+        "to create more mouths, more wraiths"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Compel someone with whispers (see page 428), even from afar\n- Possess a traveler, especially one who is hungry, weary, or tired\n- Drive its host to feast\n- Leave its host corrupted, withering, doomed to become a wraith (page 79)\n\nHidden in the southern arm of the Huffel Peaks, there is a gorge that splits a moun- tain. The gorge is cloaked in constantly churning mist, cold and clammy. At the base of the gorge is a thin split in reality, a vortex, a manifestation of Hlad the De- vourer, sucking in everything it touches. The mountain and the gorge are shunned now. The Hillfolk (page 228) and the Ustrina (page 464) who live nearby know better than to approach. But the Barrow Builders (page 34) fed the vortex. They brought it gifts, and offerings, and living, screaming sacrifice. In time, these offerings gave the vortex a Voice. And the Voice roams the mountain still.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

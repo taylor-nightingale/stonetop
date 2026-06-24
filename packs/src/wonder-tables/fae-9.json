@@ -1,0 +1,118 @@
+{
+  "_id": "LCqfW9eD9XlTlnRa",
+  "_key": "!tables!LCqfW9eD9XlTlnRa",
+  "name": "Fae — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cOREp7MjkW49K2HU",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.cOREp7MjkW49K2HU",
+      "type": "text",
+      "name": "",
+      "description": "Containment: to imprison/preserve",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0G7BoiGrezUFo7DY",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.0G7BoiGrezUFo7DY",
+      "type": "text",
+      "name": "",
+      "description": "Habitat: where Fae live/work/play",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JT6xgoI9h5CHAfDe",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.JT6xgoI9h5CHAfDe",
+      "type": "text",
+      "name": "",
+      "description": "Community: a place to gather, trade, gossip, show off, travel",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wl85J8UN6gNFGP9X",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.wl85J8UN6gNFGP9X",
+      "type": "text",
+      "name": "",
+      "description": "Status: a monument, a place to impose, someone showing off",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CaOl8AccyBlR1MKm",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.CaOl8AccyBlR1MKm",
+      "type": "text",
+      "name": "",
+      "description": "Creativity: an expression, an exploration, a work of art",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RzgZYb6FMsfMaC4P",
+      "_key": "!tables.results!LCqfW9eD9XlTlnRa.RzgZYb6FMsfMaC4P",
+      "type": "text",
+      "name": "",
+      "description": "Pleasure: a paradise, a retreat, a false afterlife, a playground",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

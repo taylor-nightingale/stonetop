@@ -1,0 +1,214 @@
+{
+  "_id": "Q2AcFHmeGYu1njxR",
+  "_key": "!tables!Q2AcFHmeGYu1njxR",
+  "name": "Gods and religion — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "MKmmY710Iw4Lx79A",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.MKmmY710Iw4Lx79A",
+      "type": "text",
+      "name": "",
+      "description": "Thresholds/change/trickery/chaos",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pgK2XIL1gzSnXLtm",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.pgK2XIL1gzSnXLtm",
+      "type": "text",
+      "name": "",
+      "description": "Competition/violence/murder/ warfare",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WAYBuoK6XzYJvM2K",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.WAYBuoK6XzYJvM2K",
+      "type": "text",
+      "name": "",
+      "description": "Moon/stars/night/sleep/dreams/ revelation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m1AuySi5NVhbZH0u",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.m1AuySi5NVhbZH0u",
+      "type": "text",
+      "name": "",
+      "description": "Skill/crafts/learning/writing/wisdom",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rcX0LkX4MYIkLJc3",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.rcX0LkX4MYIkLJc3",
+      "type": "text",
+      "name": "",
+      "description": "Travel/trade/navigation/enterprise",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7Kjnvu6BLxHeA7X8",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.7Kjnvu6BLxHeA7X8",
+      "type": "text",
+      "name": "",
+      "description": "Luck/prosperity/fortune/fate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Nz5TgcPdvju2ctwm",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.Nz5TgcPdvju2ctwm",
+      "type": "text",
+      "name": "",
+      "description": "Hearth/home/marriage/family/ community/civilization",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xUoDof79LfhAWLWn",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.xUoDof79LfhAWLWn",
+      "type": "text",
+      "name": "",
+      "description": "Fertility/birth/vigor/sickness/death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CqUZvKKm53ZcWbPH",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.CqUZvKKm53ZcWbPH",
+      "type": "text",
+      "name": "",
+      "description": "Agriculture/hunting/seasons/ weather",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2wjbVXHIkICCdGN1",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.2wjbVXHIkICCdGN1",
+      "type": "text",
+      "name": "",
+      "description": "Music/art/beauty/passion/revelry",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8x7RGdeLi8Ijj0B1",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.8x7RGdeLi8Ijj0B1",
+      "type": "text",
+      "name": "",
+      "description": "Bravery/justice/oaths/protection",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FbfasaIQEWq3p0l4",
+      "_key": "!tables.results!Q2AcFHmeGYu1njxR.FbfasaIQEWq3p0l4",
+      "type": "text",
+      "name": "",
+      "description": "Fire/rebirth/hope/light/sun",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 20000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

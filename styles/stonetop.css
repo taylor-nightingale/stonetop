@@ -9,21 +9,21 @@
 
 @font-face {
 	font-family: "StonetopUI";
-	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Historical-FellTypeRomanSC";
-	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Historical FellType Roman SC";
-	src: url("/systems/stonetop/assets/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -104,7 +104,7 @@ body,
 
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
-	background: var(--stonetop-bg) url(/systems/stonetop/assets/graphics/sheet-bg.png);
+	background: var(--stonetop-bg) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;
@@ -146,11 +146,11 @@ body,
 .stonetop.sheet ul:not(.stonetop-outfit-loads) li::before {
 	content: '';
 	position: absolute;
-	left: -12px;
-	top: 0.35em;
-	width: 8px;
-	height: 8px;
-	background: url('/systems/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
+	left: -15px;
+	top: 0.28em;
+	width: 12px;
+	height: 12px;
+	background: url('/systems/stonetop/assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
@@ -214,7 +214,7 @@ body,
 	padding-bottom: 8px;
 	border-bottom: none;
 	border-top: none;
-	background-image: url("../assets/sheet/divider-horizontal.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/divider-horizontal.png");
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	background-size: auto 7px;
@@ -228,7 +228,7 @@ body,
 	padding: 9px 18px 6px;
 	border: none;
 	background-color: transparent;
-	background-image: url("../assets/sheet/tab-half-frame.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/tab-half-frame.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	box-shadow: none;
@@ -339,14 +339,14 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/sheet/panel-corner-tl.png"),
-	url("../assets/sheet/panel-corner-tr.png"),
-	url("../assets/sheet/panel-corner-bl.png"),
-	url("../assets/sheet/panel-corner-br.png"),
-	url("../assets/sheet/panel-edge-top.png"),
-	url("../assets/sheet/panel-edge-bottom.png"),
-	url("../assets/sheet/panel-edge-left.png"),
-	url("../assets/sheet/panel-edge-right.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -441,7 +441,7 @@ body,
 	width: 96px;
 	height: 76px;
 	padding: 6px;
-	background-image: url("../assets/sheet/frame-stat.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/frame-stat.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
@@ -537,11 +537,11 @@ body,
 }
 
 .stonetop-resource--small {
-	background-image: url("../assets/sheet/frame-stat.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/frame-stat.png");
 }
 
 .stonetop-resource--wide {
-	background-image: url("../assets/sheet/frame-wide.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/frame-wide.png");
 }
 
 .stonetop-resource__label,
@@ -650,7 +650,7 @@ body,
 .stonetop-panel-divider {
 	height: 5px;
 	margin: 4px 0 8px;
-	background-image: url("../assets/sheet/divider-horizontal-thin.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/divider-horizontal-thin.png");
 	background-repeat: repeat-x;
 	background-position: center;
 	background-size: auto 5px;
@@ -690,7 +690,7 @@ body,
 	display: block;
 	width: 100%;
 	height: 18px;
-	background-image: url("../assets/sheet/divider-debility.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/divider-debility.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-position: center;
@@ -1259,7 +1259,7 @@ body,
 		z-index: 4;
 		margin: 0;
 		padding: 28px 12px 12px;
-		background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/graphics/sheet-bg.png);
+		background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
 		box-shadow: -6px 0 14px rgba(0, 0, 0, 0.3);
 		transform: translateX(100%);
 		transition: transform 0.2s ease;
@@ -1875,14 +1875,14 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/sheet/panel-corner-tl.png"),
-	url("../assets/sheet/panel-corner-tr.png"),
-	url("../assets/sheet/panel-corner-bl.png"),
-	url("../assets/sheet/panel-corner-br.png"),
-	url("../assets/sheet/panel-edge-top.png"),
-	url("../assets/sheet/panel-edge-bottom.png"),
-	url("../assets/sheet/panel-edge-left.png"),
-	url("../assets/sheet/panel-edge-right.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2055,14 +2055,14 @@ body,
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("../assets/sheet/panel-corner-tl.png"),
-		url("../assets/sheet/panel-corner-tr.png"),
-		url("../assets/sheet/panel-corner-bl.png"),
-		url("../assets/sheet/panel-corner-br.png"),
-		url("../assets/sheet/panel-edge-top.png"),
-		url("../assets/sheet/panel-edge-bottom.png"),
-		url("../assets/sheet/panel-edge-left.png"),
-		url("../assets/sheet/panel-edge-right.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2119,14 +2119,14 @@ body,
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("../assets/sheet/panel-corner-tl.png"),
-		url("../assets/sheet/panel-corner-tr.png"),
-		url("../assets/sheet/panel-corner-bl.png"),
-		url("../assets/sheet/panel-corner-br.png"),
-		url("../assets/sheet/panel-edge-top.png"),
-		url("../assets/sheet/panel-edge-bottom.png"),
-		url("../assets/sheet/panel-edge-left.png"),
-		url("../assets/sheet/panel-edge-right.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
+		url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2211,7 +2211,7 @@ body,
 	min-height: 260px;
 	border-width: 28px;
 	border-style: solid;
-	border-image: url('/systems/stonetop/assets/arcana/arcana-card-border.png') 40 / 28px stretch;
+	border-image: url('/systems/stonetop/assets/content/arcana/arcana-card-border.png') 40 / 28px stretch;
 }
 
 .stonetop-arcanum-header {
@@ -2551,14 +2551,14 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/sheet/panel-corner-tl.png"),
-	url("../assets/sheet/panel-corner-tr.png"),
-	url("../assets/sheet/panel-corner-bl.png"),
-	url("../assets/sheet/panel-corner-br.png"),
-	url("../assets/sheet/panel-edge-top.png"),
-	url("../assets/sheet/panel-edge-bottom.png"),
-	url("../assets/sheet/panel-edge-left.png"),
-	url("../assets/sheet/panel-edge-right.png");
+	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
+	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -3073,29 +3073,29 @@ form.stonetop.sheet.steading {
 	z-index: 2;
 }
 
-.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("../assets/sheet/panel-corner-tl.png"); }
-.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("../assets/sheet/panel-corner-tr.png"); }
-.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("../assets/sheet/panel-corner-bl.png"); }
-.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("../assets/sheet/panel-corner-br.png"); }
+.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"); }
+.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"); }
+.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"); }
+.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"); }
 
 .stonetop.sheet.steading .panel-edge-top {
 	top: 0; left: 16px; right: 16px; height: 8px;
-	background: url("../assets/sheet/panel-edge-top.png") repeat-x top left / auto 8px;
+	background: url("/systems/stonetop/assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-bottom {
 	bottom: 0; left: 16px; right: 16px; height: 8px;
-	background: url("../assets/sheet/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
+	background: url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-left {
 	top: 16px; bottom: 16px; left: 0; width: 8px;
-	background: url("../assets/sheet/panel-edge-left.png") repeat-y top left / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-right {
 	top: 16px; bottom: 16px; right: 0; width: 8px;
-	background: url("../assets/sheet/panel-edge-right.png") repeat-y top right / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
 	z-index: 1;
 }
 
@@ -3323,7 +3323,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-overview-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3363,9 +3363,9 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-attr-row::before {
 	content: '';
 	display: block;
-	width: 10px;
-	height: 10px;
-	background: url('/systems/stonetop/assets/graphics/bullet-point.png') no-repeat center / contain;
+	width: 12px;
+	height: 12px;
+	background: url('/systems/stonetop/assets/ui/decor/swirl.png') no-repeat center / contain;
 	flex-shrink: 0;
 }
 
@@ -3452,7 +3452,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-residents-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3583,7 +3583,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-neighbors-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3663,7 +3663,7 @@ form.stonetop.sheet.steading {
 	width: 8px;
 	align-self: stretch;
 	flex-shrink: 0;
-	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3689,7 +3689,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-notes-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/sheet/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -4618,7 +4618,7 @@ form.stonetop.sheet.steading {
 	width: 74px;
 	aspect-ratio: 74 / 58;
 	padding: 4px 8px;
-	background: url("../assets/sheet/frame-stat.png") no-repeat;
+	background: url("/systems/stonetop/assets/ui/decor/frame-stat.png") no-repeat;
 	background-size: 100% 100%;
 	color: #1a1a1a;
 	line-height: 1;
@@ -4749,6 +4749,13 @@ form.stonetop.sheet.steading {
 	display: flex; align-items: center; justify-content: space-between; gap: 8px;
 	font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
 }
+.stonetop-arcanum-preview-actions { display: flex; align-items: center; gap: 6px; }
+
+/* View mode (bug #1): the rendered card on its own, centred, with an Edit / flip header. */
+.stonetop-arcanum-view { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.stonetop-arcanum-view-head { display: flex; align-self: flex-end; gap: 6px; }
+.stonetop-arcanum-view .stonetop-arcanum-preview { width: 100%; max-width: 420px; }
+
 /* The preview reuses the real card render but is non-interactive; hide the card's own footer. */
 .stonetop-arcanum-preview { pointer-events: none; }
 .stonetop-arcanum-preview .stonetop-arcanum-footer { display: none; }
@@ -4768,3 +4775,158 @@ form.stonetop.sheet.steading {
 /* When Foundry swaps in the active ProseMirror editor, keep its toolbar + scrolling container inside the box. */
 .stonetop-arcanum-editor-box.prosemirror { padding: 0; }
 .stonetop-arcanum-editor-box .editor-container { flex: 1 1 auto; min-height: 0; overflow: hidden; }
+
+/* ── Wider World and Other Wonders (GM journal pack) ───────────────────────────
+   Renders the verbatim Book II articles built by scripts/import/pdf/build-journal.js.
+   Class names mirror the dev HTML preview (scripts/import/pdf/render-html.js); here they're
+   scoped to .stonetop-wonder so they only style our entries, and the bullet glyphs point at the
+   shipped assets. */
+.stonetop-wonder .wonder-pageref { color: var(--color-text-dark-5, #888); font-style: italic; font-size: 0.85em; margin: 0 0 0.6em; }
+/* Page-number / cross-ref links are everywhere; Foundry's default content-link box is too loud.
+   Render them as muted, boxless inline text (no icon) so they don't stand out. Targets only the
+   journal-entry links (page refs / cross-refs); arcana item links keep the default link style. */
+.stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"] {
+	background: none !important; border: none !important; padding: 0 !important; border-radius: 0;
+	color: #7a7060 !important; text-decoration: underline; text-decoration-color: rgba(0, 0, 0, 0.18); white-space: normal;
+}
+.stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"] i { display: none; }
+.stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"]:hover { color: #1a1a1a; text-shadow: none; }
+/* each printed page folds to two side-by-side columns (A|B on top, C|D below) */
+.stonetop-wonder .page2col { display: flex; gap: 1.5em; align-items: flex-start; margin: 0.2em 0; }
+.stonetop-wonder .page2col > .col { flex: 1; min-width: 0; }
+.stonetop-wonder figure.art { margin: 1em 0; text-align: center; }
+.stonetop-wonder figure.art img { max-width: 100%; border: none; }
+.stonetop-wonder figure.icon { margin: 0.2em 0; text-align: left; }
+/* Foundry's global `img { display: block }` would stack a heading's inline icon above its text —
+   force inline-block so icons sit beside the heading/text. */
+.stonetop-wonder img.icon,
+.stonetop-wonder figure.icon img { display: inline-block; height: 1.29em; vertical-align: middle; margin-right: 0.25em; border: none; }
+/* list bullets drawn as the book's swirl glyphs (plain spiral / pointing spiral) */
+.stonetop-wonder li.swirl,
+.stonetop-wonder li.swirl-point { list-style: none; }
+.stonetop-wonder li.swirl::before { content: ""; display: inline-block; width: 0.9em; height: 0.9em; margin: 0 0.35em 0 -1.3em; vertical-align: -0.12em; background: url(/systems/stonetop/assets/ui/decor/swirl.png) no-repeat left center / contain; }
+.stonetop-wonder li.swirl-point::before { content: ""; display: inline-block; width: 1.4em; height: 0.9em; margin: 0 0.35em 0 -1.7em; vertical-align: -0.12em; background: url(/systems/stonetop/assets/ui/decor/swirl-point.png) no-repeat left center / contain; }
+/* stylized arrow bullets (the book's "ä" dingbat) — stat-block moves and ä-lists */
+.stonetop-wonder ul.sb-moves,
+.stonetop-wonder li.arrow { list-style: none; }
+.stonetop-wonder ul.sb-moves > li::before,
+.stonetop-wonder li.arrow::before { content: "\27A4"; color: var(--color-text-dark-3, #444); margin: 0 0.35em 0 -1.1em; font-size: 0.85em; }
+.stonetop-wonder .box { border: 1px solid var(--color-border-dark, #888); border-radius: 3px; padding: 0.3em 0.7em; margin: 0.5em 0; }
+.stonetop-wonder aside.statblock { border: 1px solid var(--color-border-light-2, #ccc); background: rgba(0, 0, 0, 0.04); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
+.stonetop-wonder .sb-name { font-weight: bold; font-size: 1.1em; }
+.stonetop-wonder .sb-tags { font-style: italic; }
+/* chain band above the title / braided section dividers (shared chrome, left-aligned) */
+/* Braids/chains: scale the weave uniformly to a target height (no horizontal squish) and crop the
+   width to the column (object-fit:cover). The section-divider band (braid-wide) is the larger one;
+   the heading braids (braid) are 60% of that. */
+.stonetop-wonder .chain,
+.stonetop-wonder img.braid,
+.stonetop-wonder img.braid-wide {
+	display: block; width: 100%; border: none;
+	object-fit: cover; object-position: center;
+}
+.stonetop-wonder img.braid-wide { height: 18px; margin: 0.8em 0; }   /* section divider (thinner) */
+.stonetop-wonder img.braid { height: 11px; margin: 0.8em 0 0.2em; }  /* heading braid ≈ 60% of the section divider */
+.stonetop-wonder .chain { height: 18px; margin: 0.3em 0; }
+.stonetop-wonder hr.rule { border: 0; border-top: 1px solid currentColor; width: 11em; margin: 0.2em 0 0.5em; opacity: 0.6; }
+.stonetop-wonder hr.braid,
+.stonetop-wonder hr.braid-wide { border: 0; border-top: 1px solid currentColor; opacity: 0.4; margin: 0.8em 0; }
+.stonetop-wonder .npc-box { border: 1px solid var(--color-border-light-2, #ccc); background: rgba(0, 0, 0, 0.04); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
+.stonetop-wonder .npc-title { font-weight: bold; font-size: 1.1em; margin: 0.1em 0 0.4em; }
+.stonetop-wonder .npc-title img.icon { height: 1em; }
+/* Draw header above a dice table: "[🎲 1d12] Table Name". The bracketed icon+formula is the
+   @DrawTable enricher's roll button; the name sits beside it. */
+.stonetop-wonder .wonder-draw { margin: 0.8em 0 0.2em; display: flex; align-items: baseline; gap: 0.5em; }
+.stonetop-wonder .wonder-table-name { font-family: "StonetopUI", serif; font-weight: bold; }
+.stonetop-wonder a.stonetop-draw-table {
+	display: inline-block; cursor: pointer; padding: 0.05em 0.55em; font-size: 0.9em;
+	border: 1px solid var(--color-border-dark, #6a6256); border-radius: 3px;
+	background: rgba(0, 0, 0, 0.05); color: #1a1a1a; text-decoration: none; white-space: nowrap;
+}
+.stonetop-wonder a.stonetop-draw-table:hover { background: rgba(0, 0, 0, 0.12); }
+.stonetop-wonder a.stonetop-draw-table i.fa-dice-d6 { margin-right: 0.25em; }
+
+/* Tables: Foundry's default journal table is dark-grey-on-dark, unreadable on our parchment.
+   Render them as light ruled tables with dark ink to match the sheet. */
+.stonetop-wonder table { border-collapse: collapse; width: 100%; background: transparent; color: #1a1a1a; margin: 0.2em 0 0.9em; }
+.stonetop-wonder table th,
+.stonetop-wonder table td { border: 1px solid rgba(0, 0, 0, 0.25); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
+.stonetop-wonder table thead th { background: rgba(0, 0, 0, 0.06); font-family: "StonetopUI", serif; }
+.stonetop-wonder table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
+
+/* ── bugs.md batch 1 (CSS) ─────────────────────────────────────────────────────────────────────
+   #7 — no border/drop-shadow on journal images (Foundry adds one). */
+.stonetop-wonder img,
+.stonetop-wonder figure { box-shadow: none !important; border: none; filter: none; }
+
+/* #8 — one black underline under a section heading: keep the heading's own border (recolored black),
+   and drop the extra rule line the book draws right under it. */
+.stonetop-wonder h1,
+.stonetop-wonder h2 { border-bottom: 1px solid #1a1a1a; }
+.stonetop-wonder :is(h1, h2) + hr.rule { display: none; }
+
+/* #28 — section/sub-section rule dividers stretch the full column width and are solid black
+   (was a short, faint grey line). */
+.stonetop-wonder hr.rule { border: 0; border-top: 1px solid #1a1a1a; width: 100%; margin: 0.3em 0 0.6em; opacity: 1; }
+
+/* #10 — center the dice-roll button's icon+label vertically (was riding the top edge). */
+.stonetop-wonder a.stonetop-draw-table { display: inline-flex; align-items: center; line-height: 1.4; }
+
+/* #22 — an artifact's qualities/tags line sits on its own line just under the title. */
+.stonetop-wonder .artifact-tags { margin: 0 0 0.4em; font-size: 0.95em; }
+
+/* #7 — call-out titles (". trade opportunities ."), the journal entry name, and table names share
+   the small-caps display face used by the character sheet's stat/attribute titles. */
+.stonetop-wonder .callout-title,
+.stonetop-wonder .wonder-table-name,
+.application.journal-entry .journal-header .title,
+.application.journal-entry .journal-header .title input {
+	font-family: "StonetopUI", serif;
+}
+.stonetop-wonder .callout-title { text-align: center; border-bottom: none; letter-spacing: 0.03em; }
+
+/* ── Parchment theme for journal entries + compendium windows ─────────────────────────────────
+   Foundry v13's journal & compendium chrome defaults to a dark theme; bring them in line with the
+   actor sheets (parchment + dark ink). The whole window is themed, so the in-sheet page sidebar
+   (table of contents) and the compendium entry list are covered, not just the page body. Applies
+   to all journals/compendiums so they read consistently. Core skips these (they're `.application`
+   / `.sidebar-popout`, both excluded from the sheet-bg rule above). */
+.application.journal-entry .window-content,
+.application.compendium-directory .window-content {
+	background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
+	background-position: center;
+	background-size: cover;
+	/* Recolor text via v13's theme vars so headings, prose, links and list rows all follow. */
+	--color-text-primary: #1a1a1a;
+	--color-text-secondary: #3a342b;
+	--color-text-subtle: #6a6256;
+	--color-text-emphatic: #000;
+	color: #1a1a1a;
+}
+
+/* Let the parchment show through the inner panels rather than their own dark fills. */
+.application.journal-entry :is(.journal-sidebar, .journal-entry-content, .journal-entry-page, .journal-header),
+.application.compendium-directory :is(.directory-list, .directory-item) {
+	background: transparent;
+	color: inherit;
+}
+
+/* The editable title input + TOC rows: dark ink on a faint parchment field. */
+.application.journal-entry :is(.journal-header input, .journal-entry-page input) {
+	color: #1a1a1a;
+	background: rgba(255, 255, 255, 0.35);
+}
+
+/* Keep hover/selection legible on parchment. */
+.application.compendium-directory .directory-item:hover,
+.application.journal-entry .toc .page-heading:hover {
+	background: rgba(0, 0, 0, 0.06);
+}
+
+/* Image popout: the extracted journal illustrations are black ink on transparency, so Foundry's
+   default dark popout backing (`--color-cool-5-75`) renders them black-on-black. Back the popout with
+   parchment so the art is visible and it matches the system look. (Harmless for opaque images — the
+   backing sits behind them.) */
+.application.image-popout {
+	background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png) center / cover !important;
+}

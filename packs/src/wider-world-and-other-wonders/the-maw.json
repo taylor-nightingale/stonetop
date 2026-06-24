@@ -1,0 +1,44 @@
+{
+  "_id": "FRtwmW1dhGs00kZH",
+  "_key": "!journal!FRtwmW1dhGs00kZH",
+  "name": "The Maw",
+  "pages": [
+    {
+      "_id": "GEyOGmzlOUCEJFN2",
+      "_key": "!journal.pages!FRtwmW1dhGs00kZH.GEyOGmzlOUCEJFN2",
+      "name": "The Maw",
+      "type": "text",
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "src": null,
+      "text": {
+        "format": 1,
+        "content": "<div class=\"stonetop-wonder\"><p class=\"wonder-pageref\">Book of the Wider World — p.281</p><div class=\"page2col\"><div class=\"col\"><p>There’s a cave in the <strong>Great Wood</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{200}), a few hours north of Stonetop. No underbrush grows within 30 feet of it, and bones litter the entrance. Trappers and hunters avoid it, and claim to have heard strange noises coming from its direction— especially at night.</p>\n<img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Impressions</h2>\n<hr class=\"rule\">\n<ul><li class=\"swirl\">An unnatural quiet, the forest holding its breath</li><li class=\"swirl\">A blighted patch, spreading out from</li><li class=\"swirl\">the cave, where only grey lichen grows</li><li class=\"swirl\">Bones strewn about, broken &amp; chewed</li><li class=\"swirl\">The black void of the cave mouth</li><li class=\"swirl\">Those strange noises from within</li></ul>\n<p>Tip: speak softly, hold very still. Pause a little longer between words, sentences.</p>\n<img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Questions</h2>\n<hr class=\"rule\">\n<ul><li class=\"swirl-point\">Who among you have been here before? What brought you?</li><li class=\"swirl-point\">What do the noises from the Maw</li><li class=\"swirl-point\">(supposedly) sound like?</li><li class=\"swirl-point\">What do you think is in there? Why?</li></ul>\n<img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>Hooks</h2>\n<hr class=\"rule\">\n<ul><li class=\"swirl\">A beloved animal goes missing; someone saw it near the Maw.</li><li class=\"swirl\">A hunter reports strange figures (or tracks) coming and going.</li><li class=\"swirl\">A sickness afflicts the town; the treatment is an herb that grows near the Maw, but that must be harvested under moonlight.</li></ul></div><div class=\"col\"><img class=\"braid\" src=\"systems/stonetop/assets/content/wonders/decor/chain.png\">\n<h2>What could be in there?</h2>\n<hr class=\"rule\">\n<p>That’s for you to decide, but perhaps it’s...</p>\n<p>… a <strong>hagr</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{208}), afflicted with some withering curse;<br>… a brutal, gluttonous ﻿<strong>Fae</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{94}), and an entrance to its <strong>domain</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{102});<br>… an idol or emanation of the <strong>Things</strong> <strong>Below</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{412});<br>… a passage to one of the <strong>Fomoraij</strong>’s (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{136}) twisted realms;<br>… a <strong>specter</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{79}) or a pack of <strong>wraiths</strong> (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{79}), terrible and ancient and only partly bound; or<br>… something else entirely.</p>\n<figure class=\"art\"><img src=\"systems/stonetop/assets/content/wonders/shared/2afb7110f8453e403fe73c3efdb2f1fbdb7adcd0e1e2bb93bfe609e5d4abaf29.png\"></figure></div></div></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "system": {},
+      "sort": 0,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ],
+  "folder": null,
+  "sort": 3300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "bookPages": "281",
+      "slug": "the-maw"
+    }
+  }
+}

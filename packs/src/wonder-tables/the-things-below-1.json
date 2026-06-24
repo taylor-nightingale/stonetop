@@ -1,0 +1,214 @@
+{
+  "_id": "aPGdu7BLyAPObAOx",
+  "_key": "!tables!aPGdu7BLyAPObAOx",
+  "name": "The Things Below — Aspect",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "A0lytUeIhCDizSle",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.A0lytUeIhCDizSle",
+      "type": "text",
+      "name": "",
+      "description": "Chitin/shell/carapace/armor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Gr2B4KvqLHFNdTgh",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.Gr2B4KvqLHFNdTgh",
+      "type": "text",
+      "name": "",
+      "description": "An elder/a crone/a stooped old man",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "t3A4gEt1FNj8T9Xu",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.t3A4gEt1FNj8T9Xu",
+      "type": "text",
+      "name": "",
+      "description": "Fire/light/haze/cloud/vortex/void",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e9Zzc4sk04jynV0w",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.e9Zzc4sk04jynV0w",
+      "type": "text",
+      "name": "",
+      "description": "Horns/wings/tail(s)/hooves",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "24tiWsuZHix8X1sY",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.24tiWsuZHix8X1sY",
+      "type": "text",
+      "name": "",
+      "description": "The inanimate, animated/an amalgamation of things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6DEf4nT0JMS52jpg",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.6DEf4nT0JMS52jpg",
+      "type": "text",
+      "name": "",
+      "description": "Many-limbed/many-headed/ many-eyed/many-bodied",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Dvfm2C0OX8nEHRF8",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.Dvfm2C0OX8nEHRF8",
+      "type": "text",
+      "name": "",
+      "description": "Moisture/tentacles/slime/ooze",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sYfZY14204RN5zfx",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.sYfZY14204RN5zfx",
+      "type": "text",
+      "name": "",
+      "description": "A predator/a warrior/a warlord/ a ruler",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7wuYkunBBPOSrGBD",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.7wuYkunBBPOSrGBD",
+      "type": "text",
+      "name": "",
+      "description": "Scales/sinew/suppleness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OHAWo3fk9kMJtB55",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.OHAWo3fk9kMJtB55",
+      "type": "text",
+      "name": "",
+      "description": "Skulls/bones/corpses/death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KhNyb9bqtE08nY6d",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.KhNyb9bqtE08nY6d",
+      "type": "text",
+      "name": "",
+      "description": "Vastness/immensity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3MkD2MhLMh50JMHG",
+      "_key": "!tables.results!aPGdu7BLyAPObAOx.3MkD2MhLMh50JMHG",
+      "type": "text",
+      "name": "",
+      "description": "A youth/a child/an infant",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "EXveRHfIos98HoiK",
+  "_key": "!tables!EXveRHfIos98HoiK",
+  "name": "Primordial powers — Features",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "aCx9V6Q2wh7v4tHo",
+      "_key": "!tables.results!EXveRHfIos98HoiK.aCx9V6Q2wh7v4tHo",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>archon</strong> (page 302), watching over it or what it contains",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v3T3RQfX7VZQ2eJs",
+      "_key": "!tables.results!EXveRHfIos98HoiK.v3T3RQfX7VZQ2eJs",
+      "type": "text",
+      "name": "",
+      "description": "A trapped primordial entity or <strong>emanation</strong> (page 436)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EVfEiW357rtmGGeu",
+      "_key": "!tables.results!EXveRHfIos98HoiK.EVfEiW357rtmGGeu",
+      "type": "text",
+      "name": "",
+      "description": "An abundance of certain spirits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KG1vrsCrrttyWfbH",
+      "_key": "!tables.results!EXveRHfIos98HoiK.KG1vrsCrrttyWfbH",
+      "type": "text",
+      "name": "",
+      "description": "The <strong>shade</strong> (page 85) of a dead god or primordial entity, easily called up",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iYlGnvDHCuWMx9gI",
+      "_key": "!tables.results!EXveRHfIos98HoiK.iYlGnvDHCuWMx9gI",
+      "type": "text",
+      "name": "",
+      "description": "Anomalies (time loops or fluxes, spatial warps, weird gravity, thoughts projected out loud, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zacaoUksbNszBAmH",
+      "_key": "!tables.results!EXveRHfIos98HoiK.zacaoUksbNszBAmH",
+      "type": "text",
+      "name": "",
+      "description": "A thin barrier with the spirit world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cGTyIG50pBeNpU1z",
+      "_key": "!tables.results!EXveRHfIos98HoiK.cGTyIG50pBeNpU1z",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>portal</strong> (page 306), or a place with the potential for one",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "M9fCbhPqY7XnNGlX",
+      "_key": "!tables.results!EXveRHfIos98HoiK.M9fCbhPqY7XnNGlX",
+      "type": "text",
+      "name": "",
+      "description": "A font of power; a good place to work particular types of magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EKvKDPblBrauVZS5",
+      "_key": "!tables.results!EXveRHfIos98HoiK.EKvKDPblBrauVZS5",
+      "type": "text",
+      "name": "",
+      "description": "Visions/omens/prophecies/insights, sometimes bestowed on visitors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XXAEdJm9puKpFN6J",
+      "_key": "!tables.results!EXveRHfIos98HoiK.XXAEdJm9puKpFN6J",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458), something weird, found only here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lB4rAK7Dbrh1pAKI",
+      "_key": "!tables.results!EXveRHfIos98HoiK.lB4rAK7Dbrh1pAKI",
+      "type": "text",
+      "name": "",
+      "description": "The raw stuff of creation: <strong>black</strong> <strong>iron</strong> (page 307), water of life, <strong>primordial flame</strong> (page 311), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2Uv3ejEKpjjX3qPj",
+      "_key": "!tables.results!EXveRHfIos98HoiK.2Uv3ejEKpjjX3qPj",
+      "type": "text",
+      "name": "",
+      "description": "One or more <strong>artifacts</strong> of primordial power (page 308)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_id": "NY2WM7rHzgEnXfyg",
+  "_key": "!tables!NY2WM7rHzgEnXfyg",
+  "name": "Stone Lords — Condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "kBE9rYyGIen0XGN9",
+      "_key": "!tables.results!NY2WM7rHzgEnXfyg.kBE9rYyGIen0XGN9",
+      "type": "text",
+      "name": "",
+      "description": "Shattered and laid waste by time, war, or vandalism; mostly buried, overgrown, collapsed; its purpose unrecognizable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CYUTwTUyFMp29hz2",
+      "_key": "!tables.results!NY2WM7rHzgEnXfyg.CYUTwTUyFMp29hz2",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling, largely buried, overgrown, or hidden away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "D5HAhvDiPWtSdEHl",
+      "_key": "!tables.results!NY2WM7rHzgEnXfyg.D5HAhvDiPWtSdEHl",
+      "type": "text",
+      "name": "",
+      "description": "Buried, overgrown, or hidden, but mostly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "uqGGjDowLuXT7CCr",
+      "_key": "!tables.results!NY2WM7rHzgEnXfyg.uqGGjDowLuXT7CCr",
+      "type": "text",
+      "name": "",
+      "description": "Fully visible and strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

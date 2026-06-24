@@ -1,0 +1,118 @@
+{
+  "_id": "SQi4zlmGMVEel8Kj",
+  "_key": "!tables!SQi4zlmGMVEel8Kj",
+  "name": "The Frozen Wastes — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vvECNvBFjwa4lvZ1",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.vvECNvBFjwa4lvZ1",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous column) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lydcsxTi5wO71PwT",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.lydcsxTi5wO71PwT",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "H1BJhRmsBcaibOTS",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.H1BJhRmsBcaibOTS",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CTjghdFwmwzJiFz5",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.CTjghdFwmwzJiFz5",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Dark ice</strong> (page 322)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f9Ome9njHT7D88LQ",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.f9Ome9njHT7D88LQ",
+      "type": "text",
+      "name": "",
+      "description": "A ruin or artifact of the <strong>Rime Lords</strong> (page 316)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JloPTwha9BwFjIGi",
+      "_key": "!tables.results!SQi4zlmGMVEel8Kj.JloPTwha9BwFjIGi",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 19001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

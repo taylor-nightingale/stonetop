@@ -1,0 +1,118 @@
+{
+  "_id": "HR7mNIDbbmxnLEnt",
+  "_key": "!tables!HR7mNIDbbmxnLEnt",
+  "name": "Rime Lords — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "fjsmCmjVTVQaKoXF",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.fjsmCmjVTVQaKoXF",
+      "type": "text",
+      "name": "",
+      "description": "Terraced compound of smaller buildings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JIHktzQLomDxXmbK",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.JIHktzQLomDxXmbK",
+      "type": "text",
+      "name": "",
+      "description": "Single, block-like building",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pvbAWsm0elQjo62x",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.pvbAWsm0elQjo62x",
+      "type": "text",
+      "name": "",
+      "description": "Large, open space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "I6YVJk4PSq4sElGz",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.I6YVJk4PSq4sElGz",
+      "type": "text",
+      "name": "",
+      "description": "Natural cavern(s), partially worked/ carved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WnTqvwK4F8GHQjv9",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.WnTqvwK4F8GHQjv9",
+      "type": "text",
+      "name": "",
+      "description": "Chambers dug into the stone itself",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Npt5o7IDgaUfvXMq",
+      "_key": "!tables.results!HR7mNIDbbmxnLEnt.Npt5o7IDgaUfvXMq",
+      "type": "text",
+      "name": "",
+      "description": "Dome/hall/tower",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

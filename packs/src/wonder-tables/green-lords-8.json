@@ -1,0 +1,118 @@
+{
+  "_id": "1D0P3HGHrZqiwioq",
+  "_key": "!tables!1D0P3HGHrZqiwioq",
+  "name": "Green Lords — Purpose (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "epUT4C2gsQMaRNEB",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.epUT4C2gsQMaRNEB",
+      "type": "text",
+      "name": "",
+      "description": "War/destruction/murder/hunting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eIXLg44SlGrjG206",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.eIXLg44SlGrjG206",
+      "type": "text",
+      "name": "",
+      "description": "Defense/protection/companionship",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SB2y6TBDKSfqwT24",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.SB2y6TBDKSfqwT24",
+      "type": "text",
+      "name": "",
+      "description": "Experimentation/insight/curiosity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HDwlWiKPsmDwTyO7",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.HDwlWiKPsmDwTyO7",
+      "type": "text",
+      "name": "",
+      "description": "Labor/industry/mundane tasks/ convenience",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "peNQiylEBjCELJyD",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.peNQiylEBjCELJyD",
+      "type": "text",
+      "name": "",
+      "description": "Something obscure, or very specific",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BtANGisT0kAUV8Jq",
+      "_key": "!tables.results!1D0P3HGHrZqiwioq.BtANGisT0kAUV8Jq",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice and combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_id": "8HEXNEzuNPJZJvUr",
+  "_key": "!tables!8HEXNEzuNPJZJvUr",
+  "name": "Barrow Builders — Current condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "jbIQD4EZeLorj7x5",
+      "_key": "!tables.results!8HEXNEzuNPJZJvUr.jbIQD4EZeLorj7x5",
+      "type": "text",
+      "name": "",
+      "description": "Shattered and laid waste by time, disaster, or vandalism; mostly buried, overgrown, collapsed; its purpose unrecognizable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dfYk4GbSAnyuoVfh",
+      "_key": "!tables.results!8HEXNEzuNPJZJvUr.dfYk4GbSAnyuoVfh",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling, largely buried, overgrown, or hidden away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v43DZpHcYbDDzGHf",
+      "_key": "!tables.results!8HEXNEzuNPJZJvUr.v43DZpHcYbDDzGHf",
+      "type": "text",
+      "name": "",
+      "description": "Buried, overgrown, or hidden, but mostly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IisdqbG08QRoB1zk",
+      "_key": "!tables.results!8HEXNEzuNPJZJvUr.IisdqbG08QRoB1zk",
+      "type": "text",
+      "name": "",
+      "description": "Fully visible and strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

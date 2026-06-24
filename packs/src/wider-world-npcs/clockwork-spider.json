@@ -1,0 +1,45 @@
+{
+  "_id": "FacLWaa6XyMjaanZ",
+  "_key": "!actors!FacLWaa6XyMjaanZ",
+  "name": "Clockwork spider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "clockwork-spider",
+    "reference": "forge-lords",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "construct",
+        "creepy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "2 (metal), 0 vs. crushing",
+    "damage": "many little pincers d4 (hand, grabby)",
+    "specialQuality": "fireproof, blind, tremor- sense, active only for short periods",
+    "instinct": {
+      "selected": [
+        "to get in the way"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Skitter towards them, ominously\n- “Watch” intently, responding subtly to every move\n- Try to take things from their hands\n- Defend itself if attacked\n- Follow orders given in the Forge Lord’s tongue, poorly\n\nThey’re not really shaped like spiders, but that’s what they make you think of. Picture a metal basket, holding gears and springs and a glowing central core. Articulated legs extend out, each ending in a little 3-clawed pincer. They squeak as they move, their many joints needing oil. They were made to be little servants, extra sets of hands to help around a house or forge. Even now, they’re just trying to help.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

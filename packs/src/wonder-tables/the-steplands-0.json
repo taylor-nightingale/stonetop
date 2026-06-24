@@ -1,0 +1,182 @@
+{
+  "_id": "nZAoSNTWbtxKyyLd",
+  "_key": "!tables!nZAoSNTWbtxKyyLd",
+  "name": "The Steplands — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ZB0FJccnsq9k5qQp",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.ZB0FJccnsq9k5qQp",
+      "type": "text",
+      "name": "",
+      "description": "Creek, gulley, stream, river",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eHqpVAIIJWIALErP",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.eHqpVAIIJWIALErP",
+      "type": "text",
+      "name": "",
+      "description": "Stream, disappearing into cave, sinkhole, or fractured bedrock",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "x5yTxAwpOnkqFqWs",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.x5yTxAwpOnkqFqWs",
+      "type": "text",
+      "name": "",
+      "description": "Sinkhole, crevasse, gorge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MynhO1bR75XVUGLu",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.MynhO1bR75XVUGLu",
+      "type": "text",
+      "name": "",
+      "description": "Barren patch (sand, scree, rocks)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OxcbfkfmQvMCMJHR",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.OxcbfkfmQvMCMJHR",
+      "type": "text",
+      "name": "",
+      "description": "Copse of pines, gnarled shrubs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZvGGgnEp6c3OH20L",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.ZvGGgnEp6c3OH20L",
+      "type": "text",
+      "name": "",
+      "description": "Stretch of <strong>Broken Roads</strong> (page 271)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zMbKMavOPvhabkQe",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.zMbKMavOPvhabkQe",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope, meadow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4YwWRQhp5kX2Ln4D",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.4YwWRQhp5kX2Ln4D",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope, treacherous, unstable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gfsQyidldwwlTaZv",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.gfsQyidldwwlTaZv",
+      "type": "text",
+      "name": "",
+      "description": "Sheer rock face, bluff, rocky outcrop",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IOFwMR96x0yEaPY2",
+      "_key": "!tables.results!nZAoSNTWbtxKyyLd.IOFwMR96x0yEaPY2",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Cave</strong> (page 380)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

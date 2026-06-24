@@ -1,0 +1,46 @@
+{
+  "_id": "kfXultjqKVstp9m7",
+  "_key": "!actors!kfXultjqKVstp9m7",
+  "name": "Mammoth herder",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mammoth-herder",
+    "reference": "the-frozen-wastes",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy",
+        "cautious",
+        "organized",
+        "clever"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "1 (thick hides & furs)",
+    "damage": "long spears d6 (reach, crude) or javelins with atlatls d6 (far, reload, crude)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to put their people and their herd first"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Greet someone from a distance, politely and formally\n- Remain calm as they prepare for violence\n- Work or fight in tandem with their mammoth(s), dogs, and hunting drakes",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.kvSIGSOu6kzWWoyH]{The Frozen Wastes} (Book p.172-177)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

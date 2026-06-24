@@ -1,7 +1,7 @@
 {
 	"name": "Revenant",
 	"type": "insert",
-	"img": "assets/post-death-inserts/revenant.png",
+	"img": "systems/stonetop/assets/content/inserts/revenant.png",
 	"system": {
 		"slug": "revenant",
 		"description": "When you *die but cling stubbornly to your body*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",

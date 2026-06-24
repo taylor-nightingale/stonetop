@@ -1,0 +1,48 @@
+{
+  "_id": "FqGQGutoqve2LJI6",
+  "_key": "!actors!FqGQGutoqve2LJI6",
+  "name": "Fire vortex",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fire-vortex",
+    "reference": "tempest-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "size by HP",
+        "spirit",
+        "construct",
+        "amorphous",
+        "intense",
+        "aggressive"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "armor": "by HP",
+    "damage": "flames & fire (damage and tags by HP, +dangerous)",
+    "specialQuality": "fireproof harmed only by magical attacks, water, or smothering",
+    "instinct": {
+      "selected": [
+        "to consume"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Set nearby combustibles alight\n- Manifest a vortex out of nearby fire, cinder, smoke, and ash\n- Extinguish fires, absorbing their power (near, area)\n- Engulf a smaller foe (+messy, +ignores armor)\n- Fling flames (+near; costs 1d4 HP)\n- Leap across a barrier (but lose 1d4 HP)\n\nA fire vortex absorbs power from heat and flames. It gains 1d4 HP by spending a day in an oven or an hour in a forge or kiln, or by absorbing a raging fire. When you target a fire vortex or its matrix with magical fire or heat, it takes no dam- age. If the vortex has 18 HP or less, it gains 1d4 HP instead.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "FoCxknmdm2Rgjjlq",
+  "_key": "!tables!FoCxknmdm2Rgjjlq",
+  "name": "APPENDIX B: Artifact Creation — How it’s recorded",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ouLnvc0bz535rIg7",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.ouLnvc0bz535rIg7",
+      "type": "text",
+      "name": "",
+      "description": "Known to an entity bound to the artifact; go back to <strong>spirit or sen</strong><strong>tience</strong> (previous page, step 2e), and do what it says",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "t7EErXKSPTKz9uHi",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.t7EErXKSPTKz9uHi",
+      "type": "text",
+      "name": "",
+      "description": "Inscribed on/in the artifact: ancient runes or writing in a long-dead language",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HZGMk1dADpXvu3zz",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.HZGMk1dADpXvu3zz",
+      "type": "text",
+      "name": "",
+      "description": "Adorning the artifact: carvings/ paintings/decorations/diagrams",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZB8Ebjdbk6aVjwwF",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.ZB8Ebjdbk6aVjwwF",
+      "type": "text",
+      "name": "",
+      "description": "Scrawled on/in the artifact: a cypher, mad ramblings, strange annotations, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1dLSgMOrpKusDszW",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.1dLSgMOrpKusDszW",
+      "type": "text",
+      "name": "",
+      "description": "As a vision/dream, imparted on whoever touches/enters/approaches",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m03nFfqtdETybVON",
+      "_key": "!tables.results!FoCxknmdm2Rgjjlq.m03nFfqtdETybVON",
+      "type": "text",
+      "name": "",
+      "description": "Inscribed on/in the artifact: clear to those who can read the language",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

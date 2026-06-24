@@ -1,0 +1,45 @@
+{
+  "_id": "0vyyMGiQc3mNolxj",
+  "_key": "!actors!0vyyMGiQc3mNolxj",
+  "name": "Caralandrao",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "caralandrao",
+    "reference": "huffel-peaks",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "stealthy",
+        "hoarder"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (shell)",
+    "damage": "pincers d4 with disadvantage (hand, grabby)",
+    "specialQuality": "spider-climb, camou- flaged shell",
+    "instinct": {
+      "selected": [
+        "to feed on magic"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense mystic emanations from afar\n- Get close without being noticed\n- Skitter-skatter, dart and weave\n- Make off with something magical\n\nAre they crabs? Spiders? Hard to say. Whatever they are, they’ve got too many too-long limbs, shells that blend in with the rocky terrain, and an appetite for magical artifacts. They’ll drag their prizes back to their nests to feed. They can suck the power right out of minor trinkets, but powerful arcana can feed a small colony indefinitely. And yet, they keep venturing out to find more.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.VAh2hWUYrYMaVuVJ]{Huffel Peaks} (Book p.236-241)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

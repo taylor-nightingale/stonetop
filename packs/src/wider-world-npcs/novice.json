@@ -1,0 +1,45 @@
+{
+  "_id": "cj7QFDm8yUWIrBis",
+  "_key": "!actors!cj7QFDm8yUWIrBis",
+  "name": "Novice",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "novice",
+    "reference": "barrier-pass",
+    "tagList": {
+      "selected": [
+        "Group",
+        "cautious",
+        "disciplined",
+        "meek"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "",
+    "damage": "staff d8 with disadvantage (close)",
+    "specialQuality": "unreliable spirit sight",
+    "instinct": {
+      "selected": [
+        "to veer between their masters’ teachings and their base needs"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Do what their superiors ask\n- Hesitate, balk, flinch\n- Show great promise, or great weakness",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

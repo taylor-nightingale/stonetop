@@ -1,0 +1,46 @@
+{
+  "_id": "CpCwnfUua4WOF4A2",
+  "_key": "!actors!CpCwnfUua4WOF4A2",
+  "name": "Tonnerhorn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "tonnerhorn",
+    "reference": "north-manmarch",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy",
+        "powerful",
+        "grumpy",
+        "loyal"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "0",
+    "damage": "butt/gore d6+2 (hand, close, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect its herd"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Relentlessly pull against a load or restraint\n- Grunt, huff, paw, or bellow to make its displeasure known\n- Smash into whatever offends it, repeatedly\n\nTonnerhorns are great big sheep, as big and strong as a donkey and twice as ornery. The ewes have good-sized horns, but the rams? The rams’ horns are massive, curved, and nigh-unbreakable. Which is good—for the rams at least—because they do love to just smack-smack-smack them into things. Manmarchers raise them as beasts of burden, lashing them to plows, carts, sleighs, or even chariots. They bottle-feed the lambs and as a result, tonnerhorns are fiercely loyal to those who raised them. They’re all kinds of unfriendly towards anyone else.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

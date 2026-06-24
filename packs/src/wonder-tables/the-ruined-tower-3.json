@@ -1,0 +1,118 @@
+{
+  "_id": "SP4cAEwrs0CIfGDR",
+  "_key": "!tables!SP4cAEwrs0CIfGDR",
+  "name": "The Ruined Tower — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ClviekOrd0LjUHwI",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.ClviekOrd0LjUHwI",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (page 336) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NPSPUQbTCvV0SNuH",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.NPSPUQbTCvV0SNuH",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jEmWPIJtOGYBrPcP",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.jEmWPIJtOGYBrPcP",
+      "type": "text",
+      "name": "",
+      "description": "remnants of the past (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Js6kqTvEa6L3D8fS",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.Js6kqTvEa6L3D8fS",
+      "type": "text",
+      "name": "",
+      "description": "An encounter (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wEhQJmBdWVEPGcz8",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.wEhQJmBdWVEPGcz8",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458), growing among the ruins",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bfljiVSrI6gz330L",
+      "_key": "!tables.results!SP4cAEwrs0CIfGDR.bfljiVSrI6gz330L",
+      "type": "text",
+      "name": "",
+      "description": "Something valuable (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

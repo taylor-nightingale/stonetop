@@ -1,0 +1,44 @@
+{
+  "_id": "zpG1knCeuj6DNxpQ",
+  "_key": "!actors!zpG1knCeuj6DNxpQ",
+  "name": "Spitting drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "spitting-drake",
+    "reference": "the-steplands",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "2 (pebbly scales)",
+    "damage": "vice-like jaws d8 (hand, grabby, messy, 1 piercing)",
+    "specialQuality": "chameleon skin, excellent climbers",
+    "instinct": {
+      "selected": [
+        "to pin down a good meal, then swarm it"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Lay an ambush, where they can surround prey\n- Spit a head-sized gob of sticky mucus (near, grabby, reload)\n- Sprint much more quickly than you’d expect\n\nThey’re about the size of a big ﻿wolf, but lower and squatter, with arms out to the sides like lizards and a big old frill that pops up when they’re startled or bearing down on prey. They favor canyons, defiles, or overlooks where they can bask in the sun but have a good angle to ambush passersby. Something interesting: Their mucus adheres quickly to rock, pinning prey in place. Even if it doesn’t pin prey down, it gloms on and slows them up. It’ll dry out and start to flake away after a few hours. Something useful: Strong spirits (yes, like whisky) quickly dissolve the mucus. Also, you can identify their territory by the pale chalky stains their mucus leaves on stone.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

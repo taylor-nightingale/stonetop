@@ -1,0 +1,118 @@
+{
+  "_id": "ga1ri2FAYTd2dHEK",
+  "_key": "!tables!ga1ri2FAYTd2dHEK",
+  "name": "APPENDIX B: Artifact Creation — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "R9daIdQXF24q9JmO",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.R9daIdQXF24q9JmO",
+      "type": "text",
+      "name": "",
+      "description": "A small item",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Cz640lnQlbzAklTY",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.Cz640lnQlbzAklTY",
+      "type": "text",
+      "name": "",
+      "description": "A item or object",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "P655exJVtHXPQkGi",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.P655exJVtHXPQkGi",
+      "type": "text",
+      "name": "",
+      "description": "A item or object",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9MCa0Z2agmSsEWvG",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.9MCa0Z2agmSsEWvG",
+      "type": "text",
+      "name": "",
+      "description": "An <em>immobile</em> object or place",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O4QWmrSxEyFevEli",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.O4QWmrSxEyFevEli",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d8 again, but it’s hard to extract, access, and/or take advantage of",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NXGfFvC1BBolBMGx",
+      "_key": "!tables.results!ga1ri2FAYTd2dHEK.NXGfFvC1BBolBMGx",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 again, but it’s also <em>crude</em>, <em>fragile</em>, <em>cumbersome</em>, and/or <em>dangerous</em>",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

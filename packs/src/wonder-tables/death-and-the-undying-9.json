@@ -1,0 +1,134 @@
+{
+  "_id": "5HcTARteSQRZ3bbH",
+  "_key": "!tables!5HcTARteSQRZ3bbH",
+  "name": "Death and the undying — Weakness",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "3dPOCasJ92tOHKSb",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.3dPOCasJ92tOHKSb",
+      "type": "text",
+      "name": "",
+      "description": "Afraid of some mundane thing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FFTjBJGa1TMlBhtW",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.FFTjBJGa1TMlBhtW",
+      "type": "text",
+      "name": "",
+      "description": "Inarticulate, or unable to speak",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QDSjfhzOiQ4CCIB3",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.QDSjfhzOiQ4CCIB3",
+      "type": "text",
+      "name": "",
+      "description": "Obsessive/predictable behavior",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iXddLhpvlv15oOAF",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.iXddLhpvlv15oOAF",
+      "type": "text",
+      "name": "",
+      "description": "Easily frustrated/angered/enraged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yLHZ8Ao5MaCsxwHz",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.yLHZ8Ao5MaCsxwHz",
+      "type": "text",
+      "name": "",
+      "description": "Can’t form new memories",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yYhTCSGKE6BDpMBf",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.yYhTCSGKE6BDpMBf",
+      "type": "text",
+      "name": "",
+      "description": "Driven off by singing/prayer/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ljFExOQV9ridQxfL",
+      "_key": "!tables.results!5HcTARteSQRZ3bbH.ljFExOQV9ridQxfL",
+      "type": "text",
+      "name": "",
+      "description": "Shuns/powerless in daylight",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

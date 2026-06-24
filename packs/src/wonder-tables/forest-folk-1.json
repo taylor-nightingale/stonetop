@@ -1,0 +1,118 @@
+{
+  "_id": "4A3jvQpKDGzxIioP",
+  "_key": "!tables!4A3jvQpKDGzxIioP",
+  "name": "Forest Folk — Trigger",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "X1P6mtVAsAzip57S",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.X1P6mtVAsAzip57S",
+      "type": "text",
+      "name": "",
+      "description": "Merely being in their presence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PkZNx4lq8G7htSBp",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.PkZNx4lq8G7htSBp",
+      "type": "text",
+      "name": "",
+      "description": "Seeing them, even at a glance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RfmhmvnnvX9qGMVN",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.RfmhmvnnvX9qGMVN",
+      "type": "text",
+      "name": "",
+      "description": "Passing a border that they define, or attempting to",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ggzR0vuKGTHmFsHE",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.ggzR0vuKGTHmFsHE",
+      "type": "text",
+      "name": "",
+      "description": "Attempting to read or comprehend them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "o37ifRDTVxLNVNy9",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.o37ifRDTVxLNVNy9",
+      "type": "text",
+      "name": "",
+      "description": "Touching whatever they’re inscribed upon",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "328GBUHDVEL8kzFg",
+      "_key": "!tables.results!4A3jvQpKDGzxIioP.328GBUHDVEL8kzFg",
+      "type": "text",
+      "name": "",
+      "description": "Erasing, breaking, or marring them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 17001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

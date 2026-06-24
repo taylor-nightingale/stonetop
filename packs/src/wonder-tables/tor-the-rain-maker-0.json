@@ -1,0 +1,166 @@
+{
+  "_id": "P2hJJmJAbNBxPmjf",
+  "_key": "!tables!P2hJJmJAbNBxPmjf",
+  "name": "Tor, the Rain-maker — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "SpPf0FagVZfcQJlo",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.SpPf0FagVZfcQJlo",
+      "type": "text",
+      "name": "",
+      "description": "Rain/snow/good clean water",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c7Xvz7w967rvDfdM",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.c7Xvz7w967rvDfdM",
+      "type": "text",
+      "name": "",
+      "description": "Wind/weather/the sky/clouds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Xu1oXS8aYHxXf6FO",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.Xu1oXS8aYHxXf6FO",
+      "type": "text",
+      "name": "",
+      "description": "Storms/thunder/lightning",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CHFb7q167eFTNqWR",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.CHFb7q167eFTNqWR",
+      "type": "text",
+      "name": "",
+      "description": "Courage/strength/prowess/endurance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hZPiESXmFnBFEoEl",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.hZPiESXmFnBFEoEl",
+      "type": "text",
+      "name": "",
+      "description": "Generosity/gift-giving/celebration",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Eta13pLxY15TgWfE",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.Eta13pLxY15TgWfE",
+      "type": "text",
+      "name": "",
+      "description": "Exuberance/confidence/folly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YhCuHGAcB7J89HTz",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.YhCuHGAcB7J89HTz",
+      "type": "text",
+      "name": "",
+      "description": "Surprises/moodiness/whims",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2lwgePVSQtGbhMUK",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.2lwgePVSQtGbhMUK",
+      "type": "text",
+      "name": "",
+      "description": "Wrath/rage/destruction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zrgDprZPDBYgxEuh",
+      "_key": "!tables.results!P2hJJmJAbNBxPmjf.zrgDprZPDBYgxEuh",
+      "type": "text",
+      "name": "",
+      "description": "Prophecy/doom foretold",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 49000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

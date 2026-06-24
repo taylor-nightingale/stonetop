@@ -1,0 +1,45 @@
+{
+  "_id": "lOdWFqQAxh5x5p0v",
+  "_key": "!actors!lOdWFqQAxh5x5p0v",
+  "name": "Coedwaig",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "coedwaig",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "tiny",
+        "spirit",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 5,
+      "max": 5
+    },
+    "armor": "2 (bark, no vital organs)",
+    "damage": "nasty thorns d6 (hand, grabby)",
+    "specialQuality": "thorns all over, to touch them is to bleed",
+    "instinct": {
+      "selected": [
+        "to viciously defend its ward"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Possess thorny plants or vines and shape them into a body\n- Cause vicious thorns and spines to sprout from nearby plants\n- Dig in deep, make them bleed (messy)\n\nEach thorn on a plant is a sword, bran- dished boldly against a world that would defile its flowers, steal its fruit, and devour its delicate buds. What, then, are the coed- waig? Only Danu’s swords, brandished by the Mother herself in defense of her most beautiful and vulnerable children.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

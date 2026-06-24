@@ -1,0 +1,118 @@
+{
+  "_id": "we6cNuurMctucRqK",
+  "_key": "!tables!we6cNuurMctucRqK",
+  "name": "Fae — Anchor",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "nmoesYIc4T4vFUBL",
+      "_key": "!tables.results!we6cNuurMctucRqK.nmoesYIc4T4vFUBL",
+      "type": "text",
+      "name": "",
+      "description": "The will of a single potent Fae",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZTD3n8PqND9whAWm",
+      "_key": "!tables.results!we6cNuurMctucRqK.ZTD3n8PqND9whAWm",
+      "type": "text",
+      "name": "",
+      "description": "The instinct or intent of multiple Fae, dwelling (trapped?) within",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "205OLx2O0oT1FSGe",
+      "_key": "!tables.results!we6cNuurMctucRqK.205OLx2O0oT1FSGe",
+      "type": "text",
+      "name": "",
+      "description": "A shard of power left by a powerful Fae, buried or hidden away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5FHcHxBsSBITfu6g",
+      "_key": "!tables.results!we6cNuurMctucRqK.5FHcHxBsSBITfu6g",
+      "type": "text",
+      "name": "",
+      "description": "One or more Fae, bound/inert, their essence sunk into the domain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LRw09Zbw5GdUUMNh",
+      "_key": "!tables.results!we6cNuurMctucRqK.LRw09Zbw5GdUUMNh",
+      "type": "text",
+      "name": "",
+      "description": "Rune-carved stone infused with Fae power, a work of the Green Lords",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MMTjOK3CUxiKXGOR",
+      "_key": "!tables.results!we6cNuurMctucRqK.MMTjOK3CUxiKXGOR",
+      "type": "text",
+      "name": "",
+      "description": "Roll again, but it’s failing, fickle, unstable, possibly abandoned",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "NtMt5hn34BO6GKkr",
+  "_key": "!tables!NtMt5hn34BO6GKkr",
+  "name": "Tempest Lords — Purpose",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "QuCpUobId0NtTCyA",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.QuCpUobId0NtTCyA",
+      "type": "text",
+      "name": "",
+      "description": "Dwelling (home, barracks, dormitory, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F7zl0N4tuWloRdCN",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.F7zl0N4tuWloRdCN",
+      "type": "text",
+      "name": "",
+      "description": "Infrastructure (cistern, sewer, lighthouse, harbor, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jxGflVny6xfN4ueE",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.jxGflVny6xfN4ueE",
+      "type": "text",
+      "name": "",
+      "description": "Storage (vault, batteries, warehouse, library, museum, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8zdZjVJMybTEJ5OC",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.8zdZjVJMybTEJ5OC",
+      "type": "text",
+      "name": "",
+      "description": "Production (generator, workshop, shipworks, factory, farm, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vb32JD1YX5BJuWWg",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.vb32JD1YX5BJuWWg",
+      "type": "text",
+      "name": "",
+      "description": "Study/Experimentation (laboratory, observatory, orrery, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bZqIYhWj2EDvZCHo",
+      "_key": "!tables.results!NtMt5hn34BO6GKkr.bZqIYhWj2EDvZCHo",
+      "type": "text",
+      "name": "",
+      "description": "Enigma (magical device, artistic endeavor, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

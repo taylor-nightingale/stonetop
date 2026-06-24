@@ -1,0 +1,48 @@
+{
+  "_id": "VqG0AjCvDOFql2i1",
+  "_key": "!actors!VqG0AjCvDOFql2i1",
+  "name": "Shantyara",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "shantyara",
+    "reference": "the-whitefang-mountains",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "emotionless",
+        "clever",
+        "stealthy",
+        "hardy",
+        "skilled",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 18,
+      "max": 18
+    },
+    "armor": "2 (thick hides/furs, skill)",
+    "damage": "orichalcum sword d10+2 w/ad- vantage (close, messy, 2 piercing) or bronze knife d10 w/advantage (hand, 1 piercing)",
+    "specialQuality": "spirit-sight immune to mental manipulation; inured to cold, hunger, pain, deprivation; hard to surprise",
+    "instinct": {
+      "selected": [
+        "to cleanse the world of the Howling Curse"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Stalk a suspect with perfect patience\n- Condemn the tainted for all to hear\n- Try to avoid bloodshed for the untainted\n- Mercilessly cut down the condemned, and any who protect them\n- Deftly counter an attack they see coming\n\nOnly a handful of these “tranquil killers” remain, three or four at most. They wander the Whitefangs, hunting kyakaara (page 493) and anyone else corrupted by the Howling Curse (page 492). They are welcome in any settlement, but that welcome is often stilted, formal, fraught. Few are comfortable under a shantyara’s piercing gaze.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

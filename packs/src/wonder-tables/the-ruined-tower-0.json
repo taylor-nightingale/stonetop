@@ -1,0 +1,166 @@
+{
+  "_id": "bFI8VblBdbW243Tu",
+  "_key": "!tables!bFI8VblBdbW243Tu",
+  "name": "The Ruined Tower — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "CeR19Lcg8TVfqR6g",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.CeR19Lcg8TVfqR6g",
+      "type": "text",
+      "name": "",
+      "description": "Barren patch of sand/dust/glass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hq8FTQP8Ibzrte1u",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.hq8FTQP8Ibzrte1u",
+      "type": "text",
+      "name": "",
+      "description": "Mud/standing water/deep snow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G6h0tGDzFlG5iW1j",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.G6h0tGDzFlG5iW1j",
+      "type": "text",
+      "name": "",
+      "description": "Ditch, gully, or embankment; the outline of buried ruins",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YDedyxjugtlip9Ai",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.YDedyxjugtlip9Ai",
+      "type": "text",
+      "name": "",
+      "description": "Exposed wall(s), crumbling and covered in moss/lichen",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CHq1j1kpSQ8xtFth",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.CHq1j1kpSQ8xtFth",
+      "type": "text",
+      "name": "",
+      "description": "Stretch of grass, 1d6+2 feet tall",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mlFMKZuQbMHpd7hl",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.mlFMKZuQbMHpd7hl",
+      "type": "text",
+      "name": "",
+      "description": "Shrubs, thicket, tree(s)—maybe even <strong>dool trees</strong> (page 73)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6AsgVWdEJgJ0Gsqf",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.6AsgVWdEJgJ0Gsqf",
+      "type": "text",
+      "name": "",
+      "description": "Huge stone slab, partly buried; a fallen piece of the tower",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MwVmzKSjsewXzymU",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.MwVmzKSjsewXzymU",
+      "type": "text",
+      "name": "",
+      "description": "Pile of dirt/stone and a nearby pit; an excavation or burrow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eNHUcGchZxEnDuMm",
+      "_key": "!tables.results!bFI8VblBdbW243Tu.eNHUcGchZxEnDuMm",
+      "type": "text",
+      "name": "",
+      "description": "building (see below), at least somewhat intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

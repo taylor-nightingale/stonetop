@@ -1,0 +1,118 @@
+{
+  "_id": "mjsT0QeP4BZRDAYZ",
+  "_key": "!tables!mjsT0QeP4BZRDAYZ",
+  "name": "The Labyrinth — Other encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "nkLSSJN7UPHRIY5e",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.nkLSSJN7UPHRIY5e",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>thrall</strong> (page 435), terribly marked, living down here all alone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VF0OBFSVkIo8shzD",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.VF0OBFSVkIo8shzD",
+      "type": "text",
+      "name": "",
+      "description": "A swarm of small, cave-dwelling vermin—cave spiders, rockrats, or <strong>bats</strong> (page 376)—alarming and distracting, but essentially harmless",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eQuvoVLbl7eEnW01",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.eQuvoVLbl7eEnW01",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ghost</strong> (page 76), <strong>revenant</strong> (page 80), or <strong>spirit of the wild</strong> (page 356): curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "erNShILCLhJQaAXG",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.erNShILCLhJQaAXG",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>metal construct</strong> (page 167), following ancient orders or awaiting activation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4vkZDPlrdXGHRxwk",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.4vkZDPlrdXGHRxwk",
+      "type": "text",
+      "name": "",
+      "description": "Adventurers/prospectors from Gordin’s Delve, wary, maybe lost",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DtpV41fhaHLbFEBK",
+      "_key": "!tables.results!mjsT0QeP4BZRDAYZ.DtpV41fhaHLbFEBK",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Ustrina</strong> (page 464): surface-bound, returning to the ﻿<strong>Portal Vault</strong> (page 246), or seeking something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

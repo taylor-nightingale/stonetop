@@ -1,0 +1,46 @@
+{
+  "_id": "MDgo1w5yEK0lktCv",
+  "_key": "!actors!MDgo1w5yEK0lktCv",
+  "name": "Gouzadn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "gouzadn",
+    "reference": "the-steplands",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "magical",
+        "cautious",
+        "stealthy",
+        "shapeshifter"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience), 0 vs. certain sacred wood",
+    "damage": "tooth and claw d10 (hand, grabby), hoof and antler d10+2 (close, forceful), rending strength d10+2 (hand, forceful, messy)",
+    "specialQuality": "confused and frustrated by human speech, host to dozens of beast-spirits",
+    "instinct": {
+      "selected": [
+        "to see people as either threat or prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Assume the aspect(s) of one or more beasts\n- Do something impossible for a human, easy for a beast\n- Suffer through a terrible wound unfazed, healing with a few days’ rest\n- Ask beasts or spirits (even quiet ones) for information or favors\n\nWhen a young Hillfolk shows signs of being touched by spirits, their band had best seek out a spirit-talker (page 235) to mentor the child. Without such guidance, these youths might forsake their humanity, forget their language, and eventually bind spirits of the wild to their very flesh.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

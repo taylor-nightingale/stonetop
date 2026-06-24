@@ -1,0 +1,118 @@
+{
+  "_id": "J7U9yGTZpiCUeyRs",
+  "_key": "!tables!J7U9yGTZpiCUeyRs",
+  "name": "Barrow Builders — Current state",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "O27DdaopMqs38MGo",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.O27DdaopMqs38MGo",
+      "type": "text",
+      "name": "",
+      "description": "Greatly diminished, perhaps destroyed and waiting to return",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8TnNY7kH1LsTyh6F",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.8TnNY7kH1LsTyh6F",
+      "type": "text",
+      "name": "",
+      "description": "Imprisoned and largely forgotten",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "P7MMkQMNPyKfxQFt",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.P7MMkQMNPyKfxQFt",
+      "type": "text",
+      "name": "",
+      "description": "Hidden, apathetic, self-involved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sI61x831cAuhiBnR",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.sI61x831cAuhiBnR",
+      "type": "text",
+      "name": "",
+      "description": "Trapped, but with some influence",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5btBWfrjDYA0uPJX",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.5btBWfrjDYA0uPJX",
+      "type": "text",
+      "name": "",
+      "description": "Secretly active, pursuing schemes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BG8hPeTrAqGgC0rS",
+      "_key": "!tables.results!J7U9yGTZpiCUeyRs.BG8hPeTrAqGgC0rS",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5018,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

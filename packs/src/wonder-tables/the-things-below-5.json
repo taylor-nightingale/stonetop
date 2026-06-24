@@ -1,0 +1,102 @@
+{
+  "_id": "cT4LDACnkwimHClh",
+  "_key": "!tables!cT4LDACnkwimHClh",
+  "name": "The Things Below — Severity",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "wWxnhh9AiX452ZsG",
+      "_key": "!tables.results!cT4LDACnkwimHClh.wWxnhh9AiX452ZsG",
+      "type": "text",
+      "name": "",
+      "description": "A shunned place: full of <strong>disquiet</strong> <strong>and unease</strong> (page 428), not actively dangerous but where it’s easy to draw upon their power",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3VRepBGItdccIt3Z",
+      "_key": "!tables.results!cT4LDACnkwimHClh.3VRepBGItdccIt3Z",
+      "type": "text",
+      "name": "",
+      "description": "A hungry place: full of <strong>whispers</strong> <strong>and visions</strong> (page 428), calling the unwholesome, trapping and consuming the unwary",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MZgJcqHKkB5dSSda",
+      "_key": "!tables.results!cT4LDACnkwimHClh.MZgJcqHKkB5dSSda",
+      "type": "text",
+      "name": "",
+      "description": "A poisonous place: full of <strong>unnatural</strong> <strong>phenomena</strong> (page 429), corrupting those who visit",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2THHujfzuiLlCugU",
+      "_key": "!tables.results!cT4LDACnkwimHClh.2THHujfzuiLlCugU",
+      "type": "text",
+      "name": "",
+      "description": "A spawning place: where <strong>ema</strong><strong>nations</strong> (page 436) congeal and manifest",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8D5ASEw4FkbUludH",
+      "_key": "!tables.results!cT4LDACnkwimHClh.8D5ASEw4FkbUludH",
+      "type": "text",
+      "name": "",
+      "description": "A wound in the world: spreading rot, bleeding horror, getting worse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

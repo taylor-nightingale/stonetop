@@ -1,0 +1,166 @@
+{
+  "_id": "x7fAtRRfILAgNZQC",
+  "_key": "!tables!x7fAtRRfILAgNZQC",
+  "name": "Rime Lords — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "mHHBsq1qiIlAOCP8",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.mHHBsq1qiIlAOCP8",
+      "type": "text",
+      "name": "",
+      "description": "Ice: shaped into grand and intricate designs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7mJAIDu9nPsnZii3",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.7mJAIDu9nPsnZii3",
+      "type": "text",
+      "name": "",
+      "description": "The all-pervasive cold: bone-chilling, shivering, numbing, desperate",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mVab3XWhgmeYmdZB",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.mVab3XWhgmeYmdZB",
+      "type": "text",
+      "name": "",
+      "description": "Stasis/stillness/silence/permanence/ preservation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "98zjBAOuk1aI7IFh",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.98zjBAOuk1aI7IFh",
+      "type": "text",
+      "name": "",
+      "description": "Ascetic practice: the ruthless perfection of mind/body/will",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U76yWnfgZcofScQy",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.U76yWnfgZcofScQy",
+      "type": "text",
+      "name": "",
+      "description": "Chants/gestures/rituals: to focus the will, to tame reality/chaos/entropy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FVWYS5hlS90yngfQ",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.FVWYS5hlS90yngfQ",
+      "type": "text",
+      "name": "",
+      "description": "The mind set free: spirit-sight, spirit-walking, thought-crafting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eeqEsHWuCkkc0Ti3",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.eeqEsHWuCkkc0Ti3",
+      "type": "text",
+      "name": "",
+      "description": "Writing and records: the preservation of the past",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DyiGlZpWLH5fijlF",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.DyiGlZpWLH5fijlF",
+      "type": "text",
+      "name": "",
+      "description": "Mortal servants/disciples, with their sects, schisms, and rivalries",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QDotdyVTlH4QmThS",
+      "_key": "!tables.results!x7fAtRRfILAgNZQC.QDotdyVTlH4QmThS",
+      "type": "text",
+      "name": "",
+      "description": "Sized for giants, and roll 1d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

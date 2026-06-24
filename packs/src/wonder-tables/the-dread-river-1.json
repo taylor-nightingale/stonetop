@@ -1,0 +1,102 @@
+{
+  "_id": "wIQcAgTq8IYIR5w6",
+  "_key": "!tables!wIQcAgTq8IYIR5w6",
+  "name": "The Dread River — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Pa0qRnG9LbHMP6ri",
+      "_key": "!tables.results!wIQcAgTq8IYIR5w6.Pa0qRnG9LbHMP6ri",
+      "type": "text",
+      "name": "",
+      "description": "Change of terrain (previous page) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rTATCyKOtTQN5Lrr",
+      "_key": "!tables.results!wIQcAgTq8IYIR5w6.rTATCyKOtTQN5Lrr",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "X99OIsQXDzq2pPMn",
+      "_key": "!tables.results!wIQcAgTq8IYIR5w6.X99OIsQXDzq2pPMn",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable</strong> <strong>flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TMfEsKo4GPV2DI0d",
+      "_key": "!tables.results!wIQcAgTq8IYIR5w6.TMfEsKo4GPV2DI0d",
+      "type": "text",
+      "name": "",
+      "description": "encounter (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "osozOQzqPQBZ8Kqn",
+      "_key": "!tables.results!wIQcAgTq8IYIR5w6.osozOQzqPQBZ8Kqn",
+      "type": "text",
+      "name": "",
+      "description": "point of interest (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 11001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

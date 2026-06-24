@@ -1,0 +1,44 @@
+{
+  "_id": "HNI4EN6I6sB3k8x2",
+  "_key": "!actors!HNI4EN6I6sB3k8x2",
+  "name": "Patchwork construct",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "patchwork-construct",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Group",
+        "construct",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "3 (metal)",
+    "damage": "tool at hand d8 (hand or close)",
+    "specialQuality": "must recharge every few days; dog-like intellect; blind; tremorsense",
+    "instinct": {
+      "selected": [
+        "to complete its given task"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Size up an obstacle or task\n- Reveal/use a tool, feature, or attach- ment for its current task\n- Plod away, raise the alarm\n\nFerocedes once had dozens of constructs to defend and maintain the tower. But the years have not been kind. Only ten or so remain, and one or two are usually offline for modifications or repairs. Each one has an  aetherium core (mag- ical, fragile, Value 2 to the right buyer). Ferocedes can repair minor damage to a core, and/or install it in a new body, but he can’t make new ones without the aetheri- um crucible (page 405). Each construct is generally humanoid, though most lack a “head” and all are made of mismatched parts. Pick or roll a current task for each. Consider picking or rolling for an attribute (page 167) and adjusting its stat block accordingly. 1d6 current task 1 Patrolling/guarding/defending 2 Masonry/repairing walls 3 Plumbing/other delicate work 4 Sweeping/cleaning/pest control 5 Hauling/storing/reorganizing 6 Seeking/retrieving/inspecting",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

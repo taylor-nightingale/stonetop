@@ -1,0 +1,166 @@
+{
+  "_id": "iATuqC7G4ATQJsQU",
+  "_key": "!tables!iATuqC7G4ATQJsQU",
+  "name": "Tempest Lords — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "4AVCxeR3HErlH0sf",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.4AVCxeR3HErlH0sf",
+      "type": "text",
+      "name": "",
+      "description": "Elemental forces and <strong>primordial</strong> <strong>power</strong> (page 298): wielded and harnessed, perhaps imperfectly",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0UgClX7mGEBk1ack",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.0UgClX7mGEBk1ack",
+      "type": "text",
+      "name": "",
+      "description": "Storms: thunder and lightning, wrath and fury, power unleashed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wkMUZgtcuPtexy7Y",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.wkMUZgtcuPtexy7Y",
+      "type": "text",
+      "name": "",
+      "description": "The heavens: weather and clouds, sky-islands, stars and celestial bodies",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BY2i1J7xSvFbAZxL",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.BY2i1J7xSvFbAZxL",
+      "type": "text",
+      "name": "",
+      "description": "Sailing: seas and ships, navigation and exploration",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YfovJ13vabf2aDiU",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.YfovJ13vabf2aDiU",
+      "type": "text",
+      "name": "",
+      "description": "Machines and devices, <strong>aetherium</strong> (page 404) and stored energy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qAYjqvKfzaAcdP7J",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.qAYjqvKfzaAcdP7J",
+      "type": "text",
+      "name": "",
+      "description": "Curiosity/experimentation/ invention/hubris",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NIh2tFXAAhkKsUku",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.NIh2tFXAAhkKsUku",
+      "type": "text",
+      "name": "",
+      "description": "Loss of control: unexpected consequences/berserk rage/cataclysmic failure/experiments run amok",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HuDjgObEAtdPaSIu",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.HuDjgObEAtdPaSIu",
+      "type": "text",
+      "name": "",
+      "description": "An empire collapsed: conquering armies, colonies, plunder, lost glory, resentment",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tJYic5ldmv0vP3Dt",
+      "_key": "!tables.results!iATuqC7G4ATQJsQU.tJYic5ldmv0vP3Dt",
+      "type": "text",
+      "name": "",
+      "description": "Sized for giants, and roll 1d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

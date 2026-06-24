@@ -1,0 +1,214 @@
+{
+  "_id": "G7vKqKAzzWZhzQYX",
+  "_key": "!tables!G7vKqKAzzWZhzQYX",
+  "name": "The Whitefang Mountains — Feature",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "iRWehUn9MQTuNGfA",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.iRWehUn9MQTuNGfA",
+      "type": "text",
+      "name": "",
+      "description": "Surroundings are tainted by the <strong>Howling Curse</strong> (page 492)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KwiPJJbyRN38Te6G",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.KwiPJJbyRN38Te6G",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>bhoka</strong> (page 490) dwells nearby",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BKCp0xObxlgl7v20",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.BKCp0xObxlgl7v20",
+      "type": "text",
+      "name": "",
+      "description": "Homes are made of <strong>dark ice</strong> (page 322); inhabitants are inured to cold",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BzXYVg1COcMbhx0B",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.BzXYVg1COcMbhx0B",
+      "type": "text",
+      "name": "",
+      "description": "Time passes slower here than outside",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nsQQtgN8uCV4a2Gr",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.nsQQtgN8uCV4a2Gr",
+      "type": "text",
+      "name": "",
+      "description": "Gifted spirit-walkers defend the steading in dreams",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v5w04ZAwgydO5kR9",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.v5w04ZAwgydO5kR9",
+      "type": "text",
+      "name": "",
+      "description": "A famous <strong>adept</strong> (page 328) or <strong>false</strong> <strong>adept</strong> (page 329) dwells here",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Nk916EJkXFzOQFCf",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.Nk916EJkXFzOQFCf",
+      "type": "text",
+      "name": "",
+      "description": "Entrance is secret/well-defended",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fd1ADiktyiGmIALF",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.fd1ADiktyiGmIALF",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Fae</strong> (page 94) live within the steading, hiding or in plain sight",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wD6vi1y2xwBhyEKf",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.wD6vi1y2xwBhyEKf",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458) grows in abundance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ssv6roBLrxHpH4RS",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.ssv6roBLrxHpH4RS",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Gingkara</strong> (page 326) serve and protect the locals",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ARHcrBVzK0rxKvCN",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.ARHcrBVzK0rxKvCN",
+      "type": "text",
+      "name": "",
+      "description": "Possess a <strong>major arcana</strong> (page 540)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gBMAT2DOGedadc0k",
+      "_key": "!tables.results!G7vKqKAzzWZhzQYX.gBMAT2DOGedadc0k",
+      "type": "text",
+      "name": "",
+      "description": "Weather is warm/pleasant year-round",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

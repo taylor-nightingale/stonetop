@@ -1,0 +1,102 @@
+{
+  "_id": "KTPQGdkiwHFAclDR",
+  "_key": "!tables!KTPQGdkiwHFAclDR",
+  "name": "Three Coven Lake — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "YEn8cwNkSxQupc2N",
+      "_key": "!tables.results!KTPQGdkiwHFAclDR.YEn8cwNkSxQupc2N",
+      "type": "text",
+      "name": "",
+      "description": "<strong>People</strong> (page 445) of some sort",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9S2YOxYOePjgVyCq",
+      "_key": "!tables.results!KTPQGdkiwHFAclDR.9S2YOxYOePjgVyCq",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Witches</strong> <strong>or their ilk</strong> (page 445)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QsnCzzEBy0EzVvlJ",
+      "_key": "!tables.results!KTPQGdkiwHFAclDR.QsnCzzEBy0EzVvlJ",
+      "type": "text",
+      "name": "",
+      "description": "The <strong>restless dead</strong> (page 445)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xnKRaR6MW0JR7kkm",
+      "_key": "!tables.results!KTPQGdkiwHFAclDR.xnKRaR6MW0JR7kkm",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Local wildlife</strong> (page 445)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TxXwBQtU1IF95OHT",
+      "_key": "!tables.results!KTPQGdkiwHFAclDR.TxXwBQtU1IF95OHT",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Other entities</strong> (page 445)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

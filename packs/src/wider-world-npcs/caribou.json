@@ -1,0 +1,43 @@
+{
+  "_id": "ljOJ8UPlfpCdkB0A",
+  "_key": "!actors!ljOJ8UPlfpCdkB0A",
+  "name": "Caribou",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "caribou",
+    "reference": "the-frozen-wastes",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "0",
+    "damage": "antlers/hoofs d6 (hand, close)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to stampede"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Run back to the herd\n- Huddle close at signs of danger\n- Stampede, d6+4 damage (hand, area, messy, forceful, 1 piercing)",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.kvSIGSOu6kzWWoyH]{The Frozen Wastes} (Book p.172-177)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

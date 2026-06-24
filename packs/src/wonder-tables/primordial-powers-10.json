@@ -1,0 +1,118 @@
+{
+  "_id": "JYoC7wPhacgo0QvS",
+  "_key": "!tables!JYoC7wPhacgo0QvS",
+  "name": "Primordial powers — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EE2RSHjtToA0xMHW",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.EE2RSHjtToA0xMHW",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A time-worn missive</strong> (page 517)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oL5Q9fSnlQbRqjjt",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.oL5Q9fSnlQbRqjjt",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A… key?</strong> (page 519)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1byrLFLrMLhcfprZ",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.1byrLFLrMLhcfprZ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A crumbling arch</strong> (page 520)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "b1EeSTZOC4qz4zPR",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.b1EeSTZOC4qz4zPR",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A silvery signet ring</strong> (page 535)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0WCbzt9PuqWU9nnn",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.0WCbzt9PuqWU9nnn",
+      "type": "text",
+      "name": "",
+      "description": "<strong>An oversized crown</strong> (page 539)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vHh2aEGxgo6bOILL",
+      "_key": "!tables.results!JYoC7wPhacgo0QvS.vHh2aEGxgo6bOILL",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A metal puzzle box</strong> (page 539)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

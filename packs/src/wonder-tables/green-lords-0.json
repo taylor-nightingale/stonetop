@@ -1,0 +1,166 @@
+{
+  "_id": "R1XFy8cL6QKuGqRs",
+  "_key": "!tables!R1XFy8cL6QKuGqRs",
+  "name": "Green Lords — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "C8HcWMQeSQ2evJHM",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.C8HcWMQeSQ2evJHM",
+      "type": "text",
+      "name": "",
+      "description": "Beasts or vermin: bred, changed, or harnessed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PjLGSeCMeRc2Z3Pi",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.PjLGSeCMeRc2Z3Pi",
+      "type": "text",
+      "name": "",
+      "description": "Plants and growing things: grandiose and/or unusual",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g5TF8xC1ZuF4IBzF",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.g5TF8xC1ZuF4IBzF",
+      "type": "text",
+      "name": "",
+      "description": "Adaptation/growth/ expansion/vitality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1wXG3YqgWxqHBP0i",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.1wXG3YqgWxqHBP0i",
+      "type": "text",
+      "name": "",
+      "description": "Chimerae: creatures with disparate parts, features of other organisms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VNtwTZX2Eg4zo7KN",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.VNtwTZX2Eg4zo7KN",
+      "type": "text",
+      "name": "",
+      "description": "Tombs, mummification, constructed afterlives",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1BNRcTP6hNogQzWG",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.1BNRcTP6hNogQzWG",
+      "type": "text",
+      "name": "",
+      "description": "The <strong>spirits of the wild</strong> (page 356) or that which they embody, bound or put to use",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vb5VaEMC93kFFMfm",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.Vb5VaEMC93kFFMfm",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Fae</strong> (page 94) servants/rebellion",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dNQ0iCjfn8xjqqp3",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.dNQ0iCjfn8xjqqp3",
+      "type": "text",
+      "name": "",
+      "description": "Corruption by the <strong>Things</strong> <strong>Below</strong> (page 412), and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DGiBOLlh0mTljfvP",
+      "_key": "!tables.results!R1XFy8cL6QKuGqRs.DGiBOLlh0mTljfvP",
+      "type": "text",
+      "name": "",
+      "description": "Sized for giants, and roll 1d8 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

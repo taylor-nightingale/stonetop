@@ -1,0 +1,46 @@
+{
+  "_id": "HWvgPlW6k9BP8AFM",
+  "_key": "!actors!HWvgPlW6k9BP8AFM",
+  "name": "Crinwin",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "crinwin",
+    "reference": "crinwin",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "small",
+        "hoarder",
+        "cautious",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "1 (reflexes)",
+    "damage": "claws, rocks, choking d6 (hand)",
+    "specialQuality": "climbs and jumps like a squirrel",
+    "instinct": {
+      "selected": [
+        "to covet"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Mimic noises, words, cries for help\n- Hide or vanish into the trees\n- Snatch something and dart away",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.FdpWHP3EYMLyOPEB]{Crinwin} (Book p.58-61)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

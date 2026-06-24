@@ -3,7 +3,7 @@
 	"_key": "!items!zjrkOmLuV4bssGaS",
 	"name": "Storm Markings",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/storm-markings.png",
+	"img": "systems/stonetop/assets/content/arcana/storm-markings.png",
 	"system": {
 		"slug": "storm-markings",
 		"front": {

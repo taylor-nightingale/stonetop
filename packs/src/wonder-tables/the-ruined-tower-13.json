@@ -1,0 +1,118 @@
+{
+  "_id": "7qrILHaQeDTTNmin",
+  "_key": "!tables!7qrILHaQeDTTNmin",
+  "name": "The Ruined Tower — Vignette of the fall",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "8Bcme6sXwXGBkI8L",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.8Bcme6sXwXGBkI8L",
+      "type": "text",
+      "name": "",
+      "description": "A wanton slaughter",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "B1jn4gckbVCiDM9m",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.B1jn4gckbVCiDM9m",
+      "type": "text",
+      "name": "",
+      "description": "A desperate flight",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aluzG3YFBD4Mxpcj",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.aluzG3YFBD4Mxpcj",
+      "type": "text",
+      "name": "",
+      "description": "A game of cat and mouse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nAzvIfUVyHY1RFE4",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.nAzvIfUVyHY1RFE4",
+      "type": "text",
+      "name": "",
+      "description": "A grim last stand",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1FS2zPK12vBSnKOF",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.1FS2zPK12vBSnKOF",
+      "type": "text",
+      "name": "",
+      "description": "A heroic sacrifice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TDPUP44uQ0yJHdJh",
+      "_key": "!tables.results!7qrILHaQeDTTNmin.TDPUP44uQ0yJHdJh",
+      "type": "text",
+      "name": "",
+      "description": "A cruel betrayal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

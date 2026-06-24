@@ -1,0 +1,46 @@
+{
+  "_id": "hgrDqLX57mG9BfJN",
+  "_key": "!actors!hgrDqLX57mG9BfJN",
+  "name": "Sorcerer",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "sorcerer",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cunning",
+        "magical",
+        "cautious",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "0 (or by worn armor)",
+    "damage": "iron blade d8 (hand)",
+    "specialQuality": "marked by the Things Below (page 432)",
+    "instinct": {
+      "selected": [
+        "to aggrandize themselves"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Use one of their gifts (page 432)\n- Amass power through study/ sacrifice/rites\n- Unleash their power\n- Reveal a plan or preparation\n\nSome seek out corruption, embrace it. They might not have chosen the path, but at some point they chose to keep walking, believing the power on offer was worth the cost. Some think they are in control. And perhaps they are—for now. Sorcerers are often in possession of one or more arcana (page 508), which they do not hesitate to use. They may or may not be followed by cultists (see above).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

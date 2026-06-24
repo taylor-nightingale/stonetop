@@ -1,0 +1,46 @@
+{
+  "_id": "oBqFI4bQQXpFdh7R",
+  "_key": "!actors!oBqFI4bQQXpFdh7R",
+  "name": "Ghostly hounds",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ghostly-hounds",
+    "reference": "the-pale-hunter",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "spirit",
+        "terrifying",
+        "fierce",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "1 (lacks organs), harmed only by salt or as it bites",
+    "damage": "bite d6 w/advantage (hand, grabby)",
+    "specialQuality": "bound to the Hunter  can roam only ~1 mile from him",
+    "instinct": {
+      "selected": [
+        "to give chase"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a form made of mist\n- Sniff out prey, or the dead\n- Call the pack and the Hunter\n- Harry, surround, drag down\n\nA score or so of these savage white dogs accompany him on any given night. But there are more. So many, many more. Are they undead souls he has claimed, vulnerable to silver? Fae hounds, hurt by iron? Manifestations of some primordial urge? That’s all for you to say.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter} (Book p.292-297)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

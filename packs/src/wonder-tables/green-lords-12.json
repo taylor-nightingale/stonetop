@@ -1,0 +1,118 @@
+{
+  "_id": "9DBDJGHcCvgPcKzx",
+  "_key": "!tables!9DBDJGHcCvgPcKzx",
+  "name": "Green Lords — Form",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uRrQY2EFPmLpP5NB",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.uRrQY2EFPmLpP5NB",
+      "type": "text",
+      "name": "",
+      "description": "Invisible to the naked eye/ spores/dust",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pXCHqXAZK9QEvPkj",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.pXCHqXAZK9QEvPkj",
+      "type": "text",
+      "name": "",
+      "description": "Mold/moss/lichen/slime",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9YcoqTuaUVcC3TTN",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.9YcoqTuaUVcC3TTN",
+      "type": "text",
+      "name": "",
+      "description": "Mushrooms/puffballs/stinkhorns/ fungus",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y3SrWU8Zg3G4yUvV",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.y3SrWU8Zg3G4yUvV",
+      "type": "text",
+      "name": "",
+      "description": "Vines/briars/brambles/shoots",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tRzr90ldOVmXag3v",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.tRzr90ldOVmXag3v",
+      "type": "text",
+      "name": "",
+      "description": "Flowers/plants/ferns/grasses",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bxDmn2IkOvVnUA0S",
+      "_key": "!tables.results!9DBDJGHcCvgPcKzx.bxDmn2IkOvVnUA0S",
+      "type": "text",
+      "name": "",
+      "description": "Tree(s)/shrubs/bushes/hedges",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

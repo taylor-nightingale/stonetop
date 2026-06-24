@@ -1,0 +1,86 @@
+{
+  "_id": "rN035C8URtTqgZfD",
+  "_key": "!tables!rN035C8URtTqgZfD",
+  "name": "Forge Lords — Condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cUxxDLIMWUDQcwJt",
+      "_key": "!tables.results!rN035C8URtTqgZfD.cUxxDLIMWUDQcwJt",
+      "type": "text",
+      "name": "",
+      "description": "Shattered and laid waste by time, war, or vandalism; mostly buried, overgrown, collapsed; its purpose unrecognizable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "untAnbvRuHXxOGvl",
+      "_key": "!tables.results!rN035C8URtTqgZfD.untAnbvRuHXxOGvl",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling, largely buried, overgrown, or hidden away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "j3p3MVXS5pTK2veK",
+      "_key": "!tables.results!rN035C8URtTqgZfD.j3p3MVXS5pTK2veK",
+      "type": "text",
+      "name": "",
+      "description": "Buried, submerged, and/or overgrown, but mostly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wazd3SI9MdH4MpSU",
+      "_key": "!tables.results!rN035C8URtTqgZfD.wazd3SI9MdH4MpSU",
+      "type": "text",
+      "name": "",
+      "description": "Fully visible and strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

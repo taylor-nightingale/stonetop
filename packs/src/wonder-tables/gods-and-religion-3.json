@@ -1,0 +1,198 @@
+{
+  "_id": "b5oDia7IE1gCOwyO",
+  "_key": "!tables!b5oDia7IE1gCOwyO",
+  "name": "Gods and religion — Observance",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "0gUxABDrYM6BXokZ",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.0gUxABDrYM6BXokZ",
+      "type": "text",
+      "name": "",
+      "description": "Charity/the care of __/ the cultivation of __",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VKBh4B4W8rDmeVhc",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.VKBh4B4W8rDmeVhc",
+      "type": "text",
+      "name": "",
+      "description": "Dancing/intoxication/ ecstatic practice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lSFr9Trgol1MgwRp",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.lSFr9Trgol1MgwRp",
+      "type": "text",
+      "name": "",
+      "description": "Divination/augury/prophecy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ovusUCUHVKrPKOZM",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.ovusUCUHVKrPKOZM",
+      "type": "text",
+      "name": "",
+      "description": "Elaborate prayers/ceremonies/ gatherings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oBlSs7IchB48DLha",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.oBlSs7IchB48DLha",
+      "type": "text",
+      "name": "",
+      "description": "Fashioning of icons/symbols/ monuments",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "F6yg2OVByGiUCH84",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.F6yg2OVByGiUCH84",
+      "type": "text",
+      "name": "",
+      "description": "Fasting/ascetic denial/extreme endurance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4FtSy4w8UXCFhTNr",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.4FtSy4w8UXCFhTNr",
+      "type": "text",
+      "name": "",
+      "description": "Libations/offerings of material wealth (burnt, buried, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "grgSsyNrIyo2yXaF",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.grgSsyNrIyo2yXaF",
+      "type": "text",
+      "name": "",
+      "description": "Pilgrimage/hermitage",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PbkOd2HxEjd55qcr",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.PbkOd2HxEjd55qcr",
+      "type": "text",
+      "name": "",
+      "description": "Sacrifice (animal/blood/human)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TO8WGyt91aAmOLbZ",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.TO8WGyt91aAmOLbZ",
+      "type": "text",
+      "name": "",
+      "description": "Taboo/proscribed behaviors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ip4g4AjWM4wyVsxl",
+      "_key": "!tables.results!b5oDia7IE1gCOwyO.ip4g4AjWM4wyVsxl",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 again, twice, but one of them is done in secret",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 20003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

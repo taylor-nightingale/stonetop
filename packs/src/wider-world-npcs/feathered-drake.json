@@ -1,0 +1,44 @@
+{
+  "_id": "lLxngM10D9gWxAHN",
+  "_key": "!actors!lLxngM10D9gWxAHN",
+  "name": "Feathered drake",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "feathered-drake",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "1 (feathers, scales)",
+    "damage": "boney crest d8+2 (close, forceful), talon & teeth d8+2 (hand, messy, 1 piercing)",
+    "specialQuality": "flightless",
+    "instinct": {
+      "selected": [
+        "to spring on unwary prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Burst out of the brush\n- Bash prey to the ground, senseless\n- Surround downed prey, and rend\n\nBigger than a grown man, with a talon yea-long on each foot and that ridge on their heads they use to go crashing through the undergrowth. They might follow a party for days, waiting for them to let their guard down or for someone to fall behind. Then? Bam. Their feathers are much-sought by merchants. You can harvest a  bundle of drake feathers (fragile, Value 3) from a flock of 3-4 drakes.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

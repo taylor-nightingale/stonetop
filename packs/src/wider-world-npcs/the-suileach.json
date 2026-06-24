@@ -1,0 +1,47 @@
+{
+  "_id": "E2y4Z7Dg4RfESv5h",
+  "_key": "!actors!E2y4Z7Dg4RfESv5h",
+  "name": "The Suileach",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-suileach",
+    "reference": "the-dread-river",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "magical",
+        "terrifying",
+        "aquatic",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "2 (scales)",
+    "damage": "jaws like a cave d10+7 (reach, forceful, messy, 3 piercing) or thrashing coils d10+5 (close, area, forceful)",
+    "specialQuality": "many-eyed impossible to surprise",
+    "instinct": {
+      "selected": [
+        "to dominate the Dread River"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sense an intruder upon its domain\n- Transfix someone with one of its myriad eyes (see below)\n- Drag intruders to their doom\n\nIt’s a thing of legend. A great scaly wurm, they say, hundreds of feet long, festooned with eyes along its bulk. Hundreds of eyes, so very many. They say it sees all that happens along the river. They say it brooks no tresspass, that it drowns or devours all who encroach on its domain. But that’s not entirely true. Some folks have met the Suileach and lived to tell the tale, haunted by what they saw reflected in its eyes. When you stare transfixed into one of the Suileach’s eyes, mark dazed and pick 1: You see yourself, unburdened. Name an NPC whom you love; your heart grows cold to them. Then, gain a new move from your playbook. You see yourself as you might have been. Change your instinct and swap one of your playbook moves for another. You see your death, as it will occur. The next time you would roll for Death’s Door, don’t—you get a 10+.  The second time you would roll for Death’s Door, don’t—you get a 6-. You see the truth reflected, darkly. The GM will tell you something interesting and useful, yet thoroughly disturbing.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -7,6 +7,23 @@
 		       {{#unless editable}}disabled{{/unless}}>
 	</header>
 
+	{{#unless editMode}}
+	{{!-- ── VIEW (rendered card, with an Edit button) ─────────────── --}}
+	<div class="stonetop-arcanum-view">
+		<div class="stonetop-arcanum-view-head">
+			<button type="button" class="arcanum-preview-flip">
+				{{#if previewFlipped}}{{localize "stonetop.arcanum.showFront"}}{{else}}{{localize "stonetop.arcanum.showBack"}}{{/if}}
+			</button>
+			{{#if editable}}
+			<button type="button" class="arcanum-edit-toggle" data-mode="edit">{{localize "stonetop.arcanum.edit"}}</button>
+			{{/if}}
+		</div>
+		<div class="stonetop-arcanum-preview">
+			{{> "stonetop.arcanum-cards" items=preview}}
+		</div>
+	</div>
+	{{else}}
+
 	<div class="stonetop-arcanum-layout">
 
 		{{!-- ── EDITOR (left) ─────────────────────────────────────── --}}
@@ -124,9 +141,12 @@
 		<aside class="stonetop-arcanum-preview-pane">
 			<div class="stonetop-arcanum-preview-head">
 				<span>{{localize "stonetop.arcanum.preview"}}</span>
-				<button type="button" class="arcanum-preview-flip">
-					{{#if previewFlipped}}{{localize "stonetop.arcanum.showFront"}}{{else}}{{localize "stonetop.arcanum.showBack"}}{{/if}}
-				</button>
+				<span class="stonetop-arcanum-preview-actions">
+					<button type="button" class="arcanum-preview-flip">
+						{{#if previewFlipped}}{{localize "stonetop.arcanum.showFront"}}{{else}}{{localize "stonetop.arcanum.showBack"}}{{/if}}
+					</button>
+					<button type="button" class="arcanum-edit-toggle" data-mode="view">{{localize "stonetop.arcanum.done"}}</button>
+				</span>
 			</div>
 			<div class="stonetop-arcanum-preview">
 				{{> "stonetop.arcanum-cards" items=preview}}
@@ -134,4 +154,5 @@
 		</aside>
 
 	</div>
+	{{/unless}}
 </form>

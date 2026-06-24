@@ -1,0 +1,214 @@
+{
+  "_id": "OFmPJUHYWCNK0oYN",
+  "_key": "!tables!OFmPJUHYWCNK0oYN",
+  "name": "Death and the undying — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "CsxhUH6ijhh5w0V0",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.CsxhUH6ijhh5w0V0",
+      "type": "text",
+      "name": "",
+      "description": "Death personified: the Lady of Crows, the <strong>Pale Hunter</strong> (page 292), other gods/spirits of death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8saK3hbv8kM1G3NK",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.8saK3hbv8kM1G3NK",
+      "type": "text",
+      "name": "",
+      "description": "The Last Door/brushes with death/ the afterlife/things from beyond",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "i8p6gm0Ov3dpZRcE",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.i8p6gm0Ov3dpZRcE",
+      "type": "text",
+      "name": "",
+      "description": "Graves/funeral rites/grief/mourning",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8z5wC70pF5qwaOt7",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.8z5wC70pF5qwaOt7",
+      "type": "text",
+      "name": "",
+      "description": "Death foretold: prophecies, omens, visions, harbingers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OSmunpcXi3jRWYVW",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.OSmunpcXi3jRWYVW",
+      "type": "text",
+      "name": "",
+      "description": "Good death: peaceful, dignified, bravely met, an end of suffering",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FHNDwAIxjFZrxpk1",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.FHNDwAIxjFZrxpk1",
+      "type": "text",
+      "name": "",
+      "description": "Ignoble death: traumatic, desperate, torturous, terrifying",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fUDmIzcBHviMYHwP",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.fUDmIzcBHviMYHwP",
+      "type": "text",
+      "name": "",
+      "description": "Untimely death: sudden, surprising, things left unsaid or undone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KWEwnUGyun5ENnpi",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.KWEwnUGyun5ENnpi",
+      "type": "text",
+      "name": "",
+      "description": "Violent death: murder, assassination, execution, battle, suicide",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Mh5qv3bC7UwfjJ7k",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.Mh5qv3bC7UwfjJ7k",
+      "type": "text",
+      "name": "",
+      "description": "Mass death: famine, plague, war, cataclysm, collapse",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0gPEPeeoZy1e2eyI",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.0gPEPeeoZy1e2eyI",
+      "type": "text",
+      "name": "",
+      "description": "The fear of death: denial, bargaining, panic, cheating",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qUaXzR7vHmjG4Oy1",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.qUaXzR7vHmjG4Oy1",
+      "type": "text",
+      "name": "",
+      "description": "The curse of undeath: respite denied, eternal hunger/pain/ loneliness/regret",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lWhyygVIhMAx6AzX",
+      "_key": "!tables.results!OFmPJUHYWCNK0oYN.lWhyygVIhMAx6AzX",
+      "type": "text",
+      "name": "",
+      "description": "Necromancy and death-magic, likely with aid from the <strong>Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

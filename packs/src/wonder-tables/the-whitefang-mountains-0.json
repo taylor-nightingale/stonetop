@@ -1,0 +1,182 @@
+{
+  "_id": "fLLVQmVpSJPkcQYf",
+  "_key": "!tables!fLLVQmVpSJPkcQYf",
+  "name": "The Whitefang Mountains — Terrain",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "rLEwNGfQl2C6Kj47",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.rLEwNGfQl2C6Kj47",
+      "type": "text",
+      "name": "",
+      "description": "Glacier/snowfield/snowpack",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UgJvm3P9UrYnTI4p",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.UgJvm3P9UrYnTI4p",
+      "type": "text",
+      "name": "",
+      "description": "Lake/river/stream/waterfall",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MF8u6ncuVkDB9wmz",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.MF8u6ncuVkDB9wmz",
+      "type": "text",
+      "name": "",
+      "description": "Waterlogged soil, frozen or muddy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mDsPpqcuqBWDDXgR",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.mDsPpqcuqBWDDXgR",
+      "type": "text",
+      "name": "",
+      "description": "Forest/woods/stand of trees/shrubs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LJFJRV9sBFttPFNR",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.LJFJRV9sBFttPFNR",
+      "type": "text",
+      "name": "",
+      "description": "Sheer rock face/bluff/escarpment",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JDsm5TIcgBiJPnwK",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.JDsm5TIcgBiJPnwK",
+      "type": "text",
+      "name": "",
+      "description": "Summit/peak/false peak",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "r5QRRMtXrLXYrgZT",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.r5QRRMtXrLXYrgZT",
+      "type": "text",
+      "name": "",
+      "description": "Steep slope/switchback trails/ridgeline",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ofnDuaSpei6gjPLz",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.ofnDuaSpei6gjPLz",
+      "type": "text",
+      "name": "",
+      "description": "Ravine/canyon/gorge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "572A3loJE1v6jE67",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.572A3loJE1v6jE67",
+      "type": "text",
+      "name": "",
+      "description": "Gentle slope/meadow/valley/pass",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jH3dG26T6A2ERaPn",
+      "_key": "!tables.results!fLLVQmVpSJPkcQYf.jH3dG26T6A2ERaPn",
+      "type": "text",
+      "name": "",
+      "description": "Cave/cavern/grotto",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

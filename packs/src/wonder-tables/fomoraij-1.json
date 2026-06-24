@@ -1,0 +1,214 @@
+{
+  "_id": "eYbP359A4ENvGhiw",
+  "_key": "!tables!eYbP359A4ENvGhiw",
+  "name": "Fomoraij — Lair",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "q60U3dHlRlyg1fOA",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.q60U3dHlRlyg1fOA",
+      "type": "text",
+      "name": "",
+      "description": "A yawning cavern, flooded; dotted with islands and unlikely structures",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dxOAyyPRP0xIMo74",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.dxOAyyPRP0xIMo74",
+      "type": "text",
+      "name": "",
+      "description": "Endless rough-hewn tunnels, like an ant hive",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OkrhKkolkxF6frRz",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.OkrhKkolkxF6frRz",
+      "type": "text",
+      "name": "",
+      "description": "An inverted forest of roots, tubers, fungus hanging from the ceiling",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dEEPrKDVhLUFyHLD",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.dEEPrKDVhLUFyHLD",
+      "type": "text",
+      "name": "",
+      "description": "A series of underground streams, rivers, lakes, all teeming with horrors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FChm8OpE3DNDmyg6",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.FChm8OpE3DNDmyg6",
+      "type": "text",
+      "name": "",
+      "description": "A deep, vertical shaft ending at a vault of white stone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hGCdxzJvuC1N4okH",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.hGCdxzJvuC1N4okH",
+      "type": "text",
+      "name": "",
+      "description": "Tunnels and chambers, every inch lined with bones",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "70Lh8m4dYdmJK9Ut",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.70Lh8m4dYdmJK9Ut",
+      "type": "text",
+      "name": "",
+      "description": "The petrified belly of a gargantuan, primordial <strong>titan</strong> (page 303)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "C8PLC1VXFWMwBKRp",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.C8PLC1VXFWMwBKRp",
+      "type": "text",
+      "name": "",
+      "description": "Vaulted tunnels lined with roots of iron-infused wood, rusted and bleeding",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "luxa3yWPikV5uO6s",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.luxa3yWPikV5uO6s",
+      "type": "text",
+      "name": "",
+      "description": "Limestone caverns, the walls pulsing with <strong>red crystal</strong> (page 424)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T7oEzb6KDYZEMyPK",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.T7oEzb6KDYZEMyPK",
+      "type": "text",
+      "name": "",
+      "description": "Limestone caves and columns, wet and dripping, festooned with slimy life",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aaPdmUx0QZQgHqq9",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.aaPdmUx0QZQgHqq9",
+      "type": "text",
+      "name": "",
+      "description": "Strangely smooth tunnels coated in warm, pulsing organic material",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6wPTtrl4yaahFzUW",
+      "_key": "!tables.results!eYbP359A4ENvGhiw.6wPTtrl4yaahFzUW",
+      "type": "text",
+      "name": "",
+      "description": "A vast chamber of white stone, a mighty dead tree growing down from the ceiling",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 15001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

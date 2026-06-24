@@ -1,0 +1,214 @@
+{
+  "_id": "ge0Ua4tx3ladzw9w",
+  "_key": "!tables!ge0Ua4tx3ladzw9w",
+  "name": "APPENDIX B: Artifact Creation — Spirit/sentience",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "OphP37sHtEotoAQ5",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.OphP37sHtEotoAQ5",
+      "type": "text",
+      "name": "",
+      "description": "A <strong><em>corrupted</em></strong> spirit (page 432), and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "upE0MfAjJyNtBwos",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.upE0MfAjJyNtBwos",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ghost</strong> (page 76)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3tbRKPA1jnRJGpyB",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.3tbRKPA1jnRJGpyB",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>shade</strong> (page 85) or similar imprint of someone’s personality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1Gr3mvoVTNdQ1z37",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.1Gr3mvoVTNdQ1z37",
+      "type": "text",
+      "name": "",
+      "description": "Something from beyond the Last Door, like a <strong>dool spirit</strong> (page 83) or <strong>gwyllgi</strong> (page 84)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UUgAXnFptigG3Usp",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.UUgAXnFptigG3Usp",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>Fae</strong> (page 94), oddly enough",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EFKyv70w4zo3L9vl",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.EFKyv70w4zo3L9vl",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>little god</strong> (page 182)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YlpALX9qaE1piCZD",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.YlpALX9qaE1piCZD",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>tulpa</strong> (page 324), or the intellect of a <strong>construct</strong> (page 167 or 392)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mhD4DPfSyYfgpiOU",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.mhD4DPfSyYfgpiOU",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>spirit of the wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RWC7LPLTcDrDZBrJ",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.RWC7LPLTcDrDZBrJ",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>emanation</strong> of a Thing Below (page 436)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KcnHcdQT3YJHN29t",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.KcnHcdQT3YJHN29t",
+      "type": "text",
+      "name": "",
+      "description": "A fledgling spirit, and roll 1d8+1 again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DzxeanUl0uHCpfee",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.DzxeanUl0uHCpfee",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>archon</strong> (page 302) or other <strong>primordial entity</strong> (page 298)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "P1Hmo8Wt7wptM0mv",
+      "_key": "!tables.results!ge0Ua4tx3ladzw9w.P1Hmo8Wt7wptM0mv",
+      "type": "text",
+      "name": "",
+      "description": "A multitude of... (roll again)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

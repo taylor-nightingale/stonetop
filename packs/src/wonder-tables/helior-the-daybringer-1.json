@@ -1,0 +1,70 @@
+{
+  "_id": "UW6Tl8DsFtkeBeDu",
+  "_key": "!tables!UW6Tl8DsFtkeBeDu",
+  "name": "Helior, the Daybringer — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PQIoW8UXz08cgUch",
+      "_key": "!tables.results!UW6Tl8DsFtkeBeDu.PQIoW8UXz08cgUch",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A gold ring</strong> (page 516)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GTNbAT0nsf5gqwKo",
+      "_key": "!tables.results!UW6Tl8DsFtkeBeDu.GTNbAT0nsf5gqwKo",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A gold butter lamp</strong> (page 527)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U4WzFENMeRgFt720",
+      "_key": "!tables.results!UW6Tl8DsFtkeBeDu.U4WzFENMeRgFt720",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A rusty steel blade</strong> (page 534)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 25001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

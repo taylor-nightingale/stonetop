@@ -1,0 +1,47 @@
+{
+  "_id": "qJbHtS4oqS6Ad1Hy",
+  "_key": "!actors!qJbHtS4oqS6Ad1Hy",
+  "name": "Hollow Fae",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hollow-fae",
+    "reference": "fae",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "fae",
+        "undead",
+        "confused",
+        "terrifying",
+        "see below"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "5 (resilience, lacks vitals), 1 vs. black iron",
+    "damage": ", and +reach.",
+    "specialQuality": "senses life surrounded by inert death and ash; can be truly destroyed only by black iron",
+    "instinct": {
+      "selected": [
+        "to consume life-force"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Moan, filling all with dread\n- Tear apart Fae magic\n- Pause in confusion when confronted with who it once was\n- Open wide, drink in the vitality of the living (inflicting debilities)\n\nA Fae wounded by black iron (page 307) will pray for death. For to survive such a wound is a curse. They grow weak, then confused, then hungry. Soon, they become a walking husk, surrounded by death, inhaling any source of life they find. Hollow Fae are no longer vulnerable to mere iron or steel. Debts and promises no longer bind them. They will tear their way free of any Fae domain. Only black iron can destroy them, and what living Fae would be fool enough to try? When faced with such a terror, most Fae choose to flee. A few might be so clever as to trap it in some forgotten tomb. But the cleverest, oh, the cleverest… they find some fool mortal to handle the problem for them. A large Hollow Fae is tougher than shown above: 23 HP and +1 damage, +reach. A huge one is tougher still, with 27 HP, +3",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae} (Book p.94-115)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

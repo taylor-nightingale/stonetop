@@ -1,0 +1,45 @@
+{
+  "_id": "TH4hSIcLcMCp21EY",
+  "_key": "!actors!TH4hSIcLcMCp21EY",
+  "name": "Ceirwmawr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "ceirwmawr",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "terrifying",
+        "fearless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "0",
+    "damage": "hoof d10+1 (close) or antlers d10+3 (reach, forceful)",
+    "specialQuality": "awe-inspiring antlers",
+    "instinct": {
+      "selected": [
+        "to tolerate no disrespect"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Toss aside a barrier or foe\n- Suffer harm without flinching\n- Make a show of strength\n\nMajestic. Proud. Antlers so large you can scarce believe how deftly it moves through the woods. They are the royalty of deer. It is said that only the Pale Hunter can give them chase, and that any mortal who dares to stalk them quickly finds the tables turned.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

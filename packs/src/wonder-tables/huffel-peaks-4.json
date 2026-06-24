@@ -1,0 +1,102 @@
+{
+  "_id": "r5HBVeahxBFBrXuV",
+  "_key": "!tables!r5HBVeahxBFBrXuV",
+  "name": "Huffel Peaks — Resource",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "s2V5eDMx4TTGF6Pr",
+      "_key": "!tables.results!r5HBVeahxBFBrXuV.s2V5eDMx4TTGF6Pr",
+      "type": "text",
+      "name": "",
+      "description": "Game, but dangerous to hunt, like a <strong>cave bear</strong> (page 205), <strong>fire drakes</strong> (page 241), or goats on an impossible slope",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IzTRuAEb1v8vxeD3",
+      "_key": "!tables.results!r5HBVeahxBFBrXuV.IzTRuAEb1v8vxeD3",
+      "type": "text",
+      "name": "",
+      "description": "Game, not dangerous but prone to bolt: a goat or deer, quail, rabbits, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "R2FDeDOjfcgGC2cg",
+      "_key": "!tables.results!r5HBVeahxBFBrXuV.R2FDeDOjfcgGC2cg",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CEs6CsZn8XfP6v9D",
+      "_key": "!tables.results!r5HBVeahxBFBrXuV.CEs6CsZn8XfP6v9D",
+      "type": "text",
+      "name": "",
+      "description": "A safe place to shelter/a shortcut/ an unexpected path",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Kuj8m20wsLvqDDkY",
+      "_key": "!tables.results!r5HBVeahxBFBrXuV.Kuj8m20wsLvqDDkY",
+      "type": "text",
+      "name": "",
+      "description": "A vein of ore/mineral deposit",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 27004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

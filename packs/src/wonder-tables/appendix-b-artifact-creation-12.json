@@ -1,0 +1,134 @@
+{
+  "_id": "05EEMsoA3ABTMBDE",
+  "_key": "!tables!05EEMsoA3ABTMBDE",
+  "name": "APPENDIX B: Artifact Creation — Usage",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7DnznipoyXAlFsQV",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.7DnznipoyXAlFsQV",
+      "type": "text",
+      "name": "",
+      "description": "1d6 uses, then it’s consumed/ruined/powerless",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MjKI1B1GDwjcwZU2",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.MjKI1B1GDwjcwZU2",
+      "type": "text",
+      "name": "",
+      "description": "1d6 uses, then it must be recharged/ replenished",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zrF1S1W0FNJSXaEc",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.zrF1S1W0FNJSXaEc",
+      "type": "text",
+      "name": "",
+      "description": "A few charges, which might be lost with each use; recharges with time or effort",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y2Etch7JtyRthchI",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.y2Etch7JtyRthchI",
+      "type": "text",
+      "name": "",
+      "description": "At will, but each time is riskier/less powerful/more costly; resets with effort or slowly over time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9lFIhQlbG2upao4D",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.9lFIhQlbG2upao4D",
+      "type": "text",
+      "name": "",
+      "description": "At will, but there’s a cost/risk with each use",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "reUV3b3GURlxoxEJ",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.reUV3b3GURlxoxEJ",
+      "type": "text",
+      "name": "",
+      "description": "At will, though limited by practicalities",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xQr786Pmgodx9Udt",
+      "_key": "!tables.results!05EEMsoA3ABTMBDE.xQr786Pmgodx9Udt",
+      "type": "text",
+      "name": "",
+      "description": "Continuous; it’s always going",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56012,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

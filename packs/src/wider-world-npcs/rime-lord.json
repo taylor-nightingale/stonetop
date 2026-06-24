@@ -1,0 +1,48 @@
+{
+  "_id": "orNyQFCHa6jo2pMr",
+  "_key": "!actors!orNyQFCHa6jo2pMr",
+  "name": "Rime Lord",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "rime-lord",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "cautious",
+        "cunning",
+        "magical",
+        "organized",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "5 (potent wards, skill)",
+    "damage": "conjured ice d12+3 (any range, area, grabby, forceful) or heat-drain d12+1 (reach, ignores armor)",
+    "specialQuality": "spirit sight telepathic cold-proof  ageless; no need to eat/drink/sleep/breathe; aura of bitter cold",
+    "instinct": {
+      "selected": [
+        "to seek perfection (in themselves, in their surroundings, in others)"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Overawe those in its presence\n- Act simultaneously in both the physical and spirit worlds\n- Impose its mighty will on the world: stilling emotions, freezing time, dismissing magic, reshaping reality, etc.\n- Create a tulpa or thoughtform\n\nOnly thirteen Rime Lords survive; each remains in stasis in some key place of power. Their spirits are merged in an eter- nal dance and song, continuously weaving the dark ice glacier that keeps the voice of Y’aaw’kara bound and prevents madness from spreading unchecked across the world. Pray, o mortal. Pray that they continue their vigil. Pray that their wills do not falter. Pray that no interloper is so foolish as to disturb them. Pray for your family, your friends, and all that you know. Pray that they do not wake.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

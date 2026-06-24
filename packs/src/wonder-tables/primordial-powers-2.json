@@ -1,0 +1,118 @@
+{
+  "_id": "b34DwJyeqUaX6xnk",
+  "_key": "!tables!b34DwJyeqUaX6xnk",
+  "name": "Primordial powers — Manifestation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "m917eFAG6VD1lIPQ",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.m917eFAG6VD1lIPQ",
+      "type": "text",
+      "name": "",
+      "description": "A seemingly normal person",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "saTKC87HK70WhcTM",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.saTKC87HK70WhcTM",
+      "type": "text",
+      "name": "",
+      "description": "A seemingly natural beast",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "416GJ5Rk72Hs7Rk9",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.416GJ5Rk72Hs7Rk9",
+      "type": "text",
+      "name": "",
+      "description": "A spirit or other mysterious being",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "sJuFP67XNyFCwwA3",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.sJuFP67XNyFCwwA3",
+      "type": "text",
+      "name": "",
+      "description": "A clearly supernatural person",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e7wI1vc5tPj0gEIa",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.e7wI1vc5tPj0gEIa",
+      "type": "text",
+      "name": "",
+      "description": "A monster or supernatural beast, possibly a <strong>titan</strong> (page 303)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dvOkYxYk2qrWyQ0f",
+      "_key": "!tables.results!b34DwJyeqUaX6xnk.dvOkYxYk2qrWyQ0f",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 again, but it manifests as a group or multitude of the result",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

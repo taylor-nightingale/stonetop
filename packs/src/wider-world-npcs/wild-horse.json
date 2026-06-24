@@ -1,0 +1,45 @@
+{
+  "_id": "loOBRIGtVKpT8G8I",
+  "_key": "!actors!loOBRIGtVKpT8G8I",
+  "name": "Wild horse",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "wild-horse",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "cautious",
+        "swift"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "0",
+    "damage": "trample d6+3 (hand, close, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to panic"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Sniff trouble on the wind\n- Run free!\n- Vault over an obstacle\n\nThey roam the flats, in herds ranging in size from a half-dozen to a couple dozen. The larger herds will give rise to a ceffyl- wraig (page 368).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

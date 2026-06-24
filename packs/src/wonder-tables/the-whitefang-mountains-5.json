@@ -1,0 +1,102 @@
+{
+  "_id": "J2JL4U7azCL7GFVJ",
+  "_key": "!tables!J2JL4U7azCL7GFVJ",
+  "name": "The Whitefang Mountains — Settlement",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "4F9c6nmnBfB1vL3f",
+      "_key": "!tables.results!J2JL4U7azCL7GFVJ.4F9c6nmnBfB1vL3f",
+      "type": "text",
+      "name": "",
+      "description": "Camp of <strong>mammoth herders</strong> (page 177), likely empty/abandoned in warmer months",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XYPtp707CjsjDbWx",
+      "_key": "!tables.results!J2JL4U7azCL7GFVJ.XYPtp707CjsjDbWx",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Farm valley</strong> (<em>hamlet</em>), page 484",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "34H5FphMSz4RKMNQ",
+      "_key": "!tables.results!J2JL4U7azCL7GFVJ.34H5FphMSz4RKMNQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Farm valley</strong> (<em>village</em>), page 484",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SM0WONET4GTO6Ayr",
+      "_key": "!tables.results!J2JL4U7azCL7GFVJ.SM0WONET4GTO6Ayr",
+      "type": "text",
+      "name": "",
+      "description": "Lone dwelling: hermit’s cave/hunter’s lodge/shepherd’s camp/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "a25lGyKVnvBGrln4",
+      "_key": "!tables.results!J2JL4U7azCL7GFVJ.a25lGyKVnvBGrln4",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Fortress-monastery</strong> (page 486)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

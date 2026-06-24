@@ -1,0 +1,70 @@
+{
+  "_id": "Qdm0SLjrX2TJhgNV",
+  "_key": "!tables!Qdm0SLjrX2TJhgNV",
+  "name": "The Ruined Tower — Building",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "riJYcylCD0qHjqxD",
+      "_key": "!tables.results!Qdm0SLjrX2TJhgNV.riJYcylCD0qHjqxD",
+      "type": "text",
+      "name": "",
+      "description": "From before the tower’s fall; pick or roll for its purpose",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eUINnPzX4MnvDJXX",
+      "_key": "!tables.results!Qdm0SLjrX2TJhgNV.eUINnPzX4MnvDJXX",
+      "type": "text",
+      "name": "",
+      "description": "Built after the tower’s fall; pick or roll for its purpose",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eCwmda0fsUmDJAOe",
+      "_key": "!tables.results!Qdm0SLjrX2TJhgNV.eCwmda0fsUmDJAOe",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>barrow</strong> (page 39, roll 1d8 for size)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

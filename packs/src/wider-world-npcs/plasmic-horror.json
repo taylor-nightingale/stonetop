@@ -1,0 +1,46 @@
+{
+  "_id": "STY9XWr74MePdg5l",
+  "_key": "!actors!STY9XWr74MePdg5l",
+  "name": "Plasmic horror",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "plasmic-horror",
+    "reference": "vor-svetelik",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "amorphous",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "2 (membrane, lacks organs)",
+    "damage": "pseudopod d10+3 (hand, close, reach, grabby, forceful) or acidic engulf d10+5 (hand, grabby, forceful, messy, ignores armor)",
+    "specialQuality": "child-like intellect  susceptible to strong wills",
+    "instinct": {
+      "selected": [
+        "to recklessly explore the world"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Ooze through the smallest cracks or openings\n- Assume the form (wholly or partially) of any being it touches (from small to large size)\n- Reveal its true form, shockingly\n- Grow (and gain 1d8 HP) by consuming a living thing\n- Spawn a smaller version of itself\n\nThese… things… served as blank canvasses for the Green Lord’s flesh-weaving. Once, they were kept carefully locked away in laboratories and breeding pits. Now, with their creators gone all these years… well, who knows where they might be found?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

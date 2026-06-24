@@ -1,0 +1,102 @@
+{
+  "_id": "uaOINlqNDdFh83dU",
+  "_key": "!tables!uaOINlqNDdFh83dU",
+  "name": "Forge Lords — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "yiGfzEkYvrlKetSH",
+      "_key": "!tables.results!uaOINlqNDdFh83dU.yiGfzEkYvrlKetSH",
+      "type": "text",
+      "name": "",
+      "description": "Cat-sized or smaller (<em>tiny</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EfAkFlPGSZcuSxun",
+      "_key": "!tables.results!uaOINlqNDdFh83dU.EfAkFlPGSZcuSxun",
+      "type": "text",
+      "name": "",
+      "description": "Like a human child (<em>small</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lFFh7WRVUWdRUvvl",
+      "_key": "!tables.results!uaOINlqNDdFh83dU.lFFh7WRVUWdRUvvl",
+      "type": "text",
+      "name": "",
+      "description": "Human-sized",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zMiVOumQUWML7gO8",
+      "_key": "!tables.results!uaOINlqNDdFh83dU.zMiVOumQUWML7gO8",
+      "type": "text",
+      "name": "",
+      "description": "Like a horse, a cart, etc. (<em>large</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DJeiy8GUEPI8BOE2",
+      "_key": "!tables.results!uaOINlqNDdFh83dU.DJeiy8GUEPI8BOE2",
+      "type": "text",
+      "name": "",
+      "description": "Like an elephant, or bigger (<em>huge</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

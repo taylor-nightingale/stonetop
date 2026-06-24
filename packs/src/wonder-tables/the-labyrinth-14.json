@@ -1,0 +1,118 @@
+{
+  "_id": "XLesMD22k9Eh6bGg",
+  "_key": "!tables!XLesMD22k9Eh6bGg",
+  "name": "The Labyrinth — Danger",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "9QBxVcNzCpY6Hued",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.9QBxVcNzCpY6Hued",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Tcaventes</strong> (page 254), wandering",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EFzZ0L4dGd5YtnAi",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.EFzZ0L4dGd5YtnAi",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>emanation</strong> (page 436)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YHpHpMUOGYJSQraq",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.YHpHpMUOGYJSQraq",
+      "type": "text",
+      "name": "",
+      "description": "A huge <strong>magma worm</strong> (page 253)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DSk8hfk8hkX9CddW",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.DSk8hfk8hkX9CddW",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>nightmare tableau</strong> (previous page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "56CYOuvVMTeyxha5",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.56CYOuvVMTeyxha5",
+      "type": "text",
+      "name": "",
+      "description": "An ordeal: heat, cold, hunger, intrusive thoughts, false memories, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KbygPkKzdKMvGRCk",
+      "_key": "!tables.results!XLesMD22k9Eh6bGg.KbygPkKzdKMvGRCk",
+      "type": "text",
+      "name": "",
+      "description": "Someone else lost down here, maybe from a different time, paranoid or at least extremely wary",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28014,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

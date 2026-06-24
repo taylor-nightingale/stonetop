@@ -1,0 +1,134 @@
+{
+  "_id": "y1bLUJ8qvSFxOLuT",
+  "_key": "!tables!y1bLUJ8qvSFxOLuT",
+  "name": "The Labyrinth — Obstruction",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "QQdpo1ASeZ4LTwO4",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.QQdpo1ASeZ4LTwO4",
+      "type": "text",
+      "name": "",
+      "description": "A cave-in (dig through?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8RMpUZf2HwHpSF23",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.8RMpUZf2HwHpSF23",
+      "type": "text",
+      "name": "",
+      "description": "A squeeze (wriggle through?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7gvwxMswb4xXpLzd",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.7gvwxMswb4xXpLzd",
+      "type": "text",
+      "name": "",
+      "description": "A sheer rock face, like the earth just shifted (climb?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zSNVv6d2WCwJqp3A",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.zSNVv6d2WCwJqp3A",
+      "type": "text",
+      "name": "",
+      "description": "A shaft/chimney (climb/squeeze?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Y6ssMBWbSaDXFhYk",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.Y6ssMBWbSaDXFhYk",
+      "type": "text",
+      "name": "",
+      "description": "A flooded chamber (wade, swim, find an exit underwater?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6cRgiIxNJr1YDXJE",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.6cRgiIxNJr1YDXJE",
+      "type": "text",
+      "name": "",
+      "description": "A chasm/rift, your path crossing it (jump, belay, or find a bridge?)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CMovcZLcJ0xgXA0x",
+      "_key": "!tables.results!y1bLUJ8qvSFxOLuT.CMovcZLcJ0xgXA0x",
+      "type": "text",
+      "name": "",
+      "description": "Intense heat, foul air, brittle crust, magma flows (good luck)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 28001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

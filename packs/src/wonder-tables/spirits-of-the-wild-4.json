@@ -1,0 +1,118 @@
+{
+  "_id": "gurDVpY2rsQQjKLO",
+  "_key": "!tables!gurDVpY2rsQQjKLO",
+  "name": "Spirits of the wild — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EECgZcIT9f0hz4kM",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.EECgZcIT9f0hz4kM",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A path in the woods</strong> (page 516)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rjlxnU5Pi3te9oVG",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.rjlxnU5Pi3te9oVG",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A cloak, richly embroidered</strong> (page 522)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TyTmPACeePSeYsmk",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.TyTmPACeePSeYsmk",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A beaded satchel</strong> (page 522)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e2OMxvf1C67lF5SX",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.e2OMxvf1C67lF5SX",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A cracked flute</strong> (page 523)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1DHt9FWRLhJHH7o2",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.1DHt9FWRLhJHH7o2",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A wolf pelt</strong> (page 523)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "aGU70V2dGZXlmCCO",
+      "_key": "!tables.results!gurDVpY2rsQQjKLO.aGU70V2dGZXlmCCO",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A patch of rainbow moss</strong> (page 521)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 41004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "_id": "swopERhj5xNsPNki",
+  "_key": "!tables!swopERhj5xNsPNki",
+  "name": "Ferrier's Fen — Point of interest",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "dz0IqkfwE9OJibee",
+      "_key": "!tables.results!swopERhj5xNsPNki.dz0IqkfwE9OJibee",
+      "type": "text",
+      "name": "",
+      "description": "A place corrupted by <strong>the Things</strong> <strong>Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oOE4BYFe1RayCrsd",
+      "_key": "!tables.results!swopERhj5xNsPNki.oOE4BYFe1RayCrsd",
+      "type": "text",
+      "name": "",
+      "description": "A place <strong>haunted</strong> by death or the undying (page 72)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wEPQkfJBthLjQvgF",
+      "_key": "!tables.results!swopERhj5xNsPNki.wEPQkfJBthLjQvgF",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Fae domain</strong> (page 102) or <strong>waystone</strong> (page 478)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DWWczYJiz4jg4DnM",
+      "_key": "!tables.results!swopERhj5xNsPNki.DWWczYJiz4jg4DnM",
+      "type": "text",
+      "name": "",
+      "description": "Site sacred to the <strong>spirits of the</strong> <strong>wild</strong> (page 356)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6U5xSywaen7YARDW",
+      "_key": "!tables.results!swopERhj5xNsPNki.6U5xSywaen7YARDW",
+      "type": "text",
+      "name": "",
+      "description": "The abode of the <strong>Willow Witches</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 13003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
 	"name": "Ghost",
 	"type": "insert",
-	"img": "assets/post-death-inserts/ghost.png",
+	"img": "systems/stonetop/assets/content/inserts/ghost.png",
 	"system": {
 		"slug": "ghost",
 		"description": "When you *die but your soul lingers*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",

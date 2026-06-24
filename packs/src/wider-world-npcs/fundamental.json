@@ -1,0 +1,44 @@
+{
+  "_id": "dryRlKPg9GIr98hF",
+  "_key": "!actors!dryRlKPg9GIr98hF",
+  "name": "Fundamental",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fundamental",
+    "reference": "primordial-powers",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "primordial"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "1 (lacks vitals), harmed only by black iron",
+    "damage": "destructive touch 1d10 w/advan- tage (hand, grabby, ignores armor)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "see below"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest in the proper conditions\n- Communicate poorly\n- Burden with incomprehensible knowledge (page 310)\n- Refuse to cooperate\n- Manipulate/manifest its element, locally and dramatically\n\nThese are spirits (page 358) of funda- mental forces, far removed from mortal concerns. They are active only near sites of primordial power and uncontrolled rifts (page 311), or when called forth by powerful, dangerous magic.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

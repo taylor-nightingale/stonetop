@@ -1,0 +1,46 @@
+{
+  "_id": "1EUhsCnfYUyAIPW9",
+  "_key": "!actors!1EUhsCnfYUyAIPW9",
+  "name": "Antiquarian",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "antiquarian",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "hoarder",
+        "cautious",
+        "cunning",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "0",
+    "damage": "iron mattock d8 w/disadvantage (close, messy, awkward) or knife d6 w/disadvantage (hand)",
+    "specialQuality": "often in possession of arcana (page 508) and willing to use them",
+    "instinct": {
+      "selected": [
+        "to indulge their curiosity or to secure the next big score"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Expound at length upon a topic\n- Open, touch, or tinker with something\n- Use a minor spell or artifact\n- Hang back and let the help face the danger\n\nAmong the southern well-to-do, the glorious past is a point of pride. Wealthy households keep pet scholars on retainer, and sponsor the study of ruins and antiq- uities. There’s a brisk trade in artifacts and relics. Collectors pay handsomely for items of true power. The south is full of ruins, but it’s also teeming with people. The best sites have already been dug up. But up north, at the World’s End? Why, one can barely swing a shovel without hitting some relic of the past, just waiting to be excavated. And studied. And sold.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

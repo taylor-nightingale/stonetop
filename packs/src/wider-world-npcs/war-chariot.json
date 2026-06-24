@@ -1,0 +1,44 @@
+{
+  "_id": "hCyaQbTgdzVj1hro",
+  "_key": "!actors!hCyaQbTgdzVj1hro",
+  "name": "War-chariot",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "war-chariot",
+    "reference": "north-manmarch",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 13,
+      "max": 13
+    },
+    "armor": "1 (wood/iron construction)",
+    "damage": "trample and wheel-scythes d8+5 (hand, close, forceful, messy, 1 piercing), or iron battleaxe d8+3 (close, messy, forceful), or long bow d8 (far)",
+    "specialQuality": "pulled by two tonner- horns; carries a driver, two warriors",
+    "instinct": {
+      "selected": [
+        "to rush inexorably forward"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Ride in broad arcs around the battle, peppering foes\n- Ride down foes, filling them with dread\n- Crash spectacularly, d8+3 damage (area, forceful)\n\nMost violence in the North Manmarch is small-scale, intimate even. A nighttime raid on a steading. An ambush in the hills. A war-band’s throats slit around their campfire. When chiefs do raise large forces, and meet on the open plains, well… they bring their very best.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,214 @@
+{
+  "_id": "GzitDNDgCpRam8dY",
+  "_key": "!tables!GzitDNDgCpRam8dY",
+  "name": "Spirits of the wild — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "KBD32trFE4Hvbjqr",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.KBD32trFE4Hvbjqr",
+      "type": "text",
+      "name": "",
+      "description": "Trees/plants/flora/growing things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VvNfNgIQIAieo9QG",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.VvNfNgIQIAieo9QG",
+      "type": "text",
+      "name": "",
+      "description": "Beasts/vermin/fauna",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jHnkXMa5CnrSVBlF",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.jHnkXMa5CnrSVBlF",
+      "type": "text",
+      "name": "",
+      "description": "Air/wind/weather/fire",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YY90v2Dyab8r8jmz",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.YY90v2Dyab8r8jmz",
+      "type": "text",
+      "name": "",
+      "description": "Spring/birth/fertility/sex/healing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "q73iSHIYCziBTkwH",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.q73iSHIYCziBTkwH",
+      "type": "text",
+      "name": "",
+      "description": "Summer/heat/growth/vitality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ADVQISNud9FU9AuF",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.ADVQISNud9FU9AuF",
+      "type": "text",
+      "name": "",
+      "description": "Autumn/harvest/sustenance/plenty",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "28Wjwb8dijs3xdX1",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.28Wjwb8dijs3xdX1",
+      "type": "text",
+      "name": "",
+      "description": "Winter/cold/hunger/sleep/death",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MdzCGHQC4xBh5wP2",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.MdzCGHQC4xBh5wP2",
+      "type": "text",
+      "name": "",
+      "description": "Savagery/the hunt/dominance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QIdHa78vSW3P4GXk",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.QIdHa78vSW3P4GXk",
+      "type": "text",
+      "name": "",
+      "description": "Nurture/shelter/provision",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gtJnNO5CqE4Wx2np",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.gtJnNO5CqE4Wx2np",
+      "type": "text",
+      "name": "",
+      "description": "The land/soil/stone/terrain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "O04O0hBMuUo3OJqC",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.O04O0hBMuUo3OJqC",
+      "type": "text",
+      "name": "",
+      "description": "Blight/decay/reclamation/ destruction",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZB96slxHHBLrZZep",
+      "_key": "!tables.results!GzitDNDgCpRam8dY.ZB96slxHHBLrZZep",
+      "type": "text",
+      "name": "",
+      "description": "Water/streams/ponds/lakes (possibly corrupted by <strong>the</strong> <strong>Things Below</strong> (page 412)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 41000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

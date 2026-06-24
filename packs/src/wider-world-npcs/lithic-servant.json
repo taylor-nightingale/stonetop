@@ -1,0 +1,44 @@
+{
+  "_id": "gPXXCc0ZWxDDjD61",
+  "_key": "!actors!gPXXCc0ZWxDDjD61",
+  "name": "Lithic servant",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "lithic-servant",
+    "reference": "stone-lords",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "construct",
+        "implacable"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 11,
+      "max": 11
+    },
+    "armor": "3 (made of stone)",
+    "damage": "stone fists d6 (hand, grabby)",
+    "specialQuality": "externally powered  bug-like intellect; blind; tremorsense",
+    "instinct": {
+      "selected": [
+        "to follow its last orders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Act with eternal patience and endurance\n- Act with no sense of consequence\n- Hurt someone unintentionally while performing its tasks\n\nImagine one of those artists’ mannequins, but full-sized and made of polished rock. Two fingers and a thumb on each hand. Faceless, expressionless, making a stone- on-stone grinding noise as they move. They’re most often found inert and covered in dust, waiting for some energy source— like a Stone Lord’s song or a thrumming power-crystal—to give them “life.” They’ll then follow any orders given to them in the Stone Lord’s tongue. A few of these servants are still active, powered by inexhaustible sources in ancient halls. Their joints are worn smooth, their feet and hands ground down to nubs. Some crawl on broken limbs, attempting to complete tasks that will never end.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

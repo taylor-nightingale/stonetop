@@ -1,0 +1,118 @@
+{
+  "_id": "l9NuGDT7Yd2e90HF",
+  "_key": "!tables!l9NuGDT7Yd2e90HF",
+  "name": "The Ruined Tower — Valuable",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "EiqxGxBk1pdhr5W7",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.EiqxGxBk1pdhr5W7",
+      "type": "text",
+      "name": "",
+      "description": "Big bits of metal (Value 1): melted/cracked/corroded/rusted",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zYUbCZFtjYi9dnMJ",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.zYUbCZFtjYi9dnMJ",
+      "type": "text",
+      "name": "",
+      "description": "A gold ingot (Value 2), once jewelry, fused into a lump",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7xIvqrSUPSRRyDF0",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.7xIvqrSUPSRRyDF0",
+      "type": "text",
+      "name": "",
+      "description": "A piece of <strong>makerglass</strong> (page 388), overlooked by prior looters",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KVGKKWaX6Y0pQowu",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.KVGKKWaX6Y0pQowu",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>shard of the Storm Orb</strong> (next page)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SDF0Vl0YAIMqBA1r",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.SDF0Vl0YAIMqBA1r",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>half-buried plaque</strong> (page 510), or some other <strong>artifact</strong> (page 406) of the Tempest Lords.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EH3nMFIwKgcU7wQW",
+      "_key": "!tables.results!l9NuGDT7Yd2e90HF.EH3nMFIwKgcU7wQW",
+      "type": "text",
+      "name": "",
+      "description": "An <strong>artifact</strong> (page 40) of the Barrow Builders, evidence that they were here, too",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

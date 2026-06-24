@@ -1,0 +1,43 @@
+{
+  "_id": "JMG2tA1CMDFi1wz1",
+  "_key": "!actors!JMG2tA1CMDFi1wz1",
+  "name": "Laborers",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "laborers",
+    "reference": "gordins-delve",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "hardy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "armor": "0",
+    "damage": "fists, boots d4 (hand) or pickax d6 (close, messy, 1 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to cling to what they’ve got"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Make a show of toughness, solidarity\n- Dogpile someone (grabby, forceful)\n- Break and run when things go sideways",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

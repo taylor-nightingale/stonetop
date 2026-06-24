@@ -1,0 +1,102 @@
+{
+  "_id": "HBieq23Q4dKRtZnC",
+  "_key": "!tables!HBieq23Q4dKRtZnC",
+  "name": "Death and the undying — Visage",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Ja52KhBPEG3s6voF",
+      "_key": "!tables.results!HBieq23Q4dKRtZnC.Ja52KhBPEG3s6voF",
+      "type": "text",
+      "name": "",
+      "description": "Naught but bone, a grinning skull",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CxQi2W2t8pVFM9pj",
+      "_key": "!tables.results!HBieq23Q4dKRtZnC.CxQi2W2t8pVFM9pj",
+      "type": "text",
+      "name": "",
+      "description": "Tattered, rotting, horrible",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Tk7KhNrWHHLSrRm4",
+      "_key": "!tables.results!HBieq23Q4dKRtZnC.Tk7KhNrWHHLSrRm4",
+      "type": "text",
+      "name": "",
+      "description": "Dried out, gaunt, clearly dead; but can pass for living at a distance",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KBo4QdUroDKuZgXz",
+      "_key": "!tables.results!HBieq23Q4dKRtZnC.KBo4QdUroDKuZgXz",
+      "type": "text",
+      "name": "",
+      "description": "Seemingly alive, but clearly dead and horrible in sun/moonlight",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "v0HkE9EB6qWecEHF",
+      "_key": "!tables.results!HBieq23Q4dKRtZnC.v0HkE9EB6qWecEHF",
+      "type": "text",
+      "name": "",
+      "description": "Seemingly alive, except for a few telltale signs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10013,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

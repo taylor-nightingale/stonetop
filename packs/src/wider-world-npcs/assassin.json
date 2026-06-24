@@ -1,0 +1,44 @@
+{
+  "_id": "glXzv7NHjLuHwVIH",
+  "_key": "!actors!glXzv7NHjLuHwVIH",
+  "name": "Assassin",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "assassin",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "stealthy",
+        "devious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "1 (skill)",
+    "damage": "dagger 1d10 (hand, 1 piercing) or garrote d8 (hand, grabby, ignores armor)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to finish the job (nothing personal)"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Stalk their target at length\n- Pass unnoticed, in shadow or disguise\n- Poison someone\n- Slip away, try again later\n\nOnly in “civilized” lands is there such demand for murder that it’s an actual profession.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

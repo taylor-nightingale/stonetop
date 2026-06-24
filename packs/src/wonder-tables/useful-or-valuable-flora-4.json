@@ -1,0 +1,214 @@
+{
+  "_id": "NpE6mSGBTAg7kWKX",
+  "_key": "!tables!NpE6mSGBTAg7kWKX",
+  "name": "Useful or valuable flora — Creating new flora",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "nqeBgNZm4kKMebju",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.nqeBgNZm4kKMebju",
+      "type": "text",
+      "name": "",
+      "description": "Attracts/houses a pest or danger",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4hEzonU6wUkPSY2S",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.4hEzonU6wUkPSY2S",
+      "type": "text",
+      "name": "",
+      "description": "Dangerous to harvest/handle",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hwMVh4Ap41yrQ79l",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.hwMVh4Ap41yrQ79l",
+      "type": "text",
+      "name": "",
+      "description": "Harmful to the soil/biome",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "nu0TEkdesKBGrqpR",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.nu0TEkdesKBGrqpR",
+      "type": "text",
+      "name": "",
+      "description": "Horrid taste/odor/texture",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WOvvX5Ez6jbcUQ98",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.WOvvX5Ez6jbcUQ98",
+      "type": "text",
+      "name": "",
+      "description": "Finicky/delicate/spoils quickly unless properly processed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LdpJEAQMIwncV7Gp",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.LdpJEAQMIwncV7Gp",
+      "type": "text",
+      "name": "",
+      "description": "Steeped in superstition/said to be cursed/a bad omen",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m8gvTYkOvab0pQfv",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.m8gvTYkOvab0pQfv",
+      "type": "text",
+      "name": "",
+      "description": "Associated with a specific god/ entity/hero/legend/tale",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jli0168Q8OUBi9VB",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.jli0168Q8OUBi9VB",
+      "type": "text",
+      "name": "",
+      "description": "Easy to work with",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RYIo1vdVh58I5qOa",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.RYIo1vdVh58I5qOa",
+      "type": "text",
+      "name": "",
+      "description": "Especially strong/durable/potent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lA8C310b5fvMKY96",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.lA8C310b5fvMKY96",
+      "type": "text",
+      "name": "",
+      "description": "Delicious/aromatic/beautiful/ supple/otherwise pleasing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GsBPMWUsEudBjZQk",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.GsBPMWUsEudBjZQk",
+      "type": "text",
+      "name": "",
+      "description": "Rare/legendary/thought extinct",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7J8q3Fcyp6lXPbrR",
+      "_key": "!tables.results!NpE6mSGBTAg7kWKX.7J8q3Fcyp6lXPbrR",
+      "type": "text",
+      "name": "",
+      "description": "Pick or roll an additional way in which it’s useful/valuable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50004,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

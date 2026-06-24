@@ -1,0 +1,150 @@
+{
+  "_id": "182GKcMN2GubzEdA",
+  "_key": "!tables!182GKcMN2GubzEdA",
+  "name": "Death and the undying — What they need",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vFT5Cx6cZb1eUjsu",
+      "_key": "!tables.results!182GKcMN2GubzEdA.vFT5Cx6cZb1eUjsu",
+      "type": "text",
+      "name": "",
+      "description": "Kindness/patience/persuasion, a guide to the Last Door",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dvT2hsCfET54G3wj",
+      "_key": "!tables.results!182GKcMN2GubzEdA.dvT2hsCfET54G3wj",
+      "type": "text",
+      "name": "",
+      "description": "Justice (or vengeance) served",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m40CCjyLYju6Gg55",
+      "_key": "!tables.results!182GKcMN2GubzEdA.m40CCjyLYju6Gg55",
+      "type": "text",
+      "name": "",
+      "description": "A proper burial",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6zubSy1wkF1ODKUz",
+      "_key": "!tables.results!182GKcMN2GubzEdA.6zubSy1wkF1ODKUz",
+      "type": "text",
+      "name": "",
+      "description": "A reunion with a loved one",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6rKsiyydGTPvXZP3",
+      "_key": "!tables.results!182GKcMN2GubzEdA.6rKsiyydGTPvXZP3",
+      "type": "text",
+      "name": "",
+      "description": "The truth, unearthed/acknowledged",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LFbNeZlQSAnncx8C",
+      "_key": "!tables.results!182GKcMN2GubzEdA.LFbNeZlQSAnncx8C",
+      "type": "text",
+      "name": "",
+      "description": "A task completed; an oath fulfilled",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0fu5v5h3c4ll42nY",
+      "_key": "!tables.results!182GKcMN2GubzEdA.0fu5v5h3c4ll42nY",
+      "type": "text",
+      "name": "",
+      "description": "Their tether, destroyed or unmade",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FtbliVMUFf4YFGyH",
+      "_key": "!tables.results!182GKcMN2GubzEdA.FtbliVMUFf4YFGyH",
+      "type": "text",
+      "name": "",
+      "description": "To be put down, like a rabid dog",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

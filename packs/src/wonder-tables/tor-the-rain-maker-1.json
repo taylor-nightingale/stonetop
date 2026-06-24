@@ -1,0 +1,118 @@
+{
+  "_id": "ZAmXSJQqgiDlwlHM",
+  "_key": "!tables!ZAmXSJQqgiDlwlHM",
+  "name": "Tor, the Rain-maker — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "BjqelyDEkMwfSvwy",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.BjqelyDEkMwfSvwy",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A half-buried plaque</strong> (page 510)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SZ7ylchBLAagD0BS",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.SZ7ylchBLAagD0BS",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A path in the woods</strong> (page 516)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yPcHNKi3pRPNLUM9",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.yPcHNKi3pRPNLUM9",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A cloak, richly embroidered</strong> (page 522)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5VCtgXFsLYjAYYBN",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.5VCtgXFsLYjAYYBN",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A cracked flute</strong> (page 523)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FAMIKrLfzjl8bfZj",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.FAMIKrLfzjl8bfZj",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A corroded spearhead</strong> (page 531)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TY1kG6l9Z2DKfr1e",
+      "_key": "!tables.results!ZAmXSJQqgiDlwlHM.TY1kG6l9Z2DKfr1e",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A fine drinking horn</strong> (page 535)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 49001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "O9kGJvh3w4NXFtH3",
+  "_key": "!actors!O9kGJvh3w4NXFtH3",
+  "name": "Stone sentinel",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "stone-sentinel",
+    "reference": "stone-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "implacable"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "armor": "3 (made of stone)",
+    "damage": "crushing fists d10+3 (hand, close, grabby, messy, forceful, 3 piercing)",
+    "specialQuality": "can animate for only a few minutes at a time; dog-like mind; blind; tremorsense",
+    "instinct": {
+      "selected": [
+        "to protect its ward"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Emit an ominous hum, a warning as it powers up\n- Move with shocking, unexpected speed (but lose 1d4 HP)\n- Erupt in flurry of violence (area, +2 damage, lose 2d4 HP)",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

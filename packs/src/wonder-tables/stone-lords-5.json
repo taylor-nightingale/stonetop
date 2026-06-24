@@ -1,0 +1,118 @@
+{
+  "_id": "XADDMT2FxoYfMceI",
+  "_key": "!tables!XADDMT2FxoYfMceI",
+  "name": "Stone Lords — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "AqYtmwMJhuPGFZMc",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.AqYtmwMJhuPGFZMc",
+      "type": "text",
+      "name": "",
+      "description": "Great slabs of marble/granite/limestone/etc., far too big for humans to lift",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jHO7fZQA7rvc7Avj",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.jHO7fZQA7rvc7Avj",
+      "type": "text",
+      "name": "",
+      "description": "Seamless stone structures/tunnels, like they were poured or molded that way",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VSUtxhlxdrVFxH2n",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.VSUtxhlxdrVFxH2n",
+      "type": "text",
+      "name": "",
+      "description": "Runes carved into stone and shaped out of walls, roads, tunnels, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tWPlWjWXRburyLq7",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.tWPlWjWXRburyLq7",
+      "type": "text",
+      "name": "",
+      "description": "Crystals/makerglass: catching light/ wind, humming/glowing, chiming/ gonging",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "39NvoW7g6XhZuJrG",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.39NvoW7g6XhZuJrG",
+      "type": "text",
+      "name": "",
+      "description": "Stones/crystals that emanate emotion/mood/thoughts/memories",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZT0CSJWoRqhSs5XB",
+      "_key": "!tables.results!XADDMT2FxoYfMceI.ZT0CSJWoRqhSs5XB",
+      "type": "text",
+      "name": "",
+      "description": "Grandiosity of scale, big enough to humble even the Makers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

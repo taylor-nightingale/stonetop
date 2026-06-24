@@ -1,0 +1,134 @@
+{
+  "_id": "XXoKo3W6j0bC25dK",
+  "_key": "!tables!XXoKo3W6j0bC25dK",
+  "name": "Death and the undying — Manifestation",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "NlL59dqI40Sld184",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.NlL59dqI40Sld184",
+      "type": "text",
+      "name": "",
+      "description": "Just a whisper/wind/mote of light*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bGuU6yzFHv1ivIQb",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.bGuU6yzFHv1ivIQb",
+      "type": "text",
+      "name": "",
+      "description": "A form of shadow/cold/mist/etc*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fIly5Y0YIW8JazuI",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.fIly5Y0YIW8JazuI",
+      "type": "text",
+      "name": "",
+      "description": "A spectral form, ethereal and eerie, but much as they looked in life*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qyWpNOEIdUijjAGO",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.qyWpNOEIdUijjAGO",
+      "type": "text",
+      "name": "",
+      "description": "A spectral form, horrible, clearly dead*",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LsltXafEk8nu0VHb",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.LsltXafEk8nu0VHb",
+      "type": "text",
+      "name": "",
+      "description": "A body made of soil/straw/rags/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d91IWXNPDrtwBpoI",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.d91IWXNPDrtwBpoI",
+      "type": "text",
+      "name": "",
+      "description": "A solid body, horrific and terrifying",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "acXxb1RhPrsDvH6h",
+      "_key": "!tables.results!XXoKo3W6j0bC25dK.acXxb1RhPrsDvH6h",
+      "type": "text",
+      "name": "",
+      "description": "A solid body, seemingly alive but for a few telltale signs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 10007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

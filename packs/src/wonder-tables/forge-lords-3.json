@@ -1,0 +1,118 @@
+{
+  "_id": "R620eV4wfn28oBAh",
+  "_key": "!tables!R620eV4wfn28oBAh",
+  "name": "Forge Lords — Structure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "rFxOxlL6LSJzphol",
+      "_key": "!tables.results!R620eV4wfn28oBAh.rFxOxlL6LSJzphol",
+      "type": "text",
+      "name": "",
+      "description": "A cluster of smaller buildings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ar0prBX5vcftEm7A",
+      "_key": "!tables.results!R620eV4wfn28oBAh.Ar0prBX5vcftEm7A",
+      "type": "text",
+      "name": "",
+      "description": "A single larger building, built around an open courtyard/garden/pool",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iI1XHHiTJ4O3E62Q",
+      "_key": "!tables.results!R620eV4wfn28oBAh.iI1XHHiTJ4O3E62Q",
+      "type": "text",
+      "name": "",
+      "description": "Large open space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "opTccbxF9jiHCBSz",
+      "_key": "!tables.results!R620eV4wfn28oBAh.opTccbxF9jiHCBSz",
+      "type": "text",
+      "name": "",
+      "description": "Warren-like structure, many connected rooms/buildings",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ROdBtq6XlUwjWZH7",
+      "_key": "!tables.results!R620eV4wfn28oBAh.ROdBtq6XlUwjWZH7",
+      "type": "text",
+      "name": "",
+      "description": "Tunnel(s)/vault(s) carved into mountain/bedrock",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WrTxHxbcSeC5h5zI",
+      "_key": "!tables.results!R620eV4wfn28oBAh.WrTxHxbcSeC5h5zI",
+      "type": "text",
+      "name": "",
+      "description": "Fortified complex containing a number of the above",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "_id": "yt5HoejhCx6IGxIy",
+  "_key": "!tables!yt5HoejhCx6IGxIy",
+  "name": "Waystones — Lure",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ZQNFMTbgRCE5aJML",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.ZQNFMTbgRCE5aJML",
+      "type": "text",
+      "name": "",
+      "description": "The need to escape from danger, heartbreak, or shame",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "82sDrTVWkBamEgEZ",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.82sDrTVWkBamEgEZ",
+      "type": "text",
+      "name": "",
+      "description": "Someone lost to you, calling out",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "l5eP9cZQn2X1oco4",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.l5eP9cZQn2X1oco4",
+      "type": "text",
+      "name": "",
+      "description": "A child, beast, or loved one in distress",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U5J5i7FtMAmPXCHH",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.U5J5i7FtMAmPXCHH",
+      "type": "text",
+      "name": "",
+      "description": "A revel, a meal, a drink, or some other pleasure of the flesh",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hfS8GV9XYDEsmtrB",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.hfS8GV9XYDEsmtrB",
+      "type": "text",
+      "name": "",
+      "description": "Something of great beauty or wonder",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cL68GAO1dMvrr8qc",
+      "_key": "!tables.results!yt5HoejhCx6IGxIy.cL68GAO1dMvrr8qc",
+      "type": "text",
+      "name": "",
+      "description": "Something of great value, or a chance to learn something of great import",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 53000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

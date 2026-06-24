@@ -1,0 +1,198 @@
+{
+  "_id": "2KEnV8J94FhgHo4U",
+  "_key": "!tables!2KEnV8J94FhgHo4U",
+  "name": "Green Lords — Ability",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "yZ2DWfdj4cFJ0G01",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.yZ2DWfdj4cFJ0G01",
+      "type": "text",
+      "name": "",
+      "description": "Burn/dissolve/destroy/drain",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kjQgEm7so7zOELAR",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.kjQgEm7so7zOELAR",
+      "type": "text",
+      "name": "",
+      "description": "Transform/mutate/change",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ie5P9vEryG2rH7qn",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.Ie5P9vEryG2rH7qn",
+      "type": "text",
+      "name": "",
+      "description": "Control/influence minds or emotions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qJIjo2iJ8udhgci2",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.qJIjo2iJ8udhgci2",
+      "type": "text",
+      "name": "",
+      "description": "Wield/produce/ignore elements or energy",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7ryeKsYGTv8K0IN5",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.7ryeKsYGTv8K0IN5",
+      "type": "text",
+      "name": "",
+      "description": "Poison/disease/infect",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ETBrLMjRsrE2Ue01",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.ETBrLMjRsrE2Ue01",
+      "type": "text",
+      "name": "",
+      "description": "Hide/mimic/disguise",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1rbw9BfmmXlGX94b",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.1rbw9BfmmXlGX94b",
+      "type": "text",
+      "name": "",
+      "description": "Entangle/trap/engulf/subdue",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KSCBzgUdXgOL9MjO",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.KSCBzgUdXgOL9MjO",
+      "type": "text",
+      "name": "",
+      "description": "Attack at range/over an area",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JDQ8B8WypdT567gZ",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.JDQ8B8WypdT567gZ",
+      "type": "text",
+      "name": "",
+      "description": "Prowess/mobility/speed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "VUoBT6oYtNdgMGvZ",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.VUoBT6oYtNdgMGvZ",
+      "type": "text",
+      "name": "",
+      "description": "Strength/toughness/durability",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NWuF91uNBrJCHs1D",
+      "_key": "!tables.results!2KEnV8J94FhgHo4U.NWuF91uNBrJCHs1D",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 24009,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

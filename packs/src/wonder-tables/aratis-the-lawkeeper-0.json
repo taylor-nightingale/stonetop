@@ -1,0 +1,166 @@
+{
+  "_id": "FgaZ80UJq9AbwfcT",
+  "_key": "!tables!FgaZ80UJq9AbwfcT",
+  "name": "Aratis, the Lawkeeper — Theme",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "APvK6hxEjnGYfVmM",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.APvK6hxEjnGYfVmM",
+      "type": "text",
+      "name": "",
+      "description": "Civilization/society/settlements",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NTxmJ3OWdUn74J7b",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.NTxmJ3OWdUn74J7b",
+      "type": "text",
+      "name": "",
+      "description": "Laws/rules/traditions",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dSaYoz9h152ycz8e",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.dSaYoz9h152ycz8e",
+      "type": "text",
+      "name": "",
+      "description": "Chronicles/record-keeping/writing",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "YOHEbxqZVTAJPygA",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.YOHEbxqZVTAJPygA",
+      "type": "text",
+      "name": "",
+      "description": "Judgement/arbitration/wisdom",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DQtoS2HZKxYRhq1E",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.DQtoS2HZKxYRhq1E",
+      "type": "text",
+      "name": "",
+      "description": "Cooperation/organization/peace",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "378wngz1e9cWjmiU",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.378wngz1e9cWjmiU",
+      "type": "text",
+      "name": "",
+      "description": "Authority/responsibility/duty",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vmZTJF0kCbnkSMm2",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.vmZTJF0kCbnkSMm2",
+      "type": "text",
+      "name": "",
+      "description": "Truth/promises/oaths/honor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pPfNOt1Nkvy3THvd",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.pPfNOt1Nkvy3THvd",
+      "type": "text",
+      "name": "",
+      "description": "Hospitality/sanctity/generosity",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jI5t0XZmQuUObLLe",
+      "_key": "!tables.results!FgaZ80UJq9AbwfcT.jI5t0XZmQuUObLLe",
+      "type": "text",
+      "name": "",
+      "description": "Defense/resolve/punishment",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 3000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

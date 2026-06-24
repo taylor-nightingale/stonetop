@@ -1,0 +1,214 @@
+{
+  "_id": "b9KJnbqSwT6UhEkC",
+  "_key": "!tables!b9KJnbqSwT6UhEkC",
+  "name": "The Things Below — Gift (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "59La3lDlkjBIITs0",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.59La3lDlkjBIITs0",
+      "type": "text",
+      "name": "",
+      "description": "A terrifying presence/aura/gaze",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SxEXGbznjlA7mm8T",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.SxEXGbznjlA7mm8T",
+      "type": "text",
+      "name": "",
+      "description": "An ability to pass unnoticed (in certain conditions)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UiSXTl3PT9jwBQA1",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.UiSXTl3PT9jwBQA1",
+      "type": "text",
+      "name": "",
+      "description": "Immunity to certain harms (poison, disease, fire, cold, drowning, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "c5h1pkCa950kFhff",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.c5h1pkCa950kFhff",
+      "type": "text",
+      "name": "",
+      "description": "Mind games/false sensations, inflicted on others",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RQOb1hjPj1rRTsLL",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.RQOb1hjPj1rRTsLL",
+      "type": "text",
+      "name": "",
+      "description": "Minion(s)/spirit(s)/creature(s), always lurking or called up as needed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QjHnhD1qVNagp9BV",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.QjHnhD1qVNagp9BV",
+      "type": "text",
+      "name": "",
+      "description": "Regeneration/rejuvenation/ immortality",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G4ww37IE81nvp4CE",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.G4ww37IE81nvp4CE",
+      "type": "text",
+      "name": "",
+      "description": "Serendipity/luck/hexes/misfortune, bestowed on others",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Q0RqChbY3xHshWXN",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.Q0RqChbY3xHshWXN",
+      "type": "text",
+      "name": "",
+      "description": "Some power to torment/bind/harm at range",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "d3rlP7HNY7aBny4s",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.d3rlP7HNY7aBny4s",
+      "type": "text",
+      "name": "",
+      "description": "Transformation/mutation/growth",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "74JxTn6TGDfuLURo",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.74JxTn6TGDfuLURo",
+      "type": "text",
+      "name": "",
+      "description": "Uncanny insight/inexplicable knowledge",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Zo06MxgTXD4tBcUu",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.Zo06MxgTXD4tBcUu",
+      "type": "text",
+      "name": "",
+      "description": "Unnatural resilience (Armor 4 except vs. bronze, +4 HP)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5ejOIa0ksVTGdlz1",
+      "_key": "!tables.results!b9KJnbqSwT6UhEkC.5ejOIa0ksVTGdlz1",
+      "type": "text",
+      "name": "",
+      "description": "Vicious/terrible/mighty physical attacks",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 46008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

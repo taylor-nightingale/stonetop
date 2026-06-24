@@ -1,0 +1,49 @@
+{
+  "_id": "ZlI7kK1ZEFS506Oq",
+  "_key": "!actors!ZlI7kK1ZEFS506Oq",
+  "name": "The Pale Hunter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-pale-hunter",
+    "reference": "the-pale-hunter",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "athletic",
+        "cunning",
+        "hoarder",
+        "magical",
+        "terrifying",
+        "tireless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "4 (resilience)",
+    "damage": "silver spear d12+3 w/advantage (close, reach, thrown, forceful, messy, 2 piercing) or silver antlers d12+5 w/ad- vantage (close, forceful) or grapple d10+3 w/advantage (hand, grabby, forceful)",
+    "specialQuality": "surrounded by mist can grab/grapple undead spirits; keen senses; uncanny reflexes",
+    "instinct": {
+      "selected": [
+        "to revel in the hunt, to claim undead souls"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Perform a feat of prowess\n- Disperse into mist, reform\n- Summon his spear to hand\n- Call up more hounds\n- Claim a dead or dying soul\n\nA looming, antlered figure, luminous white, his face in shadow. His spear is long and straight, tipped with a silver crescent. He is draped with trophies of past hunts, jangling ominously or strangely silent as suits his need. Tip: If you must speak, speak softly. Slow- ly. Just above a whisper. With frequent pauses. And a flat affect. When you deal damage to the Pale Hunter that he might dodge or roll with, roll with disadvantage.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter} (Book p.292-297)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

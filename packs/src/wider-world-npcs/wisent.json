@@ -1,0 +1,44 @@
+{
+  "_id": "Cu8RAG7lySmlsOnn",
+  "_key": "!actors!Cu8RAG7lySmlsOnn",
+  "name": "Wisent",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "wisent",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "0",
+    "damage": "headbutt, gore, trample d8+3 (hand, close, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect the herd"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Put itself between a threat and the young\n- Stampede (area, forceful, messy)\n- Leap a surprising height and distance, even from a standstill\n\nForest bison travel in herds of up to twenty, but only the bulls typically fight. When cornered, though, even the sows can be dangerous due to their mass and strength.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

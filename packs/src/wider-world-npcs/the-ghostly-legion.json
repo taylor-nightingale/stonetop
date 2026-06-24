@@ -1,0 +1,48 @@
+{
+  "_id": "NB1CCQ4S9GBtDNE2",
+  "_key": "!actors!NB1CCQ4S9GBtDNE2",
+  "name": "The Ghostly Legion",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-ghostly-legion",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "spirit",
+        "undead",
+        "organized",
+        "terrifying",
+        "hoarder",
+        "violent"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "ghostly short sword or spear d6 w/advantage (hand, close)",
+    "specialQuality": "roams far and wide, but tethered to the cave; shuns daylight; can only touch the world through violence; upsetting to/afraid of dogs",
+    "instinct": {
+      "selected": [
+        "to lift their curse"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest a spectral form (harmed only by silver, salt, or a loyal dog)\n- Ogle a mortal as they eat or drink\n- Threaten violence, carry through\n- Force a mortal to carry their treasure\n\nThey were a band of southern mercenaries, come north in search of treasure. They heard tell of a hdour (page 234) and his hoard, trapped him in his cave, and slew him. Then they divvied up the loot and left. Only later did they learn why the Hillfolk fear to kill a hdour. For he had cursed them all. Cursed their souls to linger after death, doomed to endless hunger and endless thirst. Doomed to fear the sun, to be hounded like the dogs they were. Cursed, indeed, until every piece of the far-flung loot they stole is returned to the hdour’s cave.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

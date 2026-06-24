@@ -1,0 +1,43 @@
+{
+  "_id": "FANMtOsnkF2DXU2u",
+  "_key": "!actors!FANMtOsnkF2DXU2u",
+  "name": "Caravan guard",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "caravan-guard",
+    "reference": "lygos-and-the-south",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "organized",
+        "cautious",
+        "alert"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (shield, leather cuirass)",
+    "damage": "iron spear d6 (close, thrown) or dagger d6 (hand) Professional instinct to keep their ward(s) safe",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Spot or suspect trouble\n- Take sensible precautions\n- Put themselves in harm’s way\n\nCraven instinct to avoid real danger\n\n- Suggest a safer course of action\n- Make a show of force\n- Flee, surrender, or betray their client\n\nMuch of the way between Lygos and Marshedge goes through trackless wilds, without the protection of the Makers’ Roads (page 270). Bandits, beasts, and Hillfolk (page 234) are all a threat, and plenty of potential clients would just as soon steal a merchant’s goods as trade fairly for them. So, merchants hire guards. And when danger looms, they hope they’ve hired well.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

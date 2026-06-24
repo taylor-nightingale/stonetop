@@ -13,5 +13,14 @@ packs/inserts/
 packs/followers/
 packs/steading-improvements/
 packs/possessions/
+packs/wider-world-npcs/
+packs/wider-world-and-other-wonders/
+packs/wonder-tables/
 
 test-scripts/
+
+# Working notes, plans, source PDFs, previews — never committed (incl. the copyrighted book PDF)
+helper/
+
+# Raw mutool stext dumps — large; compact *.lines.json fixtures are committed instead
+tests/import/pdf/fixtures/*.stext.xml

@@ -1,0 +1,118 @@
+{
+  "_id": "3jgST4JukgcAsXY4",
+  "_key": "!tables!3jgST4JukgcAsXY4",
+  "name": "Forge Lords — Purpose (2)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "NEYNHdeYIZqoiG7J",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.NEYNHdeYIZqoiG7J",
+      "type": "text",
+      "name": "",
+      "description": "Defense/violence/murder",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NFZTbTqMWt81uhsN",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.NFZTbTqMWt81uhsN",
+      "type": "text",
+      "name": "",
+      "description": "Labor/service/convenience",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FdaU0D4wJSRP0MLg",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.FdaU0D4wJSRP0MLg",
+      "type": "text",
+      "name": "",
+      "description": "Beauty/decoration/aesthetics",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oHhdsKEhusvmnXG8",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.oHhdsKEhusvmnXG8",
+      "type": "text",
+      "name": "",
+      "description": "Novelty/practice/experimentation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "XqFbu4gf5Sk2r0wY",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.XqFbu4gf5Sk2r0wY",
+      "type": "text",
+      "name": "",
+      "description": "Companionship/diplomacy/business",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iwYg4mvDCe7NM2EJ",
+      "_key": "!tables.results!3jgST4JukgcAsXY4.iwYg4mvDCe7NM2EJ",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

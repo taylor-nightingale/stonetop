@@ -1,0 +1,118 @@
+{
+  "_id": "nAMAMcP21hNtBzEn",
+  "_key": "!tables!nAMAMcP21hNtBzEn",
+  "name": "The Steplands — Sacred wood",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "pBln5PecnxWhsm1a",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.pBln5PecnxWhsm1a",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Redwood</strong> (page 314)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "usg8Fw3I4qBDPScd",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.usg8Fw3I4qBDPScd",
+      "type": "text",
+      "name": "",
+      "description": "Heartwood of lightning-struck ash",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eh8KzUEO9F62IHWv",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.eh8KzUEO9F62IHWv",
+      "type": "text",
+      "name": "",
+      "description": "Elder wood, blackened in sacrificial fire",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "faDD6VZCQoaQlZ53",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.faDD6VZCQoaQlZ53",
+      "type": "text",
+      "name": "",
+      "description": "Oak, etched with words of grounding and renewal",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HLy7JMPJOtDA5ZzT",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.HLy7JMPJOtDA5ZzT",
+      "type": "text",
+      "name": "",
+      "description": "Yew, carved with a sorcerer’s bone",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "NWFjG2JQV7XPDE0C",
+      "_key": "!tables.results!nAMAMcP21hNtBzEn.NWFjG2JQV7XPDE0C",
+      "type": "text",
+      "name": "",
+      "description": "Willow, the tree felled by an innocent, the wood carved by one stooped with regrets",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

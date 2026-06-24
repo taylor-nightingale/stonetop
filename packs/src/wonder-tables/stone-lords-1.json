@@ -1,0 +1,54 @@
+{
+  "_id": "hgDTjOKkjdeGNDCy",
+  "_key": "!tables!hgDTjOKkjdeGNDCy",
+  "name": "Stone Lords — Site",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "yndiFP7YIebke55M",
+      "_key": "!tables.results!hgDTjOKkjdeGNDCy.yndiFP7YIebke55M",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Lingering signs</strong> of their presence and influence (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "naJwvStG3CYP3D9j",
+      "_key": "!tables.results!hgDTjOKkjdeGNDCy.naJwvStG3CYP3D9j",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ruin</strong> (page 386)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 43001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

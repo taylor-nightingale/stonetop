@@ -3,7 +3,7 @@
 	"_key": "!items!zeGzkCAqr19RtIOO",
 	"name": "Blood-quenched Sword",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/blood-quenched-sword.png",
+	"img": "systems/stonetop/assets/content/arcana/blood-quenched-sword.png",
 	"system": {
 		"slug": "blood-quenched-sword",
 		"front": {

@@ -1,0 +1,102 @@
+{
+  "_id": "DxNY8x4uXMeDzw0P",
+  "_key": "!tables!DxNY8x4uXMeDzw0P",
+  "name": "The Ruined Tower — Size",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "csFeCalMFQEwONR0",
+      "_key": "!tables.results!DxNY8x4uXMeDzw0P.csFeCalMFQEwONR0",
+      "type": "text",
+      "name": "",
+      "description": "Small (Value 0)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "401PY3fBH2k52iwy",
+      "_key": "!tables.results!DxNY8x4uXMeDzw0P.401PY3fBH2k52iwy",
+      "type": "text",
+      "name": "",
+      "description": "(Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fNJoy3sHplvAaxlC",
+      "_key": "!tables.results!DxNY8x4uXMeDzw0P.fNJoy3sHplvAaxlC",
+      "type": "text",
+      "name": "",
+      "description": "(Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MXspoAQKRFxFIlh6",
+      "_key": "!tables.results!DxNY8x4uXMeDzw0P.MXspoAQKRFxFIlh6",
+      "type": "text",
+      "name": "",
+      "description": "(<em>cumbersome</em>, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "WIuz8Gmv8faJvR0X",
+      "_key": "!tables.results!DxNY8x4uXMeDzw0P.WIuz8Gmv8faJvR0X",
+      "type": "text",
+      "name": "",
+      "description": "<em>Immobile</em> (Value 3 or more)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

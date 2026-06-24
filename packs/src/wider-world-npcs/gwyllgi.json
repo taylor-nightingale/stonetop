@@ -1,0 +1,46 @@
+{
+  "_id": "UEwdzQB3s0TfZEYV",
+  "_key": "!actors!UEwdzQB3s0TfZEYV",
+  "name": "Gwyllgi",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "gwyllgi",
+    "reference": "death-and-the-undying",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "cautious",
+        "stealthy",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience, 0 vs. silver)",
+    "damage": "(reach, area, ignores armor) A gwyllgi is a harbinger of death, a being from beyond. A necromancer might call one forth to send against their foes. Or, one might slip through the Last Door when dark magic or the death of many cause it to swing wide open.",
+    "specialQuality": "hates daylight, must be manifest to feed",
+    "instinct": {
+      "selected": [
+        "to feed on fear and despair"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a black wolf with blazing red eyes\n- Appear to someone out alone at night and lay a death curse on them (see below)\n- Breathe forth a baleful cloud, d6",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

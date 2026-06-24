@@ -1,0 +1,150 @@
+{
+  "_id": "onxPMtrKrk11a4Q2",
+  "_key": "!tables!onxPMtrKrk11a4Q2",
+  "name": "Primordial powers — Marker",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "QAQmFftAUJr3skHK",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.QAQmFftAUJr3skHK",
+      "type": "text",
+      "name": "",
+      "description": "A veil, hiding it from the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LXPjQlkvmbHGLpaP",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.LXPjQlkvmbHGLpaP",
+      "type": "text",
+      "name": "",
+      "description": "Dramatic geology (a peak, a crater, a rift, a geyser, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9zEw7xnwVBhPv8yO",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.9zEw7xnwVBhPv8yO",
+      "type": "text",
+      "name": "",
+      "description": "Desolation/<strong>radiation</strong> (page 407)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eHi0qtuUTXATgOok",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.eHi0qtuUTXATgOok",
+      "type": "text",
+      "name": "",
+      "description": "Remains of a <strong>titan</strong> (page 303)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "mtafZt2bxsN8wcQN",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.mtafZt2bxsN8wcQN",
+      "type": "text",
+      "name": "",
+      "description": "Megalith(s)/petroglyphs/runes/cave paintings/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0V4W3aqS81mldeEw",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.0V4W3aqS81mldeEw",
+      "type": "text",
+      "name": "",
+      "description": "Ruin(s) of the <strong>Makers</strong> (page 264), built near or around it",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZmjjQfGwdO4Y7vXE",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.ZmjjQfGwdO4Y7vXE",
+      "type": "text",
+      "name": "",
+      "description": "Mysterious structure(s), placed by primordial entities",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "y8RMjGHZZ1NFCheH",
+      "_key": "!tables.results!onxPMtrKrk11a4Q2.y8RMjGHZZ1NFCheH",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice and combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 36006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

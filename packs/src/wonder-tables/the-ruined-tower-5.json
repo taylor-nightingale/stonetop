@@ -1,0 +1,118 @@
+{
+  "_id": "gcwuvhoFRiwbOFjI",
+  "_key": "!tables!gcwuvhoFRiwbOFjI",
+  "name": "The Ruined Tower — Encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "nGr79ZS2vgvxJ1bs",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.nGr79ZS2vgvxJ1bs",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>pyped</strong> (page 82), hiding from the sun or out at night, digging old bones to sup on the marrow",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Urh79kuCpKnH55wg",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.Urh79kuCpKnH55wg",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Blue magpies</strong> (page 340), digging for shinies, foraging, or gossiping, maybe mocking/pranking the PCs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bx5g7wAxt5BczBXS",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.Bx5g7wAxt5BczBXS",
+      "type": "text",
+      "name": "",
+      "description": "Critter(s)—fox, skunk, stoat, hares, prairie dogs, starlings, vultures, etc. —curious, annoying, maybe just cute",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z5yYH2ffU3GYIZF9",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.z5yYH2ffU3GYIZF9",
+      "type": "text",
+      "name": "",
+      "description": "Larger animal(s)—deer, a ground sloth, wild sheep, maybe some <strong>aurochs</strong> (page 131)—grazing near the ruins",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "azQFdrVXXe36jF14",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.azQFdrVXXe36jF14",
+      "type": "text",
+      "name": "",
+      "description": "Someone else, exploring/making camp, wary but not hostile: some <strong>Hillfolk</strong> (page 228), <strong>adventurers</strong> and an <strong>antiquarian</strong> (page 260), <strong>cultists</strong> (page 435), a <strong>sorcerer</strong> (page 435), etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JxvS2QYHK9CGbDC4",
+      "_key": "!tables.results!gcwuvhoFRiwbOFjI.JxvS2QYHK9CGbDC4",
+      "type": "text",
+      "name": "",
+      "description": "A hidden entrance to the upper tunnels or the even the depths (a caved-in ceiling, a burrow, a chute, a secret door, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 39005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

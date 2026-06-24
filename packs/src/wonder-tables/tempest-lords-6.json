@@ -1,0 +1,86 @@
+{
+  "_id": "oGSsHW20faDnvPBr",
+  "_key": "!tables!oGSsHW20faDnvPBr",
+  "name": "Tempest Lords — Condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vRYp0QyW1EhQpIHy",
+      "_key": "!tables.results!oGSsHW20faDnvPBr.vRYp0QyW1EhQpIHy",
+      "type": "text",
+      "name": "",
+      "description": "Shattered and laid waste by time, disaster, or vandalism; mostly buried, overgrown, collapsed; its purpose unrecognizable",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qVkU7spxI7Lm7Cqr",
+      "_key": "!tables.results!oGSsHW20faDnvPBr.qVkU7spxI7Lm7Cqr",
+      "type": "text",
+      "name": "",
+      "description": "Crumbling, largely buried, overgrown, or hidden away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "j21QENonS8aLA7z9",
+      "_key": "!tables.results!oGSsHW20faDnvPBr.j21QENonS8aLA7z9",
+      "type": "text",
+      "name": "",
+      "description": "Buried, overgrown, or hidden, but mostly intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IansMTkEeKbqxAGT",
+      "_key": "!tables.results!oGSsHW20faDnvPBr.IansMTkEeKbqxAGT",
+      "type": "text",
+      "name": "",
+      "description": "Fully visible and strangely well-preserved",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45006,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

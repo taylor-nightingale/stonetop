@@ -1,0 +1,41 @@
+{
+  "_id": "w59J0ug7CjFPieoV",
+  "_key": "!actors!w59J0ug7CjFPieoV",
+  "name": "The Guard",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-guard",
+    "reference": "marshedge",
+    "tagList": {
+      "selected": [
+        "Group",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "2 (iron scales)",
+    "damage": "steel-tipped spear d8 (close, thrown, 2 piercing) Ex-Claw instinct to lord over others.",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Bully, threaten, intimidate\n- Cover each other’s backs\n- Demand a bribe or accommodation\n\nLoyalist instinct to protect the town, no matter what.\n\n- Give fair warning before using force\n- Stand firm in the face of danger\n\nNew recruit instinct to avoid danger or punishment.\n\n- Shout a warning/order\n- Hesitate\n- Look the other way",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eHmYRGms3Q9bzY70]{Marshedge} (Book p.274-280)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,49 @@
+{
+  "_id": "jZfCPTsneu7x0568",
+  "_key": "!actors!jZfCPTsneu7x0568",
+  "name": "Fadyn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "fadyn",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "spirit",
+        "magical",
+        "stealthy",
+        "devious",
+        "audacious",
+        "cautious",
+        "beautiful"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (reflexes)",
+    "damage": "bite, scratches, or knife d6 (hand, disadvantage)",
+    "specialQuality": "tethered to a fox skull",
+    "instinct": {
+      "selected": [
+        "to make mischief"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Manifest as a fox (small) or a charming stranger\n- Be all manner of charming and ingratiating\n- Steal something when no one’s looking\n- Make something seem like something else\n\nEvery child has heard stories of the fox-spirit, the trickster, the fadyn. In some tales, a fadyn makes fools of the cruel or the proud. In others, they steal chickens from the slow-witted. And in still others, they se- duce a beautiful human, disappearing when bored or discovered. Truth be told, there’s little pattern to who a fadyn torments or fancies. They are fickle, fickle things. Something interesting: When a fadyn takes the form of a person, it always has some fox-like feature (a tail, feet, hands, ears) that it strives to hide. It is easily embarrassed by this feature, and flees if it’s discovered. Something useful: Fadyn are in fact the spirits of old, cagey foxes who passed away, and they’re tethered to their old skulls. One can’t travel far from its skull, and often carries it hidden on its manifest person or buries it near the community that it torments. If you want to destroy a fadyn, or bind it to your service, getting your hands on its skull is the best way to do so.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

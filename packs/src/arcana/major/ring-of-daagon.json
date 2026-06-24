@@ -3,7 +3,7 @@
 	"_key": "!items!1EvcBv0ExiwnuHfA",
 	"name": "Ring of Daagon",
 	"type": "arcanum",
-	"img": "systems/stonetop/assets/arcana/ring-of-daagon.png",
+	"img": "systems/stonetop/assets/content/arcana/ring-of-daagon.png",
 	"system": {
 		"slug": "ring-of-daagon",
 		"front": {

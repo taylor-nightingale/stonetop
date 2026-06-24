@@ -1,0 +1,118 @@
+{
+  "_id": "0fgsOCXdbHNwakq2",
+  "_key": "!tables!0fgsOCXdbHNwakq2",
+  "name": "The Steplands — Decoration",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LCweHuuAlux1pWdx",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.LCweHuuAlux1pWdx",
+      "type": "text",
+      "name": "",
+      "description": "Stalactite(s) or soda straws, clinging tight to the ceiling",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "o1ZcRW1DJh5wJNk9",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.o1ZcRW1DJh5wJNk9",
+      "type": "text",
+      "name": "",
+      "description": "Stalagmite(s), growing from the floor",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4ZY2MgkG01XLb3nm",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.4ZY2MgkG01XLb3nm",
+      "type": "text",
+      "name": "",
+      "description": "Column(s), where stalactites and stalagmites have grown together",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Bs7QVCBFxYREHaLO",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.Bs7QVCBFxYREHaLO",
+      "type": "text",
+      "name": "",
+      "description": "Crystals, crystalline growths, “honeycomb” patterns",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9MFWdOF1PNKm6t6r",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.9MFWdOF1PNKm6t6r",
+      "type": "text",
+      "name": "",
+      "description": "Flowstone, rimstone, “draperies,” “shields”",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "D2XA7dFHf8QpSfCe",
+      "_key": "!tables.results!0fgsOCXdbHNwakq2.D2XA7dFHf8QpSfCe",
+      "type": "text",
+      "name": "",
+      "description": "Fossils",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42010,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

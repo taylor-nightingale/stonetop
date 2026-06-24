@@ -1,0 +1,102 @@
+{
+  "_id": "BK2CGytu36a69LBS",
+  "_key": "!tables!BK2CGytu36a69LBS",
+  "name": "The Steplands — Clearance",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "FHNDqny5k1lqUjxD",
+      "_key": "!tables.results!BK2CGytu36a69LBS.FHNDqny5k1lqUjxD",
+      "type": "text",
+      "name": "",
+      "description": "Basically a crack, too small for grown humans without excavation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PDr3tnOA2d3QmAl3",
+      "_key": "!tables.results!BK2CGytu36a69LBS.PDr3tnOA2d3QmAl3",
+      "type": "text",
+      "name": "",
+      "description": "A squeeze—most folk can wriggle through without gear on",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U4SeFOiuqi3NYClz",
+      "_key": "!tables.results!BK2CGytu36a69LBS.U4SeFOiuqi3NYClz",
+      "type": "text",
+      "name": "",
+      "description": "Small, cramped—might need to duck, crawl, go single file",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "izdSmEPwDlzCUwEc",
+      "_key": "!tables.results!BK2CGytu36a69LBS.izdSmEPwDlzCUwEc",
+      "type": "text",
+      "name": "",
+      "description": "Roomy, comfortable to walk through",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "N90QiZ7RJYc2Uk2o",
+      "_key": "!tables.results!BK2CGytu36a69LBS.N90QiZ7RJYc2Uk2o",
+      "type": "text",
+      "name": "",
+      "description": "Yawning, vast, lots of space",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

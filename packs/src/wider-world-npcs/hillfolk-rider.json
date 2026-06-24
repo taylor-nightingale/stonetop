@@ -1,0 +1,45 @@
+{
+  "_id": "bQGEHqqIP26KSrIH",
+  "_key": "!actors!bQGEHqqIP26KSrIH",
+  "name": "Hillfolk rider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hillfolk-rider",
+    "reference": "hillfolk",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy",
+        "organized",
+        "horse-wise"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0 to 2 (thick hides, shield)",
+    "damage": "flint-tipped spear d8 (close, thrown, crude), cudgel d8 (close, crude), adz d8 (hand, crude), or bow d8 (near)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to distrust outsiders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Ride a steed like an extension of themselves\n- Outmaneuver their prey\n- Take advantage of the terrain\n\nA typical band of Hillfolk has between 6 to 12 riders: adult hunters and warriors. They patrol their territories in twos and threes, seeking game and keeping an eye out for trespassers. The brash and the bold will challenge anyone they don’t recognize. More cautious riders will follow unseen and take the outsiders’ measure; whether they let them pass, or spook them into leaving, or murder them in their sleep… well that remains to be seen. When a Hillfolk rider and their horse attack a foe together, they deal 1d6+4 damage (the horse’s 1d6+3, with +1 for the rider), com- bining tags from the attacks as makes sense.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "mnwAkszVBgjHwJA7",
+  "_key": "!actors!mnwAkszVBgjHwJA7",
+  "name": "Hdour",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hdour",
+    "reference": "hillfolk",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "cautious",
+        "devious",
+        "hoarder",
+        "magical",
+        "spirit-wise"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "2 (thick hides, minor wards)",
+    "damage": "bronze knife d8 (hand)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to ignore rules, boundaries, and taboos"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Call up a spirit to attend them\n- Send spirits or beasts to harass, spy, or attack\n- Reveal some spell or trick prepared in advance\n- Unleash power they cannot control\n\nSpirit-talkers (next page) have great power, but use it with care and only for the benefit of their people. There are many rules that they follow, many things they will refuse to do. Because to step over the line, and to seek power for power’s sake, and to use their power selfishly—that is the way of the sorcerer, the hdour. When the Hillfolk suspect a spirit-talker of sorcery, they exile them. In the worst cases, they bury them alive. Few are willing to deal a death-blow to a hdour, for that’s a sure way to get oneself cursed. Hdour are often in possession of one or more arcana (page 508), which they do not hesitate to use. They are often at- tended by beasts, spirits of the wild (page 356), spirits of the dead and undying (page 68), and minions of the Things Below (page 412).",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

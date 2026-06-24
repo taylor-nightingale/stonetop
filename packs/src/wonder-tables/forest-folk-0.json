@@ -1,0 +1,118 @@
+{
+  "_id": "arXP0rdPWIDISvFm",
+  "_key": "!tables!arXP0rdPWIDISvFm",
+  "name": "Forest Folk — A place where they...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "x0wntlAFzFrWof3a",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.x0wntlAFzFrWof3a",
+      "type": "text",
+      "name": "",
+      "description": "… stood guard over something",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5N7gZMATP1FHIHlk",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.5N7gZMATP1FHIHlk",
+      "type": "text",
+      "name": "",
+      "description": "… fought/died/interred their dead",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "f4Ltv7tgegPUmaZx",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.f4Ltv7tgegPUmaZx",
+      "type": "text",
+      "name": "",
+      "description": "… performed rituals/communed with spirits/worked magic",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "fF6fwdjhVezrWVAR",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.fF6fwdjhVezrWVAR",
+      "type": "text",
+      "name": "",
+      "description": "… dwelt/worked/made things/ stored things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "m36FahKuYAQk0YCH",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.m36FahKuYAQk0YCH",
+      "type": "text",
+      "name": "",
+      "description": "… gathered/congregated/held festivals",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FYUhwizW8mmxmduL",
+      "_key": "!tables.results!arXP0rdPWIDISvFm.FYUhwizW8mmxmduL",
+      "type": "text",
+      "name": "",
+      "description": "… left signs of what happened to them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 17000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

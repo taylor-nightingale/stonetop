@@ -1,0 +1,46 @@
+{
+  "_id": "X8UUld5u6dtkG60l",
+  "_key": "!actors!X8UUld5u6dtkG60l",
+  "name": "Thraulgwyn raider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "thraulgwyn-raider",
+    "reference": "the-labyrinth",
+    "tagList": {
+      "selected": [
+        "Group",
+        "corrupted",
+        "stealthy",
+        "organized",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0 or 1 (human hide)",
+    "damage": "obsidian-tipped bone spear d8 (close, thrown, crude), femur d8 (close, crude), hair-rope net (thrown, crude, grabby), bite d6 (hand)",
+    "specialQuality": "gifted and marked according to their tribe (page 248)",
+    "instinct": {
+      "selected": [
+        "to glorify their tribe"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Use their gift\n- Move quietly through the dark\n- Lure prey into an ambush\n- Pounce with sudden ferocity\n- Flee if things go south\n\nThey roam the tunnels in gangs of 3-5, playing cat and mouse with rival bands. Should they notice outsiders, they might try to ambush them, capture them, and eat them. But they might also greet them, offer to trade, try to use them against their foes. Some raiding parties are led by a champion (leader, +2 HP, deals damage with advan- tage), who bears one of their tribal band’s sacred artifacts.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.w4ZAM6a01JmgUtoI]{The Labyrinth} (Book p.242-255)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "8pXamC8nPV7Zu55O",
+  "_key": "!actors!8pXamC8nPV7Zu55O",
+  "name": "Birdwaig",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "birdwaig",
+    "reference": "spirits-of-the-wild",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "spirit",
+        "cautious",
+        "clever",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "armor": "3 (woody, no vital organs)",
+    "damage": "crushing branches d10+3 (close, reach, forceful), choking vines/roots d10+1 (reach, grabby)",
+    "specialQuality": "tethered to its tree",
+    "instinct": {
+      "selected": [
+        "to care for the forest, especially the trees"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Wield the plants around her like a weapon\n- Possess a nearby tree (vulnerable to fire, all but impossible to harm with most weapons)\n- Purge or bind an unnatural taint\n- Grant a secret or a boon to a friend of the forest\n\nAs they mature, Brennauwed grow more sedentary, manifesting only via their own tree or possessing other trees within a few miles. A birdwaig has a motherly regard for all natural things in her territory, and will turn the very forest against any that seek to do it harm.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,43 @@
+{
+  "_id": "DvuoddjKQ5jvhEpt",
+  "_key": "!actors!DvuoddjKQ5jvhEpt",
+  "name": "Manmarcher recruit",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "manmarcher-recruit",
+    "reference": "north-manmarch",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "young"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (thick hides, shield)",
+    "damage": "iron battleaxe d6 (close, messy), knife d6 (hand), or javelins d6 (thrown)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to prove themselves, one way or the other"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Boast and brag\n- Form a ragged shield wall\n- Hesitate\n- Act rashly\n\nEvery able-bodied youth does their turn at their chief’s hillfort. They spend a year or two drilling, marching, learning the spear, and standing in the shield wall. They sing songs, and talk big, and maybe even get their hands red. A few are picked for their chief’s standing force, but most head home to their hamlets, prepared to defend their families and swell their chief ’s ranks when called. That’s the idea, at least.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

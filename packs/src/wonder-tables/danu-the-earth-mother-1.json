@@ -1,0 +1,118 @@
+{
+  "_id": "3rURPntXknkGEl7g",
+  "_key": "!tables!3rURPntXknkGEl7g",
+  "name": "Danu, the Earth Mother — Minor arcanum",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "TYqDpBYSB9GPQovA",
+      "_key": "!tables.results!3rURPntXknkGEl7g.TYqDpBYSB9GPQovA",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A folktale</strong> (page 508)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "PaDbVWLoHlaJmb8n",
+      "_key": "!tables.results!3rURPntXknkGEl7g.PaDbVWLoHlaJmb8n",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A giant oak leaf</strong> (page 517)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ReWNcEXlGWWOfUiQ",
+      "_key": "!tables.results!3rURPntXknkGEl7g.ReWNcEXlGWWOfUiQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A crumbling arch</strong> (page 520)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ts97XV6dwCpfLmDn",
+      "_key": "!tables.results!3rURPntXknkGEl7g.ts97XV6dwCpfLmDn",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A path in the woods</strong> (page 516)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8StnboGhlyvXjT2J",
+      "_key": "!tables.results!3rURPntXknkGEl7g.8StnboGhlyvXjT2J",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A patch of rainbow moss</strong> (page 521)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vis5ARh8eJZDl2B0",
+      "_key": "!tables.results!3rURPntXknkGEl7g.vis5ARh8eJZDl2B0",
+      "type": "text",
+      "name": "",
+      "description": "<strong>A beaded satchel</strong> (page 522)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 9001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

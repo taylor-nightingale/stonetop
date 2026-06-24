@@ -1,0 +1,44 @@
+{
+  "_id": "kLzi4mM6tkcjhq12",
+  "_key": "!actors!kLzi4mM6tkcjhq12",
+  "name": "Klezln",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "klezln",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "3 (carapace)",
+    "damage": "pincers d10+3 (hand, close, grabby)",
+    "specialQuality": "senses vibrations, strong burrower",
+    "instinct": {
+      "selected": [
+        "to wait patiently for food"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Undermine the soil, creating a sink- hole waiting to happen\n- Wait for prey to trigger its trap and get pinned in loose dirt, d6 damage (grabby)\n- Burst forth from the loose soil to snag a victim\n- Drag it beneath the soil, to be crushed and supped on at leisure\n\nGreat big beetles that live out beneath the Flats, preying on large game like horses and aurochs. The Hillfolk know what signs to watch for, but they rarely tell outsiders. What better way to keep the Flats free of fools?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,134 @@
+{
+  "_id": "0b1dS4cteDbJtiVy",
+  "_key": "!tables!0b1dS4cteDbJtiVy",
+  "name": "APPENDIX B: Artifact Creation — Material",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "wtLgIsGL5z7EeOFk",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.wtLgIsGL5z7EeOFk",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Makerglass</strong>, most associated with the Stone Lords; pick or roll for its form and characteristic (page 388), then proceed to <strong>synthesis</strong> (page 507, step 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S0LOvlFkcTRto9ye",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.S0LOvlFkcTRto9ye",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Aetherium</strong>, found near Tempest Lord sites like the <strong>Ruined Tower</strong> (page 332); pick or roll for its form and characteristic (page 404), then proceed to <strong>synthesis</strong> (page 507, step 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "hoaJBgZpAfO1pVa8",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.hoaJBgZpAfO1pVa8",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Orichalcum</strong>, most associated with the Forge Lords; pick or roll for its variety (page 162), then proceed to <strong>synthesis</strong> (page 507, step 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zr8mA6VLJPLGrYEC",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.zr8mA6VLJPLGrYEC",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Dark ice</strong>, created by the Rime Lords and their disciples; pick or roll for its form and characteristic (page 322), then proceed to <strong>synthesis</strong> (page 507, step 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BTnIn8tXGlXfPFWg",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.BTnIn8tXGlXfPFWg",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Black iron</strong>, most associated with <strong>primordial powers</strong> (page 298) and <strong>Aratis</strong> (page 22); pick or roll for its form (page 307), then proceed to <strong>synthesis</strong> (page 507, step 4)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "KbtEXQYuTgrJjiRU",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.KbtEXQYuTgrJjiRU",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Red crystal</strong>, a manifestation of the Things Below; pick or roll on the next table, and do what it says",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DCkXIkFAWwJChzFj",
+      "_key": "!tables.results!0b1dS4cteDbJtiVy.DCkXIkFAWwJChzFj",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Redwood</strong> (page 314), a natural tether for <strong>spirits of the wild</strong> (page 356) often used by the <strong>Forest Folk</strong> (page 150); pick or roll on the next table, and do what it says",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

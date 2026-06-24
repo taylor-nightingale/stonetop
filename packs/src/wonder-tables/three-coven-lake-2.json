@@ -1,0 +1,214 @@
+{
+  "_id": "rGEQcZyGlpFo0Za9",
+  "_key": "!tables!rGEQcZyGlpFo0Za9",
+  "name": "Three Coven Lake — Stone lord site",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "bUFMd5KyRrw2KEpZ",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.bUFMd5KyRrw2KEpZ",
+      "type": "text",
+      "name": "",
+      "description": "Sunken head of an enormous statue, coated in algae. Sings a haunting song each sunset.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "crKLDQ0hQxWJoRiK",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.crKLDQ0hQxWJoRiK",
+      "type": "text",
+      "name": "",
+      "description": "Vaulted chamber, littered with pieces of an obsidian mirror once 30’ across. Shards reflect brief vignettes of days long past.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lcrqdd9XstK3zcaF",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.lcrqdd9XstK3zcaF",
+      "type": "text",
+      "name": "",
+      "description": "Four-story “tower” carved out of a bluff. Crystals inside emanate light, awe, reverence.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ctLGmLGqKNJCT5DL",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.ctLGmLGqKNJCT5DL",
+      "type": "text",
+      "name": "",
+      "description": "Bluff-sized building of seamless stone. Inside, a warren of unstable, bone-strewn apartments.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kAG7ZWJ3OPgHfqCy",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.kAG7ZWJ3OPgHfqCy",
+      "type": "text",
+      "name": "",
+      "description": "Double doors, crudely barricaded. Beyond: a cracked crystal, a broken ward, lingering evil.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "STmpGnzOeU0Uliwk",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.STmpGnzOeU0Uliwk",
+      "type": "text",
+      "name": "",
+      "description": "Big island made mostly of huge, curving stone slabs. Alcoves hold signs of ancient refugee camps: cookware, salvage, keepsakes.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vI7uPMdaBmEsxBsb",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.vI7uPMdaBmEsxBsb",
+      "type": "text",
+      "name": "",
+      "description": "Spiral stairs, rising 100’ from a pile of rubble. Makerglass, giant- sized steps, draped in vines.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "0rc9EH5oB8cU314h",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.0rc9EH5oB8cU314h",
+      "type": "text",
+      "name": "",
+      "description": "Big blocky building. Intact. Doors buried under rubble/scree. Holds a cache of spare construct parts.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8CAc5B7CzgRGKG4D",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.8CAc5B7CzgRGKG4D",
+      "type": "text",
+      "name": "",
+      "description": "Warren of rooms carved into a bluff. Once a Stone Lord’s manor, then a warlord’s fortress, finally the site of her demise.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UJiOVy1311US8WCm",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.UJiOVy1311US8WCm",
+      "type": "text",
+      "name": "",
+      "description": "Long stretches of narrow stone walkway, mostly buried by silt and shallow water. Covered in algae, mud, faded runes.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MmISovOfWrV1LHNi",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.MmISovOfWrV1LHNi",
+      "type": "text",
+      "name": "",
+      "description": "Rocky island far from shore, like a great hand holding a broken stone platter. Ancient (?) skulls are heaped on every surface.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bPMTSqSjwfAMGaKm",
+      "_key": "!tables.results!rGEQcZyGlpFo0Za9.bPMTSqSjwfAMGaKm",
+      "type": "text",
+      "name": "",
+      "description": "Makerglass tower, largely intact but fallen sideways into the lake. Full of wonders, algae, eels, stale air pockets, Stone Lord ghosts.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 47002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

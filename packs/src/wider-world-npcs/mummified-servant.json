@@ -1,0 +1,46 @@
+{
+  "_id": "dw6DyVw0i2BsgZF6",
+  "_key": "!actors!dw6DyVw0i2BsgZF6",
+  "name": "Mummified servant",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mummified-servant",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "spirit",
+        "undead",
+        "organized",
+        "relentless"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 11,
+      "max": 11
+    },
+    "armor": "0",
+    "damage": "choking grip d6 (hand, grabby), spear d6 (close, 1 piercing)",
+    "specialQuality": "takes +1d4 damage from fire, tethered to canopic jars",
+    "instinct": {
+      "selected": [
+        "to destroy intruders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Animate its preserved corpse\n- Surround intruders and hem them in, cutting off escape\n- Keep fighting with limbs that have been severed\n- Regenerate its corpse, unless burned or its canopic jars destroyed\n\nSome of the Green Lords were mummi- fied and interred with their most faithful mortal servants. These servants get to enjoy their master’s false afterlife, but when threats to the tomb arise, they are sent back to their corpses, to rise and crush any intruders they find.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

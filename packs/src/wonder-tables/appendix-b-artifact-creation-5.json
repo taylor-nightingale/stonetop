@@ -1,0 +1,86 @@
+{
+  "_id": "cFDJ27lp9hgsWh5o",
+  "_key": "!tables!cFDJ27lp9hgsWh5o",
+  "name": "APPENDIX B: Artifact Creation — Extra characteristic?",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uCwXiTgx21A5DRYx",
+      "_key": "!tables.results!cFDJ27lp9hgsWh5o.uCwXiTgx21A5DRYx",
+      "type": "text",
+      "name": "",
+      "description": "Nope, go pick or roll for its <strong>form</strong> (page 505, step 3)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eYgUz1J7fUFiE8h0",
+      "_key": "!tables.results!cFDJ27lp9hgsWh5o.eYgUz1J7fUFiE8h0",
+      "type": "text",
+      "name": "",
+      "description": "It houses a <strong>spirit or sentience</strong> (page 502, step 2e)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "lT2pxc5TwPPLAKgL",
+      "_key": "!tables.results!cFDJ27lp9hgsWh5o.lT2pxc5TwPPLAKgL",
+      "type": "text",
+      "name": "",
+      "description": "It’s a <strong>source of lore</strong> (page 503, step 2f)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2liYykhs2z8ygQGq",
+      "_key": "!tables.results!cFDJ27lp9hgsWh5o.2liYykhs2z8ygQGq",
+      "type": "text",
+      "name": "",
+      "description": "It produces a <strong>magical effect</strong>. (page 504, step 2g)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 56005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

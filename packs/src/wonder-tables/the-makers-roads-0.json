@@ -1,0 +1,102 @@
+{
+  "_id": "cgWeEkTScKO1piDH",
+  "_key": "!tables!cgWeEkTScKO1piDH",
+  "name": "The Makers' Roads — Traveler",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "4U6gZ7JKb8DdlO9j",
+      "_key": "!tables.results!cgWeEkTScKO1piDH.4U6gZ7JKb8DdlO9j",
+      "type": "text",
+      "name": "",
+      "description": "Some kook or shady character(s), looking for ruins or tombs to plunder",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ifnCmqzo6BiSo6JK",
+      "_key": "!tables.results!cgWeEkTScKO1piDH.ifnCmqzo6BiSo6JK",
+      "type": "text",
+      "name": "",
+      "description": "1d12 immigrants, likely en route to Gordin’s Delve",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "1XOd7qT7iGo4iFdy",
+      "_key": "!tables.results!cgWeEkTScKO1piDH.1XOd7qT7iGo4iFdy",
+      "type": "text",
+      "name": "",
+      "description": "Someone seeking help/escaping trouble/in pursuit of ___",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "gR03Mq03vHdJgy2x",
+      "_key": "!tables.results!cgWeEkTScKO1piDH.gR03Mq03vHdJgy2x",
+      "type": "text",
+      "name": "",
+      "description": "One or more <strong>Hillfolk</strong> (page 228)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "h77rV2Axa0dcExBw",
+      "_key": "!tables.results!cgWeEkTScKO1piDH.h77rV2Axa0dcExBw",
+      "type": "text",
+      "name": "",
+      "description": "A merchant and crew, quite likely someone the PCs know",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 31000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

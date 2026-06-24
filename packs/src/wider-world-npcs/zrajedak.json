@@ -1,0 +1,48 @@
+{
+  "_id": "t3BWWO1ip64wBV5O",
+  "_key": "!actors!t3BWWO1ip64wBV5O",
+  "name": "Zrajedak",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "zrajedak",
+    "reference": "green-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "construct",
+        "corrupted",
+        "devious",
+        "terrifying",
+        "stealthy"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "4 (resilience), 1 vs. bronze (hide)",
+    "damage": "maw full of iron teeth d10+3 (hand, messy, grabby, 1 piercing, advantage), iron tail-quills d10+1 (near, area, reload)",
+    "specialQuality": "keen sense of smell",
+    "instinct": {
+      "selected": [
+        "to torment its prey"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Assume a form similar to that of its prey, but just a little off\n- Reveal its horrible, smiling maw\n- Cripple a victim and let it suffer\n- Chew right through a limb",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

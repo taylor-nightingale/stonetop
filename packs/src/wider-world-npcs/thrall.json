@@ -1,0 +1,46 @@
+{
+  "_id": "JzEz2ldb5Ybah2up",
+  "_key": "!actors!JzEz2ldb5Ybah2up",
+  "name": "Thrall",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "thrall",
+    "reference": "the-things-below",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "undead",
+        "hardy",
+        "magical",
+        "corrupted"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "0 (or by worn armor)",
+    "damage": "d10 (tags by weapon)",
+    "specialQuality": "marked by their master (page 432)",
+    "instinct": {
+      "selected": [
+        "to explore their condition or to hide their condition or to serve their master’s whims"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Use one of their gifts (page 432)\n- Struggle against their master’s impulses\n- Act on their master’s impulses\n- Recover from terrible, even mortal injury\n\nWhen the Last Door stands open before you, what will you do? Some step through bravely, with a nod to the ﻿Lady of Crows (page 71). Others stagger through, weeping and wailing. Others—consumed by longing, vengeance, or duty—spit on fate, turn their back on the Last Door, and cling to this world for a time. But what if… you simply want to live? What if, when faced with oblivion, you called upon one of the Things Below and offered yourself up to them? What if they said yes?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

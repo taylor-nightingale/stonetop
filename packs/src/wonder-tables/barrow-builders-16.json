@@ -1,0 +1,118 @@
+{
+  "_id": "t8Fc4DZMJTODmGhR",
+  "_key": "!tables!t8Fc4DZMJTODmGhR",
+  "name": "Barrow Builders — How it sustains them",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "oEgrb5u2y4lPlS1K",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.oEgrb5u2y4lPlS1K",
+      "type": "text",
+      "name": "",
+      "description": "It hides their death/heart/soul",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "A6trFlJ11paPysRF",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.A6trFlJ11paPysRF",
+      "type": "text",
+      "name": "",
+      "description": "It anchors their soul to the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "k0gKh4K9PuYlWVke",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.k0gKh4K9PuYlWVke",
+      "type": "text",
+      "name": "",
+      "description": "It feeds/renews/recharges them",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZY9UzV9LX6nCead6",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.ZY9UzV9LX6nCead6",
+      "type": "text",
+      "name": "",
+      "description": "It gives them leverage over the <strong>Lady of Crows</strong> (page 71)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "rKdTHAJBXCtnp4Dc",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.rKdTHAJBXCtnp4Dc",
+      "type": "text",
+      "name": "",
+      "description": "It shields them from the Lady and the <strong>Pale Hunter</strong> (page 292)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HUd0WAynf20fSSDJ",
+      "_key": "!tables.results!t8Fc4DZMJTODmGhR.HUd0WAynf20fSSDJ",
+      "type": "text",
+      "name": "",
+      "description": "It suffers age/death/decrepitude in their place",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5016,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

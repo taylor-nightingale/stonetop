@@ -1,0 +1,182 @@
+{
+  "_id": "PnaSbR6KxRW1M7pv",
+  "_key": "!tables!PnaSbR6KxRW1M7pv",
+  "name": "Fae — Lasting mark",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Y8GsGuBt88sjzFGm",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.Y8GsGuBt88sjzFGm",
+      "type": "text",
+      "name": "",
+      "description": "Arrogance/defiance/anger/cruelty",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "cYQyVOqGQMe2D2Qo",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.cYQyVOqGQMe2D2Qo",
+      "type": "text",
+      "name": "",
+      "description": "Shame/doubt/dread/fussiness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eTktU5CoMTjezedK",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.eTktU5CoMTjezedK",
+      "type": "text",
+      "name": "",
+      "description": "Fame/infamy/enmity/rivals",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "R8K0lzRvFybYzVO8",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.R8K0lzRvFybYzVO8",
+      "type": "text",
+      "name": "",
+      "description": "Nostalgia/denial/delusion/fixation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "oA218BhnGEhwmj4G",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.oA218BhnGEhwmj4G",
+      "type": "text",
+      "name": "",
+      "description": "Patience/exactness/caution/cunning",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "E9ji9HSRI4SkNqKS",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.E9ji9HSRI4SkNqKS",
+      "type": "text",
+      "name": "",
+      "description": "Quick temper/fierce protectiveness",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "e2JGaunofk6Q3d5A",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.e2JGaunofk6Q3d5A",
+      "type": "text",
+      "name": "",
+      "description": "Duties/obligations/debts",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "utwLhUkctlgQCiTG",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.utwLhUkctlgQCiTG",
+      "type": "text",
+      "name": "",
+      "description": "Emptiness/loneliness/grief/ennui",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DzTGAUB7GPk8yVze",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.DzTGAUB7GPk8yVze",
+      "type": "text",
+      "name": "",
+      "description": "Scars/impairments/visible wounds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4DedT4cM3WrqVkPb",
+      "_key": "!tables.results!PnaSbR6KxRW1M7pv.4DedT4cM3WrqVkPb",
+      "type": "text",
+      "name": "",
+      "description": "Roll 1d10 twice, combine",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

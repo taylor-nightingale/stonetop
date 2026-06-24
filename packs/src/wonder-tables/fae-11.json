@@ -1,0 +1,118 @@
+{
+  "_id": "IIL03p8KsyEFdfVX",
+  "_key": "!tables!IIL03p8KsyEFdfVX",
+  "name": "Fae — Element",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PgC3PtnDomQATJ7J",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.PgC3PtnDomQATJ7J",
+      "type": "text",
+      "name": "",
+      "description": "Exit(s) to <strong>Fae paths</strong> (page 478) or far-off place(s) in the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ooE32SPujIm7Lldc",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.ooE32SPujIm7Lldc",
+      "type": "text",
+      "name": "",
+      "description": "Surreal landscapes: a forest cave, an underwater kingdom, a castle in the clouds, a tiny place made large, a mundane place made giant, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zrpZNgGqFSg9hAqb",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.zrpZNgGqFSg9hAqb",
+      "type": "text",
+      "name": "",
+      "description": "“Civilized” things, out of place: a feast hall in a mire, a house carved from a tree, a library in a cave, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "OTYZbkGUixRw1Sv8",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.OTYZbkGUixRw1Sv8",
+      "type": "text",
+      "name": "",
+      "description": "A real place, plucked from the world and the passing of time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ikN3uyX1TjOyP1jK",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.ikN3uyX1TjOyP1jK",
+      "type": "text",
+      "name": "",
+      "description": "A vast and shifting place, easy to get lost in, always something new",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ccHs7GwdRPWr6Gnh",
+      "_key": "!tables.results!IIL03p8KsyEFdfVX.ccHs7GwdRPWr6Gnh",
+      "type": "text",
+      "name": "",
+      "description": "Decay/squalor/disorder, perhaps hidden by glamour or illusion",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 12011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "_id": "SjcPAZg4Tj5AQD1A",
+  "_key": "!tables!SjcPAZg4Tj5AQD1A",
+  "name": "Barrow Builders — Signs",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vIOCsBnYEmzRiayD",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.vIOCsBnYEmzRiayD",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Ghosts</strong> (page 76)/psychic imprints",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DxrHFAgx0pHhu8MH",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.DxrHFAgx0pHhu8MH",
+      "type": "text",
+      "name": "",
+      "description": "Remains/bones/graves/memorials",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "BuFbqxAa3g5FDKxT",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.BuFbqxAa3g5FDKxT",
+      "type": "text",
+      "name": "",
+      "description": "Damage/plunder/vandalism/graffiti",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "2ZXMK6UrJxwmvimZ",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.2ZXMK6UrJxwmvimZ",
+      "type": "text",
+      "name": "",
+      "description": "Distinctive material culture: refuse/ pottery/tools/art/statuary/textiles/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7XXiUHaVxkrl8rfi",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.7XXiUHaVxkrl8rfi",
+      "type": "text",
+      "name": "",
+      "description": "Crude, human-sized additions/ adaptations/repairs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "MFkjDojTGdM2N1yu",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.MFkjDojTGdM2N1yu",
+      "type": "text",
+      "name": "",
+      "description": "Altars/idols/offerings/arcane symbols",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "COFH26qOLB7ODI4w",
+      "_key": "!tables.results!SjcPAZg4Tj5AQD1A.COFH26qOLB7ODI4w",
+      "type": "text",
+      "name": "",
+      "description": "Maker artifacts, repurposed",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

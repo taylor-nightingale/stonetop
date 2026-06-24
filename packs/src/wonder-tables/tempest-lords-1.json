@@ -1,0 +1,54 @@
+{
+  "_id": "XF25JgAP2YmHzj3K",
+  "_key": "!tables!XF25JgAP2YmHzj3K",
+  "name": "Tempest Lords — Site",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "vBnT1MO5ytwfDwEP",
+      "_key": "!tables.results!XF25JgAP2YmHzj3K.vBnT1MO5ytwfDwEP",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Lingering signs</strong> of their presence (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "88AnGjuNC4zrvAFH",
+      "_key": "!tables.results!XF25JgAP2YmHzj3K.88AnGjuNC4zrvAFH",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>ruin</strong> (page 402)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 45001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

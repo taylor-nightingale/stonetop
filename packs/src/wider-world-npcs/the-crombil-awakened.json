@@ -1,0 +1,46 @@
+{
+  "_id": "k6k6fs6jBf3sVsBT",
+  "_key": "!actors!k6k6fs6jBf3sVsBT",
+  "name": "The Crombil, Awakened",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "the-crombil-awakened",
+    "reference": "the-crombil",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "terrifying",
+        "fearless",
+        "fireproof"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 26,
+      "max": 26
+    },
+    "armor": "3 (scales, boney ridges)",
+    "damage": "jaws like a cave d12+7 (reach, forceful, messy, 3 piercing), thrashing coils d12+5 (close, area, forceful)",
+    "specialQuality": "fiery heat, stomach like a furnace, too big to hurt with most weapons",
+    "instinct": {
+      "selected": [
+        "to devour"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Chomp right through anything\n- Swallow up someone whole\n- Upend the terrain around it\n- Belch cinders, start fires\n\nWhen someone’s been swallowed by the Crombil, start using these moves against them:\n\n- Batter them with debris, cinders (d6 damage)\n- Make them fight for any sort of purchase or bearings\n- Shove them further towards its furnace-like stomach\n- Blister skin, burn lungs, singe hair (d8 damage)",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.ABlsk5058TiGELkB]{The Crombil} (Book p.62-63)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

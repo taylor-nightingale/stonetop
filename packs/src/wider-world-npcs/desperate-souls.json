@@ -1,0 +1,45 @@
+{
+  "_id": "QKGVSN9EKkazJooF",
+  "_key": "!actors!QKGVSN9EKkazJooF",
+  "name": "Desperate souls",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "desperate-souls",
+    "reference": "gordins-delve",
+    "tagList": {
+      "selected": [
+        "Group",
+        "craven",
+        "meek",
+        "opportunistic"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0",
+    "damage": "brick, makeshift club, rusty knife d6 (hand, crude)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to do what they must"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Do something unsavory, if there’s food or coin in it\n- Tell someone what they think they want to hear\n- Demonstrate their humanity in a small—or sometimes enormous—way",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

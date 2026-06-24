@@ -1,0 +1,44 @@
+{
+  "_id": "O8BHF9tD6dlg5f2X",
+  "_key": "!actors!O8BHF9tD6dlg5f2X",
+  "name": "Broodfather",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "broodfather",
+    "reference": "crinwin",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "stealthy",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 12,
+      "max": 12
+    },
+    "armor": "0",
+    "damage": "spindly choking fingers d8 (close), maw full of teeth d10+2 (hand, messy, 1 piercing)",
+    "specialQuality": "blind, tremorsense",
+    "instinct": {
+      "selected": [
+        "to feed the younglings"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Unfurl from its hiding place in shocking glory\n- Lash out with a choking tongue (d6+2, reach, forceful, grabby)\n- Drag a grabbed foe closer",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.FdpWHP3EYMLyOPEB]{Crinwin} (Book p.58-61)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

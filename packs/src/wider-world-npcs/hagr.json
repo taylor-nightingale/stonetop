@@ -1,0 +1,44 @@
+{
+  "_id": "uvfsOwCrFdXfpgSA",
+  "_key": "!actors!uvfsOwCrFdXfpgSA",
+  "name": "Hagr",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "hagr",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "1 (blubbery hide)",
+    "damage": "meaty hands d10+3 (hand, close, grabby, forceful) or tree trunk d10+5 (reach, area, crude, forceful) or hurled heavy thing d10+3 (thrown, forceful)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to compulsively shape its environment"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Fix someone with its evil eye, over- whelming them with fear\n- Pluck things from the ground as if weightless\n- Obsessively stack things to exacting standards\n- Throw a tantrum when things aren’t just right\n\nMisshapen brutes with sagging flesh and one bulging eye so filled with hate it’ll stop you dead in your tracks. They spend their days collecting fallen branches, looking for just the right one to add to their home of rotting logs. The others they pile neatly, reverently. Perhaps they were servants of the Green Lords, once bred to build, and now, long ages hence, building still.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

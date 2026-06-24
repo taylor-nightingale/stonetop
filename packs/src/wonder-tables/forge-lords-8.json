@@ -1,0 +1,166 @@
+{
+  "_id": "oPnOVofPQGhXwODO",
+  "_key": "!tables!oPnOVofPQGhXwODO",
+  "name": "Forge Lords — Variety",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "sLKM08A3oJl2hiDK",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.sLKM08A3oJl2hiDK",
+      "type": "text",
+      "name": "",
+      "description": "Nearly pure, unworked nuggets/ ingots, full of potential (Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ZnQoGP09befv7hAM",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.ZnQoGP09befv7hAM",
+      "type": "text",
+      "name": "",
+      "description": "Nearly pure, cast into runes (repels perversions of nature, protects against their magic, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Jrac8TZ8Q0a62Nav",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.Jrac8TZ8Q0a62Nav",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with copper and tin, powdered (burns perversions of nature; Value 1)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9DC8jg1BL9QhfgYF",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.9DC8jg1BL9QhfgYF",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with gold, flaked, suspended in elixir (burns away poison/ disease/corruption should the imbiber survive, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "S7pDsucFrpHXWHi2",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.S7pDsucFrpHXWHi2",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with lead, powdered (dispels unclean magic, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "GpdEQicjGlPREXAy",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.GpdEQicjGlPREXAy",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with magnesium, wrought into a charm (burns white-hot when touched by an oathbreaker, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "DfcwCC2FaaemfDAg",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.DfcwCC2FaaemfDAg",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with iron, forged into a sphere (glows bright red near illusions, reveals them as false, Value 2)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6v3BXK4i0BFufzkD",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.6v3BXK4i0BFufzkD",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed with tin and arsenic, then cast into a weapon/shield/cuirass (+2 Value), counts as bronze whenever it matters",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JOhFGrnOJw0RvMMs",
+      "_key": "!tables.results!oPnOVofPQGhXwODO.JOhFGrnOJw0RvMMs",
+      "type": "text",
+      "name": "",
+      "description": "Alloyed as needed and worked into some appropriate form, then imbued with magic related to fire/ truth/purification",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 18008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

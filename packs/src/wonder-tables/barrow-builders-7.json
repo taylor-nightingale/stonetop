@@ -1,0 +1,118 @@
+{
+  "_id": "dx7abUeFGc8JXYHk",
+  "_key": "!tables!dx7abUeFGc8JXYHk",
+  "name": "Barrow Builders — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Ow3ZkHleqqI3eKBR",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.Ow3ZkHleqqI3eKBR",
+      "type": "text",
+      "name": "",
+      "description": "Megalith(s)/cairn(s)/dolmen(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "5v2HP9i2zQyo5Z2A",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.5v2HP9i2zQyo5Z2A",
+      "type": "text",
+      "name": "",
+      "description": "Obvious entrance (likely sealed)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "T51qdN1nqKM1iuOL",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.T51qdN1nqKM1iuOL",
+      "type": "text",
+      "name": "",
+      "description": "Irregular/elaborate/oval shape",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yj3Nq1SgX7ZaWGUW",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.yj3Nq1SgX7ZaWGUW",
+      "type": "text",
+      "name": "",
+      "description": "Works of the Makers, recycled",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EIwq8tkEDOjTKqz9",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.EIwq8tkEDOjTKqz9",
+      "type": "text",
+      "name": "",
+      "description": "Walls of dry-stacked stones",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "vMHQHx9pW8B3lZeE",
+      "_key": "!tables.results!dx7abUeFGc8JXYHk.vMHQHx9pW8B3lZeE",
+      "type": "text",
+      "name": "",
+      "description": "Built around a spring: water bubbling up/pooling/flowing out",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5007,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

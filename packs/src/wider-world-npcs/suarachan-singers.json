@@ -1,0 +1,43 @@
+{
+  "_id": "jOprn80MjqZvWrAP",
+  "_key": "!actors!jOprn80MjqZvWrAP",
+  "name": "Suarachan singers",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "suarachan-singers",
+    "reference": "ferriers-fen",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "amphibious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "0",
+    "damage": "fists and bite d6 w/ disadvantage (hand), snapping tongue d4 w/ disad- vantage (reach)",
+    "specialQuality": "excellent night vision, salt burns their skin, mutations",
+    "instinct": {
+      "selected": [
+        "to sing the eternal lullaby"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Drown out all other noises with their song\n- Raise a shrill call of alarm\n- Scuttle away and hide\n- Keep a prisoner living, long enough\n\nThere are places in Ferrier’s Fen where hor- rors sleep, where the Things Below dream unquiet. The air in these places thrums with frog-song, so deep and so loud you can barely hear yourself think. But it’s not frogs singing. It’s the suarachan. The suarachan believe that their songs keep the Things Below quiet. And they hope that their sacrifices—given in bulk in late autumn—will keep their dark gods satiated while the suarachan sleep through winter. Most suarachan bear mutations: extra legs (often twisted and useless), overgrown or atrophied limbs, missing or extra eyes, strange growths, etc. The most mobile become hunters, but the chorus welcomes any suarachan that can sing.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

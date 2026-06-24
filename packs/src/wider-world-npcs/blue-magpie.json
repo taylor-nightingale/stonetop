@@ -1,0 +1,47 @@
+{
+  "_id": "tC68JyTGz9tGO5gv",
+  "_key": "!actors!tC68JyTGz9tGO5gv",
+  "name": "Blue magpie",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "blue-magpie",
+    "reference": "the-ruined-tower",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "tiny",
+        "devious",
+        "organized",
+        "hoarder",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 1,
+      "max": 1
+    },
+    "armor": "1 (size)",
+    "damage": "peck d4-2 w/disadvantage (hand)",
+    "specialQuality": "smart as a child (at least)  can speak Tempest Lord (understood by all)",
+    "instinct": {
+      "selected": [
+        "to amuse/impress its friends"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Pretend to be just a dumb bird\n- Mimic sounds or voices\n- Mock or trick someone\n- Steal something\n- Vanish with a hrummm and reappear nearby (reload)\n\nLike big crows with white-and-azure plumage. Their songs are piping and mu- sical, playful and complex, sprinkled with actual voices and other unlikely sounds. A few dozen of them nest in the tower and the surrounding ruins. Smaller mischiefs nest in the Flats. Stormcatcher kept blue magpies as pets, and their descendants have passed down much oral lore. Sneak up on them, and you might overhear magpies telling each other tales that southern scholars would kill to know. Magpies find humans boorish, but fun to mess with, and they have such neat stuff. They love shiny objects, especially glass and fragments of larger things, and spend years making elaborate mosaics or piecing puzzles together.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

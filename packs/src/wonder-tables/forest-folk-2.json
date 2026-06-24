@@ -1,0 +1,118 @@
+{
+  "_id": "L3gGlZKXEwttee1C",
+  "_key": "!tables!L3gGlZKXEwttee1C",
+  "name": "Forest Folk — Effect",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "zmxAmLv3KufVYykE",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.zmxAmLv3KufVYykE",
+      "type": "text",
+      "name": "",
+      "description": "Afflicts a lingering, withering disease",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "tZkthdKDCyoevhyb",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.tZkthdKDCyoevhyb",
+      "type": "text",
+      "name": "",
+      "description": "Traps/ensnares/binds",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "RsRtpdEVG7Mxrrxf",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.RsRtpdEVG7Mxrrxf",
+      "type": "text",
+      "name": "",
+      "description": "Sickens/weakens/harms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "geT4wKbnZB50sNDc",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.geT4wKbnZB50sNDc",
+      "type": "text",
+      "name": "",
+      "description": "Instills a powerful emotion (fear, despair, rage, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yPS5QZCECxpniZm0",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.yPS5QZCECxpniZm0",
+      "type": "text",
+      "name": "",
+      "description": "Draws the attention of certain spirits",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SNlfiOy3UgWvbGAY",
+      "_key": "!tables.results!L3gGlZKXEwttee1C.SNlfiOy3UgWvbGAY",
+      "type": "text",
+      "name": "",
+      "description": "Befuddles/confuses/twists the senses",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 17002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

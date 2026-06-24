@@ -1,0 +1,118 @@
+{
+  "_id": "q0ikAXFcrcDVV2p8",
+  "_key": "!tables!q0ikAXFcrcDVV2p8",
+  "name": "The Steplands — Hillfolk encounter",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "Ck4bCkrDmKrHa96N",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.Ck4bCkrDmKrHa96N",
+      "type": "text",
+      "name": "",
+      "description": "Pair or trio of riders, not immediately hostile",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "7G2rp76sFK0XNFDh",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.7G2rp76sFK0XNFDh",
+      "type": "text",
+      "name": "",
+      "description": "Herd of goats or sheep, tended by teen(s) and hound(s)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "iOlDx3my4lTZQlmX",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.iOlDx3my4lTZQlmX",
+      "type": "text",
+      "name": "",
+      "description": "Signs of their passing/encampment/borders",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FNdhGM6Lc7Fpe78k",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.FNdhGM6Lc7Fpe78k",
+      "type": "text",
+      "name": "",
+      "description": "Foragers, not far from camp",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "z5gavgWpaEdL7COq",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.z5gavgWpaEdL7COq",
+      "type": "text",
+      "name": "",
+      "description": "A whole band, on the move",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "60gwCDhDhukWJUj7",
+      "_key": "!tables.results!q0ikAXFcrcDVV2p8.60gwCDhDhukWJUj7",
+      "type": "text",
+      "name": "",
+      "description": "A meeting between two or more bands",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 42003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

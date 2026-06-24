@@ -1,0 +1,46 @@
+{
+  "_id": "MX0hbjqdwyirYUAF",
+  "_key": "!actors!MX0hbjqdwyirYUAF",
+  "name": "INFECTED HAGR",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "infected-hagr",
+    "reference": "fomoraij",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "terrifying",
+        "hardy",
+        "magical"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "armor": "4 (resilience), 1 vs. bronze (blubbery hide)",
+    "damage": "meaty hands d10+3 (hand, close, grabby, forceful) or tree trunk d10+5 (reach, area, crude, forceful) or hurled heavy thing d10+3 (thrown, forceful)",
+    "specialQuality": "infectious blood  suffers from delusions, behaves erratically",
+    "instinct": {
+      "selected": [
+        "to spread its master’s influence > Fix someone with its evil eye, inflicting overwhelming delusions > Pluck things from the ground as if weightless > Obsessively carve its master’s sigils into things > Fly into a senseless rage > Spew forth an infectious, silvery cloud (reach, area, reload)"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "",
+    "description": "I update the hagr’s stat block to reflect these changes, and end up with this:\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{Fomoraij} (Book p.136-143)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "aN6FXbh88sXdxBnk",
+  "_key": "!actors!aN6FXbh88sXdxBnk",
+  "name": "Mkhalang",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "mkhalang",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "huge",
+        "spirit",
+        "construct",
+        "cautious",
+        "devious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 27,
+      "max": 27
+    },
+    "armor": "1 (lacks organs)",
+    "damage": "trample d8+3 with disadvantage (hand, close) or ice-tusks d8+7 with disadvantage (reach, forceful, messy, crude, 1 piercing)",
+    "specialQuality": "tethered to its dome but far-ranging; perfect memory; unable to lie",
+    "instinct": {
+      "selected": [
+        "to amuse itself at the expense of others"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Fly quickly across the skies\n- Manifest a mammoth-like form of freezing mist and ice (harmed only by salt, fire, heat)\n- Suck the strength and warmth from anyone they trample\n- Reveal just enough to cause trouble\n\nThe Rime Lords created these mighty spir- its to act as emissaries and spies. A few still remain, tethered to the meditation-halls in which they were made but roaming the Whitefangs in search of novelty and diversion. They have grown bored in their masters’ absence, and from boredom has grown a subtle cruelty. The people of the Whitefangs treat them with respect, for they are still the emissar- ies of the Rime Lords. But they also know better than to trust their counsel.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

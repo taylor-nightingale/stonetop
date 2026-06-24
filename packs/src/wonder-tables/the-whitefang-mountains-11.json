@@ -1,0 +1,118 @@
+{
+  "_id": "0T9xtvV5LqdaBStK",
+  "_key": "!tables!0T9xtvV5LqdaBStK",
+  "name": "The Whitefang Mountains — Instinct/moves",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "4gTxUUkFGPdK7aG8",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.4gTxUUkFGPdK7aG8",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Instinct</strong> to bask in the fear/adoration of others Bellow like thunder, terrifying and awesome Fling lightning, 1d10+3 damage (<em>far</em>, <em>forceful</em>, <em>loud</em>, <em>reload</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "G0trF8OORZPnDrMK",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.G0trF8OORZPnDrMK",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Instinct</strong> to steal finery, companionship, and precious things Skulk about a steading, choosing its targets Turn themselves (and anything they take) into flowing mist",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "6ZhPTBC4aVUkOlik",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.6ZhPTBC4aVUkOlik",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Instinct</strong> to sate its never-ending hunger Chomp off a limb and gulp it down, 1d10+5 damage (<em>hand</em>, <em>messy</em>, 3 piercing) Create a maelstrom of wind, sucking everything nearby towards its gaping maw (<em>near</em>, <em>area</em>, <em>reload</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4kRVtuG3eUfrkdpP",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.4kRVtuG3eUfrkdpP",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Instinct</strong> to lash out and avenge itself for even the slightest offence Snatch someone and fling them against a wall/tree/ally Transform into a swirling cloud of wind, hail, sleet, and lightning; 1d10+3 damage (<em>area</em>, <em>reach</em>, <em>forceful</em>, <em>reload</em>)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "g010ZXPFvGIXP0Id",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.g010ZXPFvGIXP0Id",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Instinct</strong> to be lazy, to force others into servitude Drag someone off into the night Freeze things: flesh, moisture, the very air",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "eGWdhgcRDLjFoRfV",
+      "_key": "!tables.results!0T9xtvV5LqdaBStK.eGWdhgcRDLjFoRfV",
+      "type": "text",
+      "name": "",
+      "description": "Roll again twice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 54011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

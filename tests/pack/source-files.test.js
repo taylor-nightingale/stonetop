@@ -60,15 +60,17 @@ describe("pack source files", () => {
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
-	it("all have _key matching !items!{_id} or !folders!{_id}", () => {
-		const bad = allDocs.filter(({ doc }) =>
-			doc._key !== `!items!${doc._id}` && doc._key !== `!folders!${doc._id}`
-		);
+	it("all have _key matching !items!/!actors!/!journal!/!tables!{_id} or !folders!{_id}", () => {
+		const prefixes = ["!items", "!actors", "!journal", "!tables", "!folders"];
+		const bad = allDocs.filter(({ doc }) => !prefixes.some((p) => doc._key === `${p}!${doc._id}`));
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
 	it("all have name and type fields", () => {
-		const bad = allDocs.filter(({ doc }) => !doc.name || !doc.type);
+		// JournalEntry and RollTable documents have no top-level `type` (their embedded
+		// pages/results do); everything else is typed.
+		const untyped = (key) => key.startsWith("!journal!") || key.startsWith("!tables!");
+		const bad = allDocs.filter(({ doc }) => !doc.name || (!doc.type && !untyped(doc._key)));
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 

@@ -1,0 +1,86 @@
+{
+  "_id": "mtndd1HADFdDFCFr",
+  "_key": "!tables!mtndd1HADFdDFCFr",
+  "name": "Barrow Builders — Condition",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7EbqYMdicoMSe8hD",
+      "_key": "!tables.results!mtndd1HADFdDFCFr.7EbqYMdicoMSe8hD",
+      "type": "text",
+      "name": "",
+      "description": "Collapsed, torn open, only hints remaining",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "R2Rp5AW3R4oDOBAq",
+      "_key": "!tables.results!mtndd1HADFdDFCFr.R2Rp5AW3R4oDOBAq",
+      "type": "text",
+      "name": "",
+      "description": "Partially collapsed or torn open, but largely intact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "3A6r2PJxPsaqGMOo",
+      "_key": "!tables.results!mtndd1HADFdDFCFr.3A6r2PJxPsaqGMOo",
+      "type": "text",
+      "name": "",
+      "description": "Mostly intact, but overgrown or partly buried; easy to miss",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "bGqfl4MVAXJQQ8YE",
+      "_key": "!tables.results!mtndd1HADFdDFCFr.bGqfl4MVAXJQQ8YE",
+      "type": "text",
+      "name": "",
+      "description": "Strangely intact, fully visible",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 5008,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

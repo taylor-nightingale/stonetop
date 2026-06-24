@@ -1,0 +1,45 @@
+{
+  "_id": "N3VCWCMSfNOnVgxt",
+  "_key": "!actors!N3VCWCMSfNOnVgxt",
+  "name": "Frythanc",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "frythanc",
+    "reference": "the-flats",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "large",
+        "stealthy",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 16,
+      "max": 16
+    },
+    "armor": "0",
+    "damage": "swooping talons d10+2 (hand, close, forceful, grabby), beak d10 (reach, disadvantage)",
+    "specialQuality": "incredible eyesight, terrible hearing",
+    "instinct": {
+      "selected": [
+        "to wait for the right moment"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Soar on thermals, thousands of feet up\n- Swoop down like a thunderbolt, snatching up prey\n- Drag prey up to 30 or 40 feet with slow, mighty flaps—then drop them",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

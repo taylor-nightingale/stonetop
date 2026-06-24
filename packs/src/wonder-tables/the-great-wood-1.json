@@ -1,0 +1,118 @@
+{
+  "_id": "zuzTU9ZPifpozKwV",
+  "_key": "!tables!zuzTU9ZPifpozKwV",
+  "name": "The Great Wood — Discovery",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "zNmYXooO0FshunKz",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.zNmYXooO0FshunKz",
+      "type": "text",
+      "name": "",
+      "description": "A change of terrain (previous page) and roll again",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "C34UGZCxtu0b43tk",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.C34UGZCxtu0b43tk",
+      "type": "text",
+      "name": "",
+      "description": "A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "99X35HjadPLIF1DZ",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.99X35HjadPLIF1DZ",
+      "type": "text",
+      "name": "",
+      "description": "game (see below)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ayYXg4oDlPgyqn1L",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.ayYXg4oDlPgyqn1L",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Useful or valuable flora</strong> (page 458)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "ceHsUtpOx9hf7clG",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.ceHsUtpOx9hf7clG",
+      "type": "text",
+      "name": "",
+      "description": "A <strong>crinwin</strong> (page 58), <strong>Fae</strong> (page 94) or <strong>spirit of the wild</strong> (page 356), curious or indifferent",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "CxVCsKJh7SmN4zon",
+      "_key": "!tables.results!zuzTU9ZPifpozKwV.CxVCsKJh7SmN4zon",
+      "type": "text",
+      "name": "",
+      "description": "A point of interest (next column)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 23001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

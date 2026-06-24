@@ -1,0 +1,70 @@
+{
+  "_id": "kNtyAPUzUzyuyM9C",
+  "_key": "!tables!kNtyAPUzUzyuyM9C",
+  "name": "Useful or valuable flora — It’s useful/valuable...",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "5g3Rs6FAJJzzCFA1",
+      "_key": "!tables.results!kNtyAPUzUzyuyM9C.5g3Rs6FAJJzzCFA1",
+      "type": "text",
+      "name": "",
+      "description": "… in the field, here and now",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SqusD41EfchkYxYr",
+      "_key": "!tables.results!kNtyAPUzUzyuyM9C.SqusD41EfchkYxYr",
+      "type": "text",
+      "name": "",
+      "description": "… to folks back home or in some other community",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EGyFcXAXJPO2uYq9",
+      "_key": "!tables.results!kNtyAPUzUzyuyM9C.EGyFcXAXJPO2uYq9",
+      "type": "text",
+      "name": "",
+      "description": "… both in the field, here and now, and to folks back home, or in some other community",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 50000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

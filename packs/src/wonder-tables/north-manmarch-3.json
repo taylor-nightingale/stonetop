@@ -1,0 +1,214 @@
+{
+  "_id": "5e3AW8207iA0jkU3",
+  "_key": "!tables!5e3AW8207iA0jkU3",
+  "name": "North Manmarch — Strength",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "PJGdCEMzBZwTLxmR",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.PJGdCEMzBZwTLxmR",
+      "type": "text",
+      "name": "",
+      "description": "The backing of another chief",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ecx7lWlMKGoIhEBk",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.Ecx7lWlMKGoIhEBk",
+      "type": "text",
+      "name": "",
+      "description": "A black, fearsome reputation",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "qNJbWhKtKDXFXGsS",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.qNJbWhKtKDXFXGsS",
+      "type": "text",
+      "name": "",
+      "description": "A bloodline full of heroes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "kiksCRXk7IFRjM0K",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.kiksCRXk7IFRjM0K",
+      "type": "text",
+      "name": "",
+      "description": "Coffers dripping with silver and amber",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "8B68Lz379aeZxDED",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.8B68Lz379aeZxDED",
+      "type": "text",
+      "name": "",
+      "description": "The courage to try new things",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "zjs9XB9p0JK4L2gC",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.zjs9XB9p0JK4L2gC",
+      "type": "text",
+      "name": "",
+      "description": "Deep, deep cunning",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "dFjyP0FbyUKXEeAl",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.dFjyP0FbyUKXEeAl",
+      "type": "text",
+      "name": "",
+      "description": "Many bloodthirsty warriors",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "HLle0aPWu2DIm5tw",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.HLle0aPWu2DIm5tw",
+      "type": "text",
+      "name": "",
+      "description": "A pet sorcerer/spirit, or a powerful artifact",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "4vP7f0kfbPbixnfw",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.4vP7f0kfbPbixnfw",
+      "type": "text",
+      "name": "",
+      "description": "A silver tongue, or regal presence, or both",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "EJ0uKKDXOMpRB4I2",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.EJ0uKKDXOMpRB4I2",
+      "type": "text",
+      "name": "",
+      "description": "Strength-at-arms worthy of the songs",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "K5bMVGzo5CvxVnxA",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.K5bMVGzo5CvxVnxA",
+      "type": "text",
+      "name": "",
+      "description": "An utter lack of scruples",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "SZBNnVTqruno6C3H",
+      "_key": "!tables.results!5e3AW8207iA0jkU3.SZBNnVTqruno6C3H",
+      "type": "text",
+      "name": "",
+      "description": "The well-earned loyalty of their followers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 34003,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

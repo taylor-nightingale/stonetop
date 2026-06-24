@@ -1,0 +1,118 @@
+{
+  "_id": "5D55KDwHHdUUd2rD",
+  "_key": "!tables!5D55KDwHHdUUd2rD",
+  "name": "Rime Lords — Architectural elements",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "rXIphHYMpN8W1LrH",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.rXIphHYMpN8W1LrH",
+      "type": "text",
+      "name": "",
+      "description": "Trapezoidal building(s), prominent eaves, windows on upper stories",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TWFYMByJ3KULfQEi",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.TWFYMByJ3KULfQEi",
+      "type": "text",
+      "name": "",
+      "description": "Elaborate decorations: geometric/ crystalline patterns, glyphs, carvings of spirits/monsters/teachers",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LFC5LhBSszPk6Bz3",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.LFC5LhBSszPk6Bz3",
+      "type": "text",
+      "name": "",
+      "description": "Walls/floors/ceilings of dark ice, perhaps in impossible shapes",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "IBBVs09KAHGeaqTB",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.IBBVs09KAHGeaqTB",
+      "type": "text",
+      "name": "",
+      "description": "Statues formed of ice/snow/sand/ gravel, held in stasis",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LPSRIvWabHlGzoHJ",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.LPSRIvWabHlGzoHJ",
+      "type": "text",
+      "name": "",
+      "description": "Large, empty, spacious places",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Qf1QuQhS6kVqFmav",
+      "_key": "!tables.results!5D55KDwHHdUUd2rD.Qf1QuQhS6kVqFmav",
+      "type": "text",
+      "name": "",
+      "description": "Sound and light behaving strangely (endlessly echoing/reflecting, emanating from nowhere, strangely muffled/dimmed, changing/warping, etc.)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 38005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

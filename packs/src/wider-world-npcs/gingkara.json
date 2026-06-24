@@ -1,0 +1,45 @@
+{
+  "_id": "YhyscRuKjr43cd4g",
+  "_key": "!actors!YhyscRuKjr43cd4g",
+  "name": "Gingkara",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "gingkara",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "spirit",
+        "construct",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "armor": "1 (lacks organs) or 4 vs. stabbing (just bones)",
+    "damage": "bony fingers d4 (hand, grabby)",
+    "specialQuality": "tethered to one specific bone",
+    "instinct": {
+      "selected": [
+        "to keep their master’s house in order"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Animate its particular skeleton\n- Grab on and pull them down with numbers\n- Reassemble themselves (regaining 1d4 HP), unless their tether is shattered\n\nSome of the simplest tulpas to create, each of these spirits is bound to a skeleton that’s been stripped of flesh and intricately carved. The Rime Lords and their disciples used them as domestic servants, tending to material needs and serving as guardians when needed. Gingkara still attempt to preserve their master’s homes, for what else should they do with their existence?",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

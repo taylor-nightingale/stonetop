@@ -1,0 +1,118 @@
+{
+  "_id": "OUvZaJ0vM4BYEHj7",
+  "_key": "!tables!OUvZaJ0vM4BYEHj7",
+  "name": "The Flats — Battlefield or remains",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "ATbAhFjPQmThVHCQ",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.ATbAhFjPQmThVHCQ",
+      "type": "text",
+      "name": "",
+      "description": "<strong>Primordial</strong> (page 298): from the very shaping of the world",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "w7oAmXnoSnIUhlRm",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.w7oAmXnoSnIUhlRm",
+      "type": "text",
+      "name": "",
+      "description": "Truly ancient: from the time of the <strong>Makers</strong> (page 264)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Vd6tLD7mvKnODscr",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.Vd6tLD7mvKnODscr",
+      "type": "text",
+      "name": "",
+      "description": "From the ﻿<strong>Time of Cataclysm</strong> (page 413): when humanity rebelled and woke the ﻿Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "FHWybXXJS3sHHy6l",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.FHWybXXJS3sHHy6l",
+      "type": "text",
+      "name": "",
+      "description": "From the days of the <strong>Barrow</strong> <strong>Builders</strong> (page 34)",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        7
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "pQ0GdDohQMKkjNAO",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.pQ0GdDohQMKkjNAO",
+      "type": "text",
+      "name": "",
+      "description": "Recent: Hillfolk, bandits, travelers, beasts, etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        8,
+        11
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TL5Pz9k0S8MLWUpo",
+      "_key": "!tables.results!OUvZaJ0vM4BYEHj7.TL5Pz9k0S8MLWUpo",
+      "type": "text",
+      "name": "",
+      "description": "Very recent: the buzzards and crows still feasting",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 14005,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "_id": "YBvEuvDsCu0IVBdh",
+  "_key": "!actors!YBvEuvDsCu0IVBdh",
+  "name": "Manmarcher veteran",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "manmarcher-veteran",
+    "reference": "north-manmarch",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "organized",
+        "cautious"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 3,
+      "max": 3
+    },
+    "armor": "2 (thick hides, shield)",
+    "damage": "iron battleaxe d6 (close, messy), knife d6 (hand), or javelins d6 (thrown)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to protect their homes, their kin, their honor"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Form/hold a shield wall\n- Pick their battles\n- Charge!\n\nNo longer young, no longer eager or scared. Just grim folk with something to fight for, something to lose. They might not be as spry as once they were, but they’re no strangers to the black business.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

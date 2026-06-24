@@ -1,0 +1,45 @@
+{
+  "_id": "pAaHzD8H7BYKvnKJ",
+  "_key": "!actors!pAaHzD8H7BYKvnKJ",
+  "name": "Alley cutthroats",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "alley-cutthroats",
+    "reference": "gordins-delve",
+    "tagList": {
+      "selected": [
+        "Group",
+        "stealthy",
+        "cautious",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "armor": "0",
+    "damage": "wicked knife d8 (hand)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to prey on the unwary"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Pick out a likely mark\n- Jump someone\n- Fight dirty\n- Leave no witnesses",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

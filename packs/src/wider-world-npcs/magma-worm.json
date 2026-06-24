@@ -1,0 +1,45 @@
+{
+  "_id": "RT9Kn7u122rIGpiU",
+  "_key": "!actors!RT9Kn7u122rIGpiU",
+  "name": "Magma worm",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "magma-worm",
+    "reference": "the-labyrinth",
+    "tagList": {
+      "selected": [
+        "Solitary",
+        "primordial",
+        "large",
+        "terrifying"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "armor": "4 (rocky plates, lacks vitals)",
+    "damage": "bite d10+3 (hand, close, grabby, messy, 1 piercing) or searing touch d10 (hand, area)",
+    "specialQuality": "blind tremorsense  fireproof; superheated body; can move only forward, can’t back up",
+    "instinct": {
+      "selected": [
+        "to devour minerals and metal"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Eat through solid rock\n- Burst forth from a tunnel wall\n- Exude choking, sulfurous gas\n- Melt metal that pierces it\n\nCreatures of the first age, things of fire and stone. They’re segmented, 3’ thick and 20’ long, covered in overlapping plates that glow red at the seams. The air heat-shim- mers around them. They have no eyes, just a great mouth-opening and concentric rows of grinding teeth that melt and bur- row through rock. Winding tunnels stretch behind them, lined with slag hardened into ropy stone. The worms described here are mere centu- ries old, the ones most likely to be encoun- tered. Older and larger ones survive in the Deeps, up to 10’ wide and over a 100’ long (huge, +6 HP, +2 damage and roll 1d12 instead of 1d10). In eons past, even larger worms carved out much of the Labyrinth.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.w4ZAM6a01JmgUtoI]{The Labyrinth} (Book p.242-255)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

@@ -1,0 +1,47 @@
+{
+  "_id": "1I2MOMDcolfThpRa",
+  "_key": "!actors!1I2MOMDcolfThpRa",
+  "name": "Khyagseng",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "khyagseng",
+    "reference": "rime-lords",
+    "tagList": {
+      "selected": [
+        "Group",
+        "spirit",
+        "construct",
+        "resolute",
+        "observant",
+        "fierce"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 13,
+      "max": 13
+    },
+    "armor": "2 (icy “skin,” lacks organs)",
+    "damage": "). These greater guardians can also unleash a thunderous roar, deafening and terrifying, likely to trigger avalanches.",
+    "specialQuality": "tethered to its pedestal  body made of dark ice; cold-proof",
+    "instinct": {
+      "selected": [
+        "to repel intruders"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- See through illusions and deceptions\n- Offer a rumbling (though polite) warning\n- Repair itself while on its pedestal\n\nThese tulpas inhabit dark-ice sculptures of three-eyed, stylized lions—muscular, proud, fierce—standing atop decorated pedestals. Always found in pairs, guarding doorways or thresholds. They dutifully challenge any who approach without an invitation from their master. Never mind that their masters are all long gone. Some of the grander Rime Lord ruins boast large khyagseng made of dark ice that is strong as stone (+8 HP, +1 Armor, +1",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

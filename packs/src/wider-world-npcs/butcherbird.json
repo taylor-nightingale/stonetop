@@ -1,0 +1,44 @@
+{
+  "_id": "HCdso0ZiBgbXd12J",
+  "_key": "!actors!HCdso0ZiBgbXd12J",
+  "name": "Butcherbird",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "butcherbird",
+    "reference": "the-great-wood",
+    "tagList": {
+      "selected": [
+        "Horde",
+        "tiny",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 1,
+      "max": 1
+    },
+    "armor": "1 (tiny)",
+    "damage": "peck d6-2 (hand, messy, 2 piercing)",
+    "specialQuality": "",
+    "instinct": {
+      "selected": [
+        "to feast on bloody, bloody meat"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Grab on and stab stab stab\n- Fend off any who would steal the flock’s meal\n- Scent blood from miles away\n\nAbout the size of a woodpecker, with black and wine-red plumage, flitting about in small flocks (2d6+4). Their laugh will make your blood run cold. But don’t worry. They’ll get your blood flowing again, real soon. Something interesting: Butcherbirds can smell fresh blood from miles away, and might descend on a hunter’s kill to gorge. Something useful: They can smell the blood of their own, and shun it; smeared butcherbird blood is an excellent repellent.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}

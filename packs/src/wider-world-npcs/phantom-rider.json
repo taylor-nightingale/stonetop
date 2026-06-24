@@ -1,0 +1,46 @@
+{
+  "_id": "U56lcGIEp1wb8gWg",
+  "_key": "!actors!U56lcGIEp1wb8gWg",
+  "name": "Phantom rider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "slug": "phantom-rider",
+    "reference": "barrow-builders",
+    "tagList": {
+      "selected": [
+        "Group",
+        "large",
+        "spirit",
+        "undead",
+        "organized"
+      ],
+      "options": [],
+      "multi": true,
+      "allowCustom": true
+    },
+    "hp": {
+      "value": 14,
+      "max": 14
+    },
+    "armor": "2 (lacks organs, shield)",
+    "damage": "spear 1d8 (close, thrown) or trample d8+2 (hand, forceful) or bow d8 (near)",
+    "specialQuality": "bound to their bones  can travel far and wide; can’t manifest in daylight; takes +1d4 damage from silver",
+    "instinct": {
+      "selected": [
+        "to seek tribute, to lord over others"
+      ],
+      "options": [],
+      "multi": false,
+      "allowCustom": true
+    },
+    "moves": "- Speed across the landscape like the wind itself\n- Form a body of soil, dust, and mist\n- Flank and harry their foes\n\nFor a time, it was common for warriors to pledge both their lives and their deaths to their lieges, and to be interred with their horses and their fellows in their master’s tomb. Thus, they could live on in death, still basking in a grim and joyless glory.",
+    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
+    "notes": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "folder": null
+}
