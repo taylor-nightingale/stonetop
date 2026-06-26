@@ -1,0 +1,81 @@
+{
+  "name": "Cave Bear",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick fur and hide"
+      },
+      "damage": {
+        "value": "claws, bite, hug d10+4 (hand, close, forceful, messy, 1 piercing)",
+        "rollFormula": "d10+4"
+      },
+      "instinct": {
+        "value": "to fill its belly, to protect its young"
+      }
+    },
+    "concept": "A great silver-brown bear, dangerous when surprised or guarding cubs.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, cautious",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.VJf1tzQZ3nGxBNsC",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Cave Bear",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "31NGzwdjWUCAM4dy",
+      "name": "Rend, maul, crush",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cdZDkK4FL1QoQ9ak.31NGzwdjWUCAM4dy"
+    },
+    {
+      "_id": "ReCjEg3h0iKu73Fs",
+      "name": "Move with surprising speed and grace",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cdZDkK4FL1QoQ9ak.ReCjEg3h0iKu73Fs"
+    },
+    {
+      "_id": "QQFWJzYAxAExtvvo",
+      "name": "Sniff out food, or trouble",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cdZDkK4FL1QoQ9ak.QQFWJzYAxAExtvvo"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "cdZDkK4FL1QoQ9ak",
+  "_key": "!actors!cdZDkK4FL1QoQ9ak"
+}

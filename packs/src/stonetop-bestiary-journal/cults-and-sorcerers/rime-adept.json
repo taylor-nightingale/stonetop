@@ -1,0 +1,61 @@
+{
+  "_id": "ZZRy453792NoZkkG",
+  "_key": "!journal!ZZRy453792NoZkkG",
+  "name": "Adept",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A mortal disciple of the Rime Lords who has unlocked a fragment of their power."
+    }
+  },
+  "folder": "nVv6GF39nE8RN4lQ",
+  "sort": 176000,
+  "pages": [
+    {
+      "_id": "cdDgQHufjEZkLhAi",
+      "_key": "!journal.pages!ZZRy453792NoZkkG.cdDgQHufjEZkLhAi",
+      "name": "Adept",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A mortal disciple of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong> who has unlocked a fragment of their power.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{The Rime Lords}</strong> taught that the self could be perfected — the body's needs purged, the mind freed of the flesh, the will set to conquer all, in pursuit of immortality. For most mortal disciples these teachings did little more than strengthen the body and clear the mind. But for some — the adepts — they unlocked a fragment of their masters' power.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.7asroHGGJFfVbq74"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

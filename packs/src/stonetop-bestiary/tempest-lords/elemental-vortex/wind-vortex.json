@@ -1,0 +1,102 @@
+{
+  "name": "Wind Vortex",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "lashing grit & debris d10 w/disadvantage (hand, close) — scales with size",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to play"
+      }
+    },
+    "concept": "A fickle whirl of grit and debris that plays, lifts, and flees.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, amorphous, restless, fickle",
+    "qualities": "<p>Flies; harmed only by magical weapons, salt, or lead. Gains HP from moving air. HP/Armor/damage scale with size — see the entry.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qUp7ZkpC5FdinUC4",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Wind Vortex",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "pj0ohKx8yf9Te7bL",
+      "name": "Manifest a vortex of churning wind, grit, and debris",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!JRoNGWPbEVDVTu1s.pj0ohKx8yf9Te7bL"
+    },
+    {
+      "_id": "ImNrNhAOzFPbwd9v",
+      "name": "Engulf a smaller foe (+grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!JRoNGWPbEVDVTu1s.ImNrNhAOzFPbwd9v"
+    },
+    {
+      "_id": "C7dZCGXwmYG0tdhk",
+      "name": "Carry an engulfed foe aloft (costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!JRoNGWPbEVDVTu1s.C7dZCGXwmYG0tdhk"
+    },
+    {
+      "_id": "UEEHsp0l8nzyD1yo",
+      "name": "Fling objects (+near; costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!JRoNGWPbEVDVTu1s.UEEHsp0l8nzyD1yo"
+    },
+    {
+      "_id": "mE5Fo26Ogk4fL89K",
+      "name": "Flee when hurt, frightened, or bored",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!JRoNGWPbEVDVTu1s.mE5Fo26Ogk4fL89K"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "phXf36WaexQZLIG1",
+  "_id": "JRoNGWPbEVDVTu1s",
+  "_key": "!actors!JRoNGWPbEVDVTu1s"
+}

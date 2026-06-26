@@ -1,0 +1,24 @@
+{{#if moves.length}}
+<div class="stonetop-moves-collapsible{{#unless open}} is-collapsed{{/unless}}" data-section="{{sectionId}}">
+<div class="stonetop-moves-summary" role="button" tabindex="0" aria-expanded="{{#if open}}true{{else}}false{{/if}}">{{> "stonetop.section-heading" title=(localize titleKey)}}</div>
+<ol class="items-list">
+{{#each moves}}
+	{{#if (and owned rollType)}}
+	<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+	{{else}}
+	<li class="stonetop-move-item{{#unless owned}} move-unowned{{/unless}}">
+	{{/if}}
+		{{#if (and owned rollType)}}
+		<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+			<i class="fas fa-dice-d6"></i>
+		</span>
+		{{/if}}
+		{{#if (and @root.stonetop.showRollStatChips rollLabel)}}<span class="stonetop-move-roll-chip">+{{rollLabel}}</span>{{/if}}
+		<span class="stonetop-move-name {{openClass}}"
+		      data-compendium-id="{{compendiumId}}">{{name}}</span>
+		{{#if description}}<div class="stonetop-basic-move-desc" hidden>{{{boldMissText description}}}</div>{{/if}}
+	</li>
+{{/each}}
+</ol>
+</div>
+{{/if}}

@@ -1,0 +1,167 @@
+{
+  "_id": "JDCcrvQhMYFFlUIe",
+  "_key": "!journal!JDCcrvQhMYFFlUIe",
+  "name": "Barrow Builders",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "When the servants of the Stone Lords rebelled, slaying their masters and unleashing the Things Below, those who died in the uprising were hailed as martyrs. The survivors raised mounds of earth and stone to honor them, simple barrows built with human hands and human arts."
+    }
+  },
+  "folder": "pCXEbxpjLM9YSG9Q",
+  "sort": 9000,
+  "pages": [
+    {
+      "_id": "uYbcg2dQXcQ8azP3",
+      "_key": "!journal.pages!JDCcrvQhMYFFlUIe.uYbcg2dQXcQ8azP3",
+      "name": "Barrow Builders",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>When the servants of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong> rebelled, slaying their masters and unleashing the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, those who died in the uprising were hailed as martyrs. The survivors raised mounds of earth and stone to honor them, simple barrows built with human hands and human arts.</p><p>Society collapsed. Horror swept the land. Petty tyrants and sorcerer-kings rose to power. They had barrows built to honor loyal vassals or to seal away the ghosts of those they had betrayed.</p><p>Fleeting kingdoms rose and fell. Rulers raised grand barrows and had themselves interred with riches, slaves, and followers in tow. Fueled by dark magic and the power of the Things Below, some of these tyrants reigned on even after death.</p><p>In time, the power of the Things Below diminished. Subjects rose up and overthrew their masters. Tyrants began to fall. Those who could not be killed were sealed away in barrows. The current age arrived.</p><p>Many barrows still remain. A few are simple graves. Many are haunted or cursed. Some imprison ancient evil. They dot the World’s End, especially in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> shun them, and warn all travelers away. For they descended from the Barrow Builders, and those who cast them off. They know what horrors those earthen mounds contain.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Pick 1 or 2, or roll 1d12.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Revolution: hunting down the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, upending the status quo</td></tr><tr><td>2</td><td>The works of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>: torn down, vandalized, repurposed, lost</td></tr><tr><td>3</td><td>Societal collapse: famine, shortage, hoarding, violence</td></tr><tr><td>4</td><td>Sorcerers and necromancers: recklessly wielding power they can’t control</td></tr><tr><td>5</td><td>Human sacrifice, blood magic, the courting and open worship of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>6</td><td>The horrors of war: pillaging, looting, slaughter, dislocation</td></tr><tr><td>7</td><td>Refugees, desperate and afraid, seeking safety, settling for survival</td></tr><tr><td>8</td><td>Sorcerer-kings and petty warlords with their grand, bloody ambitions</td></tr><tr><td>9</td><td>Conquest/oppression/enslavement</td></tr><tr><td>10</td><td>Intrigue/betrayal/civil war</td></tr><tr><td>11</td><td>Rulers clinging to power, even from the grave</td></tr><tr><td>12</td><td>Heroism and hope and perseverance, the casting off of tyrants, the slaying of monsters; the forging of a new age</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Breton- or Cornish-inspired, similar to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> names but with more vowels: Alana, Arzhel, Brandan, Corent, Deniel, Enora, Gwenael, Herve, Judikael, Karenza, Katell, Maben, Margh, Nolwenn, Piran, Ronan, Winoc, Yanick, Yezekael.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Everyone knows:</p><ul><li>That old barrows dot the region</li><li>That they’re smaller and cruder than Maker-ruins</li><li>That <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> shun them</li><li>That they supposedly contain great treasure and great danger</li></ul><p>One might know:</p><ul><li>Where a few barrows can be found</li><li>That they were built by the Hillfolk’s (reviled) ancestors</li><li>Of a particularly (in)famous figure among them</li><li>The horrors from those times</li><li>A tale about a specific barrow</li></ul><p>Very few know:</p><ul><li>What a given barrow contains</li><li>Where a specific figure is buried</li><li>The true story behind a barrow</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Sites",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Barrow Builder sites are most common in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, especially around <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.25HD51CKompWLFvB]{Blackwater Lake}</strong> and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.zUeBMA1XS4Lq3KdK]{Three Coven Lake}</strong>. Plenty can also be found in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong>, and along the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong>. A few can be found in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong> and as far north as the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>.</p><p>To create a Barrow Builder site, pick one or have someone roll the Die of Fate.</p><p><strong>1d6 site</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A cave, in which they or their victims lived/hid/died/ were interred (combine with 1 or</td></tr><tr><td>2</td><td>themes, page 35) 2 An old battlefield or mass grave, likely haunted</td></tr><tr><td>3–4</td><td>A reclaimed Maker-ruin (see below)</td></tr><tr><td>5–6</td><td>A barrow</td></tr></tbody></table><p>Reclaimed Maker-ruin Choose or roll for its origin. Create the ruin from the appropriate tables, rolling with advantage for its condition at the time the Barrow Builders claimed it.</p><p><strong>1d12 origin</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A Green Lord ruin</td></tr><tr><td>2</td><td>A Rime Lord ruin</td></tr><tr><td>3–4</td><td>A Tempest Lord ruin</td></tr><tr><td>5–6</td><td>A Forge Lord ruin</td></tr><tr><td>7–10</td><td>A Stone Lord ruin</td></tr><tr><td>11–12</td><td>A ruin of multiple groups (roll 1d10 twice)</td></tr></tbody></table><p>Then pick or roll for a theme to reflect how the Barrow Builders used it, 1-3 signs of their presence, and its current condition. Populate the site with artifacts and dangers of the Barrow Builders, as well as those of its original owners.</p><p><strong>1d12 signs</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Ghosts/psychic imprints</td></tr><tr><td>3–4</td><td>Remains/bones/graves/memorials</td></tr><tr><td>5–6</td><td>Damage/plunder/vandalism/graffiti</td></tr><tr><td>7–8</td><td>Distinctive material culture: refuse/ pottery/tools/art/statuary/textiles/etc.</td></tr><tr><td>9–10</td><td>Crude, human-sized additions/ adaptations/repairs</td></tr><tr><td>11</td><td>Altars/idols/offerings/arcane symbols</td></tr><tr><td>12</td><td>Maker artifacts, repurposed</td></tr></tbody></table><p><strong>1d12 current condition</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–4</td><td>Shattered and laid waste by time, disaster, or vandalism; mostly buried, overgrown, collapsed; its purpose unrecognizable</td></tr><tr><td>5–8</td><td>Crumbling, largely buried, overgrown, or hidden away</td></tr><tr><td>9–10</td><td>Buried, overgrown, or hidden, but mostly intact</td></tr><tr><td>11–12</td><td>Fully visible and strangely well-preserved</td></tr></tbody></table><p>For more examples, see Blackwater Lake and Three Coven Lake.</p><p>The PCs are searching for the fiery heart of the <strong>@UUID[Compendium.stonetop.stonetop-items.Item.6xrAxBly1uRhNEL2]{Mindgem}</strong>. I think it’s in a Stone Lord ruin that the Barrow Builders reclaimed. Looking at the tables on page 386, I end up with a warren of multi-storied, brutalist apartments—housing for laborers—built around a single, giant-sized manor where the overseers dwelt. Maybe this was a plantation, with a small army of lithic servants maintaining the complex?</p><p>For the Barrow Builders’ theme, I roll an 11 (“rulers clinging to power, even from the grave”). For signs, I roll a 5 (“damage/plunder/vandalism/graffiti”) and 10 (“crude, human-sized” modifications). For the current condition, I roll a 9 (“buried, overgrown… mostly intact”). I ponder a bit, and come up with this:</p><p>A sorcerer led the humans here to rise up against their overseers. The sorcerer then claimed the manor as his own, along with the device that charged and controlled the lithic servants —a device powered by the Mindgem’s makerglass heart! He turned the manor into a crude palace and sent “his” people back to work the fields. When they eventually rebelled, he was mortally wounded but transferred his soul into the device that ran the lithic servants. With his mind now spread among the many constructs, he squashed the uprising. His rule grew increasingly erratic, brutal, and ineffective. The tenements became more squalid and desperate. Folks fled. The sorcerer didn’t care.</p><p>Now, the complex lies empty: overgrown, half-buried, stripped of anything of value, and home only to a dwindling army of lithic servants and the fractured mind of a paranoid sorcerer.</p><p>A lone hill rising from sparse woods on the river’s south bank. The daughter of a warlord commissioned it. Hundreds of slaves built it. When it was done, she had the slave’s skulls caved in, to be interred with her father and his riches. After the daughter’s brief reign ended, some fools pried open the stone doors to loot the warlord’s tomb. They found chambers full of death, madness, and cursed gold. Those few who made it out were never the same. The barrow still lies open and treasure still remains, but no one with a lick of sense goes near it.</p><p>The PCs are following the River Sruth out of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> and through the South Manmarch when they encounter a barrow. I roll a 10 for terrain (“tree(s), savannah, thickets”), a 9 for a theme (“conquest/oppression/enslavement”), a 12 for size (“manmade hill”), a 1 for purpose (“to honor the interred”), a 3 for architectural elements (“obvious entrance”), an 11 for condition (“strangely intact, fully visible”), and a 12 for features (“roll twice”). I then get a 4 (“corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>”) and a 10 (“treasure,” with a 2 for the amount remaining). For the corruption, I turn to page 422 and come up with a poisonous place, with themes of death and broken bones, first caused by a blood-offering and then by a seal being broken. I ponder a little, and come up with this:</p><p>Barrow They are the most obvious remnants of these bloody times: dome shaped earthen mounds. Most folks assume they were all tombs, but that’s hardly the case.</p><p>Pick or roll for themes, its size, its purpose, 1 or 2 architectural elements, its condition, and a feature. Place the barrow in an appropriate terrain for its region. Fill it with artifacts and dangers of the Barrow Builders or the appropriate region.</p><p><strong>1d12 size</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–4</td><td>Small: just a few paces across, no chambers to speak of</td></tr><tr><td>5–8</td><td>Medium: big as a house, a few cramped halls/chambers</td></tr><tr><td>9–12</td><td>Large: a manmade hill, riddled with chambers/passages</td></tr></tbody></table><p><strong>1d12 purpose</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–3</td><td>To honor the interred</td></tr><tr><td>4–6</td><td>To bind/torment the interred</td></tr><tr><td>7</td><td>To protect the interred</td></tr><tr><td>8–9</td><td>To hide something away</td></tr><tr><td>10</td><td>To leverage/maintain fell magic</td></tr><tr><td>11–12</td><td>Roll 1d10, twice</td></tr></tbody></table><p><strong>1d12 architectural elements</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Megalith(s)/cairn(s)/dolmen(s)</td></tr><tr><td>3–4</td><td>Obvious entrance (likely sealed)</td></tr><tr><td>5–6</td><td>Irregular/elaborate/oval shape</td></tr><tr><td>7–8</td><td>Works of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, recycled</td></tr><tr><td>9–10</td><td>Walls of dry-stacked stones</td></tr><tr><td>11–12</td><td>Built around a spring: water bubbling up/pooling/flowing out</td></tr></tbody></table><p>Even in large barrows, chambers and passages are cramped and claustrophobic, often with packed-dirt floors and lined with large slabs of stone.</p><p><strong>1d12 condition</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–4</td><td>Collapsed, torn open, only hints remaining</td></tr><tr><td>5–6</td><td>Partially collapsed or torn open, but largely intact</td></tr><tr><td>7–10</td><td>Mostly intact, but overgrown or partly buried; easy to miss</td></tr><tr><td>11–12</td><td>Strangely intact, fully visible</td></tr></tbody></table><p><strong>1d12 feature</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Haunted, marked by dool trees</td></tr><tr><td>3–4</td><td>Corrupted by the Things Below</td></tr><tr><td>5</td><td>Protective spirit(s)/construct(s)/demon(s)/spell(s)/trap(s)</td></tr><tr><td>6</td><td>Connects to caves</td></tr><tr><td>7</td><td>Inhabited by local beasts/bandits</td></tr><tr><td>8</td><td>Useful or valuable flora growing on/in/near it</td></tr><tr><td>9–10</td><td>Treasure (roll 1d6 to inform how much remains)</td></tr><tr><td>11–12</td><td>Roll again, twice</td></tr></tbody></table><p>For more examples, see Blackwater Lake.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Associated Creatures",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues for Barrow Builders. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.C9HHEVNFl8Cw6w0U]{Barrow Wight}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.fhCGhdK4KZ5fBsUL]{Myghal, Deathless Sorcerer}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.llEqxrhsKD2DvYdP]{Phantom Rider}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>An artifact that the PCs want lies in a haunted barrow mound</li><li>Some fool unseals a barrow and lets phantom riders loose</li><li>Someone acquires the tether of a deathless one</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> are furious that one of the barrows was looted</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Where is the nearest barrow-mound that you know of?",
+                "answer": ""
+              },
+              {
+                "prompt": "What strange sign marks it?",
+                "answer": ""
+              },
+              {
+                "prompt": "What tall tale have you heard of it?",
+                "answer": ""
+              },
+              {
+                "prompt": "What story do you recall, from the terrible days after the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}** fell?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>The Barrow Builders gladly looted and repurposed whatever treasures they could, and often dabbled with dangerous powers. Their sites often contain artifacts related to:</p><ul><li>Death and the undying</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{The Things Below}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{The Stone Lords}</strong></li><li>Other <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, especially the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong> or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong></li></ul><p><strong>Various treasures</strong></p><ul><li>A rusty Y-shaped pendant (Value 0), symbol of the cult who fed the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Mt6MCzNsS6khASpi]{Voice of the Eternal Maw}</strong></li><li>A bronze blade from a metal construct’s limb, remade into a brutal axe (close, messy, awkward, +1 damage, Value 1)</li><li>A map (fragile) to the barrow of a famously rich warlord</li><li>Ancient grains in wax-sealed jugs, still good and worth 1 Surplus (immobile)</li><li>A Maker-era gold coin (Value 2), found in a mass grave, the tether for a ghost</li><li>A fine torc of aetherium around a skeleton’s neck; shocks its wearer if they try to remove it or engage in any sort of violence</li><li>A spear (close, thrown, beautiful, indestructible, 2 piercing, Value 3) made of makerglass, shaft and all, found in a hero’s tomb</li><li>A Stone Lord’s cleft skull, coated in gold and studded with gems (cumbersome, Value 4)</li></ul><p>An old bronze dagger hand, magical Tinged green, but sharp and sturdy. In the chaotic days after the Makers fell, it was the weapon of a desperate father. He killed his own brother with it, to protect his children’s food. He killed others, too, to make sure his family had enough. So many, many others.</p><p>The dagger holds a shard of that father’s desperate will. When you Seek Insight about someone while carrying the dagger, add the following to the list of questions you can ask. If your hand is on the hilt, you can ask one of these questions for free, even on a 6-.</p><ul><li class=\"question-bullet\">What of mine do they most want?</li><li class=\"question-bullet\">How am I most vulnerable to them?</li><li class=\"question-bullet\">What do they carry that is useful to me?</li></ul><p>If a PC keeps the dagger, treat it as a threat (a MacGuffin; Instinct to cause paranoia).</p><p>The Three-star Crown</p><p>magical, beautiful, Value 4 A circlet of whitest gold, set with three black sapphires that shine like stars. It was made by a renowned smith, an apprentice of the Forge Lords, at the command of a petty warlord. The warlord was so pleased, he maimed the smith’s hands so that she could never make its rival. The smith killed herself in despair, cursing the crown to steal the hopes of all who wore it.</p><p>When you wear the crown and interact with someone who fears or respects you, you roll +CHA with advantage. Alas, each time you don the crown, roll +WIS: on a 10+, tell the GM one of your hopes and why you doubt it can be achieved; on a 7-9, tell them a hope you have abandoned; on a 6-, you fall into a deep despair that lasts until you rouse yourself to face a mortal danger.</p><p>If the crown is destroyed—the gems shattered, the metal reduced to slag— then the despair is lifted and all lost hopes are restored.</p><p>A lead bracelet magical, Value 1 This heavy, black metal torc is set with a red gem. It feels good upon your wrist. Makes you feel important.</p><p>When you wear the torc and threaten someone that you consider beneath you, lose HP equal to the torc’s current Cost (1d4 to start). They are filled with fear; the craven will flee, cower, or grovel, and even the brave will flinch and hesitate. Each time you use the torc, the Cost increases by 1 die size (max 1d10).</p><p>When you wear the torc for a week without anyone questioning your authority, decrease the Cost by one step (min 1d4).</p><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>An old scroll case</td></tr><tr><td>2</td><td>A tattered mantle</td></tr><tr><td>3</td><td>A disturbing mask</td></tr><tr><td>4</td><td>A vellum scroll</td></tr><tr><td>5</td><td>A silvery signet ring</td></tr><tr><td>6</td><td>A mummified hand</td></tr></tbody></table><ul><li>Major arcana</li><li>The following are particularly likely to be associated with the Barrow Builders:</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.f4DKXEI92mb5rc5R]{The Blood-quenched Sword}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.4wlgB0VWqB2tN0V5]{The Hec’tumel Codex}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.CAqpBPqW9LAGZCcM]{The Blackwood Fetishes}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Unstable construction</li><li>Perilous stone</li><li>Cursed objects</li><li>Darkness, deep in a barrow</li><li>Low ceilings, cramped quarters, poor lines of sight</li></ul>"
+              },
+              {
+                "heading": "Banefire",
+                "body": "<p>Curtains or pillars of heatless flame, blue or green or purple, with no obvious source of fuel. Banefire features in many tales of the barrows: to repel, to imprison, or just as an uncanny feature of the mounds.</p><ul><li>Spring forth with little/no warning</li><li>Blind them with sudden light</li><li>Block a path or a line of sight</li><li>Burn spirits, the undead, and living souls (d8 damage, ignores armor)</li></ul><p>Something interesting: Ghosts and other spirits fear banefire as much as mortals, but the inhabitants of some barrows can control it.</p><p>Something useful: Banefire burns only where it’s meant to; it never spreads. Each banefire is anchored to a blackened bone, all that remains of the mortal whose body and soul were sacrificed to fuel the flames.</p>"
+              },
+              {
+                "heading": "Traps",
+                "body": "<p>They put all that effort into building barrows. They weren’t going to leave them unguarded.</p><p>To create a trap, consider the barrow’s purpose and what it contains, and where the trap is found. Then pick or roll for the trap’s intent, its trigger, its tell, and as many elements as makes sense. Imagine how it works. If you like, prep GM moves and/or an impending doom for the trap, and maybe a custom player move.</p><p><strong>1d12 intent</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>To kill/maim/injure</td></tr><tr><td>3–4</td><td>To repel/separate/deny/isolate</td></tr><tr><td>5–6</td><td>To weaken/hinder/delay</td></tr><tr><td>7–8</td><td>To capture/punish/torment</td></tr><tr><td>9–10</td><td>To alert/awaken/prepare</td></tr><tr><td>11–12</td><td>Roll d10 twice</td></tr></tbody></table><p><strong>1d12 trigger</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Stepping/entering/being/staying somewhere</td></tr><tr><td>3–4</td><td>Touching something</td></tr><tr><td>5–6</td><td>Moving something/picking it up</td></tr><tr><td>7–8</td><td>Breaking/disturbing something</td></tr><tr><td>9–10</td><td>Opening/closing something</td></tr><tr><td>11–12</td><td>Perceiving/examining/tinkering with something</td></tr></tbody></table><p><strong>1d12 tell</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A brief warning before it goes off</td></tr><tr><td>2–4</td><td>A tiny detail, easy to miss</td></tr><tr><td>5–7</td><td>Unusual construction/decor</td></tr><tr><td>8–10</td><td>Bait</td></tr><tr><td>11–12</td><td>Clear signs—it’s obviously a trap</td></tr></tbody></table><p><strong>1d12 elements</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Camouflage/illusion/deception</td></tr><tr><td>2</td><td>Gravity/weight/mass/hardness</td></tr><tr><td>3</td><td>Blades/spikes/needles/pointy bits</td></tr><tr><td>4</td><td>Wire/rope/pulleys/contraptions</td></tr><tr><td>5</td><td>Tension/pressure/springs/balance</td></tr><tr><td>6</td><td>Chemics/poison/acid/gas/fire</td></tr><tr><td>7</td><td>Special materials (see below)</td></tr><tr><td>8</td><td>Runes/glyphs/sigils/marks/spells</td></tr><tr><td>9</td><td>Light/dark/heat/cold/noise/quiet</td></tr><tr><td>10</td><td>Thoughts/emotions/mind games</td></tr><tr><td>11</td><td>Spirits/constructs/undead/vermin</td></tr><tr><td>12</td><td>Previously triggered/disarmed</td></tr></tbody></table><p>Special materials might include hazardous growths, orichalcum, black iron, dark ice, makerglass, aetherium, red crystal, and/or other things of your devising.</p><p>Examples:</p><ul><li>A pit, 15-feet deep, the bottom lined with rusty spikes; covered by taut fabric, pebbles, and dust</li><li>A gap runs down the ceiling of a low tunnel; stepping on a flagstone releases a swinging axe</li><li>A puzzle-box on a decoy coffin; futzing with it releases stabby little constructs from the coffin</li><li>A corpse’s sword; moving it pulls a wire, which upends an urn full of salt and releases a trapped wraith</li><li>A rune-etched doorway; any who try to enter stop, turn around, and forget the last few minutes</li><li>Opening the door to the final vault requires removing a keystone; the whole barrow will collapse</li><li>Sconces of glowing makerglass; break the rune-seal on the sarcophagus, get fried by lightning</li><li>A dead-end, the word VIGILANCE carved on the far wall, the room full of colorless, odorless gas; causes headaches, irritability, fainting, death</li></ul>"
+              },
+              {
+                "heading": "People",
+                "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, warning away explorers or chasing them off</li><li>A hdour, antiquarian, or sorcerer, seeking knowledge/artifacts</li><li>Adventurers, hunting treasure</li><li>A necromancer, consulting with those long-dead</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Ghosts and revenants, haunting barrows, reclaimed ruins, old battlegrounds mass graves</li><li>Constructs, stolen from the</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong> or made using their arts</li><li>Corrupted beings, ancient pets of ancient sorcerers, or local fauna affected by lingering evil</li><li>Spirits of the wild, bound by old spells</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

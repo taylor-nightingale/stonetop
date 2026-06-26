@@ -1,0 +1,117 @@
+<form class="{{cssClass}} stonetop-move-editor stonetop-arcanum-editor" autocomplete="off">
+
+	<header class="stonetop-move-editor-header">
+		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="{{item.name}}">
+		<input class="stonetop-move-editor-name" name="name" type="text" value="{{item.name}}" placeholder="{{localize 'stonetop.arcanumEditor.namePlaceholder'}}">
+	</header>
+
+	<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.slug"}}: <code>{{slug}}</code></p>
+	<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.glyphHint"}}</p>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.arcanumEditor.frontHeading"}}</h3>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.frontTitle"}}</span>
+			<input type="text" name="front.title" value="{{front.title}}" placeholder="{{localize 'stonetop.arcanumEditor.frontTitlePlaceholder'}}">
+		</label>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.description"}}</span>
+			<textarea name="front.description" class="stonetop-move-editor-description">{{front.description}}</textarea>
+		</label>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.unlock"}}</span>
+			<textarea name="front.unlock.description" class="stonetop-move-editor-description" placeholder="{{localize 'stonetop.arcanumEditor.unlockHint'}}">{{front.unlock.description}}</textarea>
+		</label>
+
+		<h4 class="stonetop-arcanum-editor-subheading">{{localize "stonetop.arcanumEditor.frontItem"}}</h4>
+		<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.itemHint"}}</p>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.arcanumEditor.itemName"}}</span>
+				<input type="text" name="front.item.name" value="{{front.item.name}}">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.arcanumEditor.itemWeight"}}</span>
+				<input type="number" name="front.item.weight" value="{{front.item.weight}}" min="0" step="1">
+			</label>
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.arcanumEditor.itemColumn"}}</span>
+				<select name="front.item.inventoryColumn">
+					{{#each columnOptions}}
+					<option value="{{this}}" {{#if (eq this ../front.item.inventoryColumn)}}selected{{/if}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</label>
+		</div>
+	</section>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.arcanumEditor.backHeading"}}</h3>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.backTitle"}}</span>
+			<input type="text" name="back.title" value="{{back.title}}" placeholder="{{localize 'stonetop.arcanumEditor.backTitlePlaceholder'}}">
+		</label>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.description"}}</span>
+			<textarea name="back.description" class="stonetop-move-editor-description">{{back.description}}</textarea>
+		</label>
+
+		<h4 class="stonetop-arcanum-editor-subheading">{{localize "stonetop.arcanumEditor.backItem"}}</h4>
+		<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.itemHint"}}</p>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.arcanumEditor.itemName"}}</span>
+				<input type="text" name="back.item.name" value="{{back.item.name}}">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.arcanumEditor.itemWeight"}}</span>
+				<input type="number" name="back.item.weight" value="{{back.item.weight}}" min="0" step="1">
+			</label>
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.arcanumEditor.itemColumn"}}</span>
+				<select name="back.item.inventoryColumn">
+					{{#each columnOptions}}
+					<option value="{{this}}" {{#if (eq this ../back.item.inventoryColumn)}}selected{{/if}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</label>
+		</div>
+
+		<h4 class="stonetop-arcanum-editor-subheading">{{localize "stonetop.arcanumEditor.backResource"}}</h4>
+		<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.resourceHint"}}</p>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.arcanumEditor.resourceTitle"}}</span>
+				<input type="text" name="back.resource.title" value="{{back.resource.title}}">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.arcanumEditor.resourceMax"}}</span>
+				<input type="number" name="back.resource.max" value="{{back.resource.max}}" min="0" step="1">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.arcanumEditor.resourceMaxStat"}}</span>
+				<select name="back.resource.maxStat">
+					{{#each statOptions}}
+					<option value="{{this}}" {{#if (eq this ../back.resource.maxStat)}}selected{{/if}}>{{#if this}}{{this}}{{else}}—{{/if}}</option>
+					{{/each}}
+				</select>
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--block">
+				<span>{{localize "stonetop.arcanumEditor.resourceLabels"}}</span>
+				<input type="text" name="back.resource.labels" value="{{backResourceLabels}}" placeholder="{{localize 'stonetop.arcanumEditor.resourceLabelsHint'}}">
+			</label>
+		</div>
+
+		<h4 class="stonetop-arcanum-editor-subheading">{{localize "stonetop.arcanumEditor.backMove"}}</h4>
+		<p class="stonetop-move-hint">{{localize "stonetop.arcanumEditor.moveHint"}}</p>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.moveName"}}</span>
+			<input type="text" name="back.move.name" value="{{back.move.name}}">
+		</label>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.arcanumEditor.moveText"}}</span>
+			<textarea name="back.move.description" class="stonetop-move-editor-description">{{back.move.description}}</textarea>
+		</label>
+	</section>
+
+</form>

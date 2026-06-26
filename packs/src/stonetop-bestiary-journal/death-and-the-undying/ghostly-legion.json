@@ -1,0 +1,61 @@
+{
+  "_id": "sgwKSp8PEmkIv21v",
+  "_key": "!journal!sgwKSp8PEmkIv21v",
+  "name": "The Ghostly Legion",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A cursed mercenary band, hungering and sun-shunning until their stolen loot is returned."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 103000,
+  "pages": [
+    {
+      "_id": "efXsHUNEc9hdLYPG",
+      "_key": "!journal.pages!sgwKSp8PEmkIv21v.efXsHUNEc9hdLYPG",
+      "name": "The Ghostly Legion",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A cursed mercenary band, hungering and sun-shunning until their stolen loot is returned.",
+        "description": "<p>They were a band of southern mercenaries, come north in search of treasure. They heard tell of a hdour and his hoard, trapped him in his cave, and slew him — then divvied up the loot and left. Only later did they learn why the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> fear to kill a hdour: he had cursed them all, their souls doomed to linger after death in endless hunger and thirst, to fear the sun, to be hounded like the dogs they were — until every piece of the far-flung loot they stole is returned to the hdour's cave.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.6NAKPaUXIxy6zZl8"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

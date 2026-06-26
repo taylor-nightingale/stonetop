@@ -1,0 +1,81 @@
+{
+  "name": "Khyagseng",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 2,
+        "source": "icy 'skin,' lacks organs"
+      },
+      "damage": {
+        "value": "icy jaws and paws d8+2 w/advantage (hand, close, grabby, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to repel intruders"
+      }
+    },
+    "concept": "Three-eyed dark-ice guardian lions that challenge all who pass their threshold.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, spirit, construct, resolute, observant, fierce",
+    "qualities": "<p>Tethered to its pedestal; body made of dark ice; cold-proof.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ADc1Jry8qeYXhKjs",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Khyagseng",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "o84a8V0DdpIVDj2t",
+      "name": "See through illusions and deceptions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!LLdvSUypBNDeKI5Z.o84a8V0DdpIVDj2t"
+    },
+    {
+      "_id": "WyQbgeO5ofQheEbP",
+      "name": "Offer a rumbling (though polite) warning",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!LLdvSUypBNDeKI5Z.WyQbgeO5ofQheEbP"
+    },
+    {
+      "_id": "ZsXXbUfMwlFNjIq9",
+      "name": "Repair itself while on its pedestal",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!LLdvSUypBNDeKI5Z.ZsXXbUfMwlFNjIq9"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "LLdvSUypBNDeKI5Z",
+  "_key": "!actors!LLdvSUypBNDeKI5Z"
+}

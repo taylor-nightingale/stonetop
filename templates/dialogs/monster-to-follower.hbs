@@ -1,0 +1,78 @@
+{{!-- Monster → Follower conversion (Book I, NPCs & Followers, p.475). Compact
+      confirm modal; reuses the spring dialog chrome. See dialogs/MonsterToFollowerDialog.js. --}}
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas {{bannerIcon}} stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">{{monsterName}} <i class="fas fa-arrow-right stonetop-mf-arrow"></i> {{actorName}}'s follower</div>
+        <div class="stonetop-guide-banner-sub">Convert a monster to a follower</div>
+      </div>
+    </div>
+
+    <div class="stonetop-spring-body">
+      <p>Keep its stats as-is, but add any <strong>tags</strong> you see fit, choose a <strong>cost</strong>, and it gains a <strong>Loyalty</strong> track (max 3).</p>
+    </div>
+
+    <div class="stonetop-cf-controls">
+
+      {{!-- Stats kept from the monster --}}
+      <div class="stonetop-mf-stats">
+        <span><strong>HP</strong> {{hp}}</span>
+        <span><strong>Armor</strong> {{armor}}</span>
+        <span><strong>Damage</strong> {{damage}}</span>
+      </div>
+      {{#if instinct}}<div class="stonetop-cf-preview-line"><strong>Instinct</strong> {{instinct}}</div>{{/if}}
+      {{#if keptTags.length}}
+      <div class="stonetop-mf-kept">
+        <span class="stonetop-cf-chosen-label">Kept tags:</span>
+        <div class="stonetop-cf-chosen-tags">{{#each keptTags}}<span class="stonetop-cf-preview-tag">{{this}}</span>{{/each}}</div>
+      </div>
+      {{/if}}
+      {{#if moves.length}}
+      <div class="stonetop-cf-preview-line"><strong>Moves</strong> {{#each moves}}{{this}}{{#unless @last}}; {{/unless}}{{/each}}</div>
+      {{/if}}
+
+      {{!-- Add tags --}}
+      <div class="stonetop-cf-chosen">
+        <span class="stonetop-cf-chosen-label">Add tags:</span>
+        {{#if addedTags.length}}
+        <div class="stonetop-cf-chosen-tags">
+          {{#each addedTags}}
+          <button type="button" class="stonetop-cf-chosen-tag stonetop-mf-added-tag" data-tag="{{this}}">{{this}} <i class="fas fa-times"></i></button>
+          {{/each}}
+        </div>
+        {{else}}<span class="stonetop-cf-chosen-empty">none</span>{{/if}}
+      </div>
+      <div class="stonetop-cf-tag-add-row">
+        <input type="text" class="stonetop-cf-input stonetop-mf-tag-input" placeholder="add a tag (or comma-separated)…">
+        <button type="button" class="stonetop-mf-tag-add stonetop-cf-mini-btn"><i class="fas fa-plus"></i> Add</button>
+      </div>
+
+      {{!-- Pronoun --}}
+      <label class="stonetop-cf-label stonetop-cf-label--narrow">Pronoun
+        <input type="text" class="stonetop-cf-input stonetop-mf-pronoun" value="{{pronoun}}" placeholder="she/he/they…" maxlength="12">
+      </label>
+
+      {{!-- Cost --}}
+      <label class="stonetop-cf-label">Cost
+        <input type="text" class="stonetop-cf-input stonetop-mf-cost-input" value="{{cost}}" placeholder="what keeps it following your lead…">
+      </label>
+      <div class="stonetop-cf-chips">
+        {{#each costOptions}}
+        <button type="button" class="stonetop-cf-chip stonetop-mf-cost-ex{{#if selected}} is-selected{{/if}}" data-value="{{value}}">{{value}}</button>
+        {{/each}}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-mf-create stonetop-guide-btn--primary"><i class="fas fa-user-plus"></i> Create follower</button>
+    <button class="stonetop-mf-cancel">Cancel</button>
+  </div>
+
+</div>

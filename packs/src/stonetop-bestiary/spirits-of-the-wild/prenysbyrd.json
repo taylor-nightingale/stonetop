@@ -1,0 +1,92 @@
+{
+  "name": "Prenysbyrd",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 2,
+        "source": "woody, lacks organs"
+      },
+      "damage": {
+        "value": "club-like fists d10+3 (close, forceful)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to punish trespassers"
+      }
+    },
+    "concept": "A vengeful spirit of a long-dead grove, formed of fallen wood and rot.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, magical, stubborn, terrifying",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Qvh128WhhOrglLEH",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Prenysbyrd",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zVffgtwhKEbbKYqV",
+      "name": "Blame one for the sins of another",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!aQJLVwGdeHskspzS.zVffgtwhKEbbKYqV"
+    },
+    {
+      "_id": "Wwy9g4CDAFK9I0ax",
+      "name": "Fill minds with leering images and unreasoning dread",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!aQJLVwGdeHskspzS.Wwy9g4CDAFK9I0ax"
+    },
+    {
+      "_id": "Xp1qUYvQXdhpjcfC",
+      "name": "Form a body of fallen trees, leaves, and rotting wood (vulnerable to fire)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!aQJLVwGdeHskspzS.Xp1qUYvQXdhpjcfC"
+    },
+    {
+      "_id": "vGLWF5dJCxzuJ4mQ",
+      "name": "Smother a prone foe with soil, leaves, and wood (d8+1 damage, near, grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8+1"
+      },
+      "_key": "!actors.items!aQJLVwGdeHskspzS.vGLWF5dJCxzuJ4mQ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "aQJLVwGdeHskspzS",
+  "_key": "!actors!aQJLVwGdeHskspzS"
+}

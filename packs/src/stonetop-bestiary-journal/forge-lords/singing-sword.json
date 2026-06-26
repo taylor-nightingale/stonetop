@@ -1,0 +1,61 @@
+{
+  "_id": "nJozgr8Ox6CO3lBR",
+  "_key": "!journal!nJozgr8Ox6CO3lBR",
+  "name": "Singing Sword",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A lonely flying sword that guards a dead hall and yearns for music."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 73000,
+  "pages": [
+    {
+      "_id": "Z0DWBwK5piw2yx3R",
+      "_key": "!journal.pages!nJozgr8Ox6CO3lBR.Z0DWBwK5piw2yx3R",
+      "name": "Singing Sword",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A lonely flying sword that guards a dead hall and yearns for music.",
+        "description": "<p>This naked blade needs no wielder. It dances about the air, making music as it moves: every bob a hum, every slice a whistle. It was set here long ago as guardian to this crumbling hall, and for ages it has kept its vigil — yet it is no mindless thing. It remembers and yearns for the days when this hall was filled with light, laughter, and music. And so it waits, in the dark, singing songs that no living mortal ear has heard, worrying that it has misremembered the music it once knew. It waits, dutiful, and alone.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.6dXBK2ZSWVk51wAp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

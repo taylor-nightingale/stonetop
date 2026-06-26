@@ -1,0 +1,61 @@
+{
+  "_id": "brdZWD7CY1KZsHMG",
+  "_key": "!journal!brdZWD7CY1KZsHMG",
+  "name": "Void Elemental",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A confused, furious sliver of the primordial void, called into a world far too loud for it."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 143000,
+  "pages": [
+    {
+      "_id": "bELgo0FtNXPxhBAB",
+      "_key": "!journal.pages!brdZWD7CY1KZsHMG.bELgo0FtNXPxhBAB",
+      "name": "Void Elemental",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A confused, furious sliver of the primordial void, called into a world far too loud for it.",
+        "description": "<p>Touch the crown and speak the Words of Being, and a void elemental manifests — a black hole in reality, a primordial thing of the void, confused and angry at all the noise and chaos of the world. It serves as a follower with 3 Loyalty to start, and can gain no more; chant the Words of Unbeing and it may return to the void, if it wants to.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.mB7CMIPDbB8gzHas"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

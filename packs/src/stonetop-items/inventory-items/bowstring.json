@@ -1,0 +1,18 @@
+{
+  "_id": "AwFv0Yg7NZRBT7qY",
+  "_key": "!items!AwFv0Yg7NZRBT7qY",
+  "name": "Bowstring",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "bowstring",
+      "inventoryColumn": "small",
+      "sortOrder": 9,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

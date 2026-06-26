@@ -1,0 +1,61 @@
+{
+  "_id": "5QceSajZpMX0eS4Q",
+  "_key": "!journal!5QceSajZpMX0eS4Q",
+  "name": "Lightning Sconce",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An aetherium sentry-gem that blasts the unkeyed with lightning."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 52000,
+  "pages": [
+    {
+      "_id": "8IfW7QNxYxqdRFYC",
+      "_key": "!journal.pages!5QceSajZpMX0eS4Q.8IfW7QNxYxqdRFYC",
+      "name": "Lightning Sconce",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An aetherium sentry-gem that blasts the unkeyed with lightning.",
+        "description": "<p>A glowing gem, set in a fixture of aetherium. Found in pairs, or sets of up to six. Each set is keyed to something — a pass phrase, a hand signal, a color of robes, a style of locket. Get too close without the key, and zzzolt, they start blasting.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.dfsDOpDS6JcOBnCe"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

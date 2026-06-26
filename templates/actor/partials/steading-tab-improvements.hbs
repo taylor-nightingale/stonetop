@@ -1,0 +1,65 @@
+<div class="tab improvements{{#if stonetop.hideUnearnedImprovements}} hide-unearned-improvements{{/if}} steading-edit-section{{#unless stonetop.edit.improvements}} stonetop-readonly{{/unless}}" data-group="primary" data-tab="improvements">
+	{{> "stonetop.steading-section-toggle" section="improvements" editing=stonetop.edit.improvements}}
+	<section class="sheet-tab steading-improvements">
+
+		<p class="steading-improvements-intro">
+			Known, available improvements you can make to Stonetop. The GM may present others in the course of play.
+		</p>
+
+		<label class="steading-hide-unearned-improvements-label">
+			<input type="checkbox" class="stonetop-hide-unselected-check steading-hide-unearned-improvements-check"{{#if stonetop.hideUnearnedImprovements}} checked{{/if}}>
+			Hide un-earned improvements
+		</label>
+
+		<div class="steading-improvements-grid">
+			{{#each stonetop.improvements}}
+			<div class="steading-improvement {{#if completed}}is-complete{{/if}}{{#if earned}} is-earned{{/if}}{{#if custom}} is-custom{{/if}}{{#if isOpen}} is-open{{/if}}" data-slug="{{slug}}">
+
+				<div class="steading-improvement-header">
+					<label class="steading-improvement-complete-label{{#if completeLocked}} is-locked{{/if}}"
+					       data-tooltip="{{#if completeLocked}}Check off the required steps before marking this complete{{else}}Mark this improvement complete{{/if}}"
+					       data-tooltip-direction="UP">
+						<input type="checkbox" class="steading-improvement-complete"
+						       data-slug="{{slug}}" {{#if completed}}checked{{/if}}{{#if completeLocked}} disabled{{/if}}>
+					</label>
+					<div class="steading-improvement-summary">
+						<h4 class="steading-improvement-title">{{label}}{{#if custom}} <span class="steading-improvement-custom-tag">added</span>{{/if}}</h4>
+						<p class="steading-improvement-flavor">{{flavor}}</p>
+					</div>
+					{{#if (and custom @root.stonetop.edit.improvements)}}
+					<button type="button" class="steading-improvement-remove" data-slug="{{slug}}"
+					        data-tooltip="Remove this added improvement" data-tooltip-direction="UP">
+						<i class="fas fa-trash"></i>
+					</button>
+					{{/if}}
+					<span class="steading-improvement-chevron">
+						<i class="fas fa-chevron-down"></i>
+					</span>
+				</div>
+
+				<div class="steading-improvement-body">
+					{{#each sections}}
+					<p class="steading-req-heading">{{{heading}}}</p>
+					<ul class="steading-req-list">
+						{{#each items}}
+						<li class="steading-req-item">
+							<label>
+								<input type="checkbox" class="steading-improvement-req"
+								       data-slug="{{../../slug}}" data-index="{{index}}"
+								       {{#if checked}}checked{{/if}}>
+								<span>{{{label}}}</span>
+							</label>
+						</li>
+						{{/each}}
+					</ul>
+					{{/each}}
+
+					<div class="steading-improvement-effect">{{{effect}}}</div>
+				</div>
+
+			</div>
+			{{/each}}
+		</div>
+
+	</section>
+</div>

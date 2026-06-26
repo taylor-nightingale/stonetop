@@ -1,0 +1,103 @@
+{
+  "name": "Skittering Horror",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/emanation.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "scythe-like limbs d6+2 w/advantage (hand, close, messy, 2 piercing except vs. bronze)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to hurt, terrorize, kill"
+      }
+    },
+    "concept": "Eyeless, scythe-limbed emanations of Og'molok, born of blood to slaughter.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, emanation, terrifying, sadistic, aggressive",
+    "qualities": "<p>Spider-climb; blind; senses life (heat, heartbeats, breathing, movement). Disoriented by intense noise or heat. Armor 0 vs. bronze.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.KcEptvDi3nhRFoBB",
+    "notes": "",
+    "creatureType": "emanation"
+  },
+  "prototypeToken": {
+    "name": "Skittering Horror",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/emanation.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "iHVp9DuUF4d2LBT0",
+      "name": "Investigate sounds or signs of life",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mk4kCF2buJrsSlK2.iHVp9DuUF4d2LBT0"
+    },
+    {
+      "_id": "BJkKqwQkjxZ5IcPE",
+      "name": "Chitter, trill, loudly drone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mk4kCF2buJrsSlK2.BJkKqwQkjxZ5IcPE"
+    },
+    {
+      "_id": "YVAcUWNsbEAGODCG",
+      "name": "Call others to the hunt",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mk4kCF2buJrsSlK2.YVAcUWNsbEAGODCG"
+    },
+    {
+      "_id": "BSC213HHhqeegdiU",
+      "name": "Attack with shocking fury",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mk4kCF2buJrsSlK2.BSC213HHhqeegdiU"
+    },
+    {
+      "_id": "GV3R9iHjXyRQaVhO",
+      "name": "Savage a fallen foe",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mk4kCF2buJrsSlK2.GV3R9iHjXyRQaVhO"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "mk4kCF2buJrsSlK2",
+  "_key": "!actors!mk4kCF2buJrsSlK2"
+}

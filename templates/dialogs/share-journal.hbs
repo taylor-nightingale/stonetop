@@ -1,0 +1,38 @@
+<div class="stonetop-share">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas fa-users stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">Share with Players</div>
+        <div class="stonetop-guide-banner-sub stonetop-guide-truncate">{{name}}</div>
+      </div>
+    </div>
+
+    <p class="stonetop-share-intro">Should your players be able to see this journal entry?</p>
+
+    <label class="stonetop-share-option">
+      <input type="checkbox" class="stonetop-share-visible" {{#if visible}}checked{{/if}}>
+      <span class="stonetop-share-option-text">
+        <span class="stonetop-share-option-title">Players can see this journal</span>
+        <span class="stonetop-share-option-hint">Grants every player at least read-only (Observer) access.</span>
+      </span>
+    </label>
+
+    <label class="stonetop-share-option stonetop-share-owner-row">
+      <input type="checkbox" class="stonetop-share-owner" {{#if owner}}checked{{/if}}>
+      <span class="stonetop-share-option-text">
+        <span class="stonetop-share-option-title">Grant Ownership instead of Observer</span>
+        <span class="stonetop-share-option-hint">Players can edit this journal, not just read it.</span>
+      </span>
+    </label>
+
+  </div>
+
+  <div class="stonetop-guide-nav stonetop-guide-nav--end">
+    <button type="button" class="stonetop-share-save stonetop-guide-btn--primary">Save</button>
+    <button type="button" class="stonetop-share-cancel">Cancel</button>
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+{
+  "_id": "pOtdFLTTywDCKXPM",
+  "_key": "!journal!pOtdFLTTywDCKXPM",
+  "name": "Kyakaara",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Howlers — laughing, fang-snouted folk lost utterly to the Howling Curse."
+    }
+  },
+  "folder": "BbbSr8kQQLU7JJm8",
+  "sort": 59000,
+  "pages": [
+    {
+      "_id": "aLuITGoixs7zCyQb",
+      "_key": "!journal.pages!pOtdFLTTywDCKXPM.aLuITGoixs7zCyQb",
+      "name": "Kyakaara",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The Howlers — laughing, fang-snouted folk lost utterly to the Howling Curse.",
+        "description": "<p>These are the Howlers, the Ones-Who-Laugh, those who have succumbed to the Howling Curse. They are gaunt and hairy, dressed in rags, with jaws that have grown into snarling, fang-filled snouts. They pierce their own flesh. They hunch and howl and cackle. During the Time of Cataclysm they roamed freely; now they are, thankfully, rare. They take up residence near a community, kidnap locals and force them to commit atrocities, and turn surviving captives into more kyakaara — until they overrun the place and move on to the next.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Iyc7KUONkBO5Ibyz"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

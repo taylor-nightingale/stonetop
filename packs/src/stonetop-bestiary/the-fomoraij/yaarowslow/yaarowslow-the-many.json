@@ -1,0 +1,92 @@
+{
+  "name": "Yaarowslow, the Many",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, lacks organs"
+      },
+      "damage": {
+        "value": "spurts of corrosive slime d10+1 (hand, close, area, messy, 1 piercing)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to escape"
+      }
+    },
+    "concept": "A mass of flesh oozing silvery slime, and the host of horrors that are its body and its will.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, magical, terrifying, amorphous",
+    "qualities": "<p>Largely immobile; hive-mind connection with its vermin swarms; takes half damage from stabbing or smashing. Armor 2 vs. bronze (thick hide).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5tvhzovmN18QlxGa",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Yaarowslow",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7beu64K4QJWU9QWv",
+      "name": "Overwhelm foes with horror and thousands of squealing voices",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xhYYoDHoyS7ZyPKz.7beu64K4QJWU9QWv"
+    },
+    {
+      "_id": "2GGrwrEWL6oz9402",
+      "name": "Infect minds and bodies with silvery slime",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xhYYoDHoyS7ZyPKz.2GGrwrEWL6oz9402"
+    },
+    {
+      "_id": "yf6DYK55mj90UYwn",
+      "name": "Wield its swarms and its silvery slime as an extension of itself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xhYYoDHoyS7ZyPKz.yf6DYK55mj90UYwn"
+    },
+    {
+      "_id": "iFV4RHkb1cQF5qHW",
+      "name": "Regenerate wounds from anything but orichalcum",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xhYYoDHoyS7ZyPKz.iFV4RHkb1cQF5qHW"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4qowIAzAEHt17art",
+  "_id": "xhYYoDHoyS7ZyPKz",
+  "_key": "!actors!xhYYoDHoyS7ZyPKz"
+}

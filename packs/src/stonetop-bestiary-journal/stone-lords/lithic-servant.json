@@ -1,0 +1,61 @@
+{
+  "_id": "91EWIGU7SaOUHbS9",
+  "_key": "!journal!91EWIGU7SaOUHbS9",
+  "name": "Lithic Servant",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Faceless stone mannequin-servants grinding through their last orders forever."
+    }
+  },
+  "folder": "5NFFyHLQgpZKNJZX",
+  "sort": 97000,
+  "pages": [
+    {
+      "_id": "rsVBT8SKBdg0GgA3",
+      "_key": "!journal.pages!91EWIGU7SaOUHbS9.rsVBT8SKBdg0GgA3",
+      "name": "Lithic Servant",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Faceless stone mannequin-servants grinding through their last orders forever.",
+        "description": "<p>Imagine one of those artists' mannequins, but full-sized and made of polished rock: two fingers and a thumb on each hand, faceless, expressionless, making a stone-on-stone grinding noise as they move. They're most often found inert and covered in dust, waiting for an energy source — a Stone Lord's song or a thrumming power-crystal — to give them 'life,' whereupon they follow any orders given in the Stone Lord's tongue. A few are still active, powered by inexhaustible sources, their joints worn smooth and their hands ground to nubs, some crawling on broken limbs at tasks that will never end.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.CoqfzAvGUkjfvMpi"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

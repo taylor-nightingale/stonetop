@@ -1,0 +1,61 @@
+{
+  "_id": "6uW9IHa66SmQdeEM",
+  "_key": "!journal!6uW9IHa66SmQdeEM",
+  "name": "Dialeddwr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The avenger risen whole from the grave, who heals in moonlight and never stops hunting."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 107000,
+  "pages": [
+    {
+      "_id": "dtzHz4aYFN8FGB9D",
+      "_key": "!journal.pages!6uW9IHa66SmQdeEM.dtzHz4aYFN8FGB9D",
+      "name": "Dialeddwr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The avenger risen whole from the grave, who heals in moonlight and never stops hunting.",
+        "description": "<p>Sometimes, when a great wrong is done, when a good person is cruelly slain, when the killers go unpunished… well, sometimes they come back. Called back by a prayer or perhaps a spell. Or sent back by their fellow victims. Or guided back by one of the Lady's own crows. They dig themselves free of their graves, reborn and whole. And vengeance shall be theirs.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fZqXeuSYwjQtlWyH"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

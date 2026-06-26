@@ -1,0 +1,88 @@
+{
+  "_id": "o7qpevFfrKXuVlGo",
+  "_key": "!journal!o7qpevFfrKXuVlGo",
+  "name": "Red Groves",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Half a day east of Stonetop is a copse of trees that turn blood red (leaves, bark, and all) at the autumnal equinox. By spring, the color has returned to normal. The Forest Folk warned the villagers to avoid this place. They never said why."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 26000,
+  "pages": [
+    {
+      "_id": "aAeE7ctFDrQpPARL",
+      "_key": "!journal.pages!o7qpevFfrKXuVlGo.aAeE7ctFDrQpPARL",
+      "name": "Red Groves",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Half a day east of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> is a copse of trees that turn blood red (leaves, bark, and all) at the autumnal equinox. By spring, the color has returned to normal. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{The Forest Folk}</strong> warned the villagers to avoid this place. They never said why.</p><ul><li>An iron tang in the air</li><li>The scrutiny of the forest upon you, heavy like a blanket</li><li>Words of warning, faintly heard in the breeze, in the rustling leaves, in the insect hum and birdsong.</li><li>Spring/Summer: bright green shoots/ leaves bursting from black bark and mud</li><li>Autumn/Winter: overwhelming, glossy red</li></ul><p>Tip: faintly whisper things like “turn back” or “not welcome” or “go away” and then pretend you didn’t say anything</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Something interesting: A dozen such groves dot the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Some redden in the fall, others in spring. Some, like the one near <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, are large and old; others are just a few young trees.</p><p>Something useful: When you enter a red grove, you draw the forest’s wrath unless…</p><p>… you come naked and empty handed, having been ritually purified;<br>… you bear a dying spirit, wishing to pass on; or<br>… you are cloaked in subtle magic.</p><p>Redwood serves as a conduit for spirits of the wild. Some of the Forest Folks’ most powerful totems are made of redwood. Alas, harvesting redwood without the permission of the forest spirits is sure to draw their primal, relentless ire.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Why are they so special?",
+            "group": "place",
+            "danger": false,
+            "body": "<p>That’s for you to decide. Maybe...</p><p>… they are where spirits of the wild are born and where they come to die;<br>… they each imprison some terrible evil;<br>… they each mark the grave of a champion of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>; or<br>… it’s different for each grove.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Inhabitants",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Any spirit of the wild might be found here, but each grove hosts at least a few brennauwed and is protected by coedwaig. Butcherbirds frequent the Groves while they are red.</p><ul><li>The Forest's Wrath</li><li>Threat (affliction) Instinct to punish the perpetrator and those who protect them</li></ul><p>The greater the transgression, the more quickly the curse escalates and the greater the penance required.</p><ul><li>Nightmares, ire from beasts and birds, plants tend to wither and die</li><li>Friends and family are affected, too; birds and small beasts harass them in town</li><li>The whole village is affected; sleep is scarce, nerves frayed, the Wood is hostile</li><li>Saplings sprout in town overnight, or when folk aren’t looking</li><li>Impending doom: Crops fail, livestock revolt, homes collapse, the granary rots</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A dying glasbren seeks a mortal to convey her to the Red Grove.</li><li>The Red Grove is corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. Its spirits are confused and unwell, and the Grove will soon start spawning horrors.</li><li>A villager steals a branch of redwood, and is cursed with the forest’s wrath.</li></ul>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

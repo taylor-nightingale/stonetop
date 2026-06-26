@@ -1,0 +1,81 @@
+{
+  "name": "Rhagedn",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "woody hide"
+      },
+      "damage": {
+        "value": "talons, antlers d6+2 (hand, messy, 1 piercing)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to protect their nests"
+      }
+    },
+    "concept": "Antlered wooden sentinels that roost disguised as boughs, guarding old Green Lord sites.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, construct, stealthy",
+    "qualities": "<p>Clumsy fliers.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.h9ZdkjGYXgOAOhx8",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Rhagedn",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "lvKIkkuO0NezafFw",
+      "name": "Shift into a better position while unobserved",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Pz0n6nkxIVq2xH4u.lvKIkkuO0NezafFw"
+    },
+    {
+      "_id": "bkaHpkBTCFI9SlPL",
+      "name": "Strafe their prey (forceful) and return to the skies",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Pz0n6nkxIVq2xH4u.bkaHpkBTCFI9SlPL"
+    },
+    {
+      "_id": "zmxIbwMo5qCM1z4b",
+      "name": "Roost on earth, stone, or wood — sinking in talons, furling its wings, becoming like a woody stump or bough",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Pz0n6nkxIVq2xH4u.zmxIbwMo5qCM1z4b"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FO5poGFHi5Udrsfz",
+  "_id": "Pz0n6nkxIVq2xH4u",
+  "_key": "!actors!Pz0n6nkxIVq2xH4u"
+}

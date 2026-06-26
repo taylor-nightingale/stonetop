@@ -1,0 +1,81 @@
+{
+  "name": "War-chariot",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 1,
+        "source": "wood and iron construction"
+      },
+      "damage": {
+        "value": "trample and wheel-scythes d8+5 (hand, close, forceful, messy, 1 piercing), iron battleaxe d8+3 (close, messy, forceful), or long bow d8 (far)",
+        "rollFormula": "d8+5"
+      },
+      "instinct": {
+        "value": "to rush inexorably forward"
+      }
+    },
+    "concept": "A chief's very best, brought to bear when war-bands meet on the open plain.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, terrifying",
+    "qualities": "<p>Pulled by two tonnerhorns; carries a driver and two warriors.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.pmrOvOfxbUopilDk",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "War-chariot",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Fqkhph9B5JEbLAZq",
+      "name": "Ride in broad arcs around the battle, peppering foes",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!anJdI79iSTgmf0JB.Fqkhph9B5JEbLAZq"
+    },
+    {
+      "_id": "0NAcUs4XApAgnSrr",
+      "name": "Ride down foes, filling them with dread",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!anJdI79iSTgmf0JB.0NAcUs4XApAgnSrr"
+    },
+    {
+      "_id": "NH1CMIoYPmCFu2gG",
+      "name": "Crash spectacularly, d8+3 damage (area, forceful)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!anJdI79iSTgmf0JB.NH1CMIoYPmCFu2gG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Zk9eZkdsc82KOF4B",
+  "_id": "anJdI79iSTgmf0JB",
+  "_key": "!actors!anJdI79iSTgmf0JB"
+}

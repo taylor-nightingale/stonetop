@@ -1,0 +1,12 @@
+{
+  "_id": "ZU6p9lBMvSjWuXJi",
+  "_key": "!items!ZU6p9lBMvSjWuXJi",
+  "name": "Blot Out the Sun",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>Let Fly with a bow</em></strong>, you can deplete your ammunition (mark the next ammo status after your weapon) before you roll. If you do, choose 1:</p><ul><li>Gain advantage on your damage roll</li><li>Add the area tag to your attack; roll damage separately for each target</li></ul>"
+  },
+  "folder": "fr7cP7vKBgBxbN0Q"
+}

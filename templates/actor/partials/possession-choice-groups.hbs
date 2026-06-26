@@ -1,0 +1,29 @@
+{{#if (and checked choiceGroups)}}
+{{#each choiceGroups}}
+<div class="stonetop-choice-group">
+	<p class="stonetop-choice-group-heading">{{heading}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
+	{{#each subgroups}}
+	<div class="stonetop-choice-subgroup">
+		{{#each options}}
+		<label class="stonetop-choice-option-label">
+			{{#if ../multiSelect}}
+			<input type="checkbox" class="stonetop-item-check stonetop-possession-sub-check"
+			       data-possession-slug="{{../../../slug}}"
+			       data-choice-slug="{{slug}}"
+			       {{#if checked}}checked{{/if}}>
+			{{else}}
+			<input type="radio" class="stonetop-possession-sub-radio"
+			       name="stonetop-{{../../../scope}}{{../groupId}}"
+			       data-possession-slug="{{../../../slug}}"
+			       data-choice-slug="{{slug}}"
+			       data-sibling-slugs-csv="{{../slugsCsv}}"
+			       {{#if checked}}checked{{/if}}>
+			{{/if}}
+			{{{label}}}
+		</label>
+		{{/each}}
+	</div>
+	{{/each}}
+</div>
+{{/each}}
+{{/if}}

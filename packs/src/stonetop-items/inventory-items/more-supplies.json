@@ -1,0 +1,32 @@
+{
+  "_id": "nKYaXRvj7uff0LYT",
+  "_key": "!items!nKYaXRvj7uff0LYT",
+  "name": "More supplies",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "more-supplies",
+      "inventoryColumn": "regular",
+      "sortOrder": 2,
+      "note": "4+Prosperity uses",
+      "weight": 1,
+      "prosperityResource": true,
+      "resource": {
+        "max": 6,
+        "title": null,
+        "labels": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

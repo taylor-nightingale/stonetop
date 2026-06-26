@@ -1,0 +1,81 @@
+{
+  "name": "Nailadd",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 2,
+        "source": "carapace"
+      },
+      "damage": {
+        "value": "venomous bite d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to capture prey and slowly consume it"
+      }
+    },
+    "concept": "Hound-sized spiders that paralyze and cocoon their prey.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cunning, stealthy",
+    "qualities": "<p>Webs; prodigious leaps.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.TtB1H0FcNCFGRTK0",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Nailadd",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "04wyfNwFbQ8z6biw",
+      "name": "Leap on prey and knock it prone",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yoHXsBjzR8AVHzXj.04wyfNwFbQ8z6biw"
+    },
+    {
+      "_id": "8aabAmbKm7kJUMlB",
+      "name": "Inject a paralytic venom",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yoHXsBjzR8AVHzXj.8aabAmbKm7kJUMlB"
+    },
+    {
+      "_id": "KbOVVXPPOG47cAjR",
+      "name": "Drag helpless prey into the canopy and cocoon it",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yoHXsBjzR8AVHzXj.KbOVVXPPOG47cAjR"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "yoHXsBjzR8AVHzXj",
+  "_key": "!actors!yoHXsBjzR8AVHzXj"
+}

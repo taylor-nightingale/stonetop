@@ -1,0 +1,61 @@
+{
+  "_id": "Owbdgx7wi7p30MzW",
+  "_key": "!journal!Owbdgx7wi7p30MzW",
+  "name": "Hdour",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A Hillfolk sorcerer who seeks power for its own sake, heedless of rule or taboo."
+    }
+  },
+  "folder": "BftPtZSbjpl2MLU8",
+  "sort": 147000,
+  "pages": [
+    {
+      "_id": "yvKK2IoV4vk8Z8Dp",
+      "_key": "!journal.pages!Owbdgx7wi7p30MzW.yvKK2IoV4vk8Z8Dp",
+      "name": "Hdour",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> sorcerer who seeks power for its own sake, heedless of rule or taboo.",
+        "description": "<p>Where a spirit-talker uses their power with care and only for their people, the hdour steps over every line — seeking power for power's sake, using it selfishly. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> fear them, and with reason: even slaying one is perilous, for a dying hdour's curse can damn its killers (see the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.sgwKSp8PEmkIv21v]{Ghostly Legion}</strong>).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Okqc6kkhEZ3CGYKl"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

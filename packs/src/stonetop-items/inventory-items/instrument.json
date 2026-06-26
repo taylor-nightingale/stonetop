@@ -1,0 +1,21 @@
+{
+  "_id": "jOkYRBMeyyMDHqJ3",
+  "_key": "!items!jOkYRBMeyyMDHqJ3",
+  "name": "Instrument",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "instrument",
+      "inventoryColumn": "regular",
+      "sortOrder": 39,
+      "note": "harp, lute, fiddle, etc.",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Exotic Stuff"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

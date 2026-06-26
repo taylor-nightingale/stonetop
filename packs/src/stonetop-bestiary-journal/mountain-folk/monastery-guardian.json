@@ -1,0 +1,61 @@
+{
+  "_id": "uGh38GPx9hdbQ0XH",
+  "_key": "!journal!uGh38GPx9hdbQ0XH",
+  "name": "Guardian",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Warrior-protectors of the Whitefang fortress-monasteries and Barrier Pass."
+    }
+  },
+  "folder": "RAGjKS2JDwIV1qll",
+  "sort": 167000,
+  "pages": [
+    {
+      "_id": "RQVvxadhwMLvel35",
+      "_key": "!journal.pages!uGh38GPx9hdbQ0XH.RQVvxadhwMLvel35",
+      "name": "Guardian",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Warrior-protectors of the Whitefang fortress-monasteries and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong>.",
+        "description": "<p>The fortress-monasteries of the Whitefangs each keep a cadre of warriors, recruited from local farm valleys, bands of mammoth herders, or failed novices. They focus on the arts of battle rather than the esoteric ways of the monks. The folk of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> keep their own guardians, armed less to kill than to subdue or drive off threats.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.33Tx0FhrgXcTwtlC"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

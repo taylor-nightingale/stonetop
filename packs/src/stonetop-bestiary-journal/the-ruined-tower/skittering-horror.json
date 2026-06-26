@@ -1,0 +1,61 @@
+{
+  "_id": "KcEptvDi3nhRFoBB",
+  "_key": "!journal!KcEptvDi3nhRFoBB",
+  "name": "Skittering Horror",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Eyeless, scythe-limbed emanations of Og'molok, born of blood to slaughter."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 56000,
+  "pages": [
+    {
+      "_id": "9rYFqciEnJfFIQu8",
+      "_key": "!journal.pages!KcEptvDi3nhRFoBB.9rYFqciEnJfFIQu8",
+      "name": "Skittering Horror",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Eyeless, scythe-limbed emanations of Og'molok, born of blood to slaughter.",
+        "description": "<p>Six feet long, with segmented bodies and too many legs, scythe-like forelimbs, and feathery antennae that caress the air and quiver when they sense prey. No eyes, just red crystal pulsing within the skull. No mouth, for it never eats and lives on hate and malice. Each is a manifestation of Og'molok's cruel will, born of blood and sent skittering up to slaughter — until Stormcatcher's final spell turned most of them to glass. A few dozen avoided it, lingering in torpor until they sense a living, feeling being. Then they wake. Then they hunt.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.mk4kCF2buJrsSlK2"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

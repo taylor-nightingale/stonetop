@@ -1,0 +1,178 @@
+[
+  {
+    "name": "Aid",
+    "description": "<p>When you <strong><em>help someone who has not yet rolled</em></strong>, the GM picks 1:</p><ul><li>They can accomplish more than they could alone</li><li>They gain advantage on their roll</li></ul><p>Either way, you are exposed to any risk, cost, or consequence associated with their roll.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Clash",
+    "description": "<p>When you <strong><em>fight in melee or close quarters</em></strong>, roll +STR: <strong>on a 10+</strong>, your maneuver works as expected (deal your damage) and pick 1:</p><ul><li>Avoid, prevent, or counter your enemy's attack</li><li>Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack</li></ul><p><strong><em>On a 7-9</em></strong>, your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.</p>",
+    "rollType": "str",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Your maneuver works as expected (deal your damage) and pick 1: Avoid, prevent, or counter your enemy's attack / Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Your maneuver works, mostly (deal your damage), but you suffer your enemy's attack."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Your maneuver fails and you suffer your enemy's attack."
+      }
+    }
+  },
+  {
+    "name": "Defend",
+    "description": "<p>When you <strong><em>take up a defensive stance or jump in to protect others</em></strong>,  roll +CON: <strong>on a 10+</strong>, hold 3 Readiness (or 4 if you bear a shield); <strong><em>On a 7-9</em></strong>, hold 1 Readiness (or 2 with a shield). You can spend Readiness 1-for-1 to:</p><ul><li>Suffer an attack's damage/effects instead of your ward</li><li>Halve an attack's effect or damage</li><li>Draw all attention from your ward to yourself</li><li>Strike back at an attacker (deal your damage, with disadvantage)</li></ul><p>When you go on the offense, cease to focus on defense, or the threat passes, lose any Readiness that you hold.</p>",
+    "rollType": "con",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Hold 3 Readiness (or 4 if you bear a shield)."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Hold 1 Readiness (or 2 with a shield)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Escalate the situation aggressively, or make an obvious hard move."
+      }
+    }
+  },
+  {
+    "name": "Defy Danger",
+    "description": "<p>When <strong><em>danger looms, the stakes are high, and you do something chancy</em></strong>, check if another move applies. If not, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, you pull it off as well as one could hope; <strong><em>on a 7-9</em></strong>, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).</p>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "You pull it off as well as one could hope."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The danger comes to bear, or things get much worse—let things burn."
+      }
+    }
+  },
+  {
+    "name": "Interfere",
+    "description": "<p>When you try to foil another PC’s action and neither of you back down, roll...</p><p>... +STR to power through or test your might</p><p>... +DEX to employ speed, agility, or finesse</p><p>... +CON to endure or hold steady</p><p>... +INT to apply expertise or enact a clever plan</p><p>... +WIS to exert willpower or rely on your senses</p><p>... +CHA to charm, bluff, impress, or fit in</p><p><strong><em>On a 10+</em></strong>, they pick 1 from the list below; <strong><em>on a 7-9</em></strong>, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.</p><ul><li>Do it anyway, but with disadvantage on their (next) roll</li><li>Relent, change course, or otherwise allow their move to be foiled</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "They pick 1 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You fail to foil their action; the GM makes a hard move."
+      }
+    }
+  },
+  {
+    "name": "Know Things",
+    "description": "<p>When you <strong><em>consult your accumulated knowledge</em></strong>, roll +INT: <strong>on a 10+</strong>, The GM will tell you something interesting and useful about the topic at hand; <strong><em>On a 7-9</em></strong>, the GM will tell you something interesting—it's on you to make it useful;<strong><em>either way</em></strong>, the GM might ask “how do you know this?”</p>",
+    "rollType": "int",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "The GM will tell you something interesting and useful about the topic at hand."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The GM will tell you something interesting—it's on you to make it useful."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move—a spot, a sudden danger, an unwelcome truth, a costly opportunity, or the requirements to learn more."
+      }
+    }
+  },
+  {
+    "name": "Let Fly",
+    "description": "<p>When you <strong><em>calmly take an easy shot with a ranged weapon</em></strong>, deal your damage. If <strong><em>the shot is tricky or you’re under pressure</em></strong>, first roll +DEX: <strong>on a 10+</strong>, you have a clear shot, deal your damage; <strong>on a 7-9</strong>, pick 1:</p><ul><li>Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)</li><li>Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage</li><li>Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage</li><li>Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice</li></ul>",
+    "rollType": "dex",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "You have a clear shot, deal your damage."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1: Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses) / Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage / Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage / Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM decides what happens, and it's almost certainly bad—you might be interrupted, or take the shot but suffer for it (an ally might even be hit)."
+      }
+    }
+  },
+  {
+    "name": "Persuade (vs. NPCs)",
+    "description": "<p>When you <strong><em>press or entice an NPC</em></strong>, say what you want them to do (or not do). If they <strong><em>have reason to resist</em></strong>, roll +CHA: <strong>on a 10+</strong>, they either do as you want or reveal the easiest way to convince them; <strong>on a 7-9</strong>, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.</p>",
+    "rollType": "cha",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "They either do as you want or reveal the easiest way to convince them"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The NPC won't be swayed (the GM may interrupt or end the scene), or they comply but with complications."
+      }
+    }
+  },
+  {
+    "name": "Persuade (vs. PCs)",
+    "description": "<p>When you <strong><em>press or entice a PC and they resist</em></strong>, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.</p><p>If they say “yes,” you can roll +CHA: <strong>on a 10+</strong>, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; <strong>on a 7-9</strong>, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).</p>",
+    "rollType": "cha",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move—maybe turning it back on you, or interrupting with a new threat or change of scene."
+      }
+    }
+  },
+  {
+    "name": "Seek Insight",
+    "description": "<p>When you <strong><em>study a situation or person, looking to the GM for insight</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask the GM 3 questions from the list below; <strong>on a 7-9</strong>, ask 1; <strong><em>either way</em></strong>, gain advantage on your next move that acts on the answers.</p><ul><li>What happened here?</li><li>What is about to happen?</li><li>What should I be on the lookout for?</li><li>What here is useful or valuable to me?</li><li>Who or what is really in control here?</li><li>What here is not what it appears to be?</li></ul>",
+    "rollType": "wis",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Ask the GM 3 questions from the list. Gain advantage on your next move that acts on the answers."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Ask the GM 1 question from the list. Gain advantage on your next move that acts on the answers."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You're interrupted or surprised as you study, or trouble announces itself."
+      }
+    }
+  }
+]

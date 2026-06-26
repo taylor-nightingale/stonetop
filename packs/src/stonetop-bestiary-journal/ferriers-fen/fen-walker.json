@@ -1,0 +1,61 @@
+{
+  "_id": "vRX46bUKX5FsSzly",
+  "_key": "!journal!vRX46bUKX5FsSzly",
+  "name": "Fen-walker",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A Marshedge guide who knows the Fen's hidden hazards and grim secrets."
+    }
+  },
+  "folder": "vhqnmoOdeyOLvMcj",
+  "sort": 137000,
+  "pages": [
+    {
+      "_id": "GDpKjO4AWyccOOCf",
+      "_key": "!journal.pages!vRX46bUKX5FsSzly.GDpKjO4AWyccOOCf",
+      "name": "Fen-walker",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> guide who knows the Fen's hidden hazards and grim secrets.",
+        "description": "<p>The fen-walkers are <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> folk who know <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier's Fen}</strong> as well as anyone can — its hidden hazards, its grim secrets, and the safe paths through the muck. Hire one before venturing in. Notable fen-walkers include Alastar (exceptional, old, devious; feels no remorse; demands payment in hand), Fiadh (curious, kind, fen-blighted; hides his affliction; trades for secrets of the Fen), and Riona (prepared, agile, stubborn; assumes the worst; wants competence shown).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.DiCuCO7x8F1jVUk3"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

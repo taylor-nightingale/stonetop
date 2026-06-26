@@ -1,0 +1,70 @@
+{
+  "_id": "qlGSzAdbwRzcPJ70",
+  "_key": "!journal!qlGSzAdbwRzcPJ70",
+  "name": "Mosaic Swarm",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A killer mosaic that bursts into a whirling cloud of jagged ceramic tiles."
+    }
+  },
+  "folder": "5NFFyHLQgpZKNJZX",
+  "sort": 99000,
+  "pages": [
+    {
+      "_id": "rRlMBzhKYM9P4fK7",
+      "_key": "!journal.pages!qlGSzAdbwRzcPJ70.rRlMBzhKYM9P4fK7",
+      "name": "Mosaic Swarm",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A killer mosaic that bursts into a whirling cloud of jagged ceramic tiles.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong> adorned their halls with elaborate tilework and mosaics. Most of them were decorative. Most of them.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Either some spirit is possessing these tiles, or this is some sort of construct. If it's a spirit, there must be a tether; if it's a construct, the individual tiles are too small to power or direct themselves.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** The mosaic's frame remained on the wall, and it's glowing blue — aetherium runes! Destroy the runes, and the construct should fall apart.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fNEJcPa37GBqXwOq"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

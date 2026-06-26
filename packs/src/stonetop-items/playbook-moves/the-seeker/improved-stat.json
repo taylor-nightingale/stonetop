@@ -1,0 +1,14 @@
+{
+  "_id": "RMiLpt70Zmh8Dx6K",
+  "_key": "!items!RMiLpt70Zmh8Dx6K",
+  "name": "Improved Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+    "moveEffect": "stat-increase",
+    "repeatMax": 3
+  },
+  "folder": "rlzEhh1ntK6ENGgA"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Gingkara",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "bony fingers d4 (hand, grabby)",
+        "rollFormula": "d4"
+      },
+      "instinct": {
+        "value": "to keep their master's house in order"
+      }
+    },
+    "concept": "Carved-bone skeletons bound by spirits, still tidying their long-dead masters' homes.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, spirit, construct, organized",
+    "qualities": "<p>Tethered to one specific bone. Armor 4 vs. stabbing (just bones).</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ztrQnbFLBK1siEPk",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Gingkara",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "ZF2NdiZdShApOnur",
+      "name": "Animate its particular skeleton",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ktS8JqsS9RThoLIJ.ZF2NdiZdShApOnur"
+    },
+    {
+      "_id": "2n1THjytihCct8Aj",
+      "name": "Grab on and pull them down with numbers",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ktS8JqsS9RThoLIJ.2n1THjytihCct8Aj"
+    },
+    {
+      "_id": "shopswwriGnrkknH",
+      "name": "Reassemble themselves (regaining 1d4 HP), unless their tether is shattered",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ktS8JqsS9RThoLIJ.shopswwriGnrkknH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "ktS8JqsS9RThoLIJ",
+  "_key": "!actors!ktS8JqsS9RThoLIJ"
+}

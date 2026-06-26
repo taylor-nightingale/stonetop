@@ -1,0 +1,81 @@
+{
+  "name": "Grwgnach",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 27,
+        "max": 27
+      },
+      "armor": {
+        "value": 2,
+        "source": "reflexes and the sheer swarm"
+      },
+      "damage": {
+        "value": "whirlwind of pecks, claws, and buffets d8+3 w/disadvantage (hand, area)",
+        "rollFormula": "d8+3"
+      },
+      "instinct": {
+        "value": "to absorb individual identity"
+      }
+    },
+    "concept": "The spirit of the murmuration — what a million starlings become when each is lost to the flock.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, spirit, magical, mesmerizing",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.YTr1h2SyKlxiRIDK",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Grwgnach",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "UJSl6Tp9ZPmpuW5i",
+      "name": "Manifest in a murmuration of starlings (nigh impossible to harm with personal weapons)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QJzjWDCU8jAAb4DT.UJSl6Tp9ZPmpuW5i"
+    },
+    {
+      "_id": "58GJ61VllCQEsRal",
+      "name": "Strip a swath of land clean of seed, saplings, insects",
+      "type": "monsterMove",
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QJzjWDCU8jAAb4DT.58GJ61VllCQEsRal"
+    },
+    {
+      "_id": "cnDPKOpAHLkuRGns",
+      "name": "Overwhelm with sound and the weight of numbers",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QJzjWDCU8jAAb4DT.cnDPKOpAHLkuRGns"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "QJzjWDCU8jAAb4DT",
+  "_key": "!actors!QJzjWDCU8jAAb4DT"
+}

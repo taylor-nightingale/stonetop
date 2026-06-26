@@ -1,0 +1,61 @@
+{
+  "_id": "i74FkC9ROlheQBIF",
+  "_key": "!journal!i74FkC9ROlheQBIF",
+  "name": "The Gwraig Wen",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The drowned bride who roams moonlit woods, dragging others into her endless search."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 102000,
+  "pages": [
+    {
+      "_id": "28Ko2NCItg3Bfkf9",
+      "_key": "!journal.pages!i74FkC9ROlheQBIF.28Ko2NCItg3Bfkf9",
+      "name": "The Gwraig Wen",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The drowned bride who roams moonlit woods, dragging others into her endless search.",
+        "description": "<p>Those who ply the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> tell an old tale of a bride, newly married to a handsome trapper. He failed to come home one night, and she unwisely entered the forest to find him, falling into a deep pond and drowning. Ever since, her ghost has roamed the woods on moonlit nights: wet and shivering, desperate and pleading, certain that her husband is still out there.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.B0W8jT7lRFLJK4ds"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

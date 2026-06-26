@@ -1,0 +1,103 @@
+{
+  "name": "Shade",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "none",
+        "rollFormula": ""
+      },
+      "instinct": {
+        "value": "to refuse to go back, to fulfill its longings, to bemoan its fate, or to return to its rest"
+      }
+    },
+    "concept": "A called-up soul of the quiet dead — a whisper that can ride the willing.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, undead, cautious",
+    "qualities": "<p>Banished by daylight.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.H4OPwwD1035hAPzs",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Shade",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "a34LUnee40EtBPKU",
+      "name": "Manifest as a whisper and a dim image, unable to affect the physical world",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lUuc66QokgbxU7X2.a34LUnee40EtBPKU"
+    },
+    {
+      "_id": "Pk8aSxkN3uvjYFL8",
+      "name": "Share what it knew in life",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lUuc66QokgbxU7X2.Pk8aSxkN3uvjYFL8"
+    },
+    {
+      "_id": "3Vjw2YhecZWP3PPf",
+      "name": "Reveal a secret learned in death",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lUuc66QokgbxU7X2.3Vjw2YhecZWP3PPf"
+    },
+    {
+      "_id": "GTHEDmNvaT9lACz4",
+      "name": "'Ride' a willing or prepared host",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lUuc66QokgbxU7X2.GTHEDmNvaT9lACz4"
+    },
+    {
+      "_id": "NP92nyLE8DA4Dhdi",
+      "name": "Possess an intact, uninterred corpse, creating a pyped",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lUuc66QokgbxU7X2.NP92nyLE8DA4Dhdi"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "lUuc66QokgbxU7X2",
+  "_key": "!actors!lUuc66QokgbxU7X2"
+}

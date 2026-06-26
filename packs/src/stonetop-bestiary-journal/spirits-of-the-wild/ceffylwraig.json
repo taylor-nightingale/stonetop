@@ -1,0 +1,79 @@
+{
+  "_id": "0CoKAbSZu0voBdK7",
+  "_key": "!journal!0CoKAbSZu0voBdK7",
+  "name": "Ceffylwraig",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The proud horse-queen spirit of a wild herd, free and fickle as the wind."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 85000,
+  "pages": [
+    {
+      "_id": "Qw2pzzl05hqKjOeF",
+      "_key": "!journal.pages!0CoKAbSZu0voBdK7.Qw2pzzl05hqKjOeF",
+      "name": "Ceffylwraig",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The proud horse-queen spirit of a wild herd, free and fickle as the wind.",
+        "description": "<p>A herd of wild horses has a life — nay, a spirit — all its own, a spirit as free and fickle as the wind. Take care, you who would poach wild horses for your own purpose, lest you find your heart turned against you!</p>",
+        "questions": [
+          {
+            "prompt": "What sort of gift do the ceffylwraig most value?",
+            "answer": ""
+          },
+          {
+            "prompt": "What sort of gift will do in a pinch?",
+            "answer": ""
+          }
+        ],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** 'Ceffylwraig' means 'horse wife,' but she sees herself more as queen than wife: proud and haughty, disdainful of the weak and the slow, the herd her subjects more than her children.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** A ceffylwraig is scornful and suspicious of praise or fancy words, but can be appeased by thoughtful gifts, offered with appropriate respect from proud women of noble bearing.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.xGwlyfewGjgB5QWQ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

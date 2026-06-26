@@ -1,0 +1,91 @@
+{
+  "name": "Antiquarian",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "iron mattock d8 w/disadvantage (close, messy, awkward) or knife d6 w/disadvantage (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to indulge their curiosity, or to secure the next big score"
+      }
+    },
+    "concept": "A southern scholar who hunts the World's End for relics to study and sell.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, hoarder, cautious, cunning, magical",
+    "qualities": "<p>Often in possession of arcana, and willing to use them.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.T1ELDbVtepRKsf3d",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Antiquarian",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "3ccFnDLfzDFxs9qG",
+      "name": "Expound at length upon a topic",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bZKtYZmapDExeAJU.3ccFnDLfzDFxs9qG"
+    },
+    {
+      "_id": "gaVvEXGJzNCdi1Dz",
+      "name": "Open, touch, or tinker with something",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bZKtYZmapDExeAJU.gaVvEXGJzNCdi1Dz"
+    },
+    {
+      "_id": "okNZmGu68qeH7MQk",
+      "name": "Use a minor spell or artifact",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bZKtYZmapDExeAJU.okNZmGu68qeH7MQk"
+    },
+    {
+      "_id": "FkpgfrlZJyQkqViS",
+      "name": "Hang back and let the help face the danger",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bZKtYZmapDExeAJU.FkpgfrlZJyQkqViS"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "bZKtYZmapDExeAJU",
+  "_key": "!actors!bZKtYZmapDExeAJU"
+}

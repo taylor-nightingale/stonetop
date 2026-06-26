@@ -1,0 +1,70 @@
+{
+  "_id": "JcJ1Kg1avKIFJqdh",
+  "_key": "!journal!JcJ1Kg1avKIFJqdh",
+  "name": "Bronze Colossus",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A 60-foot, aetherium-veined bronze sentinel of a Forge Lord's gate."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 70000,
+  "pages": [
+    {
+      "_id": "HV7I6GMXvWEn4X3o",
+      "_key": "!journal.pages!JcJ1Kg1avKIFJqdh.HV7I6GMXvWEn4X3o",
+      "name": "Bronze Colossus",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A 60-foot, aetherium-veined bronze sentinel of a Forge Lord's gate.",
+        "description": "<p>It stands nearly sixty feet tall, a muscular Forge Lord cast in bronze. Similar statues loom about, each grand and imposing — but this one is shot through with blueish veins, and it feels like it's watching you. Because it is. The colossus guards the entrance to its master's domain: approach honorably, speaking the Forge Lord's tongue, and it politely tells you to come again later, for its master is away. Intruders, blowhards, and thieves are dealt with forcibly.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Those blueish veins are aetherium, and likely what animates the statue — which means there's no single weak point. Maybe you could harm it by drawing the lightning from it.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** Or you could, you know, just blast it with lightning and overload it.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.5nfugU7444Jh6D0e"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

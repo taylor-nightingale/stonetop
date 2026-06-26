@@ -1,0 +1,103 @@
+{
+  "name": "Nine-Fingered Stranger",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 22,
+        "max": 22
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "by weapon d10+2 (tags by weapon, +forceful)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to test people, to set events in motion"
+      }
+    },
+    "concept": "Tor walking the world in disguise, testing mortals with a challenge and a missing finger.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, magical, enigmatic, moody, curious",
+    "qualities": "<p>Unable or unwilling to solve problems — only causes or presents them; unaware of its true nature. Armor 0 vs. black iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.SUe3zYQvT9AGKgzG",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "The Stranger",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "G4WwCItsVwcthHG6",
+      "name": "Manifest as a nine-fingered man",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Kh5NQGe2zSAEV3BZ.G4WwCItsVwcthHG6"
+    },
+    {
+      "_id": "DPfkF050a9u0QpDM",
+      "name": "Present a challenge — of might, prowess, endurance, courage, honor, or kindness",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Kh5NQGe2zSAEV3BZ.DPfkF050a9u0QpDM"
+    },
+    {
+      "_id": "ClBFJoXhtRQCvjR5",
+      "name": "Cloud their judgement, make this all seem reasonable",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Kh5NQGe2zSAEV3BZ.ClBFJoXhtRQCvjR5"
+    },
+    {
+      "_id": "Ef9kGl9uNFujSC7T",
+      "name": "Bestow a (dubious?) gift or curse",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Kh5NQGe2zSAEV3BZ.Ef9kGl9uNFujSC7T"
+    },
+    {
+      "_id": "1TZ8kRwTkcCMYskE",
+      "name": "Vanish mysteriously",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Kh5NQGe2zSAEV3BZ.1TZ8kRwTkcCMYskE"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "UMy5lvLwxc5hF8z7",
+  "_id": "Kh5NQGe2zSAEV3BZ",
+  "_key": "!actors!Kh5NQGe2zSAEV3BZ"
+}

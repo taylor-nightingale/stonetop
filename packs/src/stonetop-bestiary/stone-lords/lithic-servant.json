@@ -1,0 +1,81 @@
+{
+  "name": "Lithic Servant",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 11,
+        "max": 11
+      },
+      "armor": {
+        "value": 3,
+        "source": "made of stone"
+      },
+      "damage": {
+        "value": "stone fists d6 (hand, grabby)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to follow its last orders"
+      }
+    },
+    "concept": "Faceless stone mannequin-servants grinding through their last orders forever.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, construct, implacable",
+    "qualities": "<p>Externally powered; bug-like intellect; blind; tremorsense.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.91EWIGU7SaOUHbS9",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Lithic Servant",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "NtWit7a5KxrPdpZj",
+      "name": "Act with eternal patience and endurance",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CoqfzAvGUkjfvMpi.NtWit7a5KxrPdpZj"
+    },
+    {
+      "_id": "MaMFo0GgWh99AitN",
+      "name": "Act with no sense of consequence",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CoqfzAvGUkjfvMpi.MaMFo0GgWh99AitN"
+    },
+    {
+      "_id": "WwX6qm0eu51Bo34N",
+      "name": "Hurt someone unintentionally while performing its tasks",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CoqfzAvGUkjfvMpi.WwX6qm0eu51Bo34N"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "1yj6UyLp9x9oxtmS",
+  "_id": "CoqfzAvGUkjfvMpi",
+  "_key": "!actors!CoqfzAvGUkjfvMpi"
+}

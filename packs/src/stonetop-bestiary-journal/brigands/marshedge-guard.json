@@ -1,0 +1,61 @@
+{
+  "_id": "vmZHAuziESAq3yf8",
+  "_key": "!journal!vmZHAuziESAq3yf8",
+  "name": "The Guard",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The town watch of Marshedge — Brennan's old gang, the Claws, in all but name."
+    }
+  },
+  "folder": "RZash2IS2sE5glzA",
+  "sort": 180000,
+  "pages": [
+    {
+      "_id": "A86NgqAeWYFmVy9K",
+      "_key": "!journal.pages!vmZHAuziESAq3yf8.A86NgqAeWYFmVy9K",
+      "name": "The Guard",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The town watch of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> — <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong>'s old gang, the Claws, in all but name.",
+        "description": "<p>The town watch of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, dominated by <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong>'s old gang, the Claws. Whether a given guard protects the town or preys on it depends entirely on which sort you've crossed: an Ex-Claw out to lord over others, a Loyalist who'll protect the town no matter what, or a green New recruit just trying to avoid danger and punishment.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.EfKVm2sMXRjrnB6L"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

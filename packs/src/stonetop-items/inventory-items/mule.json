@@ -1,0 +1,21 @@
+{
+  "_id": "84S5jIc1xLJjBict",
+  "_key": "!items!84S5jIc1xLJjBict",
+  "name": "Mule",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mule",
+      "inventoryColumn": "regular",
+      "sortOrder": 64,
+      "note": "HP 14, d6+1 damage (<em>hand</em>, <em>close</em>)",
+      "weight": 3,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

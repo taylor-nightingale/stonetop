@@ -1,0 +1,92 @@
+{
+  "name": "Dool Spirit",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "feast on fears d6 w/disadvantage (hand, close, ignores armor)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to taste sweet, delicious fears"
+      }
+    },
+    "concept": "A fear-eating spirit of the afterlife that binds to your bones and haunts you alone.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, spirit, terrifying, stealthy, devious",
+    "qualities": "<p>Powerless in bright light; bound to its tree or a victim's bones.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.N7e7deA8brYpOz66",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Dool Spirit",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "nPwDwFRsAtm6rd5D",
+      "name": "Sense a victim's doubts and worries",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QVLizZqzWNlG4e4f.nPwDwFRsAtm6rd5D"
+    },
+    {
+      "_id": "fwtNCrnGlmpJcXpG",
+      "name": "Shape sound and shadow to unnerve and frighten",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QVLizZqzWNlG4e4f.fwtNCrnGlmpJcXpG"
+    },
+    {
+      "_id": "Uc0hpiVGgZVENblG",
+      "name": "Manifest as its victim's fears (harmed only by one who masters their fear)",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QVLizZqzWNlG4e4f.Uc0hpiVGgZVENblG"
+    },
+    {
+      "_id": "WebllT9pXTml2WRo",
+      "name": "Bind itself to a victim's bones",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QVLizZqzWNlG4e4f.WebllT9pXTml2WRo"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "QVLizZqzWNlG4e4f",
+  "_key": "!actors!QVLizZqzWNlG4e4f"
+}

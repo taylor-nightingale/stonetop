@@ -1,0 +1,92 @@
+{
+  "name": "Brennan",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 3,
+        "source": "brigandine, shield"
+      },
+      "damage": {
+        "value": "steel sword d8+1 (close, 3 piercing)",
+        "rollFormula": "d8+1"
+      },
+      "instinct": {
+        "value": "to maintain or increase his power"
+      }
+    },
+    "concept": "The bandit-turned-marshal who rules Marshedge through his old gang, the Claws.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, organized, hoarder, cautious, devious",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Brennan",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "uNQSdE8fWrCo7vFk",
+      "name": "Identify and exploit a weakness",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qmoXHlBvgw6uvYTZ.uNQSdE8fWrCo7vFk"
+    },
+    {
+      "_id": "yav5RM7F31GSHUsv",
+      "name": "Choose the best person for the job",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qmoXHlBvgw6uvYTZ.yav5RM7F31GSHUsv"
+    },
+    {
+      "_id": "sJfm9MJHxq4GiSqy",
+      "name": "Hide his true strength or position",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qmoXHlBvgw6uvYTZ.sJfm9MJHxq4GiSqy"
+    },
+    {
+      "_id": "QzLh4j0EyfqW66x7",
+      "name": "Out-think and out-maneuver",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qmoXHlBvgw6uvYTZ.QzLh4j0EyfqW66x7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "7jHoGAhA79s1EBFQ",
+  "_id": "qmoXHlBvgw6uvYTZ",
+  "_key": "!actors!qmoXHlBvgw6uvYTZ"
+}

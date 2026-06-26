@@ -1,0 +1,21 @@
+{
+  "_id": "iqh4gVJjrsMnTvnR",
+  "_key": "!items!iqh4gVJjrsMnTvnR",
+  "name": "Sheep",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "sheep",
+      "inventoryColumn": "regular",
+      "sortOrder": 61,
+      "note": "HP 3, d4 damage; butcher for &#9671; Provisions (6 uses)",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Advantage & Disadvantage",
+    "description": "<p>When you <strong>make a roll with advantage</strong>, roll an extra die and discard the lowest result.</p><p>When you <strong>make a roll with disadvantage</strong>, roll an extra die and discard the highest result.</p><p>When you <strong>make a roll with both advantage and disadvantage</strong>, they cancel each other out.</p><p>If you have <strong>advantage/disadvantage on a damage roll</strong>, roll the main die twice and discard the lower/higher result. Then add any bonus dice that apply.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Burn Brightly",
+    "description": "<p>When you <strong><em>have enough XP to Level Up</em></strong> (6 + twice your current level), you may spend 2 XP after any roll you make to add +1 to that roll (max +1 per roll).</p>",
+    "rollType": null
+  },
+  {
+    "name": "Death's Door",
+    "description": "<p>When you <strong><em>are dying</em></strong>, you glimpse the Last Door and the Lady of Crows (describe it). Then, roll +nothing: <strong>on a 10+</strong>, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; <strong>on a 7-9</strong>, the Lady waves you off—you're no longer dying but you're out of the action; <strong>on a 6-</strong>, your time has come—choose 1:</p><ul><li>Make one last move as if you rolled a 12+, then step through the Last Door</li><li>Refuse to go; gain the Revenant or Ghost insert</li><li>Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The Lady waves you off—you're no longer dying but you're out of the action."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Your time has come—choose 1: Make one last move as if you rolled a 12+, then step through the Last Door / Refuse to go; gain the Revenant or Ghost insert / Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert."
+      }
+    }
+  },
+  {
+    "name": "End of Session",
+    "description": "<p>When a <strong><em>session ends</em></strong>, point out how you demonstrated or struggled with your instinct. If you can, mark XP.</p><p>Say how your relationship with or opinion of a PC, NPC, or group has changed. If you can, mark XP.</p><p>Answer these questions as a group. For each \"yes,\" everyone marks XP.</p><ul><li>Did we learn more about the world or its history?</li><li>Did we defeat a threat to Stonetop or the region?</li><li>Did we improve our standing with our neighbors?</li><li>Did we make a lasting improvement to Stonetop, or tangible progress towards doing so?</li></ul><p>Praise something about the session (in the fiction or around the table) that you enjoyed or appreciated.</p><p>Finally, offer up a wish for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.</p>",
+    "rollType": null
+  }
+]

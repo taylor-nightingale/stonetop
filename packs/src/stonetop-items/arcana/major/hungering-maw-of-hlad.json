@@ -1,0 +1,41 @@
+{
+  "name": "Hungering Maw of Hlad",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "hungering-maw-of-hlad",
+      "front": {
+        "title": "Hungering Maw of Hlad",
+        "item": {
+          "name": "Hungering Maw of Hlad",
+          "weight": 0,
+          "note": "<em>magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A ring of black metal bands, woven in an intricate pattern beyond the skills of modern smiths. The way the bands twist on each other seems to defy reality, and the weak-willed find themselves pondering the bands for minutes or hours.</p><p>The metal is always cold. Always.</p><p>When you <strong><em>wear the ring and press it firmly into the skin of a living thing</em></strong>, the ring draws the life-force from your victim. If your victim is helpless or unable to struggle, they are reduced to 0 HP (see below).</p><p>If your <strong><em>victim struggles</em></strong>, roll +CON: <strong>on a 10+</strong>, deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers); <strong>on a 7-9</strong>, deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out; <strong>on a 6-</strong>, ask the GM what happens (which may or may not involve marking a consequence).</p><p>When you <strong><em>use the ring to reduce an intelligent victim to 0 HP</em></strong>, roll 1d6:</p><ul><li>1-2: Their soul is wounded but they'll live, suffering from unnatural, compulsive hungers; should they die in this state, they become a wraith.</li><li>3-4: Their soul is wounded and their body gives up; they become a wraith.</li><li>5-6: Their soul is consumed and utterly destroyed by the ring—mark 1 below.</li></ul>",
+        "unlock": {
+          "description": "○○○ When you make the last mark, you unlock the ring's mysteries. Gain Siphon (see reverse) and erase all the marks. Each time you mark the third circle, gain another move from the reverse. If you have all the moves, mark a consequence instead.",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Hungering Maw of Hlad",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>□ SIPHON</strong><br>When you <strong><em>raise your ringed hand and will the ring to consume someone's life-force</em></strong> (at up to reach range), roll +CON: <strong>on a 10+</strong>, deal 1d10 damage (<em>grabby, ignores armor</em>); <strong>on a 7-9</strong>, deal 1d10 damage (<em>ignores armor</em>) but choose one: The ring eats at your life-force, too—lose 1d10 HP and mark a debility / Mark a consequence. <strong>On a 6-</strong>, the GM says what happens (which may or may not involve marking a consequence).</p><p><strong>□ INESCAPABLE PULL</strong><br>You can use Siphon at up to near range, and <strong>on a 10+</strong> you can can choose to drag the victim closer.</p><p><strong>□ MAELSTROM</strong><br>When you <strong><em>use Siphon</em></strong>, you can mark a consequence before rolling to affect a number of victims within range. Roll +CON once, but roll damage separately for each target.</p><p><strong>□ DUST TO DUST</strong><br>When you <strong><em>wear the ring and press it firmly against a work of mortal artifice</em></strong>, mark a debility and then roll +CON: <strong>on a 10+</strong>, the artifice fails or is ruined (say how); <strong>on a 7-9</strong>, it is ruined (as per a 10+) but also mark a consequence; <strong>on a 6-</strong>, the GM says what happens (which may or may not involve marking a consequence.)</p><h3>Consequences</h3><ul><li>□□□ A powerful earthquake strikes the area. Each time you choose this option, the quake is longer, more powerful, more destructive.</li><li>□ The ring fuses to your flesh and bone and can no longer be removed without cutting off your finger.<ul><li>The air in your presence is always noticeably colder, though you yourself are unharmed and unfazed by even the bitterest cold.</li></ul></li><li>□ The ring wounds your soul, reducing your max HP by 4. Until your soul is healed, your instinct becomes \"Hunger: to fill the emptiness inside you with excess.\" Should you roll a 6- on Death's Door, you die and become a wraith (a monster in the GM's control).</li><li>□ The ring opens a gaping vortex, sucking in the life-force of everything around it (d10 damage, <em>near, area, grabby, ignores armor</em>) and weakening stone and metal and wood. You can, perhaps, close the vortex through a force of will.</li><li>□ The earth shakes. The ring tears at your life-force (1d10 damage, <em>messy, ignores armor</em>, mark all three debilities). The ring is gone and your hand is left a withered and palsied thing. And somewhere, a hole has opened in the world.</li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "iOo2MhiPpDcNJRur",
+  "_key": "!items!iOo2MhiPpDcNJRur",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-hungrymaw.webp"
+}

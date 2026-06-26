@@ -1,0 +1,18 @@
+{
+  "_id": "JGpWqPlx9AtQ40ZM",
+  "_key": "!items!JGpWqPlx9AtQ40ZM",
+  "name": "Giant Slayer",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>strike at a weak spot of a large or huge creature</em></strong>, you deal another +2 damage (+4 total).</p>",
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Big Game Hunter"
+      ]
+    }
+  },
+  "folder": "fr7cP7vKBgBxbN0Q"
+}

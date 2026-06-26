@@ -1,0 +1,70 @@
+{
+  "_id": "TtB1H0FcNCFGRTK0",
+  "_key": "!journal!TtB1H0FcNCFGRTK0",
+  "name": "Nailadd",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hound-sized spiders that paralyze and cocoon their prey."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 19000,
+  "pages": [
+    {
+      "_id": "8ZDNF2HI5P731QwA",
+      "_key": "!journal.pages!TtB1H0FcNCFGRTK0.8ZDNF2HI5P731QwA",
+      "name": "Nailadd",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Hound-sized spiders that paralyze and cocoon their prey.",
+        "description": "<p>So far, these hound-sized spiders have thankfully avoided hunters and trappers in the Wood, and certainly haven't come near town. But they're out there, rest assured, and growing in numbers.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Nailadd venom paralyzes prey, rather than killing it.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** You can harvest the venom (d4 uses, dangerous, reload, Value 1) from an intact corpse. A blade coated in nailadd venom deals +1d4 damage and numbs the wounded area.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.yoHXsBjzR8AVHzXj"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

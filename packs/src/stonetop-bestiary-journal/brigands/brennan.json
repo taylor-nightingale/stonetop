@@ -1,0 +1,61 @@
+{
+  "_id": "rztqfU6X75vkMarl",
+  "_key": "!journal!rztqfU6X75vkMarl",
+  "name": "Brennan",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The bandit-turned-marshal who rules Marshedge through his old gang, the Claws."
+    }
+  },
+  "folder": "RZash2IS2sE5glzA",
+  "sort": 181000,
+  "pages": [
+    {
+      "_id": "7Rr9B2hp3LnMkgzl",
+      "_key": "!journal.pages!rztqfU6X75vkMarl.7Rr9B2hp3LnMkgzl",
+      "name": "Brennan",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The bandit-turned-marshal who rules <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> through his old gang, the Claws.",
+        "description": "<p>A notorious bandit the council of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> once asked to take the job of marshal. He's still in charge, and his old gang — the Claws — dominate the town watch. A canny operator who would far rather out-think a problem than fight it, and who hides his true strength until the moment it matters.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qmoXHlBvgw6uvYTZ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Luglfsk",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 1,
+        "source": "hide"
+      },
+      "damage": {
+        "value": "electric shock d6 (hand, reload), or chew d4 (hand)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to feed"
+      }
+    },
+    "concept": "Lightning-stinging maggot-things that swarm out of the cursed river.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, amphibious, corrupted",
+    "qualities": "<p>Lightning-proof.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.3BvxOqjeOtQei8cG",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Luglfsk",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "qIOZakH4gkFCCKgo",
+      "name": "Sense a creature's electrical field",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!L9dlnvkyRdbLZCEI.qIOZakH4gkFCCKgo"
+    },
+    {
+      "_id": "8Oedx7YtALTENGd5",
+      "name": "Stun or paralyze with a touch, bzzzt",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!L9dlnvkyRdbLZCEI.8Oedx7YtALTENGd5"
+    },
+    {
+      "_id": "BQ07qZm8sBxwTNyt",
+      "name": "Swarm a stunned creature",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!L9dlnvkyRdbLZCEI.BQ07qZm8sBxwTNyt"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Q54ooWoCvfDvmsPD",
+  "_id": "L9dlnvkyRdbLZCEI",
+  "_key": "!actors!L9dlnvkyRdbLZCEI"
+}

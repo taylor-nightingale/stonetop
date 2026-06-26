@@ -1,0 +1,61 @@
+{
+  "_id": "EBKcoyX7cPlMtzG7",
+  "_key": "!journal!EBKcoyX7cPlMtzG7",
+  "name": "Specter",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A vengeful, telekinetic ghost of pure spite, tormenting the living."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 104000,
+  "pages": [
+    {
+      "_id": "ePDS5N9VUBRO0vU8",
+      "_key": "!journal.pages!EBKcoyX7cPlMtzG7.ePDS5N9VUBRO0vU8",
+      "name": "Specter",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A vengeful, telekinetic ghost of pure spite, tormenting the living.",
+        "description": "<p>A specter is a soul consumed by hatred and envy, cruelty and rage. Maybe they were a sadistic murderer in life, or a victim whose death was so traumatic that they lash out at any living thing; maybe a pining ghost whose loved ones rejected them, or a fettered soul long- and cruelly-bound, now set free. Regardless: they are now a thing of spite and vengeance, wanting only to punish those with the temerity to live.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.3bGjXtEOne32k1cr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

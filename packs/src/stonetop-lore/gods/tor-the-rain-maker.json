@@ -1,0 +1,171 @@
+{
+  "_id": "UoAk5JtClo9sjL1O",
+  "_key": "!journal!UoAk5JtClo9sjL1O",
+  "name": "Tor, the Rain-Maker",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tor, the Rain-maker, also called the Thunderhead and Slayer-of-Beasts, is one of the gods in Stonetop ’s pavilion of the gods. He is the god of wind and rain, weather and storms, patron of warriors and hunters too. Many tales are told of his victories, and yes, of his foibles, too."
+    }
+  },
+  "folder": "IIxADXjnF97PXJDg",
+  "sort": 5000,
+  "pages": [
+    {
+      "_id": "1cwOqBmGv09QdhFC",
+      "_key": "!journal.pages!UoAk5JtClo9sjL1O.1cwOqBmGv09QdhFC",
+      "name": "Tor, the Rain-Maker",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Tor, the Rain-maker, also called the Thunderhead and Slayer-of-Beasts, is one of the gods in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>’s pavilion of the gods. He is the god of wind and rain, weather and storms, patron of warriors and hunters too. Many tales are told of his victories, and yes, of his foibles, too.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Pick, or roll 1d12.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Rain/snow/good clean water</td></tr><tr><td>3–4</td><td>Wind/weather/the sky/clouds</td></tr><tr><td>5–6</td><td>Storms/thunder/lightning</td></tr><tr><td>7</td><td>Courage/strength/prowess/endurance</td></tr><tr><td>8</td><td>Generosity/gift-giving/celebration</td></tr><tr><td>9</td><td>Exuberance/confidence/folly</td></tr><tr><td>10</td><td>Surprises/moodiness/whims</td></tr><tr><td>11</td><td>Wrath/rage/destruction</td></tr><tr><td>12</td><td>Prophecy/doom foretold</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "In Stonetop",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Tor is the most popular god in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>. The Stone is sometimes called his anvil, or the quiver for his javelins. The Cistern is sometimes called his drinking horn. The locals use many colorful phrases that invoke his name.</p><p>What is Tor’s shrine like? Perhaps it is…</p><p>… laden with whisky and gifts, trophies and charms;<br>… just a simple idol, for his true altar is the Stone;<br>… home to a smoldering fire, constantly tended;<br>… shrouded, held in awe, approached by only the worthy;<br>… some variation on the above; or<br>… something else entirely.</p><p>Ask the PCs:</p><ul><li class=\"question-bullet\">Who tends Tor’s shrine? Is it a formal position (like a priest), or what?</li><li class=\"question-bullet\">How is Tor depicted?</li><li class=\"question-bullet\">What symbols adorn his shrine?</li><li class=\"question-bullet\">What do locals do to ask his blessings?</li><li class=\"question-bullet\">What do they do to avert his anger?</li><li class=\"question-bullet\">What are Tor’s high holidays? How is each one observed?</li></ul><p>...and elsewhere How widespread is the worship of Tor? That’s for you and your group to decide, but perhaps Tor…</p><p>… is a local deity, Stonetop’s patron but largely unknown elsewhere;<br>… is worshipped throughout the World’s End, but dismissed as a barbaric god by those from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> and the South;<br>… is widely known and worshipped, and served by a wandering order of priests;<br>… is known the world over, but often with very different aspects;<br>… some variation on one of the above; or<br>… something else entirely.</p><p>In any other community that knows and worships Tor, consider/ask:</p><ul><li class=\"question-bullet\">Which of his themes do they emphasize most?</li><li class=\"question-bullet\">Is he gladly worshipped? Given due respect? Feared and appeased? Or what?</li><li class=\"question-bullet\">Do they maintain a public shrine/ temple? If so, where is it and what’s it like?</li><li class=\"question-bullet\">Who conducts rites in his honor?</li><li class=\"question-bullet\">What unfamiliar tales do they tell/rites do they perform/symbols do they use?</li></ul><p>If the worship of Tor is unknown to a people: what other god or gods of the sky, storms, weather, and/or violence do they worship? (See page 184 for guidance.)</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Associated Creatures",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues for Tor, the Rain-Maker. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SUe3zYQvT9AGKgzG]{Nine-Fingered Stranger}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "**According to the tales:** How did Tor come to be (a god)? What’s his origin story?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which god is his rival/lover/ally/kin?",
+                "answer": ""
+              },
+              {
+                "prompt": "What three great beasts is Tor said to have slain?",
+                "answer": ""
+              },
+              {
+                "prompt": "What natural feature did he shape in a fit of rage?",
+                "answer": ""
+              },
+              {
+                "prompt": "From what predicament did a mortal once rescue him?",
+                "answer": ""
+              },
+              {
+                "prompt": "What gift did he give to **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**/ humanity?",
+                "answer": ""
+              },
+              {
+                "prompt": "How did he lose one of his fingers?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is one of the names he goes by when he walks the world as a man?",
+                "answer": ""
+              },
+              {
+                "prompt": "Use the answers to help decide what Tor’s true nature is.",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The PCs encounter a nine-fingered stranger.</li><li>During a violent storm, multiple villagers dream of a terrible beast, unleashed.</li><li>One of Tor’s rites is disrupted; drought afflicts the village.</li><li>A wandering priest of Tor arrives, offering to cast runes and tell fortunes.</li><li>Travelers praise some new/foreign god of strength/storms/war, and heap insult and derision upon Tor.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A fulgurite, sand or soil vitrified by lightning, sacred to Tor (fragile, Value 0)</li><li>The claw/fang/tusk/horn of a great beast, carved with prayers to Tor (Value 0)</li><li>A pouch of runes, the kind used for divination (Value 0)</li><li>An ingot of pure aetherium, left as an offering (Value 1)</li><li>Aetherium-tipped javelins (thrown, magical, forceful, loud, dangerous, +2 damage, all out, Value 2)</li><li>A large, clear bottle; the pale liquid sealed inside rises when rain, snow, or storms approach (fragile, Value 2)</li><li>A pair of mammoth tusks, carved in Whitefang Mountain style, depicting a storm god bearing gifts and slaying beasts (immobile, Value 3)</li></ul><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A half-buried plaque</td></tr><tr><td>2</td><td>A path in the woods</td></tr><tr><td>3</td><td>A cloak, richly embroidered</td></tr><tr><td>4</td><td>A cracked flute</td></tr><tr><td>5</td><td>A corroded spearhead</td></tr><tr><td>6</td><td>A fine drinking horn</td></tr></tbody></table><ul><li>Major arcana</li><li>The following might be associated with Tor, or at least revered by his followers:</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.65NmuJ13p1U6Qtf0]{The Azure Hand}</strong></li><li>Storm markings</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Associated entities",
+                "body": "<ul><li>Elemental spirits, especially those of rain, snow, storm, and wind</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Y6pj88e7QJGdPYJl]{Andalau}</strong>, who love to dance before a storm</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oAW6aV8Fmw6ZQPX4]{Frythanc}</strong> and thunder drakes, who rank among Tor’s most honored beasts</li><li>An elemental vortex, especially of lightning or wind</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{The Pale Hunter}</strong>, perhaps, who might be Tor’s child/rival/lover/ etc. or someone whom he cursed</li></ul>"
+              },
+              {
+                "heading": "Harsh weather",
+                "body": "<ul><li>Lashing wind and rain</li><li>Thunder and lightning (see below)</li><li>Poor visibility</li><li>Slippery/sodden ground</li><li>Flash flooding</li><li>Hail storms—annoying, pelting (d4 damage), smashing (d6 damage)</li><li>Mudslides</li><li>Cold wind and rain, sleet, snow, hypothermia &amp; frostbite</li></ul>"
+              },
+              {
+                "heading": "Lightning",
+                "body": "<p>When you get struck by lightning, it’s not necessarily a sign of Tor’s displeasure. But it probably is.</p><ul><li>Flash in the distance; rumble ominously</li><li>Paint the sky with bright-white bolts</li><li>BOOM! Deafen and disorient them</li><li>A bolt starts a wildfire</li><li>Hair stands on end, skin and spine tingle</li><li>A bolt strikes nearby (d10+2 damage, reach, area, forceful, loud, ignores armor)</li><li>A bolt strikes directly (Death’s Door)</li></ul>"
+              },
+              {
+                "heading": "Drought",
+                "body": "<p>Threat (affliction) Instinct to deplete resources</p><p>Rain and snow are Tor’s life-giving gifts. But what if he withholds them? Or worse, is unable to give them freely?</p><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{The Stream}</strong> dries up, the Cistern runs low</li><li>The crops are stunted (generate Surplus with disadvantage)</li><li>Everything/one goes unwashed; disease spreads</li><li>Impending doom: Crops and gardens fail, livestock die/are slaughtered (steading marks lacking and generates no Surplus)</li></ul><p>Something interesting: Past droughts have been broken by making the proper offerings/ completing some quest, but the details are unclear—perhaps you could commune with a spirit of the wild to learn more?</p><p>Something useful: You know what offering needs to be made, or what quest needs to be completed—Make a Plan with the GM to determine the details.</p>"
+              },
+              {
+                "heading": "Nine-fingered stranger",
+                "body": "<p>Many tales tell of a stranger met in an unlikely place. The stranger is in some sort of pickle, or challenges our hero, or presents a tempting opportunity. Whatever else happens, the stranger ends up vanishing, but not before our hero notices his missing finger—and realizes that they just met Tor.</p><p>When the tale’s hero rises to the occasion, they win a gift from the stranger: a treasure or a magic item, a secret or a prophecy, or maybe just some useful bit of advice. But when the “hero” comes up short, they wind up cursed or “win” some treasure that brings them ruin and woe.</p><p>When you introduce the nine-fingered stranger, pick or roll a manifestation and the challenge he presents. Consider, too, what gift or curse he might dispense: an arcanum, an answer, a bit of advice, a blessing (e.g. hold 3 Preparation, per the Bolster move), a curse (a threat, a magical affliction), etc.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A brash youth</td></tr><tr><td>2</td><td>A formidable warrior</td></tr><tr><td>3</td><td>A put-upon father</td></tr><tr><td>4</td><td>A wealthy merchant</td></tr><tr><td>5</td><td>A mysterious/cagey traveler</td></tr><tr><td>6</td><td>A hapless old man</td></tr></tbody></table><p><strong>1d6 challenge</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A test of might (a duel, a wrestling match, a beast to slay, etc.)</td></tr><tr><td>2</td><td>A test of prowess (a race, a climb, an archery contest, etc.)</td></tr><tr><td>3</td><td>A test of endurance (a drinking contest, a long trudge, an all-night watch, etc.)</td></tr><tr><td>4</td><td>A test of courage (a terror to face, a fate to accept, an injustice to prevent, etc.)</td></tr><tr><td>5</td><td>A test of honor (a chance to steal, or cheat, or rig a bet, etc.)</td></tr><tr><td>6</td><td>A test of kindness (someone wretched to help, some wrong to put right, etc.)</td></tr></tbody></table>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

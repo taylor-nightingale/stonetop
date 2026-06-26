@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Bolster",
+    "description": "<p>When you <strong><em>prepare for what's coming or seek the favor of the gods</em></strong>, say how and answer the GM's questions. Then, hold Preparation based on the amount of time you devote:</p><ul><li>A week or so: 1 Preparation</li><li>A month or so: 2 Preparation</li><li>The better part of a season: 3 Preparation</li></ul><p>When you <strong><em>make any roll to which your efforts might apply</em></strong>, you may spend 1 Preparation to add +1 to that roll, after it is made (maximum +1 per roll).</p>",
+    "rollType": null
+  },
+  {
+    "name": "Convalesce",
+    "description": "<p>When you <strong><em>rest for a few days, in safety and comfort</em></strong>, recover all your HP and clear all your debilities.</p><p>When you <strong><em>rest for a few weeks under the care of a healer</em></strong>, heal any problematic wounds that can heal. If you have suffered a permanent injury or impairment, either retire or Make a Plan to adapt to it.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Deploy",
+    "description": "<p>When you <strong><em>send a steading's people into danger or rally them against an attack</em></strong>, roll +Defenses: <strong>on a 10+</strong>, it goes as well as can be expected; <strong>on a 7-9</strong>, it works but someone chooses 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.</p><ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "It goes as well as can be expected."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "It works but someone chooses 1 from the list (you choose if acting from strength, GM chooses otherwise)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The villagers refuse your orders, suffer heavy losses (mark diminished), or you're put in a spot—carnage unless the PCs save the day."
+      }
+    }
+  },
+  {
+    "name": "Level Up",
+    "description": "<p>When you <strong><em>have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level</em></strong>, follow these steps:</p><ol><li>Subtract 6 + twice your current level from your XP.</li><li>Increase your level by 1.</li><li>Choose a new move from your playbook, or an insert that you've unlocked.</li><li>If you are the Blessed (or have a sacred pouch) and your new level is even, increase your max Stock by 1.</li><li>If you are the Lightbearer (or have Invoke the Sun God) and your new level is even, choose a new invocation.</li><li>Review your Instinct and Appearance (on the front of your playbook). Change anything that no longer applies. Feel free to make up new options.</li></ol>",
+    "rollType": null
+  },
+  {
+    "name": "Make a Plan",
+    "description": "<p>When you <strong><em>wish to accomplish some project but aren't sure how to go about it</em></strong>, tell the GM what you hope to achieve. They'll say what's required. If you're stumped on how to accomplish one of the requirements, tell the GM and Make a Plan for that.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Meet with Disaster",
+    "description": "<p>When <strong><em>calamity befalls the steading or panic spreads</em></strong>, reduce Fortunes by 1 (min -1).</p><p>When <strong><em>Fortunes would drop below -1 for any reason</em></strong> (not just calamity or panic), then the GM picks 1 instead:</p><ul><li>The steading marks <em>diminished</em> from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)</li><li>The steading marks <em>lacking</em> due to shortages/hoarding/distrust (treat Prosperity as 1 lower)</li><li>The steading marks <em>malcontent</em> from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)</li><li>Folks start to leave; reduce Population by 1</li></ul>",
+    "rollType": null
+  },
+  {
+    "name": "Muster",
+    "description": "<p>When you <strong><em>press every able body into the defense of a steading</em></strong>, reduce Fortunes by 1 and roll +Population: <strong>on a 7+</strong>, the steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. <strong>On a 10+</strong>, also pick 2; <strong>on a 7-9</strong>, also pick 1.</p><ul><li>Increase Defenses by 1 as long as the muster holds</li><li>Everyone's willing to pitch in; don't reduce Fortunes after all</li><li>The muster holds together even without your presence</li><li>1 or 2 individuals show real potential; ask the GM who and how</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "The steading is alert and ready for action. Also pick 2 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The steading is alert and ready for action. Also pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Folks ignore your orders, armed rivals come to blows, or a threat overwhelms the village."
+      }
+    }
+  },
+  {
+    "name": "Pull Together",
+    "description": "<p>When you <strong><em>set a community to work on improvements, to secure new resources, or to make major repairs</em></strong>, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: <strong>on a 10+</strong>, the job gets done; <strong>on a 7-9</strong>, pick 1:</p><ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforeseen cost, requirement, or challenge; address it and the job gets done</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "The job gets done."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Something interrupts the job and prevents it from getting done—work might resume if the PCs deal with it, or the job is scuttled and progress lost."
+      }
+    }
+  },
+  {
+    "name": "Seasons Change",
+    "description": "<p>🌱 When <strong><em>spring bursts forth upon the land</em></strong>, whoever is the most hopeful rolls +Fortunes: <strong>on a 10+</strong>, pick 1 seasonal gain; <strong>on a 7-9</strong>, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; <strong>on a 6-</strong>, threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1.</p><p>☀️ When <strong><em>the hot days of summer settle across the land</em></strong>, whoever is most content rolls +Fortunes: <strong>on a 10+</strong>, pick 2 seasonal gains; <strong>on a 7-9</strong>, pick 1 seasonal gain; <strong>on a 6-</strong>, a threat to the steading makes itself known or gets worse (and don't mark XP). Whatever the result, the steading generates 1d4−1 Surplus. Then, reset Fortunes to +1.</p><p>🍂 When <strong><em>autumn falls and the land is ripe for harvest</em></strong>, whoever is most determined rolls +Fortunes: <strong>on a 10+</strong>, pick 1 seasonal gain; <strong>on a 7-9</strong>, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; <strong>on a 6-</strong>, threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.</p><p>❄️ When <strong><em>winter grips the land</em></strong>, whoever is weariest rolls 1d4+Population (min 0); the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0, reduce Fortunes by 1, and pick 1:</p><ul><li>Reduce Population by 1 (min -1) due to death, decripitude, and departure</li><li>An important resource (one of the horses, the cistern, etc.) is lost or not maintained</li><li>An important NPC dies, their role unfilled</li><li>Your PC dies, leaves, or retires from play</li></ul><p>Then, roll +Fortunes: <strong>on a 10+</strong>, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); <strong>on a 7-9</strong>, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; <strong>on a 6-</strong>, as a 7-9, but also threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1.</p><hr><p><strong>Seasonal Gains</strong> (pick from this list when the move tells you to):</p><ul><li><strong>Population boom:</strong> A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).</li><li><strong>Tor's blessing:</strong> Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.</li><li><strong>Unexpected bounty:</strong> A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.</li><li><strong>Trade opportunity:</strong> At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price.</li><li><strong>Interesting news:</strong> There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.</li><li><strong>Valuable insight:</strong> You learn something that gives you a chance to address a threat that's been plaguing the steading.</li></ul>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Spring/Autumn: pick 1 seasonal gain. Summer: pick 2 seasonal gains. Winter: the winter is relatively mild; each player names a local NPC with whom their relationship improves."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Spring/Autumn: pick 1 seasonal gain, but a threat makes itself known or gets worse. Summer: pick 1 seasonal gain. Winter: the steading must consume additional Surplus equal to 1d4+Population or suffer the consequences."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Spring/Autumn: threats abound (don't mark XP). Summer: a threat makes itself known or gets worse (don't mark XP). Winter: as a 7-9, but also threats abound (don't mark XP)."
+      }
+    }
+  },
+  {
+    "name": "Trade & Barter",
+    "description": "<p>When you <strong><em>wish to acquire or sell a commonly available item</em></strong>, you can. When you <strong><em>seek to acquire or sell a special item</em></strong>, roll +Prosperity and subtract the item's Value. In winter, you have disadvantage. <strong>On a 10+</strong>, you can get it or sell it for a fair price; <strong>on a 7-9 when you're trying to buy</strong>, the GM picks 1:</p><ul><li>You can get it, but it'll cost more than usual</li><li>__ has it, but they aren't keen to give it up</li><li>You can get something close, but not quite right</li></ul><p><strong>On a 7-9 when you're looking to sell</strong>: you can sell it now, but you won't get its full worth.</p><p><strong>On a 6- either way</strong>, don't mark XP. If you want to acquire/sell it, you'll need to travel to __ or wait until next season.</p><p>For unique or truly exceptional items, don't Trade &amp; Barter. Either get with the GM and Make a Plan or wait for a trade opportunity when Seasons Change.</p>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "You can get it or sell it for a fair price."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Buying: GM picks 1 complication. Selling: you can sell it now but won't get its full worth."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Don't mark XP. You'll need to travel or wait until next season."
+      }
+    }
+  }
+]

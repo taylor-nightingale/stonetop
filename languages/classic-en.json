@@ -1,0 +1,269 @@
+{
+	"TYPES": {
+		"Actor": {
+			"steading": "Steading"
+		}
+	},
+	"stonetop": {
+		"actor": {
+			"defaultName": {
+				"character": "New Character",
+				"npc": "New NPC",
+				"steading": "New Steading"
+			}
+		},
+		"dialog": {
+			"roll": "Roll"
+		},
+		"sheet": {
+			"tabs": {
+				"playbook": "Playbook",
+				"moves": "Moves",
+				"inventory": "Inventory",
+				"arcana": "Arcana",
+				"followers": "Followers",
+				"notes": "Notes"
+			},
+			"collapseTop": "Collapse / expand header",
+			"notes": {
+				"bio": "Bio",
+				"bioPlaceholder": "Who is your character? Appearance, history, demeanor…",
+				"notes": "Notes",
+				"notesPlaceholder": "Session notes, reminders, goals…"
+			},
+			"playbook": {
+				"emptyHint": "Select or drag a playbook here to start.",
+				"selectPlaceholder": "Select a playbook",
+				"introductions": {
+					"title": "Introductions",
+					"preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",
+					"step1": "On your first turn, <strong>introduce yourself</strong> by name, pronouns, background, origin, and appearance.",
+					"step2": "On your second turn, <strong>describe your special possessions</strong> and how you contribute to the village (beyond working the fields).",
+					"step4Preamble": "On your next turn, <strong>answer one of the following</strong>, naming one or more NPCs who live in Stonetop.",
+					"step5": "Go around again. Answer another question from 4, or pass. When everyone has passed, go on.",
+					"step6Preamble": "On your next turn, <strong>ask your fellow PCs one of these</strong>. When others ask you, answer as you like.",
+					"step7": "Go around again. Ask another question from 6, or pass. When everyone has passed, go on.",
+					"step8": "Add your home to the steading playbook. When everyone is done, let spring break forth!"
+				}
+			}
+		},
+		"rollMode": {
+			"label": "Roll Mode",
+			"normal": "Normal",
+			"adv": "Advantage",
+			"dis": "Disadvantage"
+		},
+		"followers": {
+			"empty": "Drag followers here from the Followers compendium.",
+			"remove": "Remove",
+			"hp": "HP",
+			"armor": "Armor",
+			"damage": "Damage",
+			"note": "Note",
+			"instinct": "Instinct",
+			"cost": "Cost",
+			"notes": "Notes",
+			"loyalty": "Loyalty",
+			"moves": "Moves",
+			"specialQuality": "Special Qualities",
+			"description": "Description",
+			"notePlaceholder": "Tags…",
+			"add": "Add Follower",
+			"members": "Members",
+			"memberName": "Name…",
+			"addMember": "Add member",
+			"removeMember": "Remove member",
+			"customTag": "Type your own…",
+			"tags": "Tags",
+			"traits": "Traits",
+			"addTag": "tag",
+			"addTrait": "trait",
+			"companionType": "Type",
+			"companionOptions": "Options",
+			"addOption": "option",
+			"suggestedNames": "Suggested names",
+			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
+			"inventory": "Inventory",
+			"inventoryToggle": "Add/remove gear",
+			"inventoryDone": "Done",
+			"noGear": "No gear",
+			"loadTitle": "Load (total weight carried) — a guide, not a limit",
+			"loadLight": "Light",
+			"loadNormal": "Normal",
+			"loadHeavy": "Heavy"
+		},
+		"insert": {
+			"remove": "Remove",
+			"description": "Description",
+			"moves": "Moves",
+			"addMove": "Add move",
+			"namePlaceholder": "Insert name",
+			"instinct": "Instinct",
+			"addInstinct": "Add instinct",
+			"removeInstinct": "Remove instinct",
+			"choices": "Choices",
+			"addChoices": "Add choices group"
+		},
+		"arcana": {
+			"empty": "Drag arcana here from the Arcana compendium.",
+			"showFront": "Show Front",
+			"showBack": "Reveal Back",
+			"removeArcanum": "Remove",
+			"addToFollowers": "Add to followers",
+			"consequences": "Consequences"
+		},
+		"inventory": {
+			"regularItems": "Items",
+			"regularItemsNote": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items.",
+			"smallItems": "Small Items",
+			"smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
+			"otherItems": "Other Items",
+			"otherItemsNote":"(animals, kits, stashed items, etc.)",
+			"addItem": "Add item",
+			"addSmallItem": "Add small item",
+			"addItemName": "Name",
+			"addItemWeight": "Weight",
+			"addItemConfirm": "Add",
+			"removeItem": "Remove",
+			"regularUndefinedPoolLabel": "Undefined",
+			"regularUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to ◇ below.",
+			"smallUndefinedPoolLabel": "Undefined",
+			"smallUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to items below, or expend supplies to mark an additional ◇.",
+			"outfit": {
+				"heading": "When you <em><strong>Outfit</strong></em>, mark a number of ◇ below on specific items or as a group.",
+				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
+				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
+				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
+			}
+		},
+		"settings": {
+			"hideRollMode": {
+				"name": "Hide Roll Mode",
+				"hint": "Hide the roll mode selector (advantage/disadvantage) from character sheets."
+			},
+			"debugMode": {
+				"name": "Debug Mode",
+				"hint": "Enable debug logging in the browser console."
+			},
+			"expandMoveDescriptions": {
+				"name": "Expand Move Descriptions",
+				"hint": "Show move descriptions expanded by default on character sheets."
+			},
+			"defaultSheetTab": {
+				"name": "Default Sheet Tab",
+				"hint": "Which tab the character sheet opens to by default.",
+				"moves": "Moves",
+				"gear": "Gear",
+				"biography": "Biography"
+			}
+		},
+		"rollResults": {
+			"miss": "Miss",
+			"weakHit": "Weak Hit",
+			"strongHit": "Strong Hit!"
+		},
+		"npc": {
+			"hitPoints": "Hit Points",
+			"armor": "Armor",
+			"instinct": "Instinct"
+		},
+		"character": {
+			"stats": {
+				"sectionTitle": "Stats",
+				"strength": "Strength",
+				"dexterity": "Dexterity",
+				"intelligence": "Intelligence",
+				"wisdom": "Wisdom",
+				"constitution": "Constitution",
+				"charisma": "Charisma",
+				"abbr": {
+					"str": "+STR",
+					"dex": "+DEX",
+					"con": "+CON",
+					"int": "+INT",
+					"wis": "+WIS",
+					"cha": "+CHA"
+				}
+			},
+			"attributes": {
+				"damage": "Damage",
+				"armor": "Armor",
+				"xp": "XP",
+				"level": "Level"
+			},
+			"gear": {
+				"specialPossessions": "Special Possessions"
+			},
+			"moveTypes": {
+				"background": "Background"
+			},
+			"moves": {
+				"pickTitle": "Choose Starting Moves",
+				"pickInstruction": "Pick up to {count} moves to start with.",
+				"playbookMoves": "Playbook Moves",
+				"basicMoves": "Basic Moves",
+				"otherMoves": "Other Moves",
+				"addMove": "Add Move",
+				"removeMove": "Remove Move",
+				"requires": "Requires",
+				"notMet": "Not Met"
+			},
+			"selection": {
+				"select": "Select",
+				"cancel": "Cancel",
+				"choosePlaceholder": "Choose {label}…",
+				"chooseOne": "(Choose 1)",
+				"background": {
+					"label": "Background",
+					"dialogTitle": "Choose Background"
+				},
+				"instinct": {
+					"label": "Instinct",
+					"dialogTitle": "Choose Instinct",
+					"customPlaceholder": "Write your own instinct…"
+				},
+				"appearance": {
+					"label": "Appearance",
+					"dialogTitle": "Choose Appearance",
+					"instruction": "Choose 1 on each line, or make something up:"
+				},
+				"origin": {
+					"label": "Origin",
+					"dialogTitle": "Choose Origin",
+					"namesLabel": "Names",
+					"instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
+				}
+			}
+		},
+		"item": {
+			"move": {
+				"namePlaceholder": "Move Name",
+				"rollStat": {
+					"none":   "— No Roll —",
+					"ask":    "Ask (player chooses)",
+					"prompt": "Prompt (no roll)"
+				},
+				"moveType": {
+					"none":      "— Type —",
+					"basic":     "Basic",
+					"playbook":  "Playbook",
+					"homefront": "Homefront",
+					"special":   "Special",
+					"postDeath": "Post-Death",
+					"follower":  "Follower",
+					"other":     "Other"
+				},
+				"results": {
+					"successPlaceholder": "What happens on a 10+…",
+					"partialPlaceholder": "What happens on a 7-9…",
+					"failurePlaceholder": "What happens on a 6-…"
+				},
+				"details": {
+					"playbook":           "Playbook",
+					"repeatMax":          "Checkboxes",
+					"isStartingMove":     "Starting Move"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Magma Worm",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/unknown-origin.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 4,
+        "source": "rocky plates, lacks vitals"
+      },
+      "damage": {
+        "value": "bite d10+3 (hand, close, grabby, messy, 1 piercing) or searing touch d10 (hand, area)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to devour minerals and metal"
+      }
+    },
+    "concept": "A first-age worm of fire and stone that eats through solid rock.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, primordial, large, terrifying",
+    "qualities": "<p>Blind; tremorsense; fireproof; superheated body; can move only forward, never back up.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.r7ExiEQIX6sKJCXA",
+    "notes": "",
+    "creatureType": "unknown-origin"
+  },
+  "prototypeToken": {
+    "name": "Magma Worm",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/unknown-origin.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "DnnHq2OKWzqhaGWw",
+      "name": "Eat through solid rock",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qSYAPFrFZd8BOCVA.DnnHq2OKWzqhaGWw"
+    },
+    {
+      "_id": "9g2AwUHQ49ByFs5G",
+      "name": "Burst forth from a tunnel wall",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qSYAPFrFZd8BOCVA.9g2AwUHQ49ByFs5G"
+    },
+    {
+      "_id": "lu5R4najzUFoJ2Nk",
+      "name": "Exude choking, sulfurous gas",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qSYAPFrFZd8BOCVA.lu5R4najzUFoJ2Nk"
+    },
+    {
+      "_id": "mXJ2NDZbQmfxwVpE",
+      "name": "Melt metal that pierces it",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qSYAPFrFZd8BOCVA.mXJ2NDZbQmfxwVpE"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "xE9iSo0kYATJxXeW",
+  "_id": "qSYAPFrFZd8BOCVA",
+  "_key": "!actors!qSYAPFrFZd8BOCVA"
+}

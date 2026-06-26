@@ -1,0 +1,24 @@
+{
+  "_id": "nPFz46PDjqipVJIq",
+  "_key": "!items!nPFz46PDjqipVJIq",
+  "name": "Vest, brigandine, or fancy gambeson",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "vest-brigandine",
+      "inventoryColumn": "regular",
+      "sortOrder": 37,
+      "note": "<em>warm</em>",
+      "weight": 1,
+      "armor": {
+        "modifier": 2
+      },
+      "special": true,
+      "specialCategory": "Armor"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

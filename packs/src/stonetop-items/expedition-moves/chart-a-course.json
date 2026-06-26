@@ -1,0 +1,11 @@
+{
+  "name": "Chart a Course",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>wish to travel to a distant place</em></strong>, name or describe your destination. If the route is unclear, tell the GM how you intend to reach it. The GM will then tell you what's required, the risks, and how long it will likely take.</p><p>When you <strong><em>set out on the journey</em></strong>, the GM will present each of the challenges one at a time—plus any surprises that you couldn't have seen coming—in whatever order makes the most sense. Address them all and reach your destination.</p><details class=\"stonetop-follower-rule stonetop-travel-times\"><summary>Travel Times</summary><table class=\"stonetop-travel-times-table\"><thead><tr><th>Journey</th><th>Time</th></tr></thead><tbody><tr><td colspan=\"2\"><em>From Stonetop via the Roads to…</em></td></tr><tr><td>the Crossroads</td><td>3–4 hours</td></tr><tr><td>the Foothills</td><td>2 days</td></tr><tr><td>Titan Bones</td><td>2 days</td></tr><tr><td>Gordin's Delve</td><td>4 days</td></tr><tr><td>the Steplands</td><td>4 days</td></tr><tr><td>Barrier Pass</td><td>5 days</td></tr><tr><td>Marshedge</td><td>10 days</td></tr><tr><td colspan=\"2\"><em>From Stonetop to…</em></td></tr><tr><td>the cave bears' den</td><td>3–4 hours</td></tr><tr><td>the Red Grove</td><td>4–6 hours</td></tr><tr><td>the Maw</td><td>5–7 hours</td></tr><tr><td colspan=\"2\"><em>From the Crossroads to…</em></td></tr><tr><td>the Ruined Tower</td><td>5–6 hours</td></tr><tr><td colspan=\"2\"><em>From the north edge of the Steplands to…</em></td></tr><tr><td>Blackwater Lake</td><td>2–3 days</td></tr><tr><td>Three Coven Lake</td><td>3–4 days</td></tr><tr><td colspan=\"2\"><em>From Marshedge to…</em></td></tr><tr><td>the ruins on the Dread River</td><td>2 days</td></tr><tr><td>the northern Manmarch</td><td>4 days</td></tr><tr><td>Three-Coven Lake</td><td>4 days</td></tr><tr><td>Lygos</td><td>30 days</td></tr><tr><td colspan=\"2\"><em>To Tor's Fist from…</em></td></tr><tr><td>the Foothills</td><td>5 days</td></tr><tr><td>Barrier Pass</td><td>6 days</td></tr></tbody></table></details>"
+  },
+  "_id": "GjhQj5mA8vxTE6bY",
+  "_key": "!items!GjhQj5mA8vxTE6bY",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

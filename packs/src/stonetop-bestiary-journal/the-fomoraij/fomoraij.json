@@ -1,0 +1,61 @@
+{
+  "_id": "kGrMF2KnwppWW2db",
+  "_key": "!journal!kGrMF2KnwppWW2db",
+  "name": "Fomoraij",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A Green Lord who damned itself — sealed below, twisted with hatred, spawning new horrors."
+    }
+  },
+  "folder": "xsr0JM0qPS0Cd9yo",
+  "sort": 130000,
+  "pages": [
+    {
+      "_id": "ZAXwHEzRmXnFJpA0",
+      "_key": "!journal.pages!kGrMF2KnwppWW2db.ZAXwHEzRmXnFJpA0",
+      "name": "Fomoraij",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A Green Lord who damned itself — sealed below, twisted with hatred, spawning new horrors.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{The Green Lords}</strong> damned themselves. Driven from their homes and hunted by their own creations, betrayed by their fellow <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, they called up the darkness and the poison of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> and let it flow through their minds, their flesh, their lands. Corralled into one last trap, they went below — into the bosom of their masters — twisted and mad with hatred. There they wait, and spawn new horrors, and hate. No <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lB57gclVP4TiOIRb]{Fomoraij}</strong> is truly typical: a constraint dictates its instinct, and its tags, stats, qualities, and moves are shaped by its themes, its lair, and the forms it has taken.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Jmyo1j9nBbYSCU9z"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

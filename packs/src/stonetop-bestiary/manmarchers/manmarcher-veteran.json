@@ -1,0 +1,81 @@
+{
+  "name": "Manmarcher Veteran",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "thick hides, shield"
+      },
+      "damage": {
+        "value": "iron battleaxe d6 (close, messy), knife d6 (hand), or javelins d6 (thrown)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to protect their homes, their kin, their honor"
+      }
+    },
+    "concept": "Grim folk with something to fight for, and something to lose.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, organized, cautious",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.tVyIps1TouyG6khe",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Manmarcher Veteran",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "NwAlMGCD2v9JlztF",
+      "name": "Form or hold a shield wall",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xxE8nw7spGJN4acG.NwAlMGCD2v9JlztF"
+    },
+    {
+      "_id": "sotMGaEbD1476clG",
+      "name": "Pick their battles",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xxE8nw7spGJN4acG.sotMGaEbD1476clG"
+    },
+    {
+      "_id": "4bUSZT2LP0ovyoGe",
+      "name": "Charge!",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xxE8nw7spGJN4acG.4bUSZT2LP0ovyoGe"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Zk9eZkdsc82KOF4B",
+  "_id": "xxE8nw7spGJN4acG",
+  "_key": "!actors!xxE8nw7spGJN4acG"
+}

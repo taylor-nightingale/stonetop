@@ -1,0 +1,29 @@
+{
+  "_id": "xkxwnQrS7RPeMOkI",
+  "_key": "!items!xkxwnQrS7RPeMOkI",
+  "name": "Composite bow",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "composite-bow",
+      "inventoryColumn": "regular",
+      "sortOrder": 34,
+      "note": "+1 damage, x piercing",
+      "weight": 1,
+      "resource": {
+        "max": 2,
+        "title": null,
+        "labels": [
+          "low ammo",
+          "all out"
+        ]
+      },
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

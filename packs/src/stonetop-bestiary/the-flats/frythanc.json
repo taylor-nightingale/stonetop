@@ -1,0 +1,80 @@
+{
+  "name": "Frythanc",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "swooping talons d10+2 (hand, close, forceful, grabby), beak d10 (reach, disadvantage)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to wait for the right moment"
+      }
+    },
+    "concept": "A scaly bird with a forty-foot wingspan that drops its prey from the sky.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, stealthy, terrifying",
+    "qualities": "<p>Incredible eyesight; terrible hearing.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.oAW6aV8Fmw6ZQPX4",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Frythanc",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "lzACdw2hmP6yDr8J",
+      "name": "Soar on thermals, thousands of feet up",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!YKLG7aDPRTieTkve.lzACdw2hmP6yDr8J"
+    },
+    {
+      "_id": "NpIhUiZ1GFAm4mgf",
+      "name": "Swoop down like a thunderbolt, snatching up prey",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!YKLG7aDPRTieTkve.NpIhUiZ1GFAm4mgf"
+    },
+    {
+      "_id": "0hNwohOiMhjRI23B",
+      "name": "Drag prey up forty feet with slow mighty flaps, then drop them",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!YKLG7aDPRTieTkve.0hNwohOiMhjRI23B"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "YKLG7aDPRTieTkve",
+  "_key": "!actors!YKLG7aDPRTieTkve"
+}

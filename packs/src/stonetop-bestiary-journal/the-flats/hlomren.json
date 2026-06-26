@@ -1,0 +1,61 @@
+{
+  "_id": "Yeb5PFGFWdxGqNDU",
+  "_key": "!journal!Yeb5PFGFWdxGqNDU",
+  "name": "Hlomren",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Cat-sized red insects that swarm and burst with acid."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 4000,
+  "pages": [
+    {
+      "_id": "XxTWWSk3h9yA0mdg",
+      "_key": "!journal.pages!Yeb5PFGFWdxGqNDU.XxTWWSk3h9yA0mdg",
+      "name": "Hlomren",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Cat-sized red insects that swarm and burst with acid.",
+        "description": "<p>Red-shelled insects that look like a cross between an ant and a beetle, but the size of a small cat. They form colonies a few-hundred large, typically on higher ground, harvesting all the dead grass in a few miles, hibernating through winter, then relocating in spring to a part of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> that hasn't burned or been harvested in years. They mostly ignore people and large animals, but they'll swarm if threatened.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.WrXgtdFAMVIRlJ9G"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

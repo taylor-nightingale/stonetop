@@ -1,0 +1,81 @@
+{
+  "name": "Fen-walker",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 1,
+        "source": "leather cuirass"
+      },
+      "damage": {
+        "value": "knife d8 (hand) or sling d6 (near, reload)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to know and survive the Fen"
+      }
+    },
+    "concept": "A Marshedge guide who knows the Fen's hidden hazards and grim secrets.",
+    "organization": "",
+    "size": "",
+    "tags": "fen-wise, cautious, stealthy, observant",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.vRX46bUKX5FsSzly",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Fen-walker",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "o9HS2RF0XUSIhKyO",
+      "name": "Spot or avoid a hidden hazard",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DiCuCO7x8F1jVUk3.o9HS2RF0XUSIhKyO"
+    },
+    {
+      "_id": "y1sD2FyhV7CIxEhM",
+      "name": "Berate outsiders for carelessness",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DiCuCO7x8F1jVUk3.y1sD2FyhV7CIxEhM"
+    },
+    {
+      "_id": "VRVFkJPoUIGGyPNi",
+      "name": "Do something gross or unpleasant without flinching",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DiCuCO7x8F1jVUk3.VRVFkJPoUIGGyPNi"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ReMgxSJxcjnX2CfO",
+  "_id": "DiCuCO7x8F1jVUk3",
+  "_key": "!actors!DiCuCO7x8F1jVUk3"
+}

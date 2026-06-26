@@ -1,0 +1,11 @@
+{
+  "name": "Make a Plan",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>wish to accomplish some project but aren't sure how to go about it</em></strong>, tell the GM what you hope to achieve. They'll say what's required. If you're stumped on how to accomplish one of the requirements, tell the GM and Make a Plan for that.</p>"
+  },
+  "_id": "Y2YvMufSfZxk9imc",
+  "_key": "!items!Y2YvMufSfZxk9imc",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

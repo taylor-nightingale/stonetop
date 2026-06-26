@@ -1,0 +1,118 @@
+<div class="tab resources{{#unless stonetop.editMode}} stonetop-readonly{{/unless}}" data-group="primary" data-tab="resources">
+	<section class="sheet-tab steading-resources">
+
+		<div class="steading-resources-cols">
+
+			{{!-- Resources --}}
+			<div class="steading-list-section">
+				<h3 class="steading-list-heading">Resources</h3>
+				<ul class="steading-list">
+					{{#each stonetop.resources}}
+					{{#if name}}
+					<li class="steading-list-item{{#if checked}} is-checked{{/if}}">
+						<label class="steading-list-check-label">
+							<input type="checkbox" class="steading-list-check"
+							       data-list="resources" data-index="{{@index}}"
+							       {{#if checked}}checked{{/if}}>
+						</label>
+						<span class="steading-list-name">{{name}}</span>
+						<button type="button" class="steading-list-delete"
+						        data-list="resources" data-index="{{@index}}"
+						        title="Remove" tabindex="-1">
+							<i class="fas fa-times"></i>
+						</button>
+					</li>
+					{{/if}}
+					{{/each}}
+				</ul>
+				<button type="button" class="steading-list-add" data-list="resources">
+					<i class="fas fa-plus"></i> Add Resource
+				</button>
+			</div>
+
+			{{!-- Fortifications --}}
+			<div class="steading-list-section">
+				<h3 class="steading-list-heading">Fortifications, etc.</h3>
+				<ul class="steading-list">
+					{{#each stonetop.fortifications}}
+					{{#if name}}
+					<li class="steading-list-item{{#if checked}} is-checked{{/if}}">
+						<label class="steading-list-check-label">
+							<input type="checkbox" class="steading-list-check"
+							       data-list="fortifications" data-index="{{@index}}"
+							       {{#if checked}}checked{{/if}}>
+						</label>
+						<span class="steading-list-name">{{name}}</span>
+						<button type="button" class="steading-list-delete"
+						        data-list="fortifications" data-index="{{@index}}"
+						        title="Remove" tabindex="-1">
+							<i class="fas fa-times"></i>
+						</button>
+					</li>
+					{{/if}}
+					{{/each}}
+				</ul>
+				<button type="button" class="steading-list-add" data-list="fortifications">
+					<i class="fas fa-plus"></i> Add Fortification
+				</button>
+			</div>
+
+		</div>
+
+		{{!-- Assets --}}
+		<div class="steading-assets-section">
+			<h3 class="steading-list-heading">Assets
+				<span class="steading-list-heading-note">Owned by residents in common. Requisition to use them on expeditions.</span>
+			</h3>
+			<ul class="steading-list steading-assets-list">
+				{{#each stonetop.assets}}
+				{{#if name}}
+				<li class="steading-list-item{{#if checked}} is-checked{{/if}}{{#if takenBy}} is-taken{{/if}}">
+					<label class="steading-list-check-label">
+						<input type="checkbox" class="steading-list-check"
+						       data-list="assets" data-index="{{@index}}"
+						       {{#if checked}}checked{{/if}}{{#if takenBy}} disabled{{/if}}>
+					</label>
+					{{#if takenBy}}
+					<span class="steading-list-name steading-asset-name steading-asset-taken"
+					      data-index="{{@index}}"
+					      data-tooltip="Taken by {{takenBy.name}} — click to return"
+					      data-tooltip-direction="UP">{{name}}</span>
+					{{else}}
+					<span class="steading-list-name steading-asset-name">{{name}}</span>
+					{{/if}}
+					<button type="button" class="steading-list-delete"
+					        data-list="assets" data-index="{{@index}}"
+					        title="Remove" tabindex="-1">
+						<i class="fas fa-times"></i>
+					</button>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+			<button type="button" class="steading-list-add" data-list="assets">
+				<i class="fas fa-plus"></i> Add Asset
+			</button>
+		</div>
+
+		<div class="steading-resources-lower">
+
+			{{!-- Places of Interest --}}
+			<div class="steading-places-section">
+				<h3 class="steading-list-heading">Places of Interest</h3>
+				<div class="steading-places-grid">
+					{{#each stonetop.places}}
+					<div class="steading-place-item">
+						<span class="steading-place-letter">{{letter}}</span>
+						<input type="text" class="steading-place-name"
+						       data-index="{{@index}}"
+						       value="{{name}}" placeholder="—">
+					</div>
+					{{/each}}
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</div>

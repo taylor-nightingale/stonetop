@@ -1,0 +1,61 @@
+{
+  "_id": "WObWuLHBHqBYlZlA",
+  "_key": "!journal!WObWuLHBHqBYlZlA",
+  "name": "Fundamental",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A spirit of a fundamental force — time, gravity, fate, light, void, order, or chaos."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 121000,
+  "pages": [
+    {
+      "_id": "x2kSq3GwFhREPjAS",
+      "_key": "!journal.pages!WObWuLHBHqBYlZlA.x2kSq3GwFhREPjAS",
+      "name": "Fundamental",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A spirit of a fundamental force — time, gravity, fate, light, void, order, or chaos.",
+        "description": "<p>These are spirits of fundamental forces, far removed from mortal concerns. They are active only near sites of primordial power and uncontrolled rifts, or when called forth by powerful, dangerous magic. Examples include Time (a form of flowing sand, to plod forward), Gravity (a voice from below, to be greedy), Fate (a weaver or spider, to be coy), Light (a prismatic pattern, to overwhelm), Void (a hole in reality, to get confused), Order (an unmoving crystalline form, to arrange and preserve), and Chaos (a bewildering series of impressions, to undermine and surprise).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.iPBB5qDX5urJ30FU"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

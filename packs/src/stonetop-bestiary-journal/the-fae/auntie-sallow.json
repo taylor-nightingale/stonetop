@@ -1,0 +1,61 @@
+{
+  "_id": "xkAtN3IG7KgIDQVk",
+  "_key": "!journal!xkAtN3IG7KgIDQVk",
+  "name": "Auntie Sallow",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A willow-draped fae who 'helps' the frightened into a cool, muddy grave."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 61000,
+  "pages": [
+    {
+      "_id": "X5pu6S08n9pDQDQU",
+      "_key": "!journal.pages!xkAtN3IG7KgIDQVk.X5pu6S08n9pDQDQU",
+      "name": "Auntie Sallow",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A willow-draped fae who 'helps' the frightened into a cool, muddy grave.",
+        "description": "<p>She appears out of the shadows, when the fear rises up to take you: tall and grim and looming, draped in willow branches, moths flitting all about. She reaches out a bony hand. 'Hush dear,' she whispers. 'Auntie Sallow is here to help.' She was beautiful once, the minder of a sacred grove of clean water, butterflies, and bees — until war brought fire, poison, and endless pain. It was in grief that L'bin'bozia found her, and gave her the strength to 'help': to find the innocent who suffer and offer them the safety of her master's cool embrace.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.pGSpDKZrgRQljLc7"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

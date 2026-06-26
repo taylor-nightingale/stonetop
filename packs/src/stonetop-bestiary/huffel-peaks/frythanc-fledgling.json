@@ -1,0 +1,80 @@
+{
+  "name": "Frythanc Fledgling",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "talons d8+2 (hand, forceful), beak d8 w/disadvantage (hand)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to eat and grow"
+      }
+    },
+    "concept": "Mountain-dwelling young frythancs, twelve-foot wingspans and all.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy",
+    "qualities": "<p>Exceptional eyesight; terrible hearing.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.XiAOrP04c2oqpkDg",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Frythanc Fledgling",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "CrHRlUEhWr2qbhUj",
+      "name": "Cling to rock faces, camouflaged",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RGU7Qtp9xioMxQ3k.CrHRlUEhWr2qbhUj"
+    },
+    {
+      "_id": "BzUx9t0i3beK6zTH",
+      "name": "Strafe their prey",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RGU7Qtp9xioMxQ3k.BzUx9t0i3beK6zTH"
+    },
+    {
+      "_id": "TvbTt5g76CcAukD6",
+      "name": "Knock prey off a ledge",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RGU7Qtp9xioMxQ3k.TvbTt5g76CcAukD6"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LIFxBsthfFEHCus6",
+  "_id": "RGU7Qtp9xioMxQ3k",
+  "_key": "!actors!RGU7Qtp9xioMxQ3k"
+}

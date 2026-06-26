@@ -1,0 +1,103 @@
+{
+  "name": "Plasmic Horror",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 2,
+        "source": "membrane, lacks organs"
+      },
+      "damage": {
+        "value": "pseudopod d10+3 (hand, close, reach, grabby, forceful) or acidic engulf d10+5 (hand, grabby, forceful, messy, ignores armor)",
+        "rollFormula": "d10+5"
+      },
+      "instinct": {
+        "value": "to recklessly explore the world"
+      }
+    },
+    "concept": "A shape-stealing flesh-weaving ooze, blank canvas of the Green Lords.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, amorphous, terrifying",
+    "qualities": "<p>Child-like intellect; susceptible to strong wills.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.mBQElv2JfT8AW8KH",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Plasmic Horror",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "SGdBA5LdxhFI23GX",
+      "name": "Ooze through the smallest cracks or openings",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!nh6h60KGgx2IlxfF.SGdBA5LdxhFI23GX"
+    },
+    {
+      "_id": "6cStIoygc3aX5ksr",
+      "name": "Assume the form, wholly or partially, of any being it touches",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!nh6h60KGgx2IlxfF.6cStIoygc3aX5ksr"
+    },
+    {
+      "_id": "anGH8nnko1zvtXRa",
+      "name": "Reveal its true form, shockingly",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!nh6h60KGgx2IlxfF.anGH8nnko1zvtXRa"
+    },
+    {
+      "_id": "pxgsfTDcHfntCCKX",
+      "name": "Grow, gaining 1d8 HP, by consuming a living thing",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!nh6h60KGgx2IlxfF.pxgsfTDcHfntCCKX"
+    },
+    {
+      "_id": "1onJxFPhATEWlhPT",
+      "name": "Spawn a smaller version of itself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!nh6h60KGgx2IlxfF.1onJxFPhATEWlhPT"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "xjeECNnZIoBEkVix",
+  "_id": "nh6h60KGgx2IlxfF",
+  "_key": "!actors!nh6h60KGgx2IlxfF"
+}

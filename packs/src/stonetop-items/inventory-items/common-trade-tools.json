@@ -1,0 +1,21 @@
+{
+  "_id": "kDa9U4UqGWlG6g3O",
+  "_key": "!items!kDa9U4UqGWlG6g3O",
+  "name": "Common trade tools",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "common-trade-tools",
+      "inventoryColumn": "regular",
+      "sortOrder": 41,
+      "note": "pottery, weaving, distilling, etc.; <em>immobile</em>",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

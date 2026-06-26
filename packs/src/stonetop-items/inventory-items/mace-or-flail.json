@@ -1,0 +1,22 @@
+{
+  "_id": "OhbVrpoiVgRV5IfL",
+  "_key": "!items!OhbVrpoiVgRV5IfL",
+  "name": "Mace or flail, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mace-or-flail",
+      "inventoryColumn": "regular",
+      "sortOrder": 28,
+      "note": "<em>iron</em>, <em>close</em>, <em>forceful</em>",
+      "weight": 1,
+      "breakBefore": true,
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

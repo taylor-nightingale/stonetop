@@ -1,0 +1,29 @@
+{
+  "_id": "I1af7W2pkAFEn3z5",
+  "_key": "!items!I1af7W2pkAFEn3z5",
+  "name": "Naphtha",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "naphtha",
+      "inventoryColumn": "regular",
+      "sortOrder": 52,
+      "note": "burns hot &amp; sticky; d8, <em>thrown</em>, <em>area</em>, <em>dangerous</em>, ignores armor",
+      "weight": 1,
+      "resource": {
+        "max": 3,
+        "title": null,
+        "labels": [
+          "",
+          ""
+        ]
+      },
+      "special": true,
+      "specialCategory": "Exotic Stuff"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

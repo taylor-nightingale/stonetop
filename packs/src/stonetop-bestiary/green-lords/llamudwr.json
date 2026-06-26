@@ -1,0 +1,103 @@
+{
+  "name": "Llamudwr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "stinging tail d10+1 (reach), crunching bite d10+1 (hand, grabby, messy, 1 piercing)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to fill its belly and retreat beneath the water"
+      }
+    },
+    "concept": "A winged, venom-tailed frog-horror that leaps from still water at dusk.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, corrupted, cautious, stealthy",
+    "qualities": "<p>Clumsy when grounded; hates the sun. Armor 0 vs. bronze.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.7qfPIuaRwuUPi4nV",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Llamudwr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "OkDMYebeb5r1Arol",
+      "name": "Lurk unseen, pick a target, and wait until sunset",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zWFuS69kPihbwlKp.OkDMYebeb5r1Arol"
+    },
+    {
+      "_id": "MM1563JecM531UrK",
+      "name": "Leap out of the water with shocking speed",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zWFuS69kPihbwlKp.MM1563JecM531UrK"
+    },
+    {
+      "_id": "GkIGmbH9EqawfGKM",
+      "name": "Follow prey from the sky, or hanging from trees",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zWFuS69kPihbwlKp.GkIGmbH9EqawfGKM"
+    },
+    {
+      "_id": "uI6oLrUfhcJf5oQC",
+      "name": "Strafe its prey and deliver a painful, debilitating sting",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zWFuS69kPihbwlKp.uI6oLrUfhcJf5oQC"
+    },
+    {
+      "_id": "j9wqDDPGFb7fkJNo",
+      "name": "Chomp down, then swallow whole",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zWFuS69kPihbwlKp.j9wqDDPGFb7fkJNo"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FO5poGFHi5Udrsfz",
+  "_id": "zWFuS69kPihbwlKp",
+  "_key": "!actors!zWFuS69kPihbwlKp"
+}

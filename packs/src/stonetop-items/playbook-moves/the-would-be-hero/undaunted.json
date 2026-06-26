@@ -1,0 +1,17 @@
+{
+  "_id": "pZIRgdcOK60QDeAw",
+  "_key": "!items!pZIRgdcOK60QDeAw",
+  "name": "Undaunted",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "replaces": "Better Part of Valor",
+    "asterisk": { "basicMove": "Clash", "minTotal": 7, "question": "Were you outnumbered or facing a foe bigger than you?" },
+    "description": "<p>When you <strong><em>are outnumbered or facing a foe bigger than you</em></strong>, you get +1 armor and deal +1d6 damage. (Replaces Better Part of Valor. First use crosses off \"Would-be\" on the front page.)</p>",
+    "requirement": {
+      "level": 6
+    }
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

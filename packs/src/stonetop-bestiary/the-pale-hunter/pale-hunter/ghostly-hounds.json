@@ -1,0 +1,92 @@
+{
+  "name": "Ghostly Hounds",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "bite d6 w/advantage (hand, grabby)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to give chase"
+      }
+    },
+    "concept": "His savage white mist-hounds, bound ever to his side.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, spirit, terrifying, fierce, organized",
+    "qualities": "<p>Bound to the Hunter; can roam only about a mile from him. Harmed only by salt, or as it bites.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Ghostly Hound",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "VN26gwHYw2Js09Ys",
+      "name": "Manifest a form made of mist",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3WXpoW1ajr2PCDC9.VN26gwHYw2Js09Ys"
+    },
+    {
+      "_id": "fKjdUISfpz4EC0ZG",
+      "name": "Sniff out prey, or the dead",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3WXpoW1ajr2PCDC9.fKjdUISfpz4EC0ZG"
+    },
+    {
+      "_id": "iR1SA0QQDiUnCRv8",
+      "name": "Call the pack and the Hunter",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3WXpoW1ajr2PCDC9.iR1SA0QQDiUnCRv8"
+    },
+    {
+      "_id": "XxCDRDtDnRDplMBq",
+      "name": "Harry, surround, drag down",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3WXpoW1ajr2PCDC9.XxCDRDtDnRDplMBq"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "5a8q6lQQnClbAA87",
+  "_id": "3WXpoW1ajr2PCDC9",
+  "_key": "!actors!3WXpoW1ajr2PCDC9"
+}

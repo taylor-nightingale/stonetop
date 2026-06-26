@@ -1,0 +1,74 @@
+{
+  "_id": "Gxjvid2IYJmTU41M",
+  "_key": "!journal!Gxjvid2IYJmTU41M",
+  "name": "Pack Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Sneaky, dog-sized pack hunters of the tall grass. Just the worst."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 6000,
+  "pages": [
+    {
+      "_id": "N96qyRiHh4FbeFhq",
+      "_key": "!journal.pages!Gxjvid2IYJmTU41M.N96qyRiHh4FbeFhq",
+      "name": "Pack Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Sneaky, dog-sized pack hunters of the tall grass. Just the worst.",
+        "description": "<p>Sneaky little dog-sized critters that prowl the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, hunting in packs ranging from six to a couple dozen. Just the worst.</p>",
+        "questions": [
+          {
+            "prompt": "What's the surest sign of their presence?",
+            "answer": ""
+          },
+          {
+            "prompt": "What do all wise travelers do to keep them at bay?",
+            "answer": ""
+          },
+          {
+            "prompt": "Which of you has seen them tear apart their prey? What haunts you about it to this day?",
+            "answer": ""
+          }
+        ],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.W7YFeowcF0yptQC3"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

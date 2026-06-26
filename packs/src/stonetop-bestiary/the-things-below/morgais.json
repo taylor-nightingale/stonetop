@@ -1,0 +1,92 @@
+{
+  "name": "Morgais",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "watery tendril d8 (close, reach, grabby)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to collect drowned souls"
+      }
+    },
+    "concept": "A drowned-pool spirit that lures the longing under the water to collect their souls.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, hoarder, devious, watery, beautiful, corrupted",
+    "qualities": "<p>Tethered to a skull or trinket, deep in its pond.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.lEnzsCftDmDarvlN",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Morgais",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Uu8q4K9zkMeE9J7i",
+      "name": "Manifest as a youth or beast, shaped from water (unharmed by cutting or stabbing, unless bronze)",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ntvN8CPfvbY06vUE.Uu8q4K9zkMeE9J7i"
+    },
+    {
+      "_id": "tni8L8lBg7hK7Ihd",
+      "name": "Entrance with beauty, song, or grace",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ntvN8CPfvbY06vUE.tni8L8lBg7hK7Ihd"
+    },
+    {
+      "_id": "lTv8jWtRLqMR44Nn",
+      "name": "Drag them under, revealing its loathsome nature",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ntvN8CPfvbY06vUE.lTv8jWtRLqMR44Nn"
+    },
+    {
+      "_id": "mniP62LqEHah9jvg",
+      "name": "Laugh merrily as they drown",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ntvN8CPfvbY06vUE.mniP62LqEHah9jvg"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "ntvN8CPfvbY06vUE",
+  "_key": "!actors!ntvN8CPfvbY06vUE"
+}

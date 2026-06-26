@@ -1,7 +1,81 @@
-{{#if groups.length}}
-<div class="details-section">
-	{{#each groups}}
-	{{> "stonetop.choice-group" cgContext=../cgContext}}
+{{#if lore.hasEntries}}
+{{#if editMode}}
+<div class="details-section{{#if lore.hasColumnBreak}} stonetop-lore-columns{{/if}}">
+	{{#each lore.entries}}
+	{{#if (and @first ../lore.hasColumnBreak isContinuation)}}<div class="stonetop-lore-col">{{/if}}
+	{{#if isContinuation}}
+	{{#if columnBreak}}</div><div class="stonetop-lore-col">{{/if}}
+	<div class="stonetop-lore-entry">
+		{{#if title}}<p class="stonetop-lore-continuation-title{{#if subheader}} stonetop-lore-subheader{{/if}}">{{title}}</p>{{/if}}
+		{{#if description}}
+		<div class="stonetop-lore-description">{{{description}}}</div>
+		{{/if}}
+		{{#if arcanaImage}}{{> "stonetop.lore-arcana-image" arcanaImage=arcanaImage}}{{/if}}
+		{{> "stonetop.lore-options-edit"}}
+	</div>
+	{{else}}
+	{{#if ../lore.hasColumnBreak}}
+	{{#if columnBreak}}</div>{{/if}}
+	<div class="stonetop-lore-entry stonetop-lore-entry--section-head">
+		{{> "stonetop.section-heading" title=title}}
+		{{#if description}}
+		<div class="stonetop-lore-description">{{{description}}}</div>
+		{{/if}}
+	</div>
+	<div class="stonetop-lore-col">
+	{{#if options.length}}
+	<div class="stonetop-lore-entry">
+		{{> "stonetop.lore-options-edit"}}
+	</div>
+	{{/if}}
+	{{else}}
+	<div class="stonetop-lore-entry stonetop-lore-entry--section-head">
+		{{> "stonetop.section-heading" title=title}}
+		{{#if description}}
+		<div class="stonetop-lore-description">{{{description}}}</div>
+		{{/if}}
+		{{> "stonetop.lore-options-edit"}}
+	</div>
+	{{/if}}
+	{{/if}}
 	{{/each}}
+	{{#if lore.hasColumnBreak}}</div>{{/if}}
 </div>
+{{else}}
+{{#if lore.hasReadonlyContent}}
+<div class="details-section{{#if lore.hasReadonlyColumnBreak}} stonetop-lore-columns{{/if}}">
+	{{#each lore.entries}}
+	{{#if (and @first ../lore.hasReadonlyColumnBreak isContinuation)}}<div class="stonetop-lore-col">{{/if}}
+	{{#if isContinuation}}
+	{{#if readonlyColumnBreak}}</div><div class="stonetop-lore-col">{{/if}}
+	{{#if showInReadonly}}
+	<div class="stonetop-lore-entry">
+		{{#unless readonlyMerge}}{{#if title}}<p class="stonetop-lore-continuation-title{{#if subheader}} stonetop-lore-subheader{{/if}}">{{title}}</p>{{/if}}{{/unless}}
+		{{#if readonlyDescription}}
+		<div class="stonetop-lore-description">{{{readonlyDescription}}}</div>
+		{{/if}}
+		{{#if arcanaImage}}{{> "stonetop.lore-arcana-image" arcanaImage=arcanaImage}}{{/if}}
+		{{> "stonetop.lore-options-readonly"}}
+	</div>
+	{{/if}}
+	{{else}}
+	{{#if ../lore.hasReadonlyColumnBreak}}{{#if readonlyColumnBreak}}</div>{{/if}}{{/if}}
+	<div class="stonetop-lore-entry stonetop-lore-entry--section-head">
+		{{> "stonetop.section-heading" title=title}}
+		{{#if readonlyDescription}}
+		<div class="stonetop-lore-description">{{{readonlyDescription}}}</div>
+		{{/if}}
+	</div>
+	{{#if ../lore.hasReadonlyColumnBreak}}<div class="stonetop-lore-col">{{/if}}
+	{{#if hasSelection}}
+	<div class="stonetop-lore-entry">
+		{{> "stonetop.lore-options-readonly"}}
+	</div>
+	{{/if}}
+	{{/if}}
+	{{/each}}
+	{{#if lore.hasReadonlyColumnBreak}}</div>{{/if}}
+</div>
+{{/if}}
+{{/if}}
 {{/if}}

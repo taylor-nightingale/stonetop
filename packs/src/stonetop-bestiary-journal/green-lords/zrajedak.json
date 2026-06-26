@@ -1,0 +1,61 @@
+{
+  "_id": "CGPfnYi6Y86dEdE0",
+  "_key": "!journal!CGPfnYi6Y86dEdE0",
+  "name": "Zrajedak",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An iron-fanged chimera that wears a not-quite-right copy of your face."
+    }
+  },
+  "folder": "jQoDL6IhABvMYnZf",
+  "sort": 82000,
+  "pages": [
+    {
+      "_id": "vyDWFkK5vBnfGLZS",
+      "_key": "!journal.pages!CGPfnYi6Y86dEdE0.vyDWFkK5vBnfGLZS",
+      "name": "Zrajedak",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An iron-fanged chimera that wears a not-quite-right copy of your face.",
+        "description": "<p>When the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> rebelled, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> made living weapons to use against them. The zrajedak — or 'treachery-eaters' — were one such weapon: the body of a lion, the tail of a spiny drake, and the face of their mortal servants, all infused with iron, malice, and the cruel power of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. Some are trapped by Fae magic; others remain in stasis. But surely some few stalk the world still, for the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong> would tell hushed tales of them. 'Never trust someone who will not show you their teeth,' they'd say, 'for Zrajedak smiles only before he bites.'</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.3JaMhYyy0qDzf06q"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

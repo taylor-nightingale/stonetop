@@ -1,0 +1,80 @@
+{
+  "_id": "VrKFDEUbYMEYplMk",
+  "_key": "!journal!VrKFDEUbYMEYplMk",
+  "name": "Waystones",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Great Wood and Ferrier’s Fen are dotted with massive markers of pale gray stone, moss-covered and largely overgrown, deeply etched with the curling, branching runes of the Green Lords. Fae magic binds the waystones together."
+    }
+  },
+  "folder": "CdN6WPlmlLkrCj2Z",
+  "sort": 29000,
+  "pages": [
+    {
+      "_id": "cEPBscFh8D1YRZZn",
+      "_key": "!journal.pages!VrKFDEUbYMEYplMk.cEPBscFh8D1YRZZn",
+      "name": "Waystones",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{The Great Wood}</strong> and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong> are dotted with massive markers of pale gray stone, moss-covered and largely overgrown, deeply etched with the curling, branching runes of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> magic binds the waystones together.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Something interesting: The waystones mark entrances to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> paths. If one can access the paths, they can quickly travel great distances. The paths, however, are fraught with peril. Tales tell of travelers being lost or entrapped for years or even centuries.</p><p>Something useful: To step onto the Fae paths, you must leave behind all iron and steel, plus one of the following:</p><ul><li class=\"check-bullet\">Follow the footsteps of a Fae guide</li><li class=\"check-bullet\">Be able to see through Fae magic and glamours, via Old Mother’s Wine or a similar effect</li><li class=\"check-bullet\">Go at a certain time (under a __ moon, at midnight, at sunrise, etc.) and either... ...</li><li class=\"check-bullet\">have Fae blood in your veins; or ...</li><li class=\"check-bullet\">open your mind with drugs/alcohol/ delirium/exhaustion/etc.</li></ul><p>Each waystone connects to at least one other, and most connect to a few. When you step on the path, you see the routes laid out before you, and can sense roughly where in the mortal realm each of the adjoining waystones lies.</p><p>Travelling the Fae paths is dangerous, but safer when you go with trusted companions.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Walking the paths",
+            "group": "place",
+            "danger": false,
+            "body": "<p>When you walk the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> path from one waystone to the next, roll +WIS: on a 6-, you lose your way and find yourself in peril—tell us what chases or lures you from the path; on a 7+, you arrive safely, only a few minutes having passed, but first tell us what tried to chase or lure you from the path and why it failed; on a 10+, you can also intervene and save someone who has lost their way, but only if you can tell us how.</p><p>If you roll a 6- and someone saves you, don’t mark XP.</p><p>When you lose your way and none of your allies save you, decide if you wish to keep playing this character. If you do, you will escape from the Fae domains, a relatively short time having passed in the real world, but for you it might have taken days, months, or even years. Pick 2:</p><ul><li>You’re different now. Change your instinct, change your look, and lose one of your moves, replacing it with another move available to you.</li><li>You lost something important: a move, a precious item, the memory of a loved one, an earnest hope, etc. Tell us what you lost.</li><li>You owe some favor to a Fae—one who ensnared you or one who rescued you. Work with the GM to determine who.</li><li>Days, weeks, or months have passed in the mortal realm, instead of minutes or hours.</li><li>You emerge at a different waystone than the one you intended to reach.</li></ul><p>When a follower loses their way and no one saves them, their fate is in the GM’s hands.</p><p>If a player needs inspiration, have them roll the Die of Fate.</p><p><strong>1d6 lure</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>The need to escape from danger, heartbreak, or shame</td></tr><tr><td>2</td><td>Someone lost to you, calling out</td></tr><tr><td>3</td><td>A child, beast, or loved one in distress</td></tr><tr><td>4</td><td>A revel, a meal, a drink, or some other pleasure of the flesh</td></tr><tr><td>5</td><td>Something of great beauty or wonder</td></tr><tr><td>6</td><td>Something of great value, or a chance to learn something of great import</td></tr></tbody></table><p>Stepping off the paths When one steps off the Fae paths, they might find themselves in any number of Fae domains. It’s nearly impossible for a mortal to navigate between them, as the ways are ruled by dreamlike logic and secrets and ancient Fae pacts. A guide is all but essential, but even the Fae might struggle to access or escape certain realms.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Something dangerous has learned to use the waystones, emerging near the one closest to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, causing trouble, and retreating.</li><li>Someone was lost to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> paths years or decades or even centuries ago. Now they reappear, stumbling back to Stonetop, thinking that only hours or days have passed.</li><li>Someone the PCs care about steps onto the Fae paths and doesn’t return.</li></ul>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

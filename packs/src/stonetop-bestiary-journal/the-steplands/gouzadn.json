@@ -1,0 +1,70 @@
+{
+  "_id": "IS7Y75Kbqe5KILXW",
+  "_key": "!journal!IS7Y75Kbqe5KILXW",
+  "name": "Gouzadn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A spirit-touched Hillfolk gone feral, host to dozens of bound beast-spirits."
+    }
+  },
+  "folder": "f51tBxK2KHoXoJZs",
+  "sort": 39000,
+  "pages": [
+    {
+      "_id": "LO7IdRIzeEGqOvjl",
+      "_key": "!journal.pages!IS7Y75Kbqe5KILXW.LO7IdRIzeEGqOvjl",
+      "name": "Gouzadn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A spirit-touched <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> gone feral, host to dozens of bound beast-spirits.",
+        "description": "<p>When a young <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> shows signs of being touched by spirits, their band had best find a spirit-talker to mentor the child — without such guidance, these youths might forsake their humanity, forget their language, and bind spirits of the wild to their very flesh. A gouzadn shuns people, living with only spirits for company, more likely to flee and hide than fight. But an aggressive or unwary party might find their numbers picked off one by one in the dark — and once a gouzadn gets a taste of killing people, it might get a taste for their flesh.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Tales tell of using 'sacred wood' to put down a gouzadn. Maybe a @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk} elder could tell you the specific type?",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** To kill this gouzadn you'll need a weapon of a specific sacred wood (roll the Die of Fate): redwood; heartwood of lightning-struck ash; elder wood blackened in sacrificial fire; oak etched with words of grounding and renewal; yew carved with a sorcerer's bone; or willow felled by an innocent and carved by one stooped with regrets.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.SerJ5gYYlRuUmI9k"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

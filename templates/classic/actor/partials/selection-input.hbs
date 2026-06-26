@@ -1,0 +1,15 @@
+{{!-- Single-select Selection (instinct, cost — NOT tags, which use chips): an inline-expanding
+      combobox. Type a custom value in the input, or hit ▾ to drop the FULL option list (never
+      filtered). The list opens in normal flow (pushes content down), so it can't be clipped by
+      the card's stacking contexts. The input carries inputClass (e.g. .stonetop-follower-instinct)
+      so the field's own change handler saves it. Params: sel, slug, field, inputClass, placeholder. --}}
+<span class="stonetop-combo">
+	<input type="text" class="{{inputClass}} stonetop-combo-input" value="{{sel.text}}"
+	       data-slug="{{slug}}" placeholder="{{placeholder}}">
+	{{#if sel.options.length}}
+	<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>
+	<ul class="stonetop-combo-list" hidden>
+		{{#each sel.options}}<li class="stonetop-combo-option" data-value="{{this}}">{{{md this}}}</li>{{/each}}
+	</ul>
+	{{/if}}
+</span>

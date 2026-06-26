@@ -1,0 +1,114 @@
+{
+  "name": "Wee Folk",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "armor": {
+        "value": 6,
+        "source": "resilience, size, speed"
+      },
+      "damage": {
+        "value": "stings/darts d6-2 (hand or reach)",
+        "rollFormula": "d6-2"
+      },
+      "instinct": {
+        "value": "to guard, to provide, or to make mischief"
+      }
+    },
+    "concept": "Tiny winged fae — guardians, workers, or cruel little hooligans.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, fae, magical, stealthy, organized",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>. Armor 2 vs. iron. Each band leans toward a role: <strong>guardians</strong> (guard against old evil), <strong>workers</strong> (prepare for lean times), or <strong>hooligans</strong> (amuse themselves at others' expense).</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.aThMYefGFmE0mG73",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Wee Folk",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "M9qUp38h7boSgVkw",
+      "name": "Dart about on agile wings",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.M9qUp38h7boSgVkw"
+    },
+    {
+      "_id": "qAGckC2uW8zSy2ju",
+      "name": "Blend in, watch unseen",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.qAGckC2uW8zSy2ju"
+    },
+    {
+      "_id": "lyeHawsjFpLcaHbT",
+      "name": "Weave illusions to dissuade, distract, or confound",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.lyeHawsjFpLcaHbT"
+    },
+    {
+      "_id": "VS3NCwAZcMhtGHar",
+      "name": "Guardian: cause slumber with their darts, or make a brave, defiant stand",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.VS3NCwAZcMhtGHar"
+    },
+    {
+      "_id": "3TVq4qmeSL56ni6n",
+      "name": "Worker: accomplish great feats together, or swarm a threat",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.3TVq4qmeSL56ni6n"
+    },
+    {
+      "_id": "D7t755t6J9nyQIyl",
+      "name": "Hooligan: rile up beasts or spirits, or play pranks",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rL761LrHFjJcfArG.D7t755t6J9nyQIyl"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "rL761LrHFjJcfArG",
+  "_key": "!actors!rL761LrHFjJcfArG"
+}

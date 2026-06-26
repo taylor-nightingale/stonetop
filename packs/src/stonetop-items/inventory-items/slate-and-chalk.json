@@ -1,0 +1,20 @@
+{
+  "_id": "cgMBwUYuBMGhy5Km",
+  "_key": "!items!cgMBwUYuBMGhy5Km",
+  "name": "Slate & chalk",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "slate-and-chalk",
+      "inventoryColumn": "small",
+      "sortOrder": 31,
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Writing Implements"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

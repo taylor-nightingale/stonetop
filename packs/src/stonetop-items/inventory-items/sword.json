@@ -1,0 +1,21 @@
+{
+  "_id": "9Wvgfygw2wMqZcUD",
+  "_key": "!items!9Wvgfygw2wMqZcUD",
+  "name": "Sword, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "sword",
+      "inventoryColumn": "regular",
+      "sortOrder": 31,
+      "note": "<em>iron</em>, <em>hand</em>, <em>close</em>, +1 damage",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

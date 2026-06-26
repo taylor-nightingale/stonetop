@@ -1,0 +1,26 @@
+{
+  "name": "Pull Together",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>set a community to work on improvements, to secure new resources, or to make major repairs</em></strong>, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: <strong>on a 10+</strong>, the job gets done; <strong>on a 7-9</strong>, pick 1:</p><ul><li>It gets done, but other work doesn't; reduce Fortunes by 1</li><li>It gets done, but the work is shoddy, crude</li><li>It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)</li><li>There's an unforeseen cost, requirement, or challenge; address it and the job gets done</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "The job gets done."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Something interrupts the job and prevents it from getting done—work might resume if the PCs deal with it, or the job is scuttled and progress lost."
+      }
+    },
+    "rollType": "ask"
+  },
+  "_id": "FctYtfhqMYQH3kSY",
+  "_key": "!items!FctYtfhqMYQH3kSY",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

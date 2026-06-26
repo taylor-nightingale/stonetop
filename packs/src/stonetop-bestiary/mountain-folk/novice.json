@@ -1,0 +1,80 @@
+{
+  "name": "Novice",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "staff d8 w/disadvantage (close)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to veer between their masters' teachings and their base needs"
+      }
+    },
+    "concept": "An aspirant of the mountain monasteries, torn between teaching and base need.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cautious, disciplined, meek",
+    "qualities": "<p>Inconsistent spirit sight.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.hYf2HyXCbJa4j9Fc",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Novice",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "91CdXaAKhUPkDKE6",
+      "name": "Do what their superiors ask",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BHYJDndAivdji0kq.91CdXaAKhUPkDKE6"
+    },
+    {
+      "_id": "slWfou2HBVlGaJan",
+      "name": "Hesitate, balk, flinch",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BHYJDndAivdji0kq.slWfou2HBVlGaJan"
+    },
+    {
+      "_id": "zAKKFHYqz2LDoeuB",
+      "name": "Show great promise, or great weakness",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BHYJDndAivdji0kq.zAKKFHYqz2LDoeuB"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "H4tKi5At1faNP0Np",
+  "_id": "BHYJDndAivdji0kq",
+  "_key": "!actors!BHYJDndAivdji0kq"
+}

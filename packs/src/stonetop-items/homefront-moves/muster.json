@@ -1,0 +1,26 @@
+{
+  "name": "Muster",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>press every able body into the defense of a steading</em></strong>, reduce Fortunes by 1 and roll +Population: <strong>on a 7+</strong>, the steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. <strong>On a 10+</strong>, also pick 2; <strong>on a 7-9</strong>, also pick 1.</p><ul><li>Increase Defenses by 1 as long as the muster holds</li><li>Everyone's willing to pitch in; don't reduce Fortunes after all</li><li>The muster holds together even without your presence</li><li>1 or 2 individuals show real potential; ask the GM who and how</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "The steading is alert and ready for action. Also pick 2 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "The steading is alert and ready for action. Also pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Folks ignore your orders, armed rivals come to blows, or a threat overwhelms the village."
+      }
+    },
+    "rollType": "ask"
+  },
+  "_id": "XkVfibXSYujc3JHK",
+  "_key": "!items!XkVfibXSYujc3JHK",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

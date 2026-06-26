@@ -1,0 +1,901 @@
+[
+  {
+    "name": "Awl",
+    "slug": "awl",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Barrel of whisky, common",
+    "slug": "barrel-whisky-common",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>immobile</em>"
+  },
+  {
+    "name": "Barrel of whisky, fine",
+    "slug": "barrel-whisky-fine",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>immobile</em>"
+  },
+  {
+    "name": "Battleaxe, iron",
+    "slug": "battleaxe",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>iron</em>, <em>close</em>, +1 damage"
+  },
+  {
+    "name": "Bedroll",
+    "slug": "bedroll",
+    "column": "regular",
+    "weight": 1,
+    "tags": "recover 1d6 extra HP when you Make Camp"
+  },
+  {
+    "name": "Bezoar",
+    "slug": "bezoar",
+    "column": "small",
+    "weight": 1,
+    "tags": "cures any poison"
+  },
+  {
+    "name": "Blanket",
+    "slug": "blanket",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>warm</em>"
+  },
+  {
+    "name": "Block & tackle",
+    "slug": "block-and-tackle",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Bow & iron arrows",
+    "slug": "bow-arrows",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>near</em>, x <em>piercing</em>",
+    "resource": {
+      "max": 2,
+      "labels": [
+        "low ammo",
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Bowstring",
+    "slug": "bowstring",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Brightberry",
+    "slug": "brightberry",
+    "column": "regular",
+    "weight": 1,
+    "tags": "Glowing golden berries (<em>hand</em>); harvest as &#9671; Provisions (3 uses, <em>fragile</em>) that burn away within hours. A potted shrub, nursed to health, is Value 2."
+  },
+  {
+    "name": "Bullseye lantern",
+    "slug": "bullseye-lantern",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>near</em>",
+    "resource": {
+      "max": 5,
+      "title": "Oil",
+      "labels": [
+        "running low",
+        "out"
+      ]
+    }
+  },
+  {
+    "name": "Candle",
+    "slug": "candle",
+    "column": "small",
+    "weight": 1,
+    "tags": "lasts ~1 hour, <em>hand</em>, <em>area</em>"
+  },
+  {
+    "name": "Cart or sleigh",
+    "slug": "cart-or-sleigh",
+    "column": "regular",
+    "weight": 2,
+    "tags": "requires donkey, mule, or horse"
+  },
+  {
+    "name": "Chalk",
+    "slug": "chalk",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Change of clothes",
+    "slug": "change-clothes",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Charcoal",
+    "slug": "charcoal",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Clay jar",
+    "slug": "clay-jar",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Cloak",
+    "slug": "cloak",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>warm</em>"
+  },
+  {
+    "name": "Cloth/rag",
+    "slug": "cloth-rag",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Comb",
+    "slug": "comb",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Common trade tools",
+    "slug": "common-trade-tools",
+    "column": "regular",
+    "weight": 1,
+    "tags": "pottery, weaving, distilling, etc.; <em>immobile</em>"
+  },
+  {
+    "name": "Composite bow",
+    "slug": "composite-bow",
+    "column": "regular",
+    "weight": 1,
+    "tags": "+1 damage, x piercing",
+    "resource": {
+      "max": 2,
+      "labels": [
+        "low ammo",
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Crossbow",
+    "slug": "crossbow",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>far</em>, +1 damage, x piercing, reload",
+    "resource": {
+      "max": 2,
+      "labels": [
+        "low ammo",
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Cuirass, boiled leather",
+    "slug": "cuirass-boiled-leather",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Cup",
+    "slug": "cup",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Dog, follower",
+    "slug": "dog-follower",
+    "column": "regular",
+    "weight": 1,
+    "tags": "HP 6, d6 damage (<em>hand</em>, <em>grabby</em>)"
+  },
+  {
+    "name": "Donkey",
+    "slug": "donkey",
+    "column": "regular",
+    "weight": 2,
+    "tags": "HP 10, d4+2 damage (<em>hand</em>, <em>forceful</em>)"
+  },
+  {
+    "name": "Empty book, fine vellum pages",
+    "slug": "empty-book-vellum",
+    "column": "regular",
+    "weight": 2,
+    "tags": ""
+  },
+  {
+    "name": "Empty book, parchment pages",
+    "slug": "empty-book-parchment",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>fragile</em>"
+  },
+  {
+    "name": "Even more supplies",
+    "slug": "even-more-supplies",
+    "column": "regular",
+    "weight": 1,
+    "tags": "4+Prosperity uses",
+    "resource": {
+      "max": 6,
+      "labels": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Exotic root",
+    "slug": "exotic-root",
+    "column": "regular",
+    "weight": 1,
+    "tags": "burnt fumes repel perversions of nature; lasts ~1 hour, <em>reach</em>, <em>area</em>"
+  },
+  {
+    "name": "Extra arrows",
+    "slug": "extra-arrows",
+    "column": "regular",
+    "weight": 1,
+    "tags": "x <em>piercing</em>",
+    "resource": {
+      "max": 3,
+      "labels": [
+        "plenty left",
+        "low ammo",
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Extra oil",
+    "slug": "extra-oil",
+    "column": "regular",
+    "weight": 1,
+    "tags": "for lamp/lantern, useless as a weapon",
+    "resource": {
+      "max": 4,
+      "labels": [
+        "",
+        "",
+        "",
+        "hours"
+      ]
+    }
+  },
+  {
+    "name": "Extra socks",
+    "slug": "extra-socks",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Fine vellum, a few sheets",
+    "slug": "fine-vellum-sheets",
+    "column": "small",
+    "weight": 1,
+    "tags": "<em>fragile</em>"
+  },
+  {
+    "name": "Firewood",
+    "slug": "firewood",
+    "column": "regular",
+    "weight": 2,
+    "tags": "enough to last 1 full night; <em>reach</em>, <em>area</em>"
+  },
+  {
+    "name": "Glass vial",
+    "slug": "glass-vial",
+    "column": "small",
+    "weight": 1,
+    "tags": "<em>fragile</em>"
+  },
+  {
+    "name": "Gloves",
+    "slug": "gloves",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Goat",
+    "slug": "goat",
+    "column": "regular",
+    "weight": 1,
+    "tags": "HP 3, d4 damage; butcher for &#9671; Provisions (6 uses)"
+  },
+  {
+    "name": "Handful of coppers",
+    "slug": "coppers",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Handful of silvers",
+    "slug": "handful-of-silvers",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Hartwood",
+    "slug": "hartwood",
+    "column": "regular",
+    "weight": 1,
+    "tags": "Ashes of a burnt hartwood branch; apply them to the skin as a ward against possession."
+  },
+  {
+    "name": "Hatchet, iron",
+    "slug": "hatchet",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>hand</em>, <em>thrown</em>, x <em>piercing</em>"
+  },
+  {
+    "name": "Hauberk/cuirass/scale, iron or bronze",
+    "slug": "hauberk-iron",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>messy</em>, <em>cumbersome</em>"
+  },
+  {
+    "name": "Horse",
+    "slug": "horse",
+    "column": "regular",
+    "weight": 3,
+    "tags": "HP 10, d6+3 damage (<em>hand</em>, <em>close</em>, <em>forceful</em>)"
+  },
+  {
+    "name": "Ink, vial and quills",
+    "slug": "ink-vial-quills",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Instrument",
+    "slug": "instrument",
+    "column": "regular",
+    "weight": 1,
+    "tags": "harp, lute, fiddle, etc."
+  },
+  {
+    "name": "Javelins, a few, iron",
+    "slug": "javelins",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>thrown</em>, x <em>piercing</em>, +1 damage",
+    "resource": {
+      "max": 1,
+      "labels": [
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Knife or dagger, iron",
+    "slug": "knife-dagger",
+    "column": "small",
+    "weight": 1,
+    "tags": "<em>hand</em>"
+  },
+  {
+    "name": "Lantern",
+    "slug": "lantern",
+    "column": "small",
+    "weight": 1,
+    "tags": "",
+    "resource": {
+      "max": 5,
+      "title": "Oil",
+      "labels": [
+        "running low",
+        "out"
+      ]
+    }
+  },
+  {
+    "name": "Little box",
+    "slug": "little-box",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Long spear, iron",
+    "slug": "long-spear",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>reach</em>, x <em>piercing</em>"
+  },
+  {
+    "name": "Mace or flail, iron",
+    "slug": "mace-or-flail",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>iron</em>, <em>close</em>, <em>forceful</em>"
+  },
+  {
+    "name": "Mallet, iron and/or wood",
+    "slug": "mallet",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>hand</em>"
+  },
+  {
+    "name": "Mattock, iron",
+    "slug": "mattock",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>close</em>, x <em>piercing</em>, <em>messy</em>, <em>awkward</em>"
+  },
+  {
+    "name": "Maul, iron",
+    "slug": "maul",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>close</em>, <em>forceful</em>, <em>awkward</em>"
+  },
+  {
+    "name": "Mess kit",
+    "slug": "mess-kit",
+    "column": "regular",
+    "weight": 1,
+    "tags": "requires fire & water; makes Supplies last longer"
+  },
+  {
+    "name": "Metal tools",
+    "slug": "metal-tools",
+    "column": "small",
+    "weight": 1,
+    "tags": "drill, prybar, saw, tongs, etc."
+  },
+  {
+    "name": "Mirror, hand-held, polished bronze",
+    "slug": "mirror-hand-held",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "More supplies",
+    "slug": "more-supplies",
+    "column": "regular",
+    "weight": 1,
+    "tags": "4+Prosperity uses",
+    "resource": {
+      "max": 6,
+      "labels": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Mule",
+    "slug": "mule",
+    "column": "regular",
+    "weight": 3,
+    "tags": "HP 14, d6+1 damage (<em>hand</em>, <em>close</em>)"
+  },
+  {
+    "name": "Naphtha",
+    "slug": "naphtha",
+    "column": "regular",
+    "weight": 1,
+    "tags": "burns hot &amp; sticky; d8, <em>thrown</em>, <em>area</em>, <em>dangerous</em>, ignores armor",
+    "resource": {
+      "max": 3,
+      "labels": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Needle & thread",
+    "slug": "needle-thread",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Oil lamp",
+    "slug": "oil-lamp",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>close</em>, <em>area</em>, <em>crude</em>",
+    "resource": {
+      "max": 3,
+      "labels": [
+        "",
+        "",
+        "hours"
+      ]
+    }
+  },
+  {
+    "name": "Parchment, a few sheets",
+    "slug": "parchment-sheets",
+    "column": "small",
+    "weight": 1,
+    "tags": "<em>fragile</em>"
+  },
+  {
+    "name": "Pig",
+    "slug": "pig",
+    "column": "regular",
+    "weight": 1,
+    "tags": "HP 6, d4 damage; butcher for &#9671; Provisions (6 uses)"
+  },
+  {
+    "name": "Purse of coppers, ~10 handfuls",
+    "slug": "purse-of-coppers",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Purse of silvers, ~10 handfuls",
+    "slug": "purse-of-silvers",
+    "column": "regular",
+    "weight": 2,
+    "tags": ""
+  },
+  {
+    "name": "Rope, ~25 ft",
+    "slug": "rope",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Rushlight",
+    "slug": "rushlight",
+    "column": "small",
+    "weight": 1,
+    "tags": "lasts ~15-30 minutes, <em>close</em>, <em>crude</em>"
+  },
+  {
+    "name": "Sack (empty)",
+    "slug": "sack",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Salt",
+    "slug": "salt",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Sawdust",
+    "slug": "sawdust",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Sheep",
+    "slug": "sheep",
+    "column": "regular",
+    "weight": 1,
+    "tags": "HP 3, d4 damage; butcher for &#9671; Provisions (6 uses)"
+  },
+  {
+    "name": "Shield",
+    "slug": "shield",
+    "column": "regular",
+    "weight": 2,
+    "tags": "+1 armor, +1 Readiness on 7+ to Defend"
+  },
+  {
+    "name": "Short sword, iron",
+    "slug": "short-sword",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>iron</em>, <em>hand</em>, <em>close</em>"
+  },
+  {
+    "name": "Shovel",
+    "slug": "shovel",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Silver-alloy dagger",
+    "slug": "silver-alloy-dagger",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>hand</em>"
+  },
+  {
+    "name": "Slate & chalk",
+    "slug": "slate-and-chalk",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Sledge/litter/travois, roll-out",
+    "slug": "sledge",
+    "column": "regular",
+    "weight": 2,
+    "tags": ""
+  },
+  {
+    "name": "Sleeping Elksheart",
+    "slug": "sleeping-elksheart",
+    "column": "regular",
+    "weight": 1,
+    "tags": "A house-sized mushroom with paralytic spores (<em>inhaled</em>). Collect the spores as a poison (<em>dangerous</em>, Value 1); or burn the cap, cut it up, and feed a town — 1d4 Surplus (<em>immobile</em>, Value 2)."
+  },
+  {
+    "name": "Sling",
+    "slug": "sling",
+    "column": "small",
+    "weight": 1,
+    "tags": "<em>near</em>, <em>reload</em>, <em>awkward</em>",
+    "resource": {
+      "max": 2,
+      "labels": [
+        "low ammo",
+        "all out"
+      ]
+    }
+  },
+  {
+    "name": "Snow-shoes",
+    "slug": "snow-shoes",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Snowembers",
+    "slug": "snowembers",
+    "column": "regular",
+    "weight": 1,
+    "tags": "Edible petals, warm even in deep winter, that turn to mush soon after picking. Harvest 1d4+4 &#9671; Provisions; those who partake count as wearing <em>warm</em> clothes for a day or so."
+  },
+  {
+    "name": "Spare parts for wagon/cart/sleigh",
+    "slug": "spare-parts",
+    "column": "regular",
+    "weight": 2,
+    "tags": "axles, wheels, rope, etc.; <em>immobile</em>",
+    "resource": {
+      "max": 3,
+      "labels": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Spear, iron",
+    "slug": "spear",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>close</em>, <em>thrown</em>, x <em>piercing</em>"
+  },
+  {
+    "name": "Specialized trade tools",
+    "slug": "specialized-trade-tools",
+    "column": "regular",
+    "weight": 3,
+    "tags": "smithing, glassblowing, scribing, etc.; <em>immobile</em>"
+  },
+  {
+    "name": "Staff",
+    "slug": "staff",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>close</em>"
+  },
+  {
+    "name": "Supplies",
+    "slug": "supplies",
+    "column": "regular",
+    "weight": 1,
+    "tags": "4+Prosperity uses",
+    "resource": {
+      "max": 6,
+      "labels": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Surplus of trade goods",
+    "slug": "surplus-trade-goods",
+    "column": "regular",
+    "weight": 2,
+    "tags": "<em>immobile</em>"
+  },
+  {
+    "name": "Sword, iron",
+    "slug": "sword",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>iron</em>, <em>hand</em>, <em>close</em>, +1 damage"
+  },
+  {
+    "name": "Tallow",
+    "slug": "tallow",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Thick hides",
+    "slug": "thick-hides",
+    "column": "regular",
+    "weight": 2,
+    "tags": "1 armor, <em>warm</em>"
+  },
+  {
+    "name": "Tinderbox",
+    "slug": "tinderbox",
+    "column": "small",
+    "weight": 1,
+    "tags": "slow"
+  },
+  {
+    "name": "Torch",
+    "slug": "torch",
+    "column": "regular",
+    "weight": 1,
+    "tags": "lasts ~1 hour; <em>reach</em>, <em>area</em>, <em>dangerous</em>"
+  },
+  {
+    "name": "Twine/cord",
+    "slug": "twine-cord",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Twisting Pine",
+    "slug": "twisting-pine",
+    "column": "regular",
+    "weight": 1,
+    "tags": "A vial of its quick-hardening sap, used in lieu of supplies to Recover (seals wounds, flakes away days later). A harvested jar is Value 1 as a sealant or pottery glaze."
+  },
+  {
+    "name": "Uncommon trade tools",
+    "slug": "uncommon-trade-tools",
+    "column": "regular",
+    "weight": 2,
+    "tags": "carpentry, chandlery, beekeeping, etc.; <em>immobile</em>"
+  },
+  {
+    "name": "Vanta's Blade",
+    "slug": "vantas-blade",
+    "column": "regular",
+    "weight": 1,
+    "tags": "Light-drinking leaves that look like holes in reality. A pouch makes a rich dye, ink, or paint (Value 2). Hillfolk and Manmarchers think it cursed and will burn patches — and bearers — on sight."
+  },
+  {
+    "name": "Vest, brigandine, or fancy gambeson",
+    "slug": "vest-brigandine",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>warm</em>"
+  },
+  {
+    "name": "Violet Lotus",
+    "slug": "violet-lotus",
+    "column": "regular",
+    "weight": 1,
+    "tags": "Inhale the burnt petals to ask the GM a Seek Insight question about any situation you wish. A tincture of the flower makes a lovely perfume (Value 1)."
+  },
+  {
+    "name": "Wagon",
+    "slug": "wagon",
+    "column": "regular",
+    "weight": 3,
+    "tags": "requires mule or horse"
+  },
+  {
+    "name": "Warhammer, iron",
+    "slug": "warhammer",
+    "column": "regular",
+    "weight": 1,
+    "tags": "<em>iron</em>, <em>close</em>, 2 piercing"
+  },
+  {
+    "name": "Waterskin",
+    "slug": "waterskin",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Wax tablet & stylus",
+    "slug": "wax-tablet-stylus",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Wheelbarrow",
+    "slug": "wheelbarrow",
+    "column": "regular",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Whetstone",
+    "slug": "whetstone",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  },
+  {
+    "name": "Whisky, skin",
+    "slug": "whisky",
+    "column": "small",
+    "weight": 1,
+    "tags": "",
+    "resource": {
+      "max": 2,
+      "labels": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "name": "Whistle",
+    "slug": "whistle",
+    "column": "small",
+    "weight": 1,
+    "tags": ""
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "name": "Rime Lord",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/maker.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 5,
+        "source": "potent wards, skill"
+      },
+      "damage": {
+        "value": "conjured ice d12+3 (any range, area, grabby, forceful) or heat-drain d12+1 (reach, ignores armor)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "to seek perfection — in themselves, in their surroundings, in others"
+      }
+    },
+    "concept": "One of the last thirteen ice-gods, in eternal stasis, weaving the glacier that binds Y'aaw'kara.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, cautious, cunning, magical, organized, terrifying",
+    "qualities": "<p>Spirit sight; telepathic; cold-proof; ageless; no need to eat, drink, sleep, or breathe; an aura of bitter cold.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.lMOwbXpvkp9KL5SG",
+    "notes": "",
+    "creatureType": "maker"
+  },
+  "prototypeToken": {
+    "name": "Rime Lord",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/maker.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "D9GYYmI0sHQYAPyH",
+      "name": "Overawe those in its presence",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!knIBykmqBqa8lMFN.D9GYYmI0sHQYAPyH"
+    },
+    {
+      "_id": "joFP0olTTFmNGZBm",
+      "name": "Act simultaneously in both the physical and spirit worlds",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!knIBykmqBqa8lMFN.joFP0olTTFmNGZBm"
+    },
+    {
+      "_id": "g01t1Zh1hCE0aYkA",
+      "name": "Impose its mighty will on the world — stilling emotions, freezing time, dismissing magic, reshaping reality",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!knIBykmqBqa8lMFN.g01t1Zh1hCE0aYkA"
+    },
+    {
+      "_id": "5n5aj0HqSOP3Zni6",
+      "name": "Create a tulpa or thoughtform",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!knIBykmqBqa8lMFN.5n5aj0HqSOP3Zni6"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "knIBykmqBqa8lMFN",
+  "_key": "!actors!knIBykmqBqa8lMFN"
+}

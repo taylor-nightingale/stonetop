@@ -1,0 +1,61 @@
+{
+  "_id": "cBKPMt36JtRzMeCv",
+  "_key": "!journal!cBKPMt36JtRzMeCv",
+  "name": "Mountain Ape",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Shaggy white apes that guard their revered hoards far from any trail."
+    }
+  },
+  "folder": "BbbSr8kQQLU7JJm8",
+  "sort": 60000,
+  "pages": [
+    {
+      "_id": "ZESzeZd870JRlLFg",
+      "_key": "!journal.pages!cBKPMt36JtRzMeCv.ZESzeZd870JRlLFg",
+      "name": "Mountain Ape",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Shaggy white apes that guard their revered hoards far from any trail.",
+        "description": "<p>Like orangutans but taller, more powerfully built, with thick, shaggy white hair. They dwell in small bands, in Rime Lord ruins or sacred sites far from any well-trod trails, venturing out to hunt and gather but avoiding people as much as they can. Each band collects things — a particular plant, the bones of certain animals, bits of writing, dark ice — and keeps the hoard hidden away, revered and treasured even more than their own children. Large bands keep an alpha (large, leader, +6 HP, +1 damage) who does nothing but protect it.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.ASyoP5BXGukeIrG5"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

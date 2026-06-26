@@ -1,0 +1,61 @@
+{
+  "_id": "bgGP0Dpdt51lXYmK",
+  "_key": "!journal!bgGP0Dpdt51lXYmK",
+  "name": "Tomb-Bog Spirit",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A peat-mound spirit of punishment that smothers the condemned."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 113000,
+  "pages": [
+    {
+      "_id": "oqo7ZT9MeMHsxmwT",
+      "_key": "!journal.pages!bgGP0Dpdt51lXYmK.oqo7ZT9MeMHsxmwT",
+      "name": "Tomb-Bog Spirit",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A peat-mound spirit of punishment that smothers the condemned.",
+        "description": "<p>In <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier's Fen}</strong>, not far from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, there lies a peat mound where the town buries criminals alive. Over the years, the place has given birth to a spirit of death and punishment. The spirit is young and eager, and can be set to work upon criminals.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.NF4U8y44DMzdwFQd"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

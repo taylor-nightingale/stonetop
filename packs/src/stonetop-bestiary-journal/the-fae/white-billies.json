@@ -1,0 +1,61 @@
+{
+  "_id": "MsrMiy6ljbqoemjr",
+  "_key": "!journal!MsrMiy6ljbqoemjr",
+  "name": "The White Billies",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Birch-furred satyr-fae drowning their grief in endless raucous revels."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 68000,
+  "pages": [
+    {
+      "_id": "v2lyZWFqBMtoFIJP",
+      "_key": "!journal.pages!MsrMiy6ljbqoemjr.v2lyZWFqBMtoFIJP",
+      "name": "The White Billies",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Birch-furred satyr-fae drowning their grief in endless raucous revels.",
+        "description": "<p>Muscular folk with cloven hooves, birch-white fur, and horns in every size and shape. They seem so happy, their endless days spent dancing and singing, drinking and rutting, indulging in good-natured brawls. But when you look closer, you see the scars — the missing limbs, the broken horns, the eyes briefly so full of pain. But no, no, it's gone. Another dance! Another round! Another bawdy song! Join their revels and you lose HP, mark debilities, and risk reveling endlessly until someone rescues you.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fRUY04eQ6mQK6uGr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

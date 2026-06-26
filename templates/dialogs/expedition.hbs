@@ -1,0 +1,169 @@
+{{!-- Expedition walkthrough. Reuses the spring dialog's shared chrome
+      (.stonetop-guide-*) and body/qa/tier styling (.stonetop-spring-*); only the
+      Chart-a-Course / arriving-home checklist and Die of Fate button are new
+      (.stonetop-exp-*). See dialogs/ExpeditionDialog.js. --}}
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-split">
+
+    {{!-- Jump-to-step table of contents (journal-style). --}}
+    <nav class="stonetop-guide-toc" aria-label="Expedition steps">
+      <ol class="stonetop-guide-toc-list">
+        {{#each steps}}
+        <li class="stonetop-guide-toc-item{{#if isActive}} is-active{{/if}}">
+          <button type="button" class="stonetop-guide-toc-btn" data-step-index="{{index}}"{{#if isActive}} aria-current="step"{{/if}}>
+            <i class="fas {{icon}} stonetop-guide-toc-icon"></i>
+            <span class="stonetop-guide-toc-text">{{title}}</span>
+          </button>
+        </li>
+        {{/each}}
+      </ol>
+    </nav>
+
+    <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas {{step.icon}} stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">{{step.title}}</div>
+        <div class="stonetop-guide-banner-sub">Run an expedition</div>
+      </div>
+      <div class="stonetop-guide-count">{{stepIndex}} / {{stepCount}}</div>
+    </div>
+
+    {{!-- Expedition-log bar: name the current trip, switch between logged trips, or
+          start a fresh one. Each trip with content becomes its own Chronicle page. --}}
+    <div class="stonetop-exp-bar">
+      <label class="stonetop-exp-bar-field">
+        <span class="stonetop-exp-bar-label">Expedition</span>
+        <input type="text" class="stonetop-exp-title" value="{{expedition.title}}"
+               placeholder="Name this expedition (e.g. The Wandering Tower)">
+      </label>
+      {{#if expedition.hasMultiple}}
+      <select class="stonetop-exp-switch" aria-label="Switch expedition">
+        {{#each expedition.options}}
+        <option value="{{id}}" {{#if isCurrent}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      {{/if}}
+      {{#if expedition.hasAny}}
+      <button type="button" class="stonetop-exp-delete" title="Delete this expedition" aria-label="Delete this expedition">
+        <i class="fas fa-trash"></i>
+      </button>
+      {{/if}}
+      <button type="button" class="stonetop-exp-new" title="Start a new expedition">
+        <i class="fas fa-plus"></i> New
+      </button>
+    </div>
+
+    <div class="stonetop-spring-body">{{{step.body}}}</div>
+
+    {{#if showRoll}}
+    <div class="stonetop-spring-roll-wrap">
+      {{#if roll}}
+      <div class="stonetop-spring-roll-result stonetop-spring--{{roll.tier}}">
+        <span class="stonetop-spring-roll-result-total">{{roll.total}}</span>
+        <span class="stonetop-spring-roll-result-label">{{{roll.label}}}</span>
+      </div>
+      <button type="button" class="stonetop-exp-roll-btn stonetop-spring-roll-btn">
+        <i class="fas fa-rotate-right"></i> Roll again
+      </button>
+      {{else}}
+      <button type="button" class="stonetop-exp-roll-btn stonetop-spring-roll-btn stonetop-spring-roll-btn--primary">
+        <i class="fas fa-dice"></i> Roll +Fortunes ({{fortunesLabel}})
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    {{#if showTiers}}
+    <ul class="stonetop-spring-tiers">
+      {{#each tiers}}
+      <li class="stonetop-spring-tier{{#if isActive}} is-active{{/if}}">
+        <span class="stonetop-spring-tier-label">{{{label}}}</span>
+        <span class="stonetop-spring-tier-text">{{{text}}}</span>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+
+    {{#if showFate}}
+    <div class="stonetop-spring-roll-wrap">
+      <button type="button" class="stonetop-exp-fate-btn stonetop-spring-roll-btn{{#unless showWeather}} stonetop-spring-roll-btn--primary{{/unless}}">
+        <i class="fas fa-dice-d6"></i> Roll the Die of Fate
+      </button>
+      {{#if showWeather}}
+      <button type="button" class="stonetop-exp-weather-btn stonetop-spring-roll-btn stonetop-spring-roll-btn--primary">
+        <i class="fas fa-cloud-sun-rain"></i> Seasonal weather
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    {{#if qa}}
+    <div class="stonetop-spring-qa-wrap">
+
+      {{#if (eq qa.kind "checklist")}}
+        {{#if qa.intro}}
+        <div class="stonetop-spring-qa">
+          <p class="stonetop-spring-qa-prompt">{{{qa.intro.prompt}}}</p>
+          <textarea class="stonetop-exp-field stonetop-spring-qa-answer" rows="2"
+                    data-answer-path="{{qa.intro.path}}"
+                    placeholder="{{qa.intro.placeholder}}">{{qa.intro.value}}</textarea>
+        </div>
+        {{/if}}
+        {{#each qa.groups}}
+        <div class="stonetop-exp-checkgroup">
+          <div class="stonetop-exp-checkgroup-label">{{label}}</div>
+          <ul class="stonetop-exp-checks">
+            {{#each items}}
+            <li class="stonetop-exp-check">
+              <label>
+                <input type="checkbox" class="stonetop-exp-checkbox"
+                       data-answer-path="{{path}}" {{#if checked}}checked{{/if}}>
+                <span>{{{text}}}</span>
+              </label>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+        {{#if qa.notes}}
+        <div class="stonetop-spring-qa">
+          <p class="stonetop-spring-qa-prompt">{{{qa.notes.prompt}}}</p>
+          <textarea class="stonetop-exp-field stonetop-spring-qa-answer" rows="2"
+                    data-answer-path="{{qa.notes.path}}"
+                    placeholder="{{qa.notes.placeholder}}">{{qa.notes.value}}</textarea>
+        </div>
+        {{/if}}
+
+      {{else}}
+      <div class="stonetop-spring-qa">
+        <p class="stonetop-spring-qa-prompt">{{{qa.prompt}}}</p>
+        <textarea class="stonetop-exp-field stonetop-spring-qa-answer" rows="2"
+                  data-answer-path="{{qa.path}}"
+                  placeholder="{{qa.placeholder}}">{{qa.answer}}</textarea>
+      </div>
+      {{/if}}
+
+    </div>
+    {{/if}}
+
+    </div>
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-spring-back" {{#if isFirst}}disabled{{/if}}><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+    <span class="stonetop-spring-step-label">{{stepLabel}}</span>
+    {{#if isLast}}
+    <span class="stonetop-exp-done-actions">
+      {{#if isGM}}<button type="button" class="stonetop-exp-chronicle" data-tooltip="Compiles each logged trip into the Expeditions journal (in a &quot;The Chronicle&quot; folder) — GM-only." data-tooltip-direction="UP"><i class="fas fa-feather"></i> Save to the Chronicle</button>{{/if}}
+      <button class="stonetop-spring-done stonetop-guide-btn--primary">Done ✦</button>
+    </span>
+    {{else}}
+    <button class="stonetop-spring-next">Next<span class="stonetop-nav-arrow"></span></button>
+    {{/if}}
+  </div>
+
+</div>

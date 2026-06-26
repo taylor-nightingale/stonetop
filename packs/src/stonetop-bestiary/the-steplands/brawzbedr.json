@@ -1,0 +1,92 @@
+{
+  "name": "Brawzbedr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 3,
+        "source": "thick hide and boney nodules"
+      },
+      "damage": {
+        "value": "tree-rending claws d10+7 w/disadvantage (reach, close, forceful, messy, 1 piercing)",
+        "rollFormula": "d10+7"
+      },
+      "instinct": {
+        "value": "to overreact"
+      }
+    },
+    "concept": "A house-sized badger-sloth that tears whole slopes of trees apart.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, stubborn, grumpy",
+    "qualities": "<p>Poor vision and hearing; excellent sense of smell.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.sc28aHnwvhvBDyjh",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Brawzbedr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "iEgYmqxVDAxmz7QV",
+      "name": "Not really notice something",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!eU2PTY1DoA2n95RT.iEgYmqxVDAxmz7QV"
+    },
+    {
+      "_id": "UfzAeTTGewZfB2QH",
+      "name": "Tear up trees like a child tears up grass",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!eU2PTY1DoA2n95RT.UfzAeTTGewZfB2QH"
+    },
+    {
+      "_id": "Wn9Zq3txCcOQoq0G",
+      "name": "Swat at something that annoys it",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!eU2PTY1DoA2n95RT.Wn9Zq3txCcOQoq0G"
+    },
+    {
+      "_id": "FSw5p6akNhHFGNqb",
+      "name": "Flail about in a rage (+area), then get tired",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!eU2PTY1DoA2n95RT.FSw5p6akNhHFGNqb"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "A5pBFgOjdwXRwZNz",
+  "_id": "eU2PTY1DoA2n95RT",
+  "_key": "!actors!eU2PTY1DoA2n95RT"
+}

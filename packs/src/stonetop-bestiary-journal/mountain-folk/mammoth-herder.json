@@ -1,0 +1,61 @@
+{
+  "_id": "AXCc64h6QQiyBGpx",
+  "_key": "!journal!AXCc64h6QQiyBGpx",
+  "name": "Mammoth Herder",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tundra nomads who follow the mammoth herds across the Frozen Wastes."
+    }
+  },
+  "folder": "RAGjKS2JDwIV1qll",
+  "sort": 171000,
+  "pages": [
+    {
+      "_id": "Ncv6eFIbmhYonvVP",
+      "_key": "!journal.pages!AXCc64h6QQiyBGpx.Ncv6eFIbmhYonvVP",
+      "name": "Mammoth Herder",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Tundra nomads who follow the mammoth herds across the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.xg8MEuSbbEt1wqg8]{Frozen Wastes}</strong>.",
+        "description": "<p>The nomads of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.xg8MEuSbbEt1wqg8]{Frozen Wastes}</strong> follow the mammoth herds across the tundra, putting their people and their beasts before all else. They greet strangers from a distance, politely and formally, and remain unsettlingly calm even as they ready for violence.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.bmmVVWAh7h2uAPJp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "ecQoXsf2o3gyrDO1",
+  "_key": "!items!ecQoXsf2o3gyrDO1",
+  "name": "Crossbow",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "crossbow",
+      "inventoryColumn": "regular",
+      "sortOrder": 33,
+      "note": "<em>far</em>, +1 damage, x piercing, reload",
+      "weight": 1,
+      "resource": {
+        "max": 2,
+        "title": null,
+        "labels": [
+          "low ammo",
+          "all out"
+        ]
+      },
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

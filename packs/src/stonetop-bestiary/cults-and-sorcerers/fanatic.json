@@ -1,0 +1,80 @@
+{
+  "name": "Fanatic",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "weapons d8 (tags by weapon)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to protect their beliefs"
+      }
+    },
+    "concept": "Devotees whose zeal for a faith or leader has curdled into something dangerous.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, organized, devoted",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.CmCRXa9XUJ44hnY7",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Fanatic",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "aZWyLyGnSEeacE3s",
+      "name": "Make a passionate argument",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!sCaNpnejaT7CP3Cg.aZWyLyGnSEeacE3s"
+    },
+    {
+      "_id": "gKpzF2R3Njc39EeP",
+      "name": "Suffer for the cause",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!sCaNpnejaT7CP3Cg.gKpzF2R3Njc39EeP"
+    },
+    {
+      "_id": "6DG3wQUJou0EWld9",
+      "name": "Do evil for the greater good",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!sCaNpnejaT7CP3Cg.6DG3wQUJou0EWld9"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LPEmvUWgwvYz7XRc",
+  "_id": "sCaNpnejaT7CP3Cg",
+  "_key": "!actors!sCaNpnejaT7CP3Cg"
+}

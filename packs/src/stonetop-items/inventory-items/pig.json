@@ -1,0 +1,21 @@
+{
+  "_id": "O2qGFq562dfOB1rc",
+  "_key": "!items!O2qGFq562dfOB1rc",
+  "name": "Pig",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "pig",
+      "inventoryColumn": "regular",
+      "sortOrder": 62,
+      "note": "HP 6, d4 damage; butcher for &#9671; Provisions (6 uses)",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

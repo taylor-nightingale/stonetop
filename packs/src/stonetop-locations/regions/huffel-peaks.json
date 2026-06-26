@@ -1,0 +1,167 @@
+{
+  "_id": "RxUdCkI2lL6gE5IH",
+  "_key": "!journal!RxUdCkI2lL6gE5IH",
+  "name": "Huffel Peaks",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "This range runs along the western edge of the Flats and the Steplands, connecting with the Whitefang Mountains in the north. They’re not as tall and menacing as the Whitefangs, but they are jagged things of granite and basalt, home to a number of volcanoes, and rich in minerals and ore."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 8000,
+  "pages": [
+    {
+      "_id": "g4LGaNLHpQnCjw6E",
+      "_key": "!journal.pages!RxUdCkI2lL6gE5IH.g4LGaNLHpQnCjw6E",
+      "name": "Huffel Peaks",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>This range runs along the western edge of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, connecting with the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong> in the north. They’re not as tall and menacing as the Whitefangs, but they are jagged things of granite and basalt, home to a number of volcanoes, and rich in minerals and ore.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>Slabs of jagged stone: impassive, looming, somehow still surprising</li><li>Tall thin trees (aspen, pines, firs) in the lower slopes and valleys; windswept junipers higher up</li><li>The stone-on-stone clink and thunk as rocks tumble down a slope</li><li>A sense of being surrounded, cut off</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Snow clinging to slopes and peaks, slowly melting</li><li>Pale green on the tips of branches; meadows bursting with wildflowers</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Too-bright sky as you step out of the shade</li><li>Lips cracking in a hot, dry breeze</li><li>Hot sun beating down on you while, somehow, you’re getting rained on</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Slopes and meadows of yellow and gold</li><li>A bitter chill in the now-damp air</li><li>Air pressure dropping as a storm rolls in</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Black stone peeking out from white</li><li>Trees drooping under snow</li><li>A sense of stillness, despite the constant wind</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The World’s End",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Beyond the Huffel Peaks lies a vast expanse of water. But what lies between the mountains and the sea? That’s for you and your group to decide, and the answer might vary depending on which direction you go through the mountains. But perhaps one might find...</p><p>… mighty cliffs, pounded by relentless waves;<br>… a gentle slope, a bountiful lowland, vast sandy beaches, a mild clime;<br>… a chain of islands, some tiny, some quite large;<br>… a wine-dark sea, the civilized lands of the south to be found at its farthest shores;<br>… deserted ruins of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong> or both;<br>… the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong>, in numbers far greater than anyone would suspect;<br>… an isolated people, their ancestors a mix of refugees from when the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong> fell;<br>… colonies from the civilized lands of the South, eking out a living;<br>… some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{The Labyrinth}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Lava/hot springs/geysers/mudpots/ fumaroles</td></tr><tr><td>2</td><td>Crater/caldera/lava tubes/volcanic formations</td></tr><tr><td>3</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>/river/waterfall/lake/ boggy soil</td></tr><tr><td>4</td><td>Travertines/basalt columns or terraces/fairy chimneys/arches</td></tr><tr><td>5–7</td><td>Sheer rock face/bluff/summit/peak</td></tr><tr><td>8–9</td><td>Steep slope/switchback trails/ ridgeline</td></tr><tr><td>10</td><td>Ravine/canyon/gorge</td></tr><tr><td>11</td><td>Gentle slope/meadow/valley/pass</td></tr><tr><td>12</td><td>Cave, cavern, grotto</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around Huffel Peaks. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eAcyCUGDDeqkLrKJ]{Caralandrao}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.CIBOcY6E4EMOsQqO]{Fire Drake}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.XiAOrP04c2oqpkDg]{Frythanc Fledgling}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Who did you once meet who claimed to have reached the far side of the Huffel Peaks? Do you believe their stories about an endless body of water?",
+                "answer": ""
+              },
+              {
+                "prompt": "What legendary treasure is said to be hidden in those peaks?",
+                "answer": ""
+              },
+              {
+                "prompt": "How long has it been since one of the volcanoes erupted violently? How did it affect **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**/**@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}**/the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "You don’t really think that there are dragons in the Huffel Peaks, do you?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Prospectors find veins of cinnabar near <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, and set about mining the lucrative, toxic stuff</li><li>A draventao chases a <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> band from their winter camp in the mountains</li><li>Scouts and warbands of an unknown people start to appear in the Huffel Peaks</li><li>A massive volcanic eruption throws ash across the region, causes strange sunsets and weather, spreads panic and superstition, and perhaps sets loose a powerful emanation of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A change of terrain and roll again.</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>An entrance/exit to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong></td></tr><tr><td>4</td><td>An encounter</td></tr><tr><td>5</td><td>A point of interest</td></tr><tr><td>6</td><td>A natural resource</td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.J0eNyUcWDLD2ornV]{Thraulgwyn}</strong>: come out of the Labyrinth for some reason</td></tr><tr><td>2</td><td>Spirit of the wild: curious or indifferent</td></tr><tr><td>3–4</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong>: travelling, scrounging, on patrol</td></tr><tr><td>5</td><td>Miners/prospectors/loggers, likely based out of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>: wary, on edge</td></tr><tr><td>6</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>: herding, hunting, encamped, or on patrol</td></tr></tbody></table><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A place corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>A place haunted by death and the undying</td></tr><tr><td>3</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, maybe claimed by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr><tr><td>4–5</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>, perhaps inhabited by Ustrina</td></tr><tr><td>6</td><td>A place sacred to the spirits of the wild</td></tr></tbody></table><p><strong>1d6 resource</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Game, but dangerous to hunt, like a cave bear, fire drakes, or goats on an impossible slope</td></tr><tr><td>2–3</td><td>Game, not dangerous but prone to bolt: a goat or deer, quail, rabbits, etc.</td></tr><tr><td>4</td><td>Useful or valuable flora</td></tr><tr><td>5</td><td>A safe place to shelter/a shortcut/ an unexpected path</td></tr><tr><td>6</td><td>A vein of ore/mineral deposit</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Getting lost (maze of mountains, canyons, passes, and valleys)</li><li>Sheer rock face to climb, and a reason to climb it</li><li>Steep slopes, unstable footing (narrow paths, wet stone, scree, thin waterlogged soil, mud, crumbling rock)</li><li>Flash flooding in valleys/on slopes</li><li class=\"question-bullet\">An unexpected obstacle/hazard: go forward and risk it, or backtrack and lose half a day?</li><li>Mudslides and rockslides</li><li>Altitude sickness, especially near the peaks</li></ul><p>Harsh mountain weather</p><ul><li>Baking sun, dry air, lack of water</li><li>Fog banks/low clouds, blocking vision and soaking everything</li><li>Buffeting wind, drowning out voices and keeping you off-balance</li><li>Powerful gusts, threatening to toss you aside</li><li>Rain and wind rolling up from below</li><li>Rain and sleet pelting you, soaking you, threatening to wash you away</li><li>Thunder or lightning: making you flinch/jerk/jolt, triggering rockslides</li><li>Brutal cold and ceaseless wind, leading to hypothermia &amp; frostbite</li><li>Snow and ice burying a pass or trail, making narrow paths impossible</li><li>Snow and ice building up, forming an avalanche</li></ul>"
+              },
+              {
+                "heading": "Volcanic activity",
+                "body": "<ul><li>Superheated air (d4 damage) or poisonous vapors (d4 damage, ignores armor), especially in enclosed spaces</li><li>Searing hot stones (d6 damage)</li><li>Steam vents/geysers (d8 damage, may be forceful)</li><li>Scalding hot mud/water (d8 damage, ignores armor)</li><li>Lava flows (d10+2 damage, grabby, messy, 3 piercing)</li></ul>"
+              },
+              {
+                "heading": "Earthquake",
+                "body": "<ul><li>The ground shakes briefly, alarming but not dangerous</li><li>Powerful tremors make footing unstable, knock rocks loose, cause animals to panic</li><li>Tremors persist: people lose their footing, large rocks tumble (d8 damage, forceful), trails and paths are damaged</li><li>It’s a big one: mudslides and rockslides, avalanches, whole rockfaces come tumbling down</li></ul>"
+              },
+              {
+                "heading": "People",
+                "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong></li><li>Laborers (miners, woodcutters) from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong></li><li>Folk from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong></li><li>Some southern adventurer or antiquarian, ruin-hunting</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.J0eNyUcWDLD2ornV]{Thraulgwyn}</strong>, come up from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong></li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Predators: cave bears, cougars, kleztigr, spitting drakes</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oAW6aV8Fmw6ZQPX4]{Frythanc}</strong>, nesting or hunting over a wide valley/plateau</li><li>A gouzadn, living far from people</li><li>The ghosts and revenants of those who died up here, recently or in ages past</li><li>Spirits of the wild</li><li>Constructs left by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong> or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></li><li>Magma worms near volcanic features</li><li>A draventao, out for a rare hunt or squatting in some ruin</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

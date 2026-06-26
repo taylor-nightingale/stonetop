@@ -1,0 +1,80 @@
+{
+  "name": "Cougar",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "bite d10 (hand, grabby)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to catch prey unawares"
+      }
+    },
+    "concept": "A silent stalking cat that waits for the straggler.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, stealthy, cautious, athletic",
+    "qualities": "<p>Keen night vision and sense of smell.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.hW4pZ1OuPa0yOEFJ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Cougar",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "S9DCYHvntVx5NGMH",
+      "name": "Move into position, silently and unseen",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IFQVMEF9ngS8fED9.S9DCYHvntVx5NGMH"
+    },
+    {
+      "_id": "zd3YPznGtZQ5WSiY",
+      "name": "Pounce on prey, dragging them down (forceful)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IFQVMEF9ngS8fED9.zd3YPznGtZQ5WSiY"
+    },
+    {
+      "_id": "iuTFuh9zge51eU7z",
+      "name": "Bite down and rake (messy)",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IFQVMEF9ngS8fED9.iuTFuh9zge51eU7z"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "IFQVMEF9ngS8fED9",
+  "_key": "!actors!IFQVMEF9ngS8fED9"
+}

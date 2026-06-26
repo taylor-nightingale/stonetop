@@ -1,0 +1,214 @@
+{{!-- Create-a-Follower walkthrough (Book I, NPCs & Followers, pp.474–479).
+      Reuses the spring/expedition dialog chrome (.stonetop-guide-* / .stonetop-spring-*);
+      step-specific controls are .stonetop-cf-*. See dialogs/CreateFollowerDialog.js. --}}
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas {{step.icon}} stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">{{step.title}}</div>
+        <div class="stonetop-guide-banner-sub">Create a follower</div>
+      </div>
+      <div class="stonetop-guide-count">{{stepIndex}} / {{stepCount}}</div>
+    </div>
+
+    <div class="stonetop-spring-body">{{{step.body}}}</div>
+
+    <div class="stonetop-cf-controls">
+
+      {{#if is_concept}}
+      <div class="stonetop-cf-field-grid">
+        <label class="stonetop-cf-label">Name
+          <input type="text" class="stonetop-cf-input" data-field="name" value="{{sel.name}}" placeholder="their name…">
+        </label>
+        <label class="stonetop-cf-label stonetop-cf-label--narrow">Pronoun
+          <input type="text" class="stonetop-cf-input" data-field="pronoun" value="{{sel.pronoun}}" placeholder="she/he/they…" maxlength="12">
+        </label>
+      </div>
+      <label class="stonetop-cf-label">Lot in life / role
+        <input type="text" class="stonetop-cf-input" data-field="typeLabel" value="{{sel.typeLabel}}" placeholder="e.g. apprentice hunter, draft horse, bound spirit">
+      </label>
+      <label class="stonetop-cf-label">Impressions &amp; notes
+        <textarea class="stonetop-cf-textarea" data-field="notes" rows="3" placeholder="occupation, key relationships, a memorable trait, up to 3 impressions…">{{sel.notes}}</textarea>
+      </label>
+      {{/if}}
+
+      {{#if is_tags}}
+      <div class="stonetop-cf-chosen">
+        <span class="stonetop-cf-chosen-label">Chosen tags:</span>
+        {{#if chosenTags.length}}
+        <div class="stonetop-cf-chosen-tags">
+          {{#each chosenTags}}
+          <button type="button" class="stonetop-cf-chosen-tag" data-tag="{{this}}">{{this}} <i class="fas fa-times"></i></button>
+          {{/each}}
+        </div>
+        {{else}}<span class="stonetop-cf-chosen-empty">none yet</span>{{/if}}
+      </div>
+      <div class="stonetop-cf-tag-add-row">
+        <input type="text" class="stonetop-cf-input stonetop-cf-tag-input" placeholder="add your own tag (or comma-separated)…">
+        <button type="button" class="stonetop-cf-tag-add stonetop-cf-mini-btn"><i class="fas fa-plus"></i> Add</button>
+      </div>
+      {{#each tagGroups}}
+      <div class="stonetop-cf-tag-group">
+        <div class="stonetop-cf-tag-group-label">{{label}}</div>
+        <div class="stonetop-cf-tag-pool">
+          {{#each tags}}
+          <button type="button" class="stonetop-cf-tag{{#if selected}} is-selected{{/if}}" data-tag="{{value}}">{{value}}</button>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if is_hp}}
+      <div class="stonetop-cf-pick">
+        <div class="stonetop-cf-pick-label">How resilient are they? <span class="stonetop-cf-pick-hint">(pick 1)</span></div>
+        <div class="stonetop-cf-option-list">
+          {{#each hpBase}}
+          <label class="stonetop-cf-option{{#if selected}} is-selected{{/if}}">
+            <input type="radio" name="cf-hp-base" class="stonetop-cf-hp-base" value="{{key}}" {{#if selected}}checked{{/if}}>
+            <span class="stonetop-cf-option-text">{{label}}</span>
+            <span class="stonetop-cf-option-val">{{hp}} HP</span>
+          </label>
+          {{/each}}
+        </div>
+      </div>
+      <div class="stonetop-cf-pick">
+        <div class="stonetop-cf-pick-label">What else applies? <span class="stonetop-cf-pick-hint">(pick all that do)</span></div>
+        <div class="stonetop-cf-option-list">
+          {{#each hpMods}}
+          <label class="stonetop-cf-option{{#if checked}} is-selected{{/if}}">
+            <input type="checkbox" class="stonetop-cf-hp-mod" value="{{key}}" {{#if checked}}checked{{/if}}>
+            <span class="stonetop-cf-option-text">{{label}}</span>
+            <span class="stonetop-cf-option-val">{{signed}}</span>
+          </label>
+          {{/each}}
+        </div>
+      </div>
+      <div class="stonetop-cf-total"><i class="fas fa-heart"></i> <strong>{{hpTotal}} HP</strong></div>
+      {{/if}}
+
+      {{#if is_armor}}
+      <div class="stonetop-cf-pick">
+        <div class="stonetop-cf-pick-label">What protects them? <span class="stonetop-cf-pick-hint">(pick 1)</span></div>
+        <div class="stonetop-cf-option-list">
+          {{#each armorBase}}
+          <label class="stonetop-cf-option{{#if selected}} is-selected{{/if}}">
+            <input type="radio" name="cf-armor-base" class="stonetop-cf-armor-base" value="{{key}}" {{#if selected}}checked{{/if}}>
+            <span class="stonetop-cf-option-text">{{label}}</span>
+            <span class="stonetop-cf-option-val">{{armor}}</span>
+          </label>
+          {{/each}}
+        </div>
+      </div>
+      <div class="stonetop-cf-pick">
+        <div class="stonetop-cf-pick-label">What else applies? <span class="stonetop-cf-pick-hint">(pick all that do)</span></div>
+        <div class="stonetop-cf-option-list">
+          {{#each armorMods}}
+          <label class="stonetop-cf-option{{#if checked}} is-selected{{/if}}">
+            <input type="checkbox" class="stonetop-cf-armor-mod" value="{{key}}" {{#if checked}}checked{{/if}}>
+            <span class="stonetop-cf-option-text">{{label}}</span>
+            <span class="stonetop-cf-option-val">{{signed}}</span>
+          </label>
+          {{/each}}
+        </div>
+      </div>
+      <div class="stonetop-cf-total"><i class="fas fa-shield-halved"></i> <strong>{{armorTotal}} Armor</strong></div>
+      {{/if}}
+
+      {{#if is_damage}}
+      <div class="stonetop-cf-pick">
+        <div class="stonetop-cf-pick-label">How dangerous are they? <span class="stonetop-cf-pick-hint">(pick 1)</span></div>
+        <div class="stonetop-cf-option-list">
+          {{#each damageOptions}}
+          <label class="stonetop-cf-option{{#if selected}} is-selected{{/if}}">
+            <input type="radio" name="cf-damage" class="stonetop-cf-damage" value="{{key}}" {{#if selected}}checked{{/if}}>
+            <span class="stonetop-cf-option-text">{{label}}</span>
+            <span class="stonetop-cf-option-val">{{die}}</span>
+          </label>
+          {{/each}}
+        </div>
+      </div>
+      <label class="stonetop-cf-label">Range &amp; gear tags (the parenthetical)
+        <input type="text" class="stonetop-cf-input" data-field="damageForm" value="{{sel.damageForm}}" placeholder="e.g. hand · near, low ammo, out · forceful">
+      </label>
+      <div class="stonetop-cf-total"><i class="fas fa-burst"></i> <strong>{{damagePreview}}</strong></div>
+      {{/if}}
+
+      {{#if is_instinct}}
+      <label class="stonetop-cf-label">Instinct
+        <input type="text" class="stonetop-cf-input" data-field="instinct" value="{{sel.instinct}}" placeholder="to [do something]…">
+      </label>
+      <div class="stonetop-cf-chips">
+        {{#each instinctExamples}}
+        <button type="button" class="stonetop-cf-chip stonetop-cf-instinct-ex{{#if selected}} is-selected{{/if}}" data-value="{{value}}">{{value}}</button>
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{#if is_moves}}
+      <label class="stonetop-cf-label">Moves <span class="stonetop-cf-pick-hint">(one per line — optional)</span>
+        <textarea class="stonetop-cf-textarea" data-field="moves" rows="4" placeholder="Sniff out trouble on the wind&#10;Wander off on their own…">{{sel.moves}}</textarea>
+      </label>
+      {{/if}}
+
+      {{#if is_cost}}
+      <label class="stonetop-cf-label">Cost
+        <input type="text" class="stonetop-cf-input" data-field="cost" value="{{sel.cost}}" placeholder="what keeps them following your lead…">
+      </label>
+      <div class="stonetop-cf-chips">
+        {{#each costExamples}}
+        <button type="button" class="stonetop-cf-chip stonetop-cf-cost-ex{{#if selected}} is-selected{{/if}}" data-value="{{value}}">{{value}}</button>
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{#if is_equip}}
+      <div class="stonetop-cf-gear">
+        <div class="stonetop-cf-pick-label">Gear</div>
+        {{#each sel.gear}}
+        <div class="stonetop-cf-gear-row">
+          <input type="text" class="stonetop-cf-input stonetop-cf-gear-label" data-index="{{@index}}" value="{{label}}" placeholder="bow &amp; iron arrows, old cloak, supplies…">
+          <button type="button" class="stonetop-cf-gear-remove stonetop-cf-mini-btn stonetop-cf-mini-btn--danger" data-index="{{@index}}"><i class="fas fa-times"></i></button>
+        </div>
+        {{/each}}
+        <button type="button" class="stonetop-cf-gear-add stonetop-cf-mini-btn"><i class="fas fa-plus"></i> Add gear</button>
+      </div>
+
+      {{#with preview}}
+      <div class="stonetop-cf-preview">
+        <div class="stonetop-cf-preview-head">
+          <span class="stonetop-cf-preview-name">{{name}}{{#if pronoun}} <span class="stonetop-cf-preview-pronoun">({{pronoun}})</span>{{/if}}</span>
+          <span class="stonetop-cf-preview-type">{{typeLabel}}</span>
+        </div>
+        {{#if tags.length}}<div class="stonetop-cf-preview-tags">{{#each tags}}<span class="stonetop-cf-preview-tag">{{this}}</span>{{/each}}</div>{{/if}}
+        <div class="stonetop-cf-preview-stats">
+          <span><strong>HP</strong> {{hp}}</span>
+          <span><strong>Armor</strong> {{armor}}</span>
+          <span><strong>Damage</strong> {{damage}}</span>
+        </div>
+        {{#if instinct}}<div class="stonetop-cf-preview-line"><strong>Instinct</strong> {{instinct}}</div>{{/if}}
+        {{#if cost}}<div class="stonetop-cf-preview-line"><strong>Cost</strong> {{cost}} <span class="stonetop-cf-preview-loyalty">(Loyalty <span class="stonetop-glyph stonetop-glyph--circle">○</span><span class="stonetop-glyph stonetop-glyph--circle">○</span><span class="stonetop-glyph stonetop-glyph--circle">○</span>)</span></div>{{/if}}
+        {{#if moves.length}}<div class="stonetop-cf-preview-line"><strong>Moves</strong> {{#each moves}}{{this}}{{#unless @last}}; {{/unless}}{{/each}}</div>{{/if}}
+        {{#if gear.length}}<div class="stonetop-cf-preview-line"><strong>Gear</strong> {{#each gear}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>{{/if}}
+      </div>
+      {{/with}}
+      {{/if}}
+
+    </div>
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-spring-back" {{#if isFirst}}disabled{{/if}}><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+    <span class="stonetop-spring-step-label">{{stepLabel}}</span>
+    {{#if isLast}}
+    <button class="stonetop-cf-create stonetop-guide-btn--primary"><i class="fas fa-user-plus"></i> Create follower</button>
+    {{else}}
+    <button class="stonetop-spring-next">Next<span class="stonetop-nav-arrow"></span></button>
+    {{/if}}
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+{
+  "_id": "1EAyZGaGD7nVDCiq",
+  "_key": "!journal!1EAyZGaGD7nVDCiq",
+  "name": "Wisent",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Forest bison that close ranks around their young."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 22000,
+  "pages": [
+    {
+      "_id": "md1An2SXN2IJC4LE",
+      "_key": "!journal.pages!1EAyZGaGD7nVDCiq.md1An2SXN2IJC4LE",
+      "name": "Wisent",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Forest bison that close ranks around their young.",
+        "description": "<p>Forest bison travel in herds of up to twenty, but only the bulls typically fight. When cornered, though, even the sows can be dangerous due to their mass and strength.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.P6VzX2jNCZNAZBSD"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

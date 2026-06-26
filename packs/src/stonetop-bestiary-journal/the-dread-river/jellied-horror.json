@@ -1,0 +1,61 @@
+{
+  "_id": "1oYvUFEeUNKJTbFM",
+  "_key": "!journal!1oYvUFEeUNKJTbFM",
+  "name": "Jellied Horror",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A mindless flood-spawned ooze that dissolves and engulfs."
+    }
+  },
+  "folder": "pMuGAU8Psq5joXjG",
+  "sort": 25000,
+  "pages": [
+    {
+      "_id": "tFo9wty9BRn1aVxA",
+      "_key": "!journal.pages!1oYvUFEeUNKJTbFM.tFo9wty9BRn1aVxA",
+      "name": "Jellied Horror",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A mindless flood-spawned ooze that dissolves and engulfs.",
+        "description": "<p>Sometimes the waters of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong> overflow their banks and flood the cursed ruins and tainted places. And sometimes, when the floodwaters recede, they leave behind… something. Something that just isn't right.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.aWbHPmGW9htXdyUN"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

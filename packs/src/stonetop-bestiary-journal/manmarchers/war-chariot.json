@@ -1,0 +1,61 @@
+{
+  "_id": "pmrOvOfxbUopilDk",
+  "_key": "!journal!pmrOvOfxbUopilDk",
+  "name": "War-chariot",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A chief's very best, brought to bear when war-bands meet on the open plain."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 152000,
+  "pages": [
+    {
+      "_id": "ubirnnzFCgP1uxY5",
+      "_key": "!journal.pages!pmrOvOfxbUopilDk.ubirnnzFCgP1uxY5",
+      "name": "War-chariot",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A chief's very best, brought to bear when war-bands meet on the open plain.",
+        "description": "<p>Most violence in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{North Manmarch}</strong> is small and intimate — a nighttime raid on a steading, an ambush in the hills, throats slit around a campfire. But when chiefs raise large forces and meet on the open plains, they bring their very best. Each chariot is pulled by two tonnerhorns and carries a driver and two warriors.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.anJdI79iSTgmf0JB"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

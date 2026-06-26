@@ -1,10 +1,20 @@
-import { StonetopCharacter } from "../../src/actors/character/StonetopCharacter.js";
+import { StonetopCharacter } from "../../module/actors/character/StonetopCharacter.js";
 import { FakeRepositoryFactory } from "./FakeRepositoryFactory.js";
 
 export class TestCharacterBuilder {
 	constructor(actor) {
 		this._actor = actor;
 		this._repos = new FakeRepositoryFactory();
+	}
+
+	withPlaybookRepo(repo) {
+		this._repos.playbook = repo ?? this._repos.playbook;
+		return this;
+	}
+
+	addPlaybook(playbook) {
+		this._repos.playbook.add(playbook);
+		return this;
 	}
 
 	withMoveRepo(repo) {
@@ -22,8 +32,8 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	addInsertMove(move) {
-		this._repos.moves.addInsertMove(move);
+	addPostDeathMove(move) {
+		this._repos.moves.addPostDeath(move);
 		return this;
 	}
 
@@ -42,8 +52,8 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
-	withPossessionRepo(repo) {
-		this._repos.possessions = repo ?? this._repos.possessions;
+	withPostDeathInsertRepo(repo) {
+		this._repos.postDeathInsert = repo ?? this._repos.postDeathInsert;
 		return this;
 	}
 

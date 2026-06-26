@@ -1,0 +1,92 @@
+{
+  "name": "Soithech",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 18,
+        "max": 18
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, human hide"
+      },
+      "damage": {
+        "value": "obsidian knife d10 (hand, crude)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to maintain their status"
+      }
+    },
+    "concept": "The 'vessel' — a settlement's prophet-ruler and conduit for its patron Thing Below.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, corrupted, devious, magical, cautious",
+    "qualities": "<p>Armor 1 vs. bronze. Powerfully gifted and marked. Can let its patron Thing Below flow through it — embodying an aspect and gaining up to 3 more gifts; adjust the stat block.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.J0eNyUcWDLD2ornV",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Soithech",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "htC9Zu9kEQ1bxnHE",
+      "name": "Foresee an opportunity or dire event",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!R3CGOnv3X1BQUpB5.htC9Zu9kEQ1bxnHE"
+    },
+    {
+      "_id": "qWUYiVgWgkq4Z40A",
+      "name": "Play parties against each other",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!R3CGOnv3X1BQUpB5.qWUYiVgWgkq4Z40A"
+    },
+    {
+      "_id": "2ogqRyZNmV9qzF2u",
+      "name": "Use their gift, or one of their tribe's sacred artifacts",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!R3CGOnv3X1BQUpB5.2ogqRyZNmV9qzF2u"
+    },
+    {
+      "_id": "JqlZEflZI85rxybN",
+      "name": "Embody an aspect of their master",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!R3CGOnv3X1BQUpB5.JqlZEflZI85rxybN"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "6lgG8x4gJKsEmtlp",
+  "_id": "R3CGOnv3X1BQUpB5",
+  "_key": "!actors!R3CGOnv3X1BQUpB5"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "ilmYZAlDHX6yXeTp",
+  "_key": "!journal!ilmYZAlDHX6yXeTp",
+  "name": "Manmarcher Recruit",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A green youth doing their turn at the chief's hillfort."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 150000,
+  "pages": [
+    {
+      "_id": "Bt5g2tMGT2G7sSR4",
+      "_key": "!journal.pages!ilmYZAlDHX6yXeTp.Bt5g2tMGT2G7sSR4",
+      "name": "Manmarcher Recruit",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A green youth doing their turn at the chief's hillfort.",
+        "description": "<p>Every able-bodied youth does a turn at their chief's hillfort — a year or two drilling, marching, learning the spear, standing in the shield wall. They sing songs, talk big, and maybe get their hands red. A few are picked for the chief's standing force; most head home to defend their hamlets and swell the ranks when called. That's the idea, at least.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fPiNTDvtHzS9qzvS"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<div class="stonetop-requisition-picker">
+	<p class="stonetop-requisition-trigger"><em>When you borrow some of the steading's assets for an expedition (like the horses or a plow), roll +Fortunes.</em></p>
+
+	<div class="stonetop-requisition-roll">
+		<button type="button" class="stonetop-requisition-roll-btn">
+			<i class="fas fa-dice-d6"></i> Roll +Fortunes ({{fortunes}})
+		</button>
+		<ul class="stonetop-requisition-results">
+			<li><strong>10+:</strong> go ahead, but bring it back safely.</li>
+			<li><strong>7-9:</strong> you'll need to do some convincing.</li>
+			<li><strong>6-:</strong> don't mark XP; you can take the asset, but if you do, reduce Fortunes by 1.</li>
+		</ul>
+	</div>
+
+	<h3 class="stonetop-requisition-heading">{{steadingName}}&rsquo;s Assets</h3>
+	{{#if assets.length}}
+	<ul class="stonetop-requisition-list">
+		{{#each assets}}
+		<li class="stonetop-requisition-item">
+			<span class="stonetop-requisition-item-name">{{name}}</span>
+			<button type="button" class="stonetop-requisition-take" data-index="{{index}}">
+				<i class="fas fa-hand-holding"></i> Take
+			</button>
+		</li>
+		{{/each}}
+	</ul>
+	{{else}}
+	<p class="stonetop-requisition-empty">No assets are currently on hand to requisition.</p>
+	{{/if}}
+
+	{{#if takenAssets.length}}
+	<h4 class="stonetop-requisition-subheading">Already out</h4>
+	<ul class="stonetop-requisition-list stonetop-requisition-list--taken">
+		{{#each takenAssets}}
+		<li class="stonetop-requisition-item is-taken">
+			<span class="stonetop-requisition-item-name">{{name}}</span>
+			<span class="stonetop-requisition-taken-by">Taken by {{takenByName}}</span>
+		</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+
+	<div class="stonetop-requisition-actions">
+		<button type="button" class="stonetop-requisition-close">Close</button>
+	</div>
+</div>

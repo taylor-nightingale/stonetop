@@ -1,0 +1,61 @@
+{
+  "_id": "mBQElv2JfT8AW8KH",
+  "_key": "!journal!mBQElv2JfT8AW8KH",
+  "name": "Plasmic Horror",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A shape-stealing flesh-weaving ooze, blank canvas of the Green Lords."
+    }
+  },
+  "folder": "NTE6FBWI8Dne56uS",
+  "sort": 47000,
+  "pages": [
+    {
+      "_id": "jtqfx2ZFWSNH0fpi",
+      "_key": "!journal.pages!mBQElv2JfT8AW8KH.jtqfx2ZFWSNH0fpi",
+      "name": "Plasmic Horror",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A shape-stealing flesh-weaving ooze, blank canvas of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>.",
+        "description": "<p>These… things… served as blank canvasses for the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>' flesh-weaving. Once they were kept carefully locked away in laboratories and breeding pits; now, with their creators gone all these years, who knows where they might be found? Command one in the tongue of the Green Lords and it might obey — or accept you as its master. It grows by consuming the living, and can split off smaller copies of itself.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.nh6h60KGgx2IlxfF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "name": "Lightning Vortex",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "zap d10 (hand, close) — scales with size",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to lash out"
+      }
+    },
+    "concept": "An arrogant crackling pillar that flies and lashes out with bolts.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, amorphous, brash, arrogant",
+    "qualities": "<p>Flies; harmed only by magical attacks. Gains HP when struck by lightning. HP/Armor/damage scale with size — see the entry.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qUp7ZkpC5FdinUC4",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Lightning Vortex",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "IkD3cFdA4v7kXX5i",
+      "name": "Manifest a crackling pillar of lightning",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!baV7yiVwXMTKa49B.IkD3cFdA4v7kXX5i"
+    },
+    {
+      "_id": "IeQXcNSMjHuE4AL2",
+      "name": "Change position, incredibly fast (costs 1 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!baV7yiVwXMTKa49B.IeQXcNSMjHuE4AL2"
+    },
+    {
+      "_id": "v2R33xDQ5JYNRVFb",
+      "name": "Stun someone it zaps (costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!baV7yiVwXMTKa49B.v2R33xDQ5JYNRVFb"
+    },
+    {
+      "_id": "ycqAXhBqM4LBrodX",
+      "name": "Fling a lightning bolt (+near, +forceful, +loud, ignores armor; costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!baV7yiVwXMTKa49B.ycqAXhBqM4LBrodX"
+    },
+    {
+      "_id": "aEFDVuzSpooocFai",
+      "name": "Tear the lightning from unattended aetherium, gaining 1d4 HP",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!baV7yiVwXMTKa49B.aEFDVuzSpooocFai"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "phXf36WaexQZLIG1",
+  "_id": "baV7yiVwXMTKa49B",
+  "_key": "!actors!baV7yiVwXMTKa49B"
+}

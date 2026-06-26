@@ -1,0 +1,92 @@
+{
+  "name": "Barrow Wight",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "rusty sword d8+2 (close, forceful) or crushing grip d8+2 (hand, grabby, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to protect their hoard"
+      }
+    },
+    "concept": "Spirit-bound corpses set to guard their own barrow hoards.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, undead, corrupted, terrifying, hardy, hoarder",
+    "qualities": "<p>Bound to their barrow. Armor 2 vs. bronze or fire (mail).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.C9HHEVNFl8Cw6w0U",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Barrow Wight",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zWYszghtdd0WrUzC",
+      "name": "Utter an echoing warning",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!FrvZI5HssAop00KC.zWYszghtdd0WrUzC"
+    },
+    {
+      "_id": "8kZXLIvU0xh8B7lI",
+      "name": "Block an exit",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!FrvZI5HssAop00KC.8kZXLIvU0xh8B7lI"
+    },
+    {
+      "_id": "8uesa3s2y9K9Sfwo",
+      "name": "Stand fast, refusing to be moved",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!FrvZI5HssAop00KC.8uesa3s2y9K9Sfwo"
+    },
+    {
+      "_id": "xvIkkathhALNvsYF",
+      "name": "Keep fighting with — or reattach — a severed limb",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!FrvZI5HssAop00KC.xvIkkathhALNvsYF"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "3ix7kVgtSNskFx0Y",
+  "_id": "FrvZI5HssAop00KC",
+  "_key": "!actors!FrvZI5HssAop00KC"
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "VJDP2ETcmA8GeHdT",
+  "_key": "!journal!VJDP2ETcmA8GeHdT",
+  "name": "Horned Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The 'thorn-dragon' — a quartz-plated behemoth of the southern grass."
+    }
+  },
+  "folder": "m8UIU0GIHcbiAoC9",
+  "sort": 48000,
+  "pages": [
+    {
+      "_id": "5mYNP79ZxnvKJ8pB",
+      "_key": "!journal.pages!VJDP2ETcmA8GeHdT.5mYNP79ZxnvKJ8pB",
+      "name": "Horned Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The 'thorn-dragon' — a quartz-plated behemoth of the southern grass.",
+        "description": "<p>The behemoth of the southern grasslands, striking for its great size, the quartz-like plates of its segmented hide, and its fearsome horns — which vary greatly, from a single spike to a rack of five or six curved points along its massive skull. An intimidating beast even at rest. To the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, the downing of a d'lkornek ('thorn-dragon') is a hero's feat, followed by a week of harvest and celebration at the kill site.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Some scholars hold @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{the Stone Lords} imbued horned drakes with elemental qualities. Their hide is commonly mistaken for dolostone, and @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk} prize their horns (Value 3).",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** The horns of a d'lkornek act like power-crystals, but larger and with greater capacity. They are extremely dangerous to harvest — a wise butcher slowly bleeds away their energy over the course of days.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.XFmKN7n1uddyo55m",
+          "Compendium.stonetop.stonetop-bestiary.Actor.MmkSpS99xDX01jeC"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

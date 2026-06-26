@@ -1,0 +1,61 @@
+{
+  "_id": "tVyIps1TouyG6khe",
+  "_key": "!journal!tVyIps1TouyG6khe",
+  "name": "Manmarcher Veteran",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Grim folk with something to fight for, and something to lose."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 151000,
+  "pages": [
+    {
+      "_id": "8kj9FxYua7S31pib",
+      "_key": "!journal.pages!tVyIps1TouyG6khe.8kj9FxYua7S31pib",
+      "name": "Manmarcher Veteran",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Grim folk with something to fight for, and something to lose.",
+        "description": "<p>No longer young, no longer eager or scared — just grim folk with something to fight for and something to lose. They might not be as spry as once they were, but they're no strangers to the black business.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.xxE8nw7spGJN4acG"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

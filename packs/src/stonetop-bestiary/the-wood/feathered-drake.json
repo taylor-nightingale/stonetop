@@ -1,0 +1,81 @@
+{
+  "name": "Feathered Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1,
+        "source": "feathers and scales"
+      },
+      "damage": {
+        "value": "boney crest d8+2 (close, forceful), talon & teeth d8+2 (hand, messy, 1 piercing)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to spring on unwary prey"
+      }
+    },
+    "concept": "Man-sized flightless pack drakes that crash through the brush.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, organized",
+    "qualities": "<p>Flightless.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.T17yRp50eDt8cyXO",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Feathered Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "TeHXiNfpnzA31I9F",
+      "name": "Burst out of the brush",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!30NDurP2YczoGj6B.TeHXiNfpnzA31I9F"
+    },
+    {
+      "_id": "6w3VrqMODVsGRETV",
+      "name": "Bash prey to the ground, senseless",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!30NDurP2YczoGj6B.6w3VrqMODVsGRETV"
+    },
+    {
+      "_id": "QPJFw74SAtmIiIpz",
+      "name": "Surround downed prey, and rend",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!30NDurP2YczoGj6B.QPJFw74SAtmIiIpz"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "30NDurP2YczoGj6B",
+  "_key": "!actors!30NDurP2YczoGj6B"
+}

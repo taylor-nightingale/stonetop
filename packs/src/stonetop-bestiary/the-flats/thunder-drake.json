@@ -1,0 +1,80 @@
+{
+  "name": "Thunder Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 3
+      },
+      "damage": {
+        "value": "gore, trample, swat d10+3 (hand, close, forceful, messy, 1 piercing)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to protect its turf"
+      }
+    },
+    "concept": "A hill-sized burrowing drake that belches lightning.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large",
+    "qualities": "<p>Lightning-proof; hard of hearing.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.pwQ68WIhCcu5pqzq",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Thunder Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "sQGApuEShiA14wgW",
+      "name": "Bellow (near, area, loud, forceful, reload)",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!sFo40dgjm1DmyJps.sQGApuEShiA14wgW"
+    },
+    {
+      "_id": "4M9eEQpcGehbwygF",
+      "name": "Burrow and gnaw through rock",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!sFo40dgjm1DmyJps.4M9eEQpcGehbwygF"
+    },
+    {
+      "_id": "MsXBUehQrEwtl3xy",
+      "name": "Belch forth a bolt of lightning, d10+3 damage (near, forceful, loud, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10+3"
+      },
+      "_key": "!actors.items!sFo40dgjm1DmyJps.MsXBUehQrEwtl3xy"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "sFo40dgjm1DmyJps",
+  "_key": "!actors!sFo40dgjm1DmyJps"
+}

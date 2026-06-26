@@ -1,0 +1,92 @@
+{
+  "name": "Draventao",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 22,
+        "max": 22
+      },
+      "armor": {
+        "value": 4,
+        "source": "scales, steel plates"
+      },
+      "damage": {
+        "value": "bite d12+3 w/advantage (close, reach, forceful, messy, grabby, 1 piercing)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "to protect itself and its hoard, from threats real or imagined"
+      }
+    },
+    "concept": "A Forge Lord who Changed into a hoard-brooding, fire-breathing wyrm.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, hoarder, paranoid, terrifying, fierce",
+    "qualities": "<p>Fireproof; bestial intellect; slumbers for years at a time.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.sKYvwXBCiWfqNZlU",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Draventao",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "sJptE5lPyMuhkA6D",
+      "name": "Lure or drive intruders into a trap",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9kcSzC3uPavigsyF.sJptE5lPyMuhkA6D"
+    },
+    {
+      "_id": "6Z7VweunRmyNx0x2",
+      "name": "Attack with sudden, terrible ferocity that makes even stout hearts falter",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9kcSzC3uPavigsyF.6Z7VweunRmyNx0x2"
+    },
+    {
+      "_id": "CPfpYWGEdpl3PMxE",
+      "name": "Suck in air, stoking its inner flames",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9kcSzC3uPavigsyF.CPfpYWGEdpl3PMxE"
+    },
+    {
+      "_id": "fvN8MpkjzSZl2gE4",
+      "name": "Breathe sticky fire, d10+3 damage (near, area, grabby, messy, reload, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10+3"
+      },
+      "_key": "!actors.items!9kcSzC3uPavigsyF.fvN8MpkjzSZl2gE4"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "9kcSzC3uPavigsyF",
+  "_key": "!actors!9kcSzC3uPavigsyF"
+}

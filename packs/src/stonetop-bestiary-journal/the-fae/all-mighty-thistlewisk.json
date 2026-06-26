@@ -1,0 +1,61 @@
+{
+  "_id": "ADGkrlYCiTFqkGK2",
+  "_key": "!journal!ADGkrlYCiTFqkGK2",
+  "name": "All-mighty Thistlewisk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A tiny, arrogant Fae idol with a disembodied voice, demanding worship and ever-larger feasts."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 141000,
+  "pages": [
+    {
+      "_id": "GWjDHN2MeLTD4eck",
+      "_key": "!journal.pages!ADGkrlYCiTFqkGK2.GWjDHN2MeLTD4eck",
+      "name": "All-mighty Thistlewisk",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A tiny, arrogant <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> idol with a disembodied voice, demanding worship and ever-larger feasts.",
+        "description": "<p>Set the idol in a prominent place and beseech it, and All-mighty Thistlewisk wakes — still inert, a mere statue, but with a disembodied voice and an outsized opinion of itself. It treats its keeper as a worshipper rather than a master: weaving illusions, sensing idle thoughts, heaping abuse on those who attend it, and demanding ever-larger offerings of food.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.GvE18LdU5XodJxZD"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

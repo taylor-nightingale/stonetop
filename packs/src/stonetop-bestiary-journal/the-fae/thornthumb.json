@@ -1,0 +1,61 @@
+{
+  "_id": "bn2on83jMJvyN4hU",
+  "_key": "!journal!bn2on83jMJvyN4hU",
+  "name": "Thornthumb",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A prickly little wicker-man Fae, a hoarder of trinkets desperate to reclaim his stolen stash."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 136000,
+  "pages": [
+    {
+      "_id": "XZj2nLY714K0DA5q",
+      "_key": "!journal.pages!bn2on83jMJvyN4hU.XZj2nLY714K0DA5q",
+      "name": "Thornthumb",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A prickly little wicker-man <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, a hoarder of trinkets desperate to reclaim his stolen stash.",
+        "description": "<p>The book's worked example of a <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>: a little wicker-man descended from a plant-spirit, once a gardener for some Green Lord, forever collecting trinkets, plants, and rocks. Fiercely protective of his hoard and caring little for his fellow Fae, he became a loner and outcast. He found a tomb to call home and began to rebuild his collection — until a swyn forced him out, and now he desperately wants his stuff back.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.HQCqcFlZZzEr8EHZ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

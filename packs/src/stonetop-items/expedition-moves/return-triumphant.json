@@ -1,0 +1,11 @@
+{
+  "name": "Return Triumphant",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>return home in triumph</em></strong>, having saved your fellows, put down the threat, seized the opportunity, etc., then clear one of the steading's debilities (<em>diminished</em>, <em>lacking</em>, or <em>malcontent</em>).</p><p>If the steading has no debilities marked, then increase Fortunes by 1.</p>"
+  },
+  "_id": "B5OzQJ8mX2sv6jsG",
+  "_key": "!items!B5OzQJ8mX2sv6jsG",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

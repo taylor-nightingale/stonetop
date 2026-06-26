@@ -1,0 +1,81 @@
+{
+  "name": "Coedwaig",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "armor": {
+        "value": 2,
+        "source": "bark, no vital organs"
+      },
+      "damage": {
+        "value": "nasty thorns d6 (hand, grabby)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to viciously defend its ward"
+      }
+    },
+    "concept": "Thorn-spirits — Danu's little swords, drawn to defend her most delicate children.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, spirit, magical",
+    "qualities": "<p>Thorns all over — to touch them is to bleed.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.4cuy0KcuT5WO0S5A",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Coedwaig",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "lX2QB4gNLbgNFoFj",
+      "name": "Possess thorny plants or vines and shape them into a body",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Hogu0AEnAffI0HHr.lX2QB4gNLbgNFoFj"
+    },
+    {
+      "_id": "X1QtTUNdLiLq0IMf",
+      "name": "Cause vicious thorns and spines to sprout from nearby plants",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Hogu0AEnAffI0HHr.X1QtTUNdLiLq0IMf"
+    },
+    {
+      "_id": "7pVz5nkhpWGqQBnf",
+      "name": "Dig in deep, make them bleed (messy)",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Hogu0AEnAffI0HHr.7pVz5nkhpWGqQBnf"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "Hogu0AEnAffI0HHr",
+  "_key": "!actors!Hogu0AEnAffI0HHr"
+}

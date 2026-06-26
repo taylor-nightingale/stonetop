@@ -1,0 +1,91 @@
+{
+  "name": "Totnatter",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "venomous bite d10+1 (reach, close, hand, 1 piercing)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to toy with its food"
+      }
+    },
+    "concept": "A grey-white rattlesnake grown big enough to swallow a deer.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, stealthy, terrifying",
+    "qualities": "<p>Thermal vision; extraordinary sense of smell.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.w8oBC7s7o7AlEqIQ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Totnatter",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "B5JGi501sUWGl8wH",
+      "name": "Scent prey, track it down",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4vXt3vYLBjH8b18j.B5JGi501sUWGl8wH"
+    },
+    {
+      "_id": "m8PDIusoklyuBGKv",
+      "name": "Rattle its tail, paralyzing prey with fear",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4vXt3vYLBjH8b18j.m8PDIusoklyuBGKv"
+    },
+    {
+      "_id": "Y0KH3qTQHGKfXf6u",
+      "name": "Pump them full of venom, then retreat",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4vXt3vYLBjH8b18j.Y0KH3qTQHGKfXf6u"
+    },
+    {
+      "_id": "Eni6tPUwLVfjPNtH",
+      "name": "Follow, waiting for its prey to collapse",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4vXt3vYLBjH8b18j.Eni6tPUwLVfjPNtH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Q54ooWoCvfDvmsPD",
+  "_id": "4vXt3vYLBjH8b18j",
+  "_key": "!actors!4vXt3vYLBjH8b18j"
+}

@@ -1,0 +1,41 @@
+{{!-- Grouped section (heading + body + bullet items per entry): Discoveries and
+     Dangers & Hazards. `danger` switches the read heading to the glyph style.
+     `title`, `addLabel`, `headingPlaceholder` are passed pre-localized. --}}
+<section class="stonetop-monster-field stonetop-monster-field--full stonetop-discovery-section{{#if danger}} stonetop-danger-section{{/if}}"
+         data-discovery-field="{{field}}" data-section="{{field}}">
+	{{> "stonetop.bestiary-section-head" key=field title=title inlineOwner=inlineOwner open=open}}
+	{{#if editing}}
+	{{#each groups}}
+	<div class="stonetop-discovery-edit" data-discovery-index="{{@index}}">
+		<input type="text" class="stonetop-discovery-input stonetop-discovery-heading-input"
+		       value="{{heading}}" placeholder='{{../headingPlaceholder}}'>
+		<textarea class="stonetop-discovery-input stonetop-discovery-body-input"
+		          placeholder='{{localize "stonetop.bestiary.discoveryBodyPlaceholder"}}'>{{body}}</textarea>
+		<textarea class="stonetop-discovery-input stonetop-discovery-items-input"
+		          placeholder='{{localize "stonetop.bestiary.discoveryItemsPlaceholder"}}'>{{itemsText}}</textarea>
+		<a class="stonetop-discovery-remove-group" title="Remove"><i class="fas fa-trash"></i></a>
+	</div>
+	{{/each}}
+	<button type="button" class="stonetop-discovery-add-group" data-field="{{field}}">
+		<i class="fas fa-plus"></i> {{addLabel}}
+	</button>
+	{{else}}
+	{{#each groups}}
+	{{#if (or heading body items.length)}}
+	<div class="stonetop-discovery-group{{#if ../danger}} stonetop-danger-group{{/if}}">
+		{{!-- Sub-headings are h4 (one level below the h3 section headers) so the journal
+		     TOC nests them under their section, the same way Dangers' hazards nest. --}}
+		{{#if heading}}
+		<h4 class="stonetop-move-group-title{{#if ../danger}} stonetop-danger-heading{{/if}}"><span>{{{headingHtml}}}</span></h4>
+		{{/if}}
+		{{#if bodyHtml}}<p class="stonetop-discovery-body">{{{bodyHtml}}}</p>{{/if}}
+		{{#if items.length}}
+		<ul class="stonetop-monster-line-list">
+			{{#each items}}{{#if text}}<li class="stonetop-monster-line"><span>{{{html}}}</span></li>{{/if}}{{/each}}
+		</ul>
+		{{/if}}
+	</div>
+	{{/if}}
+	{{/each}}
+	{{/if}}
+</section>

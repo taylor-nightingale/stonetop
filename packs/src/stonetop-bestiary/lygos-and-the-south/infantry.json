@@ -1,0 +1,70 @@
+{
+  "name": "Infantry",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "shield, linen cuirass"
+      },
+      "damage": {
+        "value": "iron-tipped long spear d6 (reach) or short sword d6 (hand, close)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to follow orders"
+      }
+    },
+    "concept": "Massed southern levy, holding the line behind spear and shield.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, organized",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.RrC8q9cFYtODqipS",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Infantry",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Gixec51ssyD7ezH5",
+      "name": "Form a phalanx",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!r5Ea7yfpDcp6WTO4.Gixec51ssyD7ezH5"
+    },
+    {
+      "_id": "3Mgm8rmf2ysoUz39",
+      "name": "Pin down or hem in their foe",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!r5Ea7yfpDcp6WTO4.3Mgm8rmf2ysoUz39"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "r5Ea7yfpDcp6WTO4",
+  "_key": "!actors!r5Ea7yfpDcp6WTO4"
+}

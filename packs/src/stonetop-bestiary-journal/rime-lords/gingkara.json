@@ -1,0 +1,61 @@
+{
+  "_id": "ztrQnbFLBK1siEPk",
+  "_key": "!journal!ztrQnbFLBK1siEPk",
+  "name": "Gingkara",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Carved-bone skeletons bound by spirits, still tidying their long-dead masters' homes."
+    }
+  },
+  "folder": "F7SHzAIMoFYFjUdt",
+  "sort": 91000,
+  "pages": [
+    {
+      "_id": "4Qs7GizKoFhO6NnT",
+      "_key": "!journal.pages!ztrQnbFLBK1siEPk.4Qs7GizKoFhO6NnT",
+      "name": "Gingkara",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Carved-bone skeletons bound by spirits, still tidying their long-dead masters' homes.",
+        "description": "<p>Some of the simplest tulpas to create, each of these spirits is bound to a skeleton that's been stripped of flesh and intricately carved. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{The Rime Lords}</strong> and their disciples used them as domestic servants, tending to material needs and serving as guardians when needed. Gingkara still attempt to preserve their masters' homes — for what else should they do with their existence?</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.ktS8JqsS9RThoLIJ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

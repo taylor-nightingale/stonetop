@@ -1,0 +1,26 @@
+{
+  "name": "Deploy",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>send a steading's people into danger or rally them against an attack</em></strong>, roll +Defenses: <strong>on a 10+</strong>, it goes as well as can be expected; <strong>on a 7-9</strong>, it works but someone chooses 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.</p><ul><li>It's less effective than you expected</li><li>Injuries abound; the steading marks <em>diminished</em> (disadvantage to Deploy, Muster, Pull Together)</li><li>The GM picks a named NPC involved in the action; they die</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "It goes as well as can be expected."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "It works but someone chooses 1 from the list (you choose if acting from strength, GM chooses otherwise)."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The villagers refuse your orders, suffer heavy losses (mark diminished), or you're put in a spot—carnage unless the PCs save the day."
+      }
+    },
+    "rollType": "ask"
+  },
+  "_id": "jGkxPPkiENIBym14",
+  "_key": "!items!jGkxPPkiENIBym14",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

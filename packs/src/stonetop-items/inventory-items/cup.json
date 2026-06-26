@@ -1,0 +1,18 @@
+{
+  "_id": "eNdjIs9hVLXnGBB1",
+  "_key": "!items!eNdjIs9hVLXnGBB1",
+  "name": "Cup",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "cup",
+      "inventoryColumn": "small",
+      "sortOrder": 15,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

@@ -1,0 +1,103 @@
+{
+  "name": "Auntie Sallow",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "choking fingers/tendrils d10+1 (hand, close, reach, grabby)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to “protect” beauty and innocence"
+      }
+    },
+    "concept": "A willow-draped fae who 'helps' the frightened into a cool, muddy grave.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, fae, magical, stealthy, corrupted, terrifying",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>. Armor 1 vs. iron (bark); takes +1d4 damage from bronze. Leaches color from her surroundings; knows whatever her moths know.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.xkAtN3IG7KgIDQVk",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Auntie Sallow",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "YIgKZFSTrpRpqHmM",
+      "name": "Disperse into an eclipse of moths",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pGSpDKZrgRQljLc7.YIgKZFSTrpRpqHmM"
+    },
+    {
+      "_id": "brQhDghuW22mKML3",
+      "name": "Find someone needing her 'help'",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pGSpDKZrgRQljLc7.brQhDghuW22mKML3"
+    },
+    {
+      "_id": "JT5ApKsW9fHvU8zj",
+      "name": "Show them their fears and nightmares",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pGSpDKZrgRQljLc7.JT5ApKsW9fHvU8zj"
+    },
+    {
+      "_id": "Ev2BTfaVdGApF3kb",
+      "name": "Lure or drag them back to her home",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pGSpDKZrgRQljLc7.Ev2BTfaVdGApF3kb"
+    },
+    {
+      "_id": "BnHCClziepxoSGo7",
+      "name": "Bury them in the cool, safe mud, forever",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pGSpDKZrgRQljLc7.BnHCClziepxoSGo7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "pGSpDKZrgRQljLc7",
+  "_key": "!actors!pGSpDKZrgRQljLc7"
+}

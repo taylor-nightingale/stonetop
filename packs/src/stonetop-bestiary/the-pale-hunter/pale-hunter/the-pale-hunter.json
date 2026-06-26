@@ -1,0 +1,103 @@
+{
+  "name": "The Pale Hunter",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "silver spear d12+3 w/advantage (close, reach, thrown, forceful, messy, 2 piercing), silver antlers d12+5 w/advantage (close, forceful), or grapple d10+3 w/advantage (hand, grabby, forceful)",
+        "rollFormula": "d12+5"
+      },
+      "instinct": {
+        "value": "to revel in the hunt, to claim undead souls"
+      }
+    },
+    "concept": "The huntsman himself — tireless, antlered, silver-armed.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, athletic, cunning, hoarder, magical, terrifying, tireless",
+    "qualities": "<p>Surrounded by mist; can grab and grapple even undead spirits; keen senses; uncanny reflexes. When you deal damage he might dodge or roll with, roll with disadvantage.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Pale Hunter",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "pUQNEFpUQEkYJWZ0",
+      "name": "Perform a feat of prowess",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KEv7LnXs4zQju3lp.pUQNEFpUQEkYJWZ0"
+    },
+    {
+      "_id": "ANK7Vz6mcX8zlhSg",
+      "name": "Disperse into mist, then reform",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KEv7LnXs4zQju3lp.ANK7Vz6mcX8zlhSg"
+    },
+    {
+      "_id": "XS7A5Mp15RkBgfXn",
+      "name": "Summon his spear to hand",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KEv7LnXs4zQju3lp.XS7A5Mp15RkBgfXn"
+    },
+    {
+      "_id": "INa5yKpT9e8mSlXd",
+      "name": "Call up more hounds",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KEv7LnXs4zQju3lp.INa5yKpT9e8mSlXd"
+    },
+    {
+      "_id": "yGzp3tLd6Its4b3u",
+      "name": "Claim a dead or dying soul",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KEv7LnXs4zQju3lp.yGzp3tLd6Its4b3u"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "5a8q6lQQnClbAA87",
+  "_id": "KEv7LnXs4zQju3lp",
+  "_key": "!actors!KEv7LnXs4zQju3lp"
+}

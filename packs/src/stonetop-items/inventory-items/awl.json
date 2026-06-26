@@ -1,0 +1,19 @@
+{
+  "_id": "tP7ySeQMgV0Lh8Wv",
+  "_key": "!items!tP7ySeQMgV0Lh8Wv",
+  "name": "Awl",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "awl",
+      "inventoryColumn": "small",
+      "sortOrder": 8,
+      "breakBefore": true,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

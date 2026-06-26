@@ -1,0 +1,61 @@
+{
+  "_id": "jGNndphW4xzirRkT",
+  "_key": "!journal!jGNndphW4xzirRkT",
+  "name": "Cwisarff",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The 'tree adder' — the deadliest serpent in the Wood."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 15000,
+  "pages": [
+    {
+      "_id": "FLIwcpQsquuXYccy",
+      "_key": "!journal.pages!jGNndphW4xzirRkT.FLIwcpQsquuXYccy",
+      "name": "Cwisarff",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The 'tree adder' — the deadliest serpent in the Wood.",
+        "description": "<p>The vaunted 'tree adder,' most lethal serpent in the Wood, up to six feet long and dripping with venom. In warm months they hunt and bask in the canopy or sunny clearings; in colder months they hide in hollows and under logs, going into torpor in winter. They don't hunt people, but they don't fear them either.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Y9l5lNncyPjnqdCE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

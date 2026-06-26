@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraVioletLot",
+  "_key": "!items!stFloraVioletLot",
+  "name": "Violet Lotus",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "violet-lotus",
+      "inventoryColumn": "regular",
+      "sortOrder": 72,
+      "note": "Inhale the burnt petals to ask the GM a Seek Insight question about any situation you wish. A tincture of the flower makes a lovely perfume (Value 1).",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

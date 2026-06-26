@@ -1,0 +1,61 @@
+{
+  "_id": "Mt6MCzNsS6khASpi",
+  "_key": "!journal!Mt6MCzNsS6khASpi",
+  "name": "Voice of the Eternal Maw",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A possessing, screaming Voice spawned of Hlad's vortex, making mouths and wraiths."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 119000,
+  "pages": [
+    {
+      "_id": "eHqUWlwdFo55KpDf",
+      "_key": "!journal.pages!Mt6MCzNsS6khASpi.eHqUWlwdFo55KpDf",
+      "name": "Voice of the Eternal Maw",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A possessing, screaming Voice spawned of Hlad's vortex, making mouths and wraiths.",
+        "description": "<p>Hidden in the southern arm of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>, there is a gorge that splits a mountain, cloaked in constantly churning mist, cold and clammy. At the base of the gorge is a thin split in reality — a vortex, a manifestation of Hlad the Devourer, sucking in everything it touches. The mountain is shunned now, but the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> once fed the vortex gifts, offerings, and living, screaming sacrifice. In time, these offerings gave the vortex a Voice. And the Voice roams the mountain still.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.RO5Fa1m4AMc9qZR1"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

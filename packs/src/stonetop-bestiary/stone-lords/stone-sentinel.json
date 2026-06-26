@@ -1,0 +1,81 @@
+{
+  "name": "Stone Sentinel",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 3,
+        "source": "made of stone"
+      },
+      "damage": {
+        "value": "crushing fists d10+3 (hand, close, grabby, messy, forceful, 3 piercing)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to protect its ward"
+      }
+    },
+    "concept": "Squat stone guardians that charge for days to erupt in a few minutes of violence.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, implacable",
+    "qualities": "<p>Can animate for only a few minutes at a time; dog-like mind; blind; tremorsense.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.hNTwQMEAue41DzAx",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Stone Sentinel",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "rK65tUE0mdWdED5N",
+      "name": "Emit an ominous hum, a warning as it powers up",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mRpMqY81O24lXlPG.rK65tUE0mdWdED5N"
+    },
+    {
+      "_id": "vmMpS3CJqdOLCJjR",
+      "name": "Move with shocking, unexpected speed (but lose 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mRpMqY81O24lXlPG.vmMpS3CJqdOLCJjR"
+    },
+    {
+      "_id": "kDb4mXFaBZhPf3Bm",
+      "name": "Erupt in a flurry of violence (area, +2 damage, lose 2d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mRpMqY81O24lXlPG.kDb4mXFaBZhPf3Bm"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "1yj6UyLp9x9oxtmS",
+  "_id": "mRpMqY81O24lXlPG",
+  "_key": "!actors!mRpMqY81O24lXlPG"
+}

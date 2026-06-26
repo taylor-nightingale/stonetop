@@ -1,0 +1,103 @@
+{
+  "name": "Infected Hagr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "meaty hands d10+3 (hand, close, grabby, forceful), tree trunk d10+5 (reach, area, crude, forceful), or hurled heavy thing d10+3 (thrown, forceful)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to spread its master's influence"
+      }
+    },
+    "concept": "A hagr corrupted from within by Yaarowslow's silvery slime — deluded, raging, and infectious.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, terrifying, hardy, magical",
+    "qualities": "<p>Infectious blood; suffers from delusions, behaves erratically. Armor 1 vs. bronze (blubbery hide).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.iS6nYGE2SZOV6Vat",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Infected Hagr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "PWoWmWlII8h5qIMN",
+      "name": "Fix someone with its evil eye, inflicting overwhelming delusions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!C08Lry85Ftk9psXO.PWoWmWlII8h5qIMN"
+    },
+    {
+      "_id": "E7MCJQeuv4Kzf2Xl",
+      "name": "Pluck things from the ground as if weightless",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!C08Lry85Ftk9psXO.E7MCJQeuv4Kzf2Xl"
+    },
+    {
+      "_id": "2inE12naptF43oUf",
+      "name": "Obsessively carve its master's sigils into things",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!C08Lry85Ftk9psXO.2inE12naptF43oUf"
+    },
+    {
+      "_id": "b10cwJRuRBkL5J4f",
+      "name": "Fly into a senseless rage",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!C08Lry85Ftk9psXO.b10cwJRuRBkL5J4f"
+    },
+    {
+      "_id": "LPMKKKBP9f93E6G4",
+      "name": "Spew forth an infectious, silvery cloud (reach, area, reload)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!C08Lry85Ftk9psXO.LPMKKKBP9f93E6G4"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "rXzqpjz32QmDXcI4",
+  "_id": "C08Lry85Ftk9psXO",
+  "_key": "!actors!C08Lry85Ftk9psXO"
+}

@@ -1,0 +1,110 @@
+{
+  "_id": "lB57gclVP4TiOIRb",
+  "_key": "!journal!lB57gclVP4TiOIRb",
+  "name": "Fomoraij",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Green Lords damned themselves. Oh, they’ll tell you they had no other choice. That their treacherous servants drove them to it. That they knew not the cost. That they were lied to by the Things Below. But, no, they knew what they were doing. They just didn’t care."
+    }
+  },
+  "folder": "pCXEbxpjLM9YSG9Q",
+  "sort": 11000,
+  "pages": [
+    {
+      "_id": "DnAjRKgbT04vDv1B",
+      "_key": "!journal.pages!lB57gclVP4TiOIRb.DnAjRKgbT04vDv1B",
+      "name": "Fomoraij",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{The Green Lords}</strong> damned themselves. Oh, they’ll tell you they had no other choice. That their treacherous servants drove them to it. That they knew not the cost. That they were lied to by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. But, no, they knew what they were doing. They just didn’t care.</p><p>And why would they have cared? Had they not lost everything? Had they not been driven from their homes and hunted like beasts, by the very servants they had created? By those who owed them everything?</p><p>So, yes damn you, the Green Lords made their deals. They called up the darkness and the poison. Let it flow through their minds. Their flesh. Their lands.</p><p>And when not even that was enough to turn the tides, when they were betrayed again—this time by their fellow <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>—and they were corralled into one last trap… well, what did they care? What could they care? Let the traitors have the surface. For now.</p><p>And so, twisted and mad with hatred, they went below. Into the bosom of their masters. There, they wait. They spawn new horrors. They hate.</p><p>And one day, perhaps, they will return.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Slavic-sounding, but with more vowels and softer consonants: Aawnaswasiya, Blaagu, Doogromil, Eleema, Loobimoor, Miwooslawa, Oolliyanaw, Rabomoor, Weelimir, Yoanaw</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Dwellers beneath",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Fomoraij have dwelt beneath the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> for centuries. Their influence can be felt, certainly, and they sometimes send forth minions, but they have not seen the surface since the fall of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}</strong>.</p><p>To create a Fomoraij, start with 2 themes from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. Combine with a constraint that keeps it from emerging, the nature of its lair, and 2-3 forms. Give it a name and perhaps an ominous title. Write it up as a threat (a villain, a beast, or a magical entity). If the PCs are likely to fight it, also write it up as a monster (see example on page 142).</p><p><strong>1d12 constraint</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Confinement: by accident, by artifice, by its own size or nature (Instinct to capture others, to escape)</td></tr><tr><td>3–4</td><td>Disdain: of the world above, of the world that betrayed them (Instinct to punish anything that reminds it of its past)</td></tr><tr><td>5–6</td><td>Decay: of its mind, its power, its sense of self (Instinct to lash out)</td></tr><tr><td>7–8</td><td>Fear: of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, of the much-hated light (Instinct to see threats everywhere)</td></tr><tr><td>9–10</td><td>Obsession: with hoarding, experimenting, digging, etc., to the exclusion of all else (Instinct to pursue its obsession)</td></tr><tr><td>11–12</td><td>Patience: it waits, it gathers power, it makes preparations (Instinct to further its plans)</td></tr></tbody></table><p><strong>1d12 lair</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A yawning cavern, flooded; dotted with islands and unlikely structures</td></tr><tr><td>2</td><td>Endless rough-hewn tunnels, like an ant hive</td></tr><tr><td>3</td><td>An inverted forest of roots, tubers, fungus hanging from the ceiling</td></tr><tr><td>4</td><td>A series of underground streams, rivers, lakes, all teeming with horrors</td></tr><tr><td>5</td><td>A deep, vertical shaft ending at a vault of white stone</td></tr><tr><td>6</td><td>Tunnels and chambers, every inch lined with bones</td></tr><tr><td>7</td><td>The petrified belly of a gargantuan, primordial titan</td></tr><tr><td>8</td><td>Vaulted tunnels lined with roots of iron-infused wood, rusted and bleeding</td></tr><tr><td>9</td><td>Limestone caverns, the walls pulsing with red crystal</td></tr><tr><td>10</td><td>Limestone caves and columns, wet and dripping, festooned with slimy life</td></tr><tr><td>11</td><td>Strangely smooth tunnels coated in warm, pulsing organic material</td></tr><tr><td>12</td><td>A vast chamber of white stone, a mighty dead tree growing down from the ceiling</td></tr></tbody></table><p>Fomoraij lairs are always found underground and beneath the Great Wood, accessed via caves and Green Lord ruins. The sites above are often corrupted by the Things Below.</p><p><strong>1d12 form</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A swarm of smaller things/a hivemind consciousness</td></tr><tr><td>2</td><td>Boneless/squeezing/amorphous</td></tr><tr><td>3</td><td>Fungal/lichenous/mossy</td></tr><tr><td>4</td><td>Insectoid/shelled</td></tr><tr><td>5</td><td>Too many limbs/eyes/mouths</td></tr><tr><td>6</td><td>Massive/expansive/sprawling</td></tr><tr><td>7</td><td>Pallid/fleshy/knobby</td></tr><tr><td>8</td><td>Powerful/burrowing/rending</td></tr><tr><td>9</td><td>Plantlike (roots, rhizomes, bulbs)</td></tr><tr><td>10</td><td>Slimy/oozing/mucous</td></tr><tr><td>11</td><td>Sporting tentacles/tendrils/feelers/antennae</td></tr><tr><td>12</td><td>Worm-like/slug-like/grub-like</td></tr></tbody></table><p>Combine 2-3 of the above with the vaguely humanoid form it once had as a Green Lord.</p><p>The PCs have encountered some horrors in the Great Wood—some crinwin oozing silver slime and wasps with hallucinatory venom. I already decided that these things were corrupted by the Things Below, based on the themes of “insanity/chaos/ruin/quicksilver” and “corruption/disease/poison/vermin.”</p><p>Now I’m thinking that a Fomoraij is behind them. I keep the two themes, and roll a constraint of “confinement.” For its lair, I roll “a series of underground streams, rivers, lakes, all teeming with horrors.” For its form, I get “too many limbs/eyes/mouths,” and “a swarm of smaller things” and “slimy/oozing/mucous.” I ponder, and come up with:</p><p>Yaarowslow the Many is trapped away on an island in an underground lake, fed by tiny rivulets of groundwater. It has transformed its flesh into an oozing, silvery nest, host to an endless swarm of skittering and buzzing horrors that serve as its eyes and hands and mouths. For centuries, the vermin have burrowed through stone to reach the surface. It has recently succeeded, and its silvery spawn now taint a spring deep in the Great Wood.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Infected servants are watching villagers near the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong></li><li>An earthquake opens a crack in a cave bear’s den, exposing them to a Fomoraij’s lair and influence</li><li>Hunters/trappers go missing, then turn up weeks later horribly mutated</li><li>A Fomoraij’s minions steal children from their beds and drag them to their master</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong> glyphs show people filing into a cave, laden with gifts (for the Fomoraij that secretly entranced them)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>Preserved chimera corpse, mounted for display (immobile, Value 1)</li><li>A pouch of shimmering powder ( doses, Value 2 to the right buyer); ingest a dose and start compulsively telling secrets to those around you</li><li>A polished slice of agate the size of a dinner table, bringing nightmares and dark thoughts to those who linger in its presence (immobile, Value 2)</li><li>A pair of what seem to be rubies (Value 3) set as the eyes of a horrible statue; they’re actually red crystals and impart a cruel bloodlust on whoever holds them.</li></ul><ul><li>Bloodshot amber each, magical 1d4 fist-sized gems, riddled with red-black intrusions.</li></ul><p>When you drip blood onto an amber, name a manifest spirit in your presence and roll +CHA. If the spirit has an intact tether, roll with disadvantage. On a 10+, the spirit is imprisoned in the amber; on a 7-9, the amber starts to suck the spirit in, but it may yet fight back; on a 6-, the spirit wrests free and the amber shatters.</p><p>When you imprison a spirit in a bloodshot amber, it is wracked with pain and cannot manifest. Only one spirit can be imprisoned at a time. When you touch the amber with bare skin, you can communicate with the spirit within and release it if you want (even if you weren’t the one who imprisoned it).</p><p>When a bloodshot amber is found, it likely contains a spirit that has been trapped in agony for centuries.</p><ul><li>Dream-lily pool</li><li>A raised pool of clear water. A strange lily grows within, its tendrils pouring over the lip and coating the floor, hiding bleached bones. The tendrils rustle when living things approach, and a gentle wind promises prophecy and wisdom.</li></ul><p>When you let a lily-tendril slither under your skin, take 1d4 damage (ignores armor) and fall deeply asleep. Roll +WIS: on a 10+, you dream of wisdom—ask the GM any question and get a helpful, honest answer, though one cloaked in symbolism; on a 7-9, you dream of wisdom (as on a 10+) but also of hunger, desperation, and want—mark a debility when you wake; on a 6-, you are trapped in endless nightmare—mark two debilities and you shall not wake unless you find an exit or someone rescues you from without.</p><p>Regardless, your dreams are clearly visible in the waters of the pool. You get the sense that something else may be watching, too.</p><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A large wooden jar</td></tr><tr><td>3–4</td><td>A rusty cauldron</td></tr><tr><td>5–6</td><td>A strange pendant</td></tr></tbody></table><ul><li>Major arcana</li><li>These might very well be associated with the Fomoraij.</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.oyFf5WI5KeDAVYsA]{The Staff of the Lidless Orb}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.odHFRr5F90K9nEqk]{The Demonhide Cloak}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Various creations",
+                "body": "<ul><li>Chimerae, bred for war or sick amusement</li><li>Hazardous growths, protecting the Fomoraij’s lair or extending its influence</li><li>Revenants of chimerae, possessed by dark spirits</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ttz6Fnr2M0HNfIre]{Crinwin}</strong>, llamudwr, rhagedn, swyn, or zrajedak—but somehow different, somehow worse</li><li>Almost any of the horrors found in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}</strong></li></ul>"
+              },
+              {
+                "heading": "Attendant spirits",
+                "body": "<ul><li>Emanations of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li></ul><ul><li>Spirits of the wild, bound into wretched servitude</li><li>Bound ghosts, kept on a tight leash</li><li>Unbound wraiths, like jackals sniffing around a butcher shop</li></ul>"
+              },
+              {
+                "heading": "Infected servant",
+                "body": "<p>Fomoraij sometimes ensnare beings of the world above, capturing them, luring them in with promises of power, or compelling the weak-willed to attend them. They then infect the victim, turning them into extensions of their will.</p><p>Start with a base creature, and then pick or roll for the nature of the infection, the means of control, and up to 3 gifts. Interpret them based on what you know about its master. Update the base creature’s tags, stats, qualities, instinct, and moves accordingly.</p><p><strong>1d12 infection</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A bug/worm/vine, burrowed into their brain/spine</td></tr><tr><td>3–4</td><td>A foul substance, injected/inhaled/ imbibed</td></tr><tr><td>5–6</td><td>A fungus/plant, growing under their skin</td></tr><tr><td>7–8</td><td>A spirit possessing their body, bound by intricate scars/tattoos</td></tr><tr><td>9–10</td><td>A mass of vermin/a single horror, eating them from the inside out</td></tr><tr><td>11–12</td><td>One or more shards of red crystal embedded in their skull</td></tr></tbody></table><p><strong>1d12 means of control</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>By crushing their will</td></tr><tr><td>3–4</td><td>By eating away at what they once were</td></tr><tr><td>5–6</td><td>By filling them with euphoria/ pleasure</td></tr><tr><td>7–8</td><td>By promising them power/immortality/revenge/a cure/etc.</td></tr><tr><td>9–10</td><td>By wracking them with pain</td></tr><tr><td>11–12</td><td>Roll 1d10 twice, or make up something new</td></tr></tbody></table><p>If you like, roll 1d6 for the extent of control.</p><p><strong>1d12 gift</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A reach, near, or far attack (tentacles, spitting globs, flung spines, etc.)</td></tr><tr><td>2</td><td>A terrifying presence; an ability to spread panic/fear/horror</td></tr><tr><td>3</td><td>An area attack (cloud of poison, blast of nettles, psychic scream, etc.)</td></tr><tr><td>4</td><td>An amorphous/malleable/ shapechanging form</td></tr><tr><td>5</td><td>An ongoing link to its master, an ability to share senses/thoughts/ words/power</td></tr><tr><td>6</td><td>A way to spread its infection and/ or its master’s influence (intentionally, incidentally, or both)</td></tr><tr><td>7</td><td>Camouflage/stealth/ability to avoid notice</td></tr><tr><td>8</td><td>Exceptional strength/speed/ferocity/deadliness</td></tr><tr><td>9</td><td>Influence/control over the minds of others</td></tr><tr><td>10</td><td>Minions/servants/ability to send out extensions of itself</td></tr><tr><td>11</td><td>Mobility (jumping, flying, climbing, burrowing, squeezing, etc.)</td></tr><tr><td>12</td><td>Unnatural resilience/vigor/durability</td></tr></tbody></table><p>Should a PC or an important NPC become infected by a Fomoraij (or one of their servants), write it up as a threat (an affliction). If a PC willingly becomes an infected servant, consider creating a playbook insert, using the Thrall for inspiration (see Book I, page 152).</p><p>I want a big scary servant of Yaarowslow the Many, a hagr that stumbled on the tainted spring. I roll “a foul substance, injected/ inhaled/imbibed” and think of Yaarowslow’s silvery slime. I get “by eating away at what they once were” as a means of control, and imagine the silver slime corrupting it from the inside, replacing its blood and organs and overwhelming its mind with voices and delusions. For gifts, I pick “unnatural resilience/vigor/durability” and “a way to spread its infection and/or its master’s influence.” I then roll for a third gift and get “an area attack.”</p><p>I update the hagr’s stat block to reflect these changes, and end up with this:</p><ul><li>INFECTED HAGR Solitary, large, terrifying, hardy,</li></ul><p>No Fomoraij is truly typical; use the stats above as a starting point. A Fomoraij’s constraint dictates its instinct. Add or change its tags, stats, special qualities, and moves based on the themes, constraint, lair, and forms that you’ve identified.</p><p>Yaarowslow the Many is a mass of flesh that oozes infectious silvery slime, and the host of skittering, slithering, and buzzing horrors that serve as an extension of its will.</p><ul><li>YAAROWSLOW, THE MANY Solitary, large, magical, terrifying,</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

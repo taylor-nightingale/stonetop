@@ -1,0 +1,61 @@
+{
+  "_id": "aGS4afk7P2DhhFN0",
+  "_key": "!journal!aGS4afk7P2DhhFN0",
+  "name": "The Nightingale",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A tiny incarnate spirit that grants unasked-for wishes — and spreads chaos in the granting."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 123000,
+  "pages": [
+    {
+      "_id": "NOZWTnGdb2tXHzgM",
+      "_key": "!journal.pages!aGS4afk7P2DhhFN0.NOZWTnGdb2tXHzgM",
+      "name": "The Nightingale",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A tiny incarnate spirit that grants unasked-for wishes — and spreads chaos in the granting.",
+        "description": "<p>The book's worked example of an imprisoned incarnation: a great spirit that took on flesh to make dreams and desires come true, but which in truth spreads chaos — which is why Stormcatcher locked it away. It manifests as a tiny, beautiful nightingale, tethered to a particular ever-blooming rose bush somewhere in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>. Set it loose, and it becomes a threat (an affliction) that spreads chaos throughout the region.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.9h3AbAG1DBQTrtOG"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

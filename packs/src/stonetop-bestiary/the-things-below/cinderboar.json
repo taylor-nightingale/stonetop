@@ -1,0 +1,92 @@
+{
+  "name": "Cinderboar",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "gore d8+2 (hand, forceful, messy, 1 piercing)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to destroy, especially the most stable people and things"
+      }
+    },
+    "concept": "A fireproof, giggling boar that burns and devours, spawned of the Burning Child's rage.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, gluttonous, hardy, vicious, corrupted",
+    "qualities": "<p>Fireproof; hot as banked coals; bleeds oily, choking smoke. Armor 0 vs. bronze.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.SNRXkBbhyuCCXwBa",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Cinderboar",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "oRuRq8wgLcjsPQJm",
+      "name": "Snort and giggle",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6jDwnqjA3VmyKZ9F.oRuRq8wgLcjsPQJm"
+    },
+    {
+      "_id": "SlZAgN9wco3qUuFQ",
+      "name": "Start a fire, incidentally",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6jDwnqjA3VmyKZ9F.SlZAgN9wco3qUuFQ"
+    },
+    {
+      "_id": "At6F8mqM16MD0pGo",
+      "name": "Gnaw through and eat anything, eventually",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6jDwnqjA3VmyKZ9F.At6F8mqM16MD0pGo"
+    },
+    {
+      "_id": "eapGDoWo1JzXOwH7",
+      "name": "Refuse to die, persist beyond reason",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6jDwnqjA3VmyKZ9F.eapGDoWo1JzXOwH7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "6jDwnqjA3VmyKZ9F",
+  "_key": "!actors!6jDwnqjA3VmyKZ9F"
+}

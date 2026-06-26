@@ -1,0 +1,18 @@
+{
+  "_id": "rsK9EjHvIHCtlRJo",
+  "_key": "!items!rsK9EjHvIHCtlRJo",
+  "name": "Whetstone",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "whetstone",
+      "inventoryColumn": "small",
+      "sortOrder": 24,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

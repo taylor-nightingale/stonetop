@@ -1,0 +1,61 @@
+{
+  "_id": "5JC9gQCHQUHugXsQ",
+  "_key": "!journal!5JC9gQCHQUHugXsQ",
+  "name": "Star-Mole",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Five-foot glowing mole-rats that tunnel, bait, and collapse passages."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 53000,
+  "pages": [
+    {
+      "_id": "nuJLbTQh1QYWWoTg",
+      "_key": "!journal.pages!5JC9gQCHQUHugXsQ.nuJLbTQh1QYWWoTg",
+      "name": "Star-Mole",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Five-foot glowing mole-rats that tunnel, bait, and collapse passages.",
+        "description": "<p>Big, naked mole-rats, like five feet long, with saggy skin, glowing freckles, and clusters of wriggling feelers on their noses. They eat vermin and fungus that grow near leaking pipes, and they tunnel through bedrock, collapse passages, and expose sealed-off rooms. Every so often they wake a skittering horror from its torpor — doom for the colony, unless they can trap it. They'll treat the PCs as a similar threat.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.89ZjFUUS1I9bP2MH"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

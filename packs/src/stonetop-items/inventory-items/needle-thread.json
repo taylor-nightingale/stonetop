@@ -1,0 +1,17 @@
+{
+  "_id": "zkChMbyIbNiCdxnu",
+  "_key": "!items!zkChMbyIbNiCdxnu",
+  "name": "Needle & thread",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "needle-thread",
+      "inventoryColumn": "small",
+      "sortOrder": 5
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

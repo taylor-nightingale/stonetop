@@ -1,0 +1,26 @@
+{
+  "name": "Seasons Change",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>🌱 When <strong><em>spring bursts forth upon the land</em></strong>, whoever is the most hopeful rolls +Fortunes: <strong>on a 10+</strong>, pick 1 seasonal gain; <strong>on a 7-9</strong>, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; <strong>on a 6-</strong>, threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1.</p><p>☀️ When <strong><em>the hot days of summer settle across the land</em></strong>, whoever is most content rolls +Fortunes: <strong>on a 10+</strong>, pick 2 seasonal gains; <strong>on a 7-9</strong>, pick 1 seasonal gain; <strong>on a 6-</strong>, a threat to the steading makes itself known or gets worse (and don't mark XP). Whatever the result, the steading generates 1d4−1 Surplus. Then, reset Fortunes to +1.</p><p>🍂 When <strong><em>autumn falls and the land is ripe for harvest</em></strong>, whoever is most determined rolls +Fortunes: <strong>on a 10+</strong>, pick 1 seasonal gain; <strong>on a 7-9</strong>, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; <strong>on a 6-</strong>, threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.</p><p>❄️ When <strong><em>winter grips the land</em></strong>, whoever is weariest rolls 1d4+Population (min 0); the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0, reduce Fortunes by 1, and pick 1:</p><ul><li>Reduce Population by 1 (min -1) due to death, decripitude, and departure</li><li>An important resource (one of the horses, the cistern, etc.) is lost or not maintained</li><li>An important NPC dies, their role unfilled</li><li>Your PC dies, leaves, or retires from play</li></ul><p>Then, roll +Fortunes: <strong>on a 10+</strong>, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); <strong>on a 7-9</strong>, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; <strong>on a 6-</strong>, as a 7-9, but also threats abound (and don't mark XP). Whatever the result, reset Fortunes to +1.</p><hr><p><strong>Seasonal Gains</strong> (pick from this list when the move tells you to):</p><ul><li><strong>Population boom:</strong> A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).</li><li><strong>Tor's blessing:</strong> Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.</li><li><strong>Unexpected bounty:</strong> A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.</li><li><strong>Trade opportunity:</strong> At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price.</li><li><strong>Interesting news:</strong> There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.</li><li><strong>Valuable insight:</strong> You learn something that gives you a chance to address a threat that's been plaguing the steading.</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Spring/Autumn: pick 1 seasonal gain. Summer: pick 2 seasonal gains. Winter: the winter is relatively mild; each player names a local NPC with whom their relationship improves."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Spring/Autumn: pick 1 seasonal gain, but a threat makes itself known or gets worse. Summer: pick 1 seasonal gain. Winter: the steading must consume additional Surplus equal to 1d4+Population or suffer the consequences."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Spring/Autumn: threats abound (don't mark XP). Summer: a threat makes itself known or gets worse (don't mark XP). Winter: as a 7-9, but also threats abound (don't mark XP)."
+      }
+    },
+    "rollType": "ask"
+  },
+  "_id": "LwKIwb1tIM0J80f3",
+  "_key": "!items!LwKIwb1tIM0J80f3",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

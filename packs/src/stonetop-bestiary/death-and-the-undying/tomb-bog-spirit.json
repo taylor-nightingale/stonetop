@@ -1,0 +1,92 @@
+{
+  "name": "Tomb-Bog Spirit",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "smothering grip d10+2 (hand, forceful, grabby)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to consume the dying breaths of the condemned"
+      }
+    },
+    "concept": "A peat-mound spirit of punishment that smothers the condemned.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, terrifying, implacable",
+    "qualities": "<p>Harms only those whose life is forfeit.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.bgGP0Dpdt51lXYmK",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Tomb-Bog Spirit",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "XSo9RTBsLWGXfl4S",
+      "name": "Track down one whose life is forfeit",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!NF4U8y44DMzdwFQd.XSo9RTBsLWGXfl4S"
+    },
+    {
+      "_id": "2bM9ZOY84V14D1S5",
+      "name": "Wait until they are alone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!NF4U8y44DMzdwFQd.2bM9ZOY84V14D1S5"
+    },
+    {
+      "_id": "iG0CyT1uRdRrbCSP",
+      "name": "Shape a hulking form from peat, soil, and mud (takes half damage from stabbing, slashing, or fire)",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!NF4U8y44DMzdwFQd.iG0CyT1uRdRrbCSP"
+    },
+    {
+      "_id": "7PaX9FRjO2RY5d8w",
+      "name": "Whisper its victim's crimes, freezing them with fear",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!NF4U8y44DMzdwFQd.7PaX9FRjO2RY5d8w"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "NF4U8y44DMzdwFQd",
+  "_key": "!actors!NF4U8y44DMzdwFQd"
+}

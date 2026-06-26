@@ -1,0 +1,21 @@
+{
+  "_id": "oCLrZ3aWZkSBvrjn",
+  "_key": "!items!oCLrZ3aWZkSBvrjn",
+  "name": "Short sword, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "short-sword",
+      "inventoryColumn": "regular",
+      "sortOrder": 30,
+      "note": "<em>iron</em>, <em>hand</em>, <em>close</em>",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

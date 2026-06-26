@@ -1,0 +1,20 @@
+{
+  "_id": "K8ffUF0eWIXiiQE8",
+  "_key": "!items!K8ffUF0eWIXiiQE8",
+  "name": "Ink, vial and quills",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "ink-vial-quills",
+      "inventoryColumn": "regular",
+      "sortOrder": 44,
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Writing Implements"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

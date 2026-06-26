@@ -1,0 +1,61 @@
+{
+  "_id": "KgJ8NTJSYfoMhX0Y",
+  "_key": "!journal!KgJ8NTJSYfoMhX0Y",
+  "name": "Hollow Fae",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A black-iron-cursed fae husk that devours all life around it."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 66000,
+  "pages": [
+    {
+      "_id": "LN7fbBXLMvmCRquV",
+      "_key": "!journal.pages!KgJ8NTJSYfoMhX0Y.LN7fbBXLMvmCRquV",
+      "name": "Hollow Fae",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A black-iron-cursed fae husk that devours all life around it.",
+        "description": "<p>A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> wounded by black iron will pray for death, for to survive such a wound is a curse. They grow weak, then confused, then hungry, until they become a walking husk, surrounded by death, inhaling any source of life they find. Hollow Fae are no longer vulnerable to mere iron; debts and promises no longer bind them; they will tear their way free of any domain. Only black iron can destroy them — and what living Fae would be fool enough to try? A large Hollow Fae is tougher (23 HP, +1 damage, +reach); a huge one tougher still (27 HP, +3 damage, +reach).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.0ZKo6trYa54afrSZ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

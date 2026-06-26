@@ -1,0 +1,91 @@
+{
+  "name": "Ceffylwraig",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "kicking hoofs d8+3 w/disadvantage (hand, close, forceful)",
+        "rollFormula": "d8+3"
+      },
+      "instinct": {
+        "value": "to be fiercely independent"
+      }
+    },
+    "concept": "The proud horse-queen spirit of a wild herd, free and fickle as the wind.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, swift, tireless, cautious, magical, beautiful",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.0CoKAbSZu0voBdK7",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Ceffylwraig",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "GHyzGlSZP6W2p3vM",
+      "name": "Appear as a majestic horse among the herd",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xGwlyfewGjgB5QWQ.GHyzGlSZP6W2p3vM"
+    },
+    {
+      "_id": "WBtRM14k62rGkqEC",
+      "name": "Slip free of any restraint, disappearing into the wind if need be",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xGwlyfewGjgB5QWQ.WBtRM14k62rGkqEC"
+    },
+    {
+      "_id": "gypcoAlRcVFoGNkm",
+      "name": "Guide the herd like it was a single, living entity",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xGwlyfewGjgB5QWQ.gypcoAlRcVFoGNkm"
+    },
+    {
+      "_id": "rC1sKQNUtADIugzr",
+      "name": "Curse someone with wild, unbridled emotions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xGwlyfewGjgB5QWQ.rC1sKQNUtADIugzr"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "xGwlyfewGjgB5QWQ",
+  "_key": "!actors!xGwlyfewGjgB5QWQ"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Livrothos, Cleansing Flame",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks vitals"
+      },
+      "damage": {
+        "value": "white flame d12+3 w/advantage (hand, close, forceful, messy, 3 piercing)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "to correct mistakes"
+      }
+    },
+    "concept": "An archon of white fire, called to warn and correct — and to burn errant magic from the world.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, primordial, spirit, construct, magical, terrifying",
+    "qualities": "<p>Ageless; immune to the elements; perceives thought and matter; omnilingual. Harmed only by black iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Z2PNfBJpuurYN778",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Livrothos",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "iMeDl38WO04jzeql",
+      "name": "Detect magic run amok",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fc4528DgaFiiq2i9.iMeDl38WO04jzeql"
+    },
+    {
+      "_id": "qxdK8XkEIBHdej4E",
+      "name": "Appear as a column of white flame, painful to look upon",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fc4528DgaFiiq2i9.qxdK8XkEIBHdej4E"
+    },
+    {
+      "_id": "Dfl9FLYXIx9n9NFT",
+      "name": "Vanish, maybe appear elsewhere",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fc4528DgaFiiq2i9.Dfl9FLYXIx9n9NFT"
+    },
+    {
+      "_id": "xqAa9VFbW3wRkjzr",
+      "name": "Burn magic away from the world",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fc4528DgaFiiq2i9.xqAa9VFbW3wRkjzr"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "fc4528DgaFiiq2i9",
+  "_key": "!actors!fc4528DgaFiiq2i9"
+}

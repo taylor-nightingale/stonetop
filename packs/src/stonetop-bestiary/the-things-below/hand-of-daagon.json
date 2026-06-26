@@ -1,0 +1,92 @@
+{
+  "name": "Hand of Daagon",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/emanation.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "many hands d12+1 (hand, close, grabby, ignores armor)",
+        "rollFormula": "d12+1"
+      },
+      "instinct": {
+        "value": "to feed the Mouth"
+      }
+    },
+    "concept": "A reaching, matter-passing hand-swarm that drags the precious back to Daagon's Mouth.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, emanation, terrifying, cautious, curious",
+    "qualities": "<p>Blind; tremorsense; reaches through matter like it was water. Armor 0 vs. bronze.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.m46X5auaZwdxphBl",
+    "notes": "",
+    "creatureType": "emanation"
+  },
+  "prototypeToken": {
+    "name": "Hand of Daagon",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/emanation.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "nq6hL8Y3H8Nn8qsX",
+      "name": "Sink into the stone, or emerge from it",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!k3PXbKdBREj0esro.nq6hL8Y3H8Nn8qsX"
+    },
+    {
+      "_id": "EqnY3Bryld4WPxbI",
+      "name": "Provoke abject revulsion",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!k3PXbKdBREj0esro.EqnY3Bryld4WPxbI"
+    },
+    {
+      "_id": "mUUW9mwnMIOjHIjB",
+      "name": "Reach through armor, clothing, flesh, and bone to take what is most valued",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!k3PXbKdBREj0esro.mUUW9mwnMIOjHIjB"
+    },
+    {
+      "_id": "ee5RXDy9IkU6h8GK",
+      "name": "Retreat with its prize, back to the water",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!k3PXbKdBREj0esro.ee5RXDy9IkU6h8GK"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "k3PXbKdBREj0esro",
+  "_key": "!actors!k3PXbKdBREj0esro"
+}

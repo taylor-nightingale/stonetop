@@ -1,0 +1,61 @@
+{
+  "_id": "g8AKcpFJTeVx51xV",
+  "_key": "!journal!g8AKcpFJTeVx51xV",
+  "name": "Corrupted Glasbren",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A young tree-spirit twisted by a Thing Below into a beautiful thing of cinders and cruelty."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 135000,
+  "pages": [
+    {
+      "_id": "9ri6PsJH7z67a7UF",
+      "_key": "!journal.pages!g8AKcpFJTeVx51xV.9ri6PsJH7z67a7UF",
+      "name": "Corrupted Glasbren",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A young tree-spirit twisted by a Thing Below into a beautiful thing of cinders and cruelty.",
+        "description": "<p>The book's worked example of a corrupted spirit: a glasbren — one of the wandering young <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.3Q3V7QXv1XFx1UK8]{Brennauwed}</strong> tree-spirits — given gifts of fire by a Thing Below and marked with strange appetites for burnt and bloody offerings. Trading on the glasbren's curiosity and its penchant for bonding with mortals, it offers affection, confidence, and power in exchange for cruelty, pain, and fire.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.IornEAAcH3j4YRST"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

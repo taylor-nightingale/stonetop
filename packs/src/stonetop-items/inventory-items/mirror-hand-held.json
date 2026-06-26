@@ -1,0 +1,20 @@
+{
+  "_id": "8aRUhR4IWrXPvhsB",
+  "_key": "!items!8aRUhR4IWrXPvhsB",
+  "name": "Mirror, hand-held, polished bronze",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mirror-hand-held",
+      "inventoryColumn": "regular",
+      "sortOrder": 40,
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

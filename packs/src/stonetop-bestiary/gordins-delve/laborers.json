@@ -1,0 +1,80 @@
+{
+  "name": "Laborers",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "fists and boots d4 (hand) or pickax d6 (close, messy, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to cling to what they've got"
+      }
+    },
+    "concept": "Hard-bitten miners and diggers, quick to band together against a threat.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, hardy",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.KArFYOqrEF9Y8icz",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Laborers",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7TF4jaTX4Vne2KX5",
+      "name": "Make a show of toughness and solidarity",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cAurDbvbZfzfFMAf.7TF4jaTX4Vne2KX5"
+    },
+    {
+      "_id": "OjDB2UTmPDPiTWsZ",
+      "name": "Dogpile someone (grabby, forceful)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cAurDbvbZfzfFMAf.OjDB2UTmPDPiTWsZ"
+    },
+    {
+      "_id": "pTjNtJgMRk1TrB0R",
+      "name": "Break and run when things go sideways",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cAurDbvbZfzfFMAf.pTjNtJgMRk1TrB0R"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "TAdHt3uEDdJHqNf1",
+  "_id": "cAurDbvbZfzfFMAf",
+  "_key": "!actors!cAurDbvbZfzfFMAf"
+}

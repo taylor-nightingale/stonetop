@@ -1,0 +1,81 @@
+{
+  "name": "Hlomren",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "armor": {
+        "value": 3,
+        "source": "carapace and tiny size"
+      },
+      "damage": {
+        "value": "acid-dripping mandibles d6-2 (hand, messy, 3 piercing), acid glob d6-2 (reach, messy, reload, 1 piercing)",
+        "rollFormula": "d6-2"
+      },
+      "instinct": {
+        "value": "to protect the colony"
+      }
+    },
+    "concept": "Cat-sized red insects that swarm and burst with acid.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, organized",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Yeb5PFGFWdxGqNDU",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Hlomren",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "z1E8UMosyiYM9bzr",
+      "name": "Burrow into, out of, and through loose soil",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WrXgtdFAMVIRlJ9G.z1E8UMosyiYM9bzr"
+    },
+    {
+      "_id": "Sx0rxxnKBcIrPEof",
+      "name": "Swarm over a threat",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WrXgtdFAMVIRlJ9G.Sx0rxxnKBcIrPEof"
+    },
+    {
+      "_id": "ZuJuPQmVZBqimSRc",
+      "name": "Burst with acid when killed, d4 damage (close, area)",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WrXgtdFAMVIRlJ9G.ZuJuPQmVZBqimSRc"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "WrXgtdFAMVIRlJ9G",
+  "_key": "!actors!WrXgtdFAMVIRlJ9G"
+}

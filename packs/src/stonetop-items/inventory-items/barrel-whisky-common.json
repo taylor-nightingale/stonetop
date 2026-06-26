@@ -1,0 +1,21 @@
+{
+  "_id": "ddLEG62Hkd9Gf2le",
+  "_key": "!items!ddLEG62Hkd9Gf2le",
+  "name": "Barrel of whisky, common",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "barrel-whisky-common",
+      "inventoryColumn": "regular",
+      "sortOrder": 55,
+      "note": "<em>immobile</em>",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Trade Goods"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

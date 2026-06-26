@@ -1,0 +1,157 @@
+<div class="stonetop-levelup-body">
+
+	{{!-- ── Step 1: Overview ────────────────────────────────────────────── --}}
+	{{#if isOverview}}
+	<div class="stonetop-levelup-step">
+		<p class="stonetop-levelup-intro">{{{localize "stonetop.specialMoves.levelUp.overviewIntro"}}}</p>
+
+		<ol class="stonetop-levelup-rule-list">
+			<li>{{{localize "stonetop.specialMoves.levelUp.step1"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.levelUp.step2"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.levelUp.step3"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.levelUp.step4"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.levelUp.step5"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.levelUp.step6"}}}</li>
+		</ol>
+
+		<div class="stonetop-levelup-summary">
+			<div class="stonetop-levelup-summary-row">
+				<span class="stonetop-levelup-summary-label">{{{localize "stonetop.specialMoves.levelUp.currentLevel"}}}</span>
+				<span class="stonetop-levelup-summary-value">{{level}}</span>
+			</div>
+			<div class="stonetop-levelup-summary-row stonetop-levelup-summary-row--highlight">
+				<span class="stonetop-levelup-summary-label">{{{localize "stonetop.specialMoves.levelUp.newLevel"}}}</span>
+				<span class="stonetop-levelup-summary-value">{{newLevel}}</span>
+			</div>
+			<div class="stonetop-levelup-summary-divider"></div>
+			<div class="stonetop-levelup-summary-row">
+				<span class="stonetop-levelup-summary-label">{{{localize "stonetop.specialMoves.levelUp.currentXp"}}}</span>
+				<span class="stonetop-levelup-summary-value">{{xp}}</span>
+			</div>
+			<div class="stonetop-levelup-summary-row">
+				<span class="stonetop-levelup-summary-label">{{{localize "stonetop.specialMoves.levelUp.xpCost"}}}</span>
+				<span class="stonetop-levelup-summary-value stonetop-levelup-summary-value--cost">−{{cost}}</span>
+			</div>
+			<div class="stonetop-levelup-summary-row stonetop-levelup-summary-row--highlight">
+				<span class="stonetop-levelup-summary-label">{{{localize "stonetop.specialMoves.levelUp.xpRemaining"}}}</span>
+				<span class="stonetop-levelup-summary-value">{{xpRemaining}}</span>
+			</div>
+		</div>
+
+		{{#if needsInvocation}}
+		<p class="stonetop-levelup-aside">{{{localize "stonetop.specialMoves.levelUp.invocationAside"}}}</p>
+		{{/if}}
+	</div>
+	{{/if}}
+
+	{{!-- ── Step 2: Choose a Move ──────────────────────────────────────── --}}
+	{{#if isMove}}
+	<div class="stonetop-levelup-step">
+		<p class="stonetop-levelup-intro">{{{localize "stonetop.specialMoves.levelUp.moveIntro"}}}</p>
+		{{#if hasLockedMoves}}
+		<label class="stonetop-levelup-toggle-locked">
+			<input type="checkbox" class="stonetop-levelup-locked-check" {{#if showLockedMoves}}checked{{/if}}>
+			Show moves I don't qualify for yet
+		</label>
+		{{/if}}
+
+		{{#if hasMoves}}
+		<div class="stonetop-levelup-move-list">
+			{{#each moves}}
+			<div class="stonetop-levelup-move-option{{#if selected}} is-selected{{/if}}"
+				data-compendium-id="{{compendiumId}}">
+				<div class="stonetop-levelup-move-header">
+					<span class="stonetop-levelup-move-name">{{name}}</span>
+					{{#if requiresLabel}}
+					<span class="stonetop-levelup-move-req">{{requiresLabel}}</span>
+					{{/if}}
+				</div>
+				{{#if description}}
+				<div class="stonetop-levelup-move-description">{{{description}}}</div>
+				{{/if}}
+			</div>
+			{{/each}}
+
+			{{#if showLockedMoves}}
+			<div class="stonetop-levelup-locked-divider">
+				<span>Requires conditions not yet met</span>
+			</div>
+			{{#each lockedMoves}}
+			<div class="stonetop-levelup-move-option is-locked">
+				<div class="stonetop-levelup-move-header">
+					<span class="stonetop-levelup-move-name">{{name}}</span>
+					{{#if requiresLabel}}
+					<span class="stonetop-levelup-move-req">{{requiresLabel}}</span>
+					{{/if}}
+				</div>
+				{{#if description}}
+				<div class="stonetop-levelup-move-description">{{{description}}}</div>
+				{{/if}}
+			</div>
+			{{/each}}
+			{{/if}}
+		</div>
+		{{else}}
+			{{#if showLockedMoves}}
+			<div class="stonetop-levelup-move-list">
+				<div class="stonetop-levelup-locked-divider">
+					<span>Requires conditions not yet met</span>
+				</div>
+				{{#each lockedMoves}}
+				<div class="stonetop-levelup-move-option is-locked">
+					<div class="stonetop-levelup-move-header">
+						<span class="stonetop-levelup-move-name">{{name}}</span>
+						{{#if requiresLabel}}
+						<span class="stonetop-levelup-move-req">{{requiresLabel}}</span>
+						{{/if}}
+					</div>
+					{{#if description}}
+					<div class="stonetop-levelup-move-description">{{{description}}}</div>
+					{{/if}}
+				</div>
+				{{/each}}
+			</div>
+			{{else}}
+			<p class="stonetop-levelup-empty">{{{localize "stonetop.specialMoves.levelUp.noMoves"}}}</p>
+			{{/if}}
+		{{/if}}
+	</div>
+	{{/if}}
+
+	{{!-- ── Step 3: Choose an Invocation ──────────────────────────────── --}}
+	{{#if isInvocation}}
+	<div class="stonetop-levelup-step">
+		<p class="stonetop-levelup-intro">{{{localize "stonetop.specialMoves.levelUp.invocationIntro"}}}</p>
+
+		<div class="stonetop-levelup-invocation-list">
+			{{#each invocations}}
+			<div class="stonetop-levelup-invocation-option{{#if selected}} is-selected{{/if}}"
+				data-slug="{{slug}}">
+				<span class="stonetop-levelup-invocation-name">{{label}}</span>
+				{{#if description}}
+				<div class="stonetop-levelup-invocation-description">{{{description}}}</div>
+				{{/if}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	{{/if}}
+
+	{{!-- ── Footer ────────────────────────────────────────────────────── --}}
+	<footer class="stonetop-levelup-footer">
+		{{#unless isOverview}}
+		<button type="button" class="stonetop-levelup-back-btn">
+			{{{localize "stonetop.specialMoves.levelUp.back"}}}
+		</button>
+		{{/unless}}
+		<button type="button" class="stonetop-levelup-next-btn"
+			{{#unless canContinue}}disabled{{/unless}}>
+			{{#if isLastStep}}
+				{{{localize "stonetop.specialMoves.levelUp.apply"}}}
+			{{else}}
+				{{{localize "stonetop.specialMoves.levelUp.next"}}}
+			{{/if}}
+		</button>
+	</footer>
+
+</div>

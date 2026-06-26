@@ -1,0 +1,98 @@
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas {{step.icon}} stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">{{step.title}}</div>
+        <div class="stonetop-guide-banner-sub">Let spring burst forth</div>
+      </div>
+      <div class="stonetop-guide-count">{{stepIndex}} / {{stepCount}}</div>
+    </div>
+
+    <div class="stonetop-spring-body">{{{step.body}}}</div>
+
+    {{#if showRoll}}
+    <div class="stonetop-spring-roll-wrap">
+      <button type="button" class="stonetop-spring-ask-btn stonetop-spring-roll-btn--primary">
+        <i class="fas fa-comment-dots"></i> Ask the most hopeful to roll
+      </button>
+    </div>
+    {{/if}}
+
+    {{#if showTiers}}
+    <ul class="stonetop-spring-tiers">
+      {{#each tiers}}
+      <li class="stonetop-spring-tier">
+        <span class="stonetop-spring-tier-label">{{{label}}}</span>
+        <span class="stonetop-spring-tier-text">{{{text}}}</span>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+
+    {{#if gains}}
+    <div class="stonetop-season-gains">
+      <p class="stonetop-season-gains-label">Seasonal gains <span class="stonetop-season-gains-hint">&mdash; tick what they pick (Book I)</span></p>
+      <ul class="stonetop-season-gains-list">
+        {{#each gains}}
+        <li class="stonetop-season-gain">
+          <label class="stonetop-season-gain-label">
+            <input type="checkbox" class="stonetop-season-gain-check" data-gain-key="{{key}}" {{#if checked}}checked{{/if}}>
+            <span class="stonetop-season-gain-body">
+              <span class="stonetop-season-gain-name">{{name}}</span>
+              <span class="stonetop-season-gain-text">{{text}}</span>
+            </span>
+          </label>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+
+    {{#if qa}}
+    <div class="stonetop-spring-qa-wrap">
+      {{#if (eq qa.kind "perPc")}}
+        {{#if qa.empty}}
+        <p class="stonetop-spring-qa-empty"><i class="fas fa-info-circle"></i> {{qa.empty}}</p>
+        {{else}}
+        <ul class="stonetop-spring-qa-list">
+          {{#each qa.rows}}
+          <li class="stonetop-spring-qa">
+            <p class="stonetop-spring-qa-prompt">{{{prompt}}}</p>
+            <textarea class="stonetop-spring-qa-answer" rows="2"
+                      data-answer-key="{{../qa.key}}" data-answer-id="{{id}}"
+                      placeholder="{{../qa.placeholder}}">{{answer}}</textarea>
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      {{else}}
+      <div class="stonetop-spring-qa">
+        <p class="stonetop-spring-qa-prompt">{{{qa.prompt}}}</p>
+        <textarea class="stonetop-spring-qa-answer" rows="2"
+                  data-answer-key="{{qa.key}}"
+                  placeholder="{{qa.placeholder}}">{{qa.answer}}</textarea>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    {{#if step.footer}}
+    <div class="stonetop-spring-body stonetop-spring-footer">{{{step.footer}}}</div>
+    {{/if}}
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-spring-back" {{#if isFirst}}disabled{{/if}}><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+    <span class="stonetop-spring-step-label">{{stepLabel}}</span>
+    {{#if isLast}}
+    <button class="stonetop-spring-done stonetop-guide-btn--primary">Done ✦</button>
+    {{else}}
+    <button class="stonetop-spring-next">Next<span class="stonetop-nav-arrow"></span></button>
+    {{/if}}
+  </div>
+
+</div>

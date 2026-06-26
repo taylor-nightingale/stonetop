@@ -1,0 +1,92 @@
+{
+  "name": "Singing Sword",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 4,
+        "source": "quick, made of metal"
+      },
+      "damage": {
+        "value": "cut, thrust, slash d10 w/advantage (hand, messy, 2 piercing)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to defend its hall, to ease its loneliness"
+      }
+    },
+    "concept": "A lonely flying sword that guards a dead hall and yearns for music.",
+    "organization": "solitary",
+    "size": "small",
+    "tags": "solitary, small, construct, lonely, dutiful",
+    "qualities": "<p>Flies; fireproof; blind; heat-sense; bound to its hall.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.nJozgr8Ox6CO3lBR",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Singing Sword",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "hz0pVllGMAO4LYLO",
+      "name": "Make a strange, ethereal song",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6dXBK2ZSWVk51wAp.hz0pVllGMAO4LYLO"
+    },
+    {
+      "_id": "3PxUoo88u6EGB2H9",
+      "name": "Strike a warning blow, deft but nonlethal",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6dXBK2ZSWVk51wAp.3PxUoo88u6EGB2H9"
+    },
+    {
+      "_id": "LFZLqsAvYbO4Uw3L",
+      "name": "Respond enthusiastically to music",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6dXBK2ZSWVk51wAp.LFZLqsAvYbO4Uw3L"
+    },
+    {
+      "_id": "vduYCnMD1y7De4yd",
+      "name": "Block their path with a razor's edge",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6dXBK2ZSWVk51wAp.vduYCnMD1y7De4yd"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "6dXBK2ZSWVk51wAp",
+  "_key": "!actors!6dXBK2ZSWVk51wAp"
+}

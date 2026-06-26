@@ -1,0 +1,153 @@
+{
+  "_id": "NoY4nTBeOOEWesJG",
+  "_key": "!journal!NoY4nTBeOOEWesJG",
+  "name": "Useful or Valuable Flora",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Pick one of the following, or create a new kind of flora for the PCs to discover."
+    }
+  },
+  "folder": "dC8ajfHCdEOHw3yx",
+  "sort": 22000,
+  "pages": [
+    {
+      "_id": "MwhxhGQElPsgAGMr",
+      "_key": "!journal.pages!NoY4nTBeOOEWesJG.MwhxhGQElPsgAGMr",
+      "name": "Useful or Valuable Flora",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Pick one of the following, or create a new kind of flora for the PCs to discover.</p><p>Either way, keep in mind when and where the PCs will encounter this. If you’re presenting something useful, it should be useful now (perhaps with a bit of care or effort). Don’t present them with an apple tree in winter and claim it’s useful. If you’re presenting them something valuable, it should either be something they can harvest now, or something that they can feasibly come back and get later.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Wild food",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Mushrooms, morels, asparagus, leafy greens, dandelions, all sorts of berries, cherries, plums, apples, beans, nuts, bulbs, tubers, etc.</p><p>Can gather 1d6× provisions (1d6 uses each). If you like, roll 1d6 to determine effort required and/or palatability.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Poison",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Death caps, hemlock, belladonna, arum, foxglove, fire lily, oleander, yew, the wrong parts of many edible plants/mushrooms or medicinal herbs, etc.</p><p>Can gather 1d6 doses (dangerous). If you like, also roll 1d6 each for potency, rapidity of onset, and ease of delivery. A skilled herbalist could refine it, make it more potent, rapid, or easier to use.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Medicinal herbs",
+            "group": "details",
+            "danger": false,
+            "body": "<p>As a poultice, chew, incense, tea, extract, essential oil, etc.</p><ul><li>Treats injuries/aches; use in lieu of supplies to Recover (1d6 uses)</li><li>A remedy for a debility, illness, infection, or poison (1d6 uses)</li><li>Valuable in bulk to a skilled herbalist (Value 1), the source of a medicine (or a poison)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Useful materials",
+            "group": "details",
+            "danger": false,
+            "body": "<ul><li>Vines that could work as rope</li><li>Saplings, good for setting snares</li><li>Saplings, straight and sturdy, good for arrows/bows/spear shafts</li><li>Large tree, toppled in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, a good source of timber</li><li>Good kindling (dry leaves/needles/ twigs, birch bark, etc.)</li><li>Dry wood/peat for burning</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Sample specimens",
+            "group": "details",
+            "danger": false,
+            "body": "<ul><li>Brightberry</li><li>A thorny shrub with delicious berries that glow with soft, golden light (hand). In spring, it smells like baking honeycakes. Harvest berries as provisions (3 uses, fragile), but they burn away within hours. Dig up a small shrub, pot it, and nurse it to health (tricky); merchants will pay handsomely for it (Value 2).</li></ul><ul><li>Sleeping elksheart</li><li>A giant mushroom, sometimes big as a house, found in dark forests. Fills the air with paralytic spores (inhaled); the mycelium digest the victims. Carefully collect spores to use as a poison (dangerous, Value 1). Burn the cap to destroy the spores, cut it up, and feed a town with it (1d4 Surplus, immobile, Value 2).</li></ul><ul><li>Violet lotus</li><li>A lily, grows alone along rivers/ streams in protected eddies. Inhale its burnt petals to ask the GM a Seek Insight question about whatever situation you wish. A tincture of the flower makes a lovely perfume (Value 1).</li></ul><ul><li>Twisting pine</li><li>An evergreen that rotates as it grows, resulting in twisting trunks. The sap flows freely when tapped, but hardens quickly unless bottled up and protected from air. Use a vial in lieu of supplies to Recover (seals wounds, flakes away days later). Harvest a jar (Value 1) to use as a sealant or a pottery glaze.</li></ul><ul><li>Vanta’s Blade</li><li>A low, herbaceous plant with broad, blade-shaped leaves that absorb light. Patches of the plant look like holes in reality. A pouch can be made into a rich dye, ink, or paint (Value 2), but <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> and Manmarchers consider it cursed and will burn patches (and bearers) of it on sight.</li></ul><ul><li>Hartwood</li><li>A small tree with a distinctive twopronged shape, found growing atop rocky outcrops. Climb up, chop off a branch, and burn it; apply the ashes to skin as a ward against possession.</li></ul><ul><li>Snowembers</li><li>Pretty flowers found only in certain snow-covered meadows of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>. The petals are edible and warm, even in the dead of winter, but they turn to mush soon after picking. Can harvest 1d4+4 provisions with a few hours’ effort; those who partake grow flush and count as wearing warm clothes for the next day or so.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Cultivation",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Should the PCs wish to cultivate a useful or valuable flora, then Make a Plan. Some example requirements include:</p><ul><li>You must acquire a source of seeds/ spores/cuttings/sprouts/etc.</li><li>You must learn the secrets of its cultivation</li><li>You must commune with the spirit of the flora and earn its respect</li><li>The steading must Pull Together to clear a plot for and plant the flora</li><li>It’ll take a season/a year/multiple years for the flora to mature</li><li>You risk attracting a threat/it failing to thrive/it spreading unchecked Also establish the benefits of success, such as:</li></ul><ul><li>Access to a new special possession</li><li>Extra Surplus in a particular season</li><li>A trade good (Value 1-2) produced each spring/summer/autumn/winter</li><li>Extra HP regained when Recovering</li><li>Extra folks fed when you use a mess kit and supplies</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creating new flora",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Think first about where it’s found, how and where the PCs encounter it.</p><p>With that in mind, decide how it’s useful/valuable, or have someone roll the Die of Fate.</p><p>1d12 it’s useful/valuable...</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–6</td><td>…in the field, here and now</td></tr><tr><td>7–10</td><td>…to folks back home or in some other community</td></tr><tr><td>11–12</td><td>…both in the field, here and now, and to folks back home, or in some other community</td></tr></tbody></table><p><strong>1d12 in the field</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–3</td><td>1d6× provisions (1d6 uses)</td></tr><tr><td>4–5</td><td>As a poultice/medicine/remedy; use in lieu of supplies to Recover or to treat a debility (1d6 uses)</td></tr><tr><td>6</td><td>Replenishes 1d6 Stock to a Blessed’s sacred pouch</td></tr><tr><td>7–8</td><td>Fills a need (for shelter, fuel, kindling, water, material, etc.)</td></tr><tr><td>9–10</td><td>Grants a benefit (like a four-leaf clover that adds 1 to a single key roll, or moonwort that clears the mind of beguilement)</td></tr><tr><td>11–12</td><td>Provides a path forward or a solution to a problem (shrooms to commune with a spirit, a weed that masks your scent, poison fruit that might defeat a foe, bait for a trap, etc.)</td></tr></tbody></table><p><strong>1d12 to folks back home</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A present, a curiosity, something pretty or nice (Value 0)</td></tr><tr><td>3–4</td><td>Material for common crafts /trades (fiber, wood, medicine, oil, salt, tannin, etc., Value 1)</td></tr><tr><td>5</td><td>A luxury (seasoning, perfume, dyes, cosmetics, etc., Value 1)</td></tr><tr><td>6</td><td>Something sketchy (a drug, a poison, etc., Value 1)</td></tr><tr><td>7</td><td>An offering, a charm, a ward, a counterspell, etc. (Value 1)</td></tr><tr><td>8</td><td>Food for many people (counts as 1 Surplus, immobile, Value 2)</td></tr><tr><td>9</td><td>Raw material for a steading improvement, like a wagonload of timber (immobile, Value 2)</td></tr><tr><td>10</td><td>High-quality materials (bright and permanent dye, potent medicinal herbs, etc., Value 2)</td></tr><tr><td>11</td><td>A wonder (glowing flowers, floats in the air, fashionably dangerous, etc., Value 2)</td></tr><tr><td>12</td><td>A legendary substance (extends youth, ensnares the will, brings prophecy, etc. Value 3)</td></tr></tbody></table><p>If it’s not already obvious, pick or roll for the form-factor in which it’s useful or valuable.</p><p><strong>1d12 form-factor</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>As a small item</td></tr><tr><td>2</td><td>As a pouchful</td></tr><tr><td>3–4</td><td>As a sackful or bundle</td></tr><tr><td>5–6</td><td>In large quantities (immobile)</td></tr><tr><td>7–9</td><td>Roll 1d6 again, but it requires extensive effort to harvest/process/ make valuable</td></tr><tr><td>10–12</td><td>Roll 1d8 again, but also it’s fragile and/or cumbersome</td></tr></tbody></table><p>Next, pick or roll for 1d4 qualities and a distinctive trait.</p><p><strong>1d12 quality</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Attracts/houses a pest or danger</td></tr><tr><td>2</td><td>Dangerous to harvest/handle</td></tr><tr><td>3</td><td>Harmful to the soil/biome</td></tr><tr><td>4</td><td>Horrid taste/odor/texture</td></tr><tr><td>5</td><td>Finicky/delicate/spoils quickly unless properly processed</td></tr><tr><td>6</td><td>Steeped in superstition/said to be cursed/a bad omen</td></tr><tr><td>7</td><td>Associated with a specific god/ entity/hero/legend/tale</td></tr><tr><td>8</td><td>Easy to work with</td></tr><tr><td>9</td><td>Especially strong/durable/potent</td></tr><tr><td>10</td><td>Delicious/aromatic/beautiful/ supple/otherwise pleasing</td></tr><tr><td>11</td><td>Rare/legendary/thought extinct</td></tr><tr><td>12</td><td>Pick or roll an additional way in which it’s useful/valuable</td></tr></tbody></table><p><strong>1d12 distinctive trait</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Always found with some type of hazardous growth</td></tr><tr><td>2</td><td>Always found with (hidden by?) another, less-useful growth</td></tr><tr><td>3</td><td>Grows/blooms only in particular/ uncommon/unlikely conditions</td></tr><tr><td>4</td><td>Grows in a particular pattern</td></tr><tr><td>5</td><td>Attracts/houses some innocuous bug/bird/critter/spirit</td></tr><tr><td>6</td><td>Intricate pattern/texture</td></tr><tr><td>7</td><td>Distinct shape/configuration of leaves/stems/trunk/flowers/bulbs</td></tr><tr><td>8</td><td>Leaves/flowers/seeds/fruits/pods that look like something else</td></tr><tr><td>9</td><td>Strong, particular odor</td></tr><tr><td>10</td><td>Bright/garish/unusual color</td></tr><tr><td>11–12</td><td>Roll 1d10 twice</td></tr></tbody></table><p>Now, considering all of the above, and where and how it’s found, decide:</p><p>What is it? Pick 1: Lichen, moss, algae, fungus, mushroom, fern, grass, sedge, plant, weed, vine, climber, creeper, briar, shrub, succulent, deciduous tree (willow, ash, oak, alder, birch, elm, fruit, maple, chestnut, rowan, walnut, etc.), conifer (cedar, pine, fir, juniper, cypress, spruce, yew, etc.).</p><p>What part is useful/valuable? Pick 1-4: Trunk, stem, shoot, limb, body, wood, flesh, bark, skin, root, tuber, thorn, leaf, fruit, gourd, nut, seed, spore, flower, pollen, pod, cone, sap, oil, resin, ash, etc.</p><p>How is it prepared/used? Pick as many as make sense: Eaten, chewed, rubbed in, used as a poultice, burnt, smoked, ground, pulverized, stripped, soaked, cooked, infused, reduced, tinctured, mixed with __, carved.</p><p>What is it called? Mix and match words however makes sense (like “raven’s ash” or “witchpetal”). Maybe translate it based on who named it (e.g. to Welsh for a plant local to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>).</p><p>autumn, bear, bell, berry, bitter, black, blossom, breath, bright, burr, cat, cave, claw, clover, crow, day, dock, dog, drake, dye, elk, eye, feather, finger, flax, foil, fox, gold, greater, green, hair, hanging, hart, heart, hemlock, hood, horn, ivy, lesser, lily, lotus, midwife, mint, mist, moth, moon, night, old, orchid, pad, paw, pepper, petal, poppy, potter, priest, puff, rain, raven, red, river, rose, rough, shade, silver, skunk, sky, smooth, snake, spotted, spring, sun, sweet, star, tanner, thistle, toe, tongue, violet, water, white, wild, wilting, wing, witch, wort, anything from the lists above, __.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What’s distinctive about it? How did you spot or recognize it?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is it (sometimes) called?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who taught you to recognize/use it?",
+                "answer": ""
+              },
+              {
+                "prompt": "What superstition hangs over it?",
+                "answer": ""
+              },
+              {
+                "prompt": "According to the tales, how did this plant come to be?",
+                "answer": ""
+              },
+              {
+                "prompt": "Why is it thought impossible to cultivate?",
+                "answer": ""
+              },
+              {
+                "prompt": "What bird, critter, or bug eats it/lives in it/pollinates it/spreads it?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who back home would be most excited by this find?",
+                "answer": ""
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

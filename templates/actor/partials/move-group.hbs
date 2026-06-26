@@ -1,66 +1,124 @@
 <div class="stonetop-move-group">
+	{{#if editSection}}
+	<div class="stonetop-details-heading-row">
+		{{> "stonetop.section-heading" title=title note=note}}
+		{{> "stonetop.details-section-edit-toggle" section=editSection editing=editing}}
+	</div>
+	{{else}}
 	{{> "stonetop.section-heading" title=title note=note}}
+	{{/if}}
+	{{#if hideToggle}}
+	<label class="stonetop-hide-unselected-label">
+		<input type="checkbox" class="stonetop-hide-unselected-check"{{#if hideUnselected}} checked{{/if}}>
+		Hide un-learned moves
+	</label>
+	{{/if}}
 	<ol class="items-list">
 	{{#each moves}}
-		{{#if (and (gt selection.value 0) rollStat)}}
-		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
+		{{#if (and owned rollType)}}
+		<li class="item stonetop-item is-checked{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
 		{{else}}
-		<li class="stonetop-item{{#if isStarting}} move-starting{{/if}}">
+		<li class="stonetop-item{{#if owned}} is-checked{{/if}}{{#if locked}} move-locked{{/if}}{{#if isStarting}} move-starting{{/if}}">
 		{{/if}}
 			<div class="stonetop-item-header">
-				{{#if (gt selection.max 1)}}
+				{{#if repeatable}}
 				<span class="stonetop-repeat-checks">
 					{{#each (repeatChecks this)}}
 					<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
-					       data-category-key="{{../../categoryKey}}"
-					       data-move-slug="{{../slug}}"
-					       data-owned-id="{{../ownedId}}"
+					       data-compendium-id="{{../compendiumId}}"
+					       data-owned-id="{{ownedId}}"
 					       {{#if checked}}checked{{/if}}
-					       {{#if disabled}}disabled{{/if}}>
+					       {{#if (or disabled (not @root.stonetop.movesEdit))}}disabled{{/if}}>
 					{{/each}}
 				</span>
 				{{else}}
 				<input type="checkbox" class="stonetop-item-check stonetop-move-check"
-				       data-category-key="{{../categoryKey}}"
-				       data-move-slug="{{slug}}"
+				       data-compendium-id="{{compendiumId}}"
 				       data-owned-id="{{ownedId}}"
-				       {{#if (gt selection.value 0)}}checked{{/if}}
-				       {{#if (or isStarting (and (not (gt selection.value 0)) (not selectable)))}}disabled{{/if}}>
+				       {{#if owned}}checked{{/if}}
+				       {{!-- An owned starting move is locked (can't be dropped); an UNowned one
+				             — the unpicked side of an "either X OR Y" choice — stays pickable
+				             in edit mode so the choice can be made/changed by hand on the sheet. --}}
+				       {{#if (or (and isStarting owned) locked (not @root.stonetop.movesEdit))}}disabled{{/if}}>
 				{{/if}}
-				<strong class="stonetop-item-name">{{name}}</strong>
-				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
-				{{#if (and (gt selection.value 0) rollStat)}}
-				<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
+				{{#if (and owned rollType)}}
+				<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
 					<i class="fas fa-dice-d6"></i>
 				</span>
 				{{/if}}
-				{{#if (and (gt selection.value 0) resource)}}
+				{{#if (and @root.stonetop.showRollStatChips rollLabel)}}<span class="stonetop-move-roll-chip">+{{rollLabel}}</span>{{/if}}
+				<strong class="stonetop-item-name">{{name}}{{#if asterisk}}<span class="stonetop-move-asterisk" data-tooltip="The first time you use this move, cross off &quot;Would-be&quot; — you become a Hero." data-tooltip-direction="UP"> *</span>{{/if}}</strong>
+				{{#if (and owned resource)}}
 				<span class="stonetop-item-resources">
+					{{#if resource.title}}<span class="stonetop-item-resource-title"{{#if resource.spendTooltip}} data-tooltip="{{resource.spendTooltip}}" data-tooltip-direction="UP"{{/if}}>{{resource.title}}</span>{{/if}}
 					{{#each (resourceChecks resource)}}
 					<span class="stonetop-item-resource-entry">
 						<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
-						        data-move-slug="{{../slug}}"
+						        data-move-name="{{../name}}"
 						        data-index="{{@index}}"></button>
 						{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
 					</span>
 					{{/each}}
 				</span>
 				{{/if}}
-				{{#if ../allowAdditional}}
-				<a class="stonetop-other-move-delete" data-move-slug="{{slug}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
-					<i class="fas fa-trash"></i>
-				</a>
-				{{/if}}
+				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 			</div>
-			{{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
-			<div class="stonetop-item-description stonetop-rich">{{{md description}}}</div>
-			{{#if choices}}
-			<div class="stonetop-move-choices">
-				{{#each choices.list}}
-				{{> "stonetop.choice-row" cgContext="move" cgGroup=../slug namePrefix=../slug}}
+			<div class="stonetop-item-description">{{{boldMissText description}}}</div>
+			{{#if markOptions}}
+			<ul class="stonetop-move-marks">
+				{{#each markOptions}}
+				<li class="stonetop-move-mark">
+					{{#if statSlots}}
+					<span class="stonetop-move-mark-label">{{label}}</span>
+					<span class="stonetop-move-mark-slots">
+						{{#each statSlots}}
+						<span class="stonetop-move-mark-slot">
+							<select class="stonetop-move-mark-stat"
+							        data-move-name="{{../../name}}"
+							        data-mark-slug="{{../slug}}"
+							        data-idx="{{index}}"
+							        {{#unless @root.stonetop.movesEdit}}disabled{{/unless}}>
+								{{#each options}}<option value="{{key}}"{{#if selected}} selected{{/if}}>{{abbr}}</option>{{/each}}
+							</select>
+							{{> "stonetop.move-mark-level" moveName=../../name slug=../slug index=index level=level}}
+						</span>
+						{{/each}}
+					</span>
+					{{else}}
+					<span class="stonetop-move-mark-checks">
+						{{#each checks}}
+						<input type="checkbox" class="stonetop-move-mark-check"
+						       data-move-name="{{../../name}}"
+						       data-mark-slug="{{../slug}}"
+						       data-idx="{{index}}"
+						       {{#if checked}}checked{{/if}}
+						       {{#unless @root.stonetop.movesEdit}}disabled{{/unless}}>
+						{{/each}}
+					</span>
+					<span class="stonetop-move-mark-label">{{label}}</span>
+					{{#each checks}}{{#if checked}}{{> "stonetop.move-mark-level" moveName=../../name slug=../slug index=index level=level}}{{/if}}{{/each}}
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
+			{{#if statChoices}}
+			<div class="stonetop-stat-choices">
+				{{#each statChoices}}
+				{{#if statKey}}
+				<span class="stonetop-stat-boost-chip">+1 {{statAbbr}}</span>
+				{{/if}}
 				{{/each}}
 			</div>
 			{{/if}}
+			{{#if backgroundAnswer}}
+			<p class="stonetop-move-note stonetop-move-background-answer">
+				{{backgroundAnswer.label}}: {{backgroundAnswer.value}}
+			</p>
+			{{/if}}
+			{{#if requiresLabel}}<p class="stonetop-move-note">Requires: {{requiresLabel}}</p>{{/if}}
+			{{#if requiresPlaybook}}<p class="stonetop-move-note">Requires {{requiresPlaybook}} playbook</p>{{/if}}
+			{{#if minLevel}}<p class="stonetop-move-note">Level {{minLevel}}+</p>{{/if}}
 		</li>
 	{{/each}}
 	</ol>

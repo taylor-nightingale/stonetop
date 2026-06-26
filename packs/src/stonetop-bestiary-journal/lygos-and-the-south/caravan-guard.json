@@ -1,0 +1,61 @@
+{
+  "_id": "eLDyz1PDrdPnbnG9",
+  "_key": "!journal!eLDyz1PDrdPnbnG9",
+  "name": "Caravan Guard",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hired muscle protecting a merchant caravan on the long road north."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 158000,
+  "pages": [
+    {
+      "_id": "ltv7WDfMzG1MFpho",
+      "_key": "!journal.pages!eLDyz1PDrdPnbnG9.ltv7WDfMzG1MFpho",
+      "name": "Caravan Guard",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Hired muscle protecting a merchant caravan on the long road north.",
+        "description": "<p>Much of the way between <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> runs through trackless wilds, without the protection of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>' Roads. Bandits, beasts, and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> are all a threat, and plenty of would-be clients would as soon rob a merchant as trade fairly. So merchants hire guards — and when danger looms, they hope they hired well.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.rmNfHJdCkFfrBVIL"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

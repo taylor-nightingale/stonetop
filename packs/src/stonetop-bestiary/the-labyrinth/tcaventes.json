@@ -1,0 +1,92 @@
+{
+  "name": "Tcaventes, Shackle and Key",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 25,
+        "max": 25
+      },
+      "armor": {
+        "value": 6,
+        "source": "hard, warded, lacks vitals"
+      },
+      "damage": {
+        "value": "word of force d12+3 (near, area, forceful) or four fists d12+3 w/advantage (close, reach, forceful)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "to hide evidence of their failure, even from themselves"
+      }
+    },
+    "concept": "A mad archon who guards the Utterwell against the Things Below.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, primordial, construct, magical, terrifying, corrupted",
+    "qualities": "<p>Armor 4 vs. black iron. Ageless; immune to the elements; perceives thought and matter; omnilingual.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.muAijyov4VTFfqBL",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Tcaventes",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7y9ae3JlmnoVUV01",
+      "name": "Sense and neutralize threats with cold precision",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GdZQKCMmPANEuFyb.7y9ae3JlmnoVUV01"
+    },
+    {
+      "_id": "hA8BmaFrVJEiNGL3",
+      "name": "Shift the environment to create or close an opening",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GdZQKCMmPANEuFyb.hA8BmaFrVJEiNGL3"
+    },
+    {
+      "_id": "YoFaEtlCMyhQE9ZI",
+      "name": "Seal or unseal: a door, a binding, a mouth, a secret",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GdZQKCMmPANEuFyb.YoFaEtlCMyhQE9ZI"
+    },
+    {
+      "_id": "jz954pKu5rNYbAW1",
+      "name": "Blaze suddenly with the blinding light of creation",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GdZQKCMmPANEuFyb.jz954pKu5rNYbAW1"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "xE9iSo0kYATJxXeW",
+  "_id": "GdZQKCMmPANEuFyb",
+  "_key": "!actors!GdZQKCMmPANEuFyb"
+}

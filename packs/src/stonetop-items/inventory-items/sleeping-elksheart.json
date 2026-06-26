@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraElksheart",
+  "_key": "!items!stFloraElksheart",
+  "name": "Sleeping Elksheart",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "sleeping-elksheart",
+      "inventoryColumn": "regular",
+      "sortOrder": 71,
+      "note": "A house-sized mushroom with paralytic spores (<em>inhaled</em>). Collect the spores as a poison (<em>dangerous</em>, Value 1); or burn the cap, cut it up, and feed a town — 1d4 Surplus (<em>immobile</em>, Value 2).",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

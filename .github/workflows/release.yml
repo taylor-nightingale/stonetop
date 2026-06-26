@@ -24,6 +24,7 @@ jobs:
           node -e "
             const fs = require('fs');
             const m = JSON.parse(fs.readFileSync('system.json', 'utf8'));
+            m.version = '${{ github.ref_name }}';
             m.download = 'https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/stonetop.zip';
             fs.writeFileSync('system.json', JSON.stringify(m, null, '\t'));
           "
@@ -31,7 +32,7 @@ jobs:
       - name: Create zip
         run: |
           zip -r stonetop.zip \
-            system.json template.json stonetop.js LICENSE src/ styles/ languages/ assets/ templates/ packs/ lib/ \
+            system.json stonetop.js LICENSE module/ styles/ languages/ assets/ templates/ packs/ \
             --exclude "packs/src/*"
 
       - name: Create release

@@ -1,0 +1,67 @@
+<div class="stonetop-move-group">
+	{{> "classic.section-heading" title=title note=note}}
+	<ol class="items-list">
+	{{#each moves}}
+		{{#if (and (gt selection.value 0) rollStat)}}
+		<li class="item stonetop-item{{#if isStarting}} move-starting{{/if}}" data-item-id="{{ownedId}}">
+		{{else}}
+		<li class="stonetop-item{{#if isStarting}} move-starting{{/if}}">
+		{{/if}}
+			<div class="stonetop-item-header">
+				{{#if (gt selection.max 1)}}
+				<span class="stonetop-repeat-checks">
+					{{#each (classicRepeatChecks this)}}
+					<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
+					       data-category-key="{{../../categoryKey}}"
+					       data-move-slug="{{../slug}}"
+					       data-owned-id="{{../ownedId}}"
+					       {{#if checked}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					{{/each}}
+				</span>
+				{{else}}
+				<input type="checkbox" class="stonetop-item-check stonetop-move-check"
+				       data-category-key="{{../categoryKey}}"
+				       data-move-slug="{{slug}}"
+				       data-owned-id="{{ownedId}}"
+				       {{#if (gt selection.value 0)}}checked{{/if}}
+				       {{#if (or isStarting (and (not (gt selection.value 0)) (not selectable)))}}disabled{{/if}}>
+				{{/if}}
+				<strong class="stonetop-item-name">{{name}}</strong>
+				{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
+				{{#if (and (gt selection.value 0) rollStat)}}
+				<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
+					<i class="fas fa-dice-d6"></i>
+				</span>
+				{{/if}}
+				{{#if (and (gt selection.value 0) resource)}}
+				<span class="stonetop-item-resources">
+					{{#each (resourceChecks resource)}}
+					<span class="stonetop-item-resource-entry">
+						<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
+						        data-move-slug="{{../slug}}"
+						        data-index="{{@index}}"></button>
+						{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
+					</span>
+					{{/each}}
+				</span>
+				{{/if}}
+				{{#if ../allowAdditional}}
+				<a class="stonetop-other-move-delete" data-move-slug="{{slug}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
+					<i class="fas fa-trash"></i>
+				</a>
+				{{/if}}
+			</div>
+			{{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
+			<div class="stonetop-item-description stonetop-rich">{{{md description}}}</div>
+			{{#if choices}}
+			<div class="stonetop-move-choices">
+				{{#each choices.list}}
+				{{> "classic.choice-row" cgContext="move" cgGroup=../slug namePrefix=../slug}}
+				{{/each}}
+			</div>
+			{{/if}}
+		</li>
+	{{/each}}
+	</ol>
+</div>

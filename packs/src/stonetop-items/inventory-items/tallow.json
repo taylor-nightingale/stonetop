@@ -1,0 +1,18 @@
+{
+  "_id": "zF9OHzlwUMVmI5BR",
+  "_key": "!items!zF9OHzlwUMVmI5BR",
+  "name": "Tallow",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "tallow",
+      "inventoryColumn": "small",
+      "sortOrder": 21,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

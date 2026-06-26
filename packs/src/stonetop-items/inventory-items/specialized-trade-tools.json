@@ -1,0 +1,21 @@
+{
+  "_id": "aMuFbh7x41Ztpdp4",
+  "_key": "!items!aMuFbh7x41Ztpdp4",
+  "name": "Specialized trade tools",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "specialized-trade-tools",
+      "inventoryColumn": "regular",
+      "sortOrder": 43,
+      "note": "smithing, glassblowing, scribing, etc.; <em>immobile</em>",
+      "weight": 3,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

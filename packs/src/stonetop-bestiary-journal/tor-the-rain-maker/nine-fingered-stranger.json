@@ -1,0 +1,61 @@
+{
+  "_id": "SUe3zYQvT9AGKgzG",
+  "_key": "!journal!SUe3zYQvT9AGKgzG",
+  "name": "Nine-Fingered Stranger",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tor walking the world in disguise, testing mortals with a challenge and a missing finger."
+    }
+  },
+  "folder": "wC2H1OERHvvS8G7u",
+  "sort": 128000,
+  "pages": [
+    {
+      "_id": "m9OXzvC1peHLx1TF",
+      "_key": "!journal.pages!SUe3zYQvT9AGKgzG.m9OXzvC1peHLx1TF",
+      "name": "Nine-Fingered Stranger",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "<strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong> walking the world in disguise, testing mortals with a challenge and a missing finger.",
+        "description": "<p>Many tales tell of a stranger met in an unlikely place. The stranger is in some sort of pickle, or challenges our hero, or presents a tempting opportunity. Whatever else happens, the stranger ends up vanishing — but not before our hero notices his missing finger, and realizes that they just met <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>. Rise to the occasion and you win a gift: a treasure, a secret, a prophecy, or some useful advice. Come up short, and you wind up cursed, or 'win' some treasure that brings only ruin and woe.</p><p>When you introduce the nine-fingered stranger, pick or roll a manifestation and the challenge he presents. Consider, too, what gift or curse he might dispense: an arcanum, an answer, a bit of advice, a blessing (e.g. hold 3 Preparation, per the Bolster move), a curse (a threat, a magical affliction), etc.</p><p><strong>1d6 manifestation</strong></p><table><thead><tr><th>Roll</th><th>Manifestation</th></tr></thead><tbody><tr><td>1</td><td>A brash youth</td></tr><tr><td>2</td><td>A formidable warrior</td></tr><tr><td>3</td><td>A put-upon father</td></tr><tr><td>4</td><td>A wealthy merchant</td></tr><tr><td>5</td><td>A mysterious/cagey traveler</td></tr><tr><td>6</td><td>A hapless old man</td></tr></tbody></table><p><strong>1d6 challenge</strong></p><table><thead><tr><th>Roll</th><th>Challenge</th></tr></thead><tbody><tr><td>1</td><td>A test of might (a duel, a wrestling match, a beast to slay, etc.)</td></tr><tr><td>2</td><td>A test of prowess (a race, a climb, an archery contest, etc.)</td></tr><tr><td>3</td><td>A test of endurance (a drinking contest, a long trudge, an all-night watch, etc.)</td></tr><tr><td>4</td><td>A test of courage (a terror to face, a fate to accept, an injustice to prevent, etc.)</td></tr><tr><td>5</td><td>A test of honor (a chance to steal, or cheat, or rig a bet, etc.)</td></tr><tr><td>6</td><td>A test of kindness (someone wretched to help, some wrong to put right, etc.)</td></tr></tbody></table>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Kh5NQGe2zSAEV3BZ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

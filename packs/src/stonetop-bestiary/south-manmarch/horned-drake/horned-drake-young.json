@@ -1,0 +1,81 @@
+{
+  "name": "Horned Drake (Young)",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 1,
+        "source": "a still-soft, hardening hide"
+      },
+      "damage": {
+        "value": "butt and trample d8+3 (hand, close, forceful)",
+        "rollFormula": "d8+3"
+      },
+      "instinct": {
+        "value": "to get curious, to play-fight"
+      }
+    },
+    "concept": "Curious, playful calves the adults defend aggressively.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, hardy",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.VJDP2ETcmA8GeHdT",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Drake Calf",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "3bNYepCHPOpq3FK6",
+      "name": "Get curious and investigate",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MmkSpS99xDX01jeC.3bNYepCHPOpq3FK6"
+    },
+    {
+      "_id": "iOYNFQLAxNGEqQU8",
+      "name": "Play-fight, then bolt",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MmkSpS99xDX01jeC.iOYNFQLAxNGEqQU8"
+    },
+    {
+      "_id": "BsOiwZyBu0EB9wrH",
+      "name": "Shelter behind a defending adult",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MmkSpS99xDX01jeC.BsOiwZyBu0EB9wrH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nXss4llGfZ5QcRVI",
+  "_id": "MmkSpS99xDX01jeC",
+  "_key": "!actors!MmkSpS99xDX01jeC"
+}

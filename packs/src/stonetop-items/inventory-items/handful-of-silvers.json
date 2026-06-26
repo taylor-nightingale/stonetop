@@ -1,0 +1,20 @@
+{
+  "_id": "PuDCCRnGEY59YVkQ",
+  "_key": "!items!PuDCCRnGEY59YVkQ",
+  "name": "Handful of silvers",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "handful-of-silvers",
+      "inventoryColumn": "small",
+      "sortOrder": 36,
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Trade Goods"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

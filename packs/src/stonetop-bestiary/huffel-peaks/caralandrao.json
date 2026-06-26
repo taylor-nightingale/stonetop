@@ -1,0 +1,92 @@
+{
+  "name": "Caralandrao",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "shell"
+      },
+      "damage": {
+        "value": "pincers d4 w/disadvantage (hand, grabby)",
+        "rollFormula": "d4"
+      },
+      "instinct": {
+        "value": "to feed on magic"
+      }
+    },
+    "concept": "Crab-spiders that hunger for and steal magic.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, stealthy, hoarder",
+    "qualities": "<p>Spider-climb; camouflaged shell.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.eAcyCUGDDeqkLrKJ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Caralandrao",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "r0LZWqLaIdRAR8fK",
+      "name": "Sense mystic emanations from afar",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PFHwDgBNwVbZHEIO.r0LZWqLaIdRAR8fK"
+    },
+    {
+      "_id": "Rc23BkQ6WsdCUbLV",
+      "name": "Get close without being noticed",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PFHwDgBNwVbZHEIO.Rc23BkQ6WsdCUbLV"
+    },
+    {
+      "_id": "frmyqxRbxPmXfyq2",
+      "name": "Skitter-skatter, dart and weave",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PFHwDgBNwVbZHEIO.frmyqxRbxPmXfyq2"
+    },
+    {
+      "_id": "jxyfbsCFTnUNodeH",
+      "name": "Make off with something magical",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PFHwDgBNwVbZHEIO.jxyfbsCFTnUNodeH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LIFxBsthfFEHCus6",
+  "_id": "PFHwDgBNwVbZHEIO",
+  "_key": "!actors!PFHwDgBNwVbZHEIO"
+}

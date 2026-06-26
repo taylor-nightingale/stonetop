@@ -1,45 +1,27 @@
-import {Move} from "../../src/model/data/Move.js";
-import {FakeWorldItemStore} from "./FakeWorldItemStore.js";
+import {MoveDefinition} from "../../module/model/MoveDefinition.js";
 
 export class FakeMoveRepository {
-	_worldStore = new FakeWorldItemStore();
-
-	constructor(playbookMoves = [], basicMoves = [], insertMoves = []) {
-		this._playbookMoves = playbookMoves;
-		this._basicMoves    = basicMoves;
-		this._insertMoves   = insertMoves;
+	constructor(playbookMoves = [], basicMoves = [], postDeathMoves = [], expeditionMoves = []) {
+		this._playbookMoves   = playbookMoves;
+		this._basicMoves      = basicMoves;
+		this._postDeathMoves  = postDeathMoves;
+		this._expeditionMoves = expeditionMoves;
 	}
 
-	addWorld(item) { this._worldStore.add(item); return this; }
-
-	async getPlaybookMoves(playbookName) {
-		const world = await this._worldStore.filterEntries(
-			e => e.system?.moveType === "playbook" && e.system?.playbook === playbookName
-		);
-		return [...this._playbookMoves, ...world].map(m => new Move(m));
+	async getPlaybookMoves() {
+		return this._playbookMoves.map(m => new MoveDefinition(m));
 	}
 
 	async getPlaybookMoveDocument(id) {
-		return this._playbookMoves.find(m => m._id === id)
-			?? await this._worldStore.getDocument(id)
-			?? null;
-	}
-
-	async getMovesByType(moveType) {
-		const world = await this._worldStore.filterEntries(e => e.system?.moveType === moveType);
-		return [...this._basicMoves, ...world]
-			.filter(m => (m.system?.moveType ?? "basic") === moveType)
-			.map(m => new Move(m));
+		return this._playbookMoves.find(m => m._id === id) ?? null;
 	}
 
 	async getBasicMoves() {
-		return this.getMovesByType("basic");
+		return this._basicMoves.map(m => new MoveDefinition(m));
 	}
 
 	async getBasicMoveDocument(id) {
-		return this._basicMoves.find(m => m._id === id)
-			?? await this._worldStore.getDocument(id)
-			?? null;
+		return this._basicMoves.find(m => m._id === id) ?? null;
 	}
 
 	addBasic(move) {
@@ -50,32 +32,24 @@ export class FakeMoveRepository {
 		this._playbookMoves.push(move);
 	}
 
-	async getInsertMoves() {
-		return this._insertMoves.map(m => new Move(m));
+	async getPostDeathMoves() {
+		return this._postDeathMoves.map(m => new MoveDefinition(m));
 	}
 
-	async getMovesBySlugs(slugs = []) {
-		if (!slugs?.length) return [];
-		const index = await this.buildSlugIndex();
-		return slugs.map(s => index.get(s)).filter(Boolean);
+	async getPostDeathMoveDocument(id) {
+		return this._postDeathMoves.find(m => m._id === id) ?? null;
 	}
 
-	async getInsertMoveDocument(id) {
-		return this._insertMoves.find(m => m._id === id)
-			?? this._playbookMoves.find(m => m._id === id)
-			?? this._basicMoves.find(m => m._id === id)
-			?? await this._worldStore.getDocument(id)
-			?? null;
+	addPostDeath(move) {
+		this._postDeathMoves.push(move);
 	}
 
-	addInsertMove(move) {
-		this._insertMoves.push(move);
+	async getExpeditionMoves() {
+		return this._expeditionMoves.map(m => new MoveDefinition(m));
 	}
 
-	async buildSlugIndex() {
-		const world = await this._worldStore.getAll();
-		const all   = [...this._playbookMoves, ...this._basicMoves, ...this._insertMoves, ...world];
-		return new Map(all.map(m => new Move(m)).map(m => [m.slug, m]));
+	addExpedition(move) {
+		this._expeditionMoves.push(move);
 	}
 }
 

@@ -1,0 +1,61 @@
+{
+  "_id": "sc28aHnwvhvBDyjh",
+  "_key": "!journal!sc28aHnwvhvBDyjh",
+  "name": "Brawzbedr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A house-sized badger-sloth that tears whole slopes of trees apart."
+    }
+  },
+  "folder": "f51tBxK2KHoXoJZs",
+  "sort": 38000,
+  "pages": [
+    {
+      "_id": "pAEjZrge0FusCivY",
+      "_key": "!journal.pages!sc28aHnwvhvBDyjh.pAEjZrge0FusCivY",
+      "name": "Brawzbedr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A house-sized badger-sloth that tears whole slopes of trees apart.",
+        "description": "<p>Think of something like a badger or a sloth, but big as a house: twenty feet long, nine feet at the shoulder, forearms nearly twelve feet long when you include those shovel-like claws. Mostly they just lumber about looking for their favorite trees to tear up and chew through, sometimes clearing whole slopes. Just about everything gives them a wide berth — even apex predators like a kleztigr don't think they're worth the trouble. Sometimes, though, you round a bend and there one is, and you'd best circle around, quiet-like.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.eU2PTY1DoA2n95RT"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

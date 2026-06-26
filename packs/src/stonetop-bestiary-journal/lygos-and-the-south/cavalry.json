@@ -1,0 +1,61 @@
+{
+  "_id": "ODYHrREuw5K1yWh7",
+  "_key": "!journal!ODYHrREuw5K1yWh7",
+  "name": "Cavalry",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Armored riders of the southern legions, striking where the foe is weak."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 159000,
+  "pages": [
+    {
+      "_id": "YrvqQNXDsMNI8Rg2",
+      "_key": "!journal.pages!ODYHrREuw5K1yWh7.YrvqQNXDsMNI8Rg2",
+      "name": "Cavalry",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Armored riders of the southern legions, striking where the foe is weak.",
+        "description": "<p>The armies of the south are said to be as countless as the leaves in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Their heavy horse circle and harry, then form a wedge and charge home. Thankfully, the southern nations have so far seen no value in invading the north. At least, not yet.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.6N5pRiBkQwkblpAq"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

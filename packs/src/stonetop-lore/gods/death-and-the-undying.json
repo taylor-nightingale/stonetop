@@ -1,0 +1,199 @@
+{
+  "_id": "CYaQI7gy7RjF0rPH",
+  "_key": "!journal!CYaQI7gy7RjF0rPH",
+  "name": "Death & the Undying",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "When you succumb to injury or illness, or just reach the end of your allotted days, then the Last Door will swing open for you. You will see it. The Lady of Crows will beckon you through. And there on the other side, your soul will join those who have gone before: the honored ancestors, the countless multitudes of the quiet dead."
+    }
+  },
+  "folder": "IIxADXjnF97PXJDg",
+  "sort": 6000,
+  "pages": [
+    {
+      "_id": "EDLSG22jAIZpdwqk",
+      "_key": "!journal.pages!CYaQI7gy7RjF0rPH.EDLSG22jAIZpdwqk",
+      "name": "Death & the Undying",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Everyone who lives, dies.</p><p>When you succumb to injury or illness, or just reach the end of your allotted days, then the Last Door will swing open for you. You will see it. The Lady of Crows will beckon you through. And there on the other side, your soul will join those who have gone before: the honored ancestors, the countless multitudes of the quiet dead.</p><p>At least, that’s how it’s meant to go—the natural order of things. But not every soul passes through the Last Door when their time has come. Some linger, others are bound. Some are called back to this world.</p><p>Everyone who lives, dies. But not everyone dies the same.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Choose or roll 1, or 2 and combine.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Death personified: the Lady of Crows, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong>, other gods/spirits of death</td></tr><tr><td>2</td><td>The Last Door/brushes with death/ the afterlife/things from beyond</td></tr><tr><td>3</td><td>Graves/funeral rites/grief/mourning</td></tr><tr><td>4</td><td>Death foretold: prophecies, omens, visions, harbingers</td></tr><tr><td>5</td><td>Good death: peaceful, dignified, bravely met, an end of suffering</td></tr></tbody></table><p>6 Ignoble death: traumatic, desperate, torturous, terrifying 7 Untimely death: sudden, surprising, things left unsaid or undone 8 Violent death: murder, assassination, execution, battle, suicide 9 Mass death: famine, plague, war, cataclysm, collapse 10 The fear of death: denial, bargaining, panic, cheating 11 The curse of undeath: respite denied, eternal hunger/pain/ loneliness/regret 12 Necromancy and death-magic, likely with aid from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Everyone knows:</p><ul><li>About the Lady of the Crows, the Last Door, and what is said to lie beyond</li><li>A ghost story or two</li><li>That dool trees are creepy and often haunted</li><li>That most undead come out only at night</li></ul><p>One might know:</p><ul><li>That undead can’t cross an unbroken circle of salt (a pouch full, Value 1)</li><li>That a handful of salt will burn most ghosts (1d8 damage, hand, close)</li><li>That ghosts are bound to a tether, and what that entails</li><li>That silver can harm most undead</li><li>The tale of a prominent haunted site</li><li>What a given entity is capable of</li><li>What necromancers are capable of</li></ul><p>Very few know:</p><ul><li>The details of an obscure haunting</li><li>The true nature of the Lady of Crows, the Last Door, the afterlife</li><li>How necromancy works, exactly</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Death’s Door",
+            "group": "details",
+            "danger": false,
+            "body": "<p>When the PCs are dying and they make the Death’s Door move (Book I, page 245), they see the Last Door and the Lady of Crows. The move prompts them to describe it, but feel free to ask questions.</p><ul><li class=\"question-bullet\">What does the Door look like? Big and grand, small and humble, or what?</li><li class=\"question-bullet\">Is it flung open, or just ajar?</li><li class=\"question-bullet\">What appears to lie beyond?</li><li class=\"question-bullet\">Where does the Lady stand? What does she wear? What adorns her brow?</li><li class=\"question-bullet\">What is she like? Imperious? Friendly? Sad? Smug? Inscrutable? Or what?</li><li class=\"question-bullet\">Does she speak? What is her voice like? What does she say?</li><li class=\"question-bullet\">What detail catches your attention, that you’d never have expected?</li><li class=\"question-bullet\">How much of this will you remember?</li></ul><p>As for the afterlife—the land beyond the Last Door—its true nature is a mystery. But it is home to dool spirits, gwyllgi, and the shades of the dead. Some of those shades, when called, are eager to stay in the land of the living. So for some, it would seem, the afterlife is not a pleasant place at all.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Lady of Crows",
+            "group": "details",
+            "danger": false,
+            "body": "<p>She has many titles. Carrion Queen and Black-Feather Woman. The Kindly One. The Keeper of Secrets. She Who Dances on the Field of Battle. None know her true name, if she even has one. Most call her simply: the Lady of Crows.</p><p>Her nature and demeanor are for you and your table to decide, but ask/consider:</p><ul><li class=\"question-bullet\">What is her role? Psychopomp? Judge? Ruler of the afterlife? Or what?</li><li class=\"question-bullet\">What does she want? What pleases her?</li><li class=\"question-bullet\">Is she worshipped as a god? If so, what are her observances?</li><li class=\"question-bullet\">What is her origin said to be?</li><li class=\"question-bullet\">What is her relationship to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong>?</li><li class=\"question-bullet\">How do tales of her differ among __? What is notably the same?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Haunted sites",
+            "group": "details",
+            "danger": false,
+            "body": "<p>These are places where the undead linger, or where the Last Door stands ajar. If the site itself has yet to be established, combine the terrain in which it’s located with a feature.</p><p><strong>1d12 feature</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–3</td><td>A creepy (un)natural landmark (a dool tree, a skull-shaped rock, etc.)</td></tr><tr><td>4–5</td><td>A liminal place (a pass, a bridge, a tunnel, a gate, a crossroad, etc.)</td></tr><tr><td>6–8</td><td>A tomb/barrow/cemetery, left by the locals or their ancestors</td></tr><tr><td>9–10</td><td>An abandoned home/fort/steading</td></tr><tr><td>11–12</td><td>A ruin of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong> or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>, or a lingering sign of their presence</td></tr></tbody></table><p>A century ago, some adventurers explored these chambers. A great slab of stone fell into place, trapping them in a side chamber. A grate in the ceiling (far out of reach) provided enough fresh air and rainwater to sustain them for several grueling weeks, but one of them murdered and ate his fellows before slowly wasting away. His soul lingers as a wraith, tethered to his bones.</p><p>Once the site’s physical nature is established, pick or roll a theme, how long it’s been haunted, and the origins of the haunting.</p><p><strong>1d12 how long</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Since the days of the Makers, at least</td></tr><tr><td>2–3</td><td>Since the Time of Cataclysm, when the Makers fell</td></tr><tr><td>4–5</td><td>Since the Barrow Builders, after the Makers’ fall</td></tr><tr><td>6–7</td><td>For generations, longer than the living remember</td></tr><tr><td>8–9</td><td>For decades, within living memory</td></tr><tr><td>10–11</td><td>For the past decade at most</td></tr><tr><td>12</td><td>Not long at all, a recent change</td></tr></tbody></table><p>The PCs are exploring <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.zUeBMA1XS4Lq3KdK]{Three Coven Lake}</strong>. They’ve found an ancient Stone Lord workshop carved into a bluff above the lake. I think it’s haunted! The nature of the site is established, so I don’t roll for a feature. I roll a 6 for theme (“ignoble death”), a 6 for how long (“for generations”), and a 4 for origins (“the death of a few, intimate and intense”). Because deaths were involved, I roll another 5 for the cause of death (“exposure/cold/thirst/starvation”). I ponder a bit, and come up with this:</p><p><strong>1d12 origins</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>The death of many, all at once</td></tr><tr><td>3</td><td>The death of many, over time</td></tr><tr><td>4</td><td>The death of a few, intimate and intense</td></tr><tr><td>5–6</td><td>The death of one, a singular event</td></tr><tr><td>7</td><td>The desecration/violation of a grave</td></tr><tr><td>8</td><td>The arrival of an artifact or tether</td></tr><tr><td>9</td><td>Something about the place itself, attracting/ensnaring dark entities</td></tr><tr><td>10</td><td>A ritual, magic, or artifice: failed or run amok</td></tr><tr><td>11</td><td>A ritual, magic, or artifice: working as intended</td></tr><tr><td>12</td><td>The loss or failure of an artifact/ ward/binding that kept the dead in check</td></tr></tbody></table><p>If the origins involved a death or deaths, pick or roll for the cause of death.</p><p><strong>1d12 cause of death</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Old age/infirmity/malady/disease</td></tr><tr><td>2–3</td><td>Suicide/despair/apathy/upset</td></tr><tr><td>4–5</td><td>Exposure/cold/thirst/starvation</td></tr><tr><td>6–7</td><td>Injury/trauma/wounds/poison</td></tr><tr><td>8–9</td><td>Burning/drowning/suffocation</td></tr><tr><td>10</td><td>Falling/accident/weather/disaster</td></tr><tr><td>11</td><td>Exertion/exhaustion/shock/fright</td></tr><tr><td>12</td><td>Magic/an entity/a curse</td></tr></tbody></table><p>From there, choose the ghosts, revenants, or other dangers that haunt the place, and their tether(s) if appropriate. Populate it with artifacts tied to death and the undying, and dangers or discoveries appropriate to the surrounding area and/or whoever dwelt here in the past.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Dool trees",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Dool trees often grow in or near haunted sites. A grove stands near the Crossroads, and lone dool trees are often found near Barrow Builder tombs. They are thick and knobby and multi-stemmed. The bark is papery, the color of bleached bone. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{The Pale Hunter}</strong> shuns them, and they are often home to dool spirits if nothing else.</p><p>The leaves of a dool tree are deep purple, almost black, shot through with pale white veins. Dried leaves can be steeped to make a bitter tea, which brings on a death-like sleep from which some folk never wake.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Ghosts",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Ghosts are the souls of the dead, those who linger in this world. They vary wildly in personality, motives, and capabilities, but all have the undead and spirit tags, and a move that reflects them manifesting a presence in the world. They are animated by more than biology (+4 HP) and lack vital organs (+3 HP, +1 armor).</p><p>Consider the context in which they are encountered. If not already established, pick or roll for their cause of death. Then pick or roll for what they need to move on, their manifestation, and 1-6 abilities and/or weaknesses. Establish their tether. Let all these elements inform their story and their stat block.</p><p><strong>1d12 what they need</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Kindness/patience/persuasion, a guide to the Last Door</td></tr><tr><td>3–4</td><td>Justice (or vengeance) served</td></tr><tr><td>5–6</td><td>A proper burial</td></tr><tr><td>7</td><td>A reunion with a loved one</td></tr><tr><td>8</td><td>The truth, unearthed/acknowledged</td></tr><tr><td>9</td><td>A task completed; an oath fulfilled</td></tr><tr><td>10–11</td><td>Their tether, destroyed or unmade</td></tr><tr><td>12</td><td>To be put down, like a rabid dog</td></tr></tbody></table><p><strong>1d12 manifestation</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Just a whisper/wind/mote of light*</td></tr><tr><td>2–3</td><td>A form of shadow/cold/mist/etc*</td></tr><tr><td>4–6</td><td>A spectral form, ethereal and eerie, but much as they looked in life*</td></tr><tr><td>7–9</td><td>A spectral form, horrible, clearly dead*</td></tr><tr><td>10</td><td>A body made of soil/straw/rags/etc.</td></tr><tr><td>11</td><td>A solid body, horrific and terrifying</td></tr><tr><td>12</td><td>A solid body, seemingly alive but for a few telltale signs</td></tr></tbody></table><p>* Harmed only by silver or salt, or some other thematically appropriate substances</p><p><strong>1d12 ability</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Causes eerie, unnatural phenomena</td></tr><tr><td>3</td><td>Feels (feeds on?) emotions/vitality/ sensations of the living</td></tr><tr><td>4</td><td>Can possess certain hosts/vessels</td></tr><tr><td>5</td><td>Unearthly moan/wail/shriek</td></tr><tr><td>6</td><td>Inflicts its pain/feelings on others</td></tr><tr><td>7–8</td><td>Telekinesis (roll 1d6 for scope)</td></tr><tr><td>9</td><td>Nasty/vicious/ghostly attack</td></tr><tr><td>10</td><td>Mind games/phantasms/ compulsions</td></tr><tr><td>11–12</td><td>Can manifest in multiple forms</td></tr></tbody></table><p><strong>1d12 weakness</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Afraid of some mundane thing</td></tr><tr><td>2</td><td>Inarticulate, or unable to speak</td></tr><tr><td>3</td><td>Obsessive/predictable behavior</td></tr><tr><td>4</td><td>Easily frustrated/angered/enraged</td></tr><tr><td>5</td><td>Can’t form new memories</td></tr><tr><td>6</td><td>Driven off by singing/prayer/etc.</td></tr><tr><td>7–12</td><td>Shuns/powerless in daylight</td></tr></tbody></table><p>Tethers Ghosts are bound to an object or place. Pick or roll for the tether itself, and how tightly bound the ghost is.</p><p><strong>1d12 tether</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–4</td><td>Their corpse/remains/bones/hair</td></tr><tr><td>5–6</td><td>The place where they died</td></tr><tr><td>7</td><td>(Part of) their grave/pyre/altar/etc.</td></tr><tr><td>8</td><td>The weapon that killed them</td></tr><tr><td>9</td><td>An item they once cherished</td></tr><tr><td>10</td><td>A prominent place from their life</td></tr><tr><td>11–12</td><td>The focus/source of whatever magic binds them</td></tr></tbody></table><p><strong>1d12 how tightly bound</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Can’t leave its immediate presence</td></tr><tr><td>3–6</td><td>Must stay on the premises/site</td></tr><tr><td>7–10</td><td>Can roam a few miles; returns daily</td></tr><tr><td>11–12</td><td>Can wander far and wide, but must return periodically</td></tr></tbody></table><p>If a ghost’s manifest form is reduced to 0 HP, they dissipate and return to their tether. They usually won’t manifest before the next sunset; if they do, their max HP are halved.</p><p>If a tether is destroyed, then the ghost might… (pick 1)</p><p>… fade away, utterly destroyed;<br>… pass through the Last Door (now, or after some final act);<br>… devolve into a wraith;<br>… possess a corpse, as a pyped; or<br>… cling to their current host/form, but fade utterly if it is destroyed.</p><p>Decide based on the ghost’s history, power, and relationship to their tether.</p><p>Those who ply the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> tell an old tale of a bride, newly married to a handsome trapper. He failed to come home one night, and she unwisely entered the forest to find him, falling into a deep pond and drowning. Ever since, her ghost has roamed the woods on moonlit nights: wet and shivering, desperate and pleading, certain that her husband is still out there.</p><p>They were a band of southern mercenaries, come north in search of treasure. They heard tell of a hdour and his hoard, trapped him in his cave, and slew him. Then they divvied up the loot and left.</p><p>Only later did they learn why the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> fear to kill a hdour. For he had cursed them all. Cursed their souls to linger after death, doomed to endless hunger and endless thirst. Doomed to fear the sun, to be hounded like the dogs they were. Cursed, indeed, until every piece of the far-flung loot they stole is returned to the hdour’s cave.</p><p>A specter is a soul consumed by hatred and envy, cruelty and rage. Maybe they were a sadistic murderer in life, or a victim whose death was so traumatic that they lash out at any living thing. Maybe they were a pining ghost whose loved ones rejected them, or a fettered soul long- and cruelly-bound, now set free. Regardless: they are now a thing of spite and vengeance, wanting only to punish those with the temerity to live.</p><p>Wraiths are cursed with endless hunger. They are damaged souls, wounded by dark magic, another wraith, or the dehumanizing effects of starvation or addiction. They are little more than beasts, driven by the emptiness within, with only the vaguest sense of who they once were.</p><p>Other ghosts might become wraiths when their tethers are destroyed. If they linger in the world, they find themselves filled with gnawing need, and must sustain themselves on the living. These unbound wraiths are weaker, but often form packs with others of their kind (group, vicious instead of stealthy, 13 HP each, d8 damage, afraid of firelight).</p><p>When a wraith reduces you to 0 HP and you survive, your soul is wounded. Reduce your max HP by 4. Until your soul is healed, your instinct becomes “Hunger: to fill the emptiness inside you with excess,” and should you roll a 6- on Death’s Door, you die and become a wraith (a monster in the GM’s control).</p><p><strong>Other ghosts</strong></p><ul><li>A cinderwraith</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SrcFk83C0Gxm7Jwj]{The Quiet Twins}</strong></li><li>Phantom riders</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.D42rXN4BtGJACqqt]{Ferocedes Ogran}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Revenants",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Revenants are the living dead, corpses animated by a soul, a demon, or foul magic. They vary wildly in personality, motives, and capabilities. They are undead, animated by more than biology (+4 HP).</p><p>Consider the context in which a revenant is encountered. If not yet established, pick or roll for their cause of death. Then pick or roll for what they were brought back by, their visage, and 1-6 abilities and/or weaknesses. Let all these elements inform their story and their stat block.</p><p><strong>1d12 brought back by</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–3</td><td>A thirst for vengeance</td></tr><tr><td>4</td><td>A longing that transcends death</td></tr><tr><td>5</td><td>Stubbornness/habit/will</td></tr><tr><td>6</td><td>Guilt, like heavy chains</td></tr><tr><td>7–8</td><td>An oath/vow, stronger than iron</td></tr><tr><td>9</td><td>A curse, well-deserved or not</td></tr><tr><td>10</td><td>Their own designs, some dark ritual/deal/preparation</td></tr><tr><td>11–12</td><td>The will or working of another (and maybe roll 1d10 for why/how)</td></tr></tbody></table><p><strong>1d12 visage</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Naught but bone, a grinning skull</td></tr><tr><td>3–5</td><td>Tattered, rotting, horrible</td></tr><tr><td>6–8</td><td>Dried out, gaunt, clearly dead; but can pass for living at a distance</td></tr><tr><td>9–10</td><td>Seemingly alive, but clearly dead and horrible in sun/moonlight</td></tr><tr><td>11–12</td><td>Seemingly alive, except for a few telltale signs</td></tr></tbody></table><p><strong>1d12 ability</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Uncanny speed/grace/prowess</td></tr><tr><td>2</td><td>Unholy strength (forceful, +2 damage)</td></tr><tr><td>3–4</td><td>Unnatural resilience (+4 HP, +4 armor except vs. silver or fire)</td></tr><tr><td>5–6</td><td>Can regenerate/reform/rise again</td></tr><tr><td>7</td><td>Limbs that can keep acting and reattach even if severed</td></tr><tr><td>8</td><td>Minions (bugs, its own severed hand or floating eye, a crow, etc.)</td></tr><tr><td>9</td><td>Mesmerizing/terrifying gaze</td></tr><tr><td>10</td><td>Aura of cold/heat/smoke/rot/etc.</td></tr><tr><td>11</td><td>Magic, related to how they died</td></tr><tr><td>12</td><td>Shapeshifting (mist/beasts/etc.) 1d12 weakness</td></tr></tbody></table><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Daylight (blinded/burned/fears it)</td></tr><tr><td>2</td><td>Fire (fears it/takes +1d4 damage/etc.)</td></tr><tr><td>3</td><td>Bound to a tether</td></tr><tr><td>4</td><td>Hungers for blood/flesh/life/fear/etc.</td></tr><tr><td>5</td><td>Unmistakable odor/aura</td></tr><tr><td>6</td><td>Compulsively counts/cleans/sorts/etc.</td></tr><tr><td>7</td><td>Easily frustrated/confused/provoked</td></tr><tr><td>8</td><td>Burned by salt/rain/moonlight/__</td></tr><tr><td>9</td><td>Repelled by a certain plant/animal/ symbol/etc.</td></tr><tr><td>10</td><td>A taboo (can’t show its face, can’t cross running water, etc.)</td></tr><tr><td>11</td><td>Can’t abide singing/music/laughter</td></tr><tr><td>12</td><td>Burns HP over time/to use its powers</td></tr></tbody></table><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> speak of dark times, when the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> gave a gift to a petty chief. Depending on who tells the tale, it was a patch of loose soil or a deep pool of water, the hollow of a dool tree or a great cauldron of rusted iron. Regardless: a corpse placed within this vessel would rise as one of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5SQHTsAkmgqupgVw]{Anan Gllo}</strong>, the Empty Dead. The chief raised an undead army, and set out to make themselves king.</p><p>Something interesting: The chief’s power was broken when a hero entered the vessel while still alive, giving their life to destroy it. A number of Anan Gllo linger, though, inert and waiting.</p><p>Something useful: An Anan Gllo regains all its HP when it either drinks fresh blood or re-enters the vessel; it cannot otherwise regain HP. And every dawn, an Anan Gllo loses 1 HP. At 0 HP, it becomes inert until its HP are restored.</p><p>Sometimes, when a great wrong is done, when a good person is cruelly slain, when the killers go unpunished… well, sometimes they come back. Called back by a prayer or perhaps a spell. Or sent back by their fellow victims. Or guided back by one of the Lady’s own crows. They dig themselves free of their graves, reborn and whole. And vengeance shall be theirs.</p><p>When an untethered ghost or a shade possesses an empty corpse, it becomes a pyped. They are wretched things, all rotting flesh and lurching movements, hungering for sweet marrow, scavenging on carrion and graves. But hunger can make them bold. Bold enough to hunt the weak and sick at the edge of a village, or a lone traveler caught unawares.</p><p>Pypeds rise only from corpses that are relatively intact, and which have not undergone proper funeral rites. If a pyped is destroyed, the spirit within will seek a new, viable corpse. A shade must find one before the sun banishes it. An untethered ghost must find one before its memories fade and it becomes a wraith.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nkZC8g63JoTERrx5]{Ulliam Unlucky}</strong> dragged his family from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> up to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, in search of a better life. But things never did work out. Last time he went out prospecting, he got lost. Then the blizzard rolled in. And that’s how Ulliam died.</p><p>But say what you will about Ulliam, he loved his wife and kids. Still does. Dragged his frozen self home to see ’em again. He knows they can’t see him like this, but he can’t keep himself from lurking. And when some lech comes sniffing around his wife, or some fool notices him and makes a fuss… well, there’s only so much a man can take. And that little spark of warmth he draws out of them? Well, he’s starting to acquire a taste.</p><p><strong>Other revenants</strong></p><ul><li>Mummified <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> and their servants</li><li>Thralls of the Things Below</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ql4u2UbNBjoTxvBp]{Nemurvojak}</strong></li><li>Barrow wights</li><li>Deathless ones</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Associated Creatures",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues for Death &amp; the Undying. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5SQHTsAkmgqupgVw]{Anan Gllo}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6uW9IHa66SmQdeEM]{Dialeddwr}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.N7e7deA8brYpOz66]{Dool Spirit}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rBQSbe8jcGbTO6nA]{Gwyllgi}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ix0kIQeEN7xkTUsK]{Mantle Wraiths}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.pDanXfWCKezDrSGQ]{Pyped}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4OPwwD1035hAPzs]{Shade}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.EBKcoyX7cPlMtzG7]{Specter}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.sgwKSp8PEmkIv21v]{The Ghostly Legion}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i74FkC9ROlheQBIF]{The Gwraig Wen}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.bgGP0Dpdt51lXYmK]{Tomb-Bog Spirit}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nkZC8g63JoTERrx5]{Ulliam Unlucky}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MzyHBOx4ZhOMsQod]{Unliving Chimera}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MVICDuKvbrNllUY3]{Wraith}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>An abandoned house, out near the Old Wall, is said to be haunted.</li><li>A shade gets called up at the Crossroads and refuses to go back.</li><li>A haunted grove near the West Road is said to hide buried treasure.</li><li>A necromancer comes to town, offering a chance to speak with the dearly departed.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Have you seen the Last Door and the Lady of Crows? What do you recall?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do folks in **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}** say awaits us, beyond the Last Door? What do they say in/among the __?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you think awaits us? Why?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who among the dead do you miss most?",
+                "answer": ""
+              },
+              {
+                "prompt": "What ghost story scared you the most as a child?",
+                "answer": ""
+              },
+              {
+                "prompt": "When did you first see someone die?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who was the first person you murdered?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A clue as to what keeps a ghost from moving on (a letter, a toy, etc.)</li><li>A wooden idol of the Lady of Crows (Value 0, crude), found on a crude altar</li><li>A vial of lethal poison (1 use, ingested, dangerous, Value 1)</li><li>A felled dool tree, its wood valuable to the right person (Value 1 for a bundle, Value 2 for a cartload)</li><li>A silver-alloy dagger (Value 2), useful against the undead</li><li>Fine funerary goods, like linens, salts, myrrh, etc. (Value 2)</li><li>A gold neck torc (Value 3), fitted around the neck of a murdered corpse</li><li>A silver sarcophagus, inlaid with runes (immobile, Value 4)</li></ul><p>A blackened splinter crude, magical, fireproof Undead who see it are drawn to it, or else deeply agitated by its presence. When you touch the splinter to an undead entity, they see the Last Door yawning open before them. Roll 4d6. If the total is greater than the entity’s current HP, they are drawn through the Last Door and leave this world for good. Otherwise, they are transfixed for a few moments before the Door slams shut. Regardless, the splinter vanishes.</p><p>A spindle of fine thread magical A length of fiber, maybe 50 feet long, spun by a ghost from all the hair that ever fell from her daughters’ heads. The thread is light, and fine, and almost unbreakably strong, but it can be handled only by one who has seen the Last Door. Only the edge of a silver blade can cut it. It can be used to bind a ghost fast, if you’re clever and can handle the thread yourself.</p><p><strong>A pale wooden sword</strong></p><p>, close, crude, magical Carved from a dool tree with a silver knife, and polished with oils infused with moonlight. The grip is worn smooth but the “blade” is chipped and notched, unlikely to stand up to iron or bronze.</p><p>When you wield the sword against a manifest undead spirit, you can hurt it (deal damage normally). If you reduce it to 0 HP, the manifest form dissipates but the spirit can reform at its tether normally.</p><p><strong>A tattered standard</strong></p><p>, magical Threadbare, ancient, but remarkably well-preserved. Embroidered with a stylized aurochs whose horns encompass the sun. It fills you with hope and pride to look upon it, as well it should. For this was the standard of the Heol-Tarv, a heroic band who gave their lives in hopeless battle against the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5SQHTsAkmgqupgVw]{Anan Gllo}</strong>, securing their people’s escape.</p><p>When you unfurl the tattered standard and hold it aloft for all to see, you and your allies are immune to supernatural fear and unshaken by undead or otherwise unnatural foes.</p><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Carvings in a cave</td></tr><tr><td>2</td><td>A grim peat mound</td></tr><tr><td>3</td><td>A tattered mantle</td></tr><tr><td>4</td><td>A scroll &amp; bone flute</td></tr><tr><td>5</td><td>A chain of rusty locks</td></tr><tr><td>6</td><td>A vein of milky crystal</td></tr></tbody></table><ul><li>Major arcana</li><li>The following are associated with death and the undying:</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.odHFRr5F90K9nEqk]{The Demonhide Cloak}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.4wlgB0VWqB2tN0V5]{The Hec’tumel Codex}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.CAqpBPqW9LAGZCcM]{The Blackwood Fetishes}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.0n4lgBdJ0abmmQfl]{The Twisted Spear}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Creepy effects: flickering torches, cold spots, things going bump in the night</li><li>Superstition and fear, affecting the behavior of NPCs</li><li>Rising dread and terror, affecting even PCs</li><li>Traps placed in old tombs</li><li>Curses on tombs or tomb-goods</li><li>Disease, transmitted from fresh or rotting corpses</li></ul>"
+              },
+              {
+                "heading": "Other undead",
+                "body": "<ul><li>Iron hounds</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KgJ8NTJSYfoMhX0Y]{Hollow Fae}</strong></li><li>A false adept</li></ul><p>Dool spirits hail from beyond the Last Door. They are not undead, for they never lived, but are native to the afterlife. They sometimes slip into this world, haunting the dool trees from which they get their name.</p><p>When a dool spirit takes a liking to a victim’s fears, it leaves its tree and binds itself to that victim’s very bones. It proceeds to haunt them, and only them, driving them mad with fear. The spirit remains bound to that victim’s bones even in death, until a new dool tree sprouts where those bones are buried, and the spirit can haunt the living once more.</p><p>A gwyllgi is a harbinger of death, a being from beyond. A necromancer might call one forth to send against their foes. Or, one might slip through the Last Door when dark magic or the death of many cause it to swing wide open.</p><ul><li>Death curse Threat (affliction) Instinct to crank up tension and dread</li><li>Cause an accident or coincidence</li><li>Drive them to anxiety, desperation</li><li>Push them towards a bad decision</li><li>Get them, in the end</li></ul><p>When a gwyllgi curses a victim, they know they will die before the next full moon.</p><p>Something interesting: A gwyllgi can curse only one victim at a time, and it manifests each night to feed on its victim’s emotions.</p><p>Something useful: You can lift the curse by destroying the gwyllgi’s form, banishing it back through the Last Door.</p><p>‘Tis an odd sort, who would have truck with spirits of the dead. But some are born with the Sight, and a morbid curiosity. If they can avoid getting themselves killed by hungry ghosts or outraged locals… well, the dead have all manner of secrets to teach.</p><p>Necromancers often find themselves consorting with entities even darker than the dead, and are prone to corruption by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. They are likely to possess one or more arcana, which they do not hesitate to use. And they are often attended by one or more bound entities.</p><p>Shades are the souls of the quiet dead, called back through the Last Door. Or perhaps they are merely echoes of a dead person’s personality, given shape by magic. Either way, they might be called up at the Crossroads, via an arcanum like a strange skull and antlers, or by some other form of necromancy.</p><p>A shade can ride a living, willing host, or one who has been properly prepared (with arcane markings, by bearing an appropriate object, via a potion, etc.). It can withstand daylight while doing so, but only with great effort. It experiences what its host experiences, and can communicate with its host via only impulse and desire.</p><p>When a shade rides you and compels you to act against your will, mark XP if you do as it wants. If you resist, you are Defying Danger.</p><p>In <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong>, not far from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, there lies a peat mound where the town buries criminals alive. Over the years, the place has given birth to a spirit of death and punishment. The spirit is young and eager, and can be set to work upon criminals; see the grim peat mound minor arcanum for details.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{{#each options}}
+		<div class="stonetop-lore-option{{#if (eq type 'text')}} stonetop-lore-option--text{{/if}}">
+			{{#if (eq type "text")}}
+			{{#if description}}<label class="stonetop-lore-option-desc">{{{description}}}</label>{{/if}}
+			{{#if arcanaPicker}}
+			<select class="stonetop-lore-arcana-select{{#if arcanaPicker.muted}} is-muted{{/if}}" data-role="{{arcanaPicker.role}}">
+				<option value="">— choose a card —</option>
+				{{#each arcanaPicker.options}}
+				<option value="{{slug}}"{{#if (eq slug ../arcanaPicker.selectedSlug)}} selected{{/if}}>{{name}}</option>
+				{{/each}}
+			</select>
+			{{/if}}
+			<textarea class="stonetop-lore-option-text"
+			          data-lore-slug="{{../slug}}"
+			          data-option-slug="{{slug}}"
+			          placeholder="To be written."
+			          >{{#if hasAnswer}}{{textValue}}{{/if}}</textarea>
+			{{else}}
+			<span class="stonetop-lore-option-checks">
+				{{#each checks}}
+				<input type="checkbox" class="stonetop-lore-option-check"
+				       data-lore-slug="{{../../slug}}"
+				       data-option-slug="{{../slug}}"
+				       data-idx="{{@index}}"
+				       {{#if this}}checked{{/if}}>
+				{{/each}}
+			</span>
+			<span class="stonetop-lore-option-desc">{{{description}}}</span>
+			{{/if}}
+		</div>
+{{/each}}

@@ -1,0 +1,61 @@
+{
+  "_id": "SmHddXJMWp3niCln",
+  "_key": "!journal!SmHddXJMWp3niCln",
+  "name": "Servants of Daagon",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Wet, wriggling horrors that crawl from the Blackwater to feed Daagon's hunger."
+    }
+  },
+  "folder": "M4J01YHnGi9EEVRj",
+  "sort": 32000,
+  "pages": [
+    {
+      "_id": "EEIU9yPFNldtPXAZ",
+      "_key": "!journal.pages!SmHddXJMWp3niCln.EEIU9yPFNldtPXAZ",
+      "name": "Servants of Daagon",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Wet, wriggling horrors that crawl from the Blackwater to feed Daagon's hunger.",
+        "description": "<p>Horrid things, wet and wriggling. Maybe they're emanations of Daagon, or mortal beings so thoroughly corrupted as to seem utterly alien to this world. They crawl forth, feast on flesh and bone, and drag home wealth, beauty, and treasured things to feed their master's hunger. Build each by rolling its number, size, traits, and additional moves — baselines: horde (HP 3, d6), group (HP 6, d8), solitary (HP 12, d10); horse-sized adds +4 HP and +2 damage. The stat block below is a person-sized group baseline.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.BCA8xC2gsvHO43ou"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

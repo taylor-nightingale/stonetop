@@ -1,0 +1,61 @@
+{
+  "_id": "HLSdXkHMonjHAPU8",
+  "_key": "!journal!HLSdXkHMonjHAPU8",
+  "name": "Bronze Protector",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A bronze guardian animated by a hearth-spirit — loyal, overzealous, and a hazard to the furniture."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 142000,
+  "pages": [
+    {
+      "_id": "tWacLjDBAkLYsRoF",
+      "_key": "!journal.pages!HLSdXkHMonjHAPU8.tWacLjDBAkLYsRoF",
+      "name": "Bronze Protector",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A bronze guardian animated by a hearth-spirit — loyal, overzealous, and a hazard to the furniture.",
+        "description": "<p>So long as a fire burns in its stove-like chest, a hearth-spirit animates this bronze construct, which serves its keeper as a follower. Durable and vigilant, it guards with overzealous devotion — looming, belching smoke, and starting the occasional fire. It is fireproof but needs a smithy and tools to mend, and runs down as its fuel burns low. Its cost is profuse gratitude.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.papz15gT7rAa1XiQ"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "_id": "l50CyKv5NYVJ6EzY",
+  "_key": "!journal!l50CyKv5NYVJ6EzY",
+  "name": "Aratis, the Lawkeeper",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Aratis is one of the four main gods of Stonetop, the patron god of civilization and records, of laws and wisdom, of order over chaos. Her disciples say that she has been with us since people first stacked stone upon stone and called it home."
+    }
+  },
+  "folder": "IIxADXjnF97PXJDg",
+  "sort": 2000,
+  "pages": [
+    {
+      "_id": "GyHFeL2nVPlEUuJy",
+      "_key": "!journal.pages!l50CyKv5NYVJ6EzY.GyHFeL2nVPlEUuJy",
+      "name": "Aratis, the Lawkeeper",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Aratis is one of the four main gods of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, the patron god of civilization and records, of laws and wisdom, of order over chaos. Her disciples say that she has been with us since people first stacked stone upon stone and called it home.</p><p>If one of your initial PCs has the Judge playbook, they will answer many of the questions in this section via their presence, their background, and the decisions they make during character creation and introductions. Defer to that PC as the expert on Aratis in your game, but don’t forget to ask other PCs for their opinions and experiences, too.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Choose or roll 1 or 2, and combine.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Civilization/society/settlements</td></tr><tr><td>3–4</td><td>Laws/rules/traditions</td></tr><tr><td>5–6</td><td>Chronicles/record-keeping/writing</td></tr><tr><td>7</td><td>Judgement/arbitration/wisdom</td></tr><tr><td>8</td><td>Cooperation/organization/peace</td></tr><tr><td>9</td><td>Authority/responsibility/duty</td></tr><tr><td>10</td><td>Truth/promises/oaths/honor</td></tr><tr><td>11</td><td>Hospitality/sanctity/generosity</td></tr><tr><td>12</td><td>Defense/resolve/punishment</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Shrines & temples",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Aratis has a shrine in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>’s pavilion of the gods. Outside of Stonetop: consider whether this community hosts a shrine or temple to Aratis. Small shrines to Aratis might also be found at waysides along the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>’ Roads, or perhaps at spots where different groups of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> gather and meet.</p><p>For any given shrine or temple:</p><ul><li class=\"question-bullet\">Where is it located?</li><li class=\"question-bullet\">Who tends this place?</li><li class=\"question-bullet\">How is Aratis herself represented?</li><li class=\"question-bullet\">What symbols/trappings adorn it?</li><li class=\"question-bullet\">Which of her themes are emphasized?</li><li class=\"question-bullet\">What high holidays are celebrated here, and how?</li><li>What is this shrine or temple like? Perhaps it is… (pick 1)</li></ul><p>… a hub of the community, a place of frequent rites, petitions, and celebrations;<br>… used only on high holidays, for each home keeps its own shrine above the hearth;<br>… neglected by most, tended only by a handful of true disciples;<br>… a grim place of judgement and punishment, shunned by all but her chosen;<br>… newly established, cramped and spare;<br>… some variation of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Judges",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Some communities are home to a <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uOeCgccQc6YApFdV]{Judge of Aratis}</strong>, who settles disputes, keeps records, and stands guard against agents of chaos. For any given community, consider/ask:</p><ul><li class=\"question-bullet\">Does a Judge of Aratis reside here?</li><li class=\"question-bullet\">Who are they? What are they like? What sets them apart?</li><li class=\"question-bullet\">Has there always been a Judge here? Or is this a recent thing?</li><li class=\"question-bullet\">How much influence do they hold?</li><li class=\"question-bullet\">Do they have any apprentices?</li><li class=\"question-bullet\">How much contact do they have with Judges from other communities?</li><li>What is their greatest strength as a Judge? What is their greatest flaw? Maybe pick or roll a theme for each.</li></ul><p>Judges are charged with maintaining a Chronicle, a history of the community they serve, its people, their knowledge, and their traditions. If a community has (or had) a Judge, consider/ask:</p><ul><li class=\"question-bullet\">How are the records kept?</li><li class=\"question-bullet\">Where are they? In the Judge’s home, a temple, a vault, or what?</li><li class=\"question-bullet\">How far back do they go?</li><li class=\"question-bullet\">How well organized are they?</li></ul><p>Should an NPC Judge (or a community- spanning order of Judges) oppose or cause trouble for the PCs, write them up as a threat (an institution).</p><p>Remember: NPCs don’t have playbooks. An NPC Judge might have tags or moves reminiscent of a PC Judge, or not. See page 25 for some potential NPC Judges.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "True disciples",
+            "group": "details",
+            "danger": false,
+            "body": "<p>True disciples are those who pledge themselves to Aratis, her principles, and her observances. For any given community, consider/ask:</p><ul><li class=\"question-bullet\">How many true disciples of Aratis reside here?</li><li class=\"question-bullet\">Who is most notable among them?</li><li class=\"question-bullet\">How devout are they, really?</li><li class=\"question-bullet\">How much influence do they have, as a group?</li><li class=\"question-bullet\">What contact do they have with disciples from other settlements?</li><li>How are they typically chosen? (By birth, by calling, by invitation, etc.)</li><li class=\"question-bullet\">What rites do they lead/perform, both publicly and in secret?</li></ul><p>What does Aratis require of her true disciples? The answer might vary from community to community. Perhaps she demands… (pick up to 3)</p><p>… truth, honesty, and forthrightness;<br>… hospitality, freely given to all who ask for it;<br>… the punishment of thieves &amp; oathbreakers;<br>… adherence to strict rules of diet and dress; and/or<br>… respect for authority, property, and rank.</p><p>Should the true disciples of a community oppose or cause trouble for the PCs, write them up as a threat (an institution).</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Chaos",
+            "group": "details",
+            "danger": false,
+            "body": "<p>A PC Judge can use their Censure move to denounce another as “an agent of chaos.” When they do, the move works regardless of what you think. You can ask questions about their motivations or their thinking, but they’re the Judge, not you. With the Hound of Aratis move, the Judge can easily identify things “tainted by chaos,” and The Hammer and the Book lets them smite things “of supernatural chaos.” <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{The Things Below}</strong> count, as does anything corrupted by them or infused with their power.</p><p>Beyond that, consider what the Judge has Censured and the doctrine of Aratis that’s been established in play. Ask the Judge what they think counts. Consider what you know about the entity in question, and make a ruling. If in doubt, defer to the Die of Fate or the results of a relevant move.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "**According to the tales…** How did Aratis come to be (a god)? What’s her origin story?",
+                "answer": ""
+              },
+              {
+                "prompt": "Among which people did the worship of Aratis originate?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which god is her rival/ally/lover/kin?",
+                "answer": ""
+              },
+              {
+                "prompt": "What god or demon did she personally defeat/cast out/seal away?",
+                "answer": ""
+              },
+              {
+                "prompt": "What constellation is tied to Aratis? How so?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who was the first Judge? What great deed is attributed to them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is said to be contained in the Tower Eternal?",
+                "answer": ""
+              },
+              {
+                "prompt": "Use the answers to help decide what Aratis’s true nature is.",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The Judge makes an unpopular ruling; an influential NPC wants them gone.</li><li>A Judge from another settlement arrives and finds things in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> lacking.</li><li>A true disciple has a vision of a powerful agent of chaos breaking its bonds.</li><li>While digging stones or excavating a new foundation, folks in Stonetop discover a long-lost Chronicle of Aratis, sealed and mostly intact.</li><li>Legend tells of the Tower Eternal, made of black iron, with doors so heavy only a team of horses can open them. Three hermits, all true disciples of Aratis, guard it and whatever it contains.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A blanket woven in the knot-language of a long-dead sect of Aratis’s (fragile, Value 0, or 2 to the right buyer)</li><li>A maul of black iron, utterly immune to magic (close, forceful, awkward, +1 damage, Value 2)</li><li>A shield of makerglass, etched with Aratis’s symbol (indestructible, +1 armor, +1 Readiness of a Defend 7+, Value 2)</li><li>A helm set with a “jewel” of dark ice, grants advantage to resist mind-affecting magic (magical, Value 2)</li><li>An old book (fragile, Value 2), the Chronicle of a failed settlement, ending mid-sentence</li><li>A very large sapphire, perfectly cut and polished, a symbol of Aratis floating in its depths (Value 4)</li></ul><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A grim peat mound</td></tr><tr><td>2</td><td>A sealed cave</td></tr><tr><td>3</td><td>A timeless vault</td></tr><tr><td>4</td><td>A crumbling arch</td></tr><tr><td>5</td><td>A silvery signet ring</td></tr><tr><td>6</td><td>Some other dangerous minor arcanum, with potential to spread chaos, locked away for safekeeping.</td></tr></tbody></table><ul><li>Major arcana</li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.Sudx3bbaE6B0q7Ky]{The Rune-laden Scales}</strong> might be associated with Aratis, or at least revered by her followers.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Associated entities",
+                "body": "<ul><li>Ancestral spirits or other little gods of home, hearth, and civilization</li><li>The tomb-bog spirit, sent to execute a criminal</li><li>An archon, called up to smite some agent of chaos</li><li>Perhaps even the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong> or his hounds</li></ul>"
+              },
+              {
+                "heading": "Oathbreaker’s curse",
+                "body": "<p>When you swear a proper oath before a shrine of Aratis, in full view of witnesses and with an appropriate offering, you are oathbound. Make note of what you promised, and the nature of the curse you invite should you forswear yourself.</p><p>When you forswear your oath, hold 3 Ruin. While you hold Ruin, you have disadvantage whenever you or a companion rolls the Die of Fate.</p><p>When you roll a 10+ on a move, you can spend 1 Ruin to turn the 10+ into a 6- instead. The GM can refuse; if they do, you retain your Ruin. If they accept, the results should reflect the nature of the curse you invited upon yourself.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

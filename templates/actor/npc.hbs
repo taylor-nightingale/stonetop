@@ -1,28 +1,28 @@
-<form class="{{cssClass}} stonetop-follower-card stonetop-npc-card" autocomplete="off">
+<form class="{{cssClass}} stonetop-npc-card" autocomplete="off">
 
 	{{> "stonetop.actor-header"}}
 
-	{{> "stonetop.selection-chips" sel=stonetop.tagSelection slug=slug field="tagList" placeholder=(localize "stonetop.followers.notePlaceholder")}}
+	{{> "stonetop.selection-chips" sel=stonetop.tagSelection slug=slug field="tagList" placeholder=(localize "stonetop.npc.tagsPlaceholder")}}
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">
 			<div class="stonetop-creature-line">
-				<span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span>
+				<span class="stonetop-follower-label">{{localize "stonetop.npc.armor"}}</span>
 				{{> "stonetop.editable-field" html=stonetop.armorHtml value=stonetop.armor slug=slug
-					inputId="npc-armor" inputClass="stonetop-follower-armor"}}
+					inputId="npc-armor" inputClass="stonetop-npc-armor"}}
 			</div>
 			<div class="stonetop-creature-line">
-				<span class="stonetop-follower-label">{{localize "stonetop.followers.damage"}}</span>
+				<span class="stonetop-follower-label">{{localize "stonetop.npc.damage"}}</span>
 				{{> "stonetop.editable-field" html=stonetop.damageHtml value=stonetop.damage slug=slug
-					inputId="npc-damage" inputClass="stonetop-follower-damage"}}
+					inputId="npc-damage" inputClass="stonetop-npc-damage"}}
 			</div>
 			<div class="stonetop-creature-line">
-				<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
-				{{> "stonetop.selection-input" sel=stonetop.instinctSelection slug=slug field="instinct" inputClass="stonetop-npc-instinct" placeholder=(localize "stonetop.followers.instinct")}}
+				<span class="stonetop-follower-label">{{localize "stonetop.npc.instinct"}}</span>
+				{{> "stonetop.selection-input" sel=stonetop.instinctSelection slug=slug field="instinct" inputClass="stonetop-npc-instinct" placeholder=(localize "stonetop.npc.instinct")}}
 			</div>
 		</div>
 		<div class="stonetop-creature-hp">
-			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
+			<span class="stonetop-follower-label">{{localize "stonetop.npc.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
 				<input id="npc-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hp}}">
 				<span>/</span>
@@ -32,15 +32,15 @@
 	</div>
 
 	<div class="stonetop-creature-line">
-		<span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span>
+		<span class="stonetop-follower-label">{{localize "stonetop.npc.specialQuality"}}</span>
 		{{> "stonetop.editable-field" html=stonetop.specialQualityHtml value=stonetop.specialQuality slug=slug
-			inputId="npc-special-qualities" inputClass="stonetop-follower-special-quality"}}
+			inputId="npc-special-qualities" inputClass="stonetop-npc-special-quality"}}
 	</div>
 
 	<div class="stonetop-creature-moves stonetop-editable">
 		<div class="stonetop-creature-moves-head">
-			<span class="stonetop-follower-label">{{localize "stonetop.followers.moves"}}</span>
-			<button type="button" class="stonetop-edit-toggle" title="Edit"><img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit"></button>
+			<span class="stonetop-follower-label">{{localize "stonetop.npc.moves"}}</span>
+			<button type="button" class="stonetop-edit-toggle" title="Edit"><i class="fas fa-pencil"></i></button>
 		</div>
 		<div class="stonetop-editable__display">{{{stonetop.movesHtml}}}</div>
 		<textarea id="npc-moves" class="stonetop-editable__edit" data-slug="{{slug}}">{{stonetop.moves}}</textarea>
@@ -48,11 +48,11 @@
 
 	<div class="stonetop-creature-moves stonetop-editable">
 		<div class="stonetop-creature-moves-head">
-			<span class="stonetop-follower-label">{{localize "stonetop.followers.description"}}</span>
-			<button type="button" class="stonetop-edit-toggle" title="Edit"><img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit"></button>
+			<span class="stonetop-follower-label">{{localize "stonetop.npc.description"}}</span>
+			<button type="button" class="stonetop-edit-toggle" title="Edit"><i class="fas fa-pencil"></i></button>
 		</div>
 		<div class="stonetop-editable__display">{{{stonetop.descriptionHtml}}}</div>
-		<textarea class="stonetop-editable__edit stonetop-follower-description-textarea" data-slug="{{slug}}">{{stonetop.description}}</textarea>
+		<textarea class="stonetop-editable__edit stonetop-npc-description-textarea" data-slug="{{slug}}">{{stonetop.description}}</textarea>
 	</div>
 
 </form>

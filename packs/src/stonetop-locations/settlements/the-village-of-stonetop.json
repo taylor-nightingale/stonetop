@@ -1,0 +1,197 @@
+{
+  "_id": "6yScslDfqrcCQ6CJ",
+  "_key": "!journal!6yScslDfqrcCQ6CJ",
+  "name": "The Village of Stonetop",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A farming village on the eastern edge of the Flats, on a bluff overlooking the Great Wood. A great, rune-etched megalith stands amidst a cluster of squat stone homes, surrounded by an arc of farmland."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 1,
+  "pages": [
+    {
+      "_id": "x2BcdS6EFxG0Ic3F",
+      "_key": "!journal.pages!6yScslDfqrcCQ6CJ.x2BcdS6EFxG0Ic3F",
+      "name": "The Village of Stonetop",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>A farming village on the eastern edge of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, on a bluff overlooking the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. A great, rune-etched megalith stands amidst a cluster of squat stone homes, surrounded by an arc of farmland.</p><p>The PCs call this village home. It’s a tightknit community, poor but a good place to live. Everyone is expected to pull their weight, but few think badly of those who suffer misfortune. The town pulls together; its community is its strength.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>The air: tingling, slight smell of ozone</li><li>People and beasts: unfazed by loud noises</li><li>Voices: always a little bit raised</li><li>Chickens, goats, sheep, pigs, cats, dogs: all about, underfoot, bleating, barking, clucking</li><li>Children: playing, crying, yelling, running errands, doing chores</li><li>Folks around the Cistern: gossiping and chatting</li><li>The public house: music, singing, dancing, chatting</li></ul><p><strong>Activities</strong></p><ul><li>Cooking, grinding grain, baking</li><li>Spinning, weaving, sewing, hand-crafts</li><li>Rendering fat, making oil &amp; rushlights</li><li>Cleaning pens, coops, homes, clothes</li><li>Collecting &amp; hauling water, to and from the Cistern</li><li>Smithing, tanning, pottery, midwifery</li><li>Maintenance (buildings, clothes, tools, etc.)</li><li>Manning the watchtowers at night</li><li>Drilling with spear and shield</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Drip drip drip of snow melting from roofs, collecting in jugs and puddles</li><li>Petrichor smell on a southerly breeze</li><li>Hopeful green poking through deadbrown grass and soil</li><li>Bare skin reveling in the still-chilly sun; cheerful voices; smiles and songs</li></ul><p><strong>Activities</strong></p><ul><li>Harvesting winter potatoes</li><li>Spreading seed, planting beans/potatoes</li><li>Harrowing soil (to cover seeds, plantings)</li><li>Chasing birds from the fields (child’s work)</li><li>Spreading manure &amp; plowing fallow fields</li><li>Kidding goats, sheep</li><li>Picking spring vegetables</li><li>Clearing and planting gardens</li><li>Harvesting/cutting deadfall for firewood</li><li>Fur trapping, light hunting (for meat)</li></ul><p><strong>Questions</strong></p><ul><li class=\"question-bullet\">What do you most look forward to each spring?</li><li class=\"question-bullet\">What rites precede the planting of the fields?</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Blinding sun outside, cave-like dark inside</li><li>Crops swaying and rippling in the breeze</li><li>Fireflies like galaxies over the fields at dusk</li><li>Dark storm clouds looming in the south, rumbling, flashing</li><li>CRACKOOM of thunder, blinding flash as lightning touches the Stone</li></ul><p><strong>Activities</strong></p><ul><li>Haymaking (from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>-grass, fallow fields)</li><li>Weeding crops/gardens</li><li>Spreading manure and replowing fallow fields</li><li>Weaning goat kids and lambs</li><li>Milking goats, shearing sheep</li><li>Picking summer vegetables</li><li>Berry-picking from gardens and the Wood</li><li>Light hunting/trapping (for meat, not fur)</li></ul><p><strong>Questions</strong></p><ul><li class=\"question-bullet\">What project have you been putting off that you hope to get done this summer?</li><li class=\"question-bullet\">How does the village observe midsummer?</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Crops bobbing heavy with seed, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> aflame with color</li><li>Work-song, shouts and laughter, grunts of effort</li><li>Rosy cheeks, breath visible in the morning air</li><li>Cold, steady rain</li></ul><p><strong>Activities</strong></p><ul><li>Harvesting beans, barley, oats, potatoes</li><li>Gleaning fallen seed from fields (child’s work)</li><li>Threshing, winnowing, sieving, storing crops</li><li>Plowing fallows and planting winter potatoes</li><li>Picking and preserving autumn vegetables</li><li>Breeding goats, sheep</li><li>Foraging for nuts, fruits in the Wood</li><li>Heavy hunting/trapping (fur &amp; meat)</li><li>(If able): harvesting timber from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong></li></ul><p><strong>Questions</strong></p><ul><li class=\"question-bullet\">What is your favorite autumn food or drink?</li><li class=\"question-bullet\">How does the village celebrate the harvest?</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Roofs covered in thick white blankets</li><li>Trodden-down paths in the snow, brown and gray</li><li>Cloaks drawn tight against a bitter wind</li><li>Families gathered ‘round the hearth, hands busy with inside chores</li><li>Yeasty smell of fermenting barley</li></ul><p><strong>Activities</strong></p><ul><li>Collecting snow for the Cistern</li><li>Distilling &amp; aging whisky</li><li>Tending to livestock, stockpiling manure</li><li>Heavy trapping (for fur)</li><li>Hunting as able (for meat)</li><li>Slaughtering/butchering livestock as needed</li></ul><p><strong>Questions</strong></p><ul><li class=\"question-bullet\">What’s the worst/best part of these long cold nights?</li><li class=\"question-bullet\">How do locals mark midwinter/the new year?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Steading",
+            "group": "place",
+            "danger": false,
+            "body": "<p><strong>Size</strong> village (~300 souls)<br><strong>Population</strong> +0<br><strong>Prosperity</strong> +0 (farming; hunting and trapping; distilling (whisky); stone from the Old Wall; the cistern; tradesfolk (cobbler, midwife, publican, smith, tanner); trade with Gordin's Delve and Marshedge)<br><strong>Defenses</strong> +0 (the village militia, the Ringwall (low, stone), three watchtowers, a spear and shield in every home, and some bows)</p><p><em>When the PCs treat The Village of Stonetop as a steading — mustering its forces, deploying its defenses, or rolling Trade &amp; Barter against its Prosperity — use these values.</em></p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The Stone is well over 50 feet tall and etched in faded runes. It seems older than even the Maker-ruins upon which the village was founded. When storms roll in, lightning strikes the Stone repeatedly.</li><li>The Cistern is an underground vault, clearly an artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>. Locals fill it with rain, snow, and water from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>.</li><li>The public house is a large hall, where folks meet after sundown to drink and socialize. It offers floor space to travelers and a small stable under the same roof. The town’s horses are kept here.</li><li>The granary is a warehouse built on a Maker-ruin foundation. Foodstuffs are stored here. Everyone contributes, everyone shares.</li><li>The pavilion of the gods is an openair structure with shrines to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.b1VYlB39pY0gZA0C]{Helior}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>, and maybe others. As close as Stonetop gets to a temple.</li></ul><ul><li>The Ringwall is a waist-high fence of fieldstones, 2-3 feet thick. It won’t keep out serious raiders, but provides a little cover if needed. Homes beyond it are newer, built by immigrants or younger families.</li><li>Watchtowers stand along the Ringwall, a dozen feet tall or so. One to the north, one to the southeast, one to the southwest. Villagers rotate through watch duty at night.</li><li>A switchback path leads down the bluff to the Stream and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Climbing it takes 10-15 minutes, longer with a heavy load.</li><li>The fields stretch out around the town, about 1,000 acres total. A third of the land sits fallow each year, with the rest growing barley, oats, beans, and potatoes. Farmers work the fields communally, rather than as familial plots.</li><li>The Old Wall wraps around the fields, about a mile from the Stone itself and at the end of the West Road. Clearly once a mighty rampart, it has tumbled and been buried by the ages. When the villagers need stone for construction, they dig it out of the old wall and haul it back to town.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Welsh and Welsh-inspired: Aderyn, Aeronwen, Afanen, Afon, Alun, Andras, Aneirin, Awstin, Bedwyr, Berwyn, Betrys, Braith, Briallen, Bronwen, Bryn, Cadi, Cadoc, Cadwygan, Caron, Cefin, Ceinwen, Ceridwyn, Cerys, Colwyn, Deiniol, Dilwen, Dylis, Eifion, Eirlys, Eluned, Emrys, Enfys, Eurwen, Gaenor, Garet, Gethin, Glyndir, Heledd, Hywel, Ifan, Iorwerth, Iwan, Leuca, Lewela, Linos, Mado, Maldwyn, Malon, Mared, Marged, Martyn, Meirion, Menwen, Mererid, Neirin, Nia, Ofydd, Olwyn, Owain, Padrig, Parry, Pryce, Pryder, Rheinal, Rhisiart, Rhosyn, Rydderch, Sawyl, Siana, Sioned, Talfryn, Tegid, Tiwlip, Tomos, Tudyr, Winifred, Yorath.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "People",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Around 300 souls live in Stonetop, or about 50 families. Everyone knows everyone else, at least by name and reputation. Most families have been here for many generations, tied together by kinship and marriage.</p><ul><li>The village supports only a few fulltime tradesfolk: a smith, a tanner, a potter, a midwife, and a publican. (5 souls, plus 5-10 assistants/apprentices)</li></ul><ul><li>Hunters and trappers ply the wood for meat and fur, and also forage for fruits, vegetables, mushrooms, and useable wood. Trappers produce much of the village’s wealth, but hunters range farther and have more prestige. (10-20 souls)</li></ul><ul><li>Farmers work the fields, producing the village’s staple foods. Hard, physical work. Most practice “minor” trades on the side, like carpentry, stonecutting, thatching, husbandry, distilling, etc. (~75 souls)</li></ul><ul><li>Homemakers keep the village running. They cook, clean, tend gardens, spin, weave, sow, mind children, practice a dozen minor trades, and otherwise manage a household. Families might have 2 or 3 homemakers each, from across generations. (~100 souls)</li></ul><ul><li>Elders have retired from the fields or the rigors of homemaking, but still help as they can. Many still serve the village as keepers of lore and wisdom. (~25 souls)</li></ul><ul><li>Children play and learn and grow.</li><li>They also help with chores, tend livestock, chase birds from the fields, forage near the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>, haul water, mind younger children, and so forth, gaining more and more responsibilities as they grow. (~100 souls)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Home & hearth",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Homes are low, squat, made of stone from the Old Wall. Roofs are thatched with barley straw. Each is heated by a central hearth. Most have small cellars, a standing loom, a small vegetable garden, and pens for livestock (inside and out).</p><p>Families pass homes down between generations. Larger families might occupy two or even three adjacent buildings. New homes are occasionally built just outside the Ringwall.</p><p>Homemakers grind grain with quernstones (as the village has no mill), to make flatbread, porridge, stew, ale, and whisky mash. They catch rainwater in clay vessels or draw water from the Cistern. Washing happens down at the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>, but folks rarely go alone.</p><p>Clothes are mostly leather, fur, and handspun wool. Belts, pouches, torcs, and brooches are common. Shoes are cut from single pieces of leather, with tabs that wrap up and around the feet, laced together into a simple sandal or pump. To make “boots,” folks add thick wool socks, maybe lined with fur.</p><p>Timber is relatively scarce. Because of the Compact, villagers won’t fell a living tree from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Folks scavenge deadfall for firewood and smaller projects, and grow saplings around the fields and Old Wall for spears, bows, and arrows. Large-scale construction requires trading for timber or a logging trip to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>.</p><ul><li class=\"question-bullet\">Where does ___ live?</li><li class=\"question-bullet\">What task or chore are you working on?</li><li class=\"question-bullet\">What’s the best/worst thing about this chore?</li><li class=\"question-bullet\">What’s cooking on the hearth?</li><li class=\"question-bullet\">What here makes the place feel like home?</li><li class=\"question-bullet\">What about your home would you change if you could?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & commerce",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Stonetop’s economy is based on cooperation and sharing, trade and barter, gifts and favors, debts and honor. “Shops” aren’t a thing and prices aren’t fixed. Coins are rarely used between neighbors; that stuff’s for outsiders and passing merchants. Crops from the fields go to the granary, to be rationed out to households.</p><p>Each family tends its own gardens (vegetables, gourds, fruits, and herbs) and livestock (chickens, goats, sheep, some pigs). Folks practice trades part-time (spinning, weaving, sewing, leatherwork, thatching, carpentry, distilling whisky, stonecutting, husbandry, etc.). Neighbors swap goods and favors freely, with little worry about trades being “fair.” If you need a thing that someone isn’t using, they’ll probably let you borrow or even take it. Maybe you help them fix their roof next month, or your husband sends over a jug of his next batch of whisky.</p><p>Hunters, trappers, foragers, and full-time tradesfolk tend to freely share their skills and goods, just as the farmers share their crops. Still, they are often awash in gifts of gratitude from other households, and these positions all carry respect and status in town.</p><p>Merchants come through at least once each season (except winter). Those coming from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> bring textiles, rope, salt, herbs, glass, and finer goods from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> and the South. Merchants coming from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> bring metals, tools, and sometimes timber. Both are keen to acquire whisky and furs. Merchants heading to Gordin’s Delve are always interested in grain and livestock.</p><ul><li class=\"question-bullet\">What sorts of livestock does your household keep?</li><li class=\"question-bullet\">What from your (family’s) garden are you (they) most proud of?</li><li class=\"question-bullet\">Who taught you how to ___?</li><li class=\"question-bullet\">Who in the village is the best weaver/ carpenter/___?</li><li class=\"question-bullet\">Who in town has a reputation as a layabout?</li><li class=\"question-bullet\">Who tends to handle trade with outsiders?</li></ul><p>Whisky Distilling whisky is a local tradition. Most households have a basic still and make a batch or two each year. Ferment some barley mash, distill it into moonshine, age it for a few weeks in a ceramic jug with toasted wood chips. Repeat. A handful of locals (like the publican, perhaps?) have larger operations with charred wooden firkins or barrels.</p><p>Stonetop whisky is a much-valued trade good, one of the village’s chief exports. The secrets of making it are poorly understood outside the village, and even emigrants have struggled to reproduce it in other locales.</p><ul><li class=\"question-bullet\">Who in town makes the best whisky?</li><li class=\"question-bullet\">According to local lore, where did the art of distilling whisky come from?</li><li class=\"question-bullet\">Why do you think outsiders have failed to reproduce this process?</li><li class=\"question-bullet\">What secret ingredient/step sets your (family’s) whisky apart?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Governance",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Stonetop has no government, just leaders. Everyone knows who they are: the wise, the cunning, the brave. It’s not a formal thing.</p><ul><li class=\"question-bullet\">When big decisions need to be made, how does the village make them? (A big meeting? A council of elders? Or what?)</li><li class=\"question-bullet\">Who rations out crops from the granary?</li><li class=\"question-bullet\">Whose lead do the farmers follow?</li><li class=\"question-bullet\">To whom do the homemakers listen?</li><li class=\"question-bullet\">Whom do the hunters/trappers respect?</li><li class=\"question-bullet\">To whom do folks look to settle disputes/break up fights/deal with trouble?</li><li class=\"question-bullet\">What consequences are traditional for lying/theft/assault/murder/etc.?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Defense",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Able-bodied adults are expected to know how to fight and protect the village when needed. Everyone keeps a spear, a round wooden shield, and maybe a bow.</p><p>Folks rotate through guard duty, manning the watchtowers each night. The chief concerns are monsters from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, especially crinwin, and bandits or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> raiding from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>. Most nights, though, the worst things you have to deal with are boredom, nerves, and bad weather.</p><ul><li class=\"question-bullet\">Who runs drills for the militia? Where do they typically drill?</li><li class=\"question-bullet\">Have the watchtowers always been there, or are they a recent thing?</li><li class=\"question-bullet\">How are watchtower shifts assigned?</li><li class=\"question-bullet\">What’s the worst part of watch duty?</li><li class=\"question-bullet\">What’s the best part?</li><li class=\"question-bullet\">How do you keep yourself awake?</li><li class=\"question-bullet\">How do those on watch signal trouble?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Culture and lore",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Stonetop shares a tongue with <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, though the accents are quite distinct. Much lore is passed on verbally, through stories, songs, and poems.</p><p>Local decorations are reminiscent of the runes etched in the Stone itself, and of the designs found on the Maker-ruins from which the village was built.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong> (Rain-maker, Thunderhead, Slayer-of- Beasts, page 452) is the most popular god, and associated with the Stone itself. The pavilion of the gods also holds shrines to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.b1VYlB39pY0gZA0C]{Helior}</strong>, and perhaps to other local gods or spirits.</p><ul><li class=\"question-bullet\">What clothing/markings/traits are distinctive to the people of Stonetop?</li><li class=\"question-bullet\">What game/pastime/tradition is unique to Stonetop?</li><li class=\"question-bullet\">What’s your favorite tale of Stonetop’s history?</li><li class=\"question-bullet\">What’s the scariest story that the elders tell?</li><li class=\"question-bullet\">What’s the most obvious way in which the locals honor Tor?</li><li class=\"question-bullet\">How do folks mark or celebrate a birth?</li><li class=\"question-bullet\">How do folks mark one’s coming of age?</li><li class=\"question-bullet\">What do folks do with their dead?</li><li class=\"question-bullet\">Do folks revere/recognize any local spirits (of house or hearth, of field or stream, of their ancestors, etc.)? How so?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What’s your favorite tale about how the Stone came to be?",
+                "answer": ""
+              },
+              {
+                "prompt": "In what little way do locals interact with the Stone day-to-day?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do the runes on the Stone make you think of?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do scholars of the South claim of the Stone’s origin? Why do you think that’s nonsense?",
+                "answer": ""
+              },
+              {
+                "prompt": "What’s the opening to the Cistern like? A low stone wall? A building over an open shaft? A crack in the earth? Or what?",
+                "answer": ""
+              },
+              {
+                "prompt": "Has anyone been down in the Cistern, that you know of? What did they supposedly find?",
+                "answer": ""
+              },
+              {
+                "prompt": "How is the public house laid out? What’s the most notable furnishing?",
+                "answer": ""
+              },
+              {
+                "prompt": "Where do children most like to play?",
+                "answer": ""
+              },
+              {
+                "prompt": "Where do teens sneak off to for romance?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Two youths wish to wed, despite objections from (one of?) their parents</li><li>Tools left out have gone missing; now things start to vanish from inside homes</li><li>One villager kills another when a heated argument gets out of hand</li><li>A flock of starlings and a grwgnach make spring planting impossible</li><li>Drought strikes the land, threatening ruin and disaster</li><li>A merchant that the PCs were counting on fails to arrive</li><li>Bandits threaten to burn the crops unless paid tribute</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Mysteries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>The following are for you and your table to decide.</p><p>The Stone Where did the Stone come from? Why does it draw lightning from the sky? Who carved the ancient runes upon it, and what do they mean? What other secrets does it hold? Perhaps the Stone…</p><p>… is a shard of primordial power, once revered by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>;<br>… marks <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>’s own grave;<br>… was carved from Tor’s Fist and placed here by the god himself;<br>… is the petrified remains of Stormcatcher;<br>… binds an emanation of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>;<br>… channels lightning to power an artifact deep beneath the village;<br>… was brought here by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong> from far across land and sea;<br>… is some combination of the above; or<br>… something else entirely.</p><p>The Cistern What’s down there, really? What did the Makers build it for? Perhaps…</p><p>… it connects to a complex of chambers and tunnels;<br>… some evil thing slumbers in the water;<br>… it hides an arcanum, like a variant of the Preserving Runes or the Ward of Still Waters;<br>… it’s just a big vault for storing water (the Makers needed to drink, too);<br>… some combination of the above; or<br>… something else entirely.</p><p>Ruins of the past What was this place, in the time of the Makers? Perhaps it was…</p><p>… a border-fort of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>;<br>… a trading post of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, from before the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> rebelled, where they would truck with other Makers;<br>… an outpost of the Tempest Lords, watched over by Stormcatcher and her tower before it fell into ruin;<br>… a free city and market, where the various Makers came to trade and learn;<br>… a place of pilgrimage for the Makers, a temple to whatever gods or powers they revered;<br>… some combination of the above, perhaps changing over time; or<br>… something else entirely.</p><p>The answer should reflect and be reflected in other details. If this was a Stone Lord border-fort, then chunks of the Old Wall could be found at the base of the bluff, down in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. If this was a Tempest Lord outpost, then stones from the Old Wall would bear carvings like those in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong>.</p><p>Origins The village has been here for a dozen generations at least, but the true origins of its people are shrouded in mystery and conflicting folktales.</p><p>Whence came the people of Stonetop? What led them to settle here? Perhaps they were…</p><p>… subjects of Stormcatcher, who fled here when her tower fell;<br>… freed servants of the Stone Lords and refugees from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>;<br>… migrants from east of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong>, distant kin to the Manmarchers (page 282 and page 350)<br>… migrants from across the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>, who fled the boiling seas and found succor here;<br>… a people out of time and space, emerging from the portal beneath the Ruined Tower;<br>… some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

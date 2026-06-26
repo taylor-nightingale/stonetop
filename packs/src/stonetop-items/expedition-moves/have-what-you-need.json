@@ -1,0 +1,11 @@
+{
+  "name": "Have What You Need",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>decide that you had something all along</em></strong>, transfer a mark (or marks) from your \"undefined\" inventory to a specific item or a slot. If you mark a slot, fill it with a common mundane item or something from your special possessions.</p><p>Alternately, you can expend a use of supplies to mark an additional small item/slot (□).</p><p>Whatever you produce, it must be something you could have had all along. The GM or any player can veto unreasonable items.</p>"
+  },
+  "_id": "0KK4AYzYSkOoCdEu",
+  "_key": "!items!0KK4AYzYSkOoCdEu",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

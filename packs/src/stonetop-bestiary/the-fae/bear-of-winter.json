@@ -1,0 +1,103 @@
+{
+  "name": "The Bear of Winter",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, ice"
+      },
+      "damage": {
+        "value": "bite or maul d12+5 (close, hand, reach, forceful, grabby, messy, 1 piercing)",
+        "rollFormula": "d12+5"
+      },
+      "instinct": {
+        "value": "to protect his status and holdings"
+      }
+    },
+    "concept": "A house-sized fae bear-lord of winter, ruling by hoarded debts.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, fae, magical, hoarder, devious, fierce, terrifying",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>; immune to cold; an aura of wintry weather that matches his mood. Armor 2 vs. iron (hide, ice).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.9QYBsIBHZESD9ErE",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Bear of Winter",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "tZq1ytL0l9ZI8O05",
+      "name": "Weave ice and snow, glamours and illusions, entire Fae domains",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!srMcRkCKBwitdv9Z.tZq1ytL0l9ZI8O05"
+    },
+    {
+      "_id": "jODcR0HgWRmRTaZl",
+      "name": "Send a minion — spirit, beast, or indebted Fae — to do his bidding",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!srMcRkCKBwitdv9Z.jODcR0HgWRmRTaZl"
+    },
+    {
+      "_id": "AuHaxKYnhqapj078",
+      "name": "Wield the wintry elements",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!srMcRkCKBwitdv9Z.AuHaxKYnhqapj078"
+    },
+    {
+      "_id": "SLtWSoJucAvE3jtB",
+      "name": "Take the form of a scarred old man or a storm of sleet and snow",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!srMcRkCKBwitdv9Z.SLtWSoJucAvE3jtB"
+    },
+    {
+      "_id": "NiMhwm9TONNMN29r",
+      "name": "Make use of a forgotten artifact",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!srMcRkCKBwitdv9Z.NiMhwm9TONNMN29r"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "srMcRkCKBwitdv9Z",
+  "_key": "!actors!srMcRkCKBwitdv9Z"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Followers in Fights",
+  "type": "move",
+  "system": {
+    "moveType": "follower",
+    "description": "<p>When a <strong><em>follower Aids you to Defend</em></strong>, you can spend 1 Readiness to have the follower suffer the damage/effects of an attack, or to have the follower draw all attention from your ward to itself.</p><p>When a <strong><em>group of followers fights another group</em></strong>, roll a single Clash or Let Fly once for the whole group. Each side has HP and Armor and deals damage as one individual. Lost HP represents casualties proportionate to the group's original HP.</p><p>If one side <strong><em>outnumbers the other</em></strong>, that side gets +1 Armor and +1 damage for each multiplier past the first (e.g. 3:1 gives +2 damage and +2 Armor).</p>"
+  },
+  "sort": 400000,
+  "_id": "FollowersFights1",
+  "_key": "!items!FollowersFights1",
+  "folder": "3egTCvrhplm8V1xt"
+}

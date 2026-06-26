@@ -1,0 +1,61 @@
+{
+  "_id": "muAijyov4VTFfqBL",
+  "_key": "!journal!muAijyov4VTFfqBL",
+  "name": "Tcaventes, Shackle and Key",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A mad archon who guards the Utterwell against the Things Below."
+    }
+  },
+  "folder": "AD2KFPd4IXHNl0yJ",
+  "sort": 45000,
+  "pages": [
+    {
+      "_id": "FNyaslzj06Ri4wHm",
+      "_key": "!journal.pages!muAijyov4VTFfqBL.FNyaslzj06Ri4wHm",
+      "name": "Tcaventes, Shackle and Key",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A mad archon who guards the Utterwell against the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.",
+        "description": "<p>They are an archon, forged by the First Creators to stand vigil over the Utterwell and act as a bulwark against the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>: Tcaventes, Shackle and Key, a flawless guardian. Or at least, they were. Over eons even they succumbed to the whispers of the Things Below; the corruption brings lapses of discipline that let their charges' influence seep out through the Deeps, and amplifies a guilt so great it drives Tcaventes to a denial strong enough to drive them mad. On their throne they seem focused and stern; met wandering the Deeps, they are aimless and unravelling, and the PCs must walk a razor's edge to avoid their wrath.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.GdZQKCMmPANEuFyb"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

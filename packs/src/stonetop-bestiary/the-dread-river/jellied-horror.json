@@ -1,0 +1,81 @@
+{
+  "name": "Jellied Horror",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "pseudopod d10+1 (reach, hand, grabby, messy, 1 piercing), engulf d10+3 w/advantage (hand, messy, ignores armor)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to seep, to consume, to grow"
+      }
+    },
+    "concept": "A mindless flood-spawned ooze that dissolves and engulfs.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, stealthy, amorphous, mindless",
+    "qualities": "<p>Immune to stabbing; takes half damage from weapons unless they're forceful; acid-proof; harmed by chalk, quicklime, and similar chemics.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.1oYvUFEeUNKJTbFM",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Jellied Horror",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "WIPneKRWlITEfUAL",
+      "name": "Lurk in water, moving slowly, seeking or waiting for food",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!aWbHPmGW9htXdyUN.WIPneKRWlITEfUAL"
+    },
+    {
+      "_id": "TiJmIxpGvWKIQhAo",
+      "name": "Dissolve organic material — weapons, clothes, flesh",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!aWbHPmGW9htXdyUN.TiJmIxpGvWKIQhAo"
+    },
+    {
+      "_id": "d6pPmloibCo4Z0hj",
+      "name": "Engulf, d10+3 damage with advantage (hand, messy, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": "d10+3"
+      },
+      "_key": "!actors.items!aWbHPmGW9htXdyUN.d6pPmloibCo4Z0hj"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Q54ooWoCvfDvmsPD",
+  "_id": "aWbHPmGW9htXdyUN",
+  "_key": "!actors!aWbHPmGW9htXdyUN"
+}

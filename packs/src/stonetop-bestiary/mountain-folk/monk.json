@@ -1,0 +1,91 @@
+{
+  "name": "Monk",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "staff d8 w/disadvantage (close)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to preserve their version of the Rime Lords' teaching"
+      }
+    },
+    "concept": "Disciplined ascetics of the Whitefangs, heirs to the Rime Lords' teachings.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cautious, disciplined, hardy, magical",
+    "qualities": "<p>Spirit sight; inured to hunger, cold, and deprivation.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.iXAH0ry7QKDChAqE",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Monk",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "IE3fdmUbOl4C8sKQ",
+      "name": "Remain unperturbed",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EDaesIZe2McJdVG7.IE3fdmUbOl4C8sKQ"
+    },
+    {
+      "_id": "IEoBBhaFSFzOt6zL",
+      "name": "Send their mind forth into the spirit world, their body insensate",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EDaesIZe2McJdVG7.IEoBBhaFSFzOt6zL"
+    },
+    {
+      "_id": "Ik8unAGmE9JjDZqn",
+      "name": "Perform a feat of extreme athleticism or endurance",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EDaesIZe2McJdVG7.Ik8unAGmE9JjDZqn"
+    },
+    {
+      "_id": "1yAGxBTc15hgsm0B",
+      "name": "Do something impossible, in line with their sect's teachings",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EDaesIZe2McJdVG7.1yAGxBTc15hgsm0B"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "H4tKi5At1faNP0Np",
+  "_id": "EDaesIZe2McJdVG7",
+  "_key": "!actors!EDaesIZe2McJdVG7"
+}

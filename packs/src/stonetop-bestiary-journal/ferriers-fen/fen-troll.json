@@ -1,0 +1,61 @@
+{
+  "_id": "iNio1HI0NcZuNGTc",
+  "_key": "!journal!iNio1HI0NcZuNGTc",
+  "name": "Fen-Troll",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A human lost to the Fen, now a hoarding, grieving brute."
+    }
+  },
+  "folder": "vhqnmoOdeyOLvMcj",
+  "sort": 29000,
+  "pages": [
+    {
+      "_id": "jnqTU0o47XH4iVl2",
+      "_key": "!journal.pages!iNio1HI0NcZuNGTc.jnqTU0o47XH4iVl2",
+      "name": "Fen-Troll",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A human lost to the Fen, now a hoarding, grieving brute.",
+        "description": "<p>They were human once, corrupted by the Fen and the foul forces flowing through it. Little remains of that humanity: a rough shape, half-forgotten words, a terrible anger at what it has lost. They prize finery and mundane goods, anything that reminds them of their former life — and even more, they long for human connection. But hunger, shame, and greed usually lead them to lash out at any who show them kindness.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.4Ah0RoLTY5wSRvAF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

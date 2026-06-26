@@ -1,0 +1,21 @@
+{
+  "_id": "x57Y3c5wnRpQgwXJ",
+  "_key": "!items!x57Y3c5wnRpQgwXJ",
+  "name": "Horse",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "horse",
+      "inventoryColumn": "regular",
+      "sortOrder": 65,
+      "note": "HP 10, d6+3 damage (<em>hand</em>, <em>close</em>, <em>forceful</em>)",
+      "weight": 3,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

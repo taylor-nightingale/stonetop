@@ -1,0 +1,61 @@
+{
+  "_id": "kgK5XHokIprg9Vr1",
+  "_key": "!journal!kgK5XHokIprg9Vr1",
+  "name": "Nerth Serpent",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A challenge-serpent hung from the Nerth Tree, testing all who would eat its heart."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 89000,
+  "pages": [
+    {
+      "_id": "YIYi916NsL0iY28y",
+      "_key": "!journal.pages!kgK5XHokIprg9Vr1.YIYi916NsL0iY28y",
+      "name": "Nerth Serpent",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A challenge-serpent hung from the Nerth Tree, testing all who would eat its heart.",
+        "description": "<p>The Nerth Tree grows in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. It can only be found by one mortal each midsummer, by following a particular path in the woods, and its roots are littered with the bones of former supplicants. Hanging from the tree is a great serpent. Crush it and eat its heart, and you will gain its vitality. But good luck with that.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.i7EPIDkGLO5AFm2f"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

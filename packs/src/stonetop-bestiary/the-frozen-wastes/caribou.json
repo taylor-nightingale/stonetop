@@ -1,0 +1,80 @@
+{
+  "name": "Caribou",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "antlers/hoofs d6 (hand, close)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to stampede"
+      }
+    },
+    "concept": "Hardy tundra deer that move and panic as one great herd.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, hardy",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.CutEOTuoS3mAcu8n",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Caribou",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "4CpjzjOAfAAbOvRZ",
+      "name": "Run back to the herd",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MFsosEI9EtAc7cbE.4CpjzjOAfAAbOvRZ"
+    },
+    {
+      "_id": "30DKTIoi64zsjqxF",
+      "name": "Huddle close at signs of danger",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MFsosEI9EtAc7cbE.30DKTIoi64zsjqxF"
+    },
+    {
+      "_id": "ohHZwvem2FE98Pps",
+      "name": "Stampede, d6+4 damage (hand, area, messy, forceful, 1 piercing)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d6+4"
+      },
+      "_key": "!actors.items!MFsosEI9EtAc7cbE.ohHZwvem2FE98Pps"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "uL2qZrxWiEuUIscv",
+  "_id": "MFsosEI9EtAc7cbE",
+  "_key": "!actors!MFsosEI9EtAc7cbE"
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "BcbfnoGMbJmTPSIA",
+  "_key": "!items!BcbfnoGMbJmTPSIA",
+  "name": "Battleaxe, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "battleaxe",
+      "inventoryColumn": "regular",
+      "sortOrder": 29,
+      "note": "<em>iron</em>, <em>close</em>, +1 damage",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

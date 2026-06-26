@@ -1,0 +1,28 @@
+<div class="stonetop-special-picker">
+	<p class="stonetop-special-picker-intro">Pick an item to add to this character's inventory. You can remove it later from the Inventory tab.</p>
+	<div class="stonetop-special-picker-cols">
+		{{#each columns}}
+		<div class="stonetop-special-picker-col">
+			<div class="stonetop-special-picker-head">
+				<span class="stonetop-special-picker-head-item">Item</span>
+				<span class="stonetop-special-picker-head-value">Value</span>
+			</div>
+			{{#each this}}
+			<div class="stonetop-special-picker-group">
+				<h3 class="stonetop-special-picker-cat">{{category}}</h3>
+				{{#each items}}
+				<button type="button" class="stonetop-special-pick{{#if added}} is-added{{/if}}" data-slug="{{slug}}"{{#if added}} disabled{{/if}}>
+					<span class="stonetop-special-pick-text"><span class="stonetop-special-pick-name">{{name}}</span>{{#if traits}} <span class="stonetop-special-pick-traits">({{traits}})</span>{{/if}}</span>
+					<span class="stonetop-special-pick-value"{{#if valueTooltip}} data-tooltip="{{valueTooltip}}" data-tooltip-direction="LEFT"{{/if}}>{{value}}</span>
+				</button>
+				{{/each}}
+			</div>
+			{{/each}}
+		</div>
+		{{/each}}
+	</div>
+	{{#if footnote}}<p class="stonetop-special-picker-footnote">{{footnote}}</p>{{/if}}
+	<div class="stonetop-special-picker-actions">
+		<button type="button" class="stonetop-special-picker-close">Close</button>
+	</div>
+</div>

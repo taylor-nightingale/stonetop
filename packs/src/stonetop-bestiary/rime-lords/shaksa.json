@@ -1,0 +1,81 @@
+{
+  "name": "Shaksa",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "antler of jagged bone d10+2 (close, messy, 1 piercing) or stone hooves d8 (hand)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to preserve the sanctity of the dead"
+      }
+    },
+    "concept": "A skull-headed, antlered grave-guardian goat of rock and bone.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, hoarder, magical, terrifying",
+    "qualities": "<p>Tethered to its cemetery; can only leave to track looters or vandals.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.JK9EeLUOBHfNoHCw",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Shaksa",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "AQYeIoEmBi9BrsHL",
+      "name": "Fill an intruder with dread",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!h9IhOM9HBNmdrzUh.AQYeIoEmBi9BrsHL"
+    },
+    {
+      "_id": "6N6P3UUyrPrqsE1D",
+      "name": "Manifest a form of bone and grave-dirt (unharmed by stabbing; vulnerable to rain and running water)",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!h9IhOM9HBNmdrzUh.6N6P3UUyrPrqsE1D"
+    },
+    {
+      "_id": "LGhPxU88iYEyqFs7",
+      "name": "Track a looter or vandal, unerringly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!h9IhOM9HBNmdrzUh.LGhPxU88iYEyqFs7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "h9IhOM9HBNmdrzUh",
+  "_key": "!actors!h9IhOM9HBNmdrzUh"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Mantle Wraiths",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 1,
+        "source": "amorphous"
+      },
+      "damage": {
+        "value": "life drain d8 (hand, ignores armor)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to run rampant"
+      }
+    },
+    "concept": "Three vicious wraiths bound to a tattered mantle, longing to slip free and feast.",
+    "organization": "group",
+    "size": "",
+    "tags": "group (3), spirit, undead, terrifying, vicious",
+    "qualities": "<p>Powerless in daylight.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Ix0kIQeEN7xkTUsK",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Mantle Wraith",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "uTiXcFoB3f8L7x5h",
+      "name": "Whisper their longings to the wearer",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!usjzCbvuSsDykZeY.uTiXcFoB3f8L7x5h"
+    },
+    {
+      "_id": "b4widmymXQDHGCCM",
+      "name": "Manifest a form of shadow and cold (harmed only by silver and salt)",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!usjzCbvuSsDykZeY.b4widmymXQDHGCCM"
+    },
+    {
+      "_id": "EVItoTbZ5imAN0Ot",
+      "name": "Hurl themselves at the living",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!usjzCbvuSsDykZeY.EVItoTbZ5imAN0Ot"
+    },
+    {
+      "_id": "ZSIWUBU3dUaw55Rj",
+      "name": "Suck the vitality from their prey",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!usjzCbvuSsDykZeY.ZSIWUBU3dUaw55Rj"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "usjzCbvuSsDykZeY",
+  "_key": "!actors!usjzCbvuSsDykZeY"
+}

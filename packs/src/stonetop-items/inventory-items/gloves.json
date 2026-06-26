@@ -1,0 +1,18 @@
+{
+  "_id": "oRRCQ5WMO5AHO4Ze",
+  "_key": "!items!oRRCQ5WMO5AHO4Ze",
+  "name": "Gloves",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "gloves",
+      "inventoryColumn": "small",
+      "sortOrder": 17,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

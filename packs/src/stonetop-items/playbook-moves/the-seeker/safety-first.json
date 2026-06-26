@@ -1,0 +1,20 @@
+{
+  "_id": "2Zc5rnXszosPZ785",
+  "_key": "!items!2Zc5rnXszosPZ785",
+  "name": "Safety First",
+  "type": "move",
+  "system": {
+    "playbook": "The Seeker",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>spend an hour or so preparing your mystical defenses</em></strong>, hold 2 Protection. When you <strong><em>are affected by harmful magic</em></strong>, spend 1 Protection either to gain advantage on any roll to resist it or to halve its damage/effects.</p>",
+    "resource": {
+      "max": 2,
+      "title": "Protection",
+      "spendOptions": [
+        "Gain advantage on a roll to resist harmful magic",
+        "Halve harmful magic's damage/effects"
+      ]
+    }
+  },
+  "folder": "rlzEhh1ntK6ENGgA"
+}

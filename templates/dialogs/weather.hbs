@@ -1,0 +1,29 @@
+<div class="stonetop-weather-pick">
+
+  <p class="stonetop-weather-intro">
+    Pick the season (per your latest <em>Seasons Change</em>), then roll 1d6 on its table.
+  </p>
+
+  <div class="stonetop-weather-seasons">
+    {{#each seasons}}
+    <button type="button" class="stonetop-weather-season{{#if isActive}} is-active{{/if}}"
+            data-season="{{key}}">{{label}}</button>
+    {{/each}}
+  </div>
+
+  <ul class="stonetop-weather-rows">
+    {{#each rows}}
+    <li class="stonetop-weather-row">
+      <span class="stonetop-weather-row-range">{{range}}</span>
+      <span class="stonetop-weather-row-text">{{text}}{{#if reroll}} <em class="stonetop-weather-row-reroll">(roll again later with disadvantage)</em>{{/if}}</span>
+    </li>
+    {{/each}}
+  </ul>
+
+  <div class="stonetop-weather-roll-wrap">
+    <button type="button" class="stonetop-weather-roll-btn">
+      <i class="fas fa-cloud-sun-rain"></i> Roll the weather
+    </button>
+  </div>
+
+</div>

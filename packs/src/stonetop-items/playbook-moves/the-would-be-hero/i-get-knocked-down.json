@@ -1,0 +1,12 @@
+{
+  "_id": "cR3gic7apZWVkqPm",
+  "_key": "!items!cR3gic7apZWVkqPm",
+  "name": "I Get Knocked Down",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>take damage despite your best efforts to avoid it</em></strong>, you can choose to halve the damage but pick 1 of the following:</p><ul><li>You lose something (footing, grip, etc.)</li><li>Something on your person breaks</li><li>You're out of it for a moment</li></ul><p>Whatever you choose, the GM will describe the details.</p>"
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

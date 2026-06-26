@@ -1,0 +1,24 @@
+{
+  "_id": "UpkDyr7OSJoRu1XX",
+  "_key": "!items!UpkDyr7OSJoRu1XX",
+  "name": "Cuirass, boiled leather",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "cuirass-boiled-leather",
+      "inventoryColumn": "regular",
+      "sortOrder": 35,
+      "weight": 1,
+      "breakBefore": true,
+      "armor": {
+        "modifier": 1
+      },
+      "special": true,
+      "specialCategory": "Armor"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

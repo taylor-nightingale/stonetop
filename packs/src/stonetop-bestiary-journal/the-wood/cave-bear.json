@@ -1,0 +1,61 @@
+{
+  "_id": "VJf1tzQZ3nGxBNsC",
+  "_key": "!journal!VJf1tzQZ3nGxBNsC",
+  "name": "Cave Bear",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A great silver-brown bear, dangerous when surprised or guarding cubs."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 12000,
+  "pages": [
+    {
+      "_id": "2VWsngCSDON0y1U5",
+      "_key": "!journal.pages!VJf1tzQZ3nGxBNsC.2VWsngCSDON0y1U5",
+      "name": "Cave Bear",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A great silver-brown bear, dangerous when surprised or guarding cubs.",
+        "description": "<p>Great big silver-brown things, eating anything they can dig up or catch. They mostly hibernate through winter and grow especially bold and ornery in autumn as they fatten up, though they've been known to wake and forage even in the cold. They lair in big caves, usually two mates and maybe their cubs. They're not usually aggressive towards people — unless surprised, extra hungry, or protecting the cubs. Then? Watch out.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.cdZDkK4FL1QoQ9ak"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

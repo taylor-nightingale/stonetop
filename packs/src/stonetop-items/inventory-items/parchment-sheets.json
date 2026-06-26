@@ -1,0 +1,21 @@
+{
+  "_id": "xBe8Q6vNuQ2hU5tG",
+  "_key": "!items!xBe8Q6vNuQ2hU5tG",
+  "name": "Parchment, a few sheets",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "parchment-sheets",
+      "inventoryColumn": "small",
+      "sortOrder": 33,
+      "note": "<em>fragile</em>",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Writing Implements"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

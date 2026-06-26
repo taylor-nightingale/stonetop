@@ -1,0 +1,147 @@
+{
+  "name": "Judge of Aratis",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 2,
+        "source": "shield, leather cuirass"
+      },
+      "damage": {
+        "value": "mallet d8 (hand) or maul d8+2 (close, forceful, awkward)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to uphold the law of Aratis"
+      }
+    },
+    "concept": "A faithful of Aratis who settles disputes, keeps records, and stands guard against chaos.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, leader, organized",
+    "qualities": "<p>Bound by the requirements of a true disciple, at least publicly.</p><p>Built to one of three temperaments:</p><ul><li><strong>Stalwart</strong> (+tough, +4 HP) — to see things as black and white.</li><li><strong>Ambitious</strong> (+cunning) — to advance their own agenda.</li><li><strong>Circumspect</strong> (+friendly, +cautious; deals damage with disadvantage) — to try to make everyone happy.</li></ul>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.uOeCgccQc6YApFdV",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Judge of Aratis",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Tj8nPtBMDPQoYoME",
+      "name": "Decry someone or something, publicly",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.Tj8nPtBMDPQoYoME"
+    },
+    {
+      "_id": "EXMSwnx9D20jbQr0",
+      "name": "Enforce a law, tradition, or contract, even despite good sense",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.EXMSwnx9D20jbQr0"
+    },
+    {
+      "_id": "SMZp6cwY9iJLronW",
+      "name": "Inspire others with their resolve",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.SMZp6cwY9iJLronW"
+    },
+    {
+      "_id": "vXqAmbtYIZLSk3F2",
+      "name": "Make a reasonable-sounding ruling, to their own advantage",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.vXqAmbtYIZLSk3F2"
+    },
+    {
+      "_id": "VPEtEFbCfERMLX7x",
+      "name": "Suss out someone's motives",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.VPEtEFbCfERMLX7x"
+    },
+    {
+      "_id": "HcNYv3C9jNGlq3C8",
+      "name": "Keep calm under pressure or scrutiny",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.HcNYv3C9jNGlq3C8"
+    },
+    {
+      "_id": "vlGctPyJm5H2yLXk",
+      "name": "Stall, delay, make excuses",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.vlGctPyJm5H2yLXk"
+    },
+    {
+      "_id": "3ppYHrvWpYDtt1GS",
+      "name": "See both sides of an issue",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.3ppYHrvWpYDtt1GS"
+    },
+    {
+      "_id": "IyxO45HZgOmk1oqa",
+      "name": "Find a different way",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XOWBMeABAb5ms245.IyxO45HZgOmk1oqa"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "HxBkAlikbbb8sWp2",
+  "_id": "XOWBMeABAb5ms245",
+  "_key": "!actors!XOWBMeABAb5ms245"
+}

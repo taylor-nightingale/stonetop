@@ -1,0 +1,18 @@
+{
+  "_id": "HDBTq0Zf2pCLxb0l",
+  "_key": "!items!HDBTq0Zf2pCLxb0l",
+  "name": "Chalk",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "chalk",
+      "inventoryColumn": "small",
+      "sortOrder": 10,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

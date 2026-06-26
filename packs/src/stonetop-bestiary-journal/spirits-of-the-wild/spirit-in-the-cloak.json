@@ -1,0 +1,61 @@
+{
+  "_id": "uT2yCwYcJPRLe5zv",
+  "_key": "!journal!uT2yCwYcJPRLe5zv",
+  "name": "The Spirit in the Cloak",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A proud storm-spirit bound to a cloak that bears its wearer aloft — when it deigns to listen."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 138000,
+  "pages": [
+    {
+      "_id": "ExcRNH4uboAG7bBU",
+      "_key": "!journal.pages!uT2yCwYcJPRLe5zv.ExcRNH4uboAG7bBU",
+      "name": "The Spirit in the Cloak",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A proud storm-spirit bound to a cloak that bears its wearer aloft — when it deigns to listen.",
+        "description": "<p>Bound to a cloak, this proud, mute storm-spirit springs to life on the word of command and obeys its wearer as a follower — though it never wants to land, and would rather 'not hear' your commands. While it serves, it bears its master aloft on swirling winds and brings a storm with it wherever it flies. Its cost is hours spent flying about.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.MlpaA0sFGZ3MDTSb"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

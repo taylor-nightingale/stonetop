@@ -1,0 +1,81 @@
+{
+  "name": "Pack Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 1,
+        "source": "quick reflexes"
+      },
+      "damage": {
+        "value": "sawtooth teeth d6 (hand, grabby)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to bring down easy prey"
+      }
+    },
+    "concept": "Sneaky, dog-sized pack hunters of the tall grass. Just the worst.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, stealthy, organized, cautious",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Gxjvid2IYJmTU41M",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Pack Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "ySnYrl96vZ0PIrAv",
+      "name": "Dart through tall grass, unseen",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W7YFeowcF0yptQC3.ySnYrl96vZ0PIrAv"
+    },
+    {
+      "_id": "qGefr0zydg445whp",
+      "name": "Surround their prey",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W7YFeowcF0yptQC3.qGefr0zydg445whp"
+    },
+    {
+      "_id": "7HHVYThLnAI0UikP",
+      "name": "Bite down and pull in one direction while a packmate pulls in the other (+messy)",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W7YFeowcF0yptQC3.7HHVYThLnAI0UikP"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "W7YFeowcF0yptQC3",
+  "_key": "!actors!W7YFeowcF0yptQC3"
+}

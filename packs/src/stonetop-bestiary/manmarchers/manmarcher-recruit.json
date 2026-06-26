@@ -1,0 +1,92 @@
+{
+  "name": "Manmarcher Recruit",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "thick hides, shield"
+      },
+      "damage": {
+        "value": "iron battleaxe d6 (close, messy), knife d6 (hand), or javelins d6 (thrown)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to prove themselves, one way or the other"
+      }
+    },
+    "concept": "A green youth doing their turn at the chief's hillfort.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, young",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ilmYZAlDHX6yXeTp",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Manmarcher Recruit",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "OyD5lGm66Vz5LXkp",
+      "name": "Boast and brag",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fPiNTDvtHzS9qzvS.OyD5lGm66Vz5LXkp"
+    },
+    {
+      "_id": "vQZFdESbDHgykY2h",
+      "name": "Form a ragged shield wall",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fPiNTDvtHzS9qzvS.vQZFdESbDHgykY2h"
+    },
+    {
+      "_id": "YbW2NztZG2mGbokN",
+      "name": "Hesitate",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fPiNTDvtHzS9qzvS.YbW2NztZG2mGbokN"
+    },
+    {
+      "_id": "gfbV5vqBCDIBAU8N",
+      "name": "Act rashly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fPiNTDvtHzS9qzvS.gfbV5vqBCDIBAU8N"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Zk9eZkdsc82KOF4B",
+  "_id": "fPiNTDvtHzS9qzvS",
+  "_key": "!actors!fPiNTDvtHzS9qzvS"
+}

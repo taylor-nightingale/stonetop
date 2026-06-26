@@ -1,0 +1,138 @@
+<div class="stonetop-intros">
+
+  {{!-- ── Pre-check screen ──────────────────────────────────────────────────── --}}
+  {{#if isPreCheck}}
+  <div class="stonetop-intros-precheck">
+
+    <p class="stonetop-intros-preamble">
+      Every player character (any actor with a playbook) has been added to the Combat Tracker automatically. Set the order you want to go around the table — randomize it below, or roll/set initiative in the Combat Tracker — then begin.
+    </p>
+
+    {{#if hasNone}}
+    <div class="stonetop-intros-notice stonetop-intros-notice--warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>No characters with a playbook were found. Create your player characters first.</span>
+    </div>
+    {{else if noneInCombat}}
+    <div class="stonetop-intros-notice stonetop-intros-notice--warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>No player characters are in the Combat Tracker yet.{{#if isGM}} Use <strong>Add Player Characters</strong> below.{{else}} Ask your GM to open this.{{/if}}</span>
+    </div>
+    {{else}}
+    <div class="stonetop-intros-notice stonetop-intros-notice--ok">
+      <i class="fas fa-check-circle"></i>
+      <div class="stonetop-intros-ok-body">
+        <p>All {{pcCount}} player characters are ready, in order:</p>
+        <ol>{{#each pcNames}}<li>{{this}}</li>{{/each}}</ol>
+      </div>
+      {{#if canShuffle}}
+      <button type="button" class="stonetop-intros-shuffle" title="Randomize the order">
+        <i class="fas fa-shuffle"></i> Randomize
+      </button>
+      {{/if}}
+    </div>
+    {{#if hasMissing}}
+    <div class="stonetop-intros-notice stonetop-intros-notice--warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <div>
+        <p>Not yet in the Combat Tracker:</p>
+        <ul>{{#each missingPcs}}<li>{{this}}</li>{{/each}}</ul>
+      </div>
+    </div>
+    {{/if}}
+    {{/if}}
+
+    <p class="stonetop-intros-reminder">
+      <i class="fas fa-info-circle"></i>
+      <em>When someone reveals something and you want to know more, ask them about it. When someone asks you a question, answer it truthfully.</em>
+    </p>
+
+  </div>
+
+  {{!-- ── Main intro content ─────────────────────────────────────────────────── --}}
+  {{else}}
+  <div class="stonetop-guide-main">
+
+    {{#if currentPc}}
+    <div class="stonetop-guide-banner">
+      {{#if currentPc.icon}}<img class="stonetop-intros-pc-icon" src="{{currentPc.icon}}" alt="">{{/if}}
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title stonetop-guide-truncate">{{currentPc.name}}</div>
+        {{#if currentPc.playbookName}}<div class="stonetop-guide-banner-sub">{{currentPc.playbookName}}</div>{{/if}}
+      </div>
+      <div class="stonetop-guide-count">{{currentPc.index}} / {{currentPc.total}}</div>
+    </div>
+    {{/if}}
+
+    <div class="stonetop-intros-instruction">{{{instruction}}}</div>
+
+    {{#if hasQuestions}}
+    <div class="stonetop-intros-questions-wrap">
+      <p class="stonetop-intros-questions-label">
+        {{#if capture.canEdit}}Tap the one they chose:{{else}}Choose one, or pass:{{/if}}
+      </p>
+      <ol class="stonetop-intros-questions">
+        {{#each questions}}
+        {{#if ../capture.canEdit}}
+        <li>
+          <button type="button" class="stonetop-intros-question-pick{{#if isSelected}} is-selected{{/if}}{{#if isUsed}} is-used{{/if}}"
+                  {{#if isUsed}}disabled data-tooltip="Already chosen earlier — pick a different one"{{/if}}
+                  data-actor-id="{{../capture.actorId}}" data-round-key="{{../capture.key}}" data-q-index="{{index}}">
+            {{{html}}}
+          </button>
+        </li>
+        {{else}}
+        <li class="{{#if isSelected}}is-selected{{/if}}{{#if isUsed}} is-used{{/if}}">{{{html}}}</li>
+        {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+    {{/if}}
+
+    {{#if capture}}
+    {{#if capture.canEdit}}
+    <div class="stonetop-intros-capture">
+      <label class="stonetop-intros-capture-label"><i class="fas fa-feather"></i> Record for the Chronicle</label>
+      <textarea class="stonetop-intros-answer" rows="3"
+                data-actor-id="{{capture.actorId}}" data-round-key="{{capture.key}}"
+                {{#if capture.isQuestion}}data-answer-field="a"{{/if}}
+                placeholder="{{capture.placeholder}}">{{capture.answer}}</textarea>
+    </div>
+    {{else if capture.answer}}
+    <div class="stonetop-intros-recorded">
+      <span class="stonetop-intros-recorded-label">Recorded</span>
+      <p class="stonetop-intros-recorded-text">{{capture.answer}}</p>
+    </div>
+    {{/if}}
+    {{/if}}
+
+  </div>
+  {{/if}}
+
+  {{!-- ── Navigation ─────────────────────────────────────────────────────────── --}}
+  <div class="stonetop-guide-nav">
+    {{#if isPreCheck}}
+
+    {{#if isGM}}<button class="stonetop-intros-add">Add Player Characters</button>{{else}}<span></span>{{/if}}
+    <button class="stonetop-intros-begin stonetop-guide-btn--primary" {{#unless canBegin}}disabled{{/unless}}>
+      Begin Introductions<span class="stonetop-nav-arrow"></span>
+    </button>
+
+    {{else if isDone}}
+
+    <button class="stonetop-intros-back"><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+    <span class="stonetop-intros-step-label">{{stepLabel}}</span>
+    <span class="stonetop-intros-done-actions">
+      <button class="stonetop-intros-close stonetop-guide-btn--primary"{{#if isGM}} data-tooltip="Saves everyone's recorded answers to the Chronicle journal, then closes." data-tooltip-direction="UP"{{/if}}>{{#if isGM}}Save to Chronicle{{else}}Let spring break forth!{{/if}}</button>
+    </span>
+
+    {{else}}
+
+    <button class="stonetop-intros-back" {{#if isPrevDisabled}}disabled{{/if}}><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+    <span class="stonetop-intros-step-label">{{stepLabel}}</span>
+    <button class="stonetop-intros-next">Next<span class="stonetop-nav-arrow"></span></button>
+
+    {{/if}}
+  </div>
+
+</div>

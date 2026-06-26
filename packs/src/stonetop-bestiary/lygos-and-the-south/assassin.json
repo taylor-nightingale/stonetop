@@ -1,0 +1,92 @@
+{
+  "name": "Assassin",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 1,
+        "source": "skill"
+      },
+      "damage": {
+        "value": "dagger d10 (hand, 1 piercing) or garrote d8 (hand, grabby, ignores armor)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to finish the job (nothing personal)"
+      }
+    },
+    "concept": "A professional killer — only in 'civilized' lands is there such demand for murder.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, stealthy, devious",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ew3px3xfQiIpxEtg",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Assassin",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7NfmXqtcWjpfR2IY",
+      "name": "Stalk their target at length",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!x6X63ArQe1zZ3tBE.7NfmXqtcWjpfR2IY"
+    },
+    {
+      "_id": "pSi0dFan9Ul9lsCA",
+      "name": "Pass unnoticed, in shadow or disguise",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!x6X63ArQe1zZ3tBE.pSi0dFan9Ul9lsCA"
+    },
+    {
+      "_id": "ecXysIDDZpb6jWJU",
+      "name": "Poison someone",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!x6X63ArQe1zZ3tBE.ecXysIDDZpb6jWJU"
+    },
+    {
+      "_id": "xt7EOGIJIfC74fjX",
+      "name": "Slip away, try again later",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!x6X63ArQe1zZ3tBE.xt7EOGIJIfC74fjX"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "x6X63ArQe1zZ3tBE",
+  "_key": "!actors!x6X63ArQe1zZ3tBE"
+}

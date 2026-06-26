@@ -1,0 +1,91 @@
+{
+  "name": "Beznpol",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 3
+      },
+      "damage": {
+        "value": "burrowing talons d10 (hand), needle teeth d8 (hand, messy, 3 piercing)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to constantly search for food"
+      }
+    },
+    "concept": "A six-foot armored mustelid, forever digging up the Flats for food.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cautious, fierce",
+    "qualities": "<p>Acid-proof.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.PJEotX7fbLPcZpC9",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Beznpol",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "qGTYZMfq3D85nS6b",
+      "name": "Dig up serious quantities of soil",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Cva7oGwmIwLEvo6S.qGTYZMfq3D85nS6b"
+    },
+    {
+      "_id": "EEkVjkId7zZheBnt",
+      "name": "Bound out of the grass and onto prey",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Cva7oGwmIwLEvo6S.EEkVjkId7zZheBnt"
+    },
+    {
+      "_id": "sZuTzhByTzL1RynJ",
+      "name": "Spray a stupefying musk (reach, area, debilities)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Cva7oGwmIwLEvo6S.sZuTzhByTzL1RynJ"
+    },
+    {
+      "_id": "OWGMvXmpbeJy0Y5N",
+      "name": "Curl up into a ball of hard, jagged scales (4 armor)",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Cva7oGwmIwLEvo6S.OWGMvXmpbeJy0Y5N"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "Cva7oGwmIwLEvo6S",
+  "_key": "!actors!Cva7oGwmIwLEvo6S"
+}

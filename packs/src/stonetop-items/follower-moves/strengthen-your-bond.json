@@ -1,0 +1,12 @@
+{
+  "name": "Strengthen Your Bond",
+  "type": "move",
+  "system": {
+    "moveType": "follower",
+    "description": "<p>When you <strong><em>pay your follower's cost and haven't done so recently</em></strong>, they hold +1 Loyalty (max 3).</p><p>Spend your follower's Loyalty 1-for-1 to have them:</p><ul><li>Overcome their fear to do as you say</li><li>Resist acting on their instinct/tags/traits</li><li>Do something they don't want to do (as long as it's not abhorrent or suicidal)</li></ul>"
+  },
+  "sort": 200000,
+  "_id": "qaR7wCUKEKmvhvTD",
+  "_key": "!items!qaR7wCUKEKmvhvTD",
+  "folder": "3egTCvrhplm8V1xt"
+}

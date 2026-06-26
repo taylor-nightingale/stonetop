@@ -1,0 +1,28 @@
+<form class="stonetop-hover-settings">
+	<div class="form-group">
+		<label for="stonetop-hover-descriptions-enabled">{{localize "stonetop.settings.hoverDescriptionsEnabled.name"}}</label>
+		<div class="form-fields">
+			<input id="stonetop-hover-descriptions-enabled" type="checkbox" class="stonetop-check" name="hoverDescriptionsEnabled" {{#if enabled}}checked{{/if}}>
+		</div>
+		<p class="notes">{{localize "stonetop.settings.hoverDescriptionsEnabled.hint"}}</p>
+	</div>
+
+	<hr>
+
+	{{#each settings}}
+	<div class="form-group">
+		<label for="stonetop-{{key}}">{{name}}</label>
+		<div class="form-fields">
+			<input id="stonetop-{{key}}" type="checkbox" class="stonetop-check" name="{{key}}" {{#if enabled}}checked{{/if}}>
+		</div>
+		<p class="notes">{{hint}}</p>
+	</div>
+	{{/each}}
+
+	<footer class="sheet-footer flexrow">
+		<button type="submit">
+			<i class="fas fa-save"></i>
+			{{localize "SETTINGS.Save"}}
+		</button>
+	</footer>
+</form>

@@ -1,0 +1,61 @@
+{
+  "_id": "aJvnNwaxVw8BTHA6",
+  "_key": "!journal!aJvnNwaxVw8BTHA6",
+  "name": "Bandit Chief",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The rare leader cagey enough to turn a gang of bandits into a serious threat."
+    }
+  },
+  "folder": "RZash2IS2sE5glzA",
+  "sort": 178000,
+  "pages": [
+    {
+      "_id": "p8KF335zTeRIOPOM",
+      "_key": "!journal.pages!aJvnNwaxVw8BTHA6.p8KF335zTeRIOPOM",
+      "name": "Bandit Chief",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The rare leader cagey enough to turn a gang of bandits into a serious threat.",
+        "description": "<p>Most bandit gangs struggle to find victims or shelter, and quickly die out or disband. The clever ones last a few seasons, but eventually folk grow wary and their schemes start to fail. But every generation or so, a leader crops up cagey enough to turn a gang of bandits into a serious threat.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.CL9MRZT48lnfhegh"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

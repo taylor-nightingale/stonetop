@@ -1,0 +1,173 @@
+{
+  "name": "Thrall",
+  "type": "playbook",
+  "img": "systems/stonetop/assets/post-death-inserts/thrall.svg",
+  "system": {
+    "slug": "thrall",
+    "description": "<p>When you <strong><em>die but call on one of the Things Below by name and beseech them to intercede</em></strong>, they do. Death is averted, but you gain this insert and 1 Mark (chosen by the GM).</p>",
+    "actorType": "character",
+    "attributes": {}
+  },
+  "flags": {
+    "stonetop": {
+      "instincts": [
+        {
+          "word": "Fascination",
+          "description": "To explore your powers, your master, your new existence."
+        },
+        {
+          "word": "Resistance",
+          "description": "To struggle against your master and cling to your humanity."
+        },
+        {
+          "word": "Shame",
+          "description": "To hide and deny your true nature."
+        }
+      ],
+      "lore": [
+        {
+          "slug": "your-master",
+          "title": "Your Master",
+          "description": "<p>The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.</p>",
+          "options": [
+            {
+              "slug": "master-name",
+              "description": "<p>Name your master here, along with any titles that you know:</p>",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "slug": "favor",
+          "title": "Favor",
+          "description": "<p>Your Favor starts at 0 and can go no higher than 3. Check boxes below to track your current Favor.</p><p>When you <strong><em>have 3 Favor and would gain another</em></strong>, reduce your Favor to 0 and choose 1:</p><ul><li>Ask a question of your master and gain advantage on your next roll to act on the answer.</li><li>Gain a new Mark of your choice. Then ask the GM to choose a Mark that you don't have, and cross it off&mdash;you can never gain it.</li></ul>",
+          "options": [
+            {
+              "slug": "favor-track",
+              "description": "",
+              "max": 3
+            }
+          ]
+        },
+        {
+          "slug": "impulse",
+          "title": "Impulse",
+          "description": "<p>Ask the GM to choose 1, to represent your master's nature and will:</p>",
+          "options": [
+            {
+              "slug": "stoke-conflict",
+              "description": "<p>Stoke conflict, confusion, distrust</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "erode-hope",
+              "description": "<p>Erode hope/faith/honor/self-image</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "hide-smother",
+              "description": "<p>Hide/bury/smother things or ideas</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "deprive-others",
+              "description": "<p>Deprive others of what they need</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "inflict-harm",
+              "description": "<p>Inflict harm, cruelly and unnecessarily</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "desecrate",
+              "description": "<p>Desecrate/mutilate/ruin things of value</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "shock-horrify",
+              "description": "<p>Shock/terrify/horrify others</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "custom-impulse",
+              "description": "<p>Other (write in):</p>",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "slug": "marks",
+          "title": "Marks",
+          "description": "<p>When you first gain this insert, the GM will choose 1 Mark for you, based on your master's nature. Gain more when a move tells you.</p>",
+          "options": [
+            {
+              "slug": "a-festering-rot",
+              "description": "<p><strong>A FESTERING ROT</strong> &mdash; Reduce your max HP by 2.</p><p>You are unharmed by poison, disease, caustic substances, and vermin bites. Things in your presence rot, crack, corrode, and spoil.</p><p>When you <strong><em>roll doubles</em></strong>, something on your person is ruined. The GM will tell you what, and how.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "child-of-the-deeps",
+              "description": "<p><strong>CHILD OF THE DEEPS</strong> &mdash; Reduce your max HP by 2.</p><p>You can breathe water and suffer no harm from cold or pressure. Your skin becomes squamous. When you <strong><em>go a day without bathing</em></strong>, mark a debility.</p><p>While near a body of water, you can spend 1 Favor to call forth a slimy tentacle to do your bidding. Treat it as a follower: <em>stealthy, relentless</em>; HP 6; Damage d10 (<em>reach, forceful, grabby</em>); Instinct to squeeze the life from things; Cost: lives drowned.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "death-mask",
+              "description": "<p><strong>DEATH MASK</strong> &mdash; You find or craft a horrid mask. When you <strong><em>do not wear your mask</em></strong>, you have disadvantage on all rolls.</p><p>When you <strong><em>wear your mask</em></strong>, undead treat you as one of their own.</p><p>When you <strong><em>wear your mask</em></strong>, you can spend 1 Favor to fill any living thing that sees you with dread. They must choose: flee, cower, or stand fast. If they stand fast, you have advantage on your first roll against them.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "quicksilver-dreams",
+              "description": "<p><strong>QUICKSILVER DREAMS</strong> &mdash; Reduce your max HP by 2.</p><p>When you <strong><em>Make Camp</em></strong>, everyone suffers nightmares and has disadvantage on their next roll.</p><p>You can spend 1 Favor to inflict false sensations upon someone, as long as you can see them.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "ravenous",
+              "description": "<p><strong>RAVENOUS</strong> &mdash; You are filled with unending hunger. Gain an extra impulse: &quot;Wantonly devour flesh.&quot;</p><p>When you <strong><em>Make Camp</em></strong>, consume an extra 1d4 provisions or uses of supplies.</p><p>You can spend 1 Favor to:</p><ul><li>Touch something. For as long as you hold it, everyone who sees it desires it.</li><li>Gain a horrid, iron-rending maw (<em>band</em>, 3 piercing, <em>messy</em>) for as long as you wish, and with it the ability to eat and digest anything.</li></ul>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "red-wrath",
+              "description": "<p><strong>RED WRATH</strong> &mdash; Reduce your max HP by 2.</p><p>When <strong><em>the GM compels you to violence</em></strong>, you have disadvantage to resist.</p><p>When you <strong><em>let your fury fly and lash out at someone</em></strong> (<em>band, close</em>), spend 1&ndash;3 Favor and roll +Favor spent: <strong>on a 10+</strong>, deal 2d8 damage (<em>messy, forceful</em>) and shock, terrify, or impress any onlookers; <strong>on a 7&ndash;9</strong>, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "shadows-cold-embrace",
+              "description": "<p><strong>SHADOW'S COLD EMBRACE</strong> &mdash; Reduce your max HP by 2. You cast no shadow and no reflection.</p><p>When you are <strong><em>exposed to sunlight or holy light</em></strong>, you cannot spend Favor (for any reason).</p><p>Otherwise you can spend 1 Favor to:</p><ul><li>Remain unnoticed, even when under scrutiny or after doing something to draw attention.</li><li>Leave no trace of your comings or goings.</li><li>Pass off a lie as an obvious, evident truth.</li></ul>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "speak-truth-whisper-secrets",
+              "description": "<p><strong>SPEAK TRUTH, WHISPER SECRETS</strong> &mdash; Reduce your max HP by 2. Your tongue grows unusually long and your teeth become stained and jagged.</p><p>You can spend 1 Favor to look someone in the eye and learn (pick 1):</p><ul><li>What do they desire above all else?</li><li>What secret shame do they bear?</li><li>What is their greatest fear?</li><li>What is their worst memory?</li></ul><p>When you <strong><em>use the answer against them</em></strong>, you have advantage.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "torments-blessing",
+              "description": "<p><strong>TORMENT'S BLESSING</strong> &mdash; Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.</p><p>When you <strong><em>speak a word of torment</em></strong>, name someone nearby, spend 1&ndash;3 Favor, and roll +Favor spent: <strong>on a 10+</strong>, they take 2d4 damage and are wracked with pain&mdash;lesser victims are incapacitated, and mighty foes are momentarily stunned; <strong>on a 7&ndash;9</strong>, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.</p>",
+              "max": 1,
+              "requires": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_id": "mK9vXpN3rTy7wQzL",
+  "_key": "!items!mK9vXpN3rTy7wQzL",
+  "folder": "8ebVaVDZlxEBNEYQ"
+}

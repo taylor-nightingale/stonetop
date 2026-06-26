@@ -1,0 +1,81 @@
+{
+  "name": "Nerth Serpent",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "bite and constrict d10+3 (hand, close, reach, forceful, grabby)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to test the might of supplicants"
+      }
+    },
+    "concept": "A challenge-serpent hung from the Nerth Tree, testing all who would eat its heart.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, fearless",
+    "qualities": "<p>Tethered to the Nerth Tree. Armor 0 against bare hands.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.kgK5XHokIprg9Vr1",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Nerth Serpent",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "BDdlGaSG4n62tt4T",
+      "name": "Politely offer a chance to back down",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i7EPIDkGLO5AFm2f.BDdlGaSG4n62tt4T"
+    },
+    {
+      "_id": "FO0iI8WsS7GJ30kl",
+      "name": "Restrain an opponent's limb",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i7EPIDkGLO5AFm2f.FO0iI8WsS7GJ30kl"
+    },
+    {
+      "_id": "Szn0eKBFu0vyFxKZ",
+      "name": "Whisssper a foe's own doubts in their ear",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i7EPIDkGLO5AFm2f.Szn0eKBFu0vyFxKZ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "i7EPIDkGLO5AFm2f",
+  "_key": "!actors!i7EPIDkGLO5AFm2f"
+}

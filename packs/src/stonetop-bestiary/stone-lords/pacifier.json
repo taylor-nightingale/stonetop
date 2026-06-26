@@ -1,0 +1,81 @@
+{
+  "name": "Pacifier",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 4,
+        "source": "just a stone sphere"
+      },
+      "damage": {
+        "value": "stupefying pulse of sound d6 (reach, area, reload, ignores armor)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to keep mortals docile"
+      }
+    },
+    "concept": "Hollow stone spheres that hum the fight out of you.",
+    "organization": "group",
+    "size": "small",
+    "tags": "group, small, construct, amorphous",
+    "qualities": "<p>Must recharge after a few hours; limited autonomy; blind; tremorsense; has trouble with stairs; vulnerable to blunt, forceful attacks.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.gm2GHWbSa8mM8Fnp",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Pacifier",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "asNRCi9IIAmdvblL",
+      "name": "Sense and follow strong emotions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!59u1Y4Rjasgp0Ylr.asNRCi9IIAmdvblL"
+    },
+    {
+      "_id": "jEooSpD4SOMOzz2S",
+      "name": "Hum a soothing, pacifying sound (near, area)",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!59u1Y4Rjasgp0Ylr.jEooSpD4SOMOzz2S"
+    },
+    {
+      "_id": "h0jAdBnOYlEtmDLh",
+      "name": "Sound the alarm, call for reinforcements",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!59u1Y4Rjasgp0Ylr.h0jAdBnOYlEtmDLh"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "1yj6UyLp9x9oxtmS",
+  "_id": "59u1Y4Rjasgp0Ylr",
+  "_key": "!actors!59u1Y4Rjasgp0Ylr"
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Fomoraij",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "mighty blows d12+3 (hand, close, forceful)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "per its constraint"
+      }
+    },
+    "concept": "A Green Lord who damned itself — sealed below, twisted with hatred, spawning new horrors.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, magical, cunning, cautious, terrifying",
+    "qualities": "<p>Can sense anything that happens in its lair (but might not think to). Armor 0 vs. bronze.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.kGrMF2KnwppWW2db",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Fomoraij",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "pPIIQHEzQVzwjKXl",
+      "name": "Overawe anyone in its presence",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Jmyo1j9nBbYSCU9z.pPIIQHEzQVzwjKXl"
+    },
+    {
+      "_id": "XTCw83G2PatBsvpS",
+      "name": "Twist, mutate, or transform living things with a gesture",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Jmyo1j9nBbYSCU9z.XTCw83G2PatBsvpS"
+    },
+    {
+      "_id": "VU2uSzt532VoXwdl",
+      "name": "Wield nearby plants and beasts as extensions of itself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Jmyo1j9nBbYSCU9z.VU2uSzt532VoXwdl"
+    },
+    {
+      "_id": "73bHBqFWH9QqJ4An",
+      "name": "Regenerate wounds from anything but orichalcum",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Jmyo1j9nBbYSCU9z.73bHBqFWH9QqJ4An"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "rXzqpjz32QmDXcI4",
+  "_id": "Jmyo1j9nBbYSCU9z",
+  "_key": "!actors!Jmyo1j9nBbYSCU9z"
+}

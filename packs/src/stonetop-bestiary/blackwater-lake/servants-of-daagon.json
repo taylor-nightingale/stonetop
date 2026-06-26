@@ -1,0 +1,135 @@
+{
+  "name": "Servant of Daagon",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/emanation.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "form varies, typically d8 (close)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to devour, then to steal"
+      }
+    },
+    "concept": "Wet, wriggling horrors that crawl from the Blackwater to feed Daagon's hunger.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, terrifying, violent, wretched, emanation",
+    "qualities": "<p>Amphibious, or close enough. HP, armor, and damage vary by the form you build — see the entry.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.SmHddXJMWp3niCln",
+    "notes": "",
+    "creatureType": "emanation"
+  },
+  "prototypeToken": {
+    "name": "Servant of Daagon",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/emanation.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "hmFDB8xhW7ZpIC4Z",
+      "name": "Emerge from deep water or thick fog",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.hmFDB8xhW7ZpIC4Z"
+    },
+    {
+      "_id": "SfqeG9rO4CCQ0nEQ",
+      "name": "Snatch up something valued or treasured",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.SfqeG9rO4CCQ0nEQ"
+    },
+    {
+      "_id": "PETkkvD1iIPIwpcC",
+      "name": "Wriggle free of danger or restraint",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.PETkkvD1iIPIwpcC"
+    },
+    {
+      "_id": "Sd1ggc27CFuwgQpI",
+      "name": "Smother, constrict, or engulf prey",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.Sd1ggc27CFuwgQpI"
+    },
+    {
+      "_id": "cLOT8ol6UF3etupP",
+      "name": "Mesmerize the weak-willed",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.cLOT8ol6UF3etupP"
+    },
+    {
+      "_id": "dh7kF2MB1qAzPUDh",
+      "name": "Heal at a prodigious rate",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.dh7kF2MB1qAzPUDh"
+    },
+    {
+      "_id": "WfixMw58lMLCZHbw",
+      "name": "Dissolve organic material",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.WfixMw58lMLCZHbw"
+    },
+    {
+      "_id": "jmSUU8oyzHCYejGs",
+      "name": "Paralyze with venom or poison",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BCA8xC2gsvHO43ou.jmSUU8oyzHCYejGs"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "xNwmsyJaxfoPoxux",
+  "_id": "BCA8xC2gsvHO43ou",
+  "_key": "!actors!BCA8xC2gsvHO43ou"
+}

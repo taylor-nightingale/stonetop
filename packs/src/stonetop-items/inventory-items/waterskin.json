@@ -1,0 +1,18 @@
+{
+  "_id": "qZ8pIx5F21rWz5FY",
+  "_key": "!items!qZ8pIx5F21rWz5FY",
+  "name": "Waterskin",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "waterskin",
+      "inventoryColumn": "small",
+      "sortOrder": 23,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

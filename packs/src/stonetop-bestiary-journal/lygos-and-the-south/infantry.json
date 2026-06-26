@@ -1,0 +1,61 @@
+{
+  "_id": "RrC8q9cFYtODqipS",
+  "_key": "!journal!RrC8q9cFYtODqipS",
+  "name": "Infantry",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Massed southern levy, holding the line behind spear and shield."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 160000,
+  "pages": [
+    {
+      "_id": "XN6JjsXaKtAGdhJR",
+      "_key": "!journal.pages!RrC8q9cFYtODqipS.XN6JjsXaKtAGdhJR",
+      "name": "Infantry",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Massed southern levy, holding the line behind spear and shield.",
+        "description": "<p>The rank and file of the southern armies: levied spearmen who form a phalanx, follow orders, and pin a foe in place while the legionaries and cavalry do the killing.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.r5Ea7yfpDcp6WTO4"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

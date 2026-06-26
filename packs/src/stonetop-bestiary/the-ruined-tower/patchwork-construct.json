@@ -1,0 +1,81 @@
+{
+  "name": "Patchwork Construct",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 3,
+        "source": "metal"
+      },
+      "damage": {
+        "value": "tool at hand d8 (hand or close)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to complete its given task"
+      }
+    },
+    "concept": "Mismatched, headless worker-constructs that maintain the dead tower.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, construct, cautious",
+    "qualities": "<p>Must recharge every few days; dog-like intellect; blind; tremorsense.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.n1UvqWHNDj9Nihcm",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Patchwork Construct",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "pZGzeRCKqd9EX361",
+      "name": "Size up an obstacle or task",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BwDgsHeLfhJWrS5w.pZGzeRCKqd9EX361"
+    },
+    {
+      "_id": "uWzS1eBZV7jieDgp",
+      "name": "Reveal or use a tool, feature, or attachment for its current task",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BwDgsHeLfhJWrS5w.uWzS1eBZV7jieDgp"
+    },
+    {
+      "_id": "JJECzgZ3Q68K9rVz",
+      "name": "Plod away, raise the alarm",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BwDgsHeLfhJWrS5w.JJECzgZ3Q68K9rVz"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "BwDgsHeLfhJWrS5w",
+  "_key": "!actors!BwDgsHeLfhJWrS5w"
+}

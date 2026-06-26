@@ -1,0 +1,61 @@
+{
+  "_id": "gm2GHWbSa8mM8Fnp",
+  "_key": "!journal!gm2GHWbSa8mM8Fnp",
+  "name": "Pacifier",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hollow stone spheres that hum the fight out of you."
+    }
+  },
+  "folder": "5NFFyHLQgpZKNJZX",
+  "sort": 100000,
+  "pages": [
+    {
+      "_id": "lRunh0SYjw0gCzpT",
+      "_key": "!journal.pages!gm2GHWbSa8mM8Fnp.lRunh0SYjw0gCzpT",
+      "name": "Pacifier",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Hollow stone spheres that hum the fight out of you.",
+        "description": "<p>They're basically hollow stone spheres, maybe scratched and dinged but otherwise featureless, often found in their little alcoves, charging. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{The Stone Lords}</strong> would deploy them among the rowdier servants to keep things running smoothly. When you are in range of a pacifier's hum, your emotions lose their edge, and rousing yourself to act violently, urgently, or passionately means rolling +WIS to shake off the effect.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.59u1Y4Rjasgp0Ylr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

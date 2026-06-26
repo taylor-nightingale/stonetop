@@ -1,0 +1,61 @@
+{
+  "_id": "5Sv77XzHPMBgZqJZ",
+  "_key": "!journal!5Sv77XzHPMBgZqJZ",
+  "name": "Shantyara",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A 'tranquil killer' who hunts the Howling Curse's victims through the Whitefangs."
+    }
+  },
+  "folder": "RAGjKS2JDwIV1qll",
+  "sort": 170000,
+  "pages": [
+    {
+      "_id": "wpyE6SCPfsbzsAj7",
+      "_key": "!journal.pages!5Sv77XzHPMBgZqJZ.wpyE6SCPfsbzsAj7",
+      "name": "Shantyara",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A 'tranquil killer' who hunts the Howling Curse's victims through the Whitefangs.",
+        "description": "<p>Only a handful of these \"tranquil killers\" remain — three or four at most. They wander the Whitefangs, hunting kyakaara and anyone else corrupted by the Howling Curse. They are welcome in any settlement, though that welcome is often stilted and fraught; few are comfortable under a shantyara's piercing gaze.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.j8rFoANTmTHD5MKF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

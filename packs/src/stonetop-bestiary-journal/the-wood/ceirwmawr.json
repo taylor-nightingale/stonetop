@@ -1,0 +1,70 @@
+{
+  "_id": "idLzu8GfQknwWCby",
+  "_key": "!journal!idLzu8GfQknwWCby",
+  "name": "Ceirwmawr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The royalty of deer — proud, vast-antlered, untouchable."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 13000,
+  "pages": [
+    {
+      "_id": "nal7Fmjmg5Grpcvw",
+      "_key": "!journal.pages!idLzu8GfQknwWCby.nal7Fmjmg5Grpcvw",
+      "name": "Ceirwmawr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The royalty of deer — proud, vast-antlered, untouchable.",
+        "description": "<p>Majestic. Proud. Antlers so large you can scarce believe how deftly it moves through the woods. They are the royalty of deer. It is said that only the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong> can give them chase, and that any mortal who dares to stalk them quickly finds the tables turned.</p>",
+        "questions": [
+          {
+            "prompt": "What special property does folklore say the ceirwmawr's antlers possess?",
+            "answer": ""
+          },
+          {
+            "prompt": "What dire fate is said to befall those who slay a ceirwmawr without @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{the Pale Hunter}'s permission?",
+            "answer": ""
+          }
+        ],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Qe9HW1xQCicVwtGC"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

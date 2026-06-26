@@ -1,0 +1,114 @@
+{
+  "name": "Bhoka",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 1,
+        "source": "hide"
+      },
+      "damage": {
+        "value": "talons d10+3 (hand, close, grabby, forceful)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to indulge an obsessive vice (pick one)"
+      }
+    },
+    "concept": "A hulking, element-wielding brute driven by one obsessive vice.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, cautious, magical, corrupted",
+    "qualities": "<p>Blinded by full daylight or holy light; takes +1d4 damage from bronze. Recoils from the Rime Lords' meditative chant. Each bhoka bears a special trait: huge (+4 HP, +2 damage), four or six arms (+area), a lashing tongue/tail, ice/rock scales (Armor 3), wings (flight), or regeneration.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Qy6WvpBjmoGnG0m8",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Bhoka",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zqg07BcJ4raSYKuL",
+      "name": "Slink through trees and shadows",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.zqg07BcJ4raSYKuL"
+    },
+    {
+      "_id": "PGJE3QSAGj8oZBIf",
+      "name": "Bellow like thunder, terrifying and awesome",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.PGJE3QSAGj8oZBIf"
+    },
+    {
+      "_id": "YXzD2TuTvxi7rFbT",
+      "name": "Fling lightning, 1d10+3 damage (far, forceful, loud, reload)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10+3"
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.YXzD2TuTvxi7rFbT"
+    },
+    {
+      "_id": "unfauqcYTQGdXu4A",
+      "name": "Turn itself, and anything it takes, into flowing mist",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.unfauqcYTQGdXu4A"
+    },
+    {
+      "_id": "Rx4uxy6I94N6Q6c5",
+      "name": "Conjure a maelstrom that sucks everything toward its gaping maw (near, area, reload)",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.Rx4uxy6I94N6Q6c5"
+    },
+    {
+      "_id": "g9m9OaWEelLlTqTk",
+      "name": "Become a swirling cloud of wind, hail, sleet, and lightning, 1d10+3 damage (area, reach, forceful, reload)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10+3"
+      },
+      "_key": "!actors.items!Vb5tyDtljq9QiGwW.g9m9OaWEelLlTqTk"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Bxq9dZGNWDbTbGon",
+  "_id": "Vb5tyDtljq9QiGwW",
+  "_key": "!actors!Vb5tyDtljq9QiGwW"
+}

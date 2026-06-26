@@ -1,0 +1,92 @@
+{
+  "name": "The Gliomor",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 22,
+        "max": 22
+      },
+      "armor": {
+        "value": 3,
+        "source": "carapace"
+      },
+      "damage": {
+        "value": "smaller claw d12+3 (reach, grabby), bigger claw d12+5 w/advantage (reach, forceful, messy, 3 piercing)",
+        "rollFormula": "d12+5"
+      },
+      "instinct": {
+        "value": "to eat pretty much anything"
+      }
+    },
+    "concept": "An enormous albino crayfish, older than the Fen itself.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, cautious, terrifying, ancient",
+    "qualities": "<p>Heals injuries in a few hours; regenerates limbs in a few days.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.JeFYzThOekEepQUH",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "The Gliomor",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "xrhNtuI2RPq9UsQN",
+      "name": "Poke its eyestalks out of the water or above the grass",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cYSCUVhhHfpbgRPS.xrhNtuI2RPq9UsQN"
+    },
+    {
+      "_id": "ZBY5LWs2FqFVkHkX",
+      "name": "Burst into view, making the mind reel with horror",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cYSCUVhhHfpbgRPS.ZBY5LWs2FqFVkHkX"
+    },
+    {
+      "_id": "myhhPTrCobGt4ZYZ",
+      "name": "Scuttle back quickly, to escape danger or drag off prey",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cYSCUVhhHfpbgRPS.myhhPTrCobGt4ZYZ"
+    },
+    {
+      "_id": "fq6Yq5SF8Tz45de8",
+      "name": "Spew a cloud of sickening, blinding, corrosive goo: d8 damage (area, close)",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8"
+      },
+      "_key": "!actors.items!cYSCUVhhHfpbgRPS.fq6Yq5SF8Tz45de8"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ReMgxSJxcjnX2CfO",
+  "_id": "cYSCUVhhHfpbgRPS",
+  "_key": "!actors!cYSCUVhhHfpbgRPS"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "hYf2HyXCbJa4j9Fc",
+  "_key": "!journal!hYf2HyXCbJa4j9Fc",
+  "name": "Novice",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An aspirant of the mountain monasteries, torn between teaching and base need."
+    }
+  },
+  "folder": "RAGjKS2JDwIV1qll",
+  "sort": 169000,
+  "pages": [
+    {
+      "_id": "6LSJjSPqQ1R8Ce0R",
+      "_key": "!journal.pages!hYf2HyXCbJa4j9Fc.6LSJjSPqQ1R8Ce0R",
+      "name": "Novice",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An aspirant of the mountain monasteries, torn between teaching and base need.",
+        "description": "<p>Those still learning the way of a Whitefang monastery — promising, devoted, and meek, but apt to flinch, balk, or veer between their masters' teachings and their own base needs.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.BHYJDndAivdji0kq"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

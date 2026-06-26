@@ -1,0 +1,61 @@
+{
+  "_id": "JeFYzThOekEepQUH",
+  "_key": "!journal!JeFYzThOekEepQUH",
+  "name": "The Gliomor",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An enormous albino crayfish, older than the Fen itself."
+    }
+  },
+  "folder": "vhqnmoOdeyOLvMcj",
+  "sort": 30000,
+  "pages": [
+    {
+      "_id": "bZWNV3zBFxquRaTp",
+      "_key": "!journal.pages!JeFYzThOekEepQUH.bZWNV3zBFxquRaTp",
+      "name": "The Gliomor",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An enormous albino crayfish, older than the Fen itself.",
+        "description": "<p>An enormous albino crayfish, older than the Fen itself. If you encounter it, pray it's not hungry. But fat chance of that.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.cYSCUVhhHfpbgRPS"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

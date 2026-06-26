@@ -1,0 +1,61 @@
+{
+  "_id": "HmHoC0TwqSBbaUyN",
+  "_key": "!journal!HmHoC0TwqSBbaUyN",
+  "name": "Dawa Eyegouger",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A cursed goatherder turned Boss's enforcer, kept sauced until there's killing to do."
+    }
+  },
+  "folder": "6ADFBIjyJDYHfu5w",
+  "sort": 166000,
+  "pages": [
+    {
+      "_id": "mqdFTww78EVWesSw",
+      "_key": "!journal.pages!HmHoC0TwqSBbaUyN.mqdFTww78EVWesSw",
+      "name": "Dawa Eyegouger",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A cursed goatherder turned Boss's enforcer, kept sauced until there's killing to do.",
+        "description": "<p>A goatherder from north of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong>, with orange irises and too-long fingers — marks of the Howling Curse. She turned up in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin's Delve}</strong> years back, and one of the Bosses put her to work as an enforcer. They keep her sauced and happy until there's work to be done; then they dry her out, point out the target, and stand well back.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.clNUnzTPrxZPGCPp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

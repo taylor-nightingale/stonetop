@@ -1,0 +1,61 @@
+{
+  "_id": "D42rXN4BtGJACqqt",
+  "_key": "!journal!D42rXN4BtGJACqqt",
+  "name": "Ferocedes Ogran",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The obsessive ghost of a Forge Lord smith, forever repairing a dead tower."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 54000,
+  "pages": [
+    {
+      "_id": "XkmwAtgoxq4I3EbF",
+      "_key": "!journal.pages!D42rXN4BtGJACqqt.XkmwAtgoxq4I3EbF",
+      "name": "Ferocedes Ogran",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The obsessive ghost of a Forge Lord smith, forever repairing a dead tower.",
+        "description": "<p>In life he was a brilliant but awkward Maker. Rivals sabotaged him, and he left his people in shame; Stormcatcher took him in, trusted him, gave him purpose — and for that, Ferocedes was rabidly loyal. Loyal unto death, and beyond. He died without noticing it, already a ghost when Stormcatcher cast her final spell. In the centuries since, he has fixated on a single task: to reclaim, rebuild, and repair, little by little, and to preserve the memory of his friend.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.GwnTCgTINiA49N9c"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

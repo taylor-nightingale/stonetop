@@ -1,0 +1,80 @@
+{
+  "name": "Shellback Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 3
+      },
+      "damage": {
+        "value": "snapping, bone-crushing bite d10 (hand, close, grabby, messy, 1 piercing)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to lash out at “food” in range"
+      }
+    },
+    "concept": "A 400-pound snapping-turtle drake that buries itself and waits.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cautious, hardy, patient",
+    "qualities": "<p>Nearly blind; senses vibrations.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.1c9b44uDspcLrAEk",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Shellback Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "G4sgV79J2HchPpE6",
+      "name": "Burrow into soil",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QytGix3nVoKyghUs.G4sgV79J2HchPpE6"
+    },
+    {
+      "_id": "G3iYqmLPVCmxCKEE",
+      "name": "Wait for prey, half-buried",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QytGix3nVoKyghUs.G3iYqmLPVCmxCKEE"
+    },
+    {
+      "_id": "WHWQMAZ7JuhPp4fH",
+      "name": "Withdraw into its shell (Armor 5)",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!QytGix3nVoKyghUs.WHWQMAZ7JuhPp4fH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "QytGix3nVoKyghUs",
+  "_key": "!actors!QytGix3nVoKyghUs"
+}

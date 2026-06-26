@@ -1,0 +1,21 @@
+{
+  "_id": "43ANVj77p3kZZl4A",
+  "_key": "!items!43ANVj77p3kZZl4A",
+  "name": "Candle",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "candle",
+      "inventoryColumn": "small",
+      "sortOrder": 26,
+      "note": "lasts ~1 hour, <em>hand</em>, <em>area</em>",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Light Sources"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

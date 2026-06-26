@@ -1,0 +1,81 @@
+{
+  "name": "Gwyllgi",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "claws d8 (close) or bite d8+2 (hand, grabby, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to feed on fear and despair"
+      }
+    },
+    "concept": "A red-eyed death-hound from beyond that marks one victim to die by the full moon.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, cautious, stealthy, terrifying",
+    "qualities": "<p>Hates daylight; must be manifest to feed. Armor 0 vs. silver.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.rBQSbe8jcGbTO6nA",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Gwyllgi",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "HlWnQsXE0uCJ5f6g",
+      "name": "Manifest as a black wolf with blazing red eyes",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!tI3YnOsAHoVQI6k2.HlWnQsXE0uCJ5f6g"
+    },
+    {
+      "_id": "94zECXk1ZdMmBQgq",
+      "name": "Appear to someone out alone at night and lay a death curse on them",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!tI3YnOsAHoVQI6k2.94zECXk1ZdMmBQgq"
+    },
+    {
+      "_id": "ob4Dy7Xo8cUGDyUw",
+      "name": "Breathe forth a baleful cloud, d6 damage (reach, area, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": "d6"
+      },
+      "_key": "!actors.items!tI3YnOsAHoVQI6k2.ob4Dy7Xo8cUGDyUw"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "tI3YnOsAHoVQI6k2",
+  "_key": "!actors!tI3YnOsAHoVQI6k2"
+}

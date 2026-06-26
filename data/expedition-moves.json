@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Chart a Course",
+    "description": "<p>When you <strong><em>wish to travel to a distant place</em></strong>, name or describe your destination. If the route is unclear, tell the GM how you intend to reach it. The GM will then tell you what's required, the risks, and how long it will likely take.</p><p>When you <strong><em>set out on the journey</em></strong>, the GM will present each of the challenges one at a time—plus any surprises that you couldn't have seen coming—in whatever order makes the most sense. Address them all and reach your destination.</p><details class=\"stonetop-follower-rule stonetop-travel-times\"><summary>Travel Times</summary><table class=\"stonetop-travel-times-table\"><thead><tr><th>Journey</th><th>Time</th></tr></thead><tbody><tr><td colspan=\"2\"><em>From Stonetop via the Roads to…</em></td></tr><tr><td>the Crossroads</td><td>3–4 hours</td></tr><tr><td>the Foothills</td><td>2 days</td></tr><tr><td>Titan Bones</td><td>2 days</td></tr><tr><td>Gordin's Delve</td><td>4 days</td></tr><tr><td>the Steplands</td><td>4 days</td></tr><tr><td>Barrier Pass</td><td>5 days</td></tr><tr><td>Marshedge</td><td>10 days</td></tr><tr><td colspan=\"2\"><em>From Stonetop to…</em></td></tr><tr><td>the cave bears' den</td><td>3–4 hours</td></tr><tr><td>the Red Grove</td><td>4–6 hours</td></tr><tr><td>the Maw</td><td>5–7 hours</td></tr><tr><td colspan=\"2\"><em>From the Crossroads to…</em></td></tr><tr><td>the Ruined Tower</td><td>5–6 hours</td></tr><tr><td colspan=\"2\"><em>From the north edge of the Steplands to…</em></td></tr><tr><td>Blackwater Lake</td><td>2–3 days</td></tr><tr><td>Three Coven Lake</td><td>3–4 days</td></tr><tr><td colspan=\"2\"><em>From Marshedge to…</em></td></tr><tr><td>the ruins on the Dread River</td><td>2 days</td></tr><tr><td>the northern Manmarch</td><td>4 days</td></tr><tr><td>Three-Coven Lake</td><td>4 days</td></tr><tr><td>Lygos</td><td>30 days</td></tr><tr><td colspan=\"2\"><em>To Tor's Fist from…</em></td></tr><tr><td>the Foothills</td><td>5 days</td></tr><tr><td>Barrier Pass</td><td>6 days</td></tr></tbody></table></details>",
+    "rollType": null
+  },
+  {
+    "name": "Forage",
+    "description": "<p>When you <strong><em>spend a few hours seeking food in the wild</em></strong>, roll +WIS. In winter, you have disadvantage. <strong>On a 10+</strong>, pick 2; <strong>on a 7-9</strong>, pick 1:</p><ul><li>You acquire ◇ provisions (1d6 uses)</li><li>You acquire an extra 1d6 uses of provisions</li><li>You discover something interesting or useful</li><li>You avoid danger or risk (else, there is some)</li></ul><p>Provisions can substitute for supplies when you Make Camp, 1-for-1.</p>",
+    "rollType": "wis",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Pick 2 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The land is barren or picked clean, hunger sets in (mark a debility), or you stumble into danger."
+      }
+    }
+  },
+  {
+    "name": "Have What You Need",
+    "description": "<p>When you <strong><em>decide that you had something all along</em></strong>, transfer a mark (or marks) from your \"undefined\" inventory to a specific item or a slot. If you mark a slot, fill it with a common mundane item or something from your special possessions.</p><p>Alternately, you can expend a use of supplies to mark an additional small item/slot (□).</p><p>Whatever you produce, it must be something you could have had all along. The GM or any player can veto unreasonable items.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Keep Company",
+    "description": "<p>When you <strong><em>spend a stretch of time together</em></strong>, ask the others if they want to Keep Company. If they do, take turns asking a PC or NPC one of the following.</p><ul><li>What do you do that's annoying/endearing?</li><li>What do I do that you find annoying/endearing?</li><li>Who or what seems to be on your mind?</li><li>What do we find ourselves talking about?</li><li>How do you/we pass the time?</li><li>What new thing do you reveal about yourself?</li></ul>",
+    "rollType": null
+  },
+  {
+    "name": "Make Camp",
+    "description": "<p>When you <strong><em>settle in to rest in an unsafe area</em></strong>, answer the GM's questions about your campsite. Each member of the party must consume 1 use of supplies or provisions; if you use a mess kit (requires fire &amp; water), then 1 use can provide for up to four people.</p><p>If you <strong><em>eat and drink your fill, and get at least a few hours of sleep</em></strong>, pick 1:</p><ul><li>Regain HP equal to ½ your max (round up)</li><li>Clear a debility</li></ul><p>If your rest was particularly peaceful, comfortable, or enjoyable, you also gain advantage on your next roll.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Outfit",
+    "description": "<p>When you <strong><em>prepare for an expedition in a friendly community</em></strong>, mark as many ◇ on your Inventory insert as you wish to carry, either on specific items or in \"undefined.\" Mark up to 3 ◇ for a <em>light</em> load (quick and quiet), 4–6 ◇ for a <em>normal</em> load, or 7–9 ◇ for a <em>heavy</em> load (noisy, slow, quick to tire). Also, mark a number of □ in the Small items section equal to 4+Prosperity (on specific items or \"undefined\").</p><p>You can select:</p><ul><li>Items printed on the Inventory insert</li><li>Other common, mundane items</li><li>Any of your special possessions</li><li>Special items for which you Trade &amp; Barter</li></ul><p>Tell the GM what you're bringing, and answer their questions about your gear and where you got it.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Recover",
+    "description": "<p>When you <strong><em>take time to catch your breath and tend to what ails you</em></strong>, expend 1 use of supplies and regain HP equal to 4+Prosperity. You can't gain this benefit again until you take more damage.</p><p>When you <strong><em>tend to a debility or a problematic wound</em></strong>, say how. The GM will either say that it's taken care of or tell you what else is required to do so.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Requisition",
+    "description": "<p>When you <strong><em>borrow some of the steading's assets for an expedition</em></strong> (like the horses or a plow), roll +Fortunes: <strong>on a 10+</strong>, go ahead, but bring it back safely; <strong>on a 7-9</strong>, you'll need to do some convincing; <strong>on a 6-</strong>, don't mark XP—you can take the asset with you if you want, but if you do, reduce Fortunes by 1.</p>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "Go ahead, but bring it back safely."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You'll need to do some convincing."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Don't mark XP. You can take the asset with you if you want, but if you do, reduce Fortunes by 1."
+      }
+    }
+  },
+  {
+    "name": "Return Triumphant",
+    "description": "<p>When you <strong><em>return home in triumph</em></strong>, having saved your fellows, put down the threat, seized the opportunity, etc., then clear one of the steading's debilities (<em>diminished</em>, <em>lacking</em>, or <em>malcontent</em>).</p><p>If the steading has no debilities marked, then increase Fortunes by 1.</p>",
+    "rollType": null
+  },
+  {
+    "name": "Struggle as One",
+    "description": "<p>When you <strong><em>Defy Danger as a group</em></strong>, establish the party's approach and each roll +STAT (per Defy Danger): <strong>on a 6-</strong>, you find yourself in a spot, the GM will describe it or ask you to; <strong>on a 7-9</strong>, you pull your weight; <strong>on a 10+</strong>, you do well enough to get someone else out of a spot, if you can tell us how.</p><p>If you roll a 6- but someone saves you, don't mark XP.</p>",
+    "rollType": "ask",
+    "results": {
+      "success": {
+        "label": "10+",
+        "value": "You do well enough to get someone else out of a spot, if you can tell us how."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You pull your weight."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You find yourself in a spot—the GM will describe it or ask you to."
+      }
+    }
+  }
+]

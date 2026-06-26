@@ -1,0 +1,61 @@
+{
+  "_id": "GCwoVVL355ENXJ25",
+  "_key": "!journal!GCwoVVL355ENXJ25",
+  "name": "Boar",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Territorial wild boars that ignore pain."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 10000,
+  "pages": [
+    {
+      "_id": "oYZZJaIPiHmiOphi",
+      "_key": "!journal.pages!GCwoVVL355ENXJ25.oYZZJaIPiHmiOphi",
+      "name": "Boar",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Territorial wild boars that ignore pain.",
+        "description": "<p>Wild boars of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Given enough years, enough close calls, and a steady diet of ferro-tree roots and nuts, a boar can eventually become a raselbaedd.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.oZS0ErG5Jl909oCE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

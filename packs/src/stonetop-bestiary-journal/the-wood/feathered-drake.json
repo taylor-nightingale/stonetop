@@ -1,0 +1,61 @@
+{
+  "_id": "T17yRp50eDt8cyXO",
+  "_key": "!journal!T17yRp50eDt8cyXO",
+  "name": "Feathered Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Man-sized flightless pack drakes that crash through the brush."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 17000,
+  "pages": [
+    {
+      "_id": "57hELMNqLR2FRrIf",
+      "_key": "!journal.pages!T17yRp50eDt8cyXO.57hELMNqLR2FRrIf",
+      "name": "Feathered Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Man-sized flightless pack drakes that crash through the brush.",
+        "description": "<p>Bigger than a grown man, with a yard-long talon on each foot and a boney ridge on their heads they use to go crashing through the undergrowth. They might follow a party for days, waiting for them to let their guard down or for someone to fall behind. Then? Bam. Their feathers are much-sought by merchants — a bundle of drake feathers (fragile, Value 3) can be harvested from a flock of 3-4.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.30NDurP2YczoGj6B"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "_id": "i0WjzHh0Ugynv2Tl",
+  "_key": "!journal!i0WjzHh0Ugynv2Tl",
+  "name": "Danu, the Earth Mother",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Danu—the Great Mother, the Goddess, She-Who-Provides—is one of the four main gods of Stonetop. She is the deity of the earth and the wild places, of beasts and birds, of green growing things. She has long been revered by all peoples, though not always worshipped, nor served by priests."
+    }
+  },
+  "folder": "IIxADXjnF97PXJDg",
+  "sort": 3000,
+  "pages": [
+    {
+      "_id": "ScpAGZvgbKC5U8MR",
+      "_key": "!journal.pages!i0WjzHh0Ugynv2Tl.ScpAGZvgbKC5U8MR",
+      "name": "Danu, the Earth Mother",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Danu—the Great Mother, the Goddess, She-Who-Provides—is one of the four main gods of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>. She is the deity of the earth and the wild places, of beasts and birds, of green growing things. She has long been revered by all peoples, though not always worshipped, nor served by priests.</p><p>If one of your initial PCs has the Blessed playbook, then they will answer many of the questions in this section via their presence, their background, and the decisions they make during character creation and introductions. Defer to that PC as the expert on Danu in your game, but don’t forget to ask other PCs for their opinions and experiences, too.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Pick, or roll 1d12.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>The earth itself/soil/stone</td></tr><tr><td>3–4</td><td>Beasts of the land/birds of the air</td></tr><tr><td>5–6</td><td>Growing things (plants, fungus, agriculture, etc.)</td></tr><tr><td>7</td><td>Spirits of the wild</td></tr><tr><td>8</td><td>Wild, untamed places</td></tr><tr><td>9</td><td>Fertility/reproduction/(re)birth</td></tr><tr><td>10</td><td>Secrets/mysteries/bindings</td></tr><tr><td>11</td><td>The natural order/seasons/cycles</td></tr><tr><td>12</td><td>Healing/purging/protection</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Holy places",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Danu has a shrine in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>’s pavilion of the gods. Outside of Stonetop, consider whether any given community maintains a holy place to Danu.</p><p>For any given holy place:</p><ul><li class=\"question-bullet\">What is it? A shrine, a temple, a sacred site, or what?</li><li class=\"question-bullet\">Where is it? In the center of town, on the outskirts, in the nearby wilds, etc.?</li><li class=\"question-bullet\">How is Danu represented, if at all?</li><li class=\"question-bullet\">What symbols/trappings adorn it?</li><li class=\"question-bullet\">Which of her themes are emphasized?</li><li class=\"question-bullet\">Who, if anyone, maintains it?</li><li>What is this holy place like? It might be… (pick 1)</li></ul><p>… loved, well-used, dripping with offerings and petitions;<br>… little more than a token of respect, her true holy places being elsewhere;<br>… given wide berth, approached only with care and propitiation;<br>… neglected and all but forgotten, except by a few;<br>… some variation on the above; or<br>… something else entirely.</p><p>Likewise, ask or consider what offerings are typically left there. These might include… (pick up to 3)</p><ul><li>blood and/or burnt flesh figurines and/or effigies fruits of the harvest incense and sage bark pure rain water metal nails and/or tools salt and crystals whisky or other alcohol</li></ul><p>Think about what the answers say about how this community sees Danu, and why? Do they see her as a nurturing mother? As an inscrutable natural force? As a hungry mother-of-monsters, a deity to appease and avoid? Or what?</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Her blessed",
+            "group": "details",
+            "danger": false,
+            "body": "<p>In any given community, there are those who learn some of Danu’s secrets, who bear some of her gifts, who make offerings to her and perform her most important rites. For any given community, these folk might be…</p><p>… initiates of a formal order/cult/priesthood;<br>… the practitioner(s) of a particular trade (the midwife, herbalists, hunters, etc.);<br>… a respected elder, and their apprentice(s);<br>… an outsider, set apart from the community;<br>… some combination of the above; or<br>… someone else entirely.</p><p>Whoever they are, ask or consider:</p><ul><li class=\"question-bullet\">Who are they? What are they like?</li><li class=\"question-bullet\">Where do they live? What sets them apart?</li><li class=\"question-bullet\">How much influence do they have?</li><li class=\"question-bullet\">What about them puts others ill at ease?</li><li class=\"question-bullet\">What contact (if any) do they have with their peers in other communities?</li><li class=\"question-bullet\">What rites do they lead/perform, both publicly and in secret?</li><li class=\"question-bullet\">What special gifts/skills do they possess?</li></ul><p>If one of your PCs has the Blessed playbook, they almost certainly fill this role for <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> (though there may be others who do so, too).</p><p>Should a blessed NPC (or group of NPCs) oppose or cause trouble for the PCs, write them up as a threat (likely an institution or maybe a wildcard).</p><p>Remember: NPCs don’t have playbooks. A blessed NPC might have tags or moves reminiscent of a PC Blessed, or not. See the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> spirit-talker and the Initiates of Danu insert for examples.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Perversions of nature",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Danu’s Grasp move from the Blessed playbook affects “perversions of nature,” as does the Ranger’s move, Warden of the Wild. This includes the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> and anything corrupted by them or infused with their power. Undead probably count, too, as well as some of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>’ more extreme creations.</p><p>Ask the Blessed or Ranger what they’d consider a perversion of nature. Consider what you know about the entity in question, and make a ruling. When in doubt, defer to the Die of Fate or the result of an appropriate move.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "**According to the tales…** How did Danu come to be (a god)? What’s her origin story?",
+                "answer": ""
+              },
+              {
+                "prompt": "Why are white elder trees traditionally associated with Danu?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which god is her child/lover/rival/ally?",
+                "answer": ""
+              },
+              {
+                "prompt": "What feature of the landscape is said to have been shaped by her hand?",
+                "answer": ""
+              },
+              {
+                "prompt": "What humble beast or bird does she hold to be most sacred?",
+                "answer": ""
+              },
+              {
+                "prompt": "How exactly are the brennauwed said to be related to Danu?",
+                "answer": ""
+              },
+              {
+                "prompt": "How did the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}**’s view of her differ most strikingly from **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**’s?",
+                "answer": ""
+              },
+              {
+                "prompt": "Use the answers to help decide what Danu’s true nature is.",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>An offering to Danu goes missing, just before an important rite.</li><li>Stunted crops/sickly livestock/earthquakes/etc. point to Danu’s displeasure.</li><li>One of Danu’s blessed is accused of sorcery and blamed for bad luck/illness.</li><li>The priest(s)/initiate(s) of Danu oppose some project the PCs wish to undertake.</li><li>A natural site has been corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>; Danu sends a warning via dreams.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A few menhirs atop a high place, with carvings that map the movements of certain auspicious stars (immobile)</li><li>Dried, hallucinogenic mushrooms (2d4 uses, Value 1)</li><li>A pouch of bendis root (~10 uses, burnt fumes repel perversions of nature; each use lasts ~1 hour, reach, area, Value 1)</li><li>A bezoar (swallow to cure any poison, Value 1)</li><li>A pouch of pink salt, good for cooking/preserving and bane to corrupted creatures (Value 1)</li><li>A sacred pouch of rune-stitched drakeskin; when sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world (magical, Value 2)</li><li>A silver-alloy dagger, useful against undead spirits (hand, Value 2)</li><li>A 6-foot tall statue of Danu, carved from a geode, the torso open and filled with amethyst crystals (immobile, Value 3)</li><li>A scroll (fragile, Value 4 to the right buyer) with cryptic instructions on how to create a <strong>@UUID[Compendium.stonetop.stonetop-items.Item.JbD3F19zQs3ph0SC]{Redwood Effigy}</strong></li></ul><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A folktale</td></tr><tr><td>2</td><td>A giant oak leaf</td></tr><tr><td>3</td><td>A crumbling arch</td></tr><tr><td>4</td><td>A path in the woods</td></tr><tr><td>5</td><td>A patch of rainbow moss</td></tr><tr><td>6</td><td>A beaded satchel</td></tr></tbody></table><ul><li>Major arcana</li><li>The following might be associated with Danu, or at least revered by her followers:</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.0n4lgBdJ0abmmQfl]{The Twisted Spear}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-items.Item.PVOSwDruAGSeUI3V]{The Shield of the Wisent Witch}</strong></li><li>The Redwood Effigy</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Associated entities",
+                "body": "<ul><li>Any sort of natural beast or spirit of the wild, who acknowledge Danu’s authority</li><li>The brennauwed in particular, who claim kinship with her</li><li>Many of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, who honor her as a respected elder</li><li>Fen-walkers, who know better than to offend her</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Owbdgx7wi7p30MzW]{Hdour}</strong>, who know many of her secrets</li><li>Spirit-talkers and gouzadn, who hear her voice and bear her gifts</li><li>Perhaps the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong>, the other gods, or the great spirits, any of whom might share a bond of kinship, familiarity, or common cause</li></ul><p>Signs of her displeasure</p><ul><li>The Forest’s Wrath</li><li>Disease</li><li>Volcanic activity and earthquakes, and what they let loose</li><li>Mudslides or rockslides, out of the blue</li><li>Perhaps the stirring of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UEQE5cKRurhX9gCE]{Crombil}</strong>, decades before its time</li><li>The ire of various natural beasts or spirits of the wild</li><li>Blighted crops/gardens, sickly livestock, scarce game (disadvantage to generate Surplus in summer and autumn)</li><li>Some manner of curse, upon an individual or a community (threat type affliction; Instinct to punish)</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

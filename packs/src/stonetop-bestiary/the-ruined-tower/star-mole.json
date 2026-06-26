@@ -1,0 +1,91 @@
+{
+  "name": "Star-Mole",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "caustic spit or blood d6 w/disadvantage (hand, close, messy, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to lure predators into traps"
+      }
+    },
+    "concept": "Five-foot glowing mole-rats that tunnel, bait, and collapse passages.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, cautious, devious, organized, hardy",
+    "qualities": "<p>Blind; tremorsense; bioluminescent.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5JC9gQCHQUHugXsQ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Star-Mole",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "lVA2EfHmWqGlFK42",
+      "name": "Soften stone with its spit, then dig through it",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!89ZjFUUS1I9bP2MH.lVA2EfHmWqGlFK42"
+    },
+    {
+      "_id": "JCLBDtGXa6UXIFBS",
+      "name": "Spurt caustic blood when hurt",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!89ZjFUUS1I9bP2MH.JCLBDtGXa6UXIFBS"
+    },
+    {
+      "_id": "RCh3k3pCFw0bRui2",
+      "name": "Scamper away, hide, act as bait",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!89ZjFUUS1I9bP2MH.RCh3k3pCFw0bRui2"
+    },
+    {
+      "_id": "B9TEKnXxLxh6vfZK",
+      "name": "Trigger a collapse or cave-in",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!89ZjFUUS1I9bP2MH.B9TEKnXxLxh6vfZK"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "89ZjFUUS1I9bP2MH",
+  "_key": "!actors!89ZjFUUS1I9bP2MH"
+}

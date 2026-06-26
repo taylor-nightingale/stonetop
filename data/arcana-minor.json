@@ -1,0 +1,1291 @@
+[
+  {
+    "name": "A beaded satchel",
+    "slug": "beaded-satchel",
+    "type": "minor",
+    "front": {
+      "title": "A beaded satchel",
+      "description": "<p>Made of thick, stiff leather and decorated with impossibly fine beadwork. The pattern shows a fruit-laden tree sheltering various game and produce and grains. The specifics often change when you aren't looking.</p><p>The satchel is home to a number of spirits of autumn and plenty.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the satchel's secrets and gain the spirits' aid, you must…"
+    },
+    "back": {
+      "title": "Satchel of Plenty",
+      "description": "<p>When you <strong><em>feed the satchel 1 Surplus of freshly harvested foodstuffs</em></strong>, it fits even though it should not. Until next autumn's harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).</p><p><strong>1d6 TODAY'S FOOD IS…</strong></p><ol><li>Actively unpleasant, needs cooking</li><li>Bland but tolerable, needs cooking</li><li>Delicious, needs cooking</li><li>Actively unpleasant, ready to eat</li><li>Bland but tolerable, ready to eat</li><li>Delicious, ready to eat</li></ol><p>When you <strong><em>draw more than 1 use of provisions from the satchel in a given day</em></strong>, it provides up to 10 uses but will produce no more until you feed it again next autumn.</p>"
+    }
+  },
+  {
+    "name": "A beautiful scroll",
+    "slug": "beautiful-scroll",
+    "type": "minor",
+    "front": {
+      "title": "A beautiful scroll",
+      "description": "<p>Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>beautiful, fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of this scroll, you must…"
+    },
+    "back": {
+      "title": "Little Friend",
+      "description": "<p>You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.</p><p><strong>Tulpa</strong><br><em>Spirit, construct, tiny, naive,</em> □ <em>eager</em><br>□ <em>fierce</em> □ <em>kind</em> □ <em>sly</em> □ <em>timid</em> □ <em>willful</em><br><strong>HP</strong> 8; <strong>Armor</strong> 0<br><strong>Damage</strong> 1d4 (if that)<br><strong>Instinct</strong> □ to play □ to learn □ to flaunt<br>▶ Manifest a form of dust/snow/vapor<br>▶ Produce light (<em>area, reach</em>)<br>▶ Carry/manipulate a ◇ item<br>▶ Deliver a message<br>▶ Spy on someone/something<br><strong>Cost</strong> □ respect given □ new experiences □ comfort/compassion (Loyalty: ○○○)</p>"
+    }
+  },
+  {
+    "name": "A bow with no string",
+    "slug": "bow-with-no-string",
+    "type": "minor",
+    "front": {
+      "title": "A bow with no string",
+      "description": "<p>A short flatbow made of pale blue metal, rigid and gracefully curved even though it's unstrung. There aren't even hooks where you could attach a string.</p><p>It seems to be of little use, but there is more to this bow than meets the eye.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "Thunderbolt Bow",
+      "description": "<p>When you <strong><em>speak the secret word</em></strong>, the bow activates and hums ominously. When you then <strong><em>wear the aetherium glove and grasp where the string should be</em></strong>, a crackling line of lightning appears between the horns.</p><p>When you <strong><em>draw back the lightning</em></strong>, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.</p><p>You must charge the bow with lightning to replenish its ammo.</p><p>When you <strong><em>draw back the lightning for at least ten deep breaths</em></strong>, deplete your ammo. Your next shot deals +1d4 damage (+area, +dangerous), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, reach, area, forceful, loud).</p>"
+    }
+  },
+  {
+    "name": "A chain of rusty locks",
+    "slug": "chain-of-rusty-locks",
+    "type": "minor",
+    "front": {
+      "title": "A chain of rusty locks",
+      "description": "<p>A chain, six links long, each link hung with a corroded bronze padlock. 1d4+1 locks bear a stylized face, frozen in a rusty grimace. The keys to these locks are lost to the ages.</p><p>When you <strong><em>hold one of the face-adorned locks and look into its eyes</em></strong>, you can hear the voice of the departed soul bound within: hateful, desperate, pleading to be set free.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can master the locks by…"
+    },
+    "back": {
+      "title": "The Six Locks of Sajua",
+      "description": "<p>When you <strong><em>smear the blood of the dying onto an open Lock of Sajua and then close the lock</em></strong>, roll +CON: <strong>on a 10+</strong>, their soul is bound in the lock; <strong>on a 7-9</strong>, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.</p><p>When you <strong><em>extract a promise from a bound soul and then open the lock that binds it</em></strong>, the soul is compelled to fulfill the letter of its promise before it goes its own way. Tell the GM to treat it as a ghost (though not necessarily as a follower); the open lock serves as its tether, at least for now.</p><p>Each time you release a soul, mark 1 Disturbance and roll 1d6. If you roll less than your Disturbance, you hear the call of the Pale Hunter in the distance. Expect a visit soon.</p>",
+      "resource": {
+        "max": 7,
+        "title": "Disturbance"
+      }
+    }
+  },
+  {
+    "name": "A clear natural pool",
+    "slug": "clear-natural-pool",
+    "type": "minor",
+    "front": {
+      "title": "A clear natural pool",
+      "description": "<p>High in the hills, a stream of snowmelt fills a deep pool in the rocks before flowing on. At the bottom of the pool is a large deposit of lodestone. Rusted old blades (many sized for giants) can be seen clinging to the lodestone.</p>",
+      "unlock": "There is magic here; to unlock its secrets, either…"
+    },
+    "back": {
+      "title": "Ward of Still Waters",
+      "description": "<p>When you <strong><em>cut yourself with iron or steel and toss the bladed metal into the pool</em></strong>, you form a bond with the waters. So long as you carry a vial of the pool's water on your person, you are protected by the ward of still waters.</p><p>When you are so protected and <strong><em>subject to magic that attempts to sense or affect your thoughts, actions, or emotions</em></strong>, the magic targets the still waters of the pool instead—possibly befuddling the magic's source.</p><p>Each time the ward of still waters protects you, mark 1 Strain and then roll 1d6. If the roll is less than your current Strain, the water you carry loses its potency. When you <strong><em>return to the pool and renew your bond</em></strong>, clear all Strain.</p>",
+      "resource": {
+        "max": 6,
+        "title": "Strain"
+      }
+    }
+  },
+  {
+    "name": "A cloak, richly embroidered",
+    "slug": "cloak-richly-embroidered",
+    "type": "minor",
+    "front": {
+      "title": "A cloak, richly embroidered",
+      "description": "<p>An exquisitely fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn't there.</p><p>When you <strong><em>don the cloak</em></strong>, you become aware of the presence bound within, thrumming and impatient.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, warm</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of the cloak, you must…"
+    },
+    "back": {
+      "title": "Flying Cloak",
+      "description": "<p>When you <strong><em>wear the cloak and speak the word of command</em></strong>, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.</p><p><strong>The Spirit in the Cloak</strong><br><em>Spirit, magical, proud, mute</em><br><strong>HP</strong> 13; <strong>Armor</strong> 1 (amorphous)<br><strong>Damage</strong> lashing wind, rain, debris d6 (<em>near, area</em>)<br><strong>Instinct</strong> to \"not hear\" your commands<br><strong>Special qualities</strong><br>▶ Bear its master aloft on a cushion of swirling winds<br>▶ Manifest a storm as it flies<br>▶ Wreak havoc on its surroundings<br>▶ Fling lightning from a raging storm, d10+3 (<em>far, forceful, reload</em>)<br><strong>Cost</strong> flying about for hours (Loyalty ○○○)</p>"
+    }
+  },
+  {
+    "name": "A copper-banded staff",
+    "slug": "copper-banded-staff",
+    "type": "minor",
+    "front": {
+      "title": "A copper-banded staff",
+      "description": "<p>A short staff, about 4 feet tall, tapering toward the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "The staff still tingles with power. To unlock its mysteries you must…"
+    },
+    "back": {
+      "title": "Staff of Magnetism",
+      "description": "<p>When <strong><em>lightning courses through the staff</em></strong>, it holds 3 Charge (max 3).</p><p>When <strong><em>the staff holds Charge and you focus your will and senses through it</em></strong>, you can sense iron, steel, cobalt, and nickel within <em>near</em> range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.</p><p>When you <strong><em>tap into the power stored within the staff</em></strong>, pick 1:</p><ul><li>Extend its effects up to <em>far</em> range</li><li>Move items quickly and suddenly, fast enough to attack or defend (<em>dangerous</em>)</li><li>Manipulate an object of considerable mass, as much as you could deadlift</li></ul><p>Each time you tap into the staff's power, roll 1d6. If you roll higher than the staff's current Charge, it loses 1 Charge.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Charge"
+      }
+    }
+  },
+  {
+    "name": "A corroded spearhead",
+    "slug": "corroded-spearhead",
+    "type": "minor",
+    "front": {
+      "title": "A corroded spearhead",
+      "description": "<p>Hidden away in some vault or cave or Maker-ruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those faint traces of runes?</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of this ancient weapon, you must…"
+    },
+    "back": {
+      "title": "Aetherium Spear",
+      "description": "<p>◇, <em>close, thrown, magical</em>, +1 damage</p><p>When you <strong><em>Clash with the aetherium spear and get a 7+</em></strong>, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (<em>forceful, loud</em>).</p><p>When you <strong><em>point the aetherium spear at your foes and bellow a thunderous warcy</em></strong>, mark a debility and unleash a blast of lightning (<em>far, area, forceful, loud, dangerous</em>), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). <strong>On a 6-</strong>, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.</p>"
+    }
+  },
+  {
+    "name": "A cracked flute",
+    "slug": "cracked-flute",
+    "type": "minor",
+    "front": {
+      "title": "A cracked flute",
+      "description": "<p>A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there's some magic here.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>crude, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "When you spend a few days practicing, playing the flute where the wind can hear you, roll +CHA: <strong>on a 10+</strong>, mark 1 circle; <strong>on a 7-9</strong>, mark 1 circle but you summon an irate zephyr spirit; <strong>on a 6-</strong>, you make no progress but do manage to summon an irate zephyr. When you mark all three circles, you unlock the mysteries of the flute."
+    },
+    "back": {
+      "title": "Dancing Wind Spirit",
+      "description": "<p>When you <strong><em>play a tune to make the wind itself dance</em></strong>, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you <strong><em>dismiss the spirit while it holds no Loyalty</em></strong>, the flute splits and falls apart; the andalau is set free.</p><p><strong>The Andalau of the Flute</strong><br><em>Spirit, tiny, stealthy, mischievous</em><br><strong>HP</strong> 8; <strong>Armor</strong> 0<br><strong>Damage</strong> none<br><strong>Instinct</strong> to play and frolic<br>▶ Manifest as a fluttering gust of wind (harmed only by salt)<br>▶ Deliver a whispery message<br>▶ Flit things about (dust, leaves, etc.)<br>▶ Annoy or spook someone<br><strong>Cost</strong> entertainment (Loyalty ○○○)</p>"
+    }
+  },
+  {
+    "name": "A creepy cave",
+    "slug": "creepy-cave",
+    "type": "minor",
+    "front": {
+      "title": "A creepy cave",
+      "description": "<p>There's a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.</p><p>The cave bears the lingering taint of a Thing Below, but has been cut off from its power.</p>",
+      "unlock": "To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "The Flesh Is Like Clay",
+      "description": "<p>When you <strong><em>cruelly kill a warm-blooded being in the cave</em></strong>, one of similar size to yourself, and <strong><em>smear both its blood and yours upon the stones</em></strong>, mark 1:</p><ul><li>□ Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.</li><li>□ Gain one of your victim's physical traits (their strength, their speed, their looks, their strong heart, etc.).</li><li>□ Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.).</li></ul><p><em>Each time you use this power</em>, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave's power are gone.</p>"
+    }
+  },
+  {
+    "name": "A crumbling arch",
+    "slug": "crumbling-arch",
+    "type": "minor",
+    "front": {
+      "title": "A crumbling arch",
+      "description": "<p>On a rare dry spot in Ferrier's Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can learn the secrets of the sanctifying mark, but to do so you must…"
+    },
+    "back": {
+      "title": "Sanctifying Mark",
+      "description": "<p>When you <strong><em>mark an object with the sigil of sanctification</em></strong>, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.</p><p>When a <strong><em>being of darkness, chaos, or death first tests the power of your mark</em></strong>, roll +INT: <strong>on a 10+</strong>, all such creatures are kept at bay so long as your mark remains inviolate; <strong>on a 7-9</strong>, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.</p>"
+    }
+  },
+  {
+    "name": "A disturbing mask",
+    "slug": "disturbing-mask",
+    "type": "minor",
+    "front": {
+      "title": "A disturbing mask",
+      "description": "<p>This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.</p><p><em>Note: weight 1 only when stowed; it weighs nothing when worn.</em></p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "There's more to this mask than meets the eye. To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "Fetch's Mask",
+      "description": "<p>When you <strong><em>wear the mask and eat someone's hair, blood, fingernail, etc.</em></strong>, you and the mask become their flawless double until the next sunrise or until you remove the mask.</p><p>When you <strong><em>interact with an NPC known to whoever's visage you wear</em></strong>, roll +CHA: <strong>on a 10+</strong>, hold 3 Ken; <strong>on a 7-9</strong>, hold 1 Ken; <strong>on a 6-</strong>, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:</p><ul><li>What do they expect me to do/say?</li><li>What do they hope/want from me?</li><li>What secret do I keep from them?</li></ul><p>When you <strong><em>remove the mask after wearing someone's visage</em></strong>, roll +CON: <strong>on a 10+</strong>, it hurts but comes off okay; <strong>on a 7-9</strong>, your face is raw and painful, mark a debility; <strong>on a 6-</strong>, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Ken"
+      }
+    }
+  },
+  {
+    "name": "A fine ceramic urn",
+    "slug": "fine-ceramic-urn",
+    "type": "minor",
+    "front": {
+      "title": "A fine ceramic urn",
+      "description": "<p>A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it's clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>beautiful, fragile, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of the urn, you must…"
+    },
+    "back": {
+      "title": "Plaster of Joining",
+      "description": "<p>When you <strong><em>pour water, a pinch of blood, and special reagents (Value 1) into the urn and sing over it for a full day and night</em></strong>, the urn gains 1 use (3 uses max) of plaster.</p><p>When you <strong><em>use the plaster to join two or more pieces of stone, rock, or crystal</em></strong> and let the plaster set for a few hours, the pieces will fuse together. Different materials will fuse together seamlessly. Similar materials will fuse together seamlessly.</p><p>A single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Uses"
+      }
+    }
+  },
+  {
+    "name": "A fine drinking horn",
+    "slug": "fine-drinking-horn",
+    "type": "minor",
+    "front": {
+      "title": "A fine drinking horn",
+      "description": "<p>You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.</p><p>Since then, the horn has seemed to call to you, daring you to drink heavily from it.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>beautiful, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "Horn of Storms",
+      "description": "<p>When you <strong><em>get yourself good and drunk from the horn</em></strong>, mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. Until <strong><em>the storm passes</em></strong>, you can't clear debilities.</p><p>Assign one d4 to each of the following:</p><ul><li><strong>Onset:</strong> 1 = next day; 2-3 = in a few hours; 4 = within the hour.</li><li><strong>Intensity:</strong> 1 = dangerous to be out in; 2-3 = damages weak structures; 4 = lays waste to weak structures and damages sturdy ones.</li><li><strong>Reach:</strong> 1 = a mile or so; 2-3 = a dozen miles or so; 4 = dozens or scores of miles.</li><li><strong>Duration</strong> (once it gets going): 1 = less than an hour; 2-3 = a few hours; 4 = a day or so.</li></ul>"
+    }
+  },
+  {
+    "name": "A folktale",
+    "slug": "a-folktale",
+    "type": "minor",
+    "front": {
+      "title": "A folktale",
+      "description": "<p>There's this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does.</p>",
+      "unlock": "You can learn the secret of the enchanted seedpods, but need one of the following:"
+    },
+    "back": {
+      "title": "Truth Seeds",
+      "description": "<p>When you <strong><em>soak a pair of gwir-nettle seedpods in your own blood, whisper secrets over them, and say the words of power</em></strong>, they become truth seeds (<em>magical</em>).</p><p>When you and another <strong><em>each eat a truth seed and make promises to each other</em></strong>, the seeds stay in your guts and ensure that the promises are kept.</p><p>When you <strong><em>break your promise</em></strong>, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (<em>messy</em>, ignores armor) and now you've got a gwir-nettle growing out of you.</p><p>If the <strong><em>other party breaks their promise</em></strong>, they suffer the same fate.</p>"
+    }
+  },
+  {
+    "name": "A giant oak leaf",
+    "slug": "giant-oak-leaf",
+    "type": "minor",
+    "front": {
+      "title": "A giant oak leaf",
+      "description": "<p>About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can turn the leaf into a wondrous cloak, but to do so you must…"
+    },
+    "back": {
+      "title": "Goldleaf Cloak",
+      "description": "<p>When you <strong><em>wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements</em></strong>, then all of these are true:</p><ul><li>You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.</li><li>You are immune to effects that calm or dampen your emotions.</li><li>You are surrounded by a constant golden glow (<em>band, area</em>), making it nearly impossible to hide.</li></ul><p>When you <strong><em>die and are buried in the earth, wrapped in your goldleaf cloak</em></strong>, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.</p>"
+    }
+  },
+  {
+    "name": "A giant's dormitory",
+    "slug": "giants-dormitory",
+    "type": "minor",
+    "front": {
+      "title": "A giant's dormitory",
+      "description": "<p>In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.</p><p>When you <strong><em>enter the dormitory</em></strong>, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "When you enter the dormitory, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…"
+    },
+    "back": {
+      "title": "Aalz Galt's Sudden Sinkhole",
+      "description": "<p>When you <strong><em>sing a rumbling note and focus your will upon a point of earth or stone</em></strong>, mark a debility and roll +INT.</p><p><strong>On a 10+</strong>, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.</p><p><strong>On a 7-9</strong>, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).</p>"
+    }
+  },
+  {
+    "name": "A gold butter lamp",
+    "slug": "gold-butter-lamp",
+    "type": "minor",
+    "front": {
+      "title": "A gold butter lamp",
+      "description": "<p>An oversized, highly decorated lamp, more like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.</p><p>It's worth a fortune (Value 4), but there's more to this lamp than meets the eye.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>magical, reach, area</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "Revealing Light",
+      "description": "<p>When you <strong><em>spend a day preparing the special ingredients (Value 1) according to the secret recipe</em></strong>, you get a ◇ jar of magic butter (○○○○○ hours).</p><p>When you <strong><em>light the lamp and intone the mantra</em></strong>, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:</p><ul><li>Active spirits are visible, even if they are not manifest</li><li>Illusions, glamours, and veils are stripped away</li><li>Shapechangers can be seen for what they truly are</li><li>Hidden things radiate a bright aura</li><li>Lies spoken are visible as black smoke that lingers near the ground</li></ul><p>Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.</p>"
+    }
+  },
+  {
+    "name": "A gold ring",
+    "slug": "gold-ring",
+    "type": "minor",
+    "front": {
+      "title": "A gold ring",
+      "description": "<p>This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the secrets of this ring, but must first…"
+    },
+    "back": {
+      "title": "Helior's Shining Ring",
+      "description": "<p>When you <strong><em>spend the better part of a day wearing the ring and worshipping Helior in full sunlight</em></strong>, hold 1 Daylight.</p><p>When you <strong><em>wear the ring in shadows or darkness and spend 1 Daylight</em></strong>, the ring shines forth with holy light (<em>near, area</em>) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.</p><p>Alas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Daylight"
+      }
+    }
+  },
+  {
+    "name": "A grim peat mound",
+    "slug": "grim-peat-mound",
+    "type": "minor",
+    "front": {
+      "title": "A grim peat mound",
+      "description": "<p>Not far from Marshedge, a ways into Ferrier's Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town's founding, the people of Marshedge have buried certain criminals here, alive.</p><p>Over the years, the land has birthed a spirit that hungers for the dying breaths of the <strong>condemned</strong> (<em>Book II</em>, page 85). It is young and eager, and can be set to work upon criminals, but only if you…</p>",
+      "unlock": "It is young and eager, and can be set to work upon criminals, but only if you…"
+    },
+    "back": {
+      "title": "The Tomb-bog's Mark",
+      "description": "<p>When you <strong><em>use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime</em></strong>, you can place a geas upon them. Phrase it as one of the following:</p><ul><li>You must never again ____.</li><li>Henceforth, you must always seek to ____ when you have the chance.</li></ul><p>Should they <strong><em>fail to follow the geas</em></strong>, their life is forfeit and the tomb-bog spirit will track them down and smother them.</p><p>Should they <strong><em>prove themselves innocent to the tomb-bog spirit</em></strong>, your life is forfeit instead.</p>"
+    }
+  },
+  {
+    "name": "A half-buried plaque",
+    "slug": "half-buried-plaque",
+    "type": "minor",
+    "front": {
+      "title": "A half-buried plaque",
+      "description": "<p>A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It's dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>cumbersome, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "The plate contains the workings of a spell, which you can learn but…"
+    },
+    "back": {
+      "title": "Thunderous Bellow",
+      "description": "<p>When you <strong><em>channel the storm primeval and utter a thunderous bellow</em></strong>, take 1d6 damage (ignores armor) and roll +CON: <strong>on a 10+</strong>, everyone nearby (except you) must choose 2; <strong>on a 7-9</strong>, everyone nearby (except you) must choose 1.</p>"
+    }
+  },
+  {
+    "name": "A huge wooden sphere",
+    "slug": "huge-wooden-sphere",
+    "type": "minor",
+    "front": {
+      "title": "A huge wooden sphere",
+      "description": "<p>Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.</p>",
+      "unlock": "The pictograms depict some sort of recipe, which you can learn but you must…"
+    },
+    "back": {
+      "title": "Ffyrnig Tonic",
+      "description": "<p>When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).</p>",
+      "resource": {
+        "max": 3,
+        "title": "Ffyrnig Tonic"
+      }
+    }
+  },
+  {
+    "name": "A humble broom",
+    "slug": "humble-broom",
+    "type": "minor",
+    "front": {
+      "title": "A humble broom",
+      "description": "<p>Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn't give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.</p><p>Clearly, there is more to this broom than meets the eye.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, crude</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "The Broom's Lullaby",
+      "description": "<p>When you <strong><em>start sweeping an area as you softly sing the lullaby</em></strong>, roll +CHA: <strong>on a 7+</strong>, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. <strong>Also, on a 10+</strong>, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.</p><p>When you <strong><em>sing the full lullaby, sweeping all the while</em></strong>, roll +CHA: <strong>on a 10+</strong>, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; <strong>on a 7-9</strong>, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; <strong>on a 6-</strong>, at least one of your audience snaps to and realizes just how weird all this is.</p>"
+    }
+  },
+  {
+    "name": "A large wooden jar",
+    "slug": "large-wooden-jar",
+    "type": "minor",
+    "front": {
+      "title": "A large wooden jar",
+      "description": "<p>30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear.</p><p><strong>If the jar is opened</strong>, all its magic is lost.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>cumbersome, fragile, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the jar's mysteries, you must…"
+    },
+    "back": {
+      "title": "Impudent Polymorph",
+      "description": "<p>When you <strong><em>interrupt the idyllic afterlife of the Green Lord bound to the jar and demand that it change your form</em></strong>, describe the change and pick as many as you dare:</p><ul><li>The change lasts as long as you like (else, it lasts until you get a 6- on a move)</li><li>The change is quick and easy (else, it takes minutes or even hours)</li><li>You adapt to the new form quickly (else, mark a debility)</li><li>Pick 2 of your stats; swap their values until the change ends</li></ul><p>Then roll +CHA: <strong>on a 10+</strong>, the spirit works the change, just as you asked; <strong>on a 7-9</strong>, it works the change, but you gain Ire equal to the number of choices you've made; <strong>on a 6-</strong>, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire.</p>",
+      "resource": {
+        "max": 8,
+        "title": "Ire"
+      }
+    }
+  },
+  {
+    "name": "A length of prayer beads",
+    "slug": "length-of-prayer-beads",
+    "type": "minor",
+    "front": {
+      "title": "A length of prayer beads",
+      "description": "<p>A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, beautiful</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of the prayer beads, you must…"
+    },
+    "back": {
+      "title": "Cold Mind, Iron Body",
+      "description": "<p>When you <strong><em>Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads</em></strong>, hold Preparation (as per the Bolster move).</p><p>While you <strong><em>hold at least 1 Preparation</em></strong>, you require only an hour of sleep each night, can endure cold weather without warm clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.</p><p>Also, you can spend 1 Preparation to:</p><ul><li>Add +1 to any roll, after it is made (maximum +1 per roll)</li><li>Clear a debility, or refuse to mark one</li><li>Perform a feat of extreme endurance</li><li>Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)</li></ul>",
+      "resource": {
+        "max": 3,
+        "title": "Preparation"
+      }
+    }
+  },
+  {
+    "name": "A makerglass chime",
+    "slug": "makerglass-chime",
+    "type": "minor",
+    "front": {
+      "title": "A makerglass chime",
+      "description": "<p>A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>indestructible, magical, loud, dangerous</em>",
+        "column": "regular"
+      },
+      "unlock": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
+    },
+    "back": {
+      "title": "Make Pliant the Stone",
+      "description": "<p>When you <strong><em>strike the chime forcefully and will yourself to maintain your grip upon it</em></strong>, mark a debility and roll +CON.</p><p><strong>On a 10+</strong>, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.</p><p><strong>On a 7-9</strong>, pick 1:</p><ul><li>Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility</li><li>Realize that you can't control it and dampen the chime before it causes any harm (say how)</li></ul>"
+    }
+  },
+  {
+    "name": "A metal man",
+    "slug": "metal-man",
+    "type": "minor",
+    "front": {
+      "title": "A metal man",
+      "description": "<p>A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "This is clearly no mere statue, but to unlock its mysteries you need to…"
+    },
+    "back": {
+      "title": "Bronze Protector",
+      "description": "<p>As long as <strong><em>fire burns in in the stove-like chest</em></strong>, the hearth spirit will animate the construct. Treat it as a follower.</p><p><strong>Bronze protector</strong><br><em>Construct, spirit, durable, vigilant, overbearing, mute, gullible</em><br><strong>HP</strong> 13; <strong>Armor</strong> 3 (metal)<br><strong>Damage</strong> pummel 1d8 (<em>band</em>)<br><strong>Special qualities</strong> fireproof; holds +1 Readiness <strong>on a 7+</strong> to Defend; requires a smithy and tools to regain HP<br><strong>Instinct</strong> to be overzealous in guarding you<br>▶ Loom menacingly, belching smoke<br>▶ Start fires, cause collateral damage<br>▶ Run low on fuel<br><strong>Cost</strong> profuse gratitude (Loyalty: ○○○)</p>",
+      "resource": {
+        "max": 4,
+        "title": "Readiness"
+      }
+    }
+  },
+  {
+    "name": "A metal puzzle box",
+    "slug": "metal-puzzle-box",
+    "type": "minor",
+    "front": {
+      "title": "A metal puzzle box",
+      "description": "<p>A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>indestructible</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "Runes of Creation",
+      "description": "<p>When you <strong><em>carefully inscribe an object with the runes of creation</em></strong>, pick 1 desired effect:</p><ul><li>It will flow into any shape you imagine</li><li>It will become <em>indestructible</em></li><li>It will become <em>beautiful</em></li><li>It will blaze with terrible heat (1d10 damage, <em>messy</em>), if only for a moment</li></ul><p>When you <strong><em>speak the Silent Word that completes the spell</em></strong> (<em>far</em> range), mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: <strong>on a 10+</strong>, the GM picks 1; <strong>on a 7-9</strong>, the GM picks 2; <strong>on a 6-</strong>, all 3:</p><ul><li>Mark another debility &amp; lose 1d10 HP</li><li>The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.</li><li>The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM's choosing</li></ul>"
+    }
+  },
+  {
+    "name": "A mummified hand",
+    "slug": "mummified-hand",
+    "type": "minor",
+    "front": {
+      "title": "A mummified hand",
+      "description": "<p>Found in an engraved lead box, this grisly relic is adorned with three golden rings (Value 2). Each ring has an empty setting, as though it was meant to hold a stone. Only dark, rust-like flakes remain.</p><p>The hand still thrums with unholy vitality.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "Hand of Aals Sannan",
+      "description": "<p>When you (and only you) <strong><em>touch the hand and speak the name of Aals Sannan</em></strong>, all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:</p><ul><li>○ Part of your look changes, to be more like Aals Sannan.</li><li>○ Your instinct changes, to something more cynical/manipulative/ambitious.</li><li>○ Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat.</li></ul><p>When <strong><em>all three have been marked</em></strong>, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can't use this arcanum.</p>"
+    }
+  },
+  {
+    "name": "A patch of rainbow moss",
+    "slug": "patch-of-rainbow-moss",
+    "type": "minor",
+    "front": {
+      "title": "A patch of rainbow moss",
+      "description": "<p>In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of this place, you must…"
+    },
+    "back": {
+      "title": "The Sylvan Web",
+      "description": "<p>When you <strong><em>lie down in the rainbow moss and cast your mind into the Great Wood</em></strong>, say what you are looking for and roll +WIS: <strong>on a 10+</strong>, pick 3; <strong>on a 7-9</strong>, pick 1.</p><ul><li>You learn the location of your quarry</li><li>You get a sense of your quarry's recent activities, or the activity surrounding it</li><li>You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)</li><li>You spend only an hour or so adrift (else, you spend all day)</li></ul><p>Whatever you learn, it is limited by and filtered through the senses the forest.</p>"
+    }
+  },
+  {
+    "name": "A path in the woods",
+    "slug": "path-in-the-woods",
+    "type": "minor",
+    "front": {
+      "title": "A path in the woods",
+      "description": "<p>Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.</p><p>If you <strong><em>set forth upon the trail at midsummer</em></strong>, you can unlock its mysteries, but you must…</p>",
+      "unlock": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
+    },
+    "back": {
+      "title": "Nerth Serpent's Vigor",
+      "description": "<p>When you <strong><em>crush the life from the Nerth Serpent and devour its still-warm heart</em></strong>, hold 3 Vitality. While you hold Vitality, you age very slowly.</p><p>Spend Vitality 1-for-1 to:</p><ul><li>Shrug off a poison, sickness, or curse</li><li>Survive a lethal wound or injury</li><li>Recover fully from a permanent injury or impairment (with a few days' rest)</li><li>Perform a feat of extraordinary strength, prowess, or endurance</li></ul><p>Each time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.</p><p><em>Note: Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth.</em></p>",
+      "resource": {
+        "max": 3,
+        "title": "Vitality"
+      }
+    }
+  },
+  {
+    "name": "A prospector's tale",
+    "slug": "prospectors-tale",
+    "type": "minor",
+    "front": {
+      "title": "A prospector's tale",
+      "description": "<p>\"An Ustrina once offered me a mirror, a flawless thing framed in gold. It showed me, but... a better me, you see? They said who made it, one of the Forge Lords, I think? Said she 'poured her Sublime Words into it,' whatever that means. I couldn't pay their price. But I'll never forget that mirror, or how it made me feel.\"</p><p>That old man turned up dead, but you suspect there's some truth to his story.</p>",
+      "unlock": "To unlock its mysteries, you must…"
+    },
+    "back": {
+      "title": "Sublime Words",
+      "description": "<p>When you <strong><em>spend supplies (Value 2) and a full season a-crafting, chanting the Sublime Words all the while</em></strong>, roll +WIS. No matter what, you've damaged your voice (mark a status above) and made a thing of true beauty (Value 4). <strong>On a 10+</strong>, pick 1 and further damage your voice; <strong>on a 7-9</strong>, pick 1 and further damage your voice:</p><ul><li>Its beauty will persist through the ages</li><li>It eases pain and lifts grief</li><li>It inspires others to better themselves</li></ul><p><strong>On a 6-</strong>, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed.</p><p>When you <strong><em>rest your voice for a season</em></strong> (no shouting, little talking, not using the Sublime Words), clear one status above.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Voice",
+        "labels": [
+          "raspy voice",
+          "coughing fits",
+          "mute"
+        ]
+      }
+    }
+  },
+  {
+    "name": "A ragged fur cloak",
+    "slug": "ragged-fur-cloak",
+    "type": "minor",
+    "front": {
+      "title": "A ragged fur cloak",
+      "description": "<p>The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill.</p><p>When you <strong><em>don the cloak</em></strong>, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>warm, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "There's more to this cloak, for sure. To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "Darkwalker Cloak",
+      "description": "<p>When you <strong><em>open your own veins and drench the fur with your own fresh blood</em></strong>, lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.</p><p>When you <strong><em>suffer a blow or physical injury while wearing the Darkwalker Cloak</em></strong>, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm at all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.</p><p>When <strong><em>direct sunlight or holy light touch the Darkwalker Cloak, or anyone but you dons it</em></strong>, it loses all its Charges.</p>",
+      "resource": {
+        "max": 4,
+        "title": "Charges"
+      }
+    }
+  },
+  {
+    "name": "A redwood basin",
+    "slug": "redwood-basin",
+    "type": "minor",
+    "front": {
+      "title": "A redwood basin",
+      "description": "<p>A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren't looking; it's never exactly the same twice.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>magical, beautiful</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of the basin, you must…"
+    },
+    "back": {
+      "title": "Bittersweet Elixir",
+      "description": "<p>When you <strong><em>fill the basin with a few years of your life</em></strong>, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):</p><ul><li>□ Your mood shifts, dramatically (how?)</li><li>□ You see the Last Door (what's it like?)</li><li>□ Reduce STR, DEX, or CON by 1</li><li>□ You have less than a year to live</li></ul><p>When someone <strong><em>drinks down all of the bittersweet elixir, straight from the basin</em></strong>, they pick 1:</p><ul><li>Regain all HP, clear all debilities, and heal any active problematic wounds</li><li>Purge themselves of all poison/disease</li><li>Fully recover from a permanent injury by next season's end, or sooner</li></ul>",
+      "resource": {
+        "max": 3,
+        "title": "Age",
+        "labels": [
+          "youthful",
+          "mature",
+          "elderly"
+        ]
+      }
+    }
+  },
+  {
+    "name": "A richly woven rug",
+    "slug": "richly-woven-rug",
+    "type": "minor",
+    "front": {
+      "title": "A richly woven rug",
+      "description": "<p>About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the secrets of this rug, but you must first…"
+    },
+    "back": {
+      "title": "Fear of the Flame",
+      "description": "<p>When you <strong><em>spend an hour or so on the rug, meditating on the fear of fire that all natural things possess</em></strong>, you hold Terror and mark 1 Heat.</p><p><strong>○ Terror</strong>: When you <strong><em>unleash the Terror you hold</em></strong>, all who see you fear you as they would fear the flame primeval, until you dismiss the effect.</p><p>When you <strong><em>dismiss the effect</em></strong>, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc.</p><p>When <strong><em>a season passes without you unleashing Terror</em></strong>, reduce your Heat by 1.</p>",
+      "resource": {
+        "max": 6,
+        "title": "Heat"
+      }
+    }
+  },
+  {
+    "name": "A runic branding iron",
+    "slug": "runic-branding-iron",
+    "type": "minor",
+    "front": {
+      "title": "A runic branding iron",
+      "description": "<p>Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of this iron and claim its power as your own, you must…"
+    },
+    "back": {
+      "title": "Searing Touch",
+      "description": "<p>When you <strong><em>call up the fire from your soul and pour it into your hands</em></strong>, roll +CON: <strong>on a 7+</strong>, your hands blaze like white-hot iron (see below); <strong>but on a 10+</strong>, first pick 1; <strong>and on a 7-9</strong>, first pick 2:</p><ul><li>It takes minutes of intense focus</li><li>It burns your life force; lose 2d4 HP</li><li>The pain is terrible; mark a debility</li></ul><p><strong>On a 6-</strong>, whatever else the GM says, you cannot do this and must Convalesce.</p><p>While your <strong><em>hands are ablaze</em></strong>, your touch deals 1d10 damage (<em>band, messy, dangerous</em>, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection. Be careful.</p><p>Your hands blaze as long as you maintain your focus, up to a minute or maybe two.</p>"
+    }
+  },
+  {
+    "name": "A rusty cauldron",
+    "slug": "rusty-cauldron",
+    "type": "minor",
+    "front": {
+      "title": "A rusty cauldron",
+      "description": "<p>Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that's rust.</p><p>The thing has a sinister feel, and you can sense its power.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>immobile, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the cauldron's mysteries, you must…"
+    },
+    "back": {
+      "title": "Unliving Chimera",
+      "description": "<p>When you <strong><em>boil the bones of beasts in the cauldron and stir in your own fresh blood</em></strong>, mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (<em>bear-like, owl-like</em>, etc.).</p><p>For each debility you marked, pick 1:</p><ul><li>It is stable (else, it falls apart in a day)</li><li>It is not <em>clumsy</em></li><li>Replace its instinct with \"to shun light\"</li></ul><p><strong>Unliving chimera</strong><br><em>Undead, construct, terrifying, clumsy</em><br><strong>HP</strong> 3; <strong>Armor</strong> 4 (0 vs. bronze)<br><strong>Damage</strong> varies d6 (<em>band</em>, maybe others)<br><strong>Instinct</strong> to get confused and lash out<br>▶ Do something one of its component beasts could do<br>▶ Moan, wretchedly and disturbingly<br><strong>Cost</strong> lots of fresh blood (Loyalty ○○○)</p>"
+    }
+  },
+  {
+    "name": "A rusty steel blade",
+    "slug": "rusty-steel-blade",
+    "type": "minor",
+    "front": {
+      "title": "A rusty steel blade",
+      "description": "<p>It was clearly once a fine, fine blade. The steel holds a pattern of rustle-sworls, at least where the rust hasn't taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it's been left out for hours in the summer sun.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>close, crude</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of this weapon, you must…"
+    },
+    "back": {
+      "title": "Flaming Sword",
+      "description": "<p>When you <strong><em>call on the fire spirit within</em></strong>, the blade erupts in flames (+<em>magical, +dangerous</em>) and casts light (<em>reach, area</em>). The hilt gets hot; wear thick gloves!</p><p>When you <strong><em>Clash with the Flaming Sword</em></strong>, after you resolve the move and deal damage, increase the Blaze die one step.</p><p>When you <strong><em>roll to make a move while wielding the sword</em></strong>, take damage equal to the Blaze die (ignores armor).</p><p>When you <strong><em>deal damage with the sword</em></strong>, add the Blaze die.</p><p>When you <strong><em>sheathe the sword</em></strong>, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour.</p>",
+      "resource": {
+        "max": 5,
+        "title": "Blaze",
+        "labels": [
+          "nil",
+          "1d4",
+          "1d6",
+          "1d8",
+          "1d10"
+        ]
+      }
+    }
+  },
+  {
+    "name": "A scroll & a bone flute",
+    "slug": "scroll-and-bone-flute",
+    "type": "minor",
+    "front": {
+      "title": "A scroll & a bone flute",
+      "description": "<p>A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a bone flute (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the secrets of the scroll and flute, but…"
+    },
+    "back": {
+      "title": "Song of the Dool Trees",
+      "description": "<p>When you <strong><em>stand among dool trees and play the proper tune on a flute of a murderer's bone</em></strong>, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.</p><p><strong>Dool spirit</strong><br><em>Spirit, terrifying, stealthy, devious</em><br><strong>HP</strong> 13; <strong>Armor</strong> 1 (amorphous)<br><strong>Damage</strong> feast on fear d8 (<em>close, band</em>, ignores armor, disadvantage)<br><strong>Instinct</strong> to take things too far<br><strong>Special qualities</strong> powerless in bright light<br>▶ Sense a victim's doubt and worries<br>▶ Shape sound and shadow to unnerve and frighten<br>▶ Manifest as its victim's fears (harmed only by one who masters their fear)<br><strong>Cost</strong> new, exquisite fears (Loyalty ○○○)</p>"
+    }
+  },
+  {
+    "name": "A sealed cave",
+    "slug": "sealed-cave",
+    "type": "minor",
+    "front": {
+      "title": "A sealed cave",
+      "description": "<p>High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.</p><p>Indeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can learn their mysteries, but…"
+    },
+    "back": {
+      "title": "Peacebond",
+      "description": "<p>When you <strong><em>mark a place with the peacebond glyphs</em></strong>, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.</p><p>When you <strong><em>attempt to commit violence within a peacebonded area, or to harm the peacebond glyphs themselves</em></strong>, you hesitate.</p><p>If you <strong><em>will yourself to continue</em></strong>, lose 1d4 HP and roll +WIS: <strong>on a 10+</strong>, go for it; <strong>on a 7-9</strong>, you act but have disadvantage on any rolls to commit violence (including damage); <strong>on a 6-</strong>, you fail to act and mark <em>dazed</em>.</p>"
+    }
+  },
+  {
+    "name": "A silvery glass bottle",
+    "slug": "silvery-glass-bottle",
+    "type": "minor",
+    "front": {
+      "title": "A silvery glass bottle",
+      "description": "<p>About 10 inches tall, tapered at the top, made of old warped glass that's shot through with silvery streaks, like the trails that slugs leave. The patterns in the glass seem different each time you look, almost shifting as you watch. It makes you eyes water, your head spin.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the secrets of this old glass bottle, but you must either…"
+    },
+    "back": {
+      "title": "Witch Bottle",
+      "description": "<p>When you <strong><em>tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle</em></strong>, hold 3 Sway over them. The cinders continue to burn and glow until the Sway is gone. Each time you release 1 Sway while speaking their true name to…</p><ul><li>Twist their senses, making them perceive something untrue</li><li>Plague them with nightmares until they wash in rain or snow</li><li>Cause an emotion in their heart to swell, possibly overwhelming them</li></ul><p>If the person you currently hold Sway over finds and breaks the Witch Bottle, you will yourself suffer all the torments you have ever inflicted with it.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Sway"
+      }
+    }
+  },
+  {
+    "name": "A silvery signet ring",
+    "slug": "silvery-signet-ring",
+    "type": "minor",
+    "front": {
+      "title": "A silvery signet ring",
+      "description": "<p>A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, beautiful</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the ring's mysteries, you must…"
+    },
+    "back": {
+      "title": "Sigil of Authority",
+      "description": "<p>When you <strong><em>Strengthen Your Bond</em></strong> with a member of your community, you can choose to hold +1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you <strong><em>remove the ring</em></strong>, lose all Authority.</p><p>When you <strong><em>Persuade your follower(s) while holding Authority</em></strong>, you have advantage.</p><p>You can spend Authority 1-for-1 to:</p><ul><li>Wrap yourself in majesty for up to a few minutes, drawing all attention, cowing the weak-willed, and speaking in a voice that can hear (<em>far, area</em>)</li><li>Will someone in your presence to do as you wish, attempting to Persuade them without words</li><li>Have one of your nearby followers suffer an attack on your behalf, as if they held Readiness from Defending</li></ul>",
+      "resource": {
+        "max": 3,
+        "title": "Authority"
+      }
+    }
+  },
+  {
+    "name": "A small, strange book",
+    "slug": "small-strange-book",
+    "type": "minor",
+    "front": {
+      "title": "A small, strange book",
+      "description": "<p>A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
+    },
+    "back": {
+      "title": "Old Mother's Wine",
+      "description": "<p>When you <strong><em>sacrifice a memory to a berry-laden elder tree</em></strong>, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.</p><p>When you <strong><em>harvest the berries and spend a season making wine from them</em></strong>, gain a skin of Old Mother's Wine (5 uses, magical).</p>",
+      "resource": {
+        "max": 6,
+        "title": "Lost memories"
+      }
+    }
+  },
+  {
+    "name": "A stone idol",
+    "slug": "stone-idol",
+    "type": "minor",
+    "front": {
+      "title": "A stone idol",
+      "description": "<p>Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum's sneering face, a thorny tail, and flowers for its ears.</p><p>The idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>crude, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its \"mysteries\" and benefit from its patronage, you must…"
+    },
+    "back": {
+      "title": "The Angry Little God",
+      "description": "<p>When you <strong><em>put the idol in a prominent place and beseech it to attend its humble servant</em></strong>, it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.</p><p><strong>All-mighty Thistlewik</strong><br><em>Fae, tiny, magical, devious, arrogant</em><br><strong>HP</strong> 15; <strong>Armor</strong> 6 (stone, resilience), 2 vs. iron<br><strong>Special qualities</strong> inert; indistinguishable voice<br><strong>Instinct</strong> to heap abuse on its worshippers<br>▶ Make unreasonable demands<br>▶ Consume the essence of foodstuffs<br>▶ Sense one's idle thoughts/memories<br>▶ Weave powerful illusions and hallucinations (<em>near, area</em>)<br>▶ Grow bored/huffy and go to sleep<br><strong>Cost</strong> obeisance and ever-larger offerings of food (Loyalty: ○○○)</p>"
+    }
+  },
+  {
+    "name": "A strange pendant",
+    "slug": "strange-pendant",
+    "type": "minor",
+    "front": {
+      "title": "A strange pendant",
+      "description": "<p>A strange charm on a simple leather cord, like a scale of some shimmering material. It's cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of the pendant…"
+    },
+    "back": {
+      "title": "The Drowning Scale",
+      "description": "<p>When you <strong><em>lean over a dying person, suck out their final breath, and breathe it into the pendant</em></strong>, roll +CON: <strong>on a 10+</strong>, hold +1 Breath; <strong>on a 7-9</strong>, pick 1:</p><ul><li>Hold 1 Breath, but it tears at your lungs; mark <em>miserable</em> and suffer a nasty coughing fit.</li><li>The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit.</li></ul><p>So long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour.</p><p>When you <strong><em>remove the pendant</em></strong>, lose any Breath you hold.</p>",
+      "resource": {
+        "max": 3,
+        "title": "Breath"
+      }
+    }
+  },
+  {
+    "name": "A strange skull and antlers",
+    "slug": "strange-skull-and-antlers",
+    "type": "minor",
+    "front": {
+      "title": "A strange skull and antlers",
+      "description": "<p>A skull, the size of a horse's head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>immobile, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of this relic, you…"
+    },
+    "back": {
+      "title": "The Green Lord's Shade",
+      "description": "<p>When you <strong><em>make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull</em></strong>, it manifests before you in shadows.</p><p>The shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (<strong>Instinct</strong> to fulfill its increasingly specific longings.)</p><p>While it rides you, the shade communicates only through impulse and desire. When it <strong><em>compels you to act against your wishes</em></strong>, mark XP if you comply. If you resist, you are Defying Danger.</p>"
+    }
+  },
+  {
+    "name": "A stretched vellum",
+    "slug": "stretched-vellum",
+    "type": "minor",
+    "front": {
+      "title": "A stretched vellum",
+      "description": "<p>Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.</p>",
+      "item": {
+        "weight": 2,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its mysteries and learn the spell, you must…"
+    },
+    "back": {
+      "title": "Chimeric Transmogrification",
+      "description": "<p>When you <strong><em>hold forth a bit of one beast (fur, bone, etc.) and speak the words of chimeric transmogrification upon another</em></strong>, roll +INT: <strong>on a 10+</strong>, the spell works; <strong>on a 7-9</strong>, the spell works but you must mark a debility.</p><p>When <strong><em>the spell works</em></strong>, roll 1d10+CON. If your roll <strong><em>equals or exceeds the target's current HP</em></strong>, name a feature of the beast you hold—the target's form twists and buckles, gaining that feature until they sleep for a few hours. <strong>If you roll less than the target's current HP</strong>, their form twists and buckles, but they fight off the transformation. <strong>Either way</strong>, the bit of the beast you hold is lost, shriveling away to nothing.</p>"
+    }
+  },
+  {
+    "name": "A sunken tablet",
+    "slug": "sunken-tablet",
+    "type": "minor",
+    "front": {
+      "title": "A sunken tablet",
+      "description": "<p>A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Maker-runes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>immobile</em>",
+        "column": "regular"
+      },
+      "unlock": "The tablet reveals the workings for a ritual, which you can learn if you…"
+    },
+    "back": {
+      "title": "Convocation of the Soil",
+      "description": "<p>When you <strong><em>spill your blood on the soil and speak the words of convocation</em></strong>, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.</p><p>When you <strong><em>cast this spell on the fields in early spring, spilling a scary amount of your blood</em></strong>, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn's harvest will generate 1d4+1 extra Surplus.</p><p>However, you must roll +WIS: <strong>on a 10+</strong>, there is no consequence; <strong>on a 7-9</strong>, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; <strong>on a 6-</strong>, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.</p>"
+    }
+  },
+  {
+    "name": "A tattered mantle",
+    "slug": "tattered-mantle",
+    "type": "minor",
+    "front": {
+      "title": "A tattered mantle",
+      "description": "<p>Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and finely sewn teeth in the fringe like decorative beads.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>warm, magical</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the power of this mantle by…"
+    },
+    "back": {
+      "title": "Mantle Wraiths",
+      "description": "<p>When you <strong><em>let slip the wraiths tethered to the mantle</em></strong>, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.</p><p><strong>Mantle wraiths</strong><br><em>Group (3), spirit, undead, terrifying, vicious</em><br><strong>HP</strong> 13; <strong>Armor</strong> 1 (amorphous)<br><strong>Damage</strong> life drain d8 (<em>band</em>, ignores armor)<br><strong>Instinct</strong> to run rampant<br><strong>Special qualities</strong> powerless in daylight<br>▶ Whisper their longings to the weaver<br>▶ Manifest a form of shadow and cold (harmed only by silver and salt)<br>▶ Hurl themselves at the living<br>▶ Suck the vitality from their prey<br><strong>Cost</strong> souls feasted upon (Loyalty ○○○)</p>"
+    }
+  },
+  {
+    "name": "A time-worn missive",
+    "slug": "time-worn-missive",
+    "type": "minor",
+    "front": {
+      "title": "A time-worn missive",
+      "description": "<p>A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the mysteries of these portals, you must…"
+    },
+    "back": {
+      "title": "Opening the Way",
+      "description": "<p>When you <strong><em>use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion</em></strong>, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.</p><p>When you <strong><em>stand before one portal and hold the sigils of another portal perfectly in your mind</em></strong>, mark a debility to manifest those sigils as lines of glowing light. When you <strong><em>then invoke the axiom of local contagion</em></strong>, roll +INT: <strong>on a 10+</strong>, the portals open, but close as soon as your focus falters; <strong>on a 7-9</strong>, as a 10+ but only if you mark another debility; <strong>on a 6-</strong>, mark a debility and pass out from the strain.</p>"
+    }
+  },
+  {
+    "name": "A timeless vault",
+    "slug": "timeless-vault",
+    "type": "minor",
+    "front": {
+      "title": "A timeless vault",
+      "description": "<p>High in the hills or mountains, a pair of massive stone doors are set into the hillside. The markings outside are faded and covered in lichen. The doors aren't locked; one lies a bit ajar. Inside, the vault and its contents are untouched by time, free of dust or mold. Clearly some magic is afoot.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of this place's stasis…"
+    },
+    "back": {
+      "title": "Preserving Runes",
+      "description": "<p>When you <strong><em>trace the runes along the inside of a room or container</em></strong>, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:</p><ul><li>The container/room is more than a few feet long in any dimension</li><li>The container is portable (else, the effect ends if it is moved)</li><li>The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed)</li></ul><p>Once the runes are in place, roll +CON: <strong>on a 10+</strong>, you regain the lost HP normally; <strong>on a 7-9</strong>, you can't regain the lost HP until a season passes <em>or</em> the effect ends, whichever comes first; <strong>on a 6-</strong>, you can't regain the lost HP until the effect ends and then a season passes (and don't mark XP).</p>"
+    }
+  },
+  {
+    "name": "A treasure map",
+    "slug": "treasure-map",
+    "type": "minor",
+    "front": {
+      "title": "A treasure map",
+      "description": "<p>A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the map's mysteries and claim the prize at the end, you must…"
+    },
+    "back": {
+      "title": "The Silver Branch",
+      "description": "<p>A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.</p><p>When you <strong><em>jingle the silver branch</em></strong>, all who hear it (<em>reach</em>, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: <strong>on a 10+</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, all 3:</p><ul><li>The branch starts to fade; if already fading, it goes bare, its powers gone</li><li>Some (GM's choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime</li><li>Some (GM's choice of who) become obsessed with hearing it jingle again</li></ul>",
+      "resource": {
+        "max": 3,
+        "title": "Freshness",
+        "labels": [
+          "fresh",
+          "fading",
+          "bare"
+        ]
+      }
+    }
+  },
+  {
+    "name": "A vein of milky crystal",
+    "slug": "vein-of-milky-crystal",
+    "type": "minor",
+    "front": {
+      "title": "A vein of milky crystal",
+      "description": "<p>Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, beautiful, immobile</em>",
+        "column": "regular"
+      },
+      "unlock": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must…"
+    },
+    "back": {
+      "title": "Moonstone",
+      "description": "<p>When you <strong><em>spend a night beneath the full moon</em></strong>, directing its light into the moonstone, it gains 1 hour of light (max 5).</p><p>When you <strong><em>hold the moonstone aloft in darkness and utter a sacred word</em></strong>, it shines with pale white light (<em>area, near</em>) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.</p><p>When the <strong><em>moonstone is your only light source and you shout the proper word</em></strong>, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.</p>",
+      "resource": {
+        "max": 5,
+        "title": "hours"
+      }
+    }
+  },
+  {
+    "name": "A vellum scroll",
+    "slug": "vellum-scroll",
+    "type": "minor",
+    "front": {
+      "title": "A vellum scroll",
+      "description": "<p>A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the secrets of this scroll, you must…"
+    },
+    "back": {
+      "title": "Wishing Candles",
+      "description": "<p>When you <strong><em>spend a few days following the unsavory recipe from the scroll</em></strong> (Value 1), gain 1d4+1 Wishing Candles.</p><p>When you <strong><em>burn a Wishing Candle and utter the ugly incantation</em></strong>, say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.</p><p><strong>1d6 COST</strong></p><ol><li>The crops fail/2d4 Surplus is lost</li><li>One of the village's resources or assets is lost/stolen/ruined/etc.</li><li>A neighbor takes seriously ill or suffers a freak accident/loss</li><li>Weird events plague the village; panic looms</li><li>No cost to speak of, this time</li><li>No cost to speak of, this time</li></ol>",
+      "resource": {
+        "max": 5,
+        "title": "Uses"
+      }
+    }
+  },
+  {
+    "name": "A whispering... word?",
+    "slug": "whispering-word",
+    "type": "minor",
+    "front": {
+      "title": "A whispering... word?",
+      "description": "<p>Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, immobile, terrifying</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "Baleful Utterance",
+      "description": "<p>When you <strong><em>speak the dread word</em></strong>, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.</p><p>Then roll +CON: <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 1 and the GM picks another; <strong>on a 6-</strong>, pick 1 in addition to whatever else the GM says; regardless, if the item you destroyed was <em>indestructible</em>, pick 1 more:</p><ul><li>Your throat burns and your tongue blisters; mark <em>miserable</em> and you can barely whisper for a few days.</li><li>1d4 other objects of the GM's choice also shatter/unravel/are unmade.</li><li>This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.</li></ul>"
+    }
+  },
+  {
+    "name": "A wolf pelt",
+    "slug": "wolf-pelt",
+    "type": "minor",
+    "front": {
+      "title": "A wolf pelt",
+      "description": "<p>It must have been a majestic beast, finely preserved with pale stones for eyes and a clip to wear it like a hooded cape. But no matter how you scrub, the red stains never come off its teeth.</p><p>The pelt is home to a powerful spirit, not just of a wolf but of The Hunt itself.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, warm</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock its secrets, you must…"
+    },
+    "back": {
+      "title": "Call of the Hunt",
+      "description": "<p>When you <strong><em>howl at the rising moon, face smeared in blood and wearing only the pelt</em></strong>, you take on the aspect of a wolf and call a pack to your side. Name your quarry and roll…</p><ul><li>… +1 if you have their scent;</li><li>… +1 if they are alone, but -1 if not; and</li><li>… -1 if they would not fear a pack of wolves.</li></ul><p><strong>On 7+</strong>, you corner your prey and deal 2d6+4 damage (<em>messy</em>) before the pack disperses and you cast off your wolf-self; <strong>on a 6+</strong>, also pick 1; <strong>on a 7-9</strong>, also pick 2:</p><ul><li>Your pack savages one or more innocents</li><li>You suffer 2d6+4 <em>messy</em> damage yourself</li><li>Your instinct becomes \"to act like a bloodthirsty wolf\" until you Level Up.</li></ul><p><strong>On a 6-</strong>, your prey eludes you and you must still pick 2 from the list above.</p>"
+    }
+  },
+  {
+    "name": "A... key?",
+    "slug": "the-key",
+    "type": "minor",
+    "front": {
+      "title": "A... key?",
+      "description": "<p>Secreted away in some Maker's trove is a gleaming white thing, like a key, I guess, but not a specific key, more like the <em>idea</em> of keyness. Hurts to look right at it; makes you aware of your own dying flesh.</p><p>You don't unlock this key's mysteries, so much as it unlocks you. But only if you…</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical, terrifying</em>",
+        "column": "regular"
+      },
+      "unlock": "You don't unlock this key's mysteries, so much as it unlocks you. But only if you…"
+    },
+    "back": {
+      "title": "The Eye, Opened",
+      "description": "<p>When you <strong><em>spend a few minutes quietly meditating and opening your mind's eye</em></strong>, it appears on your forehead as a shining point of light. Base matter and energy are dim and colorless to you, but you see minds and auras in luminous detail.</p><p>While your <strong><em>mind's eye is open</em></strong>, you can ask the GM \"What thinking entities are present here?\" and get an honest answer.</p><p>While your mind's eye is open, you can Seek Insight; the questions you can ask become these instead:</p><ul><li>Are they lying or trying to mislead?</li><li>What are they really feeling right now?</li><li>What do they intend to do?</li><li>What here are they most afraid of?</li><li>Is something controlling their mind, emotions, or actions, and if so, what?</li></ul>"
+    }
+  },
+  {
+    "name": "An odd conveyance",
+    "slug": "odd-conveyance",
+    "type": "minor",
+    "front": {
+      "title": "An odd conveyance",
+      "description": "<p>It's like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They're linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.</p><p>You suspect this is some sort of vehicle, but to unlock its mysteries you…</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>large, magical, fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
+    },
+    "back": {
+      "title": "Groundskimmer",
+      "description": "<p>The groundskimmer can carry about as much as a fully-loaded wagon. When you <strong><em>grasp the tiller and focus</em></strong>, you can adjust how much the craft's aetherium repels the earth. When you <strong><em>properly adjust it to match its current load</em></strong>, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.</p><p><em>large, magical, dangerous</em>, requires a crew of 2</p><p>Bad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers' Roads in those regions is dangerous.</p>"
+    }
+  },
+  {
+    "name": "An old scroll case",
+    "slug": "old-scroll-case",
+    "type": "minor",
+    "front": {
+      "title": "An old scroll case",
+      "description": "<p>A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It's a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
+    },
+    "back": {
+      "title": "Laoj Daveth's Galvanic Infusion",
+      "description": "<p>When you <strong><em>touch a piece of aetherium and draw its power into yourself</em></strong>, roll +CON: <strong>on a 7+</strong>, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); <strong>but on a 7-9</strong>, the aetherium is drained and crumbles into a chalky mass of verdigris.</p><p>The spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused—gain advantage on any rolls with WIS.</p><p>If you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.</p><p>When <strong><em>the spell ends</em></strong>, you lose 1d8 HP.</p>"
+    }
+  },
+  {
+    "name": "An oversized codex",
+    "slug": "oversized-codex",
+    "type": "minor",
+    "front": {
+      "title": "An oversized codex",
+      "description": "<p>A book, about 2 feet by 3 feet, just over 6 inches tall when closed. The cover is made of silvery cedarwood planks. The sheets are made of fine vellum, stretched from the hides of some enormous beast.</p><p>The pages are full of calligraphy, large and precise, with many diagrams showing meditative poses and strange geometric patterns related to heat, water, and ice.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>immobile, fragile</em>",
+        "column": "regular"
+      },
+      "unlock": "To unlock the codex's mysteries, you must…"
+    },
+    "back": {
+      "title": "Ice Weaving",
+      "description": "<p>When you <strong><em>will dark ice to form</em></strong>, lose 1 HP, +1 HP for each of the following you desire:</p><ul><li>It's enough to make a small wall or encase a person (it's ○○ at most)</li><li>It's hard as stone</li><li>It's solid to spirits, able to block/harm/hinder them</li></ul><p>Then, roll +CON: <strong>on a 10+</strong>, pick 2; <strong>on a 7-9</strong>, pick 1, or pick 2 and lose 2 more HP:</p><ul><li>It forms quickly, even violently (else, it takes minutes, even hours)</li><li>It forms at up to <em>near</em> range (else, it forms at only <em>hand</em> range)</li><li>Its shape is as intricate as you can imagine (else, it's just a crude block)</li></ul><p>The ice persists until it's broken, melted by intense heat, or you let it melt. You cannot regain the spent HP while it persists.</p>"
+    }
+  },
+  {
+    "name": "An oversized crown",
+    "slug": "oversized-crown",
+    "type": "minor",
+    "front": {
+      "title": "An oversized crown",
+      "description": "<p>A circlet of black, glossy metal set with eight spires of aetherium. It's sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.</p><p>When you <strong><em>touch the crown with bare flesh and open your mind</em></strong>, you can speak to the primordial spirit to which the crown is attuned.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>beautiful, magical, fireproof</em>",
+        "column": "regular"
+      },
+      "unlock": "But to fully unlock the mysteries of this crown, you must…"
+    },
+    "back": {
+      "title": "Void Elemental",
+      "description": "<p>When you <strong><em>touch the crown and speak the Words of Being</em></strong>, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you <strong><em>touch the crown and chant the Words of Unbeing</em></strong>, the spirit can return to the void—if it wants.</p><p><strong>Void elemental</strong><br><em>Spirit, primordial, confused, angry</em><br><strong>HP</strong> 15; <strong>Armor</strong> 1 (lacks organs)<br><strong>Damage</strong> void touch 1d10 w/advantage (<em>band, grabby</em>, ignores armor)<br><strong>Special qualities</strong> immune to most harm<br><strong>Instinct</strong> to rage at all the noise and chaos<br>▶ Manifest as a black hole in reality<br>▶ Snuff out a source of energy<br>▶ Become confused, unsure what to do<br><strong>Cost</strong> profuse gratitude (Loyalty ○○○)</p>",
+      "resource": {
+        "max": 3,
+        "title": "Loyalty"
+      }
+    }
+  },
+  {
+    "name": "Carvings in a cave",
+    "slug": "carvings-in-a-cave",
+    "type": "minor",
+    "front": {
+      "title": "Carvings in a cave",
+      "description": "<p>At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.</p>",
+      "unlock": "You can study the runes and learn the secrets they contain, but…"
+    },
+    "back": {
+      "title": "Shell Game of Souls",
+      "description": "<p>Your flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:</p><p>When you <strong><em>roll a 6- on Death's Door</em></strong>, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.</p>"
+    }
+  },
+  {
+    "name": "Rune-etched pillars",
+    "slug": "rune-etched-pillars",
+    "type": "minor",
+    "front": {
+      "title": "Rune-etched pillars",
+      "description": "<p>Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.</p><p>Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…</p>",
+      "unlock": "You can unlock their secrets, but…"
+    },
+    "back": {
+      "title": "Shattering Words of Aalz Childric",
+      "description": "<p>When you <strong><em>carve the shattering words of Aalz Childric into stone or rock</em></strong>, designate a key word or phrase.</p><p>When you or another <strong><em>speaks the key word or phrase and wills the spell to trigger</em></strong>, you roll +CON: <strong>on a 10+</strong>, the rune-carved stone shatters and is immediately reduced to rubble; <strong>on a 7-9</strong>, the stone cracks and buckles, slowly breaking apart into a number of pieces.</p>"
+    }
+  },
+  {
+    "name": "Runes around a ruined hall",
+    "slug": "runes-around-a-ruined-hall",
+    "type": "minor",
+    "front": {
+      "title": "Runes around a ruined hall",
+      "description": "<p>In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.</p>",
+      "item": {
+        "weight": 1,
+        "tags": "<em>magical</em>",
+        "column": "regular"
+      },
+      "unlock": "The runes repeat themselves and can be copied, but…"
+    },
+    "back": {
+      "title": "The Fiery Veil",
+      "description": "<p>When you <strong><em>precisely inscribe the flowing runes of the fiery veil along the outside of an area</em></strong>, the area is warded for as long as the runes remain intact.</p><p>When anyone <strong><em>tries to scry on the warded area from afar, or view it from the spirit realm</em></strong>, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.</p>"
+    }
+  }
+]

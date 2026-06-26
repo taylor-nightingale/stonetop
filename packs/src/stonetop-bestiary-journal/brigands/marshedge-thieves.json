@@ -1,0 +1,61 @@
+{
+  "_id": "ytyTMHny5iAK6yZB",
+  "_key": "!journal!ytyTMHny5iAK6yZB",
+  "name": "Thieves",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Pickpockets and cutpurses working the crowds of Marshedge."
+    }
+  },
+  "folder": "RZash2IS2sE5glzA",
+  "sort": 179000,
+  "pages": [
+    {
+      "_id": "SqacWvEwWtO92xXc",
+      "_key": "!journal.pages!ytyTMHny5iAK6yZB.SqacWvEwWtO92xXc",
+      "name": "Thieves",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Pickpockets and cutpurses working the crowds of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>.",
+        "description": "<p>The pickpockets and cutpurses of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>'s Edgemarket and the crowded streets of Dropoff. Go in unwary and, at best, they make off with only trifles — at worst, with whatever you'll miss most.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.rlbFh4CDvRxFInGA"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

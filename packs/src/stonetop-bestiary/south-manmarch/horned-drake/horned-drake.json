@@ -1,0 +1,92 @@
+{
+  "name": "Horned Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 3,
+        "source": "stony, quartz-like hide"
+      },
+      "damage": {
+        "value": "trampling charge d10+5 (hand, area, forceful) or horn gore d10+5 (close, forceful, messy, 1 piercing)",
+        "rollFormula": "d10+5"
+      },
+      "instinct": {
+        "value": "to protect their young"
+      }
+    },
+    "concept": "The full-grown behemoth, horns and all.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, hardy",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.VJDP2ETcmA8GeHdT",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Horned Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "rBsUb5NrCZKGFJJ3",
+      "name": "Issue a honking call",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XFmKN7n1uddyo55m.rBsUb5NrCZKGFJJ3"
+    },
+    {
+      "_id": "1qtO7iG72v9GuAHu",
+      "name": "Stand its ground, still as a rock",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XFmKN7n1uddyo55m.1qtO7iG72v9GuAHu"
+    },
+    {
+      "_id": "tJHnZNE3TAuqdEga",
+      "name": "Lurch suddenly into a charge",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XFmKN7n1uddyo55m.tJHnZNE3TAuqdEga"
+    },
+    {
+      "_id": "YQLbrKJ96LaqfTnE",
+      "name": "Absorb raw elemental power, regaining 1d8 HP",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!XFmKN7n1uddyo55m.YQLbrKJ96LaqfTnE"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nXss4llGfZ5QcRVI",
+  "_id": "XFmKN7n1uddyo55m",
+  "_key": "!actors!XFmKN7n1uddyo55m"
+}

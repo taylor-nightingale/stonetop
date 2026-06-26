@@ -1,0 +1,19 @@
+{
+  "_id": "yGB3bnmYPmqiUflB",
+  "_key": "!items!yGB3bnmYPmqiUflB",
+  "name": "Maul, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "maul",
+      "inventoryColumn": "regular",
+      "sortOrder": 18.5,
+      "note": "<em>close</em>, <em>forceful</em>, <em>awkward</em>",
+      "weight": 2
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

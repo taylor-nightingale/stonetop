@@ -1,0 +1,18 @@
+{
+  "_id": "xavU07zUHLnnBbuQ",
+  "_key": "!items!xavU07zUHLnnBbuQ",
+  "name": "Tinderbox",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "tinderbox",
+      "inventoryColumn": "small",
+      "sortOrder": 4,
+      "note": "slow"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

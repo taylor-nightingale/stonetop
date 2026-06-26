@@ -1,0 +1,81 @@
+{
+  "name": "The White Billies",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "headbutt d6+2 (hand, forceful)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to suppress their grief"
+      }
+    },
+    "concept": "Birch-furred satyr-fae drowning their grief in endless raucous revels.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, fae, athletic, raucous",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>. Armor 0 vs. iron.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.MsrMiy6ljbqoemjr",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "White Billy",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "6cHXp9kmL7IXXzBx",
+      "name": "Drag someone into their revels",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fRUY04eQ6mQK6uGr.6cHXp9kmL7IXXzBx"
+    },
+    {
+      "_id": "7ygE4AQeSMc6IOA2",
+      "name": "Get huffy if refused",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fRUY04eQ6mQK6uGr.7ygE4AQeSMc6IOA2"
+    },
+    {
+      "_id": "M2y3Vgh7SGMln2a1",
+      "name": "Lash out if forced to face the past",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fRUY04eQ6mQK6uGr.M2y3Vgh7SGMln2a1"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "fRUY04eQ6mQK6uGr",
+  "_key": "!actors!fRUY04eQ6mQK6uGr"
+}

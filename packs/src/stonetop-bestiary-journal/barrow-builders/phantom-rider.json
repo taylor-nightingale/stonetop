@@ -1,0 +1,61 @@
+{
+  "_id": "llEqxrhsKD2DvYdP",
+  "_key": "!journal!llEqxrhsKD2DvYdP",
+  "name": "Phantom Rider",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Undying horse-pledged warriors of a dead warlord, riding the wind."
+    }
+  },
+  "folder": "5hRvK2xOK2xjET49",
+  "sort": 76000,
+  "pages": [
+    {
+      "_id": "ccg4Fpzc9VeL0gBK",
+      "_key": "!journal.pages!llEqxrhsKD2DvYdP.ccg4Fpzc9VeL0gBK",
+      "name": "Phantom Rider",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Undying horse-pledged warriors of a dead warlord, riding the wind.",
+        "description": "<p>For a time, it was common for warriors to pledge both their lives and their deaths to their lieges, and to be interred with their horses and their fellows in their master's tomb. Thus, they could live on in death — still basking in a grim and joyless glory.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.8T8jqS04adlc5107"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

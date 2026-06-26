@@ -1,0 +1,61 @@
+{
+  "_id": "Qvh128WhhOrglLEH",
+  "_key": "!journal!Qvh128WhhOrglLEH",
+  "name": "Prenysbyrd",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A vengeful spirit of a long-dead grove, formed of fallen wood and rot."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 90000,
+  "pages": [
+    {
+      "_id": "CVosQdia46G2fGFY",
+      "_key": "!journal.pages!Qvh128WhhOrglLEH.CVosQdia46G2fGFY",
+      "name": "Prenysbyrd",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A vengeful spirit of a long-dead grove, formed of fallen wood and rot.",
+        "description": "<p>What becomes of a dead tree's spirit? Most linger as simple log-spirits, weakening as the log rots to mulch. But when generations of trees grow and die in the same place, they might become something more — something that defends the grove, and its current trees, and all the trees that are yet to come.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.aQJLVwGdeHskspzS"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

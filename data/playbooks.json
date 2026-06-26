@@ -1,0 +1,3878 @@
+[
+  {
+    "name": "The Blessed",
+    "slug": "the-blessed",
+    "description": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
+    "hp": 18,
+    "damage": "d6",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "initiate",
+        "label": "Initiate",
+        "description": "<p>Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations.</p><p>You gain the <strong>Rites of the Land</strong> move.</p>",
+        "moves": [
+          "Rites of the Land"
+        ],
+        "choices": {
+          "label": "There are other initiates in Stonetop, serving the goddess and the village. They aid you as followers— see the Initiates of Danu insert. Who are they?",
+          "count": [
+            2,
+            3
+          ],
+          "options": [
+            {
+              "slug": "enfys",
+              "label": "Enfys, your acolyte, beloved by birds",
+              "subtitle": "Bird-wise, innocent, magical, well-informed",
+              "hp": 6,
+              "armor": "0",
+              "damage": "d4 (hand)",
+              "instinct": "to get distracted",
+              "cost": "knowledge, secret lore",
+              "choiceRows": [
+                {
+                  "type": "pronoun",
+                  "options": [
+                    "he",
+                    "she",
+                    "they"
+                  ]
+                },
+                {
+                  "options": [
+                    "just a child",
+                    "on the cusp",
+                    "a young adult"
+                  ]
+                },
+                {
+                  "options": [
+                    "carefully chosen",
+                    "marked by Danu",
+                    "orphaned"
+                  ]
+                },
+                {
+                  "options": [
+                    "carefree",
+                    "curious",
+                    "moody",
+                    "secretive"
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "afon",
+              "label": "Afon, strange and Fae-touched",
+              "subtitle": "Fae-wise, devious, magical, self-sufficient, stealthy",
+              "hp": 8,
+              "armor": "2 (0 vs. iron)",
+              "damage": "d6 (hand)",
+              "instinct": "to act impulsively",
+              "cost": "wonder, joy",
+              "choiceRows": [
+                {
+                  "type": "pronoun",
+                  "options": [
+                    "he",
+                    "she",
+                    "they"
+                  ]
+                },
+                {
+                  "options": [
+                    "comes and goes",
+                    "in the Wood",
+                    "a hut near town"
+                  ]
+                },
+                {
+                  "options": [
+                    "aloof",
+                    "bawdy and lewd",
+                    "unnerving"
+                  ]
+                },
+                {
+                  "label": "rites of...",
+                  "options": [
+                    "ecstasy",
+                    "intoxication",
+                    "moonlight"
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "gwendyl",
+              "label": "Gwendyl, your mentor, a talented healer",
+              "subtitle": "Herb-wise, gossipy, tireless, healer, magical",
+              "hp": 6,
+              "armor": "0",
+              "damage": "d6 (hand)",
+              "instinct": "to take offense",
+              "cost": "consideration, affection",
+              "choiceRows": [
+                {
+                  "type": "pronoun",
+                  "options": [
+                    "he",
+                    "she",
+                    "they"
+                  ]
+                },
+                {
+                  "options": [
+                    "a big family",
+                    "has taken you in",
+                    "lives alone"
+                  ]
+                },
+                {
+                  "options": [
+                    "blunt",
+                    "demanding",
+                    "put upon",
+                    "suffers no fools"
+                  ]
+                },
+                {
+                  "label": "rites of...",
+                  "options": [
+                    "earth & soil",
+                    "mourning",
+                    "petition"
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "olwin",
+              "label": "Olwin, your anointed lover, seer of fates",
+              "subtitle": "Fates-wise, beautiful, passionate, magical",
+              "hp": 6,
+              "armor": "1 (shield)",
+              "damage": "d6 (close, thrown)",
+              "instinct": "to lack discretion",
+              "cost": "tenderness, respect",
+              "choiceRows": [
+                {
+                  "type": "pronoun",
+                  "options": [
+                    "he",
+                    "she",
+                    "they"
+                  ]
+                },
+                {
+                  "options": [
+                    "betrothed",
+                    "true love",
+                    "ceremonial",
+                    "complicated"
+                  ]
+                },
+                {
+                  "options": [
+                    "contrary",
+                    "dramatic",
+                    "passionate",
+                    "tormented"
+                  ]
+                },
+                {
+                  "label": "rites of...",
+                  "options": [
+                    "blood",
+                    "fire",
+                    "sacred union"
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "seren",
+              "label": "Seren the Eldest, wise and hard as winter",
+              "subtitle": "Exceptional, story-wise, insightful, frail, magical",
+              "hp": 3,
+              "armor": "0",
+              "damage": "d4 (close)",
+              "instinct": "to hew to tradition",
+              "cost": "deference, good sense shown",
+              "choiceRows": [
+                {
+                  "type": "pronoun",
+                  "options": [
+                    "he",
+                    "she",
+                    "they"
+                  ]
+                },
+                {
+                  "options": [
+                    "dismissed",
+                    "pitied",
+                    "feared",
+                    "venerated"
+                  ]
+                },
+                {
+                  "options": [
+                    "cagey",
+                    "friendly but firm",
+                    "imperious"
+                  ]
+                },
+                {
+                  "label": "rites of...",
+                  "options": [
+                    "iron",
+                    "secret naming",
+                    "winter"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "slug": "raised-by-wolves",
+        "label": "Raised by Wolves",
+        "moves": [
+          "Trackless Step"
+        ],
+        "description": "<p>Maybe not by wolves, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?</p><p>Regardless, you get the <strong>Trackless Step</strong> move. Also, when you <em><strong>Forage</strong></em>, you have advantage.</p><p>For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when <em><strong>your wild ways offend or alienate you from someone</strong></em>, mark XP.</p>"
+      },
+      {
+        "slug": "vessel",
+        "label": "Vessel",
+        "moves": [
+          "Danu's Grasp"
+        ],
+        "description": "<p>A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event.</p><p>Take the <strong>Danu's Grasp</strong> move. When you <strong><em>would spend 1 Stock from your sacred pouch</em></strong>, you may choose to lose 2d4 HP instead.</p>"
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Delight",
+        "description": "To find beauty, in even the ugliest things."
+      },
+      {
+        "word": "Detachment",
+        "description": "To remain unmoved, to be cold as winter."
+      },
+      {
+        "word": "Nurture",
+        "description": "To help others grow, learn, or improve."
+      },
+      {
+        "word": "Preservation",
+        "description": "To protect the natural world."
+      },
+      {
+        "word": "Reverence",
+        "description": "To honor the spirits and give them their due."
+      }
+    ],
+    "appearance": [
+      [
+        "fresh-faced",
+        "hale & hearty",
+        "gray & wizened"
+      ],
+      [
+        "imperious voice",
+        "raspy voice",
+        "soothing voice"
+      ],
+      [
+        "curvy",
+        "strapping",
+        "rail-thin",
+        "solid",
+        "willowy"
+      ],
+      [
+        "ceremonial robes",
+        "furs, leather",
+        "work clothes"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Arwel",
+          "Blodwen",
+          "Brynmor",
+          "Celyn",
+          "Fflur",
+          "Gwynn",
+          "Tegwen",
+          "Winned"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Alagh",
+          "Bora",
+          "Chambui",
+          "Enebish",
+          "Jalakai",
+          "Kamala",
+          "Sechen",
+          "Todogen"
+        ]
+      },
+      {
+        "region": "The Steplands",
+        "names": [
+          "Bejn",
+          "Decla",
+          "Franza",
+          "Irv",
+          "Ivet",
+          "Jak",
+          "Sibl",
+          "Yez"
+        ]
+      },
+      {
+        "region": "The Wild",
+        "names": [
+          "Autumn",
+          "Badger",
+          "Big",
+          "Black",
+          "Bloody",
+          "Brave",
+          "Crow",
+          "Cub",
+          "Dark",
+          "Doe",
+          "Fang",
+          "Fierce",
+          "Flower",
+          "Gentle",
+          "Green",
+          "Grim",
+          "Hart",
+          "Leaf",
+          "Little",
+          "Lonely",
+          "Old",
+          "Owl",
+          "Pale",
+          "Pup",
+          "Quiet",
+          "Rain",
+          "Red",
+          "Sharp",
+          "Snake",
+          "Snow",
+          "Spring",
+          "Summer",
+          "Tall",
+          "Tree",
+          "Yellow",
+          "White",
+          "Wind",
+          "Winter",
+          "Wolf",
+          "Whisper"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2, in addition to your sacred pouch",
+      "pickCount": 2,
+      "preselected": [
+        "sacred-pouch"
+      ],
+      "options": [
+        {
+          "slug": "sacred-pouch",
+          "label": "Sacred pouch <span class=\"stonetop-item-qualifier\">(<em>magical</em>)</span>",
+          "detailsSection": "Sacred Pouch",
+          "description": "<p>Doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When anyone but you looks inside your sacred pouch and touches the materials therein, the Stock is ruined.</p><p>When you have a few days of downtime in familiar terrain, you may replenish your Stock.</p><p>When you Forage, you can produce Stock instead of provisions.</p>",
+          "usesBonus": {
+            "evenLevelBonus": 1,
+            "moveBonus": [
+              {
+                "moveName": "Big Magic",
+                "perInstance": 2
+              }
+            ]
+          },
+          "choiceGroups": [
+            {
+              "heading": "Your sacred pouch is...",
+              "note": "choose 1 on each line",
+              "subgroups": [
+                {
+                  "pickCount": 1,
+                  "options": [
+                    {
+                      "slug": "origin-heirloom",
+                      "label": "an heirloom made just for you"
+                    },
+                    {
+                      "slug": "origin-own-work",
+                      "label": "your own work"
+                    }
+                  ]
+                },
+                {
+                  "pickCount": 1,
+                  "options": [
+                    {
+                      "slug": "material-fur",
+                      "label": "fur"
+                    },
+                    {
+                      "slug": "material-drakescale",
+                      "label": "drakescale"
+                    },
+                    {
+                      "slug": "material-leather",
+                      "label": "leather"
+                    },
+                    {
+                      "slug": "material-woven",
+                      "label": "woven"
+                    },
+                    {
+                      "slug": "material-demonflesh",
+                      "label": "demonflesh"
+                    }
+                  ]
+                },
+                {
+                  "pickCount": 1,
+                  "options": [
+                    {
+                      "slug": "decor-unadorned",
+                      "label": "unadorned"
+                    },
+                    {
+                      "slug": "decor-beadwork",
+                      "label": "beadwork"
+                    },
+                    {
+                      "slug": "decor-rich-dyes",
+                      "label": "rich dyes"
+                    },
+                    {
+                      "slug": "decor-runes",
+                      "label": "runes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "heading": "What remarkable trait does it possess?",
+              "note": "choose 1",
+              "subgroups": [
+                {
+                  "multiSelect": true,
+                  "options": [
+                    {
+                      "slug": "trait-indestructible",
+                      "label": "It cannot be cut, torn, or burned by any natural means."
+                    },
+                    {
+                      "slug": "trait-unnoticed",
+                      "label": "Unless someone is specifically searching for your pouch, they will ignore its presence."
+                    },
+                    {
+                      "slug": "trait-sealed",
+                      "label": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world."
+                    },
+                    {
+                      "slug": "trait-unclean",
+                      "label": "Unnatural and unclean creatures cannot bear to touch it."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "resource": {
+            "max": 3,
+            "title": "Stock",
+            "labels": []
+          }
+        },
+        {
+          "slug": "apiary",
+          "label": "Apiary",
+          "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat &amp; veils, etc."
+        },
+        {
+          "slug": "collected-offerings",
+          "label": "Collected offerings",
+          "description": "(○○○ uses) Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+          "resource": {
+            "max": 3,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "goat-herd",
+          "label": "Goat herd",
+          "description": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison)."
+        },
+        {
+          "slug": "herb-garden",
+          "label": "Herb garden",
+          "description": "shears, mortars &amp; pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, d4 uses of bendis root (<em>reach, area</em>, burns ~1 hr, fumes repel perversions of nature)."
+        },
+        {
+          "slug": "mastiffs",
+          "label": "Mastiffs",
+          "description": "2-3 followers (<em>alert, keen-nosed, fierce, overprotective</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to bark &amp; threaten; Cost: affection."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "the-earth-mother",
+        "title": "The Earth Mother",
+        "description": "<p>Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... <em>(choose 1)</em></p>",
+        "options": [
+          {
+            "slug": "shrine-loved",
+            "description": "... loved, well-used, dripping with offerings and petitions.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-token",
+            "description": "... little more than a token of respect, for her holy places are anywhere but here.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-berth",
+            "description": "... given wide berth by most, and approached only with care and propitiation.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-neglected",
+            "description": "... neglected and all but forgotten, except by a few.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "danu-offerings",
+        "title": "",
+        "continuation": true,
+        "description": "<p>What do the folk of Stonetop leave as offerings to Danu? <em>(choose 2–3)</em></p>",
+        "options": [
+          {
+            "slug": "fruits-of-harvest",
+            "description": "Fruits of harvest",
+            "max": 1
+          },
+          {
+            "slug": "figurines",
+            "description": "Figurines/effigies",
+            "max": 1
+          },
+          {
+            "slug": "whisky",
+            "description": "Whisky/spirits",
+            "max": 1
+          },
+          {
+            "slug": "salt",
+            "description": "Salt/crystals",
+            "max": 1
+          },
+          {
+            "slug": "rain-water",
+            "description": "Pure rain water",
+            "max": 1
+          },
+          {
+            "slug": "metal-nails",
+            "description": "Metal nails/tools",
+            "max": 1
+          },
+          {
+            "slug": "blood",
+            "description": "Blood/burnt flesh",
+            "max": 1
+          },
+          {
+            "slug": "incense",
+            "description": "Incense/sage bark",
+            "max": 1
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice."
+    }
+  },
+  {
+    "name": "The Fox",
+    "slug": "the-fox",
+    "description": "The elders tell a story about Fox, who knows lots of tricks, and Hedgehog, who knows one: how to curl up into a ball when there's danger. Fox can't eat Hedgehog when he's all curled up, so in the story Fox goes hungry. But you're not that Fox, and this is no story. You want that Hedgehog? Go get a knife.",
+    "hp": 16,
+    "damage": "d8",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "the-natural",
+        "label": "The Natural",
+        "description": "<p>You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.</p><p>Sure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.</p><p>When you <strong><em>Seek Insight</em></strong>, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.</p>"
+      },
+      {
+        "slug": "a-life-of-crime",
+        "label": "A Life of Crime",
+        "description": "<p>You're new to Stonetop, having left behind a... <em>colorful</em> past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?</p><p>Regardless, these people have taken you in. Time to lead an honest life, right?</p><p>You start with either <strong>Burgle</strong> or <strong>Light Fingers</strong> (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession.</p>",
+        "setup": {
+          "choices": [
+            {
+              "key": "extraMove",
+              "label": "Extra move",
+              "apply": "move",
+              "options": [
+                {
+                  "value": "Burgle",
+                  "label": "Burgle"
+                },
+                {
+                  "value": "Light Fingers",
+                  "label": "Light Fingers"
+                }
+              ]
+            },
+            {
+              "key": "extraPossession",
+              "label": "Extra special possession",
+              "apply": "possession",
+              "options": [
+                {
+                  "value": "burglars-kit",
+                  "label": "Burglar's kit"
+                },
+                {
+                  "value": "hidden-stash",
+                  "label": "Hidden stash"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "slug": "the-prodigal-returned",
+        "label": "The Prodigal Returned",
+        "description": "<p>You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?</p><p>You always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.</p><p>When you <strong><em>declare that you know someone outside of Stonetop</em></strong>, someone who can help, name them and roll +CHA: <strong>on a 10+</strong>, yeah, they can help (tell us why they're willing); <strong>on a 7-9</strong>, they can help but pick 1 from the list below; <strong>on a 6-</strong>, the GM chooses 1 and then some.</p>"
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Conscience",
+        "description": "To feel guilty, to try to do right."
+      },
+      {
+        "word": "Freedom",
+        "description": "To chafe against rules, expectations, obligations."
+      },
+      {
+        "word": "Comfort",
+        "description": "To enjoy yourself and avoid hardship."
+      },
+      {
+        "word": "Prestige",
+        "description": "To impress others, to build a name for yourself."
+      },
+      {
+        "word": "Trickery",
+        "description": "To deceive, misdirect, outthink."
+      }
+    ],
+    "appearance": [
+      [
+        "young pup",
+        "\"responsible\" adult",
+        "cagey old-timer"
+      ],
+      [
+        "a pleasant voice",
+        "sharp & nasally",
+        "well-spoken"
+      ],
+      [
+        "lithe",
+        "heavyset",
+        "gangly",
+        "like a whippin stick"
+      ],
+      [
+        "a light step",
+        "a brisk stride",
+        "more like a strut"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Bran",
+          "Carwyn",
+          "Delyth",
+          "Elin",
+          "Fion",
+          "Geral",
+          "Mair",
+          "Rannon",
+          "Vaughn",
+          "Wynn"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Anarba",
+          "Batu",
+          "Bugadai",
+          "Hujaghur",
+          "Jigur",
+          "Kete",
+          "Sarantuya",
+          "Tebengri"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Comyna",
+          "Crevan",
+          "Fitz",
+          "Greagir",
+          "Maired",
+          "Nainsi",
+          "Naíclas",
+          "Saraid"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Amit",
+          "Baz",
+          "Dafna",
+          "Mahsa",
+          "Parviz",
+          "Sanaz",
+          "Tzofiya",
+          "Yaniv"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "options": [
+        {
+          "slug": "burglars-kit",
+          "label": "Burglar's kit",
+          "description": "picks, files, snippers, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, <em>close, area</em>), ◇ a grappling hook, etc."
+        },
+        {
+          "slug": "carpenters-tools",
+          "label": "Carpenter's tools",
+          "description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
+        },
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "hidden-stash",
+          "label": "Hidden stash",
+          "description": "○○○ uses: each use produces valuables worth a purse of silvers (Value 2)",
+          "resource": {
+            "max": 3,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "mummers-kit",
+          "label": "Mummer's kit",
+          "description": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc."
+        },
+        {
+          "slug": "scribes-tools",
+          "label": "Scribe's tools",
+          "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+        },
+        {
+          "slug": "tannery",
+          "label": "Tannery",
+          "description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc."
+        },
+        {
+          "slug": "trade-contacts",
+          "label": "Trade contacts",
+          "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "tall-tales",
+        "title": "Tall Tales",
+        "description": "<p>Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures.</p>",
+        "options": []
+      },
+      {
+        "slug": "tall-tales-beginning",
+        "continuation": true,
+        "title": "There Was That Time You…",
+        "description": "<p><em>(choose 1 per tale)</em></p>",
+        "options": [
+          {
+            "slug": "lost-great-wood",
+            "description": "… got lost in the Great Wood.",
+            "max": 2
+          },
+          {
+            "slug": "lost-flats",
+            "description": "… got lost in the Flats.",
+            "max": 2
+          },
+          {
+            "slug": "lost-steplands",
+            "description": "… got lost in the Steplands.",
+            "max": 2
+          },
+          {
+            "slug": "lost-ferrers-fen",
+            "description": "… got lost in Ferrier's Fen.",
+            "max": 2
+          },
+          {
+            "slug": "lost-foothills",
+            "description": "… got lost in the Foothills.",
+            "max": 2
+          },
+          {
+            "slug": "lost-huffel-peaks",
+            "description": "… got lost in the Huffel Peaks.",
+            "max": 2
+          },
+          {
+            "slug": "crinwin-raid",
+            "description": "… were on watch when the crinwin raided.",
+            "max": 2
+          },
+          {
+            "slug": "ruined-tower",
+            "description": "… dared each other to explore the Ruined Tower.",
+            "max": 2
+          },
+          {
+            "slug": "hillfolk",
+            "description": "… managed to rile up a small band of Hillfolk.",
+            "max": 2
+          },
+          {
+            "slug": "labyrinth",
+            "description": "… braved the Labyrinth, just a little.",
+            "max": 2
+          },
+          {
+            "slug": "old-mans-book",
+            "description": "… stole that crazy old man's book.",
+            "max": 2
+          },
+          {
+            "slug": "barrow-mounds",
+            "description": "… went poking about the old Barrow Mounds.",
+            "max": 2
+          }
+        ]
+      },
+      {
+        "slug": "tall-tales-ending",
+        "title": "And You Ended Up…",
+        "description": "<p><em>(choose 1 or 2 per tale)</em></p>",
+        "options": [
+          {
+            "slug": "running",
+            "description": "… running for your life from something.",
+            "max": 2
+          },
+          {
+            "slug": "well-placed-blow",
+            "description": "… landing a well-placed blow.",
+            "max": 2
+          },
+          {
+            "slug": "strange-gather",
+            "description": "… interrupting a strange, creepy gathering.",
+            "max": 2
+          },
+          {
+            "slug": "big-beast",
+            "description": "… stumbling on a beast, bigger'n anything.",
+            "max": 2
+          },
+          {
+            "slug": "treasure",
+            "description": "… with a sack full of treasure.",
+            "max": 2
+          },
+          {
+            "slug": "someone-fight",
+            "description": "… getting someone to fight them for you.",
+            "max": 2
+          },
+          {
+            "slug": "ghost",
+            "description": "… face to face with a ghost/Fae/demon.",
+            "max": 2
+          },
+          {
+            "slug": "strange-runes",
+            "description": "… finding those strange old runes.",
+            "max": 2
+          },
+          {
+            "slug": "fine-looking",
+            "description": "… getting to know that fine-looking fellow/lady/person/couple.",
+            "max": 2
+          }
+        ]
+      },
+      {
+        "slug": "tall-tales-legacy",
+        "title": "But All You've Got Left to Show for It Is…",
+        "description": "",
+        "options": [
+          {
+            "slug": "story-no-one-believes",
+            "description": "… a story no one believes.",
+            "max": 1
+          },
+          {
+            "slug": "nasty-scar",
+            "description": "… a nasty scar; wanna see?",
+            "max": 1
+          },
+          {
+            "slug": "nightmares",
+            "description": "… the occasional nightmare.",
+            "max": 1
+          },
+          {
+            "slug": "map-with-runes",
+            "description": "… this map with runes no one can read.",
+            "max": 1
+          },
+          {
+            "slug": "mystery-key",
+            "description": "… this key that opens who-knows-what.",
+            "max": 1
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice.",
+      "choices": [
+        {
+          "label": "Choose one",
+          "options": [
+            "Ambush",
+            "Skill at Arms"
+          ]
+        },
+        {
+          "label": "Choose one",
+          "options": [
+            "Danger Sense",
+            "Perceptive"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Heavy",
+    "slug": "the-heavy",
+    "description": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
+    "hp": 20,
+    "damage": "d10",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "sheriff",
+        "label": "Sheriff",
+        "description": "<p>You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.</p><p>When you <strong><em>bark an order or warning</em></strong>, roll +CHA: <strong>on a 7+</strong>, they must choose 1: <ul><li>Do what you say</li><li>Dig in/take cover/flee</li> or <li>Attack you</li></ul> <strong><em>On a 10+</em></strong>, you can sense which one they're about to do and act first if you like; gain advantage if you do.</p>"
+      },
+      {
+        "slug": "blood-soaked-past",
+        "label": "Blood-Soaked Past",
+        "description": "<p>You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.</p><p>When you <strong><em>Persuade using violence or threats against someone who knows your black reputation</em></strong>, you can roll +STR instead of +CHA. Also, if you take the <strong>Formidable</strong> move, you can choose to roll +CON instead of +CHA.</p><p>When you <strong><em>fight to kill without mercy or hesitation</em></strong>, you deal +1d4 damage.</p>"
+      },
+      {
+        "slug": "storm-marked",
+        "label": "Storm-Marked",
+        "description": "<p>You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?</p><p>You start with the <strong>Storm Markings</strong> major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.</p>",
+        "setup": {
+          "arcana": [
+            {
+              "slug": "storm-markings",
+              "identify": true,
+              "boxes": [
+                {
+                  "context": "front",
+                  "index": 0
+                }
+              ]
+            }
+          ],
+          "texts": [
+            {
+              "key": "lightningEvent",
+              "label": "Lightning event",
+              "placeholder": "Describe the time you were struck by lightning and walked away unharmed."
+            }
+          ]
+        }
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Peace",
+        "description": "To avoid (further) bloodshed or violence."
+      },
+      {
+        "word": "Pride",
+        "description": "To maintain your dignity, to demand respect."
+      },
+      {
+        "word": "Recklessness",
+        "description": "To act without thought to the consequences."
+      },
+      {
+        "word": "Trouble",
+        "description": "To stick your nose in where it's unwelcome."
+      },
+      {
+        "word": "Violence",
+        "description": "To solve problems by force."
+      }
+    ],
+    "appearance": [
+      [
+        "young & brash",
+        "in my prime",
+        "old & leathery"
+      ],
+      [
+        "gravelly voice",
+        "hearty voice",
+        "soft-spoken"
+      ],
+      [
+        "giant frame",
+        "just ripped",
+        "stocky",
+        "wiry"
+      ],
+      [
+        "distinctive scars",
+        "off-broken nose",
+        "missing bits"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Aerona",
+          "Arthfael",
+          "Cadmor",
+          "Esyllt",
+          "Pedr",
+          "Rhonwen",
+          "Terrwen",
+          "Trystan"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Aengus",
+          "Bairbre",
+          "Bronach",
+          "Flann",
+          "Laughn",
+          "Muirdoc",
+          "Quinn",
+          "Treasa"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Andr",
+          "Gabel",
+          "Kaetl",
+          "Mael",
+          "Maela",
+          "Par",
+          "Ral",
+          "Umbert"
+        ]
+      },
+      {
+        "region": "The Manmarch",
+        "names": [
+          "Bathhilde",
+          "Clothar",
+          "Ganter",
+          "Hiltrude",
+          "Ludig",
+          "Luise",
+          "Modd",
+          "Wiland"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Arihl",
+          "Akios",
+          "Bhadur",
+          "Seble",
+          "Shahnaz",
+          "Shay",
+          "Tisi",
+          "Zubin"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "options": [
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "chirurgeons-tools",
+          "label": "Chirurgeon's tools",
+          "description": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc."
+        },
+        {
+          "slug": "husbandry-tools",
+          "label": "Husbandry tools",
+          "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+        },
+        {
+          "slug": "smithy",
+          "label": "Smithy",
+          "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+        },
+        {
+          "slug": "stoneworkers-tools",
+          "label": "Stoneworker's tools",
+          "description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+        },
+        {
+          "slug": "weapons-of-war",
+          "label": "Weapons of war",
+          "description": "",
+          "choices": {
+            "pickNote": "Choose up to 3 (now or later)",
+            "pickCount": 3,
+            "optional": true,
+            "options": [
+              {
+                "slug": "sword",
+                "label": "◇ Sword, iron (<em>close</em>, +1 damage)"
+              },
+              {
+                "slug": "battleaxe",
+                "label": "◇ Battleaxe, iron (<em>close, messy</em>)"
+              },
+              {
+                "slug": "warhammer",
+                "label": "◇ Warhammer, iron (<em>close</em>, 2 piercing)"
+              },
+              {
+                "slug": "mace-or-flail",
+                "label": "◇ Mace or flail, iron (<em>close, forceful</em>)"
+              },
+              {
+                "slug": "crossbow",
+                "label": "◇ Crossbow (<em>far</em>, +1 damage, <em>reload</em>, x <em>piercing</em>)",
+                "resource": {
+                  "max": 2,
+                  "title": null,
+                  "labels": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "violence-reputation",
+        "title": "A History of Violence",
+        "description": "",
+        "options": []
+      },
+      {
+        "slug": "violence-fame",
+        "continuation": true,
+        "title": "Just About Everyone Here Talks About the Time You…",
+        "description": "<p><em>(pick 1 or 2)</em></p>",
+        "options": [
+          {
+            "slug": "thunder-drake",
+            "description": "… drove off a thunder drake that got too close to town.",
+            "max": 1
+          },
+          {
+            "slug": "hagr",
+            "description": "… killed that hagr in the Foothills.",
+            "max": 1
+          },
+          {
+            "slug": "crinwin-dozen",
+            "description": "… slew a dozen crinwin in one battle.",
+            "max": 1
+          },
+          {
+            "slug": "adventurers",
+            "description": "… tossed those adventurers out of town.",
+            "max": 1
+          },
+          {
+            "slug": "ivan",
+            "description": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws.",
+            "max": 1
+          },
+          {
+            "slug": "bleeding",
+            "description": "… dragged yourself (and another?) into town, bleeding from a dozen wounds.",
+            "max": 1
+          },
+          {
+            "slug": "lightning",
+            "description": "… were struck by lightning and woke up covered in these marks.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "violence-shadows",
+        "title": "But Folks Are Less Keen to Discuss…",
+        "description": "<p><em>(pick 1 or 2)</em></p>",
+        "options": [
+          {
+            "slug": "blood-look",
+            "description": "… the look in your eye when you spilled all that blood.",
+            "max": 1
+          },
+          {
+            "slug": "hard-cases",
+            "description": "… those hard cases who showed up looking for you.",
+            "max": 1
+          },
+          {
+            "slug": "shouting",
+            "description": "… the shouting matches between you and your love.",
+            "max": 1
+          },
+          {
+            "slug": "claws",
+            "description": "… the time you spent as one of Brennan's Claws.",
+            "max": 1
+          },
+          {
+            "slug": "urbgen",
+            "description": "… what happened to Urbgen, even if he did have it coming.",
+            "max": 1
+          },
+          {
+            "slug": "seizures",
+            "description": "… your uncontrollable seizures, where you claw those weird marks in the dirt.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "violence-fears",
+        "title": "What Keeps You Up at Night?",
+        "description": "<p><em>(pick 1 or 2)</em></p>",
+        "options": [
+          {
+            "slug": "temper",
+            "description": "That thrice-damned temper of yours.",
+            "max": 1
+          },
+          {
+            "slug": "someone-coming",
+            "description": "The worry that someone's coming after you.",
+            "max": 1
+          },
+          {
+            "slug": "crinwin-bolder",
+            "description": "The feeling that the crinwin are getting bolder.",
+            "max": 1
+          },
+          {
+            "slug": "brennan",
+            "description": "Wondering what Brennan's up to, now that he's the marshal of Marshedge.",
+            "max": 1
+          },
+          {
+            "slug": "dark-visions",
+            "description": "Dark visions of things moving in the earth, restless, whispering, and hungry.",
+            "max": 1
+          },
+          {
+            "slug": "family",
+            "description": "The question of who'll look after your family when you get yourself killed.",
+            "max": 1
+          },
+          {
+            "slug": "truth",
+            "description": "The worry that they'll all learn the truth about you, sooner or later.",
+            "max": 1
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
+      "choices": [
+        {
+          "label": "Choose one",
+          "options": [
+            "Armored",
+            "Uncanny Reflexes"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Judge",
+    "slug": "the-judge",
+    "description": "Look here at this little town, this candleflame in the darkness. Its very existence is an act of courage and faith. And Aratis has charged you to keep it: to settle its disputes; to chronicle its tales; to defend it from darkness and ruin. Take up your hammer, Judge. Your town needs you.",
+    "hp": 20,
+    "damage": "d6",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "legacy",
+        "label": "Legacy",
+        "description": "<p>You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.</p><p>When you <strong><em>Know Things about the people or history of Stonetop</em></strong>, you have advantage.</p><p>When you <strong><em>spend days, weeks, or months poring over the Chronicle</em></strong>, ask the GM and the GM will tell you what you learn in that time.</p>"
+      },
+      {
+        "slug": "missionary",
+        "label": "Missionary",
+        "description": "<p>You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.</p><p>When you <strong><em>call upon the Judge of another steading for aid or information</em></strong>, they are oathbound to give it. You are likewise oathbound to support them.</p><p>You have an aviary in addition to your usual choice of special possessions. When you <strong><em>send a message via trained bird</em></strong>, the GM will tell you if and when you receive a response, and what it says.</p>",
+        "extraPossessions": [
+          "aviary"
+        ],
+        "setup": {
+          "neighbors": [
+            {
+              "name": "Devin",
+              "origin": "Marshedge"
+            },
+            {
+              "name": "Haeris",
+              "origin": "Gordin's Delve"
+            }
+          ],
+          "neighborChoices": [
+            {
+              "key": "missionary-judges",
+              "label": "Pick 2 more Judges to add to the Neighbors list",
+              "count": 2,
+              "options": [
+                {
+                  "value": "isalde",
+                  "name": "Isalde",
+                  "origin": "the Manmarch"
+                },
+                {
+                  "value": "rahat",
+                  "name": "Rahat",
+                  "origin": "Lygos"
+                },
+                {
+                  "value": "tejisha",
+                  "name": "Tejisha",
+                  "origin": "Barrier Pass"
+                },
+                {
+                  "value": "unz",
+                  "name": "Unz",
+                  "origin": "the Hillfolk"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "slug": "prophet",
+        "label": "Prophet",
+        "description": "<p>The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.</p><p>When you <strong><em>spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole</em></strong>, roll +WIS: <strong>on a 7+</strong>, Aratis reveals the course of action she would have you take; <strong>on a 10+</strong>, you also hold 2 Sanction. While <strong><em>acting on her orders</em></strong>, spend 1 Sanction to add +1 to a roll you just made.</p>"
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Ambition",
+        "description": "To increase your status or influence."
+      },
+      {
+        "word": "Dispassion",
+        "description": "To disregard emotion or sentiment."
+      },
+      {
+        "word": "Harmony",
+        "description": "To seek a path that makes everyone happy."
+      },
+      {
+        "word": "Orthodoxy",
+        "description": "To strictly adhere to rules and traditions."
+      },
+      {
+        "word": "Zeal",
+        "description": "To judge quickly and without doubt."
+      }
+    ],
+    "appearance": [
+      [
+        "eager youth",
+        "in my prime",
+        "showing my years"
+      ],
+      [
+        "calm voice",
+        "booming voice",
+        "a voice that carries"
+      ],
+      [
+        "hard body",
+        "powerful frame",
+        "slim",
+        "well-fed"
+      ],
+      [
+        "polished gear",
+        "robes of office",
+        "modest clothes"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Arianrhod",
+          "Caerwyn",
+          "Einion",
+          "Eleri",
+          "Magda",
+          "Nerys",
+          "Trahaern",
+          "Trefor"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Arinasai",
+          "Bortachikan",
+          "Khadagan",
+          "Khojin",
+          "Odval",
+          "Usun",
+          "Yesui",
+          "Yul"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Briget",
+          "Comhall",
+          "Elnor",
+          "Liadain",
+          "Mirdach",
+          "Onghus",
+          "Somha",
+          "Toal"
+        ]
+      },
+      {
+        "region": "Lygos or some other southern town",
+        "names": [
+          "Abrim",
+          "Cassander",
+          "Despina",
+          "Hypatta",
+          "Morecai",
+          "Nomika",
+          "Sofia",
+          "Yose"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 1, in addition to your symbol of authority and scribe's kit",
+      "pickCount": 1,
+      "preselected": [
+        "symbol-of-authority",
+        "scribes-kit"
+      ],
+      "options": [
+        {
+          "slug": "symbol-of-authority",
+          "label": "Symbol of authority",
+          "description": "",
+          "choices": {
+            "pickCount": 1,
+            "options": [
+              {
+                "slug": "black-iron-maul",
+                "label": "◇ Black iron maul, utterly immune to all magic (<em>close, forceful, awkward</em>, +1 damage)"
+              },
+              {
+                "slug": "makerglass-shield",
+                "label": "◇ Makerglass shield, etched with Aratis's symbol (<em>indestructible</em>, +1 armor, +1 Readiness on a Defend 7+)"
+              },
+              {
+                "slug": "helm",
+                "label": "◇ Helm set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic."
+              }
+            ]
+          }
+        },
+        {
+          "slug": "scribes-kit",
+          "label": "Scribe's kit",
+          "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+        },
+        {
+          "slug": "aviary",
+          "label": "Aviary",
+          "description": "thick gloves, bird hoods, tethers, seed, ◇ messenger birds, ◇ birdcages, etc."
+        },
+        {
+          "slug": "carpenters-tools",
+          "label": "Carpenter's tools",
+          "description": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ○○ firkins, barrels, etc."
+        },
+        {
+          "slug": "engineers-tools",
+          "label": "Engineer's tools",
+          "description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block &amp; tackles, wheelbarrow, etc."
+        },
+        {
+          "slug": "smithy",
+          "label": "Smithy",
+          "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "chronicle-plus",
+        "title": "The Chronicle",
+        "description": "<p>The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… <em>(choose 3)</em></p>",
+        "options": [
+          {
+            "slug": "sturdy-vault",
+            "description": "… is a sturdy vault from the time of the Makers.",
+            "max": 1
+          },
+          {
+            "slug": "room-to-grow",
+            "description": "… has plenty of room to grow.",
+            "max": 1
+          },
+          {
+            "slug": "hidden-underground",
+            "description": "… is hidden underground.",
+            "max": 1
+          },
+          {
+            "slug": "one-entrance",
+            "description": "… has but one entrance, magically sealed.",
+            "max": 1
+          },
+          {
+            "slug": "minor-magics",
+            "description": "… bears minor magics to preserve its contents.",
+            "max": 1
+          },
+          {
+            "slug": "warded",
+            "description": "… is warded against spirits and magic.",
+            "max": 1
+          },
+          {
+            "slug": "living-quarters",
+            "description": "… includes your living quarters & office.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "chronicle-minus",
+        "title": "But Alas, It…",
+        "description": "<p><em>(choose 2)</em></p>",
+        "options": [
+          {
+            "slug": "outskirts",
+            "description": "… sits on the outskirts, near the Old Wall.",
+            "max": 1
+          },
+          {
+            "slug": "cramped",
+            "description": "… is cramped, chaotic, and overflowing.",
+            "max": 1
+          },
+          {
+            "slug": "crude-cellar",
+            "description": "… is little more than a crude cellar.",
+            "max": 1
+          },
+          {
+            "slug": "haunted",
+            "description": "… seems to be haunted.",
+            "max": 1
+          },
+          {
+            "slug": "dangerous-artifacts",
+            "description": "… contains a few dangerous artifacts.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "lawkeeper-shrine",
+        "title": "The Lawkeeper",
+        "description": "<p>Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… <em>(pick 1)</em></p>",
+        "options": [
+          {
+            "slug": "shrine-hub",
+            "description": "… a hub of the community, a place of frequent rites, petitions, and celebrations.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-high-holiday",
+            "description": "… used only on high holidays, for each home keeps its own shrine above the hearth.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-neglected",
+            "description": "… neglected by most, tended only by you and a handful of believers.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-grim",
+            "description": "… a grim place of judgement and punishment, shunned by all but her chosen.",
+            "max": 1
+          },
+          {
+            "slug": "shrine-new",
+            "description": "… newly established, cramped and spare.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "lawkeeper-demands",
+        "title": "Of Her True Disciples, Aratis Demands…",
+        "description": "<p><em>(choose 3)</em></p>",
+        "options": [
+          {
+            "slug": "truth",
+            "description": "… truth, honesty, and forthrightness.",
+            "max": 1
+          },
+          {
+            "slug": "hospitality",
+            "description": "… hospitality, freely given to all who ask for it.",
+            "max": 1
+          },
+          {
+            "slug": "punishment",
+            "description": "… the punishment of thieves & oathbreakers.",
+            "max": 1
+          },
+          {
+            "slug": "diet-dress",
+            "description": "… adherence to strict rules of diet and dress.",
+            "max": 1
+          },
+          {
+            "slug": "authority",
+            "description": "… respect for authority, property, and rank.",
+            "max": 1
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice."
+    }
+  },
+  {
+    "name": "The Lightbearer",
+    "slug": "the-lightbearer",
+    "description": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
+    "hp": 18,
+    "damage": "d4",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "auspicious-birth",
+        "label": "Auspicious Birth",
+        "description": "<p>You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?</p><p>Whatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.</p><p>When <strong><em>one of your moves has you mark a debility</em></strong>, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.</p>",
+        "setup": {
+          "resources": [
+            {
+              "key": "auspicious-birth",
+              "label": "Background circle",
+              "max": 1,
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "slug": "itinerant-mystic",
+        "label": "Itinerant Mystic",
+        "description": "<p>They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.</p><p>When you <strong><em>go off a-wandering</em></strong>, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.</p>",
+        "setup": {
+          "resources": [
+            {
+              "key": "enigma",
+              "label": "Enigma",
+              "max": 3,
+              "value": 3
+            }
+          ]
+        }
+      },
+      {
+        "slug": "soul-on-fire",
+        "label": "Soul on Fire",
+        "description": "<p>You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.</p><p>There, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.</p><p>When you <strong><em>Persuade a group by preaching charity, mercy, and hope and roll a 7+</em></strong>, aside from the usual effect, choose 1:</p><ul><li>Your name and your message spread</li><li>Someone approaches you, now or later, eager to know more.</li></ul>"
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Charity",
+        "description": "To go without so that others are better off."
+      },
+      {
+        "word": "Hope",
+        "description": "To inspire others in the face of adversity."
+      },
+      {
+        "word": "Mercy",
+        "description": "To bring relief or comfort, to give second chances."
+      },
+      {
+        "word": "Praise",
+        "description": "To spread the glory and worship of Helior."
+      },
+      {
+        "word": "Righteousness",
+        "description": "To refuse to suffer an injustice or a lesser evil."
+      }
+    ],
+    "appearance": [
+      [
+        "a youthful glow",
+        "well-weathered",
+        "old & merry"
+      ],
+      [
+        "a lifting voice",
+        "a melodious voice",
+        "a soft voice"
+      ],
+      [
+        "beatific",
+        "ethereal",
+        "intense",
+        "jovial",
+        "serene"
+      ],
+      [
+        "fine robes",
+        "threadbare cloak",
+        "working clothes"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Dai",
+          "Eirian",
+          "Eurig",
+          "Haf",
+          "Haul",
+          "Hefin",
+          "Hulwen",
+          "Tesni"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Alaqa",
+          "Bat",
+          "Dinget",
+          "Ghoa",
+          "Oyuun",
+          "Sidurgu",
+          "Temur",
+          "Toragana"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Adfin",
+          "Callach",
+          "Conlad",
+          "Eadna",
+          "Fionntan",
+          "Niamh",
+          "Orlaith",
+          "Sorsha"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Arash",
+          "Azar",
+          "Hafiz",
+          "Murat",
+          "Roshan",
+          "Shideh",
+          "Zara",
+          "Zohara"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "options": [
+        {
+          "slug": "apiary",
+          "label": "Apiary",
+          "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hats &amp; veils, etc."
+        },
+        {
+          "slug": "books-and-scrolls",
+          "label": "Books &amp; scrolls",
+          "description": "○○○○○ uses: expend a use to consult your collection and turn a Know Things roll you just made into a 10+.",
+          "resource": {
+            "max": 5,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "chandlery",
+          "label": "Chandlery",
+          "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), wicks, scented herbs, soap, lye, ash, etc."
+        },
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "glassworks",
+          "label": "Glassworks",
+          "description": "vials, charms, lenses, sand, marbles, bellows, crucible, ◇ lanterns (○○○○○ hours, <em>close, area</em>), etc."
+        },
+        {
+          "slug": "holy-relics",
+          "label": "Holy relics",
+          "description": "○○○ uses: if you have one in inventory when you Invoke the Sun God, you can mark a use in lieu of choosing a consequence.",
+          "resource": {
+            "max": 3,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "luthiers-tools",
+          "label": "Luthier's tools",
+          "description": "chisels, files, catgut, various woods, stains, ◇ a lute, ◇ a fiddle, etc."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "helior",
+        "title": "Praise the Day",
+        "description": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.</p>",
+        "options": []
+      },
+      {
+        "slug": "helior-worship-spread",
+        "continuation": true,
+        "title": "The Worship of Helior Is…",
+        "description": "<p><em>(choose 1)</em></p>",
+        "options": [
+          {
+            "slug": "ancient-widespread",
+            "description": "… ancient, widespread, and well-known.",
+            "max": 1
+          },
+          {
+            "slug": "lygos-south",
+            "description": "… most common in Lygos and the south.",
+            "max": 1
+          },
+          {
+            "slug": "new-thing",
+            "description": "… a new thing, still unheard of by many.",
+            "max": 1
+          },
+          {
+            "slug": "old-forgotten",
+            "description": "… an old thing, forgotten by most.",
+            "max": 1
+          },
+          {
+            "slug": "persecuted",
+            "description": "… widely persecuted.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "helior-worship-practice",
+        "title": "He Is Worshipped Through…",
+        "description": "<p><em>(choose 1 or 2)</em></p>",
+        "options": [
+          {
+            "slug": "solemn-hymns",
+            "description": "… solemn hymns.",
+            "max": 1
+          },
+          {
+            "slug": "meditation",
+            "description": "… serene meditation.",
+            "max": 1
+          },
+          {
+            "slug": "joyful-song",
+            "description": "… joyful song.",
+            "max": 1
+          },
+          {
+            "slug": "ascetic-denial",
+            "description": "… ascetic denial.",
+            "max": 1
+          },
+          {
+            "slug": "dancing",
+            "description": "… fervent dancing.",
+            "max": 1
+          },
+          {
+            "slug": "ceremonies",
+            "description": "… formal ceremonies.",
+            "max": 1
+          },
+          {
+            "slug": "drugs",
+            "description": "… drugs & intoxicants.",
+            "max": 1
+          },
+          {
+            "slug": "pain-sacrifice",
+            "description": "… pain & sacrifice.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "helior-shrine",
+        "title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+        "description": "<p><em>(choose 1)</em></p>",
+        "options": [
+          {
+            "slug": "highest-honor",
+            "description": "… the place of highest honor, even if Tor is more popular.",
+            "max": 1
+          },
+          {
+            "slug": "well-tended",
+            "description": "… been well-tended and given due respect.",
+            "max": 1
+          },
+          {
+            "slug": "recently-restored",
+            "description": "… recently been restored/established, perhaps by you.",
+            "max": 1
+          },
+          {
+            "slug": "seen-better-days",
+            "description": "… seen better days, for certain.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "helior-predecessor",
+        "columnBreak": true,
+        "title": "Your Predecessor, the Previous Lightbearer…",
+        "description": "<p><em>(choose 2 or 3)</em></p>",
+        "options": [
+          {
+            "slug": "lived-long-ago",
+            "description": "… lived long ago, a figure of legend.",
+            "max": 1
+          },
+          {
+            "slug": "martyred",
+            "description": "… was martyred for their faith.",
+            "max": 1
+          },
+          {
+            "slug": "died-facing",
+            "description": "… died facing a mighty sorcerer or demon.",
+            "max": 1
+          },
+          {
+            "slug": "wrote-works",
+            "description": "… wrote many works of sublime beauty.",
+            "max": 1
+          },
+          {
+            "slug": "things-below",
+            "description": "… faced one of the Things Below.",
+            "max": 1
+          },
+          {
+            "slug": "died-peacefully",
+            "description": "… died in their bed, peacefully.",
+            "max": 1
+          },
+          {
+            "slug": "ascended",
+            "description": "… ascended bodily into the heavens.",
+            "max": 1
+          },
+          {
+            "slug": "reincarnated",
+            "description": "… was reincarnated—as you.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "helior-powers-origin",
+        "title": "You Came Into Your Powers…",
+        "description": "<p><em>(choose 1)</em></p>",
+        "options": [
+          {
+            "slug": "years-study",
+            "description": "… through years of study and devotion.",
+            "max": 1
+          },
+          {
+            "slug": "predecessor",
+            "description": "… when your predecessor passed them on.",
+            "max": 1
+          },
+          {
+            "slug": "sudden",
+            "description": "… suddenly, at a moment of great need.",
+            "max": 1
+          },
+          {
+            "slug": "visitation",
+            "description": "… after a visitation from Helior or one of his servants.",
+            "max": 1
+          },
+          {
+            "slug": "first-sight",
+            "description": "… when you first laid eyes upon the _______.",
+            "max": 1
+          }
+        ]
+      }
+    ],
+    "invocations": {
+      "startingCount": 2,
+      "options": [
+        {
+          "slug": "bath-of-healing-light",
+          "label": "Bath of Healing Light",
+          "description": "<p>Cup your hands around your light and focus it. Your patient… <em>(pick 2)</em>:</p><ul><li>Regains 5 HP (can pick this twice)</li><li>Clears a debility (can pick this twice)</li><li>Has one of their problematic wounds stabilized</li><li>Recovers from a minor condition (drunk, etc.)</li></ul><p><strong>Reduced:</strong> pick only 1 (instead of 2).</p><p><strong>Empowered:</strong> add these to your possible choices:</p><ul><li>Regains 10 HP (can pick this twice)</li><li>Fully recovers from a problematic wound</li><li>Is cured of a dire affliction, poison, or disease</li></ul>"
+        },
+        {
+          "slug": "blinding-light",
+          "label": "Blinding Light",
+          "ongoing": true,
+          "description": "<p>Your light blazes. Any in range who look at it are temporarily blinded. Those not looking at it directly must avert their eyes. You are unaffected.</p><p><strong>Reduced:</strong> the light flares only for a moment.</p><p><strong>Empowered:</strong> if you wish, your allies are unaffected.</p>"
+        },
+        {
+          "slug": "cleansing-light",
+          "label": "Cleansing Light",
+          "description": "<p>Your light flares, dispelling magical effects within range. Potent, lasting magics are merely suppressed, and slowly return to power once removed from your light.</p><p><strong>Reduced:</strong> potent, lasting magics are unaffected; other magical effects are merely suppressed.</p><p><strong>Empowered:</strong> the invocation is <em>ongoing</em>; while it lasts, any magical effects created in or brought into range are dispelled/suppressed.</p>"
+        },
+        {
+          "slug": "cold-light-of-day",
+          "label": "Cold Light of Day",
+          "ongoing": true,
+          "description": "<p>All in your light appears as it really is, without the benefit of illusion, shapeshifting, or disguise.</p><p><strong>Reduced:</strong> it lasts only a few moments, just long enough to glimpse the truth.</p><p><strong>Empowered:</strong> illusions in the light are dispelled and shapeshifters in the light are momentarily stunned.</p>"
+        },
+        {
+          "slug": "dancing-light",
+          "label": "Dancing Light",
+          "ongoing": true,
+          "description": "<p>Your light takes to the air, floating as you direct it, untethered from its fuel. You can move it anywhere that you can see it, and even change its shape or color.</p><p><strong>Reduced:</strong> it dims, reducing its range by one step.</p><p><strong>Empowered:</strong> you can use another Invocation through the Dancing Light while it is <em>ongoing</em>.</p>"
+        },
+        {
+          "slug": "go-back-to-the-shadow",
+          "label": "Go Back to the Shadow",
+          "description": "<p>Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.</p><p><strong>Reduced:</strong> affected spirits take only 1d8 damage.</p><p><strong>Empowered:</strong> a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).</p>"
+        },
+        {
+          "slug": "hold-back-the-darkness",
+          "label": "Hold Back the Darkness",
+          "ongoing": true,
+          "description": "<p>Spirits and creatures of darkness are repelled by your light and cannot approach. The cowardly or mindless flee outright. Those forced into range of your light deal damage with disadvantage.</p><p><strong>Reduced:</strong> you must maintain an unbroken litany of prayers in order to maintain the effect.</p><p><strong>Empowered:</strong> affected entities that are forced into range of your light are vulnerable to mundane weapons, their supernatural defenses suppressed.</p>"
+        },
+        {
+          "slug": "moth-to-a-flame",
+          "label": "Moth to a Flame",
+          "ongoing": true,
+          "description": "<p>Name an individual or type of mortal creature. They gaze raptly at your light and will follow it, slowly. The effect ends if they take damage.</p><p><strong>Reduced:</strong> it lasts only briefly OR only some of the named creatures are affected (GM's choice).</p><p><strong>Empowered:</strong> the effect continues for a few moments after they first take damage. Taking damage a second time ends the effect immediately.</p>"
+        },
+        {
+          "slug": "terrible-as-the-dawn",
+          "label": "Terrible as the Dawn",
+          "ongoing": true,
+          "description": "<p>Name an individual or type of mortal creature. Your light fills them with dread, causing them to recoil and back away. The cowardly flee outright.</p><p><strong>Reduced:</strong> all mortal creatures but you are affected, including your allies.</p><p><strong>Empowered:</strong> even the brave must cower or flee.</p>"
+        },
+        {
+          "slug": "warmth-of-the-sun",
+          "label": "Warmth of the Sun",
+          "ongoing": true,
+          "description": "<p>While in your light, you and your allies are free of fear and doubt, and unharmed by extreme cold.</p><p><strong>Reduced:</strong> only one person in the light is protected.</p><p><strong>Empowered:</strong> the light also protects from necromantic and life-draining effects.</p>"
+        }
+      ]
+    },
+    "movesNote": {
+      "startingMovesNote": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice."
+    }
+  },
+  {
+    "name": "The Marshal",
+    "slug": "the-marshal",
+    "description": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
+    "hp": 20,
+    "damage": "d8",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "scion",
+        "label": "Scion",
+        "description": "<p>You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.</p><p>You start with the <strong>Veteran Crew</strong> move, in addition to your usual moves.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>respected</em> tag (in addition to your usual picks, and any you get from Veteran Crew).</p>",
+        "moves": [
+          "Veteran Crew"
+        ]
+      },
+      {
+        "slug": "penitent",
+        "label": "Penitent",
+        "description": "<p>Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.</p><p>When you <strong><em>draw on your bloody past to Know Things</em></strong>, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>warriors</em> tag (in addition to your usual picks).</p>"
+      },
+      {
+        "slug": "luminary",
+        "label": "Luminary",
+        "description": "<p>You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?</p><p>You start with the <strong>We Happy Few</strong> move, in addition to your usual moves.</p><p>When you <strong><em>create your Crew</em></strong>, they automatically have the <em>devoted</em> tag (in addition to your usual picks).</p>",
+        "moves": [
+          "We Happy Few"
+        ]
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Authority",
+        "description": "To take charge and throw your weight around."
+      },
+      {
+        "word": "Caution",
+        "description": "To keep everyone safe, to agonize over decisions."
+      },
+      {
+        "word": "Drive",
+        "description": "To take on ever more responsibility."
+      },
+      {
+        "word": "Honor",
+        "description": "To keep your word, to follow a moral code."
+      },
+      {
+        "word": "Ruthlessness",
+        "description": "To do whatever it takes to win or survive."
+      }
+    ],
+    "appearance": [
+      [
+        "upstart youth",
+        "experienced & sober",
+        "grizzled"
+      ],
+      [
+        "clear voice",
+        "resonant voice",
+        "rumbling voice"
+      ],
+      [
+        "stern frown",
+        "grim-set jaw",
+        "knowing smirk"
+      ],
+      [
+        "badge of office",
+        "spit & polish",
+        "timeworn gear"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Bethan",
+          "Cadfael",
+          "Ffraid",
+          "Gwythyr",
+          "Llewelyn",
+          "Meredith",
+          "Rhianna",
+          "Urien"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Brigh",
+          "Cathal",
+          "Conn",
+          "Donal",
+          "Fionna",
+          "Laith",
+          "Talulla",
+          "Torin"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Adl",
+          "Aeln",
+          "Clotild",
+          "Judoc",
+          "Katrn",
+          "Mygl",
+          "Pirn",
+          "Sera"
+        ]
+      },
+      {
+        "region": "The Manmarch",
+        "names": [
+          "Berkhard",
+          "Gerhild",
+          "Hartig",
+          "Hilde",
+          "Sabrinne",
+          "Ulrike",
+          "Urrsla",
+          "Weillem"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Ameer",
+          "Calixta",
+          "Hadar",
+          "Kelila",
+          "Sulaim",
+          "Ursa",
+          "Xandros"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "options": [
+        {
+          "slug": "chirurgeons-tools",
+          "label": "Chirurgeon's tools",
+          "description": "catgut, straps, bandages, tubes, poultice, willow bark, ◇ bonesaws, etc."
+        },
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "engineers-tools",
+          "label": "Engineer's tools",
+          "description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block &amp; tackles, wheelbarrow, etc."
+        },
+        {
+          "slug": "personal-symbol",
+          "label": "Personal symbol",
+          "description": "(a flag, crest, marking, etc.): when you display or reveal it in a dramatic fashion, your crew holds +1 Loyalty (max 3)."
+        },
+        {
+          "slug": "scribes-tools",
+          "label": "Scribe's tools",
+          "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+        },
+        {
+          "slug": "weapons-of-war",
+          "label": "Weapons of war",
+          "description": "",
+          "choices": {
+            "pickNote": "Choose up to 3 (now or later)",
+            "pickCount": 3,
+            "optional": true,
+            "options": [
+              {
+                "slug": "sword",
+                "label": "◇ Sword, iron (<em>close</em>, +1 damage)"
+              },
+              {
+                "slug": "long-spear",
+                "label": "◇ Long spear, fine steel (<em>reach</em>, 2 piercing)"
+              },
+              {
+                "slug": "battleaxe",
+                "label": "◇ Battleaxe, iron (<em>close, messy</em>)"
+              },
+              {
+                "slug": "composite-bow",
+                "label": "◇ Composite bow (<em>far</em>, +1 damage, x <em>piercing</em>)",
+                "resource": {
+                  "max": 2,
+                  "title": null,
+                  "labels": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "war-stories",
+        "title": "War Stories",
+        "description": "",
+        "options": []
+      },
+      {
+        "slug": "war-stories-action",
+        "continuation": true,
+        "title": "The Last Time the Militia Saw Serious Action, It Was…",
+        "description": "<p><em>(pick 1)</em></p>",
+        "options": [
+          {
+            "slug": "crinwin-raid",
+            "description": "… to repel a nighttime raid by crinwin from the Great Wood.",
+            "max": 1
+          },
+          {
+            "slug": "bandits",
+            "description": "… to drive off bandits who'd taken up near the Ruined Tower.",
+            "max": 1
+          },
+          {
+            "slug": "hillfolk",
+            "description": "… to fend off Hillfolk pursuing a blood feud.",
+            "max": 1
+          },
+          {
+            "slug": "brennan-claws",
+            "description": "… against Brennan and his Claws, before they settled in Marshedge.",
+            "max": 1
+          },
+          {
+            "slug": "hagr",
+            "description": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",
+            "max": 1
+          },
+          {
+            "slug": "beasts",
+            "description": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "war-stories-questions",
+        "continuation": true,
+        "columnBreak": true,
+        "readonlyMerge": true,
+        "title": "Answer At Least 3 of the Following",
+        "description": "",
+        "options": [
+          {
+            "slug": "when",
+            "description": "When exactly did it happen?",
+            "type": "text"
+          },
+          {
+            "slug": "who-died",
+            "description": "Who lost their life, and who mourns them?",
+            "type": "text"
+          },
+          {
+            "slug": "who-maimed",
+            "description": "Who from Stonetop was maimed, and how?",
+            "type": "text"
+          },
+          {
+            "slug": "saved-day",
+            "description": "Who saved the day, and how?",
+            "type": "text"
+          },
+          {
+            "slug": "enemy-away",
+            "description": "How did the enemy get away, and whom do you still blame for it?",
+            "type": "text"
+          },
+          {
+            "slug": "honor",
+            "description": "Who comported themselves with honor?",
+            "type": "text"
+          },
+          {
+            "slug": "bugging",
+            "description": "What's been bugging you about it ever since?",
+            "type": "text"
+          },
+          {
+            "slug": "worried",
+            "description": "What's got you even more worried now?",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "crew": {
+      "hp": 6,
+      "armor": 0,
+      "damageDie": "d6",
+      "roll": 1,
+      "additionalTagCount": 2,
+      "backgroundTags": {
+        "scion": "respected",
+        "penitent": "warriors",
+        "luminary": "devoted"
+      },
+      "availableTags": [
+        "archers",
+        "athletic",
+        "brave",
+        "cunning",
+        "devoted",
+        "hardy",
+        "intimidating",
+        "observant",
+        "patient",
+        "respected",
+        "stealthy",
+        "warriors"
+      ],
+      "instincts": [
+        "To bicker, infight, and hold grudges",
+        "To hew to tradition and superstition",
+        "To indulge their baser instincts",
+        "To lord over others",
+        "To take needless risks",
+        "To take things too far"
+      ],
+      "costs": [
+        "Merry-making, as a group",
+        "Public recognition and respect, honor",
+        "Risks taken, by you, to help them",
+        "Victories won against worthy foes",
+        "Wealth gained for themselves or Stonetop"
+      ],
+      "inventory": [
+        {
+          "slug": "hatchet",
+          "label": "<strong>Hatchet</strong>, iron (<em>hand, thrown</em>, x <em>piercing</em>)",
+          "weight": 1
+        },
+        {
+          "slug": "spear",
+          "label": "<strong>Spear</strong>, iron (<em>close</em>, x <em>piercing</em>)",
+          "weight": 1
+        },
+        {
+          "slug": "bow-arrows",
+          "label": "<strong>Bow &amp; iron arrows</strong> (<em>near</em>, x <em>piercing</em>, ○ low ammo, ○ all out)",
+          "weight": 1
+        },
+        {
+          "slug": "shield",
+          "label": "<strong>Shield</strong> (+1 armor, +1 Readiness on 7+ to Defend)",
+          "weight": 2
+        },
+        {
+          "slug": "thick-hides",
+          "label": "<strong>Thick hides</strong> (1 armor, <em>warm</em>)",
+          "weight": 2
+        },
+        {
+          "slug": "cloak",
+          "label": "<strong>Cloak</strong> (<em>warm</em>)",
+          "weight": 1
+        }
+      ],
+      "individualOptions": {
+        "names": [
+          "Aled",
+          "Culhwch",
+          "Eira",
+          "Gerat",
+          "Glaw",
+          "Harri",
+          "Lowri",
+          "Mervyn",
+          "Nesta"
+        ],
+        "tags": [
+          "animal-lover",
+          "big",
+          "bully",
+          "cynical",
+          "drunkard",
+          "eager",
+          "gambler",
+          "greedy",
+          "grumpy",
+          "gullible",
+          "hearthrob",
+          "honest",
+          "kind",
+          "little",
+          "naive",
+          "old",
+          "popular",
+          "proud",
+          "reckless",
+          "rookie",
+          "shameless",
+          "sharp-eyed",
+          "short-tempered"
+        ],
+        "traits": [
+          "__'s kid/sibling/parent/cousin/__",
+          "bald",
+          "crush on __",
+          "grudge against __",
+          "hates __",
+          "idolizes __",
+          "jokes a lot",
+          "messy",
+          "missing eye/finger/hand/__",
+          "misses their kids",
+          "nightmares",
+          "recently married",
+          "religious",
+          "scars",
+          "skinny",
+          "sharp-tongued",
+          "sings",
+          "snores",
+          "tells tall tales",
+          "too serious",
+          "whistler",
+          "whittler"
+        ]
+      }
+    },
+    "movesNote": {
+      "startingMovesNote": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice."
+    }
+  },
+  {
+    "name": "The Ranger",
+    "slug": "the-ranger",
+    "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+    "hp": 18,
+    "damage": "d8",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "mighty-hunter",
+        "label": "Mighty Hunter",
+        "description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move.</p>",
+        "moves": [
+          "Expert Tracker",
+          "Stalker"
+        ]
+      },
+      {
+        "slug": "wide-wanderer",
+        "label": "Wide Wanderer",
+        "description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:</p><ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)</li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul><p>You start with the <strong>Mental Map</strong> move.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>",
+        "setup": {
+          "neighbors": [
+            {
+              "name": "Ennis",
+              "origin": "Marshedge",
+              "traitKey": "ennis",
+              "traitLabel": "Ennis trait"
+            },
+            {
+              "name": "Shahar",
+              "origin": "Gordin's Delve",
+              "traitKey": "shahar",
+              "traitLabel": "Shahar trait"
+            },
+            {
+              "name": "Yannic",
+              "origin": "the Hillfolk",
+              "traitKey": "yannic",
+              "traitLabel": "Yannic trait"
+            },
+            {
+              "name": "Tovia",
+              "origin": "Lygos",
+              "traitKey": "tovia",
+              "traitLabel": "Tovia trait"
+            },
+            {
+              "name": "Sasca",
+              "origin": "the northern Manmarch",
+              "traitKey": "sasca",
+              "traitLabel": "Sasca trait"
+            }
+          ]
+        },
+        "moves": [
+          "Mental Map"
+        ]
+      },
+      {
+        "slug": "beast-bonded",
+        "label": "Beast-Bonded",
+        "description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move.</p><p>When you <strong><em>focus on your animal companion for a few moments</em></strong>, you can use any of the actions you've marked below, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>",
+        "moves": [
+          "Animal Companion"
+        ],
+        "markableActions": {
+          "label": "Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+          "levels": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "options": [
+            {
+              "slug": "gauge-distance",
+              "label": "Gauge its distance and direction from you"
+            },
+            {
+              "slug": "call-back",
+              "label": "Call it back to your side"
+            },
+            {
+              "slug": "sense-emotion",
+              "label": "Sense its emotional state"
+            },
+            {
+              "slug": "sense-impression",
+              "label": "Get a brief impression of what it senses"
+            },
+            {
+              "slug": "lend-strength",
+              "label": "Lend it your strength—lose 1d6 HP, and it regains an equal amount"
+            }
+          ]
+        }
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Adventure",
+        "description": "To test yourself, to experience new things."
+      },
+      {
+        "word": "Independence",
+        "description": "To refuse help and push others away."
+      },
+      {
+        "word": "Stewardship",
+        "description": "To value beasts and natural places over people."
+      },
+      {
+        "word": "Tenacity",
+        "description": "To be stubborn, to persist."
+      },
+      {
+        "word": "Wonder",
+        "description": "To marvel at beauty, magnificence, splendor."
+      }
+    ],
+    "appearance": [
+      [
+        "fledgling",
+        "prime specimen",
+        "long in the tooth"
+      ],
+      [
+        "barking voice",
+        "growling voice",
+        "sing-song voice"
+      ],
+      [
+        "compact & sturdy",
+        "long & lean",
+        "wolfish"
+      ],
+      [
+        "shaggy",
+        "threadbare",
+        "well-groomed"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Aran",
+          "Bledyn",
+          "Branwen",
+          "Deryn",
+          "Ifur",
+          "Meinir",
+          "Rhys",
+          "Teagan"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Anarba",
+          "Arslan",
+          "Bolormaa",
+          "Cirina",
+          "Nergui",
+          "Nomolun",
+          "Saran",
+          "Shigi-Qutuqu"
+        ]
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Asling",
+          "Conar",
+          "Enna",
+          "Flannan",
+          "Macha",
+          "Mave",
+          "Proinsias",
+          "Rowen"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Bernd",
+          "Elown",
+          "Irn",
+          "Kani",
+          "Pol",
+          "Nol",
+          "Rozn",
+          "Sterin"
+        ]
+      },
+      {
+        "region": "The Manmarch",
+        "names": [
+          "Alfher",
+          "Bertrim",
+          "Dagmar",
+          "Elfrida",
+          "Hramn",
+          "Meike",
+          "Swanhilde",
+          "Wulfrim"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Ari",
+          "Boriz",
+          "Dimitra",
+          "Gorhan",
+          "Nitza",
+          "Selen",
+          "Todora",
+          "Vasil"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2, in addition to your composite bow",
+      "pickCount": 2,
+      "preselected": [
+        "composite-bow"
+      ],
+      "options": [
+        {
+          "slug": "composite-bow",
+          "label": "Composite bow",
+          "description": "<em>far</em>, +1 damage, x <em>piercing</em>; ○ low ammo, ○ all out"
+        },
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "hideouts",
+          "label": "Hideouts",
+          "description": "○○○ uses: expend a use to have a well-stocked, safe shelter nearby; GM can veto.",
+          "resource": {
+            "max": 3,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "hounds",
+          "label": "Hounds",
+          "description": "2-3 followers (<em>trackers, keen-nosed, fast</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to give chase; Cost: training."
+        },
+        {
+          "slug": "husbandry-tools",
+          "label": "Husbandry tools",
+          "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+        },
+        {
+          "slug": "lay-of-the-land",
+          "label": "Lay of the land",
+          "description": "○○○ uses: expend a use to know where to find ___, without having to Know Things; GM can veto.",
+          "resource": {
+            "max": 3,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "trapping-gear",
+          "label": "Trapping gear",
+          "description": "snares, pelts, musk, bait, etc. When you <em>Forage</em>, get +1 use of provisions."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "something-wicked",
+        "title": "Something Wicked This Way Comes",
+        "description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it.</p>"
+      },
+      {
+        "slug": "wicked-threat",
+        "continuation": true,
+        "title": "What is it that you're so worried about?",
+        "description": "<p><em>(choose 1)</em></p>",
+        "options": [
+          {
+            "slug": "great-wood",
+            "description": "A dark, unwholesome presence lurking in the Great Wood.",
+            "max": 1
+          },
+          {
+            "slug": "ruined-tower",
+            "description": "A strange, furtive figure seen near the Ruined Tower.",
+            "max": 1
+          },
+          {
+            "slug": "foothills",
+            "description": "Something big & savage stalking the northern foothills.",
+            "max": 1
+          },
+          {
+            "slug": "suarachan",
+            "description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
+            "max": 1
+          },
+          {
+            "slug": "hillfolk",
+            "description": "That of which the Hillfolk refuse to speak.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "wicked-questions",
+        "continuation": true,
+        "columnBreak": true,
+        "readonlyMerge": true,
+        "title": "Answer At Least 3 of the Following",
+        "description": "",
+        "options": [
+          {
+            "slug": "what-is-it",
+            "description": "What, exactly, do you think it is?",
+            "type": "text"
+          },
+          {
+            "slug": "what-saw",
+            "description": "What did you see, and how close did you have to get to see it?",
+            "type": "text"
+          },
+          {
+            "slug": "what-lost",
+            "description": "Whom or what have you lost to it?",
+            "type": "text"
+          },
+          {
+            "slug": "left-behind",
+            "description": "What did it leave behind?",
+            "type": "text"
+          },
+          {
+            "slug": "what-wants",
+            "description": "What do you think it wants?",
+            "type": "text"
+          },
+          {
+            "slug": "disbeliever",
+            "description": "Who refuses to believe you?",
+            "type": "text"
+          },
+          {
+            "slug": "who-knows-more",
+            "description": "Who can tell you more, if you can only convince them?",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "animalCompanion": {
+      "types": [
+        {
+          "slug": "bird",
+          "label": "Bird",
+          "examples": "falcon, eagle, owl, buzzard, magpie…",
+          "hp": 5,
+          "armor": "1 (size)",
+          "damage": "d4 (hand)",
+          "pickCount": 4,
+          "traits": [
+            "+4 HP",
+            "+1 armor (agility)",
+            "attack-bird",
+            "cautious",
+            "clever",
+            "fast",
+            "mimic",
+            "sharp-eyed",
+            "stealthy",
+            "thieving",
+            "tiny",
+            "tireless"
+          ]
+        },
+        {
+          "slug": "critter",
+          "label": "Critter",
+          "examples": "cat, fox, possum, raccoon, weasel…",
+          "hp": 5,
+          "armor": "1",
+          "damage": "d4 (hand)",
+          "pickCount": 5,
+          "traits": [
+            "+4 HP",
+            "+1 armor (agility)",
+            "agile",
+            "adorable",
+            "annoying",
+            "burrowing",
+            "cautious",
+            "clever",
+            "climber",
+            "dextrous",
+            "keen-eared",
+            "keen-eyed",
+            "keen-nosed",
+            "quick",
+            "stealthy",
+            "stinky",
+            "tiny",
+            "thieving"
+          ]
+        },
+        {
+          "slug": "brute",
+          "label": "Brute",
+          "examples": "bear, boar, wolverine, aurochs, drake…",
+          "hp": 12,
+          "armor": "0",
+          "damage": "d6 (hand)",
+          "pickCount": 3,
+          "traits": [
+            "+1 armor (hide, scales, etc.)",
+            "Damage +2, forceful",
+            "Damage messy, 1 piercing",
+            "large (+4 HP, +1 damage, +close)",
+            "easy-going",
+            "cautious",
+            "gluttonous",
+            "keen-nosed",
+            "protective",
+            "quick",
+            "terrifying",
+            "tough"
+          ]
+        },
+        {
+          "slug": "predator",
+          "label": "Predator",
+          "examples": "hound, wolf, cougar, drake…",
+          "hp": 8,
+          "armor": "0",
+          "damage": "d8 (hand, grabby)",
+          "pickCount": 3,
+          "traits": [
+            "+4 HP",
+            "+1 armor (hide)",
+            "Damage messy, 1 piercing",
+            "agile",
+            "climber",
+            "clever",
+            "enduring",
+            "fast",
+            "fierce",
+            "keen-eared",
+            "keen-eyed",
+            "pack-hunter",
+            "keen-nosed",
+            "patient",
+            "powerful",
+            "stealthy",
+            "terrifying"
+          ]
+        },
+        {
+          "slug": "steed",
+          "label": "Steed",
+          "examples": "horse, mule…",
+          "hp": 12,
+          "armor": "0",
+          "damage": "d6+1 (hand, close)",
+          "pickCount": 4,
+          "traits": [
+            "+4 HP",
+            "+1 armor (hide)",
+            "Damage +2, forceful",
+            "aggressive",
+            "agile",
+            "beautiful",
+            "calm",
+            "clever",
+            "hardy",
+            "keen-nosed",
+            "large",
+            "powerful",
+            "swift"
+          ]
+        }
+      ],
+      "instincts": [
+        "To bully and threaten",
+        "To fill its belly",
+        "To get distracted",
+        "To make mischief",
+        "To startle and panic",
+        "To run rampant",
+        "To give chase"
+      ],
+      "costs": [
+        "Play, grooming, training, affection",
+        "Time off on its own, free to roam",
+        "Cozy quarters, comfort, ample food"
+      ],
+      "moves": [
+        {
+          "name": "Loyal to the End",
+          "description": "<p>When your <strong><em>companion is at 0 HP</em></strong>, roll +0, with advantage if it holds Loyalty:</p><ul><li>On a <strong>10+</strong>, it'll be fine once it regains any HP.</li><li>On a <strong>7&ndash;9</strong>, it gets the <em>injured</em> tag.</li><li>On a <strong>6&ndash;</strong>, it's injured and will die soon unless someone saves it.</li></ul>"
+        }
+      ]
+    },
+    "movesNote": {
+      "startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
+    }
+  },
+  {
+    "name": "The Seeker",
+    "slug": "the-seeker",
+    "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+    "hp": 16,
+    "damage": "d6",
+    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "patriot",
+        "label": "Patriot",
+        "description": "<p>These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.</p><p>You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.</p><p>You start with the <strong>Let's Make a Deal</strong> move and are Well Versed in the Things Below. You've also acquired 1 major arcanum.</p>",
+        "moves": [
+          "Let's Make a Deal"
+        ],
+        "moveChoices": [
+          {
+            "move": "Well Versed",
+            "label": "Well Versed in",
+            "value": "the Things Below"
+          }
+        ],
+        "majorArcana": [
+          "hectumel-codex",
+          "red-scepter",
+          "staff-of-the-lidless-orb"
+        ]
+      },
+      {
+        "slug": "antiquarian",
+        "label": "Antiquarian",
+        "description": "<p>The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?</p><p>Your travels and studies mean that you start with the <strong>Polyglot</strong> move and are Well Versed in the Makers and their arts. You've also acquired 1 major arcanum.</p>",
+        "moves": [
+          "Polyglot"
+        ],
+        "moveChoices": [
+          {
+            "move": "Well Versed",
+            "label": "Well Versed in",
+            "value": "the Makers and their arts"
+          }
+        ],
+        "majorArcana": [
+          "norubas-ice-sphere",
+          "azure-hand",
+          "mindgem"
+        ]
+      },
+      {
+        "slug": "witch-hunter",
+        "label": "Witch Hunter",
+        "description": "<p>You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?</p><p>Regardless, you start with the <strong>Everything Bleeds</strong> move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. You've also acquired 1 major arcanum.</p>",
+        "moves": [
+          "Everything Bleeds"
+        ],
+        "moveChoices": [
+          {
+            "move": "Well Versed",
+            "label": "Well Versed in",
+            "options": [
+              "the Fae",
+              "the Things Below",
+              "the Last Door and what lies beyond"
+            ]
+          }
+        ],
+        "majorArcana": [
+          "demonhide-cloak",
+          "redwood-effigy",
+          "twisted-spear"
+        ]
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Cunning",
+        "description": "To scheme, manipulate, and plot."
+      },
+      {
+        "word": "Curiosity",
+        "description": "To seek answers that maybe you oughtn't."
+      },
+      {
+        "word": "Hubris",
+        "description": "To assume you know best, that you can't fail."
+      },
+      {
+        "word": "Mystery",
+        "description": "To avoid straight answers; to keep secrets."
+      },
+      {
+        "word": "Vision",
+        "description": "To think big and pursue grandiose goals."
+      }
+    ],
+    "appearance": [
+      [
+        "curiously young",
+        "world-weary",
+        "bent with years"
+      ],
+      [
+        "haunted voice",
+        "rich voice",
+        "whispery"
+      ],
+      [
+        "ink-stained fingers",
+        "sinewy hands",
+        "soft hands"
+      ],
+      [
+        "bony limbed",
+        "lean & lanky",
+        "short",
+        "thick-set"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Alis",
+          "Dylan",
+          "Eilwen",
+          "Gelt",
+          "Gwenda",
+          "Macsen",
+          "Mirgan",
+          "Owena",
+          "Taliesyn",
+          "Twymor"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Bayanaganengri",
+          "Chakha",
+          "Jetei",
+          "Moog",
+          "Narengawa",
+          "Ogul",
+          "Ozbeg",
+          "Solongo"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Anook",
+          "Anxo",
+          "Dors",
+          "Jory",
+          "Mari",
+          "Padg",
+          "Pons",
+          "Silf"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Aiden",
+          "Barrfind",
+          "Caolan",
+          "Ciara",
+          "Deirbhile",
+          "Moirin",
+          "Tiern",
+          "Reamann"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Dana",
+          "Eliana",
+          "Erez",
+          "Fikri",
+          "Isra",
+          "Persefoni",
+          "Spiro",
+          "Vahid"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2, in addition to your scribe's tools",
+      "pickCount": 2,
+      "preselected": [
+        "scribes-tools"
+      ],
+      "options": [
+        {
+          "slug": "scribes-tools",
+          "label": "Scribe's tools",
+          "description": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc."
+        },
+        {
+          "slug": "books-and-scrolls",
+          "label": "Books &amp; scrolls",
+          "description": "○○○○○ uses: expend a use to consult your collection and turn a Know Things roll you just made into a 10+.",
+          "resource": {
+            "max": 5,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "distillery",
+          "label": "Distillery",
+          "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+          "resource": {
+            "max": 2,
+            "title": null,
+            "labels": []
+          }
+        },
+        {
+          "slug": "engineers-tools",
+          "label": "Engineer's tools",
+          "description": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block &amp; tackles, wheelbarrow, etc."
+        },
+        {
+          "slug": "laboratory",
+          "label": "Laboratory",
+          "description": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce d4-1 uses of ◇ naphtha (<em>thrown, area, dangerous, ignores armor</em>)."
+        },
+        {
+          "slug": "paraphernalia",
+          "label": "Paraphernalia",
+          "description": "crystals, incense, talismans, blood, bone, horn, eye of newt, ◇ braziers, ◇ a cauldron, etc."
+        },
+        {
+          "slug": "trade-contacts",
+          "label": "Trade contacts",
+          "description": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "collection",
+        "title": "Collection",
+        "description": "<p>In your travels and investigations you have acquired arcana—artifacts of power and mystery.</p>"
+      },
+      {
+        "slug": "arcana-major",
+        "continuation": true,
+        "subheader": true,
+        "arcanaImage": true,
+        "title": "Major Arcanum",
+        "description": "<p>Your Background grants you 1 major arcanum.</p><p>Answer at least 2 questions about it:</p>",
+        "options": [
+          {
+            "slug": "where-acquired",
+            "description": "Where did you acquire it?",
+            "type": "text"
+          },
+          {
+            "slug": "wrested-from",
+            "description": "From whose grasp did you wrest it?",
+            "type": "text"
+          },
+          {
+            "slug": "who-else-wants",
+            "description": "Who else wants it?",
+            "type": "text"
+          },
+          {
+            "slug": "what-cost",
+            "description": "What did it cost you?",
+            "type": "text"
+          },
+          {
+            "slug": "when-unlocked",
+            "description": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 ○ on the front of its insert. When and how did that happen?",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "slug": "arcana-minor",
+        "continuation": true,
+        "columnBreak": true,
+        "subheader": true,
+        "title": "Minor Arcana",
+        "description": "<p>Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.</p>",
+        "options": [
+          {
+            "slug": "mastered-location",
+            "description": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?",
+            "type": "text",
+            "arcanaRole": "mastered"
+          },
+          {
+            "slug": "found-location",
+            "description": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?",
+            "type": "text",
+            "arcanaRole": "found"
+          },
+          {
+            "slug": "sought-notes",
+            "description": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?",
+            "type": "text",
+            "arcanaRole": "lead"
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background."
+    }
+  },
+  {
+    "name": "The Would-Be Hero",
+    "slug": "the-would-be-hero",
+    "description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
+    "hp": 16,
+    "damage": "d6",
+    "statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+    "backgrounds": [
+      {
+        "slug": "impetuous-youth",
+        "label": "Impetuous Youth",
+        "description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <strong><em>make a move and come up short</em></strong>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
+      },
+      {
+        "slug": "driven",
+        "label": "Driven",
+        "description": "<p>You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1: a loved one was killed or abducted; someone gave their life to save you; your idol sacrificed themselves to save many; you stumbled upon a dark mystery; or you must make amends for a terrible mistake.</p><p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+      },
+      {
+        "slug": "destined",
+        "label": "Destined",
+        "description": "<p>Fate has laid her hand upon you. Choose 3-4 items to describe your destiny.</p><p>At the <em>start of a session</em>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will share a vision or portent that points toward your fate; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don't mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision.</p><p><em>Until your destiny is fulfilled</em>, treat a 6- on Death's Door as a 7-9, and a 7-9 as a 10+.</p>"
+      }
+    ],
+    "instincts": [
+      {
+        "word": "Defiance",
+        "description": "To refuse to back down, give up, give in."
+      },
+      {
+        "word": "Doubt",
+        "description": "To question yourself, your actions, your worth."
+      },
+      {
+        "word": "Earnestness",
+        "description": "To prove yourself, to yourself and others."
+      },
+      {
+        "word": "Optimism",
+        "description": "To assume the best, and that things are simple."
+      },
+      {
+        "word": "Sacrifice",
+        "description": "To put the needs/wants of others above your own."
+      }
+    ],
+    "appearance": [
+      [
+        "still a child",
+        "young & beautiful",
+        "all grown up"
+      ],
+      [
+        "quiet voice",
+        "earnest voice",
+        "soft voice"
+      ],
+      [
+        "big",
+        "scrawny",
+        "sinewy",
+        "slender",
+        "thick"
+      ],
+      [
+        "back unbowed",
+        "jaw firmly set",
+        "soulful eyes"
+      ]
+    ],
+    "origin": [
+      {
+        "region": "Stonetop",
+        "names": [
+          "Anwen",
+          "Caradoc",
+          "Dafyd",
+          "Glenys",
+          "Madoc",
+          "Morwenna",
+          "Siwan",
+          "Wynfor"
+        ]
+      },
+      {
+        "region": "Barrier Pass",
+        "names": [
+          "Bala",
+          "Cotota",
+          "Ganzorig",
+          "Gerelma",
+          "Ibahka",
+          "Jungshoi",
+          "Mukhali",
+          "Taichu"
+        ]
+      },
+      {
+        "region": "The Steplands (Hillfolk)",
+        "names": [
+          "Annie",
+          "Cosette",
+          "Denl",
+          "Hugenne",
+          "Jag",
+          "Marc",
+          "Oanz",
+          "Sandre"
+        ]
+      },
+      {
+        "region": "Gordin's Delve",
+        "names": []
+      },
+      {
+        "region": "Marshedge",
+        "names": [
+          "Bridin",
+          "Clian",
+          "Engis",
+          "Fearghul",
+          "Lan",
+          "Neasa",
+          "Nill",
+          "Una"
+        ]
+      },
+      {
+        "region": "Lygos or some other point south",
+        "names": [
+          "Chara",
+          "Davud",
+          "Korina",
+          "Omid",
+          "Parvaneh",
+          "Tamir",
+          "Takish",
+          "Yannis"
+        ]
+      }
+    ],
+    "specialPossessions": {
+      "pickNote": "Pick 2",
+      "pickCount": 2,
+      "preselected": [],
+      "options": [
+        {
+          "slug": "a-good-dog",
+          "label": "A good dog",
+          "description": "follower (◇ <em>retriever</em> or ◇ <em>herder, keen-nosed, clever</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct to play; Cost: affection."
+        },
+        {
+          "slug": "heap-of-expectations",
+          "label": "Heap of expectations",
+          "description": "of little use"
+        },
+        {
+          "slug": "husbandry-tools",
+          "label": "Husbandry tools",
+          "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+        },
+        {
+          "slug": "personal-token",
+          "label": "Personal token, fraught with meaning",
+          "description": "",
+          "choices": {
+            "pickCount": 1,
+            "options": [
+              {
+                "slug": "shield",
+                "label": "◇◇ A shield, bearing ___'s crest"
+              },
+              {
+                "slug": "wool-cloak",
+                "label": "◇ A wool cloak, woven just for you by ___"
+              },
+              {
+                "slug": "letter",
+                "label": "A letter, spattered with tears &amp; blood"
+              },
+              {
+                "slug": "flute",
+                "label": "A flute, a gift from someone you loved"
+              },
+              {
+                "slug": "fine-locket",
+                "label": "A fine locket, holding a strand of hair"
+              },
+              {
+                "slug": "tinderbox",
+                "label": "A tinderbox, lovingly engraved"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "smithy",
+          "label": "Smithy",
+          "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+        },
+        {
+          "slug": "stoneworkers-tools",
+          "label": "Stoneworker's tools",
+          "description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+        },
+        {
+          "slug": "tannery",
+          "label": "Tannery",
+          "description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc."
+        }
+      ]
+    },
+    "lore": [
+      {
+        "slug": "fear-and-anger",
+        "title": "Fear & Anger"
+      },
+      {
+        "slug": "fear-and-anger-fears",
+        "continuation": true,
+        "title": "What do you fear most?",
+        "description": "<p><em>(choose 1, maybe 2)</em></p>",
+        "options": [
+          {
+            "slug": "fire",
+            "description": "Fire, burning, the smell of charred flesh.",
+            "max": 1
+          },
+          {
+            "slug": "not-serious",
+            "description": "That they won't take you seriously.",
+            "max": 1
+          },
+          {
+            "slug": "not-cut-out",
+            "description": "That you really aren't cut out for this.",
+            "max": 1
+          },
+          {
+            "slug": "loved-ones",
+            "description": "The death of your family or loved ones.",
+            "max": 1
+          },
+          {
+            "slug": "alone",
+            "description": "Being alone and helpless.",
+            "max": 1
+          },
+          {
+            "slug": "violence",
+            "description": "Violence, bloodshed, and pain.",
+            "max": 1
+          },
+          {
+            "slug": "monsters",
+            "description": "Monsters.",
+            "max": 1
+          },
+          {
+            "slug": "capable-of",
+            "description": "What you're capable of.",
+            "max": 1
+          },
+          {
+            "slug": "must-do",
+            "description": "What you must do.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "fear-and-anger-anger",
+        "continuation": true,
+        "title": "What Makes You Burn with Righteous Anger?",
+        "description": "<p><em>(choose 2, maybe 3)</em></p>",
+        "options": [
+          {
+            "slug": "bullying",
+            "description": "Bullying, slavery, and oppression.",
+            "max": 1
+          },
+          {
+            "slug": "cruelty",
+            "description": "Wanton cruelty and unnecessary suffering.",
+            "max": 1
+          },
+          {
+            "slug": "injustice",
+            "description": "Injustice and inequality.",
+            "max": 1
+          },
+          {
+            "slug": "cowardice",
+            "description": "Cowardice, treachery, and selfishness.",
+            "max": 1
+          },
+          {
+            "slug": "despoiling",
+            "description": "The despoiling of beauty and innocence.",
+            "max": 1
+          },
+          {
+            "slug": "loved-ones",
+            "description": "Threats to your loved ones.",
+            "max": 1
+          },
+          {
+            "slug": "innocents",
+            "description": "Violence to children, animals, the innocent.",
+            "max": 1
+          },
+          {
+            "slug": "perversions",
+            "description": "Perversions of nature.",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "slug": "fear-and-anger-story",
+        "continuation": true,
+        "columnBreak": true,
+        "title": "",
+        "description": "",
+        "options": [
+          {
+            "slug": "when-trouble",
+            "description": "When did your fear or anger last cause you trouble?",
+            "type": "text"
+          },
+          {
+            "slug": "what-did",
+            "description": "What did you do?",
+            "type": "text"
+          },
+          {
+            "slug": "how-turned",
+            "description": "How did it turn out?",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "movesNote": {
+      "startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice."
+    }
+  }
+]

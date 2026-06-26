@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { StonetopPlaybook } from "../../src/item/StonetopPlaybook.js";
+import { StonetopPlaybook } from "../../module/item/StonetopPlaybook.js";
 
-function makeItem(systemFields = {}) {
-	return { system: systemFields };
+function makeItem(stonetopFields = {}) {
+	return { flags: { stonetop: stonetopFields } };
 }
 
 describe("StonetopPlaybook", () => {
@@ -10,17 +10,17 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem({ hp: 18 })).hp).toBe(18);
 	});
 
-	it("damage returns the damage object", () => {
-		expect(new StonetopPlaybook(makeItem({ damage: { die: "d6" } })).damage).toEqual({ die: "d6" });
+	it("damage returns the damage string", () => {
+		expect(new StonetopPlaybook(makeItem({ damage: "d6" })).damage).toBe("d6");
 	});
 
-	it("appearance returns the appearance ChoiceGroup", () => {
-		const group = { slug: "appearance", list: [] };
-		expect(new StonetopPlaybook(makeItem({ appearance: group })).appearance).toEqual(group);
+	it("appearance returns appearance array", () => {
+		const opts = [["a", "b"], ["c", "d"]];
+		expect(new StonetopPlaybook(makeItem({ appearance: opts })).appearance).toEqual(opts);
 	});
 
-	it("appearance defaults to null", () => {
-		expect(new StonetopPlaybook(makeItem()).appearance).toBeNull();
+	it("appearance defaults to empty array", () => {
+		expect(new StonetopPlaybook(makeItem()).appearance).toEqual([]);
 	});
 
 	it("backgrounds returns the backgrounds array", () => {
@@ -32,20 +32,13 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem()).backgrounds).toEqual([]);
 	});
 
-	it("followers / inserts return the playbook's grant lists, defaulting to []", () => {
-		expect(new StonetopPlaybook(makeItem({ followers: ["crew"] })).followers).toEqual(["crew"]);
-		expect(new StonetopPlaybook(makeItem({ inserts: ["invoc"] })).inserts).toEqual(["invoc"]);
-		expect(new StonetopPlaybook(makeItem()).followers).toEqual([]);
-		expect(new StonetopPlaybook(makeItem()).inserts).toEqual([]);
+	it("instincts returns the instincts array", () => {
+		const ins = [{ word: "Delight", description: "..." }];
+		expect(new StonetopPlaybook(makeItem({ instincts: ins })).instincts).toEqual(ins);
 	});
 
-	it("instinct returns the instinct ChoiceGroup", () => {
-		const inst = { slug: "instinct", list: [] };
-		expect(new StonetopPlaybook(makeItem({ instinct: inst })).instinct).toEqual(inst);
-	});
-
-	it("instinct defaults to null", () => {
-		expect(new StonetopPlaybook(makeItem()).instinct).toBeNull();
+	it("instincts defaults to empty array", () => {
+		expect(new StonetopPlaybook(makeItem()).instincts).toEqual([]);
 	});
 
 	it("origin returns the origin array", () => {
@@ -57,8 +50,8 @@ describe("StonetopPlaybook", () => {
 		expect(new StonetopPlaybook(makeItem()).origin).toEqual([]);
 	});
 
-	it("startingMovesNote reads directly from system", () => {
-		const item = makeItem({ startingMovesNote: "Pick 2 starting moves." });
+	it("startingMovesNote reads from moves.startingMovesNote", () => {
+		const item = makeItem({ moves: { startingMovesNote: "Pick 2 starting moves." } });
 		expect(new StonetopPlaybook(item).startingMovesNote).toBe("Pick 2 starting moves.");
 	});
 
@@ -76,7 +69,7 @@ describe("StonetopPlaybook", () => {
 	});
 
 	it("lore returns the lore array", () => {
-		const lore = [{ slug: "the-earth-mother", list: [] }];
+		const lore = [{ slug: "the-earth-mother", title: "The Earth Mother", description: "", options: [] }];
 		expect(new StonetopPlaybook(makeItem({ lore })).lore).toEqual(lore);
 	});
 

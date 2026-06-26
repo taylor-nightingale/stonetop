@@ -1,0 +1,19 @@
+{
+  "_id": "18Y2bTu5X1YqWg21",
+  "_key": "!items!18Y2bTu5X1YqWg21",
+  "name": "Long spear, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "long-spear",
+      "inventoryColumn": "regular",
+      "sortOrder": 21,
+      "note": "<em>reach</em>, x <em>piercing</em>",
+      "weight": 2
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

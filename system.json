@@ -1,162 +1,160 @@
 {
-	"$schema": "https://json.schemastore.org/foundryvtt-system-manifest.json",
-	"id": "stonetop",
-	"title": "Stonetop",
-	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
-	"version": "0.12.0",
-	"compatibility": {
-		"minimum": "13",
-		"verified": "14"
-	},
-	"authors": [
-		{
-			"name": "aMediocerDad"
-		},
-		{
-			"name": "taylor-nightingale"
-		},
-		{
-			"name": "pervandyke"
-		},
-		{
-			"name": "Dice-Goblin-Click-Clack"
-		}
-	],
-	"flags": {
-		"hotReload": {
-			"extensions": ["css", "js", "hbs", "json"],
-			"paths": [
-				"stonetop.js",
-				"module",
-				"styles",
-				"languages",
-				"templates"
-			]
-		}
-	},
-	"esmodules": [
-		"stonetop.js"
-	],
-	"styles": [
-		"styles/stonetop.css"
-	],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "languages/en.json"
-		}
-	],
-	"documentTypes": {
-		"Actor": {
-			"character": {},
-			"npc":       {},
-			"steading":  {}
-		},
-		"Item": {
-			"move":        {},
-			"arcanum":     {},
-			"playbook":    {},
-			"insert":      {},
-			"improvement": {},
-			"npc":         {},
-			"outfitItem":  {},
-			"possession":  {}
-		}
-	},
-	"packs": [
-		{
-			"name": "moves",
-			"label": "Moves",
-			"path": "packs/moves",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "playbooks",
-			"label": "Playbooks",
-			"path": "packs/playbooks",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "outfit-items",
-			"label": "Inventory Items",
-			"path": "packs/outfit-items",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "arcana",
-			"label": "Arcana",
-			"path": "packs/arcana",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "inserts",
-			"label": "Inserts",
-			"path": "packs/inserts",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "followers",
-			"label": "Followers",
-			"path": "packs/followers",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "possessions",
-			"label": "Possessions",
-			"path": "packs/possessions",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "steading-improvements",
-			"label": "Steading Improvements",
-			"path": "packs/steading-improvements",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
-			"name": "wider-world-npcs",
-			"label": "Wider World NPCs",
-			"path": "packs/wider-world-npcs",
-			"type": "Actor",
-			"system": "stonetop",
-			"ownership": {
-				"PLAYER": "NONE",
-				"ASSISTANT": "OWNER"
-			}
-		},
-		{
-			"name": "wider-world-and-other-wonders",
-			"label": "Wider World and Other Wonders",
-			"path": "packs/wider-world-and-other-wonders",
-			"type": "JournalEntry",
-			"system": "stonetop",
-			"ownership": {
-				"PLAYER": "NONE",
-				"ASSISTANT": "OWNER"
-			}
-		},
-		{
-			"name": "wonder-tables",
-			"label": "Wonder Tables",
-			"path": "packs/wonder-tables",
-			"type": "RollTable",
-			"system": "stonetop",
-			"ownership": {
-				"PLAYER": "NONE",
-				"ASSISTANT": "OWNER"
-			}
-		}
-	],
-	"url": "https://github.com/taylor-nightingale/stonetop",
-	"license": "LICENSE",
-	"manifest": "https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.json",
-	"download": "https://github.com/taylor-nightingale/stonetop/archive/refs/heads/main.zip"
+    "$schema":  "https://json.schemastore.org/foundryvtt-system-manifest.json",
+    "id":  "stonetop",
+    "title":  "Stonetop",
+    "description":  "An unofficial system for playing Stonetop in Foundry VTT.",
+    "version":  "0.12.0",
+    "compatibility":  {
+                          "minimum":  "13",
+                          "verified":  "14"
+                      },
+    "authors":  [
+                    {
+                        "name":  "aMediocerDad"
+                    },
+                    {
+                        "name":  "taylor-nightingale"
+                    },
+                    {
+                        "name":  "pervandyke"
+                    },
+                    {
+                        "name":  "Dice-Goblin-Click-Clack"
+                    },
+                    {
+                        "name":  "PrinceWitherdick"
+                    }
+                ],
+    "url":  "https://github.com/taylor-nightingale/stonetop",
+    "manifest":  "https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.json",
+    "download":  "https://github.com/taylor-nightingale/stonetop/releases/download/0.12.0/stonetop.zip",
+    "license":  "LICENSE",
+    "readme":  "README.md",
+    "bugs":  "https://github.com/taylor-nightingale/stonetop/issues",
+    "changelog":  "https://github.com/taylor-nightingale/stonetop/releases",
+    "esmodules":  [
+                      "stonetop.js"
+                  ],
+    "styles":  [
+                   "styles/stonetop.css",
+                   "styles/classic.css"
+               ],
+    "languages":  [
+                      {
+                          "lang":  "en",
+                          "name":  "English (Classic sheet l10n)",
+                          "path":  "languages/classic-en.json"
+                      },
+                      {
+                          "lang":  "en",
+                          "name":  "English",
+                          "path":  "languages/en.json"
+                      }
+                  ],
+    "packs":  [
+                  {
+                      "name":  "stonetop-items",
+                      "label":  "Stonetop Items",
+                      "path":  "packs/stonetop-items",
+                      "type":  "Item",
+                      "system":  "stonetop"
+                  },
+                  {
+                      "name":  "stonetop-journal",
+                      "label":  "Stonetop",
+                      "path":  "packs/stonetop-journal",
+                      "type":  "JournalEntry",
+                      "system":  "stonetop",
+                      "ownership":  {
+                                        "PLAYER":  "NONE",
+                                        "TRUSTED":  "NONE",
+                                        "ASSISTANT":  "OWNER",
+                                        "GAMEMASTER":  "OWNER"
+                                    }
+                  },
+                  {
+                      "name":  "stonetop-bestiary",
+                      "label":  "Monsters",
+                      "path":  "packs/stonetop-bestiary",
+                      "type":  "Actor",
+                      "system":  "stonetop",
+                      "ownership":  {
+                                        "PLAYER":  "NONE",
+                                        "TRUSTED":  "NONE",
+                                        "ASSISTANT":  "OWNER",
+                                        "GAMEMASTER":  "OWNER"
+                                    }
+                  },
+                  {
+                      "name":  "wonder-tables",
+                      "label":  "Wonder Tables",
+                      "path":  "packs/wonder-tables",
+                      "type":  "RollTable",
+                      "system":  "stonetop",
+                      "ownership":  {
+                                        "PLAYER":  "NONE",
+                                        "TRUSTED":  "NONE",
+                                        "ASSISTANT":  "OWNER",
+                                        "GAMEMASTER":  "OWNER"
+                                    }
+                  },
+                  {
+                      "name":  "wider-world-and-other-wonders",
+                      "label":  "Wider World and Other Wonders",
+                      "path":  "packs/wider-world-and-other-wonders",
+                      "type":  "JournalEntry",
+                      "system":  "stonetop",
+                      "ownership":  {
+                                        "PLAYER":  "NONE",
+                                        "TRUSTED":  "NONE",
+                                        "ASSISTANT":  "OWNER",
+                                        "GAMEMASTER":  "OWNER"
+                                    }
+                  }
+              ],
+    "packFolders":  [
+                        {
+                            "name":  "Minimal",
+                            "sorting":  "a",
+                            "packs":  [
+                                          "stonetop-journal",
+                                          "stonetop-bestiary"
+                                      ]
+                        },
+                        {
+                            "name":  "Classic",
+                            "sorting":  "a",
+                            "packs":  [
+                                          "wonder-tables",
+                                          "wider-world-and-other-wonders"
+                                      ]
+                        }
+                    ],
+    "documentTypes":  {
+                          "Actor":  {
+                                        "character":  {},
+                                        "stonetop":  {},
+                                        "monster":  {},
+                                        "npc":  {}
+                                    },
+                          "Item":  {
+                                       "move":  {},
+                                       "playbook":  {},
+                                       "npcMove":  {},
+                                       "monsterMove":  {},
+                                       "arcanum":  {},
+                                       "possession":  {},
+                                       "insert":  {},
+                                       "outfitItem":  {},
+                                       "npc":  {}
+                                   },
+                          "JournalEntryPage":  {
+                                                   "bestiary":  {},
+                                                   "location":  {},
+                                                   "chronicle":  {}
+                                               }
+                      },
+    "primaryTokenAttribute":  "attributes.hp",
+    "initiative":  "2d6",
+    "socket":  true
 }

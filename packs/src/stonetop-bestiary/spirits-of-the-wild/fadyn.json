@@ -1,0 +1,92 @@
+{
+  "name": "Fadyn",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 1,
+        "source": "sheer reflexes"
+      },
+      "damage": {
+        "value": "bite, scratches, or knife d6 w/disadvantage (hand)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to make mischief"
+      }
+    },
+    "concept": "The trickster fox-spirit — charming and thieving, bound to its old skull.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, magical, stealthy, devious, audacious, cautious, beautiful",
+    "qualities": "<p>Tethered to a fox skull.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.1fcosNxgJeIAYHGS",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Fadyn",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "V20UtAhg8ARuIPg9",
+      "name": "Manifest as a fox (small) or a charming stranger",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlZQmShUiK2HpF9j.V20UtAhg8ARuIPg9"
+    },
+    {
+      "_id": "LAmGu173XbnU02ds",
+      "name": "Be all manner of charming and ingratiating",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlZQmShUiK2HpF9j.LAmGu173XbnU02ds"
+    },
+    {
+      "_id": "YNISHmTRWkmCf0ZA",
+      "name": "Steal something when no one's looking",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlZQmShUiK2HpF9j.YNISHmTRWkmCf0ZA"
+    },
+    {
+      "_id": "Rjepuu0xVKGgeewS",
+      "name": "Make something seem like something else",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlZQmShUiK2HpF9j.Rjepuu0xVKGgeewS"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "rlZQmShUiK2HpF9j",
+  "_key": "!actors!rlZQmShUiK2HpF9j"
+}

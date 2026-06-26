@@ -1,0 +1,61 @@
+{
+  "_id": "DobvWxcXu5RXmXbT",
+  "_key": "!journal!DobvWxcXu5RXmXbT",
+  "name": "Thrall",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "One who refused the Last Door by selling themselves to a Thing Below — now undying and marked."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 116000,
+  "pages": [
+    {
+      "_id": "VrGdSP0IsuSDxpB5",
+      "_key": "!journal.pages!DobvWxcXu5RXmXbT.VrGdSP0IsuSDxpB5",
+      "name": "Thrall",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "One who refused the Last Door by selling themselves to a Thing Below — now undying and marked.",
+        "description": "<p>When the Last Door stands open before you, what will you do? Some step through bravely, with a nod to the Lady of Crows. Others stagger through, weeping and wailing. Others — consumed by longing, vengeance, or duty — spit on fate, turn their back on the Last Door, and cling to this world for a time. But what if you simply want to live? What if, when faced with oblivion, you called upon one of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> and offered yourself up to them? And what if they said yes?</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.yllCLAsqWbqNYgTd"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

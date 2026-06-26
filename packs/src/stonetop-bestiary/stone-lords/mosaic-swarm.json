@@ -1,0 +1,81 @@
+{
+  "name": "Mosaic Swarm",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 24,
+        "max": 24
+      },
+      "armor": {
+        "value": 3,
+        "source": "thousands of ceramic tiles"
+      },
+      "damage": {
+        "value": "jagged fists of ceramic d10+3 (hand, close, forceful)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to destroy intruders"
+      }
+    },
+    "concept": "A killer mosaic that bursts into a whirling cloud of jagged ceramic tiles.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, amorphous, stealthy",
+    "qualities": "<p>Externally powered; bug-like mind; blind; tremorsense. Unharmed by piercing weapons; half damage from cutting weapons; vulnerable to blunt-and-forceful or area attacks.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qlGSzAdbwRzcPJ70",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Mosaic Swarm",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "wy7m5dYFlv0gQCBb",
+      "name": "Wait for intruders to get close, rattling softly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fNEJcPa37GBqXwOq.wy7m5dYFlv0gQCBb"
+    },
+    {
+      "_id": "VqVNiB5gZGDBGSoP",
+      "name": "Explode into a cloud of whirling ceramic tiles, d8+1 damage (area, messy, 1 piercing)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8+1"
+      },
+      "_key": "!actors.items!fNEJcPa37GBqXwOq.VqVNiB5gZGDBGSoP"
+    },
+    {
+      "_id": "VcLSoAAraFvt8PTZ",
+      "name": "Reform into a vaguely humanoid mass",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fNEJcPa37GBqXwOq.VcLSoAAraFvt8PTZ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "1yj6UyLp9x9oxtmS",
+  "_id": "fNEJcPa37GBqXwOq",
+  "_key": "!actors!fNEJcPa37GBqXwOq"
+}

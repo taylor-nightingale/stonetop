@@ -1,0 +1,92 @@
+{
+  "name": "Thrall",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 0,
+        "source": "by worn armor, if any"
+      },
+      "damage": {
+        "value": "weapon d10 (tags by weapon)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to explore their condition, to hide it, or to serve their master's whims"
+      }
+    },
+    "concept": "One who refused the Last Door by selling themselves to a Thing Below — now undying and marked.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, undead, hardy, magical, corrupted",
+    "qualities": "<p>Marked by their master.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.DobvWxcXu5RXmXbT",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Thrall",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "SwVU7VWu9hPFcypY",
+      "name": "Use one of their gifts",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yllCLAsqWbqNYgTd.SwVU7VWu9hPFcypY"
+    },
+    {
+      "_id": "8o8IRI7jnOThrO9O",
+      "name": "Struggle against their master's impulses",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yllCLAsqWbqNYgTd.8o8IRI7jnOThrO9O"
+    },
+    {
+      "_id": "Ez5ErSi5liLX4Nzw",
+      "name": "Act on their master's impulses",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yllCLAsqWbqNYgTd.Ez5ErSi5liLX4Nzw"
+    },
+    {
+      "_id": "pMbSxrZ0T2GrgbBk",
+      "name": "Recover from terrible, even mortal injury",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yllCLAsqWbqNYgTd.pMbSxrZ0T2GrgbBk"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "yllCLAsqWbqNYgTd",
+  "_key": "!actors!yllCLAsqWbqNYgTd"
+}

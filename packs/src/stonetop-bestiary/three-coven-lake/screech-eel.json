@@ -1,0 +1,81 @@
+{
+  "name": "Screech Eel",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 1,
+        "source": "sheer speed"
+      },
+      "damage": {
+        "value": "tearing bite d6 (hand, messy, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to feed on easy prey"
+      }
+    },
+    "concept": "Six-foot eels that screech for the pack, then feast on the drowning.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, aquatic, stealthy, cautious",
+    "qualities": "<p>Armor 2 vs. attacks from above the water.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Efv986sm5JyehsJC",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Screech Eel",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "st6hyqBFzGyUoYqS",
+      "name": "Slink up on potential prey",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DHXlFUAc6mX5eEtp.st6hyqBFzGyUoYqS"
+    },
+    {
+      "_id": "VWZwvD9OC1PPdUBD",
+      "name": "Screech to attract other eels (barely heard above the water)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DHXlFUAc6mX5eEtp.VWZwvD9OC1PPdUBD"
+    },
+    {
+      "_id": "iH8BCBAeCz3OCaha",
+      "name": "Attack in a frenzied swarm — all bites, screeches, and churning bloody water",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!DHXlFUAc6mX5eEtp.iH8BCBAeCz3OCaha"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Ik8yZUS6D2GENIl9",
+  "_id": "DHXlFUAc6mX5eEtp",
+  "_key": "!actors!DHXlFUAc6mX5eEtp"
+}

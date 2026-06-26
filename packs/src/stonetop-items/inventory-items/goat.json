@@ -1,0 +1,21 @@
+{
+  "_id": "TtNZPHaQ0Jt7Qg84",
+  "_key": "!items!TtNZPHaQ0Jt7Qg84",
+  "name": "Goat",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "goat",
+      "inventoryColumn": "regular",
+      "sortOrder": 60,
+      "note": "HP 3, d4 damage; butcher for &#9671; Provisions (6 uses)",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

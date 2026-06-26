@@ -1,0 +1,18 @@
+{
+  "_id": "EfvuP1uRr6YICtu8",
+  "_key": "!items!EfvuP1uRr6YICtu8",
+  "name": "Sawdust",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "sawdust",
+      "inventoryColumn": "small",
+      "sortOrder": 20,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

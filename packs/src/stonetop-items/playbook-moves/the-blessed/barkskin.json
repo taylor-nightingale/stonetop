@@ -1,0 +1,12 @@
+{
+  "_id": "FwUVq3rdBaR0HWh6",
+  "_key": "!items!FwUVq3rdBaR0HWh6",
+  "name": "Barkskin",
+  "type": "move",
+  "system": {
+    "playbook": "The Blessed",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>are touching the earth</em></strong>, you have 2 armor. When you <strong><em>mark another with 1 Stock</em></strong>, they gain this benefit so long as the mark remains.</p>"
+  },
+  "folder": "CLWne0kn1kFJZ9Nn"
+}

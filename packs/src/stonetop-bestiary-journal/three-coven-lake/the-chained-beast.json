@@ -1,0 +1,61 @@
+{
+  "_id": "psptlaD9mE9Rk1YI",
+  "_key": "!journal!psptlaD9mE9Rk1YI",
+  "name": "The Chained Beast",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A blood-roused horror chained beneath the lake, a gift of the Things Below."
+    }
+  },
+  "folder": "9exzW9f5xHXkx5ll",
+  "sort": 49000,
+  "pages": [
+    {
+      "_id": "27KcX8Z9kyjJRGPc",
+      "_key": "!journal.pages!psptlaD9mE9Rk1YI.27KcX8Z9kyjJRGPc",
+      "name": "The Chained Beast",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A blood-roused horror chained beneath the lake, a gift of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.",
+        "description": "<p>It was a gift from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, a present to some Barrow Builder tyrant. They bound it fast and kept it in the waters nearby, feeding it a steady diet of screaming, bleeding victims. It's still out there, sleeping for years or decades at a time, roused by copious amounts of fresh blood in the lake — or by a few drops somewhere nearby.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.2UnnOaKPTABc13S4"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

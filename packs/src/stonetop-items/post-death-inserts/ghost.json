@@ -1,0 +1,117 @@
+{
+  "name": "Ghost",
+  "type": "playbook",
+  "img": "systems/stonetop/assets/post-death-inserts/ghost.svg",
+  "system": {
+    "slug": "ghost",
+    "description": "<p>When you <em>die but your soul lingers</em>, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.</p>",
+    "actorType": "character",
+    "attributes": {}
+  },
+  "flags": {
+    "stonetop": {
+      "instincts": [
+        {
+          "word": "Denial",
+          "description": "To refuse to accept that you are dead."
+        },
+        {
+          "word": "Obsession",
+          "description": "To pursue your Terrible Purpose no matter what."
+        },
+        {
+          "word": "Ennui",
+          "description": "To bemoan your condition, to wish for release."
+        }
+      ],
+      "lore": [
+        {
+          "slug": "terrible-purpose",
+          "title": "Terrible Purpose",
+          "description": "<p>Choose 1:</p>",
+          "options": [
+            {
+              "slug": "longing",
+              "description": "<p><strong>LONGING</strong> &mdash; Name the person or persons you refuse to let go of.</p><p>When you <em>spend the night watching them</em>, regain all your HP or clear all your debilities.</p><p>When they <em>genuinely return your affections</em>, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>rebuff you or recoil from you</em>, mark a consequence.</p><p>When they <em>die peacefully and pass through the Last Door</em>, so do you.</p><p>Should they be <em>taken from you violently</em>, mark the Final Consequence.</p>",
+              "max": 1
+            },
+            {
+              "slug": "vengeance",
+              "description": "<p><strong>VENGEANCE</strong> &mdash; Name the person or persons who must pay.</p><p>When you <em>spend the night wailing, howling, and raging in a lonely place</em>, regain all your HP or clear all your debilities.</p><p>When you <em>make one of them pay and ensure they know why</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When they <em>defeat or escape you</em>, mark a consequence.</p><p>When you <em>kill the last of them</em>, pass through the Last Door.</p><p>Should they <em>die before you're finished with them</em>, mark the Final Consequence.</p>",
+              "max": 1
+            },
+            {
+              "slug": "duty",
+              "description": "<p><strong>DUTY</strong> &mdash; Name the task you refuse to leave undone.</p><p>When you <em>spend the night working on your task</em>, regain all your HP or clear all your debilities.</p><p>When you <em>achieve a significant milestone towards your task</em>, either regain all your HP and clear your debilities, or clear a consequence.</p><p>When you <em>fail to perform your task or suffer a material setback</em>, mark a consequence.</p><p>When the <em>task is finally complete</em>, pass through the Last Door.</p><p>Should the <em>task become impossible to perform</em>, mark the Final Consequence.</p>",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "consequences",
+          "title": "Consequences",
+          "description": "<p>When you first take this insert, choose 1. Choose another whenever a move tells you to do so.</p>",
+          "options": [
+            {
+              "slug": "bodysnatcher",
+              "description": "<p><strong>BODYSNATCHER</strong> &mdash; When you <em>possess an unconscious or willing person</em>, lose 1d4 HP and control their actions. Use your stats and moves for any actions they take while under your control.</p><p>When you <em>force your host to do something contrary to their instinct or something that they find abhorrent</em>, roll +CHA: <strong>on a 10+</strong>, they do it anyway; <strong>on a 7-9</strong>, they pick 1:</p><ul><li>They resist that action, and you'll never be able to force them to do it or anything similar, but you otherwise remain in control</li><li>They do it, but it costs you&mdash;lose 2d4 HP</li></ul><p><strong>On a 6-</strong>, they force you from their body and you mark a consequence. You'll never be able to possess them again.</p><p>When your <em>host takes damage</em>, you lose an equal amount of HP. If your host dies while you still have HP, you can keep them alive until your possession ends.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "breakdown",
+              "description": "<p><strong>BREAKDOWN</strong> &mdash; You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "unstable",
+              "description": "<p><strong>UNSTABLE</strong> <em>(Requires Breakdown)</em> &mdash; You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you <em>roll a 6-</em>, the GM can choose to have you enter such a rage.</p>",
+              "max": 1,
+              "requires": "breakdown"
+            },
+            {
+              "slug": "disturbing",
+              "description": "<p><strong>DISTURBING</strong> &mdash; Your presence (even unseen) disturbs beasts and children. The air around you is notably cooler, especially when you manifest. When you <em>use intimidation and your disturbing presence to Persuade</em>, you have advantage.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "otherworldly",
+              "description": "<p><strong>OTHERWORLDLY</strong> &mdash; When you <em>manifest a ghostly form</em>, strange things happen: statues weep, rocks bleed, plants wither, water pools on ceilings, etc.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "poltergeist",
+              "description": "<p><strong>POLTERGEIST</strong> &mdash; When you <em>get angry</em>, lose 1d4 HP and hold that much Fury. Spend Fury, 1-for-1, to:</p><ul><li>Shatter, break, or destroy a number of small mundane objects, or one big object.</li><li>Hurl an object at someone and roll +DEX: <strong>on a 10+</strong>, deal your damage (<em>forceful</em>); <strong>on a 7-9</strong>, deal your damage (<em>forceful</em>) but lose 1d4 HP.</li><li>Attack someone with telekinetic force and roll +INT: <strong>on a 10+</strong>, fling them to a place you can see and pin them there, spending 1 HP each time they make a committed effort to break free; <strong>on a 7-9</strong>, as 10+, but you also lose 1d4 HP.</li></ul>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "quarry",
+              "description": "<p><strong>QUARRY</strong> &mdash; The Pale Hunter has caught your scent. Expect a visit, soon.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "specter",
+              "description": "<p><strong>SPECTER</strong> &mdash; When you <em>terrify a living person, someone who is unconnected to your Terrible Purpose</em>, regain 1d8 HP or clear a debility of your choice.</p>",
+              "max": 1,
+              "requires": null
+            },
+            {
+              "slug": "final-consequence",
+              "description": "<p><strong>THE FINAL CONSEQUENCE</strong> &mdash; Your tenuous connection to humanity is lost and you become a monster under the GM's control.</p>",
+              "max": 1,
+              "requires": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_id": "tVh4S7MbvLoaywlL",
+  "_key": "!items!tVh4S7MbvLoaywlL",
+  "folder": "8ebVaVDZlxEBNEYQ"
+}

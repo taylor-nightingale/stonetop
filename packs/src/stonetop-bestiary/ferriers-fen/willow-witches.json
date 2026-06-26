@@ -1,0 +1,92 @@
+{
+  "name": "Willow Witches",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "wards, resilience"
+      },
+      "damage": {
+        "value": "gnarled fists and fingers d10+2 w/disadvantage (hand, forceful, grabby)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to enforce the old ways, the old rules"
+      }
+    },
+    "concept": "The weird three-in-one sisters of the Fen, who always have what you seek — for a price.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, primordial, cautious, devious, organized, magical, all-wise",
+    "qualities": "<p>Armor 0 vs. black iron. Impossible to deceive or surprise. Divide damage taken equally between the three witches (round down).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Willow Witches",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "COUkz921CsxFBdS4",
+      "name": "Frustrate, annoy, or provoke someone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!q6EfKl09RA6NKWEc.COUkz921CsxFBdS4"
+    },
+    {
+      "_id": "AKulCrjPKTStg85Q",
+      "name": "Twist someone's perceptions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!q6EfKl09RA6NKWEc.AKulCrjPKTStg85Q"
+    },
+    {
+      "_id": "kBasCLa9zTvrFIHe",
+      "name": "Vanish, be elsewhere",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!q6EfKl09RA6NKWEc.kBasCLa9zTvrFIHe"
+    },
+    {
+      "_id": "tlbnekHnbunE7Xm4",
+      "name": "Turn someone into a swamp creature",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!q6EfKl09RA6NKWEc.tlbnekHnbunE7Xm4"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ReMgxSJxcjnX2CfO",
+  "_id": "q6EfKl09RA6NKWEc",
+  "_key": "!actors!q6EfKl09RA6NKWEc"
+}

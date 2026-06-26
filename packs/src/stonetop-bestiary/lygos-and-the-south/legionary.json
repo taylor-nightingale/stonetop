@@ -1,0 +1,81 @@
+{
+  "name": "Legionary",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 3,
+        "source": "shield, iron scale"
+      },
+      "damage": {
+        "value": "iron short sword d6 (hand, close) or spear d6 (close, thrown)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to conquer"
+      }
+    },
+    "concept": "Disciplined professional soldiers, the backbone of a conquering army.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, organized, hardy, disciplined",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.DqstaADjKd7GKa1n",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Legionary",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7d2sRQQy1r9VlOov",
+      "name": "Fight in tight-knit formation",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6DnSbIHLqXCaV1vp.7d2sRQQy1r9VlOov"
+    },
+    {
+      "_id": "X69yNLTh9SVDbbWg",
+      "name": "Hold the line",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6DnSbIHLqXCaV1vp.X69yNLTh9SVDbbWg"
+    },
+    {
+      "_id": "ZjMGM8OUlPs5EbB5",
+      "name": "Advance implacably",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6DnSbIHLqXCaV1vp.ZjMGM8OUlPs5EbB5"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "6DnSbIHLqXCaV1vp",
+  "_key": "!actors!6DnSbIHLqXCaV1vp"
+}

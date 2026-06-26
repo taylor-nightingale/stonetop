@@ -1,0 +1,102 @@
+{
+  "name": "Water Vortex",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "pummel d10 (hand, close) — scales with size",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to adjust, flow, and adapt"
+      }
+    },
+    "concept": "A relentless churning wave that engulfs and drowns.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, amorphous, relentless, callous",
+    "qualities": "<p>Harmed only by magical weapons, cold, or forceful blunt attacks. Gains HP from currents, tides, and falling water. Engulfed foes hold 1d4 Breath or drown. HP/Armor/damage scale with size — see the entry.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qUp7ZkpC5FdinUC4",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Water Vortex",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "PM3nKhh3PtRX43U5",
+      "name": "Manifest a churning wave out of water it touches",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iGFc9muBkF8HMgDQ.PM3nKhh3PtRX43U5"
+    },
+    {
+      "_id": "lGfwYzrq645FIv56",
+      "name": "Vanish into, or burst out of, a body of water",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iGFc9muBkF8HMgDQ.lGfwYzrq645FIv56"
+    },
+    {
+      "_id": "kbwBaMOwxZoC19QV",
+      "name": "Engulf a smaller foe (+grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iGFc9muBkF8HMgDQ.kbwBaMOwxZoC19QV"
+    },
+    {
+      "_id": "sERcEoQ64GPWWH4v",
+      "name": "Surge past foes, dragging them off their feet (+area, +forceful, costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iGFc9muBkF8HMgDQ.sERcEoQ64GPWWH4v"
+    },
+    {
+      "_id": "4oEtLWPcLvjgrjlg",
+      "name": "Move across a porous surface (costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iGFc9muBkF8HMgDQ.4oEtLWPcLvjgrjlg"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "phXf36WaexQZLIG1",
+  "_id": "iGFc9muBkF8HMgDQ",
+  "_key": "!actors!iGFc9muBkF8HMgDQ"
+}

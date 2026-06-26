@@ -1,0 +1,102 @@
+{
+  "name": "Glasbren",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "raking fingers d8 w/disadvantage (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to stretch and grow and experience life"
+      }
+    },
+    "concept": "The youngest tree-spirit, full of wonder and eager to see the world.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, clever, magical, stealthy, beautiful",
+    "qualities": "<p>Tethered to its tree.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.3Q3V7QXv1XFx1UK8",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Glasbren",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "WPgd6H5RSRpKmfuQ",
+      "name": "Travel freely between young trees",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7GtbWc7kafUVk6dI.WPgd6H5RSRpKmfuQ"
+    },
+    {
+      "_id": "ZCYChIQGRhBxe0f6",
+      "name": "Spy on someone or something interesting",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7GtbWc7kafUVk6dI.ZCYChIQGRhBxe0f6"
+    },
+    {
+      "_id": "BjlrTEzq1GqE1Z12",
+      "name": "Manifest a beautiful form of moving wood (unharmed by stabbing, vulnerable to fire)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7GtbWc7kafUVk6dI.BjlrTEzq1GqE1Z12"
+    },
+    {
+      "_id": "jfQIiPjvFsF1o3nx",
+      "name": "Call on the forest and its creatures for aid",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7GtbWc7kafUVk6dI.jfQIiPjvFsF1o3nx"
+    },
+    {
+      "_id": "T4uo0qPxZw3BqSs2",
+      "name": "Spread word through the Great Wood",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7GtbWc7kafUVk6dI.T4uo0qPxZw3BqSs2"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "8N8RyUSUv4OBxher",
+  "_id": "7GtbWc7kafUVk6dI",
+  "_key": "!actors!7GtbWc7kafUVk6dI"
+}

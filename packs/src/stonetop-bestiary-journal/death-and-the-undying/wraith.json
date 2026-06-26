@@ -1,0 +1,61 @@
+{
+  "_id": "MVICDuKvbrNllUY3",
+  "_key": "!journal!MVICDuKvbrNllUY3",
+  "name": "Wraith",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A hungering husk of a soul that drains the life from the living."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 105000,
+  "pages": [
+    {
+      "_id": "uWDdJqysKuskrtnv",
+      "_key": "!journal.pages!MVICDuKvbrNllUY3.uWDdJqysKuskrtnv",
+      "name": "Wraith",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A hungering husk of a soul that drains the life from the living.",
+        "description": "<p>Wraiths are cursed with endless hunger. They are damaged souls, wounded by dark magic, by another wraith, or by the dehumanizing effects of starvation or addiction. They are little more than beasts, driven by the emptiness within, with only the vaguest sense of who they once were. Unbound wraiths — ghosts whose tethers were destroyed — are weaker, but often form packs (group, vicious, 13 HP each, d8 damage, afraid of firelight).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.zNH67lRb1oL8rXA0"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

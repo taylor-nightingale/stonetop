@@ -1,0 +1,179 @@
+{
+  "_id": "NS2bhYMi23m0eWao",
+  "_key": "!journal!NS2bhYMi23m0eWao",
+  "name": "Hillfolk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Steplands are home to dozens of nomadic bands, collectively called the Hillfolk. The bands are tied together into a bewildering tapestry of kinship and intermarriage and treaty, rivalry and blood feud and long-standing grudge."
+    }
+  },
+  "folder": "pCXEbxpjLM9YSG9Q",
+  "sort": 15000,
+  "pages": [
+    {
+      "_id": "Ld5VhVxXCYAhbVUi",
+      "_key": "!journal.pages!NS2bhYMi23m0eWao.Ld5VhVxXCYAhbVUi",
+      "name": "Hillfolk",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{The Steplands}</strong> are home to dozens of nomadic bands, collectively called the Hillfolk. The bands are tied together into a bewildering tapestry of kinship and intermarriage and treaty, rivalry and blood feud and long-standing grudge.</p><p>Some Hillfolk roam the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> in warmer months. Some bands trade with <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, at least on occasion, signaling to them at <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.fc9yqAlxCCgZVckC]{Titan Bones}</strong>. Others trade with <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, and still others with southern merchants. They have little contact with the Manmarchers, and tend to treat them with suspicion.</p><p>Their wariness towards the Manmarchers is nothing, though, compared to their contempt for <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>. The Hillfolk view mining metal ores as sacrilege. They’ll gladly steal from the Delvers or loot their corpses, but only the most debased Hillfolk trade peacefully with Gordin’s Delve. And only the most shunned and shamed will actually move there and call the mining town home.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Breton-inspired, but missing vowels and clipped-sounding: Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Hillfolk rarely discuss their ancestry with outsiders. They claim an ancient right to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, but fear the barrow mounds and many of the Stone Lord ruins.</p><p>Something interesting: The Hillfolk’s ancestors were human servants (slaves?) of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>. They rebelled, calling on the power of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. Petty warlords and would-be sorcerer-kings—the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>—dominated the Hillfolk for many years after the Stone Lords fell.</p><p>Something useful: Many Hillfolk traditions stem from their time suffering under the Stone Lords and the Barrow Builders, and the efforts required to throw off the yoke of those rulers. What’s one such tradition that you know of, and how can you use it to your advantage?</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Nomads",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Most Hillfolk bands are nomadic, following food and good grazing for their herds as the seasons change. Each band has traditional territory, including a winter camp with permanent shelter (caves, ruins, stone huts, wooden longhouses, etc.). A number of bands have territory that extends into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong>, but winter camps are always nestled in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{The Makers}</strong>’ Roads are considered communal territory, but otherwise infringing on a band’s territory is cause for suspicion or bloodshed. Wise travelers hide their passage, or else bring tribute and actively seek to avoid offence.</p><ul><li class=\"question-bullet\">How do (these) Hillfolk mark the boundaries of their territory?</li><li class=\"question-bullet\">What sort of temporary structures do (these) Hillfolk dwell in? (Tents? Yurts? Log houses? Something else?)</li><li class=\"question-bullet\">The Steplands are fertile enough—why don’t (more) Hillfolk take up agriculture, do you think?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hillfolk bands",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Here’s a typical band:</p><p>Size hamlet (~25 to 75 souls) Population +0 Prosperity -1</p><ul><li>Trade with other bands</li><li>Trade with (pick 1)... ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> (rope, textiles, herbs, pottery) ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> (whisky, potatoes, oats) ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong>, etc. (salt, tools) Resources</li></ul><ul><li>Horses, sheep, goats, hounds</li><li>Wool, milk</li><li>Forage (fruits, nuts, veggies, honey)</li><li>Hunting (meat, fur, hides)</li><li>Gathering (timber, sap, flint) Defenses +0</li></ul><ul><li>Mounted warriors</li><li>Flint-tipped weapons (crude)</li></ul><p>About a third of each band are able-bodied adults; the rest are children or elders. Maybe half of the adults are riders, and the rest manage life back at camp. Older children typically manage herds, often with the help of hounds. Specialization is rare, and even homemakers and older children are capable fighters.</p><ul><li>Smoke from multiple fires seen over the horizon</li><li>Bleating of sheep or goats, cluck of chickens, bark of dogs</li><li>Thickets and pens for keeping herds</li><li>Stern, suspicious faces and hands hovering near weapons</li></ul><p>If a PC is familiar with the(se) Hillfolk, ask them:</p><ul><li class=\"question-bullet\">What is this group called?</li><li class=\"question-bullet\">What sets them apart from other Hillfolk?</li></ul><ul><li class=\"question-bullet\">Who are their staunchest allies?</li><li class=\"question-bullet\">Who are their bitterest rivals/enemies?</li><li class=\"question-bullet\">What resource do they have in (relative) abundance?</li></ul><p>Naming bands If you need inspiration for naming a Hillfolk band (or other group), pick a word from below (e.g. “Red band”) or mix 2-3 (e.g. “Ash Pickers” or “Ochre <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.cTOd0rT6S7LOD3vI]{Wolf}</strong> Fang”).</p><p>Arrow, Ash, Badger, Black, Blanket, Blue, Cloak, Crow, Drake, Eastern, Eye, Face, Fang, Feather, Ferret, Fist, Foot, Fur, Goat, Grass, Green, Hair, Hand, Herd(er), Hill, Hoof, Hound, Leaf, Lower, Moon, Northern, Ochre, Paw, Picker, Planter, Rain, Ram, Raven, Red, Rock, Run(ner), Seed, Shield, Shrew, Slayer, Snake, Snow, Soil, Southern, Spear, Staff, Sun, Tooth, Tree, Upper, Vulture, Watch(er), Weed, Western, Whisper(er), White, Wing, Woad, Wolf, Yellow.</p><p>Traits Ask the PCs, or pick 1 or 2, or roll the Die of Fate.</p><p><strong>1d12 trait</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Particularly large or small, prosperous or poor</td></tr><tr><td>2</td><td>“Picked band,” made of unrelated adults, few children among them</td></tr><tr><td>3</td><td>Worship a particular deity, revere a particular spirit</td></tr><tr><td>4</td><td>Famous member, now or in the past</td></tr><tr><td>5</td><td>Keep dangerous beasts (boars, drakes, etc.)</td></tr><tr><td>6</td><td>Ride something other than horses (aurochs, Huffel rams, big deer)</td></tr><tr><td>7</td><td>Tend to be large/slender/tall/ short/etc.</td></tr><tr><td>8</td><td>Especially fierce/friendly/territorial/aggressive/political/etc.</td></tr><tr><td>9</td><td>Extraordinarily large/fast/clever/ fearless/etc. horses</td></tr><tr><td>10</td><td>Produce more than their share of spirit-talkers/hdours/gouzadn</td></tr><tr><td>11</td><td>Guard a greatly feared and cursed ruin/barrow/area</td></tr><tr><td>12</td><td>Not actually nomadic; they stay in cliff-dwellings all year</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available among the Hillfolk—PCs can acquire them here without having to roll. They do need to trade something of equal Value. Stonetop trade goods (whisky, potatoes, oats) are always in demand.</p><p>Note that items printed on the Inventory insert are crude if acquired from the Hillfolk, and any iron items will instead be stone, bone, wooden, or maybe hammered copper. Iron items are considered special items (see below).</p><p><strong>goods value</strong></p><ul><li>Salt (a little box). 0</li><li>Adz (hand, crude) 0</li><li>Cudgel, wood (close, crude) 0 Cartload of timber (immobile) 2</li></ul><p><strong>livestock value</strong></p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), a band of Hillfolk might offer the following:</p><ul><li>A good exchange rate, two or even three Value 2 items for 1 Surplus.</li><li>A cartload of timber or a dozen sheep/goats (Value 2), in exchange for help with a problem.</li><li>Horses (Value 3) traded for a similar amount of Surplus (Value 2), plus help with a problem.</li><li>Someone versed in training and caring for horses, willing to move to Stonetop</li><li>An arcanum of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>, the spirits of the wild, or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.</li></ul><p>Special items The following might be acquired among the Hillfolk, but the PCs must roll Trade &amp; Barter to acquire them. This is in addition to the special items on the Moves &amp; Gear handout.</p><p>When the PCs Trade &amp; Barter among the Hillfolk, they use the local Prosperity (-1 by default) with disadvantage for being a hamlet. On a 6-, they don’t mark XP and this band doesn’t have/want it—maybe they know of another band who might?</p><p><strong>goods value</strong></p><p>Iron items from inventory insert 0 Makerglass (misshapen shard/chunk) 1 Makerglass (an item made of it) +2</p><p><strong>livestock value</strong></p><p>Services and favors PCs don’t need to roll Trade &amp; Barter for the following, but they might need to Persuade the Hillfolk—even if they offer something of suitable Value. A group that’s well-disposed to the PCs might grant these boons for free, or without needing to be Persuaded, or at a reduced price.</p><p><strong>service/favor value</strong></p><p>Safe passage through their territory 1 A few nights’ hospitality in their camp 1 A guide through their territory 2 A guide through another band’s territory 3 A guide to a cursed/sacred/forbidden place 3</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Which of you knows the Hillfolk best? How so?",
+                "answer": ""
+              },
+              {
+                "prompt": "What clothing/markings/traits are distinctive to (these) Hillfolk?",
+                "answer": ""
+              },
+              {
+                "prompt": "How is Hillfolk language different from **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**’s?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do the Hillfolk call themselves? What do they call each other?",
+                "answer": ""
+              },
+              {
+                "prompt": "What are groups of Hillfolk called? Bands? Rides? Herds? Families? Etc.",
+                "answer": ""
+              },
+              {
+                "prompt": "What affiliations do they have beyond their bands? Clans, nations, sects, etc?",
+                "answer": ""
+              },
+              {
+                "prompt": "What sparked the last open conflict between them and **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "What, do you think, is the source of their taboo against mining?",
+                "answer": ""
+              },
+              {
+                "prompt": "What deity (if any) do they hold in highest regard?",
+                "answer": ""
+              },
+              {
+                "prompt": "How is their view of the gods different than Stonetop’s?",
+                "answer": ""
+              },
+              {
+                "prompt": "What festival do (these) Hillfolk celebrate this time of year?",
+                "answer": ""
+              },
+              {
+                "prompt": "What game/pastime/food are (these) Hillfolk known for?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A band of Hillfolk has come under the sway of a hdour and moved into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong>.</li><li>Ne’er-do-wells from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> kill some Hillfolk in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>; war looms.</li><li>Someone in town owes a blood debt to a Hillfolk band; they come calling to collect, with friends.</li><li>The ruin that the PCs seek lies in the territory of a particularly unfriendly Hillfolk band.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "",
+                "body": "<p><strong><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Owbdgx7wi7p30MzW]{Hdour}</strong></strong></p><p>Spirit-talkers have great power, but use it with care and only for the benefit of their people. There are many rules that they follow, many things they will refuse to do. Because to step over the line, and to seek power for power’s sake, and to use their power selfishly—that is the way of the sorcerer, the hdour.</p><p>When the Hillfolk suspect a spirit-talker of sorcery, they exile them. In the worst cases, they bury them alive. Few are willing to deal a death-blow to a hdour, for that’s a sure way to get oneself cursed.</p><p>Hdour are often in possession of one or more arcana, which they do not hesitate to use. They are often attended by beasts, spirits of the wild, spirits of the dead and undying, and minions of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.</p><p>A typical band of Hillfolk has between 6 to 12 riders: adult hunters and warriors. They patrol their territories in twos and threes, seeking game and keeping an eye out for trespassers. The brash and the bold will challenge anyone they don’t recognize. More cautious riders will follow unseen and take the outsiders’ measure; whether they let them pass, or spook them into leaving, or murder them in their sleep… well that remains to be seen.</p><p>When a Hillfolk rider and their horse attack a foe together, they deal 1d6+4 damage (the horse’s 1d6+3, with +1 for the rider), combining tags from the attacks as makes sense.</p><p><strong><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nJnOuEaIJBZParuZ]{Spirit-talker}</strong></strong></p><p>Now and then, a young Hillfolk shows signs of being touched by the spirits. The signs often come after a sickness or brush with death. They hear voices that aren’t there. They find themselves more comfortable with horse and hound than their fellow people. Sometimes, they lose the human tongue altogether and go feral, becoming a gouzadn. But when things go right—when they are guided by an elder, and possessed of great self-control— they become a spirit-talker for their band.</p>"
+              },
+              {
+                "heading": "Upland horse",
+                "body": "<p>Hillfolk bands breed their horses for strength, agility, and courage. The best become steeds for Hillfolk riders. It takes a firm hand and a steady will to handle an Upland, but win one over and you’ve got a friend for life.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Raselbaedd",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 4,
+        "source": "iron hide, unnatural resilience"
+      },
+      "damage": {
+        "value": "gore d10+5 (hand, close, forceful, messy, 3 piercing)",
+        "rollFormula": "d10+5"
+      },
+      "instinct": {
+        "value": "to hold a grudge"
+      }
+    },
+    "concept": "An ancient boar grown iron-hided, scarred, and grudge-bound.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large",
+    "qualities": "<p><strong>Iron hide:</strong> a hit dealing 2 or less damage before armor chips or shatters the weapon. Always hungry, easily provoked, and afraid of fire.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.vZjyZNaEPLIeD7VJ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Raselbaedd",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "6Msq7A68uzeAuJo2",
+      "name": "Rip things apart: armor, weapons, flesh",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RiyVzcQMTvqowYdo.6Msq7A68uzeAuJo2"
+    },
+    {
+      "_id": "WdirVLG5KiPyZuLt",
+      "name": "Eat almost anything",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RiyVzcQMTvqowYdo.WdirVLG5KiPyZuLt"
+    },
+    {
+      "_id": "Y76RBgfPzh2hGemy",
+      "name": "Refuse to back off or let go, even when dying",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RiyVzcQMTvqowYdo.Y76RBgfPzh2hGemy"
+    },
+    {
+      "_id": "JsU5KJAebEKhHKpI",
+      "name": "Recover from even mortal wounds, over time",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RiyVzcQMTvqowYdo.JsU5KJAebEKhHKpI"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "RiyVzcQMTvqowYdo",
+  "_key": "!actors!RiyVzcQMTvqowYdo"
+}

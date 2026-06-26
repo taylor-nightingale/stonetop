@@ -1,0 +1,91 @@
+{
+  "name": "Klezln",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 3
+      },
+      "damage": {
+        "value": "pincers d10+3 (hand, close, grabby)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to wait patiently for food"
+      }
+    },
+    "concept": "A giant ambush beetle that pulls prey down through the soil.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, stealthy",
+    "qualities": "<p>Senses vibrations; strong burrower.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.9iGIKUGklHraBaZB",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Klezln",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "0yVb6M07Q53AquUa",
+      "name": "Undermine the soil, creating a sinkhole waiting to happen",
+      "type": "monsterMove",
+      "img": "icons/environment/wilderness/cave-entrance-dark.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KE9WWwBJzaBe6tgx.0yVb6M07Q53AquUa"
+    },
+    {
+      "_id": "NcXOu82AYCNas5Mb",
+      "name": "Wait for prey to trigger its trap and get pinned in loose dirt, d6 damage (grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KE9WWwBJzaBe6tgx.NcXOu82AYCNas5Mb"
+    },
+    {
+      "_id": "svSzbSQAoTgbFt8L",
+      "name": "Burst forth from the loose soil to snag a victim",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KE9WWwBJzaBe6tgx.svSzbSQAoTgbFt8L"
+    },
+    {
+      "_id": "3N7ss9gmNAAMc2Mw",
+      "name": "Drag it beneath the soil, to be crushed and supped on at leisure",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KE9WWwBJzaBe6tgx.3N7ss9gmNAAMc2Mw"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "KE9WWwBJzaBe6tgx",
+  "_key": "!actors!KE9WWwBJzaBe6tgx"
+}

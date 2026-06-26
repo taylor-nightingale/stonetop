@@ -1,0 +1,41 @@
+{
+  "name": "Twisted Spear",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "twisted-spear",
+      "front": {
+        "title": "Twisted Spear",
+        "item": {
+          "name": "Twisted Spear",
+          "weight": 1,
+          "note": "<em>reach, magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A knobby length of wood, pale as death and hard as steel, tapering to a needle point. The shaft is scored and notched, the tip stained with blood and soot.</p><p>The Spear is a potent weapon against spirits and demons. They cannot bear its touch and its presence makes them deeply ill at ease.</p><p>When you <strong><em>wield the Twisted Spear as a weapon</em></strong>, you ignore magical protections and can harm spirits, demons, and insubstantial creatures.</p><p>When you <strong><em>first plunge the Spear into a spirit or demon</em></strong>, your mind reels with strange visions. These tasks become known to you:</p><ul><li>□ Impale a foul spirit with the Spear, and keep it skewered until it burns away to nothing.</li><li>□ Visit the elder tree from which the Spear was carved, and water its roots with your blood.</li><li>□ Face the Pale Hunter and survive the encounter.</li><li>□ Spend a fortnight in the wild, eating nothing, naked and unarmed except for the Spear.</li><li>□ Pierce your own hand through with the Spear, giving it a shard of your soul and reducing your max HP by 1d4+1.</li></ul><p>When you <strong><em>complete a task</em></strong>, mark it off.</p>",
+        "unlock": {
+          "description": "When you have marked 3 tasks, you unlock the mysteries of the Twisted Spear. Choose one of the moves on the reverse; you can use that move as long as you wield the Spear. Each time you mark a task thereafter, gain another move from the reverse.",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Twisted Spear",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>□ WHISPERS</strong><br>When you <strong><em>grip the shaft of the Twisted Spear</em></strong>, you can ask the GM, \"What spirits are active here?\" and get an honest answer.</p><p><strong>□ PROMISE OF DOOM</strong><br>When you <strong><em>hold the Twisted Spear and speak aloud an oath to destroy a spirit or demon</em></strong>, you do +2d4 damage against them and -4 damage to everything else. This lasts until you destroy them or forsake your oath. If you forsake your oath, mark a consequence.</p><p><strong>□ ROOTS OF THE ELDER TREE</strong><br>When you <strong><em>stand with your feet firmly on the ground and strike a spirit, ghost, or demon</em></strong>, you can mark a consequence to send your target coursing through you and into the depths of the earth, where it is bound fast.</p><p><strong>□ DARKNESS LINGERS</strong><br>When you <strong><em>strike down a spirit or demon</em></strong>, ask the GM for one of its moves and write it down; it is held in the Twisted Spear. When you <strong><em>use the stolen move</em></strong>, roll +CON: <strong>on a 10+</strong>, you do it, just like that; <strong>on a 7-9</strong>, you do it, but choose 1: The move is lost, bleeding away from the Spear / Mark a consequence.</p><h3>Consequences</h3><ul><li>Deep beneath the elder tree from which the Spear was carved, something dark and terrible shifts and strains at the roots that bind it.</li><li>From now on, the first time you Make Camp each session, roll +WIS: <strong>on a 10+</strong>, your dreams are unpleasant and claustrophobic, but your sleep is restful; <strong>on a 7-9</strong>, you dream of that which is bound by the elder tree—take disadvantage on your next roll, but ask the GM what you learn; <strong>on a 6-</strong>, the thing bound by the tree sees you, too. You awake, unrested, and will get no rest this night.</li><li>You are overwhelmed by a vision of the thing bound by the Spear's tree, its past and its terrible desires.</li><li>The elder tree from which the Spear was carved shudders and cracks, still whole but wounded and weakened.<ul><li>A lesser evil escapes from the roots of the tree. Ask the GM what is now loose in the world.</li><li>The tree grows sick and weak, losing its leaves and sprouting only a few in spring.</li><li>Some natural thing is tainted by the dark power beneath the tree, and goes forth to wreak evil.</li><li>The tree dies. Its prisoners escape. And the Spear loses all power.</li></ul></li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "0n4lgBdJ0abmmQfl",
+  "_key": "!items!0n4lgBdJ0abmmQfl",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-twistedspear.webp"
+}

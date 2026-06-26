@@ -1,0 +1,61 @@
+{
+  "_id": "iXs37AagGZ1bxsUt",
+  "_key": "!journal!iXs37AagGZ1bxsUt",
+  "name": "Chosen Shield",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A chief's best and bloodiest: their bodyguards, enforcers, and lieutenants."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 149000,
+  "pages": [
+    {
+      "_id": "uDaca4j7UNHUzd0H",
+      "_key": "!journal.pages!iXs37AagGZ1bxsUt.uDaca4j7UNHUzd0H",
+      "name": "Chosen Shield",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A chief's best and bloodiest: their bodyguards, enforcers, and lieutenants.",
+        "description": "<p>The chosen shields are a chief's best: the most loyal, the bravest, the bloodiest. Professional fighters, they are the chief's bodyguards, enforcers, and lieutenants — sitting closest to the fire, sharing the best meat and a share of the chief's loot and glory. The wise chief lets them, for a chief is nothing without their chosen shields, and when a chief is toppled it is usually one of them that does the toppling.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.pUFKL4MIzNejftOU"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

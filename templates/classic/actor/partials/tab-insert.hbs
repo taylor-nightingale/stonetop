@@ -1,0 +1,27 @@
+<div class="tab insert insert-{{insert.slug}}"
+     data-group="primary" data-tab="insert-{{insert.slug}}"
+     data-insert-item-id="{{insert.id}}">
+	<section class="sheet-tab">
+		<div class="stonetop-insert-header">
+			<h3 class="stonetop-insert-name">{{insert.name}}</h3>
+			<button type="button" class="stonetop-insert-remove"
+			        data-insert-item-id="{{insert.id}}"
+			        title="{{localize 'stonetop.insert.remove'}}">
+				<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="{{localize 'stonetop.insert.remove'}}">
+			</button>
+		</div>
+		{{#if insert.description}}
+		<div class="stonetop-insert-description stonetop-rich">{{{md insert.description}}}</div>
+		{{/if}}
+		<div class="stonetop-playbook-columns">
+			{{#if insert.instinctGroup}}
+			{{> "classic.instinct-section"
+			    instinctSelected=insert.instinctSelected
+			    instinctGroup=insert.instinctGroup
+			    namePrefix=insert.id
+			    cgContext="insert-pick"}}
+			{{/if}}
+			{{> "classic.choice-section" groups=insert.choices cgContext="insert"}}
+		</div>
+	</section>
+</div>

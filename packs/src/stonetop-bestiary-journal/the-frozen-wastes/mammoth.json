@@ -1,0 +1,61 @@
+{
+  "_id": "H4EkNtJ49Mpz9O8a",
+  "_key": "!journal!H4EkNtJ49Mpz9O8a",
+  "name": "Mammoth",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Huge woolly tuskers of the northern steppe."
+    }
+  },
+  "folder": "lrUDB0CFpzAWfL6U",
+  "sort": 34000,
+  "pages": [
+    {
+      "_id": "xX3jtpeelPVMnDBu",
+      "_key": "!journal.pages!H4EkNtJ49Mpz9O8a.xX3jtpeelPVMnDBu",
+      "name": "Mammoth",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Huge woolly tuskers of the northern steppe.",
+        "description": "<p>Mammoths graze the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.xg8MEuSbbEt1wqg8]{Frozen Wastes}</strong>, herded by the mammoth bands for wool, ivory, bone, transport, and labor — kept in herds of ten to twenty adults, butchered only in desperation. Wild herds suffer no insult or threat.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.cy5OhsU0kVFUoppF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

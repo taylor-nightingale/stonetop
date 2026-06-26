@@ -1,0 +1,92 @@
+{
+  "name": "Andalau",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 2,
+        "source": "tiny, agile forms"
+      },
+      "damage": {
+        "value": "none",
+        "rollFormula": ""
+      },
+      "instinct": {
+        "value": "to play and frolic"
+      }
+    },
+    "concept": "Tiny wind-spirits that dance, flit, and prank where the breeze never stills.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, spirit, stealthy, mischievous",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Y6pj88e7QJGdPYJl",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Andalau",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "4sMbIIzdekcrIMnR",
+      "name": "Manifest as a fluttering gust of wind (harmed only by lead or salt)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qQL7mQwKGTM0JoRs.4sMbIIzdekcrIMnR"
+    },
+    {
+      "_id": "h4CjHfDfyUDgYB2W",
+      "name": "Flit things about — dust, leaves, and such",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qQL7mQwKGTM0JoRs.h4CjHfDfyUDgYB2W"
+    },
+    {
+      "_id": "RQouzXxpcIBifgsp",
+      "name": "Annoy or spook someone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qQL7mQwKGTM0JoRs.RQouzXxpcIBifgsp"
+    },
+    {
+      "_id": "l9kuvjWMWuBbrRvk",
+      "name": "Deliver a whispery message",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qQL7mQwKGTM0JoRs.l9kuvjWMWuBbrRvk"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "qQL7mQwKGTM0JoRs",
+  "_key": "!actors!qQL7mQwKGTM0JoRs"
+}

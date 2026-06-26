@@ -1,0 +1,61 @@
+{
+  "_id": "PJEotX7fbLPcZpC9",
+  "_key": "!journal!PJEotX7fbLPcZpC9",
+  "name": "Beznpol",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A six-foot armored mustelid, forever digging up the Flats for food."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 2000,
+  "pages": [
+    {
+      "_id": "fL1a9NcH3XwzjXoR",
+      "_key": "!journal.pages!PJEotX7fbLPcZpC9.fL1a9NcH3XwzjXoR",
+      "name": "Beznpol",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A six-foot armored mustelid, forever digging up the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> for food.",
+        "description": "<p>Great big armored mustelids, like a cross between a stoat, a badger, and a pangolin, but six feet long not counting the tail. They roam the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> digging up burrows of just about anything, but they especially love to stir up a hlomren nest and chomp chomp chomp. Far from the top of the food chain: if startled they spray musk and flee; if cornered they curl up and hope the attacker grows bored. A skilled tanner can turn a pair of hides into a magnificent beznpol scale coat (2 armor, warm, protects against acid, Value 3).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Cva7oGwmIwLEvo6S"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

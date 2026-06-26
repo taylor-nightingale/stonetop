@@ -1,0 +1,91 @@
+{
+  "name": "Mummified Servant",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 11,
+        "max": 11
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "choking grip d6 (hand, grabby), spear d6 (close, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to destroy intruders"
+      }
+    },
+    "concept": "A Green Lord's faithful dead, rising from the false afterlife to kill intruders.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, spirit, undead, organized, relentless",
+    "qualities": "<p>Takes +1d4 damage from fire; tethered to canopic jars.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.bO6QXFMmtAmKL3zO",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Mummified Servant",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "f9F4dI7DOcCPgiBX",
+      "name": "Animate its preserved corpse",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WVBxp5Ii2Ahd6Xln.f9F4dI7DOcCPgiBX"
+    },
+    {
+      "_id": "uCFEOpIOnkI4z9kM",
+      "name": "Surround intruders and hem them in, cutting off escape",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WVBxp5Ii2Ahd6Xln.uCFEOpIOnkI4z9kM"
+    },
+    {
+      "_id": "f0GwRpeAiAlyP6Xn",
+      "name": "Keep fighting with limbs that have been severed",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WVBxp5Ii2Ahd6Xln.f0GwRpeAiAlyP6Xn"
+    },
+    {
+      "_id": "hlkRqiTadDAC0fFf",
+      "name": "Regenerate its corpse, unless burned or its canopic jars destroyed",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WVBxp5Ii2Ahd6Xln.hlkRqiTadDAC0fFf"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FO5poGFHi5Udrsfz",
+  "_id": "WVBxp5Ii2Ahd6Xln",
+  "_key": "!actors!WVBxp5Ii2Ahd6Xln"
+}

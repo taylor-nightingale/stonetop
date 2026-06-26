@@ -1,0 +1,62 @@
+{
+  "_id": "5tvhzovmN18QlxGa",
+  "_key": "!journal!5tvhzovmN18QlxGa",
+  "name": "Yaarowslow, the Many",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A mass of flesh oozing silvery slime, and the host of horrors that are its body and its will."
+    }
+  },
+  "folder": "xsr0JM0qPS0Cd9yo",
+  "sort": 131000,
+  "pages": [
+    {
+      "_id": "TGra87VIxIOJstZX",
+      "_key": "!journal.pages!5tvhzovmN18QlxGa.TGra87VIxIOJstZX",
+      "name": "Yaarowslow, the Many",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A mass of flesh oozing silvery slime, and the host of horrors that are its body and its will.",
+        "description": "<p>Yaarowslow the Many is a mass of flesh that oozes infectious silvery slime, and the host of skittering, slithering, and buzzing horrors that serve as an extension of its will. Largely immobile itself, it works through its swarms — and through the infected servants its slime creates.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.xhYYoDHoyS7ZyPKz",
+          "Compendium.stonetop.stonetop-bestiary.Actor.fnzABVPboAe4m9Y8"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

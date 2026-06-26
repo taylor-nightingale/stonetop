@@ -1,0 +1,70 @@
+{
+  "_id": "5SQHTsAkmgqupgVw",
+  "_key": "!journal!5SQHTsAkmgqupgVw",
+  "name": "Anan Gllo",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Empty Dead — corpses risen from a Thing Below's vessel, fading a little each dawn."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 106000,
+  "pages": [
+    {
+      "_id": "yQHd98VlBuDuyOd2",
+      "_key": "!journal.pages!5SQHTsAkmgqupgVw.yQHd98VlBuDuyOd2",
+      "name": "Anan Gllo",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The Empty Dead — corpses risen from a Thing Below's vessel, fading a little each dawn.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> speak of dark times, when the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> gave a gift to a petty chief. Depending on who tells the tale, it was a patch of loose soil or a deep pool of water, the hollow of a dool tree or a great cauldron of rusted iron. Regardless: a corpse placed within this vessel would rise as one of the Anan Gllo, the Empty Dead. The chief raised an undead army, and set out to make themselves king.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** The chief's power was broken when a hero entered the vessel while still alive, giving their life to destroy it. A number of Anan Gllo linger, though, inert and waiting.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** An Anan Gllo regains all its HP when it drinks fresh blood or re-enters the vessel; it cannot otherwise heal. And every dawn it loses 1 HP — at 0 HP it becomes inert until its HP are restored.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.9wN9UhM3IORfcw0J"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

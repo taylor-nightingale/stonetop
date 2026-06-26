@@ -1,0 +1,28 @@
+{
+  "_id": "blV7vY7AZQ3VZprk",
+  "_key": "!items!blV7vY7AZQ3VZprk",
+  "name": "Lantern",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "lantern",
+      "inventoryColumn": "small",
+      "sortOrder": 27,
+      "resource": {
+        "max": 5,
+        "title": "Oil",
+        "labels": [
+          "running low",
+          "out"
+        ]
+      },
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Light Sources"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

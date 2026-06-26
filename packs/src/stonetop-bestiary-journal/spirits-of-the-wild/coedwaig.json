@@ -1,0 +1,61 @@
+{
+  "_id": "4cuy0KcuT5WO0S5A",
+  "_key": "!journal!4cuy0KcuT5WO0S5A",
+  "name": "Coedwaig",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Thorn-spirits — Danu's little swords, drawn to defend her most delicate children."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 86000,
+  "pages": [
+    {
+      "_id": "IwC0rnZcM22Hkn5D",
+      "_key": "!journal.pages!4cuy0KcuT5WO0S5A.IwC0rnZcM22Hkn5D",
+      "name": "Coedwaig",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Thorn-spirits — <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>'s little swords, drawn to defend her most delicate children.",
+        "description": "<p>Each thorn on a plant is a sword, brandished boldly against a world that would defile its flowers, steal its fruit, and devour its delicate buds. What, then, are the coedwaig? Only <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>'s swords, brandished by the Mother herself in defense of her most beautiful and vulnerable children.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Hogu0AEnAffI0HHr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

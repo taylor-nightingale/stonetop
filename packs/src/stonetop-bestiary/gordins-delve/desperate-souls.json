@@ -1,0 +1,80 @@
+{
+  "name": "Desperate Souls",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "brick, makeshift club, or rusty knife d6 (hand, crude)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to do what they must"
+      }
+    },
+    "concept": "The downtrodden of the Delve, who'll do what they must to get by.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, craven, meek, opportunistic",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.t5IDMGAw6mK7tzWU",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Desperate Souls",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "NIA36pv8jKyF2BBU",
+      "name": "Do something unsavory, if there's food or coin in it",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qPV3pBGdCk4mdqCb.NIA36pv8jKyF2BBU"
+    },
+    {
+      "_id": "C6eovENEBS6JzKDk",
+      "name": "Tell someone what they think they want to hear",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qPV3pBGdCk4mdqCb.C6eovENEBS6JzKDk"
+    },
+    {
+      "_id": "TDJHoskhkaBEMhBg",
+      "name": "Demonstrate their humanity in a small — or sometimes enormous — way",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qPV3pBGdCk4mdqCb.TDJHoskhkaBEMhBg"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "TAdHt3uEDdJHqNf1",
+  "_id": "qPV3pBGdCk4mdqCb",
+  "_key": "!actors!qPV3pBGdCk4mdqCb"
+}

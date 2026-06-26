@@ -1,0 +1,92 @@
+{
+  "name": "The Guard",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 2,
+        "source": "iron scales"
+      },
+      "damage": {
+        "value": "steel-tipped spear d8 (close, thrown, 2 piercing)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to protect the town — or to lord over it, depending on the guard"
+      }
+    },
+    "concept": "The town watch of Marshedge — Brennan's old gang, the Claws, in all but name.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, organized",
+    "qualities": "<p>Three sorts serve: Ex-Claws (bully, threaten, demand bribes), Loyalists (give fair warning, stand firm), and New recruits (avoid danger or punishment).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.vmZHAuziESAq3yf8",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "The Guard",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "e7eH52ToLKWXGupK",
+      "name": "Bully, threaten, intimidate",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EfKVm2sMXRjrnB6L.e7eH52ToLKWXGupK"
+    },
+    {
+      "_id": "qUKFb7hqNXy0C7YW",
+      "name": "Cover each other's backs",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EfKVm2sMXRjrnB6L.qUKFb7hqNXy0C7YW"
+    },
+    {
+      "_id": "6xjiLl8B5hIfwAL4",
+      "name": "Demand a bribe or accommodation",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EfKVm2sMXRjrnB6L.6xjiLl8B5hIfwAL4"
+    },
+    {
+      "_id": "pG5vlgSyFRujEJVF",
+      "name": "Stand firm in the face of danger",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!EfKVm2sMXRjrnB6L.pG5vlgSyFRujEJVF"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "7jHoGAhA79s1EBFQ",
+  "_id": "EfKVm2sMXRjrnB6L",
+  "_key": "!actors!EfKVm2sMXRjrnB6L"
+}

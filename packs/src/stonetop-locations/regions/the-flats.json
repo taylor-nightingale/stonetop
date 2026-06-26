@@ -1,0 +1,159 @@
+{
+  "_id": "nBvsH19B1bG2d4Di",
+  "_key": "!journal!nBvsH19B1bG2d4Di",
+  "name": "The Flats",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Stonetop sits on the easternmost edge of the Flats, a rolling tallgrass prairie that stretches all the way to the Huffel Peaks, the Foothills and the Steplands."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 1000,
+  "pages": [
+    {
+      "_id": "hnfjCiDIWr2QPUuR",
+      "_key": "!journal.pages!nBvsH19B1bG2d4Di.hnfjCiDIWr2QPUuR",
+      "name": "The Flats",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> sits on the easternmost edge of the Flats, a rolling tallgrass prairie that stretches all the way to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong> and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>A southerly wind, ever present</li><li>Mountains looming on the far horizon</li><li>A sky so big it beggars the soul</li><li>Birds of prey, or carrion eaters, floating high above</li><li>Clouds, always in motion: high and wispy, or big and fluffy, or massive and dark like an anvil ready to drop</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Patchworks of hopeful green, pale white, dry yellow</li><li>Carpet of last year’s grass, folded flat by wind and heavy snow</li><li>Soft crunch and pop underfoot</li><li>A damp chill in the wind, smell of rain and wet soil</li><li>Chirp chirp chirp, warble</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Green and yellow stems topped with a riot of flowers, rippling and bobbing in the wind</li><li>The itch and scratch of nettles, thistle, and stiff sandpaper stalks</li><li>Constant noise: birdsong, insect-buzz, rustling grass</li><li>Relentless sun, unbroken by shade</li><li>A wall of rain, rolling towards you</li></ul><p>The prairie is dotted with small hills, outcrops, and the occasional copse of trees huddled against the ceaseless wind. Winding streams cut through the soil. But mostly? Just mile after mile after mile of grass.</p><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Crinkle, snap, and rustle with every step, every movement</li><li>Stiff stalks, gold in the low sun, nodding in the breeze</li><li>Lonely chitter of birds, unseen</li><li>Morning frost, or thick blankets of fog</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Snow billowing in the wind, obscuring everything</li><li>A white expanse, still as death, poked through with grassy stubble</li><li>The cold, wet, exhausting trudge through waist-high drifts</li><li>The squeak of snow underfoot on a bitterly cold day</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Gwead",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Villagers call the Flats-grasses the Gwead (“the Weave” or “the Weaving”). It’s a bewildering array of species. Some are short and wispy, others thick and taller than a tall man. They bloom in a myriad of shapes and colors, and sport every manner of prickle, thorn, and seedpod.</p><p>The Gwead will not be tamed. Burn the grasses, plow the soil, tear things up by their roots—it doesn’t matter. The Gwead always come back, thicker and hardier than before. And sometimes, it seems, the grasslands take their revenge.</p><ul><li class=\"question-bullet\">When was the last time anyone tried to plant crops beyond the Old Wall?</li><li class=\"question-bullet\">What uncanny fate befell them?</li></ul><p>Why can crops be managed within the Old Wall, but not beyond? That’s for you to decide. Maybe…</p><p>… magic tied to the Stone makes the land more pliable, easier to tame;<br>… something buried beneath the Old Wall keeps the Gwead at bay;<br>… something about the soil keeps the Gwead from taking root; or<br>… whoever built the ruins on which <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> was founded, they made a pact with the spirits of the Gwead.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{The Makers}</strong>’ Roads</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{The Ruined Tower}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.fc9yqAlxCCgZVckC]{Titan Bones}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Ash field, burnt stalks, recent wildfire</td></tr><tr><td>2</td><td>Barren ground: sand, stone, dust</td></tr><tr><td>3</td><td>Burrow, dugout, or warren</td></tr><tr><td>4</td><td>Sodden soil, mud, or standing water</td></tr><tr><td>5–6</td><td>Dense thicket of tall (5'-8'), stiff stalks</td></tr><tr><td>7–8</td><td>Open meadow, grass waist-high or shorter</td></tr><tr><td>9</td><td>Low ridge, embankment, rise</td></tr><tr><td>10</td><td>Tree(s), savanna, shrubs</td></tr><tr><td>11</td><td>Rocky outcropping, boulders, jagged stones</td></tr><tr><td>12</td><td>Gully, sinkhole, crater, fissure (maybe full of water)</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around The Flats. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.tx9I3QGe5ldHuhho]{Aurochs}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.PJEotX7fbLPcZpC9]{Beznpol}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oAW6aV8Fmw6ZQPX4]{Frythanc}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Yeb5PFGFWdxGqNDU]{Hlomren}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.9iGIKUGklHraBaZB]{Klezln}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Gxjvid2IYJmTU41M]{Pack Drake}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.1c9b44uDspcLrAEk]{Shellback Drake}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.pwQ68WIhCcu5pqzq]{Thunder Drake}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nXxqWnbt932F98UJ]{Wild Horse}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Who among you has ventured deep into the Flats? What did you see there that no one quite believes?",
+                "answer": ""
+              },
+              {
+                "prompt": "Aside from sticking to the roads, what keeps the pack drakes at bay?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which of you has seen a prairie fire up close and personal?",
+                "answer": ""
+              },
+              {
+                "prompt": "What flower, root, seed, or stem that can be found on the Flats is particularly useful? How so? Why is it so hard to harvest?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A herd of wild horses is seen north of the West Road and east of the Highway, close enough that they might be captured</li><li>Someone is sick, and the cure requires a rare plant that grows deep in the Flats</li><li>Gwead-grasses have started taking root inside the Old Wall, getting hard to weed out, and folks are all sorts of worried</li><li>A traveler’s companion was lured off the roads by nosgalau and hasn’t returned; the traveler offers a sizeable reward if the PCs can help</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate (d12 or d6).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>An encounter (see below)</td></tr><tr><td>4</td><td>A point of interest</td></tr><tr><td>5</td><td>Useful or valuable flora</td></tr><tr><td>6</td><td>A piece of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong></td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A shade, called up at the Crossroads, or the pyped that it’s become</td></tr><tr><td>2</td><td>A spirit of the wild, curious or indifferent</td></tr><tr><td>3</td><td>Critter(s)—fox, skunk, stoat, hares, prairie dogs, starlings, vultures, etc. —curious, annoying, maybe just cute</td></tr><tr><td>4</td><td>Beast(s)—ground sloth, giant ibis, shellback drake—big, majestic, mostly indifferent</td></tr><tr><td>5</td><td>A herd: aurochs, deer, wild sheep, wild horses, etc.</td></tr><tr><td>6</td><td>A band of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, or maybe just their camp</td></tr></tbody></table><p>Pieces of the Ruined Tower Scattered far and wide, for miles and miles from the tower itself, as if flung by some impossible force. Likely buried or at least overgrown.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Metal instruments or tools, possibly giant-sized, rent asunder, twisted, or surprisingly intact</td></tr><tr><td>2</td><td>Worked stone, or chunks thereof</td></tr><tr><td>3</td><td>Stone covered in scorched runes, possibly a bit of the Broken Roads</td></tr><tr><td>4</td><td>A jagged piece of “indestructible” makerglass, cracked and broken</td></tr><tr><td>5</td><td>Aetherium ingot, crackling with power</td></tr><tr><td>6</td><td>A shard of the Storm Orb</td></tr></tbody></table><p><strong>Point of interest</strong></p><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A place corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>A tomb, ruin, or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr><tr><td>3</td><td>A battlefield or remains</td></tr><tr><td>4</td><td>Enigmatic terrain: crystalline growth, sheet of smooth/broken glass, geometric patterns, unnatural colors, grass growing in strange patterns, etc.</td></tr><tr><td>5</td><td>A location important to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>: meeting place, fortification, shrine, etc.</td></tr><tr><td>6</td><td>A site sacred to the spirits of the wild</td></tr></tbody></table><p>Battlefield or remains Older ones lie well-buried, so ask yourself how they might be discovered (burrowing animals, erosion, earthquakes, excavation, etc.)</p><p><strong>1d12 battlefield or remains</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Primordial: from the very shaping of the world</td></tr><tr><td>2</td><td>Truly ancient: from the time of the Makers</td></tr><tr><td>3–4</td><td>From the Time of Cataclysm: when humanity rebelled and woke the Things Below</td></tr><tr><td>5–7</td><td>From the days of the Barrow Builders</td></tr><tr><td>8–11</td><td>Recent: Hillfolk, bandits, travelers, beasts, etc.</td></tr><tr><td>12</td><td>Very recent: the buzzards and crows still feasting</td></tr></tbody></table><p>Picking through the remains might yield valuables or artifacts, but might rouse the ire of ghosts or revenants.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Nasty turn in the weather: lashing wind, bitter cold, blistering heat, sleet/ hail/rain/snow; lightning</li><li>Lack of shelter, water, or wood for a long-burning fire (try dried aurochs dung, if you can find it)</li><li>Hidden holes/burrows, twisting an ankle or worse</li><li>Getting lost (lack of landmarks, tall grass and rolling terrain, hard to keep to a straight line)</li></ul>"
+              },
+              {
+                "heading": "Prairie fire",
+                "body": "<p>The Gwead is prone to burning, sparked by lightning, an errant flame, or (if you believe the tales) <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> intentionally setting the Flats ablaze. Early spring, late summer, and early autumn are particularly prone, especially after a few weeks without rain.</p><ul><li>Instinct to run unchecked across the land</li><li>Start with just a few crackling flames, a column of smoke</li><li>Grow implacably, creeping outward</li><li>Smother the landscape in choking smoke (debilities)</li><li>Hit them with a wave of heat (d4 damage)</li><li>Linger and burn for minutes or hours (d6 damage, messy)</li><li>Tear a crimson line, faster than you can sprint, bonfire-hot (d10 damage, ignores armor, messy)</li><li>Run out of fuel, or get smothered by rain</li></ul><p>Something interesting: To really spread and burn hot, a prairie fire needs years of built-up fuel, dry conditions, and steady wind; even then, it can only burn at its hottest for a short period of time.</p><p>Something useful: Seek the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>’ Roads, or barren ground, or low-lying patches that still hold some moisture. Failing that, seek patches of grass that burned in the past year. Worst case: seek a narrow point in the fire-head and run through it, into the ash-fields behind. Also: pray.</p>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Cougars or wolves, come out of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong></li><li>Hillfolk, if they’re of a mind to do violence</li><li>Spirits of the wild</li><li>The nosgalau, whatever they are</li><li>Ghosts, revenants, or shades, called up at the Crossroads or lurking near old battlefields</li><li>Blue magpies, messing with the PCs</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

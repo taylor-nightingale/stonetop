@@ -1,0 +1,14 @@
+{
+  "_id": "HrKAI6EucqaicITc",
+  "_key": "!items!HrKAI6EucqaicITc",
+  "name": "Improved Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+    "moveEffect": "stat-increase",
+    "repeatMax": 3
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

@@ -1,0 +1,2333 @@
+{
+  "The Judge": [
+    {
+      "name": "A Bundle of Sticks Unbroken",
+      "description": "<p>When you <strong><em>Struggle as One</em></strong>, you and one ally of your choice have advantage.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Many Hands Make Light Work"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "A Mighty Rampart",
+      "description": "<p>When you <strong><em>hold Readiness (from Defend)</em></strong>, you cannot be forced from your position. Also, you can spend 1 Readiness to completely ignore the effects/damage of an attack that you suffer. (Replaces Bulwark.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Bulwark"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Aegis of Faith",
+      "description": "<p>When you <strong><em>wield a shield</em></strong>, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Armistice",
+      "description": "<p>When you <strong><em>approach an enemy to negotiate in good faith</em></strong>, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Bear Witness"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Armored",
+      "description": "<p>When you <strong><em>carry a shield</em></strong>, mark only ◆ (instead of ◆◆). Also, you can ignore the cumbersome tag on any armor you wear.</p><p>If you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome).</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Bear Witness",
+      "description": "<p>When you <strong><em>speak the truth with conviction and candor</em></strong>, none can doubt you. They might deny what you say, but in their hearts they recognize the truth.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Binding Arbitration",
+      "description": "<p>When you <strong><em>bear witness to someone's promise or oath</em></strong>, henceforth you may ask their player if they have kept their word. They must answer honestly. The character need not be present. If they have broken their word, you gain advantage on all rolls against them until they admit their wrong and suffer an appropriate consequence (your call).</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Truth or Consequences"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Break Bread",
+      "description": "<p>When you <strong><em>share a proper meal with someone and each of you eats their fill</em></strong>, each of you recovers 1d8 (extra) HP.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Bulwark",
+      "description": "<p>When you <strong><em>Defend</em></strong>, you can spend 1 Readiness to stand fast, holding your position despite what befalls you.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Castigate",
+      "description": "<p>When you <strong><em>Censure someone</em></strong>, your voice deals 1d4 damage to them (near, loud, ignores armor).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2,
+        "moves": [
+          "Censure"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Censure",
+      "description": "<p>When you <strong><em>first denounce an individual in your presence as an agent of chaos or anathema to civilization</em></strong>, they pick 1:</p><ul><li>They are ashamed, and act accordingly</li><li>They are doubtful, and hesitate, pause</li><li>They are afraid, and seek to escape</li><li>They are enraged, and lash out predictably (the next roll against them has advantage)</li></ul>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Chronicler of Stonetop",
+      "description": "<p>When you <strong><em>write up detailed session notes and share them with the other players</em></strong>, hold +1 Diligence. You can spend 1 Diligence at any time to add +1 to a roll that you or a fellow player just made.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 5,
+        "title": "Diligence"
+      },
+      "isStartingMove": true,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Condemn",
+      "description": "<p>When you <strong><em>Censure someone</em></strong>, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Censure"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "For the Greater Good",
+      "description": "<p>When you <strong><em>Persuade someone to act in defense of their community or civilization at large</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Hound of Aratis",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask \"What here is tainted by chaos?\" for free, even on a 6-.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Knowledge is Power",
+      "description": "<p>When you <strong><em>roll 10+ to Know Things</em></strong>, you or an ally gain advantage on the next roll to act on what you learn.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Like a Dog with a Bone",
+      "description": "<p>When you <strong><em>attack something you know to be tainted by chaos</em></strong>, deal +1d6 damage.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Hound of Aratis"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Many Hands Make Light Work",
+      "description": "<p>When you <strong><em>jump in to help another character who just rolled</em></strong>, tell us how and ask the GM what else is required or what the consequences will be. If you accept, increase your ally's roll by +1.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Mirrorshield",
+      "description": "<p>When you <strong><em>Defend with a shield</em></strong>, you can spend 1 Readiness to intercept a magical force and redirect it to a different target (or none).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Aegis of Faith"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Proclamation",
+      "description": "<p>When you <strong><em>Censure</em></strong>, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Condemn"
+        ]
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "The Hammer and the Book",
+      "description": "<p>When you <strong><em>strike a thing of supernatural chaos</em></strong>, roll +WIS: <strong>on a 10+</strong>, deal your damage and choose 1 from the list below; <strong><em>on a 7-9</em></strong>, deal damage and choose 1, but you also expose yourself to harm or unwanted attention.</p><ul><li>Deal +1d6 damage</li><li>Ignore the thing's armor or other defenses</li><li>Suppress one of its unnatural powers</li><li>Force it from its host</li></ul>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Deal your damage and choose 1 from the list."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Deal damage and choose 1, but you also expose yourself to harm or unwanted attention."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "The Tower Eternal",
+      "description": "<p>When you <strong><em>Defy Danger against magic</em></strong>, treat a result of 6- as a 7-9.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Truth or Consequences",
+      "description": "<p>When you <strong><em>look into someone's eyes and gaze upon their soul</em></strong>, you can ask their player, \"Are you lying or hiding something from me?\" and get an honest answer. If the answer is \"Yes,\" you have advantage on your next roll against them.</p><p>When you <strong><em>lie or otherwise deceive someone through words</em></strong>, you have disadvantage on your next roll against them.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Vision Unclouded",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask \"What here is hidden by illusion or magic?\" for free, even on a 6-.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    },
+    {
+      "name": "Well-Read",
+      "description": "<p>When you <strong><em>name the source in which you read about the matter at hand</em></strong>, roll +WIS to Know Things instead of +INT.</p>",
+      "rollType": null,
+      "playbook": "The Judge"
+    }
+  ],
+  "The Lightbearer": [
+    {
+      "name": "A Candle Against the Dark",
+      "description": "<p>When you <strong><em>wield a holy light but go otherwise unarmed</em></strong>, you have 2 Armor.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "All is Illuminated",
+      "description": "<p>When you <strong><em>look closely on another and see their soul laid bare</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; <strong><em>on a 7-9</em></strong>, ask them 1 question from the list. In any case, they must answer truthfully.</p><ul><li>Of what are they most ashamed?</li><li>What do they most desire or covet?</li><li>What hope have they abandoned?</li><li>Who or what is most precious to them?</li></ul>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Ask 1 question from the list plus the bonus question."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Ask 1 question from the list."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "And Behold a Pale Horse",
+      "description": "<p>When you <strong><em>spend the night gazing into a flame</em></strong>, ask the GM to reveal an impending doom or grim portent that will come to pass unless you intervene, and how you might yet do so.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Burn Twice as Bright",
+      "description": "<p>When you <strong><em>Invoke the Sun God</em></strong>, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Invoke the Sun God"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Consecrated Flame",
+      "description": "<p>When you <strong><em>whisper words of consecration to a flame</em></strong>, the flame casts a holy light. Holy light is uncomfortable for creatures of darkness to look upon, but does no true harm. The holy light lasts until the flame goes out or until you consecrate another flame, whichever comes first.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Empowered Invocations",
+      "description": "<p>When you <strong><em>Invoke the Sun God</em></strong>, you can choose an extra consequence before you roll. If you do, the Invocation has its empowered effect.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Invoke the Sun God"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Fire Within",
+      "description": "<p>When you <strong><em>are in darkness</em></strong>, you are able to see by the light of your inner fire. When you <strong><em>take damage from cold or fire</em></strong>, reduce that damage by 2.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Glorious Servant",
+      "description": "<p>When you <strong><em>Invoke the Sun God and roll a 10+</em></strong>, you need not choose a consequence; <strong><em>on a 7-9</em></strong>, you choose a consequence but the GM does not.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Invoke the Sun God"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Guiding Light",
+      "description": "<p>When you <strong><em>lead one or more NPCs through danger</em></strong>, roll +CHA: <strong>on a 10+</strong>, you all make it through (Helior be praised); <strong><em>on a 7-9</em></strong>, the GM will tell you what's required to get everyone through safely.</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You all make it through."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "The GM will tell you what's required to get everyone through safely."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Helior's Unblinking Eye",
+      "description": "<p>When you <strong><em>stare into the sun long enough to lose your vision</em></strong>, name a person or place that you know and roll +WIS: <strong>on a 10+</strong>, you briefly glimpse your subject as if from a great height, and choose 2 from the list below; <strong><em>on a 7-9</em></strong>, you briefly glimpse your subject as if from a great height, and choose 1.</p><ul><li>The glimpse lasts as long as you wish</li><li>Your point of view shifts to very close range</li><li>You recover your vision quickly</li></ul>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You briefly glimpse your subject from a great height — choose 2."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You briefly glimpse your subject from a great height — choose 1."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Hungry Flames",
+      "description": "<p>When you <strong><em>deal damage with a holy light</em></strong>, you deal +1d6 damage and your target is engulfed in holy light and flames.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Purifying Flames"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Invoke the Sun God",
+      "description": "<p>When you <strong><em>imbue a holy light with Helior's power</em></strong>, choose an Invocation you know and roll +WIS: <strong>on a 10+</strong>, it works as described but you must choose 1 consequence from the list below; <strong><em>on a 7-9</em></strong>, it works as described, but you and the GM each choose 1.</p><ul><li>The Invocation has its reduced effect</li><li>The effort taxes you; mark a debility</li><li>The light is snuffed out when the Invocation is complete, its fuel consumed</li><li>You must bask in sunlight for an hour or so before using that Invocation again</li></ul><p>See the Invocations insert for details.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "It works as described — you choose 1 consequence."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "It works as described — you and the GM each choose 1 consequence."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "isStartingMove": true,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Keep the Home-Fires Burning",
+      "description": "<p>When you <strong><em>build a camp fire and sprinkle it with ash from your own hearth</em></strong>, anyone who Makes Camp with you is free from nightmares or bad dreams and recovers (extra) HP equal to your CHA.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Lamplighter",
+      "description": "<p>When you <strong><em>whisper to a flammable object (a torch, a wick, kindling, etc.)</em></strong>, it ignites in moments.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Light, More Light",
+      "description": "<p>When you <strong><em>consecrate a flame</em></strong>, it burns brighter than normal. A rushlight or candle illuminates to reach range, an oil lamp, lantern, or torch out to near range, and a bullseye lantern out to far range.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Consecrated Flame"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Luminous Shield",
+      "description": "<p>When you <strong><em>brandish a holy light to turn aside an attack against body, mind, or soul</em></strong>, roll +CHA: <strong>on a 10+</strong>, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; <strong><em>on a 7-9</em></strong>, the attack is deflected but your holy light flickers and dims, threatening to go out; on a 6-, your light snuffs out and the attack is unimpeded.</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "The attack is deflected and the attacker (if in range) is briefly blinded."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "The attack is deflected but your holy light flickers and dims, threatening to go out."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Your light snuffs out and the attack is unimpeded."
+        }
+      },
+      "requirement": {
+        "moves": [
+          "A Candle Against the Dark"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Piety",
+      "description": "<p>When you <strong><em>spend at least an hour in proper worship to Helior</em></strong>, hold 1 Blessing. Other faithful PCs who partake in this worship also hold 1 Blessing. At any time, you can spend 1 Blessing to add +1 to a roll you just made in pursuit of a righteous cause.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 1,
+        "title": "Blessing"
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Purifying Flames",
+      "description": "<p>When you <strong><em>wield a holy light against a creature of darkness</em></strong>, it counts as a weapon (d10 damage, hand, close, area, 2 piercing) and you can choose to roll +WIS to Clash.</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Radiant Countenance",
+      "description": "<p>When you <strong><em>give someone your fond attention</em></strong>, you can then Persuade them with advantage. If they are a follower, you can instead choose to Strengthen Your Bond (as if you paid their cost).</p>",
+      "rollType": null,
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Rise Like the Sun",
+      "description": "<p>When you <strong><em>draw attention to yourself by word or deed</em></strong>, roll +CHA: <strong>on a 10+</strong>, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; <strong><em>on a 7-9</em></strong>, everyone turns and looks.</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Everyone turns and looks."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Spring's First Thaw",
+      "description": "<p>When you <strong><em>spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC</em></strong>, roll +CHA: <strong>on a 10+</strong>, you light a fire deep within them and effect a lasting change; <strong><em>on a 7-9</em></strong>, you kindle goodness in their heart for now, but they will eventually return to their old ways; on a 6-, their heart hardens and, whatever else the GM says, you can't use this move on them again.</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You light a fire deep within them and effect a lasting change."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You kindle goodness in their heart for now, but they will eventually return to their old ways."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Their heart hardens and you can't use this move on them again."
+        }
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Lightbearer"
+    },
+    {
+      "name": "Wielder of the White Flame",
+      "description": "<p>When you <strong><em>channel Helior's essence into an object you carry</em></strong>, roll +WIS: <strong>on a 10+</strong>, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object, and you may Invoke the Sun God right now as if you rolled a 10+; <strong><em>on a 7-9</em></strong>, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Ignites with white flame (reach, area) and you may Invoke the Sun God as if you rolled a 10+."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Ignites with white flame (reach, area)."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Invoke the Sun God"
+        ]
+      },
+      "playbook": "The Lightbearer"
+    }
+  ],
+  "The Would-Be Hero": [
+    {
+      "name": "A Force to Be Reckoned With",
+      "description": "<p>Any intelligent creature who looks you in the eye or hears the steel in your voice instinctively knows that you are a force to be reckoned with, and treats you appropriately.</p><p>When you <strong><em>Defy Danger against something trying to harm or constrain you</em></strong>, on a 12+ you turn the tables on them (the GM will say how, or ask you to). (Replaces Underestimated. First use crosses off \"Would-be\" on the front page.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "replaces": "Underestimated",
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Anger is a Gift",
+      "description": "<p>When you <strong><em>burn with righteous anger (see Fear & Anger on the Details tab)</em></strong>, hold 2 Resolve. You can spend your Resolve 1-for-1 to:</p><ul><li>Set aside fear and doubt to do what must be done</li><li>Act suddenly, catching them off-guard</li><li>Inspire allies or bystanders to follow your lead</li><li>Strike hard (+1d4 damage, forceful)</li><li>Keep your footing, position, and/or your course despite what befalls you</li></ul>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Resolve"
+      },
+      "isStartingMove": true,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Better Part of Valor",
+      "description": "<p>When you <strong><em>are outnumbered or facing a foe bigger than you</em></strong>, you have advantage to hide from, escape from, or sneak past them.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Big Damn Hero",
+      "description": "<p>When you <strong><em>first leap into danger to protect someone</em></strong>, don't roll to Defend. Instead, treat it as though you rolled a 10+.</p><p>When you <strong><em>Defend</em></strong>, you can spend 1 Readiness to lock eyes with an attacker; they have disadvantage on damage rolls against you and your ward for the rest of the fight. (Replaces In Over Your Head. First use crosses off \"Would-be\" on the front page.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "replaces": "In Over Your Head",
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "But I Get Up Again",
+      "description": "<p>When you <strong><em>use I Get Knocked Down</em></strong>, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "I Get Knocked Down"
+        ]
+      },
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "I Get Knocked Down",
+      "description": "<p>When you <strong><em>take damage despite your best efforts to avoid it</em></strong>, you can choose to halve the damage but pick 1 of the following:</p><ul><li>You lose something (footing, grip, etc.)</li><li>Something on your person breaks</li><li>You're out of it for a moment</li></ul><p>Whatever you choose, the GM will describe the details.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "In Over Your Head",
+      "description": "<p>When <strong><em>another PC rescues you from danger</em></strong>, mark XP.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Inquiring Minds",
+      "description": "<p>When you <strong><em>seek out and receive honest advice</em></strong>, gain advantage on your next roll to follow that advice.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Iron Will",
+      "description": "<p>When you <strong><em>are subject to mind control or magic that affects your feelings</em></strong>, you can take 1d4 damage (ignoring armor) to disregard its influence.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Never Gonna Keep Me Down",
+      "description": "<p>When you <strong><em>have 5 or fewer current HP</em></strong>, you impose disadvantage on any damage you take.</p><p>Once per session, when you are at Death's Door, don't roll. You get a 10+.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Potential for Greatness",
+      "description": "<p>Once per level, when you roll a stat and get a 10+, mark one of the following (note the level during which you marked it). You don't have to mark them in order.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Resourceful",
+      "description": "<p>When you <strong><em>Defy Danger and roll a 6-</em></strong>, ask the GM a question from Seek Insight after they describe what happens. Gain advantage on your next roll to act on the answer.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Something to Remember Me By",
+      "description": "<p>When you <strong><em>spend Readiness (from Defend) to strike back at an attacker</em></strong>, you deal +1d4 damage and scar, mark, or diminish them in some way (the GM will say how, or ask you to).</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Speak Truth to Power",
+      "description": "<p>When you <strong><em>demand that someone does what is clearly good and right</em></strong>, you have advantage to Persuade. If they refuse, gain +1 Resolve.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Anger is a Gift"
+        ]
+      },
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "All 6 marks in Potential for Greatness"
+        ]
+      },
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Tough Love",
+      "description": "<p>When you <strong><em>honestly think another PC is in the wrong and call them on it</em></strong>, they have disadvantage on any rolls against you until you two work it out.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Undaunted",
+      "description": "<p>When you <strong><em>are outnumbered or facing a foe bigger than you</em></strong>, you get +1 armor and deal +1d6 damage. (Replaces Better Part of Valor. First use crosses off \"Would-be\" on the front page.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "replaces": "Better Part of Valor",
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Underestimated",
+      "description": "<p>As long as you avoid overt hostility, no enemy will consider you a threat.</p><p>When you <strong><em>first make your move against an enemy who underestimates you</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Up With People",
+      "description": "<p>When you converse with someone (PC or NPC) you can hold 2 Rapport with them. If you do, they hold 1 Rapport with you. During the conversation, either of you can spend 1 Rapport to ask the other player one of the following and get an honest answer.</p><ul><li>What weighs you down or holds you back?</li><li>What drives you forward?</li><li>What lesson would you have me learn?</li><li>What do you think of me, truly?</li></ul>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Rapport"
+      },
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Versatile",
+      "description": "<p>Choose a move from any other playbook, as long as you meet its requirements. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Would-Be Hero"
+    },
+    {
+      "name": "Voice of Experience",
+      "description": "<p>When <strong><em>another PC comes to you for advice and you tell them what you think is best</em></strong>, they have advantage on their first roll to follow your advice.</p><p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What is about to happen?\" for free, even on a 6-. (Replaces Inquiring Minds. First use crosses off \"Would-be\" on the front page.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "replaces": "Inquiring Minds",
+      "playbook": "The Would-Be Hero"
+    }
+  ],
+  "The Ranger": [
+    {
+      "name": "A Safe Place",
+      "description": "<p>When you <strong><em>select and prepare the party's camp site</em></strong>, hold 1 Precaution, or 2 Precaution if you are well-versed with this area and its dangers.</p><p>If trouble finds your camp site, you can spend 1 Precaution to reveal a simple defense, warning, or trick that you prepared in advance. If you do, tell us how you knew to make that specific preparation.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Precaution"
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Alpha",
+      "description": "<p>When you <strong><em>assert dominance over another (beast, spirit, Fae, or person)</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong>, they must pick 1 from the list below; <strong>on a 10+</strong>, you also have advantage on your next roll against them.</p><ul><li>Accept your authority, at least for now</li><li>Slink away or flee, then avoid you</li><li>Fight you for dominance</li></ul>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "They pick 1 from the list and you have advantage on your next roll against them."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "They pick 1 from the list."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Wild Speech",
+          "Spirit Tongue"
+        ]
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Animal Companion",
+      "description": "<p>You are accompanied by a beast of uncommon loyalty and cleverness. See the Animal Companion insert for details.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Beast of Legend",
+      "description": "<p>Each time you take this move, pick 1:</p><ul><li>They are exceptional (and roll +2 instead of +1)</li><li>They get +4 HP and +1 armor</li><li>They develop some unique ability or trait</li></ul>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Magnificent Specimen"
+        ]
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Big Game Hunter",
+      "description": "<p>When you <strong><em>strike at the weak spot of a large or huge creature</em></strong>, you deal +2 damage.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Blot Out the Sun",
+      "description": "<p>When you <strong><em>Let Fly with a bow</em></strong>, you can deplete your ammunition (mark the next ammo status after your weapon) before you roll. If you do, choose 1:</p><ul><li>Gain advantage on your damage roll</li><li>Add the area tag to your attack; roll damage separately for each target</li></ul>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Call the Shot",
+      "description": "<p>When you <strong><em>take your time and calmly line up the perfect shot</em></strong>, either deal your damage or roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal your damage and pick 1.</p><ul><li>Ignore armor or deal +1d4 damage (your call)</li><li>Stun, hobble, or hinder them</li><li>Make them trip or drop what they're holding</li><li>Do no harm; don't deal your damage after all</li></ul>",
+      "rollType": "dex",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Deal your damage and pick 2."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Deal your damage and pick 1."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Constant Vigilance",
+      "description": "<p>Unless you're dazed, you're never caught off guard—not even when asleep or if you roll a 6-. When you <strong><em>intercept a sudden threat (to yourself or an ally)</em></strong>, you have advantage on whatever move you make.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Expert Tracker",
+      "description": "<p>When you <strong><em>Seek Insight by searching for or studying the signs left by passing creatures</em></strong>, you can ask \"What happened here recently?\" for free, even on a 6-.</p><p>When you <strong><em>follow a creature's trail</em></strong>, roll +WIS: <strong><em>on a 7+</em></strong> you follow it to a significant change in terrain or activity; <strong>on a 10+</strong>, you can ask the GM a reasonable question about your quarry and get a useful answer.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Follow the trail to a significant change and ask a reasonable question about your quarry."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Follow the trail to a significant change in terrain or activity."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Giant Slayer",
+      "description": "<p>When you <strong><em>strike at a weak spot of a large or huge creature</em></strong>, you deal another +2 damage (+4 total).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Big Game Hunter"
+        ]
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Home on the Range",
+      "description": "<p>When <strong><em>a journey requires you to Defy Danger or Struggle as One</em></strong>, treat a 6- as a 7-9.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Magnificent Specimen",
+      "description": "<p>Each time you take this move, your companion gains 2 additional options of your choice.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Animal Companion"
+        ]
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Mental Map",
+      "description": "<p>You can always retrace your steps and can accurately gauge distances and directions. You might not know the way forward but can always find your way back.</p><p>When you <strong><em>think back on a place you've been</em></strong>, you can Seek Insight retroactively, as if you were still there.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Naturalist",
+      "description": "<p>When you <strong><em>Know Things about beasts, natural environs, or spirits of the wild</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "On the Hoof",
+      "description": "<p>When you <strong><em>travel through the wilderness</em></strong>, you can procure 1d6 uses of provisions each day (roll with disadvantage in winter or barren terrain). Provisions can substitute for supplies when you Make Camp.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Pack Horse",
+      "description": "<p>You can carry up to 4 weight with a light load, 7 weight with a normal load, and 10 weight with a heavy load.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Pathfinder",
+      "description": "<p>When you <strong><em>lead your people to Pull Together or Deploy beyond sight of home</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Predator",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, add the following to the list of questions you can ask. When <strong><em>acting on the answer to either question</em></strong>, deal an extra 1d4 damage.</p><ul><li>Who or what here is the easiest prey?</li><li>How is ________ weak or vulnerable?</li></ul>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Sniff Out Corruption",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, you can ask, \"What here stinks of the unnatural?\" for free, even on a 6-.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Stalker",
+      "description": "<p>When you <strong><em>carry a normal or light load and move with care</em></strong>, you make no noise and leave no sign of your passing. When you <strong><em>hide yourself in a natural environment</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Survivalist",
+      "description": "<p>When you <strong><em>Forage</em></strong>, pick 1 extra choice (even on a 6-, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Trailblazer",
+      "description": "<p>When <strong><em>a journey causes you to Defy Danger or Struggle as One</em></strong>, <strong>on a 10+</strong> you also learn or discover something interesting and useful—ask the GM what.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Home on the Range"
+        ]
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Walk It Off",
+      "description": "<p>When <strong><em>you'd mark a debility</em></strong>, you can mark this move instead to no ill effect. Clear it as you would a debility.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Warden of the Wild",
+      "description": "<p>When you <strong><em>defeat a perversion of nature</em></strong>, you can ask the GM 2 of the following and get a useful answer:</p><ul><li>Will it come back? If so, how can I stop it?</li><li>Will its taint spread? If so, how can I contain it?</li><li>What useful (but grisly) bits can I harvest?</li><li>What else can I learn about it or its ilk?</li></ul>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Wild Speech",
+      "description": "<p>The grunts, barks, chirps, and calls of natural beasts are as a language to you. You can understand their intentions and communicate basic ideas. When you <strong><em>Persuade a beast</em></strong>, you can choose to roll +WIS.</p>",
+      "rollType": null,
+      "playbook": "The Ranger"
+    },
+    {
+      "name": "Worldly",
+      "description": "<p>Take a move from the Blessed, Fox, Heavy, Marshal, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't pick Improved Stat or Superior Stat.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Ranger"
+    }
+  ],
+  "The Fox": [
+    {
+      "name": "All in the Wrist",
+      "description": "<p>Any knife or dagger gets the thrown tag in your hands. Also, you keep a few iron throwing blades (near) on you; they don't take up space in your inventory. Reset your ammo whenever you Outfit.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "labels": [
+          "a few left",
+          "out"
+        ]
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Ambush",
+      "description": "<p>When you <strong><em>get the drop on a nearby foe</em></strong>, you can deal your damage or opt to roll +DEX: <strong>on a 10+</strong>, deal your damage and pick 2; <strong><em>on a 7-9</em></strong>, deal damage and pick 1:</p><ul><li>Deal +1d4 damage</li><li>Stop them from making noise/raising an alarm</li><li>Slip away before they can react</li><li>Create an opportunity; you or an ally gains advantage on the next move to act on it</li></ul>",
+      "rollType": "dex",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Deal your damage and pick 2 from the list."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Deal your damage and pick 1 from the list."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Battle Dancer",
+      "description": "<p>When you <strong><em>roll +DEX to Clash</em></strong>, on a 12+ you deal your damage, avoid your enemy's attack, and impress/embarrass/overawe your foes.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Skill at Arms"
+        ]
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Burgle",
+      "description": "<p>When you <strong><em>sneak off on your own into a dangerous place</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, you make it back, and the GM says where you got to and what you learned. Then, <strong>on a 10+</strong>, also pick 2; <strong><em>on a 7-9</em></strong>, also pick 1:</p><ul><li>You got away clean, rousing no suspicion</li><li>You swiped something valuable (GM's choice)</li><li>You set something up to exploit on your return</li><li>Ask a Seek Insight question about what you saw</li></ul><p>On a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You make it back. Pick 2 from the list."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You make it back. Pick 1 from the list."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "You either make it back but with trouble in tow, or you're missing in action (your call)."
+        }
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Catlike",
+      "description": "<p>When you <strong><em>carry a light load and act with care</em></strong>, you move silently. When you <strong><em>hide in shadows or darkness</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Cheap Shot",
+      "description": "<p>When you <strong><em>Ambush with a hand weapon</em></strong>, you have advantage on your damage roll.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Ambush"
+        ]
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Dabbler",
+      "description": "<p>Each time you take this move, choose a move from the Heavy, Marshal, Ranger, or Seeker playbooks for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Danger Sense",
+      "description": "<p>You can always ask the GM, \"Is there an ambush or trap here?\" If they say \"yes,\" roll +INT: <strong>on a 10+</strong>, ask the GM both of the questions below; <strong><em>on a 7-9</em></strong>, ask 1; either way, gain advantage on your next roll to act on the answer(s).</p><ul><li>What will trigger the ambush or trap?</li><li>What will happen once it's triggered?</li></ul><p>On a 6-, don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Ask both questions."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Ask 1 question."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet."
+        }
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Eye on the Door",
+      "description": "<p>When you <strong><em>and your allies need to get out of here</em></strong>, name your escape route and roll +INT: <strong>on a 10+</strong>, you're gone; <strong><em>on a 7-9</em></strong>, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You're gone."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Free Running",
+      "description": "<p>When you <strong><em>carry a light load and move with speed and grace</em></strong>, gain advantage on any move to surmount or bypass a physical obstacle.</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Irresistible",
+      "description": "<p>When you <strong><em>interact with someone</em></strong>, you can ask their player if they find you attractive and get an honest answer (usually \"yes\").</p><p>When you <strong><em>Persuade by using your considerable charms as leverage</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Laugh at Danger",
+      "description": "<p>When you <strong><em>are about to roll +CON and you make a joke about the adversity you face</em></strong>, you can roll +CHA instead.</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Light Fingers",
+      "description": "<p>When you <strong><em>perform sleight of hand on an unwary mark</em></strong>, you succeed and no one's the wiser. If you're being watched, roll +DEX: <strong>on a 10+</strong>, you succeed and no one's the wiser; <strong><em>on a 7-9</em></strong>, you succeed OR no one's the wiser (your choice).</p>",
+      "rollType": "dex",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You succeed and no one's the wiser."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You succeed OR no one's the wiser (your choice)."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Pants on Fire",
+      "description": "<p>When you <strong><em>Defy Danger, Persuade, or Interfere by being deceitful</em></strong>, you have advantage.</p><p>When <strong><em>another move (like Seek Insight) allows a player to ask you a question</em></strong>, you can opt not to answer.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Parry & Riposte",
+      "description": "<p>When you <strong><em>Defend with a weapon that you can wield quickly</em></strong>, you can spend 1 Readiness to both halve an attack's effects/damage and strike back at the attacker (deal your damage with disadvantage), instead of spending 1 Readiness for each.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Skill at Arms"
+        ]
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Perceptive",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, you may ask 1 additional question. Even on a 6-, you can ask 1 question (though you might not like how you learn the answer).</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Rapier Wit",
+      "description": "<p>When you <strong><em>pierce an NPC's pride with a well-placed quip</em></strong>, they must do 1 (their choice):</p><ul><li>Attack, doing +1d4 damage if they hit but giving you advantage on your next roll against them</li><li>Stoop to your level and respond in kind</li><li>Spend a few moments fuming, sputtering, or controlling their temper</li></ul>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Second Intent",
+      "description": "<p>When you <strong><em>Defend and spend 1 Readiness to Parry & Riposte</em></strong>, also pick 1 option from the Ambush list.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Parry & Riposte",
+          "Ambush"
+        ]
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Silver Tongued",
+      "description": "<p>When you <strong><em>use words to avoid suspicion or trouble</em></strong>, roll +CHA: <strong>on a 10+</strong>, hold 3 Nerve; <strong><em>on a 7-9</em></strong>, hold 1 Nerve. You may spend Nerve, 1-for-1, to:</p><ul><li>Move about or maneuver unchallenged</li><li>Withstand direct scrutiny or questioning</li><li>Direct suspicion or attention elsewhere</li></ul>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Hold 3 Nerve."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Hold 1 Nerve."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "resource": {
+        "max": 3,
+        "title": "Nerve"
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Skill at Arms",
+      "description": "<p>When you <strong><em>wield a weapon with speed and grace</em></strong>, roll +DEX to Clash (instead of +STR).</p>",
+      "rollType": null,
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Slippery",
+      "description": "<p>When you <strong><em>roll to escape being caught or controlled</em></strong>, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Fox"
+    },
+    {
+      "name": "Under Your Skin",
+      "description": "<p>When you <strong><em>engage an NPC in conversation</em></strong>, you can ask the GM 1 of these and get an honest answer:</p><ul><li>What are they expecting me to do?</li><li>What, in general, are they trying to hide?</li><li>What do they want to happen?</li></ul>",
+      "rollType": null,
+      "playbook": "The Fox"
+    }
+  ],
+  "The Blessed": [
+    {
+      "name": "Amulets & Talismans",
+      "description": "<p>When you <strong><em>craft a protective charm for someone</em></strong>, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When <strong><em>they would suffer such harm while bearing your charm</em></strong>, roll +INT: <strong>on a 10+</strong>, they ignore the harm entirely; <strong><em>on a 7-9</em></strong>, they suffer only half the damage or effect; on a 6-, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "They ignore the harm entirely."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "They suffer only half the damage or effect."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "They suffer the harm normally."
+        }
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Barkskin",
+      "description": "<p>When you <strong><em>are touching the earth</em></strong>, you have 2 armor. When you <strong><em>mark another with 1 Stock</em></strong>, they gain this benefit so long as the mark remains.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Big Magic",
+      "description": "<p>Each time you take this move, choose an additional remarkable trait for your sacred pouch and increase your max Stock by 2.</p>",
+      "rollType": null,
+      "repeatMax": 2,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Borrow Power",
+      "description": "<p>When <strong><em>a spirit or beast loans you power</em></strong>, ask the GM for one of its tags or moves. Store it in your pouch in place of 1 Stock. When you <strong><em>use the borrowed tag or move</em></strong>, roll +WIS.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You do it and can use the power again."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You do it, but lose the power."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "moves": [
+          "Spirit Tongue"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Call the Spirits",
+      "description": "<p>When you <strong><em>spend 1 Stock and perform a short rite</em></strong>, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "requirement": {
+        "moves": [
+          "Spirit Tongue"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Danu's Grasp",
+      "description": "<p>When you <strong><em>call on the world itself to bind a spirit or a perversion of nature</em></strong>, spend 1 Stock and roll +WIS: <strong><em>on a 7+</em></strong>, roots, vines, and earth pull at them, and they pick 1; <strong>on a 10+</strong>, as a 7-9, but both apply.</p><ul><li>They're restrained, unable to act freely until your focus slips or they tear their way free</li><li>They take 2d4 damage (ignores armor)</li></ul><p>If this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "As 7-9, but both apply."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Roots, vines, and earth pull at them, and they pick 1: restrained until your focus slips or they tear free; OR they take 2d4 damage (ignores armor)."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Healer's Arts",
+      "description": "<p>When <strong><em>someone Recovers under your care</em></strong>, they recover extra HP equal to your WIS. If you also spend 1 Stock, they heal an extra 5 HP and their wounds/injuries are stabilized.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Heed My Words",
+      "description": "<p>When you <strong><em>Persuade by talking sense or warning against foolishness</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Into the Lion's Den",
+      "description": "<p>When you <strong><em>approach a beast calmly and show no fear</em></strong>, it will not harm you (though it may threaten you and test your nerve). When you <strong><em>lay your hand gently upon a beast</em></strong>, it calms to your touch.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Lightning Rod",
+      "description": "<p>When you <strong><em>Defend while touching the earth</em></strong>, you can spend 1 Readiness to intercept a nearby magical attack and redirect it harmlessly into the ground.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Nature's Wrath",
+      "description": "<p>Danu's Grasp gains the area tag and can affect any creature. A mortal reduced to 0 HP is subdued or killed (your choice) rather than bound in stone.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Danu's Grasp"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Potent Workings",
+      "description": "<p>When you <strong><em>craft a protective charm</em></strong>, you may spend 1 additional Stock to choose 1:</p><ul><li>Name an additional type of harm</li><li><strong>On a 10+</strong>, the charm retains its potency</li></ul>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Amulets & Talismans"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Rites of the Land",
+      "description": "<p>Once per season, when you oversee the sacred rites, hold 1 Favor. If you also sacrifice 1 Surplus, hold 4 Favor instead. Spend Favor in lieu of Stock, 1-for-1.</p><p>When you <strong><em>publicly sacrifice something or someone much-loved</em></strong>, either clear a steading debility or gain advantage when the steading next rolls +Fortunes.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 4,
+        "title": "Favor"
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Shared Souls",
+      "description": "<p>When you <strong><em>mark a beast with 1 Stock</em></strong>, you can direct its actions and perceive through its senses no matter the distance between you. Treat it as a follower with 3 Loyalty; when you spend its last Loyalty, the effect ends.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Into the Lion's Den"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Spirit Tongue",
+      "description": "<p>You can speak with beasts and spirits. You can always ask the GM, \"What spirits are active here?\" and get an honest answer.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Suck the Poison Out",
+      "description": "<p>When you <strong><em>draw a malady from a patient's body, mind, or soul</em></strong>, spend 1 Stock and roll +WIS.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Healer's Arts"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Trackless Step",
+      "description": "<p>When you <strong><em>move through nature with care and patience</em></strong>, you make no sound, leave no trace and can ignore any hindering or treacherous terrain (briars, mire, scree, etc.). When you <strong><em>spend 1 Stock and mark others</em></strong>, they each gain this benefit so long as the mark remains. 1 Stock can mark a number of individuals up to your level +INT.</p>",
+      "rollType": null,
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Veil",
+      "description": "<p>When you <strong><em>wrap yourself or another in a subtle veil</em></strong>, spend 1 Stock and choose 1:</p><ul><li>A type of being you name (including \"people\") will tend to ignore your presence</li><li>People will perceive you as someone else, though you must wear something of an individual's in order to impersonate them</li></ul><p>When <strong><em>your deception comes under scrutiny</em></strong>, roll +INT.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "The veil holds, and no one is the wiser."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "The veil holds, but there is further scrutiny or a complication (GM's choice)."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Voice of the Earth Mother",
+      "description": "<p>When you <strong><em>speak on behalf of Danu</em></strong>, natural beasts and spirits of the wild respect your authority. All but the most headstrong will do as you command, even against their instincts.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Spirit Tongue"
+        ]
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Wards & Bindings",
+      "description": "<p>When you <strong><em>mark a boundary with sacred signs</em></strong>, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.</p><p>When <strong><em>your wards or bindings are first tested</em></strong>, roll +INT.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "They will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "They hold for now but may be overcome through might or will."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Blessed"
+    },
+    {
+      "name": "Wild Soul",
+      "description": "<p>Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Blessed"
+    }
+  ],
+  "The Seeker": [
+    {
+      "name": "Arcane Adept",
+      "description": "<p>When you <strong><em>wish to invent a spell or magical effect</em></strong>, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative (for example \"first you must ___\" could become \"first you must ___, or it will take months\").</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Attuned",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, you can always ask, \"What here is infused with magic?\" for free, even on a 6-.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Conduit of Power",
+      "description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you can mark 1 box here instead, with no negative effect. (These marks never clear.)</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Countermeasures",
+      "description": "<p>When you <strong><em>witness a magical effect</em></strong>, you may ask the GM, \"How can this be countered or interrupted?\" and get an honest answer. You or an ally gain advantage on your next roll to act on the answer.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Cryptologist",
+      "description": "<p>When you <strong><em>study encoded, forgotten, or arcane marks or writing</em></strong>, roll +INT: <strong>on a 10+</strong>, you can fully decipher them in just a few minutes; <strong><em>on a 7-9</em></strong>, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Fully decipher them in just a few minutes."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Get the gist in a few minutes; full deciphering takes an hour or so."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "moves": [
+          "Polyglot"
+        ]
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Deep Insight",
+      "description": "<p>When you <strong><em>Seek Insight about something magical</em></strong>, you may ask one additional question, not limited to the list. Even on a 6-, you get to ask this question.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Attuned"
+        ]
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Everything Bleeds",
+      "description": "<p>When you <strong><em>exploit an unnatural foe's specific weakness or vulnerability</em></strong>, deal +1d6 damage.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Everything Burns",
+      "description": "<p>When you <strong><em>inspect a work of artifice or magic for a fatal flaw</em></strong>, roll +INT: <strong><em>on a 7+</em></strong>, the GM will reveal the best way to destroy/sabotage it; <strong>on a 10+</strong>, you or an ally also gain advantage to act on the info.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "The GM reveals the best way to destroy/sabotage it, and you or an ally gain advantage to act on the info."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "The GM reveals the best way to destroy/sabotage it."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Improvise",
+      "description": "<p>When you <strong><em>wish to use an arcanum's move or option without having unlocked it</em></strong>, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: <strong><em>on a 7+</em></strong>, you get it to work this once—trigger the move or use the option as if you'd unlocked it; <strong>on a 10+</strong>, also mark one step towards unlocking the arcanum's mysteries.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "It works and you mark one step towards unlocking the arcanum's mysteries."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "It works this once."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Quick Study"
+        ]
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Initiate of the Secret Arts",
+      "description": "<p>You have a \"Sacred Pouch\" (3 Stock, magical), as per the Blessed, but with no remarkable traits. Each time you take this move, choose a Blessed move for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Let's Make a Deal",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, add \"What do they really want or need?\" to the list of questions. When you <strong><em>Persuade by offering them something that you know they want or need</em></strong>, treat a 7-9 as a 10+.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Logbook",
+      "description": "<p>You have a logbook (2 uses, slow) that doesn't take up space in your inventory. When you <strong><em>(and only you) consult your logbook and expend a use</em></strong>, you can ignore a Know Things roll you just made and treat the result as a 10+. When <strong><em>the Seasons Change</em></strong>, reset your logbook to 2 uses.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Magpie",
+      "description": "<p>When you <strong><em>Have What You Need</em></strong>, you can produce something strange, specific, maybe even valuable or a little bit magical, but if you do, tell us where you got it and 2 of the following:</p><ul><li>How it's not quite right, but maybe it'll do?</li><li>The trouble you caused back home by getting it</li><li>Why using it will draw unwanted attention</li><li>That it's the only thing like this that you've got, and why it'll only work the one time</li></ul>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Mind Over Magic",
+      "description": "<p>When you <strong><em>roll to study or use an arcanum</em></strong>, you can roll +INT instead of the stat you'd normally roll.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Never at a Loss",
+      "description": "<p>When you <strong><em>Know Things and roll a 6-</em></strong>, you may choose to not mark XP. If you don't mark XP, the worst that happens is that the GM tells you nothing interesting or useful about the subject, but instead tells you how you could learn more.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Overchannel",
+      "description": "<p>When you <strong><em>would mark a Consequence from a major arcanum</em></strong>, you may mark a debility instead.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Conduit of Power"
+        ]
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Polyglot",
+      "description": "<p>When you <strong><em>first encounter a living language in play</em></strong>, describe your proficiency with it (if any) and how you came to acquire it.</p><p>When you <strong><em>Know Things about any script, text, runes or symbols that you encounter</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Proof Against Detection",
+      "description": "<p>When you <strong><em>hold Protection</em></strong>, you can't be scried upon or sensed by magical means, and have advantage to Defy Danger by being stealthy.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Safety First"
+        ]
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Quick Study",
+      "description": "<p>When you <strong><em>study something magical that should take months to understand</em></strong>, it instead takes mere weeks. If it should take weeks, it takes days. If it should take days, it takes only a few hours.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Safety First",
+      "description": "<p>When you <strong><em>spend an hour or so preparing your mystical defenses</em></strong>, hold 2 Protection. When you <strong><em>are affected by harmful magic</em></strong>, spend 1 Protection either to gain advantage on any roll to resist it or to halve its damage/effects.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Protection"
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Sage Advice",
+      "description": "<p>When <strong><em>another PC asks you for guidance</em></strong>, they get advantage on their next roll to follow your advice.</p>",
+      "rollType": null,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Well Versed",
+      "description": "<p>Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.</p><ul><li>The Last Door, death, and the undead</li><li>The civilizations of humanity</li><li>The Fae and their strange ways</li><li>The Makers and their arts</li><li>The primordial powers</li><li>The Things Below</li><li>The wild world and its spirits</li></ul><p>When you <strong><em>Know Things about one of your topics</em></strong>, you can ask the GM a follow-up question of your choice (even on a 6-).</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Seeker"
+    },
+    {
+      "name": "Work With What You've Got",
+      "description": "<p>When you <strong><em>cleverly use your environment to harm or impede your foe(s)</em></strong>, roll +INT: <strong>on a 10+</strong>, pick 2; <strong><em>on a 7-9</em></strong>, pick 1:</p><ul><li>Interrupt or thwart their action(s)</li><li>Create an opportunity that grants you or an ally advantage on the next roll to exploit it</li><li>Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)</li></ul>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Pick 2."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Pick 1."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "isStartingMove": true,
+      "playbook": "The Seeker"
+    }
+  ],
+  "The Heavy": [
+    {
+      "name": "Armored",
+      "description": "<p>When you <strong><em>carry a shield</em></strong>, mark only ◆ (instead of ◆◆). Also, you can ignore the cumbersome tag on any armor you wear.</p><p>If you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome).</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Battle Joy",
+      "description": "<p>When you <strong><em>spill blood—yours or another's—and lose yourself in battle</em></strong>, you ignore fear, pain, mind-control, and the effects of debilities as long as you keep fighting.</p><p>When <strong><em>the action stops</em></strong>, roll +CON: <strong>on a 10+</strong>, that was a rush, regain 1d4 HP; <strong><em>on a 7-9</em></strong>, you're winded and out of it, but you'll be fine with a few minutes' rest; on a 6-, mark a debility but don't mark XP.</p>",
+      "rollType": "con",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "That was a rush — regain 1d4 HP."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You're winded and out of it, but you'll be fine with a few minutes' rest."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Mark a debility but don't mark XP."
+        }
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Berserker",
+      "description": "<p>While in your Battle Joy, add the area tag to your melee attacks, lashing out at anyone nearby (friend and foe alike). Roll damage separately for each target.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Battle Joy"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Bringer of Ruin",
+      "description": "<p>When you <strong><em>roll a 12+ to Clash and your foe survives</em></strong>, name something they possess (like their sword, their position, a limb, their dignity, etc.), but nothing that would kill them outright. Whatever you name, it is broken, shattered, lost. Tell us how.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Carved Out of Wood",
+      "description": "<p>Increase your max HP by 4.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Cut from Granite",
+      "description": "<p>Gain +1 armor (stacks with other sources) and increase your max HP by another 2 (+6 HP total).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Carved Out of Wood"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Dangerous",
+      "description": "<p>When you <strong><em>deal your damage</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Formidable",
+      "description": "<p>When you <strong><em>wade into battle</em></strong>, you can choose to roll +CHA: <strong>on a 10+</strong>, both; <strong><em>on a 7-9</em></strong>, pick 1:</p><ul><li>Lesser foes will quail, hesitate, or flee before you.</li><li>Doughty foes will focus on you, seeing you as the greatest threat.</li></ul><p>On a 6-, pick 1 but ask the GM what you've missed.</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Both: lesser foes quail AND doughty foes focus on you."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Pick 1: lesser foes quail/flee OR doughty foes focus on you."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Pick 1 but ask the GM what you've missed."
+        }
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Frosty",
+      "description": "<p>When you <strong><em>Defy Danger by keeping calm and carrying on</em></strong>, <strong>on a 10+</strong> you can also ask the GM a question that you could ask when Seeking Insight. You have advantage on your next move to act on the answer.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Guardian",
+      "description": "<p>When you <strong><em>Defend</em></strong>, hold 1 extra Readiness. Even on a 6-, hold 1 Readiness (plus whatever the GM says).</p>",
+      "rollType": null,
+      "resource": {
+        "max": 1,
+        "title": "Readiness"
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Hard to Kill",
+      "description": "<p>When you <strong><em>are at Death's Door</em></strong>, you can roll +CON or +nothing (your choice). <strong><em>On a 7-9</em></strong>, you can mark a debility of your choice to regain 1 HP.</p>",
+      "rollType": "con",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "You wrest yourself back to life — return to 1 HP; say how your brush with death has marked you."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "You're no longer dying but out of the action — or mark a debility of your choice to regain 1 HP."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Your time has come — resolve Death's Door (a last move, refuse and gain an insert, or beseech the Things Below)."
+        }
+      },
+      "isStartingMove": true,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Intimidating",
+      "description": "<p>When you <strong><em>Persuade using violence or threats</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Mighty Thews",
+      "description": "<p>When you <strong><em>perform a feat of extraordinary strength (bursting chains, smashing through a wall, heaving a boulder, etc.)</em></strong>, you do it (OH YEAH!) but pick 1:</p><ul><li>It takes a while</li><li>You cause unwanted damage or harm</li><li>It takes a toll (mark a debility)</li></ul>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Musclebound"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Musclebound",
+      "description": "<p>When you <strong><em>make a hand-to-hand or thrown attack</em></strong>, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Strength +2 or higher"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Nemesis",
+      "description": "<p>When you <strong><em>Clash and your foe survives</em></strong>, all of your future attacks against them do +1d6 damage.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Relentless"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Payback",
+      "description": "<p>When you <strong><em>deal damage to a foe that has harmed you or one of your allies</em></strong>, deal +1d4 damage.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Relentless",
+      "description": "<p>When you <strong><em>Clash and your foe survives</em></strong>, you gain advantage the next time you Clash with them.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Seasoned Warrior",
+      "description": "<p>Take a move from the Fox, Marshal, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. (You can't pick Improved Stat or Superior Stat.)</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Situational Awareness",
+      "description": "<p>When you <strong><em>Seek Insight</em></strong>, add the following to the list of questions you can ask:</p><ul><li>Who or what here is the biggest threat?</li><li>What is my enemy's true position?</li><li>What here can I use as a weapon?</li></ul><p>When <strong><em>a fight breaks out</em></strong>, ask the GM 1 question that you could ask when Seeking Insight.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Steadfast Guardian",
+      "description": "<p>While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Guardian"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Stone Cold",
+      "description": "<p>When you <strong><em>Defy Danger (or Struggle as One) by keeping calm and carrying on</em></strong>, treat a 6- as a 7-9.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Frosty"
+        ]
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Terror on the Field",
+      "description": "<p>When you <strong><em>reduce a foe to 0 HP</em></strong>, describe how you take them out. If you fell them in a particularly brutal or impressive manner, their allies are impressed, dismayed, or frightened and respond accordingly.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Uncanny Reflexes",
+      "description": "<p>When you <strong><em>are unarmored and carrying a normal or light load</em></strong>, you impose disadvantage on any damage you take that you could dodge or roll with.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Unfettered",
+      "description": "<p>When you <strong><em>are subject to physical or mental restraint</em></strong>, you may mark a debility to immediately break free of that restraint.</p>",
+      "rollType": null,
+      "playbook": "The Heavy"
+    },
+    {
+      "name": "Unstoppable",
+      "description": "<p>When you <strong><em>are reduced to 0 HP in battle</em></strong>, you can keep fighting. Each time you take damage while at 0 HP, mark 1. If you would regain HP while fighting, clear one mark instead.</p><p>When you <strong><em>stop fighting</em></strong>, roll for Death's Door with a -1 penalty for each circle marked. If you survive, clear all your circles.</p>",
+      "rollType": null,
+      "resource": {
+        "max": 6,
+        "title": "Marks"
+      },
+      "requirement": {
+        "moves": [
+          "Hard to Kill"
+        ]
+      },
+      "playbook": "The Heavy"
+    }
+  ],
+  "The Marshal": [
+    {
+      "name": "Armored",
+      "description": "<p>When you <strong><em>carry a shield</em></strong>, mark only ◆ (instead of ◆◆). Also, you can ignore the cumbersome tag on any armor you wear.</p><p>If you take this move at the start of play, add an iron hauberk, bronze cuirass, or scale coat to your inventory (all are 2 armor, warm, cumbersome).</p>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Arts of War",
+      "description": "<p>Take a move from the Fox, Heavy, Judge, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 2
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Battlefield Grace",
+      "description": "<p>When you <strong><em>take damage while leading your allies in battle</em></strong>, the damage roll has disadvantage.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Front Line Leader"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Crew",
+      "description": "<p>You've got a crew of stalwarts, six or so residents of Stonetop with some steel to them. See the Crew insert for details.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Focus Fire",
+      "description": "<p>You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Stentorian"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Front Line Leader",
+      "description": "<p>When you <strong><em>lead your crew into battle</em></strong>, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them).</p>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Presence"
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Heroes to the Last",
+      "description": "<p>Each time you take this move, pick 1:</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Veteran Crew"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Improved Stat",
+      "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+      "rollType": null,
+      "repeatMax": 3,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Like an Open Book",
+      "description": "<p>When you <strong><em>Take the Measure of someone who fears or respects you</em></strong>, your second question can be anything you want. The GM might ask how you could possibly know this; tell them or ask something else.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Take the Measure"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Logistics",
+      "description": "<p>When you <strong><em>have a steading Muster or Pull Together, or when you Requisition</em></strong>, you have advantage.</p>",
+      "rollType": null,
+      "isStartingMove": true,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Noble Mien",
+      "description": "<p>When you <strong><em>lead an NPC through danger and return them to safety</em></strong>, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Peace Through Strength",
+      "description": "<p>When you <strong><em>stand ready to fight alongside like-minded allies</em></strong>, anything capable of fear recognizes you as a serious threat and treats you accordingly.</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6,
+        "moves": [
+          "Speak Softly"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Prepare a Welcome",
+      "description": "<p>When you <strong><em>have your allies fortify a position and lie in wait for battle</em></strong>, hold 1 Surprise if you're rushed or 2 Surprises if you can take your time.</p><p>Once battle is joined, spend 1 Surprise to reveal a ploy, defense, or dirty trick you prepared in advance and roll +INT: <strong>on a 10+</strong>, it works as well as can be expected, and you've still got a few tricks up your sleeve—regain 1 Surprise; <strong><em>on a 7-9</em></strong>, it works as well as can be expected.</p>",
+      "rollType": "int",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "It works as expected, and you regain 1 Surprise."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "It works as expected."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "resource": {
+        "max": 2,
+        "title": "Surprise"
+      },
+      "requirement": {
+        "moves": [
+          "Read the Land"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Read the Land",
+      "description": "<p>When you <strong><em>first take a moment to survey the terrain</em></strong>, ask the GM one of the following; gain advantage on your next roll to act on the answer.</p><ul><li>What's the best way in, out, through, or past?</li><li>Where's the best spot for a trap or an ambush?</li><li>Where's the most defensible position?</li><li>What here is out of place?</li></ul>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Set-Up Strike",
+      "description": "<p>When you <strong><em>Clash and get a 7+</em></strong>, you can choose to deal damage with disadvantage. If you do, you create an opening for an ally to act on, as if you provided Aid. Describe it!</p>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Shake It Off",
+      "description": "<p>When you <strong><em>order an ally to overcome fear, pain</em></strong>, doubt, or delusion, roll +CHA: <strong>on a 10+</strong>, they do it; <strong><em>on a 7-9</em></strong>, a PC gets advantage to do it; an NPC will do it, but they'll need time, they'll resent you, or they'll feel humiliated (GM decides).</p>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "They do it."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "A PC gets advantage to do it; an NPC does it but at a cost (GM decides)."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "The GM makes a move."
+        }
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Shield Wall",
+      "description": "<p>When you <strong><em>have your crew form a shield wall</em></strong>, they Defend with advantage and <strong><em>on a 7+</em></strong> they hold +2 Readiness (instead of the usual +1 for shields). As long as they maintain formation, they can go on the offensive without losing Readiness.</p>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Sir, Permission to Die, Sir",
+      "description": "<p>When <strong><em>one of your followers would die</em></strong>, you can spend 1 of their Loyalty to have them survive (out of the action, but alive). If you let them go, mark XP.</p>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Speak Softly",
+      "description": "<p>When you <strong><em>offer peace but your enemy refuses</em></strong>, gain advantage on your next roll against them.</p>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Stentorian",
+      "description": "<p>When you <strong><em>raise your voice</em></strong>, it carries far and cuts through even the din of battle. When you <strong><em>go into battle</em></strong>, hold 2 Command. Spend 1 Command to shout an order or warning and pick 1:</p><ul><li>PCs get advantage on their next roll to do as you say</li><li>You have advantage to Order Followers or Deploy</li></ul>",
+      "rollType": null,
+      "resource": {
+        "max": 2,
+        "title": "Command"
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Superior Stat",
+      "description": "<p>Increase one of your stats by +1 (to a max of +3).</p>",
+      "rollType": null,
+      "requirement": {
+        "level": 6
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Take the Measure",
+      "description": "<p>When you <strong><em>size someone up</em></strong>, ask their player one of the questions below and get an honest answer. If they fear or respect you (their call), you can ask another question. You can't use this move on them again until your relationship significantly changes.</p><ul><li>Can I trust them (to _____)?</li><li>What do they intend to do?</li><li>How are they most useful/dangerous?</li><li>What weakness of theirs can I exploit?</li></ul>",
+      "rollType": null,
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "Veteran Crew",
+      "description": "<p>Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.</p>",
+      "rollType": null,
+      "requirement": {
+        "moves": [
+          "Crew"
+        ]
+      },
+      "playbook": "The Marshal"
+    },
+    {
+      "name": "We Happy Few",
+      "description": "<p>When you <strong><em>give an inspiring speech to your allies before facing a dire threat</em></strong>, roll +CHA: <strong>on a 10+</strong>, each ally holds 2 Inspiration; <strong><em>on a 7-9</em></strong>, each ally holds 1 Inspiration; on a 6-, each ally holds 1, but you have disadvantage on all rolls until you share your nagging doubts with someone else.</p><p>Once battle is joined, your allies can spend their Inspiration at any time, 1-for-1 to:</p><ul><li>Act fearlessly in the face of terror or overwhelming odds</li><li>Keep 1 HP instead of being reduced to 0 HP</li><li>Add 1d6 to a damage roll they just made</li></ul>",
+      "rollType": "cha",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Each ally holds 2 Inspiration."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Each ally holds 1 Inspiration."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else."
+        }
+      },
+      "playbook": "The Marshal"
+    }
+  ]
+}

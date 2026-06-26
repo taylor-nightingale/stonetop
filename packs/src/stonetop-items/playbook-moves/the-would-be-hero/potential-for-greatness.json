@@ -1,0 +1,21 @@
+{
+  "_id": "wPIleDw8aM1SUkxC",
+  "_key": "!items!wPIleDw8aM1SUkxC",
+  "name": "Potential for Greatness",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "<p>Once per level, when you roll a stat and get a 10+, mark one of the following (note the level during which you marked it). You don't have to mark them in order.</p>",
+    "markOptions": [
+      { "slug": "stat", "label": "Increase the stat you rolled by 1, to a max of +2", "marks": 4, "choice": "stat" },
+      { "slug": "hp", "label": "Increase your max HP by 4", "marks": 1, "hp": 4 },
+      { "slug": "damage", "label": "Increase your damage die to a d8", "marks": 1, "damageDie": "d8" }
+    ],
+    "requirement": {
+      "playbook": "The Would-Be Hero"
+    }
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

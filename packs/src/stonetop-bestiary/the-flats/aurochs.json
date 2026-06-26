@@ -1,0 +1,92 @@
+{
+  "name": "Aurochs",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 2,
+        "source": "thick hide and sheer toughness"
+      },
+      "damage": {
+        "value": "gore d8+5 (close, forceful, messy, 1 piercing), kick/trample d8+3 (hand, forceful)",
+        "rollFormula": "d8+5"
+      },
+      "instinct": {
+        "value": "to spook or to get angry, in equal measure"
+      }
+    },
+    "concept": "Big, powerful wild cattle with horns longer than your arm.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, ornery, powerful",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.tx9I3QGe5ldHuhho",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Aurochs",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "UjnUKYAvdIfcnIne",
+      "name": "Send an attacker flying",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fVOXp33igDV70sc0.UjnUKYAvdIfcnIne"
+    },
+    {
+      "_id": "vL8AAfFu5PdV57AA",
+      "name": "Stampede (area, forceful, messy)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fVOXp33igDV70sc0.vL8AAfFu5PdV57AA"
+    },
+    {
+      "_id": "0PQubdDogpBoaiyz",
+      "name": "Wheel suddenly, with surprising grace and speed",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fVOXp33igDV70sc0.0PQubdDogpBoaiyz"
+    },
+    {
+      "_id": "KvZsfb0zZ7eUl5Wq",
+      "name": "Keep going past when it should be dead or dying",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fVOXp33igDV70sc0.KvZsfb0zZ7eUl5Wq"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "fVOXp33igDV70sc0",
+  "_key": "!actors!fVOXp33igDV70sc0"
+}

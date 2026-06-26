@@ -1,0 +1,61 @@
+{
+  "_id": "n1UvqWHNDj9Nihcm",
+  "_key": "!journal!n1UvqWHNDj9Nihcm",
+  "name": "Patchwork Construct",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Mismatched, headless worker-constructs that maintain the dead tower."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 55000,
+  "pages": [
+    {
+      "_id": "4srSquwxMxnF8Sdm",
+      "_key": "!journal.pages!n1UvqWHNDj9Nihcm.4srSquwxMxnF8Sdm",
+      "name": "Patchwork Construct",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Mismatched, headless worker-constructs that maintain the dead tower.",
+        "description": "<p>Ferocedes once had dozens of constructs to defend and maintain the tower, but the years have not been kind — only ten or so remain, and one or two are usually offline for repairs. Each one is generally humanoid, though most lack a 'head' and all are made of mismatched parts, and each holds an aetherium core (magical, fragile, Value 2 to the right buyer).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.BwDgsHeLfhJWrS5w"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

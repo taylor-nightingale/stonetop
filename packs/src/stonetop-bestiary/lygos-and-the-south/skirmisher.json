@@ -1,0 +1,80 @@
+{
+  "name": "Skirmisher",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "long bow d6 (far), sling d6 (near, reload), or short swords d6 (hand, close)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to avoid a fair fight"
+      }
+    },
+    "concept": "Light troops who harry the flanks and avoid a fair fight.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, stealthy, organized",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.wVG9WYC3dpOlFEZp",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Skirmisher",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "d0wMsjVIEHJKlX9F",
+      "name": "Unleash a volley, then retreat",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!vrBvnCJHlzn4ed8L.d0wMsjVIEHJKlX9F"
+    },
+    {
+      "_id": "WnZCIelS4s2J27d2",
+      "name": "Cover distance quickly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!vrBvnCJHlzn4ed8L.WnZCIelS4s2J27d2"
+    },
+    {
+      "_id": "1vGl5eFEGZJOHSQg",
+      "name": "Attack a flank",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!vrBvnCJHlzn4ed8L.1vGl5eFEGZJOHSQg"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "vrBvnCJHlzn4ed8L",
+  "_key": "!actors!vrBvnCJHlzn4ed8L"
+}

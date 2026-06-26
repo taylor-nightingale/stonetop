@@ -1,0 +1,70 @@
+{
+  "_id": "h9ZdkjGYXgOAOhx8",
+  "_key": "!journal!h9ZdkjGYXgOAOhx8",
+  "name": "Rhagedn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Antlered wooden sentinels that roost disguised as boughs, guarding old Green Lord sites."
+    }
+  },
+  "folder": "jQoDL6IhABvMYnZf",
+  "sort": 80000,
+  "pages": [
+    {
+      "_id": "3qOWqcIOMIooe6ur",
+      "_key": "!journal.pages!h9ZdkjGYXgOAOhx8.3qOWqcIOMIooe6ur",
+      "name": "Rhagedn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Antlered wooden sentinels that roost disguised as boughs, guarding old Green Lord sites.",
+        "description": "<p>Hunched humanoid forms carved of wood, with great wings, taloned feet, and heads crowned with branch-like antlers. They were made by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> to be sentinels and guardians, to watch over their borders and their most important sites. Now, ages and generations later, they still watch, and wait, and protect their nests.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** The tales say that the song of a red-breasted bluebird will keep the rhagedn still, letting folk pass unmolested.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** It just so happens that you know how to whistle the tune (whether or not you can whistle it well enough is questionable).",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Pz0n6nkxIVq2xH4u"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

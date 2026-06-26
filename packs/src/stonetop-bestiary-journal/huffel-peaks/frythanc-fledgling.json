@@ -1,0 +1,61 @@
+{
+  "_id": "XiAOrP04c2oqpkDg",
+  "_key": "!journal!XiAOrP04c2oqpkDg",
+  "name": "Frythanc Fledgling",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Mountain-dwelling young frythancs, twelve-foot wingspans and all."
+    }
+  },
+  "folder": "F3ujqScB8RRZQw2c",
+  "sort": 37000,
+  "pages": [
+    {
+      "_id": "e4br5gsUdpBfugGl",
+      "_key": "!journal.pages!XiAOrP04c2oqpkDg.e4br5gsUdpBfugGl",
+      "name": "Frythanc Fledgling",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Mountain-dwelling young frythancs, twelve-foot wingspans and all.",
+        "description": "<p>The full-grown frythancs that hunt the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> are terrors. Their young, thankfully, keep to the mountains, where they hunt goats, sheep, and the occasional unwary traveler. The fledglings aren't nearly as dangerous as their full-grown parents — but still, let's see how you do when birds with twelve-foot wingspans try to tear you off some switchback trail.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.RGU7Qtp9xioMxQ3k"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

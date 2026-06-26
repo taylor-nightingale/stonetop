@@ -1,0 +1,103 @@
+{
+  "name": "Clockwork Spider",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 2,
+        "source": "metal"
+      },
+      "damage": {
+        "value": "many little pincers d4 (hand, grabby)",
+        "rollFormula": "d4"
+      },
+      "instinct": {
+        "value": "to get in the way"
+      }
+    },
+    "concept": "Squeaky little clockwork helper-constructs that just want to assist.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, construct, creepy",
+    "qualities": "<p>Fireproof; blind; tremorsense; active only for short periods. Armor 0 vs. crushing.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.rFt8fD3NyBuX1BJD",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Clockwork Spider",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "09FLZoBz6LbXI1f7",
+      "name": "Skitter towards them, ominously",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!0E5ih40SJt6W1nDp.09FLZoBz6LbXI1f7"
+    },
+    {
+      "_id": "piS9DMO1PlmyDd4t",
+      "name": "'Watch' intently, responding subtly to every move",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!0E5ih40SJt6W1nDp.piS9DMO1PlmyDd4t"
+    },
+    {
+      "_id": "vllg74XPTRb98njN",
+      "name": "Try to take things from their hands",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!0E5ih40SJt6W1nDp.vllg74XPTRb98njN"
+    },
+    {
+      "_id": "gNT5CTYXyeEr6EhM",
+      "name": "Defend itself if attacked",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!0E5ih40SJt6W1nDp.gNT5CTYXyeEr6EhM"
+    },
+    {
+      "_id": "fJ3RPZUU5SdJuvZu",
+      "name": "Follow orders given in the Forge Lord's tongue, poorly",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!0E5ih40SJt6W1nDp.fJ3RPZUU5SdJuvZu"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "0E5ih40SJt6W1nDp",
+  "_key": "!actors!0E5ih40SJt6W1nDp"
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "ylzYCg2AyRVY24Hb",
+  "_key": "!journal!ylzYCg2AyRVY24Hb",
+  "name": "Suarachan",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Mutated frog-folk who sing to keep the Things Below asleep — and take captives to feed them."
+    }
+  },
+  "folder": "vhqnmoOdeyOLvMcj",
+  "sort": 31000,
+  "pages": [
+    {
+      "_id": "W7arZSsKi2Z992cV",
+      "_key": "!journal.pages!ylzYCg2AyRVY24Hb.W7arZSsKi2Z992cV",
+      "name": "Suarachan",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Mutated frog-folk who sing to keep the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> asleep — and take captives to feed them.",
+        "description": "<p>Tall as a short man, hunched on too-long legs and arms, a toadlike head jutting from broad shoulders, eyes too big and mouth too wide, covered in moist scales and horn-like growths and draped in woven grass. There are places in the Fen where the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> dream unquiet, and the air thrums with deep, loud frog-song — only it isn't frogs. The suarachan believe their songs keep the horrors quiet, and that their sacrifices, given in bulk each late autumn, will keep their dark gods satiated while they sleep through winter.</p>",
+        "questions": [
+          {
+            "prompt": "What do you think the suarachan — those horrid frog-people — do with the folks they capture?",
+            "answer": ""
+          }
+        ],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.giaz3wyBZ5Du1vFJ",
+          "Compendium.stonetop.stonetop-bestiary.Actor.MSt3ujyG670TKwEh",
+          "Compendium.stonetop.stonetop-bestiary.Actor.Fo8WuljN8lY1FCxY"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Ineffable Words",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "ineffable-words",
+      "front": {
+        "title": "Ineffable Words",
+        "item": {
+          "name": "Ineffable Words",
+          "weight": 0,
+          "note": "<em>implanted, magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>Syllables of the first language, words of pure thought and will, emblazoned on your soul and tongue by some angelic force or being. A gift, perhaps. Or a terrible, terrible affliction.</p><p>Their power thrums inside you, pulsing against the crude vessel of your flesh and blood. Sometimes, under stress or simply out of the blue, you are struck with shakes and seizures. And when the tremors pass and your senses return, you find that you have scratched strange symbols in the dirt or on the walls. Sometimes in your own blood.</p><p>When you <strong><em>enter an ecstatic delirium and allow the Ineffable Words to pour forth</em></strong>, roll +CON: <strong>on a 10+</strong>, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; <strong>on a 7-9</strong>, the 10+ result applies, but choose 1 from the list below.</p><ul><li>The Truth is cryptic, vague, incomplete</li><li>You are overcome, collapsing in a full-body seizure</li><li>You draw unwanted attention</li></ul><p>When you <strong><em>spend weeks in ascetic contemplation of the incommunicable words within you</em></strong>, roll +WIS: <strong>on a 10+</strong>, you gain insight into the power within you—mark 1 below; <strong>on a 7-9</strong>, gain advantage on your next attempt to contemplate the words.</p>",
+        "unlock": {
+          "description": "○○○ When you make the last mark, you unlock the mysteries of the Ineffable Words and can Speak the Unutterable (see reverse). Choose 1 Word that you have mastered and erase all marks above. Thereafter, when you make the last mark, choose another Word to master and erase all marks.",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Ineffable Words",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>□ SPEAK THE UNUTTERABLE</strong><br>When you <strong><em>speak an Ineffable Word that you have mastered</em></strong>, roll +CON: <strong>on a 10+</strong>, the Word's power manifests as described; <strong>on a 7-9</strong>, the Word's power manifests, but choose 1: You collapse in a full-body seizure / Mark a consequence. <strong>On a 6-</strong>, the GM says what happens (which may or may not involve marking a consequence).</p><h3>Mastered Words</h3><p><strong>□ Seal.</strong> Name a portal, clasp, or seam in your presence. If you speak this Word forward, the target seals shut and holds against any mundane attempt to open it. If you speak backward, the target is pried open or apart.</p><p><strong>□ Purify.</strong> Name an instance of corruption, infection, or taint in your presence. If you speak this Word forward, the target is cleansed. If you speak backward, the corruption grows and spreads aggressively.</p><p><strong>□ Gather.</strong> Name an unliving object in your presence. If you speak this Word forward, the object is drawn forcefully towards you, possibly flying through the air and into your hand. If you speak backward, the object is flung away from you. If the object weighs more than you, or is secured by something that does, it is you that moves instead.</p><p><strong>□ Empower.</strong> Name a living thing or vessel for power in your presence. If you speak this Word forward, the target surges with power. A creature heals 1d8 HP or gains advantage on its next roll. If you speak backward, the target is drained of energy. A creature takes 1d8 damage (ignores armor) or takes disadvantage on its next roll.</p><h3>Consequences</h3><ul><li>□□□ The Word's power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word.</li><li>□□ The power of the Word overflows, affecting every possible target within far range to violent effect.</li><li>□ Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive.</li><li>□ The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects.</li><li>□ You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power.</li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "HViXYPwjsyjftTq4",
+  "_key": "!items!HViXYPwjsyjftTq4",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-ineffalewords.webp"
+}

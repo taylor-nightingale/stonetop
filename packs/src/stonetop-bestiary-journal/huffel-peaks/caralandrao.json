@@ -1,0 +1,61 @@
+{
+  "_id": "eAcyCUGDDeqkLrKJ",
+  "_key": "!journal!eAcyCUGDDeqkLrKJ",
+  "name": "Caralandrao",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Crab-spiders that hunger for and steal magic."
+    }
+  },
+  "folder": "F3ujqScB8RRZQw2c",
+  "sort": 35000,
+  "pages": [
+    {
+      "_id": "cEcM0p8CnQAgBvnd",
+      "_key": "!journal.pages!eAcyCUGDDeqkLrKJ.cEcM0p8CnQAgBvnd",
+      "name": "Caralandrao",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Crab-spiders that hunger for and steal magic.",
+        "description": "<p>Are they crabs? Spiders? Hard to say. Whatever they are, they've got too many too-long limbs, shells that blend in with the rocky terrain, and an appetite for magical artifacts, which they drag back to their nests to feed on. They can suck the power right out of minor trinkets, and powerful arcana can feed a small colony indefinitely — and yet they keep venturing out to find more.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.PFHwDgBNwVbZHEIO"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

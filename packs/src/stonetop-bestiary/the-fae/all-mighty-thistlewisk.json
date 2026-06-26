@@ -1,0 +1,103 @@
+{
+  "name": "All-mighty Thistlewisk",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 6,
+        "source": "stone, resilience"
+      },
+      "damage": {
+        "value": "",
+        "rollFormula": ""
+      },
+      "instinct": {
+        "value": "to heap abuse on its worshippers"
+      }
+    },
+    "concept": "A tiny, arrogant Fae idol with a disembodied voice, demanding worship and ever-larger feasts.",
+    "organization": "",
+    "size": "tiny",
+    "tags": "fae, tiny, magical, devious, arrogant",
+    "qualities": "<p>Inert — a statue that cannot move — with a disembodied voice. Armor 2 vs. iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ADGkrlYCiTFqkGK2",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "All-mighty Thistlewisk",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "aSBxjUkfVOp3sYy7",
+      "name": "Make unreasonable demands",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GvE18LdU5XodJxZD.aSBxjUkfVOp3sYy7"
+    },
+    {
+      "_id": "QOIH6Rs2AGihh6aT",
+      "name": "Consume the essence of foodstuffs",
+      "type": "monsterMove",
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GvE18LdU5XodJxZD.QOIH6Rs2AGihh6aT"
+    },
+    {
+      "_id": "Pv08WuVdWt4LFuwI",
+      "name": "Sense one's idle thoughts and memories",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GvE18LdU5XodJxZD.Pv08WuVdWt4LFuwI"
+    },
+    {
+      "_id": "Fbn1obvyvA5WeAvw",
+      "name": "Weave powerful illusions and hallucinations (near, area)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GvE18LdU5XodJxZD.Fbn1obvyvA5WeAvw"
+    },
+    {
+      "_id": "G85vOwQopnAEseFs",
+      "name": "Grow bored or huffy and go to sleep",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GvE18LdU5XodJxZD.G85vOwQopnAEseFs"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "GvE18LdU5XodJxZD",
+  "_key": "!actors!GvE18LdU5XodJxZD"
+}

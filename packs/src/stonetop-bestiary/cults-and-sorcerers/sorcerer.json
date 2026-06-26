@@ -1,0 +1,92 @@
+{
+  "name": "Sorcerer",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 0,
+        "source": "or by worn armor"
+      },
+      "damage": {
+        "value": "iron blade d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to aggrandize themselves"
+      }
+    },
+    "concept": "One who embraced corruption, believing the power on offer worth the cost.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cunning, magical, cautious, corrupted",
+    "qualities": "<p>Marked by the Things Below; often in possession of arcana, which they do not hesitate to use; may be followed by cultists.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.EoqwVJCabgTfsyT2",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Sorcerer",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "M99eo7i69r5b0PQD",
+      "name": "Use one of their gifts",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!S1xAcfSVR3idzvqo.M99eo7i69r5b0PQD"
+    },
+    {
+      "_id": "sK6ez1RGaCp7EyLk",
+      "name": "Amass power through study, sacrifice, or rites",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!S1xAcfSVR3idzvqo.sK6ez1RGaCp7EyLk"
+    },
+    {
+      "_id": "aFbmsADkiTPH8DtZ",
+      "name": "Unleash their power",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!S1xAcfSVR3idzvqo.aFbmsADkiTPH8DtZ"
+    },
+    {
+      "_id": "mVpLUTIEwfGl3Y5w",
+      "name": "Reveal a plan or preparation",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!S1xAcfSVR3idzvqo.mVpLUTIEwfGl3Y5w"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LPEmvUWgwvYz7XRc",
+  "_id": "S1xAcfSVR3idzvqo",
+  "_key": "!actors!S1xAcfSVR3idzvqo"
+}

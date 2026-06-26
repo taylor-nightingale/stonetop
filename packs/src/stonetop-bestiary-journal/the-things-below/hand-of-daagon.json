@@ -1,0 +1,61 @@
+{
+  "_id": "m46X5auaZwdxphBl",
+  "_key": "!journal!m46X5auaZwdxphBl",
+  "name": "Hand of Daagon",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A reaching, matter-passing hand-swarm that drags the precious back to Daagon's Mouth."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 118000,
+  "pages": [
+    {
+      "_id": "OBHXEFlQ1nOvVp7y",
+      "_key": "!journal.pages!m46X5auaZwdxphBl.OBHXEFlQ1nOvVp7y",
+      "name": "Hand of Daagon",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A reaching, matter-passing hand-swarm that drags the precious back to Daagon's Mouth.",
+        "description": "<p>In a deep, deep cave, where light has never shined, there is a lake. In that lake, there is a Mouth of Daagon: ever-hungry, ever-greedy, consuming all that it is offered. And in the caverns around that lake? There you will find the Hand: ever-groping, ever-grasping, dragging all it finds of value back to the Mouth.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.k3PXbKdBREj0esro"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

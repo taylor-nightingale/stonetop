@@ -1,0 +1,92 @@
+{
+  "name": "The Nightingale",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 5,
+        "source": "size, resilience"
+      },
+      "damage": {
+        "value": "ear-piercing screech d12-2 w/disadvantage (near, area, loud, ignores armor)",
+        "rollFormula": "d12-2"
+      },
+      "instinct": {
+        "value": "to grant unasked-for wishes"
+      }
+    },
+    "concept": "A tiny incarnate spirit that grants unasked-for wishes — and spreads chaos in the granting.",
+    "organization": "solitary",
+    "size": "tiny",
+    "tags": "solitary, tiny, primordial, magical, beautiful",
+    "qualities": "<p>Ageless; reads minds; tethered to a particular ever-blooming rose bush somewhere in the Foothills. Armor 1 vs. black iron (size).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.aGS4afk7P2DhhFN0",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "The Nightingale",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7BCtIk1SuhVJ4ZaB",
+      "name": "Entrance with its beautiful song",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9h3AbAG1DBQTrtOG.7BCtIk1SuhVJ4ZaB"
+    },
+    {
+      "_id": "C7Z5t0LvfgccE439",
+      "name": "Bring one's deepest desires to mind",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9h3AbAG1DBQTrtOG.C7Z5t0LvfgccE439"
+    },
+    {
+      "_id": "nlSy8hxjSVYHAmcf",
+      "name": "Manifest those desires in the world, however unrealistic, consequences be damned",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9h3AbAG1DBQTrtOG.nlSy8hxjSVYHAmcf"
+    },
+    {
+      "_id": "Po2qX8bDQi7W7M8B",
+      "name": "Flit away, go elsewhere",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9h3AbAG1DBQTrtOG.Po2qX8bDQi7W7M8B"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "9h3AbAG1DBQTrtOG",
+  "_key": "!actors!9h3AbAG1DBQTrtOG"
+}

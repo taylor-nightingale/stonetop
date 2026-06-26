@@ -1,0 +1,19 @@
+{
+  "_id": "enq522wjZRL9OaYs",
+  "_key": "!items!enq522wjZRL9OaYs",
+  "name": "Mattock, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mattock",
+      "inventoryColumn": "regular",
+      "sortOrder": 18,
+      "note": "<em>close</em>, x <em>piercing</em>, <em>messy</em>, <em>awkward</em>",
+      "weight": 1
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

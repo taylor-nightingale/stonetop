@@ -1,0 +1,295 @@
+{
+  "_id": "stonetopSO000001",
+  "_key": "!journal!stonetopSO000001",
+  "name": "Setting Overview",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {}
+  },
+  "folder": "JfrSEHASDtAyvN59",
+  "sort": 0,
+  "pages": [
+    {
+      "_id": "stonetopSOp00001",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00001",
+      "name": "The Premise",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>You play the heroes of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, an isolated village near the edge of the known world. Adventures focus on dealing with threats to the village, seizing opportunities for the village, or pursuing personal goals. Months or years might pass between adventures.</p><h3>The Village Itself…</h3><ul><li>…is home to around <strong>300 folks</strong>. It’s a nice place, though poor. People look out for each other, here.</li><li>…is built around a <strong>massive standing stone of unknown origin</strong>, carved with faint runes. Lightning strikes the Stone often.</li><li>…stands at the edge of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Villagers hunt and trap but—per a compact with the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong>—never fell a living tree.</li></ul><h3>Neighbors</h3><p>The <strong>Forest Folk</strong> disappeared ten years ago, and no one knows why. Perhaps the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>—magical, fickle beings of the Great Wood—had something to do with it?</p><p>Horrid little <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ttz6Fnr2M0HNfIre]{crinwin}</strong> also lurk in the Great Wood. They’ve grown bolder and more numerous since the Forest Folk left.</p><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> is a rugged mining village a few days to the west.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> roam the rugged <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, and revile Gordin’s Delve.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> is a sizeable town about ten days’ march south and east.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> is a few days north in the mountains; stoic, grim, unwelcoming.</li></ul><p>There’s no empire, no kings or nobles—at least not around here. More “civilized” towns and cities lie farther to the south.</p><h3>The Makers</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{The Makers}</strong> are long gone, but their ruins (many sized for giants) remain. <strong>Stonetop is built on Maker-ruins</strong>: an ancient cistern, the crumbling Old Wall, some old foundations. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{The Ruined Tower}</strong> is about a day from town. The West Road stretches from Stonetop to Gordin’s Delve. The Highway crosses the West Road a few miles from town, stretching from Barrier Pass to Marshedge and beyond.</p><h3>Other Things of Note</h3><ul><li>The PCs are all <strong>human</strong>. Strange peoples (like the Forest Folk or the Fae or the mask-wearing <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong> from beyond Gordin’s Delve) are known of but poorly understood.</li><li>Wise folk whisper of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, primeval entities of darkness, corruption, and ruin. Their power taints all that it touches.</li><li><strong>People are terrified of deep water.</strong> Evil dwells there. Evil that will drag you to your doom. Everyone knows this.</li><li><strong>Magic is not common, nor easy, nor safe.</strong> It can be borrowed from spirits or gods or Things Below, or wrested from the forgotten lore of the Makers. But it is not to be trifled with.</li><li><strong>Iron</strong> is the most common metal. Good steel is hard to find. Bronze tools and weapons are common enough, but old-fashioned and dripping with superstition.</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00011",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00011",
+      "name": "Character Creation FAQ",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>As everyone works through their playbook from front to back, the same questions tend to come up. Here are the common ones, with quick answers.</p><h3>Filling in your playbook</h3><p><strong>What does my instinct do?</strong><br>It describes how your character tends to behave. Each session, you earn XP when you demonstrate your instinct in play, or struggle against it.</p><p><strong>Do I have to pick from these appearances?</strong><br>No—make up something else if you like. The lists are just there to spark your creativity.</p><p><strong>Do I have to pick one of these names?</strong><br>No, but the name lists are meant to give the world a cohesive feel. The steading playbook has extra names if you’d prefer something else.</p><p><strong>Do I have to live in Stonetop?</strong><br>Yes, at least for now. The only exceptions are a Blessed with the <em>Raised by Wolves</em> background and a Lightbearer with the <em>Itinerant Mystic</em> background—and even they should have close ties to the village and be there often.</p><h3>Armor, gear &amp; load</h3><p><strong>How does “armor” work?</strong><br>Your armor value is (usually) based on your current gear, and it reduces any damage you take. Multiple “x armor” items don’t stack with each other, but “+x armor” items do stack (with each other and with “x armor” items). 0–1 armor is typical, 2 is tough, and 3 is the best a starting character can get.</p><p><strong>What do ◇ and ◇◇ mean?</strong><br>The item counts against your load. Bring it on an expedition and you’ll mark that many slots on your Inventory insert. You can mark up to 3 slots with a light load, up to 6 with a normal load, and up to 9 with a heavy load. Items without a ◇ are either small (they don’t count against your load, but you usually carry only ~4 of them per expedition) or something you don’t carry on your person—it should be obvious which.</p><p><strong>Can I have a different special possession?</strong><br>Sure—just keep it setting-appropriate and on par with the other options. Check other playbooks for inspiration.</p><p><strong>Do I get any (other) weapons or gear?</strong><br>Special possessions are the unique or interesting things you own or have access to. Every character can draw on the common weapons, armor, and gear listed on the Inventory insert. Don’t define your Inventory now—you’ll do that when you first <strong>Outfit</strong> for an expedition.</p><h3>Weapons &amp; tags</h3><p><strong>How much damage do weapons do?</strong><br>Damage is based on your playbook, not the weapon: the Heavy deals 1d10 and the Lightbearer deals 1d4, whether they swing a dagger or a maul. A few weapons of war deal “+1 damage,” but that’s the exception. (And no—you don’t add STR or DEX to damage.)</p><p><strong>What do the various tags mean?</strong><br><em>Hand, close, reach, near,</em> and <em>far</em> describe a weapon’s or light source’s useful range, from closest to furthest: hand &lt; close &lt; reach &lt; near &lt; far. “Piercing” weapons ignore some of the target’s armor—a weapon with “x piercing” pierces equal to Stonetop’s Prosperity (+0 by default). <em>Area, awkward, crude, cumbersome, dangerous, forceful, messy, thrown, warm,</em> and the like are fictional cues: no numbers attached, but they color the fiction, which matters!</p><h3>Rolling the dice</h3><p><strong>What does “roll +[STAT]” mean?</strong><br>Roll 2d6 and add the modifier you assigned to that stat. On a 10+, yay! On a 7–9, okay. On a 6-, uh-oh.</p><p><strong>What happens if I roll a 6 or less?</strong><br>If a move doesn’t spell out what happens on a 6-, you mark XP and something bad happens—the GM decides exactly what.</p><p><strong>What does “advantage” mean?</strong><br>Roll an extra die and discard the lowest (usually 3d6, keep the best 2). “Disadvantage” is the reverse: roll an extra die and discard the highest (3d6, keep the worst 2). On a damage roll, advantage/disadvantage means rolling your damage die twice and keeping the best/worst—then adding any bonus dice from moves.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 250000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00003",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00003",
+      "name": "Agenda & Principles",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<div class=\"stonetop-no-question-spiral\"><h3>Your Agenda</h3><p>As a player, your chief goals should be to…</p><ul><li>Portray a compelling character</li><li>Engage with the fictional world</li><li>Play to find out what happens</li></ul><h3>Your Principles</h3><p>The game works best if you…</p><ul><li><strong>Begin and end with the fiction.</strong> Tell us how you do what you do, what it looks like.</li><li><strong>Connect with the other PCs.</strong> Explore your relationships. Play out scenes together.</li><li><strong>Show us what’s important to you.</strong> Who and what will your character fight for?</li><li><strong>Have goals and pursue them.</strong> Don’t just react to threats that the GM presents.</li><li><strong>Be bold, take risks.</strong> If you don’t act like a hero, who will?</li><li><strong>Embrace difficulty, setback, and failure.</strong> Show us how your character deals with it.</li><li><strong>Participate in worldbuilding.</strong> Answer the GM’s questions with color and life.</li><li><strong>Build on what others have said.</strong> Let yourself be inspired by your fellow players.</li><li><strong>Give others a chance to shine.</strong> Don’t hog the spotlight. Set others up for greatness!</li><li><strong>Participate in the conversation.</strong> Pay attention, ask questions, offer suggestions.</li></ul><h3>Content</h3><p>By default, this game features:</p><ul><li>Fairly graphic violence</li><li>Kidnapping, abductions, families in danger</li><li>Bigotry, racial tensions</li><li>Horror elements, mind control, possession</li><li>Personal corruption (esp. for the Seeker)</li><li>Starvation (or the threat thereof)</li></ul><p>Other disturbing and emotional topics are certainly possible. Talk to your group about any topics that you wish to exclude, veil, or handle in a specific way.</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00004",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00004",
+      "name": "Stonetop: The Village",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> is a tight-knit community. Everyone here is expected to pull their weight, but few think badly of those who suffer misfortune. The town pulls together; its community is its strength.</p><p>Able-bodied adults are expected to know how to fight and protect the village when needed. Everyone keeps a spear, a round wooden shield, and maybe a bow. Folk rotate through guard duty, manning the three watchtowers each night. There’s no government, just leaders. Everyone knows who they are: the wise, the cunning, the brave. It’s not a formal thing.</p><p>Most buildings are low and squat, built from stones scavenged from the crumbling <strong>Old Wall</strong> that surrounds the town about a mile out from the village center. Roofs are mostly thatched with barley straw. Families pass these homes on, two or three generations living in one or two buildings at a time.</p><p>The <strong>Ringwall</strong> is a waist-high fieldstone wall. Of little to no use against a real army, it nonetheless provides some defense against raiders. The houses built outside the Ringwall are newer, built by younger families or more recent immigrants.</p><p>Most folk in town are farmers, growing barley, oats, beans, and potatoes in the surrounding land. The fields stretch out from Stonetop to the edge of the Old Wall. Beyond that, the weedy grasses of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> choke out anything the villagers might plant.</p><p>The town boasts only a few full-time tradesfolk: a smith, a tanner, a midwife, a publican, and a potter. Other crafts—thatching, carpentry, weaving, and so forth—are done on the side. There’s no mill, not much in the way of bread. Families keep goats for milk, chickens for eggs, sheep for wool, pigs for meat. The town owns two horses in common, a couple plows, a pair of carts, and a wagon acquired in trade from Marshedge.</p><h3>Key Locations</h3><ul><li><strong>The Stone</strong> — Well over 50 feet tall and etched in faded runes, the Stone appears to be older even than the giant-sized Maker ruins upon which the village was founded. When storms roll in from the southeast—as they often do during the spring and summer months—lightning strikes the Stone repeatedly. The locals barely even notice.</li><li><strong>The Cistern</strong> — Sane folk shun lakes, rivers, and other deep bodies of water. Death dwells in deep water—everyone knows this. To get through the dry months, the residents of Stonetop store rainwater, snowmelt and water from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong> in a huge, ancient Cistern.</li><li><strong>The Granary</strong> — Foodstuffs are stored in the Granary for winter. Everyone contributes, everyone shares.</li><li><strong>Pavilion of the Gods</strong> — Stonetop boasts no temple but does have a Pavilion of the Gods, hosting shrines to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.b1VYlB39pY0gZA0C]{Helior}</strong> (the Daybringer), <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong> (the Earth Mother), <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong> (the Lawkeeper), and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong> (Rain-Maker, Thunderhead, Slayer-of-Beasts). Tor is the most popular and associated with the Stone itself, but all four gods are given due respect.</li><li><strong>The Public House</strong> — The largest building in the village, where everyone meets after sundown to drink and socialize. It offers floor space in the common room for travelers and a small stable under the same roof. The town’s two horses are kept here.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{The Great Wood}</strong> — The village sits on a bluff overlooking the Great Wood. A few brave souls ply its depths for meat and fur to trade with Stonetop’s neighbors. Trappers bring in most of the wealth, but hunters get more respect. It’s dangerous down there. By compact with the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong>, the villagers never cut down a living tree. They’re free to gather fallen wood, but if they need timber they send folk northwest to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>. Yet no one’s laid eyes on the Folk for a decade, and some grumble that there’s plenty of timber down there, in their own back yard.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ttz6Fnr2M0HNfIre]{The crinwin}</strong>—diminutive, gray-skinned creatures with a penchant for mimicry—lurk in the Great Wood. The Forest Folk once hunted them and kept them in check, but their numbers have been growing. The Wood is also home to the strange and magical <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>. The Forest Folk called them “Good Neighbors” and took pains to avoid insulting them. They cautioned Stonetop to do the same.</li><li><strong>The Stream</strong> — The Stream runs along the base of the bluff, providing a source of fresh water for those willing to haul buckets back and forth. It’s been known to dry up at the height of summer. The villagers fear shallow running water less than the deep stuff, but most agree that the Stream is haunted by a pair of ghostly twins.</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00005",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00005",
+      "name": "The Vicinity",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<div class=\"stonetop-spaced-sections\"><p>The village’s immediate surroundings.</p><p>The villagers never fell a living tree from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, so when they need timber they send the wagon and some hearty souls into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>. It’s two days out, a day of hard work, and another two or three days to make the return trip. And while the Highway and the West Road are relatively safe, the Foothills themselves are haunted by at least one fell beast or monster. Surely, a trip to the Foothills is a scary thing. But sometimes it has to be done.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{The Flats}</strong> are a wide open prairie between the Great Wood and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>. They are overrun with weedy, bitter-tasting grasses that choke out most other vegetation. Traversing the Flats can feel like an exercise in loneliness, but the land is teeming with life. Most of it will ignore travelers, but the tall grasses might conceal <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.hW4pZ1OuPa0yOEFJ]{cougars}</strong>, wolves, or packs of hunting drakes. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.tx9I3QGe5ldHuhho]{Aurochs}</strong>, horses, and deer roam the prairie, and bands of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> come north from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> to hunt. Wise travelers keep to the ancient roads. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{The Makers}</strong>’ old magic keeps them in good repair, and predators shun them. But tales tell of dancing lights and strange spirits luring the unwary off the roads at night.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{The Ruined Tower}</strong> lies a long day’s march from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, a good half-day’s trek from the roads. It’s hardly still a tower, more a pile of enormous stones and earth. Everyone in town knows about the giant-sized tunnels beneath the tower. Adventuresome folks get it in their heads to go there now and then, but they usually just go a little way in and get spooked. There are people who’ve gone deeper—generations back—and brought back amazing things. Little of that stuff remains in town, long since traded away, but the stories linger.</p><p>The <strong>Old Wall</strong> surrounds Stonetop, about a mile out from the Stone itself and at the end of the West Road. It was clearly once a massive rampart, but has tumbled and been buried by the ages. When the villagers need stone for construction, they dig it out of the Old Wall and haul it back to town. Occasionally, some crack-job scholar from the south comes up to study the remains of the Old Wall, but they can rarely stand the “primitive” conditions out here for long.</p><p>There’s a cave called the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.vwP9YSr3qrc4Tq7k]{Maw}</strong> in the Great Wood, a few hours north of town. No underbrush grows within thirty feet of it, and bones litter the entrance. Trappers and hunters avoid it, and claim to have heard strange noises coming from its direction—especially at night.</p><p>A pair of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VJf1tzQZ3nGxBNsC]{cave bears}</strong> have a den in the bluffs just south of town. Villagers know to steer clear, but in a pinch a bear could feed a whole lot of people. Also, who knows what else is in their den? Perhaps it opens up to a larger network of caverns.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.o7qpevFfrKXuVlGo]{The Red Grove}</strong> is a stand of trees in the forest that turn blood red (leaves, bark, and all) near the autumnal equinox. But by springtime, they’re back to normal. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{The Forest Folk}</strong> never went near this grove, and warned the townsfolk to avoid it as well. They never said why.</p><p>On certain nights, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong> stalks the Great Wood, and when he does even the bravest hunters stay in town. The Forest Folk spoke of him as something like a force of nature, not so much a god to be worshiped as a storm to be weathered. The tales differ as to what happens should you cross the Hunter. He might ignore you, call you to join his raid, or mark you as his quarry. But all the tales agree: impress him, and you’ll be well rewarded. Get caught or fail to do your part—well, best not to think of it.</p><p>The area’s always had <strong>earthquakes</strong>, but the elders say they come more often now. Maybe the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UEQE5cKRurhX9gCE]{Crombil}</strong>, that fiery serpent of woe, stirs in its sleep. Or maybe some other evil, long buried, now strains to be free.</p><p>Since the Folk disappeared, the Great Wood has grown more dangerous. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ttz6Fnr2M0HNfIre]{Crinwin}</strong> encroach upon the village. Deer carcasses can often be found strung up in trees, cocooned in silky webs. And all too often, hunters and trappers come home with tales of freshly unearthed ruins or twisted, unnatural beasts.</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00006",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00006",
+      "name": "Travel Times",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>Travel times assume no major obstacles or delays. Actual journey length depends on weather, hazards encountered, and the route taken.</p><h3>Journeys <em>(From Stonetop via the Roads to…)</em></h3><table><thead><tr><th>Destination</th><th>Time</th></tr></thead><tbody><tr><td>the Crossroads</td><td>3–4 hours</td></tr><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong></td><td>2 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.fc9yqAlxCCgZVckC]{Titan Bones}</strong></td><td>2 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong></td><td>4 days</td></tr><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong></td><td>4 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong></td><td>5 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong></td><td>10 days</td></tr></tbody></table><h3>Dangerous Journeys <em>(From Stonetop to…)</em></h3><table><thead><tr><th>Destination</th><th>Time</th></tr></thead><tbody><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VJf1tzQZ3nGxBNsC]{cave bears}</strong>’ den</td><td>3–4 hours</td></tr><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.o7qpevFfrKXuVlGo]{Red Grove}</strong></td><td>4–6 hours</td></tr><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.vwP9YSr3qrc4Tq7k]{Maw}</strong></td><td>5–7 hours</td></tr></tbody></table><h3><em>From the Crossroads to…</em></h3><table><thead><tr><th>Destination</th><th>Time</th></tr></thead><tbody><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong></td><td>5–6 hours</td></tr></tbody></table><h3><em>From Marshedge to…</em></h3><table><thead><tr><th>Destination</th><th>Time</th></tr></thead><tbody><tr><td>the ruins on the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong></td><td>2 days</td></tr><tr><td>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{northern Manmarch}</strong></td><td>4 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.zUeBMA1XS4Lq3KdK]{Three-Coven Lake}</strong></td><td>4 days</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong></td><td>30 days</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00007",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00007",
+      "name": "Gear: Terms & Value",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<h3>Gear Terms &amp; Tags</h3><dl><dt>◇ or ◇◇</dt><dd>Takes up one of these slots on your Inventory insert, and counts against your load.</dd><dt>area</dt><dd>Affects everything in an area.</dd><dt>[n] armor</dt><dd>When you take damage, subtract x; doesn’t stack.</dd><dt>+1 armor</dt><dd>Increases your armor value by 1; stacks.</dd><dt>awkward</dt><dd>Unwieldy, requires space, gets stuck.</dd><dt>crude</dt><dd>Prone to break, wear out, stop working, etc.</dd><dt>cumbersome</dt><dd>You’re noisy, slow, hot, and quick to tire while carrying it, even without a heavy load.</dd><dt>+[n] damage</dt><dd>Increase the damage you deal with that weapon by x.</dd><dt>dangerous</dt><dd>Causes trouble and collateral damage if you aren’t careful.</dd><dt>fragile</dt><dd>Easy to break/ruin; pack it carefully.</dd><dt>forceful</dt><dd>Can knock someone around, maybe even off their feet.</dd><dt>hours</dt><dd>It lasts about an hour for each ○; mark ○ to track time used.</dd><dt>immobile</dt><dd>You can’t really carry it on your person; you need a beast or vehicle to transport it.</dd><dt>messy</dt><dd>Does particularly destructive damage, ripping people and things apart.</dd><dt>[n] piercing</dt><dd>When you deal damage, ignore n points of the target’s armor. For items with “x piercing,” x = the steading’s current Prosperity.</dd><dt>reload</dt><dd>After it’s used, it takes time/effort to reset.</dd><dt>requires ___</dt><dd>If you don’t meet the requirements, it works poorly or not at all.</dd><dt>slow</dt><dd>Takes minutes or more to use; unlikely to be useful in a fight.</dd><dt>thrown</dt><dd>You can Let Fly with it (at near range).</dd><dt>uses</dt><dd>Mark a ○ each time you use it; it’s gone/useless when they’re all marked.</dd><dt>warm</dt><dd>Will keep you warm in cold weather, but uncomfortable and exhausting in hot weather.</dd></dl><h3>Range Tags</h3><dl><dt>hand</dt><dd>Tight quarters; up close and personal.</dd><dt>close</dt><dd>Melee range, 1–2 steps away.</dd><dt>reach</dt><dd>3–4 steps away.</dd><dt>near</dt><dd>Up to 30 or so steps away.</dd><dt>far</dt><dd>Quite the distance; up to 100 steps, maybe more.</dd></dl><h3>Coin</h3><p>A <strong>purse of coins</strong> contains ~10 <strong>handfuls</strong> of coins. A handful is ~10 individual coins, so a purse has ~100 coins in it.</p><p>One <strong>silver coin</strong> is worth a purse of coppers (~100 copper coins). One <strong>gold coin</strong> is worth a purse of silvers (~100 silver coins).</p><h3>Relative Value</h3><p><strong>Value 0</strong> is generally worth: a purse of copper coins, a single silver coin, a favor, a few days of unskilled labor, a common mundane item.</p><p><strong>Value 1</strong> is generally worth: a handful of silver coins, a season (or so) of unskilled labor, a few days of skilled labor, a unit of trade goods (a sack of grain, a pouch of salt, a stack of pelts, etc.), a bit of finery (a richly embroidered cloak, a silk scarf, a silver comb, etc.).</p><p><strong>Value 2</strong> is generally worth: a purse of silver coins, a single gold coin, a Surplus, a year (or so) of unskilled labor, a season (or so) of skilled labor, a cartload of common trade goods, an item of luxury or status (a gold ring, an artful silver torc, a gemstone, etc.).</p><p><strong>Value 3</strong> is generally worth: a handful of gold coins, a year (or so) of skilled labor, a good trained horse or mule, a precious item (ruby ring, gold torc, etc.).</p><p><strong>Value 4</strong> is generally worth: a purse of gold coins, a dozen or so good horses, a “priceless” item (huge flawless gemstone, gold statuette, bejeweled scepter, etc.).</p><p><em>*Exotic trade goods are +1 Value.</em></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00008",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00008",
+      "name": "Special Items",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p><em>When you <strong>Outfit</strong> or <strong>Have What You Need</strong>, you can pick items from the Inventory insert or your possessions. For anything else, you have to <strong>Requisition</strong> or <strong>Trade &amp; Barter</strong>.</em></p><h3>Weapons of War</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>◇ Mace or flail, iron (<em>close, forceful</em>)</td><td>1</td></tr><tr><td>◇ Battleaxe, iron (<em>close, messy</em>)</td><td>1*</td></tr><tr><td>◇ Short sword, iron (<em>hand, close</em>)</td><td>1*</td></tr><tr><td>◇ Sword, iron (<em>close, +1 damage</em>)</td><td>1*</td></tr><tr><td>◇ Warhammer, iron (<em>close, 2 piercing</em>)</td><td>1</td></tr><tr><td>◇ Crossbow (<em>far, +1 damage, x piercing, reload, ○ low ammo, ○ all out</em>)</td><td>1</td></tr><tr><td>◇ Composite bow (<em>far, +1 damage, x piercing, ○ low ammo, ○ all out</em>)</td><td>1</td></tr></tbody></table><p><em>*Value 2 to get 1 piercing or (maybe) 2 piercing. x piercing = the steading’s current Prosperity.</em></p><h3>Bronze Weapons</h3><p><em>Bronze weapons do not have “x piercing.”</em></p><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Common weapons (<em>spears, daggers, etc.</em>)</td><td>0</td></tr><tr><td>Weapons of war (<em>see above</em>)</td><td>1</td></tr></tbody></table><h3>Armor</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>◇ Cuirass, boiled leather (<em>1 armor</em>)</td><td>1</td></tr><tr><td>◇◇ Hauberk/cuirass/scale, iron or bronze (<em>2 armor, warm, cumbersome</em>)</td><td>2</td></tr><tr><td>◇ Vest, brigandine, fancy (<em>2 armor, warm</em>)</td><td>3</td></tr></tbody></table><h3>Light Sources</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>◇ Candle (<em>lasts ~1 hour, close, area</em>)</td><td>0</td></tr><tr><td>◇ Lantern (<em>○○○○○ hours, close, area</em>)</td><td>0</td></tr><tr><td>◇ Bullseye lantern (<em>○○○○○ hours, near</em>)</td><td>1</td></tr></tbody></table><h3>Tools &amp; Trades</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>□ Small metal tool (<em>chisel, file, nails, shears, etc.</em>)</td><td>0</td></tr><tr><td>□ Glass vial (<em>fragile</em>)</td><td>0</td></tr><tr><td>◇ Block &amp; tackle</td><td>0</td></tr><tr><td>◇ Instrument (<em>harp, lute, fiddle, etc.</em>)</td><td>1</td></tr><tr><td>◇ Metal tools (<em>drill, prybar, saw, tongs, etc.</em>)</td><td>0</td></tr><tr><td>◇ Mirror, hand-held, polished bronze</td><td>1</td></tr><tr><td>Common trade tools (<em>for pottery, weaving, distilling, etc.; immobile</em>)</td><td>1</td></tr><tr><td>Uncommon trade tools (<em>for carpentry, chandlery, beekeeping, etc.; immobile</em>)</td><td>2</td></tr><tr><td>Specialized trade tools (<em>for smithing, glassblowing, scribing, etc.; immobile</em>)</td><td>3</td></tr></tbody></table><h3>Writing Implements</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>□ Slate and chalk</td><td>0</td></tr><tr><td>□ Wax tablet and stylus</td><td>0</td></tr><tr><td>□ Parchment, a few sheets (<em>fragile</em>)</td><td>0</td></tr><tr><td>□ Fine vellum, a few sheets (<em>fragile</em>)</td><td>1</td></tr><tr><td>□ Ink, vial and quills</td><td>1</td></tr><tr><td>◇ Empty book, parchment (<em>fragile</em>)</td><td>1</td></tr><tr><td>◇ Empty book, fine vellum (<em>fragile</em>)</td><td>2</td></tr></tbody></table><h3>Transport</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Wheelbarrow</td><td>1</td></tr><tr><td>Cart or sleigh (<em>requires donkey/mule/horse</em>)</td><td>2</td></tr><tr><td>Wagon (<em>requires mule/horse</em>)</td><td>3</td></tr><tr><td>Spare parts for wagon/cart/sleigh (<em>axles, wheels, etc.; ○○○ uses, immobile</em>)</td><td>2</td></tr></tbody></table><h3>Exotic Stuff</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>◇ Bendis root (<em>burnt fumes repel perversions of nature; lasts ~1 hour, reach, area</em>)</td><td>1</td></tr><tr><td>□ Bezoar (<em>swallow to cure any poison</em>)</td><td>1</td></tr><tr><td>◇ Naphtha (<em>burns hot &amp; sticky; damage d8; ○○○ uses, thrown, area, dangerous, ignores armor</em>)</td><td>1</td></tr><tr><td>◇ Silver-alloy dagger (<em>hand</em>)</td><td>2</td></tr></tbody></table><h3>Trade Goods</h3><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>□ Salt (<em>a little box</em>)</td><td>0</td></tr><tr><td>◇ Skin of whisky, fine (<em>○○ uses; share a use to get advantage on Persuade</em>)</td><td>0</td></tr><tr><td>□ Purse of coppers (<em>~10 handfuls</em>)</td><td>0</td></tr><tr><td>◇ Firkin of whisky, fine</td><td>1</td></tr><tr><td>□ Handful of silvers</td><td>1</td></tr><tr><td>Barrel of whisky, common (<em>immobile</em>)</td><td>1</td></tr><tr><td>Barrel of whisky, fine (<em>immobile</em>)</td><td>2</td></tr><tr><td>◇◇ Purse of silvers (<em>~10 handfuls</em>)</td><td>2</td></tr><tr><td>1 Surplus of various trade goods (<em>immobile</em>)</td><td>2</td></tr></tbody></table><h3>Livestock &amp; Other Beasts</h3><table><thead><tr><th>Beast</th><th>Value</th></tr></thead><tbody><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.nGqi7w4e4pxskC1I]{Dog}</strong>, follower (<em>keen-nosed, pick 2 more</em>)<br>HP 6 · Damage d6 (hand, grabby) · Instinct: get distracted · Cost: training</td><td>1</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.TtNZPHaQ0Jt7Qg84]{Goat}</strong> (<em>sure-footed, curious, hungry</em>)<br>HP 3 · Damage d4 (hand) · Instinct: explore · butcher for 4 provisions (6 uses)</td><td>1</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.iqh4gVJjrsMnTvnR]{Sheep}</strong> (<em>timid, hardy, wooly</em>)<br>HP 3 · Damage d4 (hand) · Instinct: follow the herd · butcher for 4 provisions (6 uses)</td><td>1</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.O2qGFq562dfOB1rc]{Pig}</strong> (<em>keen-nosed, stubborn, gluttonous, clever</em>)<br>HP 6 · Damage d4 (hand) · Instinct: eat anything · butcher for 4 provisions (d6+10 uses)</td><td>1</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.avXiOqkVCJTBJahe]{Donkey}</strong> (<em>hardy, sure-footed, cautious, slow</em>)<br>HP 10 · Damage d4+2 (hand, forceful) · Instinct: be stubborn</td><td>2</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.84S5jIc1xLJjBict]{Mule}</strong>, follower? (<em>large, hardy, sure-footed, cautious, keen-nosed, sterile</em>)<br>HP 14 · Damage d6+1 (hand, close) · Instinct: avoid danger · Cost: care &amp; grooming</td><td>3</td></tr><tr><td><strong>@UUID[Compendium.stonetop.stonetop-items.Item.x57Y3c5wnRpQgwXJ]{Horse}</strong>, follower? (<em>large, powerful, keen-nosed, swift or hardy</em>)<br>HP 10 · Damage d6+3 (hand, close, forceful) · Instinct: panic · Cost: care &amp; grooming</td><td>3</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00009",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00009",
+      "name": "If You Want To…",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<h3 id=\"iywt-fortunes\">…increase Fortunes</h3><hr><p>The main ways are:</p><ul><li>Undertake an expedition on behalf of the village and <strong>Return Triumphant</strong>.</li><li>Complete a steading improvement that increases Fortunes.</li></ul><h3 id=\"iywt-surplus\">…gain Surplus</h3><hr><p>You get Surplus automatically in summer and when the harvest is done towards the end of autumn. If you want more:</p><ul><li>Choose <em>“unexpected bounty”</em> when you get a seasonal gain.</li><li>Choose <em>“trade opportunity”</em> when you get a seasonal gain, and suggest that you’d like to trade for extra Surplus.</li><li>Undertake an expedition to hunt big game: elk, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.1EAyZGaGD7nVDCiq]{wisents}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VJf1tzQZ3nGxBNsC]{cave bears}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.idLzu8GfQknwWCby]{ceirwmawr}</strong>, etc.</li><li>Buy some! Surplus isn’t commonly available, so you’ll need to roll to <strong>Trade &amp; Barter</strong> to see if it’s available from a passing merchant. If it’s not, you’ll need to travel to a neighboring steading. Surplus is Value 2, so expect to pay a purse of silvers, a donkey, a barrel of fine whisky, or so forth.</li></ul><p>If you want to increase how much Surplus the village generates, look to the steading improvements.</p><h3 id=\"iywt-defenses\">…improve Defenses</h3><hr><p>You can temporarily boost Defenses via the <strong>Muster</strong> move, but it will usually cost you Fortunes to do so.</p><p>Build a <strong>Palisade</strong> or a <strong>Stone Wall</strong> (see the steading improvements). They grant advantage to Deploy rolls when you take advantage of them.</p><p>Establish a <strong>Standing Watch</strong> (see the steading improvements). They add +1 to your Defenses when they’re involved.</p><p>Spend time drilling the villagers to unlock the <strong>Well-Trained Militia</strong> improvement. If you train the militia in 2 or more tactics, Defenses increases by 1.</p><p>Invest in the <strong>Weapons of War</strong> improvement. This increases Defenses by 1 and gives PCs access to better weaponry.</p><h3 id=\"iywt-population\">…increase Population</h3><hr><p>When Seasons Change and you get a seasonal gain, choose <em>“population boom.”</em></p><p>Alternately, go out and save/recruit/capture a bunch of people and bring them back to live in your village.</p><p>Careful: higher Population makes it easier to Muster and Pull Together, but it also means more mouths to feed in winter.</p><h3 id=\"iywt-prosperity\">…improve Prosperity</h3><hr><p>Pursue the <strong>Expanded Trades</strong> and/or the <strong>Market</strong> improvements. Each of these increase Prosperity by 1, which makes your metal weapons better, increases the number of uses you get out of supplies, and makes the Recover move more effective.</p><p>You also roll +Prosperity to Trade &amp; Barter. The <strong>Township</strong> improvement will grant advantage to Trade &amp; Barter.</p><h3 id=\"iywt-improvement\">…unlock a steading improvement</h3><hr><p>Look at the requirements and choose one to pursue. If you don’t know how to pursue it, <strong>Know Things</strong> and/or <strong>Make a Plan</strong> with the GM.</p><p>If you want to make an improvement to the steading that isn’t listed, tell the GM what you have in mind. They’ll either Make a Plan with you or add it to the list of Other Improvements (along with the requirements and potential benefits), whichever is more appropriate.</p><h3 id=\"iywt-coin\">…get some coin</h3><hr><p>You can <strong>Outfit</strong> or <strong>Have What You Need</strong> to produce a handful of coppers, but if you want more significant quantities, or any quantity of silver or gold coins, then you’ll need to roll <strong>Trade &amp; Barter</strong> to see if they’re even available. If they are, you’ll need to trade something of equivalent Value.</p><p>If you need more coin than what’s available in town, you can undertake a trade mission. Take some of the steading’s Surplus to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, or maybe the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, and find someone to buy it. A purse or two of silvers is a fair trade for 1 Surplus (Value 2).</p><p>Alternately, go explore the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong> or someplace like it and dig up some sweet loot. Then roll Trade &amp; Barter to sell it to a passing merchant or head to Marshedge or Gordin’s Delve and try to sell it there for more.</p><h3 id=\"iywt-arcana\">…find new arcana</h3><hr><p><strong>Know Things.</strong> Maybe you know where something like that might be found.</p><p>If you don’t: ask around, dig through the Chronicle (if there is one), consult the spirits (if you can), pray for guidance (if that’s your thing), eat some mushrooms and hope for a vision, etc.</p><p>Explore dangerous and mysterious places: old Maker ruins, barrow mounds, fae circles, strange groves, caves, or lakes (if you dare).</p><p>Put the word out to merchants or other contacts that you’re interested in that sort of thing, then choose <em>“trade opportunity”</em> or <em>“interesting news”</em> when you get a seasonal gain.</p><h3 id=\"iywt-mysteries\">…unlock an arcanum’s mysteries</h3><hr><p>Do what the requirements say! If you’re not sure how to meet a requirement, roll to <strong>Know Things</strong> and/or <strong>Make a Plan</strong> with the GM.</p><h3 id=\"iywt-followers\">…recruit followers</h3><hr><p>If you have someone in mind, ask them to join you on an expedition. <strong>Persuade</strong> them if necessary.</p><p>If you don’t have someone in mind, tell the GM what sort of follower you’re looking for (<em>“a skilled tracker,” “a knowledgeable guide,” “someone who can handle themselves in a fight,”</em> etc.). They’ll either tell you who in town fits the bill, or ask you to make someone up, or suggest that you Know Things.</p><p>Alternatively:</p><ul><li><strong>Muster</strong> the village and pick <em>“1 or 2 individuals show real potential.”</em> Let the GM know that you’re hoping for a follower, and they’ll probably work with you.</li><li>Go to a bigger town and find a public place, like the Swap in Gordin’s Delve or Edgemarket in Marshedge. Announce that you’re looking to hire help. Say what the job is and what you’re offering. Those towns each have a special player move for Recruiting.</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    },
+    {
+      "_id": "stonetopSOp00010",
+      "_key": "!journal.pages!stonetopSO000001.stonetopSOp00010",
+      "name": "The World's End",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": "<p><em>The region in which <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> sits.</em></p><h3>Barrier Pass</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> is blocked by a massive wall and gate, held by stoic, unfriendly folk who want little to do with strangers. They live on mountain goats and sheep and gods know what else, and brook no trespass. The town elders tell of their kind coming down every generation or two to trade some ancient wonder for crops or goats, but none alive remember such a visit.</p><h3>Gordin’s Delve</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> is a mining town in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>. Folk make their way here when they’re on the run or when there’s nothing left back home. The Delve is named for the Maker-made passages that plunge under the mountains. There lies the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong>, home to foul raiders who’ve forgotten the light of day. But mask-wearing <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong> sometimes come from the depths to trade fine goods, curiosities, and the rare bit of orichalcum.</p><h3>Titan Bones</h3><p>About two days’ hike from Stonetop is <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.fc9yqAlxCCgZVckC]{Titan Bones}</strong>, a lone hill amidst the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>. A huge fossilized skeleton is visible on one side of the hill. When Stonetop or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> need to signal each other, they light a huge bonfire atop the hill.</p><h3>The Steplands</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{The Steplands}</strong> are a rugged wilderness, home to the nomadic <strong>Hillfolk</strong>: horselords and shepherds, fierce and barbaric to outsiders. They trade horses, wool, and sometimes salt from the south, but consider Gordin’s Delve corrupt for prying sacred metals from the earth. The Steplands are dotted with ancient burial mounds. Unlike most ruins, these are man-sized and less sophisticated than those of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>. The Hillfolk shun them and warn all travelers away.</p><p>The Steplands hide two great terrors: <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.25HD51CKompWLFvB]{Blackwater Lake}</strong> (to the west) and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.zUeBMA1XS4Lq3KdK]{Three-Coven Lake}</strong> (to the east). The Hillfolk wisely keep their distance, but the few who have dared approach the lakes report ancient ruins on the shores, in the surrounding cliffs, and even beneath the waters.</p><h3>The Whitefang Mountains</h3><p>To the north run the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong>, said to be home to both savage giants and many mysterious villages. Little is known about what lies beyond. Throughout the long summers, thunderstorms roll up from the southeast and crash against the mountains. When they do, green and purple lights can be seen dancing around the crown of the peak known as <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>’s Fist</strong>.</p><h3>The North Manmarch</h3><p>The reaches of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{North Manmarch}</strong> are home to an aggressive, warlike people who dwell in wooden longhouses. Fortunately for their neighbors, they fight amongst themselves in an eternal cycle of blood-feud. Should a leader unite them one day, they will be a terror to all the world.</p><h3>Marshedge</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> is a proper town, with a wooden palisade, market, and town council. They grow hemp and wheat, and collect wild rice and herbs from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong>. But no one ventures too deep into the Fen. Scaly, slimy <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb]{suarachan}</strong> drag fools away to sacrifice to their foul gods. A few years back, the council asked a notorious bandit named <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong> to take the job of marshal. He’s still in charge, and his old gang—the Claws—dominate the town watch of Marshedge.</p><h3>The Dread River</h3><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{The Dread River}</strong> marks the eastern edge of the known world. None get too close, but a sprawl of ruins can be spotted at the end of the Highway. Folktales speak of fools braving the ruins only to disappear forever, or (worse) return with some cursed relic in hand.</p><h3>The South Manmarch</h3><p>The plains of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong> are sparsely inhabited, by a few tribes of nomads hunting <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.tx9I3QGe5ldHuhho]{aurochs}</strong> herds. But trade is steady between Marshedge and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> and the other towns of the arid south.</p><h3>The Golden Oak</h3><p>On a clear day, sharp-eyed folk in Stonetop can spot the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.2NsZu7ZKzdrEHfjk]{Golden Oak}</strong>. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{The Forest Folk}</strong> said that a hero buried at its roots would return from beyond the Last Door. But no one from Stonetop has ever made it there and back.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {},
+      "sort": 1000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "3BvxOqjeOtQei8cG",
+  "_key": "!journal!3BvxOqjeOtQei8cG",
+  "name": "Luglfsk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Lightning-stinging maggot-things that swarm out of the cursed river."
+    }
+  },
+  "folder": "pMuGAU8Psq5joXjG",
+  "sort": 24000,
+  "pages": [
+    {
+      "_id": "46f3z0Mq9zN9YgyS",
+      "_key": "!journal.pages!3BvxOqjeOtQei8cG.46f3z0Mq9zN9YgyS",
+      "name": "Luglfsk",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Lightning-stinging maggot-things that swarm out of the cursed river.",
+        "description": "<p>Each one is a few feet long, like a cuttlefish crossed with a giant maggot, squirming wet and gray, a face full of feelers whose touch stings like lightning. They spend most of their lives in the water, congregating near power-crystals and aetherium artifacts claimed by the river, entranced by the passive energy — but when they sense something meatier, they wriggle out fast. Some <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> claim they're merely tadpoles, and tell of larger, many-legged terrors that fling lightning from man-long feelers. Probably just spook-stories. Probably.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.L9dlnvkyRdbLZCEI"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

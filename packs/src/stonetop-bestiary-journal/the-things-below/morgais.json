@@ -1,0 +1,61 @@
+{
+  "_id": "lEnzsCftDmDarvlN",
+  "_key": "!journal!lEnzsCftDmDarvlN",
+  "name": "Morgais",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A drowned-pool spirit that lures the longing under the water to collect their souls."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 115000,
+  "pages": [
+    {
+      "_id": "Yy2SBUX7Uy1ZmGgE",
+      "_key": "!journal.pages!lEnzsCftDmDarvlN.Yy2SBUX7Uy1ZmGgE",
+      "name": "Morgais",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A drowned-pool spirit that lures the longing under the water to collect their souls.",
+        "description": "<p>The spirits of even shallow ponds can be callous and uncaring. How much worse, then, are the spirits of those deeper pools that have claimed the lives of mortals? For — willing or not — they have made offering to Daagon, and let it into their watery hearts. Listen to a morgais' song or let your gaze linger on its graceful form, and your heart fills with a longing that draws you to the water's edge.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.ntvN8CPfvbY06vUE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

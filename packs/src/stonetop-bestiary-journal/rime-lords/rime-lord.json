@@ -1,0 +1,61 @@
+{
+  "_id": "lMOwbXpvkp9KL5SG",
+  "_key": "!journal!lMOwbXpvkp9KL5SG",
+  "name": "Rime Lord",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "One of the last thirteen ice-gods, in eternal stasis, weaving the glacier that binds Y'aaw'kara."
+    }
+  },
+  "folder": "F7SHzAIMoFYFjUdt",
+  "sort": 96000,
+  "pages": [
+    {
+      "_id": "mVZaaOE7Ih4T3CNt",
+      "_key": "!journal.pages!lMOwbXpvkp9KL5SG.mVZaaOE7Ih4T3CNt",
+      "name": "Rime Lord",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "One of the last thirteen ice-gods, in eternal stasis, weaving the glacier that binds Y'aaw'kara.",
+        "description": "<p>Only thirteen <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong> survive; each remains in stasis in some key place of power. Their spirits are merged in an eternal dance and song, continuously weaving the dark-ice glacier that keeps the voice of Y'aaw'kara bound and prevents madness from spreading unchecked across the world. Pray, o mortal — pray that they continue their vigil, that their wills do not falter, that no interloper is so foolish as to disturb them. Pray that they do not wake.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.knIBykmqBqa8lMFN"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,15 +1,32 @@
-<header class="sheet-header flexrow">
-	{{#if stonetop.playbook.img}}
-	<img class="profile-img stonetop-header-playbook-icon" src="{{stonetop.playbook.img}}"
-	     alt="{{stonetop.playbook.name}}" title="{{stonetop.playbook.name}}">
-	{{else}}
-	<img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" title="{{actor.name}}">
-	{{/if}}
-	<div class="header-fields">
-		<h1 class="charname">
-			<input name="name" type="text" value="{{actor.name}}"
-			       placeholder="Name"
-			       {{#unless editable}}disabled{{/unless}}>
-		</h1>
+<div class="sheet-header stonetop-sheet-header">
+	<img class="stonetop-portrait" src="{{actor.img}}" {{#if stonetop.editMode}}data-edit="img"{{/if}} title="{{actor.name}}" alt="{{actor.name}}">
+	<div class="sheet-header__fields">
+		{{#if (and isCharacter (not limited))}}
+		<div class="stonetop-playbook-block">
+			<div class="stonetop-playbook-row">
+				<span class="stonetop-playbook-drop-zone {{#unless stonetop.playbook.name}}empty{{/unless}}">
+					{{#if stonetop.playbook.name}}
+					{{stonetop.playbook.name}}{{#if stonetop.playbook.instinct.selectedOption}} <span class="stonetop-instinct-badge" data-tooltip="{{stonetop.playbook.instinct.selectedOption.tooltip}}" data-tooltip-direction="DOWN">({{stonetop.playbook.instinct.selectedOption.word}})</span>{{/if}}
+					{{else}}Drop a playbook here{{/if}}
+				</span>
+			</div>
+			{{#if stonetop.playbook.description}}
+			<p class="stonetop-playbook-description">{{stonetop.playbook.description}}</p>
+			{{/if}}
+		</div>
+		{{/if}}
+		<div class="stonetop-name-called-box">
+			<div class="stonetop-name-called-inner">
+				<span class="stonetop-name-called-label">I am called...</span>
+				{{#if stonetop.editMode}}
+				<input class="input--title stonetop-name-field" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+				{{else}}
+				<span class="input--title stonetop-header-locked stonetop-name-field">{{actor.name}}</span>
+				{{/if}}
+			</div>
+		</div>
+		{{#if stonetop.playbook.appearance.summary}}
+		<p class="stonetop-appearance-summary">{{stonetop.playbook.appearance.summary}}</p>
+		{{/if}}
 	</div>
-</header>
+</div>

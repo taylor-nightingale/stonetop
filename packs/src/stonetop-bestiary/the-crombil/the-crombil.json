@@ -1,0 +1,92 @@
+{
+  "name": "The Crombil, Awakened",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 3,
+        "source": "scales, boney ridges"
+      },
+      "damage": {
+        "value": "jaws like a cave d12+7 (reach, forceful, messy, 3 piercing) or thrashing coils d12+5 (close, area, forceful)",
+        "rollFormula": "d12+7"
+      },
+      "instinct": {
+        "value": "to devour"
+      }
+    },
+    "concept": "A great scaly wurm, hundreds of feet long, that sleeps beneath the Great Wood and wakes to burn.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, terrifying, fearless, fireproof",
+    "qualities": "<p>Fiery heat; a stomach like a furnace; too big to hurt with most weapons. Once it has swallowed someone, it batters them with debris and cinders (d6 damage).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.EYZ5DbxfTP8Pkzmv",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "The Crombil",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "gd4NztWdxmFROXwg",
+      "name": "Chomp right through anything",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i2U1Qxscwoqw6eR0.gd4NztWdxmFROXwg"
+    },
+    {
+      "_id": "GL7h4V3puInTnCCE",
+      "name": "Swallow up someone whole",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i2U1Qxscwoqw6eR0.GL7h4V3puInTnCCE"
+    },
+    {
+      "_id": "EqbGW5ctpZuOi3co",
+      "name": "Upend the terrain around it",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i2U1Qxscwoqw6eR0.EqbGW5ctpZuOi3co"
+    },
+    {
+      "_id": "hvLUifuoBTJgnYtb",
+      "name": "Belch cinders, start fires",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!i2U1Qxscwoqw6eR0.hvLUifuoBTJgnYtb"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "lsA7EU4Jqd5aBOJ7",
+  "_id": "i2U1Qxscwoqw6eR0",
+  "_key": "!actors!i2U1Qxscwoqw6eR0"
+}

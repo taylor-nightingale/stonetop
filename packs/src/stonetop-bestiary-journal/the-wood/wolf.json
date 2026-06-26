@@ -1,0 +1,61 @@
+{
+  "_id": "cTOd0rT6S7LOD3vI",
+  "_key": "!journal!cTOd0rT6S7LOD3vI",
+  "name": "Wolf",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Pack hunters that follow for miles and harry the weak."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 23000,
+  "pages": [
+    {
+      "_id": "lg6zFU5iKsjbijXE",
+      "_key": "!journal.pages!cTOd0rT6S7LOD3vI.lg6zFU5iKsjbijXE",
+      "name": "Wolf",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Pack hunters that follow for miles and harry the weak.",
+        "description": "<p>Wolves of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, ranging in packs that follow prey for miles, surround and flank, and bring down the weakest and the stragglers.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.j5J31XX2Lt7rP9UC"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

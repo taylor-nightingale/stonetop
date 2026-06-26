@@ -1,0 +1,11 @@
+{
+  "name": "Meet with Disaster",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When <strong><em>calamity befalls the steading or panic spreads</em></strong>, reduce Fortunes by 1 (min -1).</p><p>When <strong><em>Fortunes would drop below -1 for any reason</em></strong> (not just calamity or panic), then the GM picks 1 instead:</p><ul><li>The steading marks <em>diminished</em> from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)</li><li>The steading marks <em>lacking</em> due to shortages/hoarding/distrust (treat Prosperity as 1 lower)</li><li>The steading marks <em>malcontent</em> from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)</li><li>Folks start to leave; reduce Population by 1</li></ul>"
+  },
+  "_id": "1UUu8l0L7TPa5C94",
+  "_key": "!items!1UUu8l0L7TPa5C94",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

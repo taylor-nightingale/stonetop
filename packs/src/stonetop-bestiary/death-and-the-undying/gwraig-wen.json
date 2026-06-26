@@ -1,0 +1,103 @@
+{
+  "name": "The Gwraig Wen",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "bare hands d6 w/disadvantage (hand)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to drag others into her search"
+      }
+    },
+    "concept": "The drowned bride who roams moonlit woods, dragging others into her endless search.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, undead, forlorn",
+    "qualities": "<p>Bound to within a few miles of her bones; can't form new memories; leaves no footprints.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.i74FkC9ROlheQBIF",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Gwraig Wen",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "BVGHREcQCmeVKfhh",
+      "name": "Manifest in moonlight as a pale, bedraggled woman",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!B0W8jT7lRFLJK4ds.BVGHREcQCmeVKfhh"
+    },
+    {
+      "_id": "JbK01SA3UFex426y",
+      "name": "Ask for help, insist on it",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!B0W8jT7lRFLJK4ds.JbK01SA3UFex426y"
+    },
+    {
+      "_id": "Z3lj9Dq5SJaWT73C",
+      "name": "Grow ever more agitated, flickering and vibrating as she does",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!B0W8jT7lRFLJK4ds.Z3lj9Dq5SJaWT73C"
+    },
+    {
+      "_id": "frWwpSOZWfApSaFM",
+      "name": "Vent her rage with a deafening wail, d10 damage (near, area, loud, reload, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10"
+      },
+      "_key": "!actors.items!B0W8jT7lRFLJK4ds.frWwpSOZWfApSaFM"
+    },
+    {
+      "_id": "o5owELrHZRyeKhXN",
+      "name": "Vanish when no one's looking",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!B0W8jT7lRFLJK4ds.o5owELrHZRyeKhXN"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "B0W8jT7lRFLJK4ds",
+  "_key": "!actors!B0W8jT7lRFLJK4ds"
+}

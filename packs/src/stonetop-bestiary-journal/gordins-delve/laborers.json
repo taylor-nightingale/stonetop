@@ -1,0 +1,61 @@
+{
+  "_id": "KArFYOqrEF9Y8icz",
+  "_key": "!journal!KArFYOqrEF9Y8icz",
+  "name": "Laborers",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hard-bitten miners and diggers, quick to band together against a threat."
+    }
+  },
+  "folder": "6ADFBIjyJDYHfu5w",
+  "sort": 165000,
+  "pages": [
+    {
+      "_id": "tlwcn9AchdYjkHNg",
+      "_key": "!journal.pages!KArFYOqrEF9Y8icz.tlwcn9AchdYjkHNg",
+      "name": "Laborers",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Hard-bitten miners and diggers, quick to band together against a threat.",
+        "description": "<p>The folk who actually work the Delve's passages and quarries: hard, weary, and protective of the little they've got. Push them and they'll make a show of solidarity, dogpile a troublemaker — and break and run the moment things go truly sideways.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.cAurDbvbZfzfFMAf"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

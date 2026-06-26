@@ -1,0 +1,17 @@
+{
+  "_id": "GXYBGoH8i9aMTF8z",
+  "_key": "!items!GXYBGoH8i9aMTF8z",
+  "name": "Big Damn Hero",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "replaces": "In Over Your Head",
+    "asterisk": { "basicMove": "Defend", "minTotal": 7, "question": "Did you leap into danger to protect someone, or lock eyes with an attacker?" },
+    "description": "<p>When you <strong><em>first leap into danger to protect someone</em></strong>, don't roll to Defend. Instead, treat it as though you rolled a 10+.</p><p>When you <strong><em>Defend</em></strong>, you can spend 1 Readiness to lock eyes with an attacker; they have disadvantage on damage rolls against you and your ward for the rest of the fight. (Replaces In Over Your Head. First use crosses off \"Would-be\" on the front page.)</p>",
+    "requirement": {
+      "level": 6
+    }
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

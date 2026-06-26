@@ -1,0 +1,180 @@
+<form class="{{cssClass}} stonetop stonetop-bestiary-page stonetop-bestiary-sheet flexcol{{#if stonetop.isEditable}} stonetop-edit-mode{{/if}}" autocomplete="off">
+
+	{{#if stonetop.isEditable}}
+	{{> journalEntryPageHeader}}
+	{{else}}{{#if data.title.show}}
+	<header class="journal-page-header">
+		<h{{data.title.level}}>{{data.name}}</h{{data.title.level}}>
+	</header>
+	{{/if}}{{/if}}
+
+	<div class="journal-page-content stonetop-bestiary-container stonetop-bestiary-page-edit">
+
+		{{!-- CONCEPT (rendered as a tagline under the title, with an inline pencil) --}}
+		<section class="stonetop-monster-field" data-section="concept">
+			{{#if stonetop.editing.concept}}
+			<div class="stonetop-section-head">
+				{{> "stonetop.section-heading" title="Concept"}}
+				{{#if stonetop.inlineOwner}}<a class="stonetop-section-done" data-section="concept" title="Done editing"><i class="fas fa-check"></i></a>{{/if}}
+			</div>
+			<textarea data-doc-field="concept"
+			          placeholder='{{localize "stonetop.bestiary.conceptPlaceholder"}}'>{{system.concept}}</textarea>
+			{{else}}{{#if stonetop.visible.concept}}
+			<p class="stonetop-monster-prose stonetop-bestiary-page-concept">{{{stonetop.enrichedConcept}}}{{#if stonetop.inlineOwner}}
+				<a class="stonetop-section-edit stonetop-concept-edit" data-section="concept" title="Edit section"><i class="fas fa-pencil"></i></a>{{/if}}</p>
+			{{/if}}{{/if}}
+		</section>
+
+		{{!-- DESCRIPTION (rich text) --}}
+		{{#if (or stonetop.visible.description stonetop.editing.description)}}
+		<section class="stonetop-monster-field stonetop-monster-field--full" data-section="description">
+			{{> "stonetop.bestiary-section-head" key="description" title=(localize "stonetop.bestiary.description") inlineOwner=stonetop.inlineOwner open=stonetop.open.description}}
+			{{#if stonetop.editing.description}}
+			<prose-mirror class="stonetop-entry-rich-editor stonetop-monster-rich-editor--full"
+			              data-field="description" value="{{system.description}}">{{{stonetop.enrichedDescription}}}</prose-mirror>
+			{{else}}
+			<div class="stonetop-monster-readonly-text stonetop-monster-rich-text">{{{stonetop.enrichedDescription}}}</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		{{!-- LAIR & HABITAT (rich text) — part of the opening identity block, under Description --}}
+		{{#if (or stonetop.visible.nests stonetop.editing.nests)}}
+		<section class="stonetop-monster-field stonetop-monster-field--full" data-section="nests">
+			{{> "stonetop.bestiary-section-head" key="nests" title=(localize "stonetop.bestiary.nests") inlineOwner=stonetop.inlineOwner open=stonetop.open.nests sub=true}}
+			{{#if stonetop.editing.nests}}
+			<prose-mirror class="stonetop-entry-rich-editor stonetop-monster-rich-editor--full"
+			              data-field="nests" value="{{system.nests}}">{{{stonetop.enrichedNests}}}</prose-mirror>
+			{{else}}
+			<div class="stonetop-monster-readonly-text stonetop-monster-rich-text">{{{stonetop.enrichedNests}}}</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+		{{!-- IN PLAY act banner — heads the GM-facing during-play sections (Questions
+		     onward), mirroring the location/lore pages' act headers. --}}
+		{{#if stonetop.showInPlayBanner}}<h2 class="stonetop-section-group stonetop-section-group--inplay">In Play</h2>{{/if}}
+
+		{{!-- QUESTIONS & LORE (prompt + answer pairs) --}}
+		{{#each stonetop.qaSections}}
+		{{#if (or (lookup @root.stonetop.visible key) (lookup @root.stonetop.editing key))}}
+		<section class="stonetop-monster-field stonetop-monster-field--full stonetop-entry-qa-section"
+		         data-qa-field="{{key}}" data-section="{{key}}">
+			{{> "stonetop.bestiary-section-head" key=key title=(localize label) inlineOwner=@root.stonetop.inlineOwner open=(lookup @root.stonetop.open key) sub=true}}
+			{{#if (lookup @root.stonetop.editing key)}}
+			<ul class="stonetop-entry-qa-list">
+				{{#each pairs}}
+				<li class="stonetop-entry-qa-row" data-qa-index="{{@index}}">
+					<div class="stonetop-entry-qa-edit">
+						<input type="text" class="stonetop-entry-qa-input stonetop-entry-qa-prompt"
+						       value="{{prompt}}" placeholder='{{localize "stonetop.bestiary.questionPlaceholder"}}'>
+						<textarea class="stonetop-entry-qa-input stonetop-entry-qa-answer"
+						          placeholder='{{localize "stonetop.bestiary.answerPlaceholder"}}'>{{answer}}</textarea>
+						<a class="stonetop-entry-remove-qa" title="Remove"><i class="fas fa-trash"></i></a>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+			<button type="button" class="stonetop-entry-add-qa" data-field="{{key}}">
+				<i class="fas fa-plus"></i> {{localize "stonetop.bestiary.addQuestion"}}
+			</button>
+			{{else}}
+			<ul class="stonetop-entry-qa-list">
+				{{#each pairs}}
+				{{#if (or prompt answer)}}
+				<li class="stonetop-entry-qa-row">
+					<div class="stonetop-entry-qa-read">
+						{{#if lead}}<p class="stonetop-entry-qa-lead-text">{{lead}}</p>{{/if}}
+						<p class="stonetop-entry-qa-prompt-text">{{{promptHtml}}}</p>
+						{{#if answer}}<p class="stonetop-entry-qa-answer-text">{{{answerHtml}}}</p>{{/if}}
+					</div>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+			{{/if}}
+		</section>
+		{{/if}}
+		{{/each}}
+
+		{{!-- PREP: hooks, origins --}}
+		{{#each stonetop.prepLineSections}}
+		{{#if (or (lookup @root.stonetop.visible key) (lookup @root.stonetop.editing key))}}
+		<section class="stonetop-monster-field stonetop-monster-line-section"
+		         data-line-field="{{key}}" data-section="{{key}}">
+			{{> "stonetop.bestiary-section-head" key=key title=(localize label) inlineOwner=@root.stonetop.inlineOwner open=(lookup @root.stonetop.open key) sub=true}}
+			{{#if (lookup @root.stonetop.editing key)}}
+			{{> "stonetop.bestiary-line-list" this editMode=true}}
+			{{else}}
+			{{#if intro}}<p class="stonetop-monster-line-intro">{{{introHtml}}}</p>{{/if}}
+			<ul class="stonetop-monster-line-list">
+				{{#each lines}}{{#if text}}<li class="stonetop-monster-line"><span>{{{html}}}</span></li>{{/if}}{{/each}}
+			</ul>
+			{{/if}}
+		</section>
+		{{/if}}
+		{{/each}}
+
+		{{!-- DISCOVERIES --}}
+		{{#if (or stonetop.visible.discoveries stonetop.editing.discoveries)}}
+		{{> "stonetop.bestiary-group-section"
+			field="discoveries"
+			title=(localize "stonetop.bestiary.discoveries")
+			addLabel=(localize "stonetop.bestiary.addDiscovery")
+			headingPlaceholder=(localize "stonetop.bestiary.discoveryHeadingPlaceholder")
+			groups=stonetop.discoveryGroups
+			editing=stonetop.editing.discoveries
+			inlineOwner=stonetop.inlineOwner
+			open=stonetop.open.discoveries
+			danger=false}}
+		{{/if}}
+
+		{{!-- DANGERS & HAZARDS (structured groups: named hazard + body + bullets) --}}
+		{{#if (or stonetop.visible.dangers stonetop.editing.dangers)}}
+		{{> "stonetop.bestiary-group-section"
+			field="dangers"
+			title=(localize "stonetop.bestiary.dangers")
+			addLabel=(localize "stonetop.bestiary.addDanger")
+			headingPlaceholder=(localize "stonetop.bestiary.dangerHeadingPlaceholder")
+			groups=stonetop.dangerGroups
+			editing=stonetop.editing.dangers
+			inlineOwner=stonetop.inlineOwner
+			open=stonetop.open.dangers
+			danger=true}}
+		{{/if}}
+
+		{{!-- STAT BLOCKS (read-only references — manage the actors themselves) --}}
+		{{#if stonetop.visible.statBlocks}}
+		<section class="stonetop-monster-field stonetop-monster-field--full" data-section="statBlocks">
+			<div class="stonetop-section-head">
+				{{> "stonetop.section-heading" title=(localize "stonetop.bestiary.statBlocks")}}
+			</div>
+			<ul class="stonetop-entry-statblock-list">
+				{{#each stonetop.statBlocks}}
+				<li class="stonetop-entry-statblock" data-statblock-uuid="{{uuid}}" draggable="true"
+				    title="Drag onto a scene to place a token">
+					{{#if hasImg}}<img class="stonetop-entry-statblock-img" src="{{img}}" alt="{{name}}">{{/if}}
+					<div class="stonetop-entry-statblock-body">
+						<span class="stonetop-entry-statblock-name">{{{link}}}</span>
+						<span class="stonetop-entry-statblock-meta">{{#if organization}}{{organization}} · {{/if}}HP {{hpValue}}/{{hpMax}}</span>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+		{{/if}}
+
+		{{!-- NOTES --}}
+		{{#if (or stonetop.visible.notes stonetop.editing.notes)}}
+		<section class="stonetop-monster-field stonetop-monster-field--full" data-section="notes">
+			{{> "stonetop.bestiary-section-head" key="notes" title=(localize "stonetop.bestiary.notes") inlineOwner=stonetop.inlineOwner open=stonetop.open.notes}}
+			{{#if stonetop.editing.notes}}
+			<textarea data-doc-field="notes">{{system.notes}}</textarea>
+			{{else}}
+			<div class="stonetop-monster-readonly-text">{{system.notes}}</div>
+			{{/if}}
+		</section>
+		{{/if}}
+
+	</div>
+</form>

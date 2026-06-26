@@ -1,0 +1,76 @@
+<div class="tab overview" data-group="primary" data-tab="overview">
+	<section class="sheet-tab steading-overview">
+
+		{{!-- Resources + Assets --}}
+		<div class="steading-main-row">
+			<div class="steading-stat-block steading-edit-section{{#unless stonetop.edit.resources}} stonetop-readonly{{/unless}}">
+				{{> "stonetop.steading-section-toggle" section="resources" editing=stonetop.edit.resources}}
+				<h3 class="steading-list-heading">Resources</h3>
+				<ul class="steading-list">
+					{{#each stonetop.resources}}
+					{{#if name}}
+					<li class="steading-list-item">
+						<span class="steading-list-bullet" aria-hidden="true"></span>
+						<span class="steading-list-name">{{name}}</span>
+						<button type="button" class="steading-list-delete"
+						        data-list="resources" data-index="{{@index}}"
+						        title="Remove" tabindex="-1">
+							<i class="fas fa-times"></i>
+						</button>
+					</li>
+					{{/if}}
+					{{/each}}
+				</ul>
+				{{#if stonetop.edit.resources}}
+				<button type="button" class="steading-list-add" data-list="resources">
+					<i class="fas fa-plus"></i> Add Resource
+				</button>
+				{{/if}}
+			</div>
+
+			<div class="steading-assets-section steading-edit-section{{#unless stonetop.edit.assets}} stonetop-readonly{{/unless}}">
+				{{> "stonetop.steading-section-toggle" section="assets" editing=stonetop.edit.assets}}
+				<h3 class="steading-list-heading">Stonetop Assets
+					<span class="steading-list-heading-note">Owned by residents in common. Requisition to use them on expeditions.</span>
+				</h3>
+				<ul class="steading-list steading-assets-list">
+					{{#each stonetop.assets}}
+					{{#if name}}
+					<li class="steading-list-item">
+						<span class="steading-list-bullet" aria-hidden="true"></span>
+						<span class="steading-list-name steading-asset-name">{{name}}</span>
+						<button type="button" class="steading-list-delete"
+						        data-list="assets" data-index="{{@index}}"
+						        title="Remove" tabindex="-1">
+							<i class="fas fa-times"></i>
+						</button>
+					</li>
+					{{/if}}
+					{{/each}}
+				</ul>
+				{{#if stonetop.edit.assets}}
+				<button type="button" class="steading-list-add" data-list="assets">
+					<i class="fas fa-plus"></i> Add Asset
+				</button>
+				{{/if}}
+			</div>
+		</div>
+
+		{{!-- Places of Interest --}}
+		<div class="steading-places-section steading-edit-section{{#unless stonetop.edit.places}} stonetop-readonly{{/unless}}">
+			{{> "stonetop.steading-section-toggle" section="places" editing=stonetop.edit.places}}
+			<h3 class="steading-list-heading">Places of Interest</h3>
+			<div class="steading-places-grid">
+				{{#each stonetop.places}}
+				<div class="steading-place-item">
+					<span class="steading-place-letter">{{letter}}</span>
+					<input type="text" class="steading-place-name"
+					       data-index="{{@index}}"
+					       value="{{name}}" placeholder="—" {{#unless @root.stonetop.edit.places}}disabled{{/unless}}>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+
+	</section>
+</div>

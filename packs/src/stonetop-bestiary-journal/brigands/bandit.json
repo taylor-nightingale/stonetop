@@ -1,0 +1,61 @@
+{
+  "_id": "3aGN8PEsxue31FpR",
+  "_key": "!journal!3aGN8PEsxue31FpR",
+  "name": "Bandit",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Roadside predators who lure travelers from the safety of the Roads."
+    }
+  },
+  "folder": "RZash2IS2sE5glzA",
+  "sort": 177000,
+  "pages": [
+    {
+      "_id": "KzjVNhuSGxyl0BiY",
+      "_key": "!journal.pages!3aGN8PEsxue31FpR.KzjVNhuSGxyl0BiY",
+      "name": "Bandit",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Roadside predators who lure travelers from the safety of the Roads.",
+        "description": "<p>The magic of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>' Roads and the open terrain make a life of banditry far from easy, but somehow they crop up every few years. Might be <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, disgraced or desperate — but more often than not, they're scoundrels who'd rather bleed their fellows than scrape by up in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin's Delve}</strong>. In the lawless <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong>, where the Roads give no protection, they raid in weaker but more numerous bands (a horde, HP 3, spear or sling d6).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.lfKTKPxpxxExPr8B"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Spirit-talker",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick hides, shield (0–2)"
+      },
+      "damage": {
+        "value": "flint-tipped spear d8 (close, thrown, crude), club or adz d8 (hand, crude), or bow d8 (near)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to protect their people"
+      }
+    },
+    "concept": "Hillfolk touched by the spirits, who guide and protect their band.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cautious, cunning, magical, spirit-wise",
+    "qualities": "<p>Sensitive to the presence of active spirits.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.nJnOuEaIJBZParuZ",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Spirit-talker",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "LUdkOjAFGRmtzYtl",
+      "name": "Sharply rebuke a spirit or mortal",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7ID9ieGRtwH4QoE8.LUdkOjAFGRmtzYtl"
+    },
+    {
+      "_id": "bbuJazkxbISRALi6",
+      "name": "Commune with beasts, or the spirits of a place or thing",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7ID9ieGRtwH4QoE8.bbuJazkxbISRALi6"
+    },
+    {
+      "_id": "M8J8dRzASIVA1MiQ",
+      "name": "Take advantage of the terrain",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7ID9ieGRtwH4QoE8.M8J8dRzASIVA1MiQ"
+    },
+    {
+      "_id": "eHuGHnuLsMAS6JeG",
+      "name": "Borrow and wield a friendly spirit's power",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7ID9ieGRtwH4QoE8.eHuGHnuLsMAS6JeG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nDJFGk0FHXzQWlbI",
+  "_id": "7ID9ieGRtwH4QoE8",
+  "_key": "!actors!7ID9ieGRtwH4QoE8"
+}

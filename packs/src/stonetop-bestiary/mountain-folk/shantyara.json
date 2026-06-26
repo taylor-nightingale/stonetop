@@ -1,0 +1,103 @@
+{
+  "name": "Shantyara",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 18,
+        "max": 18
+      },
+      "armor": {
+        "value": 2,
+        "source": "thick hides and furs, skill"
+      },
+      "damage": {
+        "value": "orichalcum sword d10+2 w/advantage (close, messy, 2 piercing) or bronze knife d10 w/advantage (hand, 1 piercing)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to cleanse the world of the Howling Curse"
+      }
+    },
+    "concept": "A 'tranquil killer' who hunts the Howling Curse's victims through the Whitefangs.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, emotionless, clever, stealthy, hardy, skilled, terrifying",
+    "qualities": "<p>Spirit-sight; immune to mental manipulation; inured to cold, hunger, pain, and deprivation; hard to surprise.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5Sv77XzHPMBgZqJZ",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Shantyara",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zak05HsEVtBzvjKI",
+      "name": "Stalk a suspect with perfect patience",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j8rFoANTmTHD5MKF.zak05HsEVtBzvjKI"
+    },
+    {
+      "_id": "cYwrdz5Xp9AyexX0",
+      "name": "Condemn the tainted for all to hear",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j8rFoANTmTHD5MKF.cYwrdz5Xp9AyexX0"
+    },
+    {
+      "_id": "Gr6uShAycQg0ZLCx",
+      "name": "Try to avoid bloodshed for the untainted",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j8rFoANTmTHD5MKF.Gr6uShAycQg0ZLCx"
+    },
+    {
+      "_id": "MVKWpqS2JcdwtXUl",
+      "name": "Mercilessly cut down the condemned, and any who protect them",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j8rFoANTmTHD5MKF.MVKWpqS2JcdwtXUl"
+    },
+    {
+      "_id": "iIz1IoCcm87AzASG",
+      "name": "Deftly counter an attack they see coming",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j8rFoANTmTHD5MKF.iIz1IoCcm87AzASG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "H4tKi5At1faNP0Np",
+  "_id": "j8rFoANTmTHD5MKF",
+  "_key": "!actors!j8rFoANTmTHD5MKF"
+}

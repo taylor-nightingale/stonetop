@@ -1,0 +1,61 @@
+{
+  "_id": "hNTwQMEAue41DzAx",
+  "_key": "!journal!hNTwQMEAue41DzAx",
+  "name": "Stone Sentinel",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Squat stone guardians that charge for days to erupt in a few minutes of violence."
+    }
+  },
+  "folder": "5NFFyHLQgpZKNJZX",
+  "sort": 98000,
+  "pages": [
+    {
+      "_id": "5hvH8z9U9TifqPZ0",
+      "_key": "!journal.pages!hNTwQMEAue41DzAx.5hvH8z9U9TifqPZ0",
+      "name": "Stone Sentinel",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Squat stone guardians that charge for days to erupt in a few minutes of violence.",
+        "description": "<p>Articulated statues, squat and wide, with huge stone hands, set to watch forever over some ruin, passage, or treasure. Their stone 'minds' are full of vigilance, and violence. Each sentinel bears a power-crystal in its chest, slowly absorbing vibrations through earth and stone — a few days of charging is enough to animate the construct for only a few minutes, which is usually more than enough time for it to repel (or crush) an invader.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.mRpMqY81O24lXlPG"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

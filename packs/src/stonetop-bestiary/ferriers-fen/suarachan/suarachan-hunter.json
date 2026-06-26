@@ -1,0 +1,92 @@
+{
+  "name": "Suarachan Hunter",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1,
+        "source": "scaly hide"
+      },
+      "damage": {
+        "value": "cudgel d8 (close, crude), snapping tongue d6 (reach), poison blowgun needles d6 (near)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to bring home captives for sacrifice"
+      }
+    },
+    "concept": "The raiders and fishers — the suarachan most folk encounter.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, cautious, organized, amphibious",
+    "qualities": "<p>Excellent night vision; salt burns their skin.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Suarachan Hunter",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "BC0ZodylEAesh3Gi",
+      "name": "Surround their quarry unnoticed",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!giaz3wyBZ5Du1vFJ.BC0ZodylEAesh3Gi"
+    },
+    {
+      "_id": "J2tAOxAJBqQZWKJv",
+      "name": "Leap a shocking distance",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!giaz3wyBZ5Du1vFJ.J2tAOxAJBqQZWKJv"
+    },
+    {
+      "_id": "UPLafd0vFPifCox1",
+      "name": "Club someone senseless on the head",
+      "type": "monsterMove",
+      "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!giaz3wyBZ5Du1vFJ.UPLafd0vFPifCox1"
+    },
+    {
+      "_id": "wduP1QIBMkzQ4rEQ",
+      "name": "Tie a fast knot",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!giaz3wyBZ5Du1vFJ.wduP1QIBMkzQ4rEQ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "G2Ab6dVpY7UCfUK6",
+  "_id": "giaz3wyBZ5Du1vFJ",
+  "_key": "!actors!giaz3wyBZ5Du1vFJ"
+}

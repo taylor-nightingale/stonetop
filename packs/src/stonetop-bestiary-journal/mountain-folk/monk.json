@@ -1,0 +1,61 @@
+{
+  "_id": "iXAH0ry7QKDChAqE",
+  "_key": "!journal!iXAH0ry7QKDChAqE",
+  "name": "Monk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Disciplined ascetics of the Whitefangs, heirs to the Rime Lords' teachings."
+    }
+  },
+  "folder": "RAGjKS2JDwIV1qll",
+  "sort": 168000,
+  "pages": [
+    {
+      "_id": "tUnHL7myuMAKbFxI",
+      "_key": "!journal.pages!iXAH0ry7QKDChAqE.tUnHL7myuMAKbFxI",
+      "name": "Monk",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Disciplined ascetics of the Whitefangs, heirs to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>' teachings.",
+        "description": "<p>The fortress-monasteries of the Whitefangs follow the half-remembered teachings of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>. Consider creating custom instincts and moves for each group of monks, based on the teachings and practices of their monastery and sect — Empty Sky (ignore the suffering of others), Unmoved Mountain (push and test themselves), White Crystal (impose order), and others.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.EDaesIZe2McJdVG7"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

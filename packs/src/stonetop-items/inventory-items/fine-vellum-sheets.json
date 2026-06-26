@@ -1,0 +1,21 @@
+{
+  "_id": "tQAuzSsJimAQ8yRV",
+  "_key": "!items!tQAuzSsJimAQ8yRV",
+  "name": "Fine vellum, a few sheets",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "fine-vellum-sheets",
+      "inventoryColumn": "small",
+      "sortOrder": 34,
+      "note": "<em>fragile</em>",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Writing Implements"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

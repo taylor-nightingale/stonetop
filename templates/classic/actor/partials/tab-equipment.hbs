@@ -1,0 +1,183 @@
+<div class="tab equipment" data-group="primary" data-tab="inventory">
+
+	{{#if stonetop.outfit}}
+
+	{{!-- Outfit header --}}
+	<div class="stonetop-outfit-header">
+		<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
+		<ul class="stonetop-outfit-loads">
+			<li>
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
+					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
+					       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
+					<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
+				</label>
+			</li>
+			<li>
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
+					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
+					       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
+					<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
+				</label>
+			</li>
+			<li>
+				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
+					<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
+					       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
+					<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
+				</label>
+			</li>
+		</ul>
+	</div>
+
+	<section class="stonetop-inventory">
+
+		{{!-- Regular items (left column) --}}
+		<div class="stonetop-inventory-regular">
+			{{> "classic.section-heading" title=(localize "stonetop.inventory.regularItems")}}
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
+			{{!-- Regular pool --}}
+			<div class="stonetop-supplies-pool">
+				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.regularUndefinedPoolLabel"}}</strong></span>
+				<span class="stonetop-supplies-pool-diamonds">
+					{{#each (classicPoolGroups stonetop.outfit.regularPool)}}
+					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
+					{{#each this}}
+					<input type="checkbox"
+					       class="stonetop-inv-diamond stonetop-regular-pool-btn{{#if checked}} is-checked{{/if}}"
+					       data-index="{{index}}"
+					       {{#if checked}}checked{{/if}}>
+					{{/each}}
+					{{/each}}
+				</span>
+			</div>
+			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
+			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.regularItemsNote"}}}</p>
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
+			{{> "classic.outfit-items" sections=stonetop.outfit.regularSections addColumn="regular"}}
+		</div>
+
+		{{!-- Small items (right column) --}}
+		<div class="stonetop-inventory-small">
+			{{> "classic.section-heading" title=(localize "stonetop.inventory.smallItems")}}
+			<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.smallItemsNote"}}}</p>
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
+			{{!-- Small pool --}}
+			<div class="stonetop-supplies-pool">
+				<span class="stonetop-supplies-pool-label"><strong>{{localize "stonetop.inventory.smallUndefinedPoolLabel"}}</strong></span>
+				<span class="stonetop-supplies-pool-diamonds">
+					{{#each (classicPoolGroups stonetop.outfit.smallPool)}}
+					{{#unless @first}}<span class="stonetop-supplies-pool-gap"></span>{{/unless}}
+					{{#each this}}
+					<input type="checkbox"
+					       class="stonetop-inv-square stonetop-small-pool-btn{{#if checked}} is-checked{{/if}}"
+					       data-index="{{index}}"
+					       {{#if checked}}checked{{/if}}>
+					{{/each}}
+					{{/each}}
+				</span>
+			</div>
+			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
+			<div class="stonetop-inv-divider" aria-hidden="true"></div>
+			{{#each stonetop.outfit.smallSections}}
+			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
+			{{#each (outfitSegments items)}}
+		{{#if isGrid}}
+			<div class="stonetop-inv-grid">
+				{{#each items}}
+				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
+					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
+					       data-slug="{{slug}}"
+					       {{#if checked}}checked{{/if}}>
+					<span class="stonetop-inv-label">{{name}}</span>
+				</label>
+				{{/each}}
+			</div>
+			{{else}}
+			{{#each items}}
+			<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
+				<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square"
+				       data-slug="{{slug}}"
+				       {{#if checked}}checked{{/if}}>
+				<span class="stonetop-inv-label">{{name}}
+					{{#if note}}<span class="stonetop-inv-note">({{{note}}})</span>{{/if}}
+				</span>
+				{{#if resource}}
+				<span class="stonetop-inv-resources">
+					{{> "classic.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
+				</span>
+				{{/if}}
+				{{#if isCustom}}
+				<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" title="{{localize 'stonetop.inventory.removeItem'}}"><i class="fas fa-times"></i></a>
+				{{/if}}
+			</label>
+			{{/each}}
+			{{/if}}
+			{{/each}}
+			{{/each}}
+			<button type="button" class="stonetop-inv-add-btn" data-column="small">
+				<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addSmallItem"}}
+			</button>
+			<div>
+				{{> "classic.section-heading" title=(localize "stonetop.inventory.otherItems")}}
+				<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.otherItemsNote"}}}</p>
+				<textarea class="stonetop-notes st-notes-textarea" type="text" placeholder="" >{{stonetop.outfit.otherItems}}</textarea>
+			</div>
+		</div>
+
+	</section>
+	{{/if}}
+
+	{{#if stonetop.possessions}}
+	<div class="tab-section tab-section--possessions">
+		{{> "classic.section-heading" title=(localize "stonetop.character.gear.specialPossessions") note=stonetop.possessions.pickNote}}
+		<ol class="stonetop-possession-list">
+		{{#each stonetop.possessions.items}}
+			<li class="stonetop-item{{#if checked}} is-checked{{/if}}">
+				<div class="stonetop-item-header">
+					<input type="checkbox" class="stonetop-item-check stonetop-possession-check"
+					       data-slug="{{slug}}"
+					       {{#if checked}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					<strong class="stonetop-item-name stonetop-rich">{{{md label}}}</strong>
+					{{#if preselectedSource}}<span class="stonetop-item-source">{{preselectedSource}}</span>{{/if}}
+					{{#if resource}}
+					<span class="stonetop-item-resources">
+						{{> "classic.resource-track" resource=resource btnClass="stonetop-item-resource-check" possessionSlug=slug}}
+					</span>
+					{{/if}}
+					{{#if (and isAuthored @root.stonetop.editable)}}
+					<a class="stonetop-possession-authored-edit" data-slug="{{slug}}" title="{{localize 'stonetop.character.gear.editPossession'}}"><i class="fas fa-pen-to-square"></i></a>
+					<a class="stonetop-possession-authored-remove" data-slug="{{slug}}" title="{{localize 'stonetop.character.gear.removePossession'}}"><i class="fas fa-times"></i></a>
+					{{/if}}
+				</div>
+				{{#if description}}
+				<div class="stonetop-item-description stonetop-rich">{{{md description}}}</div>
+				{{/if}}
+				{{#if choices}}
+				<div class="stonetop-choice-rows" data-possession-slug="{{slug}}">
+				{{#each choices.list}}
+					{{#if (eq type "entry")}}
+					<p class="stonetop-choice-row-heading stonetop-rich">{{{md content.title}}}{{#if content.titleNote}} <em>({{{md content.titleNote}}})</em>{{/if}}</p>
+					{{else if radio}}
+					{{> "classic.choice-row" inputClass="stonetop-possession-sub-radio" namePrefix="stonetop" possessionSlug=../slug}}
+					{{else}}
+					{{> "classic.choice-row" inputClass="stonetop-possession-sub-check" possessionSlug=../slug}}
+					{{/if}}
+				{{/each}}
+				</div>
+				{{/if}}
+			</li>
+		{{/each}}
+		</ol>
+		{{#if stonetop.editable}}
+		<div class="stonetop-possession-add-custom-row">
+			<button type="button" class="stonetop-possession-add-custom">
+				<i class="fas fa-plus"></i> {{localize "stonetop.character.gear.addCustomPossession"}}
+			</button>
+		</div>
+		{{/if}}
+	</div>
+	{{/if}}
+
+</div>

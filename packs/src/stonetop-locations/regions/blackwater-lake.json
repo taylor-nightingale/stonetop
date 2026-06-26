@@ -1,0 +1,150 @@
+{
+  "_id": "25HD51CKompWLFvB",
+  "_key": "!journal!25HD51CKompWLFvB",
+  "name": "Blackwater Lake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "In the west of the Steplands, in the shadow of the Huffel Peaks, there is a large and placid lake. A low ridge surrounds it, and a wide, rocky shore. The Aberzh River flows in from the west. No rivers or streams flow out."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 4000,
+  "pages": [
+    {
+      "_id": "fQLW7MZEdD2lPsML",
+      "_key": "!journal.pages!25HD51CKompWLFvB.fQLW7MZEdD2lPsML",
+      "name": "Blackwater Lake",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>In the west of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, in the shadow of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>, there is a large and placid lake. A low ridge surrounds it, and a wide, rocky shore. The Aberzh River flows in from the west. No rivers or streams flow out.</p><p>The water is dark, and very deep, and very, very still. It is always cold but never freezes. There are no waves. The wind shuns the surface. No birds dare alight.</p><p>This was once great Dulenn, city of Dark Waters, the slow-beating heart of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>’ vast domain. Whereas Teirstered was a city of towers and splendor, Dulenn was a solemn place. A quiet warren, carved and sung from bedrock with the beauty of a limestone cave.</p><p>There was no lake, then. Not above the ground. But it was called “Dark Waters” for a reason. For seven deep tunnels led to seven mighty seals, each guarded by Stone Lord sentinels who sang a ceaseless lulling song. Behind those doors was a vast and lightless lake. A hole in the earth. A Mouth of Daagon.</p><p>When the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> roused the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> to help them quell the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, the seals below Dulenn cracked. Daagon began to whisper. Began to sing. Resentment grew among the Stone Lords’ human servants. Leaders rose among them: cunning, confident, and eloquent, knowing things they oughtn’t, awash in uncanny power. Cults of liberation formed. A conspiracy grew.</p><p>Seven sorcerers infiltrated Dulenn. They found the tunnels. They slew the sentinels. They broke the seals.</p><p>And Daagon, Who Waits in Deep Water, waited no more. It thrashed. It opened its yawning dark wet jaws. Dulenn fell into the earth. And the Dark Water, the Blackwater, surged in to flood the hole.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<ul><li>Striations in nearby outcrops, tilted towards the lake</li><li>The damp, mineral smell of wet stone</li><li>Clouds, stars, shoreline—all reflected in the lake</li><li>Stillness, quiet, echoes of the slightest sound</li><li>At times: thick banks of fog, wet, cloying, isolating</li></ul><p>Tip: lower your voice; speak slowly, softly, make them lean in to hear you.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Getting there",
+            "group": "place",
+            "danger": false,
+            "body": "<p>To reach Blackwater Lake from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>:</p><ul><li>First you must travel to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, which will take at least 4 days.</li><li>From there, it will take at least 2 days and corresponding amount of supplies</li><li>You need a knowledgeable guide.</li><li>Even then, you risk getting lost near the lake.</li><li>The terrain itself is treacherous, you risk injury on the way.</li><li>The way is grueling, you risk exhausting yourselves/your resources.</li><li>You need to watch out for horrors from the lake.</li><li>The way is perilous, plagued with danger.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Areas",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>Nearby hills: A soft place, where paths might change in the fog, full of ruins, barrow mounds, and caves. Bedrock and ruins all tilt towards the lake.</li><li>Outer ridge: An escarpment that rings the lake, dropping 50-100’ to the shores. Lightly wooded up top. Holds a number of ruins, buried at odd angles, some poking out.</li><li>Shore: Extends 100-200’ from the outer ridge. Lots of rubble, much of it ancient masonry. Thick lichen, grass that leans away from the lake.</li><li>The Aberzh River: Cuts through the western ridge, then widens and flows lazily to the lake. Muddy, shallow, rocky. Lots of dark algae.</li><li>The Pillar: On the north shore, 40’ wide and over 100’ tall. Made of salvaged masonry stones, crudely stacked. No obvious entrance. A precarious climb. Feels cursed.</li><li>The lake: About 2 x 3 miles. Impossibly still, dark, reflective. Always cold, never freezes. Hundreds of feet deep near the center.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12). If you like, roll 1d6 for size/scope/intensity.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Trees/shrubs/succulents/tall grass</td></tr><tr><td>2–3</td><td>Ridge wall/prominence/overhang</td></tr><tr><td>4–5</td><td>Scree/rubble/rocks/boulders</td></tr><tr><td>6–7</td><td>ruin or barrow</td></tr><tr><td>8</td><td>Very large boulder(s)</td></tr><tr><td>9</td><td>Pool/pond/spring/rivulet</td></tr><tr><td>10</td><td>Peninsula/cove/inlet</td></tr><tr><td>11</td><td>Mud/mire/shingle/shallows</td></tr><tr><td>12</td><td>Drop-off/deep water</td></tr></tbody></table><p><strong>1d12 ruin or barrow</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Partly collapsed mound of earth and stones, each carved with fearrunes. Holds bones, clay vessels full of rotted grain.</td></tr><tr><td>2</td><td>Warehouse-sized bunker of massive blocks, buried at a severe angle. Bay doors visible, heavily marred, but still intact.</td></tr><tr><td>3</td><td>Warren of human-sized rooms, dug into outer ridge. Confusing layout, odd angles, unstable, lit by glowing crystals.</td></tr><tr><td>4</td><td>Door into the ridge, leading to a crude, vaulted room. Holds a 12’ statue of a squat, fishy beast. Its mouth opens to a deep shaft.</td></tr><tr><td>5</td><td>Dozens of makerglass tubes, each smaller than the last, lined up in ranks and fused together. Chime hauntingly when struck.</td></tr><tr><td>6</td><td>Walls of a cubical stone room with many niches. Tilted ~30°. Crystalline fixture in one wall. Words spoken here blare from somewhere across the lake.</td></tr><tr><td>7</td><td>Series of dissimilar rooms and tunnels, leading to a massive underground amphitheater, like a cyst in the earth. Largely flooded.</td></tr><tr><td>8</td><td>Stone head, bigger than a house, barely recognizable. Eye sockets open to a chamber. Interior walls covered in runes, useless levers.</td></tr><tr><td>9</td><td>Barrow on the ridge, hidden by trees, brush. An open doorway. Inside: a withered corpse bound by bronze, a pile of offerings.</td></tr><tr><td>10</td><td>Small hill of stacked stones; one slab hides a door. Inside, an icy crystal lures in wraiths, binds them; scores are trapped already.</td></tr><tr><td>11</td><td>Cavernous, buried room, tilted but mostly whole. Full of chisels and warded pavestones: mostly smashed, a few in progress, some buried but intact.</td></tr><tr><td>12</td><td>Onion-shaped dome of stone, ~30’ across. Hollow, an opening facing down, water pooling impossibly on the ceiling inside.</td></tr></tbody></table><p>The above are just examples. To create more Stone Lord ruins, see page 386 but roll for condition with disadvantage. Those that are at all intact will be tilted and askew, and are likely to have been reclaimed by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> at some point.</p><p>To create more barrows, see page 39.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around Blackwater Lake. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SmHddXJMWp3niCln]{Servants of Daagon}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SmHddXJMWp3niCln]{Servants of Daagon}</strong> are roaming further from the lake than usual.</li><li>A thrall of Daagon drags a victim here to sacrifice.</li><li>A deathless one’s tether is hidden near the lake.</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> spirit-talkers sing a certain song here every 7 years to keep the lake subdued.</li><li>A dangerous artifact needs to be cast into the Mouth of Daagon.</li><li>Certain NPCs hear a silent song, calling them to Blackwater Lake.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>An unnerving tableau (see below)</td></tr><tr><td>4</td><td>An encounter (see below)</td></tr><tr><td>5</td><td>An artifact of... (see below)</td></tr><tr><td>6</td><td>An opportunity (see below)</td></tr></tbody></table><p><strong>1d6 unnerving tableau</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>An altar, trappings of ceremony, blood stains, slimy trails</td></tr><tr><td>2</td><td>Wards/bindings on an open entrance, marred and broken</td></tr><tr><td>3</td><td>A slowly rotting pile of skin, like it was sloughed off</td></tr><tr><td>4</td><td>Skeleton(s), dry and brittle, tiny little bite marks (?) all over the bones</td></tr><tr><td>5</td><td>Partial skeleton(s); some of the bones are missing, others seem… melted</td></tr><tr><td>6</td><td>A large mammal, like a horse or aurochs; staggers out into the lake, gets yanked below water</td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A thrall of Daagon, heavily marked, full of shame</td></tr><tr><td>2</td><td>A lone servant of Daagon, dragging something of value to the lake</td></tr><tr><td>3</td><td>A hdour, come to bargain with Daagon or its servants</td></tr><tr><td>4</td><td>A spirit of the wild, likely corrupted but still curious or indifferent</td></tr><tr><td>5</td><td>A confused wanderer, following a voice in their head</td></tr><tr><td>6</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>: exiled, on the hunt, checking wards, etc.</td></tr></tbody></table><p>1d6 artifact of...</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>3–4</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></td></tr><tr><td>5</td><td>…Some other group of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong></td></tr><tr><td>6</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr></tbody></table><p><strong>1d6 opportunity</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A boat/raft (roll 1d6 for condition)</td></tr><tr><td>2</td><td>Large game (aurochs, deer, boar, etc.); confused, strangely docile</td></tr><tr><td>3</td><td>A treasure, left in shallow waters or set on a rock not far out from shore</td></tr><tr><td>4</td><td>Hillfolk in trouble and wary but grateful for help</td></tr><tr><td>5</td><td>A good place to rest/restock/lay an ambush</td></tr><tr><td>6</td><td>A sacred site, somehow uncorrupted</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>A stretch of water and reason to brave it</li><li>Rocks to climb and a reason to try it</li><li>Poor footing (mud, unstable rubble, scree, slick wet stone, etc.)</li><li>Rockslides on the outer ridge</li><li>Unstable construction or perilous stone</li><li>Disquiet and unease, whispers and visions, unnatural phenomena, and corruption</li></ul>"
+              },
+              {
+                "heading": "Fog",
+                "body": "<p>Fog forms often, especially on breezy, warm days or during still, chilly nights. Sometimes it comes with no warning. And sometimes, reality becomes… malleable… in the fog.</p><ul><li>Have mist start to gather, thicken</li><li>Obscure their surroundings, make them struggle to navigate</li><li>Separate them, perhaps inexplicably</li><li>Hint at/reveal the presence of servants of Daagon</li><li>Have them end up far from where they should be</li><li>Reveal that the landscape has changed, rearranged itself</li></ul>"
+              },
+              {
+                "heading": "The Blackwater",
+                "body": "<p>The lake is always frigid but never freezes over. It is weirdly dark and still, smooth like glass. Any disturbance ripples out and out and out. It feels like it is sleeping. Like it’s lying in wait.</p><p>Hazards include:</p><ul><li>Instinctive dread, from a generational fear of water</li><li>The fact that they probably can’t swim</li><li>Shivering cold, the threat of debilities or even hypothermia</li><li>Poor footing (slick rocks, mud, algae)</li><li>Steep, unexpected drop-offs</li><li>Getting dragged down by their gear</li></ul>"
+              },
+              {
+                "heading": "Drowning",
+                "body": "<p>When you plunge beneath the water, hold Breath equal to 1 + your CON. If you first took a deep breath, hold 2 extra Breath.</p><p>When you make a move while under the Blackwater, and that move involves a roll, choose 1 of the following after the move is resolved:</p><ul><li>Spend 1 Breath</li><li>Mark a debility</li><li>Lose yourself in the Blackwater</li></ul><p>When you lose yourself in the Blackwater, time seems to stop and you find yourself adrift in a watery, hungry void. Roll +WIS: on a 7+, you snap back to reality, somehow holding 2 Breath. But also, on a 10+, choose 1; on a 7-9, choose 2:</p><ul><li>Gain a mark of Daagon; you are now corrupted</li><li>Name something you possess that you love or treasure; it’s gone</li><li>Choose something about yourself that you value (a move, your instinct, something about your appearance); lose it</li></ul><p>On a 6-, either embrace Daagon as your master (gain the Thrall insert), or else make one last move before you are swallowed by the Mouth of Daagon.</p>"
+              },
+              {
+                "heading": "Call of Daagon",
+                "body": "<p>Daagon still sings its silent song. It calls out to the weak-willed, and to those who nurse jealousy or greed in their souls. It whispers to them from afar, and compels them towards Blackwater Lake. It urges the weak-willed to enter the water and be devoured. To the jealous and the greedy, it offers power, wealth, or immortality. For a price, of course.</p>"
+              },
+              {
+                "heading": "Mouth of Daagon",
+                "body": "<p>At the bottom of the lake, hundreds of feet down, is a Mouth of Daagon. Anything dropped into the deep water will make its way there in time. Valuables left on the shore or cast into the shallows will likely be found by the servants and delivered to the Mouth on your behalf. Dangerous artifacts left for the servants might be delivered and consumed, or not.</p><p>When the Mouth swallows something, Daagon consumes it utterly. When the Mouth swallows someone, they are gone, body and soul.</p><p>When you feed the Mouth with something or someone beloved (by anyone, not just you), Daagon rewards you.</p><p><strong>1d6 reward</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A physical change (scales, rubbery flesh, gills, a tentacle, etc.) and perhaps a gift to go with it</td></tr><tr><td>2</td><td>An item of luxury or status (Value 2)</td></tr><tr><td>3</td><td>A precious item (Value 3)</td></tr><tr><td>4</td><td>A “priceless” item (Value 4)</td></tr><tr><td>5</td><td>A way to best your rivals or defeat your enemies</td></tr><tr><td>6</td><td>A way to acquire great power or long life</td></tr></tbody></table><p>Whatever the reward, it arrives soon: while you sleep, in your dreams, or via vision or coincidence or happy accident.</p>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Pypeds or unbound wraiths, desperate and ever-hungry, drawn here by Daagon’s call</li><li>A deathless one, dwelling in or bound to a nearby barrow</li><li>Cultists, sorcerers, or thralls, bearing many gifts and many marks</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, ready to assume the worst about the PCs</li><li>Stone Lord constructs in long-buried ruins, probably damaged, behaving erratically, and/or corrupted</li><li>Hdours, adventurers or antiquarians, answering Daagon’s call</li><li>Any number of corrupted beings or emanations, such as the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.m46X5auaZwdxphBl]{Hand of Daagon}</strong></li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

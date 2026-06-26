@@ -1,0 +1,61 @@
+{
+  "_id": "BUMZ5O0VT9SDjfwE",
+  "_key": "!journal!BUMZ5O0VT9SDjfwE",
+  "name": "Grochslon",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An eyeless, double-jawed cave predator from the lightless lakes."
+    }
+  },
+  "folder": "f51tBxK2KHoXoJZs",
+  "sort": 40000,
+  "pages": [
+    {
+      "_id": "zvAUMz9DzP5e9Aec",
+      "_key": "!journal.pages!BUMZ5O0VT9SDjfwE.zvAUMz9DzP5e9Aec",
+      "name": "Grochslon",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An eyeless, double-jawed cave predator from the lightless lakes.",
+        "description": "<p>Pale, eyeless things that spawn in the lightless lakes below the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> — like a great big pale salamander or snake with two stubby, muscular legs. As they grow, they find food down there sparse and make their way to the surface. Mostly they stick to cave mouths, but sometimes they get bold enough to leave their sheltered holes of rock and lurk in places where you'd never expect them.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.uP9zE6MDiS3TwIWF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

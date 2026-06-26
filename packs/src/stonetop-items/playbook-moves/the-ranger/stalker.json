@@ -1,0 +1,12 @@
+{
+  "_id": "NEnTApDVxnz1IBX6",
+  "_key": "!items!NEnTApDVxnz1IBX6",
+  "name": "Stalker",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>carry a normal or light load and move with care</em></strong>, you make no noise and leave no sign of your passing. When you <strong><em>hide yourself in a natural environment</em></strong>, you remain unseen until you draw attention to yourself, move positions, or attack.</p>"
+  },
+  "folder": "fr7cP7vKBgBxbN0Q"
+}

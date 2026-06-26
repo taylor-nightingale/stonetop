@@ -1,0 +1,81 @@
+{
+  "name": "Phantom Rider",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 2,
+        "source": "lacks organs, shield"
+      },
+      "damage": {
+        "value": "spear d8 (close, thrown), trample d8+2 (hand, forceful), or bow d8 (near)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to seek tribute, to lord over others"
+      }
+    },
+    "concept": "Undying horse-pledged warriors of a dead warlord, riding the wind.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, spirit, undead, organized",
+    "qualities": "<p>Bound to their bones; can travel far and wide; can't manifest in daylight; takes +1d4 damage from silver.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.llEqxrhsKD2DvYdP",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Phantom Rider",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "AQ9VTlPOOAHWnzKV",
+      "name": "Speed across the landscape like the wind itself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8T8jqS04adlc5107.AQ9VTlPOOAHWnzKV"
+    },
+    {
+      "_id": "YiESsUKkvZN47Nlp",
+      "name": "Form a body of soil, dust, and mist",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8T8jqS04adlc5107.YiESsUKkvZN47Nlp"
+    },
+    {
+      "_id": "VxHGTHfINwWNPmlm",
+      "name": "Flank and harry their foes",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8T8jqS04adlc5107.VxHGTHfINwWNPmlm"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "3ix7kVgtSNskFx0Y",
+  "_id": "8T8jqS04adlc5107",
+  "_key": "!actors!8T8jqS04adlc5107"
+}

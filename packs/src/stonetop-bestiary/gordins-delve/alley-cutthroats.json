@@ -1,0 +1,91 @@
+{
+  "name": "Alley Cutthroats",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "wicked knife d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to prey on the unwary"
+      }
+    },
+    "concept": "Knife-men of the Delve who prey on the unwary for whatever they're carrying.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, cautious, organized",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.49lW4BgpS3pMT2V4",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Alley Cutthroats",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "QNdTw48M1TKGmrbq",
+      "name": "Pick out a likely mark",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!SMMwdADDvKB1vAar.QNdTw48M1TKGmrbq"
+    },
+    {
+      "_id": "QV99VKUrtqilUkQQ",
+      "name": "Jump someone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!SMMwdADDvKB1vAar.QV99VKUrtqilUkQQ"
+    },
+    {
+      "_id": "ouzfYxkvhCHsryy1",
+      "name": "Fight dirty",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!SMMwdADDvKB1vAar.ouzfYxkvhCHsryy1"
+    },
+    {
+      "_id": "NXDV6zLnBUq8oGoS",
+      "name": "Leave no witnesses",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!SMMwdADDvKB1vAar.NXDV6zLnBUq8oGoS"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "TAdHt3uEDdJHqNf1",
+  "_id": "SMMwdADDvKB1vAar",
+  "_key": "!actors!SMMwdADDvKB1vAar"
+}

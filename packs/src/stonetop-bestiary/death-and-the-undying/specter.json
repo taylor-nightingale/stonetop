@@ -1,0 +1,92 @@
+{
+  "name": "Specter",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks vitals"
+      },
+      "damage": {
+        "value": "telekinesis d10+2 (hand, close, near, grabby, forceful)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to torment the living"
+      }
+    },
+    "concept": "A vengeful, telekinetic ghost of pure spite, tormenting the living.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, undead, stealthy, terrifying, cruel",
+    "qualities": "<p>Bound to its tether; one or more weaknesses.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.EBKcoyX7cPlMtzG7",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Specter",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "SQufow2G8uQk81dZ",
+      "name": "Create eerie environmental effects (bleeding walls, green flames)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3bGjXtEOne32k1cr.SQufow2G8uQk81dZ"
+    },
+    {
+      "_id": "eRJkdZFom8qbDDa0",
+      "name": "Manifest a form of flitting shadow (harmed only by silver or salt)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3bGjXtEOne32k1cr.eRJkdZFom8qbDDa0"
+    },
+    {
+      "_id": "FF10AGxkRViNfvdU",
+      "name": "Manifest a nightmarish physical form",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3bGjXtEOne32k1cr.FF10AGxkRViNfvdU"
+    },
+    {
+      "_id": "YnYf9jtN6pi5fYV3",
+      "name": "Speak through an unconscious or catatonic victim",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3bGjXtEOne32k1cr.YnYf9jtN6pi5fYV3"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "3bGjXtEOne32k1cr",
+  "_key": "!actors!3bGjXtEOne32k1cr"
+}

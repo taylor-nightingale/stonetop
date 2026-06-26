@@ -1,0 +1,61 @@
+{
+  "_id": "nXxqWnbt932F98UJ",
+  "_key": "!journal!nXxqWnbt932F98UJ",
+  "name": "Wild Horse",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Skittish wild herds that roam the prairie."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 9000,
+  "pages": [
+    {
+      "_id": "lkhQJa9UPTjB06Dn",
+      "_key": "!journal.pages!nXxqWnbt932F98UJ.lkhQJa9UPTjB06Dn",
+      "name": "Wild Horse",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Skittish wild herds that roam the prairie.",
+        "description": "<p>They roam the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> in herds ranging from a half-dozen to a couple dozen. The larger herds will, in time, give rise to a ceffylwraig.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.uMjVv3GGJowiNCka"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

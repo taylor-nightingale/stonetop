@@ -1,0 +1,17 @@
+<div class="stonetop-section-head">
+	{{!-- `sub` sections render an h4 (one level below the h3 section headers) so the
+	     journal TOC nests them under the preceding section and they read as smaller
+	     sub-headings on the page. --}}
+	{{#if sub}}
+	<h4 class="stonetop-move-group-title">{{title}}</h4>
+	{{else}}
+	<h3 class="stonetop-move-group-title">{{title}}</h3>
+	{{/if}}
+	{{#if inlineOwner}}
+	{{#if open}}
+	<a class="stonetop-section-done" data-section="{{key}}" title="Done editing"><i class="fas fa-check"></i></a>
+	{{else}}
+	<a class="stonetop-section-edit" data-section="{{key}}" title="Edit section"><i class="fas fa-pencil"></i></a>
+	{{/if}}
+	{{/if}}
+</div>

@@ -1,0 +1,67 @@
+{
+  "_id": "J0eNyUcWDLD2ornV",
+  "_key": "!journal!J0eNyUcWDLD2ornV",
+  "name": "Thraulgwyn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Cannibal 'pale demons' of the Labyrinth — corrupted disciples of the Things Below."
+    }
+  },
+  "folder": "AD2KFPd4IXHNl0yJ",
+  "sort": 44000,
+  "pages": [
+    {
+      "_id": "XbjOkmGBMYByEeLN",
+      "_key": "!journal.pages!J0eNyUcWDLD2ornV.XbjOkmGBMYByEeLN",
+      "name": "Thraulgwyn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Cannibal 'pale demons' of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong> — corrupted disciples of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.",
+        "description": "<p>Their hair is white, their skin pallid and painted with lime, mud, and blood; their pupils wide like gaping holes; their teeth filed sharp; their weapons obsidian, stone, and bone — and they tan human flesh for leather. The folk of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin's Delve}</strong> know them as the 'pale demons.' They descend from Barrow Builder warlords and sorcerer-kings who fled into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong>, already depraved disciples of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>; after generations of inbreeding, cave-dwelling, and cannibalism, they're barely human. And yet they keep a language, make deals with outsiders, hate rival tribes more than surface-dwellers, and forage or even cultivate most of their food.</p>",
+        "questions": [
+          {
+            "prompt": "What do you think the thraulgwyn, the pale demons, really are?",
+            "answer": ""
+          }
+        ],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.V5DQxuoMBLOw1qEW",
+          "Compendium.stonetop.stonetop-bestiary.Actor.R3CGOnv3X1BQUpB5"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

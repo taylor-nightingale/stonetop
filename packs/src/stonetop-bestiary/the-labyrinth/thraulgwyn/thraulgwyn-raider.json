@@ -1,0 +1,102 @@
+{
+  "name": "Thraulgwyn Raider",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1
+      },
+      "damage": {
+        "value": "obsidian-tipped bone spear d8 (close, thrown, crude), femur d8 (close, crude), hair-rope net (thrown, crude, grabby), bite d6 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to glorify their tribe"
+      }
+    },
+    "concept": "Cave-raiders who roam in gangs, playing cat and mouse with rival bands.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, corrupted, stealthy, organized, cautious",
+    "qualities": "<p>Gifted and marked according to their tribe. A raiding party may be led by a champion (leader, +2 HP, rolls damage with advantage).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.J0eNyUcWDLD2ornV",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Thraulgwyn Raider",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "iY7m7M4zvx6CAQVS",
+      "name": "Use their gift",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!V5DQxuoMBLOw1qEW.iY7m7M4zvx6CAQVS"
+    },
+    {
+      "_id": "3xWajHQ3iHJLrXlm",
+      "name": "Move quietly through the dark",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!V5DQxuoMBLOw1qEW.3xWajHQ3iHJLrXlm"
+    },
+    {
+      "_id": "nn3TXDvcga5qSmgz",
+      "name": "Lure prey into an ambush",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!V5DQxuoMBLOw1qEW.nn3TXDvcga5qSmgz"
+    },
+    {
+      "_id": "CeKFERYCT6IAtaUo",
+      "name": "Pounce with sudden ferocity",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!V5DQxuoMBLOw1qEW.CeKFERYCT6IAtaUo"
+    },
+    {
+      "_id": "HrsY1v961HGbjvge",
+      "name": "Flee if things go south",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!V5DQxuoMBLOw1qEW.HrsY1v961HGbjvge"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "6lgG8x4gJKsEmtlp",
+  "_id": "V5DQxuoMBLOw1qEW",
+  "_key": "!actors!V5DQxuoMBLOw1qEW"
+}

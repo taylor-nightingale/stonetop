@@ -1,0 +1,81 @@
+{
+  "name": "Anan Gllo",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 11,
+        "max": 11
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, armor"
+      },
+      "damage": {
+        "value": "weapon d6 (tags by weapon) or crushing grip d4 (hand, grabby)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to follow orders"
+      }
+    },
+    "concept": "The Empty Dead — corpses risen from a Thing Below's vessel, fading a little each dawn.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, undead, corrupted, tireless, fearless, terrifying",
+    "qualities": "<p>Weaken over time (see the entry). Armor 1 vs. bronze or fire.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5SQHTsAkmgqupgVw",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Anan Gllo",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "pPbfbsfjaO4P5wGV",
+      "name": "Advance implacably",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9wN9UhM3IORfcw0J.pPbfbsfjaO4P5wGV"
+    },
+    {
+      "_id": "LluPiHDb5KO81NUA",
+      "name": "Unnerve foes with their silence, their empty eyes",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9wN9UhM3IORfcw0J.LluPiHDb5KO81NUA"
+    },
+    {
+      "_id": "z2JCAC3pWUrbQR8w",
+      "name": "Fight on despite crippling injury",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!9wN9UhM3IORfcw0J.z2JCAC3pWUrbQR8w"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "9wN9UhM3IORfcw0J",
+  "_key": "!actors!9wN9UhM3IORfcw0J"
+}

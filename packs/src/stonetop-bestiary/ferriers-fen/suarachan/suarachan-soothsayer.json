@@ -1,0 +1,80 @@
+{
+  "name": "Suarachan Soothsayer",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "poisonous skin d10 (hand), snapping tongue d4 (reach)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to mollify the Things Below"
+      }
+    },
+    "concept": "The colorful, poison-skinned seer who communes with the sleeping horrors.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, corrupted, cunning, magical, amphibious",
+    "qualities": "<p>Excellent night vision; salt burns their skin; marked by the Things Below.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Suarachan Soothsayer",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "LtBWqqbTcc3yY9dJ",
+      "name": "Secrete various poisons: debilitating, hallucinogenic, deadly",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Fo8WuljN8lY1FCxY.LtBWqqbTcc3yY9dJ"
+    },
+    {
+      "_id": "sstxRCDHcLO4tH6y",
+      "name": "Commune with outsiders via poison-induced visions",
+      "type": "monsterMove",
+      "img": "icons/magic/acid/dissolve-bone-white.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Fo8WuljN8lY1FCxY.sstxRCDHcLO4tH6y"
+    },
+    {
+      "_id": "xFaa2aHfziELMCQx",
+      "name": "Use a gift of the Things Below",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Fo8WuljN8lY1FCxY.xFaa2aHfziELMCQx"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "G2Ab6dVpY7UCfUK6",
+  "_id": "Fo8WuljN8lY1FCxY",
+  "_key": "!actors!Fo8WuljN8lY1FCxY"
+}

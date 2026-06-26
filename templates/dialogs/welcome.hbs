@@ -1,0 +1,136 @@
+<div class="stonetop-welcome">
+
+  <div class="stonetop-welcome-scroll">
+
+    <header class="stonetop-welcome-hero">
+      <h2>Welcome to <span class="stonetop-welcome-logo">Stonetop</span>!</h2>
+    </header>
+
+    <p class="stonetop-welcome-lead">{{{premiseHtml}}}</p>
+
+    <p class="stonetop-welcome-intro">
+      The first session is mostly about building the village and its heroes together. Work through these steps as a group; there are no wrong answers, only the world you make.
+    </p>
+
+    <p class="stonetop-welcome-newbie">
+      Never run a game in Foundry before?
+      <button type="button" class="stonetop-welcome-textlink" data-action="foundry-basics">
+        <i class="fas fa-circle-question"></i> New to Foundry?
+      </button>
+    </p>
+
+    <ol class="stonetop-welcome-steps">
+
+      <li class="stonetop-welcome-step">
+        <div class="stonetop-welcome-step-num">1</div>
+        <div class="stonetop-welcome-step-body">
+          <h3>Review the setting</h3>
+          <p>Open the Setting Overview together and give everyone 10&ndash;15 minutes with it, then field questions. Some things (like &ldquo;where did the Forest Folk go?&rdquo;) are mysteries to discover in play.</p>
+          <button type="button" class="stonetop-welcome-action" data-action="setting-overview">
+            <i class="fas fa-book-open"></i> Open Setting Overview
+          </button>
+        </div>
+      </li>
+
+      <li class="stonetop-welcome-step">
+        <div class="stonetop-welcome-step-num">2</div>
+        <div class="stonetop-welcome-step-body">
+          <h3>Set expectations &amp; agree on content</h3>
+          <p>Share the players' agenda and principles (the Setting Overview's <button type="button" class="stonetop-welcome-textlink stonetop-welcome-textlink--inline" data-action="agenda-principles">Agenda &amp; Principles</button> tab), and talk through any content to exclude, veil, or handle with care.</p>
+        </div>
+      </li>
+
+      <li class="stonetop-welcome-step">
+        <div class="stonetop-welcome-step-num">3</div>
+        <div class="stonetop-welcome-step-body">
+          <h3>Create characters</h3>
+          <p>Make characters together. Start one for each player below &mdash; it opens on their screen with a big <strong>Create Character</strong> button that walks them through choosing a playbook and filling it in. Wait until everyone has completed their character before moving on to step 4. You can find answers to common questions in the Setting Overview.</p>
+
+          {{#if noPlayers}}
+          <div class="stonetop-welcome-notice stonetop-welcome-notice--warn">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="stonetop-welcome-notice-body">
+              <span>No players have joined this world yet. Add them in Foundry's <strong>Configure Players</strong> screen.</span>
+              <button type="button" class="stonetop-welcome-action" data-action="configure-players" title="Opens Foundry's player management page (you'll leave the game and can return when you're done)">
+                <i class="fas fa-users-cog"></i> Configure Players
+              </button>
+            </div>
+          </div>
+          {{else}}
+          <ul class="stonetop-welcome-players">
+            {{#each players}}
+            <li class="stonetop-welcome-player">
+              <span class="stonetop-welcome-player-status {{#if active}}is-online{{else}}is-offline{{/if}}" title="{{#if active}}Online{{else}}Offline{{/if}}"></span>
+              <img class="stonetop-welcome-player-avatar" src="{{avatar}}" alt="">
+              <div class="stonetop-welcome-player-info">
+                <span class="stonetop-welcome-player-name" style="color: {{color}};">{{name}}</span>
+                {{#if characters.length}}
+                <span class="stonetop-welcome-player-has">
+                  has
+                  {{#each characters}}<span class="stonetop-welcome-player-entry"><a class="stonetop-welcome-player-char" data-actor-id="{{id}}" title="Open this character sheet">{{name}}</a>{{#if progress.playbook}}<span class="stonetop-welcome-player-playbook" title="Selected playbook">{{progress.playbook}}</span>{{/if}}{{#if progress}}<span class="stonetop-welcome-player-progress stonetop-welcome-player-progress--{{progress.status}}" title="Character creation progress">{{progress.text}}</span>{{/if}}</span>{{/each}}
+                </span>
+                {{/if}}
+              </div>
+              <button type="button" class="stonetop-welcome-create{{#if characters.length}} stonetop-welcome-create--replace{{/if}}" data-user-id="{{id}}">
+                <i class="fas fa-user-plus"></i> {{#if characters.length}}New Character{{else}}Create Character{{/if}}
+              </button>
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </div>
+      </li>
+
+      <li class="stonetop-welcome-step">
+        <div class="stonetop-welcome-step-num">4</div>
+        <div class="stonetop-welcome-step-body">
+          <h3>Introduce the PCs</h3>
+          <p>Once the sheets are built, go around the table: introduce yourselves, add details, and ask &amp; answer questions about each other and Stonetop. The guided Introductions walk you through it round by round, ending as you add each character's home to the steading and <em>let spring break forth</em>.</p>
+          <button type="button" class="stonetop-welcome-action" data-action="introductions">
+            <i class="fas fa-users"></i> Start Introductions
+          </button>
+          <div class="stonetop-welcome-notice stonetop-welcome-notice--info">
+            <i class="fas fa-feather"></i>
+            <div class="stonetop-welcome-notice-body">
+              <span>The GM records each answer along the way &mdash; here and in the <em>Let Spring Burst Forth</em> walkthrough &mdash; and finishing each compiles them into a <strong>Player Introductions</strong> journal, kept in a folder named <strong>The Chronicle</strong> and readable by the whole table, so you can look back on them all campaign long.</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="stonetop-welcome-step">
+        <div class="stonetop-welcome-step-num">5</div>
+        <div class="stonetop-welcome-step-body">
+          <h3>Let spring burst forth</h3>
+          <p>Once the Introductions wrap up with <em>let spring break forth</em>, walk through <strong>Let Spring Burst Forth</strong>: the most hopeful character makes the season's first <strong>Seasons Change</strong> move, and its result sets up your opening hook.</p>
+          <button type="button" class="stonetop-welcome-action" data-action="spring-burst">
+            <i class="fas fa-seedling"></i> Walk Through Let Spring Burst Forth
+          </button>
+          <p>Resist the urge to leap straight into adventure &mdash; take time to mull over everything your players gave you, and prepare the first expedition.</p>
+          <div class="stonetop-welcome-notice stonetop-welcome-notice--info">
+            <i class="fas fa-rotate-right"></i>
+            <div class="stonetop-welcome-notice-body">
+              <span>Every season after this one, make the <strong>Seasons Change</strong> move from the <span class="stonetop-welcome-springicon-wrap"><img class="stonetop-welcome-springicon" src="systems/stonetop/assets/icons/macros/spring.svg" alt=""></span> <em>Seasons Change</em> button in your hotbar below &mdash; it walks you through the roll, the seasonal gains, and the season's bookkeeping.</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="stonetop-welcome-outro">
+      <p>Not sure where to start? Open the <strong>Setting Overview</strong> and read it through together &mdash; the rest of the session grows from there. You can reopen this guide any time from the <span class="stonetop-welcome-springicon-wrap"><img class="stonetop-welcome-springicon" src="systems/stonetop/assets/icons/macros/direction-signs.svg" alt=""></span> <em>signpost</em> icon in your hotbar below.</p>
+      <button type="button" class="stonetop-welcome-action" data-action="setting-overview">
+        <i class="fas fa-book-open"></i> Open Setting Overview
+      </button>
+    </div>
+  </div>
+
+  <footer class="stonetop-welcome-footer">
+    <label class="stonetop-welcome-dontshow">
+      <input type="checkbox" class="stonetop-welcome-dontshow-input" {{#if dontShowAgain}}checked{{/if}}>
+      Don't show this again
+    </label>
+  </footer>
+
+</div>

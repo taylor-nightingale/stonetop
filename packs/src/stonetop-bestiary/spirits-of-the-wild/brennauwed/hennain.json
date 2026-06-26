@@ -1,0 +1,102 @@
+{
+  "name": "Hennain",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 31,
+        "max": 31
+      },
+      "armor": {
+        "value": 4
+      },
+      "damage": {
+        "value": "walloping branches d12+5 (close, reach, area, forceful)",
+        "rollFormula": "d12+5"
+      },
+      "instinct": {
+        "value": "to take the long, long view"
+      }
+    },
+    "concept": "An ancient grandmother-tree that cares only for the forest's slow turning.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, spirit, cautious, clever, magical, ancient, terrifying",
+    "qualities": "<p>Tethered to its tree.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.3Q3V7QXv1XFx1UK8",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Hennain",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zytAqJBVluydUHvJ",
+      "name": "Remain unmoved",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6RhD3Vrdb3B9GXTA.zytAqJBVluydUHvJ"
+    },
+    {
+      "_id": "JjWG5QknvQ6LJa33",
+      "name": "See through any tree in the forest",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6RhD3Vrdb3B9GXTA.JjWG5QknvQ6LJa33"
+    },
+    {
+      "_id": "zVxOuTGRJSIL286Z",
+      "name": "Animate her own tree (almost impossible to harm with weapons, or even fire)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6RhD3Vrdb3B9GXTA.zVxOuTGRJSIL286Z"
+    },
+    {
+      "_id": "tbOQPhCZz1FibeJ6",
+      "name": "Call upon the power of Danu herself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6RhD3Vrdb3B9GXTA.tbOQPhCZz1FibeJ6"
+    },
+    {
+      "_id": "wzHC3r79IvQHZkp6",
+      "name": "Lay a lasting curse on a defiler",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6RhD3Vrdb3B9GXTA.wzHC3r79IvQHZkp6"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "8N8RyUSUv4OBxher",
+  "_id": "6RhD3Vrdb3B9GXTA",
+  "_key": "!actors!6RhD3Vrdb3B9GXTA"
+}

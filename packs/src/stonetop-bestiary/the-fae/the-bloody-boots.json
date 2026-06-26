@@ -1,0 +1,92 @@
+{
+  "name": "The Bloody Boots",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "oversized club d8 w/advantage (close, crude) or iron-shod boots d8+2 w/advantage (hand, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to brawl, the nastier the better"
+      }
+    },
+    "concept": "A gang of craggy fae brawlers in iron boots, sworn never to start a fight.",
+    "organization": "group",
+    "size": "small",
+    "tags": "group, small, fae, ugly, violent",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>; tolerates iron; can't start violence. Armor 2 vs. iron.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qWNA7gHJH7z3K0bg",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Bloody Boot",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zeuxUArifskGoHVJ",
+      "name": "Insult, mock, and heap abuse",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!J0rZfQ09hcXkA9mr.zeuxUArifskGoHVJ"
+    },
+    {
+      "_id": "FR8VrF9jKpkEVaEw",
+      "name": "Get in your face, dare you",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!J0rZfQ09hcXkA9mr.FR8VrF9jKpkEVaEw"
+    },
+    {
+      "_id": "0QzF971BYqLmGY0k",
+      "name": "Leverage their unlikely strength",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!J0rZfQ09hcXkA9mr.0QzF971BYqLmGY0k"
+    },
+    {
+      "_id": "HCB1QfZQP4kMNxL8",
+      "name": "Stomp someone who's down (messy)",
+      "type": "monsterMove",
+      "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!J0rZfQ09hcXkA9mr.HCB1QfZQP4kMNxL8"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "J0rZfQ09hcXkA9mr",
+  "_key": "!actors!J0rZfQ09hcXkA9mr"
+}

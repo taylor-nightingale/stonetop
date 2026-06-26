@@ -1,0 +1,103 @@
+{
+  "name": "Fundamental",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks vitals"
+      },
+      "damage": {
+        "value": "destructive touch d10 w/advantage (hand, grabby, ignores armor)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to embody its fundamental force"
+      }
+    },
+    "concept": "A spirit of a fundamental force — time, gravity, fate, light, void, order, or chaos.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, primordial",
+    "qualities": "<p>Harmed only by black iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.WObWuLHBHqBYlZlA",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Fundamental",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "BxwwPUmJpZY80XxO",
+      "name": "Manifest in the proper conditions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iPBB5qDX5urJ30FU.BxwwPUmJpZY80XxO"
+    },
+    {
+      "_id": "9Orvdtte4rqW1z4Z",
+      "name": "Communicate poorly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iPBB5qDX5urJ30FU.9Orvdtte4rqW1z4Z"
+    },
+    {
+      "_id": "OFw8wB65yB9nXkJ6",
+      "name": "Burden with incomprehensible knowledge",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iPBB5qDX5urJ30FU.OFw8wB65yB9nXkJ6"
+    },
+    {
+      "_id": "ZMICMTLhsI1z1MR2",
+      "name": "Refuse to cooperate",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iPBB5qDX5urJ30FU.ZMICMTLhsI1z1MR2"
+    },
+    {
+      "_id": "9oiezmcAv2tMCfAb",
+      "name": "Manipulate or manifest its element, locally and dramatically",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!iPBB5qDX5urJ30FU.9oiezmcAv2tMCfAb"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "iPBB5qDX5urJ30FU",
+  "_key": "!actors!iPBB5qDX5urJ30FU"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "Z2PNfBJpuurYN778",
+  "_key": "!journal!Z2PNfBJpuurYN778",
+  "name": "Livrothos, Cleansing Flame",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An archon of white fire, called to warn and correct — and to burn errant magic from the world."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 124000,
+  "pages": [
+    {
+      "_id": "FiFBzmBpOKTyelu0",
+      "_key": "!journal.pages!Z2PNfBJpuurYN778.FiFBzmBpOKTyelu0",
+      "name": "Livrothos, Cleansing Flame",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An archon of white fire, called to warn and correct — and to burn errant magic from the world.",
+        "description": "<p>The book's worked example of an archon: an eternal, ancient being of Order, given the purpose of warning, castigating, and correcting. It manifests as pure white flame and was written up with the powers to teleport, to stun and blind with its light, and to dispel magic. It seeks out those who meddle with powers they were never meant to touch.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fc4528DgaFiiq2i9"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

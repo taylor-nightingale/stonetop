@@ -1,0 +1,61 @@
+{
+  "_id": "9MF7xia8nqIu1V8N",
+  "_key": "!journal!9MF7xia8nqIu1V8N",
+  "name": "Necromancer",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A death-wise meddler who trades with the spirits of the dead for their secrets."
+    }
+  },
+  "folder": "nVv6GF39nE8RN4lQ",
+  "sort": 174000,
+  "pages": [
+    {
+      "_id": "DZU7wBHDfNukWLs1",
+      "_key": "!journal.pages!9MF7xia8nqIu1V8N.DZU7wBHDfNukWLs1",
+      "name": "Necromancer",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A death-wise meddler who trades with the spirits of the dead for their secrets.",
+        "description": "<p>'Tis an odd sort who would have truck with spirits of the dead. But some are born with the Sight and a morbid curiosity, and if they can avoid getting themselves killed by hungry ghosts or outraged locals, the dead have all manner of secrets to teach. Necromancers often consort with entities darker still, and are prone to corruption by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.58UtB8l8G68t9nRI"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

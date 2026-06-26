@@ -1,0 +1,61 @@
+{
+  "_id": "mqbnYBt53E6uF73P",
+  "_key": "!journal!mqbnYBt53E6uF73P",
+  "name": "Adventurer",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Scoundrels, mercenaries, and treasure-hunters come north in search of a big score."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 155000,
+  "pages": [
+    {
+      "_id": "EAzIkasPD1rTWc2G",
+      "_key": "!journal.pages!mqbnYBt53E6uF73P.EAzIkasPD1rTWc2G",
+      "name": "Adventurer",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Scoundrels, mercenaries, and treasure-hunters come north in search of a big score.",
+        "description": "<p>They make their way north now and then: scoundrels, mercenaries, treasure-hunters — folk who just can't make a go of a normal life. They show up in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin's Delve}</strong>, in search of some big score, or running from the consequences of the last one. Or both.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.aAknV9EMnUjJvRL3"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

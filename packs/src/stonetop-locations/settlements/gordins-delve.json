@@ -1,0 +1,183 @@
+{
+  "_id": "HesP5wBhjA0l9Ffk",
+  "_key": "!journal!HesP5wBhjA0l9Ffk",
+  "name": "Gordin's Delve",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "For centuries, it was just a pile of Forge Lord ruins at the end of the West Road, up in the Huffel Peaks. A few generations back, ambitious folk started hauling ore out of the Delves. Foundry got built, merchants showed up, and coin flowed in—along with a constant trickle of folks seeking opportunity, or with nowhere else to go."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 18000,
+  "pages": [
+    {
+      "_id": "rlqWn9hRa5shvUlY",
+      "_key": "!journal.pages!HesP5wBhjA0l9Ffk.rlqWn9hRa5shvUlY",
+      "name": "Gordin's Delve",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Size town (~700 to 800 souls) Population +2 Prosperity +0</p><ul><li>Trade with... ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> (wheat, flax, rope, textiles, herbs, glass) ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> (barley, potatoes, furs, whisky) Resources</li></ul><ul><li>Mining (iron, copper, lead, tin, silver)</li></ul><ul><li>Trades (smithing, tinkering)</li><li>Timber</li><li>Goats</li><li>Aqueduct Defenses -1</li></ul><ul><li>Maker-ramparts</li><li>Unassailable position</li></ul><p>For centuries, it was just a pile of Forge Lord ruins at the end of the West Road, up in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>. A few generations back, ambitious folk started hauling ore out of the Delves. Foundry got built, merchants showed up, and coin flowed in—along with a constant trickle of folks seeking opportunity, or with nowhere else to go.</p><p>There’s no town council, not even a militia to speak of. And unlike Stonetop, there ain’t much sense of community. Some folks got friends, and allies, and reputations to lean on. But when it comes right down to it, sure seems like everyone’s only looking out for themselves.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Steading",
+            "group": "place",
+            "danger": false,
+            "body": "<p><strong>Size</strong> town (~700–800 souls)<br><strong>Population</strong> +2<br><strong>Prosperity</strong> +0 (mining (iron, copper, lead, tin, silver); trades in smithing and tinkering; timber, goats, and an aqueduct; trade with Marshedge and Stonetop)<br><strong>Defenses</strong> -1 (Maker-ramparts and an all-but-unassailable position — but no town council, no militia, and little sense of community)</p><p><em>When the PCs treat Gordin's Delve as a steading — mustering its forces, deploying its defenses, or rolling Trade &amp; Barter against its Prosperity — use these values.</em></p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The slopes near town, all sludge and mud and tree stumps, mining camps and goat herds</li><li>Sorrow’s Gate, where the West Road ends, a sprawl of tents, no permanent structures on the pave stones</li><li>The Arms, two ridges that cradle the town, Maker-ruins clinging to their sides</li><li>Foundry, a brick slab squatted at the town’s foot, belching smoke and slurry</li><li>The ancient aqueduct, still in use, feeding Foundry and turning its waterwheel</li><li>The Terraces, seven of them, crowded with shops, stables, tenements, alleys, and people. Make-do construction lashed to humbling ruins</li><li>The Swap, an open-air market for labor, second-hand goods, questionable food or pleasures, and the odd Delve-finds</li><li>A half-dozen walled-off compounds, claiming the best spots, built into Maker-ruins</li><li>The three Delves, gaping tunnels into the dark, miners coming and going</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "People",
+            "group": "place",
+            "danger": false,
+            "body": "<p>No one is from here originally. Even folks born here, their parents or grandparents came from somewhere else. For any NPC, pick or roll where they’re from and what brought them. Pick a name based on their origins, maybe with an epithet like “the Knife,” “Gaptooth,” “Limper,” “Boils,” “the Yellow,” or “Go-Between.”</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong>, or other points south</td></tr><tr><td>3–5</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong></td></tr><tr><td>6–7</td><td>The Manmarch</td></tr><tr><td>8</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong></td></tr><tr><td>9</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{The Steplands}</strong> (<strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>)</td></tr><tr><td>10</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> (or beyond)</td></tr><tr><td>11–12</td><td>Grew up here; reroll for parents 1d12 what brought them</td></tr></tbody></table><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–3</td><td>Seeking their fortune</td></tr><tr><td>4–5</td><td>To join family/friends</td></tr><tr><td>6–9</td><td>A bad turn, nowhere else to go</td></tr><tr><td>10</td><td>On the run</td></tr><tr><td>11</td><td>Happenstance, fate, dumb luck</td></tr><tr><td>12</td><td>Dragged here against their will</td></tr></tbody></table><ul><li>The Bosses each run big parts of the local economy; everyone in town relies on what they control. Their positions are far from stable, and when one topples, there’s turmoil. Each is attended by 10-15 family, servants, and retainers.</li></ul><ul><li>Mutra the Teeth (mines, timber)</li><li>Odo Thriceborn (mines, housing)</li><li>Honest Draigh (trade with</li><li>Marshedge, food)</li></ul><ul><li>Jahalim of the Keys (Foundry)</li><li>Smiling Ffransis (water, booze)</li></ul><ul><li>Merchants bring goods and raw material in and out of Gordin’s Delve. Most are backed by one of the Bosses, but one or two manage the careful dance of independence. (~10 operations, or ~25 souls total)</li></ul><ul><li>The Keeps keep the town running, such that it does. They run the trades, the shops, the inns, the boarding houses, the hostelries, the dens of vice. They don’t mine the Delves, they mine the miners. And the Bosses mine them. (~50 souls, including family and apprentices)</li></ul><ul><li>Miners make up the bulk of the town. Small crews work what claims they can, usually veins far down the Delves or dotting the slopes. They’ll be gone for days on end. The Bosses’ crews are bigger, working the best veins on day/night shifts. It’s hard work, that barely pays enough to get by. (~250 souls)</li></ul><ul><li>Prospectors work alone or in small teams, seeking new claims and selling them to mining crews. They also sell Maker artifacts to the Bosses when they can, or else at the Swap for whatever they can get. Prospecting is terribly dangerous, but a way to make good coin fast. (~5-10 souls at any given time)</li></ul><ul><li>Smelters work at Foundry, processing raw ore into iron, copper, silver, lead, and tin. There’s a handful of skilled smiths, too, but mostly it’s hard, hot, dangerous work. Pay’s decent, though, and you don’t have to go down the Delves. (~50 souls, working in shifts)</li></ul><ul><li>Loggers ply the mountainsides for timber and haul it back to town, for construction or to fuel hearths and Foundry’s furnace. The nearby slopes were stripped clean long ago, so nowadays loggers range farther out into the mountains. Hard, dangerous work that takes folks away from town for weeks at a time. (~50 souls)</li></ul><ul><li>The desperate can’t find work or can’t keep it, due to injury, infirmity, or temperament. They take what gigs they can, or they scavenge, or they die slowly out near Sorrow’s Gate. Some turn to robbery and theft, but unless they’re very good, they’re beaten or killed by victims, mobs, or other cutthroats. And if you are very good at thuggery? Well, the Bosses probably have work for you. (~100-200 souls, always in flux)</li></ul><ul><li>Beyond that, another ~100-150 souls do odd jobs: goat herding, butchering, hauling water, cleaning and cooking, working for the Keeps or the Bosses as staff or muscle or entertainment or a combination of all three. They often live with their employers, or their stock.</li></ul><p>There are very few full-time homemakers in Gordin’s Delve; almost everybody works or hustles a little. Even kids are put to work as soon as possible. It’s not a nice place, not at all.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available in Gordin’s Delve—PCs can acquire them here without having to roll. They do need to trade something of equal Value. Stonetop trade goods (whisky, furs, barley, potatoes) are always in demand.</p><p><strong>weapons &amp; armor value</strong></p><p>Common weapons (iron or bronze) 0 Common weapons (steel, 1 piercing) 1 Weapons of war (iron or bronze) 1 Weapons of war (steel, 1 piercing) 2 Hauberk/cuirass/scale (2 armor, 2 warm, clumsy)</p><p><strong>goods value</strong></p><ul><li>Lantern ( hours, reach, area) 0 Small metal tool (chisel, file, shears, etc.) 0</li><li>Block &amp; tackle 0</li><li>Metal tools (drill, prybar, saw, etc.) 0</li><li>Mirror, hand-held, polished bronze 1 Wheelbarrow 1 Cart (requires donkey/mule/horse) 2 Spare parts for cart/wagon (wheels, 2 axles, struts, uses, immobile) Cartload of timber (immobile) 2 Cartload of copper/lead/tin/iron 2 (immobile)</li></ul><p><strong>coin value</strong></p><ul><li>Purse of coppers (~10 handfuls) 0 Handful of silvers 1</li><li>Purse of silvers (~10 handfuls) 2</li></ul><p><strong>food &amp; lodging value</strong></p><p>Camping near Sorrow’s Gate (cold, risky) free Food &amp; drink for a small party 0 Provisions (2-12 uses) 0 Lodgings, decent (for a small party up 1 to a week, food included) Night of fine living (for one) 1</p><p>Special items The following might be acquired in Gordin’s Delve, in addition to special items from the Moves &amp; Gear handout. PCs must roll Trade &amp; Barter to acquire them.</p><p>When PCs Trade &amp; Barter in Gordin’s Delve, they use the local Prosperity (+0 by default) with advantage because it’s a town. On a 6-, they don’t mark XP; they must talk to one of the Bosses if they want to acquire/sell it.</p><p><strong>goods value</strong></p><p>A lock and key 1 Silver jewelry 1 A small silver mirror 2 An object of black iron +2 An object of orichalcum +2</p><p><strong>food &amp; lodging value</strong></p><p>Humble, cramped apartment to call 2 your own Modest house or shop 3</p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), Gordin’s Delve might offer the following:</p><ul><li>A good exchange rate, two or even three Value 2 items for 1 Surplus.</li><li>A cartload of timber or metal (Value 2), in exchange for help with a problem.</li><li>A cartload of timber (Value 2) every season for a year, in exchange for 1 Surplus now</li><li>A tradesperson (engineer, foreman, smith, etc.) willing to move to Stonetop for a price</li><li>An arcanum of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>, or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Delves",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The Arms feature three archways, each over 30 feet tall. Each arch leads to a tunnel of smooth stone that plunges into the mountain, eventually connecting to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong>. Side passages, chambers, and complexes branch off the main tunnels—some ancient, some excavated in the last 50 years.</p><p>The First Delve opens where the two Arms meet. It stretches half a mile from the surface, then becomes a series of switchback tunnels, one after the other, down and down and down. The main tunnel ends with a cave-in, but side passages and chambers connect to the Labyrinth. Forge Lord carvings decorate the walls, and rich veins of copper and hematite (iron ore) have been found.</p><p>The Second Delve opens on the righthand slope (facing uphill). The delve goes straight, sloping down for about 300 feet, then turns left at a landing. Another 300 feet, there’s another landing, another left turn. The pattern repeats dozens of times, ending at a ledge that overlooks a subterranean lake. Miners brick up the end of the passage, but their walls rarely stand for long. Ancient side passages spoke outward from this delve; many have led to rich (though inconvenient) copper veins.</p><p>The Third Delve opens on the lefthand Arm. The main tunnel forks and turns frequently, soon becoming one great big twisting mess of tunnels and chambers. Many of these lower tunnels connect with the Labyrinth. Hematite veins have been found at the end of many such tunnels, and turned into active mines.</p><p><strong>Impressions</strong></p><ul><li>Vast, arched tunnels, stretching well beyond your torchlight</li></ul><ul><li>Echoing sounds of picks on rock, carts rumbling, voices grumbling, your own footsteps</li></ul><ul><li>That sense of immense, merciless weight above you</li></ul><ul><li class=\"question-bullet\">A smooth, rippling texture to the main tunnel walls, less like they were carved and more like they were… melted?</li></ul><ul><li>Constant, warm breeze flowing up, like gentle breath</li></ul><ul><li>Crude, cramped scale of new excavations, propped up with timbers</li></ul><p>Chance encounters Choose or have someone roll the Die of Fate.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Cultist or worshiper of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>A shady, strange, or desperate character, out of place</td></tr><tr><td>3–4</td><td>Mining crew, or part of one</td></tr><tr><td>5</td><td>Someone alone, taking something to/from a mine</td></tr><tr><td>6</td><td>Prospector, or (1 in 6 chance) some <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong></td></tr></tbody></table><p>For disposition, choose or have someone roll:</p><p><strong>1d6 disposition</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Planning treachery or betrayal</td></tr><tr><td>2</td><td>Aggressively unfriendly, even hostile</td></tr><tr><td>3</td><td>In dire need of assistance</td></tr><tr><td>4–5</td><td>Wary, tight-lipped, suspicious</td></tr><tr><td>6</td><td>Friendly enough</td></tr></tbody></table><p>Discoveries Pick 1 or have someone roll the Die of Fate.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>signs of violence/disaster (below)</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>A mine, abandoned or destroyed (perhaps mysteriously)</td></tr><tr><td>4</td><td>Possessions/gear, lost or discarded</td></tr><tr><td>5</td><td>A vein of copper, hematite (iron ore), or galena (silver/lead ore)</td></tr><tr><td>6</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong></td></tr></tbody></table><p>1d6 signs of violence/disaster</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A scene of wanton carnage</td></tr><tr><td>2</td><td>A dead monster from the Labyrinth, bloody trail leading off</td></tr><tr><td>3</td><td>One or more dead bodies</td></tr><tr><td>4–5</td><td>A recent collapse, possibly with survivors</td></tr><tr><td>6</td><td>Sounds of a fight, or a call for help</td></tr></tbody></table><p><strong>Dangers</strong></p><ul><li>Utter darkness</li><li>Getting lost</li><li>Pockets of bad air: stale, poisonous, smoke- or dust-filled</li></ul><ul><li>Cave-ins, especially in more recent excavations</li></ul><ul><li>Laborers, with something to hide or protect</li></ul><ul><li>Ghosts, victims of cave-ins or previous violence</li><li>Traps or wards protecting Forge Lord compounds</li></ul><ul><li>Monsters come up from the Labyrinth</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around Gordin's Delve. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.49lW4BgpS3pMT2V4]{Alley Cutthroats}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HmHoC0TwqSBbaUyN]{Dawa Eyegouger}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.t5IDMGAw6mK7tzWU]{Desperate Souls}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KArFYOqrEF9Y8icz]{Laborers}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "When was the last round of violence between the Delvers and the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}**? What did it cost you, personally?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which of you have been here before? When? Why?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who up here should you never, ever cross?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who’s the merchant who trades with **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}** the most?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who left Stonetop to come up here? What’s the last you’ve heard of them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What are they said to eat up here, besides goats and imported grain?",
+                "answer": ""
+              },
+              {
+                "prompt": "According to the stories you’ve heard, who the hell was Gordin?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Moves",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>ASK AROUND</strong> When you spend a purse of coppers and a few hours asking around town, say what you hope to learn and roll +CHA: on a 10+, you get a clear and useful answer; on a 7-9, you get an answer but pick 1:</p><ul><li>It’s incomplete, contradictory, or unclear, but the GM will say how you could learn more</li><li>It’ll cost you another purse of coppers</li><li>You’ve drawn unwanted attention or gotten yourself embroiled in a situation of the GM’s choosing</li></ul><p><strong>CAROUSE</strong> When you spend a handful of silvers having a good time, roll +CHA: on a 10+, pick 2; on a 7-9, pick 1:</p><ul><li>You spread a rumor or tale far and wide</li><li>You make a loyal new friend</li><li>You learn something useful or juicy</li><li>You avoid getting swindled, tricked, or entangled in someone else’s trouble</li></ul><p><strong>RECRUIT</strong> When you put out word that you’re hiring, say who you’re looking for, what the job is, and what you’re offering (the GM will veto if you’re being unreasonable). Then roll and add…</p><p>… +1 if your offer is generous;<br>… +1 if the work conditions aren’t terrible;<br>… +1 if you’ve got a solid reputation hereabouts.</p><p>On a 10+, you find someone, but pick 1; on a 7-9, you find someone but pick 2.</p><ul><li>They lack some of the skills you wanted</li><li>They suffer from some impairment or vice (GM’s choice)</li><li>You draw unwanted attention in the process</li><li>They have debts or obligations that you need to clear up first</li></ul><p><strong>services value</strong></p><p>Someone to keep an eye on things 0 for a week A bit of crude, one-sided violence 0 A guide into the slopes/Delves, for a day 0 A crew of miners/woodcutters, for a week 1 A prospector, to take you to a secret 1 or dangerous part of the Delves A trustworthy live-in servant, for a season 1 A bodyguard/muscle, for a few days 1 A targeted killing, discrete 1 An engineer/foreman, for a big project 2 An assassination, someone important 2</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Secrets",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The Red Door is a well-known feature down in the First Delve, a 20-foot tall slab of makerglass , inlaid with hundreds of patterned tiles. Some are missing, allowing the tiles to be slid around. When the tiles are in the exact right spots, the Red Door will open. Hints to the correct arrangement are hidden in old mosaics throughout Gordin’s Delve.</li><li>An established shopkeep (like a chandler, a publican, an innkeeper, maybe even a barber?) has a habit of killing folks who won’t be missed. They’re otherwise a pillar of the community.</li><li>Everyone knows there are grates in the terraces, carrying water through chutes and culverts to pour out below Sorrow’s Gate. But there’s more, a series of cramped tunnels and chutes that connect to some of the old ruins and even the Delves. The sewers are gross, infested with rats or worse, and just big enough to get lost in.</li><li>A cult of locals (some influential) have taken to tossing sacrifices into the underground lake at the bottom of the Second Delve: coin, flesh, living victims. They’ve received blessings from Daagon as a result.</li><li>Every few years, miners in the Third Delve will unearth a “door” made of orichalcum. Rarely, they rebury it. Usually, they pry it open, to find nothing but more rock beyond. A powerful earthquake always follows a few days after one of these doors is opened, but few have made the connection.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The PCs’ favorite merchant is in trouble with one or more Bosses</li></ul><ul><li>An ambitious Keep is angling to become a new Boss</li></ul><ul><li>Miners, smelters, and loggers seek to organize and throw off the Bosses’ yoke</li></ul><ul><li>A small mining crew has gone missing;</li><li>a worried loved one asks for help</li></ul><ul><li>One of the Bosses was just killed by an underling, who’s desperately trying to assume their position</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong> offer gold and silver for something unsavory (fresh blood, corpses, slaves, etc.)</li><li class=\"question-bullet\">Logging crews have gone missing, and the folks who went to check on them never came back. Are <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> raiders to blame? Bandits? Or something worse?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Living conditions",
+                "body": "<ul><li>Hunger, if you can’t afford food</li><li>Exposure to harsh mountain weather, if you can’t afford shelter</li></ul><ul><li>Sickness and disease, from close quarters and poor hygiene</li></ul><ul><li>Mudslides, especially on the slopes</li></ul><ul><li>Workplace accidents (or “accidents”)</li><li>General apathy from those who could help</li></ul><ul><li>Folks from elsewhere</li><li>Such as:</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong></li><li>The Manmarch</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> or other points south</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> or beyond</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>, cast out by their people</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.MZIqm0QhN3lxNKuO]{Ustrina}</strong>, here to trade (probably)</li></ul><p>A goatherder from north of Barrier Pass, with orange irises and too-long fingers (marks of the Howling Curse, page 492). She turned up in Gordin’s Delve years back, and one of the Bosses put her to work as an enforcer. They keep her sauced and happy, until there’s work to be done. Then they dry her out, point out the target, and stand back.</p>"
+              },
+              {
+                "heading": "Shoddy construction",
+                "body": "<p>Gordin’s Delve is a weird mix of piled stone and crude carpentry, lashed onto Maker-ruins that have stood for hundreds of years. It’s all very slapdash and precarious.</p><ul><li>Things creak, sway, and teeter ominously</li><li>A wall/support/floor gives way, putting someone in danger</li><li>Someone falls from a height/is buried under rubble</li><li>Something catches fire</li><li>A structure collapses, weakening others</li><li>A home/shop is destroyed, someone’s savings/livelihood/family is lost</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

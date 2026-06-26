@@ -1,0 +1,92 @@
+{
+  "name": "Dialeddwr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "choking grip or powerful blows d8+2 w/advantage (hand, grabby, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to avenge"
+      }
+    },
+    "concept": "The avenger risen whole from the grave, who heals in moonlight and never stops hunting.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, undead, terrifying, implacable",
+    "qualities": "<p>Cannot open doors, eat, or drink. Armor 0 vs. silver or fire.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.6uW9IHa66SmQdeEM",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Dialeddwr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "YudmlLKWMbZcj4S6",
+      "name": "Pass for alive, except in sunlight",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fZqXeuSYwjQtlWyH.YudmlLKWMbZcj4S6"
+    },
+    {
+      "_id": "O0VDDqQFcFGTAWPG",
+      "name": "Unerringly track a target",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fZqXeuSYwjQtlWyH.O0VDDqQFcFGTAWPG"
+    },
+    {
+      "_id": "PJ3IVwh3ZJV6e0CN",
+      "name": "Lock eyes with someone, showing them the meaning of fear",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fZqXeuSYwjQtlWyH.PJ3IVwh3ZJV6e0CN"
+    },
+    {
+      "_id": "IqrBu2mCKaAfApna",
+      "name": "Bask in moonlight to regenerate even terrible wounds",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fZqXeuSYwjQtlWyH.IqrBu2mCKaAfApna"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "fZqXeuSYwjQtlWyH",
+  "_key": "!actors!fZqXeuSYwjQtlWyH"
+}

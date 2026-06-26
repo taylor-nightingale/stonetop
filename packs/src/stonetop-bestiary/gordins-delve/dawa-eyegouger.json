@@ -1,0 +1,80 @@
+{
+  "name": "Dawa Eyegouger",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "knife or fingers d8 (hand, messy, 1 piercing, advantage)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to get this over with"
+      }
+    },
+    "concept": "A cursed goatherder turned Boss's enforcer, kept sauced until there's killing to do.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, brutal, fearless, drunkard",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.HmHoC0TwqSBbaUyN",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Dawa Eyegouger",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "feH7CYuFGK4iFPR7",
+      "name": "Ignore pain, ignore doubt",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!clNUnzTPrxZPGCPp.feH7CYuFGK4iFPR7"
+    },
+    {
+      "_id": "oTwfthzFdAUUegBw",
+      "name": "Explode into sudden violence",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!clNUnzTPrxZPGCPp.oTwfthzFdAUUegBw"
+    },
+    {
+      "_id": "lnGbzLWks8FMEDwA",
+      "name": "Fight dirty, mean, without remorse",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!clNUnzTPrxZPGCPp.lnGbzLWks8FMEDwA"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "TAdHt3uEDdJHqNf1",
+  "_id": "clNUnzTPrxZPGCPp",
+  "_key": "!actors!clNUnzTPrxZPGCPp"
+}

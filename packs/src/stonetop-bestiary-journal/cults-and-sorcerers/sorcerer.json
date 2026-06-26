@@ -1,0 +1,61 @@
+{
+  "_id": "EoqwVJCabgTfsyT2",
+  "_key": "!journal!EoqwVJCabgTfsyT2",
+  "name": "Sorcerer",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "One who embraced corruption, believing the power on offer worth the cost."
+    }
+  },
+  "folder": "nVv6GF39nE8RN4lQ",
+  "sort": 173000,
+  "pages": [
+    {
+      "_id": "Q7xK9WeKm7F0Adx1",
+      "_key": "!journal.pages!EoqwVJCabgTfsyT2.Q7xK9WeKm7F0Adx1",
+      "name": "Sorcerer",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "One who embraced corruption, believing the power on offer worth the cost.",
+        "description": "<p>Some seek out corruption and embrace it. They might not have chosen the path, but at some point they chose to keep walking, believing the power on offer was worth the cost. Some think they are in control. And perhaps — for now — they are.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.S1xAcfSVR3idzvqo"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "smqjMCaaxstHY5nZ",
+  "_key": "!journal!smqjMCaaxstHY5nZ",
+  "name": "Voidblight",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Star-black, eyeless spirit-eaters that swarm in from the void through rifts."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 122000,
+  "pages": [
+    {
+      "_id": "4ajv8XIGGNNdJZVz",
+      "_key": "!journal.pages!smqjMCaaxstHY5nZ.4ajv8XIGGNNdJZVz",
+      "name": "Voidblight",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Star-black, eyeless spirit-eaters that swarm in from the void through rifts.",
+        "description": "<p>To those who can perceive them, they seem like many-limbed salamanders made of star-filled night, their broad, flat, eyeless heads splitting open into rows of glittering teeth. They are alien things, spiritual scavengers and predators, haunting forgotten corners of the spirit world and the dead world-motes that float through the cosmic void. Mostly they wait and hunger — but if they catch the scent of a traveler, or worse, a rift into our world, they will follow it.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.P4UPY5CmKLihfSQO"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

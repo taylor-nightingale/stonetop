@@ -1,0 +1,91 @@
+{
+  "name": "Tulpa",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "trifling blows d4 (hand, if that)",
+        "rollFormula": "d4"
+      },
+      "instinct": {
+        "value": "to play, to learn, to flaunt (as imagined)"
+      }
+    },
+    "concept": "A tiny thought-form spirit created through meditation and sacrifice, eager to serve its maker.",
+    "organization": "",
+    "size": "tiny",
+    "tags": "spirit, construct, tiny, naive, eager",
+    "qualities": "<p>Created and shaped by its maker: pick 2 further personality tags (fierce, kind, sly, timid, willful), an instinct, 2 more moves, and a cost.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.9RoGuMEtRuOH80Q8",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Tulpa",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "VFTgwAFMz5V1peUG",
+      "name": "Manifest a form of dust, snow, or vapor",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Yybkf0saCMZRKEYf.VFTgwAFMz5V1peUG"
+    },
+    {
+      "_id": "QF6LtEFtTFzL3i8w",
+      "name": "Produce light (area, reach)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Yybkf0saCMZRKEYf.QF6LtEFtTFzL3i8w"
+    },
+    {
+      "_id": "AxtuUpuuTiiQLK5U",
+      "name": "Carry or manipulate an item",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Yybkf0saCMZRKEYf.AxtuUpuuTiiQLK5U"
+    },
+    {
+      "_id": "9fwqssjiWNJMmhQl",
+      "name": "Deliver a message",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Yybkf0saCMZRKEYf.9fwqssjiWNJMmhQl"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "Yybkf0saCMZRKEYf",
+  "_key": "!actors!Yybkf0saCMZRKEYf"
+}

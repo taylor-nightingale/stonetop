@@ -1,0 +1,61 @@
+{
+  "_id": "BcpBqOAGilg6RtJb",
+  "_key": "!journal!BcpBqOAGilg6RtJb",
+  "name": "Mkhalang",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A bored, can't-lie mammoth-spirit emissary whose idleness has soured into cruelty."
+    }
+  },
+  "folder": "F7SHzAIMoFYFjUdt",
+  "sort": 93000,
+  "pages": [
+    {
+      "_id": "VDmDzxvsg2QcwkXz",
+      "_key": "!journal.pages!BcpBqOAGilg6RtJb.VDmDzxvsg2QcwkXz",
+      "name": "Mkhalang",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A bored, can't-lie mammoth-spirit emissary whose idleness has soured into cruelty.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{The Rime Lords}</strong> created these mighty spirits to act as emissaries and spies. A few still remain, tethered to the meditation-halls in which they were made but roaming the Whitefangs in search of novelty and diversion. They have grown bored in their masters' absence, and from boredom has grown a subtle cruelty. The people of the Whitefangs treat them with respect, for they are still the emissaries of the Rime Lords — but they also know better than to trust their counsel.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.CK1q0r9Hp21IpFpX"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

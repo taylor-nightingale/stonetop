@@ -1,0 +1,70 @@
+{
+  "name": "Unliving Chimera",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 4,
+        "source": "0 vs. bronze"
+      },
+      "damage": {
+        "value": "varies by its parts d6 (hand, maybe others)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to get confused and lash out"
+      }
+    },
+    "concept": "A clumsy patchwork beast raised from boiled bones and blood, lurching to its maker's will.",
+    "organization": "",
+    "size": "",
+    "tags": "undead, construct, terrifying, clumsy",
+    "qualities": "<p>Built from boiled bones: it has a tag for each beast whose bones were used, and can do something each of those beasts could do.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.MzyHBOx4ZhOMsQod",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Unliving Chimera",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "ooi6RgUY7zixzsx6",
+      "name": "Do something one of its component beasts could do",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PYut3j1FvTwjCvSM.ooi6RgUY7zixzsx6"
+    },
+    {
+      "_id": "WynxhEfUiks5wWsl",
+      "name": "Moan, wretchedly and disturbingly",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!PYut3j1FvTwjCvSM.WynxhEfUiks5wWsl"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "PYut3j1FvTwjCvSM",
+  "_key": "!actors!PYut3j1FvTwjCvSM"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "tx9I3QGe5ldHuhho",
+  "_key": "!journal!tx9I3QGe5ldHuhho",
+  "name": "Aurochs",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Big, powerful wild cattle with horns longer than your arm."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 1000,
+  "pages": [
+    {
+      "_id": "1RDme0QvQu2hp7X9",
+      "_key": "!journal.pages!tx9I3QGe5ldHuhho.1RDme0QvQu2hp7X9",
+      "name": "Aurochs",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Big, powerful wild cattle with horns longer than your arm.",
+        "description": "<p>Big, powerful, wild cattle with horns longer than your arm and thicker than your hand can grip around. Even the does have big horns, and aren't shy about using them.</p><p>They winter in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> in small bands of 3-5 adults. In spring they come down to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, form herds of 30 or more, and graze and graze and graze, breaking up into smaller bands by midsummer and heading back into the hills before first snow.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{The Hillfolk}</strong> hunt them, riding at the flanks of a herd and picking off one or two with arrows, keeping their distance. You do not want to get too close to one of these things, especially not after you wound it. A full-grown carcass, properly butchered and hauled home, counts as 1 Surplus; a pair of horns is Value 1.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fVOXp33igDV70sc0"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

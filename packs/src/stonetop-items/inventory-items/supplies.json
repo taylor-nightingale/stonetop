@@ -1,0 +1,32 @@
+{
+  "_id": "NbrnTP3fAbnFbmOH",
+  "_key": "!items!NbrnTP3fAbnFbmOH",
+  "name": "Supplies",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "supplies",
+      "inventoryColumn": "regular",
+      "sortOrder": 1,
+      "note": "4+Prosperity uses",
+      "weight": 1,
+      "prosperityResource": true,
+      "resource": {
+        "max": 6,
+        "title": null,
+        "labels": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

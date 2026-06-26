@@ -1,0 +1,12 @@
+{
+  "_id": "AgnpFjMQjutRPVS8",
+  "_key": "!items!AgnpFjMQjutRPVS8",
+  "name": "Lamplighter",
+  "type": "move",
+  "system": {
+    "playbook": "The Lightbearer",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>whisper to a flammable object (a torch, a wick, kindling, etc.)</em></strong>, it ignites in moments.</p>"
+  },
+  "folder": "2NSjjDBBQwMtXfvn"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "fhCGhdK4KZ5fBsUL",
+  "_key": "!journal!fhCGhdK4KZ5fBsUL",
+  "name": "Myghal, Deathless Sorcerer",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A sorcerer who anchored his soul to a hidden device and cheated death — paranoid, hoarding secrets."
+    }
+  },
+  "folder": "5hRvK2xOK2xjET49",
+  "sort": 134000,
+  "pages": [
+    {
+      "_id": "NadumFaGYEX4NSc0",
+      "_key": "!journal.pages!fhCGhdK4KZ5fBsUL.NadumFaGYEX4NSc0",
+      "name": "Myghal, Deathless Sorcerer",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A sorcerer who anchored his soul to a hidden device and cheated death — paranoid, hoarding secrets.",
+        "description": "<p>The book's worked example of a deathless one: a sorcerer corrupted by El'rash-Orra who anchored his soul to an arcane device hidden in a Stone Lord manor. His body is broken and his device must be fed and maintained — destroy it and he dies his final death — but until then he persists, possessing the lithic servants through whose eyes he sees and jealously hoarding his secrets.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.xSrPam8ZFxg24LQl"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

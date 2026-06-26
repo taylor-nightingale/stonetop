@@ -1,0 +1,61 @@
+{
+  "_id": "vZjyZNaEPLIeD7VJ",
+  "_key": "!journal!vZjyZNaEPLIeD7VJ",
+  "name": "Raselbaedd",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An ancient boar grown iron-hided, scarred, and grudge-bound."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 20000,
+  "pages": [
+    {
+      "_id": "uNyKpvLEUTwwABte",
+      "_key": "!journal.pages!vZjyZNaEPLIeD7VJ.uNyKpvLEUTwwABte",
+      "name": "Raselbaedd",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An ancient boar grown iron-hided, scarred, and grudge-bound.",
+        "description": "<p>When a boar lives long enough, survives enough close calls, and dines year after year on the roots and nuts of ferro trees, it eventually becomes a raselbaedd: the size of a horse, with tusks like short spears and a hide crisscrossed with scars and bristling with broken blades. Its hide (immobile, Value 2) can be harvested by a competent hunter with a fine steel blade and fashioned into 1d4 raselbaedd cuirasses (2 armor, Value 3).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.RiyVzcQMTvqowYdo"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

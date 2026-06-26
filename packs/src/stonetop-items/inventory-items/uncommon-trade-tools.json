@@ -1,0 +1,21 @@
+{
+  "_id": "t1OGMmjxWkI9X7H6",
+  "_key": "!items!t1OGMmjxWkI9X7H6",
+  "name": "Uncommon trade tools",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "uncommon-trade-tools",
+      "inventoryColumn": "regular",
+      "sortOrder": 42,
+      "note": "carpentry, chandlery, beekeeping, etc.; <em>immobile</em>",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

@@ -60,26 +60,35 @@ describe("pack source files", () => {
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
-	it("all have _key matching !items!/!actors!/!journal!/!tables!{_id} or !folders!{_id}", () => {
-		const prefixes = ["!items", "!actors", "!journal", "!tables", "!folders"];
-		const bad = allDocs.filter(({ doc }) => !prefixes.some((p) => doc._key === `${p}!${doc._id}`));
+	it("all have _key matching their document type", () => {
+		const bad = allDocs.filter(({ doc }) =>
+			doc._key !== `!items!${doc._id}` &&
+			doc._key !== `!folders!${doc._id}` &&
+			doc._key !== `!journal!${doc._id}` &&
+			doc._key !== `!actors!${doc._id}` &&
+			doc._key !== `!tables!${doc._id}`
+		);
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
-	it("all have name and type fields", () => {
-		// JournalEntry and RollTable documents have no top-level `type` (their embedded
-		// pages/results do); everything else is typed.
-		const untyped = (key) => key.startsWith("!journal!") || key.startsWith("!tables!");
-		const bad = allDocs.filter(({ doc }) => !doc.name || (!doc.type && !untyped(doc._key)));
+	it("all have required top-level fields for their document type", () => {
+		const bad = allDocs.filter(({ doc }) => {
+			if (!doc.name) return true;
+			if (doc._key?.startsWith("!journal!")) return !Array.isArray(doc.pages);
+			// RollTables (e.g. the Wonder Tables pack) carry no `type` subtype — their
+			// required shape is a name plus an array of results.
+			if (doc._key?.startsWith("!tables!")) return !Array.isArray(doc.results);
+			return !doc.type;
+		});
 		expect(bad.map(b => b.file)).toEqual([]);
 	});
 
-	it("arcana items have a slug, front, and back", () => {
-		const arcana = allDocs.filter(({ doc }) => doc.type === "arcanum");
+	it("arcana items have flags.stonetop.slug, front, and back", () => {
+		const arcana = allDocs.filter(({ doc }) => doc.system?.moveType === "arcanum");
 		const bad = arcana.filter(({ doc }) =>
-			!doc.system?.slug ||
-			!doc.system?.front ||
-			!doc.system?.back
+			!doc.flags?.stonetop?.slug ||
+			!doc.flags?.stonetop?.front ||
+			!doc.flags?.stonetop?.back
 		);
 		expect(bad.map(b => b.file)).toEqual([]);
 	});

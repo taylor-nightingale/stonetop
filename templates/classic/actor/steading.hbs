@@ -1,0 +1,651 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+	<header class="sheet-header steading-top">
+		<div class="steading-name-row">
+			<img class="steading-logo" src="systems/stonetop/assets/classic/steading/stonetop.png" alt="Stonetop">
+		</div>
+		<section class="steading-header-grid">
+
+			{{!-- Fortunes --}}
+			<div class="steading-stat-panel steading-panel-frame steading-fortunes">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					<button class="steading-stat-roll rollable" type="button" data-roll="fortunes">Fortunes</button>
+				</h2>
+				<div class="steading-start-line">{{{stonetop.fortunes.note}}}</div>
+				<div class="steading-rating-options">
+					{{#each stonetop.fortunes.options}}
+						<label class="steading-rating-option">
+							<input class="steading-box-input" type="radio" name="stonetop-fortunes" value="{{index}}" {{#if selected}}checked{{/if}}>
+							<span class="steading-box" aria-hidden="true"></span>
+							<span class="steading-option-text"><span>{{{label}}}</span></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Surplus --}}
+			<div class="steading-stat-panel steading-panel-frame steading-surplus">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
+				</h2>
+				<div class="steading-start-line">{{{stonetop.surplus.note}}}</div>
+				<input class="steading-surplus-input stonetop-step" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
+			</div>
+
+			{{!-- Size --}}
+			<div class="steading-stat-panel steading-panel-frame steading-size">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					Size
+				</h2>
+				<div class="steading-start-line">{{{stonetop.attributes.size.note}}}</div>
+				<div class="steading-rating-options">
+					{{#each stonetop.attributes.size.options}}
+						<label class="steading-rating-option">
+							<input class="steading-box-input" type="radio" name="stonetop-attr-size" data-attr="size" value="{{index}}" {{#if selected}}checked{{/if}}>
+							<span class="steading-box" aria-hidden="true"></span>
+							<span class="steading-option-text"><span>{{{label}}}</span></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Population --}}
+			<div class="steading-stat-panel steading-panel-frame steading-population">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					<button class="steading-stat-roll rollable" type="button" data-roll="population">Population</button>
+				</h2>
+				<div class="steading-start-line">{{{stonetop.attributes.population.note}}}</div>
+				<div class="steading-rating-options">
+					{{#each stonetop.attributes.population.options}}
+						<label class="steading-rating-option">
+							<input class="steading-box-input" type="radio" name="stonetop-attr-population" data-attr="population" value="{{index}}" {{#if selected}}checked{{/if}}>
+							<span class="steading-box" aria-hidden="true"></span>
+							<span class="steading-option-text"><span>{{{label}}}</span></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Prosperity --}}
+			<div class="steading-stat-panel steading-panel-frame steading-prosperity">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					<button class="steading-stat-roll rollable" type="button" data-roll="prosperity">Prosperity</button>
+				</h2>
+				<div class="steading-start-line">{{{stonetop.attributes.prosperity.note}}}</div>
+				<div class="steading-rating-options">
+					{{#each stonetop.attributes.prosperity.options}}
+						<label class="steading-rating-option">
+							<input class="steading-box-input" type="radio" name="stonetop-attr-prosperity" data-attr="prosperity" value="{{index}}" {{#if selected}}checked{{/if}}>
+							<span class="steading-box" aria-hidden="true"></span>
+							<span class="steading-option-text"><span>{{{label}}}</span></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Defenses --}}
+			<div class="steading-stat-panel steading-panel-frame steading-defenses">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>
+					<button class="steading-stat-roll rollable" type="button" data-roll="defenses">Defenses</button>
+				</h2>
+				<div class="steading-start-line">{{{stonetop.attributes.defenses.note}}}</div>
+				<div class="steading-rating-options steading-rating-options--wide">
+					{{#each stonetop.attributes.defenses.options}}
+						<label class="steading-rating-option">
+							<input class="steading-box-input" type="radio" name="stonetop-attr-defenses" data-attr="defenses" value="{{index}}" {{#if selected}}checked{{/if}}>
+							<span class="steading-box" aria-hidden="true"></span>
+							<span class="steading-option-text"><span>{{{label}}}</span></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Debilities --}}
+			<div class="steading-debilities-panel steading-panel-frame">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>Debilities</h2>
+				<div class="steading-debility-list">
+					{{#each stonetop.debilities}}
+						<label class="steading-debility-option">
+							<input class="steading-circle-input" type="checkbox" data-slug="{{slug}}" {{#if active}}checked{{/if}}>
+							<span class="steading-circle" aria-hidden="true"></span>
+							<span class="stonetop-rich">{{{md description}}} <small>{{note}}</small></span>
+						</label>
+					{{/each}}
+				</div>
+			</div>
+
+			{{!-- Roll Mode --}}
+			<div class="steading-stat-panel steading-panel-frame steading-roll-mode">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+				<h2>{{localize "stonetop.rollMode.label"}}</h2>
+				<div class="steading-rating-options">
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.normal"}}</span></span>
+					</label>
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.adv"}}</span></span>
+					</label>
+					<label class="steading-rating-option">
+						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
+						<span class="steading-box" aria-hidden="true"></span>
+						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.dis"}}</span></span>
+					</label>
+				</div>
+			</div>
+
+		</section>
+	</header>
+
+	{{!-- Tab navigation --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		<a class="item active" data-tab="overview">Overview</a>
+		<a class="item" data-tab="residents">Residents</a>
+		<a class="item" data-tab="neighbors">Neighbors</a>
+		<a class="item" data-tab="improvements">Improvements</a>
+		<a class="item" data-tab="moves">Moves</a>
+		<a class="item" data-tab="notes">Notes</a>
+	</nav>
+
+	<section class="sheet-body">
+
+		{{!-- Overview tab --}}
+		<div class="tab active" data-group="primary" data-tab="overview">
+
+			<div class="steading-overview-grid">
+
+				<section class="steading-overview-column">
+					<div class="steading-overview-field steading-panel-frame">
+						<span class="panel-corner panel-corner-tl"></span>
+						<span class="panel-corner panel-corner-tr"></span>
+						<span class="panel-corner panel-corner-bl"></span>
+						<span class="panel-corner panel-corner-br"></span>
+						<span class="panel-edge panel-edge-top"></span>
+						<span class="panel-edge panel-edge-right"></span>
+						<span class="panel-edge panel-edge-bottom"></span>
+						<span class="panel-edge panel-edge-left"></span>
+						<h2>Resources</h2>
+						<div class="steading-attr-list">
+							{{#each stonetop.attributes.prosperity.items}}
+								<div class="steading-attr-row">
+									<input type="text" class="stonetop-attr-extra" data-attr="prosperity" data-index="{{@index}}" value="{{this}}">
+									<button class="stonetop-attr-extra-remove stonetop-icon-btn" type="button" data-attr="prosperity" data-index="{{@index}}" title="Remove" aria-label="Remove">
+										<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="">
+									</button>
+								</div>
+							{{/each}}
+							<button class="stonetop-attr-extra-add stonetop-icon-btn" type="button" data-attr="prosperity" title="Add" aria-label="Add">
+								<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+							</button>
+						</div>
+					</div>
+				</section>
+
+				<div class="steading-overview-divider" aria-hidden="true"></div>
+
+				<section class="steading-overview-column">
+					<div class="steading-overview-field steading-panel-frame">
+						<span class="panel-corner panel-corner-tl"></span>
+						<span class="panel-corner panel-corner-tr"></span>
+						<span class="panel-corner panel-corner-bl"></span>
+						<span class="panel-corner panel-corner-br"></span>
+						<span class="panel-edge panel-edge-top"></span>
+						<span class="panel-edge panel-edge-right"></span>
+						<span class="panel-edge panel-edge-bottom"></span>
+						<span class="panel-edge panel-edge-left"></span>
+						<h2>Defenses</h2>
+						<div class="steading-attr-list">
+							{{#each stonetop.attributes.defenses.items}}
+								<div class="steading-attr-row">
+									<input type="text" class="stonetop-attr-extra" data-attr="defenses" data-index="{{@index}}" value="{{this}}">
+									<button class="stonetop-attr-extra-remove stonetop-icon-btn" type="button" data-attr="defenses" data-index="{{@index}}" title="Remove" aria-label="Remove">
+										<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="">
+									</button>
+								</div>
+							{{/each}}
+							<button class="stonetop-attr-extra-add stonetop-icon-btn" type="button" data-attr="defenses" title="Add" aria-label="Add">
+								<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+							</button>
+						</div>
+					</div>
+				</section>
+
+				<div class="steading-overview-divider" aria-hidden="true"></div>
+
+				<section class="steading-overview-column steading-assets-column">
+					<div class="steading-overview-field steading-panel-frame">
+						<span class="panel-corner panel-corner-tl"></span>
+						<span class="panel-corner panel-corner-tr"></span>
+						<span class="panel-corner panel-corner-bl"></span>
+						<span class="panel-corner panel-corner-br"></span>
+						<span class="panel-edge panel-edge-top"></span>
+						<span class="panel-edge panel-edge-right"></span>
+						<span class="panel-edge panel-edge-bottom"></span>
+						<span class="panel-edge panel-edge-left"></span>
+						<h2>Assets</h2>
+						<div class="steading-attr-list">
+							{{#each stonetop.assets.items}}
+								<div class="steading-attr-row">
+									<input type="text" class="stonetop-asset-item" data-index="{{@index}}" value="{{this}}">
+									<button class="stonetop-asset-item-remove stonetop-icon-btn" type="button" data-index="{{@index}}" title="Remove" aria-label="Remove">
+										<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="">
+									</button>
+								</div>
+							{{/each}}
+							<button class="stonetop-asset-item-add stonetop-icon-btn" type="button" title="Add" aria-label="Add">
+								<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+							</button>
+						</div>
+					</div>
+
+					<div class="steading-asset-currency-grid">
+						{{#each stonetop.assets.coinage}}
+							<label class="steading-asset-currency-frame">
+								<span>{{title}} Purses</span>
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
+								       data-index="{{@index}}" data-field="purses" value="{{purses}}">
+							</label>
+							<label class="steading-asset-currency-frame">
+								<span>{{title}} Handfuls</span>
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
+								       data-index="{{@index}}" data-field="handfuls" value="{{handfuls}}">
+							</label>
+							<label class="steading-asset-currency-frame">
+								<span>{{title}} Coins</span>
+								<input type="number" class="stonetop-coinage-input stonetop-step" min="0"
+								       data-index="{{@index}}" data-field="coins" value="{{coins}}">
+							</label>
+						{{/each}}
+					</div>
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab overview --}}
+
+		{{!-- Residents tab --}}
+		<div class="tab" data-group="primary" data-tab="residents">
+
+			<div class="steading-residents-grid">
+
+				<section class="steading-residents-roster steading-panel-frame">
+					<span class="panel-corner panel-corner-tl"></span>
+					<span class="panel-corner panel-corner-tr"></span>
+					<span class="panel-corner panel-corner-bl"></span>
+					<span class="panel-corner panel-corner-br"></span>
+					<span class="panel-edge panel-edge-top"></span>
+					<span class="panel-edge panel-edge-right"></span>
+					<span class="panel-edge panel-edge-bottom"></span>
+					<span class="panel-edge panel-edge-left"></span>
+
+					<div class="steading-residents-table">
+						<div class="steading-residents-header">
+							<span>Name (Pronouns)</span>
+							<span>Occupation</span>
+							<span>Traits, Relations, Etc</span>
+						</div>
+						<div class="steading-residents-rows">
+							{{#each stonetop.residents}}
+								<div class="steading-resident-row">
+									<input type="text" class="stonetop-resident-name" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
+									<input type="text" class="stonetop-resident-occupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
+									<input type="text" class="stonetop-resident-traits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
+									<button class="stonetop-resident-remove stonetop-icon-btn" type="button" data-id="{{id}}" title="Delete resident" aria-label="Delete resident">
+										<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="">
+									</button>
+								</div>
+							{{/each}}
+						</div>
+						<button class="stonetop-resident-add stonetop-icon-btn" type="button" title="Add resident" aria-label="Add resident">
+							<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+						</button>
+					</div>
+				</section>
+
+				<div class="steading-residents-divider" aria-hidden="true"></div>
+
+				<section class="steading-resident-names steading-panel-frame">
+					<span class="panel-corner panel-corner-tl"></span>
+					<span class="panel-corner panel-corner-tr"></span>
+					<span class="panel-corner panel-corner-bl"></span>
+					<span class="panel-corner panel-corner-br"></span>
+					<span class="panel-edge panel-edge-top"></span>
+					<span class="panel-edge panel-edge-right"></span>
+					<span class="panel-edge panel-edge-bottom"></span>
+					<span class="panel-edge panel-edge-left"></span>
+					<h2>Names</h2>
+					<p class="steading-names-text">{{stonetop.residentNames}}</p>
+					<img class="steading-residents-img" src="systems/stonetop/assets/classic/steading/residents.png" alt="">
+				</section>
+
+			</div>
+
+			<section class="steading-npc-traits steading-panel-frame">
+				<span class="panel-corner panel-corner-tl"></span>
+				<span class="panel-corner panel-corner-tr"></span>
+				<span class="panel-corner panel-corner-bl"></span>
+				<span class="panel-corner panel-corner-br"></span>
+				<span class="panel-edge panel-edge-top"></span>
+				<span class="panel-edge panel-edge-right"></span>
+				<span class="panel-edge panel-edge-bottom"></span>
+				<span class="panel-edge panel-edge-left"></span>
+
+				<div class="steading-npc-traits-heading">
+					<h2>NPC Traits</h2>
+					<span>Assign as needed; choose from this list or make up your own.</span>
+				</div>
+				<textarea class="steading-npc-traits-source">{{stonetop.residentTraitsText}}</textarea>
+				<div class="steading-npc-traits-columns">
+					{{#each stonetop.npcTraitColumns}}
+						<div class="steading-npc-traits-column">
+							{{#each this}}
+								<div class="steading-npc-trait">{{this}}</div>
+							{{/each}}
+						</div>
+					{{/each}}
+				</div>
+			</section>
+
+		</div>{{!-- /tab residents --}}
+
+		{{!-- Neighbors tab --}}
+		<div class="tab" data-group="primary" data-tab="neighbors">
+
+			<div class="steading-neighbors-grid">
+
+				<section class="steading-neighbors-roster steading-panel-frame">
+					<span class="panel-corner panel-corner-tl"></span>
+					<span class="panel-corner panel-corner-tr"></span>
+					<span class="panel-corner panel-corner-bl"></span>
+					<span class="panel-corner panel-corner-br"></span>
+					<span class="panel-edge panel-edge-top"></span>
+					<span class="panel-edge panel-edge-right"></span>
+					<span class="panel-edge panel-edge-bottom"></span>
+					<span class="panel-edge panel-edge-left"></span>
+
+					<div class="steading-residents-table steading-neighbors-table">
+						<div class="steading-residents-header steading-neighbors-header">
+							<span>Name (Pronouns)</span>
+							<span>Occupation</span>
+							<span>Traits, Relations, Etc</span>
+							<span>Home</span>
+						</div>
+						<div class="steading-residents-rows">
+							{{#each stonetop.neighbors.people}}
+								<div class="steading-resident-row steading-neighbor-row">
+									<input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
+									<input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
+									<input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
+									<input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}" placeholder="Home">
+									<button class="stonetop-neighbor-person-remove stonetop-icon-btn" type="button" data-id="{{id}}" title="Delete neighbor" aria-label="Delete neighbor">
+										<img src="systems/stonetop/assets/classic/icons/delete-icon.png" alt="">
+									</button>
+								</div>
+							{{/each}}
+						</div>
+						<button class="stonetop-neighbor-person-add stonetop-icon-btn" type="button" title="Add neighbor" aria-label="Add neighbor">
+							<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+						</button>
+					</div>
+				</section>
+
+				<div class="steading-neighbors-divider" aria-hidden="true"></div>
+
+				<section class="steading-neighbor-places">
+					{{#each stonetop.neighbors.places}}
+						<section class="steading-neighbor-place steading-panel-frame">
+							<span class="panel-corner panel-corner-tl"></span>
+							<span class="panel-corner panel-corner-tr"></span>
+							<span class="panel-corner panel-corner-bl"></span>
+							<span class="panel-corner panel-corner-br"></span>
+							<span class="panel-edge panel-edge-top"></span>
+							<span class="panel-edge panel-edge-right"></span>
+							<span class="panel-edge panel-edge-bottom"></span>
+							<span class="panel-edge panel-edge-left"></span>
+							<h2>{{name}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h2>
+							<label class="steading-neighbor-text-field">
+								<span>Notes</span>
+								<textarea class="stonetop-neighbor-place-note" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
+							</label>
+							{{#if names}}
+								<div class="steading-neighbor-text-field">
+									<span>Names</span>
+									<p class="steading-names-text">{{names}}</p>
+								</div>
+							{{/if}}
+						</section>
+					{{/each}}
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab neighbors --}}
+
+		{{!-- Improvements tab --}}
+		<div class="tab" data-group="primary" data-tab="improvements">
+
+			<div class="steading-improvements-grid">
+
+				<section class="steading-improvement-column" data-column="left">
+					{{#each stonetop.improvementColumns.left}}
+						<div class="steading-improvement-group steading-panel-frame">
+							<span class="panel-corner panel-corner-tl"></span>
+							<span class="panel-corner panel-corner-tr"></span>
+							<span class="panel-corner panel-corner-bl"></span>
+							<span class="panel-corner panel-corner-br"></span>
+							<span class="panel-edge panel-edge-top"></span>
+							<span class="panel-edge panel-edge-right"></span>
+							<span class="panel-edge panel-edge-bottom"></span>
+							<span class="panel-edge panel-edge-left"></span>
+							<div class="stonetop-choice-entry" data-slug="{{slug}}">
+								{{#each list}}
+									{{> "classic.choice-row" cgContext="improvement" cgGroup=../slug}}
+								{{/each}}
+							</div>
+						</div>
+					{{/each}}
+				</section>
+
+				<div class="steading-improvements-divider" aria-hidden="true"></div>
+
+				<section class="steading-improvement-column" data-column="middle">
+					{{#each stonetop.improvementColumns.middle}}
+						<div class="steading-improvement-group steading-panel-frame">
+							<span class="panel-corner panel-corner-tl"></span>
+							<span class="panel-corner panel-corner-tr"></span>
+							<span class="panel-corner panel-corner-bl"></span>
+							<span class="panel-corner panel-corner-br"></span>
+							<span class="panel-edge panel-edge-top"></span>
+							<span class="panel-edge panel-edge-right"></span>
+							<span class="panel-edge panel-edge-bottom"></span>
+							<span class="panel-edge panel-edge-left"></span>
+							<div class="stonetop-choice-entry" data-slug="{{slug}}">
+								{{#each list}}
+									{{> "classic.choice-row" cgContext="improvement" cgGroup=../slug}}
+								{{/each}}
+							</div>
+						</div>
+					{{/each}}
+				</section>
+
+				<div class="steading-improvements-divider" aria-hidden="true"></div>
+
+				<section class="steading-improvement-column" data-column="right">
+					{{#each stonetop.improvementColumns.right}}
+						<div class="steading-improvement-group steading-panel-frame">
+							<span class="panel-corner panel-corner-tl"></span>
+							<span class="panel-corner panel-corner-tr"></span>
+							<span class="panel-corner panel-corner-bl"></span>
+							<span class="panel-corner panel-corner-br"></span>
+							<span class="panel-edge panel-edge-top"></span>
+							<span class="panel-edge panel-edge-right"></span>
+							<span class="panel-edge panel-edge-bottom"></span>
+							<span class="panel-edge panel-edge-left"></span>
+							<div class="stonetop-choice-entry" data-slug="{{slug}}">
+								{{#each list}}
+									{{> "classic.choice-row" cgContext="improvement" cgGroup=../slug}}
+								{{/each}}
+							</div>
+						</div>
+					{{/each}}
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab improvements --}}
+
+		{{!-- Moves tab --}}
+		<div class="tab" data-group="primary" data-tab="moves">
+			<section class="sheet-tab">
+				{{#if stonetop.moves}}
+					{{> "classic.move-group"
+					    title=stonetop.moves.label
+					    note=stonetop.moves.note
+					    moves=stonetop.moves.moves
+					    categoryKey=stonetop.moves.key
+					    allowAdditional=false}}
+				{{else}}
+					<p class="stonetop-moves-empty">No homefront moves assigned to this steading.</p>
+				{{/if}}
+			</section>
+		</div>{{!-- /tab moves --}}
+
+		{{!-- Notes tab --}}
+		<div class="tab" data-group="primary" data-tab="notes">
+
+			<div class="steading-notes-grid">
+
+				<section class="steading-notes-column">
+					<div class="steading-notes-field steading-panel-frame">
+						<span class="panel-corner panel-corner-tl"></span>
+						<span class="panel-corner panel-corner-tr"></span>
+						<span class="panel-corner panel-corner-bl"></span>
+						<span class="panel-corner panel-corner-br"></span>
+						<span class="panel-edge panel-edge-top"></span>
+						<span class="panel-edge panel-edge-right"></span>
+						<span class="panel-edge panel-edge-bottom"></span>
+						<span class="panel-edge panel-edge-left"></span>
+						<h2>Places of Interest</h2>
+						<div class="stonetop-places-list">
+							{{#each stonetop.placesOfInterest}}
+								<div class="stonetop-places-row">
+									<span class="stonetop-place-key">{{key}}.</span>
+									<input type="text" class="stonetop-place-field" data-index="{{index}}" value="{{value}}">
+								</div>
+							{{/each}}
+						</div>
+						<button type="button" class="stonetop-place-add stonetop-icon-btn" title="Add place" aria-label="Add place">
+							<img src="systems/stonetop/assets/classic/icons/plus-icon.png" alt="">
+						</button>
+					</div>
+				</section>
+
+				<div class="steading-notes-divider" aria-hidden="true"></div>
+
+				<section class="steading-notes-column steading-notes-content-column">
+					{{#each stonetop.content}}
+						<div class="steading-notes-field steading-notes-content-field steading-panel-frame">
+							<span class="panel-corner panel-corner-tl"></span>
+							<span class="panel-corner panel-corner-tr"></span>
+							<span class="panel-corner panel-corner-bl"></span>
+							<span class="panel-corner panel-corner-br"></span>
+							<span class="panel-edge panel-edge-top"></span>
+							<span class="panel-edge panel-edge-right"></span>
+							<span class="panel-edge panel-edge-bottom"></span>
+							<span class="panel-edge panel-edge-left"></span>
+							<h2>{{label}}{{#if note}} <small>{{note}}</small>{{/if}}</h2>
+							<textarea class="stonetop-content-textarea" data-type="{{slug}}">{{text}}</textarea>
+						</div>
+					{{/each}}
+				</section>
+
+				<div class="steading-notes-divider" aria-hidden="true"></div>
+
+				<section class="steading-notes-column">
+					<div class="steading-notes-field steading-panel-frame">
+						<span class="panel-corner panel-corner-tl"></span>
+						<span class="panel-corner panel-corner-tr"></span>
+						<span class="panel-corner panel-corner-bl"></span>
+						<span class="panel-corner panel-corner-br"></span>
+						<span class="panel-edge panel-edge-top"></span>
+						<span class="panel-edge panel-edge-right"></span>
+						<span class="panel-edge panel-edge-bottom"></span>
+						<span class="panel-edge panel-edge-left"></span>
+						<h2>Notes</h2>
+						<textarea class="stonetop-notes">{{stonetop.notes}}</textarea>
+					</div>
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab notes --}}
+
+	</section>{{!-- /sheet-body --}}
+
+</form>

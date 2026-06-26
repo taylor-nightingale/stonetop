@@ -1,0 +1,59 @@
+{
+  "name": "Lightning Sconce",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "armor": {
+        "value": 4,
+        "source": "tiny size, metal fittings, and crystal body"
+      },
+      "damage": {
+        "value": "lightning 1d6+2 (near, forceful, reload, ignores armor)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to blast the unkeyed"
+      }
+    },
+    "concept": "An aetherium sentry-gem that blasts the unkeyed with lightning.",
+    "organization": "",
+    "size": "",
+    "tags": "magical, construct, immobile",
+    "qualities": "<p>Immobile. Keyed to a phrase, signal, color, or token.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5QceSajZpMX0eS4Q",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Lightning Sconce",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "gYFXx51yRpBjq5d4",
+      "name": "Zzzolt — blast intruders with lightning (near, forceful, reload, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d6+2"
+      },
+      "_key": "!actors.items!dfsDOpDS6JcOBnCe.gYFXx51yRpBjq5d4"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "dfsDOpDS6JcOBnCe",
+  "_key": "!actors!dfsDOpDS6JcOBnCe"
+}

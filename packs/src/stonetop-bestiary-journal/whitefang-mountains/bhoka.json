@@ -1,0 +1,70 @@
+{
+  "_id": "Qy6WvpBjmoGnG0m8",
+  "_key": "!journal!Qy6WvpBjmoGnG0m8",
+  "name": "Bhoka",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A hulking, element-wielding brute driven by one obsessive vice."
+    }
+  },
+  "folder": "BbbSr8kQQLU7JJm8",
+  "sort": 57000,
+  "pages": [
+    {
+      "_id": "VAd9LcViBUoBfs1T",
+      "_key": "!journal.pages!Qy6WvpBjmoGnG0m8.VAd9LcViBUoBfs1T",
+      "name": "Bhoka",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A hulking, element-wielding brute driven by one obsessive vice.",
+        "description": "<p>These hulking brutes dwell in dark places: caves, north-facing slopes, and deep mountain forests. They're hairy things, hunched and wild, only vaguely looking like people. They'd be little more than dangerous beasts, easily avoided, if they weren't driven by an obsessive vice — and if they didn't wield the wild elements themselves. Each bhoka has its own instinct (to bask in fear, to steal precious things, to sate an endless hunger, to avenge any slight, or to force others into servitude) and a special trait, from great size to extra arms to wings to ice-rock scales to regeneration.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** The people of the Whitefangs fear bhoka and are well aware of the dangers they pose, but they never hunt them — they're content to drive them off or appease them.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** The monks claim bhoka descended from @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords} corrupted by @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{the Things Below}. They cannot abide the sound of the Rime Lords' meditative chants, recoiling and fleeing from anyone who performs such a chant without faltering.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Vb5tyDtljq9QiGwW"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

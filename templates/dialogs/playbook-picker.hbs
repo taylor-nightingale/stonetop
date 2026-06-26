@@ -1,0 +1,24 @@
+<div class="stonetop-playbook-picker-body">
+	<div class="stonetop-playbook-picker-intro">
+		<p>Your <strong>playbook</strong> is who your hero is in Stonetop&mdash;their role in the village, their strengths, and the special moves they bring to the table. There's no wrong pick, so choose whatever sparks your imagination.</p>
+		<p>Hover over any card for a short description and a sense of how complex it is to play. New to the village? The <strong>Setting Overview</strong> button sketches Stonetop and the world around it.</p>
+	</div>
+	<div class="stonetop-playbook-picker-topbar">
+		<button type="button" class="stonetop-playbook-picker-setting-overview">Setting Overview</button>
+	</div>
+	<div class="stonetop-playbook-picker-grid">
+		{{#each playbooks}}
+		<button type="button"
+			class="stonetop-playbook-picker-card stonetop-playbook-picker-card--{{slug}}"
+			data-uuid="{{uuid}}"
+			data-complexity="{{complexity}}"
+			data-description="{{description}}"
+		>
+			{{#if img}}
+			<img class="stonetop-playbook-picker-card-icon" src="{{img}}" alt="">
+			{{/if}}
+			<span class="stonetop-playbook-picker-card-name">{{name}}</span>
+		</button>
+		{{/each}}
+	</div>
+</div>

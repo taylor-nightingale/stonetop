@@ -1,0 +1,18 @@
+{
+  "_id": "k7Gdp0CXP9K63LSF",
+  "_key": "!items!k7Gdp0CXP9K63LSF",
+  "name": "Knife or dagger, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "knife-dagger",
+      "inventoryColumn": "small",
+      "sortOrder": 1,
+      "note": "<em>hand</em>"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

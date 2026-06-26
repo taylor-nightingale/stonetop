@@ -1,0 +1,61 @@
+{
+  "_id": "F5CHB8YqT63jY04J",
+  "_key": "!journal!F5CHB8YqT63jY04J",
+  "name": "Tal Gerdwyr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The 'tall walkers' — gentle, hill-sized, long-necked drakes."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 21000,
+  "pages": [
+    {
+      "_id": "SUd2LHsf2oGMbrIh",
+      "_key": "!journal.pages!F5CHB8YqT63jY04J.SUd2LHsf2oGMbrIh",
+      "name": "Tal Gerdwyr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The 'tall walkers' — gentle, hill-sized, long-necked drakes.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{The Forest Folk}</strong> would tell stories of the 'tall walkers,' drakes with necks like trees and bodies like small hills, draped in feathers that look like vines and leaves. Supposedly they roam deep in the forest, blithely chewing leaves from the canopy and singing mournful songs to each other.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Xa6zaAxbSXE4EslL"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

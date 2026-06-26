@@ -1,0 +1,113 @@
+{
+  "name": "Fire Vortex",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "flames & fire d10 (hand, close, dangerous) — scales with size",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to consume"
+      }
+    },
+    "concept": "A hungry whirl of cinder and flame that consumes all it touches.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, amorphous, intense, aggressive",
+    "qualities": "<p>Fireproof; harmed only by magical attacks, water, or smothering. Gains HP from heat and flames. HP/Armor/damage scale with size — see the entry.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qUp7ZkpC5FdinUC4",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Fire Vortex",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "gq8wiqaoKjqKWqbs",
+      "name": "Set nearby combustibles alight",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.gq8wiqaoKjqKWqbs"
+    },
+    {
+      "_id": "fViR9ADcwGjbltdr",
+      "name": "Manifest a vortex out of nearby fire, cinder, smoke, and ash",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.fViR9ADcwGjbltdr"
+    },
+    {
+      "_id": "yW1MedphYW13Pn9i",
+      "name": "Extinguish fires, absorbing their power (near, area)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.yW1MedphYW13Pn9i"
+    },
+    {
+      "_id": "shvC17A2JlMfbian",
+      "name": "Engulf a smaller foe (+messy, +ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.shvC17A2JlMfbian"
+    },
+    {
+      "_id": "uixmFWulXtQRgnKg",
+      "name": "Fling flames (+near; costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.uixmFWulXtQRgnKg"
+    },
+    {
+      "_id": "ADIiLEmbpGe43pxC",
+      "name": "Leap across a barrier (but lose 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!1U5ExYjZPgmW0Gck.ADIiLEmbpGe43pxC"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "phXf36WaexQZLIG1",
+  "_id": "1U5ExYjZPgmW0Gck",
+  "_key": "!actors!1U5ExYjZPgmW0Gck"
+}

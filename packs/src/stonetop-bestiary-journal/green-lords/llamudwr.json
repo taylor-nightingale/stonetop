@@ -1,0 +1,61 @@
+{
+  "_id": "7qfPIuaRwuUPi4nV",
+  "_key": "!journal!7qfPIuaRwuUPi4nV",
+  "name": "Llamudwr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A winged, venom-tailed frog-horror that leaps from still water at dusk."
+    }
+  },
+  "folder": "jQoDL6IhABvMYnZf",
+  "sort": 77000,
+  "pages": [
+    {
+      "_id": "R2kOFklneqKTwTWd",
+      "_key": "!journal.pages!7qfPIuaRwuUPi4nV.R2kOFklneqKTwTWd",
+      "name": "Llamudwr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A winged, venom-tailed frog-horror that leaps from still water at dusk.",
+        "description": "<p>Everyone knows to shun deep, still water, and the llamudwr — the 'water leapers' — are surely one reason why. Take the body of a frog, six or seven feet long. Add another eight or nine feet of whipping tail, tipped with a venomous barb. Get rid of its legs, but give it bat wings, a span of nearly twenty feet unfurled. Hide it in a lake or fen, away from the sun's cruel light. And finally, make it hungry. Very, very hungry.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.zWFuS69kPihbwlKp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

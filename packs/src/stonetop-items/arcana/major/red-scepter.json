@@ -1,0 +1,41 @@
+{
+  "name": "Red Scepter",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "red-scepter",
+      "front": {
+        "title": "Red Scepter",
+        "item": {
+          "name": "Red Scepter",
+          "weight": 1,
+          "note": "<em>magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A bronze rod, tipped with a glowing red crystal and carved with openwork shapes of hungry, leering faces.</p><p>When you <strong><em>hold the Scepter and wind blows through the openings in the crystal</em></strong>, it makes a soft howling noise.</p><p>When you <strong><em>gesture at an open flame with the scepter</em></strong>, the flame flickers or flares as if blown by the wind.</p><p>When you <strong><em>bleed a helpless, living creature and dip the Scepter's crystal in their still-warm blood</em></strong>, mark 1 charge as the crystal soaks up the blood (to a maximum of 3): ◇◇◇</p><p><strong>INFLAME</strong><br>When you <strong><em>wield the Scepter and incite an individual to violent action</em></strong>, you may erase 1 charge to roll +CHA: <strong>on a 10+</strong>, they must pick 1 from the list below; <strong>on a 7-9</strong>, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.</p><ul><li>Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so</li><li>Resist, but suffer painful burns (2d4 damage, ignores armor)</li></ul><p>When you <strong><em>Inflame someone and they kill one or more living beings as a result</em></strong>, mark 1:</p>",
+        "unlock": {
+          "description": "○○○○ When you make the last mark, you unlock the Scepter's mysteries and gain Burning Hatred (see reverse).",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Red Scepter",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>□ BURNING HATRED</strong> (<em>near, magical, reload</em>)<br>When you <strong><em>point the Red Scepter at an object of your hatred and erase 1 charge</em></strong>, roll +CHA: <strong>on a 10+</strong>, the Scepter deals 2d4 damage (<em>messy, ignores armor</em>), manifested as blistering burns; <strong>on a 7-9</strong>, as a 10+ but pick 1: Mark a consequence / Spend a few seconds chanting and muttering before dealing damage / Cause any exposed, combustible items in range to burst into flames. <strong>On a 6-</strong>, the GM says what happens (which may or may not involve marking a consequence).</p><p>When you mark 3 Consequences, you gain Fanning the Flames.</p><p><strong>□ FANNING THE FLAMES</strong><br>When you <strong><em>use Inflame</em></strong>, you can incite everyone who can hear you into violent action, not just an individual. If you do, roll once for the entire crowd, but each target makes their own choices. <strong>On a 7-9</strong>, you must also choose a Consequence; <strong>on a 6-</strong>, the GM chooses a Consequence for you.</p><p>When you <strong><em>use Burning Hatred</em></strong>, you can mark a consequence to target not just the person or thing you hate but also everything near them. Roll +CHA once but roll damage for each victim. Any combustibles on your targets also erupt into flame.</p><h3>Consequences</h3><ul><li>Your skin becomes feverish. You always feel hot and can't bear to wear <em>warm</em> gear.</li><li>Your eyes change, glowing like fiery embers. They flare with your temper.</li><li>The crystal tip of the Scepter cracks, and you cannot use the Scepter's powers until you have \"fed\" the Scepter another chunk of red crystal, one at least the size of your fist.</li><li>To gain any future charge, the victim you bleed must be awake and terrified.</li><li>To gain any future charge, the blood-letting must be brutal, messy, and wanton.</li><li>Henceforth, when you incite someone to violence with the Scepter and they act as you suggest, they lose themselves to primal bloodlust. They feel no pain and revel in carnage until they are killed, restrained, or crippled.</li><li>When you use Burning Hatred, something on your person or within reach also catches fire.</li><li>You always hear a dim howling in the back of your mind. When the wind blows, the howling grows in volume, making it difficult to hear anything other than insults or plans to commit violence.</li><li>When you Persuade using anything other than threats, pain, or violence, the best you can get is a 7-9.</li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "PWqIjgBAy2ufWqr1",
+  "_key": "!items!PWqIjgBAy2ufWqr1",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-redscepter.webp"
+}

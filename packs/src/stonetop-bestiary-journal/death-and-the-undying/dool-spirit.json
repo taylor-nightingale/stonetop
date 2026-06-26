@@ -1,0 +1,61 @@
+{
+  "_id": "N7e7deA8brYpOz66",
+  "_key": "!journal!N7e7deA8brYpOz66",
+  "name": "Dool Spirit",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A fear-eating spirit of the afterlife that binds to your bones and haunts you alone."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 110000,
+  "pages": [
+    {
+      "_id": "mA3EADQX0eC6EwFv",
+      "_key": "!journal.pages!N7e7deA8brYpOz66.mA3EADQX0eC6EwFv",
+      "name": "Dool Spirit",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A fear-eating spirit of the afterlife that binds to your bones and haunts you alone.",
+        "description": "<p>Dool spirits hail from beyond the Last Door. They are not undead, for they never lived, but are native to the afterlife. They sometimes slip into this world, haunting the dool trees from which they get their name. When a dool spirit takes a liking to a victim's fears, it leaves its tree and binds itself to that victim's very bones — proceeding to haunt them, and only them, driving them mad with fear. It remains bound to those bones even in death, until a new dool tree sprouts where they're buried and the spirit can haunt the living once more.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.QVLizZqzWNlG4e4f"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

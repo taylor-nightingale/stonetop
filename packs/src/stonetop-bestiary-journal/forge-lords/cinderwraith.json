@@ -1,0 +1,61 @@
+{
+  "_id": "x54yvxxbXbmKYZ8e",
+  "_key": "!journal!x54yvxxbXbmKYZ8e",
+  "name": "Cinderwraith",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A betrayed Forge Lord's inner fire, smoldering in its bones to burn the living."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 69000,
+  "pages": [
+    {
+      "_id": "9yf8QVA3QYB8G8jS",
+      "_key": "!journal.pages!x54yvxxbXbmKYZ8e.9yf8QVA3QYB8G8jS",
+      "name": "Cinderwraith",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A betrayed Forge Lord's inner fire, smoldering in its bones to burn the living.",
+        "description": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{The Forge Lords}</strong> burned with an inner fire, one that threatened to consume them even in life. And when one died badly — slowly, desperately, betrayed and full of helpless rage — that fire could linger on, burning away first the flesh, then the spirit, then the soul. Then it waits in the bones, like heat in banked coals, for fresh air to give it new life and fresh souls to burn for fuel.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.4EAwSShKj05G2Dls"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

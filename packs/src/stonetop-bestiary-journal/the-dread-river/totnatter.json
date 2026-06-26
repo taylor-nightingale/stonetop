@@ -1,0 +1,61 @@
+{
+  "_id": "w8oBC7s7o7AlEqIQ",
+  "_key": "!journal!w8oBC7s7o7AlEqIQ",
+  "name": "Totnatter",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A grey-white rattlesnake grown big enough to swallow a deer."
+    }
+  },
+  "folder": "pMuGAU8Psq5joXjG",
+  "sort": 27000,
+  "pages": [
+    {
+      "_id": "CHc4ybU2Sno1PV5d",
+      "_key": "!journal.pages!w8oBC7s7o7AlEqIQ.CHc4ybU2Sno1PV5d",
+      "name": "Totnatter",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A grey-white rattlesnake grown big enough to swallow a deer.",
+        "description": "<p>These grey-white rattlesnakes grow to absurd size, big enough to eat a boar, a deer, or even a person. Manmarchers say they haunt the bluffs and ruins along the river, waiting months, years, even decades between meals. Where most rattlesnakes rattle to warn off threats, totnatter use their rattle to hunt, delighting in the terror it causes. Once envenomed, prey runs a grim countdown: weakened, then dazed, then miserable, then dying.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.4vXt3vYLBjH8b18j"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

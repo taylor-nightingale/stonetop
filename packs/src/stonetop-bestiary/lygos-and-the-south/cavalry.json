@@ -1,0 +1,81 @@
+{
+  "name": "Cavalry",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 2,
+        "source": "shield, iron scale"
+      },
+      "damage": {
+        "value": "iron-tipped long spear d6+4 (reach, forceful), sword d6+4 (close, forceful), or bow d6 (far)",
+        "rollFormula": "d6+4"
+      },
+      "instinct": {
+        "value": "to attack where the foe is weak"
+      }
+    },
+    "concept": "Armored riders of the southern legions, striking where the foe is weak.",
+    "organization": "horde",
+    "size": "large",
+    "tags": "horde, large, organized, terrifying",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ODYHrREuw5K1yWh7",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Cavalry",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "DLRYdrwatOtsNasm",
+      "name": "Circle around their enemy",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6N5pRiBkQwkblpAq.DLRYdrwatOtsNasm"
+    },
+    {
+      "_id": "JAZK45Nsdr5DQffN",
+      "name": "Attack on the move",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6N5pRiBkQwkblpAq.JAZK45Nsdr5DQffN"
+    },
+    {
+      "_id": "tlzXGSlnINDTPOJD",
+      "name": "Form a wedge and charge, d6+4 w/advantage (reach, close, hand, area, forceful, messy, 1 piercing)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6N5pRiBkQwkblpAq.tlzXGSlnINDTPOJD"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "6N5pRiBkQwkblpAq",
+  "_key": "!actors!6N5pRiBkQwkblpAq"
+}

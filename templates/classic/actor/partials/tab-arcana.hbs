@@ -1,0 +1,28 @@
+<div class="tab arcana" data-group="primary" data-tab="arcana">
+
+	{{#unless stonetop.arcana.minor.hasOwned}}
+	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
+	{{/unless}}
+
+	{{!-- Minor arcana --}}
+	<div class="stonetop-arcana-grid">
+	{{> "classic.arcanum-cards" items=stonetop.arcana.minor.items}}
+	</div>
+
+	{{!-- Major arcana --}}
+	{{#if stonetop.arcana.major.hasOwned}}
+	<h3 class="stonetop-arcana-section-title">{{stonetop.arcana.major.title}}</h3>
+	<div class="stonetop-arcana-grid">
+	{{> "classic.arcanum-cards" items=stonetop.arcana.major.items}}
+	</div>
+	{{/if}}
+
+	{{#if stonetop.editable}}
+	<div class="stonetop-arcana-create">
+		<button type="button" class="stonetop-arcanum-create-btn">
+			<i class="fas fa-plus"></i> {{localize "stonetop.arcana.createCustom"}}
+		</button>
+	</div>
+	{{/if}}
+
+</div>

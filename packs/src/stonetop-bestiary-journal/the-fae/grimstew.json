@@ -1,0 +1,61 @@
+{
+  "_id": "fSV9XtOChfthnbDG",
+  "_key": "!journal!fSV9XtOChfthnbDG",
+  "name": "Grimstew",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A lonely cave-troll fae who craves company, then eats it."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 65000,
+  "pages": [
+    {
+      "_id": "13kSx63dNzKgtIQm",
+      "_key": "!journal.pages!fSV9XtOChfthnbDG.13kSx63dNzKgtIQm",
+      "name": "Grimstew",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A lonely cave-troll fae who craves company, then eats it.",
+        "description": "<p>He dwells in a cave full of smoke and bones, tending his stew pot and stewing. He might venture out to fetch firewood, water, or meat — and when he's out, he might cross paths with a mortal. In his loneliness, he might forget just how poorly things went last time. When you Haggle with Grimstew he wants company, not things.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qDIbc21OgAwQJvjo"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

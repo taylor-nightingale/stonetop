@@ -1,0 +1,61 @@
+{
+  "_id": "rBQSbe8jcGbTO6nA",
+  "_key": "!journal!rBQSbe8jcGbTO6nA",
+  "name": "Gwyllgi",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A red-eyed death-hound from beyond that marks one victim to die by the full moon."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 111000,
+  "pages": [
+    {
+      "_id": "Z6ELLNeAcIok7IZJ",
+      "_key": "!journal.pages!rBQSbe8jcGbTO6nA.Z6ELLNeAcIok7IZJ",
+      "name": "Gwyllgi",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A red-eyed death-hound from beyond that marks one victim to die by the full moon.",
+        "description": "<p>A gwyllgi is a harbinger of death, a being from beyond. A necromancer might call one forth to send against their foes, or one might slip through the Last Door when dark magic or the death of many causes it to swing wide open. When a gwyllgi curses a victim, they know they will die before the next full moon — it can curse only one at a time, and manifests each night to feed on its victim's emotions. Destroy its form, and the curse is lifted.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.tI3YnOsAHoVQI6k2"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

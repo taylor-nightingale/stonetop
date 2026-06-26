@@ -1,0 +1,513 @@
+{
+  "_id": "t6DSdYhsVznrAXDx",
+  "_key": "!items!t6DSdYhsVznrAXDx",
+  "img": "systems/stonetop/assets/playbooks/the-ranger.svg",
+  "name": "The Ranger",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 18,
+      "damage": "d8",
+      "moves": {
+        "startingMovesNote": "You start with Home on the Range, any moves from your Background, plus 1 of your choice."
+      },
+      "backgrounds": [
+        {
+          "slug": "mighty-hunter",
+          "label": "Mighty Hunter",
+          "description": "<p>You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.</p><p>You start with both the <strong>Expert Tracker</strong> move and the <strong>Stalker</strong> move.</p>",
+          "moves": [
+            "Expert Tracker",
+            "Stalker"
+          ]
+        },
+        {
+          "slug": "wide-wanderer",
+          "label": "Wide Wanderer",
+          "description": "<p>You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:</p><ul><li><strong>Ennis</strong> (from Marshedge)</li><li><strong>Shahar</strong> (from Gordin's Delve)</li><li><strong>Yannic</strong> (from the Hillfolk)</li><li><strong>Tovia</strong> (from Lygos)</li><li><strong>Sasca</strong> (from the northern Manmarch)</li></ul><p>You start with the <strong>Mental Map</strong> move.</p><p>When you <em>Know Things about the wider world</em>, you can roll +WIS instead of +INT. When you <em>arrive somewhere you've visited before</em> (your call), tell the GM when you were last here, and the GM will tell you how it's changed.</p>",
+          "setup": {
+            "neighbors": [
+              {
+                "name": "Ennis",
+                "origin": "Marshedge",
+                "traitKey": "ennis",
+                "traitLabel": "Ennis trait"
+              },
+              {
+                "name": "Shahar",
+                "origin": "Gordin's Delve",
+                "traitKey": "shahar",
+                "traitLabel": "Shahar trait"
+              },
+              {
+                "name": "Yannic",
+                "origin": "the Hillfolk",
+                "traitKey": "yannic",
+                "traitLabel": "Yannic trait"
+              },
+              {
+                "name": "Tovia",
+                "origin": "Lygos",
+                "traitKey": "tovia",
+                "traitLabel": "Tovia trait"
+              },
+              {
+                "name": "Sasca",
+                "origin": "the northern Manmarch",
+                "traitKey": "sasca",
+                "traitLabel": "Sasca trait"
+              }
+            ]
+          },
+          "moves": [
+            "Mental Map"
+          ]
+        },
+        {
+          "slug": "beast-bonded",
+          "label": "Beast-Bonded",
+          "description": "<p>You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?</p><p>Regardless, you start with the <strong>Animal Companion</strong> move.</p><p>When you <strong><em>focus on your animal companion for a few moments</em></strong>, you can use any of the actions you've marked below, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.</p>",
+          "moves": ["Animal Companion"],
+          "markableActions": {
+            "label": "Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+            "levels": [1, 3, 5, 7, 9],
+            "options": [
+              { "slug": "gauge-distance", "label": "Gauge its distance and direction from you" },
+              { "slug": "call-back", "label": "Call it back to your side" },
+              { "slug": "sense-emotion", "label": "Sense its emotional state" },
+              { "slug": "sense-impression", "label": "Get a brief impression of what it senses" },
+              { "slug": "lend-strength", "label": "Lend it your strength—lose 1d6 HP, and it regains an equal amount" }
+            ]
+          }
+        }
+      ],
+      "instincts": [
+        {
+          "word": "Adventure",
+          "description": "To test yourself, to experience new things."
+        },
+        {
+          "word": "Independence",
+          "description": "To refuse help and push others away."
+        },
+        {
+          "word": "Stewardship",
+          "description": "To value beasts and natural places over people."
+        },
+        {
+          "word": "Tenacity",
+          "description": "To be stubborn, to persist."
+        },
+        {
+          "word": "Wonder",
+          "description": "To marvel at beauty, magnificence, splendor."
+        }
+      ],
+      "appearance": [
+        [
+          "fledgling",
+          "prime specimen",
+          "long in the tooth"
+        ],
+        [
+          "barking voice",
+          "growling voice",
+          "sing-song voice"
+        ],
+        [
+          "compact & sturdy",
+          "long & lean",
+          "wolfish"
+        ],
+        [
+          "shaggy",
+          "threadbare",
+          "well-groomed"
+        ]
+      ],
+      "origin": [
+        {
+          "region": "Stonetop",
+          "names": [
+            "Aran",
+            "Bledyn",
+            "Branwen",
+            "Deryn",
+            "Ifur",
+            "Meinir",
+            "Rhys",
+            "Teagan"
+          ]
+        },
+        {
+          "region": "Barrier Pass",
+          "names": [
+            "Anarba",
+            "Arslan",
+            "Bolormaa",
+            "Cirina",
+            "Nergui",
+            "Nomolun",
+            "Saran",
+            "Shigi-Qutuqu"
+          ]
+        },
+        {
+          "region": "Marshedge",
+          "names": [
+            "Asling",
+            "Conar",
+            "Enna",
+            "Flannan",
+            "Macha",
+            "Mave",
+            "Proinsias",
+            "Rowen"
+          ]
+        },
+        {
+          "region": "The Steplands (Hillfolk)",
+          "names": [
+            "Bernd",
+            "Elown",
+            "Irn",
+            "Kani",
+            "Pol",
+            "Nol",
+            "Rozn",
+            "Sterin"
+          ]
+        },
+        {
+          "region": "The Manmarch",
+          "names": [
+            "Alfher",
+            "Bertrim",
+            "Dagmar",
+            "Elfrida",
+            "Hramn",
+            "Meike",
+            "Swanhilde",
+            "Wulfrim"
+          ]
+        },
+        {
+          "region": "Lygos or some other point south",
+          "names": [
+            "Ari",
+            "Boriz",
+            "Dimitra",
+            "Gorhan",
+            "Nitza",
+            "Selen",
+            "Todora",
+            "Vasil"
+          ]
+        }
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2, in addition to your composite bow",
+        "pickCount": 2,
+        "preselected": [
+          "composite-bow"
+        ],
+        "options": [
+          {
+            "slug": "composite-bow",
+            "label": "Composite bow",
+            "description": "<em>far</em>, +1 damage, x <em>piercing</em>; ○ low ammo, ○ all out"
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+            "resource": {
+              "max": 2,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "hideouts",
+            "label": "Hideouts",
+            "description": "○○○ uses: expend a use to have a well-stocked, safe shelter nearby; GM can veto.",
+            "resource": {
+              "max": 3,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "hounds",
+            "label": "Hounds",
+            "description": "2-3 followers (<em>trackers, keen-nosed, fast</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct: to give chase; Cost: training."
+          },
+          {
+            "slug": "husbandry-tools",
+            "label": "Husbandry tools",
+            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+          },
+          {
+            "slug": "lay-of-the-land",
+            "label": "Lay of the land",
+            "description": "○○○ uses: expend a use to know where to find ___, without having to Know Things; GM can veto.",
+            "resource": {
+              "max": 3,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "trapping-gear",
+            "label": "Trapping gear",
+            "description": "snares, pelts, musk, bait, etc. When you <em>Forage</em>, get +1 use of provisions."
+          }
+        ]
+      },
+      "animalCompanion": {
+        "types": [
+          {
+            "slug": "bird",
+            "label": "Bird",
+            "examples": "falcon, eagle, owl, buzzard, magpie…",
+            "hp": 5,
+            "armor": "1 (size)",
+            "damage": "d4 (hand)",
+            "pickCount": 4,
+            "traits": [
+              "+4 HP",
+              "+1 armor (agility)",
+              "attack-bird",
+              "cautious",
+              "clever",
+              "fast",
+              "mimic",
+              "sharp-eyed",
+              "stealthy",
+              "thieving",
+              "tiny",
+              "tireless"
+            ]
+          },
+          {
+            "slug": "critter",
+            "label": "Critter",
+            "examples": "cat, fox, possum, raccoon, weasel…",
+            "hp": 5,
+            "armor": "1",
+            "damage": "d4 (hand)",
+            "pickCount": 5,
+            "traits": [
+              "+4 HP",
+              "+1 armor (agility)",
+              "agile",
+              "adorable",
+              "annoying",
+              "burrowing",
+              "cautious",
+              "clever",
+              "climber",
+              "dextrous",
+              "keen-eared",
+              "keen-eyed",
+              "keen-nosed",
+              "quick",
+              "stealthy",
+              "stinky",
+              "tiny",
+              "thieving"
+            ]
+          },
+          {
+            "slug": "brute",
+            "label": "Brute",
+            "examples": "bear, boar, wolverine, aurochs, drake…",
+            "hp": 12,
+            "armor": "0",
+            "damage": "d6 (hand)",
+            "pickCount": 3,
+            "traits": [
+              "+1 armor (hide, scales, etc.)",
+              "Damage +2, forceful",
+              "Damage messy, 1 piercing",
+              "large (+4 HP, +1 damage, +close)",
+              "easy-going",
+              "cautious",
+              "gluttonous",
+              "keen-nosed",
+              "protective",
+              "quick",
+              "terrifying",
+              "tough"
+            ]
+          },
+          {
+            "slug": "predator",
+            "label": "Predator",
+            "examples": "hound, wolf, cougar, drake…",
+            "hp": 8,
+            "armor": "0",
+            "damage": "d8 (hand, grabby)",
+            "pickCount": 3,
+            "traits": [
+              "+4 HP",
+              "+1 armor (hide)",
+              "Damage messy, 1 piercing",
+              "agile",
+              "climber",
+              "clever",
+              "enduring",
+              "fast",
+              "fierce",
+              "keen-eared",
+              "keen-eyed",
+              "pack-hunter",
+              "keen-nosed",
+              "patient",
+              "powerful",
+              "stealthy",
+              "terrifying"
+            ]
+          },
+          {
+            "slug": "steed",
+            "label": "Steed",
+            "examples": "horse, mule…",
+            "hp": 12,
+            "armor": "0",
+            "damage": "d6+1 (hand, close)",
+            "pickCount": 4,
+            "traits": [
+              "+4 HP",
+              "+1 armor (hide)",
+              "Damage +2, forceful",
+              "aggressive",
+              "agile",
+              "beautiful",
+              "calm",
+              "clever",
+              "hardy",
+              "keen-nosed",
+              "large",
+              "powerful",
+              "swift"
+            ]
+          }
+        ],
+        "instincts": [
+          "To bully and threaten",
+          "To fill its belly",
+          "To get distracted",
+          "To make mischief",
+          "To startle and panic",
+          "To run rampant",
+          "To give chase"
+        ],
+        "costs": [
+          "Play, grooming, training, affection",
+          "Time off on its own, free to roam",
+          "Cozy quarters, comfort, ample food"
+        ],
+        "moves": [
+          {
+            "name": "Loyal to the End",
+            "description": "<p>When your <strong><em>companion is at 0 HP</em></strong>, roll +0, with advantage if it holds Loyalty:</p><ul><li>On a <strong>10+</strong>, it'll be fine once it regains any HP.</li><li>On a <strong>7&ndash;9</strong>, it gets the <em>injured</em> tag.</li><li>On a <strong>6&ndash;</strong>, it's injured and will die soon unless someone saves it.</li></ul>"
+          }
+        ]
+      },
+      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "lore": [
+        {
+          "slug": "something-wicked",
+          "title": "Something Wicked This Way Comes",
+          "description": "<p>You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it.</p>"
+        },
+        {
+          "slug": "wicked-threat",
+          "continuation": true,
+          "title": "What is it that you're so worried about?",
+          "description": "<p><em>(choose 1)</em></p>",
+          "options": [
+            {
+              "slug": "great-wood",
+              "description": "A dark, unwholesome presence lurking in the Great Wood.",
+              "max": 1
+            },
+            {
+              "slug": "ruined-tower",
+              "description": "A strange, furtive figure seen near the Ruined Tower.",
+              "max": 1
+            },
+            {
+              "slug": "foothills",
+              "description": "Something big & savage stalking the northern foothills.",
+              "max": 1
+            },
+            {
+              "slug": "suarachan",
+              "description": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
+              "max": 1
+            },
+            {
+              "slug": "hillfolk",
+              "description": "That of which the Hillfolk refuse to speak.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "wicked-questions",
+          "continuation": true,
+          "columnBreak": true,
+          "readonlyMerge": true,
+          "title": "Answer At Least 3 of the Following",
+          "description": "",
+          "options": [
+            {
+              "slug": "what-is-it",
+              "description": "What, exactly, do you think it is?",
+              "type": "text"
+            },
+            {
+              "slug": "what-saw",
+              "description": "What did you see, and how close did you have to get to see it?",
+              "type": "text"
+            },
+            {
+              "slug": "what-lost",
+              "description": "Whom or what have you lost to it?",
+              "type": "text"
+            },
+            {
+              "slug": "left-behind",
+              "description": "What did it leave behind?",
+              "type": "text"
+            },
+            {
+              "slug": "what-wants",
+              "description": "What do you think it wants?",
+              "type": "text"
+            },
+            {
+              "slug": "disbeliever",
+              "description": "Who refuses to believe you?",
+              "type": "text"
+            },
+            {
+              "slug": "who-knows-more",
+              "description": "Who can tell you more, if you can only convince them?",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "system": {
+    "slug": "the-ranger",
+    "actorType": "character",
+    "description": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+    "attributes": {}
+  },
+  "folder": "Jsm6Sc2kOHvEBv8h"
+}

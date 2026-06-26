@@ -1,0 +1,80 @@
+{
+  "name": "Wild Horse",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "trample d6+3 (hand, close, forceful)",
+        "rollFormula": "d6+3"
+      },
+      "instinct": {
+        "value": "to panic"
+      }
+    },
+    "concept": "Skittish wild herds that roam the prairie.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, cautious, swift",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.nXxqWnbt932F98UJ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Wild Horse",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "M72HgHVKL5IQ8GVf",
+      "name": "Sniff trouble on the wind",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uMjVv3GGJowiNCka.M72HgHVKL5IQ8GVf"
+    },
+    {
+      "_id": "Cv8DAxEd2glmA1AQ",
+      "name": "Run free!",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uMjVv3GGJowiNCka.Cv8DAxEd2glmA1AQ"
+    },
+    {
+      "_id": "CcnGZuaL0CQpl2RC",
+      "name": "Vault over an obstacle",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uMjVv3GGJowiNCka.CcnGZuaL0CQpl2RC"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "hnWxs7XPc9PtVGpS",
+  "_id": "uMjVv3GGJowiNCka",
+  "_key": "!actors!uMjVv3GGJowiNCka"
+}

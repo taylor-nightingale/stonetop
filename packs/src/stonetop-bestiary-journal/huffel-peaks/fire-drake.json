@@ -1,0 +1,70 @@
+{
+  "_id": "CIBOcY6E4EMOsQqO",
+  "_key": "!journal!CIBOcY6E4EMOsQqO",
+  "name": "Fire Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Ember-hot horned lizards with caustic, burning blood."
+    }
+  },
+  "folder": "F3ujqScB8RRZQw2c",
+  "sort": 36000,
+  "pages": [
+    {
+      "_id": "FtImH011N0LsbECE",
+      "_key": "!journal.pages!CIBOcY6E4EMOsQqO.FtImH011N0LsbECE",
+      "name": "Fire Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Ember-hot horned lizards with caustic, burning blood.",
+        "description": "<p>Picture a horned lizard, but big as a large boar and with a mouth full of short jagged teeth. They're often encountered basking near hot springs, mudpots, or geothermal vents, soaking up the heat until they swell and glow like embers. Of course, once they notice you, they stop basking and start attacking.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Fire drake blood is caustic and catches fire when exposed to air; a jar of it deals d6 damage (thrown, area, dangerous, ignores armor, Value 1) — but good luck harvesting it.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** The trick is to tap a vein with a metal tube and drain the blood directly into a wax-sealed jar. Just… be careful.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.w4bnUheymDzA7cxr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

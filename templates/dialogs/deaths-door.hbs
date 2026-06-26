@@ -1,0 +1,96 @@
+<div class="deaths-door-dialog-content">
+
+	{{#if isOverview}}
+	<div class="deaths-door-step deaths-door-step--overview">
+		<h2 class="deaths-door-move-name">Death's Door</h2>
+		<p class="deaths-door-intro deaths-door-move-trigger">
+			When you <strong><em>are dying</em></strong>, you glimpse the Last Door and the Lady of Crows (describe it).
+		</p>
+
+		<p class="deaths-door-instruction">
+			Then, roll
+			<button type="button" class="deaths-door-roll-btn" title="Roll Death's Door (2d6, +nothing)">
+				<span class="deaths-door-roll-chip">+nothing</span>
+				<i class="fas fa-dice-d6"></i>
+			</button>
+		</p>
+	</div>
+	{{/if}}
+
+	{{#if isMechanics}}
+	<div class="deaths-door-step deaths-door-step--mechanics">
+		<h2 class="deaths-door-move-name">The Roll</h2>
+		{{#if rolledTotal}}
+		<p class="deaths-door-result-banner">You rolled <strong>{{rolledTotal}}</strong>.</p>
+		{{/if}}
+		<p class="deaths-door-mechanic-intro deaths-door-move-trigger">
+			Resolve Death's Door by the result of the roll.
+		</p>
+
+		<div class="deaths-door-outcomes">
+			<div class="deaths-door-outcome{{#if isStrong}} is-result{{/if}}">
+				<h3 class="deaths-door-outcome-label"><strong>10+</strong></h3>
+				<p class="deaths-door-outcome-text">
+					You wrest yourself back to the realm of the living&mdash;return to 1 HP but say how your brush with death has marked you.
+				</p>
+			</div>
+
+			<div class="deaths-door-outcome{{#if isWeak}} is-result{{/if}}">
+				<h3 class="deaths-door-outcome-label"><strong>7-9</strong></h3>
+				<p class="deaths-door-outcome-text">
+					The Lady waves you off&mdash;you&rsquo;re no longer dying but you&rsquo;re out of the action.
+				</p>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+
+	{{#if isResults}}
+	<div class="deaths-door-step deaths-door-step--results">
+		<h2 class="deaths-door-move-name">On a Miss</h2>
+		{{#if rolledTotal}}
+		<p class="deaths-door-result-banner">You rolled <strong>{{rolledTotal}}</strong>.</p>
+		{{/if}}
+
+		<div class="deaths-door-outcome{{#if isMiss}} is-result{{/if}}">
+			<h3 class="deaths-door-outcome-label"><strong>6-</strong></h3>
+			<p class="deaths-door-outcome-text">
+				Your time has come&mdash;choose 1:
+			</p>
+			<ul class="deaths-door-outcome-choices">
+				<li>Make one last move as if you rolled a 12+, then step through the Last Door</li>
+				<li>Refuse to go; gain the Revenant or Ghost insert</li>
+				<li>Call on one of the Things Below by name and beseech it to intercede; gain the Thrall insert</li>
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+
+</div>
+
+<div class="deaths-door-dialog-buttons">
+	{{#if isOverview}}
+	<button class="deaths-door-cancel-btn" type="button">Cancel</button>
+	<button class="deaths-door-next-btn" type="button">
+		<i class="fas fa-arrow-right"></i> Continue
+	</button>
+	{{/if}}
+
+	{{#if isMechanics}}
+	<button class="deaths-door-back-btn" type="button">
+		<i class="fas fa-arrow-left"></i> Back
+	</button>
+	<button class="deaths-door-next-btn" type="button">
+		<i class="fas fa-arrow-right"></i> Continue
+	</button>
+	{{/if}}
+
+	{{#if isResults}}
+	<button class="deaths-door-back-btn" type="button">
+		<i class="fas fa-arrow-left"></i> Back
+	</button>
+	<button class="deaths-door-confirm-btn is-primary" type="button">
+		<i class="fas fa-check"></i> I Understand
+	</button>
+	{{/if}}
+</div>

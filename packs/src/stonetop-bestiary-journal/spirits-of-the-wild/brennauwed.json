@@ -1,0 +1,63 @@
+{
+  "_id": "3Q3V7QXv1XFx1UK8",
+  "_key": "!journal!3Q3V7QXv1XFx1UK8",
+  "name": "Brennauwed",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Tall Ladies — powerful tree spirits, kin to Danu, each bound to her tree."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 83000,
+  "pages": [
+    {
+      "_id": "yZnBR4myriobQFz5",
+      "_key": "!journal.pages!3Q3V7QXv1XFx1UK8.yZnBR4myriobQFz5",
+      "name": "Brennauwed",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The Tall Ladies — powerful tree spirits, kin to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong>, each bound to her tree.",
+        "description": "<p>The Tall Ladies, Daughters-of-Seed, the Slow Sisters: these are the titles given to the Brennauwed, powerful tree spirits and, if you believe them, kin to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.i0WjzHh0Ugynv2Tl]{Danu}</strong> herself. Each is tethered to a single tree. The younger ones can roam, but the older a Brennauwed is, the more bound she is to her tree — from the wandering glasbren, to the motherly birdwaig, to the ancient and terrible hennain.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.7GtbWc7kafUVk6dI",
+          "Compendium.stonetop.stonetop-bestiary.Actor.CdXJIcws7eqT8Q8v",
+          "Compendium.stonetop.stonetop-bestiary.Actor.6RhD3Vrdb3B9GXTA"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

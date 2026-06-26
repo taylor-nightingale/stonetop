@@ -1,0 +1,61 @@
+{
+  "_id": "VT6aaEfcpnSj45t4",
+  "_key": "!journal!VT6aaEfcpnSj45t4",
+  "name": "Blush-of-Dawn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A radiant fae who feeds on adoration in an eternal pre-dawn glade."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 63000,
+  "pages": [
+    {
+      "_id": "ONi5AwdiqQlM89GM",
+      "_key": "!journal.pages!VT6aaEfcpnSj45t4.ONi5AwdiqQlM89GM",
+      "name": "Blush-of-Dawn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A radiant fae who feeds on adoration in an eternal pre-dawn glade.",
+        "description": "<p>They were the shining jewel in some Green Lord's paradise, the bright beauty of a rising sun made flesh — happy and in love, or so they thought, for can a being bred to love truly do so? Then their master's tomb was plundered and their world upended, and they were left bereft, craving only the safe, warm surety of other beings' full regard. Their domain is a stately pavilion in a summer glade, forever in the moment just before dawn, filled with fawning lovers, abducted children, and devotees — and, on the outskirts, the cast-out wretches whose jealous adoration still feeds them.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.W3OCTba3AGj13THE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

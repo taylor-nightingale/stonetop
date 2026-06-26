@@ -1,0 +1,191 @@
+{
+  "_id": "VZ3YkXn70E1C7TEO",
+  "_key": "!journal!VZ3YkXn70E1C7TEO",
+  "name": "Barrier Pass",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Five days north of Stonetop via the Highway, after winding through the Foothills and climbing into the Whitefang Mountains, you’ll come to a pass between two rocky slopes. The pass is blocked by a mighty wall, with dwellings and grander structures on the cliffs above."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 17000,
+  "pages": [
+    {
+      "_id": "DPRYimNgfDixBLBO",
+      "_key": "!journal.pages!VZ3YkXn70E1C7TEO.DPRYimNgfDixBLBO",
+      "name": "Barrier Pass",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Size village (~200 souls) Population +0 Prosperity +0</p><ul><li>Trade with... ...</li><li>mammoth herders (ivory, wool, meat) ...</li><li>other fortress-monasteries Resources</li></ul><ul><li>Taxes from nearby farm valleys</li><li>Farming (terraced gardens, barley)</li><li>Livestock (goats, sheep, milk, fine wool, meat)</li><li>Timber (from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}</strong>)</li><li>Parchment, vellum, ink</li><li>Trades: smithing, weaving, tanning, scribing Defenses +2</li></ul><ul><li>A score of guardians</li><li>A handful of adepts</li><li>A number of tulpas</li><li>Blunt weapons, nets, bolas, bronze shields and mail</li><li>Exceptional fortifications</li></ul><p>Five days north of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> via the Highway, after winding through the Foothills and climbing into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong>, you’ll come to a pass between two rocky slopes. The pass is blocked by a mighty wall, with dwellings and grander structures on the cliffs above.</p><p>Long ago, this was the southernmost outpost of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>. Today, it is home to descendants of their disciples. They are a stoic, unfriendly people who want little to do with those from the south. In Stonetop, they tell tales of folk coming down from Barrier Pass to trade ancient wonders for goats or grain, but none alive remember such a visit.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Steading",
+            "group": "place",
+            "danger": false,
+            "body": "<p><strong>Size</strong> village (~200 souls)<br><strong>Population</strong> +0<br><strong>Prosperity</strong> +0 (taxes from nearby farm valleys; farming (terraced gardens, barley); livestock (goats, sheep, milk, fine wool, meat); timber from the Foothills; parchment, vellum, and ink; trades in smithing, weaving, tanning, and scribing; trade with mammoth herders and other fortress-monasteries)<br><strong>Defenses</strong> +2 (a score of guardians, a handful of adepts, a number of tulpas, blunt weapons and nets and bolas and bronze shields and mail, and exceptional fortifications)</p><p><em>When the PCs treat Barrier Pass as a steading — mustering its forces, deploying its defenses, or rolling Trade &amp; Barter against its Prosperity — use these values.</em></p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The approach: after winding up switchbacks, the Highway straightens and enters a wide pass with steep rocky slopes on either side.</li><li>Large cages line the slopes, swinging in the wind, filled with human (?) bones or starved, raving prisoners.</li><li>The Wall, grand and implacable, 50 feet tall and 20 feet wide, spanning the width of the pass.</li><li>A gate in the Wall, closed of course, the Highway ending 50 feet before it.</li></ul><p>The East Slope, dotted with dwellings, stables, and terraced gardens, all connected with narrow stairs and switchback paths.</p><ul><li>A waterfall pours down the east slope, north of the wall. Diverted to gardens and cisterns.</li><li>The West Slope, featuring old giantscale structures, now used as dormitories, kitchens, and so forth for monks and guardians.</li><li>The Great Hall, its façade elaborately decorated, leading into a vast chamber carved from a mountain cavern. Where residents gather, meditate, train.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "People",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The people of Barrier Pass descend from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>’ mortal disciples. Their names are Nepalese- and Tibetan-inspired.</p><ul><li>The Three Honorable Sages are powerful adepts who preside over Barrier Pass. Each leads one of the three sects.</li></ul><ul><li>The Empty Sky sect values preservation and stillness; its monks spend much time in meditative stasis. Led by Gar Torjeng (Instinct to avoid disruption and distraction).</li></ul><ul><li>The Unmoved Mountain sect teaches extreme ascetic disciplines, pushing adherents to continually test themselves. Led by Preshi Kav (Instinct to drive her students towards perfection).</li></ul><ul><li>The White Crystal sect is devoted to order. The majority of guardians and layfolk follow this sect. Its few monks often lead patrols, mete out justice in nearby farms, and hunt monsters. Led by Oparma Div (Instinct to tame chaos).</li></ul><ul><li>Monks from each sect dwell in the fortress, ranging wildly in experience and aptitude. (~40 total, including novices)</li></ul><ul><li>The Guardians are sworn to defend</li><li>Barrier Pass. Many are failed monks. They bear ancient bronze shields and armor, but wield no edged weapons. (~20 total)</li></ul><ul><li>The rest of the inhabitants are lay folk: families and individuals who garden, herd, cook, clean, and otherwise keep the fortress-monastery running. (~140 souls total)</li></ul><p>… Stoic and unfriendly Why are the people of Barrier Pass so unwelcoming or even hostile to southerners? That’s for you and your table to decide, but perhaps<br>… … <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong> herself charged them to preserve the Rime Lords’ teachings, and eschew the debased peoples of the south;<br>… their ancestors fought off the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> and they still hold a grudge;<br>… one of the thirteen surviving Rime Lords is hidden in their mountain chambers;<br>… a prophecy foretells doom coming from the south;<br>… the fortress is tainted by Y’aaw’kara, and any who dwell here must guard against the Howling Curse;<br>… some combination of the above; or<br>… something completely different.</p><div class=\"stonetop-journal-improvement\" draggable=\"true\" data-steading-improvement=\"{&quot;name&quot;:&quot;TRADE WITH BARRIER PASS&quot;,&quot;flavor&quot;:&quot;Surely it would benefit both communities were we to trade with each other!&quot;,&quot;effect&quot;:&quot;When you mark all the requirements, increase Fortunes by 1 and add “Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)”. Henceforth, when spring bursts forth and Stonetop has at least 1 Surplus, Stonetop gains +1 Surplus from trade. Also, when you &lt;em&gt;Trade &amp;amp; Barter&lt;/em&gt; for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage.&quot;,&quot;sections&quot;:[{&quot;heading&quot;:&quot;Requires getting them to talk to you in the first place, which requires 1 of these:&quot;,&quot;items&quot;:[&quot;Bringing them a valuable artifact of the Rime Lords, as a gift or to trade&quot;,&quot;A resident in good standing, vouching for you&quot;]},{&quot;heading&quot;:&quot;And then, all of the following:&quot;,&quot;items&quot;:[&quot;Making a compelling offer&quot;,&quot;Convincing at least two of the Honored Sages to accept&quot;,&quot;Two successful trade missions, each in a different season&quot;]}]}\" title=\"Drag onto the Stonetop steading sheet\"><div class=\"stonetop-journal-improvement-head\"><i class=\"fas fa-screwdriver-wrench\" aria-hidden=\"true\"></i><span class=\"stonetop-journal-improvement-eyebrow\">Steading Improvement</span><span class=\"stonetop-journal-improvement-name\">TRADE WITH BARRIER PASS</span></div><div class=\"stonetop-journal-improvement-body\"><p class=\"stonetop-journal-improvement-flavor\">Surely it would benefit both communities were we to trade with each other!</p><p class=\"steading-req-heading\">Requires getting them to talk to you in the first place, which requires 1 of these:</p><ul class=\"steading-req-list\"><li class=\"check-bullet\">Bringing them a valuable artifact of the Rime Lords, as a gift or to trade</li><li class=\"check-bullet\">A resident in good standing, vouching for you</li></ul><p class=\"steading-req-heading\">And then, all of the following:</p><ul class=\"steading-req-list\"><li class=\"check-bullet\">Making a compelling offer</li><li class=\"check-bullet\">Convincing at least two of the Honored Sages to accept</li><li class=\"check-bullet\">Two successful trade missions, each in a different season</li></ul><p class=\"stonetop-journal-improvement-effect\">When you mark all the requirements, increase Fortunes by 1 and add “Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)”. Henceforth, when spring bursts forth and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> has at least 1 Surplus, Stonetop gains +1 Surplus from trade. Also, when you <em>Trade &amp; Barter</em> for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage.</p></div></div>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The PCs must convince the folks of Barrier Pass to deal with them before any of the following matters.</p><p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available in Barrier Pass—PCs can acquire them here without having to roll. They do need to trade something of equal Value. Crops and produce are usually in demand.</p><p><strong>arms and armor value</strong></p><ul><li>Cudgel, bronze (close) 0 Bola (thrown, grabby, awkward, 0 -1 die size)</li><li>Mace or flail, bronze (close, forceful) 1 Mancatcher (reach, grabby, -1 die size) 1 Shield, bronze (clumsy, +1 Armor, 1 +1 Readiness on a 7+ to Defend)</li></ul><p><strong>goods value</strong></p><p>Fine wool garment 0<em> bolt 1</em> cartload (immobile) 2* Parchment, a few sheets 1 Ink, vial, and quills 1 Empty book, parchment 1</p><ul><li>*</li><li>+1 if sold/traded outside the Whitefangs</li></ul><p><strong>livestock value</strong></p><p>Special items The following might be acquired in Barrier Pass, in addition to special items from the Moves &amp; Gear handout. PCs must roll Trade &amp; Barter to acquire them.</p><p>When PCs Trade &amp; Barter in Barrier Pass, they use the local Prosperity (+0 by default). If they wish to acquire or sell a bladed weapon, they have disadvantage. On a 6-, they don’t mark XP, and it’s just not available/no one is interested—they might have better luck with a nearby farm or band of mammoth herders.</p><p><strong>goods value</strong></p><ul><li>Robe/shawl, fine wool, intricately 1* patterned (warm, beautiful) Ivory a bit of finery 1 a substantial piece 2 a mammoth tusk (immobile) 3 cartload of mammoth tusks 4 Dark ice (magical, see page 322) a small piece (magical) 1 a large chunk (magical) 2 with special characteristics +1 a functional tool or weapon +2 An object of black iron +2</li></ul><ul><li>*</li><li>+1 if sold/traded outside the Whitefangs</li></ul><p>Services and favors PCs don’t need to roll Trade &amp; Barter for the following, but they might need to Persuade people—even if they offer something of suitable Value. If the PCs are well-regarded by locals, they might get these boons for free, or without needing to Persuade anyone, or at a reduced price.</p><p><strong>service/favor value</strong></p><p>A few nights of austere food and shelter 0 A layfolk’s labor for a day 0 A crew of layfolk, working for 1 week 1 Consultation with a monk 1 Audience with an Honorable Sage 2 Weeks of guided study with a monk 2 A guide into the mountains, to... ... a nearby farm valley 0 ... another known, nearby spot 1 ... a dangerous/unknown spot 2 ... a secret/deadly place 3</p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), Barrier Pass might offer the following:</p><ul><li>A fair exchange of goods, plus someone to vouch for them should they wish for future trade (see Trade with Barrier Pass, page 29).</li><li>A good exchange rate, two or even three Value 2 items for 1 Surplus.</li><li>Two or three ivory mammoth tusks (Value 3), in exchange for help with a problem.</li><li>A Value 3 mundane item, in exchange for some less-valuable artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong></li><li>Dark ice in substantial quantities</li><li>An arcanum from the Rime Lords, the spirits of the wild, or death and the undying.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around Barrier Pass. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uGh38GPx9hdbQ0XH]{Guardian}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.AXCc64h6QQiyBGpx]{Mammoth Herder}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iXAH0ry7QKDChAqE]{Monk}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.hYf2HyXCbJa4j9Fc]{Novice}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Sv77XzHPMBgZqJZ]{Shantyara}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "According to the tales, what did the last visitors from Barrier Pass bring to trade, all those years ago?",
+                "answer": ""
+              },
+              {
+                "prompt": "When was the last time anyone from **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}** tried to trade with Barrier Pass? Were they ignored? Chased off? Or what?",
+                "answer": ""
+              },
+              {
+                "prompt": "What went wrong when villagers last crossed paths with a party from Barrier Pass up in the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.61j2hjMjANZcniEQ]{Foothills}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who do you know (in **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}**, perhaps) who hails from Barrier Pass or beyond? Why did they leave?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you think lies past that great big wall?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who or what do you think they put in those cages that line the Highway as one approaches?",
+                "answer": ""
+              },
+              {
+                "prompt": "Why do you think their warriors carry only blunt weapons?",
+                "answer": ""
+              },
+              {
+                "prompt": "**If a PC has visited Barrier Pass, or beyond:** What brought you there in the first place?",
+                "answer": ""
+              },
+              {
+                "prompt": "Why did they let you in?",
+                "answer": ""
+              },
+              {
+                "prompt": "What surprised you the most about how they live?",
+                "answer": ""
+              },
+              {
+                "prompt": "What taboo or point of etiquette did you run afoul of? How so?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do they worship the same gods up there? If so, how does that worship differ from down here in Stonetop?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Secrets",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Secret paths/doors lead in and out of the compound. Outsiders are blindfolded when taken through them, or condemned to death if they learn of their existence.</li><li>There is a hidden vault deep in the mountainside, protected by all manner of magics and tulpas. Only a few inhabitants know it exists; fewer know what it contains.</li><li>One of the monks has started down the path of becoming a false adept. She is popular and (apparently) quite talented. Only Preshi Kav (Honored Sage of the Unmoved Mountain) suspects anything.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li class=\"question-bullet\">The PCs acquire an artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>; maybe they can leverage it into opening trade negotiations?</li><li>A party from Barrier Pass comes to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, offering ivory/gold/arcana for food/livestock; they are tightlipped, haunted, on edge.</li><li>A condemned criminal escapes from Barrier Pass and seeks refuge; a shantyara pursues them.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Surroundings",
+                "body": "<ul><li>Steep, treacherous, rocky slopes</li><li>Harsh mountain weather</li><li>Hypothermia &amp; frostbite, if you stay out in the cold</li><li>Rockslides or avalanches in winter</li></ul>"
+              },
+              {
+                "heading": "Fortifications",
+                "body": "<ul><li>Minor tulpas watching the approach, warning the fortress of visitors</li><li>A wall of smooth stone, 50 feet tall and 20 feet wide</li><li>Walkways and crenelations atop the wall</li><li>A final approach, 50 feet or so with no protection from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>’ Roads</li><li>A massive gate of wood and bronze</li><li>Beyond the gate, a barbican lined with murder holes</li><li>Cleverly concealed doors that open only from the inside</li><li>A pair of khyagseng</li><li>guarding the entrance to the Great Hall</li></ul>"
+              },
+              {
+                "heading": "Folk from elsewhere",
+                "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a]{Mammoth}</strong> herders or valley farmers, here to trade, pay tribute, or seek redress</li><li>An adept, visiting from another fortress-monastery or some cave in the wilds</li><li>A mkhalang, claiming to bring tidings but really just stirring up trouble</li><li>A bandit or criminal from one of the nearby farm valleys, condemned to death, pleading for mercy</li><li>A spirit of the wild, come to visit or debate with the Honored Sages</li><li>A thrall of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, here under false pretense, urged to spread chaos and woe</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

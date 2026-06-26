@@ -1,19 +1,213 @@
 <div class="tab arcana" data-group="primary" data-tab="arcana">
 
-	{{#unless stonetop.arcana.minor.hasOwned}}
+	{{#unless stonetop.arcana.major.hasOwned}}{{#unless stonetop.arcana.minor.hasOwned}}
 	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
-	{{/unless}}
+	{{/unless}}{{/unless}}
 
-	{{!-- Minor arcana --}}
-	<div class="stonetop-arcana-grid">
-	{{> "stonetop.arcanum-cards" items=stonetop.arcana.minor.items}}
+	{{#*inline "arcanumCard"}}
+	{{#if owned}}
+	<div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}"{{#if greaterConduit}} data-greater-conduit="true"{{/if}}>
+
+		{{#if identified}}
+
+		{{#if flipped}}
+		{{!-- Back side --}}
+		<div class="stonetop-arcanum-header">
+			{{#if img}}
+			<img class="stonetop-arcanum-thumb" src="{{img}}" data-name="{{back.title}}" alt="" title="{{back.title}}">
+			{{/if}}
+			<div class="stonetop-arcanum-header-left">
+				<span class="stonetop-arcanum-title stonetop-arcanum-title--clickable"
+				      data-slug="{{slug}}" data-flipped="true">{{back.title}}</span>
+				{{#if back.item}}
+				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
+					{{#if back.item.weight}}
+					<span class="stonetop-inv-diamonds">
+						{{#each (times back.item.weight)}}
+						<input type="checkbox"
+						       class="stonetop-inventory-item-check stonetop-inv-diamond"
+						       data-slug="{{../slug}}"
+						       {{#if ../checked}}checked{{/if}}>
+						{{/each}}
+					</span>
+					{{/if}}
+					{{#unless (eq back.item.name back.title)}}
+					<span class="stonetop-inv-label">{{back.item.name}}</span>
+					{{/unless}}
+					{{#if back.item.note}}<span class="stonetop-inv-note">{{{back.item.note}}}</span>{{/if}}
+					{{#if back.item.resource}}
+					<span class="stonetop-inv-resources">
+						{{> "stonetop.resource-track" resource=back.item.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
+					</span>
+					{{/if}}
+				</div>
+				{{/if}}
+			</div>
+			{{#if back.resource}}
+			<div class="stonetop-arcanum-header-resource">
+				{{> "stonetop.resource-track" resource=back.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
+			</div>
+			{{/if}}
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{back.description}}}
+			{{#if back.move}}
+			<p class="stonetop-arcanum-move-trigger"><strong><em>{{back.move.name}}</em></strong></p>
+			{{{back.move.description}}}
+			{{/if}}
+			{{#if summon}}
+			<div class="stonetop-arcanum-summon">
+				<button type="button" class="stonetop-arcanum-summon-btn{{#if summon.added}} is-added{{/if}}"
+				        data-slug="{{slug}}"{{#if summon.added}} disabled{{/if}}>
+					<i class="fas {{#if summon.added}}fa-check{{else}}fa-user-plus{{/if}}"></i> {{summon.label}}
+				</button>
+			</div>
+			{{/if}}
+		</div>
+
+		{{else}}
+		{{!-- Front side --}}
+		<div class="stonetop-arcanum-header">
+			{{#if img}}
+			<img class="stonetop-arcanum-thumb" src="{{img}}" data-name="{{front.title}}" alt="" title="{{front.title}}">
+			{{/if}}
+			<div class="stonetop-arcanum-header-left">
+				<span class="stonetop-arcanum-title stonetop-arcanum-title--clickable"
+				      data-slug="{{slug}}" data-flipped="false">{{front.title}}</span>
+				{{#if front.item}}
+				<div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
+					{{#if front.item.weight}}
+					<span class="stonetop-inv-diamonds">
+						{{#each (times front.item.weight)}}
+						<input type="checkbox"
+						       class="stonetop-inventory-item-check stonetop-inv-diamond"
+						       data-slug="{{../slug}}"
+						       {{#if ../checked}}checked{{/if}}>
+						{{/each}}
+					</span>
+					{{/if}}
+					{{#if front.item.note}}<span class="stonetop-inv-note">{{{front.item.note}}}</span>{{/if}}
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{front.description}}}
+			<p class="stonetop-arcanum-unlock-lead">{{{front.unlock.description}}}</p>
+			<ul class="stonetop-arcanum-unlock-list">
+				{{#each front.unlock.requirements}}
+				{{#if (eq type "text")}}
+				<li class="stonetop-arcanum-unlock-text">{{{content}}}</li>
+				{{else}}
+				<li class="stonetop-arcanum-unlock-option">
+					<span class="stonetop-arcanum-unlock-checks">
+						{{#each (times max)}}
+						<input type="checkbox" class="stonetop-arcanum-unlock-check"
+						       data-arcanum-slug="{{../../slug}}"
+						       data-option-slug="{{../slug}}"
+						       data-index="{{@index}}"
+						       {{#if (lt @index ../count)}}checked{{/if}}>
+						{{/each}}
+					</span>
+					<span class="stonetop-arcanum-unlock-desc">{{{description}}}</span>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
+
+		<div class="stonetop-arcanum-footer">
+			{{#if flipped}}
+			<button type="button" class="stonetop-arcanum-flip-btn"
+			        data-slug="{{slug}}" data-flipped="{{flipped}}">
+				{{localize "stonetop.arcana.showFront"}}
+			</button>
+			{{else}}
+			{{#if unlocked}}
+			<button type="button" class="stonetop-arcanum-flip-btn"
+			        data-slug="{{slug}}" data-flipped="{{flipped}}">
+				{{localize "stonetop.arcana.showBack"}}
+			</button>
+			{{/if}}
+			{{/if}}
+			{{#if @root.stonetop.editMode}}
+			{{#if isCustom}}
+			<button type="button" class="stonetop-arcanum-edit" data-slug="{{slug}}"
+			        title="{{localize 'stonetop.arcana.editCustom'}}">
+				<i class="fas fa-pen-to-square"></i> {{localize "stonetop.arcana.edit"}}
+			</button>
+			{{/if}}
+			<button type="button" class="stonetop-arcanum-delete" data-slug="{{slug}}"
+			        title="{{localize 'stonetop.arcana.removeArcanum'}}">
+				<i class="fas fa-trash"></i> Remove
+			</button>
+			{{/if}}
+		</div>
+
+		{{else}}
+		{{!-- Unidentified state --}}
+		<div class="stonetop-arcanum-header">
+			<div class="stonetop-arcanum-header-left">
+				<span class="stonetop-arcanum-title">{{front.title}}</span>
+			</div>
+		</div>
+		<div class="stonetop-arcanum-body stonetop-arcanum-unidentified-body">
+			<p>{{localize "stonetop.arcana.unidentifiedText"}}</p>
+			<button type="button" class="stonetop-arcanum-identify-btn" data-slug="{{slug}}">
+				{{localize "stonetop.arcana.identify"}}
+			</button>
+		</div>
+		{{#if @root.stonetop.editMode}}
+		<div class="stonetop-arcanum-footer">
+			{{#if isCustom}}
+			<button type="button" class="stonetop-arcanum-edit" data-slug="{{slug}}"
+			        title="{{localize 'stonetop.arcana.editCustom'}}">
+				<i class="fas fa-pen-to-square"></i> {{localize "stonetop.arcana.edit"}}
+			</button>
+			{{/if}}
+			<button type="button" class="stonetop-arcanum-delete" data-slug="{{slug}}"
+			        title="{{localize 'stonetop.arcana.removeArcanum'}}">
+				<i class="fas fa-trash"></i> Remove
+			</button>
+		</div>
+		{{/if}}
+
+		{{/if}}
+
 	</div>
+	{{/if}}
+	{{/inline}}
 
-	{{!-- Major arcana --}}
 	{{#if stonetop.arcana.major.hasOwned}}
-	<h3 class="stonetop-arcana-section-title">{{stonetop.arcana.major.title}}</h3>
-	<div class="stonetop-arcana-grid">
-	{{> "stonetop.arcanum-cards" items=stonetop.arcana.major.items}}
+	<section class="stonetop-arcana-section stonetop-arcana-collapsible{{#unless stonetop.arcanaOpen.major}} is-collapsed{{/unless}}" data-section="arcanaMajor">
+		<div class="stonetop-arcana-summary" role="button" tabindex="0"
+		     aria-expanded="{{#if stonetop.arcanaOpen.major}}true{{else}}false{{/if}}">
+			{{> "stonetop.section-heading" title=stonetop.arcana.major.title}}
+		</div>
+		<div class="stonetop-arcana-grid">
+		{{#each stonetop.arcana.major.items}}{{> arcanumCard}}{{/each}}
+		</div>
+	</section>
+	{{/if}}
+
+	{{#if stonetop.arcana.minor.hasOwned}}
+	<section class="stonetop-arcana-section stonetop-arcana-collapsible{{#unless stonetop.arcanaOpen.minor}} is-collapsed{{/unless}}" data-section="arcanaMinor">
+		<div class="stonetop-arcana-summary" role="button" tabindex="0"
+		     aria-expanded="{{#if stonetop.arcanaOpen.minor}}true{{else}}false{{/if}}">
+			{{> "stonetop.section-heading" title=stonetop.arcana.minor.title}}
+		</div>
+		<div class="stonetop-arcana-grid">
+		{{#each stonetop.arcana.minor.items}}{{> arcanumCard}}{{/each}}
+		</div>
+	</section>
+	{{/if}}
+
+	{{#if stonetop.editMode}}
+	<div class="stonetop-arcana-create">
+		<button type="button" class="stonetop-arcanum-create-btn">
+			<i class="fas fa-plus"></i> {{localize "stonetop.arcana.createCustom"}}
+		</button>
 	</div>
 	{{/if}}
 

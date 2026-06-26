@@ -1,0 +1,21 @@
+{
+  "_id": "PGzR1Iv8bh4qlL9q",
+  "_key": "!items!PGzR1Iv8bh4qlL9q",
+  "name": "Metal tools",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "metal-tools",
+      "inventoryColumn": "small",
+      "sortOrder": 30,
+      "note": "drill, prybar, saw, tongs, etc.",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Fire Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 2,
+        "source": "scales"
+      },
+      "damage": {
+        "value": "bite d8 (hand, grabby)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to get riled up easily"
+      }
+    },
+    "concept": "Ember-hot horned lizards with caustic, burning blood.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, aggressive, tough",
+    "qualities": "<p>Fireproof; caustic, burning blood.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.CIBOcY6E4EMOsQqO",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Fire Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "6WrULT8xMYSdmI52",
+      "name": "Sound off in a deep, threatening chorus",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!w4bnUheymDzA7cxr.6WrULT8xMYSdmI52"
+    },
+    {
+      "_id": "HPx0HqyChCaPBSDl",
+      "name": "Blast a jet of burning, caustic blood from its eyes, d8 damage (near, messy, reload, ignores armor) — but lose 1d4 HP",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8"
+      },
+      "_key": "!actors.items!w4bnUheymDzA7cxr.HPx0HqyChCaPBSDl"
+    },
+    {
+      "_id": "KG8C7bo6woqo9UlK",
+      "name": "Shake, worry, and toss aside a foe it has bitten, d8+2 damage (hand, forceful)",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8+2"
+      },
+      "_key": "!actors.items!w4bnUheymDzA7cxr.KG8C7bo6woqo9UlK"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LIFxBsthfFEHCus6",
+  "_id": "w4bnUheymDzA7cxr",
+  "_key": "!actors!w4bnUheymDzA7cxr"
+}

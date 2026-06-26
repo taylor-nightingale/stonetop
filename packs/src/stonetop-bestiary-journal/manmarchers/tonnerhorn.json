@@ -1,0 +1,61 @@
+{
+  "_id": "oFWS3ZqQlJJnRnzm",
+  "_key": "!journal!oFWS3ZqQlJJnRnzm",
+  "name": "Tonnerhorn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Great big sheep, strong as a donkey and twice as ornery — the Manmarchers' loyal beasts of burden."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 153000,
+  "pages": [
+    {
+      "_id": "QWkkL9psagWy6yB6",
+      "_key": "!journal.pages!oFWS3ZqQlJJnRnzm.QWkkL9psagWy6yB6",
+      "name": "Tonnerhorn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Great big sheep, strong as a donkey and twice as ornery — the Manmarchers' loyal beasts of burden.",
+        "description": "<p>Tonnerhorns are great big sheep, as big and strong as a donkey and twice as ornery. The ewes have good-sized horns, but the rams' horns are massive, curved, and nigh-unbreakable — which is good, for the rams at least, because they do love to just smack-smack-smack them into things.</p><p>Manmarchers raise them as beasts of burden, lashing them to plows, carts, sleighs, or even chariots. They bottle-feed the lambs, and as a result tonnerhorns are fiercely loyal to those who raised them — and all kinds of unfriendly toward anyone else.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.WDxLUbaRZWHqdHBi"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

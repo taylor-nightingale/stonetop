@@ -1,0 +1,20 @@
+{
+  "_id": "Y3oobQmzvr3e9Xrw",
+  "_key": "!items!Y3oobQmzvr3e9Xrw",
+  "name": "Block & tackle",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "block-and-tackle",
+      "inventoryColumn": "small",
+      "sortOrder": 29,
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Tools & Trades"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

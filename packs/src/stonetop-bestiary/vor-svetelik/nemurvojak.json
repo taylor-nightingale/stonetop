@@ -1,0 +1,81 @@
+{
+  "name": "Nemurvojak",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 11,
+        "max": 11
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "iron-wood spears d6 w/advantage (close, messy, 1 piercing) or bare-handed rending d4 w/advantage (hand, grabby, messy, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to revel in their prey's fear and suffering"
+      }
+    },
+    "concept": "Demon-seeded corpses of loyal Green Lord servants, still guarding the dead city.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, construct, undead, corrupted, fearless",
+    "qualities": "<p>Armor 0 vs. bronze. Bound by its last orders; shuns the sun and holy light.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Ql4u2UbNBjoTxvBp",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Nemurvojak",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "jtTCXzq0UJwHQy3H",
+      "name": "Rush a foe with an unearthly howl",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RtF6xF9mdCPujX08.jtTCXzq0UJwHQy3H"
+    },
+    {
+      "_id": "wp00xuE1W090sJuH",
+      "name": "Lash out with a mass of black, viny tendrils (reach, grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RtF6xF9mdCPujX08.wp00xuE1W090sJuH"
+    },
+    {
+      "_id": "p4I2w99bRWJY2xLx",
+      "name": "Brutalize an already fallen foe",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RtF6xF9mdCPujX08.p4I2w99bRWJY2xLx"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "xjeECNnZIoBEkVix",
+  "_id": "RtF6xF9mdCPujX08",
+  "_key": "!actors!RtF6xF9mdCPujX08"
+}

@@ -1,0 +1,48 @@
+{{!-- Follower at 0 HP — their fate (Book I, NPCs & Followers p.469) + Loyal to the
+      End. See dialogs/FollowerFateDialog.js. --}}
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas fa-heart-crack stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">{{followerName}} is at 0 HP</div>
+        <div class="stonetop-guide-banner-sub">{{#if loyalToTheEnd}}Loyal to the End — roll for its fate (p.143){{else}}Their fate is in your hands (p.469){{/if}}</div>
+      </div>
+    </div>
+
+    <div class="stonetop-ff-options">
+      {{#if loyalToTheEnd}}
+      {{!-- Ranger's animal companion: Loyal to the End replaces the standard fate
+            choice — roll +0 (advantage if it holds Loyalty) for its fate. --}}
+      <button type="button" class="stonetop-ff-option stonetop-ff-option--save" data-action="roll">
+        <span class="stonetop-ff-option-title"><i class="fas fa-dice-d6"></i> Roll Loyal to the End</span>
+        <span class="stonetop-ff-option-desc">Roll +0{{#if hasLoyalty}} with <strong>advantage</strong> ({{loyalty}} Loyalty held){{/if}} — 10+ it'll be fine once it heals; 7&ndash;9 it takes the <em>injured</em> tag; 6&ndash; it's dying unless someone saves it.</span>
+      </button>
+      {{else}}
+      {{!-- Every other follower: the GM picks one (p.469). --}}
+      <button type="button" class="stonetop-ff-option" data-action="deathsdoor">
+        <span class="stonetop-ff-option-title"><i class="fas fa-skull"></i> Death's Door</span>
+        <span class="stonetop-ff-option-desc">They trigger Death's Door — you roll for them.</span>
+      </button>
+      <button type="button" class="stonetop-ff-option" data-action="dying">
+        <span class="stonetop-ff-option-title"><i class="fas fa-heart-pulse"></i> Dying</span>
+        <span class="stonetop-ff-option-desc">Out of the action; they'll die or trigger Death's Door soon if no one intervenes.</span>
+      </button>
+      <button type="button" class="stonetop-ff-option stonetop-ff-option--dead" data-action="dead">
+        <span class="stonetop-ff-option-title"><i class="fas fa-skull-crossbones"></i> Dead</span>
+        <span class="stonetop-ff-option-desc">Dead, immediately.</span>
+      </button>
+      {{/if}}
+    </div>
+
+    <p class="stonetop-ff-note">If the blow wasn't lethal, just close this — they're out of the action until they Recover or you say otherwise.</p>
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-ff-cancel">Not lethal / decide later</button>
+  </div>
+
+</div>

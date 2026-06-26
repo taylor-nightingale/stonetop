@@ -1,0 +1,61 @@
+{
+  "_id": "nJnOuEaIJBZParuZ",
+  "_key": "!journal!nJnOuEaIJBZParuZ",
+  "name": "Spirit-talker",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hillfolk touched by the spirits, who guide and protect their band."
+    }
+  },
+  "folder": "BftPtZSbjpl2MLU8",
+  "sort": 146000,
+  "pages": [
+    {
+      "_id": "lqG9EkFDvTaGUVR1",
+      "_key": "!journal.pages!nJnOuEaIJBZParuZ.lqG9EkFDvTaGUVR1",
+      "name": "Spirit-talker",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "<strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> touched by the spirits, who guide and protect their band.",
+        "description": "<p>Now and then a young <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> shows signs of being touched by the spirits, often after a sickness or brush with death: they hear voices, and grow more comfortable with horse and hound than with their own people. Guided by an elder and possessed of great self-control, they become a spirit-talker for their band. (Those who lose the human tongue altogether go feral and become a gouzadn.)</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.7ID9ieGRtwH4QoE8"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

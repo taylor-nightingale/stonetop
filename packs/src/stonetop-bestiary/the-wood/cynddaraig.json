@@ -1,0 +1,81 @@
+{
+  "name": "Cynddaraig",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 2,
+        "source": "scales"
+      },
+      "damage": {
+        "value": "three-inch-long teeth d10+3 (close, reach, grabby, messy, 3 piercing, advantage)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to dominate its territory"
+      }
+    },
+    "concept": "The 'rage drake' — ten feet of knives, quills, and fury.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, terrifying, fearless",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.JWXOAXD9nd8rkB3I",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Cynddaraig",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "sB16z8TNFm2506Rw",
+      "name": "Roar and unfurl its quills, making even brave warriors quail",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BVvWxKNlDdOzu9Ac.sB16z8TNFm2506Rw"
+    },
+    {
+      "_id": "Nfl6pVRy8odEMstP",
+      "name": "Bite a limb clean off",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BVvWxKNlDdOzu9Ac.Nfl6pVRy8odEMstP"
+    },
+    {
+      "_id": "JfVMcxNEDPcFGewi",
+      "name": "Lose itself in primal fury",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BVvWxKNlDdOzu9Ac.JfVMcxNEDPcFGewi"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "BVvWxKNlDdOzu9Ac",
+  "_key": "!actors!BVvWxKNlDdOzu9Ac"
+}

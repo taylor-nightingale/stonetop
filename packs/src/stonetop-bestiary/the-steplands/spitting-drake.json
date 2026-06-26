@@ -1,0 +1,81 @@
+{
+  "name": "Spitting Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 2,
+        "source": "pebbly scales"
+      },
+      "damage": {
+        "value": "vice-like jaws d8 (hand, grabby, messy, 1 piercing)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to pin down a good meal, then swarm it"
+      }
+    },
+    "concept": "Chameleon-skinned ambush drakes that spit pinning mucus.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, organized",
+    "qualities": "<p>Chameleon skin; excellent climbers.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ooVg9LaPN3bSAnge",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Spitting Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "AXcCnUxKwZwA6AjR",
+      "name": "Lay an ambush, where they can surround prey",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qULBTb5zDEPTWTWF.AXcCnUxKwZwA6AjR"
+    },
+    {
+      "_id": "JzFTJF8w5TQ93KDB",
+      "name": "Spit a head-sized gob of sticky mucus (near, grabby, reload)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qULBTb5zDEPTWTWF.JzFTJF8w5TQ93KDB"
+    },
+    {
+      "_id": "PgCYzWGDoCG5JbOU",
+      "name": "Sprint much more quickly than you'd expect",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qULBTb5zDEPTWTWF.PgCYzWGDoCG5JbOU"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "A5pBFgOjdwXRwZNz",
+  "_id": "qULBTb5zDEPTWTWF",
+  "_key": "!actors!qULBTb5zDEPTWTWF"
+}

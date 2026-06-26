@@ -1,0 +1,89 @@
+<form class="stonetop-arcanum-sheet-form" autocomplete="off">
+
+{{#unless isArcanum}}
+	{{!-- Plain readout for non-arcanum move items (inventory livestock/gear,
+	     basic/special moves) that resolve to this sheet but have no glyph tracks. --}}
+	<div class="stonetop-arcanum-card stonetop-arcanum-card--readout stonetop-arcanum-sheet-side">
+		<div class="stonetop-arcanum-sheet-main">
+			<div class="stonetop-arcanum-header">
+				<div class="stonetop-arcanum-header-left">
+					<span class="stonetop-arcanum-title">{{simple.name}}</span>
+					{{#if simple.weight}}
+					<div class="stonetop-arcanum-weight-note-row">
+						<span class="stonetop-arcanum-note">Weight {{simple.weight}}</span>
+					</div>
+					{{/if}}
+				</div>
+			</div>
+			<div class="stonetop-arcanum-body">
+				{{#if simple.note}}<p>{{{simple.note}}}</p>{{/if}}
+				{{{simple.description}}}
+			</div>
+		</div>
+	</div>
+{{else}}
+
+	{{!-- Front Side --}}
+	<div class="stonetop-arcanum-card stonetop-arcanum-sheet-side{{#if arcanaImg}} stonetop-arcanum-sheet-side--withart{{/if}}" data-slug="{{slug}}">
+		{{#if arcanaImg}}<img class="stonetop-arcanum-img" src="{{arcanaImg}}" alt="">{{/if}}
+		<div class="stonetop-arcanum-sheet-main">
+		<div class="stonetop-arcanum-header">
+			<div class="stonetop-arcanum-header-left">
+				<span class="stonetop-arcanum-title">{{front.title}}</span>
+				{{#if front.item}}
+				<div class="stonetop-arcanum-weight-note-row">
+					{{#if front.item.weight}}<span class="stonetop-arcanum-note">Weight {{front.item.weight}}</span>{{/if}}
+					{{#unless (eq front.item.name front.title)}}<span class="stonetop-arcanum-note">{{front.item.name}}</span>{{/unless}}
+					{{#if front.item.note}}<span class="stonetop-arcanum-note">{{{front.item.note}}}</span>{{/if}}
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{front.description}}}
+			{{#if front.unlock}}
+			<p class="stonetop-arcanum-unlock-lead">{{{front.unlock.description}}}</p>
+			<ul class="stonetop-arcanum-unlock-list stonetop-arcanum-unlock-list--readonly">
+				{{#each front.unlock.requirements}}
+				{{#if (eq type "text")}}
+				<li class="stonetop-arcanum-unlock-text">{{{content}}}</li>
+				{{else}}
+				<li class="stonetop-arcanum-unlock-option stonetop-arcanum-unlock-option--readonly">
+					<span class="stonetop-arcanum-unlock-desc">{{{description}}}</span>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+			{{/if}}
+		</div>
+		</div>
+	</div>
+
+	{{!-- Back Side --}}
+	{{#if back.title}}
+	<div class="stonetop-arcanum-card stonetop-arcanum-sheet-side stonetop-arcanum-sheet-back">
+		<div class="stonetop-arcanum-header">
+			<div class="stonetop-arcanum-header-left">
+				<span class="stonetop-arcanum-title">{{back.title}}</span>
+				{{#if back.item}}
+				<div class="stonetop-arcanum-weight-note-row">
+					{{#if back.item.weight}}<span class="stonetop-arcanum-note">Weight {{back.item.weight}}</span>{{/if}}
+					{{#unless (eq back.item.name back.title)}}<span class="stonetop-arcanum-note">{{back.item.name}}</span>{{/unless}}
+					{{#if back.item.note}}<span class="stonetop-arcanum-note">{{{back.item.note}}}</span>{{/if}}
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		<div class="stonetop-arcanum-body">
+			{{{back.description}}}
+			{{#if back.move}}
+			<p class="stonetop-arcanum-move-trigger"><strong><em>{{back.move.name}}</em></strong></p>
+			{{{back.move.description}}}
+			{{/if}}
+		</div>
+	</div>
+	{{/if}}
+
+{{/unless}}
+
+</form>

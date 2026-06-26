@@ -1,0 +1,21 @@
+{
+  "_id": "avXiOqkVCJTBJahe",
+  "_key": "!items!avXiOqkVCJTBJahe",
+  "name": "Donkey",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "donkey",
+      "inventoryColumn": "regular",
+      "sortOrder": 63,
+      "note": "HP 10, d4+2 damage (<em>hand</em>, <em>forceful</em>)",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

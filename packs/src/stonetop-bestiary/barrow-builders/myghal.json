@@ -1,0 +1,103 @@
+{
+  "name": "Myghal, Deathless Sorcerer",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "wards"
+      },
+      "damage": {
+        "value": "word of false pain d8 (near, area, ignores armor)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to jealously hoard secrets"
+      }
+    },
+    "concept": "A sorcerer who anchored his soul to a hidden device and cheated death — paranoid, hoarding secrets.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, undead, corrupted, paranoid, magical, hoarder, terrifying",
+    "qualities": "<p>Tethered to the device; broken body; aware of all that his servants perceive.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.fhCGhdK4KZ5fBsUL",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Myghal",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "uioYJL5X0ClP8i1G",
+      "name": "Inflict false sensations on others",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xSrPam8ZFxg24LQl.uioYJL5X0ClP8i1G"
+    },
+    {
+      "_id": "zIwyw9xDe2CpqFwt",
+      "name": "Fix someone with his terrible gaze",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xSrPam8ZFxg24LQl.zIwyw9xDe2CpqFwt"
+    },
+    {
+      "_id": "5mpOArNruC08XM53",
+      "name": "Reveal a plan or a horrid truth",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xSrPam8ZFxg24LQl.5mpOArNruC08XM53"
+    },
+    {
+      "_id": "kAN9FxuXJ4XKj5ub",
+      "name": "Control his lithic servants like they were extensions of himself",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xSrPam8ZFxg24LQl.kAN9FxuXJ4XKj5ub"
+    },
+    {
+      "_id": "5ot98qH5T9NvRAuC",
+      "name": "Recover from any wound, slowly and never fully",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!xSrPam8ZFxg24LQl.5ot98qH5T9NvRAuC"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "3ix7kVgtSNskFx0Y",
+  "_id": "xSrPam8ZFxg24LQl",
+  "_key": "!actors!xSrPam8ZFxg24LQl"
+}

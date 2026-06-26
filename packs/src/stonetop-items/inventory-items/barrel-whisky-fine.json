@@ -1,0 +1,21 @@
+{
+  "_id": "MeR3pzh84KpLMcNf",
+  "_key": "!items!MeR3pzh84KpLMcNf",
+  "name": "Barrel of whisky, fine",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "barrel-whisky-fine",
+      "inventoryColumn": "regular",
+      "sortOrder": 56,
+      "note": "<em>immobile</em>",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Trade Goods"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

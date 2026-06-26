@@ -1,0 +1,61 @@
+{
+  "_id": "c8f8TEwhVoaWA1Tm",
+  "_key": "!journal!c8f8TEwhVoaWA1Tm",
+  "name": "Wretch",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Fused, deathless masses of tormented flesh, begging only for release."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 117000,
+  "pages": [
+    {
+      "_id": "K8cA0Wy9ZR2Pe869",
+      "_key": "!journal.pages!c8f8TEwhVoaWA1Tm.K8cA0Wy9ZR2Pe869",
+      "name": "Wretch",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Fused, deathless masses of tormented flesh, begging only for release.",
+        "description": "<p>The victims of L'bin'bozia (Flesh-Candle, the Wax Skull, Roiling Tomb) find themselves turned into… things. Furniture. Decoration. Masses of flesh where it's hard to see where one poor soul ends and the other begins. They do not die of old age. They cannot starve. They must endure, trapped in the cave or the mire or the tomb where they met their fate — persisting in pain, begging for some outsider to come and end their suffering.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.sPAOECPRkZHUCcHD"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

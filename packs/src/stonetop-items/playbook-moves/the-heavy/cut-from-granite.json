@@ -1,0 +1,20 @@
+{
+  "_id": "77Rzr0tWxVLoNC7g",
+  "_key": "!items!77Rzr0tWxVLoNC7g",
+  "name": "Cut from Granite",
+  "type": "move",
+  "system": {
+    "playbook": "The Heavy",
+    "moveType": "playbook",
+    "description": "<p>Gain +1 armor (stacks with other sources) and increase your max HP by another 2 (+6 HP total).</p>",
+    "hpBonus": 2,
+    "armorBonus": 1,
+    "requirement": {
+      "level": 6,
+      "moves": [
+        "Carved Out of Wood"
+      ]
+    }
+  },
+  "folder": "EGBb1iIndbhAI7zU"
+}

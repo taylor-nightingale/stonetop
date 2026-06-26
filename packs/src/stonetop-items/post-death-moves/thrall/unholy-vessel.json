@@ -1,0 +1,13 @@
+{
+  "name": "Unholy Vessel",
+  "type": "move",
+  "system": {
+    "moveType": "post-death",
+    "playbook": "thrall",
+    "description": "<p>When you <strong><em>would gain a Mark but there are none left to gain</em></strong>, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.</p>",
+    "rollType": null
+  },
+  "_id": "jT7vKm0xNqRy5wSL",
+  "_key": "!items!jT7vKm0xNqRy5wSL",
+  "folder": "G7pEx5cMmt9Q3dVl"
+}

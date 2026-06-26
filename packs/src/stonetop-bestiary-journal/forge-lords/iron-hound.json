@@ -1,0 +1,61 @@
+{
+  "_id": "QuvCnDgNGwtul1Cl",
+  "_key": "!journal!QuvCnDgNGwtul1Cl",
+  "name": "Iron Hound",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Effigy-hounds with dead dogs' spirits for eyes, hunting all who touch stolen goods."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 72000,
+  "pages": [
+    {
+      "_id": "ZzBCwsn6sCplIGJ1",
+      "_key": "!journal.pages!QuvCnDgNGwtul1Cl.ZzBCwsn6sCplIGJ1",
+      "name": "Iron Hound",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Effigy-hounds with dead dogs' spirits for eyes, hunting all who touch stolen goods.",
+        "description": "<p>There was a Forge Lord who prized his hounds as much as his treasure. When one would die, he'd capture its spirit in red crystal and set it as the eyes of a crudely-wrought effigy — and if anyone was so foolish as to steal from him, he'd loose his iron hounds to punish not just the thief but all whose hands had sullied his property. That Forge Lord is long gone, but his iron hounds remain. They've learned to leave their master's treasures in plain sight and to give thieves a head start — for the more hands touch the stolen goods, the more victims they can claim.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.BgPtjVOTWvJBYE7z"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

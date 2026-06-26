@@ -1,0 +1,70 @@
+{
+  "_id": "JWXOAXD9nd8rkB3I",
+  "_key": "!journal!JWXOAXD9nd8rkB3I",
+  "name": "Cynddaraig",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The 'rage drake' — ten feet of knives, quills, and fury."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 16000,
+  "pages": [
+    {
+      "_id": "oXF62e14JnnztVEB",
+      "_key": "!journal.pages!JWXOAXD9nd8rkB3I.oXF62e14JnnztVEB",
+      "name": "Cynddaraig",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The 'rage drake' — ten feet of knives, quills, and fury.",
+        "description": "<p>The mighty 'rage drake,' almost ten feet tall and twenty feet from nose to tail-tip. Its jaws are full of knives, blood-red patterns surround its eyes, and a frill of feathered quills sprouts from its neck and runs down its back. Maybe a half-dozen of them stalk the whole <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, and one hasn't been spotted near <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> for generations (<strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong> be praised).</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** They prey mostly on large game (wisents, tal gerdwyr, etc.). They'll attack people, but rarely hunt them.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** They attack people to establish dominance, seeing us as rivals. An appropriate offering or show of obeisance might calm one enough for you to get the hell out of there.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.BVvWxKNlDdOzu9Ac"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

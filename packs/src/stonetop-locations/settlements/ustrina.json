@@ -1,0 +1,133 @@
+{
+  "_id": "MZIqm0QhN3lxNKuO",
+  "_key": "!journal!MZIqm0QhN3lxNKuO",
+  "name": "Ustrina",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "These mask-wearing people dwell to the west, deep in the Huffel Peaks. Every now and then, they emerge from the Labyrinth and visit Gordin’s Delve, trading finely worked goods, wonders and the odd bit of orichalcum."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 27000,
+  "pages": [
+    {
+      "_id": "B2W00k1wl8ClNwAz",
+      "_key": "!journal.pages!MZIqm0QhN3lxNKuO.B2W00k1wl8ClNwAz",
+      "name": "Ustrina",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>These mask-wearing people dwell to the west, deep in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>. Every now and then, they emerge from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong> and visit <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, trading finely worked goods, wonders and the odd bit of orichalcum.</p><ul><li>Masks of polished metal, only vaguely humanoid features</li><li>Voluminous black robes and strangely ornate headdresses</li><li>Faint chemical smells: a whiff of rust, or ozone, or sulfur</li><li>Tinny, echoing voices, like someone down a well, speaking an obscure dialect</li></ul><p>Tips: speak formally and proceed all proper nouns with “the” (“the Rhianna,” “the Gordin’s Delve”); talk into an empty soda can (or at least with your hand in front of your mouth).</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Portuguese-sounding, but often ending in “-ix”: the Avilio, the Brenix, the Caesana, the Donatix, the Emitia, the Flagio, the Galvaix, the Jacintix, the Lucisia, the Marcix, the Numia, the Otavix, the Paolix, the Ruia, the Sibonio, the Tafia, the Valerix.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Something interesting: The Ustrina dwell among the ruins of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>, and are heirs to many of their arts. And while few outsiders can tell, there are sects among them—the Peridita, the Albedo, the Citrinita, and the Rubedix—with rivalries and politics aplenty.</p><p>Something useful: Ustrina (or their ancestors) were servants of the Forge Lords, and each group holds the relics of their old masters in great esteem. They might sell artifacts of other Forge Lords to outsiders, but they will pay handsomely to have the artifacts of their own masters returned.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "True nature",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The Ustrina never remove their masks, robes, or gloves. Rumors abound, of course, but if anyone reliable knows what they truly look like, they aren’t telling. The true nature of the Ustrina is up to you and your group to decide, but possibilities include:</p><ul><li>Flesh and blood, much like us, but with elaborate traditions of privacy and decorum</li><li>Mutant scavengers of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>’ ruins, horrible to behold, disguised when they deal with humanity</li><li>Naught but elemental spirits, animating a simple skeleton of bronze</li><li>Constructs of impossibly intricate clockwork, animated by glowing soul-gems</li><li>Ancient servants of the Forge Lords who have slowly replaced flesh with clockwork</li><li>A bunch of smaller creatures animating an elaborate puppet</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade missions",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Ustrina come to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> a few times every season, emerging from the First Delve. Some have contacts in the town, and approach those contacts directly. Others approach individuals seemingly at random, offering to trade.</p><p>For any given trade mission, pick or roll what they’re offering and what they want in return, using the tables on the following page. Their wants and needs are inscrutable, making them difficult to haggle with and fairly easy to offend. They are often willing to make arrangements now and return in a few weeks or even months to make the transaction.</p><p>Pick 1 or have someone roll the Die of Fate.</p><p><strong>1d12 what they’re offering</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Shards of pottery, scraps of frayed fabric, odd pits of stone, or other junk (Value 0) that they genuinely regard as precious</td></tr><tr><td>2–3</td><td>Finely wrought items (Value 2) like an exquisite bronze statuette, a silver-alloy dagger (hand), a goldembroidered cloak (warm), a perfectly balanced short sword (hand, close, +1 damage, 1 piercing), etc.</td></tr><tr><td>4–5</td><td>A curiosity or wonder</td></tr><tr><td>6–7</td><td>Precious metals or jewels (Value 3), like a bar of gold, a chest of ancient silver coins, a gem-encrusted gold ring, a few sapphires</td></tr><tr><td>8</td><td>1d4 small ingots of orichalcum</td></tr><tr><td>9–10</td><td>Some artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong></td></tr><tr><td>11</td><td>An artifact from one of the other <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong></td></tr><tr><td>12</td><td>Some “priceless” treasure (Value 4), like a sapphire the size of your eye, a chest of gold coins, a bejeweled gold crown, a cartload (immobile) of fine steel swords (close, +1 damage, 1 piercing)</td></tr></tbody></table><p><strong>1d12 what they want</strong></p><ul><li>1 A dozen or so... (roll 1d6 or pick) 1</li><li>children/infants/newborns 2</li><li>healthy human adults 3</li><li>human adults, of whatever quality 4</li><li>fresh human corpses 5</li><li>human corpses in whatever state 6</li><li>urns full of human blood (they’ll provide the urns) 2 1d4 cartloads of a specific exotic trade good, like silk, a certain spice, amber, aurochs horns, etc. (Value 4) 3-5 A particular artifact of the Forge Lords (they’ll describe it) 6 Some other, specific arcanum (they’ll describe it) 7 A strange and difficult task (like slaying some horror in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong>) 8 A chest or similar amount of... (roll 1d6 or pick) 1</li><li>makerglass 2</li><li>dark ice 3</li><li>aetherium 4</li><li>redwood 5</li><li>black iron 6</li><li>red crystal. 9 1d4 units of a specific exotic trade good, like bolts of silk, pouches of a certain spice, pouches of amber, pairs of aurochs horns, etc. (Value 3) 10 1d4 cartloads of a particular raw material, like timber, tin, a certain type of cut stone (Value 2) 11 1d4 dozen goats/pigs/hounds (Value 2) 12 1d4 cartloads of grain, flour, and other common foodstuffs (Value 2)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Curiosities and wonders",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Perhaps crafted by the Ustrina themselves, or pilfered from troves of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>. If the Ustrina do know the secrets to creating these things, they aren’t inclined to share.</p><ul><li>Artificial limb crude, magical (?), Value 3 A clockwork hand, foot, arm, or leg, with straps and buckles to attach it. Impossibly intricate, and with practice it’s nearly as functional as the real thing. It cannot feel, though, and is prone to jamming up and needing repairs.</li></ul><ul><li>Barrel of anthracite immobile, dangerous, Value 3 Lumps of lustrous, gray-black stone, like coal but drier and much more useful. A small lump catches fire as readily as dry wood and burns all night with the heat of a good cook-fire. It casts only dim light (close, area) and there’s almost no smoke, but the smell is something awful.</li></ul><ul><li>Brass sphere</li><li>, magical, Value 2 A heavy lump of smooth metal that fits in one’s hand. When you touch the sphere with bare flesh, it glows with an orange light (reach, area, hours). It recharges an hour of light for every hour that it sits in a hot fire or coals.</li></ul><ul><li>Bright-sticks fragile, dangerous, Value 1 A small box containing 3d4 stiff metal rods, about the size of incense sticks. Snap one, and each piece bursts into a blindingly bright, blisteringly hot flame (d8 damage, messy) for a few seconds while it burns away to ash.</li></ul><ul><li>Clockwork bird</li><li>, fragile, magical, Value 3 Made of tin and set with agate eyes. When you wind it up and let it run, it will dance and chirp loudly for a few minutes. When you wind it up and twist one of its feathers just so, it will sit and wait, only starting to dance and chirp when a creature enters its line of sight.</li></ul><ul><li>Ever-burning ember</li><li>, fragile, magical, Value 3 This ceramic pot has a number of thin slits along its shoulder and a ring of rune-etched brass around its neck. The pot is always hot, painful to touch, but it won’t cause blisters outright. Inside is a glowing ember of redwood with a fire spirit bound inside. The ember will smolder forever as long it stays in the pot and isn’t completely submerged.</li></ul><ul><li>Pale metal gauntlets</li><li>, fireproof, magical, Value 3 Made of a pale metal, lighter than it should be, and intricately carved with geometric patterns. The insides are an impossibly fine chainmail of the same metal. They seem to absorb heat, and are often damp.</li></ul><p>When you wear the pale metal gauntlets, you can pick up and manipulate even white-hot steel without harming your hands (the rest of you, though, has no special protection from heat).</p><ul><li>Self-burning lamp</li><li>, reach, area, hours, Value 2 A bronze oil-lamp with a small valve on the top. When you screw the nozzle open, a hot blue flame pops out of the nozzle. When you screw the nozzle shut, the flame snuffs out. The lamp itself gets blisteringly hot while running, and once empty of fuel, only the Ustrina know how to refill it.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Which of you has encountered the Ustrina before? In **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}**, or elsewhere in the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is it about the way they move that unnerves you so?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who did you know in Gordin’s Delve who tried to rob them, and what doom befell them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What’s the oddest thing that you’ve heard of the Ustrina asking for in trade?",
+                "answer": ""
+              },
+              {
+                "prompt": "Even though you’ve never seen it, what do you think they really look like?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Ustrina haven’t appeared in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> for six months; one of the Bosses offers a reward for information.</li><li>Mining crews go missing in the First Delve; survivors are blaming Ustrina.</li><li>Members of one sect hire someone to rob a group of another sect (discretely, of course).</li><li class=\"question-bullet\">A trio of masked, black-robed figures have been seen poking around the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong>, but why?</li><li>A merchant from Gordin’s Delve brings an Ustrina to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>. It wishes to study the Stone or Maker-ruins about town, but a trio of Ustrina (from the same sect) soon follow, looking for it.</li></ul>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

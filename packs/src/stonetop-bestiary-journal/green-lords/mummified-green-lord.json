@@ -1,0 +1,61 @@
+{
+  "_id": "EwO2lHfT38Fi7uqK",
+  "_key": "!journal!EwO2lHfT38Fi7uqK",
+  "name": "Mummified Green Lord",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "An embalmed god-king who leaves its Fae paradise only to slaughter tomb-robbers."
+    }
+  },
+  "folder": "jQoDL6IhABvMYnZf",
+  "sort": 78000,
+  "pages": [
+    {
+      "_id": "J8A6ThARz2TEegEV",
+      "_key": "!journal.pages!EwO2lHfT38Fi7uqK.J8A6ThARz2TEegEV",
+      "name": "Mummified Green Lord",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "An embalmed god-king who leaves its <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> paradise only to slaughter tomb-robbers.",
+        "description": "<p>They lie entombed, their corpses embalmed, their souls bound to heavily-warded canopic jars that store their most-vital organs — yet those souls linger forever in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>-woven realms of glamour and delight, where the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> are as gods. They are loathe to leave, and rarely need to. But should their existence be truly threatened, they will return to this world of base flesh, inhabit their long-dead bodies, and punish any intruders with the savagery of the cruelest beasts.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.TGLFOv8AqB8gHXvM"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

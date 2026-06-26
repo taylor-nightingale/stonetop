@@ -1,0 +1,80 @@
+{
+  "name": "Tonnerhorn",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "butt/gore d6+2 (hand, close, forceful)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to protect its herd"
+      }
+    },
+    "concept": "Great big sheep, strong as a donkey and twice as ornery — the Manmarchers' loyal beasts of burden.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, hardy, powerful, grumpy, loyal",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.oFWS3ZqQlJJnRnzm",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Tonnerhorn",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "c8FXJfBSRQGkPI0v",
+      "name": "Relentlessly pull against a load or restraint",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WDxLUbaRZWHqdHBi.c8FXJfBSRQGkPI0v"
+    },
+    {
+      "_id": "zZvdMqGbtkXjriGZ",
+      "name": "Grunt, huff, paw, or bellow to make its displeasure known",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WDxLUbaRZWHqdHBi.zZvdMqGbtkXjriGZ"
+    },
+    {
+      "_id": "8buTR1kXq5xyoWNC",
+      "name": "Smash into whatever offends it, repeatedly",
+      "type": "monsterMove",
+      "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!WDxLUbaRZWHqdHBi.8buTR1kXq5xyoWNC"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Zk9eZkdsc82KOF4B",
+  "_id": "WDxLUbaRZWHqdHBi",
+  "_key": "!actors!WDxLUbaRZWHqdHBi"
+}

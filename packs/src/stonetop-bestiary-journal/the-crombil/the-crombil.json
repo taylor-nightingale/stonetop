@@ -1,0 +1,61 @@
+{
+  "_id": "EYZ5DbxfTP8Pkzmv",
+  "_key": "!journal!EYZ5DbxfTP8Pkzmv",
+  "name": "The Crombil",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A great scaly wurm, hundreds of feet long, that sleeps beneath the Great Wood and wakes to burn."
+    }
+  },
+  "folder": "Tsre11y9yZpiFA6L",
+  "sort": 133000,
+  "pages": [
+    {
+      "_id": "dFx9ksncRYUgW1yL",
+      "_key": "!journal.pages!EYZ5DbxfTP8Pkzmv.dFx9ksncRYUgW1yL",
+      "name": "The Crombil",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A great scaly wurm, hundreds of feet long, that sleeps beneath the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> and wakes to burn.",
+        "description": "<p>A great scaly wurm, hundreds of feet long. It sleeps somewhere beneath the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, waking every few decades to chew and burn a swath of destruction before sinking back into slumber. What it is — a primordial titan, a Green Lord weapon, the first and oldest draventao, or a manifestation of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> — is for you to decide. Dormant, it is little more than a warm, smoking, tree-covered hill; woken, it is doom.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.i2U1Qxscwoqw6eR0"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "T1ELDbVtepRKsf3d",
+  "_key": "!journal!T1ELDbVtepRKsf3d",
+  "name": "Antiquarian",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A southern scholar who hunts the World's End for relics to study and sell."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 156000,
+  "pages": [
+    {
+      "_id": "PSYUphUQPJtiNl0C",
+      "_key": "!journal.pages!T1ELDbVtepRKsf3d.PSYUphUQPJtiNl0C",
+      "name": "Antiquarian",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A southern scholar who hunts the World's End for relics to study and sell.",
+        "description": "<p>Among the southern well-to-do, the glorious past is a point of pride. Wealthy households keep pet scholars on retainer and sponsor the study of ruins and antiquities. The best southern sites are long since dug up — but up north, at the World's End, one can barely swing a shovel without hitting some relic of the past, just waiting to be excavated. And studied. And sold.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.bZKtYZmapDExeAJU"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

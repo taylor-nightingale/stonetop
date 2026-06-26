@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraHartwood1",
+  "_key": "!items!stFloraHartwood1",
+  "name": "Hartwood",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "hartwood",
+      "inventoryColumn": "regular",
+      "sortOrder": 75,
+      "note": "Ashes of a burnt hartwood branch; apply them to the skin as a ward against possession.",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

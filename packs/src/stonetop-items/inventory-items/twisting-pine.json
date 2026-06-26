@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraTwistPine",
+  "_key": "!items!stFloraTwistPine",
+  "name": "Twisting Pine",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "twisting-pine",
+      "inventoryColumn": "regular",
+      "sortOrder": 73,
+      "note": "A vial of its quick-hardening sap, used in lieu of supplies to Recover (seals wounds, flakes away days later). A harvested jar is Value 1 as a sealant or pottery glaze.",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

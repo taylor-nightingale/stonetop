@@ -1,0 +1,92 @@
+{
+  "name": "Voidblight",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks vitals"
+      },
+      "damage": {
+        "value": "spirit-rending bite d6+2 (hand, grabby)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to eat and spawn"
+      }
+    },
+    "concept": "Star-black, eyeless spirit-eaters that swarm in from the void through rifts.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, spirit, primordial, stealthy, hungry, cautious",
+    "qualities": "<p>Can harm only spirits and mortals sensitive to the spirit world; harmed only by other spirits or magical attacks.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.smqjMCaaxstHY5nZ",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Voidblight",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "c4RQN9QhFKqB9PJz",
+      "name": "Follow the 'scent' of a rift or a spirit-walker",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P4UPY5CmKLihfSQO.c4RQN9QhFKqB9PJz"
+    },
+    {
+      "_id": "TG1TbmiZpYY1uMIL",
+      "name": "Mimic a spirit it has eaten",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P4UPY5CmKLihfSQO.TG1TbmiZpYY1uMIL"
+    },
+    {
+      "_id": "6H8y2H1xd3LR3aQN",
+      "name": "Pounce on unsuspecting prey",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P4UPY5CmKLihfSQO.6H8y2H1xd3LR3aQN"
+    },
+    {
+      "_id": "oh9W1RZk8z81c6tX",
+      "name": "After a good meal, spawn another of its kind",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P4UPY5CmKLihfSQO.oh9W1RZk8z81c6tX"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "P4UPY5CmKLihfSQO",
+  "_key": "!actors!P4UPY5CmKLihfSQO"
+}

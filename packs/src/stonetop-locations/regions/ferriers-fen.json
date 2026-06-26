@@ -1,0 +1,167 @@
+{
+  "_id": "UstvXnD6EA9IBBO3",
+  "_key": "!journal!UstvXnD6EA9IBBO3",
+  "name": "Ferrier's Fen",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Ferrier’s Fen lies between the Great Wood, the Steplands, and the North Manmarch. It’s a huge wetland, 100 miles wide, 50 miles north to south, fed by the Stream the Sruth near Marshedge, and many smaller creeks. It’s a maze of firm ground, stagnant pools, shallow streams, and plunging drops into deep deep water. And mud. So much mud."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 6000,
+  "pages": [
+    {
+      "_id": "MjRt3VmyHvOLKjkx",
+      "_key": "!journal.pages!UstvXnD6EA9IBBO3.MjRt3VmyHvOLKjkx",
+      "name": "Ferrier's Fen",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Ferrier’s Fen lies between the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{North Manmarch}</strong>. It’s a huge wetland, 100 miles wide, 50 miles north to south, fed by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong> the Sruth near <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, and many smaller creeks. It’s a maze of firm ground, stagnant pools, shallow streams, and plunging drops into deep deep water. And mud. So much mud.</p><p>Long ago, this area was the cradle of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>’ civilization. But when their servants rebelled and the Green Lords embraced the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, the other <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong> collapsed the region and shattered the Green Lords’ civilization. It’s still a broken place, oozing with old magic and corruption.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>Willow trees leaning over water</li><li>Chunks of stone ruins, jutting from the mud</li></ul><ul><li>Wobble and shake of peat bogs underfoot</li></ul><ul><li>Sulphur smell of stagnant water and rot</li><li>Some mundane thing but shockingly wrong: a tree with weeping eyes, a three-faced rabbit, a snake with stumpy legs, a deer with a fawn growing from its side, etc.</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Dead brown mixed with pale green mixed with bright-colored flowers</li></ul><ul><li>Squelch of mud, the shocking wetcold, its jealous grip on your feet</li></ul><ul><li>Boisterous, rhythmic calls of frogs and toads</li></ul><ul><li>Thick fog, muffling everything, shrinking the world</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Flies and midges, buzzing at your ears, nose, eyes, mouth</li></ul><ul><li>Press and rustle and scrape of grass, sedge, and rush</li></ul><ul><li>Butterflies and moths in every hue and shape; fireflies like the stars at night</li></ul><ul><li>Baking heat, cloying air, sweat rolling off of you</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Yellow, brown, and gold of dying plants below; dead slate of skies above</li></ul><ul><li>That smell of rot, just overwhelming now</li><li>Flocks of water fowl, their harsh honking, flying in great Vs overhead</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Dead grass poking through a blanket of snow</li></ul><ul><li>A quiet calm</li><li>Gurgle and trickle of unseen water</li><li>Crack and lurch as you put your weight on thin ice</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Exploring the Fen",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Ferrier’s Fen holds much of value, but it’s a shifting, treacherous place.</p><p>Chart a Course On any expedition into Ferrier’s Fen:</p><p>Choose 1:</p><ul><li>You need to bring a pouch of bendis root (Value 1 in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>) per day, burnt constantly</li><li>The way will be perilous, filled with dangers</li><li>You need a knowledgeable guide, like a fen-walker</li><li>You risk getting lost nonetheless</li><li>The terrain itself is treacherous; you risk injury along the way</li><li>The way will be grueling; you risk exhausting yourselves/your resources</li><li>You risk contracting fen blight</li><li>You risk drawing the attention of the suarachan (except in winter)</li></ul><ul><li>Spot/avoid a hidden hazard</li><li>Berate outsiders for carelessness</li><li>Do something gross or unpleasant without flinching</li></ul><ul><li>Alastar exceptional, old, devious; Instinct to feel no remorse; Cost payment in hand.</li></ul><ul><li>Fiadh curious, kind, fen-blighted; Instinct to hide his affliction; Cost secrets of the Fen.</li></ul><ul><li>Riona prepared, agile, stubborn; Instinct to assume the worst; Cost competence shown.</li></ul><p>See also: People of Marshedge.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12). In winter, water and mud might be frozen.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Open water, who knows how deep?</td></tr><tr><td>2</td><td>Shallow pool, pond, or stream</td></tr><tr><td>3–4</td><td>Mud, muck, sodden soil, standing water</td></tr><tr><td>5–6</td><td>Peat, sphagnum moss, floating mats</td></tr><tr><td>7–8</td><td>Grass, reeds, sedges, wildflowers</td></tr><tr><td>9</td><td>Shrubs and scattered pines</td></tr><tr><td>10</td><td>Thicket of trees, or one big tree</td></tr><tr><td>11</td><td>Dead tree(s), fallen log(s)</td></tr><tr><td>12</td><td>Hummock, hill, rocky outcrop</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Willow Witches",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Many tales are told of the weird sisters of the Fen. There are always three, but they might be old, young, or middling aged. They might be tall and regal or twisted and gnarled, dignified and poised or feral things rooting through the mud. Sometimes, the tale’s hero seeks them out. Other times, they stumble upon the Witch’s abode.</p><p>All stories agree that the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong> have what you seek. An answer. An artifact (or knowledge of where to find it). A way to accomplish some impossible deed. Everyone knows that Sianna Ferrier learned the secrets of the Fen from the Witches, allowing <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> to be settled.</p><p>What the tales often fail to mention is: there’s always a price. For Sianna Ferrier, the Witches’ gifts were costly indeed: a child of her blood, or the blood of those she settled with, to be delivered every seven years.</p><p>The witches are, in truth, a single entity, the inscrutable incarnation of a primordial being of knowledge, fate, costs and consequences, greatly diminished and dwelling in this broken land.</p><p>The Witches’ abode The Willow Witches’ abode is rarely found in the same place twice, and in every tale, the details are different. Sometimes they dwell in the hollow of a willow tree, the space inside impossibly big. In other tales, it’s a crude shack leaning against a tree. In still others, they huddle around a cookfire in a willow’s shade, no real shelter to speak of.</p><p>The surest way to find the Witches is to seek out a fen-troll and convince them to guide you. They all know the way, though one should expect mischief.</p><p>Mind your manners The Willow Witches observe the old ways of hospitality. Any who approach peaceably and invoke the guest-right are welcome to eat their food and shelter under their roof (such that it is). The Witches will do no true harm unless the guest first violates the rules of hospitality by…</p><p>… initiating violence;<br>… threatening the Witches or their guests;<br>… stealing; or<br>… insulting the Witches’ hospitality.</p><p>The Witches delight in provoking guests: speaking in riddles, asking about shameful secrets, offering disgusting victuals or shabby accommodations, showing glimpses of horrors that are gone when one looks again. The humble, patient, and wise do well. Hot-headed, prideful fools do not.</p><p>The price Whatever one asks of the Willow Witches, they require something of similar value. Tailor the price to the character. It’s not about what the Willow Witches want or what they’ll do with it. It’s about sacrifice. It’s about what the seeker is asking for, and what it’s worth to them.</p><p>The Witches might ask for…</p><ul><li>a promise, to be fulfilled now or later. Renege, and calamity follows. “The axiom of local contagion? Such fancy words for so simple a thing. We can teach you, yes, but you must swear to never again open a door without its owner’s permission.”</li></ul><ul><li>a possession, worth at least as much to the asker as that which they ask for. “You seek a weapon against the demon? Ah, yes, the <strong>@UUID[Compendium.stonetop.stonetop-items.Item.0n4lgBdJ0abmmQfl]{Twisted Spear}</strong>! We can show you where it lies, take you to it. But what will you give us in return? That mantle you wear, the one with teeth and the hungry ghosts? Give us that.”</li></ul><ul><li>something strange, fraught with potential consequence. “You seek to appease the anger of the forest? Tsk tsk, its anger cannot be quelled. But you can throw off the scent. Merely chew off your own shadow and let us dispose of it. Hmm? No, of course you can, here, let us show you…”</li></ul><ul><li>a personal sacrifice, bloody and visceral. “You wish to know what the old runes say? Surely your right eye is a bargain for such wisdom. Or the left. We are not picky.”</li></ul><ul><li>a personal sacrifice, something intangible. Work with the player to change their instinct, swap their stats, or lose one of their moves as a result. “You seek a way to defeat the King of the North? We can tell you, yes. But it will cost the memories of your father, and the kindness he showed you.”</li></ul><ul><li>a sacrifice, but of something not truly theirs to give. “You want your eye for beauty back? Hm. You choose the price: your tall friend’s kind heart, which you treasure so. Or your parents’ love. It’s beauty you seek, and like must pay for like, after all.”</li></ul><p>Whatever the PCs ask for, it should be a meaningful decision whether they pay the price. Don’t ask for something you know they’ll never give up, and don’t ask for something they won’t miss anyhow.</p><p>If the Witches like someone—if they’ve been humble, well-mannered, and wise— then they’ll be clear and upfront about the costs and what they’re offering, and maybe suggest another course of action. Otherwise, the Witches will be cagey about the costs and all too willing to let them have something for cheap if they know that it will lead to ruin.</p><ul><li>Willow Witch</li></ul><p>Tip: use a different voice and different physical position (left, center, right) for each witch, and shift between them as you talk, sometimes mid-sentence.</p><p>When you press or entice the Willow Witches into changing their price or altering their deal, don’t roll. They will not be budged; the price is what it is.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around Ferrier's Fen. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iNio1HI0NcZuNGTc]{Fen-Troll}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.vRX46bUKX5FsSzly]{Fen-walker}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb]{Suarachan}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JeFYzThOekEepQUH]{The Gliomor}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What foul beast is said to lurk in the Fen, and why do fools seek it out?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who do you know who was lost to the Fen? What led them out there in the first place?",
+                "answer": ""
+              },
+              {
+                "prompt": "What ritual is said to keep the fenblight at bay?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you think that the suarachan —those horrid frog-people—do with folks they capture?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A rare orchid can cure a sickness, but it grows only deep in the Fen</li><li>Waters recede in a drought, revealing previously unknown ruins</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb]{Suarachan}</strong> raid the fields of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, dragging off multiple captives</li><li>The PCs seek something that only the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong> can give them</li><li>Bendis root is growing poorly; if this continues it could ruin Marshedge</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>An encounter</td></tr><tr><td>4</td><td>Site or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> likely tainted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, at least partially buried or submerged</td></tr><tr><td>5</td><td>Some other point of interest</td></tr><tr><td>6</td><td>Useful or valuable flora</td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A lone suarachan, hoping to avoid notice</td></tr><tr><td>2</td><td>A mutated beast, like a deer with eight legs and five eyes, or a two-headed hare</td></tr><tr><td>3</td><td>One or more spirits of the wild or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, curious, indifferent, or forlorn</td></tr><tr><td>4</td><td>Ample game, but unappetizing— crawfish, snails, turtles, frogs, fish, etc.</td></tr><tr><td>5</td><td>Good game, but prone to bolt— deer, hare, water fowl, etc.</td></tr><tr><td>6</td><td>A fen-walker, possibly in dire straits</td></tr></tbody></table><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A place corrupted by the Things Below</td></tr><tr><td>3</td><td>A place haunted by death or the undying</td></tr><tr><td>4</td><td>Fae domain or waystone</td></tr><tr><td>5</td><td>Site sacred to the spirits of the wild</td></tr><tr><td>6</td><td>The abode of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong></td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Treacherous terrain",
+                "body": "<ul><li>Quaking bog: wobbly footing, sometimes thin enough to fall through</li></ul><ul><li>Deep, sucking mud</li><li>Slippery footing</li><li>Thin ice cracking open</li><li>Fallen logs or furrows hidden by grass or mud</li></ul><ul><li>Thorns, spines, brambles</li><li>Venomous snakes, underfoot or hiding in hollows</li></ul><ul><li>Poisonous plants that cause rashes, blisters</li><li>Fog and mist, or blanketing snow, obscuring all of the above and worse</li></ul>"
+              },
+              {
+                "heading": "Swarms",
+                "body": "<ul><li>Midges or mosquitos—annoying, distracting, painful, diseased</li></ul><ul><li>Leeches—clinging to anything that gets in water</li></ul><p>Starlings—obscuring, drowning out sound, buffeting, possibly possessed by a grwgnach</p>"
+              },
+              {
+                "heading": "Disease",
+                "body": "<p>Sickness can come from bad water, bad air, tainted food, and blood-sucking vermin. It’s especially risky to have open wounds—in these conditions, it’s all too easy for them to go rotten.</p><ul><li>Show that they’ve been exposed/infected</li><li>Hit them with minor symptoms (mark miserable)</li><li>Have symptoms worsen (mark another debility)</li><li>Deny them rest</li></ul><p>The best treatment for disease is rest, clean food, water, and air, and treatment with the proper herbs. Someone who pushes on through serious symptoms is likely Defying Danger (the danger that being that they get worse, or suffer complications).</p><p>To name a disease, or describe its symptoms, mix and match 2-3 of the following:</p><p>ague, angry, black, blisters, blood, blue, boils, breath, burning, chills, cold, cough, cramps, crows, dry, eye(s), festering, fever, fingers, fluttering, flux, foot, itching, lung, midge, milky, mouth, muddy, oozing, phlegm, pickled, pink, pox, rash, retching, rot, running, runs, scalp, shakes, shivers, skin, snot, sores, spit, spots, sweats, tears, tick, toad, toes, tongue, tremor, trots, warts, weed, weeping, welts, wet, wheezing, wound, yellow</p><p>Consider rolling the Die of Fate to see how serious the symptoms are and how hard the disease is to treat.</p><p>Something interesting: You know what this disease is called, its symptoms and typical course, maybe even what causes it. Something useful: You know how best to treat it, what herbs to use and where they might be found.</p>"
+              },
+              {
+                "heading": "Fen blight",
+                "body": "<p>Threat (affliction) Instinct to strip away its victim’s humanity Those who spend significant time in Ferrier’s Fen might find themselves… changed. Marshedgers tell many tales about what causes the blight, and what will protect from it, but even the most careful fen-walker will sometimes start to feel the changes.</p><ul><li>Little things, easy enough to hide, like warty skin, thinning hair, fetid odor, a lengthening tongue, a taste for bugs and snails</li><li>More pronounced changes, growing appetite, jealousy, a fear of being discovered</li><li>Growth spurts, increased strength, more obvious mutations, resentment towards the unafflicted</li><li>Difficulty with language, unending hunger, paranoia, urge to hide from sight</li><li>Impending doom: Transformation into a fen-troll (right)</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Beasts from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, often mutated</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, especially those who delight in ugliness and misfortune</li></ul><ul><li>Spirits of the wild</li><li>Green Lord remnants, especially chimerae and hazardous growth</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.7qfPIuaRwuUPi4nV]{Llamudwr}</strong></li><li>Spirits or beasts corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li><li>Ghosts of those who died here, lost and alone</li><li>A rotting pyped, living on carrion and bog-bodies</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

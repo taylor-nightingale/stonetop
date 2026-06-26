@@ -1,0 +1,65 @@
+{
+  "_id": "qUp7ZkpC5FdinUC4",
+  "_key": "!journal!qUp7ZkpC5FdinUC4",
+  "name": "Elemental Vortex",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Elemental spirits bound in aetherium matrices, manifesting as whirling vortices."
+    }
+  },
+  "folder": "IU2WXkxxIi8jVFiQ",
+  "sort": 101000,
+  "pages": [
+    {
+      "_id": "MlbyZpkmaCRWrwnL",
+      "_key": "!journal.pages!qUp7ZkpC5FdinUC4.MlbyZpkmaCRWrwnL",
+      "name": "Elemental Vortex",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Elemental spirits bound in aetherium matrices, manifesting as whirling vortices.",
+        "description": "<p>Picture a filigree sphere of aetherium, maybe six inches across, with a glowing mote swirling at its center. This device — a matrix — binds an elemental spirit and absorbs a particular force, with which the spirit manifests a swirling vortex. A bound spirit must obey orders given in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong>' primordial tongue, but as almost none alive can speak it, any matrix encountered is likely acting on orders centuries old. A vortex's current HP reflects its current power: as it gains or loses HP, its size, armor, and damage all change — tiny (1-5 HP: Armor 1, d8-2), small (6-11: Armor 2, d8), medium (12-18: Armor 2, d10), large (19-23: Armor 3, d10+3), huge (24-28: Armor 3, d10+5). At 0 HP it dissipates and the inert matrix drops. The matrix itself has only 3 HP; destroy it and the freed spirit lashes out for the vortex's full damage (+area).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.8KHfTcPYblTJRpV1",
+          "Compendium.stonetop.stonetop-bestiary.Actor.1U5ExYjZPgmW0Gck",
+          "Compendium.stonetop.stonetop-bestiary.Actor.baV7yiVwXMTKa49B",
+          "Compendium.stonetop.stonetop-bestiary.Actor.iGFc9muBkF8HMgDQ",
+          "Compendium.stonetop.stonetop-bestiary.Actor.JRoNGWPbEVDVTu1s"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

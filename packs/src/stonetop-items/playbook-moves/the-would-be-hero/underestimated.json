@@ -1,0 +1,12 @@
+{
+  "_id": "PzaeSTkTKEUy9CHN",
+  "_key": "!items!PzaeSTkTKEUy9CHN",
+  "name": "Underestimated",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "<p>As long as you avoid overt hostility, no enemy will consider you a threat.</p><p>When you <strong><em>first make your move against an enemy who underestimates you</em></strong>, you have advantage.</p>"
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

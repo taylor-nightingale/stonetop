@@ -1,0 +1,175 @@
+{
+  "_id": "b1VYlB39pY0gZA0C",
+  "_key": "!journal!b1VYlB39pY0gZA0C",
+  "name": "Helior, the Daybringer",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Helior is one of the four main gods of Stonetop. He is the god of the sun and light, beacon of hope and mercy, the fiery foe of the dark."
+    }
+  },
+  "folder": "IIxADXjnF97PXJDg",
+  "sort": 4000,
+  "pages": [
+    {
+      "_id": "fs3sq3EMQEYf2BBS",
+      "_key": "!journal.pages!b1VYlB39pY0gZA0C.fs3sq3EMQEYf2BBS",
+      "name": "Helior, the Daybringer",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Helior is one of the four main gods of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>. He is the god of the sun and light, beacon of hope and mercy, the fiery foe of the dark.</p><p>If one of your initial PCs has the Lightbearer playbook, then they will answer many of the questions in this section via their presence, their background, and the decisions they make during character creation and introductions. Defer to that PC as the expert on Helior in your game, but don’t forget to ask other PCs for their opinions and experiences, too.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Themes",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Pick, or roll 1d12.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>The sun/day/light</td></tr><tr><td>3–4</td><td>Hope/courage/aspiration</td></tr><tr><td>5–6</td><td>Mercy/charity/kindness</td></tr><tr><td>7</td><td>Truth/revelation</td></tr><tr><td>8</td><td>Fire/burning/warmth</td></tr><tr><td>9</td><td>Glory/awe/majesty</td></tr><tr><td>10</td><td>Radiance/beauty/intensity</td></tr><tr><td>11</td><td>Refuge/sanctity/defense</td></tr><tr><td>12</td><td>Purification/cleansing/redemption</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Veneration",
+            "group": "details",
+            "danger": false,
+            "body": "<p>What is the worship of Helior like? It might be… (pick 1)</p><p>… ancient, widespread, and well-known;<br>… most common in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> and the South;<br>… a new thing, still unheard of by many;<br>… an old thing, forgotten by most; or<br>… widely persecuted.</p><p>And how is Helior properly worshipped? It might involve… (pick 1 or 2)</p><p>… solemn hymns;<br>… serene meditation;<br>… joyful song;<br>… ascetic denial;<br>… fervent dancing;<br>… formal ceremonies;<br>… drugs &amp; intoxicants; and/or<br>… pain &amp; sacrifice.</p><p>Consider or ask:</p><ul><li class=\"question-bullet\">Why does the worship of Helior involve the things it does? According to his devotees, why do these things please him so?</li><li class=\"question-bullet\">How do these practices change from community to community?</li><li class=\"question-bullet\">How are the solstices celebrated or observed?</li><li>If the worship of Helior is foreign/ new/forgotten/persecuted: what other god or gods of the sun are worshipped around here? (See page 184 for guidance)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places of worship",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Helior has a shrine in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>’s pavilion of the gods. Outside of Stonetop: consider whether anyone in this community worships Helior, and where.</p><p>For any given place of worship:</p><ul><li>What is it? (A shrine, a hermitage, an orchard, a natural feature, etc.)</li><li>Where is it? (In a private home, a public building, outside of town, etc.)</li><li class=\"question-bullet\">How is Helior represented?</li><li class=\"question-bullet\">What symbols/trappings adorn it?</li><li class=\"question-bullet\">Which of his themes are emphasized?</li><li class=\"question-bullet\">Who tends to it?</li></ul><p>What is this place of worship like? It might be… (pick 1)</p><p>… given a place of high honor, above all other gods;<br>… well-tended and given due respect;<br>… newly established/recently restored;<br>… fallen into disuse and disrepair;<br>… hidden away, where only the faithful know to look;<br>… some variation on the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Lightbearer",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Lightbearer is or was the appointed servant of Helior, wielder of his power and grace. There has only ever been one active at a time. If one of your PCs has the Lightbearer playbook, they’re it.</p><p>If no PC has the Lightbearer playbook, then consider or ask:</p><ul><li class=\"question-bullet\">How many Lightbearers have there been?</li><li class=\"question-bullet\">Is a Lightbearer currently active in the world?</li><li class=\"question-bullet\">If so, where do they dwell and how well known are they?</li><li class=\"question-bullet\">If not, when did the last Lightbearer live?</li><li class=\"question-bullet\">What are/were they like, personally?</li><li class=\"question-bullet\">What great deeds are/were they known for?</li><li class=\"question-bullet\">Who are/were their greatest allies? Their greatest foes?</li><li class=\"question-bullet\">How is the mantle of Lightbearer said to pass or manifest?</li></ul><p>Should an NPC Lightbearer (or their spirit) oppose or cause trouble for the PCs, write them up as a threat (a wildcard if they still live, a magical entity if they cause trouble from beyond).</p><p>Remember: NPCs don’t have playbooks. An NPC Lightbearer might have tags or moves reminiscent of a PC Lightbearer, or not.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Devotees",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Helior is a generous god, one who brings light and warmth to the world. He calls on humanity to do the same, to live lives of mercy, charity, and hope. Only a few devotees truly heed his call.</p><p>In any given community, ask or consider:</p><ul><li class=\"question-bullet\">How many devotees of Helior reside here?</li><li class=\"question-bullet\">Is there a formal cult or order, or just likeminded individuals?</li><li class=\"question-bullet\">Who is most notable among them?</li><li class=\"question-bullet\">How much influence do they have?</li><li class=\"question-bullet\">What charitable work(s) do they pursue?</li><li class=\"question-bullet\">Who in the community resents them?</li><li class=\"question-bullet\">What contact do they have with devotees from other settlements?</li></ul><p>Should the Heliorite devotees of a community oppose or cause trouble for the PCs, write them up as a threat (like a wildcard, but maybe an institution).</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Entities of darkness",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Lightbearer playbook has moves and invocations that affect creatures or spirits “of darkness.” <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{The Things Below}</strong> definitely count, as do any corrupted beings. Spirits of night and dark places (like caves) probably count, too. Undead are almost certainly entities of darkness, but maybe there are exceptions?</p><p>Ask the Lightbearer what they think makes something a creature or spirit of darkness. Consider what you know about the entity in question, and make a ruling. When in doubt, defer to the Die of Fate or the result of an appropriate move.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "**According to the tales…** How did Helior come to be (a god)? What’s his origin story?",
+                "answer": ""
+              },
+              {
+                "prompt": "How did he obtain or create the White Flame?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which god is his rival/ally/lover/kin?",
+                "answer": ""
+              },
+              {
+                "prompt": "Where does the sun/Helior go each night?",
+                "answer": ""
+              },
+              {
+                "prompt": "What causes eclipses? What do they mean or portend?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who was famously martyred in Helior’s name? Who killed them, and why?",
+                "answer": ""
+              },
+              {
+                "prompt": "Use the answers to help decide what Helior’s true nature is.",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A devotee of Helior ministers in a nearby town, fomenting dissent.</li><li>A child is born with a sun-shaped birthmark during a solar eclipse.</li><li>The spirit of the prior Lightbearer appears to a PC and assigns them a quest.</li><li>A Manmarcher chief acquires a relic of the prior Lightbearer and seeks to auction it off.</li><li>A charlatan or sorcerer claims the mantle of Lightbearer.</li><li>Spring fails to come; omens point to Helior being trapped or wounded.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A vial of lemon-infused oil (Value 0)</li><li>A copper torc decorated with a stylized sun (Value 1)</li><li>A circle of bronze sigils two paces wide, inlaid into a stone floor; blessed by Helior, a ward against spirits of darkness (magical, immobile, Value 2)</li><li>A lit oil lamp that consumes no oil; it will burn forever unless snuffed, blown out, or spilled (magical, fragile, Value 2)</li><li>Holy relics ( uses, Value 3 to a collector): if you have one in your inventory when you Invoke the Sun God, you can mark a use in lieu of choosing a consequence</li><li>A crown of white gold, that shines with holy light (reach, area) when worn by one with a pure soul (magical, Value 4)</li></ul><ul><li>Minor arcana</li><li>Pick 1 or have someone roll.</li></ul><p><strong>1d6 minor arcanum</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A gold ring</td></tr><tr><td>3–4</td><td>A gold butter lamp</td></tr><tr><td>5–6</td><td>A rusty steel blade</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Associated entities",
+                "body": "<ul><li>An archon, set to guard a holy site (like the Lightbearer’s tomb)</li><li>A southern assassin, paid to murder the Lightbearer or a problematic devotee</li><li>An elemental spirit of fire, consecrated by Helior, passionate and righteous</li></ul>"
+              },
+              {
+                "heading": "Pilgrims",
+                "body": "<p>Threat (rabble) Instinct to find succor and purpose</p><ul><li>Grow in numbers: a steady trickle, a constant stream, a tide</li><li>Demand time, attention, consideration</li><li>Strain or consume resources</li><li>Get into trouble with the locals</li><li>Misinterpret teachings</li><li>Split into factions</li></ul><p>As a Lightbearer grows in power, word of their miracles will likely spread. Pilgrims are likely to follow. They seek out the Lightbearer for healing, direction, or purpose.</p><p>A Lightbearer often attracts faithful followers, as do some of Helior’s more charismatic devotees. Some of these followers might take things a little far.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

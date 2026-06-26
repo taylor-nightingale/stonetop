@@ -1,0 +1,61 @@
+{
+  "_id": "H4OPwwD1035hAPzs",
+  "_key": "!journal!H4OPwwD1035hAPzs",
+  "name": "Shade",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A called-up soul of the quiet dead — a whisper that can ride the willing."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 112000,
+  "pages": [
+    {
+      "_id": "hp3EYCv6BbRlRnxs",
+      "_key": "!journal.pages!H4OPwwD1035hAPzs.hp3EYCv6BbRlRnxs",
+      "name": "Shade",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A called-up soul of the quiet dead — a whisper that can ride the willing.",
+        "description": "<p>Shades are the souls of the quiet dead, called back through the Last Door — or perhaps merely echoes of a dead person's personality, given shape by magic. Either way, they might be called up at the Crossroads, via an arcanum, or by some other form of necromancy. A shade can ride a living, willing host (or one properly prepared), withstanding daylight only with great effort, experiencing what its host experiences and communicating only through impulse and desire.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.lUuc66QokgbxU7X2"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

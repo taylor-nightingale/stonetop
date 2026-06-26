@@ -1,0 +1,81 @@
+{
+  "name": "Swarm of Silvery Vermin",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, lacks organs"
+      },
+      "damage": {
+        "value": "bites and stings d6 (hand, 1 piercing)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to do Yaarowslow's will"
+      }
+    },
+    "concept": "A mass of flesh oozing silvery slime, and the host of horrors that are its body and its will.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, terrifying, amorphous, fearless",
+    "qualities": "<p>Hive-mind connection with Yaarowslow; can fly, crawl, burrow, or swim; unharmed by piercing or cutting weapons; takes half damage from smashing weapons; vulnerable to area effects (like naphtha fire). Armor 1 vs. bronze.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.5tvhzovmN18QlxGa",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Silvery Vermin",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "UMnqfOnb9BkEWR5B",
+      "name": "Engulf a victim",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fnzABVPboAe4m9Y8.UMnqfOnb9BkEWR5B"
+    },
+    {
+      "_id": "TgedoSxIUHdp108I",
+      "name": "Inject infectious silvery slime",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fnzABVPboAe4m9Y8.TgedoSxIUHdp108I"
+    },
+    {
+      "_id": "LTyd6aalSyVPM4Je",
+      "name": "Scatter and reform elsewhere",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fnzABVPboAe4m9Y8.LTyd6aalSyVPM4Je"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4qowIAzAEHt17art",
+  "_id": "fnzABVPboAe4m9Y8",
+  "_key": "!actors!fnzABVPboAe4m9Y8"
+}

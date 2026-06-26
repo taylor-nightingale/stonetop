@@ -1,0 +1,66 @@
+{
+  "_id": "fda14OGdrUYiepS5",
+  "_key": "!journal!fda14OGdrUYiepS5",
+  "name": "Ice Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Crane-like drakes that cloak themselves in killing hoarfrost mist."
+    }
+  },
+  "folder": "BbbSr8kQQLU7JJm8",
+  "sort": 58000,
+  "pages": [
+    {
+      "_id": "5dxpQx4PWrAKw2km",
+      "_key": "!journal.pages!fda14OGdrUYiepS5.5dxpQx4PWrAKw2km",
+      "name": "Ice Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Crane-like drakes that cloak themselves in killing hoarfrost mist.",
+        "description": "<p>Like cranes — long-legged and long-necked, with long whipping tails. They're hardly a threat in warmer months. But in winter, when their scales and feathers grow laden with hoarfrost, shepherds watch for their sign and avoid them. Wander into their midst and you'll get coated in a clinging, frozen mist that often leads to hypothermia and frostbite.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something useful:** Ice drake fat and blood never freezes. Properly rendered, it makes an oil used to insulate leather and wool garments — a flock of 8-12 drakes yields a jar (Value 1 locally, Value 3 in the south).",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.KYNQ2Ekdv3JzJUc7"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

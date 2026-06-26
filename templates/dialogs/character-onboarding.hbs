@@ -1,0 +1,943 @@
+<div class="stonetop-onboarding-body">
+
+	{{!-- Header --}}
+	<div class="stonetop-onboarding-header">
+		{{#if playbookImg}}
+		<img class="stonetop-onboarding-playbook-icon" src="{{playbookImg}}" alt="">
+		{{/if}}
+		<h2 class="stonetop-onboarding-playbook-name">{{playbookName}}</h2>
+		{{#if hasFaq}}
+		<button type="button" class="stonetop-onboarding-faq-badge" title="Related questions — click for the full FAQ" aria-label="Related questions">
+			<i class="fas fa-question"></i>
+		</button>
+		{{/if}}
+	</div>
+
+	{{!-- Progress dots --}}
+	{{#if progressDots.length}}
+	<div class="stonetop-onboarding-progress">
+		{{#each progressDots}}
+		<span class="stonetop-onboarding-dot{{#if active}} is-active{{/if}}{{#if done}} is-done{{/if}}"></span>
+		{{/each}}
+	</div>
+	{{/if}}
+
+	{{!-- Step content --}}
+	<div class="stonetop-onboarding-step">
+
+		{{!-- ── Background ─────────────────────────────────────────── --}}
+		{{#if isBackground}}
+		<h3 class="stonetop-onboarding-step-title">Background</h3>
+		<p class="stonetop-onboarding-step-hint">Choose 1</p>
+		<div class="stonetop-onboarding-cards">
+			{{#each backgrounds}}
+			<label class="stonetop-onboarding-card{{#if selected}} is-selected{{/if}}">
+				<div class="stonetop-onboarding-card-header">
+					<input type="radio" name="onboard-background" value="{{slug}}" {{#if selected}}checked{{/if}}>
+					<strong class="stonetop-onboarding-card-title">{{label}}</strong>
+				</div>
+				{{#if description}}
+				<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+				{{/if}}
+				{{#if moveChoices.length}}
+				<div class="stonetop-onboarding-background-move-choices">
+					{{#each moveChoices}}
+					<div class="stonetop-onboarding-background-move-choice">
+						<p class="stonetop-onboarding-background-move-choice-label">{{label}}</p>
+						{{#if hasOptions}}
+						<div class="stonetop-onboarding-background-choice-options">
+							{{#each options}}
+							<span class="stonetop-onboarding-bg-option stonetop-onboarding-background-choice-option{{#if selected}} is-selected{{/if}}">
+								<input type="radio"
+								       name="onboard-background-move-choice-{{../key}}"
+								       value="{{value}}"
+								       data-background-slug="{{../../slug}}"
+								       data-choice-key="{{../key}}"
+								       data-choice-label="{{../label}}"
+								       {{#if selected}}checked{{/if}}>
+								{{#if topicSummary}}
+								<span class="stonetop-onboarding-well-versed-topic" data-tooltip="{{topicSummary}}">{{label}}</span>
+								{{else}}
+								<span>{{label}}</span>
+								{{/if}}
+							</span>
+							{{/each}}
+						</div>
+						{{else}}
+						{{#if valueTopicSummary}}
+						<p class="stonetop-onboarding-background-choice-fixed"><span class="stonetop-onboarding-well-versed-topic" data-tooltip="{{valueTopicSummary}}">{{value}}</span></p>
+						{{else}}
+						<p class="stonetop-onboarding-background-choice-fixed">{{value}}</p>
+						{{/if}}
+						{{/if}}
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+				{{#if setup}}
+				<div class="stonetop-onboarding-background-setup">
+					{{#each setup.choices}}
+					<div class="stonetop-onboarding-background-setup-choice">
+						<p class="stonetop-onboarding-background-setup-label">{{label}}</p>
+						<div class="stonetop-onboarding-background-choice-options">
+							{{#each options}}
+							<span class="stonetop-onboarding-bg-option stonetop-onboarding-background-setup-option{{#if selected}} is-selected{{/if}}">
+								<input type="radio"
+								       name="onboard-background-setup-choice-{{../key}}"
+								       value="{{value}}"
+								       data-background-slug="{{../../slug}}"
+								       data-choice-key="{{../key}}"
+								       {{#if selected}}checked{{/if}}>
+								<span>{{label}}</span>
+							</span>
+							{{/each}}
+						</div>
+					</div>
+					{{/each}}
+					{{#each setup.texts}}
+					<label class="stonetop-onboarding-background-setup-text">
+						<span class="stonetop-onboarding-background-setup-label">{{label}}</span>
+						<textarea class="onboard-background-setup-text"
+						          data-background-slug="{{../slug}}"
+						          data-text-key="{{key}}"
+						          rows="2"
+						          placeholder="{{placeholder}}">{{value}}</textarea>
+					</label>
+					{{/each}}
+					{{#each setup.neighbors}}
+					<label class="stonetop-onboarding-background-neighbor">
+						<span class="stonetop-onboarding-background-neighbor-name">
+							<strong>{{name}}</strong>{{#if origin}} <span>from {{origin}}</span>{{/if}}
+						</span>
+						<input type="text"
+						       class="onboard-background-neighbor-trait"
+						       data-background-slug="{{backgroundSlug}}"
+						       data-trait-key="{{traitKey}}"
+						       value="{{trait}}"
+						       placeholder="{{traitLabel}}"
+						       autocomplete="off">
+					</label>
+					{{/each}}
+					{{#each setup.neighborChoices}}
+					<div class="stonetop-onboarding-background-neighbor-choice">
+						<p class="stonetop-onboarding-background-setup-label">{{label}} ({{selectedCount}}/{{count}})</p>
+						<div class="stonetop-onboarding-background-choice-options">
+							{{#each options}}
+							<span class="stonetop-onboarding-bg-option stonetop-onboarding-background-neighbor-option{{#if selected}} is-selected{{/if}}">
+								<input type="checkbox" class="stonetop-onboarding-check"
+								       name="onboard-background-neighbor-pick-{{../key}}"
+								       value="{{value}}"
+								       data-background-slug="{{../../slug}}"
+								       data-choice-key="{{../key}}"
+								       data-choice-count="{{../count}}"
+								       {{#if selected}}checked{{/if}}>
+								<span>
+									<strong>{{name}}</strong>{{#if origin}} <em>from {{origin}}</em>{{/if}}
+								</span>
+							</span>
+							{{/each}}
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+				{{#if markableActions}}
+				<div class="stonetop-onboarding-background-actions">
+					<p class="stonetop-onboarding-background-setup-label">Mark an action
+						(<span class="stonetop-onboarding-background-actions-count">{{markableActions.markedCount}}</span>/{{markableActions.allowed}})
+					</p>
+					<div class="stonetop-onboarding-background-choice-options stonetop-onboarding-background-actions-list">
+						{{#each markableActions.options}}
+						<span class="stonetop-onboarding-bg-option stonetop-onboarding-background-action-option{{#if isSelected}} is-selected{{/if}}">
+							<input type="checkbox" class="stonetop-onboarding-check"
+							       name="onboard-background-action"
+							       value="{{slug}}"
+							       data-background-slug="{{backgroundSlug}}"
+							       {{#if isSelected}}checked{{/if}}
+							       {{#if disabled}}disabled{{/if}}>
+							<span>{{{label}}}</span>
+						</span>
+						{{/each}}
+					</div>
+				</div>
+				{{/if}}
+				{{#if majorArcana.length}}
+				<div class="stonetop-onboarding-background-arcana">
+					<p class="stonetop-onboarding-background-arcana-label">Major arcanum</p>
+					<div class="stonetop-onboarding-arcana-grid stonetop-onboarding-arcana-grid--background">
+						{{#each majorArcana}}
+						<span class="stonetop-onboarding-arcana-option{{#if selected}} is-selected{{/if}}">
+							<input type="radio"
+							       name="onboard-background-major-arcanum"
+							       value="{{slug}}"
+							       data-background-slug="{{backgroundSlug}}"
+							       {{#if selected}}checked{{/if}}>
+							{{#if img}}<img class="stonetop-onboarding-arcana-thumb" src="{{img}}" alt="">{{/if}}
+							<span class="stonetop-onboarding-arcana-name">{{name}}</span>
+							<span class="stonetop-onboarding-arcana-preview">
+								{{#if img}}<img src="{{img}}" alt="">{{/if}}
+								<strong>{{name}}</strong>
+								<span>{{description}}</span>
+							</span>
+						</span>
+						{{/each}}
+					</div>
+				</div>
+				{{/if}}
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{!-- ── Instinct ──────────────────────────────────────────── --}}
+		{{#if isInstinct}}
+		<h3 class="stonetop-onboarding-step-title">Instinct</h3>
+		<p class="stonetop-onboarding-step-hint">Choose 1, or write your own below</p>
+		<div class="stonetop-onboarding-cards stonetop-onboarding-cards--compact">
+			{{#each instincts}}
+			<label class="stonetop-onboarding-card stonetop-onboarding-card--compact{{#if selected}} is-selected{{/if}}">
+				<div class="stonetop-onboarding-card-header">
+					<input type="radio" name="onboard-instinct" value="{{value}}" {{#if selected}}checked{{/if}}>
+					<strong class="stonetop-onboarding-card-title">{{word}}</strong>
+					<span class="stonetop-onboarding-card-inline-desc">{{description}}</span>
+				</div>
+			</label>
+			{{/each}}
+		</div>
+		<label class="stonetop-onboarding-custom-label stonetop-onboarding-instinct-custom">
+			<span>Custom instinct</span>
+			<input type="text" class="onboard-instinct-word"
+			       value="{{customInstinctWord}}"
+			       aria-label="Instinct word"
+			       placeholder="One word">
+			<input type="text" class="onboard-instinct-desc"
+			       value="{{customInstinctDescription}}"
+			       aria-label="Instinct description"
+			       placeholder="Instinct description">
+		</label>
+		{{/if}}
+
+		{{!-- ── Appearance ───────────────────────────────────────── --}}
+		{{#if isAppearance}}
+		<h3 class="stonetop-onboarding-step-title">Appearance</h3>
+		<p class="stonetop-onboarding-step-hint">Choose 1 in each row, or fill in Custom</p>
+		<div class="stonetop-onboarding-appearance">
+			{{#each appearanceLines}}
+			<div class="stonetop-onboarding-appearance-row">
+				<p class="stonetop-onboarding-appearance-label">{{label}}</p>
+				<div class="stonetop-onboarding-appearance-options">
+					{{#each options}}
+					<label class="stonetop-onboarding-appearance-option{{#if selected}} is-selected{{/if}}">
+						<input type="radio" name="onboard-appearance-{{../lineIdx}}"
+						       value="{{value}}" {{#if selected}}checked{{/if}}>
+						{{value}}
+					</label>
+					{{/each}}
+					<label class="stonetop-onboarding-appearance-option stonetop-onboarding-appearance-custom{{#if customSelected}} is-selected{{/if}}">
+						<input type="radio" name="onboard-appearance-{{lineIdx}}"
+						       class="onboard-appearance-custom-radio"
+						       value="{{customValue}}"
+						       data-line="{{lineIdx}}"
+						       {{#if customSelected}}checked{{/if}}>
+						<input type="text" class="onboard-appearance-custom"
+						       data-line="{{lineIdx}}"
+						       value="{{customValue}}"
+						       placeholder="Make your own">
+					</label>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{!-- ── Origin & Name ─────────────────────────────────────── --}}
+		{{#if isOrigin}}
+		<h3 class="stonetop-onboarding-step-title">Origin &amp; Name</h3>
+		<p class="stonetop-onboarding-step-hint">Where are you from? What are you called?</p>
+
+		<div class="stonetop-onboarding-origin-grid">
+			{{#each origins}}
+			<label class="stonetop-onboarding-origin-label{{#if selected}} is-selected{{/if}}">
+				<input type="radio" name="onboard-origin" value="{{region}}" {{#if selected}}checked{{/if}}>
+				{{region}}
+			</label>
+			{{/each}}
+		</div>
+
+		{{!-- Name input --}}
+		<div class="stonetop-onboarding-name-row">
+			<label class="stonetop-onboarding-name-label" for="onboard-name-input">Name</label>
+			<input id="onboard-name-input" type="text" class="onboard-name-input"
+			       value="{{selectedName}}"
+			       placeholder="Enter your character's name…">
+		</div>
+
+		{{!-- Name suggestions, one block per region; JS shows the active one --}}
+		{{#each origins}}
+		{{#if isGordinsDelve}}
+		<div class="stonetop-onboarding-names-section{{#if selected}} is-visible{{/if}}"
+		     data-region="{{region}}">
+			<p class="stonetop-onboarding-names-label">People from Gordin's Delve always come from somewhere else. Choose a name from another place, or write your own.</p>
+			<p class="stonetop-onboarding-names-label">Suggested names — {{region}}:</p>
+			{{#each nameGroups}}
+			<div class="stonetop-onboarding-name-group">
+				<p class="stonetop-onboarding-name-group-label">{{region}}</p>
+				<div class="stonetop-onboarding-name-chips">
+					{{#each names}}
+					<button type="button" class="onboard-name-chip" data-name="{{this}}">{{this}}</button>
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		{{else}}
+		{{#if names.length}}
+		<div class="stonetop-onboarding-names-section{{#if selected}} is-visible{{/if}}"
+		     data-region="{{region}}">
+			<p class="stonetop-onboarding-names-label">Suggested names — {{region}}:</p>
+			<div class="stonetop-onboarding-name-chips">
+				{{#each names}}
+				<button type="button" class="onboard-name-chip" data-name="{{this}}">{{this}}</button>
+				{{/each}}
+			</div>
+		</div>
+		{{/if}}
+		{{/if}}
+		{{/each}}
+
+		{{/if}}
+
+		{{!-- ── Stats ──────────────────────────────────────────────── --}}
+		{{#if isStats}}
+		<h3 class="stonetop-onboarding-step-title">Stats</h3>
+		<p class="stonetop-onboarding-step-hint">Assign each score to a stat. Drag scores onto stats or use the dropdowns; each score must be used exactly once.</p>
+
+		<div class="stonetop-onboarding-stats-pool">
+			<span class="stonetop-onboarding-stats-pool-label">Scores to assign</span>
+			<button type="button" class="stonetop-onboarding-stats-reset">Reset</button>
+			{{#each statScores}}
+			<span class="stonetop-onboarding-stats-chip" draggable="true" data-score="{{this}}">{{this}}</span>
+			{{/each}}
+		</div>
+
+		<div class="stonetop-onboarding-stats-grid">
+			{{#each statBoxes}}
+			<div class="stonetop-onboarding-stat-box{{#if assigned}} is-filled{{/if}}" data-stat-key="{{key}}">
+				<span class="stonetop-onboarding-stat-abbr">{{abbr}}</span>
+				<select class="stonetop-onboarding-stat-select" name="onboard-stat-{{key}}">
+					<option value="">—</option>
+					{{#each options}}
+					<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+					{{/each}}
+				</select>
+				<span class="stonetop-onboarding-stat-name">{{label}}</span>
+			</div>
+			{{/each}}
+		</div>
+
+		{{/if}}
+
+		{{!-- ── Special Possessions ───────────────────────────────── --}}
+		{{#if isPossession}}
+		<h3 class="stonetop-onboarding-step-title">Special Possessions</h3>
+		<p class="stonetop-onboarding-step-hint">{{possession.pickNote}}</p>
+		<p class="stonetop-onboarding-possession-counter">
+			<span class="stonetop-onboarding-possession-count">{{possession.selectedCount}}</span>
+			/ {{possession.pickCount}} chosen
+		</p>
+		<div class="stonetop-onboarding-cards">
+			{{#each possession.options}}
+			<div class="stonetop-onboarding-possession-group{{#if isSelected}} is-selected{{/if}}">
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--possession{{#if isSelected}} is-selected{{/if}}{{#if isPreselected}} is-preselected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="checkbox" class="stonetop-onboarding-check" name="onboard-possession" value="{{slug}}"
+						       {{#if isSelected}}checked{{/if}}
+						       {{#if disabled}}disabled{{/if}}
+						       {{#if isPreselected}}data-preselected="true"{{/if}}>
+						<strong class="stonetop-onboarding-card-title">{{{label}}}</strong>
+						{{#if isPreselected}}
+						<span class="stonetop-onboarding-possession-badge">Included</span>
+						{{/if}}
+					</div>
+					{{#if description}}
+					<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+					{{/if}}
+				</label>
+				{{#if choices}}
+				<div class="stonetop-onboarding-suboptions{{#if choices.locked}} is-locked{{/if}}" data-possession="{{slug}}">
+					<p class="stonetop-onboarding-suboptions-hint">
+						{{choices.pickNote}} —
+						<span class="stonetop-onboarding-suboption-count" data-possession="{{slug}}">{{choices.selectedCount}}</span>
+						/ {{choices.pickCount}}
+					</p>
+					{{#each choices.options}}
+					<label class="stonetop-onboarding-suboption{{#if isSelected}} is-selected{{/if}}">
+						<input type="checkbox" class="stonetop-onboarding-check stonetop-onboarding-subcheck"
+						       name="onboard-possession-sub" value="{{slug}}" data-possession="{{possessionSlug}}"
+						       {{#if isSelected}}checked{{/if}}
+						       {{#if disabled}}disabled{{/if}}>
+						<span class="stonetop-onboarding-suboption-label">{{{label}}}</span>
+					</label>
+					{{/each}}
+				</div>
+				{{/if}}
+				{{#if choiceGroups}}
+				{{#each choiceGroups}}
+				<div class="stonetop-onboarding-choice-group">
+					<p class="stonetop-onboarding-choice-group-heading">{{heading}}{{#if note}} <em>({{note}})</em>{{/if}}</p>
+					{{#each subgroups}}
+					<div class="stonetop-onboarding-choice-subgroup">
+						{{#each options}}
+						<label class="stonetop-onboarding-suboption{{#if isSelected}} is-selected{{/if}}">
+							{{#if ../multiSelect}}
+							<input type="checkbox" class="stonetop-onboarding-check stonetop-onboarding-subcheck"
+							       name="onboard-possession-cg-check" value="{{slug}}" data-possession="{{possessionSlug}}"
+							       {{#if isSelected}}checked{{/if}}
+							       {{#if disabled}}disabled{{/if}}>
+							{{else}}
+							<input type="radio" class="stonetop-onboarding-radio"
+							       name="onboard-possession-cg-{{groupId}}" value="{{slug}}"
+							       data-possession="{{possessionSlug}}" data-siblings="{{siblingSlugsCsv}}"
+							       {{#if isSelected}}checked{{/if}}
+							       {{#if disabled}}disabled{{/if}}>
+							{{/if}}
+							<span class="stonetop-onboarding-suboption-label">{{{label}}}</span>
+						</label>
+						{{/each}}
+					</div>
+					{{/each}}
+				</div>
+				{{/each}}
+				{{/if}}
+			</div>
+			{{/each}}
+
+			{{!-- Write-in possession: anything not on the list, on par with the other
+			     options. Filling it spends a pick like any listed possession. --}}
+			<div class="stonetop-onboarding-possession-group stonetop-onboarding-possession-group--custom{{#if possession.custom.filled}} is-selected{{/if}}">
+				<div class="stonetop-onboarding-card stonetop-onboarding-card--possession stonetop-onboarding-card--custom{{#if possession.custom.filled}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<strong class="stonetop-onboarding-card-title">Something else</strong>
+						<span class="stonetop-onboarding-possession-custom-gm">(discuss with GM)</span>
+					</div>
+					<input type="text" class="onboard-possession-custom"
+					       value="{{possession.custom.label}}"
+					       placeholder="Describe your own special possession…"
+					       {{#if possession.custom.disabled}}disabled{{/if}}>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+		{{!-- ── Starting Moves ────────────────────────────────────── --}}
+		{{#if isMoves}}
+		<h3 class="stonetop-onboarding-step-title">Starting Moves</h3>
+
+		{{#each moveChoiceGroups}}
+		<div class="stonetop-onboarding-move-choice-group">
+			<p class="stonetop-onboarding-step-hint">{{label}}</p>
+			<div class="stonetop-onboarding-cards">
+				{{#each options}}
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--move-choice{{#if selected}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="radio" class="stonetop-onboarding-radio" name="onboard-move-choice-{{groupIndex}}" value="{{id}}"
+						       data-group="{{groupIndex}}"
+						       {{#if selected}}checked{{/if}}>
+						<strong class="stonetop-onboarding-card-title">{{name}}</strong>
+					</div>
+					{{#if description}}
+					<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+					{{/if}}
+				</label>
+				{{/each}}
+			</div>
+		</div>
+		{{/each}}
+
+		{{#if movePickCount}}
+		<p class="stonetop-onboarding-step-hint">{{movePickNote}}</p>
+		<p class="stonetop-onboarding-move-counter">
+			<span class="stonetop-onboarding-move-count">{{moveSelectedCount}}</span>
+			/ {{movePickCount}} chosen
+		</p>
+		<div class="stonetop-onboarding-move-search">
+			<i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+			<input type="search" class="onboard-move-search" placeholder="Filter moves…" aria-label="Filter moves">
+		</div>
+		{{#if moveGroups.length}}
+		<div class="stonetop-onboarding-move-chips">
+			{{#each moveGroups}}
+			<button type="button" class="stonetop-onboarding-move-chip" data-move-group="{{key}}">{{label}}</button>
+			{{/each}}
+		</div>
+		{{/if}}
+		<div class="stonetop-onboarding-cards">
+			{{#each moveOptions}}
+			<label class="stonetop-onboarding-card stonetop-onboarding-card--move{{#if selected}} is-selected{{/if}}"
+			       data-move-groups="{{#each groups}}{{this}} {{/each}}">
+				<div class="stonetop-onboarding-card-header">
+					<input type="checkbox" class="stonetop-onboarding-check" name="onboard-move" value="{{id}}"
+					       {{#if selected}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					<strong class="stonetop-onboarding-card-title">{{name}}</strong>
+				</div>
+				{{#if description}}
+				<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+				{{/if}}
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+		{{/if}}
+
+		{{!-- ── Invocations (Lightbearer) ─────────────────────────── --}}
+		{{#if isInvocations}}
+		<h3 class="stonetop-onboarding-step-title">Invocations</h3>
+		<p class="stonetop-onboarding-step-hint">You start knowing {{invocationData.startingCount}} Invocations. Choose them now.</p>
+		<p class="stonetop-onboarding-move-counter">
+			<span class="stonetop-onboarding-invocation-count">{{invocationData.selectedCount}}</span>
+			/ {{invocationData.startingCount}} chosen
+		</p>
+		<div class="stonetop-onboarding-cards">
+			{{#each invocationData.options}}
+			<label class="stonetop-onboarding-card stonetop-onboarding-card--invocation{{#if isSelected}} is-selected{{/if}}">
+				<div class="stonetop-onboarding-card-header">
+					<input type="checkbox" class="stonetop-onboarding-check" name="onboard-invocation" value="{{slug}}"
+					       {{#if isSelected}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					<strong class="stonetop-onboarding-card-title">{{label}}</strong>
+				</div>
+				{{#if description}}
+				<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+				{{/if}}
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{!-- ── Initiates of Danu (Blessed + Initiate bg) ─────────── --}}
+		{{#if isInitiates}}
+		<h3 class="stonetop-onboarding-step-title">Initiates of <span class="stonetop-onboarding-lookup">Danu</span></h3>
+		<p class="stonetop-onboarding-step-hint">Choose {{initiatesData.minCount}}–{{initiatesData.maxCount}} fellow initiates who serve <span class="stonetop-onboarding-lookup">the goddess</span> alongside you.</p>
+		<p class="stonetop-onboarding-move-counter">
+			<span class="stonetop-onboarding-initiate-count">{{initiatesData.selectedCount}}</span>
+			/ {{initiatesData.maxCount}} chosen
+		</p>
+		<div class="stonetop-onboarding-cards">
+			{{#each initiatesData.options}}
+			<label class="stonetop-onboarding-card stonetop-onboarding-card--initiate{{#if isSelected}} is-selected{{/if}}">
+				<div class="stonetop-onboarding-card-header">
+					<input type="checkbox" class="stonetop-onboarding-check" name="onboard-initiate" value="{{slug}}"
+					       {{#if isSelected}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					<strong class="stonetop-onboarding-card-title">{{label}}</strong>
+				</div>
+				{{#if description}}
+				<div class="stonetop-onboarding-card-desc">{{{description}}}</div>
+				{{/if}}
+				{{#if choiceRows.length}}
+				<div class="stonetop-onboarding-initiate-choices" onclick="event.stopPropagation()">
+					{{#each choiceRows}}
+					<div class="stonetop-onboarding-initiate-row">
+						<span class="stonetop-onboarding-initiate-row-label">{{#if isPronoun}}Pick 1 on each line:{{else}}{{label}}{{/if}}</span>
+						<div class="stonetop-onboarding-appearance-row stonetop-onboarding-initiate-options">
+							{{#each options}}
+							<label class="stonetop-onboarding-appearance-option{{#if selected}} is-selected{{/if}}">
+								<input type="radio"
+								       data-onboard-initiate-radio="1"
+								       data-slug="{{slug}}"
+								       data-row-idx="{{rowIdx}}"
+								       data-is-pronoun="{{../isPronoun}}"
+								       name="onboard-initiate-row-{{slug}}-{{rowIdx}}"
+								       value="{{value}}"
+								       {{#if selected}}checked{{/if}}>
+								{{value}}
+							</label>
+							{{/each}}
+							{{#if allowCustom}}
+							<label class="stonetop-onboarding-appearance-option stonetop-onboarding-initiate-custom-label">
+								<input type="text"
+								       class="onboard-initiate-custom stonetop-onboarding-initiate-custom-input"
+								       data-slug="{{slug}}"
+								       data-row-idx="{{rowIdx}}"
+								       value="{{customValue}}"
+								       placeholder="other…">
+							</label>
+							{{/if}}
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{!-- ── Crew (Marshal) ────────────────────────────────────── --}}
+		{{#if isCrew}}
+		<h3 class="stonetop-onboarding-step-title">Crew</h3>
+		<p class="stonetop-onboarding-step-hint">Your crew starts with the <em>group</em> tag{{#if crewData.bgTag}} and <em>{{crewData.bgTag}}</em> (from your background){{/if}}. Pick {{crewData.additionalTagCount}} more tags, an instinct, and a cost.</p>
+
+		<div class="stonetop-onboarding-name-row">
+			<label class="stonetop-onboarding-name-label" for="onboard-crew-name">Crew name <em>(optional)</em></label>
+			<input id="onboard-crew-name" type="text" class="onboard-crew-name"
+			       value="{{crewData.name}}"
+			       placeholder="What do people call your crew?">
+		</div>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">
+				Tags &nbsp;
+				<span class="stonetop-onboarding-insert-counter">
+					<span class="stonetop-onboarding-crew-tag-count">{{crewData.selectedTagCount}}</span> / {{crewData.additionalTagCount}}
+				</span>
+			</p>
+			<div class="stonetop-onboarding-tag-grid">
+				{{#each crewData.tags}}
+				<label class="stonetop-onboarding-tag-option{{#if isSelected}} is-selected{{/if}}">
+					<input type="checkbox" name="onboard-crew-tag" value="{{slug}}"
+					       {{#if isSelected}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}
+					       {{#if isAuto}}data-auto="true"{{/if}}>
+					{{label}}{{#if isAuto}} <em>(included)</em>{{/if}}
+				</label>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Instinct</p>
+			<div class="stonetop-onboarding-cards stonetop-onboarding-cards--compact">
+				{{#each crewData.instincts}}
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--compact{{#if selected}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="radio" name="onboard-crew-instinct" value="{{value}}"
+						       {{#if selected}}checked{{/if}}>
+						<span class="stonetop-onboarding-card-inline-desc">{{value}}</span>
+					</div>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Cost</p>
+			<div class="stonetop-onboarding-cards stonetop-onboarding-cards--compact">
+				{{#each crewData.costs}}
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--compact{{#if selected}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="radio" name="onboard-crew-cost" value="{{value}}"
+						       {{#if selected}}checked{{/if}}>
+						<span class="stonetop-onboarding-card-inline-desc">{{value}}</span>
+					</div>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+		{{/if}}
+
+		{{!-- ── Animal Companion (Ranger) ──────────────────────────── --}}
+		{{#if isAnimalCompanion}}
+		<h3 class="stonetop-onboarding-step-title">Animal Companion</h3>
+		<p class="stonetop-onboarding-step-hint">Choose your companion's type, traits, instinct, and cost.</p>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Type</p>
+			<div class="stonetop-onboarding-tag-grid stonetop-onboarding-tag-grid--types">
+				{{#each acData.types}}
+				<label class="stonetop-onboarding-tag-option stonetop-onboarding-tag-option--type{{#if selected}} is-selected{{/if}}">
+					<input type="radio" name="onboard-ac-type" value="{{slug}}" {{#if selected}}checked{{/if}}>
+					<span class="stonetop-onboarding-ac-type-name">{{label}}</span>
+					<span class="stonetop-onboarding-ac-type-stats">HP {{hp}} · Armor {{armor}} · {{damage}}</span>
+					<span class="stonetop-onboarding-ac-type-examples">{{examples}}</span>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+
+		{{#if acData.selectedType}}
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Kind</p>
+			<div class="stonetop-onboarding-ac-kind-options">
+				{{#each acData.selectedType.kindOptions}}
+				<label class="stonetop-onboarding-appearance-option{{#if selected}} is-selected{{/if}}">
+					<input type="radio" name="onboard-ac-kind" value="{{value}}" {{#if selected}}checked{{/if}}>
+					<span>{{value}}</span>
+				</label>
+				{{/each}}
+				<label class="stonetop-onboarding-appearance-option stonetop-onboarding-ac-kind-custom{{#if acData.selectedType.isCustomKind}} is-selected{{/if}}">
+					<input type="radio" name="onboard-ac-kind" value="custom" {{#if acData.selectedType.isCustomKind}}checked{{/if}}>
+					<input type="text" class="onboard-ac-kind-custom-input"
+					       value="{{acData.selectedType.customKind}}"
+					       placeholder="Other kind...">
+				</label>
+			</div>
+		</div>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">
+				Traits — pick {{acData.selectedType.pickCount}} &nbsp;
+				<span class="stonetop-onboarding-insert-counter">
+					<span class="stonetop-onboarding-ac-trait-count">{{acData.selectedType.selectedCount}}</span> / {{acData.selectedType.pickCount}}
+				</span>
+			</p>
+			<div class="stonetop-onboarding-tag-grid">
+				{{#each acData.selectedType.traits}}
+				<label class="stonetop-onboarding-tag-option{{#if isSelected}} is-selected{{/if}}">
+					<input type="checkbox" name="onboard-ac-trait" value="{{slug}}"
+					       {{#if isSelected}}checked{{/if}}
+					       {{#if disabled}}disabled{{/if}}>
+					{{#if hasTooltip}}<span class="stonetop-onboarding-lookup">{{label}}</span>{{else}}{{label}}{{/if}}
+				</label>
+				{{/each}}
+			</div>
+		</div>
+		{{/if}}
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Instinct</p>
+			<div class="stonetop-onboarding-cards stonetop-onboarding-cards--compact">
+				{{#each acData.instincts}}
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--compact{{#if selected}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="radio" name="onboard-ac-instinct" value="{{value}}"
+						       {{#if selected}}checked{{/if}}>
+						<span class="stonetop-onboarding-card-inline-desc">{{value}}</span>
+					</div>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="stonetop-onboarding-insert-section">
+			<p class="stonetop-onboarding-insert-section-label">Cost</p>
+			<div class="stonetop-onboarding-cards stonetop-onboarding-cards--compact">
+				{{#each acData.costs}}
+				<label class="stonetop-onboarding-card stonetop-onboarding-card--compact{{#if selected}} is-selected{{/if}}">
+					<div class="stonetop-onboarding-card-header">
+						<input type="radio" name="onboard-ac-cost" value="{{value}}"
+						       {{#if selected}}checked{{/if}}>
+						<span class="stonetop-onboarding-card-inline-desc">{{value}}</span>
+					</div>
+				</label>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="stonetop-onboarding-name-row">
+			<label class="stonetop-onboarding-name-label" for="onboard-ac-name">Name <em>(optional)</em></label>
+			<input id="onboard-ac-name" type="text" class="onboard-ac-name"
+			       value="{{acData.companionName}}"
+			       placeholder="Your companion's name…">
+		</div>
+		{{/if}}
+
+		{{!-- ── Lore (Character History) ─────────────────────────── --}}
+		{{!-- ── Seeker: Major Arcanum ────────────────────────────── --}}
+		{{#if isSeekerArcana}}
+		<h3 class="stonetop-onboarding-step-title">{{seekerArcanaData.title}}</h3>
+		<div class="stonetop-onboarding-arcana-picker">
+			<section class="stonetop-onboarding-arcana-section">
+				<h4 class="stonetop-onboarding-lore-section-title">Major Arcanum</h4>
+				<p class="stonetop-onboarding-step-hint">Choose the major arcanum granted by your background.</p>
+				<div class="stonetop-onboarding-arcana-grid stonetop-onboarding-arcana-grid--major">
+					{{#each seekerArcanaChoices.major}}
+					<label class="stonetop-onboarding-arcana-option{{#if selected}} is-selected{{/if}}">
+						<input type="radio" name="onboard-seeker-major-arcanum" value="{{slug}}" {{#if selected}}checked{{/if}}>
+						{{#if img}}<img class="stonetop-onboarding-arcana-thumb" src="{{img}}" alt="">{{/if}}
+						<span class="stonetop-onboarding-arcana-name">{{name}}</span>
+						<span class="stonetop-onboarding-arcana-preview">
+							{{#if img}}<img src="{{img}}" alt="">{{/if}}
+							<strong>{{name}}</strong>
+							<span>{{description}}</span>
+						</span>
+					</label>
+					{{/each}}
+				</div>
+			</section>
+		</div>
+		{{#if seekerArcanaData.sections.length}}
+		<div class="stonetop-onboarding-combined-lore">
+			{{#each seekerArcanaData.sections}}
+			<section class="stonetop-onboarding-lore-section">
+				<h4 class="stonetop-onboarding-lore-section-title">{{title}}</h4>
+				{{#if description}}
+				<div class="stonetop-onboarding-lore-desc">{{{description}}}</div>
+				{{/if}}
+				{{#if isTextSection}}
+				<div class="stonetop-onboarding-lore-texts">
+					{{#each options}}
+					<div class="stonetop-onboarding-lore-text-row">
+						<label class="stonetop-onboarding-lore-text-label">{{{description}}}</label>
+						<textarea class="onboard-lore-text"
+						          data-section="{{sectionSlug}}"
+						          data-option="{{slug}}"
+						          rows="2"
+						          placeholder="Your answer…">{{value}}</textarea>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</section>
+			{{/each}}
+		</div>
+		{{/if}}
+		{{/if}}
+
+		{{!-- ── Seeker: Minor Arcana + Questions ──────────────────── --}}
+		{{#if isSeekerArcanaMinor}}
+		<h3 class="stonetop-onboarding-step-title">Minor Arcana &amp; Questions</h3>
+		<div class="stonetop-onboarding-arcana-picker">
+			<section class="stonetop-onboarding-arcana-section">
+				<h4 class="stonetop-onboarding-lore-section-title">Minor Arcana</h4>
+				<p class="stonetop-onboarding-lore-counter">
+					<span class="stonetop-onboarding-seeker-minor-count">{{seekerArcanaChoices.minorAssignedCount}}</span>
+					/ {{seekerArcanaChoices.minorPickCount}} assigned
+					<button type="button" class="stonetop-onboarding-redraw-minor">Draw again</button>
+				</p>
+				<div class="stonetop-onboarding-arcana-grid stonetop-onboarding-arcana-grid--minor">
+					{{#each seekerArcanaChoices.minor}}
+					<div class="stonetop-onboarding-arcana-option stonetop-onboarding-arcana-option--minor-role{{#if role}} is-selected{{/if}}">
+						<span class="stonetop-onboarding-arcana-name">{{name}}</span>
+						<span class="stonetop-onboarding-arcana-preview">
+							{{#if img}}<img src="{{img}}" alt="">{{/if}}
+							<strong>{{name}}</strong>
+							<span>{{description}}</span>
+						</span>
+						<div class="stonetop-onboarding-minor-roles">
+							<label>
+								<input type="radio" name="onboard-seeker-minor-role-{{slug}}" value="mastered" data-slug="{{slug}}" {{#if (eq role "mastered")}}checked{{/if}}>
+								Mastered
+							</label>
+							<label>
+								<input type="radio" name="onboard-seeker-minor-role-{{slug}}" value="found" data-slug="{{slug}}" {{#if (eq role "found")}}checked{{/if}}>
+								Found
+							</label>
+							<label>
+								<input type="radio" name="onboard-seeker-minor-role-{{slug}}" value="lead" data-slug="{{slug}}" {{#if (eq role "lead")}}checked{{/if}}>
+								Lead
+							</label>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</section>
+		</div>
+
+		<div class="stonetop-onboarding-combined-lore">
+			{{#each seekerArcanaData.sections}}
+			<section class="stonetop-onboarding-lore-section">
+				<h4 class="stonetop-onboarding-lore-section-title">{{title}}</h4>
+				{{#if description}}
+				<div class="stonetop-onboarding-lore-desc">{{{description}}}</div>
+				{{/if}}
+				{{#if isTextSection}}
+				<div class="stonetop-onboarding-lore-texts">
+					{{#each options}}
+					<div class="stonetop-onboarding-lore-text-row">
+						<label class="stonetop-onboarding-lore-text-label">{{{description}}}</label>
+						<textarea class="onboard-lore-text"
+						          data-section="{{sectionSlug}}"
+						          data-option="{{slug}}"
+						          rows="2"
+						          placeholder="Your answer…">{{value}}</textarea>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</section>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if isLore}}
+		{{#if loreSectionData.groupHeading}}
+		<h3 class="stonetop-onboarding-step-title">{{loreSectionData.groupHeading}}</h3>
+		{{#if loreSectionData.groupIntro}}<div class="stonetop-onboarding-lore-intro">{{{loreSectionData.groupIntro}}}</div>{{/if}}
+		{{#if loreSectionData.title}}<p class="stonetop-onboarding-lore-prompt">{{loreSectionData.title}}</p>{{/if}}
+		{{else}}
+		{{#if loreSectionData.title}}<h3 class="stonetop-onboarding-step-title">{{loreSectionData.title}}</h3>{{/if}}
+		{{/if}}
+		{{#if loreSectionData.description}}
+		<div class="stonetop-onboarding-lore-desc">{{{loreSectionData.description}}}</div>
+		{{/if}}
+		{{#if loreSectionData.contextAnswers}}
+		<div class="stonetop-onboarding-lore-context">
+			{{#if loreSectionData.contextTitle}}
+			<div class="stonetop-onboarding-lore-context-label">{{loreSectionData.contextTitle}}</div>
+			{{/if}}
+			{{#each loreSectionData.contextAnswers}}
+			<div class="stonetop-onboarding-lore-context-answer">{{{this}}}</div>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if loreSectionData.isPickSection}}
+		{{#if loreSectionData.pickMax}}
+		<p class="stonetop-onboarding-lore-counter">
+			<span class="stonetop-onboarding-lore-pick-count">{{loreSectionData.selectedPickCount}}</span>
+			/ {{loreSectionData.pickMax}} chosen
+		</p>
+		{{/if}}
+		<div class="stonetop-onboarding-lore-picks">
+			{{#each loreSectionData.options}}
+			<label class="stonetop-onboarding-lore-pick{{#if isSelected}} is-selected{{/if}}{{#if disabled}} stonetop-onboarding-lore-pick--disabled{{/if}}">
+				<input type="checkbox" class="stonetop-onboarding-check"
+				       name="onboard-lore-pick-{{sectionSlug}}"
+				       value="{{slug}}"
+				       data-section="{{sectionSlug}}"
+				       data-option="{{slug}}"
+				       {{#if isSelected}}checked{{/if}}
+				       {{#if disabled}}disabled{{/if}}>
+				<span class="stonetop-onboarding-lore-pick-text">{{{description}}}</span>
+			</label>
+			{{/each}}
+		</div>
+		{{/if}}
+
+		{{#if loreSectionData.isTextSection}}
+		<div class="stonetop-onboarding-lore-texts">
+			{{#each loreSectionData.options}}
+			<div class="stonetop-onboarding-lore-text-row">
+				<label class="stonetop-onboarding-lore-text-label">{{{description}}}</label>
+				<textarea class="onboard-lore-text"
+				          data-section="{{sectionSlug}}"
+				          data-option="{{slug}}"
+				          rows="2"
+				          placeholder="Your answer…">{{value}}</textarea>
+			</div>
+			{{/each}}
+		</div>
+		{{/if}}
+		{{/if}}
+
+	</div>{{!-- /.stonetop-onboarding-step --}}
+
+	{{!-- Footer --}}
+	<footer class="stonetop-onboarding-footer">
+		<div class="stonetop-onboarding-footer-nav">
+			{{#if showBack}}
+			{{#if isFirst}}
+			<button type="button" class="stonetop-onboarding-back-to-picker"><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+			{{else}}
+			<button type="button" class="stonetop-onboarding-back"><span class="stonetop-nav-arrow stonetop-nav-arrow--back"></span>Back</button>
+			{{/if}}
+			{{else}}
+			<span class="stonetop-onboarding-footer-placeholder" aria-hidden="true"></span>
+			{{/if}}
+
+			<span class="stonetop-onboarding-step-counter">{{stepNumber}} / {{stepCount}}</span>
+
+			<div class="stonetop-onboarding-footer-right">
+				<button type="button" class="stonetop-onboarding-skip">Skip</button>
+				{{#if isLast}}
+				<button type="button" class="stonetop-onboarding-confirm" {{#unless stepComplete}}disabled{{/unless}}>Create Character</button>
+				{{else}}
+				<button type="button" class="stonetop-onboarding-next" {{#unless stepComplete}}disabled{{/unless}}>Next<span class="stonetop-nav-arrow"></span></button>
+				{{/if}}
+			</div>
+		</div>
+	</footer>
+
+</div>

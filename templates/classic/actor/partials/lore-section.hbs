@@ -1,0 +1,7 @@
+{{#if groups.length}}
+<div class="details-section">
+	{{#each groups}}
+	{{> "classic.choice-group" cgContext=../cgContext}}
+	{{/each}}
+</div>
+{{/if}}

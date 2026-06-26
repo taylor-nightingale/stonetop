@@ -1,0 +1,92 @@
+{
+  "name": "Zrajedak",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "maw full of iron teeth d10+3 w/advantage (hand, messy, grabby, 1 piercing), iron tail-quills d10+1 (near, area, reload)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to torment its prey"
+      }
+    },
+    "concept": "An iron-fanged chimera that wears a not-quite-right copy of your face.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, corrupted, devious, terrifying, stealthy",
+    "qualities": "<p>Keen sense of smell. Armor 1 vs. bronze (hide).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.CGPfnYi6Y86dEdE0",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Zrajedak",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "gQJmf1psWeJ0ikd8",
+      "name": "Assume a form similar to its prey, but just a little off",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3JaMhYyy0qDzf06q.gQJmf1psWeJ0ikd8"
+    },
+    {
+      "_id": "Br3wpqZD9Co8naPH",
+      "name": "Reveal its horrible, smiling maw",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3JaMhYyy0qDzf06q.Br3wpqZD9Co8naPH"
+    },
+    {
+      "_id": "kXT0Sdz4hIvO68U3",
+      "name": "Cripple a victim and let it suffer",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3JaMhYyy0qDzf06q.kXT0Sdz4hIvO68U3"
+    },
+    {
+      "_id": "rMMTjMSZRjsF0gMr",
+      "name": "Chew right through a limb",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!3JaMhYyy0qDzf06q.rMMTjMSZRjsF0gMr"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FO5poGFHi5Udrsfz",
+  "_id": "3JaMhYyy0qDzf06q",
+  "_key": "!actors!3JaMhYyy0qDzf06q"
+}

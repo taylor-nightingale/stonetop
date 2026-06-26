@@ -1,0 +1,9 @@
+{{!-- Per-follower-section hover edit pencil / done toggle. Mirrors the Details
+      section toggle, but keyed per card + section ("follower-<section>:<ftype>:<slug>")
+      and styled to reveal on hover of its row/section (see stonetop.css). Shown only
+      when the sheet is editable and the whole-tab Followers edit is OFF — when it's on,
+      every section is already editable, so no per-section affordance is needed.
+      `ftype`/`slug` come from the inherited follower-card context; the caller passes
+      `section` (the field id), `editing` (that section's effective edit state), and an
+      optional `editTitle` to override the pencil's "Edit <section>" tooltip. --}}
+{{#if @root.stonetop.canEdit}}{{#unless @root.stonetop.followersEdit}}{{#if editing}}<a class="stonetop-section-done stonetop-follower-done" data-section="follower-{{section}}:{{ftype}}:{{slug}}" title="Done editing"><i class="fas fa-check"></i></a>{{else}}<a class="stonetop-section-edit stonetop-follower-edit" data-section="follower-{{section}}:{{ftype}}:{{slug}}" title="{{#if editTitle}}{{editTitle}}{{else}}Edit {{section}}{{/if}}"><i class="fas fa-pencil"></i></a>{{/if}}{{/unless}}{{/if}}

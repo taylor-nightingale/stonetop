@@ -1,0 +1,29 @@
+{
+  "_id": "VLB5LzxoiGFfWd3h",
+  "_key": "!items!VLB5LzxoiGFfWd3h",
+  "name": "Bullseye lantern",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "bullseye-lantern",
+      "inventoryColumn": "regular",
+      "sortOrder": 38,
+      "note": "<em>near</em>",
+      "weight": 1,
+      "resource": {
+        "max": 5,
+        "title": "Oil",
+        "labels": [
+          "running low",
+          "out"
+        ]
+      },
+      "special": true,
+      "specialCategory": "Light Sources"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

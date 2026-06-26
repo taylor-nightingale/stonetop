@@ -1,0 +1,11 @@
+{
+  "name": "Keep Company",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>spend a stretch of time together</em></strong>, ask the others if they want to Keep Company. If they do, take turns asking a PC or NPC one of the following.</p><ul><li>What do you do that's annoying/endearing?</li><li>What do I do that you find annoying/endearing?</li><li>Who or what seems to be on your mind?</li><li>What do we find ourselves talking about?</li><li>How do you/we pass the time?</li><li>What new thing do you reveal about yourself?</li></ul>"
+  },
+  "_id": "DxlhTaPPfpzbYr0o",
+  "_key": "!items!DxlhTaPPfpzbYr0o",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

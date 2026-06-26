@@ -1,0 +1,92 @@
+{
+  "name": "Guardian",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 2,
+        "source": "hides, shields"
+      },
+      "damage": {
+        "value": "bronze or dark ice-tipped weapons d8 (tags by weapon)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to protect their charges"
+      }
+    },
+    "concept": "Warrior-protectors of the Whitefang fortress-monasteries and Barrier Pass.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, organized, hardy, skilled",
+    "qualities": "<p>Barrier Pass keeps a softer variant (HP 6, Armor 3 from bronze shields and mail) armed to subdue: bronze mace d8 (close, forceful), mancatcher d6 (reach, grabby), or bola d6 (thrown, grabby, awkward).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.uGh38GPx9hdbQ0XH",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Guardian",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "9zc0veidcbF7M3kC",
+      "name": "Use the terrain to their advantage",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!33Tx0FhrgXcTwtlC.9zc0veidcbF7M3kC"
+    },
+    {
+      "_id": "lQW1iQZP4Zx90wqk",
+      "name": "Take a blow meant for another",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!33Tx0FhrgXcTwtlC.lQW1iQZP4Zx90wqk"
+    },
+    {
+      "_id": "65ScDcozxAhjH4HB",
+      "name": "Ensnare a foe (mancatcher or bola)",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!33Tx0FhrgXcTwtlC.65ScDcozxAhjH4HB"
+    },
+    {
+      "_id": "zA7BSSHtY31Jh2ck",
+      "name": "Perform a feat of endurance, agility, or will (reload)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!33Tx0FhrgXcTwtlC.zA7BSSHtY31Jh2ck"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "H4tKi5At1faNP0Np",
+  "_id": "33Tx0FhrgXcTwtlC",
+  "_key": "!actors!33Tx0FhrgXcTwtlC"
+}

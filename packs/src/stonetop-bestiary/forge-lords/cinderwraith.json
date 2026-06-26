@@ -1,0 +1,81 @@
+{
+  "name": "Cinderwraith",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 1,
+        "source": "amorphous"
+      },
+      "damage": {
+        "value": "blistering flames d10+1 (hand, grabby, messy, ignores armor)",
+        "rollFormula": "d10+1"
+      },
+      "instinct": {
+        "value": "to burn the living"
+      }
+    },
+    "concept": "A betrayed Forge Lord's inner fire, smoldering in its bones to burn the living.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, undead, fiery, terrifying",
+    "qualities": "<p>Fireproof; dormant without fresh air to 'breathe'; tethered to its bones.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.x54yvxxbXbmKYZ8e",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Cinderwraith",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "RiWIog3KU3ZKODSX",
+      "name": "Manifest a leering pillar of fire and blackened hands (harmed only by water or silver)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4EAwSShKj05G2Dls.RiWIog3KU3ZKODSX"
+    },
+    {
+      "_id": "sHjlcEYCitb0BYie",
+      "name": "Melt silver or bronze, weaken steel or iron, ignite wood, char flesh",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4EAwSShKj05G2Dls.sHjlcEYCitb0BYie"
+    },
+    {
+      "_id": "m22bVx0LQvucKo8H",
+      "name": "Engulf a living being, charring both flesh and soul (advantage, debilities, harms even fireproof foes)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4EAwSShKj05G2Dls.m22bVx0LQvucKo8H"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "4EAwSShKj05G2Dls",
+  "_key": "!actors!4EAwSShKj05G2Dls"
+}

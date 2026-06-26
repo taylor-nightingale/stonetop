@@ -1,131 +1,126 @@
-import { describe, it, expect } from "vitest";
-import { StonetopNpc } from "../../../src/actors/npc/StonetopNpc.js";
-import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+import { describe, it, expect, vi } from "vitest";
+import { Selection } from "../../../module/model/Selection.js";
+import { NpcSnapshotBuilder } from "../../../module/model/NpcSnapshot.js";
+import { StonetopNpc } from "../../../module/actors/npc/StonetopNpc.js";
 
-function makeActor(overrides = {}) {
-	const actor = new FakeActorBuilder().build();
-	actor.system.hp     = { value: 0, max: 0 };
-	actor.system.armor  = "";
-	actor.system.damage = "";
-	Object.assign(actor.system, overrides);
-	return actor;
+function fakeNpcActor(system = {}) {
+	return {
+		id: "npc1",
+		type: "npc",
+		system,
+		update: vi.fn(async () => {}),
+	};
 }
 
-function makeNpc(overrides = {}) {
-	return new StonetopNpc(makeActor(overrides));
-}
-
-describe("StonetopNpc — getters return defaults", () => {
-	it("hp defaults to 0", () => expect(makeNpc().hp).toBe(0));
-	it("maxHp defaults to 0", () => expect(makeNpc().maxHp).toBe(0));
-	it("armor defaults to empty string", () => expect(makeNpc().armor).toBe(""));
-	it("damage defaults to empty string", () => expect(makeNpc().damage).toBe(""));
-	it("specialQuality defaults to empty string", () => expect(makeNpc().specialQuality).toBe(""));
-	it("instinct defaults to empty string", () => expect(makeNpc().instinct).toBe(""));
-	it("description defaults to empty string", () => expect(makeNpc().description).toBe(""));
-});
-
-describe("StonetopNpc — getters reflect pre-seeded system values", () => {
-	it("hp returns system.hp.value", () => expect(makeNpc({ hp: { value: 8, max: 10 } }).hp).toBe(8));
-	it("maxHp returns system.hp.max", () => expect(makeNpc({ hp: { value: 8, max: 10 } }).maxHp).toBe(10));
-	it("armor returns the system.armor string", () => expect(makeNpc({ armor: "2 (scales)" }).armor).toBe("2 (scales)"));
-	it("damage returns system.damage", () => expect(makeNpc({ damage: "jaws d12 (messy)" }).damage).toBe("jaws d12 (messy)"));
-	it("specialQuality returns system.specialQuality", () => expect(makeNpc({ specialQuality: "undead" }).specialQuality).toBe("undead"));
-	it("instinct returns system.instinct", () => expect(makeNpc({ instinct: "to feed" }).instinct).toBe("to feed"));
-	it("description returns system.description", () => expect(makeNpc({ description: "Horrible." }).description).toBe("Horrible."));
-	it("tags returns system.tagList", () => expect(makeNpc({ tagList: "fae, woodland" }).tags).toBe("fae, woodland"));
-	it("moves returns system.moves", () => expect(makeNpc({ moves: "- Bite" }).moves).toBe("- Bite"));
-});
-
-describe("StonetopNpc — moves and tags in the snapshot", () => {
-	it("exposes tags and renders moves markdown as an enriched list", async () => {
-		const snap = await makeNpc({ tagList: "fae", moves: "- Bite d6\n- Vanish" }).buildSnapshot();
-		expect(snap.tags).toBe("fae");
-		expect(snap.moves).toBe("- Bite d6\n- Vanish");
-		expect(snap.movesHtml).toBe("<ul><li>Bite [[/r d6]]</li><li>Vanish</li></ul>");
+describe("Selection", () => {
+	it("parses a legacy comma string as a multi selection", () => {
+		const sel = Selection.fromStored("group, intelligent", { multi: true });
+		expect(sel.values).toEqual(["group", "intelligent"]);
+		expect(sel.has("group")).toBe(true);
+		expect(sel.text).toBe("group, intelligent");
 	});
 
-	// Parity with the follower card: the snapshot must carry the stored Selection's options
-	// through to tagSelection so the chip UI offers the same "add from list" dropdown.
-	it("preserves tag options/multi for the pill UI (same as followers)", async () => {
-		const tagList = { selected: ["group"], options: ["group", "intelligent", "large"], multi: true, allowCustom: true };
-		const snap = await makeNpc({ tagList }).buildSnapshot();
-		expect(snap.tagSelection.multi).toBe(true);
-		expect(snap.tagSelection.values).toEqual(["group"]);
-		expect(snap.tagSelection.unselectedOptions).toEqual(["intelligent", "large"]);
+	it("keeps a single-select string whole (commas included)", () => {
+		const sel = Selection.fromStored("protect the grove, at any cost", { multi: false });
+		expect(sel.values).toEqual(["protect the grove, at any cost"]);
+	});
+
+	it("round-trips a stored object via toRaw", () => {
+		const raw = { selected: ["a"], options: ["a", "b"], multi: true, allowCustom: true };
+		expect(Selection.fromStored(raw).toRaw()).toEqual(raw);
+	});
+
+	it("toggle adds/removes for multi and replaces for single (immutably)", () => {
+		const multi = Selection.multi(["a"], { options: ["a", "b"] });
+		expect(multi.toggle("b").values).toEqual(["a", "b"]);
+		expect(multi.toggle("a").values).toEqual([]);
+		expect(multi.values).toEqual(["a"]); // original untouched
+
+		const single = Selection.single("a", { options: ["a", "b"] });
+		expect(single.toggle("b").values).toEqual(["b"]);
+		expect(single.toggle("a").values).toEqual([]);
+	});
+
+	it("exposes unselected options as add-suggestions", () => {
+		const sel = Selection.multi(["a"], { options: ["a", "b", "c"] });
+		expect(sel.unselectedOptions).toEqual(["b", "c"]);
+	});
+});
+
+describe("NpcSnapshot", () => {
+	it("builds queryable tag/instinct selections and an isGroup flag", () => {
+		const snap = new NpcSnapshotBuilder()
+			.withHp(4).withHpMax(6)
+			.withArmor("1").withDamage("d8")
+			.withTags("group, undead").withInstinct("hunger")
+			.withSpecialQuality("regenerates").withMoves("- Lurch forward")
+			.withDescription("A shambling mass.")
+			.build();
+
+		expect(snap.hp).toBe(4);
+		expect(snap.hpMax).toBe(6);
+		expect(snap.tagSelection.has("group")).toBe(true);
 		expect(snap.isGroup).toBe(true);
-	});
-
-	// Instinct is single-select: a comma in the value must NOT be split into two selections.
-	it("keeps a comma-containing instinct as one single-select value", async () => {
-		const instinct = { selected: ["to protect, no matter the cost"], options: [], multi: false, allowCustom: true };
-		const snap = await makeNpc({ instinct }).buildSnapshot();
+		expect(snap.instinct).toBe("hunger");
 		expect(snap.instinctSelection.multi).toBe(false);
-		expect(snap.instinctSelection.values).toEqual(["to protect, no matter the cost"]);
 	});
 });
 
-describe("StonetopNpc — buildSnapshot enriches game text", () => {
-	it("exposes enriched damage with inline rolls and formatting", async () => {
-		const snap = await makeNpc({ damage: "**maw** d10+2 (messy)" }).buildSnapshot();
-		expect(snap.damage).toBe("**maw** d10+2 (messy)");           // raw kept for editing
-		expect(snap.damageHtml).toBe("<strong>maw</strong> [[/r d10+2]] (messy)");
+describe("StonetopNpc", () => {
+	it("reads stat-block values from system", () => {
+		const npc = new StonetopNpc(fakeNpcActor({
+			hp: { value: 3, max: 5 },
+			armor: "2",
+			damage: "d6",
+			specialQuality: "flies",
+			instinct: { selected: ["to feed"], options: [], multi: false, allowCustom: true },
+			tagList: { selected: ["beast"], options: [], multi: true, allowCustom: true },
+			moves: "- Swoop",
+			description: "A winged horror.",
+		}));
+		expect(npc.hp).toBe(3);
+		expect(npc.maxHp).toBe(5);
+		expect(npc.armor).toBe("2");
+		expect(npc.instinct).toBe("to feed");
+		expect(npc.tags).toBe("beast");
 	});
 
-	it("enriches special quality, instinct, description and armor note", async () => {
-		const snap = await makeNpc({
-			specialQuality: "*blind*, tremorsense",
-			instinct: "to feed",
-			description: "A **horror**.",
-			armor: "4 (resilience), 0 vs. bronze",
-		}).buildSnapshot();
-		expect(snap.specialQualityHtml).toBe("<em>blind</em>, tremorsense");
-		expect(snap.instinctHtml).toBe("to feed");
-		expect(snap.descriptionHtml).toBe("A <strong>horror</strong>.");
-		expect(snap.armorHtml).toBe("4 (resilience), 0 vs. bronze");
-	});
-});
-
-describe("StonetopNpc — setters update observable state", () => {
-	it("setHp updates hp", async () => {
-		const npc = makeNpc();
-		await npc.setHp(6);
-		expect(npc.hp).toBe(6);
+	it("writes setters to the right system paths", async () => {
+		const actor = fakeNpcActor({});
+		const npc = new StonetopNpc(actor);
+		await npc.setHp("7");
+		expect(actor.update).toHaveBeenCalledWith({ "system.hp.value": 7 });
+		await npc.setArmor("3 (resilience)");
+		expect(actor.update).toHaveBeenCalledWith({ "system.armor": "3 (resilience)" });
 	});
 
-	it("setMaxHp updates maxHp", async () => {
-		const npc = makeNpc();
-		await npc.setMaxHp(12);
-		expect(npc.maxHp).toBe(12);
+	it("toggleSelection adds a tag (multi) and sets instinct (single)", async () => {
+		const actor = fakeNpcActor({
+			tagList: { selected: ["beast"], options: [], multi: true, allowCustom: true },
+			instinct: { selected: [], options: [], multi: false, allowCustom: true },
+		});
+		const npc = new StonetopNpc(actor);
+
+		await npc.toggleSelection("tagList", "group");
+		expect(actor.update).toHaveBeenCalledWith({
+			"system.tagList": expect.objectContaining({ selected: ["beast", "group"], multi: true }),
+		});
+
+		await npc.toggleSelection("instinct", "to feed");
+		expect(actor.update).toHaveBeenCalledWith({
+			"system.instinct": expect.objectContaining({ selected: ["to feed"], multi: false }),
+		});
 	});
 
-	it("setArmor updates armor", async () => {
-		const npc = makeNpc();
-		await npc.setArmor("3 (scales)");
-		expect(npc.armor).toBe("3 (scales)");
+	it("renders newline move lines as an enriched <ul> in the snapshot", async () => {
+		const npc = new StonetopNpc(fakeNpcActor({ moves: "- Lurch\n- Grab\n   plain line" }));
+		const snap = await npc.buildSnapshot();
+		expect(snap.movesHtml).toBe("<ul><li>Lurch</li><li>Grab</li><li>plain line</li></ul>");
 	});
 
-	it("setDamage updates damage", async () => {
-		const npc = makeNpc();
-		await npc.setDamage("claws d8");
-		expect(npc.damage).toBe("claws d8");
-	});
-
-	it("setSpecialQuality updates specialQuality", async () => {
-		const npc = makeNpc();
-		await npc.setSpecialQuality("ethereal");
-		expect(npc.specialQuality).toBe("ethereal");
-	});
-
-	it("setInstinct updates instinct", async () => {
-		const npc = makeNpc();
-		await npc.setInstinct("to stalk");
-		expect(npc.instinct).toBe("to stalk");
-	});
-
-	it("setDescription updates description", async () => {
-		const npc = makeNpc();
-		await npc.setDescription("A shadow given form.");
-		expect(npc.description).toBe("A shadow given form.");
+	it("buildSnapshot returns empty moves html when there are no moves", async () => {
+		const npc = new StonetopNpc(fakeNpcActor({ moves: "" }));
+		const snap = await npc.buildSnapshot();
+		expect(snap.movesHtml).toBe("");
 	});
 });

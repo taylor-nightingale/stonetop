@@ -1,0 +1,131 @@
+{
+  "_id": "fc9yqAlxCCgZVckC",
+  "_key": "!journal!fc9yqAlxCCgZVckC",
+  "name": "Titan Bones",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "About two days’ hike from Stonetop stands a lone hill, rising from the Flats. A huge, fossilized skeleton is visible on one side of the hill."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 22000,
+  "pages": [
+    {
+      "_id": "oMNmCXgSQSkxerEK",
+      "_key": "!journal.pages!fc9yqAlxCCgZVckC.oMNmCXgSQSkxerEK",
+      "name": "Titan Bones",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>About two days’ hike from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> stands a lone hill, rising from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>. A huge, fossilized skeleton is visible on one side of the hill.</p><p>The Highway runs past the hill to the east; a wayside sits at its foot. The hill rises over 300’ above the prairie. The northern, leeward face is steep, rocky, cliff-like. The other sides are rugged but manageable slopes, covered in sparse, gnarled oaks and smaller brush.</p><p>The crown is flat, sparsely wooded, the highest point for nigh on 100 miles. When Stonetop or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> need to signal each other, they light a great bonfire up there, on the top of Titan Bones.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<ul><li>The hill on the horizon, never seeming to get closer until it’s right up on you</li><li>Those bones, bigger than they ought to be, bigger than any beast you’ve seen</li><li>A sense of smallness, insignificance</li><li>Southerly wind: ceaseless, buffeting</li><li>Riders approaching, the anticipation as you wait</li></ul><p>Tip: Up top, portray NPCs with short, loud sentences, like they’re shouting over the wind. Ask, “What?” if players don’t do the same. Down at the wayside, keep looking up and away, like NPCs are distracted by the hill.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Meeting place",
+            "group": "place",
+            "danger": false,
+            "body": "<p>A footpath leads from the wayside, climbing the rugged slope in a series of switchbacks. It takes half an hour to reach the crown at a reasonable pace, but a fit person could charge straight up in just a few minutes (at considerable risk of injury or mishap).</p><p>When the PCs wish to summon the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> to a meeting, they must:</p><ul><li class=\"check-bullet\">Travel to Titan Bones and climb the hill</li><li class=\"check-bullet\">Wait for a clear day, with no rain or haze</li><li class=\"check-bullet\">Spend the best part of a day gathering fuel and stoking a bonfire</li><li class=\"check-bullet\">Tend and feed the bonfire all through the night and into the early morn</li><li class=\"check-bullet\">Wait for the Hillfolk to arrive</li></ul><p>Choose or roll for how long before the Hillfolk arrive, what happens while they wait, and the disposition of the Hillfolk who show up. It’s usually a small group of riders who respond to the signal, maybe with a spirit-talker.</p><p><strong>1d6 how long</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>6 or 7 days, maybe longer</td></tr><tr><td>2–3</td><td>4 to 5 days</td></tr><tr><td>4–5</td><td>2 or 3 days</td></tr><tr><td>6</td><td>A day or less, somehow</td></tr></tbody></table><p><strong>1d6 while they wait</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>A danger manifests!</td></tr><tr><td>3</td><td>Travelers approach on the road</td></tr><tr><td>4</td><td>Folks get antsy/bored/irritable</td></tr><tr><td>5</td><td>Someone makes a discovery: something odd, out of place, recently unearthed, etc.</td></tr><tr><td>6</td><td>Time passes pleasantly (how so?)</td></tr></tbody></table><p><strong>1d6 disposition</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Angry about something, perhaps openly hostile, perhaps trying to hide it</td></tr><tr><td>2</td><td>Blustering, proud, keen to show off and make a point</td></tr><tr><td>3</td><td>Out of sorts, possibly in trouble, maybe looking for help</td></tr><tr><td>4–5</td><td>Reserved, aloof, wondering what this is about, if it’s a waste of time</td></tr><tr><td>6</td><td>Curious, eager to trade and share news</td></tr></tbody></table><p>Should the Hillfolk light a signal fire themselves, folks in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> will likely see the pillar of smoke first, then the fire as the sun sets. If it burns through the night and into the morning, that means the Hillfolk wish to meet.</p><p>Meetings take place on the wayside at the foot of the hill, under the protection of the pavestones’ wards against violence. Hillfolk will assume that anything else is a trap.</p><ul><li class=\"question-bullet\">How often do meetings like this occur?</li><li class=\"question-bullet\">When was the last meeting called? By whom? What was it about?</li><li class=\"question-bullet\">With which group of Hillfolk do y’all normally meet?</li><li class=\"question-bullet\">How do you and the Hillfolk traditionally greet each other? What other customs do you observe?</li><li class=\"question-bullet\">Where exactly do folks typically light a signal fire? What’s special about it?</li><li class=\"question-bullet\">What else can be found up on the hill’s crown?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The titan’s bones",
+            "group": "place",
+            "danger": false,
+            "body": "<p>… The fossilized bones on the hill are clearly ancient, and far bigger than anything has a right to be. But what are they the bones of? That’s for you and your group to decide, but perhaps they are the bones of<br>… one of the three great beasts vanquished by <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>;<br>… one of the First Creators, slain by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> as they were imprisoned;<br>… some fell beast brewed up by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>;<br>… a mighty Stone Lord construct, not a creature at all; … a colossal emanation of the Things Below, a world-ending horror, vitrified by Stormcatcher’s magic;<br>… some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Ruins of the past",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Today, Titan Bones is little more than a landmark and a meeting place, but what was it in the past? That’s for you to decide, but perhaps it was once…</p><p>… … a site sacred to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, a place of pilgrimage;<br>… a fortress or trading post of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>;<br>… one of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong>’ sky-islands, crashed or landed and (temporarily?) unable to fly;<br>… part of Stormcatcher’s domain: a lookout, a laboratory, a power station, etc.;<br>… a fortress from the time of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>, likely haunted from the battles fought here;</p><p>… a corrupted site, a place of great evil, now mostly cleansed or at least contained;<br>… some combination of the above; or<br>… something else entirely.</p><p>Whatever you decide, consider how that interacts with your decisions about the titan’s bones (see previous column). For example, if they are the bones of a great beast and the hill was once a sky-island, did the beast and sky-island bring each other low? Did the beast (or its bones) power the sky-island? Or what?</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Which of you has been (t)here before? Why?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do the bones peek out of the sheer rock face, or jut from the southern slopes, or lie flat on the crown, or what?",
+                "answer": ""
+              },
+              {
+                "prompt": "According to the tales, what are they bones of? How did they come to be here?",
+                "answer": ""
+              },
+              {
+                "prompt": "What superstitions surround the bones? What little rites do folks observe in their presence?",
+                "answer": ""
+              },
+              {
+                "prompt": "What other oddities have you found on or around the hill?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "",
+                "body": "<ul><li>A nasty turn of the weather</li><li>The nosgalau, calling out to those on the hill</li><li>The ghosts of those who died here or at nearby battlefields</li><li>A prairie fire lit by an errant cinder</li><li>Bandits, encamped on the hill or drawn by the signal fire</li><li>Something big and dangerous, on the hunt or lairing on the hill, like a beznpol, a frythanc, or a kleztigr</li><li>A nest of hlomren, infesting the hillside</li><li>Spirits of the wild: a brennauwed, a flock of andalau, or a fadyn</li><li>Local blue magpies, some real jerks</li><li>A rockslide or mudslide</li><li>Something inspired or suggested by the true nature of the titan’s bones, and/or the ruins of the past</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

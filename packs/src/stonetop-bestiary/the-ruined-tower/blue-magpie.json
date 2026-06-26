@@ -1,0 +1,103 @@
+{
+  "name": "Blue Magpie",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "armor": {
+        "value": 1,
+        "source": "sheer tiny size"
+      },
+      "damage": {
+        "value": "peck d4-2 w/disadvantage (hand)",
+        "rollFormula": "d4-2"
+      },
+      "instinct": {
+        "value": "to amuse and impress its friends"
+      }
+    },
+    "concept": "Clever, thieving, talking magpies that hoard shinies — and old lore.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, devious, organized, hoarder, magical",
+    "qualities": "<p>Smart as a child, at least; can speak Tempest Lord (understood by all).</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.iyJ1X2X1AZE1zjWl",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Blue Magpie",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "yB9sTz018sscuae2",
+      "name": "Pretend to be just a dumb bird",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!jd4L6VMQhTXba2r0.yB9sTz018sscuae2"
+    },
+    {
+      "_id": "bCYAoEmsaGGHg9AE",
+      "name": "Mimic sounds or voices",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!jd4L6VMQhTXba2r0.bCYAoEmsaGGHg9AE"
+    },
+    {
+      "_id": "Fb2t8ET9r3mSfbqX",
+      "name": "Mock or trick someone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!jd4L6VMQhTXba2r0.Fb2t8ET9r3mSfbqX"
+    },
+    {
+      "_id": "yYjf3FvzT59sSqH2",
+      "name": "Steal something",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!jd4L6VMQhTXba2r0.yYjf3FvzT59sSqH2"
+    },
+    {
+      "_id": "pNqkNEBBbSC0Igv5",
+      "name": "Vanish with a hrummm and reappear nearby (reload)",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!jd4L6VMQhTXba2r0.pNqkNEBBbSC0Igv5"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "jd4L6VMQhTXba2r0",
+  "_key": "!actors!jd4L6VMQhTXba2r0"
+}

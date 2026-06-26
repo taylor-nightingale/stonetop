@@ -1,0 +1,22 @@
+{
+  "_id": "U0ROqji2xSlw9FH0",
+  "_key": "!items!U0ROqji2xSlw9FH0",
+  "name": "Veteran Crew",
+  "type": "move",
+  "system": {
+    "playbook": "The Marshal",
+    "moveType": "playbook",
+    "description": "<p>Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.</p>",
+    "markOptions": [
+      { "slug": "tags", "label": "Select 2 new tags for your Crew", "marks": 1 },
+      { "slug": "crew-damage", "label": "Increase their damage die from d6 to d8", "marks": 1, "crewDamageStep": 1, "crewDamageCap": "d10" },
+      { "slug": "crew-hp", "label": "Increase their max HP by 2 each", "marks": 1, "crewHp": 2 }
+    ],
+    "requirement": {
+      "moves": [
+        "Crew"
+      ]
+    }
+  },
+  "folder": "qYVW8ZbK0hIds2lt"
+}

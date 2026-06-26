@@ -1,0 +1,61 @@
+{
+  "_id": "0nlPVVJedVLBKdkd",
+  "_key": "!journal!0nlPVVJedVLBKdkd",
+  "name": "Cultist",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Ordinary folk drawn, one small dark deed at a time, into the service of the Things Below."
+    }
+  },
+  "folder": "nVv6GF39nE8RN4lQ",
+  "sort": 172000,
+  "pages": [
+    {
+      "_id": "ubngxZppYsCqh38W",
+      "_key": "!journal.pages!0nlPVVJedVLBKdkd.ubngxZppYsCqh38W",
+      "name": "Cultist",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Ordinary folk drawn, one small dark deed at a time, into the service of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.",
+        "description": "<p>Folks are capable of all sorts of dark things if someone else suggests them — especially if they're desperate, and especially if the one leading them is trusted, respected, or admired. And if that first little dark deed comes without any consequence to them? Well, then the next one might not be so little.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fuNmfqHG9J8HFDo7"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

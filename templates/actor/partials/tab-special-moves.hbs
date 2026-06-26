@@ -1,0 +1,66 @@
+<div class="tab stonetop-special-moves" data-group="primary" data-tab="special-moves">
+
+	{{> "stonetop.section-heading" title=(localize "stonetop.sheet.tabs.specialMoves")}}
+
+	<div class="stonetop-special-move-grid">
+
+		<div class="stonetop-special-move-card">
+			<h3 class="stonetop-special-move-name">{{localize "stonetop.specialMoves.burnBrightly.title"}}</h3>
+			<p class="stonetop-special-move-summary">{{{localize "stonetop.specialMoves.burnBrightly.description"}}}</p>
+			<p class="stonetop-special-move-locked-hint">
+				<i class="fas fa-comment-dots"></i>
+				{{localize "stonetop.specialMoves.burnBrightly.promptNote"}}
+			</p>
+		</div>
+
+		<div class="stonetop-special-move-card{{#unless stonetop.isDying}} is-locked{{/unless}}">
+			<h3 class="stonetop-special-move-name">{{localize "stonetop.specialMoves.deathsDoor.title"}}</h3>
+			<p class="stonetop-special-move-summary">{{{localize "stonetop.specialMoves.deathsDoor.summary"}}}</p>
+			{{#unless stonetop.isDying}}
+			<p class="stonetop-special-move-locked-hint">
+				<i class="fas fa-lock"></i>
+				{{localize "stonetop.specialMoves.deathsDoor.lockedHint"}}
+			</p>
+			{{/unless}}
+			<button type="button" class="stonetop-deathsdoor-open-btn"
+				{{#unless stonetop.isDying}}disabled{{/unless}}>
+				<i class="fas fa-door-open"></i>
+				{{localize "stonetop.specialMoves.deathsDoor.button"}}
+			</button>
+		</div>
+
+		<div class="stonetop-special-move-card{{#unless stonetop.recover.canRecover}} is-locked{{/unless}}">
+			<h3 class="stonetop-special-move-name">{{localize "stonetop.specialMoves.recover.title"}}</h3>
+			<p class="stonetop-special-move-summary">{{{localize "stonetop.specialMoves.recover.summary"}}}</p>
+			{{#if stonetop.recover.hint}}
+			<p class="stonetop-special-move-locked-hint">
+				<i class="fas {{stonetop.recover.hint.icon}}"></i>
+				{{stonetop.recover.hint.text}}
+			</p>
+			{{/if}}
+			<button type="button" class="stonetop-recover-open-btn"
+				{{#unless stonetop.recover.canRecover}}disabled{{/unless}}>
+				<i class="fas fa-heart-circle-plus"></i>
+				{{localize "stonetop.specialMoves.recover.button"}}
+			</button>
+		</div>
+
+		<div class="stonetop-special-move-card{{#unless stonetop.canLevelUp}} is-locked{{/unless}}">
+			<h3 class="stonetop-special-move-name">{{localize "stonetop.specialMoves.levelUp.title"}}</h3>
+			<p class="stonetop-special-move-summary">{{{localize "stonetop.specialMoves.levelUp.summary"}}}</p>
+			{{#unless stonetop.canLevelUp}}
+			<p class="stonetop-special-move-locked-hint">
+				<i class="fas fa-lock"></i>
+				{{{localize "stonetop.specialMoves.levelUp.lockedHint"}}}
+			</p>
+			{{/unless}}
+			<button type="button" class="stonetop-levelup-open-btn"
+				{{#unless stonetop.canLevelUp}}disabled{{/unless}}>
+				<i class="fas fa-arrow-circle-up"></i>
+				{{localize "stonetop.specialMoves.levelUp.button"}}
+			</button>
+		</div>
+
+	</div>
+
+</div>

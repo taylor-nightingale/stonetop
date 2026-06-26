@@ -1,0 +1,183 @@
+{
+  "_id": "No8UN1MJEb2mrLXo",
+  "_key": "!journal!No8UN1MJEb2mrLXo",
+  "name": "The Steplands",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Steplands are a rugged hill-country south of the Flats. To the north, they touch Ferrier’s Fen and the Great Wood. To the east, they give way to the South Manmarch. To the west, they climb higher and higher, like a stairway to the Huffel Peaks."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 10000,
+  "pages": [
+    {
+      "_id": "L9aafiUeKDne11Hj",
+      "_key": "!journal.pages!No8UN1MJEb2mrLXo.L9aafiUeKDne11Hj",
+      "name": "The Steplands",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>The Steplands are a rugged hill-country south of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>. To the north, they touch <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong> and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. To the east, they give way to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong>. To the west, they climb higher and higher, like a stairway to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>.</p><p>The region is a karst—a plateau of limestone and quartzite and granite, carved away by ages of runoff and dissolved by groundwater, leaving a jumble of hills and valleys and rocky cliffs, all shot through with caves, sinkholes, and streams.</p><p>The land seems wild and untamed to outsiders, but in truth it is home to dozens of small nomadic bands, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>Bare rock, host to lichen, moss, and stubborn grass/shrubs</li><li>Cloud-shadows drifting over hillsides</li><li>The feeling of being surrounded, closed in by the valleys</li><li>The burning in your legs as you climb another damn hill</li><li>The grandeur when you reach a summit: vista on vista marching, hills on hills, slope beyond slope</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Snow still clinging to south-facing slopes, never touched by sun</li><li>Sudden warmth as you step out of a shadow; chill as you step into one</li><li>Gurgle of water downhill, through ancient culverts under the Highway</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Emerald meadows, grass waving in wind, splashes of wildflower color</li><li>Flutter of birds taking flight, surprised when you round a bend</li><li>Blessed shade as you pass beneath some trees or into the shadow of a hill</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Fog in the valleys, the hills like islands in clouds</li><li>Tickle on your face, from mist or an early snow</li><li>Mournful songs of cranes or owls or other large birds, echoing from far away</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>White drifts half-covering the hills, rocks still poking through</li><li>Bitter winds on your face as you crest a hill or trudge through a pass</li><li>The breath of your companions, white clouds hanging in the air</li><li>The sense of stillness and quiet, like the world sleeping</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "A rugged land",
+            "group": "place",
+            "danger": false,
+            "body": "<p>By all rights, the Steplands should be lush and fertile, teeming with farms and pastures. The same storms that soak the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> roll through these hills, and snowmelt from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong> feeds many streams and aquifers.</p><p>And yet: the region is rocky, almost barren in places. The slopes boast meadows of sedge and shortgrass and thickets of skinny pine, but the soil is thin and prone to erosion and mudslides. Cliffs and outcrops abound, dotted with shrubs and gnarled trees and even succulents normally found only in the south. There’s life a-plenty, sure—enough to support the roaming bands of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> and their herds—but one would be hard-pressed to make a go of farming.</p><p>Why is the land like this? That’s for you and your table to decide, but perhaps…</p><p>… it’s a natural result of the thirsty bedrock, the ceaseless southerly wind, the grazing of beasts;<br>… the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>’ magic still infuses the land, repelling soil and seed, fossilizing roots, devouring minerals;<br>… battles between Stone Lords and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> blasted the land, and only the hardiest spirits of the wild still dwell here;<br>… the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> sleep fitfully here, breathing in through lakes and sinkholes, sucking at the lifeforce of the soil;<br>… some combination of the above; or<br>… something completely different.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.25HD51CKompWLFvB]{Blackwater Lake}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{The Makers}</strong>’ Roads, specifically the Highway</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.zUeBMA1XS4Lq3KdK]{Three Coven Lake}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><p><strong>1d12 terrain</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Creek, gulley, stream, river</td></tr><tr><td>2</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>, disappearing into cave, sinkhole, or fractured bedrock</td></tr><tr><td>3</td><td>Sinkhole, crevasse, gorge</td></tr><tr><td>4</td><td>Barren patch (sand, scree, rocks)</td></tr><tr><td>5</td><td>Copse of pines, gnarled shrubs</td></tr><tr><td>6</td><td>Stretch of Broken Roads</td></tr><tr><td>7</td><td>Gentle slope, meadow</td></tr><tr><td>8–9</td><td>Steep slope, treacherous, unstable</td></tr><tr><td>10</td><td>Sheer rock face, bluff, rocky outcrop</td></tr><tr><td>11–12</td><td>Cave</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Caves",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The Steplands are lousy with caves, carved out over centuries by the slow patient work of water, or more dramatically by the magic of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>.</p><p><strong>Impressions</strong></p><ul><li>Instinctive hunch of your shoulders under a low stone ceiling</li><li>Prickly, humid air, thick and still and cloying</li><li>Slow, quiet drip… drip… drip… in the distance</li><li>Darkness so thick and deep, it could swallow you</li><li>Every sense heightened: rough stone underfoot, the breath of your companions, the damp mineral smell, the way your eyes strain in flickering light</li></ul><p>Structure Choose or have someone roll the Die of Fate.</p><p><strong>1d6 structure</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Small, contained, only a few chambers</td></tr><tr><td>2</td><td>Long, narrow, meandering</td></tr><tr><td>3</td><td>Twisting, interlaced tunnels; multiple chambers</td></tr><tr><td>4</td><td>A few distinct sets of chambers, connected by long twisting tunnels</td></tr><tr><td>5</td><td>Few small passages to a larger, massive chamber</td></tr><tr><td>6</td><td>Large and open main tunnel, smaller side passages and chambers</td></tr></tbody></table><p>For any given opening, passage, or chamber, choose or have someone roll for clearance, footing, water, and decoration. For each, consider rolling 1d6 for size/scope/intensity.</p><p><strong>1d6 clearance</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Basically a crack, too small for grown humans without excavation</td></tr><tr><td>2</td><td>A squeeze—most folk can wriggle through without gear on</td></tr><tr><td>3–4</td><td>Small, cramped—might need to duck, crawl, go single file</td></tr><tr><td>5</td><td>Roomy, comfortable to walk through</td></tr><tr><td>6</td><td>Yawning, vast, lots of space</td></tr></tbody></table><p><strong>1d6 footing</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Steep slope, vertical ascent/descent</td></tr><tr><td>2</td><td>Slippery—water, mud, scree, guano, etc.</td></tr><tr><td>3</td><td>Rocky, debris-filled, unstable</td></tr><tr><td>4</td><td>Uneven, ridged, potholes, awkward</td></tr><tr><td>5</td><td>Rolling, undulating, twisting</td></tr><tr><td>6</td><td>Surprisingly smooth, level</td></tr></tbody></table><p><strong>1d6 water</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Submerged</td></tr><tr><td>2</td><td>Partially flooded</td></tr><tr><td>3</td><td>A stream or rivulet, flowing steadily</td></tr><tr><td>4–6</td><td>Just a trickle, drips, or seepage; maybe not even that</td></tr></tbody></table><p><strong>1d6 decoration</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Stalactite(s) or soda straws, clinging tight to the ceiling</td></tr><tr><td>2</td><td>Stalagmite(s), growing from the floor</td></tr><tr><td>3</td><td>Column(s), where stalactites and stalagmites have grown together</td></tr><tr><td>4</td><td>Crystals, crystalline growths, “honeycomb” patterns</td></tr><tr><td>5</td><td>Flowstone, rimstone, “draperies,” “shields”</td></tr><tr><td>6</td><td>Fossils</td></tr></tbody></table><p>Inhabitants, past or present Choose or have someone roll, up to 3 times. What story does this tell?</p><p><strong>1d6 inhabitant</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Thralls or victims of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> or their victims</td></tr><tr><td>3</td><td>Truly ancient primordial powers</td></tr><tr><td>4</td><td>natural beast or spirit (see below)</td></tr><tr><td>5</td><td>Stone Lords or their servants</td></tr><tr><td>6</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> or those they have cast out</td></tr></tbody></table><p><strong>1d6 natural beast or spirit</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Bats. So many bats</td></tr><tr><td>2</td><td>Fish, salamanders, olms, crawfish— pale blind things dwelling in dark waters</td></tr><tr><td>3</td><td>Cave bears, a kleztigr, or similar large beast, making its den here</td></tr><tr><td>4</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.BUMZ5O0VT9SDjfwE]{Grochslon}</strong>, or some other subterranean predator</td></tr><tr><td>5</td><td>Spirit, bound to or happily dwelling in this sacred site</td></tr><tr><td>6</td><td>A malicious spirit, like a troelloff</td></tr></tbody></table><p><strong>Discoveries</strong></p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Connection to another cave system</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3–5</td><td>Signs of a (prior) inhabitant, like a site, artifact(s), or remains</td></tr><tr><td>6</td><td>A relatively good place to rest/hide</td></tr></tbody></table><p><strong>Dangers</strong></p><ul><li>Cold, especially if they’ve gotten wet</li><li>Heat and humidity, especially if they carry heavy loads</li><li>Getting lost</li><li>Cave-ins, rock-falls</li><li>Getting stuck in a squeeze</li><li>Running out of/losing your light</li><li>Fear, panic, or confusion in the face of any of the above</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around The Steplands. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.sc28aHnwvhvBDyjh]{Brawzbedr}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.IS7Y75Kbqe5KILXW]{Gouzadn}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.BUMZ5O0VT9SDjfwE]{Grochslon}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.3e1HimZxPWvqLyu1]{Kleztigr}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ooVg9LaPN3bSAnge]{Spitting Drake}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around The Steplands. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Owbdgx7wi7p30MzW]{Hdour}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.J3KbSweAhRZfonEX]{Hillfolk Rider}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nJnOuEaIJBZParuZ]{Spirit-talker}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What do the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}** call the Steplands?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which of you once explored the caves that dot these lands? What did you find there that haunts you still?",
+                "answer": ""
+              },
+              {
+                "prompt": "What treasure or wonder is said to be hidden in the Steplands?",
+                "answer": ""
+              },
+              {
+                "prompt": "What landmark, visible from the Highway, have you always wanted to explore?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Harsh weather threatens PCs on the Highway; a nearby cave might provide shelter</li><li>A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> band is plagued by a bloodthirsty gouzadn, but a concerned parent begs for their lost child’s life to be spared</li><li>A brawzbedr naps on the Highway, blocking a merchant’s wagon</li><li>Someone the PCs care about went to explore a cave and never came out</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A change of terrain and roll again.</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>Useful or valuable flora</td></tr><tr><td>4</td><td>A point of interest</td></tr><tr><td>5</td><td>A hillfolk encounter</td></tr><tr><td>6</td><td>Some other encounter</td></tr></tbody></table><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A place corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>A place haunted by death or the undying</td></tr><tr><td>3</td><td>A site or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr><tr><td>4</td><td>A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> encampment or sacred place, occupied or not</td></tr><tr><td>5</td><td>A place sacred to the spirits of the wild</td></tr><tr><td>6</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></td></tr></tbody></table><p><strong>1d6 hillfolk encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Pair or trio of riders, not immediately hostile</td></tr><tr><td>2</td><td>Herd of goats or sheep, tended by teen(s) and hound(s)</td></tr><tr><td>3</td><td>Signs of their passing/encampment/borders</td></tr><tr><td>4</td><td>Foragers, not far from camp</td></tr><tr><td>5</td><td>A whole band, on the move</td></tr><tr><td>6</td><td>A meeting between two or more bands</td></tr></tbody></table><p>For more about Hillfolk bands, see page 230.</p><p><strong>1d6 other encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Deadly beast, not actively hostile but easily provoked: a brawzbedr, cave bear, thunder drake, etc.</td></tr><tr><td>2–3</td><td>Potential game, but big and dangerous if provoked: boars, aurochs, etc.</td></tr><tr><td>4–5</td><td>Game, mostly harmless but prone to bolt: deer, fowl, rabbits, etc.</td></tr><tr><td>6</td><td>Spirit of the wild, curious or indifferent</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Getting lost (maze of hills, valleys, streams; trees blocking views)</li><li>Sheer rock face to climb, and a reason to climb it</li><li>Steep slope, unstable footing (scree, mud, fallen needles, crumbling rock)</li><li>Flash flooding in valleys/on slopes</li></ul>"
+              },
+              {
+                "heading": "Mudslide",
+                "body": "<p>Start with a slope built up with soil. Peel away the vegetation through over-grazing, or fire, or drought, or too much rain entirely. Add a sudden heavy rain or some fools walking across it. Hey, look, a mudslide!</p><ul><li>Point out the lack of ground cover, the sodden soil, the weight of waiting earth</li><li>It’ll take time/effort/risk to avoid the unstable slope</li><li>The hillside shifts and buckles, underfoot or overhead</li><li>People, stones, and trees are swept away or buried, d6+2 damage (area, forceful, grabby, ignores armor)</li><li>Trap them, crush them, deprive them of air</li><li>Leave behind a slick, treacherous, muddy swath</li></ul>"
+              },
+              {
+                "heading": "Rockslide",
+                "body": "<p>Some slopes are often covered with scree or strewn with boulders, fist-sized, head-sized, some as big as horses. Mostly they stay put. Mostly.</p><ul><li>A loose stone clatters downhill, skitterscatter, billowing dust, but over soon enough</li><li>A smaller rock smacks them, d6 damage</li><li>A bigger stone teeters, starts to slip</li><li>A whole field of boulders gives way</li><li>Clunk, clunk, smash, d8+2 damage (area, forceful)</li><li>Bury them under tons of rock and dirt (Death’s Door)</li></ul>"
+              },
+              {
+                "heading": "Bat swarm",
+                "body": "<p>Stepland caves are often home to thousands upon thousands of bats. They’re nothing to fear individually. But a swarm of them, when you stand in their way? Oh dear.</p><ul><li>Squeaks, chitters, and flapping are heard in the distance</li><li>The sounds get closer, louder, and louder still</li><li>Overwhelm them with sound and scratches and fluttering wings, d6 damage (area)</li></ul><p><strong><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong></strong></p><ul><li>A pair or trio of Hillfolk riders, hunting or on patrol</li><li>A half-dozen riders or more, trailing the PCs</li><li>A hdour and/or their attendant spirits, beasts, demons, or followers</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Ornery beasts, all riled up: aurochs, boar, cave bears, or thunder drakes.</li><li>Predators: cougar, feathered drakes, pack drakes, wolves</li><li>Spirits of the wild</li><li>Deathless ones, barrow wights, or phantom riders, lurking in their barrows or set free of them</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.sgwKSp8PEmkIv21v]{The Ghostly Legion}</strong>, on the hunt or marching mortals to their cave</li><li>Other ghosts or revenants, victims of tragedy or violence</li><li>One of the other dangerous beasts that roam the Steplands</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

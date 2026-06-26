@@ -1,0 +1,103 @@
+{
+  "name": "Blush-of-Dawn",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "fiery touch d8 w/disadvantage (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to be adored"
+      }
+    },
+    "concept": "A radiant fae who feeds on adoration in an eternal pre-dawn glade.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, fae, magical, beautiful, passionate",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>; radiant. Armor 0 vs. iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.VT6aaEfcpnSj45t4",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Blush-of-Dawn",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "hn5wIh2j6LkfGMiJ",
+      "name": "Sing a song to stir the blood",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W3OCTba3AGj13THE.hn5wIh2j6LkfGMiJ"
+    },
+    {
+      "_id": "orvxh9KIlCX50zix",
+      "name": "Inspire passion, jealousy, or devotion",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W3OCTba3AGj13THE.orvxh9KIlCX50zix"
+    },
+    {
+      "_id": "ClTAoo5b1k1Ox30H",
+      "name": "Steal away into their Fae domain, perhaps with a new prize in tow",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W3OCTba3AGj13THE.ClTAoo5b1k1Ox30H"
+    },
+    {
+      "_id": "JJFCdTkEHDAEEaG1",
+      "name": "Set devotees to a task or challenge",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W3OCTba3AGj13THE.JJFCdTkEHDAEEaG1"
+    },
+    {
+      "_id": "xiXIvt7e86VInv1A",
+      "name": "Blaze brightly, blinding onlookers",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!W3OCTba3AGj13THE.xiXIvt7e86VInv1A"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "W3OCTba3AGj13THE",
+  "_key": "!actors!W3OCTba3AGj13THE"
+}

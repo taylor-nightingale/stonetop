@@ -1,11 +1,91 @@
-<div class="tab moves" data-group="primary" data-tab="moves">
+<div class="tab moves{{#if stonetop.hideUnselected}} hide-unselected{{/if}}" data-group="primary" data-tab="moves">
 	<section class="sheet-tab">
 
-		{{#each stonetop.moves.categories}}
-		{{#if (eq renderStyle "standard")}}
-		{{> "stonetop.move-group" title=label note=note moves=moves categoryKey=key allowAdditional=allowAdditional}}
+		{{#if stonetop.movelist.playbookMoves.length}}
+		{{> "stonetop.move-group"
+		    title=(localize "stonetop.character.moves.playbookMoves")
+		    note=stonetop.movelist.startingMovesNoteDisplay
+		    moves=stonetop.movelist.playbookMoves
+		    hideToggle=true
+		    hideUnselected=stonetop.hideUnselected
+		    editSection="moves"
+		    editing=stonetop.movesEdit}}
+		{{#if stonetop.movelist.movesIncomplete}}
+		<div class="stonetop-details-onboarding-actions">
+			<button type="button" class="stonetop-choose-moves-btn" data-onboarding-start="moves">
+				<i class="fas fa-question-circle" aria-hidden="true"></i>
+				{{localize "stonetop.character.moves.chooseStartingMoves"}}
+			</button>
+		</div>
 		{{/if}}
-		{{/each}}
+		{{/if}}
+
+		{{#if stonetop.movelist.postDeathGroup}}
+		{{> "stonetop.move-group"
+		    title=stonetop.movelist.postDeathGroup.label
+		    note=null
+		    moves=stonetop.movelist.postDeathGroup.moves}}
+		{{/if}}
+
+		{{#if stonetop.playbook}}
+		{{#each stonetop.movelist.otherGroups}}
+				<div class="stonetop-move-group">
+					<h3 class="stonetop-move-group-title">{{label}}</h3>
+					<ol class="items-list">
+					{{#each moves}}
+						{{#if rollType}}
+						<li class="item stonetop-item" data-item-id="{{ownedId}}">
+						{{else}}
+						<li class="stonetop-item">
+						{{/if}}
+							<div class="stonetop-item-header">
+								{{#if rollType}}
+								<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+									<i class="fas fa-dice-d6"></i>
+								</span>
+								{{/if}}
+								<strong class="stonetop-item-name">{{name}}</strong>
+								{{#if (and @root.stonetop.showRollStatChips rollLabel)}}<span class="stonetop-move-roll-chip">+{{rollLabel}}</span>{{/if}}
+								<a class="stonetop-other-move-delete" data-item-id="{{ownedId}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						</li>
+					{{/each}}
+					</ol>
+				</div>
+				{{/each}}
+		{{/if}}
+
+			{{#if stonetop.showOtherMovesSection}}
+			<div class="stonetop-move-group stonetop-other-moves-section">
+				{{> "stonetop.section-heading" title=(localize "stonetop.character.moves.otherMoves")}}
+				<ol class="items-list">
+				{{#each stonetop.movelist.otherMoves}}
+					<li class="item stonetop-item" data-item-id="{{ownedId}}">
+						<div class="stonetop-item-header">
+							{{#if rollType}}
+							<span class="rollable move-rollable" data-roll="{{rollType}}" data-mod="">
+								<i class="fas fa-dice-d6"></i>
+							</span>
+							{{/if}}
+							<strong class="stonetop-item-name">{{name}}</strong>
+							{{#if (and @root.stonetop.showRollStatChips rollLabel)}}<span class="stonetop-move-roll-chip">+{{rollLabel}}</span>{{/if}}
+							<a class="stonetop-other-move-delete" data-item-id="{{ownedId}}" title="{{localize 'stonetop.character.moves.removeMove'}}">
+								<i class="fas fa-trash"></i>
+							</a>
+						</div>
+						{{#if description}}<div class="stonetop-item-description">{{{boldMissText description}}}</div>{{/if}}
+					</li>
+				{{/each}}
+				</ol>
+				{{#if stonetop.movesEdit}}
+				<button type="button" class="item-control item-create" data-type="move" data-move-type="other" title="{{localize 'stonetop.character.moves.addMove'}}">
+					<i class="fas fa-plus"></i>
+				</button>
+				{{/if}}
+			</div>
+			{{/if}}
 
 	</section>
 </div>

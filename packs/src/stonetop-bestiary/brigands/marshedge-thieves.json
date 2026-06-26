@@ -1,0 +1,91 @@
+{
+  "name": "Thieves",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "knife d6 w/disadvantage (hand)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to get theirs and get gone"
+      }
+    },
+    "concept": "Pickpockets and cutpurses working the crowds of Marshedge.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, devious, stealthy, cautious",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ytyTMHny5iAK6yZB",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Thieves",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "fRvX1F9Y1p7Cg5WS",
+      "name": "Grab something, slip away unnoticed",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlbFh4CDvRxFInGA.fRvX1F9Y1p7Cg5WS"
+    },
+    {
+      "_id": "bxICfQyTbyCWyozl",
+      "name": "Vanish into a crowd or an alley",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlbFh4CDvRxFInGA.bxICfQyTbyCWyozl"
+    },
+    {
+      "_id": "qE5NGuO8wV2Woyu8",
+      "name": "Spot an easy mark",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlbFh4CDvRxFInGA.qE5NGuO8wV2Woyu8"
+    },
+    {
+      "_id": "TWp3MDMNUHjuIJq8",
+      "name": "Wriggle free",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rlbFh4CDvRxFInGA.TWp3MDMNUHjuIJq8"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "7jHoGAhA79s1EBFQ",
+  "_id": "rlbFh4CDvRxFInGA",
+  "_key": "!actors!rlbFh4CDvRxFInGA"
+}

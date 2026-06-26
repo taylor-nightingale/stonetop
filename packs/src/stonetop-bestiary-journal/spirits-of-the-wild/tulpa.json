@@ -1,0 +1,61 @@
+{
+  "_id": "9RoGuMEtRuOH80Q8",
+  "_key": "!journal!9RoGuMEtRuOH80Q8",
+  "name": "Tulpa",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A tiny thought-form spirit created through meditation and sacrifice, eager to serve its maker."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 139000,
+  "pages": [
+    {
+      "_id": "tQIA1kj4x2mCyGlI",
+      "_key": "!journal.pages!9RoGuMEtRuOH80Q8.tQIA1kj4x2mCyGlI",
+      "name": "Tulpa",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A tiny thought-form spirit created through meditation and sacrifice, eager to serve its maker.",
+        "description": "<p>A tulpa is a tiny spirit-construct, conjured into being through months of meditative practice and the permanent sacrifice of a piece of your own vitality. Its maker names and describes it, then picks its further tags, its instinct, two more moves, and its cost; it serves as a follower. Naive and eager, it might be fierce, kind, sly, timid, or willful, as you imagine it.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.Yybkf0saCMZRKEYf"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

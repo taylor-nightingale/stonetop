@@ -1,0 +1,92 @@
+{
+  "name": "Thornthumb",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, lacks vitals"
+      },
+      "damage": {
+        "value": "raking fingers d8 (hand, grabby)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to acquire"
+      }
+    },
+    "concept": "A prickly little wicker-man Fae, a hoarder of trinkets desperate to reclaim his stolen stash.",
+    "organization": "solitary",
+    "size": "small",
+    "tags": "solitary, small, fae, stealthy, magical, devious",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>; hollow. Armor 1 vs. iron.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.bn2on83jMJvyN4hU",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Thornthumb",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "RqpbDYAeTFGo6qIU",
+      "name": "Blend into the terrain",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!HQCqcFlZZzEr8EHZ.RqpbDYAeTFGo6qIU"
+    },
+    {
+      "_id": "WA0U5GKktc5lctzc",
+      "name": "Filch something",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!HQCqcFlZZzEr8EHZ.WA0U5GKktc5lctzc"
+    },
+    {
+      "_id": "ur55ytPkQTrhbOde",
+      "name": "Get help from nearby plants and trees",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!HQCqcFlZZzEr8EHZ.ur55ytPkQTrhbOde"
+    },
+    {
+      "_id": "25BtsnRALCYUTCBr",
+      "name": "Hide something in his body",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!HQCqcFlZZzEr8EHZ.25BtsnRALCYUTCBr"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "HQCqcFlZZzEr8EHZ",
+  "_key": "!actors!HQCqcFlZZzEr8EHZ"
+}

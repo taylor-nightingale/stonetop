@@ -1,0 +1,61 @@
+{
+  "_id": "oAW6aV8Fmw6ZQPX4",
+  "_key": "!journal!oAW6aV8Fmw6ZQPX4",
+  "name": "Frythanc",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A scaly bird with a forty-foot wingspan that drops its prey from the sky."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 3000,
+  "pages": [
+    {
+      "_id": "LJpl17rtE9oSe9Ga",
+      "_key": "!journal.pages!oAW6aV8Fmw6ZQPX4.LJpl17rtE9oSe9Ga",
+      "name": "Frythanc",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A scaly bird with a forty-foot wingspan that drops its prey from the sky.",
+        "description": "<p>Great scaly birds, wings some forty feet across, sky-blue and white feathers on their undersides to hide against the sky. They roost in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong> but hunt the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, snatching up the unwary — man, woman, deer, horse — and dropping them to the ground. The drop usually kills or cripples its prey, and then it alights to dine at its leisure. Thank <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>, they're very rare, with only one mated pair hunting the Flats at a time.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.YKLG7aDPRTieTkve"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

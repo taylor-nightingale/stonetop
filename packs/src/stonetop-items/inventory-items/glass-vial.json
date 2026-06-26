@@ -1,0 +1,21 @@
+{
+  "_id": "YSgy3c2Eom06Dwt0",
+  "_key": "!items!YSgy3c2Eom06Dwt0",
+  "name": "Glass vial",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "glass-vial",
+      "inventoryColumn": "small",
+      "sortOrder": 28,
+      "note": "<em>fragile</em>",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Exotic Stuff"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

@@ -1,0 +1,23 @@
+<div class="stonetop-so-layout">
+
+	{{!-- Sidebar nav --}}
+	<nav class="stonetop-so-sidebar">
+		<div class="stonetop-so-sidebar-header">Setting Overview</div>
+		{{#each entries}}
+		<button type="button"
+		        class="stonetop-so-nav-entry {{#if active}}is-active{{/if}}"
+		        data-entry="{{id}}">
+			{{title}}
+		</button>
+		{{/each}}
+	</nav>
+
+	{{!-- Content area --}}
+	<div class="stonetop-so-content">
+		<h2 class="stonetop-so-entry-title">{{entryTitle}}</h2>
+		<div class="stonetop-so-entry-body">
+			{{{content}}}
+		</div>
+	</div>
+
+</div>

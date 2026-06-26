@@ -1,0 +1,22 @@
+{
+  "_id": "stFloraBrightbry",
+  "_key": "!items!stFloraBrightbry",
+  "name": "Brightberry",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "brightberry",
+      "inventoryColumn": "regular",
+      "sortOrder": 70,
+      "note": "Glowing golden berries (<em>hand</em>); harvest as &#9671; Provisions (3 uses, <em>fragile</em>) that burn away within hours. A potted shrub, nursed to health, is Value 2.",
+      "weight": 1,
+      "breakBefore": true,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

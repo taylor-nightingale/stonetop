@@ -1,0 +1,81 @@
+{
+  "name": "Wraith",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "life drain d10 (hand, ignores armor)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to feast upon living souls"
+      }
+    },
+    "concept": "A hungering husk of a soul that drains the life from the living.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, undead, stealthy, terrifying",
+    "qualities": "<p>Bound to its tether (usually); powerless in daylight.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.MVICDuKvbrNllUY3",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Wraith",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "3fHxlUT8MWInCTfB",
+      "name": "Manifest a form of shadow and cold (harmed only by silver and salt)",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zNH67lRb1oL8rXA0.3fHxlUT8MWInCTfB"
+    },
+    {
+      "_id": "aDExYqwB84P73Zet",
+      "name": "Hurl itself at the living",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zNH67lRb1oL8rXA0.aDExYqwB84P73Zet"
+    },
+    {
+      "_id": "xCwbWydB7fHR0AH2",
+      "name": "Suck vitality from its prey",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!zNH67lRb1oL8rXA0.xCwbWydB7fHR0AH2"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "zNH67lRb1oL8rXA0",
+  "_key": "!actors!zNH67lRb1oL8rXA0"
+}

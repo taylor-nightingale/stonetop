@@ -1,0 +1,100 @@
+<form class="{{cssClass}} stonetop stonetop-bestiary-page stonetop-location-page stonetop-bestiary-sheet flexcol{{#if stonetop.isEditable}} stonetop-edit-mode{{/if}}" autocomplete="off">
+
+	{{#if stonetop.isEditable}}
+	{{> journalEntryPageHeader}}
+	{{else}}{{#if data.title.show}}
+	<header class="journal-page-header">
+		<h{{data.title.level}}>{{data.name}}</h{{data.title.level}}>
+	</header>
+	{{/if}}{{/if}}
+
+	<div class="journal-page-content stonetop-bestiary-container stonetop-bestiary-page-edit">
+
+		{{#each stonetop.sections}}
+		{{#if (or visible editing)}}
+		{{#if groupStart}}<h2 class="stonetop-section-group stonetop-section-group--{{group}}">{{groupLabel}}</h2>{{/if}}
+		<section class="stonetop-monster-field stonetop-monster-field--full{{#if danger}} stonetop-danger-section{{/if}}"
+		         data-section="{{index}}" data-section-index="{{index}}">
+
+			{{> "stonetop.bestiary-section-head" key=index title=heading inlineOwner=@root.stonetop.inlineOwner open=open}}
+
+			{{#if isQa}}
+			{{!-- QUESTIONS (prompt + answer pairs) --}}
+			{{#if editing}}
+			<ul class="stonetop-entry-qa-list">
+				{{#each pairs}}
+				<li class="stonetop-entry-qa-row" data-qa-index="{{@index}}">
+					<div class="stonetop-entry-qa-edit">
+						<input type="text" class="stonetop-entry-qa-input stonetop-entry-qa-prompt"
+						       value="{{prompt}}" placeholder='{{localize "stonetop.bestiary.questionPlaceholder"}}'>
+						<textarea class="stonetop-entry-qa-input stonetop-entry-qa-answer"
+						          placeholder='{{localize "stonetop.bestiary.answerPlaceholder"}}'>{{answer}}</textarea>
+						<a class="stonetop-entry-remove-qa" title="Remove"><i class="fas fa-trash"></i></a>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+			<button type="button" class="stonetop-entry-add-qa">
+				<i class="fas fa-plus"></i> {{localize "stonetop.bestiary.addQuestion"}}
+			</button>
+			{{else}}
+			<ul class="stonetop-entry-qa-list">
+				{{#each pairs}}
+				{{#if (or prompt answer)}}
+				<li class="stonetop-entry-qa-row">
+					<div class="stonetop-entry-qa-read">
+						{{#if lead}}<p class="stonetop-entry-qa-lead-text">{{lead}}</p>{{/if}}
+						<p class="stonetop-entry-qa-prompt-text">{{{promptHtml}}}</p>
+						{{#if answer}}<p class="stonetop-entry-qa-answer-text">{{{answerHtml}}}</p>{{/if}}
+					</div>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+			{{/if}}
+
+			{{else}}{{#if isGroups}}
+			{{!-- DANGERS (titled entries, each a rich body that keeps lists, links & roll tables) --}}
+			{{#if editing}}
+			<div class="stonetop-entry-group-list">
+				{{#each groups}}
+				<div class="stonetop-entry-group-row" data-group-index="{{@index}}">
+					<input type="text" class="stonetop-entry-group-heading"
+					       value="{{heading}}" placeholder='{{localize "stonetop.bestiary.dangerTitlePlaceholder"}}'>
+					<prose-mirror class="stonetop-entry-rich-editor stonetop-entry-group-body"
+					              data-section-index="{{../index}}" data-group-index="{{@index}}"
+					              value="{{body}}">{{{enrichedBody}}}</prose-mirror>
+					<a class="stonetop-entry-remove-group" title="Remove"><i class="fas fa-trash"></i></a>
+				</div>
+				{{/each}}
+			</div>
+			<button type="button" class="stonetop-entry-add-group">
+				<i class="fas fa-plus"></i> {{localize "stonetop.bestiary.addDanger"}}
+			</button>
+			{{else}}
+			{{#each groups}}
+			{{#if (or heading body)}}
+			<div class="stonetop-danger-group">
+				{{#if heading}}<h4 class="stonetop-move-group-title stonetop-danger-heading"><span>{{heading}}</span></h4>{{/if}}
+				<div class="stonetop-monster-readonly-text stonetop-monster-rich-text">{{{enrichedBody}}}</div>
+			</div>
+			{{/if}}
+			{{/each}}
+			{{/if}}
+
+			{{else}}
+			{{!-- PROSE (rich text: keeps tables, sub-headed bullet lists, cross-links) --}}
+			{{#if editing}}
+			<prose-mirror class="stonetop-entry-rich-editor stonetop-monster-rich-editor--full"
+			              data-section-index="{{index}}" value="{{body}}">{{{enrichedBody}}}</prose-mirror>
+			{{else}}
+			<div class="stonetop-monster-readonly-text stonetop-monster-rich-text">{{{enrichedBody}}}</div>
+			{{/if}}
+			{{/if}}{{/if}}
+
+		</section>
+		{{/if}}
+		{{/each}}
+
+	</div>
+</form>

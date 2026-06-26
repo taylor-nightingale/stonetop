@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Danger move">
+  <circle cx="12" cy="12" r="11.5" fill="#161616"/>
+  <path d="M12 4.6c1.05 0 1.86.92 1.74 1.96l-.84 7.3a.9.9 0 0 1-1.8 0l-.84-7.3C10.14 5.52 10.95 4.6 12 4.6z" fill="#fff"/>
+  <circle cx="12" cy="17.7" r="1.75" fill="#fff"/>
+</svg>

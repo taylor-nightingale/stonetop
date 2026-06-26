@@ -1,0 +1,122 @@
+<form class="{{cssClass}} stonetop-move-editor" autocomplete="off">
+
+	<header class="stonetop-move-editor-header">
+		<img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="{{item.name}}">
+		<input class="stonetop-move-editor-name" name="name" type="text" value="{{item.name}}" placeholder="{{localize 'stonetop.moveEditor.namePlaceholder'}}">
+	</header>
+
+	<div class="stonetop-move-editor-grid">
+		<label class="stonetop-move-field">
+			<span>{{localize "stonetop.moveEditor.moveType"}}</span>
+			<select name="system.moveType">
+				{{#each moveTypeOptions}}
+				<option value="{{this}}" {{#if (eq this ../system.moveType)}}selected{{/if}}>{{this}}</option>
+				{{/each}}
+			</select>
+		</label>
+		<label class="stonetop-move-field">
+			<span>{{localize "stonetop.moveEditor.rollStat"}}</span>
+			<select name="system.rollType">
+				{{#each rollTypeOptions}}
+				<option value="{{this}}" {{#if (eq this ../system.rollType)}}selected{{/if}}>{{#if this}}{{this}}{{else}}—{{/if}}</option>
+				{{/each}}
+			</select>
+		</label>
+		<label class="stonetop-move-field">
+			<span>{{localize "stonetop.moveEditor.playbook"}}</span>
+			<input type="text" name="system.playbook" value="{{system.playbook}}">
+		</label>
+		<label class="stonetop-move-field">
+			<span>{{localize "stonetop.moveEditor.slug"}}</span>
+			<input type="text" name="system.slug" value="{{system.slug}}">
+		</label>
+		<label class="stonetop-move-field stonetop-move-field--narrow">
+			<span>{{localize "stonetop.moveEditor.repeatMax"}}</span>
+			<input type="number" name="system.repeatMax" value="{{system.repeatMax}}" min="0" step="1">
+		</label>
+		<label class="stonetop-move-check">
+			<input type="checkbox" name="system.isStartingMove" {{#if system.isStartingMove}}checked{{/if}}>
+			<span>{{localize "stonetop.moveEditor.isStartingMove"}}</span>
+		</label>
+		<label class="stonetop-move-check">
+			<input type="checkbox" name="system.noXpOnMiss" {{#if system.noXpOnMiss}}checked{{/if}}>
+			<span>{{localize "stonetop.moveEditor.noXpOnMiss"}}</span>
+		</label>
+	</div>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.moveEditor.description"}}</h3>
+		<p class="stonetop-move-hint">{{localize "stonetop.moveEditor.descriptionHint"}}</p>
+		<textarea name="system.description" class="stonetop-move-editor-description">{{system.description}}</textarea>
+	</section>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.moveEditor.moveResults"}}</h3>
+		{{#each results}}
+		<div class="stonetop-move-result">
+			<input type="text" class="stonetop-move-result-label" name="system.moveResults.{{key}}.label" value="{{label}}">
+			<textarea class="stonetop-move-result-value" name="system.moveResults.{{key}}.value" placeholder="{{localize 'stonetop.moveEditor.resultPlaceholder'}}">{{value}}</textarea>
+		</div>
+		{{/each}}
+	</section>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.moveEditor.requirement"}}</h3>
+		<label class="stonetop-move-field stonetop-move-field--block">
+			<span>{{localize "stonetop.moveEditor.requiredMoves"}}</span>
+			<textarea name="_reqMoves" class="stonetop-move-req-moves" placeholder="{{localize 'stonetop.moveEditor.requiredMovesHint'}}">{{reqMovesText}}</textarea>
+		</label>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.moveEditor.minLevel"}}</span>
+				<input type="number" name="system.requirement.level" value="{{reqLevel}}" min="1" step="1">
+			</label>
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.moveEditor.requiredPlaybook"}}</span>
+				<input type="text" name="system.requirement.playbook" value="{{reqPlaybook}}">
+			</label>
+		</div>
+	</section>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.moveEditor.resource"}}</h3>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.moveEditor.resourceTitle"}}</span>
+				<input type="text" name="system.resource.title" value="{{resourceTitle}}">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.moveEditor.resourceMax"}}</span>
+				<input type="number" name="system.resource.max" value="{{resourceMax}}" min="0" step="1">
+			</label>
+		</div>
+	</section>
+
+	<section class="stonetop-move-section">
+		<h3>{{localize "stonetop.moveEditor.inventory"}}</h3>
+		<p class="stonetop-move-hint">{{localize "stonetop.moveEditor.inventoryHint"}}</p>
+		<div class="stonetop-move-editor-grid">
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.moveEditor.weight"}}</span>
+				<input type="number" name="system.weight" value="{{system.weight}}" min="0" step="1">
+			</label>
+			<label class="stonetop-move-field">
+				<span>{{localize "stonetop.moveEditor.inventoryColumn"}}</span>
+				<select name="system.inventoryColumn">
+					{{#each columnOptions}}
+					<option value="{{this}}" {{#if (eq this ../system.inventoryColumn)}}selected{{/if}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.moveEditor.armorBonus"}}</span>
+				<input type="number" name="system.armorBonus" value="{{system.armorBonus}}" step="1">
+			</label>
+			<label class="stonetop-move-field stonetop-move-field--narrow">
+				<span>{{localize "stonetop.moveEditor.hpBonus"}}</span>
+				<input type="number" name="system.hpBonus" value="{{system.hpBonus}}" step="1">
+			</label>
+		</div>
+	</section>
+
+</form>

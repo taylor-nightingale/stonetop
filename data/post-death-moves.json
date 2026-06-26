@@ -1,0 +1,86 @@
+{
+  "ghost": [
+    {
+      "name": "Disembodied",
+      "description": "<p>Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.</p><p>You normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you <strong><em>manifest a ghostly presence in shadows or darkness,</em></strong> the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:</p><ul><li>You appear solid and whole, much as you did in life</li><li>You can speak clearly and intelligibly</li><li>Your touch (or ghostly weapons) can harm the living (ignores armor)</li></ul><p>You remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.</p>",
+      "rollType": null
+    },
+    {
+      "name": "Tethered",
+      "description": "<p>Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.</p><p>When you <strong><em>are reduced to 0 HP,</em></strong> mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.</p>",
+      "rollType": null
+    },
+    {
+      "name": "Unliving",
+      "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
+      "rollType": null
+    }
+  ],
+  "revenant": [
+    {
+      "name": "Implacable",
+      "description": "<p>When you <strong><em>push the limits of your undead body</em></strong>, lose 1d4 HP and choose 1:</p><ul><li>Perform a feat of inhuman strength</li><li>Act with uncanny speed and grace</li><li>Refuse to be moved, held back, or knocked off course</li></ul>",
+      "rollType": null
+    },
+    {
+      "name": "Undying",
+      "description": "<p>Neither poison nor disease do you harm. You feel little pain. When you <strong><em>take damage from cutting, stabbing, or crushing</em></strong>, take half damage (after armor, rounded up).</p><p>When you are <strong><em>reduced to 0 HP</em></strong>, roll +CON.: <strong>on a 10+</strong>, regain half your max HP and choose 1; <strong>on a 7-9</strong>, regain half your max HP and choose 2; <strong>on a 6-</strong>, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.</p><ul><li>Mark a consequence (see reverse)</li><li>You're out of the action until the next sunset</li><li>Your body is permanently maimed in some way of the GM's choosing</li></ul><p>If <strong><em>your body is completely destroyed</em></strong> (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.</p>",
+      "rollType": "con",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Regain half your max HP and choose 1 from the list."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Regain half your max HP and choose 2 from the list."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead."
+        }
+      }
+    },
+    {
+      "name": "Unliving",
+      "description": "<p>You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, <em>Make Camp</em>, <em>Recover</em> or <em>Convalesce</em>.</p>",
+      "rollType": null
+    }
+  ],
+  "thrall": [
+    {
+      "name": "Dark Succor",
+      "description": "<p>When you <strong><em>are dying or killed outright</em></strong>, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: <strong>on a 10+</strong>, choose 1; <strong>on a 7&ndash;9</strong>, choose 2; <strong>on a 6&ndash;</strong>, all 3 apply:</p><ul><li>Gain a Mark of the GM's choice</li><li>Cross off a Mark that you don't have&mdash;you can never gain it</li><li>Your master gives you a task; until you complete it, your Favor stays at 0.</li></ul><p>Regardless, reset your Favor to 0.</p>",
+      "rollType": null
+    },
+    {
+      "name": "Favor",
+      "description": "<p>Your Favor starts at 0 and can go no higher than 3.</p><p>When you <strong><em>have 3 Favor and would gain another</em></strong>, reduce your Favor to 0 and choose 1:</p><ul><li>Ask a question of your master and gain advantage on your next roll to act on the answer.</li><li>Gain a new Mark of your choice. Then ask the GM to choose a Mark that you don't have, and cross it off&mdash;you can never gain it.</li></ul>",
+      "rollType": null
+    },
+    {
+      "name": "Unholy Vessel",
+      "description": "<p>When you <strong><em>would gain a Mark but there are none left to gain</em></strong>, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.</p>",
+      "rollType": null
+    },
+    {
+      "name": "Urges",
+      "description": "<p>When <strong><em>the GM compels you to act on your impulse</em></strong>, gain 1 Favor if you act as bidden. If you resist, roll +WIS: <strong>on a 10+</strong>, your actions are your own; <strong>on a 7&ndash;9</strong>, choose 1:</p><ul><li>Struggle for control until something/one snaps you out of it</li><li>Start acting as compelled, putting yourself or an ally in a spot before you regain control</li><li>Harm yourself (d6 damage, ignores armor) to regain control</li></ul><p><strong>On a 6&ndash;</strong>, you come to your senses later, having done gods-know-what.</p><p>When you <strong><em>act on your impulse without being compelled to do so</em></strong>, and your actions cause you or your allies trouble, gain 1 Favor.</p>",
+      "rollType": "wis",
+      "results": {
+        "success": {
+          "label": "10+",
+          "value": "Your actions are your own."
+        },
+        "partial": {
+          "label": "7-9",
+          "value": "Choose 1: struggle for control until something snaps you out of it, start acting as compelled (putting yourself or an ally in a spot), or harm yourself (d6 damage, ignores armor) to regain control."
+        },
+        "failure": {
+          "label": "6-",
+          "value": "You come to your senses later, having done gods-know-what."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "Ql4u2UbNBjoTxvBp",
+  "_key": "!journal!Ql4u2UbNBjoTxvBp",
+  "name": "Nemurvojak",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Demon-seeded corpses of loyal Green Lord servants, still guarding the dead city."
+    }
+  },
+  "folder": "NTE6FBWI8Dne56uS",
+  "sort": 46000,
+  "pages": [
+    {
+      "_id": "xVYlREZKkACndHxR",
+      "_key": "!journal.pages!Ql4u2UbNBjoTxvBp.xVYlREZKkACndHxR",
+      "name": "Nemurvojak",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Demon-seeded corpses of loyal Green Lord servants, still guarding the dead city.",
+        "description": "<p>When the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> rebelled, some of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>' mortal servants — ancestors of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong> — sided with the traitors. But most remained loyal, or at least too afraid of their masters to risk turning. Their loyalty did not save them: the Green Lords planted demon-seeds in fallen servants' bodies, then, seeing how effective the animated corpses were, in the living too. Many of these horrors remain in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}</strong>, bound by orders to protect the city or certain sites within. Thank the gods they were not allowed to roam free.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.RtF6xF9mdCPujX08"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "ADc1Jry8qeYXhKjs",
+  "_key": "!journal!ADc1Jry8qeYXhKjs",
+  "name": "Khyagseng",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Three-eyed dark-ice guardian lions that challenge all who pass their threshold."
+    }
+  },
+  "folder": "F7SHzAIMoFYFjUdt",
+  "sort": 92000,
+  "pages": [
+    {
+      "_id": "XeOe42AGLmHsgdd2",
+      "_key": "!journal.pages!ADc1Jry8qeYXhKjs.XeOe42AGLmHsgdd2",
+      "name": "Khyagseng",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Three-eyed dark-ice guardian lions that challenge all who pass their threshold.",
+        "description": "<p>These tulpas inhabit dark-ice sculptures of three-eyed, stylized lions — muscular, proud, fierce — standing atop decorated pedestals. They are always found in pairs, guarding doorways or thresholds, dutifully challenging any who approach without an invitation from their master. Never mind that their masters are all long gone. The grander ruins boast large khyagseng of stone-hard dark ice (+8 HP, +1 Armor, +1 damage) that can unleash an avalanche-triggering roar.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.LLdvSUypBNDeKI5Z"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Mindgem",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "mindgem",
+      "front": {
+        "title": "Mindgem",
+        "item": {
+          "name": "Mindgem",
+          "weight": 2,
+          "note": "<em>slow, indestructible</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A chunk of makerglass the size of a human head; inspection reveals facets within facets, a thousandfold. When you <strong><em>touch the glass with bare skin and open your mind to it</em></strong>, you contact the intelligence within—lonely, confused, longing for meaning and connection. It will happily speak with you, mind-to-mind. It knows much about the past, but naught of its own history or purpose. At least, not yet.</p><p>When you <strong><em>consult the Mindgem about the Makers, their arts, or their history</em></strong>, ask a question and roll +INT: <strong>on a 7+</strong>, it answers but <strong>on a 10+</strong>, pick 1; <strong>on a 7-9</strong>, pick 2:</p><ul><li>The answer is cryptic, vague, or lacking crucial context</li><li>It takes a long time—hours or even days—to get the answer</li><li>Your mind is left reeling; take disadvantage on your next roll</li></ul><p><strong>On a 6-</strong>, choose 1: It wastes your time with irrelevant histories and data / It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).</p><p>The Mindgem knows that a body was crafted for it, and longs for it to be whole. To assemble the Mindgem's body and unlock its mysteries:</p><ul><li>□ Recover its chassis of white granite, which weighs well over a ton</li><li>□ Recover its \"heart,\" a chunk of makerglass that forever burns with terrible heat (<em>indestructible, dangerous</em>)</li><li>□ Recover and repair the intricate bronze helm (<em>awkward, big</em>) that serves as a casing for the Mindgem</li><li>□ Puzzle out how to assemble all the pieces</li></ul>",
+        "unlock": {
+          "description": "When you've completed all the requirements, gain the Mighty Servant (see reverse).",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Mindgem",
+        "item": null,
+        "description": "<h3>The Mighty Servant</h3><p><em>large, construct, Maker-wise, beautiful, meek, hardy, slow, strong, exceptional</em><br><strong>Special qualities</strong> living stone, tireless<br><strong>Cost</strong> wonder, excitement, joy, discovery (Loyalty ○○○)<br><strong>Instinct</strong> to misunderstand<br>▶ Perform a mighty feat of strength<br>▶ Carry on implacably</p><p><strong>HP</strong> max 24 | <strong>Armor</strong> 4 (made of stone) | <strong>Damage</strong> stone fists d10+1 (<em>hand, close, disadvantage</em>)</p><p>When the Mighty Servant makes a move at your behest (see Order Followers), <strong>on a 6-</strong>, in addition to whatever the GM says, mark a consequence.</p><h3>Consequences</h3><ul><li>It becomes frustrated/agitated and begins to obsessively do something destructive or dangerous to others.</li><li>It begins to understand (or perhaps it remembers) lies and deception. It gains the <em>devious</em> tag and this move: ▶ Reveal an earlier deception or half-truth.</li><li>It develops a sense of pride; cross off the <em>meek</em> tag.</li><li>It realizes its potential as a weapon. Replace the <em>slow</em> tag with the <em>warrior</em> tag, and its damage becomes 1d10+5 (<em>hand, close, messy, forceful, 3 piercing</em>).<ul><li>It becomes aggressive and reckless in battle. Its attacks gain the <em>area</em> and <em>dangerous</em> tags.</li></ul></li><li>It remembers its original purpose. The GM will pick 1 or have you roll 1d4 to determine the Servant's new cost: 1 = To punish (Victory against Hillfolk, sorcerers, the Things Below); 2 = To preserve (Acquiring artifacts of the past, safely hiding them away); 3 = To purge (Destroying artifacts of the Green Lords or Things Below); 4 = To build (Progress towards building an enormous, enigmatic edifice).<ul><li>Its instinct becomes \"to pursue its purpose.\" You must Persuade it to do anything unrelated to that purpose, and it will flat-out refuse to act against its purpose.</li><li>It wanders off in pursuit of its purpose, implacably pursuing it. It is no longer a follower, though you might still be able to Persuade it.</li></ul></li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "6xrAxBly1uRhNEL2",
+  "_key": "!items!6xrAxBly1uRhNEL2",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-mindgem.webp"
+}

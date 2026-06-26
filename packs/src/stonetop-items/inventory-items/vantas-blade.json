@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraVantaBlad",
+  "_key": "!items!stFloraVantaBlad",
+  "name": "Vanta's Blade",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "vantas-blade",
+      "inventoryColumn": "regular",
+      "sortOrder": 74,
+      "note": "Light-drinking leaves that look like holes in reality. A pouch makes a rich dye, ink, or paint (Value 2). Hillfolk and Manmarchers think it cursed and will burn patches — and bearers — on sight.",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

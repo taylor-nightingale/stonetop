@@ -1,0 +1,61 @@
+{
+  "_id": "t5IDMGAw6mK7tzWU",
+  "_key": "!journal!t5IDMGAw6mK7tzWU",
+  "name": "Desperate Souls",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The downtrodden of the Delve, who'll do what they must to get by."
+    }
+  },
+  "folder": "6ADFBIjyJDYHfu5w",
+  "sort": 164000,
+  "pages": [
+    {
+      "_id": "dajOfJBsbHAgBT5f",
+      "_key": "!journal.pages!t5IDMGAw6mK7tzWU.dajOfJBsbHAgBT5f",
+      "name": "Desperate Souls",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The downtrodden of the Delve, who'll do what they must to get by.",
+        "description": "<p>Folks are capable of all sorts of things when there's food or coin in it and nothing left to lose. Most of the Delve's desperate are not villains — just people doing what they must, and now and then demonstrating their humanity in a small, or sometimes enormous, way.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qPV3pBGdCk4mdqCb"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

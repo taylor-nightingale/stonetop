@@ -1,0 +1,81 @@
+{
+  "name": "Void Elemental",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "void touch d10 w/advantage (hand, grabby, ignores armor)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to rage at all the noise and chaos"
+      }
+    },
+    "concept": "A confused, furious sliver of the primordial void, called into a world far too loud for it.",
+    "organization": "",
+    "size": "",
+    "tags": "spirit, primordial, confused, angry",
+    "qualities": "<p>Immune to most harm.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.brdZWD7CY1KZsHMG",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Void Elemental",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "kHC7Nrq0hpmDhDq4",
+      "name": "Manifest as a black hole in reality",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mB7CMIPDbB8gzHas.kHC7Nrq0hpmDhDq4"
+    },
+    {
+      "_id": "nndFP9vlafwzzNG8",
+      "name": "Snuff out a source of energy",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mB7CMIPDbB8gzHas.nndFP9vlafwzzNG8"
+    },
+    {
+      "_id": "ZbMbJ0I9oVyrg0QL",
+      "name": "Become confused, unsure what to do",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!mB7CMIPDbB8gzHas.ZbMbJ0I9oVyrg0QL"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "mB7CMIPDbB8gzHas",
+  "_key": "!actors!mB7CMIPDbB8gzHas"
+}

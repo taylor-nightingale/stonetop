@@ -1,0 +1,51 @@
+<div class="stonetop-eos-body">
+
+	<div class="stonetop-eos-sections">
+
+		{{!-- ── Personal XP ─────────────────────────────────────────────── --}}
+		<section class="stonetop-eos-section">
+			<h3 class="stonetop-eos-section-heading">Personal XP <span class="stonetop-eos-section-tag">each player</span></h3>
+			<ul class="stonetop-eos-personal-list">
+				<li>Point out how you <strong>demonstrated or struggled with your instinct</strong>. If you can, mark XP.</li>
+				<li>Say how your <strong>relationship with or opinion of a PC, NPC, or group has changed</strong>. If you can, mark XP.</li>
+			</ul>
+		</section>
+
+		{{!-- ── Group XP ───────────────────────────────────────────────── --}}
+		<section class="stonetop-eos-section">
+			<h3 class="stonetop-eos-section-heading">Group XP <span class="stonetop-eos-section-tag">check each "yes" — everyone marks XP</span></h3>
+			<div class="stonetop-eos-question-list">
+				{{#each questions}}
+				<label class="stonetop-eos-question{{#if checked}} is-checked{{/if}}">
+					<input type="checkbox" class="stonetop-eos-group-check" data-key="{{key}}" {{#if checked}}checked{{/if}}>
+					<span class="stonetop-eos-question-text">{{label}}</span>
+				</label>
+				{{/each}}
+			</div>
+			{{#if xpCount}}
+			<p class="stonetop-eos-xp-tally">+{{xpCount}} XP will be awarded to all player characters.</p>
+			{{/if}}
+		</section>
+
+		{{!-- ── Around the Table ────────────────────────────────────────── --}}
+		<section class="stonetop-eos-section">
+			<h3 class="stonetop-eos-section-heading">Around the Table</h3>
+			<ul class="stonetop-eos-personal-list">
+				<li><strong>Praise</strong> something about the session (in the fiction or around the table) that you enjoyed or appreciated.</li>
+				<li><strong>Wish</strong> for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.</li>
+			</ul>
+		</section>
+
+	</div>{{!-- /.stonetop-eos-sections --}}
+
+	<footer class="stonetop-eos-footer">
+		<button type="button" class="stonetop-eos-confirm-btn">
+			{{#if xpCount}}
+				Award +{{xpCount}} Group XP &amp; Close
+			{{else}}
+				Close
+			{{/if}}
+		</button>
+	</footer>
+
+</div>

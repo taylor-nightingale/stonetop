@@ -1,0 +1,92 @@
+{
+  "name": "Hagr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 1,
+        "source": "blubbery hide"
+      },
+      "damage": {
+        "value": "meaty hands d10+3 (hand, close, grabby, forceful), tree trunk d10+5 (reach, area, crude, forceful), or hurled heavy thing d10+3 (thrown, forceful)",
+        "rollFormula": "d10+5"
+      },
+      "instinct": {
+        "value": "to compulsively shape its environment"
+      }
+    },
+    "concept": "A one-eyed brute that compulsively, reverently stacks the forest.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, terrifying",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ckxdN0P9cHJfsZgQ",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Hagr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Ve9cq0G5rYFCBx4K",
+      "name": "Fix someone with its evil eye, overwhelming them with fear",
+      "type": "monsterMove",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fz8g74CpQcYrqSki.Ve9cq0G5rYFCBx4K"
+    },
+    {
+      "_id": "QhMXi9hdHzaCxSrA",
+      "name": "Pluck things from the ground as if weightless",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fz8g74CpQcYrqSki.QhMXi9hdHzaCxSrA"
+    },
+    {
+      "_id": "w9wGjifS39k99By9",
+      "name": "Obsessively stack things to exacting standards",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fz8g74CpQcYrqSki.w9wGjifS39k99By9"
+    },
+    {
+      "_id": "jbVXGCdTgh7YE4Gy",
+      "name": "Throw a tantrum when things aren't just right",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fz8g74CpQcYrqSki.jbVXGCdTgh7YE4Gy"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "fz8g74CpQcYrqSki",
+  "_key": "!actors!fz8g74CpQcYrqSki"
+}

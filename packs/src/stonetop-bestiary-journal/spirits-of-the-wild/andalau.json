@@ -1,0 +1,61 @@
+{
+  "_id": "Y6pj88e7QJGdPYJl",
+  "_key": "!journal!Y6pj88e7QJGdPYJl",
+  "name": "Andalau",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tiny wind-spirits that dance, flit, and prank where the breeze never stills."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 84000,
+  "pages": [
+    {
+      "_id": "KPmGamavAp7CCwj3",
+      "_key": "!journal.pages!Y6pj88e7QJGdPYJl.KPmGamavAp7CCwj3",
+      "name": "Andalau",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Tiny wind-spirits that dance, flit, and prank where the breeze never stills.",
+        "description": "<p>There are places where the wind dances constantly, fluttering and flitting, and here the andalau dwell. They are more prone to mischief than violence. Win their favor, and you might convince them to help you — especially if it involves going somewhere new or playing pranks. Just don't be surprised when their attention flits elsewhere.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qQL7mQwKGTM0JoRs"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

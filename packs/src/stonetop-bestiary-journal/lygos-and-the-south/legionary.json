@@ -1,0 +1,61 @@
+{
+  "_id": "DqstaADjKd7GKa1n",
+  "_key": "!journal!DqstaADjKd7GKa1n",
+  "name": "Legionary",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Disciplined professional soldiers, the backbone of a conquering army."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 161000,
+  "pages": [
+    {
+      "_id": "bzxWmNtUhshlJQGa",
+      "_key": "!journal.pages!DqstaADjKd7GKa1n.bzxWmNtUhshlJQGa",
+      "name": "Legionary",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Disciplined professional soldiers, the backbone of a conquering army.",
+        "description": "<p>The hardened core of the southern legions: disciplined professionals who fight in tight-knit formation, hold the line, and advance implacably until the field is theirs.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.6DnSbIHLqXCaV1vp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

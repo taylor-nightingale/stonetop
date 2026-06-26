@@ -1,0 +1,24 @@
+{
+  "_id": "7ic93Sd5zsk3ue84",
+  "_key": "!items!7ic93Sd5zsk3ue84",
+  "name": "Anger is a Gift",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "isStartingMove": true,
+    "description": "<p>When you <strong><em>burn with righteous anger (see Fear & Anger on the Details tab)</em></strong>, hold 2 Resolve. You can spend your Resolve 1-for-1 to:</p><ul><li>Set aside fear and doubt to do what must be done</li><li>Act suddenly, catching them off-guard</li><li>Inspire allies or bystanders to follow your lead</li><li>Strike hard (+1d4 damage, forceful)</li><li>Keep your footing, position, and/or your course despite what befalls you</li></ul>",
+    "resource": {
+      "max": 2,
+      "title": "Resolve",
+      "spendOptions": [
+        "Set aside fear and doubt to do what must be done",
+        "Act suddenly, catching them off-guard",
+        "Inspire allies or bystanders to follow your lead",
+        "Strike hard (+1d4 damage, forceful)",
+        "Keep your footing, position, and/or course despite what befalls you"
+      ]
+    }
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

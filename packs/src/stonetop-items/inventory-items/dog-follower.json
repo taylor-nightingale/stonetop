@@ -1,0 +1,22 @@
+{
+  "_id": "nGqi7w4e4pxskC1I",
+  "_key": "!items!nGqi7w4e4pxskC1I",
+  "name": "Dog, follower",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "dog-follower",
+      "inventoryColumn": "regular",
+      "sortOrder": 59,
+      "note": "HP 6, d6 damage (<em>hand</em>, <em>grabby</em>)",
+      "weight": 1,
+      "breakBefore": true,
+      "special": true,
+      "specialCategory": "Livestock & Beasts"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

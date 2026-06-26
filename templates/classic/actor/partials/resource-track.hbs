@@ -1,0 +1,10 @@
+{{#if resource.title}}<span class="stonetop-arcanum-resource-title">{{resource.title}}</span>{{/if}}
+{{#each (resourceChecks resource)}}
+<button type="button"
+        class="{{../btnClass}}{{#if checked}} is-checked{{/if}}"
+        {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
+        {{#if ../slug}}data-slug="{{../slug}}"{{/if}}
+        {{#if ../choiceSlug}}data-choice-slug="{{../choiceSlug}}"{{/if}}
+        data-index="{{@index}}"></button>
+{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
+{{/each}}

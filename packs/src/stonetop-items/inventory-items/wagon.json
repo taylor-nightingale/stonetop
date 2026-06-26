@@ -1,0 +1,21 @@
+{
+  "_id": "EZAmggQBwBAD3UdR",
+  "_key": "!items!EZAmggQBwBAD3UdR",
+  "name": "Wagon",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "wagon",
+      "inventoryColumn": "regular",
+      "sortOrder": 49,
+      "note": "requires mule or horse",
+      "weight": 3,
+      "special": true,
+      "specialCategory": "Transport"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

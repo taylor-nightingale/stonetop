@@ -1,0 +1,92 @@
+{
+  "name": "Mountain Ape",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick fur and hide"
+      },
+      "damage": {
+        "value": "grasping hands d8+2 (reach, close, grabby, forceful)",
+        "rollFormula": "d8+2"
+      },
+      "instinct": {
+        "value": "to keep their secrets"
+      }
+    },
+    "concept": "Shaggy white apes that guard their revered hoards far from any trail.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cautious, stealthy, hoarder",
+    "qualities": "<p>Arboreal; cold-proof; keen senses of smell and hearing.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.cBKPMt36JtRzMeCv",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Mountain Ape",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "1Iz6p7JSIATlUXel",
+      "name": "Hide in the trees or snowdrifts",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ASyoP5BXGukeIrG5.1Iz6p7JSIATlUXel"
+    },
+    {
+      "_id": "wKAjp6owp1zuJrzj",
+      "name": "Try to lure or spook intruders away",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ASyoP5BXGukeIrG5.wKAjp6owp1zuJrzj"
+    },
+    {
+      "_id": "CE0aSf7ulgk2BpSe",
+      "name": "Reach out, snatch an intruder by surprise",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!ASyoP5BXGukeIrG5.CE0aSf7ulgk2BpSe"
+    },
+    {
+      "_id": "S5TSDX0yb5WqAsls",
+      "name": "Crush, rend, or break a grabbed foe, d8+2 damage w/advantage (hand, forceful, messy, 1 piercing)",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d8+2"
+      },
+      "_key": "!actors.items!ASyoP5BXGukeIrG5.S5TSDX0yb5WqAsls"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Bxq9dZGNWDbTbGon",
+  "_id": "ASyoP5BXGukeIrG5",
+  "_key": "!actors!ASyoP5BXGukeIrG5"
+}

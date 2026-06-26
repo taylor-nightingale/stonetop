@@ -1,0 +1,92 @@
+{
+  "name": "Hdour",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 2,
+        "source": "thick hides, minor wards"
+      },
+      "damage": {
+        "value": "bronze knife d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to ignore rules, boundaries, and taboos"
+      }
+    },
+    "concept": "A Hillfolk sorcerer who seeks power for its own sake, heedless of rule or taboo.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cautious, devious, hoarder, magical, spirit-wise",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Owbdgx7wi7p30MzW",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Hdour",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "jtbCXNzN8QD69APe",
+      "name": "Call up a spirit to attend them",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Okqc6kkhEZ3CGYKl.jtbCXNzN8QD69APe"
+    },
+    {
+      "_id": "xlY44W0OEC45nzuZ",
+      "name": "Send spirits or beasts to harass, spy, or attack",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Okqc6kkhEZ3CGYKl.xlY44W0OEC45nzuZ"
+    },
+    {
+      "_id": "bpr1jE6kfxTpH0w1",
+      "name": "Reveal some spell or trick prepared in advance",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Okqc6kkhEZ3CGYKl.bpr1jE6kfxTpH0w1"
+    },
+    {
+      "_id": "EHk6T6OVDmpHjpAQ",
+      "name": "Unleash power they cannot control",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Okqc6kkhEZ3CGYKl.EHk6T6OVDmpHjpAQ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nDJFGk0FHXzQWlbI",
+  "_id": "Okqc6kkhEZ3CGYKl",
+  "_key": "!actors!Okqc6kkhEZ3CGYKl"
+}

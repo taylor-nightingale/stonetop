@@ -1,0 +1,186 @@
+{
+  "_id": "zUeBMA1XS4Lq3KdK",
+  "_key": "!journal!zUeBMA1XS4Lq3KdK",
+  "name": "Three Coven Lake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Deep in the Steplands lies a large lake, eight miles long by three. The waters are murky, often choppy, shallow in some places, in others 100 feet deep."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 11000,
+  "pages": [
+    {
+      "_id": "Ol7oAcADxdClvGZw",
+      "_key": "!journal.pages!zUeBMA1XS4Lq3KdK.Ol7oAcADxdClvGZw",
+      "name": "Three Coven Lake",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Deep in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> lies a large lake, eight miles long by three. The waters are murky, often choppy, shallow in some places, in others 100 feet deep.</p><p>Rocky islands poke from the water. Bluffs line much of the shore. But look closer. Those islands are the feet of ancient towers, and those bluffs are riddled with rockcut rooms. For long ago, in the days of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, this was a mighty city. Teirstered, they called it. The City of Three Stars, rivalled only by great Dulenn.</p><p>Picture it! See it in your mind! The stone and crystal spires, rising from the lake. Their glowing tips of makerglass, shining in the night. The walkways, stretched between the towers, so that one might walk the valley’s length without ever setting foot on shore.</p><p>Those walkways were more than just convenience. They formed a mighty rune, a seal that helped to bind the power of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>. The ceaseless march of countless feet powered the rune, like how water turns a wheel.</p><p>When the Stone Lords’ servants rebelled, they sank the city of Dulenn in one night. But here, in Teirstered, things took longer. Mobs rose up against their masters and besieged them in their towers. They broke the walkways, called up horrors from the deep. Towers swayed, then crumbled, then fell beneath the waves.</p><p>Soon, the city lay in ruins. But it was not abandoned. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{The Barrow Builders}</strong> fought over its bones. They sought the treasures of their fallen masters, and to seat themselves upon their thrones. Their armies spilled each others’ blood. The waters drank it up. In time, there was little left to fight over. In time, the Things Below withdrew. The tyrants of the Barrow Builders were cast down, or imprisoned, or left alone to rot. Teirstered, the City of Three Stars, was no more.</p><p>But the blood-drunk waters of Three Coven Lake remained.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<ul><li>So… much… water… (gulp)</li><li>Calm water: reflections of the bluffs</li><li>Choppy water: cold and dark, the angry churn and spray</li><li>Broken buildings, glimpsed beneath the water</li><li>Echoes off the bluffs: waves, voices, birdcalls, mournful screeches</li><li>At night: motes of light in the deep</li><li>When chilly: fog—thick, wet, gloomy</li><li>In winter: a white expanse, frozen solid, windy, slick, snow-covered</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Three Covens",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Three lights can be seen every night, like ghostly flames: one among the northern bluffs, one on the south shore, the third upon (below?) the waters. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> call them “the Covens” or the “the Witch Lights.” They hesitate to say more.</p><p>Who or what are the Covens? That’s for you to decide. But perhaps they…</p><p>… burn in memory of the three conspiracies, or covins, that rose up against the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, and the witches who led each one;<br>… were once the “Three Stars” of Tierstered, makerglass gems burning with eternal flame;<br>… are banefires, each one imprisoning an undead sorcerer;<br>… are spirit-catchers, enthralling ghosts and keeping them bound;<br>… are ghostly hordes standing vigil over mass graves; or<br>… are some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Getting there",
+            "group": "place",
+            "danger": false,
+            "body": "<p>To get there directly from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>…</p><ul><li>First you must travel to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong>, which will take at least 4 days.</li><li>From there, it will take at least 3 days and a corresponding amount of supplies.</li><li>You need a knowledgeable guide; but</li><li>Even then, you risk getting lost.</li></ul><p>To get there from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>, follow the River Sruth upstream to the lake, and…</p><ul><li>It will take at least 4 days, and a corresponding amount of supplies; and</li><li>You need a knowledgeable guide or you risk getting lost.</li></ul><p>Either way…</p><ul><li>The terrain itself is treacherous, you risk injury on the way;</li><li>The way is grueling, you risk exhausting yourselves/your resources; or</li><li>The way is perilous, plagued with danger.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Areas",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The Gwazhi: A sizeable river that feeds the lake, flowing from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RxUdCkI2lL6gE5IH]{Huffel Peaks}</strong>.</li><li>Surrounding hills and valleys: Once full of farms, mines, villages, manors. Site of many Barrow Builder battles.</li><li>Western shores: Where the Gwazhi enters the lake. Marshy, silty, gross. Frogs, birds, bugs.</li><li>Northern shore: Piles of boulders and a great looming bluff. Treacherous shorelines.</li><li>Southern shore: Gentler (but still rugged) shorelines, with smaller bluffs a ways back from the water.</li><li>Eastern shore: Deep water. Sheer bluffs joined by a Stone Lord dam.</li><li>The Lake itself: Shallow near shores but plenty of deep, open water. Hides many dangers and many treasures. Freezes over in winter.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Sites",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The dam: A mighty wall between two bluffs on the eastern shore. Granite blocks, mortared in place with makerglass. A huge pipe drains water into the river Sruth. Beware the whirlpool.</li><li>Glassworks: The westernmost bluff on the south shore, hollowed out. Partly collapsed, wholly looted, still full of cold, echoing furnaces and huge globs of makerglass.</li><li>The Academy: Part of the north bluff. Maker-sized dormitories, workshops, and lecture halls. Gutted and vandalized. Used by <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> as a fortress.</li><li>Amphitheater: Carved into a bluff, overlooking a large cove on the southern bank. Impossibly good acoustics. The site of countless bloody sacrifices.</li><li>The Vault of Skol Paasco: A large, rocky isle in the middle of the lake, a tower’s foundation clearly visible. A heavily-warded makerglass door guards the untouched cellars.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12). If you like, roll 1d6 for size/scope/intensity.</p><p><strong>1d12 bluffs terrain</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Cliff/ledge/cleft/crevice</td></tr><tr><td>3–4</td><td>Scree/rubble/boulders</td></tr><tr><td>5–6</td><td>Overhang/plateau/outcrop</td></tr><tr><td>7–8</td><td>Tree(s)/shrub(s)</td></tr><tr><td>9</td><td>Waterfall/pool/travertine</td></tr><tr><td>10</td><td>Barrow</td></tr><tr><td>11</td><td>Walkway/stairs/balcony, carved into the stone</td></tr><tr><td>12</td><td>stone lord site</td></tr></tbody></table><p><strong>1d12 shoreline terrain</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Marsh/mire/mudflat</td></tr><tr><td>3–4</td><td>Beach/shingle/shallows</td></tr><tr><td>5–6</td><td>Drop-off/strong current/undertow</td></tr><tr><td>7–8</td><td>Jumble of boulders/rubble</td></tr><tr><td>9</td><td>Barrow</td></tr><tr><td>10</td><td>stone lord site</td></tr><tr><td>11</td><td>Island/sandbar and roll d10 again</td></tr><tr><td>12</td><td>Cove/bay/inlet and roll d10 again</td></tr></tbody></table><p><strong>1d12 stone lord site</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Sunken head of an enormous statue, coated in algae. Sings a haunting song each sunset.</td></tr><tr><td>2</td><td>Vaulted chamber, littered with pieces of an obsidian mirror once 30’ across. Shards reflect brief vignettes of days long past.</td></tr><tr><td>3</td><td>Four-story “tower” carved out of a bluff. Crystals inside emanate light, awe, reverence.</td></tr><tr><td>4</td><td>Bluff-sized building of seamless stone. Inside, a warren of unstable, bone-strewn apartments.</td></tr><tr><td>5</td><td>Double doors, crudely barricaded. Beyond: a cracked crystal, a broken ward, lingering evil.</td></tr><tr><td>6</td><td>Big island made mostly of huge, curving stone slabs. Alcoves hold signs of ancient refugee camps: cookware, salvage, keepsakes.</td></tr><tr><td>7</td><td>Spiral stairs, rising 100’ from a pile of rubble. Makerglass, giant- sized steps, draped in vines.</td></tr><tr><td>8</td><td>Big blocky building. Intact. Doors buried under rubble/scree. Holds a cache of spare construct parts.</td></tr><tr><td>9</td><td>Warren of rooms carved into a bluff. Once a Stone Lord’s manor, then a warlord’s fortress, finally the site of her demise.</td></tr><tr><td>10</td><td>Long stretches of narrow stone walkway, mostly buried by silt and shallow water. Covered in algae, mud, faded runes.</td></tr><tr><td>11</td><td>Rocky island far from shore, like a great hand holding a broken stone platter. Ancient (?) skulls are heaped on every surface.</td></tr><tr><td>12</td><td>Makerglass tower, largely intact but fallen sideways into the lake. Full of wonders, algae, eels, stale air pockets, Stone Lord ghosts.</td></tr></tbody></table><p>The above are just examples. See page 384 if you need to create more or different sites. Most sites were reclaimed by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> at some point.</p><p>Most sites around Three Coven Lake were long ago stripped of anything valuable. If a site contains some sort of treasure, there must be a reason. It could be…</p><p>… inaccessible (buried, locked, flooded, well-hidden, etc.) ;<br>… corrupted by the power of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>;<br>… dangerously haunted;<br>… protected by constructs, perilous stone, bound spirits, and/or other magic;<br>… currently inhabited; or<br>… some combination of the above.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The portal of Teirstered",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Hidden away in some vault—guarded by constructs, traps, and spells of misdirection— there stands a slab of white stone, 40’ by 40’, inscribed with a circle of deep-cut runes.</p><p>The circle is a portal, connected to those in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong>, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.v4slCO5mFJLcZO1q]{Labyrinth}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}</strong>, and so forth. It requires a power source. If one is provided, it can be used via Opening the Way.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around Three Coven Lake. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Efv986sm5JyehsJC]{Screech Eel}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.psptlaD9mE9Rk1YI]{The Chained Beast}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A foe of the PCs makes their lair near the lake</li><li>An ally went to explore the lake but never returned</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> are gathering near the lake, in large numbers</li><li>The PCs acquire the key to the Vault of Skol Paasco (see next page)</li><li>Someone aims to destroy the dam (draining the lake, flooding the Sruth, dooming <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>An opportunity</td></tr><tr><td>4</td><td>An artifact of…</td></tr><tr><td>5</td><td>An encounter</td></tr><tr><td>6</td><td>Something related to the portal</td></tr></tbody></table><p><strong>1d6 opportunity</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A shrine to the Blood-drunk Queen, or some other sacred site</td></tr><tr><td>2</td><td>A painful psychic imprint, revealing something useful about these ruins</td></tr><tr><td>3</td><td>A route/path to an intriguing site</td></tr><tr><td>4</td><td>A boat/raft (roll d6 for condition)</td></tr><tr><td>5</td><td>A good place to rest/restock/lay an ambush</td></tr><tr><td>6</td><td>A long-buried ruin, recently exposed by a rock/mudslide</td></tr></tbody></table><p>1d6 artifact of...</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>…death and the undying</td></tr><tr><td>3</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></td></tr><tr><td>4</td><td>…some other group of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong></td></tr><tr><td>5–6</td><td>…the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>People of some sort</td></tr><tr><td>2</td><td>Witches or their ilk</td></tr><tr><td>3</td><td>The restless dead</td></tr><tr><td>4–5</td><td>Local wildlife</td></tr><tr><td>6</td><td>Other entities</td></tr></tbody></table><p>Pick or roll for their disposition. Let the result suggest the specifics of the encounter.</p><p><strong>1d6 disposition</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Scheming/deceitful/in disguise</td></tr><tr><td>2</td><td>Afraid/injured/in trouble</td></tr><tr><td>3</td><td>Wary/furtive/sneaking about</td></tr><tr><td>4</td><td>Annoyed/struggling/working</td></tr><tr><td>5</td><td>Unaware/indifferent/at rest</td></tr><tr><td>6</td><td>Friendly/curious/playful</td></tr></tbody></table><p><strong>1d6 related to the portal</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A reference to it (a sign, an icon, a written description, a rune, etc.)</td></tr><tr><td>2</td><td>A hint to its location (a map, directions, a detailed mural, etc.)</td></tr><tr><td>3</td><td>A means to charge it (like a power-crystal, page 389)</td></tr><tr><td>4</td><td>Documentation: a time-worn missive, the sigils of other portals, a treatise on the axiom of local contagion, etc.</td></tr><tr><td>5</td><td>A token that unlocks the door and bypasses the guardians</td></tr><tr><td>6</td><td>The portal itself (see below)</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Natural hazards",
+                "body": "<ul><li>A stretch of water and reason to brave it</li><li>A bluff to climb and a reason to climb it</li><li>Poor footing (mud, unstable rubble, scree, slick wet stone, etc.)</li><li>Rockslides or mudslides</li><li>A gap or barrier in a path/walkway</li><li>Jagged rocks to fall on</li><li>Swarms of midges or mosquitos— annoying, distracting, painful, diseased</li></ul>"
+              },
+              {
+                "heading": "Unnatural hazards",
+                "body": "<ul><li>Unstable construction from the days of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></li><li>Perilous stone</li><li>Traps left by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></li><li>Corrupted sites and all that they entail</li><li>Cursed objects</li><li>Darkness and the risk of getting lost, deep inside the bluffs</li></ul>"
+              },
+              {
+                "heading": "The lake itself",
+                "body": "<ul><li>Instinctive dread, from a generational fear of water</li><li>Steep, unexpected drop-offs</li><li>Poor footing (slick rocks, mud, plants and other snares)</li><li>Strong, often unseen currents</li><li>Choppy water, waves up to 4’ on extremely windy days</li><li>Shivering cold, the threat of debilities or even hypothermia</li><li>Getting dragged down by your own gear</li><li>The fact that they probably can’t swim</li></ul><p>See also: The Blood-drunk Queen.</p>"
+              },
+              {
+                "heading": "Drowning",
+                "body": "<p>When you plunge beneath the water, hold Breath equal to 1 + your CON. If you first took a deep breath, hold 2 extra Breath.</p><p>When you make a move while under water, and that move involves a roll, choose 1 of the following after the move is resolved:</p><ul><li>Spend 1 Breath</li><li>Mark a debility</li><li>Drop to 0 HP; you’re drowning and soon to be at Death’s Door</li></ul>"
+              },
+              {
+                "heading": "Thin ice",
+                "body": "<p>The lake starts to freeze in early winter and thaws in early spring. It’s usually frozen at least 4” thick (safe enough to walk on) by midwinter. But it doesn’t freeze uniformly; it can be 2’ thick in one place and just a few inches thick only a few yards away.</p><ul><li>Footsteps fall with a hollow noise</li><li>Water/slush well up around your feet</li><li>Something underfoot cracks, lurches</li><li>SPLOOSH</li></ul><p>Anyone falling through the ice risks panic and drowning. If they manage to escape, they’re probably already suffering hypothermia.</p>"
+              },
+              {
+                "heading": "The whirlpool",
+                "body": "<p>Near the dam at the east edge of the lake, a great drain draws in water and empties it into the river Sruth. When one or more PCs get too close, start the following:</p><ul><li>They’re caught in the current</li><li>They’re dragged closer, and can no longer swim/paddle free</li><li>Down the funnel they go</li><li>Impending doom: They are sucked into the pipe</li></ul><ul><li>When you get sucked into the pipe, take 1d10+2 damage with advantage (ignores armor) and roll +CON: on a 10+, you get spat out into the river, alive but soaked and beaten (mark a debility); on a 7-9, you get spat out but mark a debility and lose 1d4 from your inventory and 1d4 small items; on a 6-, as a 7-9 but also you are at Death’s Door.</li></ul>"
+              },
+              {
+                "heading": "People",
+                "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong>: exiled, on patrol, on the hunt, on a rite of passage, etc.</li><li>Antiquarians, adventurers, or legionaries, exploring the ruins</li><li>Bandits, seeking shelter or after some big score</li></ul><p>Witches or their ilk</p><ul><li>A necromancer, treating with the many many dead</li><li>A hdour or sorcerer, seeking/hoarding power</li><li>Cultists and/or a thrall, living among the ruins</li><li>A gouzadn, quite possibly corrupted</li><li>A deathless one, who’s been here all along</li></ul>"
+              },
+              {
+                "heading": "The restless dead",
+                "body": "<ul><li>A multitude of ghosts, haunting battlefields, mass graves, and sites of more intimate death</li><li>Barrow wights guarding some “royal” tomb</li><li>Phantom riders, still serving their long-dead warlord</li><li>A waterlogged pyped, diving for bones of the drowned</li><li>A small army of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5SQHTsAkmgqupgVw]{Anan Gllo}</strong>, in stasis, awaiting fresh blood</li><li>Shades bound by old Stone Lord magic</li></ul>"
+              },
+              {
+                "heading": "Local wildlife",
+                "body": "<ul><li>Bat swarms, cave bears, grochslons, or kleztigrs, lairing in bluffs or ruins</li><li>Cougars, wolves, or spitting drakes on the hunt or lurking in wait</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.tx9I3QGe5ldHuhho]{Aurochs}</strong>, boars, horned drakes, or a brawzbedr, foraging or watering at the lake</li><li>Any of the above, corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li></ul>"
+              },
+              {
+                "heading": "Other entities",
+                "body": "<ul><li>Stone Lord constructs in various states of repair</li><li>Spirits of the wild, quite possibly corrupt</li><li>Watery terrors: luglfsk, jellied horrors, llamudwr, or servants of Daagon</li></ul><p>It was a gift from the Things Below, a present to some Barrow Builder tyrant. They bound it fast and kept in the waters nearby, feeding it a steady of diet of screaming, bleeding victims. It’s still out there, sleeping for years or decades at a time, roused by copious amounts of fresh blood in the lake—or by a few drops somewhere nearby.</p><p>About 5’ or 6’ long. They mostly prey on fish or fowl, hunting silently and by themselves. Somehow, though, they learned that people are delicious. Too big for one eel to tackle, sure. But people in the water are clumsy and oblivious. So when a screech eel spots someone in the water, it calls out to its friends. And when enough of them have gathered, they feast.</p><ul><li>The Blood-drunk Queen Threat (magical entity) Instinct to slake her thirst for violence and suffering</li><li>Appear in dreams, or to those who are drowning: a gaunt and longlimbed queen, her mouth stained crimson</li><li>Wash up a secret/treasure, to tempt fools or stir up violence</li><li>Turn the lake against those who have not appeased her</li></ul><p>The lake has always had a spirit. A fickle goddess, beautiful and bountiful, sometimes harsh and greedy. But then the walkway-seal was broken, and horror seeped into the waters. Then the multitudes were drowned, and the goddess drank their deaths. Then came generations of violence, and she lapped up all the blood that was spilled.</p><p>When you make a bloody offering to the spirit of the lake, roll and add…</p><p>… +1 if you do it at a proper shrine;<br>… +1 if the victim dies in agony &amp; fear; and<br>… +1 if you spill the lifeblood of a human-sized creature, or +2 if you spill substantially more than that.</p><p>On a 7+, you have appeased the spirit of the lake and She will not actively torment you or your companions (for this visit, at least). Also, on a 10+, hold 2 Preparation (per the Bolster move), which you or a companion can spend on any roll related to exploring or navigating the lake, or facing its dangers.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

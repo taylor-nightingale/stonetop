@@ -1,0 +1,41 @@
+{
+  "name": "Rune-laden Scales",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "rune-laden-scales",
+      "front": {
+        "title": "Rune-laden Scales",
+        "item": {
+          "name": "Rune-laden Scales",
+          "weight": 1,
+          "note": "<em>2 armor, magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>An ancient vest of bluish steel, each scale etched with a silvery rune similar to those found among the ruins near Barrier Pass. A working of the Makers, no doubt, or at least of their most gifted students. The armor is surprisingly light and supple. The scales are always cold to the touch, and often edged in frost.</p><p>When you <strong><em>wear the Rune-laden Scales</em></strong>, you are perfectly comfortable in cold weather and suffer no harm from exposure or magic that might otherwise freeze your flesh. You have no such immunity to secondary effects of ice-magic, such as slipping, being impaled by an icicle, or becoming encased in a block of ice.</p><p>When you <strong><em>wear the Rune-laden Scales and stand fast against a magical attack</em></strong>, roll +CON: <strong>on a 10+</strong>, the magic washes over you, unpleasant perhaps but with no ill effect; <strong>on a 7-9</strong>, you're only partially affected—suffer half damage (if any) and a reduced effect; <strong>on a 6-</strong>, mark XP, and the magic affects you fully.</p><p>When you <strong><em>wear the Rune-laden Scales and defeat a wielder of chaotic magic</em></strong>, mark 1:</p>",
+        "unlock": {
+          "description": "○○○○○ When you make the last mark, you unlock the mysteries of the armor. Gain a move of your choice (see reverse), but also mark a consequence. Then, erase all marks.",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Rune-laden Scales",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>□ INDOMITABLE</strong><br>When you <strong><em>wear the Scales and stand fast against a magical attack</em></strong>, you can mark a consequence after you roll to add 3 to the result.</p><p><strong>□ MAGNET</strong><br>When you <strong><em>witness a magical attack</em></strong>, you can either spend 1 Readiness (from the Defend move) or mark a consequence to redirect the magic so that it affects only you. You can then stand fast against it.</p><p><strong>□ POWER SINK</strong><br>When you <strong><em>wear the Rune-laden Scales and stand fast against a magical attack</em></strong>, <strong>on a 12+</strong> the armor drains the attacker's power. That form of attack is lost to them, though they might regain it with time, study, or effort. When you wear the Scales and spend time in quiet communion with the elements, the power absorbed by the armor dissipates harmlessly. If you trigger Power Sink again before dissipating the absorbed power, mark XP, ask the GM what happens, and brace yourself for the worst.</p><p><strong>□ PROOF AGAINST HARM</strong><br>The Rune-laden Scales now provide you 3 armor, even against piercing and attacks that normally ignore armor. When you <strong><em>wear the Rune-laden Scales and find yourself at Death's Door</em></strong>, you may mark a consequence before you roll to automatically get a 10+.</p><h3>Consequences</h3><ul><li>You no longer mark 1 when you simply defeat a being that wields chaotic magic; you must destroy it instead.<ul><li>Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer.</li></ul></li><li>When you use or knowingly submit to chaotic magic, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally.</li><li>When you kill a living creature out of anger, fear, or passion, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.<ul><li>When you take any violent action out of anger, fear, or passion, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.</li></ul></li><li>You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority.</li><li>You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function.</li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "Sudx3bbaE6B0q7Ky",
+  "_key": "!items!Sudx3bbaE6B0q7Ky",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-scales.webp"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "nkZC8g63JoTERrx5",
+  "_key": "!journal!nkZC8g63JoTERrx5",
+  "name": "Ulliam Unlucky",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A frozen, loyal revenant lurking by the family he can't bear to leave."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 109000,
+  "pages": [
+    {
+      "_id": "kWvTYIBaBLi0DGDb",
+      "_key": "!journal.pages!nkZC8g63JoTERrx5.kWvTYIBaBLi0DGDb",
+      "name": "Ulliam Unlucky",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A frozen, loyal revenant lurking by the family he can't bear to leave.",
+        "description": "<p>Ulliam Unlucky dragged his family from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> up to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin's Delve}</strong>, in search of a better life. But things never did work out. Last time he went out prospecting, he got lost; then the blizzard rolled in; and that's how Ulliam died. But say what you will about Ulliam, he loved his wife and kids — still does — and dragged his frozen self home to see 'em again. He knows they can't see him like this, but he can't keep himself from lurking. And when some lech comes sniffing around his wife? Well, there's only so much a man can take. And that little spark of warmth he draws out of them? He's starting to acquire a taste.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.I8J5ARGoRPfBMNBb"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

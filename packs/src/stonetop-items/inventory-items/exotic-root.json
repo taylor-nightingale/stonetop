@@ -1,0 +1,22 @@
+{
+  "_id": "BlrDp37eCZ32JgdP",
+  "_key": "!items!BlrDp37eCZ32JgdP",
+  "name": "Exotic root",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "exotic-root",
+      "inventoryColumn": "regular",
+      "sortOrder": 51,
+      "note": "burnt fumes repel perversions of nature; lasts ~1 hour, <em>reach</em>, <em>area</em>",
+      "weight": 1,
+      "breakBefore": true,
+      "special": true,
+      "specialCategory": "Exotic Stuff"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

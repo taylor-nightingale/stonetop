@@ -1,0 +1,91 @@
+{
+  "name": "Grochslon",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "outer jaws d10 (close, grabby), inner jaws d10+2 (hand, messy, 1 piercing)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to feed on the unwary, then flee"
+      }
+    },
+    "concept": "An eyeless, double-jawed cave predator from the lightless lakes.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, patient, stealthy",
+    "qualities": "<p>Blind; senses prey by scent, hearing, and vibration.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.BUMZ5O0VT9SDjfwE",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Grochslon",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "gvtggBkmjpiPX2wE",
+      "name": "Lurk unseen in a dark, sheltered spot",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uP9zE6MDiS3TwIWF.gvtggBkmjpiPX2wE"
+    },
+    {
+      "_id": "vj8Tg2ASJTxAVHLu",
+      "name": "Spring forward without warning, chomping down",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uP9zE6MDiS3TwIWF.vj8Tg2ASJTxAVHLu"
+    },
+    {
+      "_id": "sfmF4rqm9ITLifcF",
+      "name": "Hold tight with outer jaws while tearing away with the inner",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uP9zE6MDiS3TwIWF.sfmF4rqm9ITLifcF"
+    },
+    {
+      "_id": "03tClfSOmE4oDyRY",
+      "name": "Squirm through a narrow opening",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!uP9zE6MDiS3TwIWF.03tClfSOmE4oDyRY"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "A5pBFgOjdwXRwZNz",
+  "_id": "uP9zE6MDiS3TwIWF",
+  "_key": "!actors!uP9zE6MDiS3TwIWF"
+}

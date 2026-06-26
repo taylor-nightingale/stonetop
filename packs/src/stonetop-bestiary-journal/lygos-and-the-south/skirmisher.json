@@ -1,0 +1,61 @@
+{
+  "_id": "wVG9WYC3dpOlFEZp",
+  "_key": "!journal!wVG9WYC3dpOlFEZp",
+  "name": "Skirmisher",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Light troops who harry the flanks and avoid a fair fight."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 162000,
+  "pages": [
+    {
+      "_id": "nbKZzE91YgccCQff",
+      "_key": "!journal.pages!wVG9WYC3dpOlFEZp.nbKZzE91YgccCQff",
+      "name": "Skirmisher",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Light troops who harry the flanks and avoid a fair fight.",
+        "description": "<p>Lightly armed and quick on their feet, skirmishers unleash a volley and fall back, cover ground fast, and worry a foe's flanks. They have no taste for a stand-up fight, and no need of one.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.vrBvnCJHlzn4ed8L"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "Ix0kIQeEN7xkTUsK",
+  "_key": "!journal!Ix0kIQeEN7xkTUsK",
+  "name": "Mantle Wraiths",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Three vicious wraiths bound to a tattered mantle, longing to slip free and feast."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 129000,
+  "pages": [
+    {
+      "_id": "tplwD9jT1I7KjzXH",
+      "_key": "!journal.pages!Ix0kIQeEN7xkTUsK.tplwD9jT1I7KjzXH",
+      "name": "Mantle Wraiths",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Three vicious wraiths bound to a tattered mantle, longing to slip free and feast.",
+        "description": "<p>A trio of wraiths tethered to a tattered mantle. They whisper their longings to whoever wears it, and the wearer can let them slip free to feast on the living — though they are loathe to return to the mantle, and must be spent or Persuaded back. Their cost is the souls they feast upon.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.usjzCbvuSsDykZeY"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

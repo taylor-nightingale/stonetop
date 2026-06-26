@@ -1,0 +1,80 @@
+{
+  "name": "Wisent",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "headbutt, gore, trample d8+3 (hand, close, forceful)",
+        "rollFormula": "d8+3"
+      },
+      "instinct": {
+        "value": "to protect the herd"
+      }
+    },
+    "concept": "Forest bison that close ranks around their young.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, cautious",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.1EAyZGaGD7nVDCiq",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Wisent",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "v0Ce8wAz9Lelbtgd",
+      "name": "Put itself between a threat and the young",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P6VzX2jNCZNAZBSD.v0Ce8wAz9Lelbtgd"
+    },
+    {
+      "_id": "XEWTIRWxLSyW1i9W",
+      "name": "Stampede (area, forceful, messy)",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P6VzX2jNCZNAZBSD.XEWTIRWxLSyW1i9W"
+    },
+    {
+      "_id": "65GxAgGjzenDFx2q",
+      "name": "Leap a surprising height and distance, even from a standstill",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!P6VzX2jNCZNAZBSD.65GxAgGjzenDFx2q"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "P6VzX2jNCZNAZBSD",
+  "_key": "!actors!P6VzX2jNCZNAZBSD"
+}

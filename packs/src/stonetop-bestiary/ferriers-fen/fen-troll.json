@@ -1,0 +1,81 @@
+{
+  "name": "Fen-Troll",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick hide"
+      },
+      "damage": {
+        "value": "bone-snapping grip d10+3 (hand, close, grabby, forceful), rending maw d10+3 (hand, messy, 1 piercing)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to fill its belly and jealously guard its hoard"
+      }
+    },
+    "concept": "A human lost to the Fen, now a hoarding, grieving brute.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, corrupted, hoarder, gluttonous, stealthy",
+    "qualities": "<p>Sharp senses; horrid odor; ashamed of its visage.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.iNio1HI0NcZuNGTc",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Fen-Troll",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "bVOwMiA1REenh6vz",
+      "name": "Approach a victim from cover of dark, fog, or murky water",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4Ah0RoLTY5wSRvAF.bVOwMiA1REenh6vz"
+    },
+    {
+      "_id": "mBIzxJfxGb4RBKQQ",
+      "name": "Demand treasure to let them pass unharmed",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4Ah0RoLTY5wSRvAF.mBIzxJfxGb4RBKQQ"
+    },
+    {
+      "_id": "zWHQWkPTUgouLML1",
+      "name": "Probably try to eat them anyway",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!4Ah0RoLTY5wSRvAF.zWHQWkPTUgouLML1"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ReMgxSJxcjnX2CfO",
+  "_id": "4Ah0RoLTY5wSRvAF",
+  "_key": "!actors!4Ah0RoLTY5wSRvAF"
+}

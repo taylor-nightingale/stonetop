@@ -1,0 +1,81 @@
+{
+  "name": "Hillfolk Rider",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick hides, shield (0–2)"
+      },
+      "damage": {
+        "value": "flint-tipped spear d8 (close, thrown, crude), cudgel d8 (close, crude), adz d8 (hand, crude), or bow d8 (near)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to distrust outsiders"
+      }
+    },
+    "concept": "Horse-borne hunters and warriors who patrol the Steplands and distrust outsiders.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, organized, horse-wise",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.J3KbSweAhRZfonEX",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Hillfolk Rider",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "OtMSMAjG3UbXLsGJ",
+      "name": "Ride a steed like an extension of themselves",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!05mh4Ag0uKxRVY8j.OtMSMAjG3UbXLsGJ"
+    },
+    {
+      "_id": "qvaxMtrbAEToeYkp",
+      "name": "Outmaneuver their prey",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!05mh4Ag0uKxRVY8j.qvaxMtrbAEToeYkp"
+    },
+    {
+      "_id": "6gMw5IDNbE6Hvgzc",
+      "name": "Take advantage of the terrain",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!05mh4Ag0uKxRVY8j.6gMw5IDNbE6Hvgzc"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nDJFGk0FHXzQWlbI",
+  "_id": "05mh4Ag0uKxRVY8j",
+  "_key": "!actors!05mh4Ag0uKxRVY8j"
+}

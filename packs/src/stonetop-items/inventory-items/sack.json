@@ -1,0 +1,18 @@
+{
+  "_id": "f7ZJ69PqcUDO4lKN",
+  "_key": "!items!f7ZJ69PqcUDO4lKN",
+  "name": "Sack (empty)",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "sack",
+      "inventoryColumn": "small",
+      "sortOrder": 19,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

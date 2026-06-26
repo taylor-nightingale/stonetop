@@ -1,0 +1,80 @@
+{
+  "name": "Ulliam Unlucky",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "whatever's at hand d8 w/disadvantage (tags vary)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to pine for his family"
+      }
+    },
+    "concept": "A frozen, loyal revenant lurking by the family he can't bear to leave.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, undead, stealthy, terrifying, loyal",
+    "qualities": "<p>Burned and blinded by daylight; chill aura.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.nkZC8g63JoTERrx5",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Ulliam",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "rg3UBFynOugcgIxG",
+      "name": "Keep out of sight, or try to",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!I8J5ARGoRPfBMNBb.rg3UBFynOugcgIxG"
+    },
+    {
+      "_id": "DXKAbmnzuf4gNaCR",
+      "name": "Get frustrated, agitated, angry",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!I8J5ARGoRPfBMNBb.DXKAbmnzuf4gNaCR"
+    },
+    {
+      "_id": "AUkqbhFrxsSfxkTb",
+      "name": "Lose his temper and drain heat from someone, d10 damage w/advantage (hand, close, reach, ignores armor)",
+      "type": "monsterMove",
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d10"
+      },
+      "_key": "!actors.items!I8J5ARGoRPfBMNBb.AUkqbhFrxsSfxkTb"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "I8J5ARGoRPfBMNBb",
+  "_key": "!actors!I8J5ARGoRPfBMNBb"
+}

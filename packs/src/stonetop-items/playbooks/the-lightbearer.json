@@ -1,0 +1,479 @@
+{
+  "_id": "8OTE4Z7HMG1Os7C8",
+  "_key": "!items!8OTE4Z7HMG1Os7C8",
+  "img": "systems/stonetop/assets/playbooks/the-lightbearer.svg",
+  "name": "The Lightbearer",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 18,
+      "damage": "d4",
+      "moves": {
+        "startingMovesNote": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice."
+      },
+      "backgrounds": [
+        {
+          "slug": "auspicious-birth",
+          "label": "Auspicious Birth",
+          "description": "<p>You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?</p><p>Whatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.</p><p>When <strong><em>one of your moves has you mark a debility</em></strong>, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.</p>",
+          "setup": {
+            "resources": [
+              {
+                "key": "auspicious-birth",
+                "label": "Background circle",
+                "max": 1,
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "slug": "itinerant-mystic",
+          "label": "Itinerant Mystic",
+          "description": "<p>They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.</p><p>When you <strong><em>go off a-wandering</em></strong>, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.</p>",
+          "setup": {
+            "resources": [
+              {
+                "key": "enigma",
+                "label": "Enigma",
+                "max": 3,
+                "value": 3
+              }
+            ]
+          }
+        },
+        {
+          "slug": "soul-on-fire",
+          "label": "Soul on Fire",
+          "description": "<p>You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.</p><p>There, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.</p><p>When you <strong><em>Persuade a group by preaching charity, mercy, and hope and roll a 7+</em></strong>, aside from the usual effect, choose 1:</p><ul><li>Your name and your message spread</li><li>Someone approaches you, now or later, eager to know more.</li></ul>"
+        }
+      ],
+      "instincts": [
+        {
+          "word": "Charity",
+          "description": "To go without so that others are better off."
+        },
+        {
+          "word": "Hope",
+          "description": "To inspire others in the face of adversity."
+        },
+        {
+          "word": "Mercy",
+          "description": "To bring relief or comfort, to give second chances."
+        },
+        {
+          "word": "Praise",
+          "description": "To spread the glory and worship of Helior."
+        },
+        {
+          "word": "Righteousness",
+          "description": "To refuse to suffer an injustice or a lesser evil."
+        }
+      ],
+      "appearance": [
+        [
+          "a youthful glow",
+          "well-weathered",
+          "old & merry"
+        ],
+        [
+          "a lifting voice",
+          "a melodious voice",
+          "a soft voice"
+        ],
+        [
+          "beatific",
+          "ethereal",
+          "intense",
+          "jovial",
+          "serene"
+        ],
+        [
+          "fine robes",
+          "threadbare cloak",
+          "working clothes"
+        ]
+      ],
+      "origin": [
+        {
+          "region": "Stonetop",
+          "names": [
+            "Dai",
+            "Eirian",
+            "Eurig",
+            "Haf",
+            "Haul",
+            "Hefin",
+            "Hulwen",
+            "Tesni"
+          ]
+        },
+        {
+          "region": "Barrier Pass",
+          "names": [
+            "Alaqa",
+            "Bat",
+            "Dinget",
+            "Ghoa",
+            "Oyuun",
+            "Sidurgu",
+            "Temur",
+            "Toragana"
+          ]
+        },
+        {
+          "region": "Gordin's Delve",
+          "names": []
+        },
+        {
+          "region": "Marshedge",
+          "names": [
+            "Adfin",
+            "Callach",
+            "Conlad",
+            "Eadna",
+            "Fionntan",
+            "Niamh",
+            "Orlaith",
+            "Sorsha"
+          ]
+        },
+        {
+          "region": "Lygos or some other point south",
+          "names": [
+            "Arash",
+            "Azar",
+            "Hafiz",
+            "Murat",
+            "Roshan",
+            "Shideh",
+            "Zara",
+            "Zohara"
+          ]
+        }
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2",
+        "pickCount": 2,
+        "preselected": [],
+        "options": [
+          {
+            "slug": "apiary",
+            "label": "Apiary",
+            "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), honey, ◇ bee smokers, ◇ hats &amp; veils, etc."
+          },
+          {
+            "slug": "books-and-scrolls",
+            "label": "Books &amp; scrolls",
+            "description": "○○○○○ uses: expend a use to consult your collection and turn a Know Things roll you just made into a 10+.",
+            "resource": {
+              "max": 5,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "chandlery",
+            "label": "Chandlery",
+            "description": "beeswax, candles (<em>close, area</em>, lasts ~1 hr), wicks, scented herbs, soap, lye, ash, etc."
+          },
+          {
+            "slug": "distillery",
+            "label": "Distillery",
+            "description": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇ firkins, stills, barrels, etc.",
+            "resource": {
+              "max": 2,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "glassworks",
+            "label": "Glassworks",
+            "description": "vials, charms, lenses, sand, marbles, bellows, crucible, ◇ lanterns (○○○○○ hours, <em>close, area</em>), etc."
+          },
+          {
+            "slug": "holy-relics",
+            "label": "Holy relics",
+            "description": "○○○ uses: if you have one in inventory when you Invoke the Sun God, you can mark a use in lieu of choosing a consequence.",
+            "resource": {
+              "max": 3,
+              "title": null,
+              "labels": []
+            }
+          },
+          {
+            "slug": "luthiers-tools",
+            "label": "Luthier's tools",
+            "description": "chisels, files, catgut, various woods, stains, ◇ a lute, ◇ a fiddle, etc."
+          }
+        ]
+      },
+      "invocations": {
+        "startingCount": 2,
+        "options": [
+          {
+            "slug": "bath-of-healing-light",
+            "label": "Bath of Healing Light",
+            "description": "<p>Cup your hands around your light and focus it. Your patient… <em>(pick 2)</em>:</p><ul><li>Regains 5 HP (can pick this twice)</li><li>Clears a debility (can pick this twice)</li><li>Has one of their problematic wounds stabilized</li><li>Recovers from a minor condition (drunk, etc.)</li></ul><p><strong>Reduced:</strong> pick only 1 (instead of 2).</p><p><strong>Empowered:</strong> add these to your possible choices:</p><ul><li>Regains 10 HP (can pick this twice)</li><li>Fully recovers from a problematic wound</li><li>Is cured of a dire affliction, poison, or disease</li></ul>"
+          },
+          {
+            "slug": "blinding-light",
+            "label": "Blinding Light",
+            "ongoing": true,
+            "description": "<p>Your light blazes. Any in range who look at it are temporarily blinded. Those not looking at it directly must avert their eyes. You are unaffected.</p><p><strong>Reduced:</strong> the light flares only for a moment.</p><p><strong>Empowered:</strong> if you wish, your allies are unaffected.</p>"
+          },
+          {
+            "slug": "cleansing-light",
+            "label": "Cleansing Light",
+            "description": "<p>Your light flares, dispelling magical effects within range. Potent, lasting magics are merely suppressed, and slowly return to power once removed from your light.</p><p><strong>Reduced:</strong> potent, lasting magics are unaffected; other magical effects are merely suppressed.</p><p><strong>Empowered:</strong> the invocation is <em>ongoing</em>; while it lasts, any magical effects created in or brought into range are dispelled/suppressed.</p>"
+          },
+          {
+            "slug": "cold-light-of-day",
+            "label": "Cold Light of Day",
+            "ongoing": true,
+            "description": "<p>All in your light appears as it really is, without the benefit of illusion, shapeshifting, or disguise.</p><p><strong>Reduced:</strong> it lasts only a few moments, just long enough to glimpse the truth.</p><p><strong>Empowered:</strong> illusions in the light are dispelled and shapeshifters in the light are momentarily stunned.</p>"
+          },
+          {
+            "slug": "dancing-light",
+            "label": "Dancing Light",
+            "ongoing": true,
+            "description": "<p>Your light takes to the air, floating as you direct it, untethered from its fuel. You can move it anywhere that you can see it, and even change its shape or color.</p><p><strong>Reduced:</strong> it dims, reducing its range by one step.</p><p><strong>Empowered:</strong> you can use another Invocation through the Dancing Light while it is <em>ongoing</em>.</p>"
+          },
+          {
+            "slug": "go-back-to-the-shadow",
+            "label": "Go Back to the Shadow",
+            "description": "<p>Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.</p><p><strong>Reduced:</strong> affected spirits take only 1d8 damage.</p><p><strong>Empowered:</strong> a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).</p>"
+          },
+          {
+            "slug": "hold-back-the-darkness",
+            "label": "Hold Back the Darkness",
+            "ongoing": true,
+            "description": "<p>Spirits and creatures of darkness are repelled by your light and cannot approach. The cowardly or mindless flee outright. Those forced into range of your light deal damage with disadvantage.</p><p><strong>Reduced:</strong> you must maintain an unbroken litany of prayers in order to maintain the effect.</p><p><strong>Empowered:</strong> affected entities that are forced into range of your light are vulnerable to mundane weapons, their supernatural defenses suppressed.</p>"
+          },
+          {
+            "slug": "moth-to-a-flame",
+            "label": "Moth to a Flame",
+            "ongoing": true,
+            "description": "<p>Name an individual or type of mortal creature. They gaze raptly at your light and will follow it, slowly. The effect ends if they take damage.</p><p><strong>Reduced:</strong> it lasts only briefly OR only some of the named creatures are affected (GM's choice).</p><p><strong>Empowered:</strong> the effect continues for a few moments after they first take damage. Taking damage a second time ends the effect immediately.</p>"
+          },
+          {
+            "slug": "terrible-as-the-dawn",
+            "label": "Terrible as the Dawn",
+            "ongoing": true,
+            "description": "<p>Name an individual or type of mortal creature. Your light fills them with dread, causing them to recoil and back away. The cowardly flee outright.</p><p><strong>Reduced:</strong> all mortal creatures but you are affected, including your allies.</p><p><strong>Empowered:</strong> even the brave must cower or flee.</p>"
+          },
+          {
+            "slug": "warmth-of-the-sun",
+            "label": "Warmth of the Sun",
+            "ongoing": true,
+            "description": "<p>While in your light, you and your allies are free of fear and doubt, and unharmed by extreme cold.</p><p><strong>Reduced:</strong> only one person in the light is protected.</p><p><strong>Empowered:</strong> the light also protects from necromantic and life-draining effects.</p>"
+          }
+        ]
+      },
+      "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "lore": [
+        {
+          "slug": "helior",
+          "title": "Praise the Day",
+          "description": "<p>You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.</p>",
+          "options": []
+        },
+        {
+          "slug": "helior-worship-spread",
+          "continuation": true,
+          "title": "The Worship of Helior Is…",
+          "description": "<p><em>(choose 1)</em></p>",
+          "options": [
+            {
+              "slug": "ancient-widespread",
+              "description": "… ancient, widespread, and well-known.",
+              "max": 1
+            },
+            {
+              "slug": "lygos-south",
+              "description": "… most common in Lygos and the south.",
+              "max": 1
+            },
+            {
+              "slug": "new-thing",
+              "description": "… a new thing, still unheard of by many.",
+              "max": 1
+            },
+            {
+              "slug": "old-forgotten",
+              "description": "… an old thing, forgotten by most.",
+              "max": 1
+            },
+            {
+              "slug": "persecuted",
+              "description": "… widely persecuted.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "helior-worship-practice",
+          "title": "He Is Worshipped Through…",
+          "description": "<p><em>(choose 1 or 2)</em></p>",
+          "options": [
+            {
+              "slug": "solemn-hymns",
+              "description": "… solemn hymns.",
+              "max": 1
+            },
+            {
+              "slug": "meditation",
+              "description": "… serene meditation.",
+              "max": 1
+            },
+            {
+              "slug": "joyful-song",
+              "description": "… joyful song.",
+              "max": 1
+            },
+            {
+              "slug": "ascetic-denial",
+              "description": "… ascetic denial.",
+              "max": 1
+            },
+            {
+              "slug": "dancing",
+              "description": "… fervent dancing.",
+              "max": 1
+            },
+            {
+              "slug": "ceremonies",
+              "description": "… formal ceremonies.",
+              "max": 1
+            },
+            {
+              "slug": "drugs",
+              "description": "… drugs & intoxicants.",
+              "max": 1
+            },
+            {
+              "slug": "pain-sacrifice",
+              "description": "… pain & sacrifice.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "helior-shrine",
+          "title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+          "description": "<p><em>(choose 1)</em></p>",
+          "options": [
+            {
+              "slug": "highest-honor",
+              "description": "… the place of highest honor, even if Tor is more popular.",
+              "max": 1
+            },
+            {
+              "slug": "well-tended",
+              "description": "… been well-tended and given due respect.",
+              "max": 1
+            },
+            {
+              "slug": "recently-restored",
+              "description": "… recently been restored/established, perhaps by you.",
+              "max": 1
+            },
+            {
+              "slug": "seen-better-days",
+              "description": "… seen better days, for certain.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "helior-predecessor",
+          "columnBreak": true,
+          "title": "Your Predecessor, the Previous Lightbearer…",
+          "description": "<p><em>(choose 2 or 3)</em></p>",
+          "options": [
+            {
+              "slug": "lived-long-ago",
+              "description": "… lived long ago, a figure of legend.",
+              "max": 1
+            },
+            {
+              "slug": "martyred",
+              "description": "… was martyred for their faith.",
+              "max": 1
+            },
+            {
+              "slug": "died-facing",
+              "description": "… died facing a mighty sorcerer or demon.",
+              "max": 1
+            },
+            {
+              "slug": "wrote-works",
+              "description": "… wrote many works of sublime beauty.",
+              "max": 1
+            },
+            {
+              "slug": "things-below",
+              "description": "… faced one of the Things Below.",
+              "max": 1
+            },
+            {
+              "slug": "died-peacefully",
+              "description": "… died in their bed, peacefully.",
+              "max": 1
+            },
+            {
+              "slug": "ascended",
+              "description": "… ascended bodily into the heavens.",
+              "max": 1
+            },
+            {
+              "slug": "reincarnated",
+              "description": "… was reincarnated—as you.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "helior-powers-origin",
+          "title": "You Came Into Your Powers…",
+          "description": "<p><em>(choose 1)</em></p>",
+          "options": [
+            {
+              "slug": "years-study",
+              "description": "… through years of study and devotion.",
+              "max": 1
+            },
+            {
+              "slug": "predecessor",
+              "description": "… when your predecessor passed them on.",
+              "max": 1
+            },
+            {
+              "slug": "sudden",
+              "description": "… suddenly, at a moment of great need.",
+              "max": 1
+            },
+            {
+              "slug": "visitation",
+              "description": "… after a visitation from Helior or one of his servants.",
+              "max": 1
+            },
+            {
+              "slug": "first-sight",
+              "description": "… when you first laid eyes upon the _______.",
+              "max": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "system": {
+    "slug": "the-lightbearer",
+    "actorType": "character",
+    "description": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
+    "attributes": {}
+  },
+  "folder": "Jsm6Sc2kOHvEBv8h"
+}

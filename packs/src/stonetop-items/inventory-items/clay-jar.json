@@ -1,0 +1,18 @@
+{
+  "_id": "fnQsKDGAUuRqphlh",
+  "_key": "!items!fnQsKDGAUuRqphlh",
+  "name": "Clay jar",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "clay-jar",
+      "inventoryColumn": "small",
+      "sortOrder": 12,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

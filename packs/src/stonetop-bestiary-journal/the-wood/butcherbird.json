@@ -1,0 +1,70 @@
+{
+  "_id": "vuCG2gnrr5slc2Cj",
+  "_key": "!journal!vuCG2gnrr5slc2Cj",
+  "name": "Butcherbird",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tiny crimson birds that flock to fresh blood."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 11000,
+  "pages": [
+    {
+      "_id": "PSKZl8G6n6RRlEXd",
+      "_key": "!journal.pages!vuCG2gnrr5slc2Cj.PSKZl8G6n6RRlEXd",
+      "name": "Butcherbird",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Tiny crimson birds that flock to fresh blood.",
+        "description": "<p>About the size of a woodpecker, with black and wine-red plumage, flitting about in small flocks (2d6+4). Their laugh will make your blood run cold. But don't worry — they'll get your blood flowing again, real soon.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Butcherbirds can smell fresh blood from miles away, and might descend on a hunter's kill to gorge.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** They can smell the blood of their own, and shun it; smeared butcherbird blood is an excellent repellent.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.dLxI39zRgbt5baD5"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

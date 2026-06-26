@@ -1,0 +1,92 @@
+{
+  "name": "Necromancer",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 12,
+        "max": 12
+      },
+      "armor": {
+        "value": 0,
+        "source": "or by worn armor"
+      },
+      "damage": {
+        "value": "silver-alloy knife d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to hoard secrets and knowledge"
+      }
+    },
+    "concept": "A death-wise meddler who trades with the spirits of the dead for their secrets.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cautious, cunning, magical, death-wise",
+    "qualities": "<p>Can sense active spirits; often possesses arcana and is attended by one or more bound entities.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.9MF7xia8nqIu1V8N",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Necromancer",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7FNu0XJFJkqjDkzb",
+      "name": "Call up, speak with, bind, or lose control of an undead entity",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!58UtB8l8G68t9nRI.7FNu0XJFJkqjDkzb"
+    },
+    {
+      "_id": "HQTOCUO1GP1UlxTI",
+      "name": "Reveal or act on knowledge they should not possess",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!58UtB8l8G68t9nRI.HQTOCUO1GP1UlxTI"
+    },
+    {
+      "_id": "C8yDrMouSx6YVud1",
+      "name": "Send the undead against a foe",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!58UtB8l8G68t9nRI.C8yDrMouSx6YVud1"
+    },
+    {
+      "_id": "03rRG40e1PEbmxWL",
+      "name": "Cast a death-related spell (reload)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!58UtB8l8G68t9nRI.03rRG40e1PEbmxWL"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LPEmvUWgwvYz7XRc",
+  "_id": "58UtB8l8G68t9nRI",
+  "_key": "!actors!58UtB8l8G68t9nRI"
+}

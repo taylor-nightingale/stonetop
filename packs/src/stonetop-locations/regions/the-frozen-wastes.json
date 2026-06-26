@@ -1,0 +1,187 @@
+{
+  "_id": "xg8MEuSbbEt1wqg8",
+  "_key": "!journal!xg8MEuSbbEt1wqg8",
+  "name": "The Frozen Wastes",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "North of the Whitefang Mountains lies a vast steppe, a windswept sea of shortgrass, sedge, and lichen. No trees grow here. The landscape is broken only by rocky outcrops, low moraines, and kettle lakes. It rarely snows and almost never rains, but hail is somewhat common."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 7000,
+  "pages": [
+    {
+      "_id": "UG08UT7YAyN8GoNa",
+      "_key": "!journal.pages!xg8MEuSbbEt1wqg8.UG08UT7YAyN8GoNa",
+      "name": "The Frozen Wastes",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>North of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong> lies a vast steppe, a windswept sea of shortgrass, sedge, and lichen. No trees grow here. The landscape is broken only by rocky outcrops, low moraines, and kettle lakes. It rarely snows and almost never rains, but hail is somewhat common.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.CutEOTuoS3mAcu8n]{Caribou}</strong> and mammoths graze the plateau, preyed on by wolves and saber-toothed cats and terrible things that crawl forth from the lakes in summer. Bands of mammoth herders roam in warmer months. But for the most part, it’s an empty and forlorn place.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>A landscape so wide and empty you can see the horizon curve</li><li>The constant wind, whispering and howling, tugging and lashing</li><li>Patterns forming in the windswept grass or snow, or the growth of flowers, like runes that fade just before you can read them</li><li>The swell of anger, the urge to inflict violence on your companions, as your temper and patience fray</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Yellow and brown grass, splashed with pale violet flowers</li><li>Fields of standing water, just inches deep, reflecting the empty sky</li><li>Squelch and crackle of half-frozen soil underfoot</li></ul><p>Farther north, the plateau gets even colder, even windier, the steppe giving way to tundra. Eventually, a mountain-like wall of dark ice blocks the way, stretching across the horizon. The glacier is the final working of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>. It seals a rift in the world, and keeps the worst of the Howling Curse at bay. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a]{Mammoth}</strong> herders come here to quarry dark ice, slowly chipping the glacier away.</p><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Days that last forever, the sun never truly setting</li><li>Mix of bright green grass, red lichen, white flowers</li><li>Swarms of insects, spawned from muddy soil</li><li>Birds and ice drakes pecking at the soil or flocking to the sky</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>The world turned red and orange and golden</li><li>Long shadows in the low, low sun</li><li>Sharp cold edge to the wind</li><li>The restless foraging of small animals</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Endless night, the sun barely rising at noon</li><li>Thin carpet of frost and snow, shrubs and dead grass poking out</li><li>The ceaseless, gnawing wind and cold</li><li>The sense that you’ve made a terrible mistake in coming here</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Traversing the Wastes",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The Frozen Wastes are inhospitable in a way that southerners can barely comprehend. On any expedition into the wastes:</p><ul><li>You need a knowledgeable guide, like a mammoth herder, who knows the ways of this place</li><li>You need lots of firewood or dried dung, for you’ll find no fuel and even in the summer the “nights” can be freezing</li><li>The way will be grueling (from cold and mud and bugs); you risk exhausting yourselves/your supplies</li><li>You need to watch out for predators, like wolves or mchebra-gris (kleztigrs, basically, see page 379)</li><li>You need to watch out for kettle lakes, easily mistaken for ice or shallow standing water</li><li>You risk succumbing to the Howling Curse, which taints much of the Wastes</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Kettle lake, small but dozens or hundreds of feet deep</td></tr><tr><td>2–3</td><td>Stretch of shallow standing water/ice</td></tr><tr><td>4–6</td><td>Wide open expanse, just grass and shrub for miles</td></tr><tr><td>7–8</td><td>Large patch of mud/frozen mud</td></tr><tr><td>9</td><td>Gentle slope/low ridge/small rise</td></tr><tr><td>10</td><td>Low moraine, a small hill of broken stones and loose soil</td></tr><tr><td>11</td><td>Rocky outcrop, a dozen feet tall at most</td></tr><tr><td>12</td><td>Single, notable tree</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Mammoth herders",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Here’s a typical band:</p><p>Size hamlet (~15-30 souls) Population +0 Prosperity -1</p><ul><li>Trade with (pick 1 or 2)... ...</li><li>other mammoth herders ...</li><li>a farming valley ...</li><li>a fortress-monastery Resources</li></ul><ul><li>Mammoths (wool, ivory, bone, dung)</li></ul><ul><li>Sleds/sledges of bone, hide, timber</li><li>Hunting (wild mammoths, caribou, hare, fish)</li><li>Gathering (timber, ivory, bone, flint, herbs, dark ice Defenses +0</li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a]{Mammoth}</strong>-mounted warriors</li><li>Hounds and hunting drakes</li><li>Spears/javelins tipped with dark ice, flint, bone, or bronze (crude)</li></ul><p>About half of each band are youngsters, with the rest being able-bodied adults. Elders rarely allow themselves to survive long enough to become a burden to the others. A band typically keeps a herd of 10 to 20 adult mammoths, plus a few young. They butcher their own beasts only when desperate, keeping them instead for wool, transport, and labor.</p><p>A band spends the warmer months on the Frozen Wastes, but spend the colder months sheltering in the caves, ruins, and forests of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong>. They’ll trade with valley farms or fortress-monasteries in spring, before heading out into the Wastes, or in autumn, before they encamp for the winter.</p><p>Something interesting: Mammoth herders tend to be impeccably polite, with drawn-out, formal greetings and elaborate, almost artistic ways of doing everything from lacing up a parka to butchering a beast.</p><p>Something useful: These rituals help identify those afflicted with the Howling Curse, who lack in patience and good grace. Alas, this means that mammoth herders interpret frustration or bad manners as a sign of being accursed.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Tibetan-inspired: Bhokhi, Cheyez, Dangyi, Gamyang, Lhing, Jongash, Nayan, Ningo, Nyayelar, Paing, Ramang, Samanz, Sewas, Tawaro, Tsaru, Tsetse, Wasen, Yenphi</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available among mammoth herders—if the PCs are on friendly terms with a band, they can acquire these items without having to roll. They do need to trade something of equal Value. Food, iron, glass, and wool are usually in demand. They have little to no use for finery.</p><p><strong>goods value</strong></p><ul><li>Ivory a bit (comb, pendant, etc.) 0<em> a substantial piece 1</em> a mammoth tusk (immobile) 2<em> cartload of mammoth tusks 3</em> Dark ice (magical, see page 322) a small piece (magical) 1 a large chunk (magical) 2 with special characteristics +1 a functional tool or weapon +2</li></ul><ul><li>*</li><li>+1 if sold/traded on to anyone other than mammoth herders</li></ul><p><strong>livestock value</strong></p><p>Special items The following might be acquired among mammoth herders, but the PCs must roll Trade &amp; Barter to acquire them. This is in addition to the special items on the Moves &amp; Gear handout.</p><p>When PCs Trade &amp; Barter among a band of mammoth herders, they use the local Prosperity (-1 by default) with disadvantage because it’s a hamlet. On a 6-, they don’t mark XP—this band simply doesn’t have or want what the PCs are after/selling.</p><p><strong>goods value</strong></p><p>Pottery 0 Bronze or iron items, of any sort 1</p><p>Services and favors PCs don’t need to roll Trade &amp; Barter for the following, but they might need to Persuade people—even if they offer something of suitable Value. If the PCs are well-regarded by a band, they might get these boons for free, or without needing to Persuade anyone, or at a reduced price.</p><p><strong>service/favor value</strong></p><p>A few nights of hospitalilty at their camp 0 Labor for a day or two 1 Accompanying the PCs to a place… ... they were heading towards anyhow 0 ... a few days out of their way 1 ... they have no business going 2 ... that they know to be cursed 3</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around The Frozen Wastes. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.CutEOTuoS3mAcu8n]{Caribou}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a]{Mammoth}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around The Frozen Wastes. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uGh38GPx9hdbQ0XH]{Guardian}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.AXCc64h6QQiyBGpx]{Mammoth Herder}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iXAH0ry7QKDChAqE]{Monk}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.hYf2HyXCbJa4j9Fc]{Novice}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Sv77XzHPMBgZqJZ]{Shantyara}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What precious flower grows only in the Frozen Wastes, blooming for a few days each summer? Why is it so valuable?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you find most surprising about this place?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you find yourself missing the most, out here in vast and empty space?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is ___ doing, that you find so damned annoying?",
+                "answer": ""
+              },
+              {
+                "prompt": "If you had to kill ___, how would you do it?",
+                "answer": ""
+              },
+              {
+                "prompt": "If it came down to it, which of your companions would you eat first?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A villain that the PCs want dead flees north, into the Frozen Wastes</li><li>Only one thing can kill the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UEQE5cKRurhX9gCE]{Crombil}</strong>, and it lies at the bottom of a kettle lake</li><li>The dark ice glacier that contains the Howling Curse has begun to melt and recede</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate (d6).</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>Useful or valuable flora</td></tr><tr><td>4</td><td>Dark ice</td></tr><tr><td>5</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong></td></tr><tr><td>6</td><td>An encounter (see below)</td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A mammoth herder encampment, now deserted</td></tr><tr><td>2</td><td>Small animals (fox, hares, rodents, birds, etc.)</td></tr><tr><td>3</td><td>A herd of wild mammoths or caribou, wary, easily spooked/provoked</td></tr><tr><td>4</td><td>A spirit of the wild or perhaps a tulpa, curious or indifferent</td></tr><tr><td>5</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a]{Mammoth}</strong> herders, seen in the distance, avoiding you</td></tr><tr><td>6</td><td>Mammoth herders, approaching warily</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Brutal cold and ceaseless wind, leading to hypothermia &amp; frostbite</li><li>Hail storms—annoying, pelting (d4 damage), smashing (d6 damage)</li><li>Mud—sucking, cold, exhausting</li><li>Slippery footing</li><li>Still, reflective water hiding a sudden, plunging drop into a kettle</li><li>In summer: swarms of midges/ mosquitos—annoying, distracting, painful, diseased</li><li>Getting lost or misjudging time in the vast featureless terrain</li><li>Whispers and visions, pushing people towards bloodshed, cruelty, and savagery</li><li>Places tainted by the Howling Curse</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Ice drakes, especially in warmer months</li><li>Kleztigrs, called “mchebragris” in the local tongue</li><li>Wolves</li><li>A frythanc, nesting in the Whitefangs and preying on caribou or even mammoths</li><li>Wraiths of those who died of starvation and want, or corrupted by the Howling Curse</li><li>Spirits of the wild</li><li>Tulpas, free-roaming or bound to something nearby</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.pOtdFLTTywDCKXPM]{Kyakaara}</strong>, perhaps what remains of a corrupted band of mammoth herders</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Caravan Guard",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 2,
+        "source": "shield, leather cuirass"
+      },
+      "damage": {
+        "value": "iron spear d6 (close, thrown) or dagger d6 (hand)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "(professional) to keep their ward(s) safe"
+      }
+    },
+    "concept": "Hired muscle protecting a merchant caravan on the long road north.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, organized, cautious, alert",
+    "qualities": "<p>Craven guards instead instinct to avoid real danger: suggest a safer course, make a show of force, or flee, surrender, or betray their client.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.eLDyz1PDrdPnbnG9",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Caravan Guard",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "zCCbgisyZazerELm",
+      "name": "Spot or suspect trouble",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rmNfHJdCkFfrBVIL.zCCbgisyZazerELm"
+    },
+    {
+      "_id": "ZxHMcwgWOPxSAmpu",
+      "name": "Take sensible precautions",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rmNfHJdCkFfrBVIL.ZxHMcwgWOPxSAmpu"
+    },
+    {
+      "_id": "KW1F0mDEe6IXaAqZ",
+      "name": "Put themselves in harm's way",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!rmNfHJdCkFfrBVIL.KW1F0mDEe6IXaAqZ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "2vCUfmvyDPFksWR4",
+  "_id": "rmNfHJdCkFfrBVIL",
+  "_key": "!actors!rmNfHJdCkFfrBVIL"
+}

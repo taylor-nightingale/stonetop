@@ -1,0 +1,103 @@
+{
+  "name": "Base Archon",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 5,
+        "source": "resilience, lacks vitals"
+      },
+      "damage": {
+        "value": "physical blows d12+3 w/advantage (close, reach, forceful)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "per its purpose"
+      }
+    },
+    "concept": "A First Creators' construct-spirit — guardian and enforcer of the cosmic order.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, primordial, spirit, construct, magical, terrifying",
+    "qualities": "<p>Ageless; immune to the elements; perceives thought and matter; omnilingual. Armor 1 vs. black iron. Adjust its stat block, manifestation move, and powers to its purpose.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.h8QoSAJnc3Z80m8F",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Base Archon",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "SkeL4Z1SHDj5Ants",
+      "name": "Stand watch over what it guards",
+      "type": "monsterMove",
+      "img": "icons/svg/shield.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!kjKV3SgkKh8gC8Y1.SkeL4Z1SHDj5Ants"
+    },
+    {
+      "_id": "ylp7akyPXDxaWStB",
+      "name": "Manifest in its chosen form (a column of light, an animate statue, a ripple in reality…)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!kjKV3SgkKh8gC8Y1.ylp7akyPXDxaWStB"
+    },
+    {
+      "_id": "25PvxaIpQxkKBCwO",
+      "name": "Smite a transgressor at range (far or near, area)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!kjKV3SgkKh8gC8Y1.25PvxaIpQxkKBCwO"
+    },
+    {
+      "_id": "t49oUKSuDJICwLg2",
+      "name": "Pierce any deception, compel the truth",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!kjKV3SgkKh8gC8Y1.t49oUKSuDJICwLg2"
+    },
+    {
+      "_id": "PRpmhaizGPgKcRJX",
+      "name": "Vanish, and appear elsewhere",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!kjKV3SgkKh8gC8Y1.PRpmhaizGPgKcRJX"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "YyLZdHoqRqGLuPZN",
+  "_id": "kjKV3SgkKh8gC8Y1",
+  "_key": "!actors!kjKV3SgkKh8gC8Y1"
+}

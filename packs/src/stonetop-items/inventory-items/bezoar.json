@@ -1,0 +1,21 @@
+{
+  "_id": "fsGQONvf08WpRtoZ",
+  "_key": "!items!fsGQONvf08WpRtoZ",
+  "name": "Bezoar",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "bezoar",
+      "inventoryColumn": "small",
+      "sortOrder": 37,
+      "note": "cures any poison",
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Exotic Stuff"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

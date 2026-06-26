@@ -1,0 +1,81 @@
+{
+  "name": "Cultist",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0,
+        "source": "or by worn armor"
+      },
+      "damage": {
+        "value": "weapon d8 (tags by weapon)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to belong, to feel important"
+      }
+    },
+    "concept": "Ordinary folk drawn, one small dark deed at a time, into the service of the Things Below.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, cautious, magical, corrupted",
+    "qualities": "<p>Marked by the Things Below (one of their gifts).</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.0nlPVVJedVLBKdkd",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Cultist",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "s7UjDRXPccucrA0F",
+      "name": "Use one of their gifts",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fuNmfqHG9J8HFDo7.s7UjDRXPccucrA0F"
+    },
+    {
+      "_id": "dt8hqsvqhL3C06ru",
+      "name": "Make a sacrifice for the cause",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fuNmfqHG9J8HFDo7.dt8hqsvqhL3C06ru"
+    },
+    {
+      "_id": "ECe0ASs1zFOYFLYH",
+      "name": "Have second thoughts, maybe?",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fuNmfqHG9J8HFDo7.ECe0ASs1zFOYFLYH"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LPEmvUWgwvYz7XRc",
+  "_id": "fuNmfqHG9J8HFDo7",
+  "_key": "!actors!fuNmfqHG9J8HFDo7"
+}

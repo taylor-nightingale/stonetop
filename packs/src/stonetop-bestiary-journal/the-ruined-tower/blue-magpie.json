@@ -1,0 +1,61 @@
+{
+  "_id": "iyJ1X2X1AZE1zjWl",
+  "_key": "!journal!iyJ1X2X1AZE1zjWl",
+  "name": "Blue Magpie",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Clever, thieving, talking magpies that hoard shinies — and old lore."
+    }
+  },
+  "folder": "xxCobxUS7LA9Lz25",
+  "sort": 51000,
+  "pages": [
+    {
+      "_id": "VzBpVScmTv7NP3Qd",
+      "_key": "!journal.pages!iyJ1X2X1AZE1zjWl.VzBpVScmTv7NP3Qd",
+      "name": "Blue Magpie",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Clever, thieving, talking magpies that hoard shinies — and old lore.",
+        "description": "<p>Like big crows with white-and-azure plumage. Their songs are piping and musical, playful and complex, sprinkled with actual voices and other unlikely sounds. A few dozen nest in the tower and the surrounding ruins. Stormcatcher kept blue magpies as pets, and their descendants have passed down much oral lore — sneak up on them and you might overhear tales southern scholars would kill to know. They find humans boorish, but fun to mess with, and they love shiny objects, spending years making elaborate mosaics.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.jd4L6VMQhTXba2r0"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

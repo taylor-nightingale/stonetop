@@ -1,0 +1,13 @@
+{
+  "_id": "jwxIrxcbhxccd8XZ",
+  "_key": "!items!jwxIrxcbhxccd8XZ",
+  "name": "Skill at Arms",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "isStartingMove": false,
+    "description": "<p>When you <strong><em>wield a weapon with speed and grace</em></strong>, roll +DEX to Clash (instead of +STR).</p>"
+  },
+  "folder": "cdhcHAxQ02WaH2Dm"
+}

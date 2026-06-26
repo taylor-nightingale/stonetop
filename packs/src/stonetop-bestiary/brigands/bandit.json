@@ -1,0 +1,92 @@
+{
+  "name": "Bandit",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 1,
+        "source": "hides, shields (up to 2)"
+      },
+      "damage": {
+        "value": "spears d8 (close, thrown) or slings d6 (near)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to survive at the expense of others"
+      }
+    },
+    "concept": "Roadside predators who lure travelers from the safety of the Roads.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, stealthy, cautious, devious",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.3aGN8PEsxue31FpR",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Bandit",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "3Ni81UKQmYGLnBdN",
+      "name": "Prepare a deception, to lure travelers from the roads",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lfKTKPxpxxExPr8B.3Ni81UKQmYGLnBdN"
+    },
+    {
+      "_id": "7ECDR0BEo4jprCqq",
+      "name": "Spring an ambush when their prey takes the bait",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lfKTKPxpxxExPr8B.7ECDR0BEo4jprCqq"
+    },
+    {
+      "_id": "t9ZJOmPrcFYVZoFD",
+      "name": "Take captives or slit throats, so no one escapes to tell tales",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lfKTKPxpxxExPr8B.t9ZJOmPrcFYVZoFD"
+    },
+    {
+      "_id": "c0P7VKZA6B0xQLld",
+      "name": "Flee into the grass if things go south",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!lfKTKPxpxxExPr8B.c0P7VKZA6B0xQLld"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "7jHoGAhA79s1EBFQ",
+  "_id": "lfKTKPxpxxExPr8B",
+  "_key": "!actors!lfKTKPxpxxExPr8B"
+}

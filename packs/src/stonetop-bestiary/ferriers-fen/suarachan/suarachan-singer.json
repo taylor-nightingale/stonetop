@@ -1,0 +1,91 @@
+{
+  "name": "Suarachan Singer",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "fists and bite d6 w/disadvantage (hand), snapping tongue d4 w/disadvantage (reach)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to sing the eternal lullaby"
+      }
+    },
+    "concept": "The mutated chorus, drowning the world in the eternal lullaby.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, amphibious",
+    "qualities": "<p>Excellent night vision; salt burns their skin; heavily mutated.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Suarachan Singer",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "fcsV9oHxWTYC6oAr",
+      "name": "Drown out all other noises with their song",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MSt3ujyG670TKwEh.fcsV9oHxWTYC6oAr"
+    },
+    {
+      "_id": "LQKXTBw4GsuiE0LZ",
+      "name": "Raise a shrill call of alarm",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MSt3ujyG670TKwEh.LQKXTBw4GsuiE0LZ"
+    },
+    {
+      "_id": "UOCG76il9BF0Vj05",
+      "name": "Scuttle away and hide",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MSt3ujyG670TKwEh.UOCG76il9BF0Vj05"
+    },
+    {
+      "_id": "18iyoltliXffdNWS",
+      "name": "Keep a prisoner living, long enough",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MSt3ujyG670TKwEh.18iyoltliXffdNWS"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "G2Ab6dVpY7UCfUK6",
+  "_id": "MSt3ujyG670TKwEh",
+  "_key": "!actors!MSt3ujyG670TKwEh"
+}

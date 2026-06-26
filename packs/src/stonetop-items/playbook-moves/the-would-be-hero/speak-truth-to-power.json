@@ -1,0 +1,17 @@
+{
+  "_id": "klmn4WX8Hvl1HRzk",
+  "_key": "!items!klmn4WX8Hvl1HRzk",
+  "name": "Speak Truth to Power",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "<p>When you <strong><em>demand that someone does what is clearly good and right</em></strong>, you have advantage to Persuade. If they refuse, gain +1 Resolve.</p>",
+    "requirement": {
+      "moves": [
+        "Anger is a Gift"
+      ]
+    }
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

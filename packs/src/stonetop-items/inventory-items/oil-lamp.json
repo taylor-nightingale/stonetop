@@ -1,0 +1,28 @@
+{
+  "_id": "p5B1Id9Z850kEnyd",
+  "_key": "!items!p5B1Id9Z850kEnyd",
+  "name": "Oil lamp",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "oil-lamp",
+      "inventoryColumn": "regular",
+      "sortOrder": 13,
+      "note": "<em>close</em>, <em>area</em>, <em>crude</em>",
+      "weight": 1,
+      "resource": {
+        "max": 3,
+        "title": null,
+        "labels": [
+          "",
+          "",
+          "hours"
+        ]
+      }
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

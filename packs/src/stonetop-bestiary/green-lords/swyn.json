@@ -1,0 +1,92 @@
+{
+  "name": "Swyn",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "bite & constriction d10+3 (hand, close, forceful, grabby)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to indulge its ego"
+      }
+    },
+    "concept": "A vain, hypnotic serpent with a simian head that enthralls the weak-willed.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, construct, corrupted, stealthy, magical, devious, cautious, hoarder",
+    "qualities": "<p>Armor 2 vs. bronze (scales).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.k9Buk0QDWg2PIIqj",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Swyn",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Kw1mWoiIwAQ7WJbV",
+      "name": "Appear out of nowhere and lock eyes",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!gI80yymFTixu1alc.Kw1mWoiIwAQ7WJbV"
+    },
+    {
+      "_id": "q7TlE08CncXPV8DA",
+      "name": "Hold its prey fast with gaze and soothing words",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!gI80yymFTixu1alc.q7TlE08CncXPV8DA"
+    },
+    {
+      "_id": "Jnz2tAetCvDMeBLN",
+      "name": "Plant a suggestion in its victim's mind",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!gI80yymFTixu1alc.Jnz2tAetCvDMeBLN"
+    },
+    {
+      "_id": "mqcoELG1K17HSRlX",
+      "name": "Turn the weak-willed into fawning servants",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!gI80yymFTixu1alc.mqcoELG1K17HSRlX"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FO5poGFHi5Udrsfz",
+  "_id": "gI80yymFTixu1alc",
+  "_key": "!actors!gI80yymFTixu1alc"
+}

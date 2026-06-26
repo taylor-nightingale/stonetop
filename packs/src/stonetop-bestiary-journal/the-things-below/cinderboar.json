@@ -1,0 +1,61 @@
+{
+  "_id": "SNRXkBbhyuCCXwBa",
+  "_key": "!journal!SNRXkBbhyuCCXwBa",
+  "name": "Cinderboar",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A fireproof, giggling boar that burns and devours, spawned of the Burning Child's rage."
+    }
+  },
+  "folder": "WfCT2r0yWAQFVrI9",
+  "sort": 114000,
+  "pages": [
+    {
+      "_id": "4XIIgMLFEMILHGCc",
+      "_key": "!journal.pages!SNRXkBbhyuCCXwBa.4XIIgMLFEMILHGCc",
+      "name": "Cinderboar",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A fireproof, giggling boar that burns and devours, spawned of the Burning Child's rage.",
+        "description": "<p>There is a burnt and blasted place, where the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> abut <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier's Fen}</strong>. It once boasted a Stone Lord fortress: grand, a tower eternal, lit by a fiery gem. But the servants rebelled, the seals were sundered, and Ta'l Themyin, the Burning Child, shattered the gem and toppled the tower and laughed and laughed and laughed. His rage still boils to the surface, poisoning any beast bold enough to forage in these ruins — and his cruelty sends them forth, to uproot and topple, to sunder and burn.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.6jDwnqjA3VmyKZ9F"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

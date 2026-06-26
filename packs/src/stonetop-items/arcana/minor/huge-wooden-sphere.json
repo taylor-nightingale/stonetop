@@ -1,0 +1,83 @@
+{
+  "_id": "Ne4ChH6hJk8lMcNo",
+  "_key": "!items!Ne4ChH6hJk8lMcNo",
+  "name": "A huge wooden sphere",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "huge-wooden-sphere",
+      "front": {
+        "title": "A huge wooden sphere",
+        "note": "<em>immobile</em>",
+        "description": "<p>Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.</p>",
+        "unlock": {
+          "description": "The pictograms depict some sort of recipe, which you can learn but you must…",
+          "requirements": [
+            {
+              "type": "text",
+              "content": "The pictograms depict some sort of recipe, which you can learn but you must…"
+            },
+            {
+              "type": "option",
+              "slug": "dig-up-clean",
+              "description": "… first dig up and clean the sphere."
+            },
+            {
+              "type": "option",
+              "slug": "study-glyphs",
+              "description": "… spend weeks studying the glyphs."
+            },
+            {
+              "type": "option",
+              "slug": "acquire-ffyrnig-root",
+              "description": "… acquire some fresh ffyrnig root."
+            },
+            {
+              "type": "option",
+              "slug": "acquire-boar-bile",
+              "description": "… acquire the bile of a wild boar."
+            },
+            {
+              "type": "text",
+              "content": "And then…"
+            },
+            {
+              "type": "option",
+              "slug": "risk-recipe",
+              "description": "… you risk getting the recipe wrong, and lethally so."
+            }
+          ]
+        }
+      },
+      "back": {
+        "title": "Ffyrnig Tonic",
+        "item": {
+          "name": "Ffyrnig Tonic",
+          "weight": 1,
+          "note": "<em>magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).</p>",
+        "resource": {
+          "max": 3,
+          "maxStat": null,
+          "title": "Ffyrnig Tonic",
+          "labels": []
+        },
+        "move": {
+          "name": "When you take a draught of ffyrnig tonic",
+          "rollType": null,
+          "description": "<p>Pick 1:</p><ul><li>Regain HP equal to ½ your max</li><li>Clear a debility</li></ul><p>Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness.</p><p>When you <strong><em>drink a second draught of ffyrnig tonic before getting a good night's sleep</em></strong>, it has no effect other than to make you ill (mark a debility).</p>"
+        },
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "gkPvaHrx0Y6YiKCP"
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "SrcFk83C0Gxm7Jwj",
+  "_key": "!journal!SrcFk83C0Gxm7Jwj",
+  "name": "The Quiet Twins",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Two mute ghost-children who haunt the Stream, mouthing silent warnings."
+    }
+  },
+  "folder": "Pt1DLDTVv57nLfff",
+  "sort": 127000,
+  "pages": [
+    {
+      "_id": "ZJJ0hKftuzJroym9",
+      "_key": "!journal.pages!SrcFk83C0Gxm7Jwj.ZJJ0hKftuzJroym9",
+      "name": "The Quiet Twins",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Two mute ghost-children who haunt the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>, mouthing silent warnings.",
+        "description": "<p>A pair of ghostly children who haunt the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KJUzuYlurcjPxHd7]{Stream}</strong>, a few minutes from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> near the base of the bluff. Sightings are uncommon, but common enough. They watch what happens at the water — seen or unseen — and manifest in silent terror, mouthing and gesturing at some danger, real or not.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.1C0Jhihrg28bX7Ry"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

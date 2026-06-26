@@ -1,0 +1,41 @@
+{
+  "name": "Staff of the Lidless Orb",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "staff-of-the-lidless-orb",
+      "front": {
+        "title": "Staff of the Lidless Orb",
+        "item": {
+          "name": "Staff of the Lidless Orb",
+          "weight": 1,
+          "note": "<em>close, magical, awkward</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A sphere of greenish glass, etched with a cat's-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.</p><p>And sometimes, you could swear, it seems to look about on its own. But that's preposterous.</p><p>When you <strong><em>grip the staff, close your eyes, and see through the Lidless Orb</em></strong>, roll +CON: <strong>on a 10+</strong>, choose 3 from the list below; <strong>on a 7-9</strong>, choose 1.</p><ul><li>The orb sees through darkness, natural or magical</li><li>The orb sees through illusion, glamour, and invisibility</li><li>The orb can see strong emotions as auras radiating from people and lingering on places</li><li>You can move about and operate effectively while seeing through the orb (otherwise, not so much)</li></ul><p>Whatever you choose, the effect lasts until you open your eyes or let go of the staff.</p><p>On a <strong>6-</strong>, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.</p>",
+        "unlock": {
+          "description": "○○○ When you make the last mark, you unlock the mysteries of the Staff and can use Power of the Lidless Orb (see reverse). Mark one of the four effects (your choice); you can produce that effect. When you would mark a circle but have already marked all three, mark a new effect for Power of the Lidless Orb. You can now produce that effect.",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Staff of the Lidless Orb",
+        "item": null,
+        "description": "<h3>Moves</h3><p><strong>POWER OF THE LIDLESS ORB</strong></p><p>When you <strong><em>bear the staff and call upon the power of the Orb</em></strong>, choose one of the effects that you have marked:</p><ul><li>Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.</li><li>Hold the Orb before another creature's gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.</li><li>Hold the Orb before a mortal being's gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.</li><li>Point the Orb at a living victim and roll 2d4. If you roll higher than the victim's current HP, it's debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.</li></ul><p>After you've chosen the effect, roll +CON: <strong>on a 10+</strong>, the effect occurs as described; <strong>on a 7-9</strong>, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; <strong>on a 6-</strong>, ask the GM what happens (which may or may not involve marking a Consequence).</p><h3>Consequences</h3><ul><li>One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.<ul><li>Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the <em>miserable</em> debility.</li></ul></li><li>You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.</li><li>You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and hold a strange fascination.<ul><li>Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"</li><li>You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.</li></ul></li><li>○○○ You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.</li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "oyFf5WI5KeDAVYsA",
+  "_key": "!items!oyFf5WI5KeDAVYsA",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-lidlessorb.webp"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Mammoth",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 1,
+        "source": "fur and hide"
+      },
+      "damage": {
+        "value": "tusks d6+5 (reach, forceful) or trample d6+5 (hand, area, forceful)",
+        "rollFormula": "d6+5"
+      },
+      "instinct": {
+        "value": "to suffer no insult or threat"
+      }
+    },
+    "concept": "Huge woolly tuskers of the northern steppe.",
+    "organization": "horde",
+    "size": "huge",
+    "tags": "horde, huge, hardy",
+    "qualities": "<p>Keen-nosed; sickly in warmer climes.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.H4EkNtJ49Mpz9O8a",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Mammoth",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "jGiOQdH6nGaexBgG",
+      "name": "Trumpet in warning",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cy5OhsU0kVFUoppF.jGiOQdH6nGaexBgG"
+    },
+    {
+      "_id": "UWjMDsll0Qhy2i5e",
+      "name": "Toss someone or something aside",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cy5OhsU0kVFUoppF.UWjMDsll0Qhy2i5e"
+    },
+    {
+      "_id": "mMrTFbgYC3J7j0q7",
+      "name": "Charge, often abruptly",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!cy5OhsU0kVFUoppF.mMrTFbgYC3J7j0q7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "uL2qZrxWiEuUIscv",
+  "_id": "cy5OhsU0kVFUoppF",
+  "_key": "!actors!cy5OhsU0kVFUoppF"
+}

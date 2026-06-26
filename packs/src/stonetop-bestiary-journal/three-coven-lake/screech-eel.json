@@ -1,0 +1,61 @@
+{
+  "_id": "Efv986sm5JyehsJC",
+  "_key": "!journal!Efv986sm5JyehsJC",
+  "name": "Screech Eel",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Six-foot eels that screech for the pack, then feast on the drowning."
+    }
+  },
+  "folder": "9exzW9f5xHXkx5ll",
+  "sort": 50000,
+  "pages": [
+    {
+      "_id": "w416GSHzFyhtgLsH",
+      "_key": "!journal.pages!Efv986sm5JyehsJC.w416GSHzFyhtgLsH",
+      "name": "Screech Eel",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Six-foot eels that screech for the pack, then feast on the drowning.",
+        "description": "<p>About five or six feet long. They mostly prey on fish or fowl, hunting silently and by themselves. Somehow, though, they learned that people are delicious. Too big for one eel to tackle, sure — but people in the water are clumsy and oblivious. So when a screech eel spots someone in the water, it calls out to its friends, and when enough have gathered, they feast.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.DHXlFUAc6mX5eEtp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

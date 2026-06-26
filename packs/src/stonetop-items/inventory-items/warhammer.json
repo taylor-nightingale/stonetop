@@ -1,0 +1,21 @@
+{
+  "_id": "Ih7yfJs1ON43xKmT",
+  "_key": "!items!Ih7yfJs1ON43xKmT",
+  "name": "Warhammer, iron",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "warhammer",
+      "inventoryColumn": "regular",
+      "sortOrder": 32,
+      "note": "<em>iron</em>, <em>close</em>, 2 piercing",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Weapons of War"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

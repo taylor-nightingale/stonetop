@@ -1,0 +1,61 @@
+{
+  "_id": "bO6QXFMmtAmKL3zO",
+  "_key": "!journal!bO6QXFMmtAmKL3zO",
+  "name": "Mummified Servant",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A Green Lord's faithful dead, rising from the false afterlife to kill intruders."
+    }
+  },
+  "folder": "jQoDL6IhABvMYnZf",
+  "sort": 79000,
+  "pages": [
+    {
+      "_id": "ynEVoraTg5NZAlmU",
+      "_key": "!journal.pages!bO6QXFMmtAmKL3zO.ynEVoraTg5NZAlmU",
+      "name": "Mummified Servant",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A Green Lord's faithful dead, rising from the false afterlife to kill intruders.",
+        "description": "<p>Some of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> were mummified and interred with their most faithful mortal servants. These servants get to enjoy their master's false afterlife — but when threats to the tomb arise, they are sent back to their corpses, to rise and crush any intruders they find.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.WVBxp5Ii2Ahd6Xln"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

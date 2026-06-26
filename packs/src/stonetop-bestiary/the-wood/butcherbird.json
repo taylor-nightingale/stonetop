@@ -1,0 +1,81 @@
+{
+  "name": "Butcherbird",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "armor": {
+        "value": 1,
+        "source": "sheer tiny size"
+      },
+      "damage": {
+        "value": "peck d6-2 (hand, messy, 2 piercing)",
+        "rollFormula": "d6-2"
+      },
+      "instinct": {
+        "value": "to feast on bloody, bloody meat"
+      }
+    },
+    "concept": "Tiny crimson birds that flock to fresh blood.",
+    "organization": "horde",
+    "size": "tiny",
+    "tags": "horde, tiny, organized",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.vuCG2gnrr5slc2Cj",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Butcherbird",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "PJwttgspFYwiJqDA",
+      "name": "Grab on and stab stab stab",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!dLxI39zRgbt5baD5.PJwttgspFYwiJqDA"
+    },
+    {
+      "_id": "eAQeeYZX6IjCuzeB",
+      "name": "Fend off any who would steal the flock's meal",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!dLxI39zRgbt5baD5.eAQeeYZX6IjCuzeB"
+    },
+    {
+      "_id": "AT2du8MfGgdcSYep",
+      "name": "Scent blood from miles away",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!dLxI39zRgbt5baD5.AT2du8MfGgdcSYep"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "dLxI39zRgbt5baD5",
+  "_key": "!actors!dLxI39zRgbt5baD5"
+}

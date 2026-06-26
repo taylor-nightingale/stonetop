@@ -1,0 +1,80 @@
+{
+  "name": "Ceirwmawr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "hoof d10+1 (close) or antlers d10+3 (reach, forceful)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to tolerate no disrespect"
+      }
+    },
+    "concept": "The royalty of deer — proud, vast-antlered, untouchable.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, terrifying, fearless",
+    "qualities": "<p>Awe-inspiring antlers.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.idLzu8GfQknwWCby",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Ceirwmawr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "ZHFMDR9myV0gx62C",
+      "name": "Toss aside a barrier or foe",
+      "type": "monsterMove",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Qe9HW1xQCicVwtGC.ZHFMDR9myV0gx62C"
+    },
+    {
+      "_id": "WMQNdq368PEDHsma",
+      "name": "Suffer harm without flinching",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Qe9HW1xQCicVwtGC.WMQNdq368PEDHsma"
+    },
+    {
+      "_id": "LmYqLMDBDZjD9zrG",
+      "name": "Make a show of strength",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Qe9HW1xQCicVwtGC.LmYqLMDBDZjD9zrG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "Qe9HW1xQCicVwtGC",
+  "_key": "!actors!Qe9HW1xQCicVwtGC"
+}

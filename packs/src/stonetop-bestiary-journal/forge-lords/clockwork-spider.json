@@ -1,0 +1,61 @@
+{
+  "_id": "rFt8fD3NyBuX1BJD",
+  "_key": "!journal!rFt8fD3NyBuX1BJD",
+  "name": "Clockwork Spider",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Squeaky little clockwork helper-constructs that just want to assist."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 71000,
+  "pages": [
+    {
+      "_id": "etJQeKg7nqmfnpcE",
+      "_key": "!journal.pages!rFt8fD3NyBuX1BJD.etJQeKg7nqmfnpcE",
+      "name": "Clockwork Spider",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Squeaky little clockwork helper-constructs that just want to assist.",
+        "description": "<p>They're not really shaped like spiders, but that's what they make you think of. Picture a metal basket, holding gears and springs and a glowing central core, with articulated legs extending out, each ending in a little three-clawed pincer. They squeak as they move, their many joints needing oil. They were made to be little servants, extra sets of hands around a house or forge — and even now, they're just trying to help.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.0E5ih40SJt6W1nDp"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

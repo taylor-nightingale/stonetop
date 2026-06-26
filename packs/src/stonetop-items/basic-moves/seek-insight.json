@@ -1,0 +1,26 @@
+{
+  "name": "Seek Insight",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "description": "<p>When you <strong><em>study a situation or person, looking to the GM for insight</em></strong>, roll +WIS: <strong>on a 10+</strong>, ask the GM 3 questions from the list below; <strong>on a 7-9</strong>, ask 1; <strong><em>either way</em></strong>, gain advantage on your next move that acts on the answers.</p><ul><li>What happened here?</li><li>What is about to happen?</li><li>What should I be on the lookout for?</li><li>What here is useful or valuable to me?</li><li>Who or what is really in control here?</li><li>What here is not what it appears to be?</li></ul>",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Ask the GM 3 questions from the list. Gain advantage on your next move that acts on the answers."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Ask the GM 1 question from the list. Gain advantage on your next move that acts on the answers."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You're interrupted or surprised as you study, or trouble announces itself."
+      }
+    },
+    "rollType": "wis"
+  },
+  "_id": "twimWuMSalss6cbe",
+  "_key": "!items!twimWuMSalss6cbe",
+  "folder": "2YUg96cXcUdoBlZD"
+}

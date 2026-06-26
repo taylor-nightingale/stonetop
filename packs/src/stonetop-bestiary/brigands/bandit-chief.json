@@ -1,0 +1,92 @@
+{
+  "name": "Bandit Chief",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 8,
+        "max": 8
+      },
+      "armor": {
+        "value": 3,
+        "source": "hides, shield, skill"
+      },
+      "damage": {
+        "value": "spear d8 (close, thrown, 1 piercing) or bow d8 (near)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to make the best out of what they've got"
+      }
+    },
+    "concept": "The rare leader cagey enough to turn a gang of bandits into a serious threat.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, leader, stealthy, cautious, devious, organized",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.aJvnNwaxVw8BTHA6",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Bandit Chief",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "twefJFmg12MHgQlZ",
+      "name": "Suss out what people want or need",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CL9MRZT48lnfhegh.twefJFmg12MHgQlZ"
+    },
+    {
+      "_id": "ZnfJcJbULikq6tK0",
+      "name": "Exploit a weakness, opportunity, or loophole",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CL9MRZT48lnfhegh.ZnfJcJbULikq6tK0"
+    },
+    {
+      "_id": "FKmHU2QxVMH4vbAz",
+      "name": "Cut a deal",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CL9MRZT48lnfhegh.FKmHU2QxVMH4vbAz"
+    },
+    {
+      "_id": "xnqNrUsMOvBHoK0Z",
+      "name": "Ruthlessly expand or preserve their power",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CL9MRZT48lnfhegh.xnqNrUsMOvBHoK0Z"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "7jHoGAhA79s1EBFQ",
+  "_id": "CL9MRZT48lnfhegh",
+  "_key": "!actors!CL9MRZT48lnfhegh"
+}

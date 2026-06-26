@@ -1,0 +1,67 @@
+{{!-- Order Followers (Book I, NPCs & Followers p.462). Compact modal; reuses the
+      spring dialog chrome. See dialogs/OrderFollowersDialog.js. --}}
+<div class="stonetop-spring">
+
+  <div class="stonetop-guide-main">
+
+    <div class="stonetop-guide-banner">
+      <i class="fas fa-hand-point-right stonetop-guide-banner-icon"></i>
+      <div class="stonetop-guide-banner-info">
+        <div class="stonetop-guide-banner-title">Order {{followerName}}</div>
+        <div class="stonetop-guide-banner-sub">Direct them to make a move</div>
+      </div>
+    </div>
+
+    <div class="stonetop-of-controls">
+
+      {{!-- Which move are they making? --}}
+      <label class="stonetop-cf-label">Move
+        <select class="stonetop-cf-input stonetop-of-move">
+          {{#each moves}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+        </select>
+      </label>
+      {{#if isCustom}}
+      <label class="stonetop-cf-label stonetop-of-custom-label">What are they doing?
+        <input type="text" class="stonetop-cf-input stonetop-of-custom" value="{{customMove}}" placeholder="e.g. scale the wall…">
+      </label>
+      {{/if}}
+
+      {{!-- Resolve which tags help or hinder (a table judgment call) --}}
+      <div class="stonetop-of-tags-block">
+        <span class="stonetop-cf-chosen-label">Which of their tags apply? <span class="stonetop-of-tags-hint">(click to cycle: helps → in the way → neither)</span></span>
+        {{#if tags.length}}
+        <div class="stonetop-of-tags">
+          {{#each tags}}
+          <button type="button"
+                  class="stonetop-of-tag{{#if help}} is-help{{/if}}{{#if hinder}} is-hinder{{/if}}"
+                  data-tag="{{tag}}">
+            {{#if help}}<i class="fas fa-arrow-up"></i> {{/if}}{{#if hinder}}<i class="fas fa-arrow-down"></i> {{/if}}{{tag}}
+          </button>
+          {{/each}}
+        </div>
+        {{else}}
+        <span class="stonetop-cf-chosen-empty">No tags — they roll +0.</span>
+        {{/if}}
+        {{#if exceptional}}
+        <div class="stonetop-of-exceptional"><i class="fas fa-star"></i> <strong>exceptional</strong> — +2 instead of +1 when a tag applies</div>
+        {{/if}}
+      </div>
+
+      {{!-- Optional manual advantage (e.g. a group focusing fire) --}}
+      <label class="stonetop-of-adv-row{{#if advDisabled}} is-disabled{{/if}}">
+        <input type="checkbox" class="stonetop-of-adv" {{#if advantage}}checked{{/if}} {{#if advDisabled}}disabled{{/if}}>
+        Roll with advantage
+      </label>
+
+      <div class="stonetop-of-readout"><i class="fas fa-dice"></i> {{readout}}</div>
+
+    </div>
+
+  </div>
+
+  <div class="stonetop-guide-nav">
+    <button class="stonetop-of-roll stonetop-guide-btn--primary"><i class="fas fa-dice-d6"></i> Order {{followerName}}</button>
+    <button class="stonetop-of-cancel">Cancel</button>
+  </div>
+
+</div>

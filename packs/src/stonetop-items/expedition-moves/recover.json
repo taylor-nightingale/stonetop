@@ -1,0 +1,11 @@
+{
+  "name": "Recover",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>take time to catch your breath and tend to what ails you</em></strong>, expend 1 use of supplies and regain HP equal to 4+Prosperity. You can't gain this benefit again until you take more damage.</p><p>When you <strong><em>tend to a debility or a problematic wound</em></strong>, say how. The GM will either say that it's taken care of or tell you what else is required to do so.</p>"
+  },
+  "_id": "kZftZrYAEpB9GOaa",
+  "_key": "!items!kZftZrYAEpB9GOaa",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

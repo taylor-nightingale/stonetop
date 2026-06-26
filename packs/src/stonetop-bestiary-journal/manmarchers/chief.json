@@ -1,0 +1,59 @@
+{
+  "_id": "AbuCF5lmuVBYSplD",
+  "_key": "!journal!AbuCF5lmuVBYSplD",
+  "name": "Chief",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The closest thing the north has to a ruler — risen by blood, vote, cunning, or force."
+    }
+  },
+  "folder": "gAHRyq1PthkO1sdQ",
+  "sort": 154000,
+  "pages": [
+    {
+      "_id": "Bi0hpU5GGY0JiK2Q",
+      "_key": "!journal.pages!AbuCF5lmuVBYSplD.Bi0hpU5GGY0JiK2Q",
+      "name": "Chief",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The closest thing the north has to a ruler — risen by blood, vote, cunning, or force.",
+        "description": "<p>Chiefs are the closest things the north has to rulers. The position might pass to their children, be voted on by the hamlets, be picked from among the chosen shields, or be taken by cunning or force. Some chiefs are foolish or weak, but they do not last long.</p><p>For any given chief, pick or roll 2-4 strengths and 1-3 flaws.</p><p><strong>1d12 strength</strong></p><table><thead><tr><th>Roll</th><th>Strength</th></tr></thead><tbody><tr><td>1</td><td>The backing of another chief</td></tr><tr><td>2</td><td>A black, fearsome reputation</td></tr><tr><td>3</td><td>A bloodline full of heroes</td></tr><tr><td>4</td><td>Coffers dripping with silver and amber</td></tr><tr><td>5</td><td>The courage to try new things</td></tr><tr><td>6</td><td>Deep, deep cunning</td></tr><tr><td>7</td><td>Many bloodthirsty warriors</td></tr><tr><td>8</td><td>A pet sorcerer/spirit, or a powerful artifact</td></tr><tr><td>9</td><td>A silver tongue, or regal presence, or both</td></tr><tr><td>10</td><td>Strength-at-arms worthy of the songs</td></tr><tr><td>11</td><td>An utter lack of scruples</td></tr><tr><td>12</td><td>The well-earned loyalty of their followers</td></tr></tbody></table><p><strong>1d12 flaw</strong></p><table><thead><tr><th>Roll</th><th>Flaw</th></tr></thead><tbody><tr><td>1</td><td>Debts owed</td></tr><tr><td>2</td><td>Difficult/bickering/ambitious underlings</td></tr><tr><td>3</td><td>A reputation for faithlessness</td></tr><tr><td>4</td><td>Few warriors who will answer their call</td></tr><tr><td>5</td><td>Frailty, from age/sickness/corruption</td></tr><tr><td>6</td><td>Many who curse their name</td></tr><tr><td>7</td><td>The need to prove themselves</td></tr><tr><td>8</td><td>Overconfidence; a belief in their own songs</td></tr><tr><td>9</td><td>A rigid sense of honor</td></tr><tr><td>10</td><td>Seething, venomous ambition</td></tr><tr><td>11</td><td>A temper to rival <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UoAk5JtClo9sjL1O]{Tor}</strong>'s</td></tr><tr><td>12</td><td>Utter lack of a warrior's skills</td></tr></tbody></table>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": []
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

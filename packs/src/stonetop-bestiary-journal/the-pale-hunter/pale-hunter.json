@@ -1,0 +1,112 @@
+{
+  "_id": "6wnyTkZl7GRhVM8g",
+  "_key": "!journal!6wnyTkZl7GRhVM8g",
+  "name": "The Pale Hunter",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The antlered, silver-speared huntsman of the Great Wood, who claims the souls of the dead."
+    }
+  },
+  "folder": "NAeCKcQKhzGh1y9y",
+  "sort": 126000,
+  "pages": [
+    {
+      "_id": "6Nw4LldBvZJA3Lm8",
+      "_key": "!journal.pages!6wnyTkZl7GRhVM8g.6Nw4LldBvZJA3Lm8",
+      "name": "The Pale Hunter",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The antlered, silver-speared huntsman of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, who claims the souls of the dead.",
+        "description": "<p>On certain nights, the Pale Hunter stalks the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> with his ghostly hounds, and even the bravest hunters stay in town. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{The Forest Folk}</strong> spoke of him as something like a force of nature — less a god to worship than a storm to endure. Tales differ on what happens should you cross his path: he might ignore you, call you to join him, or mark you as his quarry. But all agree: impress him, and you'll be well rewarded; get caught, or fail to do your part — well, best not to think on it. He appears as a looming, antlered figure, luminous white, his face in shadow, his straight spear tipped with a silver crescent, draped with the jangling trophies of past hunts.</p>",
+        "questions": [
+          {
+            "prompt": "What is he — spirit, ghost, or something else?",
+            "answer": ""
+          },
+          {
+            "prompt": "How is he connected to the moon?",
+            "answer": ""
+          },
+          {
+            "prompt": "What exactly are his hounds?",
+            "answer": ""
+          },
+          {
+            "prompt": "What is his relationship with the Lady of Crows?",
+            "answer": ""
+          },
+          {
+            "prompt": "What hero won his respect, and how? What reward did they earn?",
+            "answer": ""
+          },
+          {
+            "prompt": "What grisly fate befell the hero who dared to stand against him?",
+            "answer": ""
+          },
+          {
+            "prompt": "What observances did @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{the Forest Folk} use to appease him?",
+            "answer": ""
+          },
+          {
+            "prompt": "What tales do they tell of him in @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}? Or among the Manmarchers?",
+            "answer": ""
+          },
+          {
+            "prompt": "Who never came home, and is said to have crossed his path?",
+            "answer": ""
+          },
+          {
+            "prompt": "Who claims to have seen him? When and where? What happened? What left them so unnerved?",
+            "answer": ""
+          }
+        ],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** He forgoes all other prey to hunt the undead, pursuing them even outside @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{the Great Wood} and on nights he would not normally roam.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** To set the Hunter upon an undead being, acquire an item that bears its spirit-scent, and burn it on a moonlit night in a smoky fire of fresh-cut cedar boughs.",
+            "answer": ""
+          }
+        ],
+        "hooks": "Someone's still out in the Woods, but the Pale Hunter roams tonight!\nThe Pale Hunter is said to bear an artifact the PCs want or need.\nThe PCs wish to rescue a soul that the hunter holds bound.\nThe PCs meet a traveler, secretly undead. The Hunter has his scent.",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "<h2>When the Hunter roams</h2><p>When does the Pale Hunter roam? Work with the PCs to pick 1:</p><ul><li>When the moon is high and full</li><li>When the moon is new, missing</li><li>On nights of a lunar eclipse</li><li>On moonlit nights in winter</li><li>On moonless nights in summer</li><li>On each season’s first full moon</li><li>Some other nights you all agree on</li></ul><p>Why are these nights special? Why does he stalk the Wood then?</p><p>If the PCs are in @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{the Great Wood} on such a night, choose or roll for the Pale Hunter’s quarry:</p><p><strong>1d6 quarry</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Nothing… yet.</td></tr><tr><td>3–4</td><td>Paltry prey: a fox/rabbit/boar/deer, crinwin, a fool who crossed his path, etc.</td></tr><tr><td>5</td><td>Worthy prey: a ceirwmawr, a raselbaedd, a beast warden, a @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae} with whom he’s made a bet, etc.</td></tr><tr><td>6</td><td>Undead prey: a ghost or revenant, caught in the open, away from any dool trees.</td></tr></tbody></table><p>When the time is right, point to a looming danger (his horn blows, his hounds bay, his prey rushes past). Offer an opportunity (to run, to hide, to seek him out, etc.). Announce trouble (mist rises, his hounds appear).</p><p>If the PCs cross the Hunter’s path, what happens next depends on his current quarry, whether they hide or face him, how they comport themselves, whether there are undead among them, and the fickle whims of the dice.</p><h2>The hunt</h2><p>Tip: If you must speak, speak softly. Slowly. Just above a whisper. With frequent pauses. And a flat affect.</p><p>When you deal damage to the Pale Hunter that he might dodge or roll with, roll with disadvantage.</p><p>The Pale Hunter’s true nature is for you to decide, but perhaps he is…</p><p>… the incarnation of a primordial entity of cycles and the moon;<br>… a spirit of the wild;<br>… the ghost of a Green Lord, who hunts forever;<br>… a mighty @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae};<br>… one of @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{the Forest Folk}, exalted and accursed;<br>… some variation on the above; or<br>… something else entirely.</p><ul><li>Adjust the Hunter’s stat block to reflect his nature. An incarnation of cycles and the moon might be primordial, with a move like “</li><li>Anticipate their actions.” A Green Lord’s ghost would have the spirit and undead tags, a tether somewhere in the Wood, and 0 Armor vs. silver.</li></ul><p>A score or so of these savage white dogs accompany him on any given night. But there are more. So many, many more.</p><p>Are they undead souls he has claimed, vulnerable to silver? Fae hounds, hurt by iron? Manifestations of some primordial urge? That’s all for you to say.</p><ul><li>The Call of the Hunt</li><li>When the Pale Hunter races past, your soul thrills to the call of his horn and the baying of his hounds—mark XP if you join the hunt.</li></ul><p>If you fail to join the hunt or the Hunter casts you out, your instinct becomes “Doubt: To balk at danger, to second-guess yourself” and you cannot Burn Brightly. Both last until you succeed at some bold and reckless act.</p><ul><li>The Hunter’s regard</li><li>The Pale Hunter welcomes company but expects them to keep up and do their part. Start the following. Track the grim portents separately for each PC.</li></ul><ul><li>He grows annoyed</li><li>He expresses his disdain</li><li>He gives you one last chance</li><li>Impending doom: He casts you out, strikes you down, sets hounds on you, and/or marks you as quarry</li></ul><p>When a PC impresses the Pale Hunter, clear any marks they have accumulated.</p><ul><li>Pursuit</li><li>When the Pale Hunter marks the PCs as quarry, he gives them a running start. Wait a bit, then start the following. If the PCs split up, track the grim portents separately for each.</li></ul><ul><li>They hear his horn in the distance</li><li>The baying of hounds grows near</li><li>Mist rises, the first hounds appear</li><li>The hounds surround/harry them</li><li>Impending doom: The Pale Hunter arrives, and moves to strike</li></ul><ul><li>Claimed</li><li>When you are at 0 HP and the Pale Hunter takes a trophy from you, the Hunter claims your soul. What does he do with it? Perhaps he…</li></ul><p>… delivers you to the Lady of Crows and the Last Door;<br>… adds you to the ranks of his hounds;<br>… consumes your essence in silver fire; or<br>… does something different with each.</p><p>If you escape his clutches, you must pass through the Last Door now or linger on in the world (gain the Ghost insert).</p><h2>Running the hunt</h2><p>The Pale Hunter and his hounds are tireless and relentless. To survive, their quarry must last until sunrise or reach the edge of @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{the Great Wood}.</p><p>Run the hunt as a series of scenes and challenges. If you’re unsure what sort of scene or challenge to present, ask a player to roll the Die of Fate, adding 1 on each subsequent roll (cumulative).</p><p>1d6 scene/challenge</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>An open stretch, a sprint</td></tr><tr><td>2</td><td>A choice of paths: one longer, one riskier</td></tr><tr><td>3</td><td>An obstacle, hazard, or monster</td></tr><tr><td>4</td><td>A difficult slog</td></tr><tr><td>5</td><td>One side splits up, perhaps to outflank/trick/entrap the other</td></tr><tr><td>6</td><td>A good place to hide</td></tr><tr><td>7</td><td>A breather, as the Hunter and his hounds find the trail</td></tr><tr><td>8</td><td>If part of the hunt, the quarry is in sight/reach; if the quarry, a place the hunter can’t/won’t go</td></tr><tr><td>9</td><td>If part of the hunt, a chance for mercy, to let the quarry go; if the quarry, a chance to slip away or catch the Hunter off guard</td></tr><tr><td>10</td><td>A final mad dash before dawn or to the edge of the Wood</td></tr></tbody></table><p>Change the terrain with each scene or challenge.</p><p>Evading the Hunter Some ploys that might work include…</p><p>… going someplace he won’t follow (see below);<br>… crossing running water to throw off his hounds;<br>… masking one’s scent with muskweed or some other pungent plant;<br>… distracting him with a ghost, or something that seems to be one;<br>… leading him into the path of a big, territorial creature—like a hagr or cynddaraig— something to slow him down;<br>… getting help from a @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae} or a spirit of the wild; or<br>… using magic to trap, ward, or hide from him and his hounds.</p><p>Places he won’t follow The Hunter’s quarry might find refuge...</p><p>… near dool trees, which he seems unable to approach;<br>… in certain places marked by @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk} glyphs;<br>… in one of the red groves, perhaps, depending on the Hunter’s true nature;<br>… through a waystone, perhaps, on the Fae paths;<br>… in caves or other places too small for the Hunter to enter (though his hounds probably can); or<br>… near a powerfully corrupted site.</p><p>Many of these places hold dangers of their own, and the Hunter is patient and cunning. He will surround them, wait, and/or seek to flush them out as makes sense.</p><p><strong>Special move</strong></p><p><strong>PUSH ON!</strong> When you try to keep up with or ahead of the Hunter and his hounds, and you carry a normal or light load, roll +CON: on a 10+, you do so, and even have a moment to think, catch your breath, or help an ally; on a 7-9, you keep going but pick 1:</p><ul><li>You’re flagging; mark a debility</li><li>Drop down to a light load, or drop</li></ul><ul><li>if your load is already light</li><li>You lose ground or the Hunter’s regard; tell the GM to advance towards impending doom</li><li>You need an ally’s help</li></ul><p>On a 6-, or if you carry a heavy load: pick 1 of the above and ask the GM what else goes wrong, or what new challenge you now face.</p><p>Note: The Home on the Range and Trailblazer moves (from the Ranger playbook) apply to this move, too.</p><p>Rewards The Pale Hunter rewards those who join and impress him, and quarry who manage to escape. The reward might be:</p><ul><li>A marker of his favor, which the Lady of Crows will take in lieu of a soul</li><li>One of his many trophies (and the soul it binds, perhaps)</li><li>An artifact or arcanum, something portable, hidden on his person</li><li>His blessing upon their blade(s), which now harm undead as if silver</li><li>An honest answer</li><li>A silvery horn (below)</li></ul><ul><li>Silvery horn</li><li>, magical, loud When you blow the horn outside, at night, in the presence of the undead, the horn crumbles and a mist rises. The undead flee, and the Pale Hunter and his hounds soon appear to chase them.</li></ul><h2>Hunter of the dead</h2><p>Why does he hunt the dead? Perhaps…</p><p>… they are the worthiest of prey;<br>… it is part of his nature to do so;<br>… he owes the Lady of Crows a tithe;<br>… he seeks vengeance upon them;<br>… some variation of the above; or<br>… something else entirely.</p><p>Regardless: he will chase undead beyond @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{the Great Wood}, and sometimes catches their scent even while he does not roam the world. He then appears 1d6-1 nights later, pursuing them ‘til dawn. If such a quarry survives, its only reward is that it has thrown the Hunter off its scent.</p>",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.KEv7LnXs4zQju3lp",
+          "Compendium.stonetop.stonetop-bestiary.Actor.3WXpoW1ajr2PCDC9"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

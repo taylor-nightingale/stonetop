@@ -1,0 +1,81 @@
+{
+  "name": "Adept",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-individual.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 2,
+        "source": "toughness, skill"
+      },
+      "damage": {
+        "value": "freezing touch or aura d8 (hand or reach, area, ignores armor)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to perfect the self (and to safeguard the Rime Lords' teachings)"
+      }
+    },
+    "concept": "A mortal disciple of the Rime Lords who has unlocked a fragment of their power.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, cautious, cunning, magical",
+    "qualities": "<p>Cold-proof; spirit sight; no longer ages; needs little food, drink, or sleep; powerful will. Has 1–4 additional moves drawn from the Rime Lords' teachings.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.ZZRy453792NoZkkG",
+    "notes": "",
+    "creatureType": "human-individual"
+  },
+  "prototypeToken": {
+    "name": "Adept",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-individual.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "GeUfpUprZ85sHj2j",
+      "name": "Send their mind forth into the spirit world, their body in stasis",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7asroHGGJFfVbq74.GeUfpUprZ85sHj2j"
+    },
+    {
+      "_id": "qn4ccabGlljqe15b",
+      "name": "Reveal a teaching or technique of the Rime Lords",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7asroHGGJFfVbq74.qn4ccabGlljqe15b"
+    },
+    {
+      "_id": "cjMqjFQp27ZRUB1t",
+      "name": "Draw on a fragment of their masters' power",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!7asroHGGJFfVbq74.cjMqjFQp27ZRUB1t"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "LPEmvUWgwvYz7XRc",
+  "_id": "7asroHGGJFfVbq74",
+  "_key": "!actors!7asroHGGJFfVbq74"
+}

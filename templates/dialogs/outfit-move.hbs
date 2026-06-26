@@ -1,0 +1,117 @@
+<div class="stonetop-outfit-move-body">
+
+	<p class="stonetop-outfit-description">{{{localize "stonetop.specialMoves.outfit.description"}}}</p>
+	<div class="stonetop-outfit-rule-note">
+		<p>{{{localize "stonetop.specialMoves.outfit.selectIntro"}}}</p>
+		<ul>
+			<li>{{{localize "stonetop.specialMoves.outfit.selectPrinted"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.outfit.selectCommon"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.outfit.selectPossessions"}}}</li>
+			<li>{{{localize "stonetop.specialMoves.outfit.selectTrade"}}}</li>
+		</ul>
+		<p>{{{localize "stonetop.specialMoves.outfit.tellGm"}}}</p>
+	</div>
+
+	{{!-- Load level bar --}}
+	<div class="stonetop-outfit-load-bar">
+		<div class="stonetop-outfit-load-option{{#if loadLevelLight}} is-active{{/if}}">
+			<span class="stonetop-outfit-load-badge">{{loadBadgeLight}} <span class="stonetop-glyph stonetop-glyph--diamond-selected">◆</span></span>
+			<span class="stonetop-outfit-load-text">{{{localize "stonetop.specialMoves.outfit.loadLight"}}}</span>
+		</div>
+		<div class="stonetop-outfit-load-option{{#if loadLevelNormal}} is-active{{/if}}">
+			<span class="stonetop-outfit-load-badge">{{loadBadgeNormal}} <span class="stonetop-glyph stonetop-glyph--diamond-selected">◆</span></span>
+			<span class="stonetop-outfit-load-text">{{{localize "stonetop.specialMoves.outfit.loadNormal"}}}</span>
+		</div>
+		<div class="stonetop-outfit-load-option{{#if loadLevelHeavy}} is-active{{/if}}">
+			<span class="stonetop-outfit-load-badge">{{loadBadgeHeavy}} <span class="stonetop-glyph stonetop-glyph--diamond-selected">◆</span></span>
+			<span class="stonetop-outfit-load-text">{{{localize "stonetop.specialMoves.outfit.loadHeavy"}}}</span>
+		</div>
+	</div>
+	{{#if hasPackHorse}}
+	<p class="stonetop-outfit-packhorse-note">{{{localize "stonetop.specialMoves.outfit.packHorseNote"}}}</p>
+	{{/if}}
+
+	{{!-- Running mark total (specific items + undefined) --}}
+	<div class="stonetop-outfit-weight-row">
+		<span class="stonetop-outfit-weight-diamonds">
+			{{#each (times totalMarks)}}<span class="stonetop-outfit-diamond-filled">◆</span>{{/each}}
+			{{#if loadLevelNone}}<span class="stonetop-outfit-weight-none">{{{localize "stonetop.specialMoves.outfit.loadNone"}}}</span>{{/if}}
+		</span>
+		{{#unless loadLevelNone}}
+		<span class="stonetop-outfit-weight-count">{{totalMarks}} {{{localize "stonetop.specialMoves.outfit.totalWeight"}}}</span>
+		{{/unless}}
+	</div>
+
+	<div class="stonetop-outfit-columns">
+
+		{{!-- Regular items --}}
+		<section class="stonetop-outfit-regular-section">
+			<h3 class="stonetop-outfit-section-heading">{{{localize "stonetop.specialMoves.outfit.regularItems"}}}</h3>
+			<hr class="stonetop-inv-separator">
+			{{#each regularItems}}
+			<label class="stonetop-outfit-item{{#if checked}} is-checked{{/if}}">
+				<input type="checkbox" class="stonetop-outfit-item-check" data-slug="{{slug}}" {{#if checked}}checked{{/if}}>
+				<span class="stonetop-outfit-item-diamonds">
+					{{#each (times weight)}}<span class="stonetop-outfit-diamond"></span>{{/each}}
+				</span>
+				<span class="stonetop-outfit-item-name">{{name}}</span>
+				{{#if note}}<span class="stonetop-outfit-item-note">({{{note}}})</span>{{/if}}
+			</label>
+			{{/each}}
+			<div class="stonetop-outfit-undefined">
+				<span class="stonetop-outfit-undefined-label">{{localize "stonetop.specialMoves.outfit.undefinedLabel"}}</span>
+				<button type="button" class="stonetop-outfit-undefined-btn" data-pool="regular" data-dir="-1"{{#unless canRemUndefinedRegular}} disabled{{/unless}}>−</button>
+				<span class="stonetop-outfit-undefined-count">{{undefinedRegular}}</span>
+				<button type="button" class="stonetop-outfit-undefined-btn" data-pool="regular" data-dir="1"{{#unless canAddUndefinedRegular}} disabled{{/unless}}>+</button>
+				<span class="stonetop-glyph stonetop-glyph--diamond-selected">◆</span>
+			</div>
+		</section>
+
+		{{!-- Small items --}}
+		<section class="stonetop-outfit-small-section">
+			<h3 class="stonetop-outfit-section-heading">{{{localize "stonetop.specialMoves.outfit.smallItems"}}}</h3>
+			{{#if hasSmallItemLimit}}
+			<p class="stonetop-outfit-small-limit">{{{format "stonetop.specialMoves.outfit.smallItemLimit" limit=smallItemLimit}}}</p>
+			{{/if}}
+			<hr class="stonetop-inv-separator">
+			{{#each smallItems}}
+			<label class="stonetop-outfit-item stonetop-outfit-item-small{{#if checked}} is-checked{{/if}}">
+				<input type="checkbox" class="stonetop-outfit-item-check" data-slug="{{slug}}" {{#if checked}}checked{{/if}}>
+				<span class="stonetop-outfit-square"></span>
+				<span class="stonetop-outfit-item-name">{{name}}</span>
+				{{#if note}}<span class="stonetop-outfit-item-note">({{{note}}})</span>{{/if}}
+			</label>
+			{{/each}}
+			<div class="stonetop-outfit-undefined">
+				<span class="stonetop-outfit-undefined-label">{{localize "stonetop.specialMoves.outfit.undefinedLabel"}}</span>
+				<button type="button" class="stonetop-outfit-undefined-btn" data-pool="small" data-dir="-1"{{#unless canRemUndefinedSmall}} disabled{{/unless}}>−</button>
+				<span class="stonetop-outfit-undefined-count">{{undefinedSmall}}</span>
+				<button type="button" class="stonetop-outfit-undefined-btn" data-pool="small" data-dir="1"{{#unless canAddUndefinedSmall}} disabled{{/unless}}>+</button>
+				<span class="stonetop-glyph stonetop-glyph--checkbox">□</span>
+			</div>
+
+			{{#if hasArcana}}
+			<h3 class="stonetop-outfit-section-heading stonetop-outfit-section-heading--arcana">{{{localize "stonetop.specialMoves.outfit.arcanaItems"}}}</h3>
+			<hr class="stonetop-inv-separator">
+			{{#each arcanaItems}}
+			<label class="stonetop-outfit-item{{#if checked}} is-checked{{/if}}">
+				<input type="checkbox" class="stonetop-outfit-item-check" data-slug="{{slug}}" {{#if checked}}checked{{/if}}>
+				<span class="stonetop-outfit-item-diamonds">
+					{{#each (times weight)}}<span class="stonetop-outfit-diamond"></span>{{/each}}
+				</span>
+				<span class="stonetop-outfit-item-name">{{name}}</span>
+				{{#if note}}<span class="stonetop-outfit-item-note">({{{note}}})</span>{{/if}}
+			</label>
+			{{/each}}
+			{{/if}}
+		</section>
+
+	</div>
+
+	<footer class="stonetop-outfit-footer">
+		<button type="button" class="stonetop-outfit-confirm-btn">
+			{{{localize "stonetop.specialMoves.outfit.confirm"}}}
+		</button>
+	</footer>
+
+</div>

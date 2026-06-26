@@ -1,0 +1,20 @@
+{
+  "_id": "5lNKtzJ1atsnBYLM",
+  "_key": "!items!5lNKtzJ1atsnBYLM",
+  "name": "Salt",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "salt",
+      "inventoryColumn": "small",
+      "sortOrder": 35,
+      "smallGrid": true,
+      "special": true,
+      "specialCategory": "Trade Goods"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

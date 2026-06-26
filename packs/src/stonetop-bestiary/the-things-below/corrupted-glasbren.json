@@ -1,0 +1,103 @@
+{
+  "name": "Corrupted Glasbren",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "searing grasp d10 (hand, grabby)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to spread cruelty, pain, fire"
+      }
+    },
+    "concept": "A young tree-spirit twisted by a Thing Below into a beautiful thing of cinders and cruelty.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, devious, magical, fiery, beautiful, corrupted",
+    "qualities": "<p>Tethered to its tree; fireproof.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.g8AKcpFJTeVx51xV",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Corrupted Glasbren",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "MLSckm00famW9lhB",
+      "name": "Travel freely between fires and burnt trees",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IornEAAcH3j4YRST.MLSckm00famW9lhB"
+    },
+    {
+      "_id": "M8vGa4ZyuR6Z6tNg",
+      "name": "Sense resentment, anger, wrath, and cruelty",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IornEAAcH3j4YRST.M8vGa4ZyuR6Z6tNg"
+    },
+    {
+      "_id": "VnZamX2U4vltAf4H",
+      "name": "Manifest a beautiful form of cinders and flame (unharmed by stabbing, vulnerable to water and bronze)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IornEAAcH3j4YRST.VnZamX2U4vltAf4H"
+    },
+    {
+      "_id": "NWsNxWRFXt4axAeA",
+      "name": "Stoke the flames of conflict",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IornEAAcH3j4YRST.NWsNxWRFXt4axAeA"
+    },
+    {
+      "_id": "chZYIk9GunJhzEpo",
+      "name": "Offer affection, confidence, or power in exchange for 'gifts' of fire and blood",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!IornEAAcH3j4YRST.chZYIk9GunJhzEpo"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "IornEAAcH3j4YRST",
+  "_key": "!actors!IornEAAcH3j4YRST"
+}

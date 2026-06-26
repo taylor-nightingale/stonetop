@@ -1,0 +1,162 @@
+{
+  "_id": "Ttz6Fnr2M0HNfIre",
+  "_key": "!journal!Ttz6Fnr2M0HNfIre",
+  "name": "Crinwin",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Gray, long-limbed vermin that lurk in the treetops of the Wood, mimicking voices and coveting whatever they can snatch."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 144000,
+  "pages": [
+    {
+      "_id": "FUyYoLbaxcMQ2XTA",
+      "_key": "!journal.pages!Ttz6Fnr2M0HNfIre.FUyYoLbaxcMQ2XTA",
+      "name": "Crinwin",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Gray, long-limbed vermin that lurk in the treetops of the Wood, mimicking voices and coveting whatever they can snatch.",
+        "description": "<p><em>Trust not thine ears, among the trees<br>Despite the most desp'rate of pleas<br>Look ye up and scan the skies<br>For snarling teeth and pale-dead eyes<br>Long of limb and gray of skin<br>Crinwin! Crinwin!</em></p><p>They've always been there, in the Wood, lurking in the trees. For generations, the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong> hunted them and kept their numbers in check. No longer.</p><ul><li>Out-of-place noises: partial bird calls, off-season insect buzz, a bear's growl from the treetops, snippets of nonsense speech</li><li>Figures scurrying, leaping, swinging through the branches</li><li>Sinewy strong fingers around your throat</li><li>Clammy, blackish blood; too cold and putrid to be natural</li></ul><p><em>Tip: pick a sound or word that the PCs have made, and repeat it over and over at different volumes and tones.</em></p>",
+        "questions": [
+          {
+            "prompt": "What odd noise, heard in the night, is attributed to the crinwin? What is it said to mean?",
+            "answer": ""
+          },
+          {
+            "prompt": "What common thing do these vermin seem to covet above all else?",
+            "answer": ""
+          },
+          {
+            "prompt": "When did crinwin last openly raid the village? What did they take?",
+            "answer": ""
+          },
+          {
+            "prompt": "What's the surest sign of crinwin having been nearby?",
+            "answer": ""
+          },
+          {
+            "prompt": "Who among you hates those things more than anyone else does? Why?",
+            "answer": ""
+          },
+          {
+            "prompt": "What makes you think they might be more than simple beasts, despite what everyone else says?",
+            "answer": ""
+          }
+        ],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Everyone agrees something will keep crinwin at bay (a smell, a charm, a sound, a little ritual). What is it, and why are you sure it's next to worthless?",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** There really is something that keeps crinwin at bay, but it's uncommon, impractical, or both. What is it, and why isn't it common knowledge?",
+            "answer": ""
+          }
+        ],
+        "hooks": "The crinwin have dug something up — something evil and powerful — and it's changing them.\nA hunter stumbles on a colony of nests, 5 or 6 in one place.\nCrinwin numbers near @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop} are steadily growing. Is something leading them? Compelling them? Scaring them closer?\nCrinwin start boldly raiding homes at night, soon stealing something precious (an heirloom, an arcana, an infant).\nA trapper's child has secretly befriended a crinwin, meeting it to play and trade gifts.",
+        "hooksIntro": "",
+        "origins": "They were made by the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lB57gclVP4TiOIRb]{Fomoraij}**, as warriors to fight the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}**.\nThey were a failed experiment of the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}**, escaped into the wild when the Fae rebelled.\nThey were once **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}**, who were cursed or corrupted by some witch or sorcerer.\nThey came through the cracked portal of **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}**, from some distant place (or even another world).\nThey crawled out of some lake, vile spawn of the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}**.",
+        "originsIntro": "What are they, and where did they come from? That's for you and your group to decide, but possibilities include:",
+        "discoveries": [
+          {
+            "heading": "Flawed trappings of civilization",
+            "body": "They imitate whatever people(s) they observe, but always get it wrong.",
+            "items": [
+              "A line of stones, stacked two or three high, surrounding the tree(s) that hold the nest(s).",
+              "Crudely tilled \"fields,\" planted with nonsense: bits of bone or teeth, pot shards or broken tools, dead wasps, shiny stones, etc.",
+              "A deer carcass, tethered to a nearby tree with a vine around its neck",
+              "A hole, dug like a well, but far too shallow",
+              "A chamber in the nest, filled with old cups, potsherds, scraps of cloth",
+              "\"Children\" made of sticks and papery mass, clothed in filthy stolen fabric, tucked safely away in a nest or carried about",
+              "Graves or cairns, empty yet revered or else housing still-living, sickly crinwin",
+              "A crude shrine to… something?",
+              "A mundane item or random **artifact**, misused or cast aside."
+            ]
+          },
+          {
+            "heading": "Something long thought lost",
+            "body": "",
+            "items": [
+              "Something shiny, a family heirloom perhaps, gone missing in the crinwin's last raid",
+              "A keepsake, given by a loved one, but lost in the Wood years ago",
+              "Something owned by a hunter or trapper who never came home"
+            ]
+          },
+          {
+            "heading": "Strange growths",
+            "body": "Enormous pustules, found on some of the crinwin that are a little larger, less agile, and less aggressive. Pop them and they ooze goo, maybe with a small, pale grub, squirming and hissing pitifully as it dies in the open air.",
+            "items": []
+          },
+          {
+            "heading": "Outcast",
+            "body": "An albino crinwin, more curious than hostile towards outsiders, living apart from the others in a landbound nest of stone and paper. Watching the PCs intently, or trying to perform a craft in some painfully wrong way, or getting harassed or beaten by its peers.",
+            "items": []
+          },
+          {
+            "heading": "Prisoner",
+            "body": "A crinwin (beaten, cut, bruised), either being dragged into the area right now by others, or already lashed on a high-up tree branch for who-knows-how-long.",
+            "items": [
+              "How can you tell, just by looking at it, that this one comes from different stock than the ones who live here?"
+            ]
+          },
+          {
+            "heading": "Midden heaps",
+            "body": "A short ways off from the nest.",
+            "items": [
+              "Signs of crinwin biology (remains of what they eat/won't eat, or excrement, or the utter lack thereof)",
+              "Cast-off possessions, giving hints to what they value and what they don't",
+              "Evidence of contact with the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}**, over a decade old and buried deep"
+            ]
+          }
+        ],
+        "nests": "<p>Big papery structures like giant wasp nests, high in the boughs of the mightiest trees (two or three nests in the largest). A small, light person can squeeze inside: pitch black, with platforms and walls of hexagonal paper cells and vertical shafts. Outer walls are damp and fire-resistant, but the insides go right up to open flame.</p><p>About a dozen full-grown crinwin live in each nest, storing rotten food in the cells. The largest chamber is a warm, moist nursery of hexagonal tubes stuffed with goo and larval crinwin, tended by an old, fat crinwin or a <strong>broodfather</strong>.</p>",
+        "dangers": [
+          {
+            "heading": "Unstable nest",
+            "body": "When you roll +any stat while in a crinwin nest and the dice come up doubles, pick 1 (in addition to the move's normal outcome):",
+            "items": [
+              "You crash through the floor or wall, your limb(s) dangling or stuck",
+              "The nest lurches and twists, teetering",
+              "Wasps living in the nest begin to swarm"
+            ]
+          },
+          {
+            "heading": "Wasps",
+            "body": "Wasps often colonize crinwin nests, living symbiotically among them; such nests thrum and buzz ominously. When the wasps swarm around you, take 1d4 damage (ignores armor) and you're wracked with pain. Each subsequent time, increase the die one step (max d10). Fleeing means rolling +CON.",
+            "items": []
+          }
+        ],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.F0SuxRtw6dqB6Nvh",
+          "Compendium.stonetop.stonetop-bestiary.Actor.hZq0cfLjfytNVrWs"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Make Camp",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "<p>When you <strong><em>settle in to rest in an unsafe area</em></strong>, answer the GM's questions about your campsite. Each member of the party must consume 1 use of supplies or provisions; if you use a mess kit (requires fire &amp; water), then 1 use can provide for up to four people.</p><p>If you <strong><em>eat and drink your fill, and get at least a few hours of sleep</em></strong>, pick 1:</p><ul><li>Regain HP equal to ½ your max (round up)</li><li>Clear a debility</li></ul><p>If your rest was particularly peaceful, comfortable, or enjoyable, you also gain advantage on your next roll.</p>"
+  },
+  "_id": "2uwkn9oY8EMYkc7k",
+  "_key": "!items!2uwkn9oY8EMYkc7k",
+  "folder": "LXcYLDKtSNRBF0D2"
+}

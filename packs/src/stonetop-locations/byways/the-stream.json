@@ -1,0 +1,109 @@
+{
+  "_id": "KJUzuYlurcjPxHd7",
+  "_key": "!journal!KJUzuYlurcjPxHd7",
+  "name": "The Stream",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A few minutes from Stonetop, near the base of the bluff, in the Great Wood. Wide, shallow, swift, lined with small stones. Folks come here to wash and fetch water, but rarely alone. It's not deep, but it's still a body of water."
+    }
+  },
+  "folder": "CdN6WPlmlLkrCj2Z",
+  "sort": 30000,
+  "pages": [
+    {
+      "_id": "qg0mwTBbWwCC2bta",
+      "_key": "!journal.pages!KJUzuYlurcjPxHd7.qg0mwTBbWwCC2bta",
+      "name": "The Stream",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>A few minutes from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, near the base of the bluff, in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Wide, shallow, swift, lined with small stones. Folks come here to wash and fetch water, but rarely alone. It's not deep, but it's still a body of water.</p><ul><li>The current's constant rush and murmur</li><li>Flat plain on either side, gravelly, dotted with saplings, weeds, wildflowers</li><li>Vague sense of dread, of being watched</li><li>Spring: cold snowmelt swelling the Stream</li><li>Summer: dragonflies, lightning bugs</li><li>Spring/Autumn: leaves in current</li><li>Winter: eerie stillness, icy surface</li></ul><p>Tip: raise your voice a little, like you’re talking over background sound</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Inhabitants",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Tip: shrink into your seat, to make yourself smaller, bug eyed, while mouthing gibberish.</p><p>A pair of ghostly children who haunt the Stream. Sightings are uncommon, but common enough.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around The Stream. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SrcFk83C0Gxm7Jwj]{The Quiet Twins}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What little ritual do villagers perform every time they cross the Stream? Why?",
+                "answer": ""
+              },
+              {
+                "prompt": "How far have you followed the Stream? Which way? What strange sight did you see on the way?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which of you have encountered the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SrcFk83C0Gxm7Jwj]{Quiet Twins}**, the ghostly children who haunt the Stream?",
+                "answer": ""
+              },
+              {
+                "prompt": "What's the scariest, darkest story you've ever heard about the Stream? Who told it to you?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who do you think the Quiet Twins were? Why?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A dangerous beast takes to watering near town.</li><li>The Stream runs dry, despite ample rains</li><li>Something mysterious (dangerous?) is deposited by the current.</li><li>Haunting songs are heard on misty days; hot-blooded youths are intent on finding the source (an entrancing <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, like <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VT6aaEfcpnSj45t4]{Blush-of-Dawn}</strong>, page 112).</li></ul><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.SrcFk83C0Gxm7Jwj]{The Quiet Twins}</strong> appear more frequently, urgently trying to warn of… something.</p>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

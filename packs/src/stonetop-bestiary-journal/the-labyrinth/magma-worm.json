@@ -1,0 +1,61 @@
+{
+  "_id": "r7ExiEQIX6sKJCXA",
+  "_key": "!journal!r7ExiEQIX6sKJCXA",
+  "name": "Magma Worm",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A first-age worm of fire and stone that eats through solid rock."
+    }
+  },
+  "folder": "AD2KFPd4IXHNl0yJ",
+  "sort": 43000,
+  "pages": [
+    {
+      "_id": "0Ds0XuyL7DBAEu3N",
+      "_key": "!journal.pages!r7ExiEQIX6sKJCXA.0Ds0XuyL7DBAEu3N",
+      "name": "Magma Worm",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A first-age worm of fire and stone that eats through solid rock.",
+        "description": "<p>Creatures of the first age, things of fire and stone. They're segmented, three feet thick and twenty feet long, covered in overlapping plates that glow red at the seams, the air heat-shimmering around them. They have no eyes — just a great mouth-opening and concentric rows of grinding teeth that melt and burrow through rock, leaving winding tunnels of slag hardened into ropy stone. The ones most often met are mere centuries old; older worms survive in the Deeps, up to a hundred feet long (huge, +6 HP, +2 damage, roll 1d12).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qSYAPFrFZd8BOCVA"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

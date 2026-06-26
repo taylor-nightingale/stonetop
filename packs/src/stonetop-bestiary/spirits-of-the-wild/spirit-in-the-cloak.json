@@ -1,0 +1,92 @@
+{
+  "name": "The Spirit in the Cloak",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 1,
+        "source": "amorphous"
+      },
+      "damage": {
+        "value": "lashing wind, rain, debris d6 (near, area)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to 'not hear' your commands"
+      }
+    },
+    "concept": "A proud storm-spirit bound to a cloak that bears its wearer aloft — when it deigns to listen.",
+    "organization": "",
+    "size": "",
+    "tags": "spirit, magical, proud, mute",
+    "qualities": "",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.uT2yCwYcJPRLe5zv",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "The Spirit in the Cloak",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "A22K3fsL9bLm0M5Z",
+      "name": "Bear its master aloft on a cushion of swirling winds",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MlpaA0sFGZ3MDTSb.A22K3fsL9bLm0M5Z"
+    },
+    {
+      "_id": "MSS4xbAsWDNSeslf",
+      "name": "Manifest a storm as it flies",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MlpaA0sFGZ3MDTSb.MSS4xbAsWDNSeslf"
+    },
+    {
+      "_id": "QHPXhDqwgb2y0rNf",
+      "name": "Wreak havoc on its surroundings",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MlpaA0sFGZ3MDTSb.QHPXhDqwgb2y0rNf"
+    },
+    {
+      "_id": "I57HGqIaHn76ZN52",
+      "name": "Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
+      "type": "monsterMove",
+      "img": "icons/magic/lightning/bolt-strike-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!MlpaA0sFGZ3MDTSb.I57HGqIaHn76ZN52"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "ibJDuYYijIrE6bdW",
+  "_id": "MlpaA0sFGZ3MDTSb",
+  "_key": "!actors!MlpaA0sFGZ3MDTSb"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Hec'tumel Codex",
+  "type": "move",
+  "system": {
+    "moveType": "arcanum"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "hectumel-codex",
+      "front": {
+        "title": "Hec'tumel Codex",
+        "item": {
+          "name": "Hec'tumel Codex",
+          "weight": 1,
+          "note": "<em>crude, slow, magical</em>",
+          "inventoryColumn": "regular"
+        },
+        "description": "<p>A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script.</p><p>When you <strong><em>first run your fingers over the inscriptions</em></strong>, your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.</p><p><strong>CAST A CODEX SPELL</strong> — Casting penalty ○○○○○<br>When you <strong><em>cast a spell learned from the Hec'tumel Codex</em></strong>, roll +INT: <strong>on a 10+</strong>, the spell works as described; <strong>on a 7-9</strong>, the spell works, but choose 1 from the list below; <strong>on a 6-</strong>, mark a consequence (see reverse) in addition to whatever the GM says.</p><ul><li>You draw unwelcome attention or put yourself in a spot (ask the GM how)</li><li>Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec'tumel to show you what you're doing wrong (the penalty is cumulative)</li></ul><p><strong>Call the Pale Lizard.</strong> Cast this spell at night. Hec'tumel (<em>Slithering One! Death Is Its Eyes!</em>) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.</p><p>When <strong><em>Hec'tumel spends the night teaching you a spell from the Codex</em></strong>, mark 1:</p>",
+        "unlock": {
+          "description": "○○○○ Each time you make a mark, choose one of the Codex Spells (see reverse)—you can now cast it. When you make the last mark, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).",
+          "requirements": []
+        }
+      },
+      "back": {
+        "title": "Mysteries of the Hec'tumel Codex",
+        "item": null,
+        "description": "<h3>Spells of the Codex</h3><p><strong>□ Call Up the Dead.</strong> Touch a corpse; you conjure its shade, which must truthfully answer 3 questions. <strong>Empowered:</strong> Bind the shade to a tether as a revenant or a ghost; it must perform 3 tasks before being freed from your service.</p><p><strong>□ Serpentine.</strong> Your soul slithers from your mouth in the form of an albino viper (<em>tiny, stealthy, quick, venomous</em>), leaving your body insensate until you slither back in. Use your normal stats while in this form. <strong>Empowered:</strong> Rather than your soul leaving your body, you physically transform into a man-sized serpent (<em>2 armor, stealthy, quick, venomous, forceful, grabby</em>).</p><p><strong>□ Snuff the Spirit.</strong> Name a living victim within near range and roll 2d6. If the victim has fewer current HP than your roll, it dies suddenly. <strong>Empowered:</strong> each living creature near your victim is also affected.</p><p><strong>□ Torpor.</strong> Lock eyes with someone and whisper soothing words. They start to fall asleep. If they resist, roll 3d4—if your roll exceeds their current HP, they fail. Once asleep, they do not age, need not eat/drink, and suffer no harm from poison or disease. They cannot be roused until they hear their name thrice-spoken. <strong>Empowered:</strong> Over 3d6 days, all physical harm heals, lost limbs (etc.) regenerate, poisons and diseases are cured, and the infirmities of age reverse.</p><h3>Move</h3><p><strong>□ DARKSOME VESSEL</strong><br>When you <strong><em>cast a Codex spell</em></strong>, <strong>on a 12+</strong> you can choose the Empowered effect. When you <strong><em>choose to mark a consequence before casting a spell</em></strong>, don't roll; you get a 12+.</p><h3>Consequences</h3><ul><li>Over a few days, you lose all body hair. Your skin pales and develops scaly patches.<ul><li>Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor.</li></ul></li><li>Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days.<ul><li>Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic.</li></ul></li><li>Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to.<ul><li>Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch.</li><li>Anything that you perceive, Hec'tumel perceives it too.</li></ul></li></ul>",
+        "resource": null,
+        "move": null,
+        "options": []
+      }
+    },
+    "core": {
+      "sheetClass": "stonetop.StonetopArcanumSheet"
+    }
+  },
+  "folder": "JwVuMk5DtWmttIYY",
+  "_id": "4wlgB0VWqB2tN0V5",
+  "_key": "!items!4wlgB0VWqB2tN0V5",
+  "img": "systems/stonetop/assets/icons/arcana/icon-arcana-hectumelcodex.webp"
+}

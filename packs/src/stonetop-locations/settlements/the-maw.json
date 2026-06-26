@@ -1,0 +1,115 @@
+{
+  "_id": "vwP9YSr3qrc4Tq7k",
+  "_key": "!journal!vwP9YSr3qrc4Tq7k",
+  "name": "The Maw",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A cave in the Great Wood, a few hours north of Stonetop. No underbrush grows within 30 feet of it, and bones litter the entrance."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 23000,
+  "pages": [
+    {
+      "_id": "4GEczlSnuypaAiEX",
+      "_key": "!journal.pages!vwP9YSr3qrc4Tq7k.4GEczlSnuypaAiEX",
+      "name": "The Maw",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<ul><li>An unnatural quiet, the forest holding its breath</li><li>A blighted patch, spreading out from the cave, where only grey lichen grows</li></ul><ul><li>Bones strewn about, broken &amp; chewed</li><li>The black void of the cave mouth</li><li>Those strange noises from within</li></ul><p>Tip: speak softly, hold very still. Pause a little longer between words, sentences.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "What could be in there?",
+            "group": "place",
+            "danger": false,
+            "body": "<p>That’s for you to decide, but perhaps it’s...</p><p>… a hagr, afflicted with some withering curse; … a brutal, gluttonous <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, and an entrance to its domain;<br>… an idol or emanation of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>;<br>… a passage to one of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lB57gclVP4TiOIRb]{Fomoraij}</strong>’s twisted realms;<br>… a specter or a pack of wraiths, terrible and ancient and only partly bound; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "",
+                "body": "<p>Folks from elsewhere</p><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{North Manmarch}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong></li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> or other points south</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong></li></ul>"
+              },
+              {
+                "heading": "Things from the fen",
+                "body": "<ul><li>Disease</li><li>Fen blight</li><li>Fen-trolls</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ylzYCg2AyRVY24Hb]{Suarachan}</strong></li></ul><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong></li></ul>"
+              },
+              {
+                "heading": "Fire",
+                "body": "<p>Much of Dropoff is susceptible to fire, and Low Town is basically a tinderbox. A building catches fire? Hoo boy. Instinct to consume and spread.</p><ul><li>Push them back with a wave of heat</li></ul><ul><li>(d4 damage)</li><li>Fill the area with choking smoke</li></ul><ul><li>(debilities)</li><li>Collapse a burning structure (d8 damage, ignores armor, forceful)</li><li>Engulf someone or thing in flames</li></ul><p>(d10 damage, ignores armor, messy)</p><p>When a building catches fire and it’s not quickly contained, start the following:</p><ul><li>The building is engulfed; cries of alarm</li><li>A nearby building or two also catch;</li><li>the original building starts to collapse</li><li>Many buildings are ablaze; folks panic</li><li>Fire spreads in multiple directions;</li><li>palisade catches fire; bedlam</li><li>Impending doom: Fire burns itself out, scores dead, homes and shops ruined, large parts of the palisade destroyed</li></ul><p>When you go unwary into the bustle of Edgemarket or the crowded streets of Dropoff, roll +WIS: on a 10+, you spot the pickpocket coming or catch them in the act; on a 7-9, they make off with only trifles (1d4 uses of Supplies, a purse of coppers, a skin of whisky, etc.); on a 6-, whatever they got, you’re going to miss it.</p><p>There’s a cave in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, a few hours north of Stonetop. No underbrush grows within 30 feet of it, and bones litter the entrance. Trappers and hunters avoid it, and claim to have heard strange noises coming from its direction— especially at night.</p>"
+              }
+            ]
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Who among you have been here before? What brought you?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do the noises from the Maw (supposedly) sound like?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you think is in there? Why?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A beloved animal goes missing; someone saw it near the Maw.</li><li>A hunter reports strange figures (or tracks) coming and going.</li><li>A sickness afflicts the town; the treatment is an herb that grows near the Maw, but that must be harvested under moonlight.</li></ul>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

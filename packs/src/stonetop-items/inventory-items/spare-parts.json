@@ -1,0 +1,29 @@
+{
+  "_id": "PPgdzUvZ3gpmmICi",
+  "_key": "!items!PPgdzUvZ3gpmmICi",
+  "name": "Spare parts for wagon/cart/sleigh",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "spare-parts",
+      "inventoryColumn": "regular",
+      "sortOrder": 50,
+      "note": "axles, wheels, rope, etc.; <em>immobile</em>",
+      "weight": 2,
+      "resource": {
+        "max": 3,
+        "title": null,
+        "labels": [
+          "",
+          ""
+        ]
+      },
+      "special": true,
+      "specialCategory": "Transport"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

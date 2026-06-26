@@ -1,0 +1,61 @@
+{
+  "_id": "hW4pZ1OuPa0yOEFJ",
+  "_key": "!journal!hW4pZ1OuPa0yOEFJ",
+  "name": "Cougar",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A silent stalking cat that waits for the straggler."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 14000,
+  "pages": [
+    {
+      "_id": "vOYUY8EmlKHKrtgp",
+      "_key": "!journal.pages!hW4pZ1OuPa0yOEFJ.vOYUY8EmlKHKrtgp",
+      "name": "Cougar",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A silent stalking cat that waits for the straggler.",
+        "description": "<p>They don't usually hunt people. But when game is scarce, or some fool provokes them, they sometimes get a taste for human blood. Even then, they mostly leave groups alone, waiting for someone to fall behind or wander off. Mostly.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.IFQVMEF9ngS8fED9"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

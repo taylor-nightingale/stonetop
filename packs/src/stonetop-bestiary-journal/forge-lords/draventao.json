@@ -1,0 +1,61 @@
+{
+  "_id": "sKYvwXBCiWfqNZlU",
+  "_key": "!journal!sKYvwXBCiWfqNZlU",
+  "name": "Draventao",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A Forge Lord who Changed into a hoard-brooding, fire-breathing wyrm."
+    }
+  },
+  "folder": "FWKaqw7foOqzLpIL",
+  "sort": 74000,
+  "pages": [
+    {
+      "_id": "MxnVw08jIaPKl8MP",
+      "_key": "!journal.pages!sKYvwXBCiWfqNZlU.MxnVw08jIaPKl8MP",
+      "name": "Draventao",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A Forge Lord who Changed into a hoard-brooding, fire-breathing wyrm.",
+        "description": "<p>Picture a long and sinuous beast with serpentine scales, curled upon a pile of treasure beneath a layer of long-cold soot, bits of rusted steel protruding from its flesh, smoke drifting from its nostrils. Hard to believe this thing was once a Maker. But it was. A draventao is what remains of a Forge Lord that survived the Cataclysm by Changing — letting its inner fire burn until its heart was a blackened coal of wrath, shedding its beautiful form, bolting living metal onto its twisted flesh, then eating the servants who did the work. Now it mostly sleeps, for years at a time, brooding on its hoard, drawn forth only by hunger or by vengeance upon some brazen thief. Each draventao has its own particular strength, metal augmentation, and a single thing it still remembers.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.9kcSzC3uPavigsyF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

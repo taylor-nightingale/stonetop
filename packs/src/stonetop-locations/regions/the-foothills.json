@@ -1,0 +1,151 @@
+{
+  "_id": "61j2hjMjANZcniEQ",
+  "_key": "!journal!61j2hjMjANZcniEQ",
+  "name": "The Foothills",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Two days northwest of Stonetop, the rolling Flats give way to hills, climbing up into the Whitefang Mountains. The Highway cuts through these hills, leading to Barrier Pass. To the east, the hills wrap around the Great Wood."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 3000,
+  "pages": [
+    {
+      "_id": "HIqfyyRDZUeRduJu",
+      "_key": "!journal.pages!61j2hjMjANZcniEQ.HIqfyyRDZUeRduJu",
+      "name": "The Foothills",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Two days northwest of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, the rolling <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong> give way to hills, climbing up into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong>. The Highway cuts through these hills, leading to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong>. To the east, the hills wrap around the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>.</p><p>The Foothills are rugged and forest-strewn, crisscrossed with streams, dotted with gorges and ponds and small lakes. In ages past, it was a borderland between the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong> and the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, and later it was the extent of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>’ reach. Nowadays, it is mostly uninhabited, but both Stonetop and Barrier Pass come here to harvest timber.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>Hills rising up from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, mountains looming behind them</li><li>Young thin trees on the southernmost slopes, getting bigger and older as you press into the hills</li><li>Echoes of birdsong, beast-bellows, tumbling rocks, raised voices</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Thin branches drooping with fresh green leaves</li><li>Mud slipping and squishing underfoot</li><li>Surprising chill of shadowed vales, where snow still lingers</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Muggy, humid heat</li><li>Sweat stinging your eyes as you hump up another slope</li><li>Cold clear water from a gurgling stream, tasting better than anything</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Slopes turned red and orange and yellow, then black and brown and gray</li><li>Plump squirrels and other critters, busily foraging for winter</li><li>Cold, clammy mist lasting well into the day</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Waist-deep snow drifts in the valleys</li><li>Frozen-over streams, water gurgling ominously from below</li><li>Squeak of trees, swaying in the cold wind</li><li>Short, magical twilight as the sun drops below the mountains</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Logging trips",
+            "group": "place",
+            "danger": false,
+            "body": "<p>A typical logging trip generates a wagonload of timber (Value 2), and requires:</p><ul><li class=\"check-bullet\">A wagon and two horses;</li><li class=\"check-bullet\">~20 able-bodied workers; and</li><li class=\"check-bullet\">Pulling Together over 9-12 days (for travel and work)</li></ul><p>Trips traditionally take place in autumn, after the harvest is complete and only if there are no more-pressing needs in town.</p><p>The Palisade steading improvement requires ~1,000 logs of good timber (Value 3). A wagonload of timber (Value 2) contains ~40-50 logs, meaning you need ~20-25 wagonloads. To gather that much timber:</p><ul><li>You need ~20 able-bodied workers, a wagon, and two horses working for the course of a season</li><li>You must talk to a few town elders, and get their support</li><li>You risk accidents and attacks</li><li>You must spend 1 Surplus (to feed and equip the loggers) and reduce Fortunes by 1 (because of so many people and resources being away for so long)</li><li>The steading must Pull Together over the course of the season</li></ul><div class=\"stonetop-journal-improvement\" draggable=\"true\" data-steading-improvement=\"{&quot;name&quot;:&quot;PERMANENT LOGGING CAMP&quot;,&quot;flavor&quot;:&quot;Suppose we built a few cabins and kept loggers up there year-round?&quot;,&quot;effect&quot;:&quot;When you mark all the requirements, add “Logging: timber, wood” to the Resources list and increase Fortunes by 1. Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation.&quot;,&quot;sections&quot;:[{&quot;heading&quot;:&quot;Requires all of the following:&quot;,&quot;items&quot;:[&quot;Two or three permanent dwellings, just off the Highway&quot;,&quot;Supplies, furnishings, and tools for those dwellings (Value 2)&quot;,&quot;5–6 capable adults, willing and able to relocate and log year-round&quot;,&quot;An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop&quot;,&quot;Four seasons of operation, each generating a wagonload of timber (Value 2)&quot;]}]}\" title=\"Drag onto the Stonetop steading sheet\"><div class=\"stonetop-journal-improvement-head\"><i class=\"fas fa-screwdriver-wrench\" aria-hidden=\"true\"></i><span class=\"stonetop-journal-improvement-eyebrow\">Steading Improvement</span><span class=\"stonetop-journal-improvement-name\">PERMANENT LOGGING CAMP</span></div><div class=\"stonetop-journal-improvement-body\"><p class=\"stonetop-journal-improvement-flavor\">Suppose we built a few cabins and kept loggers up there year-round?</p><p class=\"steading-req-heading\">Requires all of the following:</p><ul class=\"steading-req-list\"><li class=\"check-bullet\">Two or three permanent dwellings, just off the Highway</li><li class=\"check-bullet\">Supplies, furnishings, and tools for those dwellings (Value 2)</li><li class=\"check-bullet\">5–6 capable adults, willing and able to relocate and log year-round</li><li class=\"check-bullet\">An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong></li><li class=\"check-bullet\">Four seasons of operation, each generating a wagonload of timber (Value 2)</li></ul><p class=\"stonetop-journal-improvement-effect\">When you mark all the requirements, add “Logging: timber, wood” to the Resources list and increase Fortunes by 1. Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation.</p></div></div>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Large pond/small lake</td></tr><tr><td>2</td><td>Creek, stream, gulley</td></tr><tr><td>3</td><td>Steep slope: barren, treacherous, unstable</td></tr><tr><td>4</td><td>Dense thicket/brush</td></tr><tr><td>5–6</td><td>Swath/copse of one type of tree</td></tr><tr><td>7–8</td><td>Gentle slope or valley</td></tr><tr><td>9</td><td>Steep slope: forested, overgrown</td></tr><tr><td>10</td><td>Sheer rock face, bluff, rocky outcrop</td></tr><tr><td>11</td><td>Clearing, meadow, burn site</td></tr><tr><td>12</td><td>Cave, cavern, grotto</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What striking difference do you notice between the trees here and those in the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who typically leads **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**’s logging trips up to the Foothills?",
+                "answer": ""
+              },
+              {
+                "prompt": "What dread beast or monster is said to lurk in the Foothills?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is said to draw its ire?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who claims to have encountered it? When, and how so?",
+                "answer": ""
+              },
+              {
+                "prompt": "Why do you/don’t you believe them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What mundane dangers up there worry you more than some legendary beast?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A logging expedition goes missing</li><li>Loggers stumble upon a ruin or corrupted site</li><li>Someone went missing on a logging trip years ago, and now they reappear</li><li>Heavy rains wash out a stretch of the Highway, blocking access to good timber</li><li>An adventurer claims to know the location of an old barrow in the Foothills, said to be laden with gold and other treasure</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A change of terrain, and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>folk from barrier pass</td></tr><tr><td>4</td><td>Some other encounter</td></tr><tr><td>5</td><td>A point of interest (see below)</td></tr><tr><td>6</td><td>Useful or valuable flora</td></tr></tbody></table><p><strong>1d6 folk from barrier pass</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A war party of 4-8 guardians and/ or monks, hunting something dangerous</td></tr><tr><td>2</td><td>A patrol of 2-4 guardians, led by a White Crystal monk</td></tr><tr><td>3</td><td>A monk and/or novice, on their own to study/practice/meditate/ make pilgrimage</td></tr><tr><td>4</td><td>A logging crew (4-12 layfolk, plus a few guardians)</td></tr><tr><td>5–6</td><td>1-4 layfolk hunting or foraging</td></tr></tbody></table><p>Consider having someone roll the Die of Fate for their disposition. See page 33 for guardian, monk, and novice stats.</p><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A chimera, wary or indifferent but not outright hostile</td></tr><tr><td>2</td><td>A <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, curious or indifferent</td></tr><tr><td>3</td><td>A tulpa, likely tethered to a nearby Rime Lord site</td></tr><tr><td>4</td><td>A spirit of the wild, curious or indifferent</td></tr><tr><td>5</td><td>A dangerous beast—like a boar, cave bear, cougar, ice drake, mountain apes, or wolves—wary or indifferent, but easily provoked</td></tr><tr><td>6</td><td>Game: good eating but prone to bolt (deer, rabbits, pheasant, etc.)</td></tr></tbody></table><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A place corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></td></tr><tr><td>2</td><td>A place haunted by death or the undying</td></tr><tr><td>3</td><td>A site or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr><tr><td>4</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> or a Fae domain</td></tr><tr><td>5</td><td>A ruin or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong> or their human disciples</td></tr><tr><td>6</td><td>A place sacred to the spirits of the wild</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Getting lost among the hills and trees</li><li>Treacherous terrain (loose footing, scree, slippery slopes, potholes, deadfall, etc.)</li><li>Flash flooding, especially in ravines and valleys</li><li>Harsh weather, especially rain and snow</li><li>Something tall to climb, and reason to climb it</li><li>Hazardous growth, from the time of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong></li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Ornery beasts: boars, cave bears, ice drakes, mountain apes, wisents</li><li>Predators: butcherbirds, cougars, feathered drakes, or wolves</li><li>Spirits of the wild</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong></li><li>A hagr or two, come up from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong></li><li>Tulpas, tied to Rime Lord sites or perhaps to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong></li><li>Chimerae and other remnants of the Green Lords</li><li>Ghosts or revenants, lurking near old barrows, tombs, or battlefields</li><li>A copse of dool trees and its resident spirits</li><li>A bhoka, come down from the mountains</li><li>Whatever dangerous beast or monster your players tell you dwells in these hills</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "ypIEWjzm4kkkp4Lu",
+  "_key": "!items!ypIEWjzm4kkkp4Lu",
+  "name": "All in the Wrist",
+  "type": "move",
+  "system": {
+    "playbook": "The Fox",
+    "moveType": "playbook",
+    "description": "<p>Any knife or dagger gets the thrown tag in your hands. Also, you keep a few iron throwing blades (near) on you; they don't take up space in your inventory. Reset your ammo whenever you Outfit.</p>",
+    "resource": {
+      "max": 2,
+      "title": null,
+      "labels": [
+        "a few left",
+        "out"
+      ]
+    }
+  },
+  "folder": "cdhcHAxQ02WaH2Dm"
+}

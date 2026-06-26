@@ -1,0 +1,70 @@
+{
+  "_id": "3e1HimZxPWvqLyu1",
+  "_key": "!journal!3e1HimZxPWvqLyu1",
+  "name": "Kleztigr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A saber-toothed cat the size of two cougars; once Stone Lord pets."
+    }
+  },
+  "folder": "f51tBxK2KHoXoJZs",
+  "sort": 41000,
+  "pages": [
+    {
+      "_id": "YjdBd1dbn0ZqMdb9",
+      "_key": "!journal.pages!3e1HimZxPWvqLyu1.YjdBd1dbn0ZqMdb9",
+      "name": "Kleztigr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A saber-toothed cat the size of two cougars; once Stone Lord pets.",
+        "description": "<p>Like a cougar but twice as big, with eight-inch fangs hanging out of their mouths. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> tales claim they once were much more common — pets of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, even. Now they are, thankfully, rare.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Some @UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk} bands 'adopt' a kleztigr, making offerings of meat or young goats, sheep, or even horses. The kleztigr follows the band about, protecting them from outsiders.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** Such a kleztigr won't harm anyone wearing some item or clothing distinctive to 'their' band (but it might expect a present).",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.8nNyWAoSsT3VXRx5"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

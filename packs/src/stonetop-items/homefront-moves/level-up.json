@@ -1,0 +1,11 @@
+{
+  "name": "Level Up",
+  "type": "move",
+  "system": {
+    "moveType": "homefront",
+    "description": "<p>When you <strong><em>have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level</em></strong>, follow these steps:</p><ol><li>Subtract 6 + twice your current level from your XP.</li><li>Increase your level by 1.</li><li>Choose a new move from your playbook, or an insert that you've unlocked.</li><li>If you are the Blessed (or have a sacred pouch) and your new level is even, increase your max Stock by 1.</li><li>If you are the Lightbearer (or have Invoke the Sun God) and your new level is even, choose a new invocation.</li><li>Review your Instinct and Appearance (on the front of your playbook). Change anything that no longer applies. Feel free to make up new options.</li></ol>"
+  },
+  "_id": "9b3r40mamzlrmJ76",
+  "_key": "!items!9b3r40mamzlrmJ76",
+  "folder": "Jib8uAr9hfOXOqIp"
+}

@@ -1,0 +1,163 @@
+{
+  "_id": "lGNIQWIn8CPHuM7E",
+  "_key": "!journal!lGNIQWIn8CPHuM7E",
+  "name": "The Dread River",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The Dread River is the eastern border of the World’s End. It flows down from the Whitefang Mountains, through the North and South Manmarch (pages 282 and 350), fed by numerous creeks and streams along the way."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 5000,
+  "pages": [
+    {
+      "_id": "rqFWDXswIplr4L8s",
+      "_key": "!journal.pages!lGNIQWIn8CPHuM7E.rqFWDXswIplr4L8s",
+      "name": "The Dread River",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>The Dread River is the eastern border of the World’s End. It flows down from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong>, through the North and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong> (pages 282 and 350), fed by numerous creeks and streams along the way.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>From afar: a sense of stillness</li><li>As you get closer: the rush of the current</li><li>The far shore: ruin-dotted, lonely, mysterious</li><li>Near the water: an uneasy feeling, like anything could be in there— watching, waiting, hungry</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>The river swollen and flooded from snowmelt, spilling out over its banks</li><li>Swarms of flies, like clouds of smoke</li><li>The smell of mud and rotting fish</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Brilliant green along the shores, sunlight sparkling on water</li><li>Endless chorus of waterfowl, starlings, insects, current</li><li class=\"question-bullet\">The occasional splash—just a fish, or a spooked turtle, maybe?</li></ul><p>In its lower reach, the river itself is wide and deep, never less than a quarter-mile across and dozens—if not hundreds—of feet deep. From afar, it appears placid and still. But it flows with a terrible and relentless current.</p><p>The western shore alternates between wetlands, wide-open flood plains, and rugged bluffs, ruins scattered all along its length. It would be an idyllic place to live, except that the length of the river is cursed.</p><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Riot of autumn colors along the shores, reflected in the water</li><li>Blankets of mist, hiding the river but amplifying its rush and gurgle</li><li>Honk and flap of waterfowl flying south, or wheeling overhead before alighting</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>White-capped trees and bluffs and slopes</li><li>Ice growing out from the shores</li><li>Slate grey water, more menacing than ever with the promise of deadly cold</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Ruins at Road’s End",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The Highway runs from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VZ3YkXn70E1C7TEO]{Barrier Pass}</strong> through <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> and ends at the Dread River. Where the road ends, there was once a sizeable city, a bustling hub of trade and learning.</p><p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{The Tempest Lords}</strong> called this city “Northernmost,” for it was founded as their most far-flung outpost. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{The Stone Lords}</strong> called it Aavonkaer (“River City”). To the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> it was Pazara (“The Marketplace”). <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{The Rime Lords}</strong> called it Jalampravahati (“Through Where the Waters Flow”).</p><p>Now, though, the city is called the Ruins at Road’s End. For when the Stone Lords’ servants rebelled and woke the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, the Dread River belched forth countless horrors. The city’s inhabitants were slaughtered in a single night.</p><p>Throughout the time of the Barrow- Builders, various warlords and would-be sorcerer-kings claimed the ruined city. They sought to recover the lost artifacts of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, or to harness the city’s restless souls, or to bend the horrors in the river to their will. Sometimes, they even succeeded. But never for very long.</p><p>The ruins sprawl for miles along the shore, and similar vestiges of the past are visible across the river. The legs of a once-mighty bridge still poke out from the water. Everyone agrees that great wealth and troves of lore remain among the crumbling walls. But everyone also agrees that those old cellar holes and skeletal structures—along with anything dug out of them—are cursed.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "East of the River",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Beyond the Dread River lie more ruins, bluffs and woods, and gently sloping plains. The Manmarchers migrated from east of the Dread River sometime before the Time of Cataclysm. But if people dwell there still, they keep well away from the shore. And if any have ventured across the river and returned, they’re keeping quiet about it. Who or what lies east of the Dread River? That’s for you and your group to decide, but perhaps one might find…</p><p>… the husk of a sprawling empire, home now to only jackals and wolves;<br>… nomadic raiders, bloody-handed even by the Manmarchers’ standards;<br>… descendants of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, greatly diminished, in isolated fiefs<br>… a people in thrall to an undying sorcerer-king;<br>… a land of horrors, thoroughly tainted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>;<br>… a barren land, dead and still, bereft of spirits and magic;<br>… the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong>;<br>… some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Open water, who knows how deep?</td></tr><tr><td>2</td><td>Rocks/eddies/rapids</td></tr><tr><td>3</td><td>Waterfall/smaller stream feeding the river</td></tr><tr><td>4</td><td>Swamp/drowned trees/logjam</td></tr><tr><td>5–6</td><td>Shallows/marsh/mud/reeds</td></tr><tr><td>7–8</td><td>Sandbar/beach/shingle/floodplain</td></tr><tr><td>9</td><td>Slope/hill</td></tr><tr><td>10</td><td>Bluff/promontory/rocky outcrop</td></tr><tr><td>11</td><td>Caves</td></tr><tr><td>12</td><td>Island</td></tr></tbody></table><p>If you like, roll 1d6 for size/scope/intensity.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Creatures of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Creatures the bestiary catalogues in and around The Dread River. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.1oYvUFEeUNKJTbFM]{Jellied Horror}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.3BvxOqjeOtQei8cG]{Luglfsk}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Hv4lWQtBLYYJ67Cg]{The Suileach}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.w8oBC7s7o7AlEqIQ]{Totnatter}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "What famous treasure is said to lie in the Ruins at Road’s End?",
+                "answer": ""
+              },
+              {
+                "prompt": "What once drove you to spend a night encamped along the Dread River? What evil did you encounter?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who do you know who once saw the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Hv4lWQtBLYYJ67Cg]{Suileach}**, the Wurm with Two-Hundred Eyes? How did it change them?",
+                "answer": ""
+              },
+              {
+                "prompt": "Aside from empty ruins, what is noticeably strange about the lands across the river?",
+                "answer": ""
+              },
+              {
+                "prompt": "Does one cross the Dread River en route to **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}**? If so, how? And what separates the southern lands from those east of the river? Mountains? A desert? A sea?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Bandits or cultists take up residence in ruins on the Dread River’s shores.</li><li>The PCs acquire a cursed treasure, originally looted from the Ruins at Road’s End.</li><li>Some fool is mounting an expedition to cross the Dread River.</li></ul><p>People from east of the river land on the western shore.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>Useful or valuable flora</td></tr><tr><td>4</td><td>encounter (see below)</td></tr><tr><td>5–6</td><td>point of interest</td></tr></tbody></table><p><strong>1d6 encounter</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>Big and dangerous beast, easily provoked: aurochs, boar, a cave bear, a thunder drake, a horned drake, etc.</td></tr><tr><td>3–4</td><td>Game, mostly harmless and prone to bolt: deer, water fowl, rabbits, etc.</td></tr><tr><td>5</td><td>People, exploring, in trouble, or hiding out</td></tr><tr><td>6</td><td>Spirit of the wild, curious or indifferent</td></tr></tbody></table><p><strong>1d6 point of interest</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A tomb, site, or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong></td></tr><tr><td>2</td><td>A site sacred to the spirits of the wild</td></tr><tr><td>3–4</td><td>A ruin or fortification of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong></td></tr><tr><td>5</td><td>A ruin, site, or artifact of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong></td></tr><tr><td>6</td><td>A ruin or artifact of some other group of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong></td></tr></tbody></table><p>For any point of interest, decide or roll to see what taints it (if anything).</p><p><strong>1d6 what taints it</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{The Things Below}</strong></td></tr><tr><td>3–4</td><td>Death and the undying</td></tr><tr><td>5</td><td>Both of the above</td></tr><tr><td>6</td><td>Nothing, strangely</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>A stretch of water, and reason to brave it</li><li>A bluff to climb and a reason to climb it</li><li>Rockslides or mudslides</li><li>The river’s current, surprisingly strong</li><li>Poor footing (mud, silt, branches, dropoffs) hidden by water/reeds</li><li>Winter ice, thinner than it looks</li><li>Swarms of midges or mosquitos— annoying, distracting, painful, diseased</li><li>Starlings—obscuring, drowning out sound, buffeting, possibly host to a grwgnach</li></ul>"
+              },
+              {
+                "heading": "People",
+                "body": "<ul><li>Bandits, hiding among the ruins, possibly cursed/corrupted</li><li>Cultists, led by a sorcerer</li><li>Manmarchers: outcasts or foolhardy explorers</li><li>Adventurers or antiquarians</li><li>A hdour or necromancer, trawling the ruins for power</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Beasts: aurochs, a thunder drake, boars, a cave bear, a horned drake, wild horses, etc.</li><li>Predators: a cougar, wolves, a grochslon, a kleztigr, spitting drakes, etc.</li><li>A llamudwr, lurking in wetlands or flooded forests</li><li>Spirits of the wild</li><li>The ghosts or revenants of those who died here</li><li>Emanations of or creatures corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, lurking in the river or the ruins</li></ul><p>Cursed object When you remove something valuable from the ruins that dot the Dread River, roll (+nothing, just roll). If you have warded yourself from the evil of this place, roll with advantage. On a 10+, your theft goes unnoticed, or at least unpunished; on a 7-9, the GM will choose (or ask you to roll for) a lesser curse; on a 6-, the GM will choose (or ask you to roll for) a greater curse.</p><p><strong>1d6 lesser curse</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Food and drink become bland, then off-putting, then vile (yet you must still eat and drink)</td></tr><tr><td>2</td><td>Nightmares plague you and those with whom you share a roof; restful sleep is fleeting</td></tr><tr><td>3</td><td>Wild beasts attack you with unnatural frequency and focus; domestic beasts are agitated in your presence</td></tr><tr><td>4</td><td>You age quickly, a year for every month</td></tr><tr><td>5</td><td>You cannot abide the sound of singing/the touch of loved ones/ food cooked by another/any gift freely given/some other thing that ties you to other people</td></tr><tr><td>6</td><td>You hear whispers and visions, urging you to do things</td></tr></tbody></table><p><strong>1d6 greater curse</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Horrors pursue you, intent on dragging you and the item back to the ruins, killing any who cross their path. Destroy or bind them, and more will come.</td></tr><tr><td>2</td><td>You contract a disease; it merely makes you miserable, but infects those nearby with a deadly sickness.</td></tr><tr><td>3</td><td>Those around you find themselves on edge, their emotions running raw, and are subject to whispers and visions. Unstable folk quickly succumb.</td></tr><tr><td>4</td><td>You grow thin, haggard, and unwell. Mark a debility each week, which you cannot clear. Should you die, you become a revenant (Book I, page 150), tethered to the item, obsessed with either protecting it or returning it to where it was found (your choice).</td></tr><tr><td>5</td><td>Wherever you go, plants wither, food spoils, crops fail, beasts grow barren and sickly.</td></tr><tr><td>6</td><td>Those who die in your presence are unable to pass through the Last Door. They linger as revenants or ghosts.</td></tr></tbody></table><p>Tailor a curse’s specifics to the item, to where and with what it was it found. Incorporate the themes and aspects of any relevant entities. And feel free to create entirely new curses, riffing on the options above.</p><p>How does one free oneself of a curse? Possibilities include…</p><p>… returning the item to where it was originally found;<br>… destroying the item utterly: burning it, melting it, tossing it into lava, etc.;<br>… packing it in salt and burying it at a crossroads;<br>… driving a bronze spike through it, into an ancient elder tree;<br>… ritually cleansing the item, binding the curse to an appropriate vessel, and burying/hiding the vessel somewhere; or perhaps<br>… passing ownership of the item (and thus the curse) on to another willing party; they need not know it is cursed, but must claim the item as theirs.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

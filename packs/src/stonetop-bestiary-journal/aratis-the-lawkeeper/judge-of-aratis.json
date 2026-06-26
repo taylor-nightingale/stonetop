@@ -1,0 +1,61 @@
+{
+  "_id": "uOeCgccQc6YApFdV",
+  "_key": "!journal!uOeCgccQc6YApFdV",
+  "name": "Judge of Aratis",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A faithful of Aratis who settles disputes, keeps records, and stands guard against chaos."
+    }
+  },
+  "folder": "WjUTdUaDkUXoSMv2",
+  "sort": 125000,
+  "pages": [
+    {
+      "_id": "vwoS7mTzn2GcWZuY",
+      "_key": "!journal.pages!uOeCgccQc6YApFdV.vwoS7mTzn2GcWZuY",
+      "name": "Judge of Aratis",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A faithful of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong> who settles disputes, keeps records, and stands guard against chaos.",
+        "description": "<p>Some communities are home to a Judge of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.l50CyKv5NYVJ6EzY]{Aratis}</strong>, who settles disputes, keeps records, and stands guard against the agents of chaos. A Judge is bound (at least publicly) by the requirements of a true disciple, and is built to one of three temperaments — you can tell a great deal about a community by the Judge it keeps.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.XOWBMeABAb5ms245"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "ooVg9LaPN3bSAnge",
+  "_key": "!journal!ooVg9LaPN3bSAnge",
+  "name": "Spitting Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Chameleon-skinned ambush drakes that spit pinning mucus."
+    }
+  },
+  "folder": "f51tBxK2KHoXoJZs",
+  "sort": 42000,
+  "pages": [
+    {
+      "_id": "49IrOFaitNJKIeEl",
+      "_key": "!journal.pages!ooVg9LaPN3bSAnge.49IrOFaitNJKIeEl",
+      "name": "Spitting Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Chameleon-skinned ambush drakes that spit pinning mucus.",
+        "description": "<p>They're about the size of a big wolf, but lower and squatter, with arms out to the sides like lizards and a big old frill that pops up when they're startled or bearing down on prey. They favor canyons, defiles, or overlooks where they can bask in the sun but have a good angle to ambush passersby.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Their mucus adheres quickly to rock, pinning prey in place; even unpinned it gloms on and slows them up, drying and flaking away after a few hours.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** Strong spirits (yes, like whisky) quickly dissolve the mucus. You can also identify their territory by the pale chalky stains it leaves on stone.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.qULBTb5zDEPTWTWF"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

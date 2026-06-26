@@ -1,0 +1,61 @@
+{
+  "_id": "ckxdN0P9cHJfsZgQ",
+  "_key": "!journal!ckxdN0P9cHJfsZgQ",
+  "name": "Hagr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A one-eyed brute that compulsively, reverently stacks the forest."
+    }
+  },
+  "folder": "2voaTguEVQ7GxBGr",
+  "sort": 18000,
+  "pages": [
+    {
+      "_id": "dPV0t98P6gx0ClE8",
+      "_key": "!journal.pages!ckxdN0P9cHJfsZgQ.dPV0t98P6gx0ClE8",
+      "name": "Hagr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A one-eyed brute that compulsively, reverently stacks the forest.",
+        "description": "<p>Misshapen brutes with sagging flesh and one bulging eye so filled with hate it'll stop you dead in your tracks. They spend their days collecting fallen branches, looking for just the right one to add to their home of rotting logs; the others they pile neatly, reverently. Perhaps they were servants of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, once bred to build, and now — long ages hence — building still.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.fz8g74CpQcYrqSki"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

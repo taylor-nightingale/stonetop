@@ -1,0 +1,63 @@
+<div class="asm-body">
+
+	{{#if isNeighbor}}
+	<div class="asm-field">
+		<label class="asm-label">Home</label>
+		<input type="text" name="home" class="asm-input asm-combo" list="asm-list-home"
+		       placeholder="Choose or type a home…" autocomplete="off">
+		<datalist id="asm-list-home">
+			{{#each homes}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		<div class="asm-field-actions">
+			<button type="button" class="asm-info" data-info="home" title="About these places"><i class="fas fa-question"></i></button>
+			<button type="button" class="asm-randomize" data-target="home" title="Pick a random home"><i class="fas fa-dice-d6"></i></button>
+		</div>
+	</div>
+	{{/if}}
+
+	<div class="asm-field">
+		<label class="asm-label">Name</label>
+		<input type="text" name="name" class="asm-input asm-combo" list="asm-list-name"
+		       placeholder="Choose or type a name…" autocomplete="off">
+		<datalist id="asm-list-name">
+			{{#each names}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		<button type="button" class="asm-randomize" data-target="name" title="Pick a random name"><i class="fas fa-dice-d6"></i></button>
+	</div>
+
+	<div class="asm-field">
+		<label class="asm-label">Occupation</label>
+		<input type="text" name="occupation" class="asm-input asm-combo" list="asm-list-occupation"
+		       placeholder="Choose or type an occupation…" autocomplete="off">
+		<datalist id="asm-list-occupation">
+			{{#each occupations}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		<button type="button" class="asm-randomize" data-target="occupation" title="Pick a random occupation"><i class="fas fa-dice-d6"></i></button>
+	</div>
+
+	<div class="asm-field">
+		<label class="asm-label">Traits</label>
+		<input type="text" name="traits" class="asm-input asm-combo" list="asm-list-traits"
+		       placeholder="Choose or type a trait…" autocomplete="off">
+		<datalist id="asm-list-traits">
+			{{#each traits}}<option value="{{this}}"></option>{{/each}}
+		</datalist>
+		<button type="button" class="asm-randomize" data-target="traits" title="Pick a random trait"><i class="fas fa-dice-d6"></i></button>
+	</div>
+
+	<div class="asm-field">
+		<label class="asm-label">Relations</label>
+		<input type="text" name="relations" class="asm-input" placeholder="Relations…">
+	</div>
+
+	<div class="asm-field">
+		<label class="asm-label">Notes</label>
+		<input type="text" name="notes" class="asm-input" placeholder="Notes…">
+	</div>
+
+	<div class="asm-footer">
+		<button type="button" class="asm-confirm">Add</button>
+		<button type="button" class="asm-cancel">Cancel</button>
+	</div>
+
+</div>

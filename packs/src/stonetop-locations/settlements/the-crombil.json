@@ -1,0 +1,72 @@
+{
+  "_id": "UEQE5cKRurhX9gCE",
+  "_key": "!journal!UEQE5cKRurhX9gCE",
+  "name": "The Crombil",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A great scaly wurm, hundreds of feet long. It sleeps somewhere beneath the Great Wood, waking every few decades to chew and burn a swath of destruction."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 25000,
+  "pages": [
+    {
+      "_id": "mZBuG8teOiJRc49k",
+      "_key": "!journal.pages!UEQE5cKRurhX9gCE.mZBuG8teOiJRc49k",
+      "name": "The Crombil",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>A great scaly wurm, hundreds of feet long. It sleeps somewhere beneath the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, waking every few decades to chew and burn a swath of destruction.</p><p>What is it, exactly? That’s for you to decide. Maybe…</p><ul><li>it’s a primordial titan, a remnant of the first age; …</li><li>the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> made it, as a weapon, or just because they could; …</li><li>it’s the first and oldest draventao, a mighty Forge Lord who succumbed to the fire within; …</li><li>it’s a manifestation of the Things</li><li>Below, all gluttony and fire and nightmare; or …</li><li>it’s just a big, dumb beast.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The PCs wish to destroy some fell, indestructible artifact, and learn that feeding it to the Crombil might work.</li></ul><ul><li>The Crombil will soon wake, and an important site—like a ruin of the</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> or a Red Grove—lies in its path. The PCs must act soon to explore or preserve the site before it’s destroyed.</li></ul><ul><li>It’s been almost fifty years since the Crombil woke, and its last rampage ended maybe a day or two from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>. Elders remember the smoke and the sounds of destruction, but few ever knew the cause. But now the Crombil stirs, and this time it might head towards Stonetop.</li><li>The Crombil’s periodic rampages have been drawing it towards <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.76FKkdtTFxWEGIKQ]{Vor Svetelik}</strong>. This next time, it will plow into the ruined city and release any number of terrors from stasis and imprisonment, perhaps even the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lB57gclVP4TiOIRb]{Fomoraij}</strong> themselves. Perhaps this was their plan all along.</li><li>Cultists of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> seek to turn the Crombil into a vessel for their master, breaking the cycle of sleep and rampage and ushering in an age of lasting destruction.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Signs & portents",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Tremors and earthquakes, of increasing frequency and intensity</li></ul><ul><li>Dreams of shifting earth, hunger, fire, and doom</li></ul><ul><li>A small hill, covered in trees and brush but strangely warm and venting smoke</li></ul><ul><li>Beasts and spirits giving wider and wider berth to the Crombil’s lair</li></ul><ul><li>Strangers arrive in town and talk of</li><li>“the Awakening”</li></ul><ul><li>Dreamers wake from troubling dreams,</li><li>“the Crombil” on their lips</li></ul><ul><li>Some suggest offering sacrifice to appease the Crombil, others feel compelled to go and worship as it wakes</li></ul><ul><li>Vast flocks of birds fleeing to the west</li><li>A terrible grinding and cracking of earth and trees; a pillar of smoke; a deep and bellowing cry</li></ul><p>When someone’s been swallowed by the Crombil, start using these moves against them:</p><ul><li>Batter them with debris, cinders (d6 damage)</li><li>Make them fight for any sort of purchase or bearings</li><li>Shove them further towards its furnace-like stomach</li><li>Blister skin, burn lungs, singe hair (d8 damage)</li></ul>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

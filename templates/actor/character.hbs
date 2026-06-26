@@ -1,122 +1,125 @@
-<form class="{{cssClass}} stonetop-playbook-{{stonetop.playbook.slug}}" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
 	<div class="sheet-wrapper">
 
 		{{> "stonetop.actor-header"}}
 
-		<section class="sheet-top flexrow">
-			<div class="stonetop-stats-column">
-				{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
+		{{#unless stonetop.playbook}}
+		<div class="stonetop-no-playbook-state">
+			{{#if editable}}
+			<button type="button" class="stonetop-create-character-btn">
+				<i class="fas fa-user-plus"></i>
+				{{localize "stonetop.newCharacter.createButtonLabel"}}
+			</button>
+			{{/if}}
+		</div>
+		{{else}}
 
-				<div class="stonetop-stats-section">
-					{{> "stonetop.actor-stats" stats=stonetop.stats}}
-				</div>
-				<div class="stonetop-debilities">
-					{{#each stonetop.debilities}}
-					<div class="stonetop-debility">
-						<label class="stonetop-debility-control">
-							<span class="stonetop-debility-divider"></span>
-							<input type="checkbox" class="stonetop-debility-check"
-							       data-slug="{{key}}"
-							       {{#if active}}checked{{/if}}>
-							<span class="stonetop-debility-label">{{key}}</span>
-						</label>
-					</div>
-					{{/each}}
-				</div>
+		<section class="sheet-top flexcol">
+			<div class="stonetop-details-heading-row">
+				{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.statsNoteDisplay}}
+				{{> "stonetop.details-section-edit-toggle" section="stats" editing=stonetop.statsEdit}}
+			</div>
 
-				<div class="stonetop-vitals-section">
-					{{> "stonetop.actor-attributes"}}
+			<section class="sheet-attributes flexrow">
+				{{> "stonetop.actor-stats"}}
+			</section>
+			<div class="stonetop-debilities">
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control" data-tooltip="Fatigued, tired, sluggish, shaky. Disadvantage on +STR or +DEX rolls." data-tooltip-direction="UP">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.weakened.value"
+						       {{#if system.attributes.debilities.options.weakened.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">weakened</span>
+					</label>
+				</div>
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control" data-tooltip="Out of it, befuddled, not thinking clearly. Disadvantage on +INT or +WIS rolls." data-tooltip-direction="UP">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.dazed.value"
+						       {{#if system.attributes.debilities.options.dazed.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">dazed</span>
+					</label>
+				</div>
+				<div class="stonetop-debility">
+					<span class="stonetop-debility-bracket"></span>
+					<label class="stonetop-debility-control" data-tooltip="Greatly distressed, angry, unwell, in pain. Disadvantage on +CON or +CHA rolls." data-tooltip-direction="UP">
+						<input type="checkbox" class="attr-list"
+						       name="system.attributes.debilities.options.miserable.value"
+						       {{#if system.attributes.debilities.options.miserable.value}}checked{{/if}}>
+						<span class="stonetop-debility-label">miserable</span>
+					</label>
 				</div>
 			</div>
 
-			<div class="stonetop-actor-portrait">
-				<img class="stonetop-actor-portrait-img" src="{{actor.img}}" data-edit="img"
-				     alt="{{actor.name}}" title="{{actor.name}}">
-			</div>
+			<section class="sheet-attributes-top">
+				{{> "stonetop.actor-vitals"}}
+			</section>
+
 		</section>
 
 		<section class="sheet-main flexcol">
 			<nav class="sheet-tabs tabs" data-group="primary">
-				<a class="item" data-tab="playbook">{{localize "stonetop.sheet.tabs.playbook"}}</a>
 				<a class="item" data-tab="moves">{{localize "stonetop.sheet.tabs.moves"}}</a>
+				{{#if stonetop.invocations}}<a class="item" data-tab="invocations">{{localize "stonetop.sheet.tabs.invocations"}}</a>{{/if}}
+				{{#if stonetop.showFollowersTab}}<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>{{/if}}
 				<a class="item" data-tab="inventory">{{localize "stonetop.sheet.tabs.inventory"}}</a>
-				<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>
-				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
-				<a class="item" data-tab="notes">{{localize "stonetop.sheet.tabs.notes"}}</a>
-			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
-				<button type="button" class="stonetop-top-toggle" title="{{localize 'stonetop.sheet.collapseTop'}}">
-					<i class="fas fa-chevron-up"></i>
-				</button>
+				{{#if stonetop.hasArcana}}<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>{{/if}}
+				<a class="item" data-tab="details">{{localize "stonetop.sheet.tabs.details"}}</a>
+				{{#if stonetop.showPostDeath}}<a class="item" data-tab="post-death">{{localize "stonetop.sheet.tabs.postDeath"}}</a>{{/if}}
+				<a class="item" data-tab="special-moves">{{localize "stonetop.sheet.tabs.specialMoves"}}</a>
 			</nav>
 
 			<div class="stonetop-sheet-layout">
-				<button type="button" class="stonetop-moves-toggle" title="{{localize 'stonetop.sheet.tabs.moves'}}">
-					<i class="fas fa-bolt"></i>
-				</button>
 				<section class="sheet-body">
-					{{> "stonetop.tab-playbook"}}
 					{{> "stonetop.tab-moves"}}
+					{{#if stonetop.invocations}}{{> "stonetop.tab-invocations"}}{{/if}}
+					{{#if stonetop.showFollowersTab}}{{> "stonetop.tab-followers"}}{{/if}}
 					{{> "stonetop.tab-equipment"}}
-					{{> "stonetop.tab-arcana"}}
-					{{> "stonetop.tab-followers"}}
-					{{> "stonetop.tab-notes"}}
-					{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this}}{{/each}}
+					{{#if stonetop.hasArcana}}{{> "stonetop.tab-arcana"}}{{/if}}
+					{{> "stonetop.tab-details"}}
+					{{#if stonetop.showPostDeath}}{{> "stonetop.tab-post-death"}}{{/if}}
+					{{> "stonetop.tab-special-moves"}}
 				</section>
 
-				<div class="stonetop-moves-sidebar">
-					{{!-- Roll Mode --}}
-					<div class="stonetop-outfit-header">
-						<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
-						<ul class="stonetop-outfit-loads">
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.adv"}}</span>
-								</label>
-							</li>
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.normal"}}</span>
-								</label>
-							</li>
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.dis"}}</span>
-								</label>
-							</li>
-						</ul>
+				<div class="stonetop-moves-sidebar{{#if stonetop.sidebarCollapsed}} is-collapsed{{/if}}">
+					<button type="button" class="stonetop-sidebar-toggle"
+					        aria-expanded="{{#if stonetop.sidebarCollapsed}}false{{else}}true{{/if}}"
+					        aria-label="{{#if stonetop.sidebarCollapsed}}Expand moves sidebar{{else}}Collapse moves sidebar{{/if}}">
+						<i class="fas fa-chevron-right"></i>
+					</button>
+					<div class="stonetop-sidebar-body">
+					{{> "stonetop.section-heading" title="Roll Modifier"}}
+					<div class="stonetop-roll-mode-control" role="group" aria-label="Roll mode">
+						<label class="stonetop-roll-mode-option{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
+							<input type="radio" class="stonetop-roll-mode-input" name="stonetop-roll-mode" value="adv"
+							       {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}
+							       {{#unless editable}}disabled{{/unless}}>
+							<span>Advantage</span>
+						</label>
+						<label class="stonetop-roll-mode-option{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
+							<input type="radio" class="stonetop-roll-mode-input" name="stonetop-roll-mode" value="normal"
+							       {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}
+							       {{#unless editable}}disabled{{/unless}}>
+							<span>Normal</span>
+						</label>
+						<label class="stonetop-roll-mode-option{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
+							<input type="radio" class="stonetop-roll-mode-input" name="stonetop-roll-mode" value="dis"
+							       {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}
+							       {{#unless editable}}disabled{{/unless}}>
+							<span>Disadvantage</span>
+						</label>
 					</div>
 
-					{{#each stonetop.moves.categories}}
-					{{#if (eq renderStyle "side-bar")}}
-					{{> "stonetop.section-heading" title=label}}
-					<ol class="items-list">
-					{{#each moves}}
-						{{#if (and ownedId rollStat)}}
-						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
-						{{else}}
-						<li class="stonetop-move-item move-unowned">
-						{{/if}}
-							{{#if (and ownedId rollStat)}}
-							<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
-								<i class="fas fa-dice-d6"></i>
-							</span>
-							{{/if}}
-							<span class="stonetop-move-name stonetop-basic-move-open"
-						      data-compendium-id="{{id}}">{{name}}</span>
-						</li>
-					{{/each}}
-					</ol>
-					{{/if}}
-					{{/each}}
+					{{> "stonetop.sidebar-move-list" moves=stonetop.movelist.basicMoves titleKey="stonetop.character.moves.basicMoves" openClass="stonetop-basic-move-open" sectionId="basicMoves" open=stonetop.movesOpen.basicMoves}}
+					{{> "stonetop.sidebar-move-list" moves=stonetop.movelist.expeditionMoves titleKey="stonetop.character.moves.expeditionMoves" openClass="stonetop-expedition-move-open" sectionId="expeditionMoves" open=stonetop.movesOpen.expeditionMoves}}
+					</div>
 				</div>
 			</div>
 		</section>
+
+		{{/unless}}
 
 	</div>
 </form>

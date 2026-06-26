@@ -1,0 +1,81 @@
+{
+  "name": "The Suileach",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 26,
+        "max": 26
+      },
+      "armor": {
+        "value": 2,
+        "source": "scales"
+      },
+      "damage": {
+        "value": "jaws like a cave d10+7 (reach, forceful, messy, 3 piercing) or thrashing coils d10+5 (close, area, forceful)",
+        "rollFormula": "d10+7"
+      },
+      "instinct": {
+        "value": "to dominate the Dread River"
+      }
+    },
+    "concept": "The Wurm with Two-Hundred Eyes, who sees all along the river.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, magical, terrifying, aquatic, corrupted",
+    "qualities": "<p>Many-eyed; impossible to surprise.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Hv4lWQtBLYYJ67Cg",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "The Suileach",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "cRvCZIR5kuIzvMEj",
+      "name": "Sense an intruder upon its domain",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j0hciXWdoWrUeYF7.cRvCZIR5kuIzvMEj"
+    },
+    {
+      "_id": "YRKhSUmQUvre53ur",
+      "name": "Transfix someone with one of its myriad eyes",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j0hciXWdoWrUeYF7.YRKhSUmQUvre53ur"
+    },
+    {
+      "_id": "dpFCbAoXwfDFyIoj",
+      "name": "Drag intruders to their doom",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j0hciXWdoWrUeYF7.dpFCbAoXwfDFyIoj"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Q54ooWoCvfDvmsPD",
+  "_id": "j0hciXWdoWrUeYF7",
+  "_key": "!actors!j0hciXWdoWrUeYF7"
+}

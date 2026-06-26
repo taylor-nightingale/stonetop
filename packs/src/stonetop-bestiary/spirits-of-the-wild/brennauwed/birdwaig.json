@@ -1,0 +1,91 @@
+{
+  "name": "Birdwaig",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 3
+      },
+      "damage": {
+        "value": "crushing branches d10+3 (close, reach, forceful), choking vines/roots d10+1 (reach, grabby)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to care for the forest, especially the trees"
+      }
+    },
+    "concept": "A mature tree-mother who turns the whole forest against those who'd harm it.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, cautious, clever, magical",
+    "qualities": "<p>Tethered to its tree.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.3Q3V7QXv1XFx1UK8",
+    "notes": "",
+    "creatureType": "spirit"
+  },
+  "prototypeToken": {
+    "name": "Birdwaig",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "3VxXgnisaFn5mXN7",
+      "name": "Wield the plants around her like a weapon",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CdXJIcws7eqT8Q8v.3VxXgnisaFn5mXN7"
+    },
+    {
+      "_id": "0e78PxnhKCxTBJgr",
+      "name": "Possess a nearby tree (vulnerable to fire, all but impossible to harm with most weapons)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CdXJIcws7eqT8Q8v.0e78PxnhKCxTBJgr"
+    },
+    {
+      "_id": "7Ht7GYo2XgYyUA8t",
+      "name": "Purge or bind an unnatural taint",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CdXJIcws7eqT8Q8v.7Ht7GYo2XgYyUA8t"
+    },
+    {
+      "_id": "STWn0OAZhEFK4tA7",
+      "name": "Grant a secret or a boon to a friend of the forest",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CdXJIcws7eqT8Q8v.STWn0OAZhEFK4tA7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "8N8RyUSUv4OBxher",
+  "_id": "CdXJIcws7eqT8Q8v",
+  "_key": "!actors!CdXJIcws7eqT8Q8v"
+}

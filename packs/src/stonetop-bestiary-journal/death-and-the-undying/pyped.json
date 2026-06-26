@@ -1,0 +1,61 @@
+{
+  "_id": "pDanXfWCKezDrSGQ",
+  "_key": "!journal!pDanXfWCKezDrSGQ",
+  "name": "Pyped",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A ghost-ridden corpse that lurches after marrow and the weak."
+    }
+  },
+  "folder": "5F8X8KgkfzaBZrNv",
+  "sort": 108000,
+  "pages": [
+    {
+      "_id": "DEsTHubMU9iuWHtZ",
+      "_key": "!journal.pages!pDanXfWCKezDrSGQ.DEsTHubMU9iuWHtZ",
+      "name": "Pyped",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A ghost-ridden corpse that lurches after marrow and the weak.",
+        "description": "<p>When an untethered ghost or a shade possesses an empty corpse, it becomes a pyped. They are wretched things, all rotting flesh and lurching movements, hungering for sweet marrow, scavenging on carrion and graves. But hunger can make them bold — bold enough to hunt the weak and sick at the edge of a village, or a lone traveler caught unawares. Pypeds rise only from relatively intact corpses that have not undergone proper funeral rites.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.3DlUOSnpOxSzU7BO"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

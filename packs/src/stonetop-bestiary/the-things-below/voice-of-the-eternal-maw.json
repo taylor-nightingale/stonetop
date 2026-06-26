@@ -1,0 +1,92 @@
+{
+  "name": "Voice of the Eternal Maw",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/emanation.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "scream d10 (near, area, reload, ignores armor) or unnaturally large, toothy maw d10+2 (hand, messy, 3 piercing)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to create more mouths, more wraiths"
+      }
+    },
+    "concept": "A possessing, screaming Voice spawned of Hlad's vortex, making mouths and wraiths.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, emanation, devious, terrifying, hungry",
+    "qualities": "<p>Tethered to the vortex; unable to leave the mountain. Armor 0 vs. bronze.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.Mt6MCzNsS6khASpi",
+    "notes": "",
+    "creatureType": "emanation"
+  },
+  "prototypeToken": {
+    "name": "Voice of the Maw",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/emanation.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "KkxoFCsoTaFFOB0n",
+      "name": "Compel someone with whispers, even from afar",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RO5Fa1m4AMc9qZR1.KkxoFCsoTaFFOB0n"
+    },
+    {
+      "_id": "ZJg3oUBJcQRA3AqC",
+      "name": "Possess a traveler, especially one who is hungry, weary, or tired",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RO5Fa1m4AMc9qZR1.ZJg3oUBJcQRA3AqC"
+    },
+    {
+      "_id": "dWrVCBo9ghJZziiT",
+      "name": "Drive its host to feast",
+      "type": "monsterMove",
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RO5Fa1m4AMc9qZR1.dWrVCBo9ghJZziiT"
+    },
+    {
+      "_id": "9lbzRbTBcdT4klsP",
+      "name": "Leave its host corrupted, withering, doomed to become a wraith",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!RO5Fa1m4AMc9qZR1.9lbzRbTBcdT4klsP"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "zZ0svqMO6kwbNUaR",
+  "_id": "RO5Fa1m4AMc9qZR1",
+  "_key": "!actors!RO5Fa1m4AMc9qZR1"
+}

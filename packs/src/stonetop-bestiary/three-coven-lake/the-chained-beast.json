@@ -1,0 +1,103 @@
+{
+  "name": "The Chained Beast",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "armor": {
+        "value": 2,
+        "source": "fur and scales"
+      },
+      "damage": {
+        "value": "toothy maw d10+3 w/advantage (close, grabby, messy, 1 piercing) or raking claws d10+1 (hand, messy, 1 piercing)",
+        "rollFormula": "d10+3"
+      },
+      "instinct": {
+        "value": "to gorge itself"
+      }
+    },
+    "concept": "A blood-roused horror chained beneath the lake, a gift of the Things Below.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, corrupted, aquatic, terrifying",
+    "qualities": "<p>Chained to a heavy block of makerglass. Takes +1d6 damage from bronze. Soothed by a well-sung song.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.psptlaD9mE9Rk1YI",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "The Chained Beast",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "BmG9w5euA6Sj17wu",
+      "name": "Scent blood, anywhere in the lake",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!2UnnOaKPTABc13S4.BmG9w5euA6Sj17wu"
+    },
+    {
+      "_id": "oKBI3IVQguodHrAB",
+      "name": "Shoot through the water",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!2UnnOaKPTABc13S4.oKBI3IVQguodHrAB"
+    },
+    {
+      "_id": "EUajwTRoxK7KgE4f",
+      "name": "Snatch prey, pull it under",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!2UnnOaKPTABc13S4.EUajwTRoxK7KgE4f"
+    },
+    {
+      "_id": "ZzqVebTTAOs5qoxd",
+      "name": "Regenerate any wound not dealt by bronze",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!2UnnOaKPTABc13S4.ZzqVebTTAOs5qoxd"
+    },
+    {
+      "_id": "usRMuwpNRkeGNVPS",
+      "name": "Drag its mooring across the lakebed, slowly and painfully",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!2UnnOaKPTABc13S4.usRMuwpNRkeGNVPS"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Ik8yZUS6D2GENIl9",
+  "_id": "2UnnOaKPTABc13S4",
+  "_key": "!actors!2UnnOaKPTABc13S4"
+}

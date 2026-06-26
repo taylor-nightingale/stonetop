@@ -1,0 +1,92 @@
+{
+  "name": "Bronze Colossus",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 31,
+        "max": 31
+      },
+      "armor": {
+        "value": 4,
+        "source": "metal, lacks organs"
+      },
+      "damage": {
+        "value": "trample d10+5 (hand, close, area, forceful), crushing hands d10+5 (close, reach, forceful, grabby), or hurled object d10+5 (far, area, forceful, reload)",
+        "rollFormula": "d10+5"
+      },
+      "instinct": {
+        "value": "to defend its creator's honor"
+      }
+    },
+    "concept": "A 60-foot, aetherium-veined bronze sentinel of a Forge Lord's gate.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, construct, plodding, implacable",
+    "qualities": "<p>Fireproof; too big to hurt with most weapons; vulnerable to lightning.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.JcJ1Kg1avKIFJqdh",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Bronze Colossus",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "miz9lGaj0AjF73rT",
+      "name": "Pretend to be 'just' another statue",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!5nfugU7444Jh6D0e.miz9lGaj0AjF73rT"
+    },
+    {
+      "_id": "oZF0HpGDx6itsxua",
+      "name": "Come to life, screeching as it moves",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!5nfugU7444Jh6D0e.oZF0HpGDx6itsxua"
+    },
+    {
+      "_id": "Lduw74x2lBGXgGMh",
+      "name": "Issue a booming challenge in a forgotten tongue",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!5nfugU7444Jh6D0e.Lduw74x2lBGXgGMh"
+    },
+    {
+      "_id": "hcbRCpGsJMPUhbsY",
+      "name": "Block their path",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!5nfugU7444Jh6D0e.hcbRCpGsJMPUhbsY"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "5nfugU7444Jh6D0e",
+  "_key": "!actors!5nfugU7444Jh6D0e"
+}

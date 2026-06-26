@@ -1,0 +1,21 @@
+{
+  "_id": "QPtDu7W7eaDNKgeI",
+  "_key": "!items!QPtDu7W7eaDNKgeI",
+  "name": "Surplus of trade goods",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "surplus-trade-goods",
+      "inventoryColumn": "regular",
+      "sortOrder": 58,
+      "note": "<em>immobile</em>",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Trade Goods"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

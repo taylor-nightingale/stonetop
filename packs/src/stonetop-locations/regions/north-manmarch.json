@@ -1,0 +1,207 @@
+{
+  "_id": "NERZ6p7FNc1pxNWL",
+  "_key": "!journal!NERZ6p7FNc1pxNWL",
+  "name": "North Manmarch",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The North Manmarch lies east of the Great Wood, north of the Highway and northeast of Marshedge. Its western edge is made up of rolling hills, giving way to a wide, sparsely-wooded prairie that slopes gently towards the east. Many springs bubble up from the hills and flow eastward in tiny streams that feed the Dread River."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 13000,
+  "pages": [
+    {
+      "_id": "5FyaezhZEfD7MSAR",
+      "_key": "!journal.pages!NERZ6p7FNc1pxNWL.5FyaezhZEfD7MSAR",
+      "name": "North Manmarch",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>The North Manmarch lies east of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, north of the Highway and northeast of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong>. Its western edge is made up of rolling hills, giving way to a wide, sparsely-wooded prairie that slopes gently towards the east. Many springs bubble up from the hills and flow eastward in tiny streams that feed the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong>.</p><p>The region is heavily populated and small, well-armed hamlets dot the hills and plains.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Impressions",
+            "group": "glance",
+            "danger": false,
+            "body": "<p><strong>Always</strong></p><ul><li>A wide-open sky, a sense that you can see forever</li><li>Wagon-rut trails and well-worn foot paths stretching on and on</li><li>Longhouses with steep, thatched roofs</li><li>Smell of woodsmoke, dung, wet fur</li><li>Huge rams pulling plows, wagons</li><li>Scarred faces, hard glares, weapons at hand even while working fields</li></ul><p class=\"stonetop-season stonetop-season--spring\"><strong>Spring</strong></p><ul><li>Pale wildflowers bobbing in the wind</li><li>Damp smell of mud or fresh-tilled earth</li></ul><p class=\"stonetop-season stonetop-season--summer\"><strong>Summer</strong></p><ul><li>Baled hay, laid out to bake</li><li>Sun beating down on you, sweaty clothes sticking to you</li></ul><p class=\"stonetop-season stonetop-season--fall\"><strong>Autumn</strong></p><ul><li>Crop fields, neatly clipped after harvest</li><li>A startled deer, bounding away</li></ul><p class=\"stonetop-season stonetop-season--winter\"><strong>Winter</strong></p><ul><li>Tracks in the snow: paw prints, hoof prints, foot prints, sled trails, etc.</li><li>Twinkling stars on a cold night, sure sign of a coming storm</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The Manmarchers",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Thousands of people dwell here, spread out over hundreds of hamlets. Those hamlets cluster around a half-dozen larger, fortified settlements. These hillforts are home to chiefs who (ostensibly) protect the surrounding hamlets.</p><p>Manmarchers say “east of the river” the way others say “once upon a time.” They migrated from across the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong> long ago, before the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong> called up the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> and made the waters unsafe.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Germanic-inspired: Alfher, Bathhilde, Berkhard, Bertrim, Clothar, Dagmar, Elfrida, Ganter, Gerhild, Hartig, Hilde, Hiltrude, Hramn, Ludig, Luise, Meike, Modd, Sabrinne, Swanhilde, Ulrike, Urrsla, Weillem, Wiland, Wulfrim</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Everyone has heard of the Manmarchers’ warlike ways. They fight mostly among themselves, the violence fueled by bloodfeuds, treachery, and ambition. The area might see a decade or two of peace, but only after war leaves the best part of a generation dead or maimed.</p><p>Something interesting: When one Manmarcher kills or harms another in times of peace, the victim’s family is owed a wergild—coin, livestock, or other wealth. The victim’s chief sets the wergild (usually Value 2, or Value 3 for a person of import). Failure by the accused or their kin to pay is grounds for blood-feud.</p><p>Something useful: Scheming chiefs will justify violence by setting an unreasonable or highly specific wergild. Should the wergild be paid, though, the feud must be called off. A paid wergild is sacrosanct—a chief who ignores it invites a curse upon their people.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Terrain",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate (d12).</p><p><strong>1d12 terrain</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Spring/pond/creek/stream</td></tr><tr><td>2</td><td>Ditch/wash/gully/ravine</td></tr><tr><td>3</td><td>Copse/thicket/grove of trees</td></tr><tr><td>4</td><td>Steep slope/rocky outcrop/large hill</td></tr><tr><td>5</td><td>Gentle slope/low ridge/small hill</td></tr><tr><td>6–7</td><td>Open meadow, grass waist-high or shorter</td></tr><tr><td>8</td><td>Footpath/wagon ruts/trail</td></tr><tr><td>9–10</td><td>Farmland/pasture</td></tr><tr><td>11</td><td>Fence/low wall/embankment</td></tr><tr><td>12</td><td>Hamlet/hillfort/isolated longhouse</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hamlet",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Here’s a typical settlement:</p><p>Size hamlet (~25 to 75 souls) Population +0 Prosperity -1</p><p>Trade with other hamlets Resources (pick 2-3)</p><ul><li>Livestock (pigs, goats, sheep, meat, milk, wool)</li></ul><ul><li>Farming (wheat, barley, oats, honey, mead)</li></ul><ul><li>Timber</li><li>Trapping (fur, meat)</li><li>Mining (amber, salt, and/or iron) Defenses +1</li></ul><ul><li>Warrior culture</li><li>Iron weapons, wooden shields</li><li>Protection from the local chief</li></ul><p>Hamlets consist of a longhouse for each family and their livestock, plus smaller outbuildings (sheds, cellars, etc.), clustered together. Inhabitants work the surrounding 1-2 miles of land. Each hamlet bears the name of its most notable resident, possibly truncated, followed by “-hall” (Dagmarhall, Swanhall, etc.).</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hillfort",
+            "group": "place",
+            "danger": false,
+            "body": "<p>There are about a half-dozen larger, fortified settlements spread across the North Manmarch, each 20-30 miles apart. Most are in the western hills, but a couple sit on the plains to the east, at the western edge of the woodlands that overlook the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong>.</p><p>Hillfort names might include: Wulfberg, Rabenberg, Eikelberg, Hokberg, Tiefberg, Baerinberg, Schutberg, etc.</p><p>Size village (~150 to 350 souls) Population -1 Prosperity +0</p><ul><li>Trade with other hillforts</li><li>Trade with <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> and/or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> (textile, spices, glass, herbs, finery) Resources (pick 2-3)</li></ul><ul><li>Taxes from surrounding hamlets</li><li>Trades: smithing, tanning, pottery</li><li>Livestock (pigs, goats, sheep, meat, milk, wool)</li><li>Market (for surrounding hamlets)</li><li>Timber Defenses +2</li></ul><ul><li>A dozen or so professional warriors</li><li>Rotating recruits from the hamlets</li><li>Iron weapons, wooden shields</li><li>Series of earthen ramparts</li><li>Palisades</li></ul><p>Each hamlet is bound to one of the hillforts and its chief, through oaths or blood. The chief keeps a standing force of warriors, and is responsible for protecting their hamlets from other clans, or (when that’s not possible) demanding wergild or exacting vengeance.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available in the North Manmarch—PCs can acquire them here without having to roll. They do need to trade something of equal Value. Stonetop whisky is usually in demand.</p><p><strong>weapons of war value</strong></p><ul><li>Mace or flail, iron (close, forceful) 1</li><li>Battleaxe, iron (close, messy) 1</li><li>Sword, iron (close, +1 damage) 1</li><li>Warhammer (close, 2 piercing) 1</li></ul><p><strong>armor value</strong></p><p>Cuirass, boiled leather (1 armor) 1</p><p><strong>goods value</strong></p><ul><li>Salt (a little box) 0 Skin of mead, common 0</li><li>Firkin of mead, common 0</li><li>Salt (a pouch full) 1 Bit of amber 1 Barrel of mead, common (immobile) 1 Cartload of timber 2</li></ul><p><strong>transport value</strong></p><p>Wheelbarrow 1 Cart or sleigh (requires donkey/ 2 horse/mule) Wagon (requires horse/mule) 3 Spare parts for wagon/cart/sleigh (axles, 2 wheels, etc.; uses, immobile)</p><p><strong>livestock value</strong></p><p>provisions (1d6+10 uses)</p><p>Special items The following might be acquired in the North Manmarch, in addition to special items from the Moves &amp; Gear handout. PCs must roll Trade &amp; Barter to acquire them.</p><p>When PCs Trade &amp; Barter in the North Manmarch, they use the local Prosperity (-1 and disadvantage for a hamlet, +0 in a hillfort, by default). On a 6-, they don’t mark XP, and if they want to sell/acquire it, they’ll need to talk to the local chief.</p><p><strong>goods value</strong></p><p>Skin of mead, fine ( uses, share 1 use 0 with someone to gain advantage to Persuade) Firkin of mead, fine 1 Barrel of mead, fine (immobile) 2 Piece of amber, beautifully worked 1 Bit of silver and amber jewelry 2 Large chunk of amber 2 Chariot (requires horse/tonnerhorn) 2</p><p><strong>livestock value</strong></p><p>Services and favors The PCs don’t need to roll Trade &amp; Barter for the following, but they might need to Persuade the locals—even if they offer something of equal value. A likely way to convince them is to bribe the local elder, or get permission/backing from the local chief.</p><p>A hamlet that’s well-disposed to the PCs might grant these favors for free, or without needing to be Persuaded, or at a reduced price.</p><p><strong>service value</strong></p><p>A night’s food and shelter 0 A guide to the next hamlet 0 A laborer’s help for a day 0 A crew of laborers, for a week 1 An armed escort for a couple days 1 A warrior to join you on a nice 1 simple raid A small crew, for a week or two of action 2 Someone to hide you from vengeance 2 for a few days A crew of toughs for a season of action 3 A fitting gift for a well-off chief 3 A compelling bribe for a well-off chief 4</p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), the Manmarchers might offer the following:</p><ul><li>A good exchange rate, two or even three Value 2 items for 1 Surplus</li><li>A pouch full of amber (Value 3) in exchange for help getting vengeance against a rival clan or chief</li><li>A small herd of 6-12 tonnerhorn (Value 3 total), for 1 Surplus and help with a problem</li><li>An arcanum of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around North Manmarch. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.AbuCF5lmuVBYSplD]{Chief}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iXs37AagGZ1bxsUt]{Chosen Shield}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ilmYZAlDHX6yXeTp]{Manmarcher Recruit}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.tVyIps1TouyG6khe]{Manmarcher Veteran}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oFWS3ZqQlJJnRnzm]{Tonnerhorn}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.pmrOvOfxbUopilDk]{War-chariot}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "How is the Manmarcher language different from that of **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "When did the last round of fighting start among the Manmarchers? Has it ended yet?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who all did you lose to the violence? Which clan/family/chief is to blame?",
+                "answer": ""
+              },
+              {
+                "prompt": "Which hamlet or hillfort do you hail from? What was it notable for?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do they worship ___ there? How does it differ from what’s done in Stonetop?",
+                "answer": ""
+              },
+              {
+                "prompt": "The Manmarchers fell trees from the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}**—did they break or just never have a compact with the **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "How do Manmarchers treat Green Lord ruins and artifacts? Do they shun them? Treasure them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What is this clan best known for? How can you tell them from other clans?",
+                "answer": ""
+              },
+              {
+                "prompt": "What tells you that this land has been shaped by human activity, even though there’s not a settlement in sight?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Manmarchers waylay a merchant south of the Highway, stealing something important/dangerous/valuable.</li><li>News arrives that the kin of a Manmarcher PC (or important NPC) were butchered in the latest round of fighting.</li><li>People are vanishing from some of the western hamlets, and the local chief seems powerless to stop it.</li><li>Manmarcher refugees arrive in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, promising buried treasure to whomever avenges them.</li><li class=\"question-bullet\">An ambitious chief has conquered three of the hillforts, and is preparing to move on a fourth. If they succeed, they will likely unite the Manmarchers, and then what?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>For any one of these, pick 1 or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Change of terrain and roll again</td></tr><tr><td>2</td><td>A chance for insight into a threat or danger (e.g. tracks that reveal numbers, whereabouts, etc.)</td></tr><tr><td>3</td><td>signs of violence (see below)</td></tr><tr><td>4</td><td>Beasts: maybe game (deer, turkey, pheasant, etc.) or a grazing herd watched by a youth and some dogs</td></tr><tr><td>5</td><td>Farmers: working the land, hunting, or heading somewhere</td></tr><tr><td>6</td><td>Warriors: not hostile, certainly wary</td></tr></tbody></table><p><strong>1d6 signs of violence</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A ghost lingering near its murder, more confused than dangerous</td></tr><tr><td>2</td><td>A burnt hamlet, thoroughly looted, its inhabitants slaughtered</td></tr><tr><td>3</td><td>Dead bodies: burnt on a pyre, heads on spikes, swinging from trees, or left to rot</td></tr><tr><td>4</td><td>Survivors of a raid, some injured, likely desperate</td></tr><tr><td>5</td><td>Sounds of a fight, or calls for help</td></tr><tr><td>6</td><td>The dead from a recent skirmish, un-looted except by scavengers</td></tr></tbody></table>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Hazards",
+                "body": "<ul><li>Nasty turn in the weather: lashing wind, bitter cold, blistering heat, sleet/ hail/rain/snow; lightning</li><li>Flash flooding in valleys/on slopes</li><li>Prairie fire on the plains</li><li>Mudslides and rockslides on the hills</li><li>Fire in a hamlet or hillfort</li></ul>"
+              },
+              {
+                "heading": "Monsters",
+                "body": "<ul><li>Predators: pack drakes, cougar, feathered drakes, or wolves, maybe even a kleztigr</li><li>Big ornery beasts: boar, cave bears, or thunder drakes</li><li>Chimerae of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, unearthed by recent logging or mining</li><li>Ghosts or revenants, lurking near old battlefields or places of bloody, one-sided slaughter</li><li>Emanations of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, especially near the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lGNIQWIn8CPHuM7E]{Dread River}</strong></li><li>Spirits of the wild in the lonely, untouched places</li><li>Terrors come down from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5vFbBIn18TKtCF91]{Whitefang Mountains}</strong></li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

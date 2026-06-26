@@ -1,0 +1,70 @@
+{
+  "_id": "pwQ68WIhCcu5pqzq",
+  "_key": "!journal!pwQ68WIhCcu5pqzq",
+  "name": "Thunder Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A hill-sized burrowing drake that belches lightning."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 8000,
+  "pages": [
+    {
+      "_id": "gDBoXxh3IDA5AkjR",
+      "_key": "!journal.pages!pwQ68WIhCcu5pqzq.gDBoXxh3IDA5AkjR",
+      "name": "Thunder Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A hill-sized burrowing drake that belches lightning.",
+        "description": "<p>Sometimes, out on the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.nBvsH19B1bG2d4Di]{Flats}</strong>, you'll see what looks to be small hills in the distance. Steer clear: they probably aren't hills, but huge piles of dirt a thunder drake has moved as it digs. You do not want to stumble into one on its home turf. When one bellows nearby, roll +CON: on a 10+ pick 1, on a 7-9 pick 2, on a 6- all three — drop what you're holding and cover your ears; stagger back a few steps; be deafened and disoriented for a few moments.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** Thunder drakes eat mostly grass and shrubs, but they have a taste for certain ores. They spend their time grazing, sleeping, and digging up rocks.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** They particularly savor copper and relish aetherium. If they find a source, they'll chew it right up and spend the next few days belching lightning bolts.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.sFo40dgjm1DmyJps"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

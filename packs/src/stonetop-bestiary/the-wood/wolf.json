@@ -1,0 +1,80 @@
+{
+  "name": "Wolf",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "bite d8 (hand, grabby)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to bring down the weakest prey"
+      }
+    },
+    "concept": "Pack hunters that follow for miles and harry the weak.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, organized, cautious",
+    "qualities": "<p>Keen sense of smell.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.cTOd0rT6S7LOD3vI",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Wolf",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "TkQ4REfHYxTfHxbt",
+      "name": "Follow prey for miles on end",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j5J31XX2Lt7rP9UC.TkQ4REfHYxTfHxbt"
+    },
+    {
+      "_id": "lEGGcYwEyQN0fPh4",
+      "name": "Surround, flank, and harry",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j5J31XX2Lt7rP9UC.lEGGcYwEyQN0fPh4"
+    },
+    {
+      "_id": "dHbNYuHvEj2XWD34",
+      "name": "Clamp down, eventually crushing bone",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!j5J31XX2Lt7rP9UC.dHbNYuHvEj2XWD34"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "j5J31XX2Lt7rP9UC",
+  "_key": "!actors!j5J31XX2Lt7rP9UC"
+}

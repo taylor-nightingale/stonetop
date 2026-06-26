@@ -1,0 +1,102 @@
+{
+  "name": "Earth Vortex",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "armor": {
+        "value": 2
+      },
+      "damage": {
+        "value": "smash d10 (hand, close) — scales with size",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to topple and undermine"
+      }
+    },
+    "concept": "A grumbling churn of rock and rubble that topples and undermines.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, construct, amorphous, grumpy, clumsy",
+    "qualities": "<p>Half damage from stabbing or slashing weapons (unless magical). Gains HP from being buried, crushed, or shaken by quakes. HP/Armor/damage scale with size — see the entry.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.qUp7ZkpC5FdinUC4",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Earth Vortex",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "wuBcTEIQkfheoIHv",
+      "name": "Manifest a churning mass out of nearby earth, sand, and rocks",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8KHfTcPYblTJRpV1.wuBcTEIQkfheoIHv"
+    },
+    {
+      "_id": "XOMK2oWGB8J9seTb",
+      "name": "Pin a smaller foe (+grabby)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8KHfTcPYblTJRpV1.XOMK2oWGB8J9seTb"
+    },
+    {
+      "_id": "EnGEGTq6bRl68aoM",
+      "name": "Grind a pinned foe, dealing damage w/advantage (+messy)",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8KHfTcPYblTJRpV1.EnGEGTq6bRl68aoM"
+    },
+    {
+      "_id": "rXmmMlCTnJFlqa6M",
+      "name": "Ruin a sturdy object or structure (costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8KHfTcPYblTJRpV1.rXmmMlCTnJFlqa6M"
+    },
+    {
+      "_id": "F1kerLLWgpQSgOSw",
+      "name": "Shake the earth (+area, +forceful, one range greater than normal; costs 1d4 HP)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!8KHfTcPYblTJRpV1.F1kerLLWgpQSgOSw"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "phXf36WaexQZLIG1",
+  "_id": "8KHfTcPYblTJRpV1",
+  "_key": "!actors!8KHfTcPYblTJRpV1"
+}

@@ -1,0 +1,203 @@
+{
+  "_id": "DPUvs6Ss8UHXEsCJ",
+  "_key": "!journal!DPUvs6Ss8UHXEsCJ",
+  "name": "Lygos & the South",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Picture a sun-drenched land, a semi-arid climate. Roads stretch out between cities and oases. Farmers tend to orchards of figs, dates, and olives. Boundless fields of grain sway in gentle winds."
+    }
+  },
+  "folder": "qblzH1yVdmFswlSD",
+  "sort": 15000,
+  "pages": [
+    {
+      "_id": "ZrWwwzUrqugxjDU8",
+      "_key": "!journal.pages!DPUvs6Ss8UHXEsCJ.ZrWwwzUrqugxjDU8",
+      "name": "Lygos & the South",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Picture a sun-drenched land, a semi-arid climate. Roads stretch out between cities and oases. Farmers tend to orchards of figs, dates, and olives. Boundless fields of grain sway in gentle winds.</p><p>Picture palaces, temples, and handsome estates. Priests, scholars, and bureaucrats bustle about. Politicians squabble over laws and votes. Merchants hawk goods from the far corners of the world. Dozens of languages can be heard in streets and taverns.</p><p>Picture armies on the march in tight formation, spears and shields and helms a-glinting. Plumes of dust rise from thousands of stamping feet. Horses neigh and harnesses clatter. Camels bray. Elephants trumpet.</p><p>Picture opulence and splendor, silks and feathers, spices piled high in lurid color. Picture hunger and desperation, urchins risking a hand to steal a loaf of bread. Picture the rich and powerful above mundane concern. Picture the poor and downtrodden consumed by nothing but.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Inspired by Greek, Hebrew, Persian, and Arabic: Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "A storied past",
+            "group": "place",
+            "danger": false,
+            "body": "<p>The arid south has long been a cradle of civilization. Ruins and ancient works dot the landscape and clutter cities. Who built them, and where did those people go? That’s for you and your group to decide, but perhaps these structures were built by…</p><p>… a truly ancient people, predating even the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>;<br>… the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wsIFXTjnJFgO6vnI]{Tempest Lords}</strong>, before their island capital was swallowed by the sea;<br>… the ancestors of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, who later migrated north;<br>… an offshoot of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.raJkZVRsiVDqsgbj]{Forge Lords}</strong>, spreading out through a network of portals;<br>… some other group of Makers, unheard of up north;<br>… ancient humans—contemporaries of the Makers, perhaps even their rivals;<br>… offshoots of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>, who forged human civilization from blood and fire and sand;<br>… some combination of the above; or<br>… something else entirely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "There and back again",
+            "group": "place",
+            "danger": false,
+            "body": "<p>A typical trip to and from Lygos involves:</p><ul><li>An entire season of travel (80-90 days), there and back.</li><li>Joining a merchant caravan for the trip there, and another one for the trip back (Value 2 each way).</li><li>While in Lygos, either…</li><li>a purse of silvers (Value 2) to pay for room, board, and bribes; or …</li><li>a resident of Lygos willing to put you up and cover your costs.</li><li>The risk of misadventure, robbery, betrayal, or sundry other setbacks at every turn.</li></ul><p>Don’t play out trips to Lygos in detail! Doing so would take dozens of sessions and could easily derail your campaign. Unless you and your group actively decide to leave <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> behind and play a very different sort of game, then you should handle PC trips to Lygos off-camera.</p><p>Use love letters (Book I, page 568) to gloss over such a journey. Work with the player(s) to identify:</p><ul><li>What they hope to accomplish</li><li>How they plan to go about it</li><li>What valuables/resources they bring with them</li></ul><p>Think about what might go wrong, what might go well, and what obligations or simmering troubles they’re leaving behind. Think about elements of the setting or character that you want to explore or highlight. Weave these together into a love letter for each PC who makes the journey, and present it to each player when their PC returns to Stonetop.</p><p>If some PCs remained behind while the others went to Lygos, you can write love letters for the PCs who stayed behind, summarizing events back home. Or, you can play one or more sessions with just those players. Or you can replace the travelling PCs with temporary PCs for a few sessions. Work with your group to decide on the best approach.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Merchants",
+            "group": "place",
+            "danger": false,
+            "body": "<p>A few dozen caravans make their way up from Lygos every year. A typical merchant caravan is made up of:</p><ul><li>3-12 separate merchants, each with at least one wagon or cart</li><li>2-4 helpers per merchant (often family members)</li><li>Horses, mules, donkeys, or other beasts of burden</li><li>Caravan guards, ~6 per merchant</li></ul><p>Most caravans stop in in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> to trade, but some enterprising souls will veer into the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> and trade with the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> directly. Others keep going north to one of the Manmarcher’s hillforts. A rare few merchants make their way to <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, and some of those stop in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>.</p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), a southern merchant might offer the following:</p><ul><li>A good exchange rate, two or even three Value 2 items for 1 Surplus.</li><li>1-4 Value 2 items or even a Value 3 item, in exchange for some creepy arcanum or relic of the past (might have repercussions)</li><li>A unit of exotic trade goods (Value 3) in exchange for a bundle of drake feathers, gylglyd flowers, a raselbaedd hide, etc.</li><li>A suit of armor or weapon of war, forged from black iron, as payment for helping them recover some lost or stolen goods (Value 3).</li><li>An arcanum of primordial power, from one of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>, or related to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around Lygos &amp; the South. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.mqbnYBt53E6uF73P]{Adventurer}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.T1ELDbVtepRKsf3d]{Antiquarian}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ew3px3xfQiIpxEtg]{Assassin}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eLDyz1PDrdPnbnG9]{Caravan Guard}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ODYHrREuw5K1yWh7]{Cavalry}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.RrC8q9cFYtODqipS]{Infantry}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DqstaADjKd7GKa1n]{Legionary}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wVG9WYC3dpOlFEZp]{Skirmisher}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Do they fear deep water down south?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do they ply the seas or shun them?",
+                "answer": ""
+              },
+              {
+                "prompt": "What are the most common languages down there?",
+                "answer": ""
+              },
+              {
+                "prompt": "What clothing/markings/traits are distinctive to Lygosi? To southerners in general?",
+                "answer": ""
+              },
+              {
+                "prompt": "What festival or holiday do they celebrate this time of year?",
+                "answer": ""
+              },
+              {
+                "prompt": "What game/pastime/food are Lygosi/ southerners known for?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do they worship __? How does that worship differ from up here in **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who (or what) do they worship that isn’t well-known up here?",
+                "answer": ""
+              },
+              {
+                "prompt": "**Personal questions If a PC hails from the south, ask some or all of the following.** Are you from Lygos proper? Or some where else down south?",
+                "answer": ""
+              },
+              {
+                "prompt": "What little thing do you miss about life down there?",
+                "answer": ""
+              },
+              {
+                "prompt": "What do you miss the least?",
+                "answer": ""
+              },
+              {
+                "prompt": "What drove you to leave?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who did you leave behind?",
+                "answer": ""
+              },
+              {
+                "prompt": "What southern practice do you still observe?",
+                "answer": ""
+              },
+              {
+                "prompt": "What was most surprising to you about life in these parts?",
+                "answer": ""
+              },
+              {
+                "prompt": "Are there other southerners in Stonetop? Who?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>Catastrophe (war, plague, famine, etc.) sends refugees flooding north.</li><li>A deposed royal flees to the north incognito, pursued by assassins.</li><li>An old foe/rival/creditor of a PC (or an important NPC) comes calling.</li><li>A southern antiquarian arrives, looking to excavate a specific Maker-ruin (possibly one in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>).</li><li>Members of a persecuted mystery cult arrive from down South; if Stonetop won’t accept them, they take up residence in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.iYSktNtms4NQat8F]{Ruined Tower}</strong>.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "",
+                "body": "<p>They make their way north now and then: scoundrels, mercenaries, treasure-hunters… folk who just can’t make a go of a normal life. They’ll show up in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.uXlyry9CpXUz4ooR]{Marshedge}</strong> or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong>, in search of some big score. Or running from the consequences of the last one. Or both.</p>"
+              },
+              {
+                "heading": "Antiquarian",
+                "body": "<p>Among the southern well-to-do, the glorious past is a point of pride. Wealthy households keep pet scholars on retainer, and sponsor the study of ruins and antiquities. There’s a brisk trade in artifacts and relics. Collectors pay handsomely for items of true power.</p><p>The south is full of ruins, but it’s also teeming with people. The best sites have already been dug up. But up north, at the World’s End? Why, one can barely swing a shovel without hitting some relic of the past, just waiting to be excavated. And studied. And sold.</p><p>Only in “civilized” lands is there such demand for murder that it’s an actual profession.</p><p>Much of the way between Lygos and Marshedge goes through trackless wilds, without the protection of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>’ Roads. Bandits, beasts, and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> are all a threat, and plenty of potential clients would just as soon steal a merchant’s goods as trade fairly for them. So, merchants hire guards. And when danger looms, they hope they’ve hired well.</p>"
+              },
+              {
+                "heading": "Conquering army",
+                "body": "<p>The armies of the south are said to be as limitless as the stars in the sky, as countless as the leaves in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. If they wanted, they could field legions whose soldiers outnumbered the entire population of the World’s End. Thankfully, the southern nations have seen no value in invading the north. At least, not yet.</p><p>What would prompt an invasion? Perhaps…</p><p>… a holy mandate to spread some southern faith;<br>… an emperor who has united the southern nations, and now turns toward new conquests;<br>… a new ruler in Lygos, obsessed with recovering the Makers’ arts;<br>… a dearth of arable land, timber, salt, or just living space;<br>… an unquenchable thirst for slaves (or sacrifices);<br>… some combination of the above; or<br>… something else entirely.</p>"
+              },
+              {
+                "heading": "Invasion",
+                "body": "<p>Threat (affliction) Instinct to subjugate</p><ul><li>A company (200-400 troops) establishes a foothold in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.apczJSWiu0M5dFrF]{South Manmarch}</strong>, proceeds to subjugate local Hillfolk</li><li>2,000 soldiers march on Marshedge, their council surrenders, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong> and the Claws flee</li><li>The army invades the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NERZ6p7FNc1pxNWL]{North Manmarch}</strong>, conquering a number of settlements, hillforts</li><li>Remaining Manmarch chiefs surrender; a company of soldiers besieges Gordin’s Delve; another marches on Stonetop and demands surrender</li><li>Impending doom: Stonetop is conquered and a garrison established</li></ul><p>Stakes Can the Hillfolk be united against the southerners? What about the Manmarchers? Will the PCs ally with Brennan?</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Kyakaara",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/corrupted.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 1,
+        "source": "sheer toughness"
+      },
+      "damage": {
+        "value": "rending fingers/claws d4+2 w/advantage (hand, grabby, forceful, messy, 1 piercing), or crude weapons d6 w/advantage (tags by weapon)",
+        "rollFormula": "d4+2"
+      },
+      "instinct": {
+        "value": "to delight in pain, savor fear, and indulge in every cruelty"
+      }
+    },
+    "concept": "The Howlers — laughing, fang-snouted folk lost utterly to the Howling Curse.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, hardy, organized, fearless, sadistic, terrifying, corrupted",
+    "qualities": "<p>Inured to cold; take +1d4 damage from bronze; see only in shades of red.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.pOtdFLTTywDCKXPM",
+    "notes": "",
+    "creatureType": "corrupted"
+  },
+  "prototypeToken": {
+    "name": "Kyakaara",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/corrupted.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "dOje2zsCP7bFiI2Z",
+      "name": "Drive their prey to panic",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Iyc7KUONkBO5Ibyz.dOje2zsCP7bFiI2Z"
+    },
+    {
+      "_id": "NWXZP6IOFdJKOipU",
+      "name": "Maim or traumatize someone",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Iyc7KUONkBO5Ibyz.NWXZP6IOFdJKOipU"
+    },
+    {
+      "_id": "UTpVgH2VipZsCW84",
+      "name": "Surround, harry, dogpile, drag down",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Iyc7KUONkBO5Ibyz.UTpVgH2VipZsCW84"
+    },
+    {
+      "_id": "bEv1HqnpgP2QrIHJ",
+      "name": "Drag off a captive, to eat or torture",
+      "type": "monsterMove",
+      "img": "icons/sundries/gaming/playing-cards-grab.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Iyc7KUONkBO5Ibyz.bEv1HqnpgP2QrIHJ"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Bxq9dZGNWDbTbGon",
+  "_id": "Iyc7KUONkBO5Ibyz",
+  "_key": "!actors!Iyc7KUONkBO5Ibyz"
+}

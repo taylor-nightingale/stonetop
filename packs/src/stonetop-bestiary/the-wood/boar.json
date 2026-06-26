@@ -1,0 +1,80 @@
+{
+  "name": "Boar",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "gore d8 (hand, messy, 1 piercing)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to protect their territory"
+      }
+    },
+    "concept": "Territorial wild boars that ignore pain.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, gluttonous",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.GCwoVVL355ENXJ25",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Boar",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "fe4KDk1lKhoKmBfI",
+      "name": "Relentlessly charge their victim, over and over",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!oZS0ErG5Jl909oCE.fe4KDk1lKhoKmBfI"
+    },
+    {
+      "_id": "WGA0fQ87ykyV3NaU",
+      "name": "Eat just about anything",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!oZS0ErG5Jl909oCE.WGA0fQ87ykyV3NaU"
+    },
+    {
+      "_id": "uW7fAjsMD9ykSja4",
+      "name": "Ignore pain or injury",
+      "type": "monsterMove",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!oZS0ErG5Jl909oCE.uW7fAjsMD9ykSja4"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "oZS0ErG5Jl909oCE",
+  "_key": "!actors!oZS0ErG5Jl909oCE"
+}

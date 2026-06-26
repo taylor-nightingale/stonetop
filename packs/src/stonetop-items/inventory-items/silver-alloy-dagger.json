@@ -1,0 +1,21 @@
+{
+  "_id": "dkyayq7YYDsBS9UY",
+  "_key": "!items!dkyayq7YYDsBS9UY",
+  "name": "Silver-alloy dagger",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "silver-alloy-dagger",
+      "inventoryColumn": "regular",
+      "sortOrder": 53,
+      "note": "<em>hand</em>",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Other Weapons"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

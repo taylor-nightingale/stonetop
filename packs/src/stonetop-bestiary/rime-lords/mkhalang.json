@@ -1,0 +1,92 @@
+{
+  "name": "Mkhalang",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 27,
+        "max": 27
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "trample d8+3 w/disadvantage (hand, close) or ice-tusks d8+7 w/disadvantage (reach, forceful, messy, crude, 1 piercing)",
+        "rollFormula": "d8+7"
+      },
+      "instinct": {
+        "value": "to amuse itself at the expense of others"
+      }
+    },
+    "concept": "A bored, can't-lie mammoth-spirit emissary whose idleness has soured into cruelty.",
+    "organization": "solitary",
+    "size": "huge",
+    "tags": "solitary, huge, spirit, construct, cautious, devious",
+    "qualities": "<p>Tethered to its dome but far-ranging; perfect memory; unable to lie.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.BcpBqOAGilg6RtJb",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Mkhalang",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "U2fH7RFEoFkT2RwP",
+      "name": "Fly quickly across the skies",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/wing-membrane-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CK1q0r9Hp21IpFpX.U2fH7RFEoFkT2RwP"
+    },
+    {
+      "_id": "GmCxwfzCHmPw8Jmw",
+      "name": "Manifest a mammoth-like form of freezing mist and ice (harmed only by salt, fire, heat)",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CK1q0r9Hp21IpFpX.GmCxwfzCHmPw8Jmw"
+    },
+    {
+      "_id": "R2j2dhmwXjhjHHhp",
+      "name": "Suck the strength and warmth from anyone it tramples",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CK1q0r9Hp21IpFpX.R2j2dhmwXjhjHHhp"
+    },
+    {
+      "_id": "sdNbCwEmZQqVxxQl",
+      "name": "Reveal just enough to cause trouble",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!CK1q0r9Hp21IpFpX.sdNbCwEmZQqVxxQl"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "CK1q0r9Hp21IpFpX",
+  "_key": "!actors!CK1q0r9Hp21IpFpX"
+}

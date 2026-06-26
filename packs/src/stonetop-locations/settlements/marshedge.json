@@ -1,0 +1,173 @@
+{
+  "_id": "uXlyry9CpXUz4ooR",
+  "_key": "!journal!uXlyry9CpXUz4ooR",
+  "name": "Marshedge",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The town of Marshedge lies along the Highway, on a rise overlooking Ferrier’s Fen. Many consider Marshedgers insane to live so close to such a dangerous place, but long ago, some of them learned the ways of the Fen and of bendis root, the burning of which keeps unclean things at bay."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 19000,
+  "pages": [
+    {
+      "_id": "TJgCT9BQixIEAHly",
+      "_key": "!journal.pages!uXlyry9CpXUz4ooR.TJgCT9BQixIEAHly",
+      "name": "Marshedge",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>Size town (~800 to 900 souls) Population +0 Prosperity +2</p><ul><li>Trade with... ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.DPUvs6Ss8UHXEsCJ]{Lygos}</strong> (fine goods, spices, etc.) ...</li><li>Manmarch (timber, salt, amber) ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.HesP5wBhjA0l9Ffk]{Gordin’s Delve}</strong> (metal, tools) ...</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> (whisky, fur) Resources</li></ul><ul><li>Farming (wheat, hemp, wild rice, herbs)</li><li>Trades (textiles, pottery, glass, rope, medicine)</li><li>Forage (herbs, peat, clay)</li><li>Marketplace</li><li>Windmill Defenses +1</li></ul><ul><li>The Guard</li><li>Wooden palisade</li><li>Bendis root braziers</li></ul><p>The town of Marshedge lies along the Highway, on a rise overlooking <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong>. Many consider Marshedgers insane to live so close to such a dangerous place, but long ago, some of them learned the ways of the Fen and of bendis root, the burning of which keeps unclean things at bay.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Steading",
+            "group": "place",
+            "danger": false,
+            "body": "<p><strong>Size</strong> town (~800–900 souls)<br><strong>Population</strong> +0<br><strong>Prosperity</strong> +2 (farming (wheat, hemp, wild rice, herbs); trades in textiles, pottery, glass, rope, and medicine; foraging the Fen for herbs, peat, and clay; a marketplace and a windmill; trade with Lygos, the Manmarch, Gordin's Delve, and Stonetop)<br><strong>Defenses</strong> +1 (the Guard, a wooden palisade, and braziers of bendis root)</p><p><em>When the PCs treat Marshedge as a steading — mustering its forces, deploying its defenses, or rolling Trade &amp; Barter against its Prosperity — use these values.</em></p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Places",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>The Hill, around which the town huddles, looming over <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong>. Riddled with Maker-ruins.</li><li>The Palisade surrounds the town, with braziers of bendis root burning day and night. Four members of the Guard walk the ramparts.</li><li>The Sruth, a wide, shallow river that drains lazily past Marshedge and into the Fen. Lined with reeds and willows, the bed made of loose, sucking mud.</li><li>The Bridge, a wooden span across the Sruth where a stretch of road once lay, just wide enough for a wagon. A pair of Guards collect tolls at the gate house.</li><li>Low Town, hovels of the working folk, all around the Hill and Edgemarket. Wattle and daub construction, cramped gardens, dirty kids, lots of livestock. Guards don’t patrol here.</li><li>Edgemarket, on a wayside near the middle of town, crowded with tents, wagons, merchants, and visitors. Surrounded by shops, a pair of pubs, and a few traveler-houses. Patrolled by a pair of Guards.</li></ul><ul><li>The Mire, a a muddy slum north of the main palisade, poking into the Fen.</li><li>Wood walkways stretch between bogs of rice and herbs. Two gates link it to</li><li>Low Town, each manned by a Guard.</li></ul><ul><li>Dropoff, middle-class homes and shops all around the slope of the Hill.</li><li>A pair of Guards are always on patrol.</li></ul><ul><li>High Town, a neighborhood of stone buildings with slate roofs atop the Hill. Where the Old Families live. Ringed by a second palisade, with a pair of Guards always watching the gate.</li><li>The Garrison, the Guard’s headquarters, just outside High Town. A dozen or so Guards are stationed here at any time, off-duty but on-call.</li><li>Eastgate, where the Highway passes through the palisade and farmers come and go to the fields. A pair of Guards collect tolls from visitors.</li><li>Miller’s Hill, a Maker-ruin just east of town, repurposed into a windmill. Everyone mumbles about how the place is haunted. It is.</li><li>The Fields, stretching away to the east and south, owned by the Old Families. Some outbuildings, plenty of livestock, but few inhabitants.</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Ruins of the past",
+            "group": "place",
+            "danger": false,
+            "body": "<p>This was clearly a place of importance in the time of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.eoTIBDMIzJXByPCZ]{Makers}</strong>. Their ruins dot the Hill and extend deep below. Some of these tunnels are used as storehouses or mausoleums. Others are unexplored.</p><p>What was this place, originally? That’s for you to decide, but perhaps it was…</p><ul><li>a Stone Lord outpost, standing watch over <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UstvXnD6EA9IBBO3]{Ferrier’s Fen}</strong>; …</li><li>the edge of a Green Lord</li><li>city, all that’s left after the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong> sank much of their lands; …</li><li>a center of trade between <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong> and Stone Lords, abandoned when war broke out between them; …</li><li>a Stone Lord manor, reclaimed by the</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>; …</li><li>some combination of the above; or …</li><li>something else entirely.</li></ul><p>Whatever you decide, consider writing it up as a site, with dangers and discoveries that might now be in the hands of the Old Families, the Guilds, and/or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong>.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Irish-inspired: Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam</p><p>Marshedge and <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> share a language but the dialects are quite distinct, implying some common but distant ancestry.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "People",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong>, onetime bandit leader of the Claws, now the town’s marshal. The Council thought it’d be cheaper and easier to pay him to guard the town than to hunt him down and defeat him.</li></ul><ul><li>The Guard, the town’s well-drilled standing watch. Tensions exist between the ex-Claws, old-timer loyalists, and the new recruits. (~40 guards total)</li></ul><ul><li>The Old Families dwell in the stone manor houses of High Town and have a piece of every pie. (~30 family members and another ~40 servants)</li></ul><ul><li>The Ferriers have lost much clout in recent years. Their matriarch, Ianthe, is ailing but still sharp (Instinct to maintain her family’s dignity).</li><li>The Hawtrey patriarch, Muiris, is one of Brennan’s main allies (Instinct to put his family’s fortunes above all else).</li><li>The Tricklebanks resent the Ferrier’s prestige. Led by cagey old Caineach (Instinct to sieze any opportunity).</li><li>The Eldershaws have a reputation for being tough yet honorable, but an untimely death has left young Ailbe in charge (Instinct to put off decisions).</li></ul><ul><li>The Guilds, comprised of weavers, potters, glassblowers, and herbalists. They generate much of the town’s wealth, and chafe at the Old Families’ power. (~125 artisans, assistants, and families)</li></ul><ul><li>The lesser trades—smiths, bakers, carpenters, thatchers, the miller, and others who keep the town running. (~40 artisans, assistants, and families)</li></ul><ul><li>Fen-walkers ply the wetlands, gathering herbs, hunting game, cutting peat and clay, and keeping tabs on the suarachan. They recruit from orphans and those with no prospects. Some have (and hide) weird mutations. (~20 souls)</li></ul><ul><li>The Council, Marshedge’s governing body. Includes the head of each Old Family, the master of each Guild, the eldest of the fen-walkers, and Brennan (who has no vote, but pushes them around).</li></ul><ul><li>Merchants are key to the town’s prosperity. Mostly local, but a few have settled here from afar. (~40 souls)</li></ul><ul><li>Beggars &amp; thieves gather in</li><li>Edgemarket, along the Highway, and in Dropoff, seeking sympathy or easy marks. (~20-40 souls, varies by day)</li></ul><ul><li>Farmers &amp; laborers make up the rest of town. Mostly tenant farmers, put-upon homemakers, and muscle for hire hoping to earn rent. (~500 souls)</li></ul><ul><li>Travelers come to trade at Edgemarket, to consult with herbalists, or to seek (or spend) their fortunes. They stay with local contacts, in their own wagons, or at one of a few traveler-houses. (~25-100 souls, depending on the season)</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Trade & Barter",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Commonly available The following are special items in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, but commonly available in Marshedge— PCs can acquire them here without having to roll. They do need to trade something of equal Value. Stonetop trade goods (whisky and furs) are always in demand.</p><p><strong>goods value</strong></p><ul><li>Candle (lasts ~1 hour, close). 0</li><li>Lantern ( hours, 0 reach, area) Glass vial 0 Common trade tools (for pottery, 1 weaving, etc.; immobile)</li><li>Wax tablet and stylus 0 Parchment, a few sheets 1 Ink, vial and quills 1 Bendis root (burnt fumes repel 0* perversions of nature; lasts ~1 hour, reach, area)</li><li>Pouch full of bendis root (~10 uses) 1*</li><li>Salt or seasonings (a pouch full) 1 Exotic spices (a little box) 1</li></ul><p>Bolt of hempen fabric 1 Finery, like a silk scarf, a silver comb, 1 embroidered shirt, nice dress, etc. Cloak, finely embroidered (warm) 1 Spare parts for a wagon/cart (axles, 2 wheels, etc.; uses, immobile)</p><p>*+1 Value if sold outside of Marshedge</p><p><strong>coin value</strong></p><p>Purse of coppers (~10 handfuls) 0 Handful of silvers 1 Purse of silvers (~10 handfuls) 2</p><p><strong>food &amp; lodging value</strong></p><p>Hospitality, of a friend or contact 0 Food &amp; drink, for a small party 0 Lodgings, decent (for a small party 1 up to a week, board included) Night of fine living, for one 1</p><p>Special items The following might be acquired in Marshedge, in addition to special items from the Moves &amp; Gear handout. PCs must roll Trade &amp; Barter to acquire them.</p><p>When PCs Trade &amp; Barter in Marshedge, they use the local Prosperity (+2 by default), with advantage because it’s a town. On a 6-, they don’t mark XP but they’ll need to Ask Around if they want to sell/acquire it.</p><p><strong>goods value</strong></p><p>Medicines, potent ( uses) 1 Useful flora, 1d4 uses 1 or 2 Lens, like for a magnifying glass 1 Spectacles, custom made 2 Luxurious clothing, silk embroidery, fine lace, drakeskin boots, etc. 2</p><ul><li>Bolt of silk (or other exotic fabric) 3</li><li>Regalia (warm, clumsy) an outfit 3 of ostentatious clothing; ignore clumsy if you’re used to it</li></ul><p><strong>property value</strong></p><p>Cottage or hovel, to call your own 2 House or shop, a modest place 3 Business, small but established, 4 like an inn, a pub, or a smithy</p><p><strong>. trade opportunities .</strong></p><p>If the PCs get a trade opportunity (from the Seasons Change move), Marshedge might offer the following:</p><ul><li>A good exchange rate, two or even three Value 2 items for 1 Surplus</li><li>A wagon, mule, or horse, for 1 Surplus and help with a problem</li><li>A tradesperson (healer, herbalist, potter, glassblower, etc) willing to move to Stonetop for a price</li><li>An arcanum of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rJiU3RhbILojTC2u]{Stone Lords}</strong>, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, or <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Folk of this Area",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Folk you might meet in and around Marshedge. Click through for full stat blocks and lore.</p><ul><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.3aGN8PEsxue31FpR]{Bandit}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.aJvnNwaxVw8BTHA6]{Bandit Chief}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.vmZHAuziESAq3yf8]{The Guard}</li><li>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.ytyTMHny5iAK6yZB]{Thieves}</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Which of the Old Families (Ferrier, Hawtrey, Tricklebank, Eldershaw) have you dealt with most? How so?",
+                "answer": ""
+              },
+              {
+                "prompt": "What trouble did **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}**’s Claws cause you, back in their bandit days?",
+                "answer": ""
+              },
+              {
+                "prompt": "Do they worship ____ here? How?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who do you look forward to seeing?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who are you hoping to avoid?",
+                "answer": ""
+              },
+              {
+                "prompt": "What’s the oddest rumor you’ve heard about the fen-walkers?",
+                "answer": ""
+              },
+              {
+                "prompt": "As you enter, what’s the most striking difference between here and **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Secrets",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>The town charter gives fen-walkers the right to demand aid from any resident, and the responsibility to execute those found to be “corrupted by vile spirits, or congressing with such.”</li></ul><ul><li>Every seven years, one of the Old Families delivers one of their children to the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong>. A fen-walker leaves the child at one of the grand willow trees, never looking back. Rarely, such a child returns, years later, and greatly changed.</li><li>The miller’s wife is a necromancer, with a number of ghosts bound in the basement. <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.rztqfU6X75vkMarl]{Brennan}</strong> knows her secret and has taken to consulting her.</li></ul><p>You don’t just start begging or thieving in Marshedge; there’s a guild to join, rules to follow, and fees to pay. Surely Brennan and the Guard are compensated for looking the other way.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A daughter of the Old Families tries to save her son from the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.M8gYXMHKcRqCshbC]{Willow Witches}</strong>.</li><li>A fen-walker discovers a ruin, home to a fell beast but also great treasure.</li></ul><ul><li>Idealists attempt to organize and get recognition for a Farmers Guild.</li></ul><ul><li>A High Town merchant has what the</li><li>PCs seek; but seeks exclusive rights to trading <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> whisky in exchange.</li></ul><ul><li>A spurned Guild apprentice is sending dark spirits against their old master</li></ul><p>A well-regarded loyalist of the old Guard has gone missing. His granddaughter asks the PCs for help.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Moves",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>ASK AROUND</strong> When you spend a purse of coppers and a few hours asking around town, say what you hope to learn and roll +CHA: on a 10+, you get a clear and useful answer; on a 7-9, you get an answer but pick 1:</p><ul><li>It’s incomplete, contradictory, or unclear, ask the GM how you could learn more</li><li>It’ll cost you another purse of coppers</li><li>You’ve drawn unwanted attention or gotten yourself embroiled in a situation of the GM’s choosing</li></ul><p><strong>CAROUSE</strong> When you spend a handful of silvers having a good time, roll +CHA: on a 10+, pick 2; on a 7-9, pick 1:</p><ul><li>You spread a rumor or tale far and wide</li><li>You make a loyal new friend</li><li>You learn something useful or juicy</li><li>You avoid getting swindled, tricked, or entangled in someone else’s trouble</li></ul><p><strong>RECRUIT</strong> When you put out word that you’re hiring, say who you’re looking for, what the job is, and what you’re offering (the GM will veto if unreasonable). Then roll and add…</p><p>… +1 if your offer is generous;<br>… +1 if the work conditions are favorable; and<br>… +1 if your reputation around here is solid.</p><p>On a 10+, you find someone but pick 1; on a 7-9, you find someone but pick 2.</p><ul><li>They lack some of the skills you wanted</li><li>They’re entangled, impaired, or annoying</li><li>You draw unwanted attention</li><li>They have debts or obligations that you need to clear up first</li></ul><p><strong>services value</strong></p><p>A guide around town, for the day 0 Someone to watch things, for a day 0 A laborer’s help, for a day 0 A crew of laborers, for a week 1 A bodyguard/muscle, for a few days 1 A consultation with a skilled healer 1 An engineer/foreman, for a big project 2 A skilled healer’s care, for a few weeks 2 A fen-walker to guide you... ... to a known, nearby spot 1 ... to a dangerous/unknown spot 2 ... to a place of almost certain death 3</p>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

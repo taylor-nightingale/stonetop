@@ -1,0 +1,61 @@
+{
+  "_id": "J3KbSweAhRZfonEX",
+  "_key": "!journal!J3KbSweAhRZfonEX",
+  "name": "Hillfolk Rider",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Horse-borne hunters and warriors who patrol the Steplands and distrust outsiders."
+    }
+  },
+  "folder": "BftPtZSbjpl2MLU8",
+  "sort": 145000,
+  "pages": [
+    {
+      "_id": "XwlDiMYnCmrH0CCc",
+      "_key": "!journal.pages!J3KbSweAhRZfonEX.XwlDiMYnCmrH0CCc",
+      "name": "Hillfolk Rider",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Horse-borne hunters and warriors who patrol the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.No8UN1MJEb2mrLXo]{Steplands}</strong> and distrust outsiders.",
+        "description": "<p>A typical band of <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.NS2bhYMi23m0eWao]{Hillfolk}</strong> has 6 to 12 riders — adult hunters and warriors who patrol their territory in twos and threes, seeking game and watching for trespassers. The brash will challenge any stranger; the cautious follow unseen and take an outsider's measure before deciding whether to let them pass, spook them off, or murder them in their sleep. When a rider and their horse attack together they deal 1d6+4 (the horse's 1d6+3, +1 for the rider).</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.05mh4Ag0uKxRVY8j"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

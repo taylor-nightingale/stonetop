@@ -1,0 +1,61 @@
+{
+  "_id": "1c9b44uDspcLrAEk",
+  "_key": "!journal!1c9b44uDspcLrAEk",
+  "name": "Shellback Drake",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A 400-pound snapping-turtle drake that buries itself and waits."
+    }
+  },
+  "folder": "kEa25T5l7AyiMzs2",
+  "sort": 7000,
+  "pages": [
+    {
+      "_id": "hHv3e0iuOC5HAMkg",
+      "_key": "!journal.pages!1c9b44uDspcLrAEk.hHv3e0iuOC5HAMkg",
+      "name": "Shellback Drake",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A 400-pound snapping-turtle drake that buries itself and waits.",
+        "description": "<p>Like a snapping turtle, but six feet long and four hundred pounds, with big badger-like claws — and way faster than you think. It digs itself under a layer of soil and waits long enough for the gwead to start growing over it. Then, when something comes near? SNAP! An intact shell is worth quite a bit (immobile, Value 2), but good luck killing one without cracking it.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.QytGix3nVoKyghUs"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

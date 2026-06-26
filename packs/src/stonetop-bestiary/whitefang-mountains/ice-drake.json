@@ -1,0 +1,80 @@
+{
+  "name": "Ice Drake",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "claws, beak, or wing-buffet d4 (hand)",
+        "rollFormula": "d4"
+      },
+      "instinct": {
+        "value": "to spook easily and overreact"
+      }
+    },
+    "concept": "Crane-like drakes that cloak themselves in killing hoarfrost mist.",
+    "organization": "horde",
+    "size": "small",
+    "tags": "horde, small, cautious, stealthy",
+    "qualities": "<p>Cold-proof; camouflaged; winged.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.fda14OGdrUYiepS5",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Ice Drake",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "LnP7jcVbqXfnphrA",
+      "name": "Burrow into snow or ice, to forage or hide",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KYNQ2Ekdv3JzJUc7.LnP7jcVbqXfnphrA"
+    },
+    {
+      "_id": "HhRDknJZmHRWhtM5",
+      "name": "Shake off a blast of clinging, freezing mist, 1d4 damage (close, area, reload)",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": "d4"
+      },
+      "_key": "!actors.items!KYNQ2Ekdv3JzJUc7.HhRDknJZmHRWhtM5"
+    },
+    {
+      "_id": "A4BklMydWYybZlkz",
+      "name": "Scatter and flee to the skies",
+      "type": "monsterMove",
+      "img": "icons/magic/nature/leaf-glow-green.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!KYNQ2Ekdv3JzJUc7.A4BklMydWYybZlkz"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Bxq9dZGNWDbTbGon",
+  "_id": "KYNQ2Ekdv3JzJUc7",
+  "_key": "!actors!KYNQ2Ekdv3JzJUc7"
+}

@@ -1,0 +1,18 @@
+{
+  "_id": "HioRRdzHzmA4KR1V",
+  "_key": "!items!HioRRdzHzmA4KR1V",
+  "name": "Rushlight",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "rushlight",
+      "inventoryColumn": "small",
+      "sortOrder": 3,
+      "note": "lasts ~15-30 minutes, <em>close</em>, <em>crude</em>"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

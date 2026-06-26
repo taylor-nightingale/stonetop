@@ -1,0 +1,61 @@
+{
+  "_id": "C9HHEVNFl8Cw6w0U",
+  "_key": "!journal!C9HHEVNFl8Cw6w0U",
+  "name": "Barrow Wight",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Spirit-bound corpses set to guard their own barrow hoards."
+    }
+  },
+  "folder": "5hRvK2xOK2xjET49",
+  "sort": 75000,
+  "pages": [
+    {
+      "_id": "X5KoCoTRMF37gCWT",
+      "_key": "!journal.pages!C9HHEVNFl8Cw6w0U.X5KoCoTRMF37gCWT",
+      "name": "Barrow Wight",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Spirit-bound corpses set to guard their own barrow hoards.",
+        "description": "<p>As you might expect, grave robbing was always a problem for the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.JDCcrvQhMYFFlUIe]{Barrow Builders}</strong>. But a clever sorcerer had a solution! So many hateful spirits roamed the world in those days — why not bind some to the corpses of the deceased, and let the dead guard their own treasure?</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.FrvZI5HssAop00KC"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

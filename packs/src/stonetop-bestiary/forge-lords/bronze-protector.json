@@ -1,0 +1,81 @@
+{
+  "name": "Bronze Protector",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 13,
+        "max": 13
+      },
+      "armor": {
+        "value": 3,
+        "source": "metal"
+      },
+      "damage": {
+        "value": "pummel d8 (hand)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to be overzealous in guarding you"
+      }
+    },
+    "concept": "A bronze guardian animated by a hearth-spirit — loyal, overzealous, and a hazard to the furniture.",
+    "organization": "",
+    "size": "",
+    "tags": "construct, spirit, durable, vigilant, overbearing, mute, gullible",
+    "qualities": "<p>Fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.HLSdXkHMonjHAPU8",
+    "notes": "",
+    "creatureType": "spirit-construct"
+  },
+  "prototypeToken": {
+    "name": "Bronze Protector",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/spirit-construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "N84aps4EvMbu6yBP",
+      "name": "Loom menacingly, belching smoke",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!papz15gT7rAa1XiQ.N84aps4EvMbu6yBP"
+    },
+    {
+      "_id": "uKgcFUxfAxkiB8lK",
+      "name": "Start fires, cause collateral damage",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!papz15gT7rAa1XiQ.uKgcFUxfAxkiB8lK"
+    },
+    {
+      "_id": "CIJtkpDZxzu6iPFr",
+      "name": "Run low on fuel",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!papz15gT7rAa1XiQ.CIJtkpDZxzu6iPFr"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "papz15gT7rAa1XiQ",
+  "_key": "!actors!papz15gT7rAa1XiQ"
+}

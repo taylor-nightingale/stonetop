@@ -1,0 +1,61 @@
+{
+  "_id": "ew3px3xfQiIpxEtg",
+  "_key": "!journal!ew3px3xfQiIpxEtg",
+  "name": "Assassin",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A professional killer — only in 'civilized' lands is there such demand for murder."
+    }
+  },
+  "folder": "LOKwtEAgjoIg68NG",
+  "sort": 157000,
+  "pages": [
+    {
+      "_id": "CdxgzGw6aBI3GYEw",
+      "_key": "!journal.pages!ew3px3xfQiIpxEtg.CdxgzGw6aBI3GYEw",
+      "name": "Assassin",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A professional killer — only in 'civilized' lands is there such demand for murder.",
+        "description": "<p>Only in \"civilized\" lands is there such demand for murder that it becomes an actual profession.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.x6X63ArQe1zZ3tBE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

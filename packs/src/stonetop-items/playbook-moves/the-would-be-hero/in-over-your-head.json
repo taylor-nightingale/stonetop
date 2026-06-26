@@ -1,0 +1,12 @@
+{
+  "_id": "MwKVWwhhZJBqEbyl",
+  "_key": "!items!MwKVWwhhZJBqEbyl",
+  "name": "In Over Your Head",
+  "type": "move",
+  "system": {
+    "playbook": "The Would-Be Hero",
+    "moveType": "playbook",
+    "description": "<p>When <strong><em>another PC rescues you from danger</em></strong>, mark XP.</p>"
+  },
+  "folder": "5w3sWD3LC83p8wOr"
+}

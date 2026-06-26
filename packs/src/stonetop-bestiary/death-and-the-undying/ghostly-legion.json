@@ -1,0 +1,92 @@
+{
+  "name": "The Ghostly Legion",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "ghostly short sword or spear d6 w/advantage (hand, close)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to lift their curse"
+      }
+    },
+    "concept": "A cursed mercenary band, hungering and sun-shunning until their stolen loot is returned.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, spirit, undead, organized, terrifying, hoarder, violent",
+    "qualities": "<p>Roams far and wide, but tethered to the cave; shuns daylight; can only touch the world through violence; upset by and afraid of dogs.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.sgwKSp8PEmkIv21v",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Ghostly Soldier",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "hrFMaLraQltyH8NS",
+      "name": "Manifest a spectral form (harmed only by silver, salt, or a loyal dog)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6NAKPaUXIxy6zZl8.hrFMaLraQltyH8NS"
+    },
+    {
+      "_id": "Jg1aG71NRqgHPduP",
+      "name": "Ogle a mortal as they eat or drink",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6NAKPaUXIxy6zZl8.Jg1aG71NRqgHPduP"
+    },
+    {
+      "_id": "pqhWGy9df4h9oRmH",
+      "name": "Threaten violence, then carry it through",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6NAKPaUXIxy6zZl8.pqhWGy9df4h9oRmH"
+    },
+    {
+      "_id": "vl1TsMEVIDIVjQWA",
+      "name": "Force a mortal to carry their treasure",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!6NAKPaUXIxy6zZl8.vl1TsMEVIDIVjQWA"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "EFgcYyVfAWu3kPtb",
+  "_id": "6NAKPaUXIxy6zZl8",
+  "_key": "!actors!6NAKPaUXIxy6zZl8"
+}

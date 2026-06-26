@@ -1,0 +1,81 @@
+{
+  "name": "Mammoth Herder",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 7,
+        "max": 7
+      },
+      "armor": {
+        "value": 1,
+        "source": "thick hides and furs"
+      },
+      "damage": {
+        "value": "long spears d6 (reach, crude) or javelins with atlatls d6 (far, reload, crude)",
+        "rollFormula": "d6"
+      },
+      "instinct": {
+        "value": "to put their people and their herd first"
+      }
+    },
+    "concept": "Tundra nomads who follow the mammoth herds across the Frozen Wastes.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, hardy, cautious, organized, clever",
+    "qualities": "",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.AXCc64h6QQiyBGpx",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Mammoth Herder",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "YeKCd7YJwMMkzaEr",
+      "name": "Greet someone from a distance, politely and formally",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bmmVVWAh7h2uAPJp.YeKCd7YJwMMkzaEr"
+    },
+    {
+      "_id": "dHcI3uAVG3Ve3KUQ",
+      "name": "Remain calm as they prepare for violence",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bmmVVWAh7h2uAPJp.dHcI3uAVG3Ve3KUQ"
+    },
+    {
+      "_id": "krRonvLzXn0Cjvts",
+      "name": "Work or fight in tandem with their mammoths, dogs, and hunting drakes",
+      "type": "monsterMove",
+      "img": "icons/creatures/claws/claw-curved-jagged-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!bmmVVWAh7h2uAPJp.krRonvLzXn0Cjvts"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "H4tKi5At1faNP0Np",
+  "_id": "bmmVVWAh7h2uAPJp",
+  "_key": "!actors!bmmVVWAh7h2uAPJp"
+}

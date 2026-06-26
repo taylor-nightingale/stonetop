@@ -1,0 +1,61 @@
+{
+  "_id": "iS6nYGE2SZOV6Vat",
+  "_key": "!journal!iS6nYGE2SZOV6Vat",
+  "name": "Infected Hagr",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A hagr corrupted from within by Yaarowslow's silvery slime — deluded, raging, and infectious."
+    }
+  },
+  "folder": "xsr0JM0qPS0Cd9yo",
+  "sort": 132000,
+  "pages": [
+    {
+      "_id": "Rp5yJZqSy4CQZvqA",
+      "_key": "!journal.pages!iS6nYGE2SZOV6Vat.Rp5yJZqSy4CQZvqA",
+      "name": "Infected Hagr",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A hagr corrupted from within by Yaarowslow's silvery slime — deluded, raging, and infectious.",
+        "description": "<p>The book's worked example of an infected servant: a hagr that stumbled on a tainted spring and was corrupted by Yaarowslow's silvery slime, which ate away at what it once was, replacing its blood and organs and overwhelming its mind with voices and delusions. It carves its master's sigils into everything and spreads the infection wherever it goes.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.C08Lry85Ftk9psXO"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "False Adept",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 19,
+        "max": 19
+      },
+      "armor": {
+        "value": 1,
+        "source": "lacks organs"
+      },
+      "damage": {
+        "value": "life-draining touch d8 (hand, ignores armor)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to amass more followers, more power"
+      }
+    },
+    "concept": "A mystic who tore their soul from their body and now burns followers' lives for power.",
+    "organization": "solitary",
+    "size": "",
+    "tags": "solitary, spirit, undead, magical, devious, organized",
+    "qualities": "<p>Tethered to some object; telepathic; powerful will.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.oe8mlG7LcAvCd0aE",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "False Adept",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "qyYLtGjToud7Ea7B",
+      "name": "Attract followers with promises of greatness, easily achieved",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yutvCMDSx2HQ6Ery.qyYLtGjToud7Ea7B"
+    },
+    {
+      "_id": "bgYSFcfHrrCxNEKp",
+      "name": "Eat away at someone's emotions, memories, or will",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yutvCMDSx2HQ6Ery.bgYSFcfHrrCxNEKp"
+    },
+    {
+      "_id": "3BVkfkZqLiAQUFuk",
+      "name": "Possess a follower (or one's corpse)",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yutvCMDSx2HQ6Ery.3BVkfkZqLiAQUFuk"
+    },
+    {
+      "_id": "YHwscwLDXHiiLm3g",
+      "name": "Siphon a follower's lifeforce to mimic some art of the Rime Lords",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!yutvCMDSx2HQ6Ery.YHwscwLDXHiiLm3g"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FV8OtHi4fcpmL3w5",
+  "_id": "yutvCMDSx2HQ6Ery",
+  "_key": "!actors!yutvCMDSx2HQ6Ery"
+}

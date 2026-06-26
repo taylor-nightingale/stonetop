@@ -1,12 +1,18 @@
-<div class="stonetop-stats-row">
-	{{#each stats}}
-	<div class="stonetop-stat" data-stat="{{@key}}">
-		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}">{{name}}</span>
-		<input class="stonetop-stat-input" type="number"
-		       name="system.stats.{{@key}}.value"
-		       value="{{value}}" min="-3" max="3"
-		       {{#unless ../editable}}disabled{{/unless}}>
-		<span class="stonetop-stat-abbr rollable" data-roll="{{@key}}">{{abbr}}</span>
-	</div>
+<div class="cell--stats">
+	<ul class="stats-list">
+	{{#each system.stats}}
+	<li class="stat cell--stat rollable" data-stat="{{@key}}" data-roll="{{@key}}">
+		<span class="cell__title"><i class="stat-icon fas fa-dice-d6"></i> {{statLabel @key}}</span>
+		<div class="stonetop-stat-box">
+			<div class="stonetop-stat-inner">
+				<input class="stat-value" type="number"
+				       name="system.stats.{{@key}}.value"
+				       value="{{value}}"
+				       {{#unless @root.stonetop.statsEdit}}readonly{{/unless}}>
+			</div>
+		</div>
+		<span class="stonetop-stat-abbr">({{@key}})</span>
+	</li>
 	{{/each}}
+	</ul>
 </div>

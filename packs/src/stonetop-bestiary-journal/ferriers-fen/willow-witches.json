@@ -1,0 +1,61 @@
+{
+  "_id": "M8gYXMHKcRqCshbC",
+  "_key": "!journal!M8gYXMHKcRqCshbC",
+  "name": "Willow Witches",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The weird three-in-one sisters of the Fen, who always have what you seek — for a price."
+    }
+  },
+  "folder": "vhqnmoOdeyOLvMcj",
+  "sort": 28000,
+  "pages": [
+    {
+      "_id": "2hPfGCxCxK6zS7th",
+      "_key": "!journal.pages!M8gYXMHKcRqCshbC.2hPfGCxCxK6zS7th",
+      "name": "Willow Witches",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The weird three-in-one sisters of the Fen, who always have what you seek — for a price.",
+        "description": "<p>Many tales are told of the weird sisters of the Fen. There are always three, but they might be old, young, or middling; tall and regal or twisted and gnarled. All stories agree they have what you seek — an answer, an artifact, a way to do the impossible — and that there's always a price. In truth they are a single entity: the inscrutable incarnation of a primordial being of knowledge, fate, costs, and consequences, greatly diminished and dwelling in this broken land. They observe the old ways of hospitality and do no true harm to a guest who keeps guest-right; violate it, and beware.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.q6EfKl09RA6NKWEc"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

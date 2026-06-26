@@ -1,0 +1,159 @@
+{
+  "_id": "wxslMExj4dQkTPfw",
+  "_key": "!journal!wxslMExj4dQkTPfw",
+  "name": "Forest Folk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "All the tales agree: the Folk were in the Great Wood long before Stonetop was founded. They welcomed the newcomers, or at least suffered them, but demanded that villagers never fell a living tree from the Wood."
+    }
+  },
+  "folder": "pCXEbxpjLM9YSG9Q",
+  "sort": 12000,
+  "pages": [
+    {
+      "_id": "J79GdwZ5BWnwGW8q",
+      "_key": "!journal.pages!wxslMExj4dQkTPfw.J79GdwZ5BWnwGW8q",
+      "name": "Forest Folk",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>All the tales agree: the Folk were in the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> long before <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> was founded. They welcomed the newcomers, or at least suffered them, but demanded that villagers never fell a living tree from the Wood.</p><p>The Forest Folk mostly kept to themselves. But over generations, contacts were made. Favors exchanged, friendships won, stories shared. And more shared, too, judging by the odd eyes that some villagers bear.</p><p>The villagers did not notice when the Forest Folk left, not right away. Encounters were never common. Then they became rare. Then there were none at all.</p><p>Their absence echoes through the Great Wood. Their crude glyphs can still be found, carved into trees and boulders. Their sacred places stand empty. And dangerous creatures—things once hunted by the Folk—now breed freely.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Names",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Slavic-sounding, often diminutives: Analiya, Asya, Avo, Boyko, Danja, Dimvo, Dobri, Galya, Genko, Ivka, Inko, Kosta, Lyubo, Milada, Milko, Mincha, Mitko, Nadya, Neli, Penko, Polya, Radko, Raya, Sajka, Sasho, Tsvetanka, Valya, Vasko</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Lore",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Forest Folk’s ancestors were mortal servants of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>. They lived nomadic lives among the trees, traveling in small bands and living off the land.</p><p>Something interesting: The Folk would often commune with spirits of the wild, and sometimes had dealings with the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>. Maybe they know where the Folk went?</p><p>Something useful: You know of a place where the Forest Folk used to congregate, not too far from <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, or a Fae they once dealt with frequently, or a sacred site they revered—tell us about it! Also, tell us why you think it’s a good place to start investigating what happened to the Folk.</p><p>Where did they go? That’s for you and your group to decide, but possibilities include...</p><p>… they fled east, to escape the waking of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.UEQE5cKRurhX9gCE]{Crombil}</strong>;<br>… they went to fight the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.lB57gclVP4TiOIRb]{Fomoraij}</strong>, maybe at the behest of the Fae;<br>… a servant of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong> hunted them down, chased them off;<br>… a curse transformed them into living trees, though not all at once;<br>… a powerful Fae whisked them off into its domain;<br>… they were ravaged by sickness; the survivors left in search of a miracle; or<br>… their numbers were always few, and they simply died out.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Forest eyes",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Those who inherit the “forest eyes” see well at night. They see by mere starlight as well as most humans can see under a full moon; they see by moonlight as well as most humans can see at dusk.</p><p>Beyond that, certain plants, lichens, and rocks shine with indescribable colors that can only be seen with the forest eyes. The Folk would sometimes be seen staring rapt at a mundane grove or meadow, marveling at some unseen beauty. Humans with the forest eyes sometimes do likewise.</p><p>If a PC was born with (or develops) the forest eyes, feel free to use these GM moves on them:</p><ul><li>Reveal glyphs, markings, or patterns that only they can see</li><li>Distract them with colors and patterns of impossible beauty</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Glyphs and pictograms",
+            "group": "details",
+            "danger": false,
+            "body": "<p>The Forest Folk left crude marks and drawings throughout the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. When the PCs encounter a point of interest in the Great Wood, and it was around before the Folk disappeared, pick or have someone roll the Die of Fate:</p><p><strong>1d6 markings</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1–2</td><td>None to be found</td></tr><tr><td>3</td><td>Hidden, incomplete/marred</td></tr><tr><td>4</td><td>Hidden, intact</td></tr><tr><td>5</td><td>Obvious but incomplete/marred</td></tr><tr><td>6</td><td>Obvious and intact</td></tr></tbody></table><p>“Hidden” glyphs might be hidden intentionally, obscured by happenstance (vines, growth, etc.), and/or made with pigments that only the forest eyes can see.</p><p>To an outsider, these glyphs and pictograms seem like nonsense—arbitrary shapes and crude, stylized drawings. But the Forest Folk had an elaborate visual vocabulary, and most of these markings are rich with meaning.</p><p>A PC can Know Things to attempt to discern the meanings of any such glyphs, with disadvantage if they are incomplete or marred. On a 7-9, they discern a vague concept, like “dangerous plants,” “bound spirit” or “sorrow/loss”. On a 10+, they glean the full meaning, like “these plants are dangerous to eat” or “this tree binds a spirit of darkness” or “many Forest Folk died here at the hands of a sorcerer.”</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Sites",
+            "group": "details",
+            "danger": false,
+            "body": "<p>Pick 1 or combine 2, or have someone roll the Die of Fate.</p><p>1d6 a place where they...</p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>…stood guard over something</td></tr><tr><td>2</td><td>…fought/died/interred their dead</td></tr><tr><td>3</td><td>…performed rituals/communed with spirits/worked magic</td></tr><tr><td>4</td><td>…dwelt/worked/made things/stored things</td></tr><tr><td>5</td><td>…gathered/congregated/held festivals</td></tr><tr><td>6</td><td>…left signs of what happened to them</td></tr></tbody></table><p>Pick or roll for an appropriate terrain. Populate it with signs of their presence (below), artifacts, and dangers of the Forest Folk or the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>. Consider combining with another point of interest from the Great Wood.</p><p>Signs of the Forest Folk’s presence include:</p><ul><li>Elaborate glyphs and pictograms</li><li>Strips of leather, often dyed, hanging from trees or wrapped around trunks</li><li>Tools/weapons of stone, wood, bone: adzes, scrapers, arrowheads, spears, etc.</li><li>Containers of carved wood, cured leather, woven plant fiber</li><li>Clothes (leather, fur, woven plants), likely in tatters</li><li>Bones/remains, of them and/or their prey</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "Who (among you/among your kin/that you know) bears the strange eyes of the Forest Folk? What do they look like?",
+                "answer": ""
+              },
+              {
+                "prompt": "How are folk with “the forest eyes” treated in **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**? What about their parents?",
+                "answer": ""
+              },
+              {
+                "prompt": "Did you ever meet one of the Forest Folk? Aside from their eyes, which of their inhuman features did you find most disturbing?",
+                "answer": ""
+              },
+              {
+                "prompt": "It’s a mystery for sure, but what do you think happened to the Forest Folk? Why?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Hooks",
+            "group": "inplay",
+            "danger": false,
+            "body": "<ul><li>A hunter finds a mass grave of the Forest Folk, from, oh, about 10 years back</li><li>A cave is covered with glyphs and pictograms that reveal valuable lore, but some of the glyphs are visible only to those with the forest eyes</li><li>A trapper swears that they’ve seen one of the Forest Folk, or signs of their recent presence</li><li class=\"question-bullet\">60 years ago, <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> gave the Forest Folk a precious gift, which they took to one of the sacred sites; perhaps it’s still there?</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Artifacts",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p><strong>Various treasures</strong></p><ul><li>A small wooden carving of some beast or chimera (Value 0)</li><li>Oversized, exquisitely knapped flint spear head (crude, awkward, Value 1 to a collector)</li><li>Big wooden bowl and lid, sealed with beeswax, filled with dried medicinal herb (Value 2)</li><li>Mostly-buried skeleton of an elephant-sized beast, bones carved with glyphs and pictograms that tell an important story (immobile, Value 2)</li><li>An acre of forest with 3d6 varieties of useful flora growing in careful harmony; 1d6-1 can be harvested at the moment.</li></ul><ul><li>A wooden mask fragile, magical Carved from pale elder wood in the shape of a bird’s head, but with small horns and fangs. The inside is chiseled with glyphs like those that the Forest Folk used to make.</li></ul><p>Something interesting: You recognize glyphs for “beast,” “spirit,” “forest,” and… “peace?” Or maybe “treaty.”</p><p>Something useful: When you wear the wooden mask, beasts of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong> will do you no harm, though your compan-ions have no such protection. Perversions of nature are unaffected. If you harm a beast of the Great Wood while wearing the mask, it loses all power and rapidly rots away.</p><ul><li>Crystal knife hand, crude, magical A blade of knapped quartz, with the hilt wrapped in glyph-covered leather. It gleams to those with the forest eyes.</li></ul><p>When you wield the crystal knife as a weapon, you can harm the manifest form of any spirit, ignoring armor and dealing +1d4 damage. If the 1d4 comes up a 4, though, the knife shatters into useless shards.</p><ul><li>Artifacts of others</li><li>Held in reverence, used with caution, and/or hidden where they could do no harm.</li></ul><ul><li>Artifacts of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong></li><li>Items related to the spirits of the wild</li><li>Gifts of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong></li><li>Objects tied to death or the undying</li><li>Artifacts cursed by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong></li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "Cursed glyphs",
+                "body": "<p>They look like other glyphs the Forest Folk left behind, but pick or roll for both a trigger and an effect.</p><p><strong>1d6 trigger</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Merely being in their presence</td></tr><tr><td>2</td><td>Seeing them, even at a glance</td></tr><tr><td>3</td><td>Passing a border that they define, or attempting to</td></tr><tr><td>4</td><td>Attempting to read or comprehend them</td></tr><tr><td>5</td><td>Touching whatever they’re inscribed upon</td></tr><tr><td>6</td><td>Erasing, breaking, or marring them</td></tr></tbody></table><p><strong>1d6 effect</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Afflicts a lingering, withering disease</td></tr><tr><td>2</td><td>Traps/ensnares/binds</td></tr><tr><td>3</td><td>Sickens/weakens/harms</td></tr><tr><td>4</td><td>Instills a powerful emotion (fear, despair, rage, etc.)</td></tr><tr><td>5</td><td>Draws the attention of certain spirits</td></tr><tr><td>6</td><td>Befuddles/confuses/twists the senses</td></tr></tbody></table>"
+              },
+              {
+                "heading": "Opportunists",
+                "body": "<p>Encroaching on territory vacated by the Forest Folk, or growing now that they are no longer kept in check.</p><ul><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ttz6Fnr2M0HNfIre]{Crinwin}</strong></li><li>Beasts of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong></li><li>Hazardous growths and chimerae</li><li><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>, released from old oaths and/or keen to claim new territory</li></ul>"
+              },
+              {
+                "heading": "Spirits",
+                "body": "<ul><li>Ghosts or revenants of Forest Folk who died badly, or with work unfinished</li><li>Spirits of the wild who dwelt happily alongside the Folk, or who were imprisoned by them</li><li>Emanations and spirits corrupted by the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{Things Below}</strong>, trapped but straining at their bindings.</li></ul>"
+              }
+            ]
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

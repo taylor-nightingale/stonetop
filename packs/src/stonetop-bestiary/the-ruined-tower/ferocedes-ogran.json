@@ -1,0 +1,125 @@
+{
+  "name": "Ferocedes Ogran",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/undead.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 23,
+        "max": 23
+      },
+      "armor": {
+        "value": 4,
+        "source": "metal, amorphous"
+      },
+      "damage": {
+        "value": "pummel d12+3 (close, reach, forceful) or barrage of metal d10+1 (near, area, messy, forceful, reload, 1 piercing)",
+        "rollFormula": "d12+3"
+      },
+      "instinct": {
+        "value": "to preserve and restore the tower, to ignore harsh truths"
+      }
+    },
+    "concept": "The obsessive ghost of a Forge Lord smith, forever repairing a dead tower.",
+    "organization": "solitary",
+    "size": "large",
+    "tags": "solitary, large, spirit, undead, magical, organized, obsessive, absentminded",
+    "qualities": "<p>Tethered to his forge; can't venture far from it. Speaks Tempest Lord (understood by all).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.D42rXN4BtGJACqqt",
+    "notes": "",
+    "creatureType": "undead"
+  },
+  "prototypeToken": {
+    "name": "Ferocedes",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/undead.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "7KI0lEoP7VipJCQY",
+      "name": "Manifest a cloud of ember and ash, a voice of crackling flame",
+      "type": "monsterMove",
+      "img": "icons/magic/fire/flame-burning-creature-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.7KI0lEoP7VipJCQY"
+    },
+    {
+      "_id": "rPHz4OOWwU6VSzn4",
+      "name": "Ask what they've brought him, if that one task is done yet",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.rPHz4OOWwU6VSzn4"
+    },
+    {
+      "_id": "Y8CGKhhLBdbCrKIc",
+      "name": "Fail to understand their speech",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.Y8CGKhhLBdbCrKIc"
+    },
+    {
+      "_id": "EfCBT51CWrxo8JP7",
+      "name": "Grow annoyed, angry, violent",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.EfCBT51CWrxo8JP7"
+    },
+    {
+      "_id": "hSNksqcnmBhOSZNH",
+      "name": "Manipulate metal, telekinetically",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.hSNksqcnmBhOSZNH"
+    },
+    {
+      "_id": "Y4ntFDl75NeGUW6g",
+      "name": "Repair metal, or shape it anew",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.Y4ntFDl75NeGUW6g"
+    },
+    {
+      "_id": "hyoYdFkM9L13GRHC",
+      "name": "Animate a body formed of metal tools, parts, and scrap",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!GwnTCgTINiA49N9c.hyoYdFkM9L13GRHC"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "bgB0BcdHBaPnlv3w",
+  "_id": "GwnTCgTINiA49N9c",
+  "_key": "!actors!GwnTCgTINiA49N9c"
+}

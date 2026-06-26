@@ -1,0 +1,61 @@
+{
+  "_id": "aThMYefGFmE0mG73",
+  "_key": "!journal!aThMYefGFmE0mG73",
+  "name": "Wee Folk",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Tiny winged fae — guardians, workers, or cruel little hooligans."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 67000,
+  "pages": [
+    {
+      "_id": "wH59rdbyOwJFG5GM",
+      "_key": "!journal.pages!aThMYefGFmE0mG73.wH59rdbyOwJFG5GM",
+      "name": "Wee Folk",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Tiny winged fae — guardians, workers, or cruel little hooligans.",
+        "description": "<p>Tiny little things, winged and fluttering, the size of mice or dragonflies — mishmashes of fur and feather, scales and chitin, gossamer and wings, beautiful or cute or grotesque. Some lived together under the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>; others came together after the war; a surprising number were born into freedom. You might find them keeping watch over a corrupted site or crumbling ruin, or in one of their teeming hidden cities, or — if you're unlucky — roaming the woods bored and cruel and looking for sport.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.rL761LrHFjJcfArG"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

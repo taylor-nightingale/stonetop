@@ -1,0 +1,21 @@
+{
+  "_id": "stFloraSnowember",
+  "_key": "!items!stFloraSnowember",
+  "name": "Snowembers",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "snowembers",
+      "inventoryColumn": "regular",
+      "sortOrder": 76,
+      "note": "Edible petals, warm even in deep winter, that turn to mush soon after picking. Harvest 1d4+4 &#9671; Provisions; those who partake count as wearing <em>warm</em> clothes for a day or so.",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Flora & Herbs"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

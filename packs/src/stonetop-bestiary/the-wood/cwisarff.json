@@ -1,0 +1,80 @@
+{
+  "name": "Cwisarff",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "venomous bite d10 (close)",
+        "rollFormula": "d10"
+      },
+      "instinct": {
+        "value": "to defend its current spot"
+      }
+    },
+    "concept": "The 'tree adder' — the deadliest serpent in the Wood.",
+    "organization": "solitary",
+    "size": "small",
+    "tags": "solitary, small, stealthy, cautious",
+    "qualities": "<p><strong>Venomous.</strong> A bitten target marks a debility in addition to taking damage; until the poison is treated they can't regain HP and risk further damage and debility.</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.jGNndphW4xzirRkT",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Cwisarff",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "mXSWxEzadF1JmwNH",
+      "name": "Wait patiently to spring on prey",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Y9l5lNncyPjnqdCE.mXSWxEzadF1JmwNH"
+    },
+    {
+      "_id": "8lE895coqQMdiLLS",
+      "name": "Hiss menacingly at a threat",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Y9l5lNncyPjnqdCE.8lE895coqQMdiLLS"
+    },
+    {
+      "_id": "TEoYxJVr3EW6w4h0",
+      "name": "Bite quickly, and ready to strike again",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Y9l5lNncyPjnqdCE.TEoYxJVr3EW6w4h0"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "Y9l5lNncyPjnqdCE",
+  "_key": "!actors!Y9l5lNncyPjnqdCE"
+}

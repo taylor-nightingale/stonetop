@@ -1,0 +1,14 @@
+{
+  "_id": "MJBjm8a0y7pWD3ad",
+  "_key": "!items!MJBjm8a0y7pWD3ad",
+  "name": "Improved Stat",
+  "type": "move",
+  "system": {
+    "playbook": "The Ranger",
+    "moveType": "playbook",
+    "description": "<p>Each time you take this move, increase one of your stats by 1 (to a max of +2).</p>",
+    "moveEffect": "stat-increase",
+    "repeatMax": 3
+  },
+  "folder": "fr7cP7vKBgBxbN0Q"
+}

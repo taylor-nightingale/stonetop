@@ -1,0 +1,32 @@
+<section class="steading-moves-tab">
+
+	<ol class="items-list steading-moves-list">
+		{{#each stonetop.moves}}
+		<li class="stonetop-move-item steading-move-row{{#unless rollable}}{{#unless interactive}} move-unowned{{/unless}}{{/unless}}">
+
+			{{#if interactive}}
+			<button type="button" class="steading-interactive-btn rollable move-rollable"
+			        data-move-slug="{{slug}}"
+			        title="{{label}}">
+				<i class="fas fa-dice-d6"></i>
+			</button>
+			{{else}}
+			{{#if rollable}}
+			<button type="button" class="steading-roll-btn rollable move-rollable"
+			        data-move-name="{{label}}" data-stat="{{stat}}"
+			        title="Roll 2d6+{{this.statLabel}}">
+				<i class="fas fa-dice-d6"></i>
+			</button>
+			{{/if}}
+			{{/if}}
+			{{#if (and @root.stonetop.showRollStatChips statChipLabel)}}
+			<span class="stonetop-move-roll-chip steading-move-stat-tag">+{{this.statChipLabel}}</span>
+			{{/if}}
+			<span class="stonetop-move-name stonetop-steading-move-open">{{label}}</span>
+			{{#if description}}<div class="stonetop-basic-move-desc" hidden>{{{boldMissText description}}}</div>{{/if}}
+
+		</li>
+		{{/each}}
+	</ol>
+
+</section>

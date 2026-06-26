@@ -1,0 +1,81 @@
+{
+  "name": "Tal Gerdwyr",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 2,
+        "source": "feathers and scales"
+      },
+      "damage": {
+        "value": "trample, kick d8+5 (close, forceful), tail sweep d8+5 (reach, area, forceful)",
+        "rollFormula": "d8+5"
+      },
+      "instinct": {
+        "value": "to get annoyed"
+      }
+    },
+    "concept": "The 'tall walkers' — gentle, hill-sized, long-necked drakes.",
+    "organization": "group",
+    "size": "huge",
+    "tags": "group, huge",
+    "qualities": "<p>Extremely long neck.</p>",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.F5CHB8YqT63jY04J",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Tal Gerdwyr",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "A2GWj8S1CJGiyZlg",
+      "name": "Bellow loudly",
+      "type": "monsterMove",
+      "img": "icons/skills/social/diplomacy-handshake.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Xa6zaAxbSXE4EslL.A2GWj8S1CJGiyZlg"
+    },
+    {
+      "_id": "LZCtm5BvDbxE4T1z",
+      "name": "Smash down or through a barrier",
+      "type": "monsterMove",
+      "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Xa6zaAxbSXE4EslL.LZCtm5BvDbxE4T1z"
+    },
+    {
+      "_id": "WYoAS8TwwGZf95Nb",
+      "name": "Reach very, very high up",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!Xa6zaAxbSXE4EslL.WYoAS8TwwGZf95Nb"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "BestiaryWoodFldr",
+  "_id": "Xa6zaAxbSXE4EslL",
+  "_key": "!actors!Xa6zaAxbSXE4EslL"
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "1fcosNxgJeIAYHGS",
+  "_key": "!journal!1fcosNxgJeIAYHGS",
+  "name": "Fadyn",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "The trickster fox-spirit — charming and thieving, bound to its old skull."
+    }
+  },
+  "folder": "0QO5LuETyhD5bC2z",
+  "sort": 87000,
+  "pages": [
+    {
+      "_id": "K3p6JNOPiX5fE78U",
+      "_key": "!journal.pages!1fcosNxgJeIAYHGS.K3p6JNOPiX5fE78U",
+      "name": "Fadyn",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "The trickster fox-spirit — charming and thieving, bound to its old skull.",
+        "description": "<p>Every child has heard stories of the fox-spirit, the trickster, the fadyn. In some tales, a fadyn makes fools of the cruel or the proud. In others, they steal chickens from the slow-witted. And in still others, they seduce a beautiful human, disappearing when bored or discovered. Truth be told, there's little pattern to who a fadyn torments or fancies. They are fickle, fickle things.</p>",
+        "questions": [],
+        "lore": [
+          {
+            "prompt": "**Something interesting:** When a fadyn takes the form of a person, it always has some fox-like feature (a tail, feet, hands, ears) that it strives to hide. It is easily embarrassed by this feature, and flees if it's discovered.",
+            "answer": ""
+          },
+          {
+            "prompt": "**Something useful:** Fadyn are the spirits of old, cagey foxes who passed away, tethered to their old skulls. One can't travel far from its skull — get hold of it to destroy or bind the fadyn.",
+            "answer": ""
+          }
+        ],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.rlZQmShUiK2HpF9j"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

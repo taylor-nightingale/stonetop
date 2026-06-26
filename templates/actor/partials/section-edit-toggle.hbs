@@ -1,0 +1,22 @@
+{{!-- Shared per-section edit pencil/done toggle, used by the character Details
+      sections and the steading sections. Caller passes `toggleClass` (the
+      context-specific hook the sheet's click handler keys on), `section` (the
+      section id) and `editing` (that section's effective edit state). Shown only
+      when the sheet is editable and the global edit wrench is OFF (when it's on,
+      every section is already editable). The `recentlyEdited` faded branch is a
+      no-op for callers that don't populate `stonetop.recentlyEdited`. --}}
+{{#if stonetop.canEdit}}
+{{#unless stonetop.editMode}}
+{{#if editing}}
+<a class="stonetop-section-done {{toggleClass}}" data-section="{{section}}" title="Done editing"><i class="fas fa-check"></i></a>
+{{else}}
+{{#if (lookup stonetop.recentlyEdited section)}}
+{{!-- Just left edit mode: a non-interactive check that fades out, then a
+     re-render swaps in the hover pencil below. --}}
+<a class="stonetop-section-done {{toggleClass}} steading-section-toggle-faded" tabindex="-1"><i class="fas fa-check"></i></a>
+{{else}}
+<a class="stonetop-section-edit {{toggleClass}}" data-section="{{section}}" title="Edit — make this section editable"><i class="fas fa-pencil"></i></a>
+{{/if}}
+{{/if}}
+{{/unless}}
+{{/if}}

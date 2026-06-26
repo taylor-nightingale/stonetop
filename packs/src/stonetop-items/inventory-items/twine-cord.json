@@ -1,0 +1,18 @@
+{
+  "_id": "h8LojIIf94ChZESF",
+  "_key": "!items!h8LojIIf94ChZESF",
+  "name": "Twine/cord",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "twine-cord",
+      "inventoryColumn": "small",
+      "sortOrder": 22,
+      "smallGrid": true
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

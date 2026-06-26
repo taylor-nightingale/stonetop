@@ -1,0 +1,103 @@
+{
+  "name": "Grimstew",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/fae.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 16,
+        "max": 16
+      },
+      "armor": {
+        "value": 4,
+        "source": "resilience"
+      },
+      "damage": {
+        "value": "crushing grip d10+2 (hand, grabby, forceful)",
+        "rollFormula": "d10+2"
+      },
+      "instinct": {
+        "value": "to fill the emptiness inside"
+      }
+    },
+    "concept": "A lonely cave-troll fae who craves company, then eats it.",
+    "organization": "solitary",
+    "size": "small",
+    "tags": "solitary, small, fae, magical, tough, stealthy, cautious, ugly",
+    "qualities": "<p><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae nature}</strong>. Armor 1 vs. iron (thick fur).</p>",
+    "count": 1,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.fSV9XtOChfthnbDG",
+    "notes": "",
+    "creatureType": "fae"
+  },
+  "prototypeToken": {
+    "name": "Grimstew",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/fae.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "qz0lhbMIxHMHDIbG",
+      "name": "Stalk a mortal, curious and lonely",
+      "type": "monsterMove",
+      "img": "icons/skills/movement/figure-running-gray.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qDIbc21OgAwQJvjo.qz0lhbMIxHMHDIbG"
+    },
+    {
+      "_id": "8qYTBQWkE5I2Mv8B",
+      "name": "Offer aid, in exchange for company",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qDIbc21OgAwQJvjo.8qYTBQWkE5I2Mv8B"
+    },
+    {
+      "_id": "3FOfdo3dU6B3Ete2",
+      "name": "Perform an impossible labor",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qDIbc21OgAwQJvjo.3FOfdo3dU6B3Ete2"
+    },
+    {
+      "_id": "pYFqCHSWDd5X4QUz",
+      "name": "Grow when angered: +large, +4 HP, +3 damage, +close, +reach",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qDIbc21OgAwQJvjo.pYFqCHSWDd5X4QUz"
+    },
+    {
+      "_id": "iowue9t6uLFssBoD",
+      "name": "Get hungry, eat a companion",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!qDIbc21OgAwQJvjo.iowue9t6uLFssBoD"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "4CogaMcyAuszIFDN",
+  "_id": "qDIbc21OgAwQJvjo",
+  "_key": "!actors!qDIbc21OgAwQJvjo"
+}

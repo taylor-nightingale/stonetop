@@ -1,0 +1,139 @@
+{
+  "_id": "2NsZu7ZKzdrEHfjk",
+  "_key": "!journal!2NsZu7ZKzdrEHfjk",
+  "name": "The Golden Oak",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "On a clear day, sharp-eyed folk in Stonetop can spot the Golden Oak, gleaming at the horizon and dwarfing the trees around it. According to the tales of the Forest Folk, a hero buried at the roots of the Oak can find their way back from beyond the Last Door. But no one from Stonetop has ever made it there and back."
+    }
+  },
+  "folder": "pPuBkcyvgk4zjCYl",
+  "sort": 24000,
+  "pages": [
+    {
+      "_id": "zK6zVWbEucrqHQs0",
+      "_key": "!journal.pages!2NsZu7ZKzdrEHfjk.zK6zVWbEucrqHQs0",
+      "name": "The Golden Oak",
+      "type": "location",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "sections": [
+          {
+            "kind": "prose",
+            "heading": "Overview",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>On a clear day, sharp-eyed folk in <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong> can spot the Golden Oak, gleaming at the horizon and dwarfing the trees around it. According to the tales of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.wxslMExj4dQkTPfw]{Forest Folk}</strong>, a hero buried at the roots of the Oak can find their way back from beyond the Last Door. But no one from Stonetop has ever made it there and back.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Setting the scene",
+            "group": "glance",
+            "danger": false,
+            "body": "<p>The Golden Oak itself is enormous, so big as to defy any sense of scale. The bark is pale and luminous, and the glittering canopy is distant as the sky.</p><ul><li class=\"question-bullet\">What detail do you notice that drives home the fact that everything here is huge and massive?</li><li class=\"question-bullet\">What here tells you this is a place of primal, unchecked vitality?</li><li>What do you notice about yourself,</li></ul><p>that tells you that something is making you more angry, savage, and violent?</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Getting there",
+            "group": "place",
+            "danger": false,
+            "body": "<p>Something interesting: The Golden Oak doesn’t quite exist in this world, at least not anymore. It can only be reached through <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> pathways, at great risk and personal cost.</p><p>When you travel towards the Golden Oak in the mundane world, you never reach it. Even if you were to fly above the trees, it would remain always out of reach, its bearing shifting.</p><p>Something useful: To reach the Golden Oak, you must…</p><ul><li class=\"check-bullet\">learn to walk the Fae paths (see waystones, page 478);</li></ul><ul><li class=\"check-bullet\">follow the Fae paths to a specific set of waystones, those closest to the Oak;</li></ul><ul><li class=\"check-bullet\">find a secret crossing and face its guardian, set there by the Lady of</li><li class=\"check-bullet\">Crows herself; and</li></ul><p>pay the Lady’s due to make the crossing.</p><p>When you pay the Lady’s due, choose 1 as a group:</p><ul><li>Present a marker of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6wnyTkZl7GRhVM8g]{Pale Hunter}</strong>’s favor, honestly earned</li></ul><ul><li>Each of you must make a sacrifice.</li><li>Cross off a move you possess; it is gone and you cannot regain it. (Followers cross off a tag of the GM’s choice instead.)</li></ul><ul><li>One of your number passes willingly through the Last Door, their body gone, never to be seen again.</li></ul><p>When you make the crossing, you glimpse the Last Door and what lies beyond. Tell</p><p>us what you see.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "The savage curse",
+            "group": "place",
+            "danger": false,
+            "body": "<p>This was once a hub of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>’ civilization. When the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong> rebelled and turned on their masters, they claimed it for themselves. The surviving Lords laid a curse of primal savagery on the place. The rebel Fae abandoned it and the Lady of Crows sealed it away. When you are under the vast canopy of the Golden Oak…</p><ul><li>and you Persuade using anything but violence or threats, the best you can get is a 7-9.</li></ul><ul><li>and you give in to the savagery in your heart, regain 2d8 HP and become larger, more muscular, more bestial. Gain advantage when you roll STR and disadvantage when you roll WIS until you leave this place.</li></ul><ul><li>and you fight with no mercy, hesitation, or remorse, roll damage with advantage.</li></ul><ul><li>and you seek to make something, heal someone, or repair something, roll +WIS: on a 10+, you can work as long</li></ul><p>as you keep focused on your task; on a 7-9, you make some progress, but are easily distracted, frustrated, or enraged.</p>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Treasures of the Golden Oak",
+            "group": "place",
+            "danger": false,
+            "body": "<ul><li>A living leaf from the Golden Oak can be made into a Goldleaf Cloak.</li><li>With proper tools and knowledge, the bark can be harvested to craft weapons or armor (2 armor, warm, cumbersome) that is hard as iron and bane to undead or things from beyond the Last Door.</li><li>A golden acorn, harvested in autumn, can be planted elsewhere to grow a Golden Sapling (see sidebar).</li></ul>",
+            "pairs": []
+          },
+          {
+            "kind": "prose",
+            "heading": "Buried at the roots",
+            "group": "place",
+            "danger": false,
+            "body": "<p>When you bury a corpse at the roots of the Golden Oak, close to the trunk, roll and add…</p><p>… +1 if the corpse has not yet started to rot;<br>… +1 if they died bravely in their prime; and<br>… +1 if their name is still well-known. On a 10+, they return from beyond the Last Door when the sun next rises, whole and healthy though likely shaken; on a 7-9, they do not yet rise, but maybe if you give it another night? On a 6-, they return, but something else comes with them, something dangerous and dark, something now tied to them in a deep and primal way.</p><div class=\"stonetop-journal-improvement\" draggable=\"true\" data-steading-improvement=\"{&quot;name&quot;:&quot;GOLDEN SAPLING&quot;,&quot;flavor&quot;:&quot;&quot;,&quot;effect&quot;:&quot;When you mark all the requirements, add “Golden Sapling” to the Resources list and automatically mark the &lt;em&gt;Greater Harvest&lt;/em&gt; improvement. Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus.&quot;,&quot;sections&quot;:[{&quot;heading&quot;:&quot;Requires all of the following, in order:&quot;,&quot;items&quot;:[&quot;Retrieve an acorn from the boughs of the Golden Oak in late autumn&quot;,&quot;Plant the acorn in the fields near Stonetop, watering it with the lifeblood of a great virile beast, like an aurochs bull&quot;,&quot;Nurture and protect the sapling through 4 years of growth&quot;]}]}\" title=\"Drag onto the Stonetop steading sheet\"><div class=\"stonetop-journal-improvement-head\"><i class=\"fas fa-screwdriver-wrench\" aria-hidden=\"true\"></i><span class=\"stonetop-journal-improvement-eyebrow\">Steading Improvement</span><span class=\"stonetop-journal-improvement-name\">GOLDEN SAPLING</span></div><div class=\"stonetop-journal-improvement-body\"><p class=\"steading-req-heading\">Requires all of the following, in order:</p><ul class=\"steading-req-list\"><li class=\"check-bullet\">Retrieve an acorn from the boughs of the Golden Oak in late autumn</li><li class=\"check-bullet\">Plant the acorn in the fields near <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}</strong>, watering it with the lifeblood of a great virile beast, like an aurochs bull</li><li class=\"check-bullet\">Nurture and protect the sapling through 4 years of growth</li></ul><p class=\"stonetop-journal-improvement-effect\">When you mark all the requirements, add “Golden Sapling” to the Resources list and automatically mark the <em>Greater Harvest</em> improvement. Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus.</p></div></div>",
+            "pairs": []
+          },
+          {
+            "kind": "qa",
+            "heading": "Questions",
+            "group": "inplay",
+            "danger": false,
+            "body": "",
+            "pairs": [
+              {
+                "prompt": "When was **@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6yScslDfqrcCQ6CJ]{Stonetop}**’s last expedition to the Golden Oak? Who were they trying to save?",
+                "answer": ""
+              },
+              {
+                "prompt": "What other tales have you heard about the Oak? How much of them do you believe?",
+                "answer": ""
+              },
+              {
+                "prompt": "Who would have to die for you to risk a journey to the Golden Oak?",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "kind": "groups",
+            "heading": "Dangers",
+            "group": "inplay",
+            "danger": true,
+            "body": "",
+            "pairs": [],
+            "groups": [
+              {
+                "heading": "",
+                "body": "<p>Pick 1, or have someone roll the Die of Fate.</p><p><strong>1d6 danger</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Enormous vermin—dog-sized, mansized, horse-sized, or worse—each with some uncanny trait or mutation</td></tr><tr><td>2</td><td>Gargantuan beasts, crashing about you, disinterested and unconcerned</td></tr><tr><td>3</td><td>Specters of betrayed <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{Green Lords}</strong>, like roving storms of hate</td></tr><tr><td>4</td><td><strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.KgJ8NTJSYfoMhX0Y]{Hollow Fae}</strong>, trapped here for ages, mad with soul-hunger</td></tr><tr><td>5</td><td>Pockets of dangerous old magic, ready to ensnare, rend, or mutate</td></tr><tr><td>6</td><td>An overwhelming urge to fight, to hurt, to kill. If they act on the impulse, they mark XP. If they resist, they are Defying Danger (probably with WIS).</td></tr></tbody></table>"
+              }
+            ]
+          },
+          {
+            "kind": "prose",
+            "heading": "Discoveries",
+            "group": "inplay",
+            "danger": false,
+            "body": "<p>Pick 1, or have someone roll the Die of Fate.</p><p><strong>1d6 discovery</strong></p><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>A small pocket of safety: a cave, an old ruin, a hollow in a massive tree</td></tr><tr><td>2</td><td>The remains of a Green Lord or a rebel warrior, strangely well preserved</td></tr><tr><td>3</td><td>A dead beast: enormous, half-eaten, teeming with vermin</td></tr><tr><td>4</td><td>Useful or valuable flora, growing in preposterous proportions</td></tr><tr><td>5</td><td>A mad hermit, trapped here and lost in time (perhaps from a previous expedition?)</td></tr><tr><td>6</td><td>An artifact of... (roll d12) 1-7 <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.VosjScKksp5B3hsc]{The Green Lords}</strong> 8-11 <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{The Fae}</strong> 12 <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.5Kym1qDHTmM8XUQ6]{The Things Below}</strong></td></tr></tbody></table>",
+            "pairs": []
+          }
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

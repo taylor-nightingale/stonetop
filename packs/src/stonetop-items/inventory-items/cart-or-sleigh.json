@@ -1,0 +1,21 @@
+{
+  "_id": "GprQFnIiU74KKEpY",
+  "_key": "!items!GprQFnIiU74KKEpY",
+  "name": "Cart or sleigh",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "cart-or-sleigh",
+      "inventoryColumn": "regular",
+      "sortOrder": 48,
+      "note": "requires donkey, mule, or horse",
+      "weight": 2,
+      "special": true,
+      "specialCategory": "Transport"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

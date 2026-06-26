@@ -1,0 +1,61 @@
+{
+  "_id": "oe8mlG7LcAvCd0aE",
+  "_key": "!journal!oe8mlG7LcAvCd0aE",
+  "name": "False Adept",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A mystic who tore their soul from their body and now burns followers' lives for power."
+    }
+  },
+  "folder": "F7SHzAIMoFYFjUdt",
+  "sort": 95000,
+  "pages": [
+    {
+      "_id": "6fj8S68GUVxjrnn8",
+      "_key": "!journal.pages!oe8mlG7LcAvCd0aE.6fj8S68GUVxjrnn8",
+      "name": "False Adept",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A mystic who tore their soul from their body and now burns followers' lives for power.",
+        "description": "<p>Some who practice the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.oi5Mg2wPABRjvHri]{Rime Lords}</strong>' teachings push themselves beyond their limits — their bodies fail, and they become rage-filled specters or ever-hungry wraiths. But imagine an adept who saw their body and life as a resource to expend rather than a liability to overcome: one who deliberately severed their mind and spirit from their body and gathered a herd of followers (victims) around them, to serve as fuel for their mighty arts.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.yutvCMDSx2HQ6Ery"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

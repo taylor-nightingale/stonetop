@@ -1,0 +1,91 @@
+{
+  "name": "Upland Horse",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/natural-beast.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 14,
+        "max": 14
+      },
+      "armor": {
+        "value": 0
+      },
+      "damage": {
+        "value": "kick, trample d6+3 (hand, close, forceful)",
+        "rollFormula": "d6+3"
+      },
+      "instinct": {
+        "value": "to suffer no fools"
+      }
+    },
+    "concept": "Strong, brave horses the Hillfolk breed for courage and surefootedness; the best become a rider's steed for life.",
+    "organization": "group",
+    "size": "large",
+    "tags": "group, large, powerful, keen-nosed, agile, brave",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.A3Bit553pywTuWp3",
+    "notes": "",
+    "creatureType": "natural-beast"
+  },
+  "prototypeToken": {
+    "name": "Upland Horse",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/natural-beast.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "lFcwsJ8QkbrFRlBf",
+      "name": "Sniff trouble on the wind",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fClo0PLvR6NFwBwH.lFcwsJ8QkbrFRlBf"
+    },
+    {
+      "_id": "dAb7dZae87ENq3G7",
+      "name": "Navigate tricky terrain or obstacles",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fClo0PLvR6NFwBwH.dAb7dZae87ENq3G7"
+    },
+    {
+      "_id": "GUnxn4KgGXoYolem",
+      "name": "Remain calm, unmoved",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fClo0PLvR6NFwBwH.GUnxn4KgGXoYolem"
+    },
+    {
+      "_id": "MFFgCnOpEhZWadw7",
+      "name": "Find their own way",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!fClo0PLvR6NFwBwH.MFFgCnOpEhZWadw7"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "nDJFGk0FHXzQWlbI",
+  "_id": "fClo0PLvR6NFwBwH",
+  "_key": "!actors!fClo0PLvR6NFwBwH"
+}

@@ -1,0 +1,390 @@
+{
+  "_id": "MlxHjzcHt0f2ACqH",
+  "_key": "!items!MlxHjzcHt0f2ACqH",
+  "img": "systems/stonetop/assets/playbooks/the-would-be-hero.svg",
+  "name": "The Would-Be Hero",
+  "type": "playbook",
+  "flags": {
+    "stonetop": {
+      "hp": 16,
+      "damage": "d6",
+      "moves": {
+        "startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice."
+      },
+      "backgrounds": [
+        {
+          "slug": "impetuous-youth",
+          "label": "Impetuous Youth",
+          "description": "<p>Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!</p><p>When you <strong><em>make a move and come up short</em></strong>, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.</p>"
+        },
+        {
+          "slug": "driven",
+          "label": "Driven",
+          "description": "<p>You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1: a loved one was killed or abducted; someone gave their life to save you; your idol sacrificed themselves to save many; you stumbled upon a dark mystery; or you must make amends for a terrible mistake.</p><p>You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.</p>"
+        },
+        {
+          "slug": "destined",
+          "label": "Destined",
+          "description": "<p>Fate has laid her hand upon you. Choose 3-4 items to describe your destiny.</p><p>At the <em>start of a session</em>, roll +Omens: <strong>on a 7+</strong>, lose all Omens and the GM will share a vision or portent that points toward your fate; also, <strong>on a 10+</strong>, ask the GM a follow-up question and get a clear, helpful answer; <strong>on a 6-</strong>, don't mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision.</p><p><em>Until your destiny is fulfilled</em>, treat a 6- on Death's Door as a 7-9, and a 7-9 as a 10+.</p>"
+        }
+      ],
+      "instincts": [
+        {
+          "word": "Defiance",
+          "description": "To refuse to back down, give up, give in."
+        },
+        {
+          "word": "Doubt",
+          "description": "To question yourself, your actions, your worth."
+        },
+        {
+          "word": "Earnestness",
+          "description": "To prove yourself, to yourself and others."
+        },
+        {
+          "word": "Optimism",
+          "description": "To assume the best, and that things are simple."
+        },
+        {
+          "word": "Sacrifice",
+          "description": "To put the needs/wants of others above your own."
+        }
+      ],
+      "appearance": [
+        [
+          "still a child",
+          "young & beautiful",
+          "all grown up"
+        ],
+        [
+          "quiet voice",
+          "earnest voice",
+          "soft voice"
+        ],
+        [
+          "big",
+          "scrawny",
+          "sinewy",
+          "slender",
+          "thick"
+        ],
+        [
+          "back unbowed",
+          "jaw firmly set",
+          "soulful eyes"
+        ]
+      ],
+      "origin": [
+        {
+          "region": "Stonetop",
+          "names": [
+            "Anwen",
+            "Caradoc",
+            "Dafyd",
+            "Glenys",
+            "Madoc",
+            "Morwenna",
+            "Siwan",
+            "Wynfor"
+          ]
+        },
+        {
+          "region": "Barrier Pass",
+          "names": [
+            "Bala",
+            "Cotota",
+            "Ganzorig",
+            "Gerelma",
+            "Ibahka",
+            "Jungshoi",
+            "Mukhali",
+            "Taichu"
+          ]
+        },
+        {
+          "region": "The Steplands (Hillfolk)",
+          "names": [
+            "Annie",
+            "Cosette",
+            "Denl",
+            "Hugenne",
+            "Jag",
+            "Marc",
+            "Oanz",
+            "Sandre"
+          ]
+        },
+        {
+          "region": "Gordin's Delve",
+          "names": []
+        },
+        {
+          "region": "Marshedge",
+          "names": [
+            "Bridin",
+            "Clian",
+            "Engis",
+            "Fearghul",
+            "Lan",
+            "Neasa",
+            "Nill",
+            "Una"
+          ]
+        },
+        {
+          "region": "Lygos or some other point south",
+          "names": [
+            "Chara",
+            "Davud",
+            "Korina",
+            "Omid",
+            "Parvaneh",
+            "Tamir",
+            "Takish",
+            "Yannis"
+          ]
+        }
+      ],
+      "specialPossessions": {
+        "pickNote": "Pick 2",
+        "pickCount": 2,
+        "preselected": [],
+        "options": [
+          {
+            "slug": "a-good-dog",
+            "label": "A good dog",
+            "description": "follower (◇ <em>retriever</em> or ◇ <em>herder, keen-nosed, clever</em>); HP 6; Damage d6 (<em>hand, grabby</em>); Instinct to play; Cost: affection."
+          },
+          {
+            "slug": "heap-of-expectations",
+            "label": "Heap of expectations",
+            "description": "of little use"
+          },
+          {
+            "slug": "husbandry-tools",
+            "label": "Husbandry tools",
+            "description": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.)."
+          },
+          {
+            "slug": "personal-token",
+            "label": "Personal token, fraught with meaning",
+            "description": "",
+            "choices": {
+              "pickCount": 1,
+              "options": [
+                {
+                  "slug": "shield",
+                  "label": "◇◇ A shield, bearing ___'s crest"
+                },
+                {
+                  "slug": "wool-cloak",
+                  "label": "◇ A wool cloak, woven just for you by ___"
+                },
+                {
+                  "slug": "letter",
+                  "label": "A letter, spattered with tears &amp; blood"
+                },
+                {
+                  "slug": "flute",
+                  "label": "A flute, a gift from someone you loved"
+                },
+                {
+                  "slug": "fine-locket",
+                  "label": "A fine locket, holding a strand of hair"
+                },
+                {
+                  "slug": "tinderbox",
+                  "label": "A tinderbox, lovingly engraved"
+                }
+              ]
+            }
+          },
+          {
+            "slug": "smithy",
+            "label": "Smithy",
+            "description": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc."
+          },
+          {
+            "slug": "stoneworkers-tools",
+            "label": "Stoneworker's tools",
+            "description": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block &amp; tackles, wheelbarrow, etc."
+          },
+          {
+            "slug": "tannery",
+            "label": "Tannery",
+            "description": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc."
+          }
+        ]
+      },
+      "statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+      "lore": [
+        {
+          "slug": "fear-and-anger",
+          "title": "Fear & Anger"
+        },
+        {
+          "slug": "fear-and-anger-fears",
+          "continuation": true,
+          "title": "What do you fear most?",
+          "description": "<p><em>(choose 1, maybe 2)</em></p>",
+          "options": [
+            {
+              "slug": "fire",
+              "description": "Fire, burning, the smell of charred flesh.",
+              "max": 1
+            },
+            {
+              "slug": "not-serious",
+              "description": "That they won't take you seriously.",
+              "max": 1
+            },
+            {
+              "slug": "not-cut-out",
+              "description": "That you really aren't cut out for this.",
+              "max": 1
+            },
+            {
+              "slug": "loved-ones",
+              "description": "The death of your family or loved ones.",
+              "max": 1
+            },
+            {
+              "slug": "alone",
+              "description": "Being alone and helpless.",
+              "max": 1
+            },
+            {
+              "slug": "violence",
+              "description": "Violence, bloodshed, and pain.",
+              "max": 1
+            },
+            {
+              "slug": "monsters",
+              "description": "Monsters.",
+              "max": 1
+            },
+            {
+              "slug": "capable-of",
+              "description": "What you're capable of.",
+              "max": 1
+            },
+            {
+              "slug": "must-do",
+              "description": "What you must do.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "fear-and-anger-anger",
+          "continuation": true,
+          "title": "What Makes You Burn with Righteous Anger?",
+          "description": "<p><em>(choose 2, maybe 3)</em></p>",
+          "options": [
+            {
+              "slug": "bullying",
+              "description": "Bullying, slavery, and oppression.",
+              "max": 1
+            },
+            {
+              "slug": "cruelty",
+              "description": "Wanton cruelty and unnecessary suffering.",
+              "max": 1
+            },
+            {
+              "slug": "injustice",
+              "description": "Injustice and inequality.",
+              "max": 1
+            },
+            {
+              "slug": "cowardice",
+              "description": "Cowardice, treachery, and selfishness.",
+              "max": 1
+            },
+            {
+              "slug": "despoiling",
+              "description": "The despoiling of beauty and innocence.",
+              "max": 1
+            },
+            {
+              "slug": "loved-ones",
+              "description": "Threats to your loved ones.",
+              "max": 1
+            },
+            {
+              "slug": "innocents",
+              "description": "Violence to children, animals, the innocent.",
+              "max": 1
+            },
+            {
+              "slug": "perversions",
+              "description": "Perversions of nature.",
+              "max": 1
+            }
+          ]
+        },
+        {
+          "slug": "fear-and-anger-story",
+          "continuation": true,
+          "columnBreak": true,
+          "title": "",
+          "description": "",
+          "options": [
+            {
+              "slug": "when-trouble",
+              "description": "When did your fear or anger last cause you trouble?",
+              "type": "text"
+            },
+            {
+              "slug": "what-did",
+              "description": "What did you do?",
+              "type": "text"
+            },
+            {
+              "slug": "how-turned",
+              "description": "How did it turn out?",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "system": {
+    "slug": "the-would-be-hero",
+    "actorType": "character",
+    "description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
+    "attributes": {
+      "omen": {
+        "label": "Omen",
+        "type": "Clock",
+        "value": 0,
+        "max": 3,
+        "steps": [
+          false,
+          false,
+          false
+        ],
+        "choices": [],
+        "custom": false,
+        "path": "attributes",
+        "description": ""
+      },
+      "resolve": {
+        "label": "Resolve",
+        "type": "Clock",
+        "value": 0,
+        "max": 2,
+        "steps": [
+          false,
+          false
+        ],
+        "choices": [],
+        "custom": false,
+        "path": "attributes",
+        "description": ""
+      }
+    }
+  },
+  "folder": "Jsm6Sc2kOHvEBv8h"
+}

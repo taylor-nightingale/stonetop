@@ -1,0 +1,81 @@
+{
+  "name": "Chosen Shield",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/human-group.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 6,
+        "max": 6
+      },
+      "armor": {
+        "value": 3,
+        "source": "iron hauberk, shield"
+      },
+      "damage": {
+        "value": "iron battleaxe d8 (close, messy, 1 piercing), spear d8 (close, thrown, 1 piercing), or knife d6 (hand, 1 piercing)",
+        "rollFormula": "d8"
+      },
+      "instinct": {
+        "value": "to suffer no insult or disrespect"
+      }
+    },
+    "concept": "A chief's best and bloodiest: their bodyguards, enforcers, and lieutenants.",
+    "organization": "group",
+    "size": "",
+    "tags": "group, organized, brave, vicious",
+    "qualities": "",
+    "count": 3,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.iXs37AagGZ1bxsUt",
+    "notes": "",
+    "creatureType": "human-group"
+  },
+  "prototypeToken": {
+    "name": "Chosen Shield",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/human-group.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "Hnodr2y6UX0S384H",
+      "name": "Lash out with sudden, casual violence",
+      "type": "monsterMove",
+      "img": "icons/creatures/tentacles/tentacles-octopus-purple.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pUFKL4MIzNejftOU.Hnodr2y6UX0S384H"
+    },
+    {
+      "_id": "3y1l1pgSplOOEuxB",
+      "name": "Fight with grim purpose or reckless abandon",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pUFKL4MIzNejftOU.3y1l1pgSplOOEuxB"
+    },
+    {
+      "_id": "6Jgka88kLtMbdXPG",
+      "name": "Pry apart an enemy's defenses",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!pUFKL4MIzNejftOU.6Jgka88kLtMbdXPG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "Zk9eZkdsc82KOF4B",
+  "_id": "pUFKL4MIzNejftOU",
+  "_key": "!actors!pUFKL4MIzNejftOU"
+}

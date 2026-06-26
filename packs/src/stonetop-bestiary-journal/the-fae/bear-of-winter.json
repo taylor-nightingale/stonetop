@@ -1,0 +1,61 @@
+{
+  "_id": "9QYBsIBHZESD9ErE",
+  "_key": "!journal!9QYBsIBHZESD9ErE",
+  "name": "The Bear of Winter",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A house-sized fae bear-lord of winter, ruling by hoarded debts."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 62000,
+  "pages": [
+    {
+      "_id": "sYTe8FU2nJcFAt2W",
+      "_key": "!journal.pages!9QYBsIBHZESD9ErE.sYTe8FU2nJcFAt2W",
+      "name": "The Bear of Winter",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A house-sized fae bear-lord of winter, ruling by hoarded debts.",
+        "description": "<p>When winter snows blanket the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.6kt1b8ozEREDCi4k]{Great Wood}</strong>, the Bear roams the land — most often met as a great and snuffling beast, big as a house, icicles clinging to his fur, his nervous retinue trailing discreetly, waiting on his call. He is among the most powerful of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>: he snapped his own master's neck, gobbled down the corpse, freed hundreds of Fae from servitude, then leveraged the debts they owed him to become a feudal lord. His domain is a great cave of hoarded riches, with many entrances — each leading to a different cave mouth in the world, but only when that mouth is ringed with snow. He is one of the Four Chieftains.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.srMcRkCKBwitdv9Z"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

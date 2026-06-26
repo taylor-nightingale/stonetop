@@ -1,0 +1,61 @@
+{
+  "_id": "h8QoSAJnc3Z80m8F",
+  "_key": "!journal!h8QoSAJnc3Z80m8F",
+  "name": "Base Archon",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A First Creators' construct-spirit — guardian and enforcer of the cosmic order."
+    }
+  },
+  "folder": "g8uH2zs3IfEgegBs",
+  "sort": 120000,
+  "pages": [
+    {
+      "_id": "D2AIC6RFAqvLp5Ei",
+      "_key": "!journal.pages!h8QoSAJnc3Z80m8F.D2AIC6RFAqvLp5Ei",
+      "name": "Base Archon",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A First Creators' construct-spirit — guardian and enforcer of the cosmic order.",
+        "description": "<p>Archons are constructed spirits, made by the First Creators or one of the great spirits as guardians and enforcers of the cosmic order. Each is built around this base stat block, then given a purpose (to destroy, to judge, to retrieve, to correct, or to stand watch), a manifestation (light, an animate statue, a mass of vapor, a ripple in reality, a figure plucked from your mind, or something impossible), and up to three powers. For a named example, see <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.muAijyov4VTFfqBL]{Tcaventes, Shackle and Key}</strong>.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.kjKV3SgkKh8gC8Y1"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Iron Hound",
+  "type": "monster",
+  "img": "systems/stonetop/assets/icons/bestiary/construct.svg",
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "armor": {
+        "value": 4,
+        "source": "metal, lacks organs"
+      },
+      "damage": {
+        "value": "bite d6+2 (hand, grabby)",
+        "rollFormula": "d6+2"
+      },
+      "instinct": {
+        "value": "to punish and torment"
+      }
+    },
+    "concept": "Effigy-hounds with dead dogs' spirits for eyes, hunting all who touch stolen goods.",
+    "organization": "horde",
+    "size": "",
+    "tags": "horde, construct, undead, corrupted, tireless, terrifying",
+    "qualities": "<p>Fireproof; heat-sensing.</p>",
+    "count": 6,
+    "entry": "Compendium.stonetop.stonetop-journal.JournalEntry.QuvCnDgNGwtul1Cl",
+    "notes": "",
+    "creatureType": "construct"
+  },
+  "prototypeToken": {
+    "name": "Iron Hound",
+    "actorLink": false,
+    "disposition": -1,
+    "texture": {
+      "src": "systems/stonetop/assets/icons/bestiary/construct.svg"
+    }
+  },
+  "items": [
+    {
+      "_id": "HWZx0uTqDciWbOes",
+      "name": "Follow the trail of its master's property",
+      "type": "monsterMove",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BgPtjVOTWvJBYE7z.HWZx0uTqDciWbOes"
+    },
+    {
+      "_id": "IqmpiKBEVTV4viaJ",
+      "name": "Fix its prey with a soul-chilling stare",
+      "type": "monsterMove",
+      "img": "icons/magic/water/snowflake-ice-blue.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BgPtjVOTWvJBYE7z.IqmpiKBEVTV4viaJ"
+    },
+    {
+      "_id": "A1syzX4Pdp8mQpcG",
+      "name": "Bite down and crush bone, shred muscle, tear apart (+messy, 3 piercing)",
+      "type": "monsterMove",
+      "img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+      "system": {
+        "description": "",
+        "rollFormula": ""
+      },
+      "_key": "!actors.items!BgPtjVOTWvJBYE7z.A1syzX4Pdp8mQpcG"
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "folder": "FVxXTCE8hSDuYOmL",
+  "_id": "BgPtjVOTWvJBYE7z",
+  "_key": "!actors!BgPtjVOTWvJBYE7z"
+}

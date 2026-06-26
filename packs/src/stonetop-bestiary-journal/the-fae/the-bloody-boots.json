@@ -1,0 +1,61 @@
+{
+  "_id": "qWNA7gHJH7z3K0bg",
+  "_key": "!journal!qWNA7gHJH7z3K0bg",
+  "name": "The Bloody Boots",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "A gang of craggy fae brawlers in iron boots, sworn never to start a fight."
+    }
+  },
+  "folder": "YTPbEDKmWSzaFbdi",
+  "sort": 64000,
+  "pages": [
+    {
+      "_id": "3ZFzM3Z0zjyvC550",
+      "_key": "!journal.pages!qWNA7gHJH7z3K0bg.3ZFzM3Z0zjyvC550",
+      "name": "The Bloody Boots",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "A gang of craggy fae brawlers in iron boots, sworn never to start a fight.",
+        "description": "<p>A gang of hoodlums, with names like Hobnail, Spitkicker, Big Thunk, Tusk, and Grub: short, squat brutes with lopsided limbs, mismatched parts, and craggy skin, stomping about in oversized iron-shod boots and delighting in the disgust of other <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.Ej5WiMs30baKNXW3]{Fae}</strong>. Back in the day they quarried stone; given the chance to fight and spill blood, they became among the most feared shock-troops of the war, first into the fray and dyeing their Red Pennant in trodden foes. After the war, some schemer bought every debt they owed and extracted a promise: no starting fights. They can finish one someone else starts, though — and oh, will they enjoy it.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.J0rZfQ09hcXkA9mr"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}

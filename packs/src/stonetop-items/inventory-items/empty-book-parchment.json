@@ -1,0 +1,21 @@
+{
+  "_id": "JkqH3MB9n7IWUSmT",
+  "_key": "!items!JkqH3MB9n7IWUSmT",
+  "name": "Empty book, parchment pages",
+  "type": "move",
+  "system": {
+    "moveType": "inventory"
+  },
+  "flags": {
+    "stonetop": {
+      "slug": "empty-book-parchment",
+      "inventoryColumn": "regular",
+      "sortOrder": 45,
+      "note": "<em>fragile</em>",
+      "weight": 1,
+      "special": true,
+      "specialCategory": "Writing Implements"
+    }
+  },
+  "folder": "OL1lTSyCryWm3Xez"
+}

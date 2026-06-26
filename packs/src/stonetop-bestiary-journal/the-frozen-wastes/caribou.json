@@ -1,0 +1,61 @@
+{
+  "_id": "CutEOTuoS3mAcu8n",
+  "_key": "!journal!CutEOTuoS3mAcu8n",
+  "name": "Caribou",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "summary": "Hardy tundra deer that move and panic as one great herd."
+    }
+  },
+  "folder": "lrUDB0CFpzAWfL6U",
+  "sort": 33000,
+  "pages": [
+    {
+      "_id": "YzZGZ6nnLbCVVlVx",
+      "_key": "!journal.pages!CutEOTuoS3mAcu8n.YzZGZ6nnLbCVVlVx",
+      "name": "Caribou",
+      "type": "bestiary",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {
+        "caption": ""
+      },
+      "text": {
+        "format": 1,
+        "content": ""
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "system": {
+        "concept": "Hardy tundra deer that move and panic as one great herd.",
+        "description": "<p>Caribou graze the windswept plateau of the <strong>@UUID[Compendium.stonetop.stonetop-journal.JournalEntry.xg8MEuSbbEt1wqg8]{Frozen Wastes}</strong> in great herds, preyed on by wolves, saber-toothed cats, and worse things that crawl from the lakes in summer.</p>",
+        "questions": [],
+        "lore": [],
+        "hooks": "",
+        "hooksIntro": "",
+        "origins": "",
+        "originsIntro": "",
+        "discoveries": [],
+        "nests": "",
+        "dangers": [],
+        "notes": "",
+        "statBlocks": [
+          "Compendium.stonetop.stonetop-bestiary.Actor.MFsosEI9EtAc7cbE"
+        ]
+      },
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {}
+    }
+  ]
+}
