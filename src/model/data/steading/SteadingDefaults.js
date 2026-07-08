@@ -15,6 +15,9 @@ export const SteadingDefaults = {
 		size: {
 			title:   "Size",
 			note:    "Starts at <em>village</em>",
+			// Size is a named tier, not a ±N rating: `values` are the stored tier strings, parallel to
+			// `options` (their display labels). A steading stores one of `values` in system.attributes.size.
+			values:  ["hamlet", "village", "town", "city"],
 			options: [
 				"<em>hamlet</em> (&lt;50 people)",
 				"<em>village</em> (150–350 people)",

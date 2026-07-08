@@ -47,16 +47,16 @@ describe("Steading roll — attribute bonus (integration)", () => {
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
 	});
 
-	it("reflects a raised prosperity index in the formula (index 4 → +3)", async () => {
+	it("reflects a raised prosperity value in the formula (+3)", async () => {
 		const rolling = makeRolling();
-		await rolling._actor.typedActor.attributes.setCurrent("prosperity", 4);
+		await rolling._actor.typedActor.attributes.setValue("prosperity", 3);
 		await rolling.execute(RollRequest.fromStat("prosperity", "normal"));
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 3");
 	});
 
-	it("reflects the lowest defenses index in the formula (index 0 → -1)", async () => {
+	it("reflects a lowered defenses value in the formula (-1)", async () => {
 		const rolling = makeRolling();
-		await rolling._actor.typedActor.attributes.setCurrent("defenses", 0);
+		await rolling._actor.typedActor.attributes.setValue("defenses", -1);
 		await rolling.execute(RollRequest.fromStat("defenses", "normal"));
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + -1");
 	});

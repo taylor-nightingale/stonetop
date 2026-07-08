@@ -11,11 +11,13 @@ import { createStonetopArcanumSheetClass } from "./src/item/StonetopArcanumSheet
 import { createStonetopPossessionSheetClass } from "./src/item/StonetopPossessionSheet.js";
 import { createStonetopFollowerSheetClass } from "./src/item/StonetopFollowerSheet.js";
 import { createStonetopImprovementSheetClass } from "./src/item/StonetopImprovementSheet.js";
+import { createStonetopSteadfastSheetClass } from "./src/item/StonetopSteadfastSheet.js";
 import { withSheetSizeMemory } from "./src/utils/withSheetSizeMemory.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
+import { onCreateActor } from "./src/hooks/CreateActor.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { info } from "./src/utils/logger.js";
 import { rich, hasText } from "./src/model/snapshot/RichText.js";
@@ -26,6 +28,7 @@ import { SteadingData } from "./src/data/SteadingData.js";
 import { MoveData }        from "./src/data/MoveData.js";
 import { ArcanumData }     from "./src/data/ArcanumData.js";
 import { PlaybookData }    from "./src/data/PlaybookData.js";
+import { SteadfastData }   from "./src/data/SteadfastData.js";
 import { InsertData }      from "./src/data/InsertData.js";
 import { ImprovementData } from "./src/data/ImprovementData.js";
 import { FollowerData }    from "./src/data/FollowerData.js";
@@ -48,6 +51,7 @@ Hooks.once("init", () => {
 		playbook:    PlaybookData,
 		insert:      InsertData,
 		improvement: ImprovementData,
+		steadfast:   SteadfastData,
 		follower:    FollowerData,
 		npc:         FollowerData, // legacy alias: pre-rename follower items still load, then migrate to `follower`
 		outfitItem:  OutfitItemData,
@@ -178,6 +182,13 @@ Hooks.once("init", () => {
 		label: "Stonetop Steading Improvement Sheet",
 	});
 
+	const StonetopSteadfastSheet = createStonetopSteadfastSheetClass(ItemSheetBase);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopSteadfastSheet, {
+		types: ["steadfast"],
+		makeDefault: true,
+		label: "Stonetop Steadfast Sheet",
+	});
+
 	foundry.applications.handlebars.loadTemplates({
 		"stonetop.chat-move-roll":   "systems/stonetop/templates/chat/move-roll.hbs",
 		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
@@ -240,3 +251,4 @@ Hooks.on("renderActorSheet", onRenderActorSheet);
 // -- PRE-CREATE ACTOR ------------------------------------------
 // Give new NPCs our house default icon instead of Foundry's mystery-man.
 Hooks.on("preCreateActor", onPreCreateActor);
+Hooks.on("createActor", onCreateActor);

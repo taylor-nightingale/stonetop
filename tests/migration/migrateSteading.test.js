@@ -2,68 +2,100 @@ import { describe, expect, it } from "vitest";
 import { migrateSteading } from "../../src/migration/migrateSteading.js";
 import { FakeActorBuilder } from "../fakes/FakeActorBuilder.js";
 
-function makeActor(flags = {}) {
-	const builder = new FakeActorBuilder();
-	builder.withFlags(flags);
-	return builder.build();
+const CORE = ["market", "mill"];
+
+// A legacy (pre-Stage-C) steading: ratings stored as INDICES into [-1,0,1,2,3], size as an index,
+// resources/fortifications inside attributes.*.items, places as bare strings, resident pool in
+// residentNames/residentTraits, people in `residents`, pick state in improvements.pickValues.
+function legacySteading() {
+	return new FakeActorBuilder().withType("steading").withSystem({
+		fortunes: 2,   // index → +1
+		surplus:  1,
+		attributes: {
+			size:       { current: 1, items: [] },                        // → "village"
+			population: { current: 1, items: [] },                        // → +0
+			prosperity: { current: 3, items: ["Farming", "Distilling"] }, // → +2, resources
+			defenses:   { current: 0, items: ["Village militia"] },       // → -1, fortifications
+		},
+		assets: { items: ["A wagon"], coinage: [{ title: "silver", purses: 0, handfuls: 0, coins: 0 }] },
+		placesOfInterest: ["The Stone", "The Granary"],
+		neighborPlaces: [{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "Abben" }],
+		residentNames: "Aderyn, Bryn",
+		residentTraits: ["curious", "stoic"],
+		residents: [{ id: "1", name: "Afon" }],
+		improvements: { pickValues: { market: { offer: 1 } } },
+		debilities: { diminished: true, lacking: false, malcontent: false },
+	}).build();
 }
 
-describe("migrateSteading — improvements.pickValues", () => {
-	it("migrates pickValues from flag to system", async () => {
-		const actor = makeActor({ "improvements.pickValues": { "imp-1": 1 } });
-		await migrateSteading(actor);
-		expect(actor.system.improvements.pickValues).toEqual({ "imp-1": 1 });
-	});
-
-	it("is a no-op when pickValues flag is absent", async () => {
-		const actor = makeActor({});
-		await migrateSteading(actor);
-		expect(actor.system.improvements?.pickValues).toBeUndefined();
-	});
-});
-
-describe("migrateSteading — residents", () => {
-	it("migrates residents from flag to system", async () => {
-		const residents = [{ name: "Aldric", home: "east" }];
-		const actor = makeActor({ "steading.residents": residents });
-		await migrateSteading(actor);
-		expect(actor.system.residents).toEqual(residents);
-	});
-
-	it("is a no-op when residents flag is absent", async () => {
-		const actor = makeActor({});
-		await migrateSteading(actor);
-		expect(actor.system.residents).toBeUndefined();
-	});
-});
-
-describe("migrateSteading — neighborPeople", () => {
-	it("migrates neighborPeople from flag to system", async () => {
-		const neighbors = [{ name: "Mira", home: "west" }];
-		const actor = makeActor({ "steading.neighborPeople": neighbors });
-		await migrateSteading(actor);
-		expect(actor.system.neighborPeople).toEqual(neighbors);
-	});
-
-	it("is a no-op when neighborPeople flag is absent", async () => {
-		const actor = makeActor({});
-		await migrateSteading(actor);
-		expect(actor.system.neighborPeople).toBeUndefined();
-	});
-});
-
-describe("migrateSteading — all three fields together", () => {
-	it("migrates all three fields in a single update", async () => {
-		const residents = [{ name: "Aldric", home: "east" }];
-		const neighbors = [{ name: "Mira", home: "west" }];
-		const actor = makeActor({
-			"improvements.pickValues": { "imp-1": 1 },
-			"steading.residents": residents,
-			"steading.neighborPeople": neighbors,
+describe("migrateSteading (legacy index shape → actual-value shape)", () => {
+	it("converts ratings from indices to actual values and size to its tier", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.attributes).toEqual({
+			fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1,
 		});
-		await migrateSteading(actor);
-		expect(actor.system.improvements.pickValues).toEqual({ "imp-1": 1 });
-		expect(actor.system.residents).toEqual(residents);
-		expect(actor.system.neighborPeople).toEqual(neighbors);
+	});
+
+	it("moves the resource/fortification lists into assets", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.assets.items).toEqual(["A wagon"]);
+		expect(actor.system.assets.resources).toEqual(["Farming", "Distilling"]);
+		expect(actor.system.assets.fortifications).toEqual(["Village militia"]);
+		expect(actor.system.assets.coinage[0].title).toBe("silver");
+	});
+
+	it("reshapes places to objects and folds the resident pool + people", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.placesOfInterest).toEqual([
+			{ name: "The Stone", journalReference: "" },
+			{ name: "The Granary", journalReference: "" },
+		]);
+		expect(actor.system.residents).toEqual({ names: "Aderyn, Bryn", traits: ["curious", "stoic"] });
+		expect(actor.system.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
+	});
+
+	it("sets the steadfast, seeds owned improvements, and keeps pick state", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.steadfast).toBe("stonetop");
+		expect(actor.system.improvements).toEqual(["market", "mill"]);
+		expect(actor.system.improvementValues).toEqual({ market: { offer: 1 } });
+	});
+
+	it("preserves untouched runtime state (debilities)", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.debilities.diminished).toBe(true);
+	});
+
+	it("is idempotent — an already-migrated steading (steadfast set) is left alone", async () => {
+		const actor = new FakeActorBuilder().withType("steading").withSystem({
+			steadfast: "stonetop",
+			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
+		}).build();
+		await migrateSteading(actor, CORE);
+		expect(actor.system.attributes.prosperity).toBe(0);
+	});
+});
+
+// Very old steadings kept people / pick state in FLAGS. Those sources still land in the new fields.
+describe("migrateSteading — flag-legacy sources", () => {
+	function withFlags(flags) {
+		return new FakeActorBuilder().withType("steading").withFlags(flags).withSystem({}).build();
+	}
+
+	it("routes flag people/neighbors/pick state into the new fields", async () => {
+		const actor = withFlags({
+			"improvements.pickValues": { "imp-1": 1 },
+			"steading.residents": [{ name: "Aldric" }],
+			"steading.neighborPeople": [{ name: "Mira" }],
+		});
+		await migrateSteading(actor, CORE);
+		expect(actor.system.improvementValues).toEqual({ "imp-1": 1 });
+		expect(actor.system.residentPeople).toEqual([{ name: "Aldric" }]);
+		expect(actor.system.neighborPeople).toEqual([{ name: "Mira" }]);
 	});
 });

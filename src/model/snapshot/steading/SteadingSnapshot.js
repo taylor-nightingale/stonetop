@@ -1,19 +1,23 @@
 import { rich } from "../RichText.js";
 
 export class SelectOptionSnapshot {
-	constructor(label, index, selected) {
+	// `value` is what the option stores when picked — a rating bonus (−1…+3) or a size tier string.
+	// `index` is kept only for stable DOM keys/ordering; selection is by value, not position.
+	constructor(label, index, value, selected) {
 		this.label    = rich(label);
 		this.index    = index;
+		this.value    = value;
 		this.selected = selected;
 	}
 }
 
 export class FortunesSnapshot {
-	constructor(title, note, current, options) {
+	// `current` is the stored actual value (e.g. +1); options are selected by matching that value.
+	constructor(title, note, current, options, values) {
 		this.title = title;
 		this.note = rich(note);
 		this.current = current;
-		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, i === current));
+		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, values[i], values[i] === current));
 	}
 }
 
@@ -26,16 +30,19 @@ export class SurplusSnapshot {
 }
 
 export class AttributeSnapshot {
-	constructor(slug, title, note, current, options, items = []) {
+	// `current` is the stored actual value: a rating bonus (−1…+3) or a size tier string ("village").
+	// `values` are each option's stored value, parallel to `options` (their labels); an option is
+	// selected when its value equals `current`.
+	constructor(slug, title, note, current, options, values, items = []) {
 		this.slug = slug;
 		this.title = title;
 		this.note = rich(note);
 
-		// Current selection
+		// Current selection (the actual value, not an index)
 		this.current = current;
-		// Selectable options, ex. -1, 0, +1
-		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, i === current));
-		// List of strings for things like "resources" or "fortifications"
+		// Selectable options, ex. -1, 0, +1 (or the size tiers)
+		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, values[i], values[i] === current));
+		// List of strings backing the rating — resources (Prosperity) or fortifications (Defenses)
 		this.items = items;
 	}
 }

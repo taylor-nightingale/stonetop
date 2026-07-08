@@ -62,10 +62,12 @@ export function createStonetopSteadingSheetClass(Base) {
 				await this._stonetopSteading.setSurplus(parseInt(ev.currentTarget.value) || 0);
 			});
 
-			// Attributes (size, population, prosperity, defenses)
+			// Attributes (size, population, prosperity, defenses). Ratings store an actual number; size
+			// stores its tier string.
 			html.find(".steading-box-input[data-attr]").on("change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
-				await this._stonetopSteading.attributes.setCurrent(attr, parseInt(ev.currentTarget.value));
+				const raw = ev.currentTarget.value;
+				await this._stonetopSteading.attributes.setValue(attr, attr === "size" ? raw : parseInt(raw));
 			});
 			html.find(".stonetop-attr-extra-add").on("click", async ev => {
 				await this._stonetopSteading.attributes.addNewItemToAttribute(ev.currentTarget.dataset.attr);
@@ -133,7 +135,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			// NPC traits source textarea
 			html.find(".steading-npc-traits-source").on("change", async ev => {
 				const traits = ev.currentTarget.value.split("\n").map(t => t.trim()).filter(Boolean);
-				await this._actor.update({"system.residentTraits": traits});
+				await this._actor.update({"system.residents.traits": traits});
 			});
 
 			// Neighbors — people

@@ -8,7 +8,7 @@ import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 // note both come out enriched. Only the Foundry enrichHTML boundary is mocked.
 function makeSheet(movesRepo) {
 	const actor = new FakeSteadingBuilder().build();
-	actor.typedActor = new StonetopSteading(actor, { getAll: async () => [] }, movesRepo);
+	actor.typedActor = new StonetopSteading(actor, { getBySlug: async () => null }, movesRepo);
 
 	const Base = class {
 		get actor() { return actor; }

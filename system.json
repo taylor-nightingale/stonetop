@@ -59,6 +59,7 @@
 			"playbook":    {},
 			"insert":      {},
 			"improvement": {},
+			"steadfast":   {},
 			"follower":    {},
 			"npc":         {},
 			"outfitItem":  {},
@@ -126,6 +127,13 @@
 			"name": "wonder-improvements",
 			"label": "Wonder Improvements",
 			"path": "packs/wonder-improvements",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
+			"name": "steadfasts",
+			"label": "Steadfasts",
+			"path": "packs/steadfasts",
 			"type": "Item",
 			"system": "stonetop"
 		},

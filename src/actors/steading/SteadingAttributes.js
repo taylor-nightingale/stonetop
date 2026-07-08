@@ -1,40 +1,51 @@
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
 import {AttributeSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
 
+// Which asset list backs each rating. Prosperity's sources are `resources`; Defenses' are
+// `fortifications`. Size and Population have no backing list.
+const BACKING_LIST = { prosperity: "resources", defenses: "fortifications" };
+
 export class SteadingAttributes {
 	constructor(actor) {
 		this._actor = actor;
 	}
 
-	_attr(slug) {
-		return this._actor.system.attributes[slug] ?? {current: 0, items: []};
+	// The stored rating — an actual value (number, or the size tier string), not an index.
+	_value(slug) {
+		return this._actor.system.attributes?.[slug];
 	}
 
-	async _save(slug, attr) {
-		await this._actor.update({[`system.attributes.${slug}`]: attr});
+	// The list backing a rating lives under assets (resources/fortifications), so it can share the
+	// steadfast's shape; size/population have none.
+	_items(slug) {
+		const list = BACKING_LIST[slug];
+		return list ? (this._actor.system.assets?.[list] ?? []) : [];
 	}
 
-	async setCurrent(slug, current) {
-		await this._save(slug, {...this._attr(slug), current});
+	async setValue(slug, value) {
+		await this._actor.update({[`system.attributes.${slug}`]: value});
+	}
+
+	async _saveItems(slug, items) {
+		const list = BACKING_LIST[slug];
+		if (!list) return;
+		await this._actor.update({[`system.assets.${list}`]: items});
 	}
 
 	async addNewItemToAttribute(slug) {
-		const attr = this._attr(slug);
-		await this._save(slug, {...attr, items: [...attr.items, ""]});
+		await this._saveItems(slug, [...this._items(slug), ""]);
 	}
 
 	async updateItemOnAttribute(slug, index, value) {
-		const attr  = this._attr(slug);
-		const items = [...attr.items];
+		const items = [...this._items(slug)];
 		items[index] = value;
-		await this._save(slug, {...attr, items});
+		await this._saveItems(slug, items);
 	}
 
 	async removeItemFromAttribute(slug, index) {
-		const attr  = this._attr(slug);
-		const items = [...attr.items];
+		const items = [...this._items(slug)];
 		items.splice(index, 1);
-		await this._save(slug, {...attr, items});
+		await this._saveItems(slug, items);
 	}
 
 	buildSnapshot() {
@@ -47,8 +58,9 @@ export class SteadingAttributes {
 	}
 
 	_attrSnapshot(slug) {
-		const def  = SteadingDefaults.attributes[slug];
-		const attr = this._attr(slug);
-		return new AttributeSnapshot(slug, def.title, def.note, attr.current, def.options, attr.items);
+		const def = SteadingDefaults.attributes[slug];
+		// Ratings select by their `bonuses`; size selects by its tier `values`.
+		const values = def.values ?? def.bonuses;
+		return new AttributeSnapshot(slug, def.title, def.note, this._value(slug), def.options, values, this._items(slug));
 	}
 }

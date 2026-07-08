@@ -4,7 +4,7 @@ import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingS
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeSteadingMovesRepository } from "../../fakes/FakeSteadingMovesRepository.js";
 
-const fakeImprovementsRepo = {getAll: async () => []};
+const fakeImprovementsRepo = {getBySlug: async () => null};
 const fakeMoves = new FakeSteadingMovesRepository();
 
 function make() {
@@ -16,9 +16,9 @@ describe("StonetopSteading.buildSnapshot", () => {
 		expect(await make().buildSnapshot()).toBeInstanceOf(SteadingSnapshot);
 	});
 
-	it("uses default fortunes when no value set", async () => {
+	it("reflects the stored fortunes value (+1 for Stonetop)", async () => {
 		const snap = await make().buildSnapshot();
-		expect(snap.fortunes.current).toBe(2);
+		expect(snap.fortunes.current).toBe(1);
 	});
 
 	it("uses default surplus when no value set", async () => {
@@ -56,12 +56,12 @@ describe("StonetopSteading — fortunes", () => {
 		expect((await s.buildSnapshot()).fortunes.current).toBe(4);
 	});
 
-	it("marks correct option as selected after setFortunes", async () => {
+	it("marks the option whose value matches after setFortunes", async () => {
 		const s = make();
-		await s.setFortunes(3);
+		await s.setFortunes(3); // +3
 		const options = (await s.buildSnapshot()).fortunes.options;
-		expect(options[3].selected).toBe(true);
-		expect(options[0].selected).toBe(false);
+		expect(options.find(o => o.value === 3).selected).toBe(true);
+		expect(options.find(o => o.value === -1).selected).toBe(false);
 	});
 });
 
@@ -120,40 +120,40 @@ describe("StonetopSteading.getRollableStats", () => {
 		expect(stat.value).toBe(1);
 	});
 
-	it("maps a raised attribute index to its bonus", async () => {
+	it("reflects a raised attribute value directly", async () => {
 		const s = make();
-		await s.attributes.setCurrent("population", 4); // index 4 → +3
+		await s.attributes.setValue("population", 3); // +3
 		expect(s.getRollableStats().find(x => x.key === "population").value).toBe(3);
 	});
 });
 
 describe("StonetopSteading.resolveBonus", () => {
-	// current is an index into [-1, 0, 1, 2, 3]; resolveBonus returns the bonus it points at.
-	it("maps population index 1 to +0", () => {
+	// Ratings are stored as their actual value now; resolveBonus just returns it.
+	it("returns population's stored value (+0)", () => {
 		expect(make().resolveBonus("population")).toBe(0);
 	});
 
-	it("maps prosperity index 1 to +0", () => {
+	it("returns prosperity's stored value (+0)", () => {
 		expect(make().resolveBonus("prosperity")).toBe(0);
 	});
 
-	it("maps defenses index 1 to +0", () => {
+	it("returns defenses' stored value (+0)", () => {
 		expect(make().resolveBonus("defenses")).toBe(0);
 	});
 
-	it("maps fortunes index 2 to +1", () => {
+	it("returns fortunes' stored value (+1)", () => {
 		expect(make().resolveBonus("fortunes")).toBe(1);
 	});
 
-	it("maps the lowest attribute index (0) to -1", async () => {
+	it("returns a lowered attribute value (-1)", async () => {
 		const s = make();
-		await s.attributes.setCurrent("defenses", 0);
+		await s.attributes.setValue("defenses", -1);
 		expect(s.resolveBonus("defenses")).toBe(-1);
 	});
 
-	it("maps the highest attribute index (4) to +3", async () => {
+	it("returns a raised attribute value (+3)", async () => {
 		const s = make();
-		await s.attributes.setCurrent("prosperity", 4);
+		await s.attributes.setValue("prosperity", 3);
 		expect(s.resolveBonus("prosperity")).toBe(3);
 	});
 

@@ -14,8 +14,9 @@ function makePack(entries = []) {
 	return { getIndex: vi.fn(async () => {}), index: entries, folders: [] };
 }
 
+// Only the steading-improvements pack holds these entries; the wonder-improvements pack is empty here.
 function stubGame(pack) {
-	vi.stubGlobal("game", { packs: { get: () => pack } });
+	vi.stubGlobal("game", { packs: { get: (name) => name === "stonetop.steading-improvements" ? pack : makePack([]) } });
 }
 
 // A world item (game.items) exposes `type` and toObject(); WorldItemStore reads game.items.contents.
@@ -25,7 +26,10 @@ function worldItem(slug, sortOrder = 1, choices = null) {
 }
 
 function stubGameWithWorld(pack, worldItems = []) {
-	vi.stubGlobal("game", { packs: { get: () => pack }, items: { contents: worldItems } });
+	vi.stubGlobal("game", {
+		packs: { get: (name) => name === "stonetop.steading-improvements" ? pack : makePack([]) },
+		items: { contents: worldItems },
+	});
 }
 
 describe("FoundrySteadingImprovementRepository", () => {

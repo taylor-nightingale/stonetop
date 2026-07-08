@@ -2,6 +2,9 @@
 	"TYPES": {
 		"Actor": {
 			"steading": "Steading"
+		},
+		"Item": {
+			"steadfast": "Steadfast"
 		}
 	},
 	"stonetop": {
@@ -118,6 +121,22 @@
 			"choices": "Choices",
 			"edit": "Edit",
 			"done": "Done"
+		},
+		"steadfast": {
+			"namePlaceholder": "Steadfast name",
+			"description": "Description",
+			"descriptionPlaceholder": "What is this place?",
+			"startingValues": "Starting values",
+			"fortunes": "Fortunes",
+			"surplus": "Surplus",
+			"size": "Size",
+			"population": "Population",
+			"prosperity": "Prosperity",
+			"defenses": "Defenses",
+			"improvements": "Granted improvements",
+			"improvementsHint": "Drag improvement items here to grant them.",
+			"improvementsEmpty": "No improvements granted yet.",
+			"improvementRemove": "Remove"
 		},
 		"follower": {
 			"namePlaceholder": "Follower name",

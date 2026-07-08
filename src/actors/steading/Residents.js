@@ -3,7 +3,7 @@ import {Person} from "./Person.js";
 
 export class Residents {
 	constructor(actor) {
-		this._list = new PersonList(actor, "residents");
+		this._list = new PersonList(actor, "residentPeople");
 	}
 
 	async add() {

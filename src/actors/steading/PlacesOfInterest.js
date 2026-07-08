@@ -8,20 +8,21 @@ export class PlacesOfInterest {
 	}
 
 	async addBlankPlace() {
-		await this._actor.update({"system.placesOfInterest": [...this._places, ""]});
+		await this._actor.update({"system.placesOfInterest": [...this._places, {name: "", journalReference: ""}]});
 	}
 
 	async setPlaceValue(index, value) {
 		const places  = [...this._places];
-		places[index] = value;
+		places[index] = {...places[index], name: value};
 		await this._actor.update({"system.placesOfInterest": places});
 	}
 
 	buildSnapshot() {
-		return this._places.map((value, i) => ({
-			key:   String.fromCharCode(65 + i),
-			value,
-			index: i,
+		return this._places.map((place, i) => ({
+			key:              String.fromCharCode(65 + i),
+			value:            place.name,
+			journalReference: place.journalReference ?? "",
+			index:            i,
 		}));
 	}
 }

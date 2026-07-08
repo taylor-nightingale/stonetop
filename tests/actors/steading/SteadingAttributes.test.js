@@ -8,7 +8,7 @@ describe("SteadingAttributes.buildSnapshot", () => {
 		const snapshot = attributes.buildSnapshot();
 		expect(snapshot.size.title).toBe("Size");
 		expect(snapshot.size.note.raw).toBe("Starts at <em>village</em>");
-		expect(snapshot.size.current).toBe(1);
+		expect(snapshot.size.current).toBe("village");
 		expect(snapshot.size.items.length).toBe(0);
 		expect(snapshot.size.options.length).toBe(4);
 		expect(snapshot.size.options[0].index).toBe(0);
@@ -22,7 +22,7 @@ describe("SteadingAttributes.buildSnapshot", () => {
 		const snapshot = attributes.buildSnapshot();
 		expect(snapshot.population.title).toBe("Population");
 		expect(snapshot.population.note.raw).toBe("Starts at +0");
-		expect(snapshot.population.current).toBe(1);
+		expect(snapshot.population.current).toBe(0);
 		expect(snapshot.population.items.length).toBe(0);
 		expect(snapshot.population.options.length).toBe(5);
 		expect(snapshot.population.options[0].index).toBe(0);
@@ -36,7 +36,7 @@ describe("SteadingAttributes.buildSnapshot", () => {
 		const snapshot = attributes.buildSnapshot();
 		expect(snapshot.prosperity.title).toBe("Prosperity");
 		expect(snapshot.prosperity.note.raw).toBe("Starts at +0");
-		expect(snapshot.prosperity.current).toBe(1);
+		expect(snapshot.prosperity.current).toBe(0);
 		expect(snapshot.prosperity.items.length).toBe(8);
 		expect(snapshot.prosperity.options.length).toBe(5);
 		expect(snapshot.prosperity.options[0].index).toBe(0);
@@ -50,7 +50,7 @@ describe("SteadingAttributes.buildSnapshot", () => {
 		const snapshot = attributes.buildSnapshot();
 		expect(snapshot.defenses.title).toBe("Defenses");
 		expect(snapshot.defenses.note.raw).toBe("Starts at +0");
-		expect(snapshot.defenses.current).toBe(1);
+		expect(snapshot.defenses.current).toBe(0);
 		expect(snapshot.defenses.items.length).toBe(4);
 		expect(snapshot.defenses.options.length).toBe(5);
 		expect(snapshot.defenses.options[0].index).toBe(0);

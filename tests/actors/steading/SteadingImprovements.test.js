@@ -3,8 +3,16 @@ import { SteadingImprovements } from "../../../src/actors/steading/SteadingImpro
 import { SteadingImprovement } from "../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
+// The repo now resolves a single slug → its content; the steading renders only the improvements it
+// OWNS (system.improvements), with pick state in system.improvementValues.
 function makeRepo(improvements = []) {
-	return {getAll: async () => improvements};
+	return {
+		getBySlug: async (slug) => improvements.find(i => i.slug === slug) ?? null,
+	};
+}
+
+function makeActor(improvements = []) {
+	return new FakeActorBuilder().withSystem({ improvements, improvementValues: {} }).build();
 }
 
 const PALISADE_CHOICES = {
@@ -12,35 +20,33 @@ const PALISADE_CHOICES = {
 	list: [{ type: "heading", slug: "done", description: "Completed", track: { max: 1 } }],
 };
 
-function makePalisadeRepo() {
-	return makeRepo([new SteadingImprovement("palisade", PALISADE_CHOICES)]);
-}
+const palisadeRepo = () => makeRepo([new SteadingImprovement("palisade", PALISADE_CHOICES)]);
 
 describe("SteadingImprovements.buildSnapshot", () => {
-	it("returns empty array when repo is empty", async () => {
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makeRepo());
+	it("returns empty when the steading owns no improvements", async () => {
+		const imp = new SteadingImprovements(makeActor([]), palisadeRepo());
 		expect(await imp.buildSnapshot()).toEqual([]);
 	});
 
-	it("filters out improvements with null choices", async () => {
+	it("renders only the improvements the steading owns, resolved by slug", async () => {
 		const repo = makeRepo([
-			new SteadingImprovement("inn", {slug: "inn", list: []}),
-			new SteadingImprovement("mill", null),
+			new SteadingImprovement("inn", { slug: "inn", list: [] }),
+			new SteadingImprovement("palisade", PALISADE_CHOICES),
 		]);
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), repo);
+		const imp = new SteadingImprovements(makeActor(["palisade"]), repo);
 		const snap = await imp.buildSnapshot();
 		expect(snap).toHaveLength(1);
-		expect(snap[0].slug).toBe("inn");
-	});
-
-	it("builds ChoiceGroup from improvement choices", async () => {
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
-		const snap = await imp.buildSnapshot();
 		expect(snap[0].slug).toBe("palisade");
 	});
 
+	it("skips an owned slug the repo can't resolve or whose choices are null", async () => {
+		const repo = makeRepo([new SteadingImprovement("mill", null)]);
+		const imp = new SteadingImprovements(makeActor(["mill", "ghost"]), repo);
+		expect(await imp.buildSnapshot()).toEqual([]);
+	});
+
 	it("track is unchecked by default", async () => {
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
+		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
 		const snap = await imp.buildSnapshot();
 		expect(snap[0].list[0].track.checks[0]).toBe(false);
 	});
@@ -48,14 +54,14 @@ describe("SteadingImprovements.buildSnapshot", () => {
 
 describe("SteadingImprovements.setTrack", () => {
 	it("checking a track is reflected in the snapshot", async () => {
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
+		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
 		await imp.setTrack("palisade", "done", 1);
 		const snap = await imp.buildSnapshot();
 		expect(snap[0].list[0].track.checks[0]).toBe(true);
 	});
 
 	it("clearing a track sets it back to unchecked", async () => {
-		const imp = new SteadingImprovements(new FakeActorBuilder().build(), makePalisadeRepo());
+		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
 		await imp.setTrack("palisade", "done", 1);
 		await imp.setTrack("palisade", "done", 0);
 		const snap = await imp.buildSnapshot();

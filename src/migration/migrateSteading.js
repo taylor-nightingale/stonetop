@@ -1,16 +1,54 @@
+import { SteadingDefaults } from "../model/data/steading/SteadingDefaults.js";
+
 const SCOPE = "stonetop";
 
-export async function migrateSteading(actor) {
-	const update = {};
+// Convert a legacy steading to the Stage-C shape: ratings become their actual values (were indices),
+// size becomes its tier string, the resource/fortification lists move under assets, places become
+// objects, the resident pool folds into `residents:{names,traits}` while the people move to
+// `residentPeople`, and improvements become an owned slug list + `improvementValues` pick state.
+// `coreImprovements` is the Stonetop steadfast's granted list (what the old repo surfaced to every
+// steading), supplied by the MigrationRunner. Idempotent: a steading that already has a steadfast set
+// is left alone. Runs once from the MigrationRunner (full document), never from model.migrateData.
+export async function migrateSteading(actor, coreImprovements = []) {
+	if (actor.system?.steadfast) return;
 
-	const pickValues = actor.getFlag(SCOPE, "improvements.pickValues");
-	if (pickValues != null) update["system.improvements.pickValues"] = pickValues;
+	const sys  = actor.system ?? {};
+	const attr = sys.attributes ?? {};
 
-	const residents = actor.getFlag(SCOPE, "steading.residents");
-	if (residents != null) update["system.residents"] = residents;
+	const rating = (slug, current) => {
+		const bonuses = SteadingDefaults.attributes[slug]?.bonuses ?? [];
+		return bonuses[current ?? 1] ?? 0;
+	};
+	const sizeTier    = SteadingDefaults.attributes.size.values[attr.size?.current ?? 1] ?? "village";
+	const fortunesVal = SteadingDefaults.fortunes.bonuses[sys.fortunes ?? SteadingDefaults.fortunes.current] ?? 0;
 
-	const neighborPeople = actor.getFlag(SCOPE, "steading.neighborPeople");
-	if (neighborPeople != null) update["system.neighborPeople"] = neighborPeople;
+	// People / pick state may still live in flags on very old steadings; otherwise read the system copy.
+	const people   = actor.getFlag(SCOPE, "steading.residents")      ?? (Array.isArray(sys.residents) ? sys.residents : []);
+	const neighbors= actor.getFlag(SCOPE, "steading.neighborPeople") ?? sys.neighborPeople ?? [];
+	const picks    = actor.getFlag(SCOPE, "improvements.pickValues") ?? sys.improvements?.pickValues ?? {};
 
-	if (Object.keys(update).length) await actor.update(update);
+	await actor.update({
+		"system.steadfast": "stonetop",
+		"system.attributes": {
+			fortunes:   fortunesVal,
+			surplus:    sys.surplus ?? SteadingDefaults.surplus.current,
+			size:       sizeTier,
+			population: rating("population", attr.population?.current),
+			prosperity: rating("prosperity", attr.prosperity?.current),
+			defenses:   rating("defenses",   attr.defenses?.current),
+		},
+		"system.assets": {
+			items:          sys.assets?.items ?? [],
+			resources:      attr.prosperity?.items ?? [],
+			fortifications: attr.defenses?.items ?? [],
+			coinage:        sys.assets?.coinage ?? [],
+		},
+		"system.placesOfInterest": (sys.placesOfInterest ?? []).map(p =>
+			typeof p === "string" ? { name: p, journalReference: "" } : p),
+		"system.residents":     { names: sys.residentNames ?? "", traits: sys.residentTraits ?? [] },
+		"system.residentPeople": people,
+		"system.neighborPeople": neighbors,
+		"system.improvements":      [...coreImprovements],
+		"system.improvementValues": picks,
+	});
 }

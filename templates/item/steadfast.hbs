@@ -1,0 +1,56 @@
+<form class="stonetop sheet item steadfast" autocomplete="off">
+
+	<header class="stonetop-insert-sheet-header">
+		<img class="stonetop-insert-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
+		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{data.name}}"
+		       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}"
+		       {{#unless editable}}disabled{{/unless}}>
+	</header>
+
+	<div class="stonetop-insert-sheet-body">
+
+		<section class="stonetop-insert-sheet-section">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.description"}}</label>
+			<textarea name="system.description" rows="3"
+			          placeholder="{{localize 'stonetop.steadfast.descriptionPlaceholder'}}"
+			          {{#unless editable}}disabled{{/unless}}>{{system.description}}</textarea>
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.startingValues"}}</label>
+			<div class="stonetop-steadfast-attrs">
+				<label>{{localize "stonetop.steadfast.fortunes"}}
+					<input type="number" name="system.attributes.fortunes" value="{{system.attributes.fortunes}}" {{#unless editable}}disabled{{/unless}}></label>
+				<label>{{localize "stonetop.steadfast.surplus"}}
+					<input type="number" name="system.attributes.surplus" value="{{system.attributes.surplus}}" {{#unless editable}}disabled{{/unless}}></label>
+				<label>{{localize "stonetop.steadfast.size"}}
+					<input type="text" name="system.attributes.size" value="{{system.attributes.size}}" {{#unless editable}}disabled{{/unless}}></label>
+				<label>{{localize "stonetop.steadfast.population"}}
+					<input type="number" name="system.attributes.population" value="{{system.attributes.population}}" {{#unless editable}}disabled{{/unless}}></label>
+				<label>{{localize "stonetop.steadfast.prosperity"}}
+					<input type="number" name="system.attributes.prosperity" value="{{system.attributes.prosperity}}" {{#unless editable}}disabled{{/unless}}></label>
+				<label>{{localize "stonetop.steadfast.defenses"}}
+					<input type="number" name="system.attributes.defenses" value="{{system.attributes.defenses}}" {{#unless editable}}disabled{{/unless}}></label>
+			</div>
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.improvements"}}</label>
+			<p class="stonetop-insert-sheet-hint">{{localize "stonetop.steadfast.improvementsHint"}}</p>
+			<ul class="stonetop-steadfast-improvements">
+				{{#each grantedImprovements}}
+				<li>
+					<span class="steadfast-improvement-slug">{{this.slug}}</span>
+					{{#if @root.editable}}
+					<button type="button" class="steadfast-improvement-remove" data-slug="{{this.slug}}"
+					        title="{{localize 'stonetop.steadfast.improvementRemove'}}">&times;</button>
+					{{/if}}
+				</li>
+				{{else}}
+				<li class="stonetop-insert-sheet-empty">{{localize "stonetop.steadfast.improvementsEmpty"}}</li>
+				{{/each}}
+			</ul>
+		</section>
+
+	</div>
+</form>

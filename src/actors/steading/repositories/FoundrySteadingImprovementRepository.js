@@ -13,16 +13,23 @@ export class SteadingImprovement {
 
 export class FoundrySteadingImprovementRepository {
 	constructor() {
-		this._store      = new FoundryPackStore("stonetop.steading-improvements", FIELDS);
-		this._worldStore = new WorldItemStore("improvement");
-		this._cache      = null;
+		this._store       = new FoundryPackStore("stonetop.steading-improvements", FIELDS);
+		this._wonderStore = new FoundryPackStore("stonetop.wonder-improvements", FIELDS);
+		this._worldStore  = new WorldItemStore("improvement");
+		this._cache       = null;
 	}
 
-	// The improvement catalog every steading sees: built-ins from the compendium plus any custom
-	// `improvement` items authored in the world (game.items), merged and sorted together.
+	// The full improvement catalog used to resolve a steading's owned slugs → content: the core
+	// steading-improvements, the Book II wonder-improvements, and any custom `improvement` items
+	// authored in the world. A steading no longer shows all of these — it renders only the ones it owns
+	// (see SteadingImprovements) — so this is a lookup source, not a per-steading list.
 	async getAll() {
 		if (this._cache) return this._cache;
-		const entries = [...await this._store.getAll(), ...await this._worldStore.getAll()];
+		const entries = [
+			...await this._store.getAll(),
+			...await this._wonderStore.getAll(),
+			...await this._worldStore.getAll(),
+		];
 		this._cache = entries
 			.filter(e => e.type === "improvement")
 			.map(entry => new SteadingImprovement(
@@ -32,5 +39,10 @@ export class FoundrySteadingImprovementRepository {
 			))
 			.sort((a, b) => a.sortOrder - b.sortOrder);
 		return this._cache;
+	}
+
+	// Resolve one owned slug to its improvement (content + sortOrder), or null if unknown.
+	async getBySlug(slug) {
+		return (await this.getAll()).find(imp => imp.slug === slug) ?? null;
 	}
 }

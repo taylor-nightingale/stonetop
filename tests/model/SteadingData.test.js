@@ -1,120 +1,70 @@
 import { describe, it, expect } from "vitest";
 import { SteadingData } from "../../src/data/SteadingData.js";
 
-describe("SteadingData defaults", () => {
-	it("defaults fortunes to 2 and surplus to 1", () => {
+// A steading actor is now generic: a blank one is an EMPTY place. It gets its starting values by
+// applying a steadfast (see applySteadfast / the create hook), not from hardcoded schema initializers.
+// Its definition fields share steadingProfileSchema with the steadfast; it adds runtime-only state.
+describe("SteadingData defaults (blank = empty place)", () => {
+	it("defaults the shared definition fields to empty", () => {
 		const d = new SteadingData();
-		expect(d.fortunes).toBe(2);
-		expect(d.surplus).toBe(1);
+		expect(d.attributes).toEqual({ fortunes: 0, surplus: 0, size: "", population: 0, prosperity: 0, defenses: 0 });
+		expect(d.assets).toEqual({ items: [], resources: [], fortifications: [], coinage: [] });
+		expect(d.placesOfInterest).toEqual([]);
+		expect(d.neighborPlaces).toEqual([]);
+		expect(d.residents).toEqual({ names: "", traits: [] });
+		expect(d.improvements).toEqual([]);
+	});
+
+	it("defaults its steadfast reference and text fields to empty, rollMode to normal", () => {
+		const d = new SteadingData();
+		expect(d.steadfast).toBe("");
+		expect(d.description).toBe("");
+		expect(d.notes).toBe("");
+		expect(d.rollMode).toBe("normal");
 	});
 
 	it("defaults all debilities to false", () => {
 		const d = new SteadingData();
-		expect(d.debilities.diminished).toBe(false);
-		expect(d.debilities.lacking).toBe(false);
-		expect(d.debilities.malcontent).toBe(false);
+		expect(d.debilities).toEqual({ diminished: false, lacking: false, malcontent: false });
 	});
 
-	it("defaults description and notes to empty string", () => {
-		const d = new SteadingData();
-		expect(d.description).toBe("");
-		expect(d.notes).toBe("");
-	});
-
-	it("defaults size and population attributes to current=1 with empty items", () => {
-		const d = new SteadingData();
-		expect(d.attributes.size.current).toBe(1);
-		expect(d.attributes.size.items).toEqual([]);
-		expect(d.attributes.population.current).toBe(1);
-		expect(d.attributes.population.items).toEqual([]);
-	});
-
-	it("defaults prosperity to 8 default items", () => {
-		const d = new SteadingData();
-		expect(d.attributes.prosperity.current).toBe(1);
-		expect(d.attributes.prosperity.items).toHaveLength(8);
-		expect(d.attributes.prosperity.items[0]).toContain("Farming");
-	});
-
-	it("defaults defenses to 4 default items", () => {
-		const d = new SteadingData();
-		expect(d.attributes.defenses.current).toBe(1);
-		expect(d.attributes.defenses.items).toHaveLength(4);
-		expect(d.attributes.defenses.items[0]).toBe("Village militia");
-	});
-
-	it("defaults assets with 4 items and 2 coinage entries", () => {
-		const d = new SteadingData();
-		expect(d.assets.items).toHaveLength(4);
-		expect(d.assets.coinage).toHaveLength(2);
-		expect(d.assets.coinage[0].title).toBe("silver");
-		expect(d.assets.coinage[1].title).toBe("gold");
-		expect(d.assets.coinage[0].purses).toBe(0);
-	});
-
-	it("defaults all content sections to empty arrays", () => {
+	it("defaults all content sections to empty", () => {
 		const d = new SteadingData();
 		expect(d.content.excluded).toEqual([]);
 		expect(d.content.veiled).toEqual([]);
 		expect(d.content.specialHandling).toEqual([]);
+		expect(d.content.excludedText).toBe("");
 	});
 
-	it("defaults placesOfInterest to 6 entries starting with The Stone", () => {
+	it("defaults the runtime instance lists + pick state to empty", () => {
 		const d = new SteadingData();
-		expect(d.placesOfInterest).toHaveLength(6);
-		expect(d.placesOfInterest[0]).toBe("The Stone");
-	});
-
-	it("defaults neighborPlaces to 5 entries with correct slugs", () => {
-		const d = new SteadingData();
-		expect(d.neighborPlaces).toHaveLength(5);
-		expect(d.neighborPlaces[0].slug).toBe("marshedge");
-		expect(d.neighborPlaces[1].slug).toBe("gordins-delve");
-		expect(d.neighborPlaces[4].slug).toBe("other");
-	});
-
-	it("defaults residentNames to a non-empty string of Welsh names", () => {
-		const d = new SteadingData();
-		expect(d.residentNames.length).toBeGreaterThan(0);
-		expect(d.residentNames).toContain("Aderyn");
-	});
-
-	it("defaults residentTraits to 90 entries", () => {
-		const d = new SteadingData();
-		expect(d.residentTraits.length).toBeGreaterThanOrEqual(90);
-		expect(d.residentTraits[0]).toBe("all thumbs");
-	});
-
-	it("defaults residents and neighborPeople to empty arrays", () => {
-		const d = new SteadingData();
-		expect(d.residents).toEqual([]);
+		expect(d.residentPeople).toEqual([]);
 		expect(d.neighborPeople).toEqual([]);
-	});
-
-	it("defaults improvements.pickValues to empty object", () => {
-		expect(new SteadingData().improvements.pickValues).toEqual({});
+		expect(d.improvementValues).toEqual({});
 	});
 });
 
-describe("SteadingData function initials produce independent copies", () => {
-	it("placesOfInterest arrays are independent between instances", () => {
-		const a = new SteadingData();
-		const b = new SteadingData();
-		a.placesOfInterest.push("extra");
-		expect(b.placesOfInterest).toHaveLength(6);
+describe("SteadingData with applied values", () => {
+	it("stores actual rating numbers and the size tier", () => {
+		const d = new SteadingData({ attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 } });
+		expect(d.attributes.fortunes).toBe(1);
+		expect(d.attributes.size).toBe("village");
+		expect(d.attributes.prosperity).toBe(0);
 	});
 
-	it("neighborPlaces objects are independent between instances", () => {
-		const a = new SteadingData();
-		const b = new SteadingData();
-		a.neighborPlaces[0].note = "modified";
-		expect(b.neighborPlaces[0].note).toBe("");
+	it("records which steadfast it came from and the improvements it owns", () => {
+		const d = new SteadingData({ steadfast: "stonetop", improvements: ["market", "mill"] });
+		expect(d.steadfast).toBe("stonetop");
+		expect(d.improvements).toEqual(["market", "mill"]);
 	});
-});
 
-describe("SteadingData with initial data", () => {
-	it("accepts custom fortunes", () => {
-		expect(new SteadingData({ fortunes: 4 }).fortunes).toBe(4);
+	it("keeps the resident pool distinct from the resident people", () => {
+		const d = new SteadingData({
+			residents: { names: "Aderyn, Bryn", traits: ["curious"] },
+			residentPeople: [{ id: "1", name: "Afon" }],
+		});
+		expect(d.residents).toEqual({ names: "Aderyn, Bryn", traits: ["curious"] });
+		expect(d.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
 	});
 
 	it("accepts debilities overrides", () => {

@@ -47,17 +47,10 @@ export class StonetopSteading {
 		];
 	}
 
-	// `current`/`fortunes` are stored as an INDEX into the bonuses array ([-1, 0, 1, 2, 3]); the roll
-	// bonus is the value that index points at, not the index itself. Surplus is a raw count, used as-is.
+	// Ratings are stored as their actual value now (fortunes +1, prosperity +0, …), so the roll bonus
+	// is just the stored value. Surplus is a raw count in the same attributes block.
 	resolveBonus(rollStat) {
-		const sys  = this._actor.system;
-		const attr = sys.attributes;
-		if (rollStat === "fortunes") return SteadingDefaults.fortunes.bonuses[sys.fortunes] ?? null;
-		if (rollStat === "surplus")  return sys.surplus ?? null;
-		const bonuses = SteadingDefaults.attributes[rollStat]?.bonuses;
-		const current = attr?.[rollStat]?.current;
-		if (bonuses && current != null) return bonuses[current] ?? null;
-		return null;
+		return this._actor.system.attributes?.[rollStat] ?? null;
 	}
 
 	applyRollMode(rollStat, rollMode) {
@@ -65,23 +58,23 @@ export class StonetopSteading {
 	}
 
 	get fortunesCurrent() {
-		return this._actor.system.fortunes ?? SteadingDefaults.fortunes.current;
+		return this._actor.system.attributes?.fortunes ?? 0;
 	}
 
 	get surplusCurrent() {
-		return this._actor.system.surplus ?? SteadingDefaults.surplus.current;
+		return this._actor.system.attributes?.surplus ?? 0;
 	}
 
 	get notes() {
 		return this._actor.system.notes ?? "";
 	}
 
-	async setFortunes(index) {
-		await this._actor.update({"system.fortunes": index});
+	async setFortunes(value) {
+		await this._actor.update({"system.attributes.fortunes": value});
 	}
 
 	async setSurplus(value) {
-		await this._actor.update({"system.surplus": value});
+		await this._actor.update({"system.attributes.surplus": value});
 	}
 
 	async setNotes(value) {
@@ -93,7 +86,7 @@ export class StonetopSteading {
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
 				SteadingDefaults.fortunes.title, SteadingDefaults.fortunes.note,
-				this.fortunesCurrent, SteadingDefaults.fortunes.options,
+				this.fortunesCurrent, SteadingDefaults.fortunes.options, SteadingDefaults.fortunes.bonuses,
 			),
 			surplus: new SurplusSnapshot(
 				SteadingDefaults.surplus.title, SteadingDefaults.surplus.note, this.surplusCurrent,
@@ -111,8 +104,8 @@ export class StonetopSteading {
 			content:            this.content.buildSnapshot(),
 			assets:             this.assets.buildSnapshot(),
 			improvements:       await this.improvements.buildSnapshot(),
-			residentNames:      this._actor.system.residentNames,
-			residentTraits:     this._actor.system.residentTraits,
+			residentNames:      this._actor.system.residents?.names ?? "",
+			residentTraits:     this._actor.system.residents?.traits ?? [],
 			moves:              await this.moves.buildSnapshot(),
 			rollMode:           this.rollMode,
 		});
