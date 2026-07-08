@@ -16,6 +16,7 @@ import { loadArticlePages } from "./load.js";
 import { annotateTables } from "./tables.js";
 import { buildPageMap, linkPageRefs } from "./crossref.js";
 import { loadArcanaIndex, linkArcana } from "./arcana.js";
+import { extractImprovements, improvementUuid } from "./improvements.js";
 import { applyManualEdits } from "./manual-edits.js";
 import { extractChrome, extractSwirls } from "./images.js";
 import { formatPageRange } from "./pages.js";
@@ -115,6 +116,9 @@ for (const [i, r] of build.entries()) {
 		});
 		art = extractArticle(pages, { title: r.title, pageRules, pageImages });
 		annotateTables(art, { slug, title: r.title }); // stamp dice tables → inline @DrawTable links
+		// Stamp each "Steading improvement" call-out's title item with its generated item UUID so the
+		// renderer links it (the item itself is written by build-improvements.js; UUIDs are deterministic).
+		for (const imp of extractImprovements(art)) if (imp.titleItem) imp.titleItem.improvementUuid = improvementUuid(imp.slug);
 		body = renderHtml(art, { chrome: { chain: chromeChain } });
 	} catch (e) { flags.push(`! ${r.title}: failed — ${e.message}`); continue; }
 

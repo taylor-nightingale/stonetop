@@ -123,6 +123,13 @@
 			"system": "stonetop"
 		},
 		{
+			"name": "wonder-improvements",
+			"label": "Wonder Improvements",
+			"path": "packs/wonder-improvements",
+			"type": "Item",
+			"system": "stonetop"
+		},
+		{
 			"name": "wider-world-npcs",
 			"label": "Wider World NPCs",
 			"path": "packs/wider-world-npcs",

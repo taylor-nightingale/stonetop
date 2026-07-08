@@ -130,6 +130,14 @@ function renderListItem(lines) {
 	// A leading square marker (□/◻, from the vector layer) is a pick/track checkbox → render it as a
 	// checkbox bullet (CSS ::before) instead of leaving the glyph inline.
 	if (/^[□◻]/.test(html)) { cls = "checkbox"; html = html.replace(/^[□◻]+\s*/, ""); }
+	// A steading-improvement call-out's title item (stamped by build-journal): turn its bold name run
+	// into a content link to the generated improvement item, leaving the flavor text in place.
+	if (lines.improvementUuid) {
+		html = html.replace(/^((?:<strong>[\s\S]*?<\/strong>\s*)+)/, (run) => {
+			const label = run.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+			return `@UUID[${lines.improvementUuid}]{${label}} `;
+		});
+	}
 	return { cls, html };
 }
 
