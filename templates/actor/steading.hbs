@@ -1,8 +1,12 @@
 <form class="{{cssClass}}" autocomplete="off">
 
 	<header class="sheet-header steading-top">
-		<div class="steading-name-row">
-			<img class="steading-logo" src="systems/stonetop/assets/content/steading/stonetop.png" alt="Stonetop">
+		<div class="steading-steadfast-row">
+			<select class="steading-steadfast-select" name="steading-steadfast-select" {{#unless editable}}disabled{{/unless}}>
+				{{#each availableSteadfasts}}
+				<option value="{{slug}}" {{#if (eq slug ../currentSteadfast)}}selected{{/if}}>{{name}}</option>
+				{{/each}}
+			</select>
 		</div>
 		<section class="steading-header-grid">
 

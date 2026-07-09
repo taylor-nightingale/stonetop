@@ -7,7 +7,7 @@ const PROFILE_FIELDS = ["attributes", "assets", "placesOfInterest", "neighborPla
 
 export async function applySteadfast(actor, steadfast) {
 	const src = steadfast.system;
-	const update = { "system.steadfast": src.slug };
+	const update = { "system.steadfast": src.slug, name: steadfast.name };
 	for (const field of PROFILE_FIELDS) update[`system.${field}`] = structuredClone(src[field]);
 	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
 	// notes stay correct after the live `attributes` are edited in play.
@@ -16,10 +16,23 @@ export async function applySteadfast(actor, steadfast) {
 }
 
 // Load a steadfast item from the steadfasts compendium by slug (null if the pack/item is absent).
-// Used to seed new steadings (create hook) and, later, to re-apply on drop.
+// Used to seed new steadings (create hook) and to re-apply when the sheet's steadfast dropdown changes.
 export async function loadSteadfast(slug) {
 	const pack = game.packs?.get("stonetop.steadfasts");
 	if (!pack) return null;
 	const docs = await pack.getDocuments();
 	return docs.find(d => d.system?.slug === slug) ?? null;
+}
+
+// The {slug, name} of every steadfast, for the steading sheet's steadfast picker. Ordered by
+// sortOrder (Stonetop is 0) then name. Empty when the pack is absent.
+export async function loadAllSteadfasts() {
+	const pack = game.packs?.get("stonetop.steadfasts");
+	if (!pack) return [];
+	const docs = await pack.getDocuments();
+	return docs
+		.filter(d => d.system?.slug)
+		.map(d => ({ slug: d.system.slug, name: d.name, sortOrder: d.system.sortOrder ?? 0 }))
+		.sort((a, b) => (a.sortOrder - b.sortOrder) || a.name.localeCompare(b.name))
+		.map(({ slug, name }) => ({ slug, name }));
 }

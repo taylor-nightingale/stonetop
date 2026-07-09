@@ -3,6 +3,7 @@ import { applySteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 const steadfast = () => ({
+	name: "Stonetop",
 	system: {
 		slug: "stonetop",
 		attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
@@ -30,6 +31,12 @@ describe("applySteadfast", () => {
 		const actor = makeSteading();
 		await applySteadfast(actor, steadfast());
 		expect(actor.system.steadfast).toBe("stonetop");
+	});
+
+	it("names the steading after the steadfast", async () => {
+		const actor = makeSteading();
+		await applySteadfast(actor, steadfast());
+		expect(actor.name).toBe("Stonetop");
 	});
 
 	it("copies the steadfast's definition fields onto the steading", async () => {

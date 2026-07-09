@@ -1,5 +1,6 @@
 import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { confirmDelete } from "../../utils/confirmDelete.js";
+import { applySteadfast, loadSteadfast, loadAllSteadfasts } from "./applySteadfast.js";
 
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
@@ -27,6 +28,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			const ctx = await super.getData();
 			ctx.stonetop = await this._stonetopSteading.buildSnapshot();
 			await enrichRichTextTree(ctx.stonetop, this.actor?.getRollData?.() ?? {});
+			// The steadfast picker at the top of the sheet: every steadfast + the one this steading uses.
+			ctx.availableSteadfasts = await loadAllSteadfasts();
+			ctx.currentSteadfast    = this.actor.system.steadfast;
 			return ctx;
 		}
 
@@ -46,6 +50,15 @@ export function createStonetopSteadingSheetClass(Base) {
 						await run(ev);
 					});
 			};
+
+			// Steadfast picker — selecting one applies it (re-seeds the definition fields and renames the
+			// steading; runtime state like residents/debilities is preserved by applySteadfast).
+			html.find(".steading-steadfast-select").on("change", async ev => {
+				const slug = ev.currentTarget.value;
+				if (!slug || slug === this.actor.system.steadfast) return;
+				const steadfast = await loadSteadfast(slug);
+				if (steadfast) await applySteadfast(this.actor, steadfast);
+			});
 
 			// Roll mode
 			html.find("[name=stonetop-roll-mode]").on("change", ev => {

@@ -35,6 +35,13 @@ img.stonetop-broken-img {
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "IM Fell English";
+	src: url("/systems/stonetop/assets/fonts/IMFellEnglish-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 .stonetop.sheet .sheet-tabs,
 .stonetop.sheet .sheet-tabs .item,
 .stonetop.sheet h1,
@@ -60,6 +67,7 @@ img.stonetop-broken-img {
 
 :root {
 	--font-primary: Signika, sans-serif;
+	--font-serif: 'IM Fell English', Georgia, serif;
 
 	/* Type scale — one unit (rem, never compounds), one vocabulary, applied by content ROLE.
 	   Every flowing text element on a sheet picks one of these; never hand-pick a raw size.
@@ -3232,21 +3240,28 @@ form.stonetop.sheet.steading {
 	margin-bottom: 6px;
 }
 
-.stonetop.sheet.steading .steading-name-row {
+.stonetop.sheet.steading .steading-steadfast-row {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	margin-bottom: 8px;
 }
 
-.stonetop.sheet.steading .steading-logo {
-	height: 60px;
-	width: auto;
+.stonetop.sheet.steading .steading-steadfast-select {
+	font-family: var(--font-serif);
+	font-size: var(--fs-title);
+	text-align: left;
+	text-align-last: left;
 	border: none;
+	background: transparent;
+	width: auto;
+	min-width: 12ch;
+	cursor: pointer;
 }
 
 .stonetop.sheet.steading .steading-header-grid {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
 	gap: 6px;
 }
 
