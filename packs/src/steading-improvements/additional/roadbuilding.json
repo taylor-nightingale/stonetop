@@ -1,0 +1,86 @@
+{
+  "name": "Roadbuilding",
+  "type": "improvement",
+  "flags": {},
+  "_id": "TFiTNyDeGTeShuT9",
+  "_key": "!items!TFiTNyDeGTeShuT9",
+  "system": {
+    "slug": "roadbuilding",
+    "sortOrder": 6,
+    "choices": {
+      "slug": "roadbuilding",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Roadbuilding",
+            "text": "Requires all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "unlock-secrets",
+          "content": {
+            "title": null,
+            "text": "Unlock the secrets of **runic calligraphy**"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "teach-runes",
+          "content": {
+            "title": null,
+            "text": "Teach the runes to at least 2 full-time artisans of quick mind and steady hand"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "secure-nigh",
+          "content": {
+            "title": null,
+            "text": "Secure a nigh-unlimited source of basalt blocks"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "recruit-foreman",
+          "content": {
+            "title": null,
+            "text": "Recruit a foreman of considerable skill, who has studied construction of the Roads"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "recruit-maintain",
+          "content": {
+            "title": null,
+            "text": "Recruit and maintain a crew of ~50 skilled laborers and masons"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the require_****_ments_**, you can expand or repair the Makers’ Roads. Every ~25 miles of road requires **Pulling Together**, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

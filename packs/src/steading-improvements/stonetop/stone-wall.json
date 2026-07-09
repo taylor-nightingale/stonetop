@@ -1,0 +1,82 @@
+{
+  "name": "Stone Wall",
+  "type": "improvement",
+  "flags": {},
+  "_id": "DAnVjHBZDg9VPkFg",
+  "_key": "!items!DAnVjHBZDg9VPkFg",
+  "system": {
+    "slug": "stone-wall",
+    "sortOrder": 14,
+    "choices": {
+      "slug": "stone-wall",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Stone Wall",
+            "text": "No mere palisade of wood, but a mighty rampart. We have the stone, after all..."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** all of the following, in order:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "engineer-foreman",
+          "content": {
+            "title": null,
+            "text": "An *exceptional* engineer/foreman"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "stonecutter",
+          "content": {
+            "title": null,
+            "text": "A stonecutter with an able crew"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "equipment-tools",
+          "content": {
+            "title": null,
+            "text": "Equipment, tools, and material (Value 3)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pull-together",
+          "content": {
+            "title": null,
+            "text": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)"
+          },
+          "track": {
+            "max": 4
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.\n\nHenceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}

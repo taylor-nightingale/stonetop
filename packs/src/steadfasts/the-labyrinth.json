@@ -1,0 +1,45 @@
+{
+	"name": "The Labyrinth",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "wbXMyhJFadgQzrDP",
+	"_key": "!items!wbXMyhJFadgQzrDP",
+	"system": {
+		"slug": "the-labyrinth",
+		"sortOrder": 5,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "hamlet",
+			"population": -1,
+			"prosperity": 0,
+			"defenses": 0
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Gathering (fungus, fish, water)",
+				"Farming (fungus, grubs, bugs)",
+				"Scavenging (Forge Lord sites)",
+				"Raiding (neighboring tribes)",
+				"Cannibalism"
+			],
+			"fortifications": [
+				"Warlike culture",
+				"Bone clubs/spears tipped with obsidian",
+				"Corrupted gifts",
+				"Magical artifacts"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

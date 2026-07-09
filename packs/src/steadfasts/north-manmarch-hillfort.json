@@ -1,0 +1,49 @@
+{
+	"name": "North Manmarch (Hillfort)",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "LNSfZsAYB89IxkZa",
+	"_key": "!items!LNSfZsAYB89IxkZa",
+	"system": {
+		"slug": "north-manmarch-hillfort",
+		"sortOrder": 8,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "village",
+			"population": -1,
+			"prosperity": 0,
+			"defenses": 2
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with other hillforts",
+				"Trade with Marshedge and/or",
+				"Lygos (textile, spices, glass, herbs, finery)",
+				"Taxes from surrounding hamlets",
+				"Trades: smithing, tanning, pottery",
+				"Livestock (pigs, goats, sheep, meat, milk, wool)",
+				"Market (for surrounding hamlets)",
+				"Timber"
+			],
+			"fortifications": [
+				"A dozen or so professional warriors",
+				"Rotating recruits from the hamlets",
+				"Iron weapons, wooden shields",
+				"Series of earthen ramparts",
+				"Palisades"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

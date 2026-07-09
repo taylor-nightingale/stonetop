@@ -3236,6 +3236,7 @@ form.stonetop.sheet.steading {
 
 .stonetop.sheet.steading .sheet-header.steading-top {
 	flex-direction: column;
+	align-items: stretch; /* override Foundry's .sheet-header align-items:center, which centres the column */
 	padding: 0;
 	margin-bottom: 6px;
 }

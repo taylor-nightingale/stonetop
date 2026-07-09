@@ -1,0 +1,67 @@
+{
+  "name": "Additional Housing",
+  "type": "improvement",
+  "flags": {},
+  "_id": "61BXem3kTIsk4JvJ",
+  "_key": "!items!61BXem3kTIsk4JvJ",
+  "system": {
+    "slug": "additional-housing",
+    "sortOrder": 1,
+    "choices": {
+      "slug": "additional-housing",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Additional Housing",
+            "text": "It's getting crowded! We need more room to live."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** either one of these:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "engineer-foreman",
+          "content": {
+            "title": null,
+            "text": "An *exceptional* engineer/foreman, to design much roomier houses on the current land"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "build-on-fields",
+          "content": {
+            "title": null,
+            "text": "Building on parts of the fields, resulting in -1 Surplus generated with each autumn's harvest"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}

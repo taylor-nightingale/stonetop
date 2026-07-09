@@ -1,0 +1,104 @@
+{
+  "name": "Aetherium Crucible",
+  "type": "improvement",
+  "flags": {},
+  "_id": "GvQbRU83Dc8vXk4V",
+  "_key": "!items!GvQbRU83Dc8vXk4V",
+  "system": {
+    "slug": "aetherium-crucible",
+    "sortOrder": 7,
+    "choices": {
+      "slug": "aetherium-crucible",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Aetherium Crucible",
+            "text": "Requires all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "learning-process",
+          "content": {
+            "title": null,
+            "text": "Learning the process of **making** **aetherium** (at left)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "learning-imbue",
+          "content": {
+            "title": null,
+            "text": "Learning to imbue aetherium with at least one special characteristic"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "reliable-means",
+          "content": {
+            "title": null,
+            "text": "A reliable means of capturing, storing, and directing lightning that strikes the Stone"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "securing-steady",
+          "content": {
+            "title": null,
+            "text": "Securing a steady supply of the chemics needed to make aetherium"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "securing-steady-2",
+          "content": {
+            "title": null,
+            "text": "Securing a steady supply of copper"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "exceptional-smith",
+          "content": {
+            "title": null,
+            "text": "An exceptional smith who knows the secrets of aetherium"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the requirements_**, add \"Aetherium Crucible\" to the Resources list and the map. As long as you trade aetherium to the outside world, increase Prosperity by 1."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Henceforth, small amounts of raw aetherium (*magical*, Value 1) are commonly available in Stonetop, and you have advantage to **Trade &** **Barter** for the aetherium items with special characteristics (+2 Value)."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

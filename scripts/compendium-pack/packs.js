@@ -8,7 +8,6 @@ export const PACKS = [
 	"insert-moves",
 	"possessions",
 	"steading-improvements",
-	"wonder-improvements",
 	"steadfasts",
 	"wider-world-npcs",
 	"wider-world-and-other-wonders",

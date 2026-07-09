@@ -1,0 +1,48 @@
+{
+	"name": "Marshedge",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "WsoapTT1byfjgaAo",
+	"_key": "!items!WsoapTT1byfjgaAo",
+	"system": {
+		"slug": "marshedge",
+		"sortOrder": 6,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "town",
+			"population": 0,
+			"prosperity": 2,
+			"defenses": 1
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with Lygos (fine goods, spices, etc.)",
+				"Trade with Manmarch (timber, salt, amber)",
+				"Trade with Gordin’s Delve (metal, tools)",
+				"Trade with Stonetop (whisky, fur)",
+				"Farming (wheat, hemp, wild rice, herbs)",
+				"Trades (textiles, pottery, glass, rope, medicine)",
+				"Forage (herbs, peat, clay)",
+				"Marketplace",
+				"Windmill"
+			],
+			"fortifications": [
+				"The Guard (page 280)",
+				"Wooden palisade",
+				"Bendis root braziers"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

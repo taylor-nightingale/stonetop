@@ -1,16 +1,16 @@
 // Build the Book II wonder-improvement items from the "Steading improvement" call-out boxes the book
 // embeds in its wonder articles (e.g. Barrier Pass's "Trade with Barrier Pass"). Each box is parsed
 // (improvements.js) into the same choice-group shape as the hand-authored Stonetop-core improvements
-// and written as one `improvement` Item to packs/src/wonder-improvements/<slug>.json.
+// and written as one `improvement` Item to packs/src/steading-improvements/additional/<slug>.json.
 //
-//   node scripts/import/pdf/build-improvements.js            # rebuild the whole wonder-improvements pack
+//   node scripts/import/pdf/build-improvements.js            # rebuild the whole additional/ folder
 //   node scripts/import/pdf/build-improvements.js "Barrier Pass" ...   # only the listed articles
 //
-// This script owns the wonder-improvements pack outright: a full rebuild clears it and regenerates,
-// exactly like build-journal owns its journal pack. The Stonetop-core improvements live in a separate
-// pack (steading-improvements) and are never touched here. IDs are deterministic (improvementUuid), so
-// the journal build links to these items without this script having run first. A review summary is
-// written for spot-checking.
+// This script owns the steading-improvements/additional/ source folder outright: a full rebuild clears
+// it and regenerates, exactly like build-journal owns its journal pack. The hand-authored Stonetop-core
+// improvements live in the sibling stonetop/ folder of the same pack and are never touched here. IDs are
+// deterministic (improvementUuid), so the journal build links to these items without this script having
+// run first. A review summary is written for spot-checking.
 import os from "os"; import path from "path";
 import { mkdtempSync, rmSync, mkdirSync, readdirSync, writeFileSync } from "fs";
 import { execFileSync } from "child_process";
@@ -22,7 +22,7 @@ import { extractImprovements, improvementUuid, IMPROVEMENTS_PACK } from "./impro
 import { deterministicId, documentKey } from "../ids.js";
 
 const PDF = process.env.BOOK_PDF ?? "helper/Book_II_-_The_Wider_World_and_Other_Wonders.pdf";
-const OUT = `packs/src/${IMPROVEMENTS_PACK}`;
+const OUT = `packs/src/${IMPROVEMENTS_PACK}/additional`;
 const REVIEW = "helper/wonder-improvement-review.md";
 
 const totalPages = () => Number((execFileSync("mutool", ["info", PDF], { encoding: "utf8" }).match(/Pages:\s*(\d+)/) || [])[1] || 302);

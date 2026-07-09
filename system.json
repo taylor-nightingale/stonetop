@@ -124,13 +124,6 @@
 			"system": "stonetop"
 		},
 		{
-			"name": "wonder-improvements",
-			"label": "Wonder Improvements",
-			"path": "packs/wonder-improvements",
-			"type": "Item",
-			"system": "stonetop"
-		},
-		{
 			"name": "steadfasts",
 			"label": "Steadfasts",
 			"path": "packs/steadfasts",

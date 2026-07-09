@@ -1,0 +1,107 @@
+{
+  "name": "Trade with Barrier Pass",
+  "type": "improvement",
+  "flags": {},
+  "_id": "NBtVhx31Z7Rf4WDl",
+  "_key": "!items!NBtVhx31Z7Rf4WDl",
+  "system": {
+    "slug": "trade-with-barrier-pass",
+    "sortOrder": 1,
+    "choices": {
+      "slug": "trade-with-barrier-pass",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Trade with Barrier Pass",
+            "text": "Surely it would benefit both communities were we to trade with each other!"
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Requires getting them to talk to you in the first place, which requires 1 of these:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "bringing-them",
+          "content": {
+            "title": null,
+            "text": "Bringing them a valuable artifact of the Rime Lords, as a gift or to trade"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "resident-in",
+          "content": {
+            "title": null,
+            "text": "A resident in good standing, vouching for you"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "And then, all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "making-compelling",
+          "content": {
+            "title": null,
+            "text": "Making a compelling offer"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "convincing-least",
+          "content": {
+            "title": null,
+            "text": "Convincing at least two of the Honored Sages to accept"
+          },
+          "track": {
+            "max": 2
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "two-successful",
+          "content": {
+            "title": null,
+            "text": "Two successful trade missions, each in a different season"
+          },
+          "track": {
+            "max": 2
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\"."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Henceforth, when **_spring bursts forth_** **_and Stonetop has at least 1 Surplus_**, Stonetop gains +1 Surplus from trade. Also, when you **_Trade & Barter_** **_for timber, ivory, fine wool, goats,_** **_sheep, parchment, vellum, or ink_**, you have advantage."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

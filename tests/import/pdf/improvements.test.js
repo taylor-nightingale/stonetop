@@ -106,9 +106,9 @@ describe("extractImprovements", () => {
 });
 
 describe("improvementUuid", () => {
-	it("is deterministic and points at the wonder-improvements pack", () => {
+	it("is deterministic and points at the steading-improvements pack", () => {
 		const a = improvementUuid("trade-with-barrier-pass");
 		expect(a).toBe(improvementUuid("trade-with-barrier-pass"));
-		expect(a).toMatch(/^Compendium\.stonetop\.wonder-improvements\.Item\.[A-Za-z0-9]{16}$/);
+		expect(a).toMatch(/^Compendium\.stonetop\.steading-improvements\.Item\.[A-Za-z0-9]{16}$/);
 	});
 });

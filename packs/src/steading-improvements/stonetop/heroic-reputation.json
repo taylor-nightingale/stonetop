@@ -1,0 +1,104 @@
+{
+  "name": "Heroic Reputation",
+  "type": "improvement",
+  "flags": {},
+  "_id": "0AMHN4p4oN6yuyQR",
+  "_key": "!items!0AMHN4p4oN6yuyQR",
+  "system": {
+    "slug": "heroic-reputation",
+    "sortOrder": 7,
+    "choices": {
+      "slug": "heroic-reputation",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Heroic Reputation",
+            "text": "Few have heard of Stonetop's heroes. Yet."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** any 3 of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "impress-hillfolk",
+          "content": {
+            "title": null,
+            "text": "Impressing a band of Hillfolk"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "brave-lake",
+          "content": {
+            "title": null,
+            "text": "Braving a lake and coming back with proof"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "save-marshedge",
+          "content": {
+            "title": null,
+            "text": "Saving many Marshedge residents' lives"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "save-gordins-delve",
+          "content": {
+            "title": null,
+            "text": "Saving many Gordin's Delve residents' lives"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "save-beyond-marshedge",
+          "content": {
+            "title": null,
+            "text": "Saving someone from beyond Marshedge"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "hire-minstrel",
+          "content": {
+            "title": null,
+            "text": "Hiring a minstrel to tell your tales (Value 2)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, gain the following move:\n\nWhen you first meet someone from beyond Stonetop, roll +Fortunes: **on a 10+**, say what they've heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they've heard; **on a 6-**, the GM decides what they've heard."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}

@@ -1,0 +1,93 @@
+{
+  "name": "Mill",
+  "type": "improvement",
+  "flags": {},
+  "_id": "NlzvIrCFNvf3RI8P",
+  "_key": "!items!NlzvIrCFNvf3RI8P",
+  "system": {
+    "slug": "mill",
+    "sortOrder": 10,
+    "choices": {
+      "slug": "mill",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Mill",
+            "text": "We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "engineer-foreman",
+          "content": {
+            "title": null,
+            "text": "An *exceptional* engineer/foreman"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "power-source",
+          "content": {
+            "title": null,
+            "text": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "building-site",
+          "content": {
+            "title": null,
+            "text": "A building site able to harness that power source"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pull-together",
+          "content": {
+            "title": null,
+            "text": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)"
+          },
+          "track": {
+            "max": 2
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "full-time-miller",
+          "content": {
+            "title": null,
+            "text": "A full-time miller"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}

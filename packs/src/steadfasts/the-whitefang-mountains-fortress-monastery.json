@@ -1,0 +1,49 @@
+{
+	"name": "The Whitefang Mountains (Fortress-Monastery)",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "PmJIOvpVM0RDsrEg",
+	"_key": "!items!PmJIOvpVM0RDsrEg",
+	"system": {
+		"slug": "the-whitefang-mountains-fortress-monastery",
+		"sortOrder": 10,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "hamlet",
+			"population": 0,
+			"prosperity": 0,
+			"defenses": 2
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with nearby farm valleys (food, livestock, wool)",
+				"Tithes from nearby farm valleys",
+				"Terraced gardens (barley, lentils)",
+				"Livestock (goats, sheep, milk, meat)",
+				"Fine wool",
+				"Parchment, vellum, ink",
+				"Trades: bronze-smithing, weaving, dyeing, tanning, scribing, etc.",
+				"Rime Lord artifacts"
+			],
+			"fortifications": [
+				"Guardians (page 33)",
+				"At least one adept (page 328)",
+				"One or more tulpas (page 324)",
+				"Weapons/armor of bronze, maybe dark ice (page 322)",
+				"Defensible position"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

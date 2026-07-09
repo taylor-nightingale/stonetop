@@ -1,0 +1,46 @@
+{
+	"name": "The Frozen Wastes",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "HQFBAOdgEMKPZRzL",
+	"_key": "!items!HQFBAOdgEMKPZRzL",
+	"system": {
+		"slug": "the-frozen-wastes",
+		"sortOrder": 2,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "hamlet",
+			"population": 0,
+			"prosperity": -1,
+			"defenses": 0
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with other mammoth herders",
+				"Trade with a farming valley",
+				"Trade with a fortress-monastery",
+				"Mammoths (wool, ivory, bone, dung)",
+				"Sleds/sledges of bone, hide, timber",
+				"Hunting (wild mammoths, caribou, hare, fish)",
+				"Gathering (timber, ivory, bone, flint, herbs, dark ice (page 322)"
+			],
+			"fortifications": [
+				"Mammoth-mounted warriors",
+				"Hounds and hunting drakes",
+				"Spears/javelins tipped with dark ice, flint, bone, or bronze (crude)"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

@@ -1,0 +1,101 @@
+{
+  "name": "Rhoillyg Orchard",
+  "type": "improvement",
+  "flags": {},
+  "_id": "FdcqcpAcjHIWsL0z",
+  "_key": "!items!FdcqcpAcjHIWsL0z",
+  "system": {
+    "slug": "rhoillyg-orchard",
+    "sortOrder": 5,
+    "choices": {
+      "slug": "rhoillyg-orchard",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Rhoillyg Orchard",
+            "text": "Requires both:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "sack-full",
+          "content": {
+            "title": null,
+            "text": "A sack full of rhoillyg seeds"
+          },
+          "track": {
+            "max": 2
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "herbalist-considerable",
+          "content": {
+            "title": null,
+            "text": "An herbalist of considerable skill and patience And either of these, to germinate the seeds:"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "year-so",
+          "content": {
+            "title": null,
+            "text": "A year or so of experimentation"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "advice-knowledgeable",
+          "content": {
+            "title": null,
+            "text": "Advice from a knowledgeable source And then each of these:"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "full-spring",
+          "content": {
+            "title": null,
+            "text": "A full spring, to sprout and cultivate saplings"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pulling-together",
+          "content": {
+            "title": null,
+            "text": "Pulling Together once, over the course of a summer, to clear and plant the orchard"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "protecting-orchard",
+          "content": {
+            "title": null,
+            "text": "Protecting the orchard through two more summers When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete."
+          },
+          "track": {
+            "max": 2
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

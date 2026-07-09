@@ -1,0 +1,46 @@
+{
+	"name": "North Manmarch (Hamlet)",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "vislMG2q4oIc6ezz",
+	"_key": "!items!vislMG2q4oIc6ezz",
+	"system": {
+		"slug": "north-manmarch-hamlet",
+		"sortOrder": 7,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "hamlet",
+			"population": 0,
+			"prosperity": -1,
+			"defenses": 1
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with other hamlets",
+				"Livestock (pigs, goats, sheep, meat, milk, wool)",
+				"Farming (wheat, barley, oats,",
+				"honey, mead)",
+				"Timber",
+				"Trapping (fur, meat)",
+				"Mining (amber, salt, and/or iron)"
+			],
+			"fortifications": [
+				"Warrior culture",
+				"Iron weapons, wooden shields",
+				"Protection from the local chief"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

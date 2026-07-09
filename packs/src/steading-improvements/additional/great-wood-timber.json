@@ -1,0 +1,82 @@
+{
+  "name": "Great Wood Timber",
+  "type": "improvement",
+  "flags": {},
+  "_id": "C2Q08KUskDkutAHI",
+  "_key": "!items!C2Q08KUskDkutAHI",
+  "system": {
+    "slug": "great-wood-timber",
+    "sortOrder": 4,
+    "choices": {
+      "slug": "great-wood-timber",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Great Wood Timber",
+            "text": "Requires all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "proof-that",
+          "content": {
+            "title": null,
+            "text": "Proof that trees can be felled without dire consequence"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "crew-brave",
+          "content": {
+            "title": null,
+            "text": "A crew of brave lumberjacks"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "skilled-carpenter",
+          "content": {
+            "title": null,
+            "text": "A skilled carpenter, working full time"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pulling-together",
+          "content": {
+            "title": null,
+            "text": "Pulling Together once, over a course of a few weeks, to generate the first load of timber."
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Timber from the Great Wood\" to the Resources list."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Henceforth, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

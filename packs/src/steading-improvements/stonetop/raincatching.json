@@ -1,0 +1,71 @@
+{
+  "name": "Raincatching",
+  "type": "improvement",
+  "flags": {},
+  "_id": "OoDfv0tH2yTLWez0",
+  "_key": "!items!OoDfv0tH2yTLWez0",
+  "system": {
+    "slug": "raincatching",
+    "sortOrder": 12,
+    "choices": {
+      "slug": "raincatching",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Raincatching",
+            "text": "Filling the cistern takes so much work. Surely, we can do better!"
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** all of the following, in order:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "engineer-foreman",
+          "content": {
+            "title": null,
+            "text": "An *exceptional* engineer/foreman, to design a cunning system of roofs, gutters, and conduits"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "slate-terracotta",
+          "content": {
+            "title": null,
+            "text": "Enough slate/terracotta to roof all the buildings and construct the gutters and conduits (Value 3)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pull-together",
+          "content": {
+            "title": null,
+            "text": "Pulling Together 3 times, each requiring 1 season and 1 Surplus"
+          },
+          "track": {
+            "max": 3
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Raincatching\" to the Resources list.\n\nHenceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}

@@ -14,7 +14,8 @@ function makePack(entries = []) {
 	return { getIndex: vi.fn(async () => {}), index: entries, folders: [] };
 }
 
-// Only the steading-improvements pack holds these entries; the wonder-improvements pack is empty here.
+// The steading-improvements pack holds every improvement entry (both the Stonetop-core and the Book II
+// wonder improvements now live there); any other pack name resolves to an empty stub.
 function stubGame(pack) {
 	vi.stubGlobal("game", { packs: { get: (name) => name === "stonetop.steading-improvements" ? pack : makePack([]) } });
 }

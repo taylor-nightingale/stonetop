@@ -16,7 +16,7 @@ function worldEntry(slug, sortOrder, choices) {
 	return { type: "improvement", toObject: () => obj };
 }
 
-// The core steading-improvements pack holds the pack entries; wonder-improvements is empty here.
+// The steading-improvements pack holds the pack entries; any other pack name resolves to an empty stub.
 function stubGame(packEntries, worldEntries) {
 	const pack = { getIndex: async () => {}, index: packEntries, folders: [] };
 	const empty = { getIndex: async () => {}, index: [], folders: [] };

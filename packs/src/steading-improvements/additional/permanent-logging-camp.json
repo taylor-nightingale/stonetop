@@ -1,0 +1,111 @@
+{
+  "name": "Permanent Logging Camp",
+  "type": "improvement",
+  "flags": {},
+  "_id": "FIae4BZczTq3GLJY",
+  "_key": "!items!FIae4BZczTq3GLJY",
+  "system": {
+    "slug": "permanent-logging-camp",
+    "sortOrder": 2,
+    "choices": {
+      "slug": "permanent-logging-camp",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Permanent Logging Camp",
+            "text": "Suppose we built a few cabins and kept loggers up there year-round?"
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Requires all of the following:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "two-three",
+          "content": {
+            "title": null,
+            "text": "Two or three permanent dwellings, just off the Highway"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "supplies-furnishings",
+          "content": {
+            "title": null,
+            "text": "Supplies, furnishings, and tools for those dwellings (Value 2)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "5-6",
+          "content": {
+            "title": null,
+            "text": "5-6 capable adults, willing and able to relocate and log year-round"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "extra-wagon",
+          "content": {
+            "title": null,
+            "text": "An extra wagon (Value 3) and extra horse or mule (Value 3) to"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "haul-timber",
+          "content": {
+            "title": null,
+            "text": "haul timber to and from Stonetop"
+          },
+          "track": {
+            "max": 3
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "four-seasons",
+          "content": {
+            "title": null,
+            "text": "Four seasons of operation, each generating a wagonload of timber (Value 2)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the requirements_**, add \"Logging: timber, wood\" to the resources list and increase Fortunes by 1."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

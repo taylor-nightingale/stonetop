@@ -1,0 +1,71 @@
+{
+  "name": "Golden Sapling",
+  "type": "improvement",
+  "flags": {},
+  "_id": "64GFVq0icgg3iLX1",
+  "_key": "!items!64GFVq0icgg3iLX1",
+  "system": {
+    "slug": "golden-sapling",
+    "sortOrder": 3,
+    "choices": {
+      "slug": "golden-sapling",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Golden Sapling",
+            "text": "Requires all of the following, in order:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "retrieve-acorn",
+          "content": {
+            "title": null,
+            "text": "Retrieve an acorn from the boughs of the Golden Oak in late autumn"
+          },
+          "track": {
+            "max": 3
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "plant-acorn",
+          "content": {
+            "title": null,
+            "text": "Plant the acorn in the fields near Stonetop, watering it with the lifeblood of a great virile beast, like an aurochs bull"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "nurture-protect",
+          "content": {
+            "title": null,
+            "text": "Nurture and protect the sapling through 4 years of growth"
+          },
+          "track": {
+            "max": 4
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_mark all the requirements_**, add \"Golden Sapling\" to the Resources list and automatically mark the **Greater Harvest** improvement."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "1UlzxDTaEInlMvWC"
+}

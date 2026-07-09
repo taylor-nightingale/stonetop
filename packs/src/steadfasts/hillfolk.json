@@ -1,0 +1,47 @@
+{
+	"name": "Hillfolk",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "mUqalvMQL1WmQucf",
+	"_key": "!items!mUqalvMQL1WmQucf",
+	"system": {
+		"slug": "hillfolk",
+		"sortOrder": 4,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "hamlet",
+			"population": 0,
+			"prosperity": -1,
+			"defenses": 0
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with other bands",
+				"Trade with Marshedge (rope, textiles, herbs, pottery)",
+				"Trade with Stonetop (whisky, potatoes, oats)",
+				"Trade with Lygos, etc. (salt, tools)",
+				"Horses, sheep, goats, hounds",
+				"Wool, milk",
+				"Forage (fruits, nuts, veggies, honey)",
+				"Hunting (meat, fur, hides)",
+				"Gathering (timber, sap, flint)"
+			],
+			"fortifications": [
+				"Mounted warriors",
+				"Flint-tipped weapons (crude)"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

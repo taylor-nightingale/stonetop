@@ -1,0 +1,45 @@
+{
+	"name": "Gordin's Delve",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "groKp9gOhKBUccq0",
+	"_key": "!items!groKp9gOhKBUccq0",
+	"system": {
+		"slug": "gordins-delve",
+		"sortOrder": 3,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "town",
+			"population": 2,
+			"prosperity": 0,
+			"defenses": -1
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with Marshedge (wheat, flax, rope, textiles, herbs, glass)",
+				"Trade with Stonetop (barley, potatoes, furs, whisky)",
+				"Mining (iron, copper, lead, tin, silver)",
+				"Trades (smithing, tinkering)",
+				"Timber",
+				"Goats",
+				"Aqueduct"
+			],
+			"fortifications": [
+				"Maker-ramparts",
+				"Unassailable position"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

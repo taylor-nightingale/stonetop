@@ -1,0 +1,49 @@
+{
+	"name": "Barrier Pass",
+	"type": "steadfast",
+	"img": "icons/svg/village.svg",
+	"flags": {},
+	"_id": "4mpuDnVrqtWtQimJ",
+	"_key": "!items!4mpuDnVrqtWtQimJ",
+	"system": {
+		"slug": "barrier-pass",
+		"sortOrder": 1,
+		"description": "",
+		"attributes": {
+			"fortunes": 1,
+			"surplus": 1,
+			"size": "village",
+			"population": 0,
+			"prosperity": 0,
+			"defenses": 2
+		},
+		"assets": {
+			"items": [],
+			"resources": [
+				"Trade with mammoth herders (ivory, wool, meat)",
+				"Trade with other fortress-monasteries",
+				"Taxes from nearby farm valleys",
+				"Farming (terraced gardens, barley)",
+				"Livestock (goats, sheep, milk, fine wool, meat)",
+				"Timber (from Foothills)",
+				"Parchment, vellum, ink",
+				"Trades: smithing, weaving, tanning, scribing"
+			],
+			"fortifications": [
+				"A score of guardians",
+				"A handful of adepts (page 328)",
+				"A number of tulpas (page 324)",
+				"Blunt weapons, nets, bolas, bronze shields and mail",
+				"Exceptional fortifications"
+			],
+			"coinage": []
+		},
+		"placesOfInterest": [],
+		"neighborPlaces": [],
+		"residents": {
+			"names": "",
+			"traits": []
+		},
+		"improvements": []
+	}
+}

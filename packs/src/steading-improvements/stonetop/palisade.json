@@ -1,0 +1,78 @@
+{
+  "name": "Palisade",
+  "type": "improvement",
+  "flags": {},
+  "_id": "nuIJXiG6zisn95MG",
+  "_key": "!items!nuIJXiG6zisn95MG",
+  "system": {
+    "slug": "palisade",
+    "sortOrder": 11,
+    "choices": {
+      "slug": "palisade",
+      "list": [
+        {
+          "type": "entry",
+          "content": {
+            "title": "Palisade",
+            "text": "A wall of sharpened logs, 10' tall, to keep evil at bay."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "**Requires** all of the following, in order:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "timber",
+          "content": {
+            "title": null,
+            "text": "Lots of timber (~20-25 wagonloads, Value 3)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "engineer-foreman",
+          "content": {
+            "title": null,
+            "text": "A competent engineer/foreman"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "rope-nails-pitch",
+          "content": {
+            "title": null,
+            "text": "Lots of rope, nails, pitch, etc. (Value 2)"
+          },
+          "track": {
+            "max": 1
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "Pulling Together, costing a month and 1 Surplus."
+          }
+        },
+        {
+          "type": "entry",
+          "content": {
+            "title": null,
+            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy."
+          }
+        }
+      ]
+    }
+  },
+  "folder": "K6GCg2kg3hRVE3nl"
+}
