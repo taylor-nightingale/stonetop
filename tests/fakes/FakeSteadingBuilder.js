@@ -29,6 +29,7 @@ export class FakeSteadingBuilder {
 				debilities: { diminished: false, lacking: false, malcontent: false },
 				content: { excluded: [], veiled: [], specialHandling: [], excludedText: "", veiledText: "", specialHandlingText: "" },
 				attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
+				startingAttributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 				assets: {
 					items: [
 						"A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",

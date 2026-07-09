@@ -1,4 +1,5 @@
 import {vi} from "vitest";
+import {fakeI18n} from "./foundry/FakeI18n.js";
 
 export class FakeGameBuilder {
 	_packs = {};
@@ -14,7 +15,7 @@ export class FakeGameBuilder {
 				contents: worldItems,
 				get: (id) => worldItems.find(i => i._id === id) ?? null,
 			},
-			i18n: { localize: (key) => key },
+			i18n: fakeI18n(),
 		});
 	}
 

@@ -6,11 +6,14 @@ const SCOPE = "stonetop";
 // size becomes its tier string, the resource/fortification lists move under assets, places become
 // objects, the resident pool folds into `residents:{names,traits}` while the people move to
 // `residentPeople`, and improvements become an owned slug list + `improvementValues` pick state.
-// `coreImprovements` is the Stonetop steadfast's granted list (what the old repo surfaced to every
-// steading), supplied by the MigrationRunner. Idempotent: a steading that already has a steadfast set
-// is left alone. Runs once from the MigrationRunner (full document), never from model.migrateData.
-export async function migrateSteading(actor, coreImprovements = []) {
+// `defaults` carries what a migrated (Stonetop) steading should adopt from its steadfast: the granted
+// `improvements` list (what the old repo surfaced to every steading) and the steadfast's starting
+// `attributes` (kept as the immutable `startingAttributes` baseline for the "Starts at …" notes).
+// Supplied by the MigrationRunner. Idempotent: a steading that already has a steadfast set is left
+// alone. Runs once from the MigrationRunner (full document), never from model.migrateData.
+export async function migrateSteading(actor, defaults = {}) {
 	if (actor.system?.steadfast) return;
+	const { improvements = [], attributes: startingAttributes = {} } = defaults;
 
 	const sys  = actor.system ?? {};
 	const attr = sys.attributes ?? {};
@@ -45,10 +48,11 @@ export async function migrateSteading(actor, coreImprovements = []) {
 		},
 		"system.placesOfInterest": (sys.placesOfInterest ?? []).map(p =>
 			typeof p === "string" ? { name: p, journalReference: "" } : p),
+		"system.startingAttributes": { ...startingAttributes },
 		"system.residents":     { names: sys.residentNames ?? "", traits: sys.residentTraits ?? [] },
 		"system.residentPeople": people,
 		"system.neighborPeople": neighbors,
-		"system.improvements":      [...coreImprovements],
+		"system.improvements":      [...improvements],
 		"system.improvementValues": picks,
 	});
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { steadingProfileSchema } from "../../src/data/steadingProfileSchema.js";
+import { steadingProfileSchema, steadingRatingsSchema } from "../../src/data/steadingProfileSchema.js";
 
 // The shared shape used by BOTH SteadfastData and SteadingData, so the two can't drift. Built from
 // the fake foundry.data.fields the test setup installs; a blank profile is an empty place.
@@ -11,6 +11,11 @@ describe("steadingProfileSchema", () => {
 		expect(Object.keys(steadingProfileSchema(f)).sort()).toEqual(
 			["assets", "attributes", "improvements", "neighborPlaces", "placesOfInterest", "residents"],
 		);
+	});
+
+	it("shares the ratings shape via steadingRatingsSchema (size a string, the rest numbers)", () => {
+		const ratings = new f.SchemaField(steadingRatingsSchema(f)).initialize({});
+		expect(ratings).toEqual({ fortunes: 0, surplus: 0, size: "", population: 0, prosperity: 0, defenses: 0 });
 	});
 
 	it("returns fresh field instances each call (safe to compose into two models)", () => {

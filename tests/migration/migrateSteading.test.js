@@ -2,7 +2,10 @@ import { describe, expect, it } from "vitest";
 import { migrateSteading } from "../../src/migration/migrateSteading.js";
 import { FakeActorBuilder } from "../fakes/FakeActorBuilder.js";
 
-const CORE = ["market", "mill"];
+const DEFAULTS = {
+	improvements: ["market", "mill"],
+	attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
+};
 
 // A legacy (pre-Stage-C) steading: ratings stored as INDICES into [-1,0,1,2,3], size as an index,
 // resources/fortifications inside attributes.*.items, places as bare strings, resident pool in
@@ -31,7 +34,7 @@ function legacySteading() {
 describe("migrateSteading (legacy index shape → actual-value shape)", () => {
 	it("converts ratings from indices to actual values and size to its tier", async () => {
 		const actor = legacySteading();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.attributes).toEqual({
 			fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1,
 		});
@@ -39,7 +42,7 @@ describe("migrateSteading (legacy index shape → actual-value shape)", () => {
 
 	it("moves the resource/fortification lists into assets", async () => {
 		const actor = legacySteading();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.assets.items).toEqual(["A wagon"]);
 		expect(actor.system.assets.resources).toEqual(["Farming", "Distilling"]);
 		expect(actor.system.assets.fortifications).toEqual(["Village militia"]);
@@ -48,7 +51,7 @@ describe("migrateSteading (legacy index shape → actual-value shape)", () => {
 
 	it("reshapes places to objects and folds the resident pool + people", async () => {
 		const actor = legacySteading();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.placesOfInterest).toEqual([
 			{ name: "The Stone", journalReference: "" },
 			{ name: "The Granary", journalReference: "" },
@@ -59,15 +62,23 @@ describe("migrateSteading (legacy index shape → actual-value shape)", () => {
 
 	it("sets the steadfast, seeds owned improvements, and keeps pick state", async () => {
 		const actor = legacySteading();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.steadfast).toBe("stonetop");
 		expect(actor.system.improvements).toEqual(["market", "mill"]);
 		expect(actor.system.improvementValues).toEqual({ market: { offer: 1 } });
 	});
 
+	it("captures the steadfast's starting-attribute baseline (for the 'Starts at …' notes)", async () => {
+		const actor = legacySteading();
+		await migrateSteading(actor, DEFAULTS);
+		expect(actor.system.startingAttributes).toEqual({
+			fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0,
+		});
+	});
+
 	it("preserves untouched runtime state (debilities)", async () => {
 		const actor = legacySteading();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.debilities.diminished).toBe(true);
 	});
 
@@ -76,7 +87,7 @@ describe("migrateSteading (legacy index shape → actual-value shape)", () => {
 			steadfast: "stonetop",
 			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 		}).build();
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.attributes.prosperity).toBe(0);
 	});
 });
@@ -93,7 +104,7 @@ describe("migrateSteading — flag-legacy sources", () => {
 			"steading.residents": [{ name: "Aldric" }],
 			"steading.neighborPeople": [{ name: "Mira" }],
 		});
-		await migrateSteading(actor, CORE);
+		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.improvementValues).toEqual({ "imp-1": 1 });
 		expect(actor.system.residentPeople).toEqual([{ name: "Aldric" }]);
 		expect(actor.system.neighborPeople).toEqual([{ name: "Mira" }]);

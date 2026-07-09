@@ -1,4 +1,4 @@
-import { steadingProfileSchema } from "./steadingProfileSchema.js";
+import { steadingProfileSchema, steadingRatingsSchema } from "./steadingProfileSchema.js";
 
 // A steading actor. It is generic — a blank steading is an EMPTY place. It receives its starting
 // values by applying a steadfast (applySteadfast / the create hook copies the steadfast's profile
@@ -30,6 +30,10 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			}),
 
 			...steadingProfileSchema(f),
+
+			// The immutable starting ratings copied from the steadfast on apply — the baseline the
+			// "Starts at …" notes read, so they stay correct even after `attributes` are edited in play.
+			startingAttributes: new f.SchemaField(steadingRatingsSchema(f)),
 
 			// Runtime-only instances + pick state (not part of the shared definition a steadfast holds).
 			residentPeople:    new f.ArrayField(new f.ObjectField()),  // the actual people (pool → residents)

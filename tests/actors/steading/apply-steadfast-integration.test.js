@@ -60,6 +60,18 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 		expect(snap.placesOfInterest[0].value).toBe("The Stone");
 		expect(snap.residentNames).toContain("Aderyn");
 		expect(snap.residentTraits.length).toBeGreaterThanOrEqual(90);
+		// The "Starts at …" notes are derived from the starting baseline + localized template.
+		expect(snap.fortunes.note.raw).toBe("Starts at +1");
+		expect(snap.attributes.size.note.raw).toBe("Starts at <em>village</em>");
+		expect(snap.attributes.prosperity.note.raw).toBe("Starts at +0");
+	});
+
+	it("shows no 'Starts at …' notes on a blank steading (no steadfast applied)", async () => {
+		const snap = await new StonetopSteading(blankSteading(), improvementsRepo, movesRepo).buildSnapshot();
+		expect(snap.fortunes.note.raw).toBe("");
+		expect(snap.surplus.note.raw).toBe("");
+		expect(snap.attributes.size.note.raw).toBe("");
+		expect(snap.attributes.prosperity.note.raw).toBe("");
 	});
 
 	it("rolls the actual rating values", async () => {

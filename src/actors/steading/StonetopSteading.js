@@ -10,6 +10,7 @@ import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
 import {SteadingImprovements} from "./SteadingImprovements.js";
 import {SteadingMoves} from "./SteadingMoves.js";
+import {startingAttributeNote} from "./startingAttributeNote.js";
 
 export class StonetopSteading {
 	constructor(actor, improvementsRepo, movesRepo) {
@@ -85,11 +86,11 @@ export class StonetopSteading {
 	async buildSnapshot() {
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
-				SteadingDefaults.fortunes.title, SteadingDefaults.fortunes.note,
+				SteadingDefaults.fortunes.title, startingAttributeNote(this._actor, "fortunes"),
 				this.fortunesCurrent, SteadingDefaults.fortunes.options, SteadingDefaults.fortunes.bonuses,
 			),
 			surplus: new SurplusSnapshot(
-				SteadingDefaults.surplus.title, SteadingDefaults.surplus.note, this.surplusCurrent,
+				SteadingDefaults.surplus.title, startingAttributeNote(this._actor, "surplus"), this.surplusCurrent,
 			),
 			attributes:         this.attributes.buildSnapshot(),
 			debilities:         this.debilities.buildSnapshot(),

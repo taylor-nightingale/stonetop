@@ -43,6 +43,12 @@ describe("applySteadfast", () => {
 		expect(actor.system.improvements).toEqual(["market", "mill"]);
 	});
 
+	it("captures the steadfast's attributes as the immutable starting baseline", async () => {
+		const actor = makeSteading();
+		await applySteadfast(actor, steadfast());
+		expect(actor.system.startingAttributes).toEqual(steadfast().system.attributes);
+	});
+
 	it("leaves the steading's runtime state untouched", async () => {
 		const actor = makeSteading();
 		await applySteadfast(actor, steadfast());

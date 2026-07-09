@@ -9,6 +9,9 @@ export async function applySteadfast(actor, steadfast) {
 	const src = steadfast.system;
 	const update = { "system.steadfast": src.slug };
 	for (const field of PROFILE_FIELDS) update[`system.${field}`] = structuredClone(src[field]);
+	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
+	// notes stay correct after the live `attributes` are edited in play.
+	update["system.startingAttributes"] = structuredClone(src.attributes);
 	await actor.update(update);
 }
 

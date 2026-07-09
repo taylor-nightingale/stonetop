@@ -23,6 +23,10 @@ describe("generated Stonetop steadfast", () => {
 		expect(a.size).toBe("village");
 	});
 
+	it("does not carry authored note strings (notes derive from the starting values)", () => {
+		expect(stonetop.system.attributeNotes).toBeUndefined();
+	});
+
 	it("starts population/prosperity/defenses at the actual +0 rating", () => {
 		expect(a.population).toBe(0);
 		expect(a.prosperity).toBe(0);

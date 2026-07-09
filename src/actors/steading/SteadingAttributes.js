@@ -1,5 +1,6 @@
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
 import {AttributeSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
+import {startingAttributeNote} from "./startingAttributeNote.js";
 
 // Which asset list backs each rating. Prosperity's sources are `resources`; Defenses' are
 // `fortifications`. Size and Population have no backing list.
@@ -59,8 +60,10 @@ export class SteadingAttributes {
 
 	_attrSnapshot(slug) {
 		const def = SteadingDefaults.attributes[slug];
-		// Ratings select by their `bonuses`; size selects by its tier `values`.
+		// Ratings select by their `bonuses`; size selects by its tier `values`. The "Starts at …" note is
+		// derived from the steadfast-supplied starting baseline (empty until a steadfast is applied).
 		const values = def.values ?? def.bonuses;
-		return new AttributeSnapshot(slug, def.title, def.note, this._value(slug), def.options, values, this._items(slug));
+		const note   = startingAttributeNote(this._actor, slug);
+		return new AttributeSnapshot(slug, def.title, note, this._value(slug), def.options, values, this._items(slug));
 	}
 }

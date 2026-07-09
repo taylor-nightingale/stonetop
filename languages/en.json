@@ -62,6 +62,9 @@
 			"adv": "Advantage",
 			"dis": "Disadvantage"
 		},
+		"steading": {
+			"startsAt": "Starts at {value}"
+		},
 		"followers": {
 			"empty": "Drag followers here from the Followers compendium.",
 			"remove": "Remove",

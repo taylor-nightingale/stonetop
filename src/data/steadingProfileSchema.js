@@ -1,20 +1,26 @@
+// The six steading ratings, as actual game numbers. Size is a named tier (hamlet/village/town/city)
+// so it's a string; the ±N ratings are the numbers themselves; Surplus is a raw count. Used both for a
+// steading's live `attributes` and the immutable `startingAttributes` baseline it keeps for the
+// "Starts at …" notes. Returns FRESH field instances each call (Foundry can't share field instances).
+export function steadingRatingsSchema(f) {
+	return {
+		fortunes:   new f.NumberField({ initial: 0, integer: true }),
+		surplus:    new f.NumberField({ initial: 0, integer: true }),
+		size:       new f.StringField({ initial: "" }),
+		population: new f.NumberField({ initial: 0, integer: true }),
+		prosperity: new f.NumberField({ initial: 0, integer: true }),
+		defenses:   new f.NumberField({ initial: 0, integer: true }),
+	};
+}
+
 // The shared "steading definition" shape, composed into BOTH SteadfastData (the template) and
 // SteadingData (a live steading actor) so the two can't drift. A steadfast holds these as its
 // starting values; applying it copies them onto the actor, which then edits its own copy in play.
 // Returns FRESH field instances each call — Foundry SchemaFields can't share field instances.
 export function steadingProfileSchema(f) {
 	return {
-		// Starting ratings as actual game numbers. Size is a named tier (hamlet/village/town/city) so
-		// it's a string; the ±N ratings are the numbers themselves; Surplus is a raw count. The lists
-		// backing Prosperity/Defenses live under `assets` (resources / fortifications), not here.
-		attributes: new f.SchemaField({
-			fortunes:   new f.NumberField({ initial: 0, integer: true }),
-			surplus:    new f.NumberField({ initial: 0, integer: true }),
-			size:       new f.StringField({ initial: "" }),
-			population: new f.NumberField({ initial: 0, integer: true }),
-			prosperity: new f.NumberField({ initial: 0, integer: true }),
-			defenses:   new f.NumberField({ initial: 0, integer: true }),
-		}),
+		// The lists backing Prosperity/Defenses live under `assets` (resources / fortifications).
+		attributes: new f.SchemaField(steadingRatingsSchema(f)),
 
 		assets: new f.SchemaField({
 			items:          new f.ArrayField(new f.StringField()),

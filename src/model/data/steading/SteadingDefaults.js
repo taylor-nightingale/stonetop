@@ -1,20 +1,17 @@
 export const SteadingDefaults = {
 	fortunes: {
 		title:   "Fortunes",
-		note:    "Starts at +1",
 		current: 2,
 		bonuses: [-1, 0, 1, 2, 3],
 		options: ["-1", "+0", "+1", "+2", "+3"],
 	},
 	surplus: {
 		title:   "Surplus",
-		note:    "Starts at 1",
 		current: 1,
 	},
 	attributes: {
 		size: {
 			title:   "Size",
-			note:    "Starts at <em>village</em>",
 			// Size is a named tier, not a ±N rating: `values` are the stored tier strings, parallel to
 			// `options` (their display labels). A steading stores one of `values` in system.attributes.size.
 			values:  ["hamlet", "village", "town", "city"],
@@ -27,19 +24,16 @@ export const SteadingDefaults = {
 		},
 		population: {
 			title:   "Population",
-			note:    "Starts at +0",
 			bonuses: [-1, 0, 1, 2, 3],
 			options: ["-1", "+0", "+1", "+2", "+3"],
 		},
 		prosperity: {
 			title:   "Prosperity",
-			note:    "Starts at +0",
 			bonuses: [-1, 0, 1, 2, 3],
 			options: ["-1", "+0", "+1", "+2", "+3"],
 		},
 		defenses: {
 			title:   "Defenses",
-			note:    "Starts at +0",
 			bonuses: [-1, 0, 1, 2, 3],
 			options: [
 				"-1 <em>feeble</em>",

@@ -13,6 +13,7 @@ describe("SteadingData defaults (blank = empty place)", () => {
 		expect(d.neighborPlaces).toEqual([]);
 		expect(d.residents).toEqual({ names: "", traits: [] });
 		expect(d.improvements).toEqual([]);
+		expect(d.startingAttributes).toEqual({ fortunes: 0, surplus: 0, size: "", population: 0, prosperity: 0, defenses: 0 });
 	});
 
 	it("defaults its steadfast reference and text fields to empty, rollMode to normal", () => {

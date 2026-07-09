@@ -19,7 +19,7 @@
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="fortunes">Fortunes</button>
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.fortunes.note}}</div>
+				{{#if (hasText stonetop.fortunes.note)}}<div class="steading-start-line">{{rich stonetop.fortunes.note}}</div>{{/if}}
 				<div class="steading-rating-options">
 					{{#each stonetop.fortunes.options}}
 						<label class="steading-rating-option">
@@ -44,7 +44,7 @@
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>
+				{{#if (hasText stonetop.surplus.note)}}<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>{{/if}}
 				<input class="steading-surplus-input stonetop-step" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
 			</div>
 
@@ -61,7 +61,7 @@
 				<h2>
 					Size
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.attributes.size.note}}</div>
+				{{#if (hasText stonetop.attributes.size.note)}}<div class="steading-start-line">{{rich stonetop.attributes.size.note}}</div>{{/if}}
 				<div class="steading-rating-options">
 					{{#each stonetop.attributes.size.options}}
 						<label class="steading-rating-option">
@@ -86,7 +86,7 @@
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="population">Population</button>
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.attributes.population.note}}</div>
+				{{#if (hasText stonetop.attributes.population.note)}}<div class="steading-start-line">{{rich stonetop.attributes.population.note}}</div>{{/if}}
 				<div class="steading-rating-options">
 					{{#each stonetop.attributes.population.options}}
 						<label class="steading-rating-option">
@@ -111,7 +111,7 @@
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="prosperity">Prosperity</button>
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.attributes.prosperity.note}}</div>
+				{{#if (hasText stonetop.attributes.prosperity.note)}}<div class="steading-start-line">{{rich stonetop.attributes.prosperity.note}}</div>{{/if}}
 				<div class="steading-rating-options">
 					{{#each stonetop.attributes.prosperity.options}}
 						<label class="steading-rating-option">
@@ -136,7 +136,7 @@
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="defenses">Defenses</button>
 				</h2>
-				<div class="steading-start-line">{{rich stonetop.attributes.defenses.note}}</div>
+				{{#if (hasText stonetop.attributes.defenses.note)}}<div class="steading-start-line">{{rich stonetop.attributes.defenses.note}}</div>{{/if}}
 				<div class="steading-rating-options steading-rating-options--wide">
 					{{#each stonetop.attributes.defenses.options}}
 						<label class="steading-rating-option">
