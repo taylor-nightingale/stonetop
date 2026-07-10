@@ -1,0 +1,18 @@
+{{!-- The Places of Interest panel — a lettered (A, B, C…) list of place-name inputs plus an add
+      button. Shared by the steading notes tab and the steadfast sheet.
+      Params: places (array of {key, index, value}). --}}
+<div class="steading-notes-field steading-panel-frame">
+	{{> "stonetop.panel-frame"}}
+	<h2>Places of Interest</h2>
+	<div class="stonetop-places-list">
+		{{#each places}}
+			<div class="stonetop-places-row">
+				<span class="stonetop-place-key">{{key}}.</span>
+				<input type="text" class="stonetop-place-field" data-index="{{index}}" value="{{value}}">
+			</div>
+		{{/each}}
+	</div>
+	<button type="button" class="stonetop-place-add stonetop-icon-btn" title="Add place" aria-label="Add place">
+		<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+	</button>
+</div>

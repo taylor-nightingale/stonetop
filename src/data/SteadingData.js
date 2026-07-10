@@ -15,6 +15,10 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			notes:       new f.StringField({ initial: "" }),
 			rollMode:    new f.StringField({ initial: "normal" }),
 
+			// Per-move resource state (checked counts + fill-in text) for homefront moves, keyed by
+			// slug under the "moves" namespace — same shape/section a character uses (ResourceController).
+			resources:   new f.SchemaField({ counts: new f.ObjectField(), texts: new f.ObjectField() }),
+
 			debilities: new f.SchemaField({
 				diminished: new f.BooleanField({ initial: false }),
 				lacking:    new f.BooleanField({ initial: false }),

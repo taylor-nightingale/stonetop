@@ -1,6 +1,27 @@
 import { describe, it, expect } from "vitest";
-import { applySteadfast } from "../../../src/actors/steading/applySteadfast.js";
+import { applySteadfast, matchSteadfastByName } from "../../../src/actors/steading/applySteadfast.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
+
+describe("matchSteadfastByName", () => {
+	const list = [
+		{ slug: "stonetop", name: "Stonetop" },
+		{ slug: "barrier-pass", name: "Barrier Pass" },
+	];
+
+	it("matches a steadfast by name, ignoring case and surrounding space", () => {
+		expect(matchSteadfastByName("  barrier pass ", list)).toEqual({ slug: "barrier-pass", name: "Barrier Pass" });
+	});
+
+	it("returns null for a custom name that matches no steadfast", () => {
+		expect(matchSteadfastByName("Havenrock", list)).toBeNull();
+	});
+
+	it("returns null for a blank name", () => {
+		expect(matchSteadfastByName("", list)).toBeNull();
+		expect(matchSteadfastByName("   ", list)).toBeNull();
+		expect(matchSteadfastByName(null, list)).toBeNull();
+	});
+});
 
 const steadfast = () => ({
 	name: "Stonetop",

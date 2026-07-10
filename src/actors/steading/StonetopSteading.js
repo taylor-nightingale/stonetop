@@ -84,6 +84,9 @@ export class StonetopSteading {
 
 
 	async buildSnapshot() {
+		// Homefront moves seed onto the steading as embedded items (idempotent) the same way basic moves
+		// seed onto a character — must run before the moves snapshot reads them back.
+		await this.moves.seedHomefrontMoves();
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
 				SteadingDefaults.fortunes.title, startingAttributeNote(this._actor, "fortunes"),

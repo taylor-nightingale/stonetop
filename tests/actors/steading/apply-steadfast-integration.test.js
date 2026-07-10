@@ -4,7 +4,7 @@ import { applySteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
-import { FakeSteadingMovesRepository } from "../../fakes/FakeSteadingMovesRepository.js";
+import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 
 // End-to-end (real code, mock only Foundry): apply the REAL Stonetop steadfast to a blank steading,
 // then drive the real snapshot + rolling. Catches wiring bugs that per-class unit tests (with
@@ -26,7 +26,7 @@ function blankSteading() {
 	}).build();
 }
 
-const movesRepo = new FakeSteadingMovesRepository();
+const movesRepo = new FakeMoveRepository();
 const improvementsRepo = { getBySlug: async () => null };
 
 describe("apply Stonetop steadfast → steading (integration)", () => {

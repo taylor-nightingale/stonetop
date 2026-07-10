@@ -1,3 +1,6 @@
+import { Coinage } from "./Coinage.js";
+import { Currency } from "./Currency.js";
+
 // The three asset lists a steading owns: general `items`, the `resources` backing Prosperity, and the
 // `fortifications` backing Defenses (plus coinage). Resources/fortifications are edited through
 // SteadingAttributes (they render under their rating); `items` is edited here. All share one keyed
@@ -31,10 +34,21 @@ export class SteadingAssets {
 		await this._saveList("items", items);
 	}
 
-	async updateCoinageEntry(index, field, value) {
-		const coinage = [...this._state.coinage];
-		coinage[index] = {...coinage[index], [field]: value};
-		await this._saveList("coinage", coinage);
+	async updatePurses(title, count) {
+		await this._updateCurrency(title, currency => currency.withPurses(count));
+	}
+
+	async updateHandfuls(title, count) {
+		await this._updateCurrency(title, currency => currency.withHandfuls(count));
+	}
+
+	async updateCoins(title, count) {
+		await this._updateCurrency(title, currency => currency.withCoins(count));
+	}
+
+	async _updateCurrency(title, change) {
+		const current = Coinage.entries(this._state.coinage).find(c => c.title === title) ?? Currency.of(title);
+		await this._saveList("coinage", Coinage.withUpdated(this._state.coinage, change(current)));
 	}
 
 	buildSnapshot() {
@@ -42,7 +56,7 @@ export class SteadingAssets {
 			items:          this._state.items,
 			resources:      this._state.resources,
 			fortifications: this._state.fortifications,
-			coinage:        this._state.coinage,
+			coinage:        Coinage.entries(this._state.coinage),
 		};
 	}
 }

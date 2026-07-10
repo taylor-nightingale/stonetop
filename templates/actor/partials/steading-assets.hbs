@@ -1,0 +1,40 @@
+{{!-- The Assets panel — the general `items` list plus the coinage grid (purses/handfuls/coins per
+      currency). Shared by the steading overview and the steadfast sheet.
+      Params: items (array of strings), coinage (array of {title, purses, handfuls, coins}). --}}
+<div class="steading-overview-field steading-panel-frame">
+	{{> "stonetop.panel-frame"}}
+	<h2>Assets</h2>
+	<div class="steading-attr-list">
+		{{#each items}}
+			<div class="steading-attr-row">
+				<input type="text" class="stonetop-asset-item" data-index="{{@index}}" value="{{this}}">
+				<button class="stonetop-asset-item-remove stonetop-icon-btn" type="button" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
+					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+				</button>
+			</div>
+		{{/each}}
+		<button class="stonetop-asset-item-add stonetop-icon-btn" type="button" title="Add" aria-label="Add">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+		</button>
+	</div>
+</div>
+
+<div class="steading-asset-currency-grid">
+	{{#each coinage}}
+		<label class="steading-asset-currency-frame">
+			<span>{{label}} Purses</span>
+			<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" min="0"
+			       data-title="{{title}}" value="{{purses}}">
+		</label>
+		<label class="steading-asset-currency-frame">
+			<span>{{label}} Handfuls</span>
+			<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" min="0"
+			       data-title="{{title}}" value="{{handfuls}}">
+		</label>
+		<label class="steading-asset-currency-frame">
+			<span>{{label}} Coins</span>
+			<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" min="0"
+			       data-title="{{title}}" value="{{coins}}">
+		</label>
+	{{/each}}
+</div>

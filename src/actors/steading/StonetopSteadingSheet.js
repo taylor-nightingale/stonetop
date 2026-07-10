@@ -1,6 +1,6 @@
 import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { confirmDelete } from "../../utils/confirmDelete.js";
-import { applySteadfast, loadSteadfast, loadAllSteadfasts } from "./applySteadfast.js";
+import { applySteadfast, loadSteadfast, loadAllSteadfasts, matchSteadfastByName } from "./applySteadfast.js";
 
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
@@ -24,12 +24,24 @@ export function createStonetopSteadingSheetClass(Base) {
 			return "systems/stonetop/templates/actor/steading.hbs";
 		}
 
+		// A steadfast dropped on a steading isn't embedded as an owned item — it re-seeds the steading's
+		// definition (the same as picking one from the sheet's dropdown). Anything else drops as normal.
+		async _onDropItem(event, data) {
+			const item = await Item.implementation.fromDropData(data);
+			if (item?.type === "steadfast") {
+				if (this.isEditable) await applySteadfast(this.actor, item);
+				return;
+			}
+			return super._onDropItem(event, data);
+		}
+
 		async getData() {
 			const ctx = await super.getData();
 			ctx.stonetop = await this._stonetopSteading.buildSnapshot();
 			await enrichRichTextTree(ctx.stonetop, this.actor?.getRollData?.() ?? {});
 			// The steadfast picker at the top of the sheet: every steadfast + the one this steading uses.
-			ctx.availableSteadfasts = await loadAllSteadfasts();
+			// The list is stashed so the name combobox's change handler can resolve a picked/typed name.
+			ctx.availableSteadfasts = this._availableSteadfasts = await loadAllSteadfasts();
 			ctx.currentSteadfast    = this.actor.system.steadfast;
 			return ctx;
 		}
@@ -51,13 +63,19 @@ export function createStonetopSteadingSheetClass(Base) {
 					});
 			};
 
-			// Steadfast picker — selecting one applies it (re-seeds the definition fields and renames the
-			// steading; runtime state like residents/debilities is preserved by applySteadfast).
-			html.find(".steading-steadfast-select").on("change", async ev => {
-				const slug = ev.currentTarget.value;
-				if (!slug || slug === this.actor.system.steadfast) return;
-				const steadfast = await loadSteadfast(slug);
-				if (steadfast) await applySteadfast(this.actor, steadfast);
+			// Name combobox — typing/picking a value that matches a steadfast name applies it (re-seeds the
+			// definition fields and adopts its name; runtime state like residents/debilities is preserved).
+			// Any other value is just the steading's own name. Dropping a steadfast routes through the same
+			// applySteadfast (see _onDropItem).
+			html.find(".steading-steadfast-input").on("change", async ev => {
+				const value = ev.currentTarget.value.trim();
+				const match = matchSteadfastByName(value, this._availableSteadfasts ?? []);
+				if (match) {
+					const steadfast = await loadSteadfast(match.slug);
+					if (steadfast) await applySteadfast(this.actor, steadfast);
+				} else if (value && value !== this.actor.name) {
+					await this.actor.update({ name: value });
+				}
 			});
 
 			// Roll mode
@@ -122,9 +140,14 @@ export function createStonetopSteadingSheetClass(Base) {
 			});
 
 			// Coinage
-			html.find(".stonetop-coinage-input").on("change", async ev => {
-				const { index, field } = ev.currentTarget.dataset;
-				await this._stonetopSteading.assets.updateCoinageEntry(parseInt(index), field, parseInt(ev.currentTarget.value) || 0);
+			html.find(".stonetop-coinage-purses").on("change", async ev => {
+				await this._stonetopSteading.assets.updatePurses(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
+			});
+			html.find(".stonetop-coinage-handfuls").on("change", async ev => {
+				await this._stonetopSteading.assets.updateHandfuls(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
+			});
+			html.find(".stonetop-coinage-coins").on("change", async ev => {
+				await this._stonetopSteading.assets.updateCoins(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
 			});
 
 			// Residents
@@ -191,6 +214,29 @@ export function createStonetopSteadingSheetClass(Base) {
 				const { cgGroup, cgOption, cgIndex } = el.dataset;
 				const count = el.checked ? parseInt(cgIndex) + 1 : parseInt(cgIndex);
 				await this._stonetopSteading.improvements.setTrack(cgGroup, cgOption, count);
+			}, true);
+
+			// Homefront moves go through the standard embedded-move flow: the acquisition checkbox
+			// toggles the owned move, the resource pips/input track its per-move resource state. Roll
+			// clicks (.rollable) are handled by the inherited StonetopActorSheet listener.
+			html.find(".stonetop-move-check").on("change", async ev => {
+				const { moveSlug } = ev.currentTarget.dataset;
+				if (ev.currentTarget.checked) await this._stonetopSteading.moves.incrementMove(moveSlug);
+				else                          await this._stonetopSteading.moves.decrementMove(moveSlug);
+			});
+			html[0].addEventListener("click", async ev => {
+				const btn = ev.target.closest(".stonetop-item-resource-check");
+				if (!btn || btn.dataset.moveSlug === undefined) return;
+				ev.stopPropagation();
+				ev.stopImmediatePropagation();
+				const isChecked = btn.classList.contains("is-checked");
+				const current = isChecked ? Number(btn.dataset.index) : Number(btn.dataset.index) + 1;
+				await this._stonetopSteading.moves.setMoveResourceCurrent(btn.dataset.moveSlug, current);
+			}, true);
+			html[0].addEventListener("change", async ev => {
+				const el = ev.target.closest(".stonetop-resource-input");
+				if (!el || el.dataset.moveSlug === undefined) return;
+				await this._stonetopSteading.moves.setMoveResourceText(el.dataset.moveSlug, el.value);
 			}, true);
 		}
 	};

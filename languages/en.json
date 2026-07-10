@@ -127,8 +127,6 @@
 		},
 		"steadfast": {
 			"namePlaceholder": "Steadfast name",
-			"description": "Description",
-			"descriptionPlaceholder": "What is this place?",
 			"startingValues": "Starting values",
 			"fortunes": "Fortunes",
 			"surplus": "Surplus",

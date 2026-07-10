@@ -2,10 +2,10 @@ import { describe, it, expect } from "vitest";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
-import { FakeSteadingMovesRepository } from "../../fakes/FakeSteadingMovesRepository.js";
+import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 
 const fakeImprovementsRepo = {getBySlug: async () => null};
-const fakeMoves = new FakeSteadingMovesRepository();
+const fakeMoves = new FakeMoveRepository();
 
 function make() {
 	return new StonetopSteading(new FakeSteadingBuilder().build(), fakeImprovementsRepo, fakeMoves);

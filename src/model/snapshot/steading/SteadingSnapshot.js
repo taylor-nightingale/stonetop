@@ -105,7 +105,7 @@ function splitIntoImprovementColumns(items) {
 	};
 }
 
-function splitIntoColumns(items, columnCount) {
+export function splitIntoColumns(items, columnCount) {
 	const rowsPerColumn = Math.ceil(items.length / columnCount) || 1;
 	return Array.from({ length: columnCount }, (_, i) =>
 		items.slice(i * rowsPerColumn, (i + 1) * rowsPerColumn)

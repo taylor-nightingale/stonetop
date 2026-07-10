@@ -2,6 +2,8 @@ import { describe, it, expect, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
+import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 
 // Drives the WHOLE steading sheet getData (real StonetopSteading + every steading snapshot +
 // RichText + the one enrichRichTextTree pass) and proves a homefront move's @UUID and a default
@@ -22,11 +24,13 @@ function makeSheet(movesRepo) {
 
 describe("StonetopSteadingSheet.getData — rich-text enrichment (integration)", () => {
 	it("enriches a homefront move's @UUID and a default note through the one pass", async () => {
-		const movesRepo = {
-			async getHomefrontMoves() {
-				return [{ id: "trade", name: "Trade", description: "see @UUID[JournalEntry.x]{the Barrow}" }];
-			},
-		};
+		const movesRepo = new FakeMoveRepository().addWorld(
+			new FakeCompendiumMoveBuilder()
+				.withName("Trade")
+				.withMoveType("homefront")
+				.withDescription("see @UUID[JournalEntry.x]{the Barrow}")
+				.build()
+		);
 		const sheet = makeSheet(movesRepo);
 
 		const orig = foundry.applications.ux.TextEditor.implementation.enrichHTML;

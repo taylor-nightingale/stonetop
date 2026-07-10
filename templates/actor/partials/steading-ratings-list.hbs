@@ -1,0 +1,20 @@
+{{!-- A framed add/edit/remove list of the strings backing a rating: `resources` (Prosperity) or
+      `fortifications` (Defenses). Shared by the steading overview and the steadfast sheet.
+      Params: title, attr (the rating slug the list backs), items (array of strings). --}}
+<div class="steading-overview-field steading-panel-frame">
+	{{> "stonetop.panel-frame"}}
+	<h2>{{title}}</h2>
+	<div class="steading-attr-list">
+		{{#each items}}
+			<div class="steading-attr-row">
+				<input type="text" class="stonetop-attr-extra" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}">
+				<button class="stonetop-attr-extra-remove stonetop-icon-btn" type="button" data-attr="{{../attr}}" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
+					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+				</button>
+			</div>
+		{{/each}}
+		<button class="stonetop-attr-extra-add stonetop-icon-btn" type="button" data-attr="{{attr}}" title="Add" aria-label="Add">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+		</button>
+	</div>
+</div>

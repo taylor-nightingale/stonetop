@@ -12,9 +12,20 @@ function make() {
 	return new SteadingAssets(new FakeSteadingBuilder().build());
 }
 
+// A SteadingAssets over an actor whose stored coinage is empty (as every steadfast but Stonetop is).
+function makeWithEmptyCoinage() {
+	const actor = new FakeSteadingBuilder().build();
+	actor.system.assets.coinage = [];
+	return new SteadingAssets(actor);
+}
+
 describe("SteadingAssets.buildSnapshot", () => {
 	it("returns default coinage when no changes made", () => {
 		expect(make().buildSnapshot().coinage).toEqual(DEFAULT_COINAGE);
+	});
+
+	it("still shows the standard currencies when stored coinage is empty", () => {
+		expect(makeWithEmptyCoinage().buildSnapshot().coinage).toEqual(DEFAULT_COINAGE);
 	});
 
 	it("returns default items when no changes made", () => {
@@ -77,40 +88,57 @@ describe("SteadingAssets.updateItem", () => {
 	});
 });
 
-describe("SteadingAssets.updateCoinageEntry", () => {
-	it("updates the specified field on an entry", async () => {
+function silver(assets) {
+	return assets.buildSnapshot().coinage.find(c => c.title === "silver");
+}
+
+describe("SteadingAssets currency updates", () => {
+	it("updatePurses sets purses on the named currency", async () => {
 		const a = make();
-		await a.updateCoinageEntry(0, "purses", 3);
-		expect(a.buildSnapshot().coinage[0].purses).toBe(3);
+		await a.updatePurses("silver", 3);
+		expect(silver(a).purses).toBe(3);
 	});
 
-	it("preserves other fields on the same entry", async () => {
+	it("preserves the currency's other fields", async () => {
 		const a = make();
-		await a.updateCoinageEntry(0, "purses", 9);
-		const entry = a.buildSnapshot().coinage[0];
+		await a.updatePurses("silver", 9);
+		const entry = silver(a);
 		expect(entry.purses).toBe(9);
 		expect(entry.handfuls).toBe(DEFAULT_COINAGE[0].handfuls);
 		expect(entry.coins).toBe(DEFAULT_COINAGE[0].coins);
 		expect(entry.title).toBe(DEFAULT_COINAGE[0].title);
 	});
 
-	it("can update handfuls and coins independently", async () => {
+	it("updateHandfuls and updateCoins update independently", async () => {
 		const a = make();
-		await a.updateCoinageEntry(0, "handfuls", 4);
-		await a.updateCoinageEntry(0, "coins", 7);
-		const entry = a.buildSnapshot().coinage[0];
+		await a.updateHandfuls("silver", 4);
+		await a.updateCoins("silver", 7);
+		const entry = silver(a);
 		expect(entry.handfuls).toBe(4);
 		expect(entry.coins).toBe(7);
 	});
 
 	it("multiple field updates accumulate", async () => {
 		const a = make();
-		await a.updateCoinageEntry(0, "purses", 2);
-		await a.updateCoinageEntry(0, "handfuls", 1);
-		await a.updateCoinageEntry(0, "coins", 5);
-		const entry = a.buildSnapshot().coinage[0];
+		await a.updatePurses("silver", 2);
+		await a.updateHandfuls("silver", 1);
+		await a.updateCoins("silver", 5);
+		const entry = silver(a);
 		expect(entry.purses).toBe(2);
 		expect(entry.handfuls).toBe(1);
 		expect(entry.coins).toBe(5);
+	});
+
+	it("does not touch the other currency", async () => {
+		const a = make();
+		await a.updatePurses("silver", 6);
+		expect(a.buildSnapshot().coinage.find(c => c.title === "gold")).toEqual(DEFAULT_COINAGE[1]);
+	});
+
+	it("creates the entry when editing a standard currency absent from storage", async () => {
+		const a = makeWithEmptyCoinage();
+		await a.updatePurses("gold", 5);
+		expect(silver(a)).toEqual(DEFAULT_COINAGE[0]);
+		expect(a.buildSnapshot().coinage.find(c => c.title === "gold").purses).toBe(5);
 	});
 });

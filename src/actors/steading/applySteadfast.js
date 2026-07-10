@@ -15,6 +15,15 @@ export async function applySteadfast(actor, steadfast) {
 	await actor.update(update);
 }
 
+// Find the steadfast whose name matches `name` (trimmed, case-insensitive), or null. Lets the steading
+// sheet's name combobox tell "picked/typed an existing steadfast" (→ apply it) from "typed a custom
+// steading name" (→ just rename). `steadfasts` is the {slug, name} list from loadAllSteadfasts.
+export function matchSteadfastByName(name, steadfasts) {
+	const key = (name ?? "").trim().toLowerCase();
+	if (!key) return null;
+	return steadfasts.find(s => (s.name ?? "").trim().toLowerCase() === key) ?? null;
+}
+
 // Load a steadfast item from the steadfasts compendium by slug (null if the pack/item is absent).
 // Used to seed new steadings (create hook) and to re-apply when the sheet's steadfast dropdown changes.
 export async function loadSteadfast(slug) {

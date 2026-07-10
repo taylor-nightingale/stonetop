@@ -57,12 +57,19 @@ img.stonetop-broken-img {
 .stonetop.sheet .stonetop-arcanum-title,
 .stonetop.sheet .stonetop-follower-name-input,
 .stonetop.sheet .stonetop-introductions-title,
+.stonetop.sheet.steading .steading-steadfast-input,
 .stonetop-roll-dialog .window-title,
 .stonetop-roll-dialog .stonetop-roll-mode-header,
 .stonetop-roll-dialog .dialog-button {
 	font-family: "StonetopUI", serif;
 	font-weight: bolder;
 	letter-spacing: 0.4px;
+}
+
+/* The character name and the steading name share one heading size (the largest rem step), so the two
+   sheets read consistently instead of relying on the h1 element's browser-default em. */
+.stonetop.sheet.character .charname input {
+	font-size: var(--fs-name);
 }
 
 :root {
@@ -83,6 +90,7 @@ img.stonetop-broken-img {
 	--fs-heading:    1rem;     /* section titles: "Moves" / "Consequences"          */
 	--fs-title:      1.2rem;   /* card / panel / arcanum titles                     */
 	--fs-display:    1.6rem;   /* large display type                                */
+	--fs-name:       2rem;     /* actor / steading name heading (largest)           */
 
 	--stonetop-bg: hsl(30deg 20% 94%);
 	--color-border-highlight-alt: slategrey;
@@ -3244,19 +3252,31 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-steadfast-row {
 	display: flex;
 	justify-content: flex-start;
+	align-items: baseline;   /* the large name and the small hint sit on one baseline */
+	flex-wrap: wrap;
+	gap: 4px 12px;
 	margin-bottom: 8px;
 }
 
-.stonetop.sheet.steading .steading-steadfast-select {
-	font-family: var(--font-serif);
-	font-size: var(--fs-title);
-	text-align: left;
-	text-align-last: left;
-	border: none;
-	background: transparent;
-	width: auto;
-	min-width: 12ch;
-	cursor: pointer;
+.stonetop.sheet.steading .steading-steadfast-hint {
+	font-size: var(--fs-note);
+	font-style: italic;
+	opacity: 0.7;
+}
+
+/* Size to the name so the hint sits right after it, not shoved to the far edge by the input's
+   intrinsic column width. */
+.stonetop.sheet.steading .steading-steadfast-combo {
+	flex: 0 1 auto;
+}
+
+/* The steading's name reads as the sheet heading: title font (via the shared group above) at the same
+   name-heading step the character sheet uses. */
+.stonetop.sheet.steading .steading-steadfast-input {
+	font-size: var(--fs-name);
+	field-sizing: content;
+	min-width: 8ch;
+	max-width: 100%;
 }
 
 .stonetop.sheet.steading .steading-header-grid {
@@ -5163,4 +5183,46 @@ form.stonetop.sheet.steading {
    backing sits behind them.) */
 .application.image-popout {
 	background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png) center / cover !important;
+}
+
+/* ── Steadfast item sheet ──────────────────────────────────────────────────────
+   The steadfast form also carries the `steading` class, so it inherits the shared
+   profile styling (panels, rating options, resource/asset lists). These rules cover
+   the single-page item layout, which differs from the steading's tabbed sheet. */
+.stonetop.sheet.steadfast .stonetop-steadfast-body {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* The overview row (Resources / Defenses / Assets) fills the tab on a steading; on the
+   steadfast's scrolling page it sizes to its content instead. */
+.stonetop.sheet.steadfast .steading-overview-grid {
+	height: auto;
+	min-height: 0;
+	gap: 10px;
+}
+
+.stonetop.sheet.steadfast .stonetop-steadfast-resident-names,
+.stonetop.sheet.steadfast .steading-npc-traits-source {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Granted improvements stack in one column (not the steading's three) with a corner remove. */
+.stonetop.sheet.steadfast .stonetop-steadfast-improvement-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.stonetop.sheet.steadfast .stonetop-steadfast-improvement {
+	position: relative;
+}
+
+.stonetop.sheet.steadfast .steadfast-improvement-remove {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 1;
 }

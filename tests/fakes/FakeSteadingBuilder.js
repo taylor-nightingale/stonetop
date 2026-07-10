@@ -105,13 +105,39 @@ export class FakeSteadingBuilder {
 					"weapons-of-war", "well-trained-militia",
 				],
 				improvementValues: {},
+				resources: { counts: {}, texts: {} },
 			},
 			flags: {},
 			getFlag:                () => undefined,
 			setFlag:                () => Promise.resolve(),
-			createEmbeddedDocuments: vi.fn(),
-			deleteEmbeddedDocuments: vi.fn(),
 			update: (data) => { applyUpdate(actor, data); return Promise.resolve(); },
+		};
+
+		// A working embedded-item collection so seeded homefront moves (and their toggling) behave like
+		// the real actor — buildSnapshot seeds items and reads them back through the standard flow.
+		const items = [];
+		items.get = id => items.find(i => i._id === id) ?? null;
+		let nextId = 0;
+		actor.items = items;
+		actor.createEmbeddedDocuments = async (_, docs) => {
+			const results = docs.map(d => ({ ...d, _id: `created-${nextId++}` }));
+			items.push(...results);
+			items.get = id => items.find(i => i._id === id) ?? null;
+			return results;
+		};
+		actor.updateEmbeddedDocuments = async (_, updates) => {
+			for (const update of updates) {
+				const item = items.get(update._id);
+				if (!item) continue;
+				if (update.name !== undefined) item.name = update.name;
+				if (update.system) for (const [key, value] of Object.entries(update.system)) item.system[key] = value;
+			}
+			return updates;
+		};
+		actor.deleteEmbeddedDocuments = async (_, ids) => {
+			const idSet = new Set(ids);
+			for (let i = items.length - 1; i >= 0; i--) if (idSet.has(items[i]._id)) items.splice(i, 1);
+			return ids;
 		};
 		return actor;
 	}

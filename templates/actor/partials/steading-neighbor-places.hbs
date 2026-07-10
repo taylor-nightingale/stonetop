@@ -1,0 +1,21 @@
+{{!-- The neighboring places list — each a framed panel with an editable Notes field and (if the
+      place seeds them) a read-only Names pool. Shared by the steading neighbors tab and the steadfast
+      sheet. Params: places (array of {slug, name, subtitle, note, names}). --}}
+<section class="steading-neighbor-places">
+	{{#each places}}
+		<section class="steading-neighbor-place steading-panel-frame">
+			{{> "stonetop.panel-frame"}}
+			<h2>{{name}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h2>
+			<label class="steading-neighbor-text-field">
+				<span>Notes</span>
+				<textarea class="stonetop-neighbor-place-note" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
+			</label>
+			{{#if names}}
+				<div class="steading-neighbor-text-field">
+					<span>Names</span>
+					<p class="steading-names-text">{{names}}</p>
+				</div>
+			{{/if}}
+		</section>
+	{{/each}}
+</section>

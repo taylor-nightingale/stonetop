@@ -1,55 +1,112 @@
-<form class="stonetop sheet item steadfast" autocomplete="off">
+{{!-- The `steading` class is intentional: it opts this item sheet into the shared steading profile
+      styling (panels, rating options, resource/asset lists) so the steadfast renders the same as a
+      live steading. Steadfast-only layout tweaks live under `.stonetop.sheet.steadfast`. --}}
+<form class="stonetop sheet item steadfast steading" autocomplete="off">
 
 	<header class="stonetop-insert-sheet-header">
-		<img class="stonetop-insert-sheet-icon" src="{{data.img}}" data-edit="img" title="{{data.name}}" alt="">
-		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{data.name}}"
-		       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}"
-		       {{#unless editable}}disabled{{/unless}}>
+		<img class="stonetop-insert-sheet-icon" src="{{stonetop.img}}" data-edit="img" title="{{stonetop.name}}" alt="">
+		<h1 class="charname stonetop-insert-sheet-name">
+			<input type="text" name="name" value="{{stonetop.name}}"
+			       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}"
+			       {{#unless editable}}disabled{{/unless}}>
+		</h1>
 	</header>
 
-	<div class="stonetop-insert-sheet-body">
+	<div class="stonetop-steadfast-body">
 
-		<section class="stonetop-insert-sheet-section">
-			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.description"}}</label>
-			<textarea name="system.description" rows="3"
-			          placeholder="{{localize 'stonetop.steadfast.descriptionPlaceholder'}}"
-			          {{#unless editable}}disabled{{/unless}}>{{system.description}}</textarea>
+		{{!-- Ratings --}}
+		<section class="steading-header-grid stonetop-steadfast-ratings">
+
+			<div class="steading-stat-panel steading-panel-frame steading-fortunes">
+				{{> "stonetop.panel-frame"}}
+				<h2>{{localize "stonetop.steadfast.fortunes"}}</h2>
+				<input class="stonetop-step" type="number" name="system.attributes.fortunes"
+				       value="{{stonetop.fortunes}}" step="1" {{#unless editable}}disabled{{/unless}}>
+			</div>
+
+			<div class="steading-stat-panel steading-panel-frame steading-surplus">
+				{{> "stonetop.panel-frame"}}
+				<h2>{{localize "stonetop.steadfast.surplus"}}</h2>
+				<input class="stonetop-step" type="number" name="system.attributes.surplus"
+				       value="{{stonetop.surplus}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+			</div>
+
+			{{> "stonetop.steading-stat-panel" attr="size" title="Size" attrData=stonetop.attributes.size panelClass="steading-size"}}
+			{{> "stonetop.steading-stat-panel" attr="population" title="Population" attrData=stonetop.attributes.population panelClass="steading-population"}}
+			{{> "stonetop.steading-stat-panel" attr="prosperity" title="Prosperity" attrData=stonetop.attributes.prosperity panelClass="steading-prosperity"}}
+			{{> "stonetop.steading-stat-panel" attr="defenses" title="Defenses" attrData=stonetop.attributes.defenses wide=true panelClass="steading-defenses"}}
+
 		</section>
 
-		<section class="stonetop-insert-sheet-section">
-			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.startingValues"}}</label>
-			<div class="stonetop-steadfast-attrs">
-				<label>{{localize "stonetop.steadfast.fortunes"}}
-					<input type="number" name="system.attributes.fortunes" value="{{system.attributes.fortunes}}" {{#unless editable}}disabled{{/unless}}></label>
-				<label>{{localize "stonetop.steadfast.surplus"}}
-					<input type="number" name="system.attributes.surplus" value="{{system.attributes.surplus}}" {{#unless editable}}disabled{{/unless}}></label>
-				<label>{{localize "stonetop.steadfast.size"}}
-					<input type="text" name="system.attributes.size" value="{{system.attributes.size}}" {{#unless editable}}disabled{{/unless}}></label>
-				<label>{{localize "stonetop.steadfast.population"}}
-					<input type="number" name="system.attributes.population" value="{{system.attributes.population}}" {{#unless editable}}disabled{{/unless}}></label>
-				<label>{{localize "stonetop.steadfast.prosperity"}}
-					<input type="number" name="system.attributes.prosperity" value="{{system.attributes.prosperity}}" {{#unless editable}}disabled{{/unless}}></label>
-				<label>{{localize "stonetop.steadfast.defenses"}}
-					<input type="number" name="system.attributes.defenses" value="{{system.attributes.defenses}}" {{#unless editable}}disabled{{/unless}}></label>
+		{{!-- Resources / Fortifications / Assets --}}
+		<section class="steading-overview-grid stonetop-steadfast-assets">
+			<section class="steading-overview-column">
+				{{> "stonetop.steading-ratings-list" title="Resources" attr="prosperity" items=stonetop.attributes.prosperity.items}}
+			</section>
+			<section class="steading-overview-column">
+				{{> "stonetop.steading-ratings-list" title="Defenses" attr="defenses" items=stonetop.attributes.defenses.items}}
+			</section>
+			<section class="steading-overview-column steading-assets-column">
+				{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage}}
+			</section>
+		</section>
+
+		{{!-- Places of Interest --}}
+		<section class="stonetop-steadfast-section">
+			{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest}}
+		</section>
+
+		{{!-- Neighbouring places --}}
+		{{#if stonetop.neighbors.places.length}}
+		<section class="stonetop-steadfast-section">
+			{{> "stonetop.steading-neighbor-places" places=stonetop.neighbors.places}}
+		</section>
+		{{/if}}
+
+		{{!-- Resident name / trait pool --}}
+		<section class="stonetop-steadfast-section steading-npc-traits steading-panel-frame">
+			{{> "stonetop.panel-frame"}}
+			<div class="steading-npc-traits-heading">
+				<h2>Residents</h2>
+				<span>The name and trait pools this place seeds — suggestions for generating residents.</span>
+			</div>
+			<label class="stonetop-insert-sheet-label" for="steadfast-resident-names">Names</label>
+			<textarea id="steadfast-resident-names" class="stonetop-steadfast-resident-names" rows="2"
+			          {{#unless editable}}disabled{{/unless}}>{{stonetop.residentNames}}</textarea>
+			<label class="stonetop-insert-sheet-label">NPC Traits</label>
+			<textarea class="steading-npc-traits-source" {{#unless editable}}disabled{{/unless}}>{{stonetop.residentTraitsText}}</textarea>
+			<div class="steading-npc-traits-columns">
+				{{#each stonetop.npcTraitColumns}}
+					<div class="steading-npc-traits-column">
+						{{#each this}}<div class="steading-npc-trait">{{this}}</div>{{/each}}
+					</div>
+				{{/each}}
 			</div>
 		</section>
 
-		<section class="stonetop-insert-sheet-section">
-			<label class="stonetop-insert-sheet-label">{{localize "stonetop.steadfast.improvements"}}</label>
-			<p class="stonetop-insert-sheet-hint">{{localize "stonetop.steadfast.improvementsHint"}}</p>
-			<ul class="stonetop-steadfast-improvements">
-				{{#each grantedImprovements}}
-				<li>
-					<span class="steadfast-improvement-slug">{{this.slug}}</span>
-					{{#if @root.editable}}
-					<button type="button" class="steadfast-improvement-remove" data-slug="{{this.slug}}"
-					        title="{{localize 'stonetop.steadfast.improvementRemove'}}">&times;</button>
-					{{/if}}
-				</li>
+		{{!-- Granted improvements --}}
+		<section class="stonetop-steadfast-section stonetop-steadfast-improvements">
+			<div class="steading-npc-traits-heading">
+				<h2>{{localize "stonetop.steadfast.improvements"}}</h2>
+				<span>{{localize "stonetop.steadfast.improvementsHint"}}</span>
+			</div>
+			<div class="steading-improvements-grid stonetop-steadfast-improvement-list">
+				{{#each stonetop.improvements}}
+					<div class="steading-improvement-group steading-panel-frame stonetop-steadfast-improvement">
+						{{> "stonetop.panel-frame"}}
+						{{#if @root.editable}}
+						<button type="button" class="steadfast-improvement-remove stonetop-icon-btn"
+						        data-slug="{{slug}}" data-name="{{slug}}"
+						        title="{{localize 'stonetop.steadfast.improvementRemove'}}" aria-label="Remove">
+							<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+						</button>
+						{{/if}}
+						{{> "stonetop.improvement-group"}}
+					</div>
 				{{else}}
-				<li class="stonetop-insert-sheet-empty">{{localize "stonetop.steadfast.improvementsEmpty"}}</li>
+					<p class="stonetop-insert-sheet-empty">{{localize "stonetop.steadfast.improvementsEmpty"}}</p>
 				{{/each}}
-			</ul>
+			</div>
 		</section>
 
 	</div>

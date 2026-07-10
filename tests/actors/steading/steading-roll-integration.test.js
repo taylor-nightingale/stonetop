@@ -3,7 +3,7 @@ import { ActorRolling } from "../../../src/actors/ActorRolling.js";
 import { RollRequest } from "../../../src/actors/RollRequest.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
-import { FakeSteadingMovesRepository } from "../../fakes/FakeSteadingMovesRepository.js";
+import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeRoll } from "../../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../../fakes/foundry/FakeChatMessage.js";
 import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
@@ -14,7 +14,7 @@ import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
 function makeRolling() {
 	const actor = new FakeSteadingBuilder().build();
 	actor.getRollData = () => ({});
-	actor.typedActor = new StonetopSteading(actor, { getAll: async () => [] }, new FakeSteadingMovesRepository());
+	actor.typedActor = new StonetopSteading(actor, { getAll: async () => [] }, new FakeMoveRepository());
 	return new ActorRolling(actor);
 }
 

@@ -1,0 +1,21 @@
+{{!-- One rating panel (Size / Population / Prosperity / Defenses) — title, optional roll button, the
+      "Starts at …" note, and the ±N / tier option radios. Shared by the steading header (rollable
+      ratings, "Starts at" notes) and the steadfast sheet (a template — no rolls, no notes).
+      Params: attr (slug), title, attrData (AttributeSnapshot: .note + .options), rollable, wide,
+      panelClass. --}}
+<div class="steading-stat-panel steading-panel-frame {{panelClass}}">
+	{{> "stonetop.panel-frame"}}
+	<h2>
+		{{#if rollable}}<button class="steading-stat-roll rollable" type="button" data-roll="{{attr}}">{{title}}</button>{{else}}{{title}}{{/if}}
+	</h2>
+	{{#if (hasText attrData.note)}}<div class="steading-start-line">{{rich attrData.note}}</div>{{/if}}
+	<div class="steading-rating-options{{#if wide}} steading-rating-options--wide{{/if}}">
+		{{#each attrData.options}}
+			<label class="steading-rating-option">
+				<input class="steading-box-input" type="radio" name="stonetop-attr-{{../attr}}" data-attr="{{../attr}}" value="{{value}}" {{#if selected}}checked{{/if}}>
+				<span class="steading-box" aria-hidden="true"></span>
+				<span class="steading-option-text"><span>{{rich label}}</span></span>
+			</label>
+		{{/each}}
+	</div>
+</div>
