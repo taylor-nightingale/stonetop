@@ -435,6 +435,18 @@ function segmentColumn(rows, base) {
 }
 
 /**
+ * Turn one column's raw stext lines (plus its dividers/images) into typed blocks — the exact
+ * `groupRows → insertRuleRows → segmentColumn` pipeline `extractArticle` runs per column, exposed for
+ * callers that carve their own regions out of a page (e.g. the minor-arcana card grid, whose cards
+ * the generic column clusterer can't see). `base` seeds settlement-block indentation; it defaults to
+ * the region's left edge.
+ */
+export function linesToBlocks(lines, { rules = [], images = [], base } = {}) {
+	const b = base ?? (lines.length ? Math.min(...lines.map((l) => l.bbox[0])) : 0);
+	return segmentColumn(insertRuleRows(groupRows(lines), rules, images), b);
+}
+
+/**
  * A long dice table whose rows run off the bottom of one column and continue at the top of the next
  * is emitted as two `table` blocks (neither tiling 1..N, so neither parses as rollable). Merge a
  * continuation — the next column's first block, a table with a blank or identical header whose rolls

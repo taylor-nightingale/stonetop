@@ -12,18 +12,17 @@ contains only "trade dress" (UI chrome and the small marker glyphs under
 
 ## What goes here
 
-| Subfolder            | Source                       | How to get it                            |
-| -------------------- | ---------------------------- | ---------------------------------------- |
-| `wonders/<hash>.png` | Book II                      | `npm run extract-art -- <Book_II.pdf>`   |
-| `arcana/<slug>.png`  | Book II (separate tool)      | supply manually                          |
-| `steading/*.png`     | core book (Book I)           | supply manually (fortunes/residents/surplus only) |
+| Subfolder                                       | Source  | How to get it                                    |
+| ----------------------------------------------- | ------- | ------------------------------------------------ |
+| `wonders/<hash>.png`                            | Book II | `npm run extract-art`                            |
+| `arcana/<slug>.png`                             | Book II | `npm run extract-art` (major-arcana front art)   |
+| `steading/residents.png`                        | Book I  | `npm run extract-art -- <Book_II> <Book_I>`      |
 
-`npm run extract-art` reliably regenerates only the **wonders** illustrations: they are
-content-addressed (`<sha256>.png`) by the same pipeline that produced the shipped references, so the
-filenames always match. The **arcana** images were cropped/processed with a separate CLI tool (raw
-PDF extraction does not reproduce them byte-for-byte), and the remaining **steading** illustrations
-come from the core book — supply both manually by dropping correctly-named files into the matching
-subfolder.
+`npm run extract-art` regenerates the **wonders**, **major-arcana**, and **steading residents**
+illustrations from the books you own. Wonders are content-addressed (`<sha256>.png`) by the same
+pipeline that produced the shipped references, so the filenames always match; arcana and steading are
+saved under stable slug/name paths the packs/sheet reference (they need not be byte-identical to any
+earlier hand-supplied crop).
 
 ## Using it on a Foundry server
 

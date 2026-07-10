@@ -40,11 +40,11 @@ describe("onClickDrawTable", () => {
 		expect(warned).toEqual([]);
 	});
 
-	it("does nothing and warns for a non-GM", async () => {
+	it("draws for a non-GM too (players can roll their own arcana tables)", async () => {
 		vi.stubGlobal("game", { user: { isGM: false } });
 		await onClickDrawTable(clickInside());
-		expect(drawn).toEqual([]);
-		expect(warned).toHaveLength(1);
+		expect(drawn).toEqual([UUID]);
+		expect(warned).toEqual([]);
 	});
 
 	it("ignores clicks that are not on a draw button", async () => {
