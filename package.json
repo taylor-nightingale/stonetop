@@ -9,7 +9,8 @@
     "pack": "node scripts/compendium-pack/pack.js",
     "unpack": "node scripts/compendium-pack/unpack.js",
     "extract-art": "node scripts/import/pdf/extract-art.js",
-    "build-arcana": "node scripts/import/pdf/build-arcana.js"
+    "build-arcana": "node scripts/import/pdf/build-arcana.js",
+    "pack:module": "node scripts/pack-module.js"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",

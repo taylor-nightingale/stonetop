@@ -23,9 +23,10 @@ describe("documentKey", () => {
 		expect(documentKey("Actor", "abc")).toBe("!actors!abc");
 		expect(documentKey("Item", "abc")).toBe("!items!abc");
 		expect(documentKey("JournalEntry", "abc")).toBe("!journal!abc");
+		expect(documentKey("Macro", "abc")).toBe("!macros!abc");
 	});
 
 	it("throws on an unknown document type", () => {
-		expect(() => documentKey("Macro", "abc")).toThrow();
+		expect(() => documentKey("Scene", "abc")).toThrow();
 	});
 });
