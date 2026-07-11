@@ -291,13 +291,14 @@ describe("ActorRolling.execute — XP on a 6-", () => {
 		expect(FakeChatMessage.lastCreated.flags).toBeUndefined();
 	});
 
-	it("shows no XP line when the track is already full", async () => {
+	it("keeps marking past the level-up threshold (no ceiling on the track)", async () => {
 		const rolling = makeRolling({ bonuses: { str: 0 } });
-		rolling._actor.typedActor.xpFull = true;
-		FakeRoll.setNextTotal(4);
-		await rolling.execute(moveRequest());
-		expect(rolling._actor.typedActor.xpMarks).toBe(0);
-		expect(FakeChatMessage.lastCreated.content).not.toContain("xpMarked");
+		for (let i = 0; i < 9; i++) { // 9 misses at level 1 — one past the 8-XP threshold
+			FakeRoll.setNextTotal(4);
+			await rolling.execute(moveRequest());
+		}
+		expect(rolling._actor.typedActor.xpMarks).toBe(9);
+		expect(FakeChatMessage.lastCreated.content).toContain("stonetop.rollResults.xpMarked");
 	});
 
 	it("tolerates actors without an XP track (no markXp on the typed actor)", async () => {

@@ -207,16 +207,18 @@ describe("CharacterVitals.markXp", () => {
 		expect(snap.xp.value).toBe(3);
 	});
 
-	it("reports false and stays put when the track is full (6 + level × 2)", async () => {
-		const vitals = makeVitals({ xp: { value: 8 }, level: 1 });
-		expect(await vitals.markXp()).toBe(false);
+	it("keeps accumulating past the level-up threshold (Level Up subtracts, excess carries over)", async () => {
+		const vitals = makeVitals({ xp: { value: 8 }, level: 1 }); // threshold is 8 at level 1
+		expect(await vitals.markXp()).toBe(true);
 		const snap = await vitals.buildVitalsSnapshot();
-		expect(snap.xp.value).toBe(8);
+		expect(snap.xp.value).toBe(9);
 	});
 
-	it("uses the level-scaled cap", async () => {
-		const vitals = makeVitals({ xp: { value: 8 }, level: 2 }); // cap 10
-		expect(await vitals.markXp()).toBe(true);
+	it("keeps the snapshot's xp.max as the level-up threshold for display", async () => {
+		const vitals = makeVitals({ xp: { value: 14 }, level: 1 });
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.max).toBe(8);
+		expect(snap.xp.value).toBe(14);
 	});
 });
 
