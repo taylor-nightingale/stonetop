@@ -219,3 +219,27 @@ describe("CharacterVitals.markXp", () => {
 		expect(await vitals.markXp()).toBe(true);
 	});
 });
+
+describe("CharacterVitals.unmarkXp", () => {
+	it("removes one tick from the track", async () => {
+		const vitals = makeVitals({ xp: { value: 3 }, level: 1 });
+		expect(await vitals.unmarkXp()).toBe(true);
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.value).toBe(2);
+	});
+
+	it("reports false and stays put when the track is empty", async () => {
+		const vitals = makeVitals({ xp: { value: 0 }, level: 1 });
+		expect(await vitals.unmarkXp()).toBe(false);
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.value).toBe(0);
+	});
+
+	it("round-trips with markXp", async () => {
+		const vitals = makeVitals({ xp: { value: 2 }, level: 1 });
+		await vitals.markXp();
+		await vitals.unmarkXp();
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.value).toBe(2);
+	});
+});

@@ -56,6 +56,15 @@ export class CharacterVitals {
 		return true;
 	}
 
+	/** Remove 1 XP tick (undoing an auto-mark). Returns whether a tick was removed —
+	 *  false when the track is already empty. */
+	async unmarkXp() {
+		const current = this._actor.system?.attributes?.xp?.value ?? 0;
+		if (current <= 0) return false;
+		await this._actor.update({ "system.attributes.xp.value": current - 1 });
+		return true;
+	}
+
 	async setLevel(level) {
 		await this._actor.update({ "system.attributes.level": Math.max(1, toInt(level)) });
 	}

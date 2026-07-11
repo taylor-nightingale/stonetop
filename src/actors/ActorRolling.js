@@ -1,6 +1,7 @@
 import {RollDisplay} from "../utils/rollDisplay.js";
 import {renderRollCard} from "../utils/rollCard.js";
 import {rich} from "../model/snapshot/RichText.js";
+import {buildXpLine} from "../chat/xpMarkControl.js";
 
 export class ActorRolling {
 	constructor(actor) {
@@ -67,9 +68,14 @@ export class ActorRolling {
 			resultKey,
 			description: rich(request.description),
 			resultText:  rich(request.resultText(resultKey)),
-			xpMarked,
+			xpLine: xpMarked ? buildXpLine(false, k => game.i18n.localize(k)) : null,
 		};
-		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData), rolls: [roll]});
+		return ChatMessage.create({
+			speaker,
+			content: await renderRollCard(card, this._rollData),
+			rolls: [roll],
+			...(xpMarked ? {flags: {stonetop: {xpMark: {undone: false}}}} : {}),
+		});
 	}
 
 	async _postDescription(speaker, request) {

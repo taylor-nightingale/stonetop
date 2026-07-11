@@ -17,6 +17,7 @@ import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
+import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
 import { info } from "./src/utils/logger.js";
 import { rich, hasText } from "./src/model/snapshot/RichText.js";
 import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
@@ -240,3 +241,7 @@ Hooks.on("renderActorSheet", onRenderActorSheet);
 // -- PRE-CREATE ACTOR ------------------------------------------
 // Give new NPCs our house default icon instead of Foundry's mystery-man.
 Hooks.on("preCreateActor", onPreCreateActor);
+
+// -- RENDER CHAT MESSAGE ---------------------------------------
+// Binds the "Undo XP mark" toggle on roll cards that auto-marked XP.
+Hooks.on("renderChatMessageHTML", onRenderChatMessage);

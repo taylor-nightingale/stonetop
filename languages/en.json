@@ -262,7 +262,10 @@
 			"miss": "Miss",
 			"weakHit": "Weak Hit",
 			"strongHit": "Strong Hit!",
-			"xpMarked": "You mark XP."
+			"xpMarked": "You mark XP.",
+			"xpUndo": "Undo",
+			"xpUndone": "XP mark undone.",
+			"xpRemark": "Re-mark"
 		},
 		"npc": {
 			"hitPoints": "Hit Points",
