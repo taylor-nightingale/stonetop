@@ -2045,6 +2045,12 @@ body,
 .stonetop-move-result--partial { color: #7a6000; border-color: #7a6000; }
 .stonetop-move-result--failure { color: #8b0000; border-color: #8b0000; }
 
+.stonetop-roll-xp {
+	margin-top: 0.4em;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
 /* ── Roll mode picker (inventory/equipment tabs) ── */
 
 .stonetop-roll-mode-radio {

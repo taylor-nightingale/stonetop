@@ -198,3 +198,24 @@ describe("CharacterVitals.updateVitalsFromPlaybook", () => {
 		expect((await vitals.buildVitalsSnapshot()).damage).toBeNull();
 	});
 });
+
+describe("CharacterVitals.markXp", () => {
+	it("adds one tick to the track", async () => {
+		const vitals = makeVitals({ xp: { value: 2 }, level: 1 });
+		expect(await vitals.markXp()).toBe(true);
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.value).toBe(3);
+	});
+
+	it("reports false and stays put when the track is full (6 + level × 2)", async () => {
+		const vitals = makeVitals({ xp: { value: 8 }, level: 1 });
+		expect(await vitals.markXp()).toBe(false);
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.xp.value).toBe(8);
+	});
+
+	it("uses the level-scaled cap", async () => {
+		const vitals = makeVitals({ xp: { value: 8 }, level: 2 }); // cap 10
+		expect(await vitals.markXp()).toBe(true);
+	});
+});

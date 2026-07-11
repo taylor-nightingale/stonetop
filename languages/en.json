@@ -261,7 +261,8 @@
 		"rollResults": {
 			"miss": "Miss",
 			"weakHit": "Weak Hit",
-			"strongHit": "Strong Hit!"
+			"strongHit": "Strong Hit!",
+			"xpMarked": "You mark XP."
 		},
 		"npc": {
 			"hitPoints": "Hit Points",

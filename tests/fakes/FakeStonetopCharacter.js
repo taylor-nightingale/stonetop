@@ -19,4 +19,15 @@ export class FakeStonetopCharacter {
 	getRollableStats() {
 		return [];
 	}
+
+	// XP marking (ActorRolling's 6- rule). `xpMarks` counts landed marks; `xpFull` simulates a
+	// full track (markXp then reports false, like the real vitals).
+	xpMarks = 0;
+	xpFull = false;
+
+	async markXp() {
+		if (this.xpFull) return false;
+		this.xpMarks++;
+		return true;
+	}
 }

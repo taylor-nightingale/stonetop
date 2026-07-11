@@ -45,6 +45,17 @@ export class CharacterVitals {
 		await this._actor.update({ "system.attributes.xp.value": Math.max(0, toInt(xp)) });
 	}
 
+	/** Mark 1 XP (the book's tick mark), clamped to the track (6 + level × 2). Returns whether a
+	 *  mark landed — false when the track is already full. */
+	async markXp() {
+		const attrs = this._actor.system?.attributes ?? {};
+		const max = 6 + (attrs.level ?? 1) * 2;
+		const current = attrs.xp?.value ?? 0;
+		if (current >= max) return false;
+		await this._actor.update({ "system.attributes.xp.value": current + 1 });
+		return true;
+	}
+
 	async setLevel(level) {
 		await this._actor.update({ "system.attributes.level": Math.max(1, toInt(level)) });
 	}

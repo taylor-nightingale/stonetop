@@ -39,6 +39,7 @@ beforeEach(() => {
 		d.description ? d.description.render() : "",
 		d.resultText ? d.resultText.render() : "",
 		d.dice ? d.dice.diceGroups.flatMap(g => g.values).join(",") : "",
+		d.xpMarked ? "stonetop.rollResults.xpMarked" : "",
 	].join(" | ");
 });
 
@@ -230,5 +231,66 @@ describe("ActorRolling.execute — ask stat", () => {
 		FakeDialog.close();
 		await p;
 		expect(FakeRoll.lastInstance).toBeNull();
+	});
+});
+
+// -- execute — XP on a miss ------------------------------------------------------
+
+describe("ActorRolling.execute — XP on a 6-", () => {
+	function moveRequest({ xpOnMiss } = {}) {
+		return RollRequest.fromItem({
+			name: "Defy Danger",
+			system: { rollStat: "str", description: "", moveResults: null, ...(xpOnMiss === undefined ? {} : { xpOnMiss }) },
+		});
+	}
+
+	it("marks 1 XP when the roll totals 6-", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		FakeRoll.setNextTotal(6);
+		await rolling.execute(moveRequest());
+		expect(rolling._actor.typedActor.xpMarks).toBe(1);
+		expect(FakeChatMessage.lastCreated.content).toContain("stonetop.rollResults.xpMarked");
+	});
+
+	it("marks nothing on a 7-9 or 10+", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		for (const total of [7, 10]) {
+			FakeRoll.setNextTotal(total);
+			await rolling.execute(moveRequest());
+		}
+		expect(rolling._actor.typedActor.xpMarks).toBe(0);
+		expect(FakeChatMessage.lastCreated.content).not.toContain("xpMarked");
+	});
+
+	it("skips the mark when the move says otherwise (xpOnMiss: false)", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		FakeRoll.setNextTotal(3);
+		await rolling.execute(moveRequest({ xpOnMiss: false }));
+		expect(rolling._actor.typedActor.xpMarks).toBe(0);
+	});
+
+	it("marks on a bare stat-prompt roll too (rolling a stat is still rolling for a move)", async () => {
+		const rolling = makeRolling({ bonuses: { wis: 1 } });
+		FakeRoll.setNextTotal(5);
+		await rolling.execute(statRequest("wis"));
+		expect(rolling._actor.typedActor.xpMarks).toBe(1);
+	});
+
+	it("shows no XP line when the track is already full", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		rolling._actor.typedActor.xpFull = true;
+		FakeRoll.setNextTotal(4);
+		await rolling.execute(moveRequest());
+		expect(rolling._actor.typedActor.xpMarks).toBe(0);
+		expect(FakeChatMessage.lastCreated.content).not.toContain("xpMarked");
+	});
+
+	it("tolerates actors without an XP track (no markXp on the typed actor)", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		delete rolling._actor.typedActor.markXp; // instance shadow-delete falls back to the class method
+		rolling._actor.typedActor.markXp = undefined;
+		FakeRoll.setNextTotal(2);
+		await rolling.execute(moveRequest());
+		expect(FakeChatMessage.lastCreated.content).not.toContain("xpMarked");
 	});
 });

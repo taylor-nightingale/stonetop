@@ -52,6 +52,11 @@ export class ActorRolling {
 					"stonetop.rollResults.miss"
 		);
 
+		// The book's XP rule: mark XP on a 6- roll, unless the move says otherwise (request.xpOnMiss)
+		// or the actor has no XP track (NPCs, steadings). A full track absorbs the mark silently.
+		const xpMarked = resultKey === "failure" && request.xpOnMiss
+			&& (await this._actor.typedActor.markXp?.()) === true;
+
 		const card = {
 			name: request.buildDisplayName(statKey, resultLabel, request.stat === "prompt"),
 			dice: this._display.build(roll, {
@@ -62,6 +67,7 @@ export class ActorRolling {
 			resultKey,
 			description: rich(request.description),
 			resultText:  rich(request.resultText(resultKey)),
+			xpMarked,
 		};
 		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData), rolls: [roll]});
 	}

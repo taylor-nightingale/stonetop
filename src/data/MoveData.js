@@ -17,6 +17,9 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 				partial: new f.SchemaField({ label: new f.StringField({ initial: "7-9" }), value: new f.StringField({ initial: "" }) }),
 				failure: new f.SchemaField({ label: new f.StringField({ initial: "6-"  }), value: new f.StringField({ initial: "" }) }),
 			}),
+			// "You mark XP when you roll for a move and get a 6-, unless the move says otherwise" —
+			// false is how a move says otherwise.
+			xpOnMiss: new f.BooleanField({ initial: true }),
 			requirement: new f.SchemaField({
 				moves:    new f.ArrayField(new f.StringField()),
 				level:    new f.NumberField({ nullable: true, initial: null }),
