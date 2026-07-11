@@ -54,4 +54,57 @@ describe("FoundrySteadingRepository.getProsperity", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ lacking: true })).build();
 		expect(new FoundrySteadingRepository().getProsperity().lacking).toBe(true);
 	});
+
+	it("does not treat a non-boolean lacking value as active (legacy data shapes)", () => {
+		new FakeGameBuilder().withWorldActor(makeSteading({ lacking: { value: true } })).build();
+		expect(new FoundrySteadingRepository().getProsperity().lacking).toBe(false);
+	});
+});
+
+// -- steading selection with strays ---------------------------------------------
+
+describe("FoundrySteadingRepository steading selection", () => {
+	it("prefers the steading named Stonetop over an earlier stray", () => {
+		new FakeGameBuilder()
+			.withWorldActor(makeSteading({ name: "New Steading", current: 1, lacking: true }))
+			.withWorldActor(makeSteading({ name: "Stonetop", current: 2 }))
+			.build();
+		const p = new FoundrySteadingRepository().getProsperity();
+		expect(p.steadingName).toBe("Stonetop");
+		expect(p.value).toBe(1);
+		expect(p.lacking).toBe(false);
+	});
+
+	it("name match is case-insensitive and trims whitespace", () => {
+		new FakeGameBuilder()
+			.withWorldActor(makeSteading({ name: "New Steading" }))
+			.withWorldActor(makeSteading({ name: " stonetop ", current: 3 }))
+			.build();
+		expect(new FoundrySteadingRepository().getProsperity().value).toBe(2);
+	});
+
+	it("prefers a renamed steading over one still at the default name", () => {
+		new FakeGameBuilder()
+			.withTranslation("stonetop.actor.defaultName.steading", "New Steading")
+			.withWorldActor(makeSteading({ name: "New Steading" }))
+			.withWorldActor(makeSteading({ name: "Marshedge", current: 0 }))
+			.build();
+		const p = new FoundrySteadingRepository().getProsperity();
+		expect(p.steadingName).toBe("Marshedge");
+		expect(p.value).toBe(-1);
+	});
+
+	it("falls back to the first steading when all are default-named", () => {
+		new FakeGameBuilder()
+			.withTranslation("stonetop.actor.defaultName.steading", "New Steading")
+			.withWorldActor(makeSteading({ name: "New Steading", current: 4 }))
+			.withWorldActor(makeSteading({ name: "New Steading", current: 0 }))
+			.build();
+		expect(new FoundrySteadingRepository().getProsperity().value).toBe(3);
+	});
+
+	it("a single steading is used whatever its name", () => {
+		new FakeGameBuilder().withWorldActor(makeSteading({ name: "New Steading", current: 2 })).build();
+		expect(new FoundrySteadingRepository().getProsperity().steadingName).toBe("New Steading");
+	});
 });

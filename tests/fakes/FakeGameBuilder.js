@@ -4,6 +4,7 @@ export class FakeGameBuilder {
 	_packs = {};
 	_worldItems = [];
 	_worldActors = [];
+	_translations = {};
 
 	build() {
 		const worldItems = this._worldItems;
@@ -16,7 +17,7 @@ export class FakeGameBuilder {
 				get: (id) => worldItems.find(i => i._id === id) ?? null,
 			},
 			actors: this._worldActors,
-			i18n: { localize: (key) => key },
+			i18n: { localize: (key) => this._translations[key] ?? key },
 		});
 	}
 
@@ -32,6 +33,11 @@ export class FakeGameBuilder {
 
 	withWorldActor(actor) {
 		this._worldActors.push(actor);
+		return this;
+	}
+
+	withTranslation(key, value) {
+		this._translations[key] = value;
 		return this;
 	}
 }
