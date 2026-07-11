@@ -21,7 +21,8 @@
       }
     },
     "rollStat": "int",
-    "slug": "danger-sense"
+    "slug": "danger-sense",
+    "xpOnMiss": false
   },
   "folder": "xnEoWIXTKWl4oAJz"
 }

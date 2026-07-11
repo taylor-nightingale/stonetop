@@ -21,7 +21,8 @@
       }
     },
     "rollStat": "prosperity",
-    "slug": "trade-barter"
+    "slug": "trade-barter",
+    "xpOnMiss": false
   },
   "folder": "PA4a369HV9WVxpI3"
 }

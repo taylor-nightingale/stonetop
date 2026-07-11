@@ -21,7 +21,8 @@
       }
     },
     "rollStat": "con",
-    "slug": "battle-joy"
+    "slug": "battle-joy",
+    "xpOnMiss": false
   },
   "folder": "QAZ4iqkCm6GtadAu"
 }
