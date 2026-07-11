@@ -10,22 +10,21 @@
   increasing your total XP by 1.
 * Add prosperity to inventory tab
 * add steading move automations for debilities
-* Update all of our compendium items to include the json structure for adding outfit items
 * dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
-* tethered arcana needs format fixes
 * localize steading defaults
 * Figure out how to add items from pick rows.
 * support editing/displaying and adding compendium items
-  * followers
   * outfitItems
   * playbooks
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
-* Many arcana need json updates
 * Add button to create or break a link to an NPC to residents and neighbors.
-* Add journal linking to places of interest
-* Support threats
 * Add artifacts on p41 b2
+* Ring of daagon's parsing is messed up. The front side of the ring has a follower -- The Ring that isn't parsed correctly. title "The Ring", tags "deep-wise, greedy, patient, knowledgeable, magical" Cost "devouring fallen, named creatures", Instinct "to give nothing (not even secrets or info) away" Moves "Speak mind-to-mind" "reveal a secret, for a price" "know someone's desires" It has no hp, armor, damage or inventory.
+Ring of daagon's, rune-laden scale consequences have tabbed in check boxes to show that you need to check the outer one before you can check the inner on. We don't handle this tabbing in on choices right now. Perhaps we just add a flag to the choice to tab it in. We dont need to add automation around the checking.
+* Mantel wraiths group has group (3) tag but isn't parsing as a group follower. it should be a group of 3.
+* Convert bio and notes section in notes tab to use prosemirror
+* Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
 
 == Nice to have
 * toggle to turn off non-selected character options
