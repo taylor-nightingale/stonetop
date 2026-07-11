@@ -1,7 +1,8 @@
 <div class="stonetop-stats-row">
 	{{#each stats}}
 	<div class="stonetop-stat" data-stat="{{@key}}">
-		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}">{{name}}</span>
+		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}"
+		      data-tooltip="{{description}}" data-tooltip-direction="UP">{{name}}</span>
 		<input class="stonetop-stat-input" type="number"
 		       name="system.stats.{{@key}}.value"
 		       value="{{value}}" min="-3" max="3"
