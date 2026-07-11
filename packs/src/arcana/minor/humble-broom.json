@@ -10,10 +10,11 @@
 			"item": {
 				"name": "A humble broom",
 				"weight": 1,
-				"note": "*magical, crude*",
+				"tags": "magical, crude",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn't give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.\n\nClearly, there is more to this broom than meets the eye.",
+			"description": "Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn’t give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.",
 			"unlock": {
 				"slug": "humble-broom",
 				"list": [
@@ -21,49 +22,49 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock its mysteries, you must…"
+							"text": "Clearly, there is more to this broom than meets the eye. To unlock its mysteries, you must..."
 						}
 					},
 					{
 						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "… find a Fae who can hear the broom’s song in its entirety."
+						},
 						"slug": "find-fae",
-						"content": {
-							"title": null,
-							"text": "… find a Fae who can hear the broom's song in its entirety."
-						},
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "convince-teach",
 						"content": {
 							"title": null,
-							"text": "… convince them to teach you the broom's song in full."
+							"text": "… convince them to teach you the broom’s song in full."
 						},
+						"slug": "convince-them",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "use-daily",
 						"content": {
 							"title": null,
 							"text": "… use the broom at least once a day for a whole season, singing the lullaby as you do."
 						},
+						"slug": "use-broom",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-timeless-sleep",
 						"content": {
 							"title": null,
 							"text": "… risk falling into a lasting, timeless sleep as you practice the lullaby."
 						},
+						"slug": "risk-falling",
 						"track": {
 							"max": 1
 						}
@@ -72,21 +73,20 @@
 			}
 		},
 		"back": {
-			"title": "The Broom's Lullaby",
+			"title": "The Broom’s Lullaby",
 			"item": {
-				"name": "The Broom's Lullaby",
+				"name": "The Broom’s Lullaby",
 				"weight": 1,
-				"note": "*magical, area, near*",
+				"tags": "magical, area, near",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "When you **_start sweeping an area as you softly sing the lullaby_**, roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. **Also, on a 10+**, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.\n\nWhen you **_sing the full lullaby, sweeping all the while_**, roll +CHA: **on a 10+**, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; **on a 7-9**, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; **on a 6-**, at least one of your audience snaps to and realizes just how weird all this is.",
+			"description": "When you **_start sweeping an area as you softly_** **_sing the lullaby_**, roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. **Also,** **on a 10+**, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.\n\nWhen you **_sing the full lullaby, sweeping all_** **_the while_**, roll +CHA: **on a 10+**, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; **on a 7-9**, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; **on a 6-**, at least one of your audience snaps to and realizes just how weird this all is.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you start sweeping an area as you softly sing the lullaby",
-					"text": "Roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, entranced. **On a 10+**, you can hold their attention for the length of the lullaby. When you sing the full lullaby while sweeping, roll +CHA: **on a 10+**, all who hear fall into a deep sleep; **on a 7-9**, they nod off but will remember; **on a 6-**, at least one snaps to."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

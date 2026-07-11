@@ -10,7 +10,8 @@
 			"item": {
 				"name": "A vellum scroll",
 				"weight": 1,
-				"note": "*fragile*",
+				"tags": "fragile",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
 			"description": "A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?",
@@ -26,44 +27,44 @@
 					},
 					{
 						"type": "entry",
-						"slug": "determine-origin",
 						"content": {
 							"title": null,
-							"text": "… determine the scroll's origin and be able to read the author's language."
+							"text": "… determine the scroll’s origin and be able to read the author’s language."
 						},
+						"slug": "determine-scroll",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "break-cipher",
 						"content": {
 							"title": null,
 							"text": "… break the cipher in which the recipe is encoded."
 						},
+						"slug": "break-cipher",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "acquire-ingredients",
 						"content": {
 							"title": null,
-							"text": "… acquire the recipe's unusual and unsavory ingredients (Value 1)."
+							"text": "… acquire the recipe’s unusual and unsavory ingredients (Value 1)."
 						},
+						"slug": "acquire-recipe",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "practice-incantation",
 						"content": {
 							"title": null,
 							"text": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results."
 						},
+						"slug": "spend-few",
 						"track": {
 							"max": 1
 						}
@@ -74,19 +75,16 @@
 		"back": {
 			"title": "Wishing Candles",
 			"item": null,
-			"description": "When you **_spend a few days following the unsavory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the ugly incantation_**, say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick.\n\n**1d6 COST**\n\n- The crops fail/2d4 Surplus is lost\n- One of the village's resources or assets is lost/stolen/ruined/etc.\n- A neighbor takes seriously ill or suffers a freak accident/loss\n- Weird events plague the village; panic looms\n- No cost to speak of, this time\n- No cost to speak of, this time",
+			"description": "When you **_spend a few days following the unsa_****_vory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the_** **_ugly incantation_**, say what you wish to acquire: it will come into your possession soon. Roll the Die of Fate to learn the cost. If it was an item of Value 1 or less, roll twice and take your pick.\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.oJfcTJO2LY4FtMpA]{1d6}",
 			"resource": {
 				"max": 5,
-				"maxStat": null,
 				"title": "Uses",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you burn a Wishing Candle and utter the ugly incantation",
-					"text": "Say what you wish to acquire; it will come into your possession soon. Roll the Die of Fate to learn the cost. If it is an item of Value 1 or less, roll twice and take your pick."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

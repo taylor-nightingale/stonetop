@@ -3,7 +3,7 @@
 	"_key": "!items!8GMWKr8m725mlG4C",
 	"name": "Bronze protector",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/icons/npc.png",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-shell.png",
 	"system": {
 		"slug": "bronze-protector",
 		"reference": null,

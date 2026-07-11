@@ -10,10 +10,11 @@
 			"item": {
 				"name": "A fine ceramic urn",
 				"weight": 1,
-				"note": "*beautiful, fragile, magical*",
+				"tags": "beautiful, fragile, magical",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it's clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.",
+			"description": "A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it’s clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.",
 			"unlock": {
 				"slug": "fine-ceramic-urn",
 				"list": [
@@ -21,49 +22,49 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock the secrets of the urn, you must…"
+							"text": "To unlock the secrets of the urn, you must..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "commune-spirit",
 						"content": {
 							"title": null,
-							"text": "… commune with the chthonic spirit that dwells within (Instinct to hoard secrets)."
+							"text": "… commune with the chthonic spirit that dwells within (**Instinct** to hoard secrets)."
 						},
+						"slug": "commune-chthonic",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "convince-recipe",
 						"content": {
 							"title": null,
 							"text": "… convince it to teach you both the secret recipe and song required to make its magic work."
 						},
+						"slug": "convince-teach",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "acquire-reagents",
 						"content": {
 							"title": null,
 							"text": "… acquire the reagents required for the recipe (Value 1)."
 						},
+						"slug": "acquire-reagents",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "sing-secret-song",
 						"content": {
 							"title": null,
 							"text": "… manage to sing the secret song for a day and night, without pause."
 						},
+						"slug": "manage-sing",
 						"track": {
 							"max": 1
 						}
@@ -74,19 +75,16 @@
 		"back": {
 			"title": "Plaster of Joining",
 			"item": null,
-			"description": "When you **_pour water, a pinch of blood, and special reagents (Value 1) into the urn and sing over it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will fuse together seamlessly. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
+			"description": "When you **_pour water, a pinch of blood, and spe_****_cial reagents (Value 1) into the urn and sing over_** **_it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces_** **_of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will show a natural, gradient seam. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
 			"resource": {
 				"max": 3,
-				"maxStat": null,
 				"title": "Uses",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you pour water, a pinch of blood, and special reagents into the urn and sing over it for a full day and night",
-					"text": "The urn gains 1 use (3 uses max) of plaster. Use the plaster to join two or more pieces of stone, rock, or crystal; let set for a few hours and the pieces fuse together seamlessly."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

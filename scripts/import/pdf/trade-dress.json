@@ -1,5 +1,5 @@
 {
-  "_comment": "Recurring decorative marker/bullet glyphs from Book II that repeat across many entries. These are trade dress (not copyrighted illustration), so they ship inside the system at assets/content/wonders/markers/<name>.png. The PDF importer (images.js) routes any extracted image whose sha256 is a key here to that named file instead of the content-addressed stonetop-art/wonders/<hash>.png illustration store.",
+  "_comment": "Recurring decorative marker/bullet glyphs from Book II that repeat across many entries. These are trade dress (not copyrighted illustration), so they ship inside the system at assets/content/wonders/markers/<name>.png. The PDF importer (images.js) routes any extracted image whose sha256 is a key here to that named file instead of the content-addressed stonetop-art/wonders/<hash>.png illustration store. The map is many-to-one: the same glyph rendered at a different size hashes differently, so several hashes can share one marker name (e.g. the smaller w~15 arcana-follower renders of marker-wind/shell/skull).",
   "markers": {
     "5a211736e7d52e715dbd33d6d8eae2e212bbd7fb43a08d971d73a6f72c6e0d83": "marker-vessel",
     "5848908d72420c8028b4ce78590688bc3bea49acaa718bae3f50a4f7473a5b34": "marker-danger",
@@ -23,6 +23,9 @@
     "dca2b6f36f4a758d583e50055ea4257a0a4ae7c1a40065e628b8f7cfdce416bd": "marker-creature",
     "bdf76b23d178347bb2aed75530172b841af6743061483d4b2b9202bfa4645560": "marker-eye",
     "6fd78837f466033b1c46fbfc3a6e2b2d39e06fee34c79ed2fa550d8dc6223436": "marker-star",
-    "d7f02cf5dd1e5ba2b681dbe09fc797480eb82d0d4d2973546acfa122afdb8af1": "marker-figures"
+    "d7f02cf5dd1e5ba2b681dbe09fc797480eb82d0d4d2973546acfa122afdb8af1": "marker-figures",
+    "461b3381edb6952eab08da2507680c3413117180e4205d0fac271d5906330668": "marker-wind",
+    "9b9df47ade00ccce2b6df2a2981eaf1274720859d7e9175c1eac2ce9d9c3f3e7": "marker-shell",
+    "1ba8331331aa154424b544fd671d5869e1cb51376cca9157e3ebdcef45f83386": "marker-skull"
   }
 }

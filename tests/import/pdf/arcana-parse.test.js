@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, detectUnlockAt, parseFront, parseBack } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -330,6 +330,103 @@ describe("followerChoiceEntry", () => {
 	});
 });
 
+describe("followerChoices", () => {
+	it("wraps an arcanum's follower(s) in a back choice group (major-style)", () => {
+		expect(followerChoices("cracked-flute", ["andalau-of-the-flute"])).toEqual({
+			slug: "cracked-flute",
+			list: [followerChoiceEntry("andalau-of-the-flute")],
+		});
+	});
+	it("returns null when the arcanum has no followers", () => {
+		expect(followerChoices("beaded-satchel", [])).toBeNull();
+		expect(followerChoices("beaded-satchel", undefined)).toBeNull();
+	});
+});
+
+describe("parseResourceLine", () => {
+	it("reads a titled pool with a colon (Label:  ○ ○ ○)", () => {
+		expect(parseResourceLine("Authority:  ○ ○ ○")).toEqual({ max: 3, title: "Authority", labels: [] });
+	});
+	it("reads a titled pool without a colon (Label  ○ ○ …)", () => {
+		expect(parseResourceLine("Ire  ○ ○ ○ ○ ○ ○ ○ ○ ○")).toEqual({ max: 9, title: "Ire", labels: [] });
+	});
+	it("reads a bare state list into labels (no title)", () => {
+		expect(parseResourceLine("○  youthful,   ○  mature,    ○  elderly")).toEqual({ max: 3, title: null, labels: ["youthful", "mature", "elderly"] });
+	});
+	it("reads a state list with distributed pips (spanText has already dropped box dingbats upstream)", () => {
+		expect(parseResourceLine("fresh,   ○ ○  fading,    ○  bare")).toEqual({ max: 3, title: null, labels: ["fresh", "fading", "bare"] });
+	});
+	it("rejects a lone consequence checkbox / a ○ embedded in prose", () => {
+		expect(parseResourceLine("○   Part of your look changes, to be more like Aals Sannan.")).toBeNull();
+	});
+	it("returns null when there are no pips", () => {
+		expect(parseResourceLine("just some flavour text")).toBeNull();
+	});
+});
+
+describe("parseResourceLine — titled state track (both title + labels)", () => {
+	it("keeps dice labels (digits) and a title together", () => {
+		expect(parseResourceLine("Blaze:  nil,  ○ ○  1d4,  ○  1d6,  ○  1d8,  ○  1d10"))
+			.toEqual({ max: 5, title: "Blaze", labels: ["nil", "1d4", "1d6", "1d8", "1d10"] });
+	});
+});
+
+describe("attachItemResource", () => {
+	// A stat line's spans: a ZapfDingbats box glyph ("4") must be dropped, ○ pips + dice digits kept.
+	const span = (text, font = "ACaslonPro-Regular") => ({ font, size: 8, text });
+	const line = (spans) => ({ text: spans.map((s) => s.text).join(""), bbox: [0, 0, 0, 0], spans });
+
+	it("splits a trailing 'hours:  ○ ○ …' pool onto item.resource and clears it from the note", () => {
+		const item = { name: "Moonstone", tags: "beautiful, magical", note: "hours:", weight: 1 };
+		const l = line([span("◇", "marker"), span(" , beautiful, magical, "), span("hours:  "), span("○ ○ ○ ○ ○", "marker")]);
+		attachItemResource(item, [l]);
+		expect(item.resource).toEqual({ max: 5, title: "hours", labels: [] });
+		expect(item.note).toBeNull();
+	});
+	it("prefers an Uppercase title (Blaze, not 'piercing Blaze'), drops the box dingbat, keeps dice labels", () => {
+		const item = { name: "Flaming Sword", tags: "close, beautiful", note: "+1 damage, 1 piercing Blaze: nil, 1d4, 1d6, 1d8, 1d10" };
+		const l = line([span("◇", "marker"), span(" , close, beautiful, +1 damage, 1 piercing Blaze: "), span("4", "ZapfDingbats"),
+			span("nil,  "), span("○ ○", "marker"), span("  1d4,  "), span("○", "marker"), span("  1d6,  "),
+			span("○", "marker"), span("  1d8,  "), span("○", "marker"), span("  1d10")]);
+		attachItemResource(item, [l]);
+		expect(item.resource).toEqual({ max: 5, title: "Blaze", labels: ["nil", "1d4", "1d6", "1d8", "1d10"] });
+		expect(item.note).toBe("+1 damage, 1 piercing");
+	});
+});
+
+describe("parseNameFirstItem", () => {
+	it("parses '<name> ( ○ … <label>, Value N )' into an outfit item with a uses pool", () => {
+		expect(parseNameFirstItem("pouch of powdered cinnabar   ( ○ ○ ○  uses, Value 2) ○")).toEqual({
+			name: "pouch of powdered cinnabar", weight: 1, tags: null, note: "Value 2", inventoryColumn: "regular",
+			resource: { max: 3, title: "uses", labels: [] },
+		});
+	});
+	it("returns null for a line with no parenthetical Value pool", () => {
+		expect(parseNameFirstItem("A few feet long, laden with flowers.")).toBeNull();
+	});
+});
+
+describe("parseBack — back resource track & back item", () => {
+	it("routes a titled pool to back.resource on an item-less back (and clears it from the description)", () => {
+		const b = parseBack([_heading("Sigil of Authority"), _para("Authority:  ○ ○ ○"), _para("When you Persuade your follower, you have advantage.")], { slug: "x", major: false });
+		expect(b.resource).toEqual({ max: 3, title: "Authority", labels: [] });
+		expect(b.item).toBeNull();
+		expect(b.description).toContain("Persuade");
+		expect(b.description).not.toContain("○");
+	});
+	it("attaches the state track to the back item when the back is an outfit item", () => {
+		const b = parseBack([_heading("The Silver Branch"), _list(["◇  , magical, beautiful"], ["fresh,  ○ ○  fading,  ○  bare"]), _para("A few feet long, laden with flowers.")], { slug: "x", major: false });
+		expect(b.item.name).toBe("The Silver Branch");
+		expect(b.item.resource).toEqual({ max: 3, title: null, labels: ["fresh", "fading", "bare"] });
+		expect(b.resource).toBeNull(); // an item-bearing back owns its track on the item, not back.resource
+	});
+	it("routes an item-less state list to back.resource", () => {
+		const b = parseBack([_heading("Bittersweet Elixir"), _list(["○  youthful,  ○  mature,  ○  elderly"]), _para("When you fill the basin, it becomes a draught.")], { slug: "x", major: false });
+		expect(b.resource).toEqual({ max: 3, title: null, labels: ["youthful", "mature", "elderly"] });
+		expect(b.item).toBeNull();
+	});
+});
+
 describe("isArcanaFollower", () => {
 	const block = (icon, name = "Tulpa") => ({ icon, lines: [{ text: name, font: "Avara-Bold", size: 9, spans: [], bbox: [0, 0, 0, 0] }] });
 	it("accepts a real follower stat block (small creature marker icon)", () => {
@@ -368,5 +465,54 @@ describe("unlockSlug", () => {
 		const s = unlockSlug("… imbibe a prodigious, dangerous quantity of alcohol.");
 		expect(s).toMatch(/^[a-z0-9-]+$/);
 		expect(unlockSlug("… imbibe a prodigious, dangerous quantity of alcohol.")).toBe(s); // stable
+	});
+});
+
+describe("parseBack — minor spell (description + table → @DrawTable, no moves)", () => {
+	// Table-block factory matching layout.js's shape (roll cell + result cells).
+	const _row = (roll, ...rest) => ({ roll: _line(roll), rest: rest.map(_line) });
+	const _table = (...rows) => ({ type: "table", header: null, rows });
+	const foodTable = _table(
+		_row("1", "Actively unpleasant, needs cooking"),
+		_row("2", "Bland but tolerable, needs cooking"),
+		_row("3", "Delicious, needs cooking"),
+		_row("4", "Actively unpleasant, ready to eat"),
+		_row("5", "Bland but tolerable, ready to eat"),
+		_row("6", "Delicious, ready to eat"),
+	);
+
+	const back = parseBack([
+		_heading("Satchel of Plenty"),
+		_para("When you feed the satchel, it provides 1 use of provisions each day."),
+		_para("**1d6** today's food is..."),
+		foodTable,
+		_para("When you draw more than 1 use, it provides up to 10 uses."),
+	], { slug: "beaded-satchel", name: "A beaded satchel", major: false });
+
+	it("takes the first heading as the spell title and never emits moves/consequences", () => {
+		expect(back.title).toBe("Satchel of Plenty");
+		expect(back.moves).toEqual([]);
+		expect(back.consequences).toBeNull();
+	});
+	it("promotes a clean 1..N table to a RollTable spec with all its rows", () => {
+		expect(back.rollTables).toHaveLength(1);
+		expect(back.rollTables[0].formula).toBe("1d6");
+		expect(back.rollTables[0].results).toHaveLength(6);
+		expect(back.rollTables[0].results[0].range).toEqual([1, 1]);
+	});
+	it("inlines a player-rollable @DrawTableInline block at the table's place in the description", () => {
+		expect(back.description).toContain(`@DrawTableInline[${back.rollTables[0].uuid}]{1d6}`);
+		// order preserved: caption before the link, trailing prose after
+		expect(back.description.indexOf("today's food")).toBeLessThan(back.description.indexOf("@DrawTableInline"));
+		expect(back.description.indexOf("@DrawTableInline")).toBeLessThan(back.description.indexOf("draw more than 1"));
+	});
+	it("drops a footer-strip false-positive (single-row) table instead of promoting it", () => {
+		const b = parseBack([
+			_heading("Truth Seeds"),
+			_para("When you eat a truth seed, you must speak truth."),
+			_table(_row("1", "back Truth Seeds")),
+		], { slug: "a-folktale", name: "A folktale", major: false });
+		expect(b.rollTables).toBeUndefined();
+		expect(b.description).not.toContain("@DrawTable");
 	});
 });

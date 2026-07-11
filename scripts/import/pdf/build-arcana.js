@@ -22,12 +22,15 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
+import { gridCards } from "./minor-arcana-grid.js";
+import { toRollTableDoc, TABLE_PACK } from "./tables.js";
 
 const PDF = process.env.BOOK_PDF ?? "helper/Book_II_-_The_Wider_World_and_Other_Wonders.pdf";
-const WRITE_ARCANA = process.argv.includes("--write-arcana"); // overwrite arcanum JSON (parser WIP)
+const WRITE_ARCANA = process.argv.includes("--write-arcana"); // overwrite major arcanum JSON (parser WIP)
+const WRITE_MINOR = process.argv.includes("--write-minor");   // regenerate every minor arcanum from the card grid
 const WRITE = process.argv.includes("--write") || WRITE_ARCANA; // regenerate follower files + icons
 const REVIEW = "helper/arcanum-manual-review.md";
 const norm = (s) => (s ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
@@ -274,12 +277,62 @@ for (const rec of bySlug.values()) {
 	}
 }
 
+// ── minor arcana: regenerate every card from the geometric grid parser ──────────
+// The minor appendix is a card grid the column pipeline can't segment (see minor-arcana-grid.js);
+// parse it geometrically and overwrite each minor arcanum's front + back, preserving its identity
+// (_id/_key/slug/folder). Back dice tables become wonder-tables RollTables (arcana- prefix so
+// build-tables leaves them) referenced inline by a player-rollable @DrawTable link.
+let minorWritten = 0, minorTables = 0; const minorUnmatched = []; const resItemReview = [];
+// Backs whose item is implied by the front, not printed (manual pass — see the loop below).
+const BACK_ITEM_FROM_FRONT = new Set(["redwood-basin"]);
+if (WRITE_MINOR) {
+	const minorRange = ranges.find((r) => r.tier === "minor");
+	// Reverse the follower roster to arcanaSlug -> [followerSlug] so a regenerated minor back can inline
+	// its follower(s) the way majors do (e.g. cracked-flute -> andalau-of-the-flute).
+	const followersByArcana = new Map();
+	for (const r of followerRoster.values()) {
+		if (!r.arcanaSlug) continue;
+		(followersByArcana.get(r.arcanaSlug) ?? followersByArcana.set(r.arcanaSlug, []).get(r.arcanaSlug)).push(r.slug);
+	}
+	const TABLE_OUT = `packs/src/${TABLE_PACK}`;
+	mkdirSync(TABLE_OUT, { recursive: true });
+	for (const f of readdirSync(TABLE_OUT).filter((n) => n.startsWith("arcana-"))) rmSync(path.join(TABLE_OUT, f));
+	const gtmp = mkdtempSync(path.join(os.tmpdir(), "arc-grid-"));
+	const { pages, pageRules, pageImages } = loadArticlePages(PDF, minorRange, { imgDir: gtmp, imgPrefix: "minor" });
+	const cards = [];
+	pages.forEach((pg, i) => { for (const c of gridCards(pg, { rules: pageRules[i], images: pageImages[i] })) cards.push(c); });
+	rmSync(gtmp, { recursive: true, force: true });
+	for (const card of cards) {
+		const rec = byName.get(norm(card.frontTitle)) ?? byBackTitle.get(norm(card.backTitle));
+		if (!rec || rec.tier !== "minor") { minorUnmatched.push(`${card.number}:${card.frontTitle}`); continue; }
+		const front = parseFront(card.frontBlocks, { name: rec.doc.name, slug: rec.slug });
+		const back = parseBack(card.backBlocks, { name: card.backTitle, slug: rec.slug, major: false });
+		back.choices = followerChoices(rec.slug, followersByArcana.get(rec.slug)); // inline follower(s), major-style
+		// Manual pass: a few backs don't print their own item — it's implied by the front (e.g. the
+		// redwood basin IS the bittersweet elixir's vessel). Copy the front item onto the back side.
+		if (BACK_ITEM_FROM_FRONT.has(rec.slug) && front.item && !back.item) back.item = structuredClone(front.item);
+		if (back.item || back.resource) resItemReview.push(
+			`- \`${rec.slug}\`${back.item ? ` item="${back.item.name}"${back.item.resource ? ` +resource=${JSON.stringify(back.item.resource)}` : ""}` : ""}${back.resource ? ` back.resource=${JSON.stringify(back.resource)}` : ""}`);
+		(back.rollTables ?? []).forEach((rt, i) => {
+			writeFileSync(path.join(TABLE_OUT, `arcana-${rec.slug}-${i}.json`), JSON.stringify(toRollTableDoc({ rollTable: rt }, { sort: 9000 + minorTables }), null, 2) + "\n");
+			minorTables++;
+		});
+		delete back.rollTables;
+		const doc = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
+			...(rec.doc.img ? { img: rec.doc.img } : {}), system: { slug: rec.slug, front, back }, flags: {}, folder: rec.doc.folder };
+		writeFileSync(rec.file, JSON.stringify(doc, null, "\t") + "\n");
+		minorWritten++;
+	}
+}
+
 const missing = [...bySlug.keys()].filter((s) => !parsedFront.has(s));
 review.push(`Parsed ${parsedCount}/${bySlug.size} fronts, ${parsedBack.size} backs; ${flagged} flagged${missing.length ? `; NO FRONT: ${missing.join(", ")}` : ""}.`, ``);
+if (resItemReview.length) review.push(`## Back items & resource tracks (${resItemReview.length}) — verify vs book`, ...resItemReview.sort(), ``);
 review.push(`## Followers`, `Matched ${followersMatched} minor follower(s) to stat blocks:`, ...followerLines,
 	``, `Preserved hand-authored (major appendix, inlined format — not regenerated): ${preserved.length ? preserved.map((s) => `\`${s}\``).join(", ") : "none"}`, ``);
 review.push(...reviewBody);
 mkdirSync(path.dirname(REVIEW), { recursive: true });
 writeFileSync(REVIEW, review.join("\n"));
-const mode = WRITE_ARCANA ? "WROTE followers + arcana JSON" : WRITE ? "WROTE followers" : "report only";
-console.log(`fronts ${parsedCount}/${bySlug.size}, backs ${parsedBack.size}; ${flagged} flagged${missing.length ? `; ${missing.length} missing front` : ""}. followers ${followersMatched} matched${WRITE ? `, ${followersWritten} written` : ""}, ${preserved.length} preserved. -> ${REVIEW}  (${mode})`);
+const mode = [WRITE_ARCANA && "major arcana JSON", WRITE_MINOR && "minor arcana JSON", WRITE && "followers"].filter(Boolean);
+console.log(`fronts ${parsedCount}/${bySlug.size}, backs ${parsedBack.size}; ${flagged} flagged${missing.length ? `; ${missing.length} missing front` : ""}. followers ${followersMatched} matched${WRITE ? `, ${followersWritten} written` : ""}, ${preserved.length} preserved. -> ${REVIEW}  (${mode.length ? "WROTE " + mode.join(" + ") : "report only"})`);
+if (WRITE_MINOR) console.log(`minor arcana: wrote ${minorWritten} doc(s) + ${minorTables} RollTable(s)${minorUnmatched.length ? `; UNMATCHED: ${minorUnmatched.join(", ")}` : ""}`);

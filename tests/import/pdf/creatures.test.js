@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { extractArticle } from "../../../scripts/import/pdf/layout.js";
-import { parseStatBlock, toFollowerDoc, toNpcDoc } from "../../../scripts/import/pdf/creatures.js";
+import { parseStatBlock, toFollowerDoc, toNpcDoc, splitTagChoices } from "../../../scripts/import/pdf/creatures.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
 const L = (text, font = "ACaslonPro-Regular", size = 9) => ({ text, font, size, spans: [{ font, size, text }], bbox: [0, 0, 0, 0] });
@@ -72,6 +72,54 @@ describe("parseStatBlock — arcana follower edge cases (real bugs from pp 263/2
 		expect(c.instinct).toBe("to play");
 		expect(c.moves.filter((m) => !m.prose).map((m) => m.text)).toEqual(["Manifest a form", "Produce light"]);
 		expect(c.cost).toBe("respect given comfort");
+	});
+	// The book presents an arcana follower's pickable tags/instinct/cost as □-box-marked lists,
+	// separated by 2+ spaces. The load pipeline injects the □ boxes; splitting them into `options`
+	// (and a base `selected`) mirrors the Marshal's-crew shape. Only tulpa actually has these.
+	it("splits a □-boxed tag pick-list into base tags + pickable options", () => {
+		const c = parseStatBlock([
+			L("Tulpa", "Avara-Bold", 9),
+			L("Spirit, construct, tiny, naive,  eager  □", "ACaslonPro-Italic"),
+			L("□  fierce   kind   sly   timid   willful  □ □ □ □", "marker", 7),
+			L("HP 8; Armor 0"),
+		]);
+		expect(c.tagList).toEqual(["Spirit", "construct", "tiny", "naive"]);       // base = comma list
+		expect(c.tagOptions).toEqual(["Spirit", "construct", "tiny", "naive", "eager", "fierce", "kind", "sly", "timid", "willful"]);
+	});
+	it("splits □-boxed Instinct and Cost pick-lists into options (nothing pre-selected)", () => {
+		const c = parseStatBlock([
+			L("Tulpa", "Avara-Bold", 9), L("Spirit"),
+			L("HP 8; Armor 0"),
+			L("Instinct   to play   to learn   to flaunt □ □ □"),
+			L("Cost   respect given   new experiences    □ □"),
+			L("□  comfort/compassion (Loyalty:  ○ ○  )", "marker", 7),
+		]);
+		expect(c.instinctOptions).toEqual(["to play", "to learn", "to flaunt"]);
+		expect(c.costOptions).toEqual(["respect given", "new experiences", "comfort/compassion"]);
+	});
+	it("leaves a single-value Instinct/Cost with no options (the 8 non-pick-list followers)", () => {
+		const c = parseStatBlock([
+			L("Andalau", "Avara-Bold", 9), L("Spirit, tiny, stealthy"),
+			L("HP 8; Armor 0"), L("Instinct to play and frolic"),
+			L("Cost entertainment (Loyalty  ○ ○  ) ○"),
+		]);
+		expect(c.instinctOptions).toEqual([]);
+		expect(c.costOptions).toEqual([]);
+		expect(c.instinct).toBe("to play and frolic");
+		expect(c.tagOptions).toEqual([]);
+	});
+	it("flags a □-boxed move bullet as selectable and a box-less one as fixed", () => {
+		const c = parseStatBlock([
+			L("Tulpa", "Avara-Bold", 9), L("Spirit"),
+			L("HP 8; Armor 0"),
+			L("   ä Manifest a form of dust/snow/vapor"),
+			L("□   ä Produce light (area, reach)", "marker", 7),
+			L("□   ä Deliver a message", "marker", 7),
+		]);
+		const byText = Object.fromEntries(c.moves.map((m) => [m.text, m.selectable]));
+		expect(byText["Manifest a form of dust/snow/vapor"]).toBe(false);
+		expect(byText["Produce light (area, reach)"]).toBe(true);
+		expect(byText["Deliver a message"]).toBe(true);
 	});
 	it("does not mistake a wrapped damage tail starting with 'armor' for the Armor field", () => {
 		const c = parseStatBlock([
@@ -261,5 +309,85 @@ describe("parseStatBlock — The Crombil, Awakened", () => {
 		expect(c.moves[i - 1].prose).toBe(false);
 		expect(c.moves[i + 1].prose).toBe(false);
 		expect(c.description).not.toContain("start using these moves");
+	});
+});
+
+describe("splitTagChoices", () => {
+	it("returns all comma tags as base (no options) when there are no pick boxes", () => {
+		expect(splitTagChoices(["Spirit, tiny, stealthy, devious"])).toEqual({
+			tags: ["Spirit", "tiny", "stealthy", "devious"], options: [],
+		});
+	});
+	it("skips a comma-less multi-word personality line but keeps a one-word wrap (no boxes)", () => {
+		expect(splitTagChoices(["Spirit, construct, tiny, naive, eager", "fierce kind sly timid willful"]).tags)
+			.toEqual(["Spirit", "construct", "tiny", "naive", "eager"]);
+		expect(splitTagChoices(["Solitary, large, fae,", "corrupted"]).tags)
+			.toEqual(["Solitary", "large", "fae", "corrupted"]);
+	});
+	it("splits boxed picks into base + options", () => {
+		const { tags, options } = splitTagChoices([
+			"Spirit, construct, tiny, naive,  eager  □", "□  fierce   kind   sly   willful  □ □",
+		]);
+		expect(tags).toEqual(["Spirit", "construct", "tiny", "naive"]);
+		expect(options).toEqual(["Spirit", "construct", "tiny", "naive", "eager", "fierce", "kind", "sly", "willful"]);
+	});
+});
+
+describe("toFollowerDoc — pick-list options carry into the selection fields", () => {
+	it("stores tag/instinct/cost options with nothing pre-selected for the pick-list follower", () => {
+		const creature = {
+			name: "Tulpa", tagList: ["Spirit", "construct"], tagOptions: ["Spirit", "construct", "eager", "fierce"],
+			hp: { value: 8, max: 8 }, armor: "0", damage: "", specialQuality: "",
+			instinct: "", instinctOptions: ["to play", "to learn"], cost: "", costOptions: ["respect given", "comfort"],
+			moves: [], description: "",
+		};
+		const doc = toFollowerDoc(creature, { slug: "tulpa", arcanaSlug: "beautiful-scroll" });
+		expect(doc.system.tagList).toMatchObject({ selected: ["Spirit", "construct"], options: ["Spirit", "construct", "eager", "fierce"], multi: true });
+		expect(doc.system.instinct).toMatchObject({ selected: [], options: ["to play", "to learn"], multi: false });
+		expect(doc.system.cost).toMatchObject({ selected: [], options: ["respect given", "comfort"], multi: false });
+	});
+	it("routes □-boxed pickable moves to the choice group (checkbox each) and keeps fixed moves in the list", () => {
+		const creature = {
+			name: "Tulpa", tagList: ["Spirit"], tagOptions: [],
+			hp: { value: 8, max: 8 }, armor: "0", damage: "", specialQuality: "",
+			instinct: "", instinctOptions: [], cost: "", costOptions: [],
+			moves: [
+				{ text: "Manifest a form", prose: false, selectable: false },
+				{ text: "Produce light (area, reach)", prose: false, selectable: true },
+				{ text: "Deliver a message", prose: false, selectable: true },
+			],
+			description: "",
+		};
+		const doc = toFollowerDoc(creature, { slug: "tulpa" });
+		// fixed move stays in the markdown list; pickable moves are NOT duplicated there
+		expect(doc.system.moves).toBe("- Manifest a form");
+		const list = doc.system.choices[0].list;
+		expect(doc.system.choices[0].slug).toBe("choices");
+		expect(list.map((e) => e.content.text)).toEqual(["Produce light (area, reach)", "Deliver a message"]);
+		expect(list.every((e) => e.type === "entry" && e.track.max === 1 && e.slug)).toBe(true);
+	});
+	it("leaves the choice group empty when a follower has only fixed moves", () => {
+		const creature = {
+			name: "Andalau", tagList: ["Spirit"], tagOptions: [],
+			hp: { value: 8, max: 8 }, armor: "0", damage: "", specialQuality: "",
+			instinct: "to play and frolic", instinctOptions: [], cost: "entertainment", costOptions: [],
+			moves: [{ text: "Deliver a whispery message", prose: false, selectable: false }],
+			description: "",
+		};
+		const doc = toFollowerDoc(creature, { slug: "andalau-of-the-flute" });
+		expect(doc.system.choices[0].list).toEqual([]);
+		expect(doc.system.moves).toBe("- Deliver a whispery message");
+	});
+	it("keeps the single fixed value selected (options empty) for a non-pick-list follower", () => {
+		const creature = {
+			name: "Andalau", tagList: ["Spirit", "tiny"], tagOptions: [],
+			hp: { value: 8, max: 8 }, armor: "0", damage: "", specialQuality: "",
+			instinct: "to play and frolic", instinctOptions: [], cost: "entertainment", costOptions: [],
+			moves: [], description: "",
+		};
+		const doc = toFollowerDoc(creature, { slug: "andalau-of-the-flute" });
+		expect(doc.system.tagList).toMatchObject({ selected: ["Spirit", "tiny"], options: [] });
+		expect(doc.system.instinct).toMatchObject({ selected: ["to play and frolic"], options: [] });
+		expect(doc.system.cost).toMatchObject({ selected: ["entertainment"], options: [] });
 	});
 });

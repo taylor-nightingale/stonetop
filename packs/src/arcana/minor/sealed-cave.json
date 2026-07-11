@@ -9,11 +9,12 @@
 			"title": "A sealed cave",
 			"item": {
 				"name": "A sealed cave",
-				"weight": null,
-				"note": "*magical*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "magical",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
-			"description": "High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.\n\nIndeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything.",
+			"description": "High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.",
 			"unlock": {
 				"slug": "sealed-cave",
 				"list": [
@@ -21,27 +22,27 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "You can learn their mysteries, but…"
+							"text": "Indeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything. You can learn their mysteries, but…"
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "careful-transcription",
 						"content": {
 							"title": null,
-							"text": "… it'll take days of careful transcription, haunted by morose shades."
+							"text": "… it’ll take days of careful transcription, haunted by morose shades."
 						},
+						"slug": "ll-take",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-ennui",
 						"content": {
 							"title": null,
 							"text": "… you risk succumbing to the ennui of the place."
 						},
+						"slug": "risk-succumbing",
 						"track": {
 							"max": 1
 						}
@@ -52,14 +53,12 @@
 		"back": {
 			"title": "Peacebond",
 			"item": null,
-			"description": "When you **_mark a place with the peacebond glyphs_**, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.\n\nWhen you **_attempt to commit violence within a peacebonded area, or to harm the peacebond glyphs themselves_**, you hesitate.\n\nIf you **_will yourself to continue_**, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but have disadvantage on any rolls to commit violence (including damage); **on a 6-**, you fail to act and mark *dazed*.",
+			"description": "When you **_mark a place with the peace-bond_** **_glyphs_**, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.\n\nWhen you **_attempt to commit violence within_** **_a peacebonded area, or to harm the peacebond_** **_glyphs themselves_**, you hesitate.\n\nIf you **_will yourself to continue_**, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but have disadvantage on any rolls to commit violence (including damage); **on a 6-**, you fail to act and mark *dazed*.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you mark a place with the peacebond glyphs",
-					"text": "Violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. When you attempt to commit violence within a peacebonded area and will yourself to continue, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but with disadvantage on violence rolls; **on a 6-**, you fail and mark *dazed*."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

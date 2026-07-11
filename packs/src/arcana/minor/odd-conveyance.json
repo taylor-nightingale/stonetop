@@ -9,11 +9,12 @@
 			"title": "An odd conveyance",
 			"item": {
 				"name": "An odd conveyance",
-				"weight": null,
-				"note": "*large, magical, fragile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "large, magical, fragile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
-			"description": "It's like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They're linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.\n\nYou suspect this is some sort of vehicle, but to unlock its mysteries you…",
+			"description": "It’s like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They’re linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.",
 			"unlock": {
 				"slug": "odd-conveyance",
 				"list": [
@@ -26,44 +27,44 @@
 					},
 					{
 						"type": "entry",
-						"slug": "skilled-carpenter",
 						"content": {
 							"title": null,
-							"text": "… need a skilled carpenter, good timber (Value 2), a new sail (Value 1), and a season on repairs."
+							"text": "… need a skilled carpetenter, good timber (Value 2), a new sail (Value 1), and a season spent on repairs."
 						},
+						"slug": "need-skilled",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-damage",
 						"content": {
 							"title": null,
 							"text": "… risk damaging it further, and/or having it/the aetherium float away."
 						},
+						"slug": "risk-damaging",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "attune-aetherium",
 						"content": {
 							"title": null,
 							"text": "… must attune to the aetherium, so as to control how much it hovers."
 						},
+						"slug": "attune-aetherium",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "learn-to-sail",
 						"content": {
 							"title": null,
 							"text": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft."
 						},
+						"slug": "another-spend",
 						"track": {
 							"max": 1
 						}
@@ -73,15 +74,19 @@
 		},
 		"back": {
 			"title": "Groundskimmer",
-			"item": null,
-			"description": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller and focus_**, you can adjust how much the craft's aetherium repels the earth. When you **_properly adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\n*large, magical, dangerous*, requires a crew of 2\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers' Roads in those regions is dangerous.",
+			"item": {
+				"name": "Groundskimmer",
+				"weight": 1,
+				"tags": "large, magical, dangerous",
+				"note": "requires a crew of 2",
+				"inventoryColumn": "regular"
+			},
+			"description": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller_** **_and focus_**, you can adjust how much the craft’s aetherium repels the earth. When you **_properly_** **_adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers’ Roads in those regions is dangerous.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you grasp the tiller and focus",
-					"text": "You can adjust how much the craft's aetherium repels the earth. When properly adjusted, it hovers a few feet above the earth and can sail across the landscape."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A creepy cave",
 			"item": null,
-			"description": "There's a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.\n\nThe cave bears the lingering taint of a Thing Below, but has been cut off from its power.",
+			"description": "There’s a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.",
 			"unlock": {
 				"slug": "creepy-cave",
 				"list": [
@@ -16,38 +16,38 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock its secrets, you must…"
+							"text": "The cave bears the lingering taint of a Thing Below, but has been cut off from its power. To unlock its secrets, you must…"
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "learn-thing-below",
 						"content": {
 							"title": null,
 							"text": "… learn the name of the Thing Below that once corrupted this place."
 						},
+						"slug": "learn-name",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "absolute-darkness",
 						"content": {
 							"title": null,
 							"text": "… stay here in absolute darkness for at least a full day, despite the nightmares and hallucinations that try your soul."
 						},
+						"slug": "stay-here",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "bring-warm-being",
 						"content": {
 							"title": null,
-							"text": "… bring a still-living, warm-blooded being to the cave and spill its life's blood on the stones while intoning the name of the Thing Below that once touched this unholy place."
+							"text": "… bring a still-living, warm-blooded being to the cave and spill its life’s blood on the stones while intoning the name of the Thing Below that once touched this unholy place."
 						},
+						"slug": "bring-still",
 						"track": {
 							"max": 1
 						}
@@ -58,14 +58,12 @@
 		"back": {
 			"title": "The Flesh Is Like Clay",
 			"item": null,
-			"description": "When you **_cruelly kill a warm-blooded being in the cave_**, one of similar size to yourself, and **_smear both its blood and yours upon the stones_**, mark 1:\n\n- □ Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n- □ Gain one of your victim's physical traits (their strength, their speed, their looks, their strong heart, etc.).\n- □ Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.).\n*Each time you use this power*, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave's power are gone.",
+			"description": "When you **_cruelly kill a warm-blooded being_** **_in the cave,_** one of similar size to yourself, and **_smear both its blood and yours upon the stones,_** mark 1:\n\n- Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n- Gain one of your victim’s physical traits (their strength, their speed, their looks, their strong heart, etc.).\n- Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.). **_Each time you use this power_**, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave’s power are gone.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you cruelly kill a warm-blooded being in the cave, one of similar size to yourself, and smear both its blood and yours upon the stones",
-					"text": "Mark 1 of 3 permanent improvements: gain unholy resilience (+2 max HP, +1 armor vs. non-bronze); gain one of your victim's physical traits; or heal a permanent injury. Each use marks all three debilities. After three uses, the cave's power is gone."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

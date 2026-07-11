@@ -7,6 +7,7 @@ import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
 import { ActorOutfitItems } from "../actors/character/ActorOutfitItems.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
 import { migrateChoiceRow } from "./migrateChoices.js";
+import { Selection } from "../model/data/Selection.js";
 
 const SCOPE = "stonetop";
 
@@ -65,6 +66,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateArcanumChoiceGroupSlugs(actor);
 	await migrateFollowers(actor, repos.followers, resourceController);
 	_logArcanumFlipped(actor, "after migrateFollowers");
+	await migrateArcanaFollowerPackData(actor, repos.followers);
 
 	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
@@ -583,20 +585,55 @@ export async function migratePlaybookChoices(actor, playbookRepo) {
 	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { choices: compendiumChoices } }]);
 }
 
-// ── M. Repair arcanum items with empty front/back ─────────────────────────────
-
+// ── M. Refresh arcanum authored content (front/back) from the compendium ──────
+// An embedded arcanum is an independent copy — regenerating the pack doesn't reach it. Refresh every
+// arcanum's authored `front`/`back` from the repo (matched by slug) so pack fixes reach existing
+// characters: cleaned front/back text, the inline @DrawTableInline dice table, and the re-added
+// follower `back.choices`. Player state (`flipped` + `choiceValues`: marked circles, picks, follower
+// selections) lives outside front/back, so a front/back-only merge update preserves it. Idempotent —
+// runs once per world migration (also covers the old case of an item left with an empty front).
 export async function migrateArcanumPackData(actor, arcanaRepo) {
-	const stale = [...actor.items].filter(
-		i => i.type === "arcanum" && Object.keys(i.system?.front ?? {}).length === 0,
-	);
-	if (!stale.length) return;
+	const items = [...actor.items].filter(i => i.type === "arcanum" && i.system?.slug);
 	const updates = [];
-	for (const item of stale) {
-		const slug = item.system?.slug;
-		if (!slug) continue;
-		const raw = await arcanaRepo.findBySlug(slug);
+	for (const item of items) {
+		const raw = await arcanaRepo.findBySlug(item.system.slug);
 		if (!raw?.front) continue;
 		updates.push({ _id: item._id, system: { front: raw.front, back: raw.back } });
+	}
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+}
+
+// ── N. Refresh an acquired arcana follower's authored stat block from the pack ─
+// An acquired arcana follower is an embedded copy, so regenerating the pack doesn't reach it. Refresh
+// each embedded arcana follower's authored fields from the repo (matched by slug): the tag/instinct/
+// cost pick-list options, the selectable-move choice group, moves, marker icon, and stats. Player state
+// is preserved by omission — loyalty, current HP (hp.value), owned, choiceValues (which moves/picks are
+// checked), inventory, members, companion all stay (Foundry merges the partial update). Scoped to arcana
+// followers (arcanaSlug set); playbook/custom followers aren't parsed from the book. Idempotent.
+export async function migrateArcanaFollowerPackData(actor, followerRepo) {
+	const items = [...actor.items].filter(i => i.type === "follower" && i.system?.arcanaSlug && i.system?.slug);
+	if (!items.length) return;
+	const bySlug = new Map((await followerRepo.findBySlugs(items.map(i => i.system.slug))).map(f => [f.slug, f]));
+	const updates = [];
+	for (const item of items) {
+		const f = bySlug.get(item.system.slug);
+		if (!f) continue;
+		updates.push({
+			_id: item._id,
+			...(f.img ? { img: f.img } : {}),
+			system: {
+				tagList:        Selection.fromStored(f.tags,     { multi: true  }).toRaw(),
+				instinct:       Selection.fromStored(f.instinct, { multi: false }).toRaw(),
+				cost:           Selection.fromStored(f.cost,     { multi: false }).toRaw(),
+				moves:          f.moves ?? "",
+				choices:        f.choices ?? [{ slug: "choices", list: [] }],
+				armor:          f.armor ?? "",
+				damage:         f.damage ?? "",
+				specialQuality: f.specialQuality ?? "",
+				description:    f.description ?? "",
+				hp:             { value: item.system?.hp?.value ?? 0, max: f.hp?.max ?? 0 }, // keep current HP, refresh max
+			},
+		});
 	}
 	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }

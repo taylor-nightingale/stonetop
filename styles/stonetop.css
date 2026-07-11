@@ -5108,6 +5108,23 @@ form.stonetop.sheet.steading {
 .stonetop-wonder table thead th { background: rgba(0, 0, 0, 0.06); font-family: "StonetopUI", serif; }
 .stonetop-wonder table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
 
+/* Inline dice table on a player-facing arcanum back (the @DrawTableInline enricher): the roll button
+   sits as a caption above the table's rows. Self-contained (not .stonetop-wonder-scoped) so it also
+   styles the roll button, which the journal rules above don't reach on the arcanum sheet. */
+.stonetop-inline-table { margin: 0.6em 0 0.9em; }
+.stonetop-inline-table figcaption { margin-bottom: 0.3em; }
+.stonetop-inline-table a.stonetop-draw-table {
+	display: inline-flex; align-items: center; cursor: pointer; padding: 0.05em 0.55em; line-height: 1.4;
+	font-size: 0.9em; border: 1px solid var(--color-border-dark, #6a6256); border-radius: 3px;
+	background: rgba(0, 0, 0, 0.05); color: inherit; text-decoration: none; white-space: nowrap;
+}
+.stonetop-inline-table a.stonetop-draw-table:hover { background: rgba(0, 0, 0, 0.12); }
+.stonetop-inline-table a.stonetop-draw-table i.fa-dice-d6 { margin-right: 0.35em; }
+.stonetop-inline-table table { border-collapse: collapse; width: 100%; background: transparent; margin: 0; }
+.stonetop-inline-table td { border: 1px solid rgba(0, 0, 0, 0.25); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
+.stonetop-inline-table td.roll { width: 2.5em; text-align: center; font-weight: bold; white-space: nowrap; }
+.stonetop-inline-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
+
 /* ── bugs.md batch 1 (CSS) ─────────────────────────────────────────────────────────────────────
    #7 — no border/drop-shadow on journal images (Foundry adds one). */
 .stonetop-wonder img,

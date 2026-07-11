@@ -1,0 +1,102 @@
+{
+  "_id": "oJfcTJO2LY4FtMpA",
+  "_key": "!tables!oJfcTJO2LY4FtMpA",
+  "name": "Wishing Candles",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "tDelxo2KqTqIGS99",
+      "_key": "!tables.results!oJfcTJO2LY4FtMpA.tDelxo2KqTqIGS99",
+      "type": "text",
+      "name": "",
+      "description": "The crops fail/2d4 Surplus is lost",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "AoKzH1fXVjylaTRm",
+      "_key": "!tables.results!oJfcTJO2LY4FtMpA.AoKzH1fXVjylaTRm",
+      "type": "text",
+      "name": "",
+      "description": "One of the village’s resources or assets is lost/stolen/ruined/etc.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "yIysOhAUHHMSV926",
+      "_key": "!tables.results!oJfcTJO2LY4FtMpA.yIysOhAUHHMSV926",
+      "type": "text",
+      "name": "",
+      "description": "A neighbor takes seriously ill or suffers a freak accident/loss",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "TuSgQzQ8vANbSRqY",
+      "_key": "!tables.results!oJfcTJO2LY4FtMpA.TuSgQzQ8vANbSRqY",
+      "type": "text",
+      "name": "",
+      "description": "Weird events plague the village; panic looms",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "Ih7HTlWro2jIDW1c",
+      "_key": "!tables.results!oJfcTJO2LY4FtMpA.Ih7HTlWro2jIDW1c",
+      "type": "text",
+      "name": "",
+      "description": "No cost to speak of, this time",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 9001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

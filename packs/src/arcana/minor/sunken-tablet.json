@@ -9,11 +9,12 @@
 			"title": "A sunken tablet",
 			"item": {
 				"name": "A sunken tablet",
-				"weight": null,
-				"note": "*immobile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "immobile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
-			"description": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Maker-runes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.",
+			"description": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Makerrunes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.",
 			"unlock": {
 				"slug": "sunken-tablet",
 				"list": [
@@ -26,55 +27,55 @@
 					},
 					{
 						"type": "entry",
-						"slug": "extract-tablet",
 						"content": {
 							"title": null,
 							"text": "… extract the tablet from the muck."
 						},
+						"slug": "extract-tablet",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "carefully-clean",
 						"content": {
 							"title": null,
 							"text": "… carefully clean it."
 						},
+						"slug": "carefully-clean",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "decipher-runes",
 						"content": {
 							"title": null,
 							"text": "… decipher the Maker-runes."
 						},
+						"slug": "decipher-maker",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "study-runes",
 						"content": {
 							"title": null,
 							"text": "… study the runes for a few weeks."
 						},
+						"slug": "study-runes",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "practice-spell",
 						"content": {
 							"title": null,
 							"text": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth."
 						},
+						"slug": "practice-casting",
 						"track": {
 							"max": 1
 						}
@@ -85,14 +86,12 @@
 		"back": {
 			"title": "Convocation of the Soil",
 			"item": null,
-			"description": "When you **_spill your blood on the soil and speak the words of convocation_**, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.\n\nWhen you **_cast this spell on the fields in early spring, spilling a scary amount of your blood_**, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn's harvest will generate 1d4+1 extra Surplus.\n\nHowever, you must roll +WIS: **on a 10+**, there is no consequence; **on a 7-9**, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; **on a 6-**, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.",
+			"description": "When you **_spill your blood on the soil and speak_** **_the words of convocation_**, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.\n\nWhen you **_cast this spell on the fields in early_** **_spring, spilling a scary amount of your blood_**, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn’s harvest will generate 1d4+1 extra Surplus.\n\nHowever, you must roll +WIS: **on a 10+**, there is no consequence; **on a 7-9**, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; **on a 6-**, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you spill your blood on the soil and speak the words of convocation",
-					"text": "The spirits of the soil will stir and wake, filling the soil with life. When cast on fields in early spring (mark all debilities, lose all but 1 HP), this autumn generates 1d4+1 extra Surplus. Roll +WIS: **on a 10+**, no consequence; **on a 7-9**, you must water the soil with the lifeblood of a large beast before midsummer; **on a 6-**, the spell works but stirs something dangerous."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

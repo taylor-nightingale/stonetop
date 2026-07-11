@@ -16,16 +16,16 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "There is magic here; to unlock its secrets, either…"
+							"text": "There is magic here; to unlock its secrets, either..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "experiment-at-pool",
 						"content": {
 							"title": null,
-							"text": "… spend a week or so experimenting at the pool, then roll +INT: **on a 10+**, you figure it out; **on a 7-9**, no luck; **on a 6-**, you are interrupted by danger;"
+							"text": "… spend a week or so experimenting at the pool, then roll +INT: **on a 10+**, you figure it out; **on a 7-9**, no luck; **on a 6-**, you are interrupted by danger; or..."
 						},
+						"slug": "spend-week",
 						"track": {
 							"max": 1
 						}
@@ -34,16 +34,9 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "or…"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "firsthand-account",
-						"content": {
-							"title": null,
-							"text": "… get a firsthand account of the pool's powers in use."
+							"text": "… get a firsthand account of the pool’s powers in use."
 						},
+						"slug": "get-firsthand",
 						"track": {
 							"max": 1
 						}
@@ -54,19 +47,16 @@
 		"back": {
 			"title": "Ward of Still Waters",
 			"item": null,
-			"description": "When you **_cut yourself with iron or steel and toss the bladed metal into the pool_**, you form a bond with the waters. So long as you carry a vial of the pool's water on your person, you are protected by the ward of still waters.\n\nWhen you are so protected and **_subject to magic that attempts to sense or affect your thoughts, actions, or emotions_**, the magic targets the still waters of the pool instead—possibly befuddling the magic's source.\n\nEach time the ward of still waters protects you, mark 1 Strain and then roll 1d6. If the roll is less than your current Strain, the water you carry loses its potency. When you **_return to the pool and renew your bond_**, clear all Strain.",
+			"description": "When you **_cut yourself with iron or steel and toss_** **_the blooded metal into the pool_**, you form a bond with the waters. So long as you carry a vial of the pool’s water on your person, you are protected by the ward of still waters.\n\nWhen you are so protected and **_subject to magic_** **_that attempts to sense or affect your thoughts,_** **_actions, or emotions_**, the magic targets the still waters of the pool instead—possibly befuddling the magic’s source.\n\nEach time the ward of still waters protects you, mark 1 Strain and then roll 1d6. If your roll is less than your current Strain, the water you carry loses its potency. When you **_return to the pool_** **_and renew your bond_**, clear all Strain.",
 			"resource": {
-				"max": 6,
-				"maxStat": null,
+				"max": 7,
 				"title": "Strain",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you cut yourself with iron or steel and toss the bladed metal into the pool",
-					"text": "You form a bond with the waters. So long as you carry a vial of the pool's water on your person, you are protected by the ward of still waters."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

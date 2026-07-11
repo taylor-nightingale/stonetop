@@ -7,8 +7,14 @@
 		"slug": "rune-etched-pillars",
 		"front": {
 			"title": "Rune-etched pillars",
-			"note": "*magical*",
-			"description": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.\n\nFour pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…",
+			"item": {
+				"name": "Rune-etched pillars",
+				"weight": 1,
+				"tags": "magical",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
+			"description": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.",
 			"unlock": {
 				"slug": "rune-etched-pillars",
 				"list": [
@@ -16,38 +22,38 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "You can unlock their secrets, but…"
+							"text": "Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…"
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "study-runes",
 						"content": {
 							"title": null,
 							"text": "… you must spend a few days studying the runes and memorizing their sequence."
 						},
+						"slug": "spend-few",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "meditate",
 						"content": {
 							"title": null,
 							"text": "… you must meditate for a few weeks on the magic that infuses them."
 						},
+						"slug": "meditate-few",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-collapse",
 						"content": {
 							"title": null,
 							"text": "… you risk triggering the spell contained in the runes, and collapsing the entire structure."
 						},
+						"slug": "risk-triggering",
 						"track": {
 							"max": 1
 						}
@@ -58,14 +64,12 @@
 		"back": {
 			"title": "Shattering Words of Aalz Childric",
 			"item": null,
-			"description": "When you **_carve the shattering words of Aalz Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
+			"description": "When you **_carve the shattering words of Aalz_** **_Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or_** **_phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you carve the shattering words of Aalz Childric into stone or rock",
-					"text": "Designate a key word or phrase. When you or another speaks the key word or phrase and wills the spell to trigger, roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

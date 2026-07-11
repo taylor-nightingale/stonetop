@@ -9,9 +9,10 @@
 			"title": "A small, strange book",
 			"item": {
 				"name": "A small, strange book",
-				"weight": null,
-				"note": "*fragile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "fragile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
 			"description": "A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.",
 			"unlock": {
@@ -21,16 +22,16 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either…"
+							"text": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "fae-help",
 						"content": {
 							"title": null,
-							"text": "… need help from a Fae poet, or perhaps one of the Forest Folk;"
+							"text": "… need help from a Fae poet, or perhaps one of the Forest Folk; or..."
 						},
+						"slug": "need-help",
 						"track": {
 							"max": 1
 						}
@@ -39,16 +40,9 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "or…"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "risk-recipe",
-						"content": {
-							"title": null,
 							"text": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew."
 						},
+						"slug": "risk-getting",
 						"track": {
 							"max": 1
 						}
@@ -57,21 +51,18 @@
 			}
 		},
 		"back": {
-			"title": "Old Mother's Wine",
+			"title": "Old Mother’s Wine",
 			"item": null,
-			"description": "When you **_sacrifice a memory to a berry-laden elder tree_**, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.\n\nWhen you **_harvest the berries and spend a season making wine from them_**, gain a skin of Old Mother's Wine (5 uses, magical).",
+			"description": "When you **_sacrifice a memory to a berry- laden elder_** **_tree_**, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.\n\nWhen you **_harvest the berries and spend a season_** **_making wine from them_**, gain a skin of Old Mother’s Wine (5 uses, magical).\n\nWhen you **_get tipsy on Old Mother’s Wine_**, expend a use. For a night and a day, your eyes are open to Fae magic, meaning:\n\n- You see the truth behind Fae illusions and glamours\n- You are immune to Fae enchantments\n- You can freely enter Fae domains and walk the Fae paths\n- Time passes normally for you while in Fae domains",
 			"resource": {
 				"max": 6,
-				"maxStat": null,
 				"title": "Lost memories",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you get tipsy on Old Mother's Wine",
-					"text": "Expend a use. For a night and a day, your eyes are open to Fae magic, meaning:\n\n- You see the truth behind Fae illusions and glamours\n- You are immune to Fae enchantments\n- You can freely enter Fae domains and walk the Fae paths\n- Time passes normally for you while in Fae domains"
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

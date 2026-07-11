@@ -8,6 +8,8 @@
 // divergence report against the hand-authored JSON.
 import { isItalic, isBoldBody, isDingbat } from "./fonts.js";
 import { toSlug } from "../../../src/utils/slug.js";
+import { qualifyTable, tableUuid, TABLE_PACK } from "./tables.js";
+import { deterministicId } from "../ids.js";
 
 // ─── spans → markdown ─────────────────────────────────────────────────────────
 const MD = { b: ["**", "**"], i: ["*", "*"], bi: ["**_", "_**"] };
@@ -85,6 +87,14 @@ export function followerChoiceEntry(followerSlug) {
 	return { type: "entry", slug: followerSlug, content: { title: null, text: "" }, track: { max: 1 }, inlineDisplay: true, followers: [followerSlug] };
 }
 
+/** The back-side choice group that inlines an arcanum's follower(s), or null if it has none. Same
+ *  shape majors use (mindgem/blackwood); lets a regenerated minor back (e.g. cracked-flute) show its
+ *  follower the way majors do. */
+export function followerChoices(arcanaSlug, followerSlugs) {
+	if (!followerSlugs?.length) return null;
+	return { slug: arcanaSlug, list: followerSlugs.map(followerChoiceEntry) };
+}
+
 /** A real arcanum follower stat block carries a small creature marker icon (~15–18px); the card's
  *  border decoration (~42px) and icon-less fragments are false positives, as are numeric page-number
  *  "names". Used to filter `statblock` blocks before parsing followers. */
@@ -100,7 +110,9 @@ export function isArcanaFollower(block) {
  *  italic runs become `tags` and the remaining plain text becomes `note`. null when there's nothing. */
 export function parseItemLine(text, { name, pips = 0 } = {}) {
 	const diamonds = (text.match(/◇/g) || []).length;
-	const body = text.replace(/[◇○□◻◯]/g, "").replace(/\s{2,}/g, " ").trim();
+	// The book sometimes bold-wraps the separating commas (`*a***,** *b*`); bold is never meaningful on
+	// an item line, and it corrupts the italic-run (tags) extraction — strip it so only tag italics remain.
+	const body = text.replace(/[◇○□◻◯]/g, "").replace(/\*\*/g, "").replace(/\s{2,}/g, " ").trim();
 	const clean = (parts) => parts.flatMap((p) => p.split(",")).map((s) => s.trim()).filter(Boolean).join(", ") || null;
 	const tags = clean([...body.matchAll(/\*([^*]+)\*/g)].map((m) => m[1]));       // italic runs → tags
 	const note = clean([body.replace(/\*[^*]+\*/g, " ")]);                          // plain remainder → note
@@ -272,7 +284,10 @@ export function parseFront(blocks, { name, slug }) {
 		// item tags line (leading comma, or a layout-tagged tags para), before any option content
 		if (!item && !seq.length) {
 			const oneLine = b.type === "para" ? joinMd(b.lines) : b.items.length === 1 ? joinMd(b.items[0]) : null;
-			if (oneLine != null && (b.tags || /^,/.test(oneLine.replace(/^[◇○□◻\s]+/, "")))) {
+			// The item line is a layout-tagged tags para, or (test the *raw* text — the book sometimes
+			// bold-wraps the comma as `**,**`, so the markdown `oneLine` would start with "*") a line that
+			// leads with the item's `◇` load pip or a bare comma before the tags.
+			if (oneLine != null && (b.tags || /^\s*◇/.test(raw) || /^,/.test(raw.replace(/^[◇○□◻\s]+/, "")))) {
 				// Load pips (◇) can sit inline on the item line, where joinMd strips only the first marker
 				// glyph — count them from the raw text so a 2-pip item (rune-laden-scales) weighs 2.
 				const inlinePips = ((b.type === "para" ? rawOf(b.lines) : rawOf(b.items[0])).match(/◇/g) || []).length;
@@ -332,6 +347,7 @@ export function parseFront(blocks, { name, slug }) {
 		const { max, text: residual } = parseTrack(raw); // residual is "" for a pure run ("l l l l" / "○ ○ ○")
 		const text = stripMarkers(joinMd(s.lines));
 		if (max > 0 && !residual) {
+			if (/^[\s◇]+$/.test(raw)) continue; // a stray item load pip (◇) grouped into the list — not a track
 			// A standalone marker run ("l l l l l" / "○ ○ ○") is the Marks track (its length is the max).
 			list.push({ type: "entry", slug: "marks", content: { title: null, text: "Marks" }, track: { max } });
 		} else if (s.kind === "li" || max > 0) {
@@ -424,47 +440,135 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 	return back;
 }
 
+/** Join a block/line's spans into plain text, dropping the ZapfDingbats checkbox glyphs (the PDF
+ *  renders a □-box as a stray "4"/"7" etc.) but KEEPING the marker-font ○/◇ pips and real digits (dice
+ *  labels like 1d4). Feeding this to parseResourceLine lets it keep dice labels without the box noise. */
+export const spanText = (lines) => (Array.isArray(lines) ? lines : [lines])
+	.flatMap((l) => l?.spans ?? [{ text: l?.text ?? "" }])
+	.filter((s) => s.font !== "ZapfDingbats").map((s) => s.text).join("");
+
+/** A resource/track line, identified by its circle (○) pips (□ pick-boxes are consequences). Forms:
+ *  a "Label:  ○ ○ ○" pool → { title, max, labels: [] }; a "Blaze:  nil ○○ 1d4 …" titled state track →
+ *  { title, max, labels }; a bare state list ("○ youthful, ○ mature, ○ elderly") → { title: null, max,
+ *  labels }. Shape matches the arcanum resource field. Returns null with no ○ pips or when the lead is
+ *  prose (a lone consequence checkbox). Give it spanText() output so box dingbats don't pollute labels. */
+export function parseResourceLine(text) {
+	const max = (text.match(/○/g) || []).length;
+	if (!max) return null;
+	// Optional "Title:" prefix — a short, pip-free label ending in a colon (Charge:, Blaze:, hours:).
+	let title = null, body = text;
+	const m = body.match(/^\s*([A-Za-z][A-Za-z ()]{0,30}?)\s*:\s*(.*)$/s);
+	if (m && !/○/.test(m[1])) { title = m[1].replace(/[()]/g, " ").replace(/\s+/g, " ").trim(); body = m[2]; }
+	// State labels: ≥2 short comma-separated segments (pips stripped, digits kept for dice labels 1d4).
+	const segs = body.replace(/[○◯◇□◻]/g, " ").split(",")
+		.map((s) => s.replace(/[^A-Za-z0-9 /'+-]/g, " ").replace(/\s+/g, " ").trim())
+		.filter(Boolean);
+	const labels = (segs.length >= 2 && segs.every((s) => s.split(/\s+/).length <= 3)) ? segs : [];
+	if (title) return { max, title, labels };
+	if (labels.length) return { max, title: null, labels };
+	// No title/labels: a short lead word before the pips is the pool title ("Ire  ○ ○ ○"); a long/absent
+	// lead means a stray ○ in prose (a lone consequence checkbox, an embedded pip) — not a resource.
+	const head = body.slice(0, body.indexOf("○")).replace(/[◇□◻○◯]/g, " ").replace(/[:,]\s*$/, "").replace(/\s+/g, " ").trim();
+	if (head && /[A-Za-z]/.test(head) && head.split(/\s+/).length <= 4) return { max, title: head, labels: [] };
+	return null;
+}
+
+/** An item def line can carry a trailing "Label:  ○ ○ ○" track fused onto its tags (the Moonstone's
+ *  hours, the Flaming Sword's Blaze). Split that track onto item.resource and trim it out of the note. */
+export function attachItemResource(item, lines) {
+	const t = spanText(lines);
+	if (!item || !/○/.test(t)) return item;
+	const before = t.slice(0, t.indexOf("○"));
+	// The "Label:" before the pips: prefer an Uppercase-started name (so a preceding lowercase note word
+	// like "1 piercing Blaze:" yields "Blaze", not "piercing Blaze"), else fall back to a lowercase word ("hours:").
+	const lm = before.match(/([A-Z][A-Za-z ]{0,20}):[^:]*$/) || before.match(/([A-Za-z]+):[^:]*$/);
+	const r = parseResourceLine(lm ? t.slice(before.lastIndexOf(lm[1])) : t.slice(t.indexOf("○")));
+	if (!r) return item;
+	item.resource = r;
+	if (r.title && item.note) { const i = item.note.indexOf(r.title); if (i >= 0) item.note = item.note.slice(0, i).replace(/[,\s]+$/, "").trim() || null; }
+	return item;
+}
+
+/** A name-first outfit item: "<name> ( ○ ○ … <label>, Value N )" — the pips are a uses pool and
+ *  "Value N" is the item's value note (Opening the Way's pouch of powdered cinnabar). Distinct from the
+ *  ◇-tags item form. Give it spanText() output (○ pips intact). Returns the item def, or null. */
+export function parseNameFirstItem(text) {
+	const m = text.match(/^(.*?)\(\s*([○\s]*)([A-Za-z][A-Za-z ]*?)?\s*,?\s*Value\s*(\d+)\s*\)/);
+	if (!m) return null;
+	const name = m[1].replace(/\s+/g, " ").trim();
+	const max = (m[2].match(/○/g) || []).length;
+	if (!name || !max) return null;
+	return { name, weight: 1, tags: null, note: `Value ${m[4]}`, inventoryColumn: "regular",
+		resource: { max, title: (m[3] || "").trim() || null, labels: [] } };
+}
+
 /** Build the back side (the spell / mysteries) from its blocks. Stat blocks (followers) are handled
  *  by build-arcana via toFollowerDoc; here we collect moves/consequences/resource. */
 export function parseBack(blocks, { slug, name, major, unlockAt } = {}) {
 	if (major) return parseMajorBack(blocks, { slug, name, unlockAt });
+	// A minor arcanum's back is the "spell": a title, an optional item tags line, and flowing
+	// description — no named moves or consequence tracks (those are major-only, kept null/[] for shape).
+	// A clean dice table is promoted to a RollTable (build-arcana writes the pack file) and referenced
+	// inline via a player-rollable @DrawTableInline block (rows + roll button); the footer-strip false-positive tables don't qualify
+	// and are dropped as card furniture.
 	const back = { title: null, item: null, description: null, resource: null, moves: [], consequences: null, unlockAt: null };
-	let section = null; // null | "moves" | "consequences"
-	const descParas = [];
+	const rollTables = []; // transient RollTable specs; build-arcana emits the pack files, then strips this
+	const parts = [];      // description fragments in reading order (paras, lists, table links interleaved)
+	let resource = null;   // the first ○-pip track; attached to back.item.resource if a back item exists, else back.resource
 	for (const b of blocks) {
 		if (b.type === "heading" || b.type === "title") {
 			const t = b.line.text.trim();
-			if (/^moves$/i.test(t)) section = "moves";
-			else if (/^consequences$/i.test(t)) section = "consequences";
-			else if (/^(front|back)$/i.test(t) || /^appendix [cd]/i.test(t)) { /* side label / running header */ }
-			else if (!back.title) back.title = t; // first real heading = spell name / "Mysteries of X"
+			if (!/^(front|back)$/i.test(t) && !/^appendix [cd]/i.test(t) && !back.title) back.title = t; // spell name
 			continue;
 		}
-		if (b.type === "rule" || b.type === "boxstart" || b.type === "boxend" || b.type === "table" || b.type === "statblock") continue;
-		// A leading tags line right under the spell title → the back item (mirrors the front).
-		if (b.type === "para" && section === null && !back.item && !descParas.length) {
-			const t = joinMd(b.lines);
-			if (b.tags || /^,/.test(t.replace(/^[◇○□◻\s]+/, ""))) { back.item = parseItemLine(t, { name: back.title }); continue; }
-		}
-		if (b.type === "list") {
-			for (const it of b.items) {
-				const raw = rawOf(it);
-				const { max } = parseTrack(raw);
-				const text = stripMarkers(joinMd(it));
-				if (section === "moves") {
-					const m = text.match(/^([A-Z][A-Z'’ ]{3,}?)\s+([A-Z(].*)$/s);
-					back.moves.push(m ? { name: m[1].trim(), text: m[2].trim() } : { name: "", text });
-				} else if (section === "consequences") {
-					(back.consequences ??= { slug: "consequences", list: [] });
-					const row = { type: "entry", slug: `${slug}-c${back.consequences.list.length + 1}`, content: { title: null, text } };
-					if (max > 0) row.track = { max };
-					back.consequences.list.push(row);
-				}
+		if (b.type === "table") {
+			const q = qualifyTable(b);
+			if (q) {
+				const id = deterministicId(TABLE_PACK, `${slug}#table-${rollTables.length}`);
+				const label = (back.title ?? name ?? "Table") + (rollTables.length ? ` (${rollTables.length + 1})` : "");
+				rollTables.push({ id, uuid: tableUuid(id), name: label, formula: q.formula, results: q.results });
+				parts.push(`@DrawTableInline[${tableUuid(id)}]{${q.formula}}`);
 			}
 			continue;
 		}
-		if (b.type === "para" && section === null) descParas.push(joinMd(b.lines));
+		if (b.type === "rule" || b.type === "boxstart" || b.type === "boxend" || b.type === "statblock" || b.type === "image") continue;
+		if (b.type === "para") {
+			const lines = [...b.lines];
+			// A leading "Label:  ○ ○ ○" pool (or bare state list) at the top of a para → the back's track.
+			if (!resource && lines.length && /○/.test(lines[0].text)) {
+				const r = parseResourceLine(spanText([lines[0]]));
+				if (r) { resource = r; lines.shift(); }
+			}
+			if (!lines.length) continue;
+			const t = joinMd(lines);
+			// A name-first outfit item ("<name> ( ○ … , Value N)") → the back item (Opening the Way's pouch).
+			if (!back.item && !parts.length) { const nf = parseNameFirstItem(spanText(lines)); if (nf) { back.item = nf; continue; } }
+			// A leading tags line right under the spell title → the back item (mirrors the front).
+			if (!back.item && !parts.length && (b.tags || /^,/.test(t.replace(/^[◇○□◻\s]+/, "")))) {
+				back.item = attachItemResource(parseItemLine(t, { name: back.title }), lines); continue;
+			}
+			parts.push(t);
+			continue;
+		}
+		if (b.type === "list") {
+			const bullets = [];
+			for (const it of b.items) {
+				const raw = it.map((l) => l.text).join(" "); // joinMd strips ○/◇ markers; detection needs the raw glyphs
+				// A back item def line (◇ load + italic tags) as the first content → the back item (an outfit item),
+				// possibly with a track fused onto its tags line (Moonstone's hours, the Flaming Sword's Blaze).
+				if (!back.item && !parts.length && !bullets.length && /^,/.test(raw.replace(/^[◇○□◻\s]+/, ""))) {
+					back.item = attachItemResource(parseItemLine(joinMd(it), { name: back.title }), it); continue;
+				}
+				// A ○-pip state-track line → the back's resource track.
+				if (!resource && /○/.test(raw)) { const r = parseResourceLine(spanText(it)); if (r) { resource = r; continue; } }
+				bullets.push(`- ${stripMarkers(joinMd(it))}`);
+			}
+			if (bullets.length) parts.push(bullets.join("\n"));
+		}
 	}
-	if (descParas.length) back.description = descParas.join("\n\n");
+	// Attach the track: an outfit item on the back owns its own resource; otherwise it's a back-side pool.
+	if (resource) { if (back.item) back.item.resource = resource; else back.resource = resource; }
+	if (parts.length) back.description = parts.join("\n\n");
+	if (rollTables.length) back.rollTables = rollTables;
 	return back;
 }

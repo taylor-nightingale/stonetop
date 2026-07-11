@@ -9,11 +9,12 @@
 			"title": "A metal man",
 			"item": {
 				"name": "A metal man",
-				"weight": null,
-				"note": "*magical, fragile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "magical, fragile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
-			"description": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing's patina. It's dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
+			"description": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing’s patina. It’s dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
 			"unlock": {
 				"slug": "metal-man",
 				"list": [
@@ -26,33 +27,33 @@
 					},
 					{
 						"type": "entry",
-						"slug": "repair-body",
 						"content": {
 							"title": null,
 							"text": "… repair the body, taking a full season for an *exceptional* smith (Value 3)."
 						},
+						"slug": "repair-body",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "repair-runes",
 						"content": {
 							"title": null,
-							"text": "… spend a few years repairing the runes, risking a mistake that makes them ineffective or unstable."
+							"text": "… spend a few weeks repairing the runes, risking a mistake that makes them ineffective or unstable."
 						},
+						"slug": "spend-few",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "convince-spirit",
 						"content": {
 							"title": null,
-							"text": "… convince your own hearth's spirit to inhabit the stove and animate the construct."
+							"text": "… convince your own hearth’s spirit to inhabit the stove and animate the construct."
 						},
+						"slug": "convince-own",
 						"track": {
 							"max": 1
 						}
@@ -66,36 +67,32 @@
 			"description": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.",
 			"resource": {
 				"max": 4,
-				"maxStat": null,
 				"title": "Readiness",
 				"labels": []
 			},
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
 			"choices": {
 				"slug": "metal-man",
 				"list": [
 					{
-						"slug": "bronze-protector",
-						"track": {
-							"max": 1
-						},
-						"inlineDisplay": true,
 						"type": "entry",
+						"slug": "bronze-protector",
 						"content": {
 							"title": null,
 							"text": ""
 						},
+						"track": {
+							"max": 1
+						},
+						"inlineDisplay": true,
 						"followers": [
 							"bronze-protector"
 						]
 					}
 				]
-			},
-			"moves": [
-				{
-					"name": "As long as fire burns in the stove-like chest",
-					"text": "The hearth spirit will animate the construct. Treat it as a follower."
-				}
-			]
+			}
 		}
 	},
 	"flags": {},

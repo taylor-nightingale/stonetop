@@ -1,0 +1,118 @@
+{
+  "_id": "zKCaEYu3bUkn3A7p",
+  "_key": "!tables!zKCaEYu3bUkn3A7p",
+  "name": "Satchel of Plenty",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "0Bicbw8v6ADRNtfT",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.0Bicbw8v6ADRNtfT",
+      "type": "text",
+      "name": "",
+      "description": "Actively unpleasant, needs cooking",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "jWFdkQRy3G2ebLl1",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.jWFdkQRy3G2ebLl1",
+      "type": "text",
+      "name": "",
+      "description": "Bland but tolerable, needs cooking",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "wHrrUDbPO7sldCcK",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.wHrrUDbPO7sldCcK",
+      "type": "text",
+      "name": "",
+      "description": "Delicious, needs cooking",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "QMFF8xnJMzgcSeDD",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.QMFF8xnJMzgcSeDD",
+      "type": "text",
+      "name": "",
+      "description": "Actively unpleasant, ready to eat",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "JwP3TfeTtcJBDk2A",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.JwP3TfeTtcJBDk2A",
+      "type": "text",
+      "name": "",
+      "description": "Bland but tolerable, ready to eat",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "xaRGjn4zC6x4pqqF",
+      "_key": "!tables.results!zKCaEYu3bUkn3A7p.xaRGjn4zC6x4pqqF",
+      "type": "text",
+      "name": "",
+      "description": "Delicious, ready to eat",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 9000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

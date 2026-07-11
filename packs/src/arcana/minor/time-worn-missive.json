@@ -9,9 +9,10 @@
 			"title": "A time-worn missive",
 			"item": {
 				"name": "A time-worn missive",
-				"weight": null,
-				"note": "*fragile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "fragile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
 			"description": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"",
 			"unlock": {
@@ -26,55 +27,55 @@
 					},
 					{
 						"type": "entry",
-						"slug": "translate-dialect",
 						"content": {
 							"title": null,
 							"text": "… translate the archaic dialect."
 						},
+						"slug": "translate-archaic",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "find-portal",
 						"content": {
 							"title": null,
 							"text": "… find a portal (other than the one depicted in the missive)."
 						},
+						"slug": "find-portal",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "axiom-contagion",
 						"content": {
 							"title": null,
 							"text": "… determine how to \"invoke the axiom of local contagion.\""
 						},
+						"slug": "determine-how",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "acquire-cinnabar",
 						"content": {
 							"title": null,
-							"text": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2)."
+							"text": "… acquire a pouch of powdered cinnabar (1d4+8 uses, Value 2)."
 						},
+						"slug": "acquire-pouch",
 						"track": {
-							"max": 1
+							"max": 2
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-miscasting",
 						"content": {
 							"title": null,
 							"text": "… attempt casting the spell the first time, and risk miscasting it."
 						},
+						"slug": "attempt-casting",
 						"track": {
 							"max": 1
 						}
@@ -85,34 +86,23 @@
 		"back": {
 			"title": "Opening the Way",
 			"item": {
-				"name": "Pouch of powdered cinnabar",
+				"name": "pouch of powdered cinnabar",
 				"weight": 1,
-				"note": "*warm, magical*",
+				"tags": null,
+				"note": "Value 2",
 				"inventoryColumn": "regular",
 				"resource": {
-					"max": 9,
-					"maxStat": null,
-					"title": null,
-					"labels": [
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"uses, Value 2"
-					]
+					"max": 11,
+					"title": "uses",
+					"labels": []
 				}
 			},
-			"description": "When you **_use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
-			"moves": [
-				{
-					"name": "When you use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion",
-					"text": "A passage opens between the portals and remains until you leave their presence or dismiss the axiom. When you stand before one portal and hold the sigils of another in mind, mark a debility and roll +INT: **on a 10+**, the portals open but close as soon as your focus falters; **on a 7-9**, as 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out."
-				}
-			]
+			"description": "When you **_use ink of powdered cinnabar to_** **_carefully trace the sigils of one portal inside the_** **_permanent sigils of another, and then invoke_** **_the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the_** **_sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the_** **_axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
+			"resource": null,
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

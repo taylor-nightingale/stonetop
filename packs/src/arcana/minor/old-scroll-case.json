@@ -10,10 +10,11 @@
 			"item": {
 				"name": "An old scroll case",
 				"weight": 1,
-				"note": "*fragile*",
+				"tags": "fragile",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It's a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.",
+			"description": "A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It’s a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.",
 			"unlock": {
 				"slug": "old-scroll-case",
 				"list": [
@@ -21,49 +22,49 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "You can learn Laoj Daveth's Galvanic Infusion from the scroll, but…"
+							"text": "You can learn **Laoj Daveth’s Galvanic Infusion** from the scroll, but…"
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "translate-letter",
 						"content": {
 							"title": null,
 							"text": "… you must translate the letter."
 						},
+						"slug": "translate-letter",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "dedicated-study",
 						"content": {
 							"title": null,
-							"text": "… it'll take a few weeks of dedicated study."
+							"text": "… it’ll take a few weeks of dedicated study."
 						},
+						"slug": "ll-take",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "use-aetherium",
 						"content": {
 							"title": null,
-							"text": "… you'll use up one of the aetherium ingots (or another source of aetherium)."
+							"text": "… you’ll use up one of the aetherium ingots (or another source of aetherium)."
 						},
+						"slug": "ll-use",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-electrocution",
 						"content": {
 							"title": null,
 							"text": "… you risk electrocuting yourself and/or using up the other ingot."
 						},
+						"slug": "risk-electrocuting",
 						"track": {
 							"max": 1
 						}
@@ -72,16 +73,14 @@
 			}
 		},
 		"back": {
-			"title": "Laoj Daveth's Galvanic Infusion",
+			"title": "Laoj Daveth’s Galvanic Infusion",
 			"item": null,
-			"description": "When you **_touch a piece of aetherium and draw its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused—gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends_**, you lose 1d8 HP.",
+			"description": "When you **_touch a piece of aetherium and draw_** **_its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but** **on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused— gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends,_** you lose 1d8 HP.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you touch a piece of aetherium and draw its power into yourself",
-					"text": "**On a 10+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP). **On a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

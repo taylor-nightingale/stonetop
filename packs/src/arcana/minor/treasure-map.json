@@ -9,9 +9,10 @@
 			"title": "A treasure map",
 			"item": {
 				"name": "A treasure map",
-				"weight": null,
-				"note": "*fragile*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "fragile",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
 			"description": "A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.",
 			"unlock": {
@@ -21,82 +22,82 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock the map's mysteries and claim the prize at the end, you must…"
+							"text": "To unlock the map’s mysteries and claim the prize at the end, you must..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "find-standing-stones",
 						"content": {
 							"title": null,
 							"text": "… find the standing stones that mark the start of the path."
 						},
+						"slug": "find-standing",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "follow-map",
 						"content": {
 							"title": null,
 							"text": "… follow the map to the waterfall."
 						},
+						"slug": "follow-map",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "enter-fae-domain",
 						"content": {
 							"title": null,
 							"text": "… enter the Fae domain beyond."
 						},
+						"slug": "enter-fae",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "navigate-sword-forest",
 						"content": {
 							"title": null,
 							"text": "… navigate the sword-tree forest."
 						},
+						"slug": "navigate-sword",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-soporific",
 						"content": {
 							"title": null,
 							"text": "… risk falling under the soporific spell of the silver tree."
 						},
+						"slug": "risk-falling",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "claim-branch",
 						"content": {
 							"title": null,
 							"text": "… claim a branch from the silver tree."
 						},
+						"slug": "claim-branch",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "make-it-home",
 						"content": {
 							"title": null,
 							"text": "… make it home again."
 						},
+						"slug": "make-home",
 						"track": {
 							"max": 1
 						}
@@ -109,26 +110,25 @@
 			"item": {
 				"name": "The Silver Branch",
 				"weight": 1,
-				"note": "*magical, beautiful*",
-				"inventoryColumn": "regular"
-			},
-			"description": "A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you **_jingle the silver branch_**, all who hear it (*reach*, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1 and the GM picks another; **on a 6-**, all 3:\n\n- The branch starts to fade; if already fading, it goes bare, its powers gone\n- Some (GM's choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n- Some (GM's choice of who) become obsessed with hearing it jingle again",
-			"resource": {
-				"max": 3,
-				"maxStat": null,
-				"title": "Freshness",
-				"labels": [
-					"fresh",
-					"fading",
-					"bare"
-				]
-			},
-			"moves": [
-				{
-					"name": "When you jingle the silver branch",
-					"text": "All who hear it (reach, area except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1 and the GM picks another; **on a 6-**, all 3: the branch starts to fade (if already fading, it goes bare); some are blissed out for days or weeks; some become obsessed with hearing it again."
+				"tags": "magical, beautiful",
+				"note": null,
+				"inventoryColumn": "regular",
+				"resource": {
+					"max": 3,
+					"title": null,
+					"labels": [
+						"fresh",
+						"fading",
+						"bare"
+					]
 				}
-			]
+			},
+			"description": "A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you **_jingle the silver branch_**, all who hear it (*reach*, *area* except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n\n- The branch starts to fade; if already fading, it goes bare, its powers gone\n- Some (GM’s choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n- Some (GM’s choice of who) become obsessed with hearing it jingle again",
+			"resource": null,
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

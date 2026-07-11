@@ -13,10 +13,20 @@
 				"Spirit",
 				"construct",
 				"tiny",
-				"naive",
-				"eager"
+				"naive"
 			],
-			"options": [],
+			"options": [
+				"Spirit",
+				"construct",
+				"tiny",
+				"naive",
+				"eager",
+				"fierce",
+				"kind",
+				"sly",
+				"timid",
+				"willful"
+			],
 			"multi": true,
 			"allowCustom": true
 		},
@@ -28,18 +38,22 @@
 		"damage": "[[/r 1d4]] (if that)",
 		"specialQuality": "",
 		"instinct": {
-			"selected": [
-				"to play to learn to flaunt"
+			"selected": [],
+			"options": [
+				"to play",
+				"to learn",
+				"to flaunt"
 			],
-			"options": [],
 			"multi": false,
 			"allowCustom": true
 		},
 		"cost": {
-			"selected": [
-				"respect given new experiences comfort/compassion"
+			"selected": [],
+			"options": [
+				"respect given",
+				"new experiences",
+				"comfort/compassion"
 			],
-			"options": [],
 			"multi": false,
 			"allowCustom": true
 		},
@@ -50,10 +64,55 @@
 		"choices": [
 			{
 				"slug": "choices",
-				"list": []
+				"list": [
+					{
+						"type": "entry",
+						"slug": "produce-light-area-reach",
+						"content": {
+							"title": null,
+							"text": "Produce light (area, reach)"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "carry-manipulate-a-item",
+						"content": {
+							"title": null,
+							"text": "Carry/manipulate a item"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "deliver-a-message",
+						"content": {
+							"title": null,
+							"text": "Deliver a message"
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "spy-on-someone-something",
+						"content": {
+							"title": null,
+							"text": "Spy on someone/something"
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
 			}
 		],
-		"moves": "- Manifest a form of dust/snow/vapor\n- Produce light (area, reach)\n- Carry/manipulate a item\n- Deliver a message\n- Spy on someone/something",
+		"moves": "- Manifest a form of dust/snow/vapor",
 		"description": "",
 		"notes": ""
 	},

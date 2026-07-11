@@ -8,7 +8,7 @@
 		"front": {
 			"title": "A path in the woods",
 			"item": null,
-			"description": "Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.\n\nIf you **_set forth upon the trail at midsummer_**, you can unlock its mysteries, but you must…",
+			"description": "Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.",
 			"unlock": {
 				"slug": "path-in-the-woods",
 				"list": [
@@ -16,38 +16,38 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "If you set forth upon the trail at midsummer, you can unlock its mysteries, but you must…"
+							"text": "If you **_set forth upon the trail at midsummer,_** you can unlock its mysteries, but you must..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "follow-paths",
 						"content": {
 							"title": null,
 							"text": "… follow the twisting paths in silence, until you spy the White Hart."
 						},
+						"slug": "follow-twisting",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "chase-hart",
 						"content": {
 							"title": null,
 							"text": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth."
 						},
+						"slug": "chase-hart",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "wrestle-serpent",
 						"content": {
 							"title": null,
-							"text": "… wrestle the strange serpent that lives in the tree (Book II, page 371), crushing the life from it and eating its still-warm heart."
+							"text": "… wrestle the strange serpent that lives in the tree (*Book II*, page 371), crushing the life from it and eating its still-warm heart. Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth."
 						},
+						"slug": "wrestle-strange",
 						"track": {
 							"max": 1
 						}
@@ -56,15 +56,18 @@
 			}
 		},
 		"back": {
-			"title": "Nerth Serpent's Vigor",
+			"title": "Nerth Serpent’s Vigor",
 			"item": null,
-			"description": "When you **_crush the life from the Nerth Serpent and devour its still-warm heart_**, hold 3 Vitality. While you hold Vitality, you age very slowly.\n\nSpend Vitality 1-for-1 to:\n\n- Shrug off a poison, sickness, or curse\n- Survive a lethal wound or injury\n- Recover fully from a permanent injury or impairment (with a few days' rest)\n- Perform a feat of extraordinary strength, prowess, or endurance\nEach time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.\n\n*Note: Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth.*",
+			"description": "When you **_crush the life from the Nerth Serpent_** **_and devour its still-warm heart_**, hold 3 Vitality. While you hold Vitality, you age very slowly.\n\nSpend Vitality 1-for-1 to:\n\n- Shrug off a poison, sickness, or curse\n- Survive a lethal wound or injury\n- Recover fully from a permanent injury or impairment (with a few days’ rest)\n- Perform a feat of extraordinary strength, prowess, or endurance Each time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.",
 			"resource": {
 				"max": 3,
-				"maxStat": null,
 				"title": "Vitality",
 				"labels": []
-			}
+			},
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

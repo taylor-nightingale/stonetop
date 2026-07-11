@@ -10,10 +10,11 @@
 			"item": {
 				"name": "A beaded satchel",
 				"weight": 1,
-				"note": "magical",
+				"tags": "magical",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "Made of thick, stiff leather and decorated with impossibly fine beadwork. The pattern shows a fruit-laden tree sheltering various game and produce and grains. The specifics often change when you aren't looking.\n\nThe satchel is home to a number of spirits of autumn and plenty.",
+			"description": "Made of thick, stiff leather and decorated with impossibly fine beadwork. The pattern shows a fruit-laden tree sheltering various game and produce and grains. The specifics often change when you aren’t looking.",
 			"unlock": {
 				"slug": "beaded-satchel",
 				"list": [
@@ -21,38 +22,38 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock the satchel's secrets and gain the spirits' aid, you must…"
+							"text": "The satchel is home to a number of spirits of autumn and plenty. To unlock the satchel’s secrets and gain the spirits’ aid, you must…"
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "imbibe-alcohol",
 						"content": {
 							"title": null,
 							"text": "… imbibe a prodigious, dangerous quantity of alcohol."
 						},
+						"slug": "imbibe-prodigious",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "commune-spirits",
 						"content": {
 							"title": null,
-							"text": "… while thoroughly drunk, commune with the tethered spirits (Instinct to be genuinely, awkwardly caring and giving) and win their friendship."
+							"text": "… while thoroughly drunk, commune with the tethered spirits (**Instinct** to be genuinely, awkwardly caring and giving) and win their friendship."
 						},
+						"slug": "thoroughly-drunk",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "… feed the satchel 1 Surplus of freshly harvested foodstuffs (which shouldn’t possibly fit, but does)."
+						},
 						"slug": "feed-satchel",
-						"content": {
-							"title": null,
-							"text": "… feed the satchel 1 Surplus of freshly harvested foodstuffs (which shouldn't possibly fit, but does)."
-						},
 						"track": {
 							"max": 1
 						}
@@ -62,20 +63,13 @@
 		},
 		"back": {
 			"title": "Satchel of Plenty",
-			"item": {
-				"name": "Satchel of Plenty",
-				"weight": 1,
-				"note": "*magical*",
-				"inventoryColumn": "regular"
-			},
-			"description": "When you **_feed the satchel 1 Surplus of freshly harvested foodstuffs_**, it fits even though it should not. Until next autumn's harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).\n\n**1d6 TODAY'S FOOD IS…**\n\n- Actively unpleasant, needs cooking\n- Bland but tolerable, needs cooking\n- Delicious, needs cooking\n- Actively unpleasant, ready to eat\n- Bland but tolerable, ready to eat\n- Delicious, ready to eat\nWhen you **_draw more than 1 use of provisions from the satchel in a given day_**, it provides up to 10 uses but will produce no more until you feed it again next autumn.",
+			"item": null,
+			"description": "When you **_feed the satchel 1 Surplus of freshly_** **_harvested foodstuffs_**, it fits even though it should not. Until next autumn’s harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).\n\n**1d6** today’s food is...\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.zKCaEYu3bUkn3A7p]{1d6}\n\nWhen you **_draw more than 1 use of provisions_** **_from the satchel in a given day_**, it provides up to 10 uses but will produce no more until you feed it again next autumn.",
 			"resource": null,
-			"moves": [
-				{
-					"name": "When you feed the satchel 1 Surplus of freshly harvested foodstuffs",
-					"text": "It fits even though it should not. Until next autumn's harvest, the satchel will provide 1 use of provisions each day. Drawing more than 1 use per day provides up to 10 uses total but produces no more until next year."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

@@ -7,7 +7,13 @@
 		"slug": "huge-wooden-sphere",
 		"front": {
 			"title": "A huge wooden sphere",
-			"note": "*immobile*",
+			"item": {
+				"name": "A huge wooden sphere",
+				"weight": 1,
+				"tags": "immobile",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
 			"description": "Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.",
 			"unlock": {
 				"slug": "huge-wooden-sphere",
@@ -16,74 +22,60 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
+							"text": "The pictograms depict some sort of recipe, which you can learn but you must..."
 						}
 					},
 					{
 						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The pictograms depict some sort of recipe, which you can learn but you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "dig-up-clean",
 						"content": {
 							"title": null,
 							"text": "… first dig up and clean the sphere."
 						},
+						"slug": "first-dig",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "study-glyphs",
 						"content": {
 							"title": null,
 							"text": "… spend weeks studying the glyphs."
 						},
+						"slug": "spend-weeks",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "acquire-ffyrnig-root",
 						"content": {
 							"title": null,
 							"text": "… acquire some fresh ffyrnig root."
 						},
+						"slug": "acquire-some",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "acquire-boar-bile",
 						"content": {
 							"title": null,
-							"text": "… acquire the bile of a wild boar."
+							"text": "… acquire the bile of a wild boar. And then…"
 						},
+						"slug": "acquire-bile",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "And then…"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "risk-recipe",
 						"content": {
 							"title": null,
 							"text": "… you risk getting the recipe wrong, and lethally so."
 						},
+						"slug": "risk-getting",
 						"track": {
 							"max": 1
 						}
@@ -93,25 +85,13 @@
 		},
 		"back": {
 			"title": "Ffyrnig Tonic",
-			"item": {
-				"name": "Ffyrnig Tonic",
-				"weight": 1,
-				"note": "*magical*",
-				"inventoryColumn": "regular"
-			},
-			"description": "When you pickle fresh ffyrnig root in a suspension of boar bile for two full moons, it becomes a skin of ffyrnig tonic (3 uses, magical).",
-			"resource": {
-				"max": 3,
-				"maxStat": null,
-				"title": "Ffyrnig Tonic",
-				"labels": []
-			},
-			"moves": [
-				{
-					"name": "When you take a draught of ffyrnig tonic",
-					"text": "Pick 1:\n\n- Regain HP equal to ½ your max\n- Clear a debility\nAlso, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness.\n\nWhen you **_drink a second draught of ffyrnig tonic before getting a good night's sleep_**, it has no effect other than to make you ill (mark a debility)."
-				}
-			]
+			"item": null,
+			"description": "When you **_pickle fresh ffyrnig root in a suspen_****_sion of boar bile for two full moons_**, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you **_take a draught of ffyrnig tonic,_** pick 1:\n\n- Regain HP equal to ½ half your max\n- Clear a debility Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness. When you **_drink a second draught of ffyrnig tonic_** **_before getting a good night’s sleep_**, it has no effect other than to make you ill (mark a debility).",
+			"resource": null,
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

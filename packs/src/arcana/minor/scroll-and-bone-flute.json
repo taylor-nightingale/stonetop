@@ -10,10 +10,11 @@
 			"item": {
 				"name": "A scroll & a bone flute",
 				"weight": 1,
-				"note": "*magical*",
+				"tags": "magical",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a bone flute (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.",
+			"description": "A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a flute of bone (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.",
 			"unlock": {
 				"slug": "scroll-and-bone-flute",
 				"list": [
@@ -26,22 +27,22 @@
 					},
 					{
 						"type": "entry",
-						"slug": "decipher-notes",
 						"content": {
 							"title": null,
 							"text": "… you must first decipher the notes, which will take a few weeks of effort."
 						},
+						"slug": "first-decipher",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "risk-music",
 						"content": {
 							"title": null,
 							"text": "… the first time you use the flute, you risk getting the music wrong and aggravating the dool spirit."
 						},
+						"slug": "first-time",
 						"track": {
 							"max": 1
 						}
@@ -52,34 +53,31 @@
 		"back": {
 			"title": "Song of the Dool Trees",
 			"item": null,
-			"description": "When you **_stand among dool trees and play the proper tune on a flute of a murderer's bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.",
+			"description": "When you **_stand among dool trees and play the_** **_proper tune on a flute of a murderer’s bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.",
 			"resource": null,
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
 			"choices": {
 				"slug": "scroll-and-bone-flute",
 				"list": [
 					{
-						"slug": "dool-spirit",
-						"track": {
-							"max": 1
-						},
-						"inlineDisplay": true,
 						"type": "entry",
+						"slug": "dool-spirit",
 						"content": {
 							"title": null,
 							"text": ""
 						},
+						"track": {
+							"max": 1
+						},
+						"inlineDisplay": true,
 						"followers": [
 							"dool-spirit"
 						]
 					}
 				]
-			},
-			"moves": [
-				{
-					"name": "When you stand among dool trees and play the proper tune on a flute of a murderer's bone",
-					"text": "You summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time."
-				}
-			]
+			}
 		}
 	},
 	"flags": {},

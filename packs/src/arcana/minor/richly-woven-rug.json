@@ -10,7 +10,8 @@
 			"item": {
 				"name": "A richly woven rug",
 				"weight": 2,
-				"note": "*magical*",
+				"tags": "magical",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
 			"description": "About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power.",
@@ -26,33 +27,33 @@
 					},
 					{
 						"type": "entry",
-						"slug": "marked-by-fire",
 						"content": {
 							"title": null,
 							"text": "… be marked by fire, losing yourself to the panic or pain of burning."
 						},
+						"slug": "marked-by",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "weeks-meditation",
 						"content": {
 							"title": null,
 							"text": "… then, spend weeks in meditation upon the rug and studying the now-clear runes."
 						},
+						"slug": "then-spend",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "burned-by-flame",
 						"content": {
 							"title": null,
 							"text": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear."
 						},
+						"slug": "allow-yourself",
 						"track": {
 							"max": 1
 						}
@@ -63,19 +64,16 @@
 		"back": {
 			"title": "Fear of the Flame",
 			"item": null,
-			"description": "When you **_spend an hour or so on the rug, meditating on the fear of fire that all natural things possess_**, you hold Terror and mark 1 Heat.\n\n**○ Terror**: When you **_unleash the Terror you hold_**, all who see you fear you as they would fear the flame primeval, until you dismiss the effect.\n\nWhen you **_dismiss the effect_**, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc.\n\nWhen **_a season passes without you unleashing Terror_**, reduce your Heat by 1.",
+			"description": "When you **_spend an hour or so on the rug, med_****_itating on the fear of fire that all natural things_** **_possess_**, you hold Terror and mark 1 Heat.\n\n- **Terror**: When you **_unleash the Terror_** **_you hold_**, all who see you fear you as they would fear the flame primeval, until you dismiss the effect. When you **_dismiss the effect_**, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc. When **_a season passes without you unleashing_** **_Terror_**, reduce your Heat by 1.",
 			"resource": {
 				"max": 6,
-				"maxStat": null,
 				"title": "Heat",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you spend an hour or so on the rug, meditating on the fear of fire that all natural things possess",
-					"text": "You hold Terror and mark 1 Heat.\n\n**Terror**: When you **_unleash the Terror you hold_**, all who see you fear you as they would fear the flame primeval, until you dismiss the effect.\n\nWhen you **_dismiss the effect_**, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames.\n\nWhen **_a season passes without you unleashing Terror_**, reduce your Heat by 1."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},

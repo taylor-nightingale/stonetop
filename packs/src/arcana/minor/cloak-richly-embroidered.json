@@ -10,10 +10,11 @@
 			"item": {
 				"name": "A cloak, richly embroidered",
 				"weight": 1,
-				"note": "*magical, warm*",
+				"tags": "magical, warm",
+				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "An exquisitely fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn't there.\n\nWhen you **_don the cloak_**, you become aware of the presence bound within, thrumming and impatient.",
+			"description": "An exquisitly fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn’t there.",
 			"unlock": {
 				"slug": "cloak-richly-embroidered",
 				"list": [
@@ -21,38 +22,38 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "To unlock the mysteries of the cloak, you must…"
+							"text": "When you **_don the cloak_**, you become aware of the presence bound within, thrumming and impatient. To unlock the mysteries of the cloak, you must..."
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "learn-name",
 						"content": {
 							"title": null,
 							"text": "… learn the name of the bound spirit."
 						},
+						"slug": "learn-name",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "decipher-command",
 						"content": {
 							"title": null,
 							"text": "… decipher the word of command, embroidered in ancient Maker-script."
 						},
+						"slug": "decipher-word",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "bend-spirit",
 						"content": {
 							"title": null,
 							"text": "… bend the spirit to your will, risking its (destructive) escape."
 						},
+						"slug": "bend-spirit",
 						"track": {
 							"max": 1
 						}
@@ -62,40 +63,32 @@
 		},
 		"back": {
 			"title": "Flying Cloak",
-			"item": {
-				"name": "Flying Cloak",
-				"weight": 1,
-				"note": "*magical, warm*",
-				"inventoryColumn": "regular"
-			},
-			"description": "When you **_wear the cloak and speak the word of command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.",
+			"item": null,
+			"description": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.",
 			"resource": null,
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
 			"choices": {
 				"slug": "cloak-richly-embroidered",
 				"list": [
 					{
-						"slug": "spirit-in-the-cloak",
-						"track": {
-							"max": 1
-						},
-						"inlineDisplay": true,
 						"type": "entry",
+						"slug": "spirit-in-the-cloak",
 						"content": {
 							"title": null,
 							"text": ""
 						},
+						"track": {
+							"max": 1
+						},
+						"inlineDisplay": true,
 						"followers": [
 							"spirit-in-the-cloak"
 						]
 					}
 				]
-			},
-			"moves": [
-				{
-					"name": "When you wear the cloak and speak the word of command",
-					"text": "The storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it."
-				}
-			]
+			}
 		}
 	},
 	"flags": {},

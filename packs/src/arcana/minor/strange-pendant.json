@@ -9,11 +9,12 @@
 			"title": "A strange pendant",
 			"item": {
 				"name": "A strange pendant",
-				"weight": null,
-				"note": "*magical*",
-				"inventoryColumn": null
+				"weight": 1,
+				"tags": "magical",
+				"note": null,
+				"inventoryColumn": "regular"
 			},
-			"description": "A strange charm on a simple leather cord, like a scale of some shimmering material. It's cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.",
+			"description": "A strange charm on a simple leather cord, like a scale of some shimmering material. It’s cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.",
 			"unlock": {
 				"slug": "strange-pendant",
 				"list": [
@@ -26,33 +27,33 @@
 					},
 					{
 						"type": "entry",
-						"slug": "wear-lunar-cycle",
 						"content": {
 							"title": null,
 							"text": "… wear it ceaselessly for a lunar cycle, answering its questions honestly."
 						},
+						"slug": "wear-ceaselessly",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "hold-underwater",
 						"content": {
 							"title": null,
 							"text": "… hold yourself underwater until you risk drowning."
 						},
+						"slug": "hold-yourself",
 						"track": {
 							"max": 1
 						}
 					},
 					{
 						"type": "entry",
-						"slug": "drown-another",
 						"content": {
 							"title": null,
 							"text": "… drown another person, and offer their last gasps to the pendant."
 						},
+						"slug": "drown-another",
 						"track": {
 							"max": 1
 						}
@@ -63,19 +64,16 @@
 		"back": {
 			"title": "The Drowning Scale",
 			"item": null,
-			"description": "When you **_lean over a dying person, suck out their final breath, and breathe it into the pendant_**, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n- Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n- The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit.\nSo long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour.\n\nWhen you **_remove the pendant_**, lose any Breath you hold.",
+			"description": "When you **_lean over a dying person, suck out_** **_their final breath, and breathe it into the pendant_**, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n- Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n- The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit. So long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour. When you **_remove the pendant_**, lose any Breath you hold.",
 			"resource": {
 				"max": 3,
-				"maxStat": null,
 				"title": "Breath",
 				"labels": []
 			},
-			"moves": [
-				{
-					"name": "When you lean over a dying person, suck out their final breath, and breathe it into the pendant",
-					"text": "Roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1: hold 1 Breath but mark miserable and suffer a nasty coughing fit, or the pendant gains no benefit for you."
-				}
-			]
+			"moves": [],
+			"consequences": null,
+			"unlockAt": null,
+			"choices": null
 		}
 	},
 	"flags": {},
