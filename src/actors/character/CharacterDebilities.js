@@ -1,10 +1,12 @@
 import {DebilitySnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 
 const _DEBILITY_DEFS = [
-	{key: "weakened",  name: "Weakened",  stats: ["str", "dex"]},
-	{key: "dazed",     name: "Dazed",     stats: ["int", "wis"]},
-	{key: "miserable", name: "Miserable", stats: ["con", "cha"]},
+	{key: "weakened",  name: "Weakened",  stats: ["str", "dex"], descKey: "stonetop.character.debilities.desc.weakened"},
+	{key: "dazed",     name: "Dazed",     stats: ["int", "wis"], descKey: "stonetop.character.debilities.desc.dazed"},
+	{key: "miserable", name: "Miserable", stats: ["con", "cha"], descKey: "stonetop.character.debilities.desc.miserable"},
 ];
+
+const _localize = (key) => globalThis.game?.i18n?.localize?.(key) ?? key;
 
 export class CharacterDebilities {
 	constructor(actor) {
@@ -19,12 +21,13 @@ export class CharacterDebilities {
 
 	buildDebilitiesSnapshot() {
 		const opts = this._actor.system?.attributes?.debilities?.options ?? {};
-		return _DEBILITY_DEFS.map(({key, name, stats}) =>
+		return _DEBILITY_DEFS.map(({key, name, stats, descKey}) =>
 			new DebilitySnapshotBuilder()
 				.withKey(key)
 				.withName(name)
 				.withActive(!!(opts[key]?.value))
 				.withStats(stats)
+				.withDescription(_localize(descKey))
 				.build()
 		);
 	}

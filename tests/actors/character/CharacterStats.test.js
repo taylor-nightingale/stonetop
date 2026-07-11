@@ -87,4 +87,22 @@ describe("CharacterStats.buildStatsSnapshot", () => {
 	it("defaults to 0 when a stat is missing from the actor", () => {
 		expect(new CharacterStats(new FakeCharacterActorBuilder().build()).buildStatsSnapshot().wis.value).toBe(0);
 	});
+
+	it("carries a description for every stat (localization key when no i18n)", () => {
+		const snap = new CharacterStats(new FakeCharacterActorBuilder().build()).buildStatsSnapshot();
+		for (const key of ["str", "dex", "int", "wis", "con", "cha"]) {
+			expect(snap[key].description).toBe(`stonetop.character.stats.desc.${key}`);
+		}
+	});
+
+	it("localizes the description through game.i18n when available", () => {
+		const prev = globalThis.game;
+		globalThis.game = { i18n: { localize: (k) => (k === "stonetop.character.stats.desc.str" ? "Your physical power" : k) } };
+		try {
+			const snap = new CharacterStats(new FakeCharacterActorBuilder().build()).buildStatsSnapshot();
+			expect(snap.str.description).toBe("Your physical power");
+		} finally {
+			globalThis.game = prev;
+		}
+	});
 });

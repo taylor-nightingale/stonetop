@@ -71,6 +71,24 @@ describe("CharacterDebilities.buildDebilitiesSnapshot", () => {
 		expect(snap.find(d => d.key === "dazed").stats).toEqual(["int", "wis"]);
 		expect(snap.find(d => d.key === "miserable").stats).toEqual(["con", "cha"]);
 	});
+
+	it("carries a description for every debility (localization key when no i18n)", () => {
+		const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
+		for (const key of ["weakened", "dazed", "miserable"]) {
+			expect(snap.find(d => d.key === key).description).toBe(`stonetop.character.debilities.desc.${key}`);
+		}
+	});
+
+	it("localizes the description through game.i18n when available", () => {
+		const prev = globalThis.game;
+		globalThis.game = { i18n: { localize: (k) => (k === "stonetop.character.debilities.desc.dazed" ? "Out of it, befuddled" : k) } };
+		try {
+			const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
+			expect(snap.find(d => d.key === "dazed").description).toBe("Out of it, befuddled");
+		} finally {
+			globalThis.game = prev;
+		}
+	});
 });
 
 // -- applyDebilityRollMode -----------------------------------------------------

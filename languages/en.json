@@ -304,6 +304,21 @@
 					"int": "+INT",
 					"wis": "+WIS",
 					"cha": "+CHA"
+				},
+				"desc": {
+					"str": "Your physical power and your ability to use it. Roll +STR to Clash, or to Defy Danger with raw might or power.",
+					"dex": "Your grace and fine motor control. Roll +DEX to Let Fly, or to Defy Danger with speed, agility, finesse.",
+					"int": "Your memory, learning, and quick thinking. Roll +INT to Know Things, or to Defy Danger via expertise or with a clever plan.",
+					"wis": "Your intuition, self-control, and awareness. Roll +WIS to Seek Insight, or when you rely on your willpower or senses to Defy Danger.",
+					"con": "Your stamina, grit, determination, and endurance. Roll +CON to Defend, or to Defy Danger by holding steady or enduring hardship.",
+					"cha": "Your ability to charm and connect with others, and to get a read on what others want. Roll +CHA to Persuade, or to Defy Danger socially."
+				}
+			},
+			"debilities": {
+				"desc": {
+					"weakened": "Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.",
+					"dazed": "Out of it, befuddled, not thinking clearly. Take disadvantage when rolling +INT or +WIS.",
+					"miserable": "Greatly distressed, angry, unwell, in pain. Take disadvantage when rolling +CON or +CHA."
 				}
 			},
 			"attributes": {

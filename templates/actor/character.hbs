@@ -13,7 +13,8 @@
 				<div class="stonetop-debilities">
 					{{#each stonetop.debilities}}
 					<div class="stonetop-debility">
-						<label class="stonetop-debility-control">
+						<label class="stonetop-debility-control"
+						       data-tooltip="{{description}}" data-tooltip-direction="UP">
 							<span class="stonetop-debility-divider"></span>
 							<input type="checkbox" class="stonetop-debility-check"
 							       data-slug="{{key}}"
