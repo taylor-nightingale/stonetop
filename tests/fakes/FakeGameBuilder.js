@@ -3,6 +3,7 @@ import {vi} from "vitest";
 export class FakeGameBuilder {
 	_packs = {};
 	_worldItems = [];
+	_worldActors = [];
 
 	build() {
 		const worldItems = this._worldItems;
@@ -14,6 +15,7 @@ export class FakeGameBuilder {
 				contents: worldItems,
 				get: (id) => worldItems.find(i => i._id === id) ?? null,
 			},
+			actors: this._worldActors,
 			i18n: { localize: (key) => key },
 		});
 	}
@@ -25,6 +27,11 @@ export class FakeGameBuilder {
 
 	withWorldItem(item) {
 		this._worldItems.push(item);
+		return this;
+	}
+
+	withWorldActor(actor) {
+		this._worldActors.push(actor);
 		return this;
 	}
 }

@@ -2,6 +2,7 @@ import {
 	LoadOptionSnapshot,
 	LoadSnapshotBuilder,
 	OutfitSnapshotBuilder,
+	ProsperitySnapshot,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
@@ -9,11 +10,12 @@ import { ResourceController } from "./ResourceController.js";
 import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
 
 export class CharacterInventory {
-	constructor(actor, inventoryRepo, outfitItems, resourceController) {
+	constructor(actor, inventoryRepo, outfitItems, resourceController, steadingRepo = null) {
 		this._actor = actor;
 		this._repo = inventoryRepo;
 		this._outfitItems = outfitItems;
 		this._resourceController = resourceController;
+		this._steadingRepo = steadingRepo;
 	}
 
 	get checked()     { return this._actor.system?.inventory?.checked     ?? {}; }
@@ -107,7 +109,13 @@ export class CharacterInventory {
 			.withSmallSections(buildOutfitColumn(repoItems, embeddedItems, checked, "small", resourceFn))
 			.withSmallPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.smallPool))
 			.withOtherItems(this.otherItems)
+			.withProsperity(this.buildProsperitySnapshot())
 			.build();
+	}
+
+	buildProsperitySnapshot() {
+		const p = this._steadingRepo?.getProsperity() ?? null;
+		return p ? new ProsperitySnapshot(p.steadingName, p.value, p.lacking) : null;
 	}
 
 	buildLoadSnapshot(loadLevel) {

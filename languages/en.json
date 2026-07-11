@@ -235,7 +235,10 @@
 				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
 				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
 				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
-			}
+			},
+			"prosperity": "Prosperity",
+			"prosperityLacking": "(lacking)",
+			"prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is."
 		},
 		"settings": {
 			"hideRollMode": {

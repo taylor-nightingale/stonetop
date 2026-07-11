@@ -5,6 +5,12 @@
 	{{!-- Outfit header --}}
 	<div class="stonetop-outfit-header">
 		<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
+		{{#with stonetop.outfit.prosperity}}
+		<p class="stonetop-outfit-prosperity"
+		   {{#if lacking}}data-tooltip="{{localize "stonetop.inventory.prosperityLackingNote"}}" data-tooltip-direction="UP"{{/if}}>
+			{{steadingName}} {{localize "stonetop.inventory.prosperity"}}: <strong>{{label}}</strong>{{#if lacking}} <em>{{localize "stonetop.inventory.prosperityLacking"}}</em>{{/if}}
+		</p>
+		{{/with}}
 		<ul class="stonetop-outfit-loads">
 			<li>
 				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
