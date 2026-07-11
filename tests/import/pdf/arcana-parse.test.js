@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -576,5 +576,71 @@ describe("parseBack — minor spell (description + table → @DrawTable, no move
 		], { slug: "a-folktale", name: "A folktale", major: false });
 		expect(b.rollTables).toBeUndefined();
 		expect(b.description).not.toContain("@DrawTable");
+	});
+});
+
+describe("splitAssignRows (an 'assign one die to each' para → one list item per fill-in row)", () => {
+	it("splits a flattened multi-row line into markdown list items, one per blank-led row", () => {
+		const t = "____ **Onset: 1** = next day. ____ **Intensity: 1** = dangerous. ____ **Reach: 1** = a mile.";
+		expect(splitAssignRows(t)).toBe(
+			"- ____ **Onset: 1** = next day.\n- ____ **Intensity: 1** = dangerous.\n- ____ **Reach: 1** = a mile.");
+	});
+	it("leaves a mid-sentence blank inline (a geas), needing ≥2 blank-then-bold rows to fire", () => {
+		const geas = "You must never again ____. Henceforth, you must always seek to ____ when you can.";
+		expect(splitAssignRows(geas)).toBe(geas);
+		expect(splitAssignRows("Assign one d4 to each ____ **Onset** only.")).toBe("Assign one d4 to each ____ **Onset** only.");
+	});
+	it("passes empty/null through untouched", () => {
+		expect(splitAssignRows("")).toBe("");
+		expect(splitAssignRows(null)).toBeNull();
+	});
+});
+
+describe("numberBlanks (stable @Blank[n] tokens across an arcanum's text, front→back reading order)", () => {
+	const sys = () => ({
+		front: { description: "fill ____ here", unlock: { list: [{ content: { text: "Who benefits from __?" } }] } },
+		back: {
+			description: "- ____ **Onset**\n- ____ **Intensity**",
+			moves: [{ text: "roll ____ dice" }], choices: null, consequences: null,
+		},
+	});
+	it("numbers every blank in order and returns the count", () => {
+		const system = sys();
+		expect(numberBlanks(system)).toBe(5);
+		expect(system.front.description).toBe("fill @Blank[0] here");
+		expect(system.front.unlock.list[0].content.text).toBe("Who benefits from @Blank[1]?");
+		expect(system.back.description).toBe("- @Blank[2] **Onset**\n- @Blank[3] **Intensity**");
+		expect(system.back.moves[0].text).toBe("roll @Blank[4] dice");
+	});
+	it("is idempotent — a tokenised text has no bare underscore runs left to number", () => {
+		const system = sys();
+		numberBlanks(system);
+		const before = JSON.stringify(system);
+		expect(numberBlanks(system)).toBe(0);
+		expect(JSON.stringify(system)).toBe(before);
+	});
+	it("tolerates a missing system / empty sides", () => {
+		expect(numberBlanks(null)).toBe(0);
+		expect(numberBlanks({ front: null, back: null })).toBe(0);
+	});
+});
+
+describe("parseBack — an assign-one-die para becomes a fill-in list (Horn of Storms)", () => {
+	const _span = (font, text) => ({ font, size: 9, text });
+	const _mline = (text, spans) => ({ text, bbox: [0, 0, 0, 0], spans });
+	// The extractor flattens the four assign rows onto one line, with each label bolded.
+	const assignPara = { type: "para", lines: [_mline(
+		"____ Onset: 1 = next day. ____ Intensity: 1 = dangerous.",
+		[
+			_span("ACaslonPro-Regular", "____ "),
+			_span("ACaslonPro-Bold", "Onset: 1"),
+			_span("ACaslonPro-Regular", " = next day. ____ "),
+			_span("ACaslonPro-Bold", "Intensity: 1"),
+			_span("ACaslonPro-Regular", " = dangerous."),
+		])] };
+	const back = parseBack([_heading("Horn of Storms"), assignPara], { slug: "horn", name: "Horn", major: false });
+
+	it("renders each blank-led row as its own list item (blanks still literal — numbered at build)", () => {
+		expect(back.description).toBe("- ____ **Onset: 1** = next day.\n- ____ **Intensity: 1** = dangerous.");
 	});
 });

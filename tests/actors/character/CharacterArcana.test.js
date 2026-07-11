@@ -381,6 +381,22 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			await arcana.setChoiceText("texty", "texty", "note-input", "hello");
 			expect(item.system.choiceValues).toEqual({ texty: { "note-input": "hello" } });
 		});
+
+		it("setBlankValue writes a write-in field under the reserved 'blanks' namespace", async () => {
+			const item = makeArcanumItem({ slug: "horn", front: {}, back: {} });
+			const arcana = makeArcana([item], [{ slug: "horn" }]);
+			await arcana.setBlankValue("horn", 0, "3");
+			await arcana.setBlankValue("horn", "1", "2");
+			expect(item.system.choiceValues).toEqual({ blanks: { "0": "3", "1": "2" } });
+		});
+
+		it("getBlanks returns the stored write-in map (empty object when none)", async () => {
+			const withBlanks = makeArcanumItem({ slug: "horn", front: {}, back: {} }, { choiceValues: { blanks: { "0": "4" } } });
+			expect(makeArcana([withBlanks], [{ slug: "horn" }]).getBlanks("horn")).toEqual({ "0": "4" });
+			const empty = makeArcanumItem({ slug: "bare", front: {}, back: {} });
+			expect(makeArcana([empty], [{ slug: "bare" }]).getBlanks("bare")).toEqual({});
+			expect(makeArcana([], []).getBlanks("missing")).toEqual({});
+		});
 	});
 });
 

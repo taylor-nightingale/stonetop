@@ -2351,6 +2351,30 @@ body,
 	padding-left: 1.2em;
 }
 
+/* Write-in blank field: the book's fill-in line, rendered as a small inline input styled as an
+   underline (no box) so it reads as "write here" within the flowing text. */
+.stonetop-arcanum-blank {
+	display: inline-block;
+	width: 3.5em;
+	min-width: 2em;
+	margin: 0 2px;
+	padding: 0 2px;
+	font: inherit;
+	line-height: inherit;
+	color: inherit;
+	text-align: center;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--color-text-dark-secondary, #666);
+	border-radius: 0;
+}
+
+.stonetop-arcanum-blank:focus {
+	outline: none;
+	border-bottom-color: var(--color-shadow-primary, #782e22);
+	box-shadow: none;
+}
+
 /* Issue #7/#8: inside an arcanum card the "text" content role is ONE size everywhere — the plain
    card description, a choice/unlock entry's description, and a tracked entry's description all match
    the body size. Font size must vary only by content role (title/subtitle/note/text), never by

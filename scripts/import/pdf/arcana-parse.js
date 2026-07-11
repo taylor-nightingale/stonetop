@@ -64,6 +64,42 @@ export function tagText(text) {
 	return text.replace(MARK, "").replace(/[*_]/g, "").replace(/^[\s,]+/, "").replace(/\s{2,}/g, " ").trim() || null;
 }
 
+// A write-in blank in the book is printed as a run of underscores (a line to fill in). tagText above
+// strips them from tag lines; in flowing prose they survive to become editable fields (see below).
+const BLANK = /_{2,}/g;
+
+/** An "assign one die to each" paragraph prints several fill-in rows on one flattened line, each led by
+ *  a blank and a bold label ("____ **Onset:** …  ____ **Intensity:** …"). Split it back into one
+ *  markdown list item per row so each blank stands on its own line. Only fires with ≥2 blank-then-bold
+ *  rows, so a mid-sentence blank (e.g. a geas "you must never again ____") is left inline. */
+export function splitAssignRows(text) {
+	if (!text) return text;
+	const ROW = /_{2,}\s*\*\*/g;
+	if ((text.match(ROW) || []).length < 2) return text;
+	return text.split(/\s+(?=_{2,}\s*\*\*)/).map((r) => r.trim()).filter(Boolean).map((r) => `- ${r}`).join("\n");
+}
+
+/** Number every write-in blank across an arcanum's text fields in a fixed reading order, mutating them
+ *  in place: each `____` run becomes an `@Blank[n]` token (n counting up from 0 across front then back).
+ *  The blank-field enricher renders each token as an editable input; the typed value persists in the
+ *  arcanum's `choiceValues.blanks` store under that key, so the numbering must be stable. Idempotent —
+ *  an already-tokenised text has no bare underscore runs left to match. Returns how many were numbered. */
+export function numberBlanks(system) {
+	if (!system) return 0;
+	let n = 0;
+	const number  = (text) => (text == null ? text : text.replace(BLANK, () => `@Blank[${n++}]`));
+	const entries = (group) => { for (const row of group?.list ?? []) if (row?.content) row.content.text = number(row.content.text); };
+	const { front, back } = system;
+	if (front) { front.description = number(front.description); entries(front.unlock); }
+	if (back) {
+		back.description = number(back.description);
+		for (const m of back.moves ?? []) m.text = number(m.text);
+		entries(back.choices);
+		entries(back.consequences);
+	}
+	return n;
+}
+
 /** A run of N checkbox glyphs → `{max:N}` plus the residual text. Counts box/circle/diamond glyphs
  *  anywhere, plus a *pure* run of the font's text-layer circle glyph ("l l l l l"). */
 export function parseTrack(raw) {
@@ -559,7 +595,7 @@ export function parseBack(blocks, { slug, name, major, unlockAt } = {}) {
 			if (!back.item && !parts.length && (b.tags || /^,/.test(t.replace(/^[◇○□◻\s]+/, "")))) {
 				back.item = attachItemResource(parseItemLine(t, { name: back.title }), lines); continue;
 			}
-			parts.push(t);
+			parts.push(splitAssignRows(t));
 			continue;
 		}
 		if (b.type === "list") {

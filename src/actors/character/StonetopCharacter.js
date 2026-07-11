@@ -314,6 +314,14 @@ export class StonetopCharacter {
 		await this._arcana.setChoiceText(arcanumSlug, groupSlug, optionSlug, text);
 	}
 
+	async setArcanumBlank(arcanumSlug, key, text) {
+		await this._arcana.setBlankValue(arcanumSlug, key, text);
+	}
+
+	getArcanumBlanks(arcanumSlug) {
+		return this._arcana.getBlanks(arcanumSlug);
+	}
+
 	async setBackgroundResource(slug, count) {
 		await this._background.setResource(slug, count);
 	}

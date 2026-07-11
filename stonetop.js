@@ -22,6 +22,7 @@ import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { info } from "./src/utils/logger.js";
 import { rich, hasText } from "./src/model/snapshot/RichText.js";
 import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
+import { registerBlankFieldEnricher } from "./src/journal/blankFieldEnricher.js";
 import { CharacterData } from "./src/data/CharacterData.js";
 import { NpcData } from "./src/data/NpcData.js";
 import { SteadingData } from "./src/data/SteadingData.js";
@@ -60,6 +61,7 @@ Hooks.once("init", () => {
 
 	registerSettings();
 	registerDrawTableEnricher();
+	registerBlankFieldEnricher();
 
 	Handlebars.registerHelper("resourceChecks", resource => {
 		if (!resource) return [];

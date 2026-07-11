@@ -22,7 +22,7 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
@@ -325,6 +325,22 @@ if (WRITE_MINOR) {
 	}
 }
 
+// Number write-in blanks (____ runs) into stable `@Blank[n]` tokens across every arcanum on disk — the
+// enricher renders each as an editable field. Idempotent, so it's safe to run over freshly-written
+// minors and already-committed majors alike whenever we regenerate any tier.
+let blanksNumbered = 0;
+if (WRITE_MINOR || WRITE_ARCANA) {
+	for (const tier of ["major", "minor"]) {
+		const dir = `packs/src/arcana/${tier}`;
+		for (const f of readdirSync(dir).filter((n) => n.endsWith(".json"))) {
+			const file = path.join(dir, f);
+			const doc = JSON.parse(readFileSync(file, "utf8"));
+			const n = numberBlanks(doc.system);
+			if (n) { writeFileSync(file, JSON.stringify(doc, null, "\t") + "\n"); blanksNumbered += n; }
+		}
+	}
+}
+
 const missing = [...bySlug.keys()].filter((s) => !parsedFront.has(s));
 review.push(`Parsed ${parsedCount}/${bySlug.size} fronts, ${parsedBack.size} backs; ${flagged} flagged${missing.length ? `; NO FRONT: ${missing.join(", ")}` : ""}.`, ``);
 if (resItemReview.length) review.push(`## Back items & resource tracks (${resItemReview.length}) — verify vs book`, ...resItemReview.sort(), ``);
@@ -336,3 +352,4 @@ writeFileSync(REVIEW, review.join("\n"));
 const mode = [WRITE_ARCANA && "major arcana JSON", WRITE_MINOR && "minor arcana JSON", WRITE && "followers"].filter(Boolean);
 console.log(`fronts ${parsedCount}/${bySlug.size}, backs ${parsedBack.size}; ${flagged} flagged${missing.length ? `; ${missing.length} missing front` : ""}. followers ${followersMatched} matched${WRITE ? `, ${followersWritten} written` : ""}, ${preserved.length} preserved. -> ${REVIEW}  (${mode.length ? "WROTE " + mode.join(" + ") : "report only"})`);
 if (WRITE_MINOR) console.log(`minor arcana: wrote ${minorWritten} doc(s) + ${minorTables} RollTable(s)${minorUnmatched.length ? `; UNMATCHED: ${minorUnmatched.join(", ")}` : ""}`);
+if (WRITE_MINOR || WRITE_ARCANA) console.log(`blanks: numbered ${blanksNumbered} write-in field(s) into @Blank[n] tokens`);

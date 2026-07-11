@@ -298,6 +298,21 @@ export function createStonetopCharacterSheetClass(Base) {
 				this._stonetopCharacter.setChoiceText(cgContext, cgGroup, cgOption, el.value);
 			}, true);
 
+			// Write-in blank fields inside an arcanum card (rendered from `@Blank[key]` tokens by the
+			// enricher). Persist the typed value on change; the fill pass below seeds each from storage.
+			html[0].addEventListener("change", async ev => {
+				const el = ev.target.closest(".stonetop-arcanum-blank");
+				if (!el) return;
+				const arcEl = el.closest(".stonetop-arcanum-card");
+				if (!arcEl) return;
+				await this._stonetopCharacter.setArcanumBlank(arcEl.dataset.slug, el.dataset.blankKey, el.value);
+			}, true);
+			for (const card of html[0].querySelectorAll(".stonetop-arcanum-card")) {
+				const blanks = this._stonetopCharacter.getArcanumBlanks(card.dataset.slug);
+				for (const input of card.querySelectorAll("input.stonetop-arcanum-blank"))
+					input.value = blanks[input.dataset.blankKey] ?? "";
+			}
+
 			html[0].addEventListener("change", async ev => {
 				const el = ev.target.closest(".stonetop-arcanum-follower-check");
 				if (!el) return;

@@ -140,6 +140,21 @@ export class CharacterArcana {
 			.setText(groupSlug, optionSlug, text);
 	}
 
+	// Write-in blank fields (the `@Blank[key]` tokens in an arcanum's text) persist as free text in the
+	// same `choiceValues` store under a reserved `"blanks"` namespace, keyed by the blank's stable index.
+	async setBlankValue(arcanumSlug, key, text) {
+		const item = _findArcanumItem(this._actor, arcanumSlug);
+		if (!item) return;
+		await this._factory.forItem(item._id, "choiceValues")
+			.setText("blanks", String(key), text);
+	}
+
+	/** The stored `{ key: text }` map of write-in blank values for an arcanum (empty when none). */
+	getBlanks(arcanumSlug) {
+		const item = _findArcanumItem(this._actor, arcanumSlug);
+		return item?.system?.choiceValues?.blanks ?? {};
+	}
+
 	async _syncSideEffects(slug) {
 		const embeddedItem = _findArcanumItem(this._actor, slug);
 		if (!embeddedItem) {
