@@ -77,6 +77,7 @@ export function buildArcanumSnapshot(arcanum, {
 	const front = new ArcanumFrontSnapshotBuilder()
 		.withTitle(rich(item.front.title))
 		.withItem(buildArcanumOutfitItem(item.slug, item.front.item, undefined, checked))
+		.withTags(item.front.tags)
 		.withDescription(rich(item.front.description))
 		.withUnlock(unlock)
 		.build();

@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A grim peat mound",
 			"item": null,
+			"tags": null,
 			"description": "Not far from Marshedge, a ways into Ferrier’s Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town’s founding, the people of Marshedge have buried certain criminals here, alive.",
 			"unlock": {
 				"slug": "grim-peat-mound",

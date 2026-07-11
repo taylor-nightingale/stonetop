@@ -7,13 +7,8 @@
 		"slug": "odd-conveyance",
 		"front": {
 			"title": "An odd conveyance",
-			"item": {
-				"name": "An odd conveyance",
-				"weight": 1,
-				"tags": "large, magical, fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "large, magical, fragile",
 			"description": "It’s like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They’re linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.",
 			"unlock": {
 				"slug": "odd-conveyance",

@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn’t give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.",
 			"unlock": {
 				"slug": "humble-broom",

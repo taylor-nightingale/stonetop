@@ -2315,6 +2315,14 @@ body,
 	display: block;
 }
 
+/* A front with no ◇ outfit item shows the arcanum's disguise tags instead (e.g. "magical, terrifying"). */
+.stonetop-arcanum-tags {
+	display: block;
+	font-size: var(--fs-note);
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #666);
+}
+
 .stonetop-arcanum-weight-note-row {
 	display: inline-flex;
 	align-items: center;

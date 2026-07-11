@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A circlet of black, glossy metal set with eight spires of aetherium. It’s sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.",
 			"unlock": {
 				"slug": "oversized-crown",

@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It’s dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?",
 			"unlock": {
 				"slug": "half-buried-plaque",

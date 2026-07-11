@@ -14,6 +14,7 @@
 				"note": "if stowed;",
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.",
 			"unlock": {
 				"slug": "disturbing-mask",

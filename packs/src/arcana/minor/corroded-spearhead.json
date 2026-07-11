@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "Hidden away in some vault or cave or Makerruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those the faint traces of runes?",
 			"unlock": {
 				"slug": "corroded-spearhead",

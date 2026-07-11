@@ -7,13 +7,8 @@
 		"slug": "treasure-map",
 		"front": {
 			"title": "A treasure map",
-			"item": {
-				"name": "A treasure map",
-				"weight": 1,
-				"tags": "fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "fragile",
 			"description": "A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.",
 			"unlock": {
 				"slug": "treasure-map",

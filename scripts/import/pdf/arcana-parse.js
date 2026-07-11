@@ -57,6 +57,13 @@ export function stripMarkers(text) {
 	return text.replace(MARK, "").replace(/\s{2,}/g, " ").trim();
 }
 
+/** Clean a disguise tag line ("*magical, terrifying*") to a plain tag string ("magical, terrifying").
+ *  Drops markers and markdown emphasis and a leading separator comma; null when empty. Used for a front
+ *  whose object has no `◇` load pip — the arcanum's descriptive tags, not a carried outfit item. */
+export function tagText(text) {
+	return text.replace(MARK, "").replace(/[*_]/g, "").replace(/^[\s,]+/, "").replace(/\s{2,}/g, " ").trim() || null;
+}
+
 /** A run of N checkbox glyphs → `{max:N}` plus the residual text. Counts box/circle/diamond glyphs
  *  anywhere, plus a *pure* run of the font's text-layer circle glyph ("l l l l l"). */
 export function parseTrack(raw) {
@@ -272,7 +279,7 @@ const isHead = (b, re) => (b?.type === "heading" || b?.type === "title") && re.t
 
 /** Build the front side from its blocks (already bounded to one card's front). */
 export function parseFront(blocks, { name, slug }) {
-	const front = { title: name, item: null, description: null, unlock: null };
+	const front = { title: name, item: null, tags: null, description: null, unlock: null };
 	let item = null, pips = 0;
 	const seq = []; // ordered { kind, text?, lines? }
 
@@ -281,17 +288,19 @@ export function parseFront(blocks, { name, slug }) {
 		const raw = b.type === "list" ? rawOf(b.items.flat()) : rawOf(b.lines);
 		// pips-only block ("◇" / "◇ ◇") sets the item load
 		if (!seq.length && /◇/.test(raw) && !/[A-Za-z]/.test(raw)) { pips += (raw.match(/◇/g) || []).length; continue; }
-		// item tags line (leading comma, or a layout-tagged tags para), before any option content
-		if (!item && !seq.length) {
+		// The disguise line under the title (a layout-tagged tags para, or — testing the *raw* text, since
+		// the book sometimes bold-wraps the comma as `**,**` so the markdown would start with "*" — a line
+		// leading with the item's `◇` load pip or a bare comma), before any option content.
+		if (!item && !front.tags && !seq.length) {
 			const oneLine = b.type === "para" ? joinMd(b.lines) : b.items.length === 1 ? joinMd(b.items[0]) : null;
-			// The item line is a layout-tagged tags para, or (test the *raw* text — the book sometimes
-			// bold-wraps the comma as `**,**`, so the markdown `oneLine` would start with "*") a line that
-			// leads with the item's `◇` load pip or a bare comma before the tags.
 			if (oneLine != null && (b.tags || /^\s*◇/.test(raw) || /^,/.test(raw.replace(/^[◇○□◻\s]+/, "")))) {
 				// Load pips (◇) can sit inline on the item line, where joinMd strips only the first marker
 				// glyph — count them from the raw text so a 2-pip item (rune-laden-scales) weighs 2.
 				const inlinePips = ((b.type === "para" ? rawOf(b.lines) : rawOf(b.items[0])).match(/◇/g) || []).length;
-				item = parseItemLine(oneLine, { name, pips: pips + inlinePips });
+				// The `◇` diamond is the outfit-item marker. With it (inline, or a preceding pips-only block)
+				// the disguise IS a carried item; without it the line is just the arcanum's descriptive tags.
+				if (inlinePips + pips > 0) item = parseItemLine(oneLine, { name, pips: pips + inlinePips });
+				else front.tags = tagText(oneLine);
 				continue;
 			}
 		}
@@ -496,7 +505,10 @@ export function parseNameFirstItem(text) {
 	const m = text.match(/^(.*?)\(\s*([○\s]*)([A-Za-z][A-Za-z ]*?)?\s*,?\s*Value\s*(\d+)\s*\)/);
 	if (!m) return null;
 	const name = m[1].replace(/\s+/g, " ").trim();
-	const max = (m[2].match(/○/g) || []).length;
+	// The uses pool is every ○ on the item's line(s) — extraction can strand a pip past the closing
+	// paren ("… uses, Value 2) ○"), so count them all (the pouch's 4×3 grid reads 12, not 11), not just
+	// the run captured before the "uses" label.
+	const max = (text.match(/○/g) || []).length;
 	if (!name || !max) return null;
 	return { name, weight: 1, tags: null, note: `Value ${m[4]}`, inventoryColumn: "regular",
 		resource: { max, title: (m[3] || "").trim() || null, labels: [] } };

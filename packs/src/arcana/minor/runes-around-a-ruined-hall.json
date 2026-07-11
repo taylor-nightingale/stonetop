@@ -7,13 +7,8 @@
 		"slug": "runes-around-a-ruined-hall",
 		"front": {
 			"title": "Runes around a ruined hall",
-			"item": {
-				"name": "Runes around a ruined hall",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.",
 			"unlock": {
 				"slug": "runes-around-a-ruined-hall",

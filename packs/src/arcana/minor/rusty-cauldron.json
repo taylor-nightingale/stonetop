@@ -7,13 +7,8 @@
 		"slug": "rusty-cauldron",
 		"front": {
 			"title": "A rusty cauldron",
-			"item": {
-				"name": "A rusty cauldron",
-				"weight": 1,
-				"tags": "immobile, magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "immobile, magical",
 			"description": "Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that’s rust.",
 			"unlock": {
 				"slug": "rusty-cauldron",

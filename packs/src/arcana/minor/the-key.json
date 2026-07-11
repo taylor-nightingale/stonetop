@@ -7,13 +7,8 @@
 		"slug": "the-key",
 		"front": {
 			"title": "A... key?",
-			"item": {
-				"name": "A... key?",
-				"weight": 1,
-				"tags": "magical, terrifying",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, terrifying",
 			"description": "Secreted away in some Makers’ trove is a gleaming white thing, like a key, I guess, but not a specific key, more like the *idea* of keyness. Hurts to look right at it; makes you aware of your own dying flesh.",
 			"unlock": {
 				"slug": "the-key",

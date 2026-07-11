@@ -7,13 +7,8 @@
 		"slug": "crumbling-arch",
 		"front": {
 			"title": "A crumbling arch",
-			"item": {
-				"name": "A crumbling arch",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "On a rare dry spot in Ferrier’s Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.",
 			"unlock": {
 				"slug": "crumbling-arch",

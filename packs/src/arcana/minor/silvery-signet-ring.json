@@ -7,13 +7,8 @@
 		"slug": "silvery-signet-ring",
 		"front": {
 			"title": "A silvery signet ring",
-			"item": {
-				"name": "A silvery signet ring",
-				"weight": 1,
-				"tags": "magical, beautiful",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, beautiful",
 			"description": "A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course.",
 			"unlock": {
 				"slug": "silvery-signet-ring",

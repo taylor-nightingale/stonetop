@@ -7,13 +7,8 @@
 		"slug": "metal-man",
 		"front": {
 			"title": "A metal man",
-			"item": {
-				"name": "A metal man",
-				"weight": 1,
-				"tags": "magical, fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, fragile",
 			"description": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing’s patina. It’s dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
 			"unlock": {
 				"slug": "metal-man",

@@ -7,13 +7,8 @@
 		"slug": "wolf-pelt",
 		"front": {
 			"title": "A wolf pelt",
-			"item": {
-				"name": "A wolf pelt",
-				"weight": 1,
-				"tags": "magical, warm",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, warm",
 			"description": "It must have been a majestic beast, finely preserved with pale stones for eyes and a clip to wear it like a hooded cape. But no matter how you scrub, the red stains never come off its teeth.",
 			"unlock": {
 				"slug": "wolf-pelt",

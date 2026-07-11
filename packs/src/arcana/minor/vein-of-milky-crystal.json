@@ -7,13 +7,8 @@
 		"slug": "vein-of-milky-crystal",
 		"front": {
 			"title": "A vein of milky crystal",
-			"item": {
-				"name": "A vein of milky crystal",
-				"weight": 1,
-				"tags": "magical, beautiful, immobile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, beautiful, immobile",
 			"description": "Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.",
 			"unlock": {
 				"slug": "vein-of-milky-crystal",

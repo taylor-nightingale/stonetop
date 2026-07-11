@@ -7,13 +7,8 @@
 		"slug": "oversized-codex",
 		"front": {
 			"title": "An oversized codex",
-			"item": {
-				"name": "An oversized codex",
-				"weight": 1,
-				"tags": "immobile, fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "immobile, fragile",
 			"description": "A book, about 2 feet by 3 feet, just over 6 inches tall when closed. The cover is made of silvery cedarwood planks. The sheets are made of fine vellum, stretched from the hides of some enormous beast.\n\nThe pages are full of calligraphy, large and precise, with many diagrams showing meditative poses and strange geometric patterns related to heat, water, and ice.",
 			"unlock": {
 				"slug": "oversized-codex",

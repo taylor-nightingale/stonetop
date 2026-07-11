@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A clear natural pool",
 			"item": null,
+			"tags": null,
 			"description": "High in the hills, a stream of snowmelt fills a deep pool in the rocks before flowing on. At the bottom of the pool is a large deposit of lodestone. Rusted old blades (many sized for giants) can be seen clinging to the lodestone.",
 			"unlock": {
 				"slug": "clear-natural-pool",

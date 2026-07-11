@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A prospector's tale",
 			"item": null,
+			"tags": null,
 			"description": "\"An Ustrina once offered me a mirror, a flawless thing framed in gold. It showed *me*, but… a better me, you see? They said who made it, one of the Forge Lords, I think? Said she ‘poured her Sublime Words into it,’ whatever that means. I couldn’t pay their price. But I’ll never forget that mirror, or how it made me feel.\"",
 			"unlock": {
 				"slug": "prospectors-tale",

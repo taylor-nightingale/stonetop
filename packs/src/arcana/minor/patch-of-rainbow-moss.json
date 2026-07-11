@@ -7,13 +7,8 @@
 		"slug": "patch-of-rainbow-moss",
 		"front": {
 			"title": "A patch of rainbow moss",
-			"item": {
-				"name": "A patch of rainbow moss",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.",
 			"unlock": {
 				"slug": "patch-of-rainbow-moss",

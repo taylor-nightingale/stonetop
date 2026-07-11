@@ -7,13 +7,8 @@
 		"slug": "strange-pendant",
 		"front": {
 			"title": "A strange pendant",
-			"item": {
-				"name": "A strange pendant",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "A strange charm on a simple leather cord, like a scale of some shimmering material. It’s cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.",
 			"unlock": {
 				"slug": "strange-pendant",

@@ -7,13 +7,8 @@
 		"slug": "rune-etched-pillars",
 		"front": {
 			"title": "Rune-etched pillars",
-			"item": {
-				"name": "Rune-etched pillars",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.",
 			"unlock": {
 				"slug": "rune-etched-pillars",

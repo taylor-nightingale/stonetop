@@ -8,6 +8,7 @@
 		"front": {
 			"title": "Carvings in a cave",
 			"item": null,
+			"tags": null,
 			"description": "At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.",
 			"unlock": {
 				"slug": "carvings-in-a-cave",

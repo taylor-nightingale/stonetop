@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It’s a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.",
 			"unlock": {
 				"slug": "old-scroll-case",

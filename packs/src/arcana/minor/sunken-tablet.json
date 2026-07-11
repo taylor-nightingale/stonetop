@@ -7,13 +7,8 @@
 		"slug": "sunken-tablet",
 		"front": {
 			"title": "A sunken tablet",
-			"item": {
-				"name": "A sunken tablet",
-				"weight": 1,
-				"tags": "immobile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "immobile",
 			"description": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Makerrunes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.",
 			"unlock": {
 				"slug": "sunken-tablet",

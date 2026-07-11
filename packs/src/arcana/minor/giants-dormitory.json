@@ -7,13 +7,8 @@
 		"slug": "giants-dormitory",
 		"front": {
 			"title": "A giant's dormitory",
-			"item": {
-				"name": "A giant's dormitory",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.",
 			"unlock": {
 				"slug": "giants-dormitory",

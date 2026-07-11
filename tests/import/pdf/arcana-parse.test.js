@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -29,6 +29,16 @@ describe("parseTrack", () => {
 describe("stripMarkers", () => {
 	it("removes box/circle/diamond glyphs from markdown text, keeping emphasis", () => {
 		expect(stripMarkers("◻◻ **You** lose yourself ◻")).toBe("**You** lose yourself");
+	});
+});
+
+describe("tagText (disguise tags for a diamond-less front)", () => {
+	it("strips markers, emphasis, and a leading separator comma", () => {
+		expect(tagText("*magical, terrifying*")).toBe("magical, terrifying");
+		expect(tagText("◇ , warm, magical")).toBe("warm, magical");
+	});
+	it("returns null for an empty tag line", () => {
+		expect(tagText("  ◇  ")).toBeNull();
 	});
 });
 
@@ -321,6 +331,57 @@ describe("parseFront — major unlock (Marks track + trigger + trailing trim)", 
 	});
 });
 
+describe("parseFront — outfit item vs. disguise tags (the ◇ gate)", () => {
+	// The book italicizes tags, so a realistic disguise line mixes a ◇ marker span, a plain comma, and an
+	// italic tag run (parseItemLine keys off the italic runs). `tags: true` marks the layout-tagged para.
+	const _span = (font, text) => ({ font, size: 9, text });
+	const _mline = (text, spans) => ({ text, bbox: [0, 0, 0, 0], spans });
+	const _tags = (t) => ({ ..._para(t), tags: true });
+	const _italicTags = (text, t) => ({ type: "para", tags: true, lines: [_mline(text, [_span("ACaslonPro-Italic", t)])] });
+
+	it("builds front.item when the disguise line leads with a ◇ load pip", () => {
+		const f = parseFront([
+			_heading("A cracked flute"),
+			{ type: "para", lines: [_mline("◇ , crude, magical", [_span("marker", "◇"), _span("ACaslonPro-Regular", " , "), _span("ACaslonPro-Italic", "crude, magical")])] },
+			_para("A long, thick flute carved of redwood."),
+		], { name: "A cracked flute", slug: "cracked-flute" });
+		expect(f.item).toMatchObject({ name: "A cracked flute", weight: 1, tags: "crude, magical" });
+		expect(f.tags).toBeNull();
+	});
+
+	it("stores front.tags (no item) when the disguise line has no ◇ — it's just the arcanum's tags", () => {
+		const f = parseFront([
+			_heading("A... key?"),
+			_tags("magical, terrifying"),
+			_para("Secreted away in some Makers' trove is a gleaming white thing."),
+		], { name: "A... key?", slug: "the-key" });
+		expect(f.item).toBeNull();
+		expect(f.tags).toBe("magical, terrifying");
+		expect(f.description).toContain("Makers'");
+	});
+
+	it("counts a ◇ on its own line (pips-only block) so an item whose tags follow still weighs in", () => {
+		const f = parseFront([
+			_heading("A cloak, richly embroidered"),
+			{ type: "para", lines: [_mline("◇", [_span("marker", "◇")])] },
+			_italicTags("magical, warm", "magical, warm"),
+			_para("Made of heavy wool."),
+		], { name: "A cloak, richly embroidered", slug: "cloak-richly-embroidered" });
+		expect(f.item).toMatchObject({ name: "A cloak, richly embroidered", weight: 1, tags: "magical, warm" });
+		expect(f.tags).toBeNull();
+	});
+
+	it("leaves both item and tags null for a pure-narrative front (no tag line at all)", () => {
+		const f = parseFront([
+			_heading("A path in the woods"),
+			_para("Deep in the Great Wood sits a stone, carved with crude pictograms."),
+		], { name: "A path in the woods", slug: "path-in-the-woods" });
+		expect(f.item).toBeNull();
+		expect(f.tags).toBeNull();
+		expect(f.description).toContain("Great Wood");
+	});
+});
+
 describe("followerChoiceEntry", () => {
 	it("builds the single-pick choice row that links an arcanum back to its follower", () => {
 		expect(followerChoiceEntry("tulpa")).toEqual({
@@ -395,10 +456,11 @@ describe("attachItemResource", () => {
 });
 
 describe("parseNameFirstItem", () => {
-	it("parses '<name> ( ○ … <label>, Value N )' into an outfit item with a uses pool", () => {
+	it("parses '<name> ( ○ … <label>, Value N )' into an outfit item, counting a pip stranded past the ')'", () => {
+		// Extraction can push one ○ past the closing paren; the uses pool is every pip on the line (here 3 + 1).
 		expect(parseNameFirstItem("pouch of powdered cinnabar   ( ○ ○ ○  uses, Value 2) ○")).toEqual({
 			name: "pouch of powdered cinnabar", weight: 1, tags: null, note: "Value 2", inventoryColumn: "regular",
-			resource: { max: 3, title: "uses", labels: [] },
+			resource: { max: 4, title: "uses", labels: [] },
 		});
 	});
 	it("returns null for a line with no parenthetical Value pool", () => {

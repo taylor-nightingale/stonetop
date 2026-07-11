@@ -35,6 +35,13 @@ describe("buildArcanumSnapshot", () => {
 		expect(s.back.unlockAt).toBe("after 4 marks");
 	});
 
+	it("carries a diamond-less front's disguise tags through to the snapshot (item stays null)", () => {
+		const a = new Arcanum({ slug: "the-key", front: { title: "A... key?", tags: "magical, terrifying", description: "a white thing" }, back: {} });
+		const s = buildArcanumSnapshot(a);
+		expect(s.front.item).toBeNull();
+		expect(s.front.tags).toBe("magical, terrifying");
+	});
+
 	it("uses caller-supplied moveSnapshots (major arcana real moves) over inline back.moves", () => {
 		const real = [{ name: "Real Battery" }, { name: "Real Resonance" }];
 		const s = buildArcanumSnapshot(richArcanum(), { moveSnapshots: real });

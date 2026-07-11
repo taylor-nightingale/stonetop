@@ -7,13 +7,8 @@
 		"slug": "whispering-word",
 		"front": {
 			"title": "A whispering... word?",
-			"item": {
-				"name": "A whispering... word?",
-				"weight": 1,
-				"tags": "magical, immobile, terrifying",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical, immobile, terrifying",
 			"description": "Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.",
 			"unlock": {
 				"slug": "whispering-word",

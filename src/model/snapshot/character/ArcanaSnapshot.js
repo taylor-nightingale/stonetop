@@ -4,6 +4,7 @@ export class ArcanumFrontSnapshot {
 	constructor(b) {
 		this.title       = b._title;
 		this.item        = b._item;
+		this.tags        = b._tags ?? null;
 		this.description = b._description;
 		this.unlock      = b._unlock;
 	}
@@ -12,6 +13,7 @@ export class ArcanumFrontSnapshot {
 export class ArcanumFrontSnapshotBuilder {
 	withTitle(v)       { this._title       = v; return this; }
 	withItem(v)        { this._item        = v; return this; }
+	withTags(v)        { this._tags        = v; return this; }
 	withDescription(v) { this._description = v; return this; }
 	withUnlock(v)      { this._unlock      = v; return this; }
 	build()            { return new ArcanumFrontSnapshot(this); }

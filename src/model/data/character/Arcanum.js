@@ -16,6 +16,7 @@ export class ArcanumFront {
 	constructor(data) {
 		this.title       = data.title;
 		this.item        = data.item ? new ArcanumItem(data.item) : null;
+		this.tags        = data.tags ?? null; // disguise tags for a front with no ◇ outfit item
 		this.description = data.description;
 		this.unlock      = data.unlock ?? null;
 	}

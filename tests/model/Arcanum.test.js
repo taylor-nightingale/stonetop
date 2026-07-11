@@ -93,6 +93,11 @@ describe("ArcanumFront", () => {
 		expect(front.unlock).toBe(FRONT_DATA.unlock);
 	});
 
+	it("carries disguise tags (a diamond-less front), defaulting to null", () => {
+		expect(new ArcanumFront({ ...FRONT_DATA, item: null, tags: "magical, terrifying" }).tags).toBe("magical, terrifying");
+		expect(new ArcanumFront(FRONT_DATA).tags).toBeNull();
+	});
+
 });
 
 describe("ArcanumBack", () => {

@@ -7,13 +7,8 @@
 		"slug": "small-strange-book",
 		"front": {
 			"title": "A small, strange book",
-			"item": {
-				"name": "A small, strange book",
-				"weight": 1,
-				"tags": "fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "fragile",
 			"description": "A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.",
 			"unlock": {
 				"slug": "small-strange-book",

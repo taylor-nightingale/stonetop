@@ -7,13 +7,8 @@
 		"slug": "time-worn-missive",
 		"front": {
 			"title": "A time-worn missive",
-			"item": {
-				"name": "A time-worn missive",
-				"weight": 1,
-				"tags": "fragile",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "fragile",
 			"description": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"",
 			"unlock": {
 				"slug": "time-worn-missive",
@@ -92,7 +87,7 @@
 				"note": "Value 2",
 				"inventoryColumn": "regular",
 				"resource": {
-					"max": 11,
+					"max": 12,
 					"title": "uses",
 					"labels": []
 				}

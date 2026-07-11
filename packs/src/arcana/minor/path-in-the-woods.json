@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A path in the woods",
 			"item": null,
+			"tags": null,
 			"description": "Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.",
 			"unlock": {
 				"slug": "path-in-the-woods",

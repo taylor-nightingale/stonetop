@@ -7,13 +7,8 @@
 		"slug": "gold-ring",
 		"front": {
 			"title": "A gold ring",
-			"item": {
-				"name": "A gold ring",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.",
 			"unlock": {
 				"slug": "gold-ring",

@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A creepy cave",
 			"item": null,
+			"tags": null,
 			"description": "There’s a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.",
 			"unlock": {
 				"slug": "creepy-cave",

@@ -8,6 +8,7 @@
 		"front": {
 			"title": "A folktale",
 			"item": null,
+			"tags": null,
 			"description": "There’s this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does.",
 			"unlock": {
 				"slug": "a-folktale",

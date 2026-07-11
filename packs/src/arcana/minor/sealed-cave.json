@@ -7,13 +7,8 @@
 		"slug": "sealed-cave",
 		"front": {
 			"title": "A sealed cave",
-			"item": {
-				"name": "A sealed cave",
-				"weight": 1,
-				"tags": "magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "magical",
 			"description": "High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.",
 			"unlock": {
 				"slug": "sealed-cave",

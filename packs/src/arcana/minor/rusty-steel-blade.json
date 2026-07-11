@@ -14,6 +14,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "It was clearly once a fine, fine blade. The steel holds a pattern of rune-like sworls, at least where the rust hasn’t taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it’s been left out for hours in the summer sun.",
 			"unlock": {
 				"slug": "rusty-steel-blade",
