@@ -80,5 +80,3 @@ if (existsSync(BOOK_I)) {
 } else {
 	console.log(`Book I not found (${BOOK_I}) — steading art skipped.`);
 }
-
-console.log(`\nNote: the fortunes/surplus steading badges and playbook art are not produced by this tool — supply them manually in stonetop-art/. See stonetop-art/README.md.`);

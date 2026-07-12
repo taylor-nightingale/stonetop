@@ -1,41 +1,27 @@
-# stonetop-art — copyrighted book illustrations (not committed)
+# stonetop-art — illustrations from the Stonetop books
 
-The compendium packs reference illustrations from this folder using paths like
-`stonetop-art/arcana/mindgem.png` and `stonetop-art/wonders/<hash>.png`. Those paths resolve to
-**`Data/stonetop-art/...`** in a Foundry install (i.e. a top-level folder under Foundry's user
-data dir, *outside* the system install).
+The Stonetop compendium can show the artwork from the books, but that art is copyrighted, so it
+can't be shipped with the system. This folder is where it goes. It starts empty — if you own the
+books, you can fill it from your own PDFs. If you don't, no problem: the game works normally, the
+pictures are just missing.
 
-These images are extracted from the copyrighted Stonetop books and **are not redistributable**, so
-everything in this folder except this README is git-ignored and never shipped. The shipped system
-contains only "trade dress" (UI chrome and the small marker glyphs under
-`assets/content/wonders/markers/`).
+## Generating the art
 
-## What goes here
+You need the book PDFs. Then run one command:
 
-| Subfolder                                       | Source  | How to get it                                    |
-| ----------------------------------------------- | ------- | ------------------------------------------------ |
-| `wonders/<hash>.png`                            | Book II | `npm run extract-art`                            |
-| `arcana/<slug>.png`                             | Book II | `npm run extract-art` (major-arcana front art)   |
-| `steading/residents.png`                        | Book I  | `npm run extract-art -- <Book_II> <Book_I>`      |
+```sh
+npm run extract-art -- path/to/Book_II.pdf path/to/Book_I.pdf
+```
 
-`npm run extract-art` regenerates the **wonders**, **major-arcana**, and **steading residents**
-illustrations from the books you own. Wonders are content-addressed (`<sha256>.png`) by the same
-pipeline that produced the shipped references, so the filenames always match; arcana and steading are
-saved under stable slug/name paths the packs/sheet reference (they need not be byte-identical to any
-earlier hand-supplied crop).
+That fills this folder with the illustrations — the wonders, the arcana, and the steading residents.
+Book I is optional: leave it off and you only miss the steading illustrations. (If your PDFs already sit
+in the `helper/` folder, plain `npm run extract-art` finds them.)
 
-## Using it on a Foundry server
+You can re-run it any time; it just refreshes the files.
 
-Image refs point at `stonetop-art/...`, which lives *outside* `Data/systems/stonetop/`, so it
-**survives manifest re-installs/updates** of the system.
+## Using it in Foundry
 
-1. Populate this folder locally (run the extractor and/or drop in your manual art).
-2. Copy it to your server's data dir as **`Data/stonetop-art/`** (one-time), then re-sync after
-   meaningful re-imports — `rsync` only transfers changed files, since wonders art is
-   content-addressed.
+Copy this whole folder into Foundry's data directory as **`Data/stonetop-art/`** — next to the
+system, not inside it, so updating Stonetop never wipes your art. Re-copy it whenever you regenerate.
+That's all; Foundry picks up the pictures on its own.
 
-For local development, `scripts/development/link.sh` also symlinks `Data/stonetop-art` → this
-folder so a linked dev world resolves the art with no copying.
-
-Players/GMs who don't own the books simply won't have these files; the system still works, those
-illustrations are just absent.

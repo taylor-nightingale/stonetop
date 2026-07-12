@@ -16,6 +16,11 @@ In Foundry VTT, go to **Game Systems → Install System** and paste this manifes
 https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.json
 ```
 
+### Art assets
+
+The book illustrations are copyrighted and aren't shipped with the system. If you own the books you can generate them
+from your PDFs; the game works fine without them. See [`stonetop-art/README.md`](stonetop-art/README.md) for instructions.
+
 ## Development
 
 ```bash
@@ -33,4 +38,4 @@ Some CSS/HTML and assets derived with permission from dice-goblin's beautiful [s
 
 Game content (and trade dress) are derived from [Stonetop](https://plusoneexp.com/collections/stonetop) by Jeremy Strandberg and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-The Stonetop maps are Lucie’s illustrations (C), and should not be distributed in this repository.
+The Stonetop illustrations are Lucie’s (C), and should not be distributed in this repository.

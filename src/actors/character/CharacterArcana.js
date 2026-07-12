@@ -142,10 +142,12 @@ export class CharacterArcana {
 
 	// Write-in blank fields (the `@Blank[key]` tokens in an arcanum's text) persist as free text in the
 	// same `choiceValues` store under a reserved `"blanks"` namespace, keyed by the blank's stable index.
+	// `render: false` — the DOM already holds the typed value; re-rendering would steal focus, blocking
+	// click/tab to the next blank (Foundry restores focus to the pre-render element, i.e. the one just left).
 	async setBlankValue(arcanumSlug, key, text) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forItem(item._id, "choiceValues", { render: false })
 			.setText("blanks", String(key), text);
 	}
 

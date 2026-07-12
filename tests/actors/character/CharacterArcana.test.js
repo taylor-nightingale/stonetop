@@ -390,6 +390,18 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(item.system.choiceValues).toEqual({ blanks: { "0": "3", "1": "2" } });
 		});
 
+		it("setBlankValue persists WITHOUT re-rendering (so click/tab keeps focus), unlike a choice write", async () => {
+			const item = makeArcanumItem({ slug: "horn", front: {}, back: {} });
+			const actor = makeActor([item]);
+			const arcana = new CharacterArcana(
+				actor, new FakeArcanaRepository([{ slug: "horn" }]), makeFakeStats(),
+				makeActorOutfitItems(), null, new ChoiceGroupFactory(actor));
+			await arcana.setBlankValue("horn", 0, "3");
+			expect(actor.updateOps).toEqual([{ render: false }]);
+			await arcana.setChoiceText("horn", "horn", "note", "x");
+			expect(actor.updateOps).toEqual([{ render: false }, { render: true }]);
+		});
+
 		it("getBlanks returns the stored write-in map (empty object when none)", async () => {
 			const withBlanks = makeArcanumItem({ slug: "horn", front: {}, back: {} }, { choiceValues: { blanks: { "0": "4" } } });
 			expect(makeArcana([withBlanks], [{ slug: "horn" }]).getBlanks("horn")).toEqual({ "0": "4" });

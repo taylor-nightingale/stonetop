@@ -4,6 +4,7 @@ import {migrateCreatureData} from "../../../src/data/creature.js";
 export class FakeActor {
 	_createdDocs = [];
 	_updatedDocs = [];
+	_updateOps = [];
 	_deletedIds = [];
 	_nextId = 0;
 
@@ -30,6 +31,7 @@ export class FakeActor {
 
 	get createdDocs()  { return this._createdDocs; }
 	get updatedDocs()  { return this._updatedDocs; }
+	get updateOps()    { return this._updateOps; }
 	get deletedIds()   { return this._deletedIds; }
 
 	async createEmbeddedDocuments(_, docs) {
@@ -39,8 +41,9 @@ export class FakeActor {
 		return results;
 	}
 
-	async updateEmbeddedDocuments(_, updates) {
+	async updateEmbeddedDocuments(_, updates, operation = {}) {
 		this._updatedDocs.push(...updates);
+		this._updateOps.push(...updates.map(() => operation));
 		for (const update of updates) {
 			const item = this.items.get(update._id);
 			if (!item) continue;

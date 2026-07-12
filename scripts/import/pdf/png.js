@@ -1,4 +1,5 @@
 import zlib from "zlib";
+import crypto from "crypto";
 
 // The book's ornaments/illustrations are 1-bit grayscale ink masks; pdfimages exports them with
 // inconsistent polarity (white-on-black or black-on-white). Normalize each to **black ink on a
@@ -111,6 +112,19 @@ function decode8bit(buf) {
 		cur.copy(out, y * stride); prev = cur;
 	}
 	return { width, height, channels, px: out };
+}
+
+/**
+ * Stable content key for a normalized 8-bit PNG: sha256 over the decoded raster (dimensions +
+ * pixels), **not** the encoded file bytes. zlib's deflate output differs across builds, so hashing
+ * the file gives different digests for pixel-identical images on different machines; hashing the
+ * decoded raster is toolchain-independent, so content-addressed filenames reproduce everywhere.
+ */
+export function rasterKey(buf) {
+	const { width, height, channels, px } = decode8bit(buf);
+	const head = Buffer.alloc(9);
+	head.writeUInt32BE(width, 0); head.writeUInt32BE(height, 4); head[8] = channels;
+	return crypto.createHash("sha256").update(head).update(px).digest("hex");
 }
 
 /**

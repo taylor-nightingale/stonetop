@@ -59,6 +59,21 @@ describe("ChoiceGroupFactory.forItem", () => {
 		expect(actor.items.get("item-1").system.choiceValues).toEqual({});
 	});
 
+	it("defaults to re-rendering the owning sheet on write", async () => {
+		const item = makeItem({ system: { choiceValues: {}, choices: [] } });
+		const { factory, actor } = makeFactory([item]);
+		await factory.forItem("item-1", "choiceValues").setText("ns", "opt", "hi");
+		expect(actor.updateOps).toEqual([{ render: true }]);
+	});
+
+	it("render: false persists without re-rendering (write-in fields keep focus)", async () => {
+		const item = makeItem({ system: { choiceValues: {}, choices: [] } });
+		const { factory, actor } = makeFactory([item]);
+		await factory.forItem("item-1", "choiceValues", { render: false }).setText("ns", "opt", "hi");
+		expect(actor.items.get("item-1").system.choiceValues).toEqual({ ns: { opt: "hi" } });
+		expect(actor.updateOps).toEqual([{ render: false }]);
+	});
+
 	it("uses the correct valueField", async () => {
 		const item = makeItem({ system: { pickValues: {}, choices: [] } });
 		const { factory, actor } = makeFactory([item]);

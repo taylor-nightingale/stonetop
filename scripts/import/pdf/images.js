@@ -1,11 +1,9 @@
 import { execFileSync } from "child_process";
 import { mkdirSync, readdirSync, readFileSync, renameSync, copyFileSync, rmSync, writeFileSync } from "fs";
-import crypto from "crypto";
 import path from "path";
-import { blackTransparent, whiteTransparent, inkFraction } from "./png.js";
+import { blackTransparent, whiteTransparent, inkFraction, rasterKey } from "./png.js";
 import { loadBullets } from "./rules.js";
 
-const sha256 = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
 // `renameSync` fails with EXDEV across filesystems (e.g. a /tmp scratch dir → the repo); fall back to copy+delete.
 function moveFile(src, dest) {
 	try { renameSync(src, dest); }
@@ -100,10 +98,10 @@ export function extractPageArt(pdf, page, outDir, slug, { minW = 40, minH = 40, 
 		normalize(src); // -> RGBA black-on-transparent (in place)
 		let dest;
 		if (dedup) {
-			const hash = sha256(readFileSync(src));
+			const hash = rasterKey(readFileSync(src));
 			dest = dedup.index.get(hash);
 			if (!dest) {
-				// Recurring marker/bullet glyphs (trade dress) are routed by sha256 to a committed,
+				// Recurring marker/bullet glyphs (trade dress) are routed by raster hash to a committed,
 				// human-named file under `dedup.markers.dir`; every other image is a copyrighted
 				// illustration, content-addressed into the gitignored `dedup.dir` store.
 				const markerName = dedup.markers?.map?.[hash];
