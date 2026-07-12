@@ -10,7 +10,7 @@
 		"arcanaSlug": "tattered-mantle",
 		"tagList": {
 			"selected": [
-				"Group (3)",
+				"group",
 				"spirit",
 				"undead",
 				"terrifying",
@@ -20,6 +20,65 @@
 			"multi": true,
 			"allowCustom": true
 		},
+		"members": [
+			{
+				"name": "",
+				"hp": {
+					"value": 13,
+					"max": 13
+				},
+				"tags": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				},
+				"traits": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 13,
+					"max": 13
+				},
+				"tags": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				},
+				"traits": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 13,
+					"max": 13
+				},
+				"tags": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				},
+				"traits": {
+					"selected": [],
+					"options": [],
+					"multi": true,
+					"allowCustom": true
+				}
+			}
+		],
 		"hp": {
 			"value": 0,
 			"max": 13

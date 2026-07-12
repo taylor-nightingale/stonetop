@@ -176,6 +176,28 @@ describe("toFollowerDoc", () => {
 	});
 });
 
+describe("toFollowerDoc — group tag", () => {
+	it("canonicalizes 'Group (N)' to 'group' and seeds N members at the group's max HP", () => {
+		const doc = toFollowerDoc({
+			name: "Mantle wraiths", tagList: ["Group (3)", "spirit", "undead"],
+			hp: { value: 0, max: 13 }, moves: [],
+		}, { slug: "mantle-wraiths" });
+		expect(doc.system.tagList.selected).toEqual(["group", "spirit", "undead"]);
+		expect(doc.system.members).toHaveLength(3);
+		expect(doc.system.members[0]).toEqual({
+			name: "", hp: { value: 13, max: 13 },
+			tags:   { selected: [], options: [], multi: true, allowCustom: true },
+			traits: { selected: [], options: [], multi: true, allowCustom: true },
+		});
+	});
+
+	it("canonicalizes a bare 'Group' tag but seeds no members without a count", () => {
+		const doc = toFollowerDoc({ name: "Pack", tagList: ["Group", "beast"], hp: { value: 0, max: 6 }, moves: [] }, {});
+		expect(doc.system.tagList.selected).toEqual(["group", "beast"]);
+		expect(doc.system.members).toBeUndefined();
+	});
+});
+
 describe("toNpcDoc", () => {
 	const creature = {
 		name: "Aurochs", tagList: ["large", "beast"], hp: { value: 12, max: 12 }, armor: "1",
@@ -192,6 +214,11 @@ describe("toNpcDoc", () => {
 	it("defaults to the npc icon when no img is given (not Foundry's mystery-man)", () => {
 		const doc = toNpcDoc(creature);
 		expect(doc.img).toBe("systems/stonetop/assets/content/icons/npc.png");
+	});
+
+	it("canonicalizes a capitalized 'Group' tag to 'group' so a dragged-in follower detects it", () => {
+		const doc = toNpcDoc({ ...creature, tagList: ["Group", "large", "beast"] });
+		expect(doc.system.tagList.selected).toEqual(["group", "large", "beast"]);
 	});
 });
 

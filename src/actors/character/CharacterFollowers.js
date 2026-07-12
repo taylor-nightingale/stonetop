@@ -1,6 +1,8 @@
 import { buildFollowerSnapshot } from "../../model/snapshot/character/buildFollowerSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
 import { Selection } from "../../model/data/Selection.js";
+import { normalizeGroupTags } from "../../model/data/groupTag.js";
+import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
 import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
 
@@ -153,13 +155,20 @@ export class CharacterFollowers {
 		const sys     = npcActor.system ?? {};
 		const slug    = `custom-${Date.now()}`;
 		const [blank] = await this._followerRepo.findBySlugs(["blank"]);
+		// Canonicalize the copied group tag ("Group (3)" -> "group") so isGroup detects it, and seed
+		// the crew from the "(N)" count — each member at the group's shared max HP (as addMember does).
+		const tags    = Selection.fromStored(sys.tagList);
+		const { tags: selected, count } = normalizeGroupTags(tags.values);
+		const hpMax   = (sys.hp?.max || sys.hp?.value) ?? 0;
+		const members = count ? Array.from({ length: count }, () => newMember(hpMax)) : [];
 		await this._actor.createEmbeddedDocuments("Item", [{
 			name: npcActor.name, type: "follower",
 			...(npcActor.img ? { img: npcActor.img } : {}),
 			system: {
 				// creature core copied from the NPC (shared schema → direct copy)
-				tagList:   Selection.fromStored(sys.tagList).toRaw(),
-				hp:             { value: sys.hp?.value ?? 0, max: (sys.hp?.max || sys.hp?.value) ?? 0 },
+				tagList:   Selection.multi(selected, { options: tags.options }).toRaw(),
+				members,
+				hp:             { value: sys.hp?.value ?? 0, max: hpMax },
 				armor:          sys.armor ?? "",
 				damage:         sys.damage ?? "",
 				specialQuality: sys.specialQuality ?? "",

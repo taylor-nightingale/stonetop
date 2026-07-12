@@ -3,6 +3,7 @@
 
 import { migrateChoicesField } from "../migration/migrateChoices.js";
 import { Selection } from "../model/data/Selection.js";
+import { normalizeGroupTags } from "../model/data/groupTag.js";
 
 /**
  * A first-class "pick from a list (+ optional custom)" field, used for tagList (multi) and
@@ -135,6 +136,15 @@ export function migrateCreatureData(source) {
 	delete source.creatureTags;
 	if (typeof source.tagList === "string") {
 		source.tagList = Selection.fromStored(source.tagList, { multi: true }).toRaw();
+	}
+	// Normalize the group tag to its canonical lowercase token ("Group"/"Group (3)" -> "group") so
+	// isGroup detection works regardless of the source's casing (book NPCs print "Group"; a follower
+	// dragged from one inherits it). Tag-only: never seeds members here (this runs on partial update
+	// diffs — see the tagList caveat above; member seeding happens at creation, not migration). Only
+	// touches tagList when it is already present, so an absent tagList stays absent.
+	if (source.tagList && typeof source.tagList === "object" && !Array.isArray(source.tagList)) {
+		if (Array.isArray(source.tagList.selected)) source.tagList.selected = normalizeGroupTags(source.tagList.selected).tags;
+		if (Array.isArray(source.tagList.options))  source.tagList.options  = normalizeGroupTags(source.tagList.options).tags;
 	}
 
 	// hp: flat NPC number (+ maxHp) OR legacy {value,min,max} -> {value, max}.

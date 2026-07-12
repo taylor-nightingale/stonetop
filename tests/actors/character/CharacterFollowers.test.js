@@ -756,6 +756,7 @@ function makeNpcActor(overrides = {}) {
 		name: overrides.name ?? "Garm the Guard",
 		type: "follower",
 		system: {
+			...(overrides.tagList ? { tagList: overrides.tagList } : {}),
 			hp:             overrides.hp             ?? { value: 8, max: 10 },
 			armor:          overrides.armor          ?? "2 (resilience)",
 			damage:         overrides.damage         ?? "claws d8 (hand)",
@@ -840,6 +841,32 @@ describe("CharacterFollowers — addFromNpcActor", () => {
 		await cf.addFromNpcActor(makeNpcActor());
 		const created = actor.createdDocs.at(-1);
 		expect(created.system.description).toBe("A grizzled guard.");
+	});
+
+	it("canonicalizes a 'Group (3)' NPC tag to 'group' and seeds 3 members at the group max HP", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor({
+			tagList: { selected: ["Group (3)", "undead"], options: [], multi: true, allowCustom: true },
+			hp: { value: 0, max: 13 },
+		}));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.tagSelection.values).toEqual(["group", "undead"]);
+		expect(snap.isGroup).toBe(true);
+		expect(snap.members).toHaveLength(3);
+		expect(snap.members.map(m => m.hp)).toEqual([
+			{ value: 13, max: 13 }, { value: 13, max: 13 }, { value: 13, max: 13 },
+		]);
+	});
+
+	it("canonicalizes a bare 'Group' tag but leaves the crew empty without a count", async () => {
+		const { cf } = makeCfWithActor();
+		await cf.addFromNpcActor(makeNpcActor({
+			tagList: { selected: ["Group", "beast"], options: [], multi: true, allowCustom: true },
+		}));
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.tagSelection.values).toEqual(["group", "beast"]);
+		expect(snap.isGroup).toBe(true);
+		expect(snap.members).toHaveLength(0);
 	});
 });
 

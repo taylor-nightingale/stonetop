@@ -7,8 +7,9 @@
 // Nothing here is committed — see stonetop-art/README.md.
 //
 // Usage: npm run extract-art -- /path/to/Book_II.pdf [/path/to/Book_I.pdf]
-//        (or set BOOK_II_PDF / BOOK_I_PDF; both default to helper/). Book I is optional — steading
-//        art is skipped when it's absent.
+//        Order doesn't matter — the two books are identified by filename (or set
+//        BOOK_II_PDF / BOOK_I_PDF; both default to helper/). Book I is optional —
+//        steading art is skipped when it's absent.
 import { mkdirSync, mkdtempSync, rmSync, existsSync, readFileSync, readdirSync } from "fs";
 import os from "os";
 import path from "path";
@@ -17,11 +18,18 @@ import { loadArticlePages } from "./load.js";
 import { extractChrome, extractSwirls } from "./images.js";
 import { extractArcanaArt } from "./arcana-art.js";
 import { extractSteadingArt } from "./steading-art.js";
+import { resolveBooks, requireTools } from "./books.js";
 import { execFileSync } from "child_process";
 import { toSlug } from "../../../src/utils/slug.js";
 
-const PDF = process.argv[2] ?? process.env.BOOK_II_PDF ?? process.env.BOOK_PDF ?? "helper/Book_II_-_The_Wider_World_and_Other_Wonders.pdf";
-const BOOK_I = process.argv[3] ?? process.env.BOOK_I_PDF ?? "helper/Book_I_-_Stonetop.pdf";
+let PDF, BOOK_I;
+try {
+	requireTools();
+	({ bookII: PDF, bookI: BOOK_I } = resolveBooks(process.argv.slice(2), process.env));
+} catch (e) {
+	console.error(`! ${e.message}`);
+	process.exit(1);
+}
 if (!existsSync(PDF)) {
 	console.error(`! Book II PDF not found: ${PDF}\n  Usage: npm run extract-art -- /path/to/Book_II.pdf [/path/to/Book_I.pdf]`);
 	process.exit(1);

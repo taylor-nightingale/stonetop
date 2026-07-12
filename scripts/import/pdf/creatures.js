@@ -1,6 +1,8 @@
 import { isAvara, isItalic } from "./fonts.js";
 import { deterministicId, documentKey } from "../ids.js";
 import { toSlug } from "../../../src/utils/slug.js";
+import { normalizeGroupTags } from "../../../src/model/data/groupTag.js";
+import { newMember } from "../../../src/utils/followerMemberEdit.js";
 import { stripLoyalty } from "./arcana-parse.js";
 
 // The GM-locked journal pack the monsters link back to (built later, with deterministic ids).
@@ -219,7 +221,9 @@ export function toNpcDoc(creature, { article, img = "systems/stonetop/assets/con
 		system: {
 			slug,
 			reference: article?.slug ?? null,
-			tagList: selection(creature.tagList, true),
+			// Canonicalize the group tag ("Group"/"Group (N)" -> "group") so isGroup detects it and a
+			// follower dragged from this NPC inherits the working token.
+			tagList: selection(normalizeGroupTags(creature.tagList).tags, true),
 			hp: creature.hp,
 			armor: creature.armor,
 			damage: creature.damage,
@@ -248,6 +252,12 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 	// A follower stores current HP 0 (the sheet fills it); only the book max matters. parseStatBlock
 	// sets value === max (the printed number), so take the max explicitly.
 	const hp = { value: 0, max: creature.hp?.max || creature.hp?.value || 0 };
+	// Canonicalize the group tag and pull out its "(N)" count: "Group (3)" -> tag "group" + 3 crew
+	// members, each starting at the group's shared max HP (mirrors CharacterFollowers.addMember). A
+	// group tag with no count leaves members empty (the player adds them on the sheet).
+	const { tags: tagList, count: groupCount } = normalizeGroupTags(creature.tagList);
+	const { tags: tagOptions } = normalizeGroupTags(creature.tagOptions ?? []);
+	const members = groupCount ? Array.from({ length: groupCount }, () => newMember(hp.max)) : null;
 	// Fixed moves stay in the markdown list; □-boxed *pickable* moves become entries in the follower
 	// choice group (choices[0]) so the player checks the ones this follower has — they are NOT also added
 	// to the moves list. A single checkbox each (track.max 1); state lives in choiceValues["choices"].
@@ -265,7 +275,8 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 			slug: followerSlug,
 			reference: null,
 			arcanaSlug,
-			tagList: selection(creature.tagList, true, creature.tagOptions ?? []),
+			tagList: selection(tagList, true, tagOptions),
+			...(members ? { members } : {}),
 			hp,
 			armor: creature.armor,
 			damage: rollableDice(creature.damage),

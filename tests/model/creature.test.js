@@ -243,4 +243,13 @@ describe("migrateCreatureData — tags → tagList", () => {
 		expect(s.tagList.selected).toEqual(["x"]);
 		expect(s.tags).toBeUndefined();
 	});
+
+	it("normalizes a capitalized / counted group tag to the canonical lowercase token", () => {
+		// A book NPC prints "Group"; a follower dragged from a "Group (3)" NPC inherits it. Either way
+		// isGroup must detect it, so migrateData conforms the casing (and strips the count) on load.
+		const s = { tagList: { selected: ["Group (3)", "spirit"], options: ["Group"], multi: true, allowCustom: true } };
+		migrateCreatureData(s);
+		expect(s.tagList.selected).toEqual(["group", "spirit"]);
+		expect(s.tagList.options).toEqual(["group"]);
+	});
 });
