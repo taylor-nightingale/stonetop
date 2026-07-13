@@ -6,7 +6,7 @@
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "a-forked-stick-of-redwood",
-		"description": "◇ *magical*\n\nA stout stick about 2 feet long, the bark removed, with fine woodworm trails making entirely-too-regular patterns. If you hold it gently, with a hand on each tine of the fork, you can feel it tugging, pulling you gently in certain directions.\n\nWhen you **_dowse with the redwood stick_**, it will guide you to the nearest site sacred to the spirits of the wild. With practice, you can estimate the distance and even the disposition of the spirits that dwell there.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the Wild}.*",
+		"description": "◇ *magical*\n\nA stout stick about 2 feet long, the bark removed, with fine woodworm trails making entirely-too-regular patterns. If you hold it gently, with a hand on each tine of the fork, you can feel it tugging, pulling you gently in certain directions.\n\nWhen you **_dowse with the redwood stick_**, it will guide you to the nearest site sacred to the spirits of the wild. With practice, you can estimate the distance and even the disposition of the spirits that dwell there.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
 		"resource": null,
 		"outfitItems": [
 			{

@@ -6,7 +6,7 @@
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "length-of-braided-leather",
-		"description": "*magical*\n\n3 feet long, frayed on one end, and crusty with flaking... something. The braids entwine 2d4 beads of redwood. Each bead contains some harm: a wound (1d10 damage, *messy*, ignores armor), a sickness, a poison, a delusion. The whole thing binds a spirit of blight.\n\nWhen you **_unweave the braid and let a_** **_redwood bead drop upon the earth_**, the spirit manifests as a warm, damp wind. Name someone in your presence; the spirit inflicts upon them whatever harm was stored in the bead. If you do not name someone in your presence, the spirit will choose someone at random (maybe even you).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the Wild}.*",
+		"description": "*magical*\n\n3 feet long, frayed on one end, and crusty with flaking... something. The braids entwine 2d4 beads of redwood. Each bead contains some harm: a wound (1d10 damage, *messy*, ignores armor), a sickness, a poison, a delusion. The whole thing binds a spirit of blight.\n\nWhen you **_unweave the braid and let a_** **_redwood bead drop upon the earth_**, the spirit manifests as a warm, damp wind. Name someone in your presence; the spirit inflicts upon them whatever harm was stored in the bead. If you do not name someone in your presence, the spirit will choose someone at random (maybe even you).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

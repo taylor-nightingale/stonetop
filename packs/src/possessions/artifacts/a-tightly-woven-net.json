@@ -6,7 +6,7 @@
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "a-tightly-woven-net",
-		"description": "*close*, *thrown*, *magical*, *crude*\n\nWoven from Flats-grass by a Hillfolk sorcerer or witch. Hundreds of minor root-spirits are tethered to the strands.\n\nWhen you **_cast the net over a spirit_**, it is ensnared—even if its form is intangible or could flow through the net. The spirit can’t escape on its own as long as the net is intact. Don’t try to use this on fire spirits— they’ll burn right through it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the Wild}.*",
+		"description": "*close*, *thrown*, *magical*, *crude*\n\nWoven from Flats-grass by a Hillfolk sorcerer or witch. Hundreds of minor root-spirits are tethered to the strands.\n\nWhen you **_cast the net over a spirit_**, it is ensnared—even if its form is intangible or could flow through the net. The spirit can’t escape on its own as long as the net is intact. Don’t try to use this on fire spirits— they’ll burn right through it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

@@ -105,7 +105,9 @@ const isItalicLine = (l) => l.spans.length > 0 && l.spans.every((s) => isItalic(
 const isFieldLine = (l) => /^(HP\b|Armor\b|Damage\b|Instinct\b|Special qualit)/i.test(l.text.trim());
 // A real HP field carries its value right after the label ("HP 26; Armor 3 (…)"); prose that merely
 // starts with "HP" (Book I's harm chapter: "HP. Good for them!…") must not anchor a stat block.
-const isHpLine = (l) => /^HP\s*:?\s*\d/i.test(l.text.trim());
+// A few Book II creatures print a non-numeric value — "HP varies" (elemental vortices), "HP
+// variable" (Servants of Daagon) — which anchors a real block just the same.
+const isHpLine = (l) => /^HP\s*:?\s*(\d|varies\b|variable\b)/i.test(l.text.trim());
 const hpAhead = (rows, i) => {
 	// Look a few rows ahead for the HP line — a name can be followed by an icon and one or two
 	// wrapped tag lines before HP (e.g. Bronze colossus, Iron hound, Draventao).

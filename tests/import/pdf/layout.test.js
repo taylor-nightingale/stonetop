@@ -218,3 +218,41 @@ describe("extractArticle — stat-block anchors vs. same-named headings (segment
 		expect(sbs[0].lines.some((l) => /^HP 12/.test(l.text))).toBe(true);
 	});
 });
+
+describe("extractArticle — non-numeric HP stat blocks (vortices, Servants of Daagon)", () => {
+	// The Tempest Lords' elemental vortices print "HP varies" and Blackwater Lake's Servants of
+	// Daagon "HP variable" — real stat blocks with no digit after HP. The digit-anchored guard
+	// above must still accept them (they ship as wider-world-npcs actors with hp 0/0); only
+	// valueless prose ("HP. Good for them!") stays excluded.
+	const L = (text, y, { font = "ACaslonPro-Regular", size = 9 } = {}) =>
+		({ bbox: [36, y, 220, y + size], text, font, size, spans: [{ font, size, text }] });
+	const page = {
+		width: 400, height: 600,
+		lines: [
+			L("Tempest Lords", 40, { font: "Avara-Bold", size: 18 }),
+			L("Fire vortex", 70, { font: "Avara-Bold", size: 9 }),
+			L("Solitary, size by HP, spirit, construct", 85, { font: "ACaslonPro-Italic", size: 9 }),
+			L("HP varies; Armor by HP", 100, { font: "ACaslonPro-Bold", size: 9 }),
+			L("Instinct: to consume", 115),
+			L("Servants of Daagon", 200, { font: "Avara-Bold", size: 9 }),
+			L("Terrifying, violent, wretched", 215, { font: "ACaslonPro-Italic", size: 9 }),
+			L("HP variable; Armor variable", 230, { font: "ACaslonPro-Bold", size: 9 }),
+			L("Instinct: to devour, then to steal", 245),
+		],
+	};
+	const doc = extractArticle([page], { title: "Tempest Lords" });
+	const sbs = [...doc.sections[0].left, ...doc.sections[0].right].flatMap((c) => c.blocks)
+		.filter((b) => b.type === "statblock");
+
+	it("anchors a stat block on 'HP varies' and 'HP variable'", () => {
+		expect(sbs).toHaveLength(2);
+		expect(sbs[0].lines.map((l) => l.text)).toContain("Fire vortex");
+		expect(sbs[1].lines.map((l) => l.text)).toContain("Servants of Daagon");
+	});
+
+	it("renders them as stat-block asides", () => {
+		const body = renderHtml(doc);
+		expect(body).toMatch(/<div class="sb-name"><strong>Fire vortex<\/strong><\/div>/);
+		expect(body).toMatch(/<div class="sb-name"><strong>Servants of Daagon<\/strong><\/div>/);
+	});
+});

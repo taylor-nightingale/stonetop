@@ -6,7 +6,7 @@
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "a-stone-cup",
-		"description": "*magical*\n\nA lump of limestone, big as a large man’s fist, sheared off smooth at one end and hollowed out. Water slowly seeps from the interior wall, filling the cup in about half an hour. The water is hard, mineral-rich but potable, and just a little cursed.\n\nWhen you **_drink water produced by the cup_**, you’ll have troubling dreams the next time you sleep—dreams of suffocation and endless wet caverns and huge uncaring things stirring in the lightless depths. Roll 1d6: **on a 1**, you wake up screaming and will get no rest this evening; **on a 2-6**, the dreams are merely unsettling.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the Wild}.*",
+		"description": "*magical*\n\nA lump of limestone, big as a large man’s fist, sheared off smooth at one end and hollowed out. Water slowly seeps from the interior wall, filling the cup in about half an hour. The water is hard, mineral-rich but potable, and just a little cursed.\n\nWhen you **_drink water produced by the cup_**, you’ll have troubling dreams the next time you sleep—dreams of suffocation and endless wet caverns and huge uncaring things stirring in the lightless depths. Roll 1d6: **on a 1**, you wake up screaming and will get no rest this evening; **on a 2-6**, the dreams are merely unsettling.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,
