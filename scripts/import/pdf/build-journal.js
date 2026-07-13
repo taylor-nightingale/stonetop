@@ -14,7 +14,8 @@ import { extractArticle } from "./layout.js";
 import { renderHtml } from "./render-html.js";
 import { loadArticlePages } from "./load.js";
 import { annotateTables } from "./tables.js";
-import { buildPageMap, linkPageRefs } from "./crossref.js";
+import { buildPageMap, linkPageRefs, linkNpcs, loadNpcSlugs } from "./crossref.js";
+import { linkArtifacts } from "../build-artifacts.js";
 import { loadArcanaIndex, linkArcana } from "./arcana.js";
 import { extractImprovements, improvementUuid } from "./improvements.js";
 import { applyManualEdits } from "./manual-edits.js";
@@ -128,20 +129,28 @@ rmSync(scratch, { recursive: true, force: true });
 
 const pageMap = buildPageMap(built);
 const arcanaIndex = loadArcanaIndex(); // proper-noun arcana names → arcana-pack item UUIDs
+const npcSlugs = loadNpcSlugs();       // generated NPC actors — stat-block names link to them
+if (!npcSlugs.size) flags.push("? no wider-world-npcs sources found — stat-block names not linked (run build-npcs first)");
 
-// Pass 2 — rewrite "(page N)" cross-refs to journal-entry links + arcana names to arcana items,
-// then assemble + write each entry.
-let written = 0, links = 0, arcanaLinks = 0;
+// Pass 2 — rewrite "(page N)" cross-refs to journal-entry links + arcana names to arcana items +
+// stat-block names to NPC actors + artifact titles to possession items, then assemble + write
+// each entry. The NPC/artifact passes run after the manual edits so those keep matching the
+// verbatim text they were authored against.
+let written = 0, links = 0, arcanaLinks = 0, npcLinks = 0, artifactLinks = 0;
 for (const { i, r, slug, body, page } of built) {
 	const id = deterministicId(JOURNAL_PACK, slug);
 	const pageLinked = linkPageRefs(body, pageMap, { selfSlug: slug });
 	const arc = linkArcana(pageLinked.html, arcanaIndex);
 	const edited = applyManualEdits(arc.html, slug); // one-off per-article corrections (see manual-edits.js)
 	for (const m of edited.misses) flags.push(`? ${r.title}: manual edit matched nothing — ${m}`);
+	const npc = linkNpcs(edited.html, npcSlugs);
+	const artifacts = linkArtifacts(npc.html);
 	links += pageLinked.linked;
 	arcanaLinks += arc.linked;
+	npcLinks += npc.linked;
+	artifactLinks += artifacts.linked;
 	const ref = page ? `<p class="wonder-pageref">Book of the Wider World — p.${page}</p>` : "";
-	const content = `<div class="stonetop-wonder">${ref}${edited.html}</div>`;
+	const content = `<div class="stonetop-wonder">${ref}${artifacts.html}</div>`;
 
 	const entry = {
 		_id: id,
@@ -157,5 +166,5 @@ for (const { i, r, slug, body, page } of built) {
 	written++;
 }
 
-console.log(`\nwrote ${written} journal entr${written === 1 ? "y" : "ies"} to ${OUT}/ (${links} page-ref links, ${arcanaLinks} arcana links, ${dedup.size} distinct images in ${SHARED_DIR})`);
+console.log(`\nwrote ${written} journal entr${written === 1 ? "y" : "ies"} to ${OUT}/ (${links} page-ref links, ${arcanaLinks} arcana links, ${npcLinks} npc links, ${artifactLinks} artifact links, ${dedup.size} distinct images in ${SHARED_DIR})`);
 if (flags.length) console.log(`\n${flags.length} note(s) for review:\n` + flags.join("\n"));

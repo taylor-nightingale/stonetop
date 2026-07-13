@@ -30,7 +30,30 @@ const PACK = "possessions";
 const FOLDER_NAME = "Artifacts";
 
 // NPC-shaped tag lines: spirits and followers share the artifact markup but are not items.
-const NPC_TAGS = /\b(spirit|solitary|group|horde|primordial)\b|instinct/i;
+export const NPC_TAGS = /\b(spirit|solitary|group|horde|primordial)\b|instinct/i;
+
+/** UUID of an artifact's possession item — deterministic, so the journal can link to it
+ *  before (or without) the item file existing on disk. */
+export function artifactUuid(slug) {
+	return `Compendium.stonetop.${PACK}.Item.${deterministicId(PACK, `artifact:${slug}`)}`;
+}
+
+/**
+ * Wrap each artifact block's `<h3>` title in article HTML with a @UUID link to its generated
+ * possession item. NPC-shaped blocks (spirits/followers — see NPC_TAGS) stay plain, matching
+ * what main() extracts. Idempotent: an already-linked title (leading `@`) is left alone.
+ * Returns `{html, linked}`.
+ */
+export function linkArtifacts(html) {
+	let linked = 0;
+	const re = /(<h3>(?:<img[^>]*>)?\s*)([^<@]+?)(\s*<\/h3>\s*<p class="artifact-tags">)(.*?)(<\/p>)/g;
+	const out = html.replace(re, (whole, pre, title, mid, tags, close) => {
+		if (NPC_TAGS.test(htmlToMarkdown(tags))) return whole;
+		linked++;
+		return `${pre}@UUID[${artifactUuid(toSlug(htmlToMarkdown(title)))}]{${title.trim()}}${mid}${tags}${close}`;
+	});
+	return { html: out, linked };
+}
 
 /** Minimal HTML → the markdown dialect used by existing pack descriptions. */
 export function htmlToMarkdown(html) {

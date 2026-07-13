@@ -16,6 +16,12 @@ export function journalUuid(articleSlug) {
 	return `Compendium.${SYSTEM}.${JOURNAL_PACK}.JournalEntry.${deterministicId(JOURNAL_PACK, articleSlug)}`;
 }
 
+/** UUID of a creature's Actor in the monster pack — the forward link the journal's stat blocks
+ *  carry (the actor's description holds the matching back-link). */
+export function npcUuid(creatureSlug) {
+	return `Compendium.${SYSTEM}.${MONSTER_PACK}.Actor.${deterministicId(MONSTER_PACK, creatureSlug)}`;
+}
+
 // Parse a monster stat block (the `statblock` block from layout.js) into our shared creature schema
 // (src/data/creature.js): name, tagList, hp, armor, damage, specialQuality, instinct, moves, and any
 // leftover prose as description. Pure data — the Foundry Actor doc is built by `toNpcDoc`.

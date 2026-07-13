@@ -7,6 +7,13 @@ export function escapeHtml(text) {
 	return String(text ?? "").replace(/[&<>"']/g, (c) => ESCAPES[c]);
 }
 
+const UNESCAPES = Object.fromEntries(Object.entries(ESCAPES).map(([c, e]) => [e, c]));
+
+/** Invert escapeHtml — recover the plain text of a rendered text node. */
+export function unescapeHtml(html) {
+	return String(html ?? "").replace(/&(?:amp|lt|gt|quot|#39);/g, (e) => UNESCAPES[e]);
+}
+
 /** Trim and drop runs of empty lines / inter-tag whitespace, leaving null/empty as "". */
 export function normalizeHtml(value) {
 	if (value == null) return "";

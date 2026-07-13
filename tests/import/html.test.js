@@ -1,9 +1,19 @@
 import { describe, it, expect } from "vitest";
-import { escapeHtml, normalizeHtml, tag, toParagraphs, joinSections } from "../../scripts/import/html.js";
+import { escapeHtml, unescapeHtml, normalizeHtml, tag, toParagraphs, joinSections } from "../../scripts/import/html.js";
 
 describe("escapeHtml", () => {
 	it("escapes HTML-significant characters", () => {
 		expect(escapeHtml(`a & b < c > "d" 'e'`)).toBe("a &amp; b &lt; c &gt; &quot;d&quot; &#39;e&#39;");
+	});
+});
+
+describe("unescapeHtml", () => {
+	it("inverts escapeHtml", () => {
+		const text = `a & b < c > "d" 'e'`;
+		expect(unescapeHtml(escapeHtml(text))).toBe(text);
+	});
+	it("leaves plain text and unknown entities alone", () => {
+		expect(unescapeHtml("Crag Wyvern &copy;")).toBe("Crag Wyvern &copy;");
 	});
 });
 

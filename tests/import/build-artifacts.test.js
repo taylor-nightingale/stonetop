@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { extractBlocks, htmlToMarkdown } from "../../scripts/import/build-artifacts.js";
+import { artifactUuid, extractBlocks, htmlToMarkdown, linkArtifacts } from "../../scripts/import/build-artifacts.js";
+import { deterministicId } from "../../scripts/import/ids.js";
 
 const ARTICLE = `
 <div class="page2col"><div class="col"><hr class="rule">
@@ -65,6 +66,43 @@ describe("extractBlocks", () => {
 			'<h3>The Three-star Crown</h3>' +
 			'<p class="artifact-tags">□ <em>magical</em>, <em>beautiful</em>, Value 4</p><p>A circlet.</p>');
 		expect(boxed[0].tags).toBe("*magical*, *beautiful*, Value 4");
+	});
+});
+
+describe("artifactUuid", () => {
+	it("addresses the possession item by its deterministic artifact id", () => {
+		expect(artifactUuid("the-three-star-crown"))
+			.toBe(`Compendium.stonetop.possessions.Item.${deterministicId("possessions", "artifact:the-three-star-crown")}`);
+	});
+});
+
+describe("linkArtifacts", () => {
+	const { html, linked } = linkArtifacts(ARTICLE);
+
+	it("wraps each artifact title in a @UUID link to its possession item, keeping the marker icon outside", () => {
+		expect(linked).toBe(2);
+		expect(html).toContain(
+			`<img class="icon" src="systems/stonetop/assets/content/wonders/markers/marker-vessel.png">@UUID[${artifactUuid("the-three-star-crown")}]{The Three-star Crown}</h3>`);
+		expect(html).toContain(`@UUID[${artifactUuid("a-lead-bracelet")}]{A lead bracelet}</h3>`);
+	});
+
+	it("leaves NPC-shaped blocks (spirits/followers) plain", () => {
+		expect(html).toContain("<h3>Hearth spirit</h3>");
+	});
+
+	it("leaves tag lines and bodies untouched", () => {
+		expect(html).toContain('<p class="artifact-tags"><em>magical</em>, <em>beautiful</em>, Value 4</p>');
+		expect(html).toContain("<p>A circlet of whitest gold.</p>");
+	});
+
+	it("is idempotent", () => {
+		const again = linkArtifacts(html);
+		expect(again.linked).toBe(0);
+		expect(again.html).toBe(html);
+	});
+
+	it("round-trips: extractBlocks reads the same names out of the linked HTML", () => {
+		expect(extractBlocks(html).map((b) => b.name)).toEqual(extractBlocks(ARTICLE).map((b) => b.name));
 	});
 });
 

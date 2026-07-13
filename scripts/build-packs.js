@@ -8,13 +8,17 @@ import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+// Order matters at the front: the journal build links stat-block names against the freshly
+// built NPC sources and arcana names against the arcana sources, and build-artifacts reads
+// the freshly built journal sources.
 export const BUILDERS = [
-	"scripts/import/pdf/build-journal.js",
+	"scripts/import/pdf/build-arcana.js",
 	"scripts/import/pdf/build-npcs.js",
+	"scripts/import/pdf/build-journal.js",
+	"scripts/import/build-artifacts.js",
 	"scripts/import/pdf/build-tables.js",
 	"scripts/import/pdf/build-improvements.js",
 	"scripts/import/pdf/build-steadfasts.js",
-	"scripts/import/pdf/build-arcana.js",
 ];
 
 function main() {

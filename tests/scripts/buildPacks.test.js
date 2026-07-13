@@ -12,11 +12,19 @@ describe("build-packs builder list", () => {
 		}
 	});
 
-	it("covers every build-* script under scripts/import/pdf", () => {
-		const onDisk = readdirSync(join(root, "scripts/import/pdf"))
-			.filter((f) => f.startsWith("build-"))
-			.map((f) => `scripts/import/pdf/${f}`)
+	it("covers every build-* script under scripts/import", () => {
+		const onDisk = ["scripts/import", "scripts/import/pdf"]
+			.flatMap((dir) => readdirSync(join(root, dir))
+				.filter((f) => f.startsWith("build-"))
+				.map((f) => `${dir}/${f}`))
 			.sort();
 		expect([...BUILDERS].sort()).toEqual(onDisk);
+	});
+
+	it("builds npc and arcana sources before the journal that links to them, and the journal before the artifacts extracted from it", () => {
+		const at = (name) => BUILDERS.findIndex((b) => b.includes(name));
+		expect(at("build-npcs")).toBeLessThan(at("build-journal"));
+		expect(at("build-arcana")).toBeLessThan(at("build-journal"));
+		expect(at("build-journal")).toBeLessThan(at("build-artifacts"));
 	});
 });
