@@ -1,5 +1,27 @@
+import { createArtInstallerAppClass } from "./art/ArtInstallerApp.js";
+
 export function registerSettings() {
 	// -- WORLD SETTINGS ------------------------------------------
+
+	// GM screen for extracting the book illustrations from owned PDFs (in the
+	// browser) and uploading them to Data/stonetop-art/.
+	game.settings.registerMenu("stonetop", "artInstaller", {
+		name: "stonetop.settings.artInstaller.name",
+		label: "stonetop.settings.artInstaller.label",
+		hint: "stonetop.settings.artInstaller.hint",
+		icon: "fas fa-images",
+		type: createArtInstallerAppClass(),
+		restricted: true,
+	});
+
+	// Whether the GM has dismissed the "book artwork isn't installed" reminder.
+	game.settings.register("stonetop", "artNudgeDismissed", {
+		name: "Artwork Reminder Dismissed",
+		scope: "world",
+		config: false,
+		type: Boolean,
+		default: false
+	});
 
 	// Tracks the last loaded system version.
 	// Used to detect when migrations need to run.

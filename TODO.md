@@ -25,6 +25,10 @@ Ring of daagon's, rune-laden scale consequences have tabbed in check boxes to sh
 * Mantel wraiths group has group (3) tag but isn't parsing as a group follower. it should be a group of 3.
 * Convert bio and notes section in notes tab to use prosemirror
 * Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
+* Update steading default icon to something nicer
+* Update create item/actor names to be capitalized
+* Fix parsing of artifacts in Book II (outfit items aren't parsed well)
+* Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
 
 == Nice to have
 * toggle to turn off non-selected character options

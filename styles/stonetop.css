@@ -5298,3 +5298,54 @@ form.stonetop.sheet.steading {
 	right: 8px;
 	z-index: 1;
 }
+
+/* ===== Install Book Artwork (settings screen) ===== */
+.stonetop-art-installer .art-installer-body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 4px 2px;
+}
+
+.stonetop-art-installer .art-intro {
+	font-size: var(--fs-note);
+	margin: 0;
+}
+
+.stonetop-art-installer .art-file-row {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.stonetop-art-installer .art-file-row label {
+	font-weight: bold;
+}
+
+.stonetop-art-installer progress {
+	width: 100%;
+}
+
+.stonetop-art-installer .art-progress-status {
+	font-size: var(--fs-note);
+	text-align: center;
+	margin: 0;
+}
+
+.stonetop-art-installer .art-note {
+	font-size: var(--fs-note);
+	margin: 0;
+}
+
+.stonetop-art-installer .art-note-installed i {
+	color: var(--color-level-success, #2e7d32);
+}
+
+.stonetop-art-installer .art-note-error i {
+	color: var(--color-level-error, #b71c1c);
+}
+
+.stonetop-art-installer .art-actions {
+	display: flex;
+	gap: 8px;
+}

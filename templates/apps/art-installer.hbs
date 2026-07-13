@@ -1,0 +1,45 @@
+<div class="art-installer-body">
+	<p class="art-intro">{{localize "stonetop.artInstaller.intro"}}</p>
+
+	{{#if alreadyInstalled}}
+		<p class="art-note art-note-installed">
+			<i class="fas fa-circle-check"></i> {{localize "stonetop.artInstaller.alreadyInstalled"}}
+		</p>
+	{{/if}}
+
+	{{#if working}}
+		<progress max="1" value="0"></progress>
+		<p class="art-progress-status">{{localize "stonetop.artInstaller.starting"}}</p>
+	{{else}}
+		<div class="art-file-row">
+			<label for="stonetop-art-books">{{localize "stonetop.artInstaller.chooseLabel"}}</label>
+			<input type="file" id="stonetop-art-books" accept="application/pdf" multiple>
+		</div>
+
+		{{#if report}}
+			<p class="art-note {{#if report.complete}}art-note-installed{{/if}}">
+				<i class="fas {{#if report.complete}}fa-circle-check{{else}}fa-circle-info{{/if}}"></i>
+				{{localize "stonetop.artInstaller.installed" count=report.installedCount}}
+				{{#unless report.complete}}
+					{{localize "stonetop.artInstaller.missing" count=report.missingCount}}
+				{{/unless}}
+			</p>
+			<p class="art-note">{{localize "stonetop.artInstaller.reopenHint"}}</p>
+		{{/if}}
+
+		{{#if error}}
+			<p class="art-note art-note-error"><i class="fas fa-triangle-exclamation"></i> {{error}}</p>
+		{{/if}}
+
+		<footer class="art-actions">
+			<button type="button" data-action="install">
+				<i class="fas fa-file-import"></i> {{localize "stonetop.artInstaller.install"}}
+			</button>
+			{{#unless nudgeDismissed}}
+				<button type="button" data-action="dismissNudge">
+					<i class="fas fa-bell-slash"></i> {{localize "stonetop.artInstaller.dismissNudge"}}
+				</button>
+			{{/unless}}
+		</footer>
+	{{/if}}
+</div>

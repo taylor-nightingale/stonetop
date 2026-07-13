@@ -18,8 +18,10 @@ https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.j
 
 ### Art assets
 
-The book illustrations are copyrighted and aren't shipped with the system. If you own the books you can generate them
-from your PDFs; the game works fine without them. See [`stonetop-art/README.md`](stonetop-art/README.md) for instructions.
+The book illustrations are copyrighted and aren't shipped with the system. If you own the book PDFs, install the art
+from inside Foundry: **Settings → Configure Settings → Stonetop → Install Artwork**, then select your PDFs — extraction
+runs in your browser and works on hosted servers. The game works fine without the art. Command-line extraction is also
+available; see [`stonetop-art/README.md`](stonetop-art/README.md).
 
 ## Development
 

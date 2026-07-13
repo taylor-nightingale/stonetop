@@ -276,7 +276,27 @@
 				"moves": "Moves",
 				"gear": "Gear",
 				"biography": "Biography"
+			},
+			"artInstaller": {
+				"name": "Book Artwork",
+				"label": "Install Artwork",
+				"hint": "Extract the illustrations from your own Stonetop PDFs and install them for this server."
 			}
+		},
+		"artInstaller": {
+			"title": "Install Book Artwork",
+			"intro": "The compendium can show the illustrations from the Stonetop books, but the illustrations are copyrighted and aren't shipped with the system. If you own the PDFs, select them below — Book II: The Wider World and Other Wonders and Book I: Stonetop.",
+			"chooseLabel": "Book PDF(s)",
+			"install": "Install Artwork",
+			"noFiles": "Select at least one Stonetop book PDF first.",
+			"starting": "Reading PDF…",
+			"progress": "File {file} of {files} — page {page} of {pages} — {found} illustrations found",
+			"installed": "Installed {count} illustrations.",
+			"missing": "{count} referenced images weren't found — selecting both books usually completes the set.",
+			"reopenHint": "Reopen any sheets or journal pages to see the artwork.",
+			"alreadyInstalled": "Artwork is already installed for this server. Installing again just refreshes the files.",
+			"dismissNudge": "Don't remind me",
+			"nudge": "Stonetop: the book illustrations aren't installed. If you own the PDFs, use Settings → Configure Settings → Stonetop → Install Artwork to add them."
 		},
 		"rollResults": {
 			"miss": "Miss",
