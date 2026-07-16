@@ -18,7 +18,23 @@ globalThis.Hooks?.on?.("quenchReady", (quench) => {
 
 			describe("Group follower — what wipes the follower's tagList?", function () {
 				let actor;
-				afterEach(async () => { await actor?.delete(); actor = null; });
+
+				// Creating an actor kicks off the async create-time seed (reference moves, loaded
+				// from packs). Deleting the fixture while that's still in flight lands the seed's
+				// embeds on a dead actor — a console-visible server error per test. Wait for the
+				// seed's observable outcome (all three reference categories present) before
+				// tearing down; give up after ~2s so a world without the packs still cleans up.
+				async function createSeedSettled() {
+					const seeded = () => ["basic", "special", "follower"]
+						.every(cat => actor.items.some(i => i.system?.categoryKey === cat));
+					for (let i = 0; i < 40 && !seeded(); i++) await new Promise(r => setTimeout(r, 50));
+				}
+
+				afterEach(async () => {
+					if (actor) await createSeedSettled();
+					await actor?.delete();
+					actor = null;
+				});
 
 				async function makeFollower() {
 					actor = await Actor.create({ name: "QTest", type: "character" });
