@@ -16,28 +16,28 @@ img.stonetop-broken-img {
 
 @font-face {
 	font-family: "StonetopUI";
-	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("../assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Historical-FellTypeRomanSC";
-	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("../assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Historical FellType Roman SC";
-	src: url("/systems/stonetop/assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
+	src: url("../assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "IM Fell English";
-	src: url("/systems/stonetop/assets/fonts/IMFellEnglish-Regular.ttf") format("truetype");
+	src: url("../assets/fonts/IMFellEnglish-Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -148,7 +148,7 @@ body,
 
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
-	background: var(--stonetop-bg) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
+	background: var(--stonetop-bg) url(../assets/ui/decor/sheet-bg.png);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;
@@ -194,7 +194,7 @@ body,
 	top: 0.28em;
 	width: 12px;
 	height: 12px;
-	background: url('/systems/stonetop/assets/ui/decor/swirl.png') no-repeat center / contain;
+	background: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
@@ -258,7 +258,7 @@ body,
 	padding-bottom: 8px;
 	border-bottom: none;
 	border-top: none;
-	background-image: url("/systems/stonetop/assets/ui/decor/divider-horizontal.png");
+	background-image: url("../assets/ui/decor/divider-horizontal.png");
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	background-size: auto 7px;
@@ -272,7 +272,7 @@ body,
 	padding: 9px 18px 6px;
 	border: none;
 	background-color: transparent;
-	background-image: url("/systems/stonetop/assets/ui/decor/tab-half-frame.png");
+	background-image: url("../assets/ui/decor/tab-half-frame.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	box-shadow: none;
@@ -383,14 +383,14 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
+	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -485,7 +485,7 @@ body,
 	width: 96px;
 	height: 76px;
 	padding: 6px;
-	background-image: url("/systems/stonetop/assets/ui/decor/frame-stat.png");
+	background-image: url("../assets/ui/decor/frame-stat.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
@@ -581,11 +581,11 @@ body,
 }
 
 .stonetop-resource--small {
-	background-image: url("/systems/stonetop/assets/ui/decor/frame-stat.png");
+	background-image: url("../assets/ui/decor/frame-stat.png");
 }
 
 .stonetop-resource--wide {
-	background-image: url("/systems/stonetop/assets/ui/decor/frame-wide.png");
+	background-image: url("../assets/ui/decor/frame-wide.png");
 }
 
 .stonetop-resource__label,
@@ -694,7 +694,7 @@ body,
 .stonetop-panel-divider {
 	height: 5px;
 	margin: 4px 0 8px;
-	background-image: url("/systems/stonetop/assets/ui/decor/divider-horizontal-thin.png");
+	background-image: url("../assets/ui/decor/divider-horizontal-thin.png");
 	background-repeat: repeat-x;
 	background-position: center;
 	background-size: auto 5px;
@@ -734,7 +734,7 @@ body,
 	display: block;
 	width: 100%;
 	height: 18px;
-	background-image: url("/systems/stonetop/assets/ui/decor/divider-debility.png");
+	background-image: url("../assets/ui/decor/divider-debility.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-position: center;
@@ -1303,7 +1303,7 @@ body,
 		z-index: 4;
 		margin: 0;
 		padding: 28px 12px 12px;
-		background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
+		background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png);
 		box-shadow: -6px 0 14px rgba(0, 0, 0, 0.3);
 		transform: translateX(100%);
 		transition: transform 0.2s ease;
@@ -1943,14 +1943,14 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
+	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2155,14 +2155,14 @@ button.stonetop-xp-toggle {
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
+	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+		url("../assets/ui/decor/panel-corner-tr.png"),
+		url("../assets/ui/decor/panel-corner-bl.png"),
+		url("../assets/ui/decor/panel-corner-br.png"),
+		url("../assets/ui/decor/panel-edge-top.png"),
+		url("../assets/ui/decor/panel-edge-bottom.png"),
+		url("../assets/ui/decor/panel-edge-left.png"),
+		url("../assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2219,14 +2219,14 @@ button.stonetop-xp-toggle {
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
-		url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
+	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+		url("../assets/ui/decor/panel-corner-tr.png"),
+		url("../assets/ui/decor/panel-corner-bl.png"),
+		url("../assets/ui/decor/panel-corner-br.png"),
+		url("../assets/ui/decor/panel-edge-top.png"),
+		url("../assets/ui/decor/panel-edge-bottom.png"),
+		url("../assets/ui/decor/panel-edge-left.png"),
+		url("../assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -2311,7 +2311,7 @@ button.stonetop-xp-toggle {
 	min-height: 260px;
 	border-width: 28px;
 	border-style: solid;
-	border-image: url('/systems/stonetop/assets/ui/decor/arcana-card-border.png') 40 / 28px stretch;
+	border-image: url('../assets/ui/decor/arcana-card-border.png') 40 / 28px stretch;
 }
 
 .stonetop-arcanum-header {
@@ -2698,14 +2698,14 @@ button.stonetop-xp-toggle {
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-top.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-left.png"),
-	url("/systems/stonetop/assets/ui/decor/panel-edge-right.png");
+	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
 	background-position: left top, right top, left bottom, right bottom,
@@ -3259,29 +3259,29 @@ form.stonetop.sheet.steading {
 	z-index: 2;
 }
 
-.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tl.png"); }
-.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-tr.png"); }
-.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-bl.png"); }
-.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("/systems/stonetop/assets/ui/decor/panel-corner-br.png"); }
+.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("../assets/ui/decor/panel-corner-tl.png"); }
+.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("../assets/ui/decor/panel-corner-tr.png"); }
+.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("../assets/ui/decor/panel-corner-bl.png"); }
+.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("../assets/ui/decor/panel-corner-br.png"); }
 
 .stonetop.sheet.steading .panel-edge-top {
 	top: 0; left: 16px; right: 16px; height: 8px;
-	background: url("/systems/stonetop/assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
+	background: url("../assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-bottom {
 	bottom: 0; left: 16px; right: 16px; height: 8px;
-	background: url("/systems/stonetop/assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
+	background: url("../assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-left {
 	top: 16px; bottom: 16px; left: 0; width: 8px;
-	background: url("/systems/stonetop/assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
+	background: url("../assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
 	z-index: 1;
 }
 .stonetop.sheet.steading .panel-edge-right {
 	top: 16px; bottom: 16px; right: 0; width: 8px;
-	background: url("/systems/stonetop/assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
+	background: url("../assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
 	z-index: 1;
 }
 
@@ -3529,7 +3529,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-overview-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3571,7 +3571,7 @@ form.stonetop.sheet.steading {
 	display: block;
 	width: 12px;
 	height: 12px;
-	background: url('/systems/stonetop/assets/ui/decor/swirl.png') no-repeat center / contain;
+	background: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 	flex-shrink: 0;
 }
 
@@ -3658,7 +3658,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-residents-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3789,7 +3789,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-neighbors-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3869,7 +3869,7 @@ form.stonetop.sheet.steading {
 	width: 8px;
 	align-self: stretch;
 	flex-shrink: 0;
-	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -3895,7 +3895,7 @@ form.stonetop.sheet.steading {
 .stonetop.sheet.steading .steading-notes-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("/systems/stonetop/assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
 }
 
@@ -4831,7 +4831,7 @@ form.stonetop.sheet.steading {
 	width: 74px;
 	aspect-ratio: 74 / 58;
 	padding: 4px 8px;
-	background: url("/systems/stonetop/assets/ui/decor/frame-stat.png") no-repeat;
+	background: url("../assets/ui/decor/frame-stat.png") no-repeat;
 	background-size: 100% 100%;
 	color: #1a1a1a;
 	line-height: 1;
@@ -5118,8 +5118,8 @@ form.stonetop.sheet.steading {
 /* list bullets drawn as the book's swirl glyphs (plain spiral / pointing spiral) */
 .stonetop-wonder li.swirl,
 .stonetop-wonder li.swirl-point { list-style: none; }
-.stonetop-wonder li.swirl::before { content: ""; display: inline-block; width: 0.9em; height: 0.9em; margin: 0 0.35em 0 -1.3em; vertical-align: -0.12em; background: url(/systems/stonetop/assets/ui/decor/swirl.png) no-repeat left center / contain; }
-.stonetop-wonder li.swirl-point::before { content: ""; display: inline-block; width: 1.4em; height: 0.9em; margin: 0 0.35em 0 -1.7em; vertical-align: -0.12em; background: url(/systems/stonetop/assets/ui/decor/swirl-point.png) no-repeat left center / contain; }
+.stonetop-wonder li.swirl::before { content: ""; display: inline-block; width: 0.9em; height: 0.9em; margin: 0 0.35em 0 -1.3em; vertical-align: -0.12em; background: url(../assets/ui/decor/swirl.png) no-repeat left center / contain; }
+.stonetop-wonder li.swirl-point::before { content: ""; display: inline-block; width: 1.4em; height: 0.9em; margin: 0 0.35em 0 -1.7em; vertical-align: -0.12em; background: url(../assets/ui/decor/swirl-point.png) no-repeat left center / contain; }
 /* square pick/track checkboxes (the book's □ vector mark) — render an empty box bullet */
 .stonetop-wonder li.checkbox { list-style: none; }
 .stonetop-wonder li.checkbox::before {
@@ -5231,7 +5231,7 @@ form.stonetop.sheet.steading {
    / `.sidebar-popout`, both excluded from the sheet-bg rule above). */
 .application.journal-entry .window-content,
 .application.compendium-directory .window-content {
-	background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
+	background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png);
 	background-position: center;
 	background-size: cover;
 	/* Recolor text via v13's theme vars so headings, prose, links and list rows all follow. */
@@ -5266,7 +5266,7 @@ form.stonetop.sheet.steading {
    parchment so the art is visible and it matches the system look. (Harmless for opaque images — the
    backing sits behind them.) */
 .application.image-popout {
-	background: var(--stonetop-bg, #f4ecd8) url(/systems/stonetop/assets/ui/decor/sheet-bg.png) center / cover !important;
+	background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png) center / cover !important;
 }
 
 /* ── Steadfast item sheet ──────────────────────────────────────────────────────
