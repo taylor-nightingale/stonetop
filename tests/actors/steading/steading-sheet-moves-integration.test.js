@@ -20,7 +20,7 @@ async function makeWiredSheet() {
 			.withResource({ title: "Uses", labels: ["", "", ""] }).build()
 	);
 	actor.typedActor = new StonetopSteading(actor, { getBySlug: async () => null }, repo);
-	await actor.typedActor.seedReferenceMoves();   // create-time seed (no longer on render)
+	await actor.typedActor.moves.seedHomefrontMoves();   // create-time seed (no longer on render)
 
 	const Base = class {
 		get actor() { return actor; }

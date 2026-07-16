@@ -46,8 +46,10 @@ export function createStonetopActorSheetV2Class() {
 			await super._onFirstRender(context, options);
 			activateEditToggles(this.element);
 			activateComboBoxes(); // installs once on document; internally guarded
-			if (!this.isEditable) return;
+			// Editability is checked per event, not at wiring time: first render happens exactly
+			// once, and a sheet can become editable later (ownership granted mid-session).
 			this.element.addEventListener("click", async ev => {
+				if (!this.isEditable) return;
 				const rollable = ev.target.closest(".rollable[data-roll]");
 				if (!rollable) return;
 				ev.stopPropagation();

@@ -1,6 +1,7 @@
 import { FoundryMoveRepository } from "../character/repositories/FoundryMoveRepository.js";
 import { ResourceController } from "../character/ResourceController.js";
 import { MoveCategorySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
 import {
 	withCategoryFields,
 	computeSelectable,
@@ -22,25 +23,30 @@ export class SteadingMoves {
 		this._actor              = actor;
 		this._repo               = moveRepo;
 		this._resourceController = resourceController;
+		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo);
 	}
 
 	// Seeds the homefront reference moves onto the steading as owned `move` items. Called once, at
 	// actor creation (CreateActor hook) — NOT on render. After that the moves are ordinary owned
-	// items: the GM can edit, delete, or re-add them via drag-drop. Idempotent (skips slugs already
-	// embedded) so a re-seed can't duplicate. Seeded acquired → they render checked by default but
-	// stay toggleable (the same mechanism playbook starting moves use).
+	// items: the GM can edit, delete, or re-add them via drag-drop (addMove).
 	async seedHomefrontMoves() {
-		const entries = await this._repo.getReferenceMovesByType(CATEGORY_KEY);
+		await this._seeder.seed(CATEGORY_KEY);
+	}
+
+	// A move dropped onto the steading joins the homefront list — the only move list the steading
+	// renders — with the same category stamping the seed applies (a raw embed would be invisible:
+	// buildSnapshot reads by categoryKey). Dedupes by stored slug: re-dropping a move the steading
+	// already has is a no-op.
+	async addMove(item) {
+		const slug = item.system?.slug ?? toSlug(item.name);
 		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === CATEGORY_KEY);
-		const existingSlugs = new Set(existing.map(i => i.system?.slug ?? toSlug(i.name)));
-		const newEntries = entries.filter(m => !existingSlugs.has(m.slug));
-		if (!newEntries.length) return;
-		const docs = await Promise.all(newEntries.map(m => this._repo.getReferencedMoveDocument(m.id)));
-		await this._actor.createEmbeddedDocuments("Item",
-			docs.filter(Boolean).map((d, i) =>
-				withCategoryFields(d.toObject(), CATEGORY_KEY, true, { sortOrder: existing.length + i, compendiumId: d._id ?? null })
-			)
-		);
+		if (existing.some(i => (i.system?.slug ?? toSlug(i.name)) === slug)) return;
+		await this._actor.createEmbeddedDocuments("Item", [
+			withCategoryFields(item.toObject(), CATEGORY_KEY, true, {
+				sortOrder:    existing.length,
+				compendiumId: item.pack ? item._id ?? null : null,
+			}),
+		]);
 	}
 
 	async incrementMove(moveSlug) {
@@ -53,6 +59,13 @@ export class SteadingMoves {
 
 	async setMoveResourceCurrent(moveSlug, current) {
 		await this._resourceController.set("moves", moveSlug, current);
+	}
+
+	// Resource pip semantics: clicking the highest lit pip clears it (current = index); clicking an
+	// unlit pip fills up to and including it (current = index + 1).
+	async toggleResourcePip(moveSlug, index, wasChecked) {
+		const i = Number(index);
+		await this.setMoveResourceCurrent(moveSlug, wasChecked ? i : i + 1);
 	}
 
 	async setMoveResourceText(moveSlug, value) {

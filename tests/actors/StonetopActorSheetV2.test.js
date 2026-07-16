@@ -119,14 +119,19 @@ describe("StonetopActorSheetV2 base", () => {
 			expect(actor._onRoll).toHaveBeenCalledTimes(1);
 		});
 
-		it("does not wire the roll handler on a non-editable sheet", async () => {
+		it("ignores roll clicks while non-editable, then honors them once editable", async () => {
+			// Editability is checked per event (wiring happens exactly once, on first render, but a
+			// sheet can gain ownership mid-session).
 			const { sheet, actor } = makeSheet({ editable: false });
 			sheet.element.innerHTML = `<a class="rollable" data-roll="str">STR</a>`;
 			await sheet._onFirstRender({}, {});
 
 			click(sheet.element.querySelector(".rollable"));
-
 			expect(actor._onRoll).not.toHaveBeenCalled();
+
+			sheet._editable = true;
+			click(sheet.element.querySelector(".rollable"));
+			expect(actor._onRoll).toHaveBeenCalledTimes(1);
 		});
 	});
 });

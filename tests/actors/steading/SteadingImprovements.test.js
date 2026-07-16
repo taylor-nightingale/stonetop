@@ -68,3 +68,20 @@ describe("SteadingImprovements.setTrack", () => {
 		expect(snap[0].list[0].track.checks[0]).toBe(false);
 	});
 });
+
+describe("SteadingImprovements.toggleTrack", () => {
+	it("checking pip 0 fills the track to 1", async () => {
+		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
+		await imp.toggleTrack("palisade", "done", "0", true);
+		const snap = await imp.buildSnapshot();
+		expect(snap[0].list[0].track.checks[0]).toBe(true);
+	});
+
+	it("unchecking pip 0 empties the track", async () => {
+		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
+		await imp.toggleTrack("palisade", "done", "0", true);
+		await imp.toggleTrack("palisade", "done", "0", false);
+		const snap = await imp.buildSnapshot();
+		expect(snap[0].list[0].track.checks[0]).toBe(false);
+	});
+});

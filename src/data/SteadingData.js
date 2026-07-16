@@ -1,4 +1,5 @@
 import { steadingProfileSchema, steadingRatingsSchema } from "./steadingProfileSchema.js";
+import { migrateSteadingShape } from "../migration/migrateSteadingShape.js";
 
 // A steading actor. It is generic — a blank steading is an EMPTY place. It receives its starting
 // values by applying a steadfast (applySteadfast / the create hook copies the steadfast's profile
@@ -7,6 +8,13 @@ import { steadingProfileSchema, steadingRatingsSchema } from "./steadingProfileS
 // carries its own in-play state: which steadfast it came from, free-text, debilities, content policy,
 // the actual resident/neighbor people (distinct from the name/trait pool), and improvement pick state.
 export class SteadingData extends foundry.abstract.TypeDataModel {
+	// Pre-0.13.0 sources fail schema validation outright (ratings were {current, items} objects) —
+	// heal the shape here, pre-validation, or the actor is quarantined before the MigrationRunner
+	// can ever see it. Runs on update diffs too, so the heal transforms present keys only.
+	static migrateData(source) {
+		return super.migrateData(migrateSteadingShape(source));
+	}
+
 	static defineSchema() {
 		const f = foundry.data.fields;
 		return {

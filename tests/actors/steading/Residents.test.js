@@ -64,3 +64,23 @@ describe("Residents — named update methods", () => {
 		expect(r.buildSnapshot()[0].name).toBe("");
 	});
 });
+
+describe("Residents.updateTraitsSource", () => {
+	it("parses one trait per line into system.residents.traits", async () => {
+		const actor = new FakeActorBuilder().build();
+		await new Residents(actor).updateTraitsSource("gruff\ncurious\nsuperstitious");
+		expect(actor.system.residents.traits).toEqual(["gruff", "curious", "superstitious"]);
+	});
+
+	it("drops blank lines and trims whitespace", async () => {
+		const actor = new FakeActorBuilder().build();
+		await new Residents(actor).updateTraitsSource("  gruff  \n\n\t\ncurious\n");
+		expect(actor.system.residents.traits).toEqual(["gruff", "curious"]);
+	});
+
+	it("empties the pool for empty or missing input", async () => {
+		const actor = new FakeActorBuilder().build();
+		await new Residents(actor).updateTraitsSource("");
+		expect(actor.system.residents.traits).toEqual([]);
+	});
+});

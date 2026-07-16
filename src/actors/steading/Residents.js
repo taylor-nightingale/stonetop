@@ -3,7 +3,15 @@ import {Person} from "./Person.js";
 
 export class Residents {
 	constructor(actor) {
-		this._list = new PersonList(actor, "residentPeople");
+		this._actor = actor;
+		this._list  = new PersonList(actor, "residentPeople");
+	}
+
+	// The "one trait per line" source textarea that feeds the resident-traits pool. Owns the parse:
+	// blank lines and surrounding whitespace are dropped.
+	async updateTraitsSource(rawText) {
+		const traits = (rawText ?? "").split("\n").map(t => t.trim()).filter(Boolean);
+		await this._actor.update({ "system.residents.traits": traits });
 	}
 
 	async add() {

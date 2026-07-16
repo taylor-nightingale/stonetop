@@ -19,7 +19,18 @@ function makeSheet(movesRepo) {
 		get isEditable() { return true; }
 		tabGroups = {};
 		element = document.createElement("form");
-		async _prepareContext() { return {}; }
+		// Mini-core: ApplicationV2 seeds tabGroups from static TABS and hands context.tabs to a
+		// single-group application via _prepareTabs (the sheet itself declares TABS only).
+		_prepareTabs(group) {
+			const { tabs, initial } = this.constructor.TABS[group];
+			this.tabGroups[group] ??= initial;
+			return tabs.reduce((prepared, { id }) => {
+				const active = this.tabGroups[group] === id;
+				prepared[id] = { id, group, active, cssClass: active ? "active" : "" };
+				return prepared;
+			}, {});
+		}
+		async _prepareContext() { return { tabs: this._prepareTabs("primary") }; }
 		async _onFirstRender() {}
 		_onRender() {}
 		render = vi.fn();
@@ -37,7 +48,7 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 				.build()
 		);
 		const sheet = makeSheet(movesRepo);
-		await sheet.actor.typedActor.seedReferenceMoves();   // create-time seed (no longer on render)
+		await sheet.actor.typedActor.moves.seedHomefrontMoves();   // create-time seed (no longer on render)
 
 		const orig = foundry.applications.ux.TextEditor.implementation.enrichHTML;
 		foundry.applications.ux.TextEditor.implementation.enrichHTML =
@@ -65,6 +76,7 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 		const sheet = makeSheet(new FakeMoveRepository());
 
 		const first = await sheet._prepareContext({});
+		expect(Object.keys(first.tabs)).toEqual(["overview", "residents", "neighbors", "improvements", "moves", "notes"]);
 		expect(first.tabs.overview.active).toBe(true);
 		expect(first.tabs.overview.cssClass).toBe("active");
 		expect(first.tabs.residents.active).toBe(false);

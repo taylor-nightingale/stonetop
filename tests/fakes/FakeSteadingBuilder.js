@@ -17,12 +17,20 @@ function applyUpdate(obj, data) {
 // resident name/trait pool is `residents` (the people are `residentPeople`), and improvements are an
 // owned slug list. Mirrors what applySteadfast(stonetop) produces.
 export class FakeSteadingBuilder {
+	_steadfast = "stonetop";
+
+	// "" models a brand-new steading (no steadfast applied yet — the create-hook case).
+	withSteadfast(slug) {
+		this._steadfast = slug;
+		return this;
+	}
+
 	build() {
 		const actor = {
 			name: "Stonetop",
 			type: "steading",
 			system: {
-				steadfast: "stonetop",
+				steadfast: this._steadfast,
 				description: "",
 				notes:    "",
 				rollMode: "normal",

@@ -43,6 +43,32 @@ describe("SteadingMoves.seedHomefrontMoves", () => {
 	});
 });
 
+describe("SteadingMoves.addMove (drag-drop)", () => {
+	it("stamps the dropped move into the homefront category so the sheet renders it", async () => {
+		const { moves, actor } = makeMoves(repoWith());
+		await moves.addMove(homefront("Trade"));
+		const added = [...actor.items].filter(i => i.system?.categoryKey === "homefront");
+		expect(added).toHaveLength(1);
+		expect(added[0].system.acquired).toBe(true);
+		expect(added[0].system.instanceCount).toBe(1);
+	});
+
+	it("re-adds a deleted reference move (the post-seed recovery path)", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
+		await moves.seedHomefrontMoves();
+		actor.items.length = 0;   // GM deleted the move
+		await moves.addMove(homefront("Trade"));
+		expect([...actor.items].filter(i => i.system?.categoryKey === "homefront")).toHaveLength(1);
+	});
+
+	it("is a no-op for a move the steading already has (dedupe by stored slug)", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
+		await moves.seedHomefrontMoves();
+		await moves.addMove(homefront("Trade"));
+		expect([...actor.items].filter(i => i.system?.categoryKey === "homefront")).toHaveLength(1);
+	});
+});
+
 describe("SteadingMoves.buildSnapshot", () => {
 	it("returns null when no homefront moves are embedded", async () => {
 		const { moves } = makeMoves(repoWith());
@@ -121,5 +147,22 @@ describe("SteadingMoves toggling + resource state", () => {
 		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
 		await moves.setMoveResourceText("trade", "grain");
 		expect(actor.system.resources.texts.moves.trade).toBe("grain");
+	});
+
+	it("toggleResourcePip on an unlit pip fills up to and including it", async () => {
+		const resource = { title: "Uses", labels: ["", "", ""] };
+		const { moves } = makeMoves(repoWith(homefront("Trade", { resource })));
+		await moves.seedHomefrontMoves();
+		await moves.toggleResourcePip("trade", "1", false);
+		expect((await moves.buildSnapshot()).moves[0].resource.current).toBe(2);
+	});
+
+	it("toggleResourcePip on the highest lit pip clears it", async () => {
+		const resource = { title: "Uses", labels: ["", "", ""] };
+		const { moves } = makeMoves(repoWith(homefront("Trade", { resource })));
+		await moves.seedHomefrontMoves();
+		await moves.toggleResourcePip("trade", "1", false);   // current → 2
+		await moves.toggleResourcePip("trade", "1", true);    // pip 1 was lit → current → 1
+		expect((await moves.buildSnapshot()).moves[0].resource.current).toBe(1);
 	});
 });

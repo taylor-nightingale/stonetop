@@ -129,13 +129,15 @@
 	</header>
 
 	{{!-- Tab navigation --}}
+	{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); each anchor
+	      carries data-group because changeTab addresses `.tabs [data-group][data-tab]` directly. --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item {{tabs.overview.cssClass}}" data-tab="overview">Overview</a>
-		<a class="item {{tabs.residents.cssClass}}" data-tab="residents">Residents</a>
-		<a class="item {{tabs.neighbors.cssClass}}" data-tab="neighbors">Neighbors</a>
-		<a class="item {{tabs.improvements.cssClass}}" data-tab="improvements">Improvements</a>
-		<a class="item {{tabs.moves.cssClass}}" data-tab="moves">Moves</a>
-		<a class="item {{tabs.notes.cssClass}}" data-tab="notes">Notes</a>
+		<a class="item {{tabs.overview.cssClass}}" data-action="tab" data-group="primary" data-tab="overview">Overview</a>
+		<a class="item {{tabs.residents.cssClass}}" data-action="tab" data-group="primary" data-tab="residents">Residents</a>
+		<a class="item {{tabs.neighbors.cssClass}}" data-action="tab" data-group="primary" data-tab="neighbors">Neighbors</a>
+		<a class="item {{tabs.improvements.cssClass}}" data-action="tab" data-group="primary" data-tab="improvements">Improvements</a>
+		<a class="item {{tabs.moves.cssClass}}" data-action="tab" data-group="primary" data-tab="moves">Moves</a>
+		<a class="item {{tabs.notes.cssClass}}" data-action="tab" data-group="primary" data-tab="notes">Notes</a>
 	</nav>
 
 	<section class="sheet-body">

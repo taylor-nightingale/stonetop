@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { StonetopNpc } from "../../../src/actors/npc/StonetopNpc.js";
 import { FakeNpcActorBuilder } from "../../fakes/FakeNpcActorBuilder.js";
 
@@ -136,5 +136,33 @@ describe("StonetopNpc — setters update observable state", () => {
 		const npc = makeNpc();
 		await npc.setDescription("A shadow given form.");
 		expect(npc.description).toBe("A shadow given form.");
+	});
+});
+
+describe("StonetopNpc.onPreCreate — house icon for new NPCs", () => {
+	// onPreCreate runs against the PENDING document (pre-persist), where updateSource is the only
+	// legal write — a minimal stub models that stage better than the persisted-actor fakes.
+	function pendingNpc() {
+		const doc = { updateSource: vi.fn() };
+		return { npc: new StonetopNpc(doc), doc };
+	}
+	const HOUSE_ICON = "systems/stonetop/assets/content/icons/npc.png";
+
+	it("replaces the missing image on a blank NPC (sidebar create)", () => {
+		const { npc, doc } = pendingNpc();
+		npc.onPreCreate({});
+		expect(doc.updateSource).toHaveBeenCalledWith({ img: HOUSE_ICON, "prototypeToken.texture.src": HOUSE_ICON });
+	});
+
+	it("replaces Foundry's generic mystery-man default", () => {
+		const { npc, doc } = pendingNpc();
+		npc.onPreCreate({ img: "icons/svg/mystery-man.svg" });
+		expect(doc.updateSource).toHaveBeenCalledWith({ img: HOUSE_ICON, "prototypeToken.texture.src": HOUSE_ICON });
+	});
+
+	it("keeps a specific image (e.g. a dropped compendium follower)", () => {
+		const { npc, doc } = pendingNpc();
+		npc.onPreCreate({ img: "systems/stonetop/assets/content/followers/crew.png" });
+		expect(doc.updateSource).not.toHaveBeenCalled();
 	});
 });

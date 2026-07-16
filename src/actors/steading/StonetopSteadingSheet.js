@@ -1,25 +1,34 @@
 import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { bindAll } from "../../utils/bindAll.js";
 import { bindConfirmedDeletes } from "../../utils/bindConfirmedDeletes.js";
-import { applySteadfast, loadSteadfast, loadAllSteadfasts, matchSteadfastByName } from "./applySteadfast.js";
+import { loadAllSteadfasts } from "./applySteadfast.js";
 
-// The steading sheet's six tabs, in nav order. `overview` is the initial tab.
-const STEADING_TABS = ["overview", "residents", "neighbors", "improvements", "moves", "notes"];
-
+// View adapter only: every handler reads values off the event and calls ONE named method on the
+// typed steading (or a composed part of it) — parsing, matching, and routing decisions live there.
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
 		constructor(...args) {
 			super(...args);
 			this._stonetopSteading = this.actor.typedActor;
-			// ApplicationV2 seeds tabGroups from static TABS, but guard the default so a fresh
-			// instance (and the test fakes) always resolve to a real tab.
-			this.tabGroups.primary ??= "overview";
 		}
 
 		static DEFAULT_OPTIONS = {
 			// The base supplies `stonetop sheet actor themed theme-light`; add the steading class.
 			classes: ["steading"],
 			position: { width: 1180, height: 760 },
+		};
+
+		// Core tab machinery end to end: tabGroups seeds from `initial`, the nav anchors carry
+		// data-action="tab" (core's built-in action → changeTab), and context.tabs comes out of
+		// super._prepareContext via _prepareTabs.
+		static TABS = {
+			primary: {
+				tabs: [
+					{ id: "overview" }, { id: "residents" }, { id: "neighbors" },
+					{ id: "improvements" }, { id: "moves" }, { id: "notes" },
+				],
+				initial: "overview",
+			},
 		};
 
 		static PARTS = {
@@ -29,15 +38,6 @@ export function createStonetopSteadingSheetClass(Base) {
 				template: "systems/stonetop/templates/actor/steading.hbs",
 			},
 		};
-
-		_getTabs() {
-			const active = this.tabGroups.primary ?? "overview";
-			const tabs = {};
-			for (const id of STEADING_TABS) {
-				tabs[id] = { id, group: "primary", active: id === active, cssClass: id === active ? "active" : "" };
-			}
-			return tabs;
-		}
 
 		async _prepareContext(options) {
 			const ctx = await super._prepareContext(options);
@@ -49,77 +49,52 @@ export function createStonetopSteadingSheetClass(Base) {
 			// The list is stashed so the name combobox's change handler can resolve a picked/typed name.
 			ctx.availableSteadfasts = this._availableSteadfasts = await loadAllSteadfasts();
 			ctx.currentSteadfast    = this.actor.system.steadfast;
-			ctx.tabs = this._getTabs();
 			return ctx;
 		}
 
-		// Root-delegated, one-time wiring. The V2 root persists across re-renders, so these bind
-		// once; the base's _onFirstRender already wired edit toggles, comboboxes, and rollables.
+		// A steadfast or move dropped on the steading is handled by the typed steading (re-seed the
+		// definition / join the homefront list); anything else embeds through core's default
+		// pipeline. Core ActorSheetV2 wires the drop listeners itself — never wire `drop` manually
+		// here, or every drop is handled twice.
+		async _onDropItem(event, item) {
+			if (!this.isEditable) return null;
+			if (await this._stonetopSteading.applyDroppedItem(item)) return null;
+			return super._onDropItem(event, item);
+		}
+
+		// Root-delegated, one-time wiring — the V2 root persists across re-renders. Editability is
+		// checked per event, not at wiring time, so a sheet that becomes editable later just works.
 		async _onFirstRender(context, options) {
 			await super._onFirstRender(context, options);
 			const root = this.element;
 
-			// Tab navigation: toggle the active nav item + .tab body directly (self-contained, so it
-			// doesn't depend on core's tab machinery) and record the choice in tabGroups, so _getTabs
-			// restores it on the next re-render.
-			root.addEventListener("click", ev => {
-				const nav = ev.target.closest(".sheet-tabs [data-tab]");
-				if (!nav) return;
-				const tab = nav.dataset.tab;
-				this.tabGroups.primary = tab;
-				for (const a of root.querySelectorAll(".sheet-tabs [data-tab]"))
-					a.classList.toggle("active", a.dataset.tab === tab);
-				for (const c of root.querySelectorAll('.tab[data-group="primary"]'))
-					c.classList.toggle("active", c.dataset.tab === tab);
-			});
-
-			// A steadfast dropped on the steading re-seeds its definition (same as picking one from
-			// the dropdown); any other item embeds normally. V2 sheets have no built-in DragDrop.
-			root.addEventListener("dragover", ev => ev.preventDefault());
-			root.addEventListener("drop", ev => this._onDrop(ev));
-
-			if (!this.isEditable) return;
-
 			// Improvements — the tracks are checkbox groups; capture so the group's own toggle logic
 			// doesn't swallow the change first.
 			root.addEventListener("change", async ev => {
+				if (!this.isEditable) return;
 				const el = ev.target.closest(".stonetop-cg-track");
 				if (!el || el.dataset.cgContext !== "improvement") return;
 				const { cgGroup, cgOption, cgIndex } = el.dataset;
-				const count = el.checked ? parseInt(cgIndex) + 1 : parseInt(cgIndex);
-				await this._stonetopSteading.improvements.setTrack(cgGroup, cgOption, count);
+				await this._stonetopSteading.improvements.toggleTrack(cgGroup, cgOption, cgIndex, el.checked);
 			}, true);
 
 			// Homefront move resource pips (click) + free-text resource (change). Roll clicks
 			// (.rollable) are handled by the base's delegated rollable listener.
 			root.addEventListener("click", async ev => {
+				if (!this.isEditable) return;
 				const btn = ev.target.closest(".stonetop-item-resource-check");
 				if (!btn || btn.dataset.moveSlug === undefined) return;
 				ev.stopPropagation();
 				ev.stopImmediatePropagation();
-				const isChecked = btn.classList.contains("is-checked");
-				const current = isChecked ? Number(btn.dataset.index) : Number(btn.dataset.index) + 1;
-				await this._stonetopSteading.moves.setMoveResourceCurrent(btn.dataset.moveSlug, current);
+				await this._stonetopSteading.moves.toggleResourcePip(
+					btn.dataset.moveSlug, btn.dataset.index, btn.classList.contains("is-checked"));
 			}, true);
 			root.addEventListener("change", async ev => {
+				if (!this.isEditable) return;
 				const el = ev.target.closest(".stonetop-resource-input");
 				if (!el || el.dataset.moveSlug === undefined) return;
 				await this._stonetopSteading.moves.setMoveResourceText(el.dataset.moveSlug, el.value);
 			}, true);
-		}
-
-		// A steadfast dropped on a steading isn't embedded as an owned item — it re-seeds the
-		// steading's definition. Anything else embeds as a normal owned item.
-		async _onDrop(event) {
-			const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
-			if (data?.type !== "Item") return;
-			const item = await Item.implementation.fromDropData(data);
-			if (!item || !this.isEditable) return;
-			if (item.type === "steadfast") {
-				await applySteadfast(this.actor, item);
-				return;
-			}
-			await this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
 		}
 
 		// Direct bindings to the current controls — re-run per render (part content is replaced).
@@ -129,19 +104,10 @@ export function createStonetopSteadingSheetClass(Base) {
 			const root = this.element;
 			const s    = this._stonetopSteading;
 
-			// Name combobox — typing/picking a value that matches a steadfast name applies it (re-seeds
-			// the definition fields and adopts its name; runtime state like residents/debilities is
-			// preserved). Any other value is just the steading's own name. Dropping a steadfast routes
-			// through the same applySteadfast (see _onDrop).
+			// Name combobox / steadfast picker — the typed steading decides whether a value applies a
+			// steadfast or just renames. Dropping a steadfast routes through the same apply (_onDropItem).
 			bindAll(root, ".steading-steadfast-input", "change", async ev => {
-				const value = ev.currentTarget.value.trim();
-				const match = matchSteadfastByName(value, this._availableSteadfasts ?? []);
-				if (match) {
-					const steadfast = await loadSteadfast(match.slug);
-					if (steadfast) await applySteadfast(this.actor, steadfast);
-				} else if (value && value !== this.actor.name) {
-					await this.actor.update({ name: value });
-				}
+				await s.renameOrApplySteadfast(ev.currentTarget.value, this._availableSteadfasts ?? []);
 			});
 
 			// Roll mode
@@ -222,10 +188,9 @@ export function createStonetopSteadingSheetClass(Base) {
 				await s.residents.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
-			// NPC traits source textarea
+			// Resident traits source textarea — Residents owns the one-per-line parse.
 			bindAll(root, ".steading-npc-traits-source", "change", async ev => {
-				const traits = ev.currentTarget.value.split("\n").map(t => t.trim()).filter(Boolean);
-				await this.actor.update({ "system.residents.traits": traits });
+				await s.residents.updateTraitsSource(ev.currentTarget.value);
 			});
 
 			// Neighbors — people

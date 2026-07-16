@@ -207,3 +207,21 @@ describe("StonetopCharacter.setChoicePick — playbook choice routing", () => {
 		},
 	);
 });
+
+// -- onCreate ----------------------------------------------------------------
+
+describe("StonetopCharacter.onCreate", () => {
+	it("seeds the reference moves (basic/special/follower) through CharacterMoves", async () => {
+		const char = new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build();
+		const init = vi.spyOn(char._moves, "initBasicMoves").mockResolvedValue();
+
+		await char.onCreate();
+
+		expect(init).toHaveBeenCalledOnce();
+	});
+
+	it("onPreCreate is a no-op (characters have no pre-create defaults)", () => {
+		const char = new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build();
+		expect(() => char.onPreCreate({})).not.toThrow();
+	});
+});

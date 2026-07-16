@@ -69,9 +69,14 @@ export class StonetopCharacter {
 		return this._playbook.getData();
 	}
 
-	// Seed the character's reference moves (basic/special/follower). Called once, from the
-	// CreateActor hook — not on render — so the moves become owned items the GM controls.
-	async seedReferenceMoves() {
+	// Pre-create, before the document persists (updateSource-only territory). Characters have no
+	// pre-create defaults; the hook dispatches here uniformly.
+	onPreCreate(_data) {}
+
+	// Post-create initialization, once, on the creating client (CreateActor hook → typedActor
+	// dispatch). Seeds the reference moves (basic/special/follower) as owned items the GM controls
+	// — never re-run on render.
+	async onCreate() {
 		await this._moves.initBasicMoves();
 	}
 

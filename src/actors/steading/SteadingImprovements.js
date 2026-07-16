@@ -23,6 +23,13 @@ export class SteadingImprovements {
 		await this._actor.update({ "system.improvementValues": cv.toRaw() });
 	}
 
+	// Track pip semantics: checking pip N fills the track up to and including it (count = N + 1);
+	// unchecking pip N — the highest lit one — leaves N filled.
+	async toggleTrack(groupSlug, optionSlug, index, checked) {
+		const i = parseInt(index);
+		await this.setTrack(groupSlug, optionSlug, checked ? i + 1 : i);
+	}
+
 	async buildSnapshot() {
 		const values = this._values;
 		const groups = [];
