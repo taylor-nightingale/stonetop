@@ -1,7 +1,7 @@
 <div class="stonetop-follower-card" data-slug="{{slug}}">
 
 	{{#if showDelete}}
-	<button type="button" class="stonetop-follower-delete" data-slug="{{slug}}" data-name="{{name}}"
+	<button type="button" class="stonetop-follower-delete" data-action="deleteFollower" data-slug="{{slug}}" data-name="{{name}}"
 	        title="{{localize 'stonetop.followers.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 		<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.followers.remove'}}">
 	</button>
@@ -10,12 +10,12 @@
 	<div class="stonetop-follower-head">
 		{{#if img}}<img class="stonetop-follower-img" src="{{img}}" alt="{{name}}">{{/if}}
 		<div class="stonetop-follower-head-main">
-			<input type="text" class="stonetop-follower-name-input" value="{{name}}" data-slug="{{slug}}">
+			<input type="text" class="stonetop-follower-name-input" data-change-action="followerName" value="{{name}}" data-slug="{{slug}}">
 			{{#if isCompanion}}
 			<div class="stonetop-companion">
 				<div class="stonetop-creature-line">
 					<span class="stonetop-follower-label">{{localize "stonetop.followers.companionType"}}</span>
-					{{> "stonetop.selection-input" sel=companionTypeSelection slug=slug field="companionType" inputClass="stonetop-companion-type" placeholder=(localize "stonetop.followers.companionType")}}
+					{{> "stonetop.selection-input" sel=companionTypeSelection slug=slug field="companionType" inputClass="stonetop-companion-type" changeAction="companionType" placeholder=(localize "stonetop.followers.companionType")}}
 				</div>
 				<div class="stonetop-companion-options">
 					<span class="stonetop-follower-label">{{#if companionPickCount}}Pick {{companionPickCount}} more{{#if companionStartOptions.length}} <span class="stonetop-companion-pick">(start with {{#each companionStartOptions}}{{rich this}}{{#unless @last}}, {{/unless}}{{/each}})</span>{{/if}}{{else}}{{localize "stonetop.followers.companionOptions"}}{{/if}}</span>
@@ -33,16 +33,16 @@
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span>
 				{{> "stonetop.editable-field" field=armor slug=slug
-					inputClass="stonetop-follower-armor"}}
+					inputClass="stonetop-follower-armor" changeAction="followerArmor"}}
 			</div>
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.damage"}}</span>
 				{{> "stonetop.editable-field" field=damage slug=slug
-					inputClass="stonetop-follower-damage"}}
+					inputClass="stonetop-follower-damage" changeAction="followerDamage"}}
 			</div>
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
-				{{> "stonetop.selection-input" sel=instinctSelection slug=slug field="instinct" inputClass="stonetop-follower-instinct" placeholder=(localize "stonetop.followers.instinct")}}
+				{{> "stonetop.selection-input" sel=instinctSelection slug=slug field="instinct" inputClass="stonetop-follower-instinct" changeAction="followerInstinct" placeholder=(localize "stonetop.followers.instinct")}}
 			</div>
 		</div>
 		{{#unless isGroup}}
@@ -50,9 +50,11 @@
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
 				<input class="stonetop-creature-hp__input stonetop-follower-hp stonetop-step"
+				       data-change-action="followerHp"
 				       type="number" min="0" value="{{hp}}" data-slug="{{slug}}">
 				<span>/</span>
 				<input class="stonetop-creature-hp__input stonetop-follower-hp-max stonetop-step"
+				       data-change-action="followerHpMax"
 				       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
 			</div>
 		</div>
@@ -61,14 +63,14 @@
 
 	<div class="stonetop-creature-line">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span>
-		{{> "stonetop.editable-field" field=specialQuality slug=slug inputClass="stonetop-follower-special-quality"}}
+		{{> "stonetop.editable-field" field=specialQuality slug=slug inputClass="stonetop-follower-special-quality" changeAction="followerSpecialQuality"}}
 	</div>
 
 	{{#if isGroup}}
 	<div class="stonetop-members">
 		<div class="stonetop-members-head">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.members"}}</span>
-			<button type="button" class="stonetop-member-add" data-slug="{{slug}}"
+			<button type="button" class="stonetop-member-add" data-action="addFollowerMember" data-slug="{{slug}}"
 			        title="{{localize 'stonetop.followers.addMember'}}">
 				<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="{{localize 'stonetop.followers.addMember'}}">
 			</button>
@@ -77,18 +79,18 @@
 		{{#each members}}
 		<div class="stonetop-member" data-slug="{{../slug}}" data-index="{{index}}">
 			<div class="stonetop-member-top">
-				<input type="text" class="stonetop-member-name" value="{{name}}"
+				<input type="text" class="stonetop-member-name" data-change-action="memberName" value="{{name}}"
 				       data-slug="{{../slug}}" data-index="{{index}}"
 				       placeholder="{{localize 'stonetop.followers.memberName'}}">
 				<span class="stonetop-member-hp">
 					<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
-					<input type="number" min="0" class="stonetop-member-hp-value stonetop-step"
+					<input type="number" min="0" class="stonetop-member-hp-value stonetop-step" data-change-action="memberHp"
 					       value="{{hp.value}}" data-slug="{{../slug}}" data-index="{{index}}">
 					<span>/</span>
-					<input type="number" min="0" class="stonetop-member-hp-max stonetop-step"
+					<input type="number" min="0" class="stonetop-member-hp-max stonetop-step" data-change-action="memberHpMax"
 					       value="{{hp.max}}" data-slug="{{../slug}}" data-index="{{index}}">
 				</span>
-				<button type="button" class="stonetop-member-remove" data-slug="{{../slug}}" data-index="{{index}}"
+				<button type="button" class="stonetop-member-remove" data-action="removeFollowerMember" data-slug="{{../slug}}" data-index="{{index}}"
 				        title="{{localize 'stonetop.followers.removeMember'}}">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.followers.removeMember'}}">
 				</button>
@@ -113,14 +115,14 @@
 	{{/if}}
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.moves")
-		field=moves textareaClass="stonetop-follower-moves" slug=slug}}
+		field=moves textareaClass="stonetop-follower-moves" changeAction="followerMoves" slug=slug}}
 
 	<div class="stonetop-creature-line stonetop-creature-line--split">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.cost"}}</span>
-		{{> "stonetop.selection-input" sel=costSelection slug=slug field="cost" inputClass="stonetop-follower-cost" placeholder=(localize "stonetop.followers.cost")}}
+		{{> "stonetop.selection-input" sel=costSelection slug=slug field="cost" inputClass="stonetop-follower-cost" changeAction="followerCost" placeholder=(localize "stonetop.followers.cost")}}
 		<div class="stonetop-follower-loyalty">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.loyalty"}}</span>
-			{{> "stonetop.resource-track" resource=loyalty btnClass="stonetop-follower-loyalty-btn" slug=slug}}
+			{{> "stonetop.resource-track" resource=loyalty btnClass="stonetop-follower-loyalty-btn" action="followerLoyaltyPip" slug=slug}}
 		</div>
 	</div>
 
@@ -135,9 +137,9 @@
 	{{> "stonetop.follower-inventory"}}
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.description")
-		field=description textareaClass="stonetop-follower-description" slug=slug}}
+		field=description textareaClass="stonetop-follower-description" changeAction="followerDescription" slug=slug}}
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.notes")
-		field=notes textareaClass="stonetop-follower-notes" slug=slug blockClass="stonetop-follower-notes-block"}}
+		field=notes textareaClass="stonetop-follower-notes" changeAction="followerNotes" slug=slug blockClass="stonetop-follower-notes-block"}}
 
 </div>

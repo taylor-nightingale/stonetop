@@ -1,4 +1,4 @@
-<div class="tab followers" data-group="primary" data-tab="followers">
+<div class="tab followers {{tabs.followers.cssClass}}" data-group="primary" data-tab="followers">
 
 	{{#unless stonetop.followers.length}}
 	<p class="stonetop-followers-empty">{{localize "stonetop.followers.empty"}}</p>
@@ -10,7 +10,7 @@
 	{{/each}}
 	</div>
 
-	<button type="button" class="stonetop-follower-add">
+	<button type="button" class="stonetop-follower-add" data-action="addFollower">
 		<i class="fas fa-plus"></i> {{localize "stonetop.followers.add"}}
 	</button>
 

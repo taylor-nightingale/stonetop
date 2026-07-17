@@ -2,6 +2,7 @@
 {{#each (resourceChecks resource)}}
 <button type="button"
         class="{{../btnClass}}{{#if checked}} is-checked{{/if}}"
+        {{#if ../action}}data-action="{{../action}}"{{/if}}
         {{#if ../possessionSlug}}data-possession-slug="{{../possessionSlug}}"{{/if}}
         {{#if ../slug}}data-slug="{{../slug}}"{{/if}}
         {{#if ../choiceSlug}}data-choice-slug="{{../choiceSlug}}"{{/if}}

@@ -1,0 +1,9 @@
+{{!-- DialogV2 body for adding a custom inventory item (regular column asks for a weight; small
+      items are always weight 1). Field values are read off button.form.elements in the prompt
+      callback. --}}
+<div class="stonetop-add-item-fields">
+	<label>{{localize "stonetop.inventory.addItemName"}} <input name="name" type="text"></label>
+	{{#if isRegular}}
+	<label>{{localize "stonetop.inventory.addItemWeight"}} <input name="weight" type="number" min="1" value="1"></label>
+	{{/if}}
+</div>

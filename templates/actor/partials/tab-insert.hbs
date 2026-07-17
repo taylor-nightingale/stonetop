@@ -1,4 +1,4 @@
-<div class="tab insert insert-{{insert.slug}}"
+<div class="tab insert insert-{{insert.slug}} {{tab.cssClass}}"
      data-group="primary" data-tab="insert-{{insert.slug}}"
      data-insert-item-id="{{insert.id}}">
 	<section class="sheet-tab">
@@ -10,7 +10,7 @@
 				<div class="stonetop-insert-description">{{rich insert.description}}</div>
 				{{/if}}
 			</div>
-			<button type="button" class="stonetop-insert-remove"
+			<button type="button" class="stonetop-insert-remove" data-action="removeInsert"
 			        data-insert-item-id="{{insert.id}}"
 			        title="{{localize 'stonetop.insert.remove'}}">
 				<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.insert.remove'}}">

@@ -797,7 +797,9 @@ body,
 	padding: 0px
 }
 
-.pbta.sheet.actor .window-content form {
+/* V2 renders the single part root (.sheet-wrapper) straight into .window-content — the padding
+   that used to sit on the V1 inner <form> lives there now. */
+.pbta.sheet.actor .window-content > .sheet-wrapper {
 	padding: 8px
 }
 
@@ -1222,24 +1224,19 @@ body,
 
 /* -- Sheet layout (sidebar persists across all tabs) ------- */
 
-/* Full-height chain: make form → sheet-wrapper → sheet-main fill the window so
-   .stonetop-sheet-layout (and the persistent moves sidebar) span the whole sheet height instead of
-   only the current tab's content. The leaf rules below already assume a definite height; these wire
-   up the trunk. Character sheet only. */
+/* Full-height chain: make sheet-wrapper → sheet-main fill the window so .stonetop-sheet-layout
+   (and the persistent moves sidebar) span the whole sheet height instead of only the current tab's
+   content. The leaf rules below already assume a definite height; these wire up the trunk.
+   Character sheet only. (V2: .sheet-wrapper is the part root, a direct child of .window-content —
+   the V1 inner <form> link in this chain is gone.) */
 .stonetop.sheet.character .window-content {
-	display: flex;
-	flex-direction: column;
-}
-.stonetop.sheet.character .window-content form {
-	flex: 1;
-	min-height: 0;
-	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 }
 .stonetop.sheet.character .sheet-wrapper {
 	flex: 1;
 	min-height: 0;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 }
@@ -1776,8 +1773,8 @@ body,
 	flex-shrink: 0;
 }
 
-/* Override Foundry's .vtt .window-app input[type=checkbox] (0,3,1) with (0,4,1) */
-.vtt .window-app input[type=checkbox].stonetop-inv-diamond {
+/* Beat Foundry's core checkbox styling; the diamonds render only on the (V2) character sheet. */
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
@@ -1791,13 +1788,13 @@ body,
 	cursor: pointer;
 }
 
-.vtt .window-app input[type=checkbox].stonetop-inv-diamond.is-checked,
-.vtt .window-app input[type=checkbox].stonetop-inv-diamond:checked,
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond.is-checked,
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond:checked,
 .stonetop-inv-item.is-checked .stonetop-inv-diamond {
 	background: currentColor;
 }
 
-.vtt .window-app input[type=checkbox].stonetop-inv-square {
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-square {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
@@ -1809,8 +1806,8 @@ body,
 	cursor: pointer;
 }
 
-.vtt .window-app input[type=checkbox].stonetop-inv-square.is-checked,
-.vtt .window-app input[type=checkbox].stonetop-inv-square:checked,
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-square.is-checked,
+.vtt .application.stonetop input[type=checkbox].stonetop-inv-square:checked,
 .stonetop-inv-item.is-checked .stonetop-inv-square {
 	background: currentColor;
 }
@@ -5497,4 +5494,18 @@ button.stonetop-xp-toggle {
 .stonetop-art-installer .art-actions {
 	display: flex;
 	gap: 8px;
+}
+
+/* ── Add-inventory-item dialog (DialogV2) ───────────────────────────────────── */
+
+.stonetop-add-item-fields {
+	display: grid;
+	gap: 6px;
+	padding: 6px;
+}
+.stonetop-add-item-fields input[name="name"] {
+	width: 100%;
+}
+.stonetop-add-item-fields input[name="weight"] {
+	width: 60px;
 }

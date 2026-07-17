@@ -1,5 +1,6 @@
 import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { bindAll } from "../../utils/bindAll.js";
+import { takeTagInputValue } from "../../utils/takeTagInputValue.js";
 
 export function createStonetopNpcSheetClass(Base) {
     return class StonetopNpcSheet extends Base {
@@ -55,14 +56,8 @@ export function createStonetopNpcSheetClass(Base) {
             });
             bindAll(root, ".stonetop-tag-add", "change", ev => {
                 const input = ev.currentTarget;
-                const value = input.value.trim();
+                const value = takeTagInputValue(input);
                 if (!value) return;
-                // Clear the box before toggling: pressing Enter fires TWO change events — the
-                // browser's native value-commit change AND comboBox's synthetic one — and a
-                // *toggle* handler that ran twice would add then immediately remove the tag
-                // (leaving the box blank, the tag uncommitted). Blanking the input makes the
-                // second change no-op via the guard above (matches the V1 character sheet).
-                input.value = "";
                 return npc.toggleSelection(input.dataset.field, value);
             });
             // Instinct (single-select input + dropdown, not chips)

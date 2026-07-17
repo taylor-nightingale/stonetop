@@ -26,6 +26,20 @@ export class FoundryPlaybookRepository {
 		return pb;
 	}
 
+	// Raw item data for embedding on an actor (findBySlug returns the parsed PlaybookData instead).
+	// Pack first, then world items — the same precedence as findBySlug.
+	async findItemDataBySlug(slug) {
+		const entry = await this._store.findEntry(e => e.system?.slug === slug);
+		if (entry) {
+			const doc = await this._store.getDocument(entry._id);
+			return doc.toObject();
+		}
+		const worldDoc = (game.items?.contents ?? []).find(
+			i => i.type === "playbook" && i.system?.slug === slug
+		);
+		return worldDoc ? worldDoc.toObject() : null;
+	}
+
 	async getAllPlaybooks() {
 		const packEntries = await this._store.getAll();
 		const packSlugs   = new Set(packEntries.map(e => e.system?.slug).filter(Boolean));

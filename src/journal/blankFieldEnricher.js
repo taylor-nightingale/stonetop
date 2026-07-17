@@ -16,6 +16,9 @@ export function blankFieldElement(match) {
 	input.type = "text";
 	input.classList.add(FIELD_CLASS);
 	input.dataset.blankKey = key;
+	// Routes through the character sheet's ChangeActionRouter; inert anywhere else the enriched
+	// text renders (journals, the arcanum item sheet) since only that sheet attaches a router.
+	input.dataset.changeAction = "arcanumBlank";
 	input.setAttribute("spellcheck", "false");
 	input.setAttribute("autocomplete", "off");
 	input.setAttribute("aria-label", "write-in field");

@@ -15,7 +15,7 @@
 		</div>
 		{{#if back.resource}}
 		<div class="stonetop-arcanum-header-resource">
-			{{> "stonetop.resource-track" resource=back.resource btnClass="stonetop-arcanum-resource-btn" slug=slug}}
+			{{> "stonetop.resource-track" resource=back.resource btnClass="stonetop-arcanum-resource-btn" action="arcanumResourcePip" slug=slug}}
 		</div>
 		{{/if}}
 	</div>
@@ -69,11 +69,11 @@
 	{{/if}}
 
 	<div class="stonetop-arcanum-footer">
-		<button type="button" class="stonetop-arcanum-flip-btn"
+		<button type="button" class="stonetop-arcanum-flip-btn" data-action="flipArcanum"
 		        data-slug="{{slug}}" data-flipped="{{flipped}}">
 			{{#if flipped}}{{localize "stonetop.arcana.showFront"}}{{else}}{{localize "stonetop.arcana.showBack"}}{{/if}}
 		</button>
-		<button type="button" class="stonetop-arcanum-delete" data-slug="{{slug}}" data-name="{{name}}"
+		<button type="button" class="stonetop-arcanum-delete" data-action="deleteArcanum" data-slug="{{slug}}" data-name="{{name}}"
 		        title="{{localize 'stonetop.arcana.removeArcanum'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 			<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.arcana.removeArcanum'}}">
 		</button>

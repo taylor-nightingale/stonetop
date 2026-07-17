@@ -6,11 +6,11 @@
       Params: sel (Selection snapshot), slug, field, placeholder, member (bool), memberIndex. --}}
 <div class="stonetop-tags" data-slug="{{slug}}" data-field="{{field}}"{{#if member}} data-member-index="{{memberIndex}}"{{/if}}>
 	{{#each sel.values}}
-	<button type="button" class="stonetop-tag-chip is-selected" data-slug="{{../slug}}" data-tag="{{this}}"
+	<button type="button" class="stonetop-tag-chip is-selected" data-action="toggleTag" data-slug="{{../slug}}" data-tag="{{this}}"
 	        title="{{#if (eq this "group")}}{{localize 'stonetop.followers.groupTagTooltip'}}{{else}}{{localize 'stonetop.followers.remove'}}{{/if}}">{{rich this}}</button>
 	{{/each}}
 	<span class="stonetop-combo stonetop-combo--add">
-		<input type="text" class="stonetop-tag-add stonetop-combo-input"
+		<input type="text" class="stonetop-tag-add stonetop-combo-input" data-change-action="tagAdd"
 		       data-slug="{{slug}}" data-field="{{field}}" placeholder="{{placeholder}}">
 		{{#if sel.unselectedOptions.length}}
 		<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>

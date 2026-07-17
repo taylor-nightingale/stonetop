@@ -5,7 +5,7 @@
 <div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
 	<span class="stonetop-inv-diamonds">
 		{{#each (times weight)}}
-		<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond"
+		<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-diamond" data-change-action="inventoryItemCheck"
 		       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
 		{{/each}}
 	</span>
@@ -15,10 +15,10 @@
 	</span>
 	{{#if resource}}
 	<span class="stonetop-inv-resources">
-		{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" slug=slug}}
+		{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" action="inventoryResourcePip" slug=slug}}
 	</span>
 	{{/if}}
 	{{#if isCustom}}
-	<a class="stonetop-inv-delete" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></a>
+	<a class="stonetop-inv-delete" data-action="deleteInventoryItem" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></a>
 	{{/if}}
 </div>

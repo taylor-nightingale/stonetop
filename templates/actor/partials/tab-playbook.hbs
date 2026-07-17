@@ -1,10 +1,10 @@
-<div class="tab playbook" data-group="primary" data-tab="playbook">
+<div class="tab playbook {{tabs.playbook.cssClass}}" data-group="primary" data-tab="playbook">
 	<section class="sheet-tab">
 
 	{{#unless stonetop.playbook}}
 	<div class="stonetop-playbook-empty">
 		<p class="stonetop-playbook-empty-hint">{{localize "stonetop.sheet.playbook.emptyHint"}}</p>
-		<select class="stonetop-playbook-select" name="stonetop-playbook-select">
+		<select class="stonetop-playbook-select" name="stonetop-playbook-select" data-change-action="selectPlaybook">
 			<option value="">— {{localize "stonetop.sheet.playbook.selectPlaceholder"}} —</option>
 			{{#each availablePlaybooks}}
 			<option value="{{slug}}">{{name}}</option>
@@ -28,11 +28,11 @@
 			{{#each stonetop.playbook.background.options}}
 			<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
-					<input type="radio" class="stonetop-item-check" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
+					<input type="radio" class="stonetop-item-check" data-change-action="selectBackground" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
 					<strong class="stonetop-item-name">{{rich label}}</strong>
 					{{#if resource}}
 					<span class="stonetop-item-resources">
-						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" slug=slug}}
+						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" action="backgroundResourcePip" slug=slug}}
 					</span>
 					{{/if}}
 				</div>
@@ -74,12 +74,12 @@
 			{{#each stonetop.playbook.origin.options}}
 			<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
 				<label class="stonetop-origin-region">
-					<input type="radio" class="stonetop-item-check" name="stonetop-origin"
+					<input type="radio" class="stonetop-item-check" data-change-action="selectOrigin" name="stonetop-origin"
 					       value="{{region}}"{{#if selected}} checked{{/if}}>
 					<strong>{{region}}</strong>
 				</label>
 				<div class="stonetop-origin-names">
-					{{#each names}}<span class="stonetop-origin-name">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
+					{{#each names}}<span class="stonetop-origin-name" data-action="selectOriginName">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
 				</div>
 			</div>
 			{{/each}}

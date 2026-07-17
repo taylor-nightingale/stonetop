@@ -6,6 +6,7 @@
     "vendor": "node scripts/vendor-deps.js",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:pdf": "STONETOP_PDF_TESTS=1 vitest run tests/art/bookArtExtractor.integration.test.js",
     "pack": "node scripts/compendium-pack/pack.js",
     "unpack": "node scripts/compendium-pack/unpack.js",
     "extract-art": "node scripts/import/pdf/extract-art.js",

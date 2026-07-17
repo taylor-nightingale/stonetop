@@ -20,6 +20,7 @@ import {FollowerSideEffectHandler, OutfitItemSideEffectHandler} from "./SideEffe
 export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
+		this._playbookRepo = repos.playbooks ?? null;
 		this._stats = new CharacterStats(actor);
 		this._origin = new CharacterOrigin(actor);
 		const outfitItems = new ActorOutfitItems(actor);
@@ -202,6 +203,10 @@ export class StonetopCharacter {
 		await this._playbook.selectBackground(slug);
 	}
 
+	async selectCustomInstinct(text) {
+		await this._playbook.selectCustomInstinct(text);
+	}
+
 	get ownedArcanaSlugs() {
 		return this._arcana.ownedSlugs;
 	}
@@ -227,6 +232,29 @@ export class StonetopCharacter {
 			if (await this.onDropMove(item)) anyAdded = true;
 		}
 		return { anyAdded, others };
+	}
+
+	// V2 drop-pipeline entry: route the dropped item data (playbooks replace, followers/moves are
+	// absorbed, already-owned arcana are skipped) and embed whatever Foundry should own natively.
+	// Returns the embedded item data (empty when everything was absorbed).
+	async applyDroppedItems(items) {
+		const ownedArcanaSlugs = this.ownedArcanaSlugs;
+		const newArcana = items.filter(
+			i => i.type === "arcanum" && !ownedArcanaSlugs.has(i.system?.slug),
+		);
+		const nonArcana = items.filter(i => i.type !== "arcanum");
+		const { others } = await this.onDropItems(nonArcana);
+		const toEmbed = [...newArcana, ...others];
+		if (toEmbed.length) await this._actor.createEmbeddedDocuments("Item", toEmbed);
+		return toEmbed;
+	}
+
+	// The playbook dropdown: look the item up by slug (pack first, then world) and run it through
+	// the same path a dropped playbook item takes.
+	async applyPlaybookBySlug(slug) {
+		if (!slug) return;
+		const data = await this._playbookRepo.findItemDataBySlug(slug);
+		if (data) await this.applyDroppedItems([data]);
 	}
 
 	async incrementMove(categoryKey, moveName) {
@@ -396,6 +424,125 @@ export class StonetopCharacter {
 		await this._inventory.setResource(slug, count);
 	}
 
+	// --- ChoiceTarget routing -----------------------------------------------------------------
+	// The sheet builds a ChoiceTarget from the row's DOM containers; the possession/insert/
+	// arcanum/plain dispatch lives here, not in the handlers.
+
+	// Track checkboxes: checking box `index` fills the track through index+1; unchecking empties
+	// back to index.
+	async setChoiceTrackFor(target, index, checked) {
+		const count = checked ? Number(index) + 1 : Number(index);
+		await this.setChoiceCountFor(target, count);
+	}
+
+	async setChoiceCountFor(target, count) {
+		if (target.possessionSlug) return this.setPossessionChoiceValue(target.possessionSlug, target.option, count);
+		if (target.insertItemId)   return this.setInsertChoiceCount(target.insertItemId, target.group, target.option, count);
+		if (target.arcanumSlug)    return this.setArcanumChoiceCount(target.arcanumSlug, target.group, target.option, count);
+		return this.setChoiceCount(target.context, target.group, target.option, count);
+	}
+
+	async setChoicePickFor(target, checked = true) {
+		if (!target.context) return;
+		if (target.insertItemId) return this.setInsertChoicePick(target.insertItemId, target.group, target.option, target.siblingsCsv);
+		if (target.arcanumSlug)  return this.selectArcanumChoice(target.arcanumSlug, target.group, target.option, target.siblingsCsv);
+		return this.setChoicePick(target.context, target.group, target.option, target.siblingsCsv, checked);
+	}
+
+	async setChoiceTextFor(target, text) {
+		if (target.possessionSlug) return this.setPossessionChoiceValue(target.possessionSlug, target.option, text);
+		if (!target.context) return;
+		if (target.insertItemId) return this.setInsertChoiceText(target.insertItemId, target.group, target.option, text);
+		if (target.arcanumSlug)  return this.setArcanumChoiceText(target.arcanumSlug, target.group, target.option, text);
+		return this.setChoiceText(target.context, target.group, target.option, text);
+	}
+
+	// --- Pip and check toggles ----------------------------------------------------------------
+	// Resource pips: clicking the checked pip at `index` empties back to it, clicking an unchecked
+	// one fills through it. Sheets pass the raw dataset index and the pip's current checked state.
+
+	#pipCount(index, isChecked) {
+		return isChecked ? Number(index) : Number(index) + 1;
+	}
+
+	async toggleMoveResourcePip(moveSlug, index, isChecked) {
+		await this.setMoveResourceCurrent(moveSlug, this.#pipCount(index, isChecked));
+	}
+
+	async toggleArcanumResourcePip(slug, index, isChecked) {
+		await this.setArcanumResource(slug, this.#pipCount(index, isChecked));
+	}
+
+	async toggleBackgroundResourcePip(slug, index, isChecked) {
+		await this.setBackgroundResource(slug, this.#pipCount(index, isChecked));
+	}
+
+	async toggleFollowerLoyaltyPip(slug, index, isChecked) {
+		await this.setFollowerLoyalty(slug, this.#pipCount(index, isChecked));
+	}
+
+	async togglePossessionUsePip(possessionSlug, choiceSlug, index, isChecked) {
+		const count = this.#pipCount(index, isChecked);
+		if (choiceSlug) return this.setSubChoiceUses(possessionSlug, choiceSlug, count);
+		return this.setPossessionUses(possessionSlug, count);
+	}
+
+	// Pool checkboxes are tracks (see setChoiceTrackFor): checked fills through index+1.
+	async toggleInventoryRegularPool(index, checked) {
+		await this.setInventoryRegularPool(checked ? Number(index) + 1 : Number(index));
+	}
+
+	async toggleInventorySmallPool(index, checked) {
+		await this.setInventorySmallPool(checked ? Number(index) + 1 : Number(index));
+	}
+
+	async setMoveChecked(categoryKey, moveSlug, checked) {
+		if (checked) return this.incrementMove(categoryKey, moveSlug);
+		return this.decrementMove(categoryKey, moveSlug);
+	}
+
+	async setPossessionSelected(slug, selected) {
+		if (selected) return this.selectPossession(slug);
+		return this.deselectPossession(slug);
+	}
+
+	async setSubChoiceSelected(possessionSlug, choiceSlug, selected) {
+		if (selected) return this.selectSubChoice(possessionSlug, choiceSlug);
+		return this.deselectSubChoice(possessionSlug, choiceSlug);
+	}
+
+	async toggleArcanumFlip(slug, currentlyFlipped) {
+		if (currentlyFlipped) return this.unflipArcanum(slug);
+		return this.flipArcanum(slug);
+	}
+
+	// --- Shared-inventory routing ------------------------------------------------------------
+	// A shared outfit item lives in the character's inventory tab OR inside a follower card;
+	// the sheet reads the follower slug off the wrapper (null = the character's own inventory)
+	// and these route it.
+
+	async setInventoryItemCheckedFor(followerSlug, itemSlug, checked) {
+		if (followerSlug) return this.setFollowerInvItemChecked(followerSlug, itemSlug, checked);
+		return this.setInventoryItemChecked(itemSlug, checked);
+	}
+
+	async toggleInventoryResourcePipFor(followerSlug, itemSlug, index, isChecked) {
+		const count = this.#pipCount(index, isChecked);
+		if (followerSlug) return this.setFollowerInvResource(followerSlug, itemSlug, count);
+		return this.setInventoryResource(itemSlug, count);
+	}
+
+	async addCustomInventoryItemFor(followerSlug, name, weight, isRegular) {
+		if (followerSlug) return this.addFollowerInvCustomItem(followerSlug, name, weight);
+		if (isRegular)    return this.addCustomInventoryItem(name, weight);
+		return this.addCustomSmallItem(name);
+	}
+
+	async removeCustomInventoryItemFor(followerSlug, itemId) {
+		if (followerSlug) return this.removeFollowerInvCustomItem(followerSlug, itemId);
+		return this.removeCustomInventoryItem(itemId);
+	}
+
 	async addCustomFollower() {
 		await this._followers.addCustomFollower();
 	}
@@ -444,8 +591,14 @@ export class StonetopCharacter {
 		await this._followers.removeFollower(slug);
 	}
 
-	async setFollowerHp(slug, hp) {
-		await this._followers.setHp(slug, hp);
+	// `hpMax` is the follower card's max box as the user currently sees it (possibly uncommitted,
+	// so the sheet reads it off the DOM); HP clamps into [0, hpMax] when it parses to a number.
+	async setFollowerHp(slug, hp, hpMax = null) {
+		let value = Math.max(0, Number(hp));
+		// A blank or absent max means "no upper clamp" (Number("") would read as 0).
+		const max = hpMax === null || hpMax === "" ? NaN : Number(hpMax);
+		if (Number.isFinite(max)) value = Math.min(value, max);
+		await this._followers.setHp(slug, value);
 	}
 
 	async setFollowerLoyalty(slug, loyalty) {
@@ -462,6 +615,17 @@ export class StonetopCharacter {
 
 	async toggleFollowerSelection(slug, field, value) {
 		await this._followers.toggleSelection(slug, field, value);
+	}
+
+	// A tag chip / tag-add box lives on a follower card, one of its group members (memberIndex
+	// set), or the companion options (which nest inside the atomic `companion` object rather than
+	// a top-level field) — the sheet reads the wrap's dataset, this owns the routing.
+	async toggleFollowerTag(slug, field, memberIndex, value) {
+		if (memberIndex !== null && memberIndex !== undefined) {
+			return this.toggleFollowerMemberSelection(slug, Number(memberIndex), field, value);
+		}
+		if (field === "companionOptions") return this.toggleFollowerCompanionOption(slug, value);
+		return this.toggleFollowerSelection(slug, field, value);
 	}
 
 	async setFollowerArmor(slug, armor) {

@@ -16,9 +16,11 @@ export class ChangeActionRouter {
 		this.#handlers = handlers;
 	}
 
-	/** Wire the single delegated listener onto a rendered sheet root. */
+	/** Wire the single delegated listener onto a rendered sheet root. Capture-phase, so a
+	 *  stopPropagation in some widget's own bubble-phase change handler can't starve the router
+	 *  (the lesson behind the steading's capture-phase track listener). */
 	attach(root) {
-		root.addEventListener("change", (ev) => this.#route(ev));
+		root.addEventListener("change", (ev) => this.#route(ev), true);
 	}
 
 	#route(ev) {

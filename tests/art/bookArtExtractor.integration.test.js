@@ -1,7 +1,7 @@
 // End-to-end proof over the real book PDFs: the browser extraction path (real
 // pdf.js, real manifest) recovers EVERY piece of artwork the packs reference.
-// Skipped when the PDFs aren't present (they're copyrighted and not in the repo),
-// so CI skips this and it runs on dev machines with a populated helper/.
+// Skipped when the PDFs aren't present (they're copyrighted and not in the repo)
+// or when STONETOP_PDF_TESTS is unset — run it explicitly via `npm run test:pdf`.
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -17,8 +17,11 @@ const BOOK_I = join(root, "helper", "Book_I_-_Stonetop.pdf");
 // not), so they exercise the jbig2.wasm decoder the other copies never touch.
 const BOOK_II_1ST = join(root, "helper", "Book_II_-_The_Wider_World_and_Other_Wonders_(1st_printing).pdf");
 const BOOK_I_1ST = join(root, "helper", "Book_I_-_Stonetop_(1st_printing).pdf");
-const havePdfs = existsSync(BOOK_II) && existsSync(BOOK_I);
-const have1stPrinting = existsSync(BOOK_II_1ST) && existsSync(BOOK_I_1ST);
+// ~100s of real pdf.js work, so opt-in even on machines that have the PDFs:
+// `npm run test:pdf` sets the env var; the plain `npm test` run skips this file.
+const optedIn = !!process.env.STONETOP_PDF_TESTS;
+const havePdfs = optedIn && existsSync(BOOK_II) && existsSync(BOOK_I);
+const have1stPrinting = optedIn && existsSync(BOOK_II_1ST) && existsSync(BOOK_I_1ST);
 
 async function extractorOverVendoredWasm() {
 	const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");

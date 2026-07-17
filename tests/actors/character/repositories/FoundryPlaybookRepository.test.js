@@ -11,6 +11,35 @@ const BLESSED = new TestPlaybookItemBuilder().build();
 const FOX     = new TestPlaybookItemBuilder().withSlug("the-fox").withName("The Fox").build();
 
 describe("FoundryPlaybookRepository", () => {
+	describe("findItemDataBySlug", () => {
+		function withToObject(item) {
+			return { ...item, toObject: () => ({ name: item.name, type: item.type, system: item.system }) };
+		}
+
+		it("returns the pack document's raw data", async () => {
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.playbooksPack().withItem(withToObject(BLESSED)))
+				.build();
+			const data = await new FoundryPlaybookRepository().findItemDataBySlug("the-blessed");
+			expect(data.system.slug).toBe("the-blessed");
+			expect(data.type).toBe("playbook");
+		});
+
+		it("falls back to a world playbook when the pack has no match", async () => {
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.playbooksPack().withItem(withToObject(BLESSED)))
+				.withWorldItem(withToObject(FOX))
+				.build();
+			const data = await new FoundryPlaybookRepository().findItemDataBySlug("the-fox");
+			expect(data.system.slug).toBe("the-fox");
+		});
+
+		it("returns null when the slug is nowhere", async () => {
+			new FakeGameBuilder().build();
+			expect(await new FoundryPlaybookRepository().findItemDataBySlug("nope")).toBeNull();
+		});
+	});
+
 	describe("getAllPlaybooks", () => {
 		it("returns [] when no pack and no world items", async () => {
 			new FakeGameBuilder().build();

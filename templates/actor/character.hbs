@@ -1,123 +1,125 @@
-<form class="{{cssClass}} stonetop-playbook-{{stonetop.playbook.slug}}" autocomplete="off">
-	<div class="sheet-wrapper">
+{{!-- Single part root (V2 renders the <form> window root itself). The playbook-specific class
+      lives here because root classes are static in ApplicationV2. --}}
+<div class="sheet-wrapper stonetop-playbook-{{stonetop.playbook.slug}}">
 
-		{{> "stonetop.actor-header"}}
+	{{> "stonetop.actor-header"}}
 
-		<section class="sheet-top flexrow">
-			<div class="stonetop-stats-column">
-				{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
+	<section class="sheet-top flexrow">
+		<div class="stonetop-stats-column">
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
 
-				<div class="stonetop-stats-section">
-					{{> "stonetop.actor-stats" stats=stonetop.stats}}
+			<div class="stonetop-stats-section">
+				{{> "stonetop.actor-stats" stats=stonetop.stats}}
+			</div>
+			<div class="stonetop-debilities">
+				{{#each stonetop.debilities}}
+				<div class="stonetop-debility">
+					<label class="stonetop-debility-control"
+					       data-tooltip="{{description}}" data-tooltip-direction="UP">
+						<span class="stonetop-debility-divider"></span>
+						<input type="checkbox" class="stonetop-debility-check"
+						       data-change-action="debility"
+						       data-slug="{{key}}"
+						       {{#if active}}checked{{/if}}>
+						<span class="stonetop-debility-label">{{key}}</span>
+					</label>
 				</div>
-				<div class="stonetop-debilities">
-					{{#each stonetop.debilities}}
-					<div class="stonetop-debility">
-						<label class="stonetop-debility-control"
-						       data-tooltip="{{description}}" data-tooltip-direction="UP">
-							<span class="stonetop-debility-divider"></span>
-							<input type="checkbox" class="stonetop-debility-check"
-							       data-slug="{{key}}"
-							       {{#if active}}checked{{/if}}>
-							<span class="stonetop-debility-label">{{key}}</span>
-						</label>
-					</div>
-					{{/each}}
-				</div>
-
-				<div class="stonetop-vitals-section">
-					{{> "stonetop.actor-attributes"}}
-				</div>
+				{{/each}}
 			</div>
 
-			<div class="stonetop-actor-portrait">
-				<img class="stonetop-actor-portrait-img" src="{{actor.img}}" data-edit="img"
-				     alt="{{actor.name}}" title="{{actor.name}}">
+			<div class="stonetop-vitals-section">
+				{{> "stonetop.actor-attributes"}}
 			</div>
-		</section>
+		</div>
 
-		<section class="sheet-main flexcol">
-			<nav class="sheet-tabs tabs" data-group="primary">
-				<a class="item" data-tab="playbook">{{localize "stonetop.sheet.tabs.playbook"}}</a>
-				<a class="item" data-tab="moves">{{localize "stonetop.sheet.tabs.moves"}}</a>
-				<a class="item" data-tab="inventory">{{localize "stonetop.sheet.tabs.inventory"}}</a>
-				<a class="item" data-tab="arcana">{{localize "stonetop.sheet.tabs.arcana"}}</a>
-				<a class="item" data-tab="followers">{{localize "stonetop.sheet.tabs.followers"}}</a>
-				<a class="item" data-tab="notes">{{localize "stonetop.sheet.tabs.notes"}}</a>
-			{{#each stonetop.inserts}}<a class="item" data-tab="insert-{{slug}}">{{name}}</a>{{/each}}
-				<button type="button" class="stonetop-top-toggle" title="{{localize 'stonetop.sheet.collapseTop'}}">
-					<i class="fas fa-chevron-up"></i>
-				</button>
-			</nav>
+		<div class="stonetop-actor-portrait">
+			<img class="stonetop-actor-portrait-img" src="{{actor.img}}" data-edit="img" data-action="editImage"
+			     alt="{{actor.name}}" title="{{actor.name}}">
+		</div>
+	</section>
 
-			<div class="stonetop-sheet-layout">
-				<button type="button" class="stonetop-moves-toggle" title="{{localize 'stonetop.sheet.tabs.moves'}}">
-					<i class="fas fa-bolt"></i>
-				</button>
-				<section class="sheet-body">
-					{{> "stonetop.tab-playbook"}}
-					{{> "stonetop.tab-moves"}}
-					{{> "stonetop.tab-equipment"}}
-					{{> "stonetop.tab-arcana"}}
-					{{> "stonetop.tab-followers"}}
-					{{> "stonetop.tab-notes"}}
-					{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this}}{{/each}}
-				</section>
+	<section class="sheet-main flexcol">
+		{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); context.tabs
+		      already carries the per-insert tabs via the sheet's _getTabsConfig override. --}}
+		<nav class="sheet-tabs tabs" data-group="primary">
+			{{#each tabs}}
+			<a class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</a>
+			{{/each}}
+			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" title="{{localize 'stonetop.sheet.collapseTop'}}">
+				<i class="fas fa-chevron-up"></i>
+			</button>
+		</nav>
 
-				<div class="stonetop-moves-sidebar">
-					{{!-- Roll Mode --}}
-					<div class="stonetop-outfit-header">
-						<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
-						<ul class="stonetop-outfit-loads">
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.adv"}}</span>
-								</label>
-							</li>
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.normal"}}</span>
-								</label>
-							</li>
-							<li>
-								<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
-									<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-									       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-									<span>{{localize "stonetop.rollMode.dis"}}</span>
-								</label>
-							</li>
-						</ul>
-					</div>
+		<div class="stonetop-sheet-layout">
+			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" title="{{localize 'stonetop.sheet.tabs.moves'}}">
+				<i class="fas fa-bolt"></i>
+			</button>
+			<section class="sheet-body">
+				{{> "stonetop.tab-playbook"}}
+				{{> "stonetop.tab-moves"}}
+				{{> "stonetop.tab-equipment"}}
+				{{> "stonetop.tab-arcana"}}
+				{{> "stonetop.tab-followers"}}
+				{{> "stonetop.tab-notes"}}
+				{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this tab=(lookup @root.tabs (concat "insert-" slug))}}{{/each}}
+			</section>
 
-					{{#each stonetop.moves.categories}}
-					{{#if (eq renderStyle "side-bar")}}
-					{{> "stonetop.section-heading" title=label}}
-					<ol class="items-list">
-					{{#each moves}}
-						{{#if (and ownedId rollStat)}}
-						<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
-						{{else}}
-						<li class="stonetop-move-item move-unowned">
-						{{/if}}
-							{{#if (and ownedId rollStat)}}
-							<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
-								<i class="fas fa-dice-d6"></i>
-							</span>
-							{{/if}}
-							<span class="stonetop-move-name stonetop-basic-move-open"
-						      data-compendium-id="{{id}}">{{name}}</span>
+			<div class="stonetop-moves-sidebar">
+				{{!-- Roll Mode --}}
+				<div class="stonetop-outfit-header">
+					<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
+					<ul class="stonetop-outfit-loads">
+						<li>
+							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
+								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+								       data-change-action="rollMode"
+								       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
+								<span>{{localize "stonetop.rollMode.adv"}}</span>
+							</label>
 						</li>
-					{{/each}}
-					</ol>
-					{{/if}}
-					{{/each}}
+						<li>
+							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
+								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+								       data-change-action="rollMode"
+								       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
+								<span>{{localize "stonetop.rollMode.normal"}}</span>
+							</label>
+						</li>
+						<li>
+							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
+								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
+								       data-change-action="rollMode"
+								       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
+								<span>{{localize "stonetop.rollMode.dis"}}</span>
+							</label>
+						</li>
+					</ul>
 				</div>
-			</div>
-		</section>
 
-	</div>
-</form>
+				{{#each stonetop.moves.categories}}
+				{{#if (eq renderStyle "side-bar")}}
+				{{> "stonetop.section-heading" title=label}}
+				<ol class="items-list">
+				{{#each moves}}
+					{{#if (and ownedId rollStat)}}
+					<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
+					{{else}}
+					<li class="stonetop-move-item move-unowned">
+					{{/if}}
+						{{#if (and ownedId rollStat)}}
+						<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
+							<i class="fas fa-dice-d6"></i>
+						</span>
+						{{/if}}
+						<span class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
+					      data-compendium-id="{{id}}">{{name}}</span>
+					</li>
+				{{/each}}
+				</ol>
+				{{/if}}
+				{{/each}}
+			</div>
+		</div>
+	</section>
+
+</div>

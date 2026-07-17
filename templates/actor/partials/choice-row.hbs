@@ -1,5 +1,6 @@
 {{#*inline "follower-check"}}
 <input type="checkbox" class="stonetop-arcanum-follower-check"
+       data-change-action="followerCheck"
        data-cg-context="{{cgContext}}"
        data-slug="{{cgGroup}}"
        data-option="{{slug}}"
@@ -10,6 +11,7 @@
 {{#each track.checks}}
 <input type="checkbox"
     class="stonetop-cg-track"
+    data-change-action="cgTrack"
     data-cg-context="{{../cgContext}}"
     data-cg-group="{{../cgGroup}}"
     data-cg-option="{{../track.slug}}"
@@ -24,12 +26,14 @@
        class="stonetop-item-check{{#if row.cgContext}} stonetop-cg-pick{{/if}}{{#unless row.cgContext}} {{row.inputClass}}{{/unless}}"
        {{#if row.radio}}name="{{row.namePrefix}}-{{row.rowKey}}"{{/if}}
        {{#if row.cgContext}}
+       data-change-action="cgPick"
        data-cg-context="{{row.cgContext}}"
        data-cg-group="{{row.cgGroup}}"
        data-cg-option="{{opt.slug}}"
        data-cg-siblings="{{row.siblingSlugsCsv}}"
        data-display-label="{{opt.text}}{{#if withDescription}} — {{opt.description.raw}}{{/if}}"
        {{else}}
+       {{#if row.changeAction}}data-change-action="{{row.changeAction}}"{{/if}}
        {{#if row.possessionSlug}}data-possession-slug="{{row.possessionSlug}}"{{/if}}
        {{#if row.siblingSlugsCsv}}data-sibling-slugs-csv="{{row.siblingSlugsCsv}}"{{/if}}
        data-row-key="{{row.rowKey}}"
@@ -95,12 +99,14 @@
     {{! Always-visible data-entry box. input.type "rich" → multiline; "inline" → single-line. }}
     {{#if (eq input.type "rich")}}
     <textarea class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--rich"
+              data-change-action="cgText"
               data-cg-context="{{cgContext}}"
               data-cg-group="{{cgGroup}}"
               data-cg-option="{{input.slug}}"
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
     {{else}}
     <input type="text" class="stonetop-cg-text stonetop-choice-input"
+           data-change-action="cgText"
            data-cg-context="{{cgContext}}"
            data-cg-group="{{cgGroup}}"
            data-cg-option="{{input.slug}}"
@@ -134,6 +140,7 @@
         {{#if (eq type "input")}}
         <input type="text"
                class="stonetop-cg-text"
+               data-change-action="cgText"
                data-cg-context="{{../cgContext}}"
                data-cg-group="{{../cgGroup}}"
                data-cg-option="{{slug}}-fill"

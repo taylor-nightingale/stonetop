@@ -2,10 +2,11 @@
       combobox. Type a custom value in the input, or hit ▾ to drop the FULL option list (never
       filtered). The list opens in normal flow (pushes content down), so it can't be clipped by
       the card's stacking contexts. The input carries inputClass (e.g. .stonetop-follower-instinct)
-      so the field's own change handler saves it. Params: sel, slug, field, inputClass, placeholder. --}}
+      so the field's own change handler saves it. Params: sel, slug, field, inputClass, placeholder,
+      changeAction (optional data-change-action for router-based sheets). --}}
 <span class="stonetop-combo">
 	<input type="text" class="{{inputClass}} stonetop-combo-input" value="{{sel.text}}"
-	       data-slug="{{slug}}" placeholder="{{placeholder}}">
+	       data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">
 	{{#if sel.options.length}}
 	<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>
 	<ul class="stonetop-combo-list" hidden>

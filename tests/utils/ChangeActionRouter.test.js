@@ -69,6 +69,17 @@ describe("ChangeActionRouter", () => {
 		expect(setHp).not.toHaveBeenCalled();
 	});
 
+	it("still routes when a bubble-phase listener between input and root stops propagation", () => {
+		const setHp = vi.fn();
+		const root = makeRoot(`<div class="widget"><input data-change-action="setHp"></div>`);
+		root.querySelector(".widget").addEventListener("change", ev => ev.stopPropagation());
+		new ChangeActionRouter({ setHp }).attach(root);
+
+		change(root.querySelector("input"));
+
+		expect(setHp).toHaveBeenCalledTimes(1);
+	});
+
 	it("warns (and does not throw) on an action with no registered handler", () => {
 		const root = makeRoot(`<input data-change-action="typoedAction">`);
 		new ChangeActionRouter({}).attach(root);

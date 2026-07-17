@@ -2,7 +2,7 @@
 	{{> "stonetop.section-heading"
 	    title=(localize "stonetop.character.selection.instinct.label")
 	    note=(localize "stonetop.character.selection.chooseOne")}}
-	<input type="text" class="stonetop-instinct-custom"
+	<input type="text" class="stonetop-instinct-custom" data-change-action="instinctCustom"
 	       value="{{instinctSelected}}"
 	       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
 	{{#if instinctGroup}}

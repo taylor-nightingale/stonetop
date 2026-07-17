@@ -13,6 +13,17 @@ export class FakePlaybookRepository {
 
 	addWorld(item) { this._worldStore.add(item); return this; }
 
+	// Raw playbook item data keyed by slug, mirroring FoundryPlaybookRepository.findItemDataBySlug.
+	addItemData(itemData) {
+		this._itemData ??= {};
+		this._itemData[itemData.system?.slug] = itemData;
+		return this;
+	}
+
+	async findItemDataBySlug(slug) {
+		return this._itemData?.[slug] ?? null;
+	}
+
 	async findBySlug(slug) {
 		return this._playbooks[slug]
 		    ?? await this._worldStore.findEntry(e => e.system?.slug === slug)

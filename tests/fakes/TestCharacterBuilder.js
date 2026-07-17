@@ -47,6 +47,11 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
+	addPlaybookItemData(itemData) {
+		this._repos.playbooks.addItemData(itemData);
+		return this;
+	}
+
 	build() {
 		return new StonetopCharacter(this._actor, this._repos);
 	}

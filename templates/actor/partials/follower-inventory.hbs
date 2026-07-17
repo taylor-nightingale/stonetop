@@ -14,7 +14,7 @@
 			<span class="stonetop-follower-load-band{{#if inventory.loadHeavy}} is-active{{/if}}">{{localize "stonetop.followers.loadHeavy"}}</span>
 		</span>
 		{{/if}}
-		<button type="button" class="stonetop-follower-inv-toggle" data-slug="{{slug}}"
+		<button type="button" class="stonetop-follower-inv-toggle" data-action="toggleFollowerInventory" data-slug="{{slug}}"
 		        title="{{#if inventory.editing}}{{localize 'stonetop.followers.inventoryDone'}}{{else}}{{localize 'stonetop.followers.inventoryToggle'}}{{/if}}">
 			<img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="{{localize 'stonetop.followers.inventoryToggle'}}">
 		</button>

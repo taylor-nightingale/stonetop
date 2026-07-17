@@ -1,7 +1,6 @@
 import { registerSettings } from "./src/settings.js";
 import { createStonetopActorClass } from "./src/actors/StonetopActor.js";
 import { createStonetopItemClass } from "./src/item/StonetopItem.js";
-import { StonetopActorSheet } from "./src/actors/StonetopActorSheet.js";
 import { createStonetopActorSheetV2Class } from "./src/actors/StonetopActorSheetV2.js";
 import { createStonetopCharacterSheetClass } from "./src/actors/character/StonetopCharacterSheet.js";
 import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
@@ -15,7 +14,6 @@ import { createStonetopImprovementSheetClass } from "./src/item/StonetopImprovem
 import { createStonetopItemSheetV2BaseClass } from "./src/item/StonetopItemSheetV2.js";
 import { createStonetopSteadfastSheetClass } from "./src/item/StonetopSteadfastSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
-import { onRenderActorSheet } from "./src/hooks/RenderActorSheet.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
 import { onCreateActor } from "./src/hooks/CreateActor.js";
@@ -120,16 +118,16 @@ Hooks.once("init", () => {
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
 
-	const StonetopCharacterSheet = createStonetopCharacterSheetClass(StonetopActorSheet);
+	// The shared ApplicationV2 actor base: size memory + submitOnChange + root-delegated listeners
+	// (docs match the item base). All three actor sheets are on it.
+	const ActorSheetV2Base = createStonetopActorSheetV2Class();
+
+	const StonetopCharacterSheet = createStonetopCharacterSheetClass(ActorSheetV2Base);
 	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopCharacterSheet, {
 		types: ["character"],
 		makeDefault: true,
 		label: "Stonetop Character Sheet",
 	});
-
-	// The shared ApplicationV2 actor base: size memory + submitOnChange + root-delegated listeners
-	// (docs match the item base). NPC + steading are on it; character is still V1.
-	const ActorSheetV2Base = createStonetopActorSheetV2Class();
 
 	const StonetopNpcSheet = createStonetopNpcSheetClass(ActorSheetV2Base);
 	foundry.documents.collections.Actors.registerSheet("stonetop", StonetopNpcSheet, {
@@ -261,7 +259,6 @@ Hooks.once("ready", onReady);
 
 // -- RENDER ACTOR SHEET ----------------------------------------
 // Fires every time any actor sheet renders.
-Hooks.on("renderActorSheet", onRenderActorSheet);
 
 // -- PRE-CREATE ACTOR ------------------------------------------
 // Give new NPCs our house default icon instead of Foundry's mystery-man.

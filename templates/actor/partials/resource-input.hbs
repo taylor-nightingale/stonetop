@@ -6,11 +6,11 @@
 <span class="stonetop-resource-input-wrap">
 	{{#if (eq input.type "rich")}}
 	<textarea class="stonetop-resource-input stonetop-resource-input--rich"
-	          {{#if moveSlug}}data-move-slug="{{moveSlug}}"{{/if}}
+	          {{#if moveSlug}}data-move-slug="{{moveSlug}}" data-change-action="moveResourceText"{{/if}}
 	          {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
 	{{else}}
 	<input type="text" class="stonetop-resource-input"
-	       {{#if moveSlug}}data-move-slug="{{moveSlug}}"{{/if}}
+	       {{#if moveSlug}}data-move-slug="{{moveSlug}}" data-change-action="moveResourceText"{{/if}}
 	       value="{{input.value}}"
 	       {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>
 	{{/if}}

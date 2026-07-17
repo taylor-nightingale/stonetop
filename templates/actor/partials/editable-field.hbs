@@ -1,14 +1,15 @@
 {{!--
 	Single-slot rich field: enriched display + a raw-markdown editor revealed by the pencil.
 	Params: field (a RichText — rendered for display, .raw for the editor), inputClass, inputId,
-	slug, placeholder, multiline.
+	slug, placeholder, multiline, changeAction (optional data-change-action for sheets that route
+	changes through a ChangeActionRouter).
 --}}
 <span class="stonetop-editable">
 	<span class="stonetop-editable__display">{{rich field}}</span>
 	{{#if multiline}}
-	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}" placeholder="{{placeholder}}">{{field.raw}}</textarea>
+	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">{{field.raw}}</textarea>
 	{{else}}
-	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{field.raw}}" data-slug="{{slug}}" placeholder="{{placeholder}}">
+	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{field.raw}}" data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">
 	{{/if}}
 	<button type="button" class="stonetop-edit-toggle" title="Edit">
 		<img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit">
