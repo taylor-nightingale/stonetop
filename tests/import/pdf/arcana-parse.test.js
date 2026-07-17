@@ -125,6 +125,22 @@ describe("parseBack — major mysteries (moves + consequence tracks)", () => {
 		expect(back.consequences.list[0].content.text).toBe("You lose yourself in a blood-rage.\n\nWhen you attack, advantage on damage.");
 		expect(back.consequences.list[1].track).toEqual({ max: 1 });
 	});
+	it("flags a consequence tabbed in ~13.5px right of a sibling with indent:true", () => {
+		const lineAt = (x0, text) => ({ ..._line(text), bbox: [x0, 0, 0, 0] });
+		const listAt = (...items) => ({ type: "list", items: items.map(([x0, text]) => [lineAt(x0, text)]) });
+		const b = parseBack([
+			_heading("Consequences"),
+			listAt(
+				[432.9, "□ Your skin becomes clammy and squamous."],
+				[446.4, "□ You can breathe water through your skin."],
+				[440.3, "□ demon flesh into it."],           // wrapped line misread as a row: <8px in, not an indent
+			),
+			_rule(), // an indented row can open its own list block (mindgem) — still measured against the section
+			listAt([446.4, "□ It wanders off in pursuit of its purpose."]),
+			listAt([350.4, "□ Your physical body withers."]), // another column's base, not an indent
+		], { slug: "ring-of-daagon", name: "Ring of Daagon", major: true });
+		expect(b.consequences.list.map((r) => r.indent ?? false)).toEqual([false, true, false, true, false]);
+	});
 	it("derives the 'Mysteries of the X' title when the back has no title heading", () => {
 		const b = parseBack([
 			_heading("Moves"),

@@ -156,7 +156,8 @@
 						},
 						"track": {
 							"max": 1
-						}
+						},
+						"indent": true
 					},
 					{
 						"type": "entry",
@@ -178,7 +179,8 @@
 						},
 						"track": {
 							"max": 1
-						}
+						},
+						"indent": true
 					},
 					{
 						"type": "entry",
@@ -189,7 +191,8 @@
 						},
 						"track": {
 							"max": 1
-						}
+						},
+						"indent": true
 					}
 				]
 			},

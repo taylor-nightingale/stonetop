@@ -84,6 +84,22 @@ describe("ChoiceGroup — entry row with followers", () => {
 		});
 		expect(group.list[0].inlineDisplay).toBe(true);
 	});
+
+	it("indent is false by default", () => {
+		const group = ChoiceGroup.fromPackData({
+			slug: "ns",
+			list: [{ type: "entry", slug: "c1", content: { text: "Base consequence" }, track: { max: 1 } }],
+		});
+		expect(group.list[0].indent).toBe(false);
+	});
+
+	it("indent is carried from pack data", () => {
+		const group = ChoiceGroup.fromPackData({
+			slug: "ns",
+			list: [{ type: "entry", slug: "c2", content: { text: "Escalation" }, track: { max: 1 }, indent: true }],
+		});
+		expect(group.list[0].indent).toBe(true);
+	});
 });
 
 // ── Pick rows ─────────────────────────────────────────────────────────────────

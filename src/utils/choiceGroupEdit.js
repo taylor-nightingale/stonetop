@@ -8,7 +8,7 @@
 import { rich } from "../model/snapshot/RichText.js";
 
 export const DEFAULT_ROWS = {
-	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: [], outfitItems: [], inlineDisplay: false },
+	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: [], outfitItems: [], inlineDisplay: false, indent: false },
 	pick:  { type: "pick",  pickCount: 1, inline: false, options: [] },
 };
 

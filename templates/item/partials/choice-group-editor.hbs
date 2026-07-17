@@ -37,6 +37,12 @@
 					<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">+ Input</button>
 					{{/if}}
 				</div>
+				<label class="choices-field choices-field--check">
+					<input type="checkbox"
+					       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="indent"
+					       {{#if indent}}checked{{/if}}>
+					<span>Indent</span>
+				</label>
 			</div>
 
 			{{else if (eq type "pick")}}

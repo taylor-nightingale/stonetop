@@ -9,7 +9,6 @@
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * Add button to create or break a link to an NPC to residents and neighbors.
 * Ring of daagon's parsing is messed up. The front side of the ring has a follower -- The Ring that isn't parsed correctly. title "The Ring", tags "deep-wise, greedy, patient, knowledgeable, magical" Cost "devouring fallen, named creatures", Instinct "to give nothing (not even secrets or info) away" Moves "Speak mind-to-mind" "reveal a secret, for a price" "know someone's desires" It has no hp, armor, damage or inventory.
-Ring of daagon's, rune-laden scale consequences have tabbed in check boxes to show that you need to check the outer one before you can check the inner on. We don't handle this tabbing in on choices right now. Perhaps we just add a flag to the choice to tab it in. We dont need to add automation around the checking.
 * Convert bio and notes section in notes tab to use prosemirror
 * Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
 * Update steading default icon to something nicer
@@ -22,6 +21,8 @@ Ring of daagon's, rune-laden scale consequences have tabbed in check boxes to sh
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake — unifying them into tests/fakes/ means rewriting the steading test, which is outside this diff. Worth doing when that test is next touched.
 * Make input text in choice boxes expand down as more text is typed in.
+* let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
+* add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
 
 == Nice to have
 * toggle to turn off non-selected character options

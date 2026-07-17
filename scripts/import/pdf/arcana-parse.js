@@ -420,6 +420,7 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 	const abbr = toSlug((name || "").trim().split(/\s+/).pop() || "c") || "c"; // "Twisted Spear" → "spear"
 	let section = null; // null | "moves" | "consequences"
 	let cur = null;     // the move/consequence currently accreting following paras/bullets
+	const consX = [];   // each consequence row's start x0, parallel to back.consequences.list
 	const flush = () => {
 		if (!cur) return;
 		const text = cur.text.replace(/\n{3,}/g, "\n\n").trim();
@@ -434,6 +435,7 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 			const row = { type: "entry", slug: `${abbr}-c${back.consequences.list.length + 1}`, content: { title: null, text } };
 			if (cur.max > 0) row.track = { max: cur.max };
 			back.consequences.list.push(row);
+			consX.push(cur.x0 ?? null);
 		}
 		cur = null;
 	};
@@ -471,12 +473,19 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 				// aren't a consequence track (those are resource/loyalty markers elsewhere).
 				if (/^[○◯◇\s]*[□◻]/.test((it[0]?.text || "").trim())) {
 					flush();
-					cur = { kind: "consequence", max: (rawOf(it).match(/[□◻]/g) || []).length, text: stripMarkers(joinMd(it)) };
+					cur = { kind: "consequence", max: (rawOf(it).match(/[□◻]/g) || []).length, text: stripMarkers(joinMd(it)), x0: it[0]?.bbox?.[0] ?? null };
 				} else if (cur) cur.text += bullet(it);
 			} else if (b.type === "para" && cur) cur.text += "\n\n" + stripMarkers(joinMd(b.lines));
 		}
 	}
 	flush();
+	// An escalation consequence is tabbed in under its parent, ~13.5px right of the column base. Compare
+	// each row's x0 against every sibling in the section, not a per-block base: an indented row can open
+	// its own list block (mindgem's post-table pair), while a wrapped line misread as a row sits <8px in.
+	if (back.consequences) back.consequences.list.forEach((row, i) => {
+		const x = consX[i];
+		if (x != null && consX.some((b) => b != null && x - b >= 8 && x - b <= 20)) row.indent = true;
+	});
 	// The book titles every major back "Mysteries of the X", but the heading isn't reliably tagged as a
 	// heading for a few cards (staff / redwood / ineffable extract without it) — derive it when the title
 	// heading wasn't captured. Cards whose heading IS captured keep it verbatim (e.g. the possessive

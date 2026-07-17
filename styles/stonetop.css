@@ -1589,6 +1589,11 @@ body,
 	margin-bottom: 3px;
 }
 
+/* An escalation row tabbed in under its parent (the book indents these ~1.5em on the card). */
+.stonetop-choice--indent {
+	margin-left: 1.5em;
+}
+
 .stonetop-choice-header-wrapper {
 	display: flex;
 	flex-direction: row;

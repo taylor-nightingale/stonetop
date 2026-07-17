@@ -14,7 +14,10 @@ const richArcanum = () => new Arcanum({
 		title: "Mysteries", description: "the back", resource: { max: 2, labels: ["a", "b"] },
 		choices: { slug: "choices", list: [] },
 		moves: [{ id: "battery", name: "Battery", text: "store energy" }],
-		consequences: { slug: "consequences", list: [{ type: "entry", slug: "c1", content: { text: "burned" }, track: { max: 1 } }] },
+		consequences: { slug: "consequences", list: [
+			{ type: "entry", slug: "c1", content: { text: "burned" }, track: { max: 1 } },
+			{ type: "entry", slug: "c2", content: { text: "scorched" }, track: { max: 1 }, indent: true },
+		] },
 		unlockAt: "after 4 marks",
 	},
 });
@@ -73,6 +76,11 @@ describe("buildArcanumSnapshot", () => {
 	it("consequences default to unchecked when the store has no value (regression: #50)", () => {
 		const s = buildArcanumSnapshot(richArcanum(), { flipped: true });
 		expect(s.back.consequences.list[0].track.checks).toEqual([false]);
+	});
+
+	it("carries a consequence's indent flag through to the snapshot row", () => {
+		const s = buildArcanumSnapshot(richArcanum(), { flipped: true });
+		expect(s.back.consequences.list.map(r => r.indent)).toEqual([false, true]);
 	});
 
 	it("buildArcanumOutfitItem returns null for no item; maps fields otherwise", () => {

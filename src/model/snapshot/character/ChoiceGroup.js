@@ -14,7 +14,7 @@ export class ChoiceOption {
 }
 
 export class EntryRow {
-	constructor(slug, content = {}, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = []) {
+	constructor(slug, content = {}, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = [], indent = false) {
 		this.type          = "entry";
 		this.slug          = slug;
 		this.content       = content;       // { title, titleNote, subtitle, subtitleNote, text }
@@ -23,6 +23,7 @@ export class EntryRow {
 		this.followers     = followers;     // FollowerSnapshot[]
 		this.inlineDisplay = inlineDisplay;
 		this.outfitItems   = outfitItems;   // OutfitItem[]
+		this.indent        = indent;        // render tabbed in under the previous row
 	}
 }
 
@@ -119,6 +120,7 @@ export class ChoiceGroup {
 			followers,
 			item.inlineDisplay ?? false,
 			item.outfitItems ?? [],
+			item.indent ?? false,
 		);
 	}
 

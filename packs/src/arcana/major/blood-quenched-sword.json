@@ -106,7 +106,8 @@
 						},
 						"track": {
 							"max": 1
-						}
+						},
+						"indent": true
 					},
 					{
 						"type": "entry",
