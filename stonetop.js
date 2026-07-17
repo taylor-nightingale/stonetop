@@ -19,6 +19,7 @@ import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
 import { onCreateActor } from "./src/hooks/CreateActor.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
+import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
 import { info } from "./src/utils/logger.js";
 import { rich, hasText } from "./src/model/snapshot/RichText.js";
 import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
@@ -268,3 +269,8 @@ Hooks.on("createActor", onCreateActor);
 // -- RENDER CHAT MESSAGE ---------------------------------------
 // Binds the "Mark XP" control on 6- roll cards.
 Hooks.on("renderChatMessageHTML", onRenderChatMessage);
+// -- STEADING CHANGES ------------------------------------------
+// Character sheets show steading data (Prosperity); keep them live.
+Hooks.on("updateActor", onUpdateActor);
+Hooks.on("createActor", onSteadingCreatedOrDeleted);
+Hooks.on("deleteActor", onSteadingCreatedOrDeleted);

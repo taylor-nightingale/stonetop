@@ -5,12 +5,20 @@ can't be shipped with the system. This folder is where it goes. It starts empty 
 books, you can fill it from your own PDFs. If you don't, no problem: the game works normally, the
 pictures are just missing.
 
+## Which PDFs: use the "spreads" (2-up) downloads
+
+The vendor distributes each book in two layouts: **single pages** (1-up) and **two-page spreads**
+(2-up). **Use the spreads versions** — extraction matches images against a manifest of the books'
+illustrations, and the single-page builds re-encode many images and cut the paintings that span a
+two-page spread in half at the gutter, so only about half the art is recognized from them. From
+the spreads PDFs, everything is recovered.
+
 ## Installing from inside Foundry (recommended)
 
 You don't need this folder or any command line at all. In Foundry, go to
 **Settings → Configure Settings → Stonetop → Install Artwork**, select your book PDFs
-(Book II carries most of the art; Book I adds the steading illustration), and click
-**Install Artwork**. The illustrations are extracted right in your browser and uploaded to the
+(the spreads versions — Book II carries most of the art; Book I adds the steading
+illustration), and click **Install Artwork**. The illustrations are extracted right in your browser and uploaded to the
 server's `Data/stonetop-art/` folder — this works on hosted/remote servers too, since nothing
 touches your local filesystem.
 

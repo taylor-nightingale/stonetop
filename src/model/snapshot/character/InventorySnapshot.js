@@ -92,11 +92,30 @@ export class OutfitSection {
 // ── Outfit ────────────────────────────────────────────────────────────────────
 
 /**
+ * The steading's Prosperity, shown on the inventory tab because Outfit
+ * availability and the small-items pool ("mark □ equal to 4+Prosperity")
+ * depend on it.
+ * @property {string} steadingName - e.g. "Stonetop"
+ * @property {number} value - the Prosperity roll bonus, e.g. 0
+ * @property {string} label - the bonus as printed, e.g. "+0"
+ * @property {boolean} lacking - the steading has the lacking debility (treat Prosperity as 1 lower)
+ */
+export class ProsperitySnapshot {
+	constructor(steadingName, value, lacking) {
+		this.steadingName = steadingName;
+		this.value        = value;
+		this.label        = value >= 0 ? `+${value}` : `${value}`;
+		this.lacking      = lacking;
+	}
+}
+
+/**
  * @property {LoadSnapshot} load
  * @property {OutfitSection[]} regularSections
  * @property {Resource} regularPool
  * @property {OutfitSection[]} smallSections
  * @property {Resource} smallPool
+ * @property {ProsperitySnapshot|null} prosperity - null when the world has no steading
  */
 export class OutfitSnapshot {
 	constructor(b) {
@@ -106,6 +125,7 @@ export class OutfitSnapshot {
 		this.smallSections    = b._smallSections;
 		this.smallPool        = b._smallPool;
 		this.otherItems       = b._otherItems ?? "";
+		this.prosperity       = b._prosperity ?? null;
 	}
 }
 
@@ -116,6 +136,7 @@ export class OutfitSnapshotBuilder {
 	withSmallSections(v)   { this._smallSections   = v; return this; }
 	withSmallPool(v)       { this._smallPool       = v; return this; }
 	withOtherItems(v)      { this._otherItems      = v; return this; }
+	withProsperity(v)      { this._prosperity      = v; return this; }
 	build()                { return new OutfitSnapshot(this); }
 }
 

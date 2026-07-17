@@ -4,6 +4,8 @@ import {fakeI18n} from "./foundry/FakeI18n.js";
 export class FakeGameBuilder {
 	_packs = {};
 	_worldItems = [];
+	_worldActors = [];
+	_translations = {};
 
 	build() {
 		const worldItems = this._worldItems;
@@ -15,7 +17,10 @@ export class FakeGameBuilder {
 				contents: worldItems,
 				get: (id) => worldItems.find(i => i._id === id) ?? null,
 			},
-			i18n: fakeI18n(),
+			actors: this._worldActors,
+			// fakeI18n's format/has read the real en.json; localize still honors withTranslation()
+			// overrides and falls back to the key like fakeI18n does.
+			i18n: { ...fakeI18n(), localize: (key) => this._translations[key] ?? key },
 		});
 	}
 
@@ -26,6 +31,16 @@ export class FakeGameBuilder {
 
 	withWorldItem(item) {
 		this._worldItems.push(item);
+		return this;
+	}
+
+	withWorldActor(actor) {
+		this._worldActors.push(actor);
+		return this;
+	}
+
+	withTranslation(key, value) {
+		this._translations[key] = value;
 		return this;
 	}
 }

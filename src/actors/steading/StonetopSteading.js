@@ -59,6 +59,16 @@ export class StonetopSteading {
 		return rollMode;
 	}
 
+	/** Prosperity as character sheets display it: the steading's name, the roll bonus,
+	 *  and whether the "lacking" debility applies (treat Prosperity as 1 lower). */
+	getProsperity() {
+		return {
+			steadingName: this._actor.name,
+			value:        this.resolveBonus("prosperity") ?? 0,
+			lacking:      this._actor.system.debilities?.lacking === true,
+		};
+	}
+
 	get fortunesCurrent() {
 		return this._actor.system.attributes?.fortunes ?? 0;
 	}

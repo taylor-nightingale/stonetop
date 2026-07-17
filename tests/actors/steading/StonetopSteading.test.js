@@ -175,3 +175,17 @@ describe("StonetopSteading.applyRollMode", () => {
 		expect(make().applyRollMode("defenses", "dis")).toBe("dis");
 	});
 });
+
+describe("StonetopSteading.getProsperity", () => {
+	it("reports name, the stored rating as the bonus, and the lacking debility", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.prosperity = 2;
+		actor.system.debilities.lacking = true;
+		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		expect(s.getProsperity()).toEqual({ steadingName: "Stonetop", value: 2, lacking: true });
+	});
+
+	it("defaults to +0 / not lacking on a fresh steading", () => {
+		expect(make().getProsperity()).toEqual({ steadingName: "Stonetop", value: 0, lacking: false });
+	});
+});

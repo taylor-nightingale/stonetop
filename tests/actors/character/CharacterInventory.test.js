@@ -71,13 +71,18 @@ function makeResourceController() {
 	return new ResourceController(new FakeCharacterActorBuilder().build());
 }
 
-function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null) {
+function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null) {
 	return new CharacterInventory(
 		makeActor(inventoryState),
 		repo ?? makeRepo(),
 		outfitItems ?? makeActorOutfitItems(),
 		resourceCtrl ?? makeResourceController(),
+		steadingRepo,
 	);
+}
+
+function makeSteadingRepo(prosperity) {
+	return { getProsperity: () => prosperity };
 }
 
 // Flatten all items across sections for a column
@@ -347,6 +352,37 @@ describe("CharacterInventory.buildSnapshot", () => {
 	it("otherItems reflects the stored value", async () => {
 		const ci = makeCi({ otherItems: "A magic ring" });
 		expect((await ci.buildSnapshot(1)).otherItems).toBe("A magic ring");
+	});
+
+	it("prosperity is null without a steading repository", async () => {
+		expect((await makeCi().buildSnapshot(1)).prosperity).toBeNull();
+	});
+
+	it("prosperity is null when the repository finds no steading", async () => {
+		const ci = makeCi({}, null, null, null, makeSteadingRepo(null));
+		expect((await ci.buildSnapshot(1)).prosperity).toBeNull();
+	});
+
+	it("prosperity carries the steading name, value, and a printed label", async () => {
+		const ci = makeCi({}, null, null, null,
+			makeSteadingRepo({ steadingName: "Stonetop", value: 0, lacking: false }));
+		const p = (await ci.buildSnapshot(1)).prosperity;
+		expect(p.steadingName).toBe("Stonetop");
+		expect(p.value).toBe(0);
+		expect(p.label).toBe("+0");
+		expect(p.lacking).toBe(false);
+	});
+
+	it("negative prosperity is printed with its own sign", async () => {
+		const ci = makeCi({}, null, null, null,
+			makeSteadingRepo({ steadingName: "Stonetop", value: -1, lacking: false }));
+		expect((await ci.buildSnapshot(1)).prosperity.label).toBe("-1");
+	});
+
+	it("prosperity carries the lacking debility", async () => {
+		const ci = makeCi({}, null, null, null,
+			makeSteadingRepo({ steadingName: "Stonetop", value: 1, lacking: true }));
+		expect((await ci.buildSnapshot(1)).prosperity.lacking).toBe(true);
 	});
 });
 

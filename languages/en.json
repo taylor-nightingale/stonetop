@@ -255,7 +255,10 @@
 				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
 				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
 				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
-			}
+			},
+			"prosperity": "Prosperity",
+			"prosperityLacking": "(lacking)",
+			"prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is."
 		},
 		"settings": {
 			"hideRollMode": {
@@ -285,7 +288,7 @@
 		},
 		"artInstaller": {
 			"title": "Install Book Artwork",
-			"intro": "The compendium can show the illustrations from the Stonetop books, but the illustrations are copyrighted and aren't shipped with the system. If you own the PDFs, select them below — Book II: The Wider World and Other Wonders and Book I: Stonetop.",
+			"intro": "The compendium can show the illustrations from the Stonetop books, but the illustrations are copyrighted and aren't shipped with the system. If you own the PDFs, select them below — Book II: The Wider World and Other Wonders and Book I: Stonetop. Use the \"spreads\" (two-page) editions of the PDFs: the single-page versions split the artwork that spans facing pages, so much of it can't be recognized.",
 			"chooseLabel": "Book PDF(s)",
 			"install": "Install Artwork",
 			"noFiles": "Select at least one Stonetop book PDF first.",
