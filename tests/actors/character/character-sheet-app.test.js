@@ -39,6 +39,8 @@ function makeBase(actor) {
 		async _onFirstRender() {}
 		_onRender() {}
 		async _onDropItem(event, item) { return this.superDrop(event, item); }
+		// Core expands the form's named inputs; the fake hands back the already-expanded object.
+		_processFormData(event, form, data) { return data; }
 	};
 }
 
@@ -68,9 +70,10 @@ function spyChar() {
 }
 
 function makeSheet({ char = spyChar(), items = [] } = {}) {
-	const actor = new FakeCharacterActorBuilder().withItems(items).build();
-	actor.typedActor = char;
-	actor.uuid = "Actor.abc";
+	const actor = new FakeCharacterActorBuilder()
+		.withItems(items)
+		.withTypedActor(() => char)
+		.build();
 	const Sheet = createStonetopCharacterSheetClass(makeBase(actor));
 	const sheet = new Sheet();
 	return { sheet, char, actor };
@@ -130,8 +133,10 @@ describe("StonetopCharacterSheet tabs", () => {
 describe("StonetopCharacterSheet._prepareContext (integration)", () => {
 	it("builds the snapshot and the playbook list through real domain code", async () => {
 		new FakeGameBuilder().build();
-		const actor = new FakeCharacterActorBuilder().withName("Brakken").build();
-		actor.typedActor = new StonetopCharacter(actor, new FakeRepositoryFactory());
+		const actor = new FakeCharacterActorBuilder()
+			.withName("Brakken")
+			.withTypedActor(a => new StonetopCharacter(a, new FakeRepositoryFactory()))
+			.build();
 		const Sheet = createStonetopCharacterSheetClass(makeBase(actor));
 		const sheet = new Sheet();
 
@@ -346,8 +351,8 @@ describe("StonetopCharacterSheet drops", () => {
 	});
 
 	it("lets core sort a same-sheet drop", async () => {
-		const { sheet, char } = makeSheet();
-		const item = { parent: { uuid: "Actor.abc" }, toObject: () => ({}) };
+		const { sheet, char, actor } = makeSheet();
+		const item = { parent: { uuid: actor.uuid }, toObject: () => ({}) };
 		const result = await sheet._onDropItem({}, item);
 		expect(result).toBe("super-drop");
 		expect(char.applyDroppedItems).not.toHaveBeenCalled();
@@ -412,6 +417,31 @@ describe("StonetopCharacterSheet add-inventory dialog", () => {
 		const { sheet, char } = makeSheet();
 		await fireAction(sheet, "addInventoryItem", el(`<button data-column="small"></button>`));
 		expect(char.addCustomInventoryItemFor).not.toHaveBeenCalled();
+	});
+});
+
+// -- Form-submit filtering -----------------------------------------------------------------
+
+describe("StonetopCharacterSheet._processFormData", () => {
+	it("keeps only name/img/system, dropping the router-managed radio-group fields", () => {
+		const { sheet } = makeSheet();
+		const expanded = {
+			name: "Brakken",
+			system: { stats: { str: { value: 2 } } },
+			"stonetop-roll-mode": "adv",
+			"stonetop-background": "vessel",
+			"stonetop-load-level": "light",
+			"stonetop-origin": "the-hills",
+		};
+		expect(sheet._processFormData(null, null, expanded)).toEqual({
+			name: "Brakken",
+			system: { stats: { str: { value: 2 } } },
+		});
+	});
+
+	it("omits keys that are absent rather than emitting undefined", () => {
+		const { sheet } = makeSheet();
+		expect(sheet._processFormData(null, null, { "stonetop-roll-mode": "dis" })).toEqual({});
 	});
 });
 

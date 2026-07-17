@@ -78,6 +78,32 @@ describe("StonetopActorSheetV2 base", () => {
 		});
 	});
 
+	describe("scroll-safe focus restore (_syncPartState)", () => {
+		it("refocuses with preventScroll and restores the declared scroll positions", () => {
+			const { sheet } = makeSheet();
+			const newEl = document.createElement("div");
+			newEl.innerHTML = `<input id="f">`;
+			document.body.appendChild(newEl);
+			const focusSpy = vi.spyOn(newEl.querySelector("input"), "focus");
+			const scroller = document.createElement("div");
+			const state = { focus: "#f", scrollPositions: [[scroller, 120, 4]] };
+
+			sheet._syncPartState("form", newEl, document.createElement("div"), state);
+
+			// preventScroll is the whole point: a bare focus() would scroll ancestors (the jump).
+			expect(focusSpy).toHaveBeenCalledWith({ preventScroll: true });
+			expect(scroller.scrollTop).toBe(120);
+			expect(scroller.scrollLeft).toBe(4);
+		});
+
+		it("tolerates absent focus and scrollPositions", () => {
+			const { sheet } = makeSheet();
+			expect(() =>
+				sheet._syncPartState("form", document.createElement("div"), document.createElement("div"), {}),
+			).not.toThrow();
+		});
+	});
+
 	describe("listener wiring across the V2 render lifecycle", () => {
 		it("wires root-delegated edit toggles once, so re-renders don't cancel the toggle out", async () => {
 			const { sheet } = makeSheet();

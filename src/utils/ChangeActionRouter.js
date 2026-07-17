@@ -10,10 +10,17 @@ import { warn } from "./logger.js";
  */
 export class ChangeActionRouter {
 	#handlers;
+	#when;
 
-	/** @param handlers  map of action name → (element, event) handler. */
-	constructor(handlers) {
+	/**
+	 * @param handlers  map of action name → (element, event) handler.
+	 * @param when      optional predicate checked per event before any handler runs — the home
+	 *                  for gates that must be evaluated at event time, not wiring time (e.g. a
+	 *                  sheet's isEditable, which can change mid-session).
+	 */
+	constructor(handlers, { when = null } = {}) {
 		this.#handlers = handlers;
+		this.#when = when;
 	}
 
 	/** Wire the single delegated listener onto a rendered sheet root. Capture-phase, so a
@@ -31,6 +38,7 @@ export class ChangeActionRouter {
 			warn(`No change handler registered for data-change-action="${el.dataset.changeAction}"`);
 			return;
 		}
+		if (this.#when && !this.#when(ev)) return;
 		handler(el, ev);
 	}
 }

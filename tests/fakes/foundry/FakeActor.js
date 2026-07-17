@@ -19,6 +19,7 @@ export class FakeActor {
 
 		this.name = builder._name;
 		this.type = builder._type ?? "character";
+		this.uuid = `Actor.${this.name}`;
 
 		this.items = builder.buildItems();
 		this._fakeFlags = builder.buildFlags();

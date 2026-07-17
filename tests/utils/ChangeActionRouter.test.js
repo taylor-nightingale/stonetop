@@ -80,6 +80,20 @@ describe("ChangeActionRouter", () => {
 		expect(setHp).toHaveBeenCalledTimes(1);
 	});
 
+	it("the when predicate gates every handler per event", () => {
+		const setHp = vi.fn();
+		let editable = false;
+		const root = makeRoot(`<input data-change-action="setHp">`);
+		new ChangeActionRouter({ setHp }, { when: () => editable }).attach(root);
+
+		change(root.querySelector("input"));
+		expect(setHp).not.toHaveBeenCalled();
+
+		editable = true; // the gate is evaluated per event, not at wiring time
+		change(root.querySelector("input"));
+		expect(setHp).toHaveBeenCalledTimes(1);
+	});
+
 	it("warns (and does not throw) on an action with no registered handler", () => {
 		const root = makeRoot(`<input data-change-action="typoedAction">`);
 		new ChangeActionRouter({}).attach(root);

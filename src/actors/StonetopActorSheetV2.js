@@ -39,6 +39,22 @@ export function createStonetopActorSheetV2Class() {
 			if (selector) state.focus = selector;
 		}
 
+		// Same as core's _syncPartState (restore focus, then scroll positions), but focus with
+		// `preventScroll: true`. Core's bare `.focus()` scrolls EVERY scrollable ancestor of the
+		// refocused control into view — including ones outside our declared `scrollable` list
+		// (e.g. the window content), which then stay scrolled because only the declared containers
+		// get their scrollTop restored afterward. That mismatch is the "page jumped to the top"
+		// glitch after a change re-render. preventScroll keeps focus from moving anything; the
+		// declared containers are then restored to exactly where they were.
+		_syncPartState(partId, newElement, priorElement, state) {
+			if (state.focus) {
+				const newFocus = newElement.querySelector(state.focus);
+				if (newFocus) newFocus.focus({ preventScroll: true });
+			}
+			for (const [el, scrollTop, scrollLeft] of state.scrollPositions ?? [])
+				Object.assign(el, { scrollTop, scrollLeft });
+		}
+
 		// Root-delegated listeners go here: unlike V1, the V2 root element PERSISTS across
 		// re-renders (only part content is swapped), so wiring these per render would stack
 		// duplicate handlers (and editToggle's class *toggle* would cancel itself out).

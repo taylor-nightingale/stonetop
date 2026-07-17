@@ -70,9 +70,15 @@ img.stonetop-broken-img {
 }
 
 /* The character name and the steading name share one heading size (the largest rem step), so the two
-   sheets read consistently instead of relying on the h1 element's browser-default em. */
+   sheets read consistently instead of relying on the h1 element's browser-default em. V2 ships none
+   of core's legacy AppV1 h1 chrome, so reset the browser default margin/underline here too. */
+.stonetop.sheet.character .charname {
+	margin: 0;
+	border: none;
+}
 .stonetop.sheet.character .charname input {
 	font-size: var(--fs-name);
+	height: auto;
 }
 
 :root {
@@ -175,6 +181,31 @@ body,
 	background-size: cover;
 	background-attachment: scroll;
 	scrollbar-width: none;
+}
+
+/* The V1 core `.vtt` chrome defined these ink/border variables; V2 windows (`.application`) don't,
+   so every one of our rules that paints with them (~70 usages: checkbox borders, pip rings, dotted
+   write-in lines, secondary label text) drew nothing — the "invisible until clicked" controls. Pin
+   the V1 values once, on our sheet root, and they all repaint. */
+.application.stonetop {
+	--color-text-dark-primary: #191813;
+	--color-text-dark-secondary: #4b4a44;
+	--color-border-light: #b5b3a4;
+}
+
+/* Core v13 repaints EVERY checkbox/radio with a Font Awesome glyph pseudo-element (`::before` =
+   square/circle, sized ~20px). Our controls set `appearance: none` + a custom box, but that does
+   not remove the pseudo — core's glyph paints ON TOP (the debility circle + stray "trapezoid"
+   overlap, the square choice-checks showing a circle, the outfit overlap). Kill the glyph on the
+   controls we restyle (NOT all checkboxes: an un-restyled checkbox's glyph IS its only visual). */
+.stonetop-item-check::before,          .stonetop-item-check::after,
+.stonetop-cg-track::before,            .stonetop-cg-track::after,
+.stonetop-debility-check::before,      .stonetop-debility-check::after,
+.stonetop-outfit-load-radio::before,   .stonetop-outfit-load-radio::after,
+.stonetop-roll-mode-radio::before,     .stonetop-roll-mode-radio::after,
+.stonetop-inv-diamond::before,         .stonetop-inv-diamond::after,
+.stonetop-inv-square::before,          .stonetop-inv-square::after {
+	content: none !important;
 }
 
 .app,
@@ -470,6 +501,19 @@ body,
 	height: 100%;
 	object-fit: contain;
 	border: none;
+}
+
+/* The header crest / actor image. V1 relied on core's legacy AppV1 sheet CSS, which capped
+   `.profile-img` at ~100px; V2 windows ship none of that, so the image rendered at natural size and
+   shoved the whole sheet down. Cap it (both the playbook crest and the plain actor-img fallback,
+   which both carry `.profile-img`), preserving aspect via width/height auto. */
+.stonetop.sheet.character .sheet-header .profile-img {
+	flex: 0 0 auto;
+	max-width: 100px;
+	max-height: 100px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 .stonetop-header-playbook-icon {
@@ -1626,17 +1670,24 @@ body,
 	flex-shrink: 0;
 }
 
+/* Resource pips are <button>s, and core v13 themes buttons with min-height/min-width: var(--button-size)
+   (~2em) — our `height: 16px` alone leaves min-height winning, so the circles rendered as tall ovals.
+   Pin the box model (min-*: 0, flex: none, box-sizing) so 16px is honoured. Our CSS is unlayered, so
+   it beats core's layered button background/hover without needing !important there. */
 .stonetop-item-resource-check,
 .stonetop-background-resource-btn,
 .stonetop-follower-loyalty-btn {
 	width: 16px;
 	height: 16px;
+	min-width: 0;
+	min-height: 0;
+	flex: none;
+	box-sizing: border-box;
 	border-radius: 50% !important;
 	border: 2px solid var(--color-text-dark-primary) !important;
 	background: none !important;
 	padding: 0;
 	cursor: pointer;
-	flex-shrink: 0;
 }
 
 .stonetop-item-resource-check.is-checked,
@@ -1773,13 +1824,17 @@ body,
 	flex-shrink: 0;
 }
 
-/* Beat Foundry's core checkbox styling; the diamonds render only on the (V2) character sheet. */
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond {
+/* Beat Foundry's core checkbox styling; the diamonds render only on the (V2) character sheet.
+   NB: v13 does NOT put `.vtt` on the body (it's `body.game`), so a `.vtt`-prefixed selector never
+   matches — scope to `.application.stonetop` alone. Core's glyph pseudo is killed above. */
+.application.stonetop input[type=checkbox].stonetop-inv-diamond {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
 	width: 11px !important;
 	height: 11px !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
 	border: 1px solid currentColor;
 	background: transparent;
 	transform: rotate(45deg);
@@ -1788,26 +1843,28 @@ body,
 	cursor: pointer;
 }
 
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond.is-checked,
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-diamond:checked,
+.application.stonetop input[type=checkbox].stonetop-inv-diamond.is-checked,
+.application.stonetop input[type=checkbox].stonetop-inv-diamond:checked,
 .stonetop-inv-item.is-checked .stonetop-inv-diamond {
 	background: currentColor;
 }
 
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-square {
+.application.stonetop input[type=checkbox].stonetop-inv-square {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
 	width: 11px !important;
 	height: 11px !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
 	border: 1px solid currentColor;
 	background: transparent;
 	padding: 0;
 	cursor: pointer;
 }
 
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-square.is-checked,
-.vtt .application.stonetop input[type=checkbox].stonetop-inv-square:checked,
+.application.stonetop input[type=checkbox].stonetop-inv-square.is-checked,
+.application.stonetop input[type=checkbox].stonetop-inv-square:checked,
 .stonetop-inv-item.is-checked .stonetop-inv-square {
 	background: currentColor;
 }
@@ -1827,6 +1884,10 @@ body,
 	appearance: none;
 	width: 10px;
 	height: 10px;
+	min-width: 0;
+	min-height: 0;
+	flex: none;
+	box-sizing: border-box;
 	border-radius: 50%;
 	border: 1.5px solid currentColor;
 	background: transparent;
@@ -2015,7 +2076,10 @@ body,
 	font-weight: normal !important;
 }
 
-.stonetop-outfit-load-radio {
+/* Roll-mode radios reuse the outfit-load-label markup, so they share the custom small-circle
+   radio look (V2 would otherwise show core's ~20px radio glyph). */
+.stonetop-outfit-load-radio,
+.stonetop-roll-mode-radio {
 	appearance: none;
 	width: 10px;
 	height: 10px;
@@ -2027,11 +2091,13 @@ body,
 	flex-shrink: 0;
 }
 
-.stonetop-outfit-load-radio:checked {
+.stonetop-outfit-load-radio:checked,
+.stonetop-roll-mode-radio:checked {
 	background: currentColor;
 }
 
-.stonetop-outfit-load-label.is-checked .stonetop-outfit-load-radio {
+.stonetop-outfit-load-label.is-checked .stonetop-outfit-load-radio,
+.stonetop-outfit-load-label.is-checked .stonetop-roll-mode-radio {
 	background: currentColor;
 }
 
@@ -2525,12 +2591,15 @@ button.stonetop-xp-toggle {
 	appearance: none;
 	width: 16px;
 	height: 16px;
+	min-width: 0;
+	min-height: 0;
+	flex: none;
+	box-sizing: border-box;
 	border-radius: 50%;
 	border: 2px solid var(--color-text-dark-primary);
 	background: none;
 	cursor: pointer;
 	padding: 0;
-	flex-shrink: 0;
 }
 
 .stonetop-arcanum-resource-btn.is-checked {

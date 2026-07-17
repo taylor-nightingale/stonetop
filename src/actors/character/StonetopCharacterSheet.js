@@ -7,6 +7,29 @@ import { takeTagInputValue } from "../../utils/takeTagInputValue.js";
 
 const ADD_ITEM_DIALOG_TEMPLATE = "systems/stonetop/templates/actor/partials/add-inventory-item-dialog.hbs";
 
+// Actor-mutating actions are gated on per-event editability (core disables form controls on a
+// locked sheet, but <a> delete links and future actions shouldn't rely on that).
+function editOnly(handler) {
+	return function (ev, target) {
+		if (this.isEditable) return handler.call(this, ev, target);
+	};
+}
+
+// The click-confirms / right-click-skips delete convention as an action: core dispatches
+// contextmenu through the actions pipeline when the action declares buttons: [0, 2].
+function confirmedDelete(perform) {
+	return {
+		buttons: [0, 2],
+		async handler(ev, target) {
+			if (!this.isEditable) return;
+			ev.preventDefault(); // suppress the browser menu on the right-click path
+			const skipConfirm = ev.type === "contextmenu" || ev.button === 2;
+			if (!skipConfirm && !(await confirmDelete(target.dataset.name))) return;
+			await perform.call(this, target);
+		},
+	};
+}
+
 // View adapter only (the thin-sheet rule): every handler reads values off the event/DOM and calls
 // ONE named method on the typed character — routing, parsing, and pip math live on
 // StonetopCharacter, tested there. Clicks go through the V2 actions map (data-action), changes
@@ -15,6 +38,9 @@ export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
 		_stonetopCharacter;
 		_playbookRepository = new FoundryPlaybookRepository();
+		// Which follower inventory catalogs are expanded — sheet-instance state that survives
+		// re-render, so only the open follower renders the (large) outfit catalog.
+		_openFollowerInventories = new Set();
 
 		constructor(...args) {
 			super(...args);
@@ -47,7 +73,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				toggleFollowerInventory(ev, target) {
 					// Server-side expand/collapse: only the open follower renders the (large)
 					// outfit catalog, and the open state survives update-triggered re-renders.
-					this._openFollowerInventories ??= new Set();
 					const slug = target.dataset.slug;
 					if (this._openFollowerInventories.has(slug)) this._openFollowerInventories.delete(slug);
 					else this._openFollowerInventories.add(slug);
@@ -55,98 +80,78 @@ export function createStonetopCharacterSheetClass(Base) {
 				},
 
 				// --- one-call domain actions ---
-				selectOriginName(ev, target) {
-					if (!this.isEditable) return;
+				selectOriginName: editOnly(function (ev, target) {
 					return this._stonetopCharacter.origin.selectName(target.textContent.trim());
-				},
-				flipArcanum(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				flipArcanum: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleArcanumFlip(
 						target.dataset.slug, target.dataset.flipped === "true");
-				},
-				removeInsert(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				removeInsert: editOnly(function (ev, target) {
 					return this._stonetopCharacter.removeInsert(target.dataset.insertItemId);
-				},
-				addFollower() {
-					if (!this.isEditable) return;
+				}),
+				addFollower: editOnly(function () {
 					return this._stonetopCharacter.addCustomFollower();
-				},
-				addFollowerMember(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				addFollowerMember: editOnly(function (ev, target) {
 					return this._stonetopCharacter.addFollowerMember(target.dataset.slug);
-				},
-				removeFollowerMember(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				removeFollowerMember: editOnly(function (ev, target) {
 					return this._stonetopCharacter.removeFollowerMember(
 						target.dataset.slug, Number(target.dataset.index));
-				},
-				toggleTag(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				toggleTag: editOnly(function (ev, target) {
 					return this._toggleTagFromWrap(target.closest(".stonetop-tags"), target.dataset.tag);
-				},
-				addInventoryItem(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				addInventoryItem: editOnly(function (ev, target) {
 					return this._onAddInventoryItem(target);
-				},
+				}),
 
 				// --- resource pips (current checked state → the domain does the ±1 math) ---
-				moveResourcePip(ev, target) {
-					if (!this.isEditable) return;
+				moveResourcePip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleMoveResourcePip(
 						target.dataset.moveSlug, target.dataset.index, target.classList.contains("is-checked"));
-				},
-				possessionUsePip(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				possessionUsePip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.togglePossessionUsePip(
 						target.dataset.possessionSlug, target.dataset.choiceSlug ?? null,
 						target.dataset.index, target.classList.contains("is-checked"));
-				},
-				inventoryResourcePip(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				inventoryResourcePip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleInventoryResourcePipFor(
 						this._followerInvSlug(target), target.dataset.slug,
 						target.dataset.index, target.classList.contains("is-checked"));
-				},
-				arcanumResourcePip(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				arcanumResourcePip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleArcanumResourcePip(
 						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				},
-				backgroundResourcePip(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				backgroundResourcePip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleBackgroundResourcePip(
 						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				},
-				followerLoyaltyPip(ev, target) {
-					if (!this.isEditable) return;
+				}),
+				followerLoyaltyPip: editOnly(function (ev, target) {
 					return this._stonetopCharacter.toggleFollowerLoyaltyPip(
 						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				},
+				}),
 
-				// --- deletes: click confirms, right-click skips the confirm (core dispatches
-				//     contextmenu through the same actions pipeline via buttons: [0, 2]) ---
-				deleteArcanum: { buttons: [0, 2], async handler(ev, target) {
-					if (!(await this._confirmedDelete(ev, target))) return;
-					await this._stonetopCharacter.removeArcanum(target.dataset.slug);
-				} },
-				deletePossession: { buttons: [0, 2], async handler(ev, target) {
-					if (!(await this._confirmedDelete(ev, target))) return;
-					await this._stonetopCharacter.deletePossession(target.dataset.slug);
-				} },
-				deleteFollower: { buttons: [0, 2], async handler(ev, target) {
-					if (!(await this._confirmedDelete(ev, target))) return;
-					await this._stonetopCharacter.removeFollower(target.dataset.slug);
-				} },
-				deleteOtherMove: { buttons: [0, 2], async handler(ev, target) {
-					if (!(await this._confirmedDelete(ev, target))) return;
-					await this._stonetopCharacter.deleteMove(target.dataset.moveSlug);
-				} },
-				deleteInventoryItem: { buttons: [0, 2], async handler(ev, target) {
-					if (!(await this._confirmedDelete(ev, target))) return;
-					await this._stonetopCharacter.removeCustomInventoryItemFor(
+				// --- deletes (click confirms, right-click skips) ---
+				deleteArcanum: confirmedDelete(function (target) {
+					return this._stonetopCharacter.removeArcanum(target.dataset.slug);
+				}),
+				deletePossession: confirmedDelete(function (target) {
+					return this._stonetopCharacter.deletePossession(target.dataset.slug);
+				}),
+				deleteFollower: confirmedDelete(function (target) {
+					return this._stonetopCharacter.removeFollower(target.dataset.slug);
+				}),
+				deleteOtherMove: confirmedDelete(function (target) {
+					return this._stonetopCharacter.deleteMove(target.dataset.moveSlug);
+				}),
+				deleteInventoryItem: confirmedDelete(function (target) {
+					return this._stonetopCharacter.removeCustomInventoryItemFor(
 						this._followerInvSlug(target), target.dataset.ownedId);
-				} },
+				}),
 			},
 		};
 
@@ -186,14 +191,16 @@ export function createStonetopCharacterSheetClass(Base) {
 			const context = await super._prepareContext(options);
 			context.actor    = this.actor;
 			context.editable = this.isEditable;
-			// Which follower inventory catalogs are expanded — sheet-instance state that survives
-			// re-render, so only the open follower renders the (large) outfit catalog.
-			this._openFollowerInventories ??= new Set();
 			this._stonetopCharacter.setOpenFollowerInventories(this._openFollowerInventories);
-			context.stonetop = await this._stonetopCharacter.buildSnapshot();
+			// The playbook list is independent of the snapshot build — load them in parallel.
+			const [stonetop, availablePlaybooks] = await Promise.all([
+				this._stonetopCharacter.buildSnapshot(),
+				this._playbookRepository.getAllPlaybooks(),
+			]);
 			// Single rich-text pass: enrich every RichText in the snapshot in one go.
-			await enrichRichTextTree(context.stonetop, this.actor?.getRollData?.() ?? {});
-			context.availablePlaybooks = await this._playbookRepository.getAllPlaybooks();
+			await enrichRichTextTree(stonetop, this.actor?.getRollData?.() ?? {});
+			context.stonetop = stonetop;
+			context.availablePlaybooks = availablePlaybooks;
 			return context;
 		}
 
@@ -202,6 +209,23 @@ export function createStonetopCharacterSheetClass(Base) {
 		async _onFirstRender(context, options) {
 			await super._onFirstRender(context, options);
 			this._buildChangeRouter().attach(this.element);
+		}
+
+		// submitOnChange (from the actor base) makes core submit the WHOLE form on every change.
+		// Only `name` and the `system.stats.*` inputs actually need that path — every other named
+		// input (stonetop-roll-mode / -background / -origin / -load-level / -playbook-select, and
+		// the choice-group radios) carries a `name` purely for browser radio-grouping and is
+		// persisted by the ChangeActionRouter through a domain method. Left in, they'd drive a
+		// SECOND actor.update per change — a redundant re-render that races the click you're making
+		// (the "click after typing didn't take" glitch) and churns validation on junk top-level keys.
+		// Keep only the fields core legitimately owns.
+		_processFormData(event, form, formData) {
+			const data = super._processFormData(event, form, formData);
+			const clean = {};
+			for (const key of ["name", "img", "system"]) {
+				if (data[key] !== undefined) clean[key] = data[key];
+			}
+			return clean;
 		}
 
 		// Per-element DOM decoration re-runs every render (the part content was just replaced):
@@ -215,8 +239,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			}
 		}
 
-		// Every change action writes to the actor, so each handler is wrapped in a per-event
-		// editability gate (a sheet can gain or lose ownership mid-session).
+		// Every change action writes to the actor, so the whole router is gated on per-event
+		// editability (a sheet can gain or lose ownership mid-session).
 		_buildChangeRouter() {
 			const char = this._stonetopCharacter;
 			const handlers = {
@@ -293,10 +317,7 @@ export function createStonetopCharacterSheetClass(Base) {
 					if (value) return this._toggleTagFromWrap(el.closest(".stonetop-tags"), value);
 				},
 			};
-			return new ChangeActionRouter(Object.fromEntries(
-				Object.entries(handlers).map(([name, fn]) =>
-					[name, (el, ev) => { if (this.isEditable) return fn(el, ev); }]),
-			));
+			return new ChangeActionRouter(handlers, { when: () => this.isEditable });
 		}
 
 		// The picked option's label mirrors into the custom-instinct box immediately (the
@@ -324,14 +345,6 @@ export function createStonetopCharacterSheetClass(Base) {
 		// `.stonetop-follower-inventory` wrapper — the wrapper's data-slug routes to the follower path.
 		_followerInvSlug(el) {
 			return el.closest?.(".stonetop-follower-inventory")?.dataset.slug ?? null;
-		}
-
-		// Right-click skips the confirm (and suppresses the browser menu); left-click confirms.
-		async _confirmedDelete(ev, target) {
-			if (!this.isEditable) return false;
-			ev.preventDefault();
-			if (ev.type === "contextmenu" || ev.button === 2) return true;
-			return confirmDelete(target.dataset.name);
 		}
 
 		// Core ActorSheetV2 ships the whole drop pipeline (never wire `drop` manually here) —
