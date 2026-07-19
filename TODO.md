@@ -15,9 +15,7 @@
 * Update create item/actor names to be capitalized
 * Fix parsing of artifacts in Book II (outfit items aren't parsed well)
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
-* Extend steading improvement parsing to parse the diamonds as well -- golden sapling for example
 * Improvement drop on the steading sheet: StonetopSteadingSheet._onDropItem branch for type "improvement" — add item.system.slug to system.improvements (deduped, via a named SteadingImprovements method, no embed). Today only the steadfast sheet accepts improvement drops; the steading schema already anticipates "wonder improvements dropped later".
-* Button on Moves that sends them to chat
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake — unifying them into tests/fakes/ means rewriting the steading test, which is outside this diff. Worth doing when that test is next touched.
 * Make input text in choice boxes expand down as more text is typed in.

@@ -12,7 +12,7 @@
 // deterministic (improvementUuid), so the journal build links to these items without this script having
 // run first. A review summary is written for spot-checking.
 import os from "os"; import path from "path";
-import { mkdtempSync, rmSync, mkdirSync, readdirSync, writeFileSync } from "fs";
+import { mkdtempSync, rmSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { execFileSync } from "child_process";
 import { loadOutline, articleRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
@@ -24,6 +24,9 @@ import { deterministicId, documentKey } from "../ids.js";
 const PDF = process.env.BOOK_PDF ?? "helper/Book_II_-_The_Wider_World_and_Other_Wonders.pdf";
 const OUT = `packs/src/${IMPROVEMENTS_PACK}/additional`;
 const REVIEW = "helper/wonder-improvement-review.md";
+// The compendium folder the generated items live in ("additional", next to the hand-authored
+// "stonetop" folder) — stamped on each item so a regen doesn't drop them out of it.
+const FOLDER = JSON.parse(readFileSync(`packs/src/${IMPROVEMENTS_PACK}/_folders/additional.json`, "utf8"))._id;
 
 const totalPages = () => Number((execFileSync("mutool", ["info", PDF], { encoding: "utf8" }).match(/Pages:\s*(\d+)/) || [])[1] || 302);
 
@@ -60,8 +63,11 @@ for (const r of build) {
 			_id: id,
 			_key: documentKey("Item", id),
 			system: { slug: imp.slug, sortOrder: ++sortOrder, choices: imp.choices },
+			folder: FOLDER,
 		};
-		writeFileSync(path.join(OUT, `${imp.slug}.json`), JSON.stringify(doc, null, "\t") + "\n");
+		// 2-space indent: the committed pack (and the sibling npc/table/journal builds) use it — tabs
+		// here would reformat the whole folder on every regen and bury the real diff.
+		writeFileSync(path.join(OUT, `${imp.slug}.json`), JSON.stringify(doc, null, 2) + "\n");
 		written++;
 		rows.push(`- **${imp.name}** — ${r.title} (Book p.${page}) — ${picks.length} requirement(s) [${picks.map((p) => p.track.max).join(", ")}] → ${improvementUuid(imp.slug)}`);
 	}

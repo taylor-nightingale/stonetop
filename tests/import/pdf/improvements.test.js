@@ -112,3 +112,46 @@ describe("improvementUuid", () => {
 		expect(a).toMatch(/^Compendium\.stonetop\.steading-improvements\.Item\.[A-Za-z0-9]{16}$/);
 	});
 });
+
+// The Golden Sapling call-out (Golden Oak article): the book marks physical items INSIDE a
+// requirement with ◇ weight diamonds ("Retrieve an ◇◇ acorn…"). The vector-layer glyphs arrive as
+// "marker" font spans between the text cells; the parser must keep them (set tight, as printed)
+// while still stripping leading bullet glyphs and counting only □ for the track.
+const diamond = (t = "◇") => span(t, "marker");
+
+const goldenSaplingBox = [
+	{ type: "boxstart" },
+	heading(".  steading improvement  ."),
+	list(
+		[
+			line("□ GOLDEN SAPLING", [box("□ "), bold("GOLDEN SAPLING")]),
+			line("Requires all of the following, in order:", [span("Requires all of the following, in order:")]),
+		],
+		[
+			line("□ Retrieve an ◇ ◇ acorn from the", [box("□ "), span("Retrieve an "), diamond(), span(" "), diamond(), span(" acorn from the")]),
+			line("boughs of the Golden Oak in late autumn", [span("boughs of the Golden Oak in late autumn")]),
+		],
+		[
+			line("◇ Nurture and protect the □ □ □ sapling", [diamond("◇ "), span("Nurture and protect the "), box("□ "), box("□ "), box("□ "), span("sapling")]),
+		],
+	),
+	{ type: "boxend" },
+];
+
+describe("extractImprovements — inline ◇ item-weight diamonds", () => {
+	const imp = extractImprovements(article(...goldenSaplingBox))[0];
+
+	it("keeps inline diamonds in the pick-row text, set tight as printed", () => {
+		expect(imp.choices.list[1].content.text).toBe("Retrieve an ◇◇ acorn from the boughs of the Golden Oak in late autumn");
+	});
+
+	it("does not let diamonds change the row slug or the □-counted track", () => {
+		expect(imp.choices.list[1].slug).toBe("retrieve-acorn");
+		expect(imp.choices.list[1].track).toEqual({ max: 1 });
+		expect(imp.choices.list[2].track).toEqual({ max: 3 });
+	});
+
+	it("still strips a LEADING diamond — a bullet glyph, not prose", () => {
+		expect(imp.choices.list[2].content.text).toBe("Nurture and protect the sapling");
+	});
+});

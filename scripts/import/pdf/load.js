@@ -8,6 +8,26 @@ import { extractPageArt } from "./images.js";
 // both the HTML preview (dump-article.js) and the npc pack build (build-npcs.js) so they see the
 // exact same structure.
 
+/** Splice a marker glyph into `line` at the character whose x is at/right of `x` — the glyph joins
+ *  the surrounding TEXT span (not a "marker" span), so the markdown pass keeps it, exactly like the
+ *  book keeps its inline item-weight diamonds. The glyph's x is recorded in the span's `xs` so a
+ *  second marker on the same line lands after it ("◇◇"). Returns false when every character sits
+ *  left of `x` (nothing to splice before) — the caller falls back to a pseudo-line. */
+export function spliceGlyph(line, x, g) {
+	for (const s of line.spans) {
+		if (!s.xs) continue;
+		for (let i = 0; i < s.text.length; i++) {
+			if (s.xs[i] >= x) {
+				s.text = s.text.slice(0, i) + g + s.text.slice(i);
+				s.xs.splice(i, 0, x);
+				line.text = line.spans.map((sp) => sp.text).join("");
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 /** Position of an article title (largest Avara line) on a page, to detect spreads shared by two
  *  articles (one printed page each). */
 export function titleHalf(pdf, pdfPage) {
@@ -49,10 +69,12 @@ export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = 
 		// Drop the resource/outfit check markers (small vector circles/diamonds) inline as glyphs.
 		// Align each to the text line it overlaps and merge it into that row; ordering by x then
 		// places it. Match by the nearest vertical centre (a marker sits between two rows, so the
-		// closest baseline wins, not the closest left-edge). A diamond is always a *leading* bullet —
-		// it precedes its item and never sits at a line's end — so it only attaches to a line that
-		// starts at/right of it. Circles can be inline (potency dots inside "(○○○ uses)"), so they
-		// keep the wider match.
+		// closest baseline wins, not the closest left-edge). A diamond either leads its item (a
+		// bullet) or sits inline within a sentence as an item-weight marker ("Retrieve an ◇◇ acorn",
+		// "A ◇ sack full of rhoillyg seeds") — an inline diamond that falls INSIDE a line's span is
+		// spliced into the text at its exact character position (a pseudo-line can only sort between
+		// mutool cells, which put it at the wrong spot). Circles can be inline (potency dots inside
+		// "(○○○ uses)"), so they keep the wider match.
 		for (const mk of loadMarkers(pdf, p)) {
 			const mid = (l) => (l.bbox[1] + l.bbox[3]) / 2;
 			let line;
@@ -76,6 +98,7 @@ export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = 
 			}
 			const y0 = line ? line.bbox[1] : mk.y;
 			const g = mk.kind === "circle" ? "○" : mk.kind === "square" ? "□" : "◇";
+			if (mk.kind === "diamond" && line && mk.x > line.bbox[0] + 1 && spliceGlyph(line, mk.x, g)) continue;
 			pg.lines.push({ bbox: [mk.x, y0, mk.x + mk.w, y0 + 8], text: g, font: "marker", size: 7, spans: [{ font: "marker", size: 7, text: g }] });
 		}
 		let rules = loadDividers(pdf, p);

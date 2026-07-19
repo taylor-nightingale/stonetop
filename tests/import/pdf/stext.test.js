@@ -36,9 +36,13 @@ describe("parseStext", () => {
 	it("preserves per-font spans (so inline bold survives)", () => {
 		const { spans } = pages[0].lines[0];
 		expect(spans).toEqual([
-			{ font: "ACaslonPro-Regular", size: 9, text: "four & " },
-			{ font: "ACaslonPro-Bold", size: 9, text: "five" },
+			{ font: "ACaslonPro-Regular", size: 9, text: "four & ", xs: [36, 40, 44, 48, 52, 56, 60] },
+			{ font: "ACaslonPro-Bold", size: 9, text: "five", xs: [64, 68, 72, 76] },
 		]);
+	});
+
+	it("keeps each span's per-character x positions index-aligned with its text", () => {
+		for (const s of pages[0].lines[0].spans) expect(s.xs).toHaveLength(s.text.length);
 	});
 
 	it("reports the dominant run as the line font/size", () => {

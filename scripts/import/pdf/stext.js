@@ -10,9 +10,11 @@ function decode(s) {
 
 /**
  * Parse `mutool draw -F stext` XML into pages of lines. Each line:
- *   { bbox:[x0,y0,x1,y1], text, font, size, spans:[{font, size, text}] }
+ *   { bbox:[x0,y0,x1,y1], text, font, size, spans:[{font, size, text, xs}] }
  * `spans` preserve per-font runs (so inline bold/italic survive); `font`/`size` are the line's
- * dominant run (most characters). Span text is rebuilt from the per-char `c` attributes.
+ * dominant run (most characters). Span text is rebuilt from the per-char `c` attributes; `xs` is
+ * the per-character x position (aligned index-for-index with `text`), so a vector marker glyph can
+ * be spliced into the exact spot it occupies on the page (load.js inline diamonds).
  */
 export function parseStext(xml) {
 	const pages = [];
@@ -34,10 +36,16 @@ export function parseStext(xml) {
 			let fm;
 			while ((fm = fontRe.exec(lm[2]))) {
 				let text = "";
-				const charRe = /<char\b[^>]*\bc="([^"]*)"/g;
+				const xs = [];
+				const charRe = /<char\b[^>]*\bx="([^"]*)"[^>]*\bc="([^"]*)"/g;
 				let cm;
-				while ((cm = charRe.exec(fm[3]))) text += decode(cm[1]);
-				if (text) spans.push({ font: fm[1], size: Number(fm[2]), text });
+				while ((cm = charRe.exec(fm[3]))) {
+					const c = decode(cm[2]);
+					text += c;
+					// One x per UTF-16 code unit, so xs stays index-aligned with text.
+					for (let k = 0; k < c.length; k++) xs.push(Number(cm[1]));
+				}
+				if (text) spans.push({ font: fm[1], size: Number(fm[2]), text, xs });
 			}
 			// Prefer the line's own text attribute (mutool's canonical join); fall back to spans.
 			const textAttr = (attrs.match(/\btext="([^"]*)"/) || [])[1];

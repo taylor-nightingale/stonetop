@@ -39,7 +39,7 @@ const countChecks = (lines) => (lines.map((l) => l.text).join(" ").match(/[□�
  *  name can span several bold runs across wrapped lines, so the whole leading bold run is the name;
  *  it is title-cased ("Trade with Barrier Pass") to match the hand-authored items. */
 function splitTitle(lines) {
-	const md = joinMd(lines);
+	const md = joinMd(lines, { keepDiamonds: true });
 	const m = md.match(/^((?:\*\*[\s\S]*?\*\*\s*)+)([\s\S]*)$/);
 	const name = titleCase((m ? m[1] : md).replace(/\*\*/g, "").replace(/\s+/g, " ").trim());
 	const text = m ? m[2].trim() : "";
@@ -55,15 +55,15 @@ function choicesFromBlocks(blocks) {
 	const seen = new Map();
 	const uniqSlug = (s) => { const n = (seen.get(s) || 0) + 1; seen.set(s, n); return n === 1 ? s : `${s}-${n}`; };
 	for (const b of blocks) {
-		if (b.type === "para") { list.push({ type: "entry", content: { title: null, text: joinMd(b.lines) } }); continue; }
+		if (b.type === "para") { list.push({ type: "entry", content: { title: null, text: joinMd(b.lines, { keepDiamonds: true }) } }); continue; }
 		if (b.type !== "list") continue;
 		for (const item of b.items) {
 			if (!titleItem) { // the first list item is the improvement's name + flavor
 				const t = splitTitle(item);
 				name = t.name; titleItem = item;
 				list.push({ type: "entry", content: { title: t.name, text: t.text } });
-			} else { // a requirement pick row
-				const text = joinMd(item);
+			} else { // a requirement pick row — inline ◇ are the book's item-weight markers, kept as text
+				const text = joinMd(item, { keepDiamonds: true });
 				list.push({ type: "entry", slug: uniqSlug(unlockSlug(text)), content: { title: null, text }, track: { max: countChecks(item) || 1 } });
 			}
 		}

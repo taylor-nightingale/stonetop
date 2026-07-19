@@ -15,11 +15,14 @@ import { deterministicId } from "../ids.js";
 const MD = { b: ["**", "**"], i: ["*", "*"], bi: ["**_", "_**"] };
 const emphOf = (f) => (isItalic(f) && isBoldBody(f) ? "bi" : isItalic(f) ? "i" : isBoldBody(f) ? "b" : "");
 
-function mdSpans(spans) {
+function mdSpans(spans, { keepDiamonds = false } = {}) {
 	const toks = [];
 	for (const s of spans) {
-		if (isDingbat(s.font) || s.font === "marker") continue;
-		const emph = emphOf(s.font);
+		// Marker/dingbat glyphs are layout artifacts, not prose — except an inline ◇, which the book
+		// uses as an item-weight marker inside a sentence ("Retrieve an ◇◇ acorn"); a caller that
+		// wants those keeps them as plain-text tokens via keepDiamonds.
+		if ((isDingbat(s.font) || s.font === "marker") && !(keepDiamonds && s.text.trim() === "◇")) continue;
+		const emph = s.font === "marker" ? "" : emphOf(s.font);
 		const last = toks[toks.length - 1];
 		if (last && last.emph === emph) last.text += s.text;
 		else toks.push({ emph, text: s.text });
@@ -33,11 +36,13 @@ function mdSpans(spans) {
 	return out;
 }
 
-/** Join lines to one markdown string; de-hyphenate, keep "…" options on their own line. */
-export function joinMd(lines) {
+/** Join lines to one markdown string; de-hyphenate, keep "…" options on their own line.
+ *  `keepDiamonds` preserves inline ◇ item-weight markers in the text (leading bullet glyphs are
+ *  still stripped), setting adjacent ones tight ("◇◇") as printed. */
+export function joinMd(lines, { keepDiamonds = false } = {}) {
 	let out = "", prev = null;
 	for (const l of lines) {
-		const h = mdSpans(l.spans).replace(/^[□◻◇○◯]\s*/, "").trim();
+		const h = mdSpans(l.spans, { keepDiamonds }).replace(/^[□◻◇○◯]\s*/, "").trim();
 		const raw = l.text.trim();
 		if (prev == null) out = h;
 		else if (/^(?:…|\.\.\.)/.test(raw)) out += "\n" + h;
@@ -46,7 +51,9 @@ export function joinMd(lines) {
 		prev = raw;
 	}
 	// Straighten curly double-quotes (the book's typography) to ASCII " — keeps the JSON clean.
-	return out.replace(/[“”]/g, '"').replace(/[ \t]{2,}/g, " ").trim();
+	out = out.replace(/[“”]/g, '"').replace(/[ \t]{2,}/g, " ").trim();
+	// Kept diamonds arrive as one glyph per vector marker ("◇ ◇") — set them tight, as printed.
+	return keepDiamonds ? out.replace(/◇(?:\s+◇)+/g, (m) => m.replace(/\s+/g, "")) : out;
 }
 
 // ─── pure helpers ─────────────────────────────────────────────────────────────
