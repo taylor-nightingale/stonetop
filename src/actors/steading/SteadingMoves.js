@@ -8,6 +8,7 @@ import {
 	incrementMove,
 	decrementMove,
 	buildMoveSnapshot,
+	findMoveItemBySlug,
 } from "../embeddedMoves.js";
 import { toSlug } from "../../utils/slug.js";
 
@@ -70,6 +71,12 @@ export class SteadingMoves {
 
 	async setMoveResourceText(moveSlug, value) {
 		await this._resourceController.setText("moves", moveSlug, value);
+	}
+
+	// Post the move's full text (description + all result tiers) to chat, without rolling.
+	async sendToChat(moveSlug) {
+		const item = findMoveItemBySlug(this._actor, moveSlug);
+		if (item) await this._actor.sendItemToChat(item);
 	}
 
 	// Description is left as a RichText for the shared enrichRichTextTree pass (run in the sheet's

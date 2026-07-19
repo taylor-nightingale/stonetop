@@ -39,6 +39,14 @@ export function findMoveItem(actor, categoryKey, moveSlug) {
 	) ?? null;
 }
 
+// Category-agnostic lookup by the stored slug (system.slug is authoritative; toSlug(name) is the
+// fallback for legacy items).
+export function findMoveItemBySlug(actor, moveSlug) {
+	return [...actor.items].find(
+		i => i.type === "move" && (i.system?.slug ?? toSlug(i.name)) === moveSlug
+	) ?? null;
+}
+
 export function computeSelectable(item) {
 	return (item?.system?.instanceCount ?? 0) < (item?.system?.repeatMax ?? 1);
 }

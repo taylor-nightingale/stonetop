@@ -38,6 +38,7 @@ beforeEach(() => {
 		d.name ?? "",
 		d.description ? d.description.render() : "",
 		d.resultText ? d.resultText.render() : "",
+		...(d.results ?? []).map(r => `${r.label} ${r.text.render()}`),
 		d.dice ? d.dice.diceGroups.flatMap(g => g.values).join(",") : "",
 		d.xpLine ?? "",
 	].join(" | ");
@@ -133,6 +134,32 @@ describe("ActorRolling.execute — description only", () => {
 		expect(FakeRoll.lastInstance).toBeNull();
 		expect(FakeChatMessage.lastCreated.content).toContain("Charm Someone");
 		expect(FakeChatMessage.lastCreated.content).toContain("Roll to persuade.");
+	});
+
+	it("includes every result tier (a roll card shows only the rolled one)", async () => {
+		const rolling = makeRolling({bonuses: {wis: 1}});
+		const item = {name: "Charm Someone", system: {rollStat: "wis", description: "Roll to persuade.", moveResults: {
+			success: {label: "10+", value: "They agree."},
+			partial: {label: "7-9", value: "They want something."},
+			failure: {label: "6-",  value: "It goes poorly."},
+		}}};
+		await rolling.execute(RollRequest.fromItem(item, "wis", "normal"), {descriptionOnly: true});
+		const content = FakeChatMessage.lastCreated.content;
+		expect(content).toContain("10+ They agree.");
+		expect(content).toContain("7-9 They want something.");
+		expect(content).toContain("6- It goes poorly.");
+	});
+});
+
+// -- postDescription -----------------------------------------------------------
+
+describe("ActorRolling.postDescription", () => {
+	it("posts bare label + description text as the actor, no roll", async () => {
+		const rolling = makeRolling();
+		await rolling.postDescription("Whispered Secrets", "Ask the GM a question.");
+		expect(FakeRoll.lastInstance).toBeNull();
+		expect(FakeChatMessage.lastCreated.content).toContain("Whispered Secrets");
+		expect(FakeChatMessage.lastCreated.content).toContain("Ask the GM a question.");
 	});
 });
 

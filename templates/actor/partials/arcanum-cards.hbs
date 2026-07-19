@@ -20,27 +20,31 @@
 		{{/if}}
 	</div>
 	<div class="stonetop-arcanum-body">
-		<div>{{rich back.description}}</div>
+		{{#if (hasText back.description)}}
+		<div class="stonetop-arcanum-section">{{rich back.description}}</div>
+		{{/if}}
 		{{#if back.moves.length}}
-		<p class="stonetop-arcanum-section-label">{{localize "stonetop.arcana.moves"}}</p>
-		<ol class="items-list stonetop-arcanum-moves">
-			{{!-- Major arcana: real move items the player ticks to unlock (categoryKey = source.type =
-			      arcana-<slug>), rollable via the shared move-row wrapper (so the roll resolves the owned
-			      move item, not a bare stat). Minor/custom arcana render inline, always-active, no checkbox. --}}
-			{{#each back.moves}}
-			{{> "stonetop.move-row" showCheck=../major categoryKey=source.type alwaysShowResource=true}}
-			{{/each}}
-		</ol>
+		<div class="stonetop-arcanum-section">
+			<p class="stonetop-arcanum-section-label">{{localize "stonetop.arcana.moves"}}</p>
+			<ol class="items-list stonetop-arcanum-moves">
+				{{!-- Major arcana: real move items the player ticks to unlock (categoryKey = source.type =
+				      arcana-<slug>), rollable via the shared move-row wrapper (so the roll resolves the owned
+				      move item, not a bare stat). Minor/custom arcana render inline, always-active, no checkbox. --}}
+				{{#each back.moves}}
+				{{> "stonetop.move-row" showCheck=../major categoryKey=source.type alwaysShowResource=true}}
+				{{/each}}
+			</ol>
+		</div>
 		{{/if}}
 		{{#if back.choices}}
-		<div class="stonetop-arcanum-back-choices">
+		<div class="stonetop-arcanum-back-choices stonetop-arcanum-section">
 			{{#each back.choices.list}}
 			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../back.choices.slug}}
 			{{/each}}
 		</div>
 		{{/if}}
 		{{#if back.consequences}}
-		<div class="stonetop-arcanum-consequences">
+		<div class="stonetop-arcanum-consequences stonetop-arcanum-section">
 			<p class="stonetop-arcanum-section-label">{{localize "stonetop.arcana.consequences"}}</p>
 			{{#each back.consequences.list}}
 			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../back.consequences.slug}}
@@ -59,12 +63,16 @@
 		</div>
 	</div>
 	<div class="stonetop-arcanum-body">
-		<div>{{rich front.description}}</div>
-		<div class="stonetop-arcanum-unlock">
+		{{#if (hasText front.description)}}
+		<div class="stonetop-arcanum-section">{{rich front.description}}</div>
+		{{/if}}
+		{{#if front.unlock.list.length}}
+		<div class="stonetop-arcanum-unlock stonetop-arcanum-section">
 			{{#each front.unlock.list}}
 			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../front.unlock.slug}}
 			{{/each}}
 		</div>
+		{{/if}}
 	</div>
 	{{/if}}
 

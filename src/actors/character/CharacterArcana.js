@@ -66,6 +66,20 @@ export class CharacterArcana {
 		return this._moves.getMoveSnapshotsForCategory(`arcana-${item.slug}`);
 	}
 
+	// Post an INLINE mystery move (minor/custom arcana back.moves — no move item behind it) to chat.
+	// Ids (`move-<randomID>` for custom, pack ids otherwise) are unique across arcana, so a flat
+	// search over the owned arcanum items is safe. Returns false when no arcanum carries the id.
+	async sendMysteryMoveToChat(moveId) {
+		for (const item of [...this._actor.items].filter(i => i.type === "arcanum")) {
+			const move = (item.system?.back?.moves ?? []).find(m => m.id === moveId);
+			if (move) {
+				await this._actor.sendDescriptionToChat(move.name, move.text);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	async addArcanum(slug) {
 		if (this.ownedSlugs.has(slug)) return;
 		const [arcanum] = await this._arcanaRepo.findBySlugs([slug]);

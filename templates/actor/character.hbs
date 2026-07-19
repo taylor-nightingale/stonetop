@@ -113,6 +113,10 @@
 						{{/if}}
 						<span class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
 					      data-compendium-id="{{id}}">{{name}}</span>
+						<a class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
+						   title="{{localize 'stonetop.character.moves.sendToChat'}}">
+							<i class="fas fa-comment"></i>
+						</a>
 					</li>
 				{{/each}}
 				</ol>

@@ -67,4 +67,14 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 		await Promise.resolve();
 		expect(actor.system.resources.texts.moves.trade).toBe("grain");
 	});
+
+	it("the moveToChat action hands the seeded homefront move to the actor's chat surface", async () => {
+		const { actor, sheet } = await makeWiredSheet();
+		const btn = document.createElement("a");
+		btn.dataset.moveSlug = "trade";
+		// Invoke the data-action handler the way core does: handler.call(app, event, target).
+		await sheet.constructor.DEFAULT_OPTIONS.actions.moveToChat.call(sheet, { type: "click" }, btn);
+		expect(actor.chatItems).toHaveLength(1);
+		expect(actor.chatItems[0].name).toBe("Trade");
+	});
 });

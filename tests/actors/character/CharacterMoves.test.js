@@ -1054,3 +1054,33 @@ describe("CharacterMoves — rich-text enrichment (integration)", () => {
 		expect(move.description.render()).toContain('<a class="content-link">the Barrow</a>');
 	});
 });
+
+// ── sendToChat ────────────────────────────────────────────────────────────────
+
+describe("CharacterMoves.sendToChat", () => {
+	it("finds the owned move by stored slug and hands it to the actor's chat surface", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "m1", type: "move", name: "Aid Someone", system: {slug: "aid-someone", categoryKey: "basic"}})
+			.build();
+		const moves = makeMoves({actor});
+		expect(await moves.sendToChat("aid-someone")).toBe(true);
+		expect(actor.chatItems).toHaveLength(1);
+		expect(actor.chatItems[0]._id).toBe("m1");
+	});
+
+	it("falls back to toSlug(name) for a legacy move without a stored slug", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "m2", type: "move", name: "Old Move", system: {categoryKey: "other"}})
+			.build();
+		const moves = makeMoves({actor});
+		expect(await moves.sendToChat("old-move")).toBe(true);
+		expect(actor.chatItems[0]._id).toBe("m2");
+	});
+
+	it("returns false (and posts nothing) when no owned move carries the slug", async () => {
+		const actor = makeActor();
+		const moves = makeMoves({actor});
+		expect(await moves.sendToChat("not-a-move")).toBe(false);
+		expect(actor.chatItems).toHaveLength(0);
+	});
+});

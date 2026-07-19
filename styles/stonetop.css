@@ -766,6 +766,17 @@ body,
 	background-size: auto 5px;
 }
 
+/* Card-section bars, as on the printed card: a thin rule between body sections (description |
+   unlock | moves | choices | consequences). The sibling selector means a bar only appears when
+   something rendered above it — no divider elements in the template. */
+.stonetop-arcanum-body > .stonetop-arcanum-section + .stonetop-arcanum-section::before {
+	content: "";
+	display: block;
+	/* Foundry v13 no longer defines --color-border-dark; without the fallback the border vanishes. */
+	border-top: 1px solid var(--color-border-dark, #4b4a44);
+	margin: 4px 0 8px;
+}
+
 .pbta.sheet .cell--debilities {
 	display: none !important;
 }
@@ -1476,6 +1487,20 @@ body,
 	flex-shrink: 0;
 }
 
+/* Per-move "send to chat" button (every move row: moves tab, side-bar, arcana, homefront). */
+.stonetop-move-chat {
+	color: var(--color-text-dark-secondary);
+	cursor: pointer;
+	font-size: var(--fs-fine);
+	flex-shrink: 0;
+	opacity: 0.6;
+}
+
+.stonetop-move-chat:hover {
+	color: var(--color-text-dark-primary);
+	opacity: 1;
+}
+
 .stonetop-uses-label {
 	font-size: var(--fs-fine);
 	font-style: italic;
@@ -2159,6 +2184,9 @@ body,
 .stonetop-move-result--partial { color: #7a6000; border-color: #7a6000; }
 .stonetop-move-result--failure { color: #8b0000; border-color: #8b0000; }
 
+/* Description-only cards list every tier; the label ("10+" / "7-9" / "6-") leads each one. */
+.stonetop-move-result-label { font-weight: bold; font-style: normal; }
+
 .stonetop-roll-xp {
 	margin-top: 0.4em;
 	font-weight: bold;
@@ -2635,13 +2663,21 @@ button.stonetop-xp-toggle {
 	padding: 0;
 }
 
-/* PDF-style section titles on the arcanum card ("Moves" / "Consequences"). */
+/* PDF-style section titles on the arcanum card ("Moves" / "Consequences"), ruled off below as on
+   the printed card (the bar above comes from the section divider). */
 .stonetop-arcanum-section-label {
 	font-weight: bold;
 	font-variant: small-caps;
 	font-size: var(--fs-heading);
 	letter-spacing: 0.03em;
-	margin: 8px 0 2px;
+	margin: 8px 0 4px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid var(--color-border-dark, #4b4a44);
+}
+
+/* Inside a card section the divider above already provides the spacing. */
+.stonetop-arcanum-section > .stonetop-arcanum-section-label {
+	margin-top: 0;
 }
 
 .stonetop-arcanum-follower {
@@ -5289,6 +5325,7 @@ button.stonetop-xp-toggle {
 /* The preview reuses the real card render but is non-interactive; hide the card's own footer. */
 .stonetop-arcanum-preview { pointer-events: none; }
 .stonetop-arcanum-preview .stonetop-arcanum-footer { display: none; }
+.stonetop-arcanum-preview .stonetop-move-chat { display: none; }
 .stonetop-arcanum-preview .stonetop-arcanum-card { width: 100%; }
 
 /* Bigger, clearly separated FRONT / BACK headers. */

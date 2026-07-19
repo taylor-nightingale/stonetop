@@ -166,3 +166,20 @@ describe("SteadingMoves toggling + resource state", () => {
 		expect((await moves.buildSnapshot()).moves[0].resource.current).toBe(1);
 	});
 });
+
+describe("SteadingMoves.sendToChat", () => {
+	it("finds the seeded homefront move by slug and hands it to the actor's chat surface", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade", { description: "When you trade…" })));
+		await moves.seedHomefrontMoves();
+		await moves.sendToChat("trade");
+		expect(actor.chatItems).toHaveLength(1);
+		expect(actor.chatItems[0].name).toBe("Trade");
+	});
+
+	it("posts nothing for an unknown slug", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
+		await moves.seedHomefrontMoves();
+		await moves.sendToChat("nope");
+		expect(actor.chatItems).toHaveLength(0);
+	});
+});

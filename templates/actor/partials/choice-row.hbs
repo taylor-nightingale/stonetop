@@ -42,7 +42,10 @@
        {{#if opt.checked}}checked{{/if}}>
 {{/inline}}
 {{#if (eq type "entry")}}
-{{! Entry row }}
+{{! Entry row. An indented row (an escalation tabbed in under its parent, e.g. major-arcana
+    consequences) wraps ALL its output — title, track, text, input, followers — so the flag is
+    honored regardless of the row's composition. Un-indented rows keep their flat structure. }}
+{{#if indent}}<div class="stonetop-choice--indent">{{/if}}
 {{#if followers}}
 {{! Entry with followers }}
 <div class="stonetop-arcanum-follower">
@@ -65,7 +68,7 @@
 {{#if (hasText content.title)}}{{> "stonetop.section-heading" title=content.title note=content.titleNote}}{{/if}}
 {{#if track}}
 {{#if (hasText content.subtitle)}}
-<div class="stonetop-choice-track stonetop-column{{#if indent}} stonetop-choice--indent{{/if}}">
+<div class="stonetop-choice-track stonetop-column">
     <div class="stonetop-choice-header-wrapper">
         <span class="stonetop-choice-track-checks">
             {{> track-checks}}
@@ -75,7 +78,7 @@
     <span class="stonetop-choice-track-desc">{{rich content.text}}</span>
 </div>
 {{else}}
-<div class="stonetop-choice-track stonetop-row{{#if indent}} stonetop-choice--indent{{/if}}">
+<div class="stonetop-choice-track stonetop-row">
     <div class="stonetop-choice-track-checks">
         {{> track-checks}}
     </div>
@@ -90,7 +93,7 @@
 {{> "stonetop.section-sub-heading" subtitle=content.subtitle subtitleNote=content.subtitleNote}}
 {{/if}}
 {{#if (hasText content.text)}}
-<div class="stonetop-choice-description{{#if indent}} stonetop-choice--indent{{/if}}">{{rich content.text}}</div>
+<div class="stonetop-choice-description">{{rich content.text}}</div>
 {{/if}}
 {{/if}}
 {{#if input}}
@@ -120,6 +123,7 @@
 </div>
 {{/if}}
 {{/if}}
+{{#if indent}}</div>{{/if}}
 {{else}}
 {{! Pick row (type="choice") }}
 <div class="stonetop-choice-row{{#if inline}} stonetop-choice-row--inline{{/if}}">

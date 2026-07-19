@@ -1,5 +1,5 @@
 import {RollDisplay} from "../utils/rollDisplay.js";
-import {renderRollCard} from "../utils/rollCard.js";
+import {renderRollCard, postDescriptionCard} from "../utils/rollCard.js";
 import {rich} from "../model/snapshot/RichText.js";
 import {buildXpLine} from "../chat/xpMarkControl.js";
 
@@ -80,9 +80,17 @@ export class ActorRolling {
 		});
 	}
 
+	// Bare text → description card, for content that has no move item behind it (e.g. an arcanum's
+	// inline mystery moves).
+	async postDescription(label, description) {
+		const speaker = ChatMessage.getSpeaker({actor: this._actor});
+		return postDescriptionCard(speaker, {name: label, description}, this._rollData);
+	}
+
 	async _postDescription(speaker, request) {
-		const card = {name: request.label, description: rich(request.description)};
-		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData)});
+		return postDescriptionCard(speaker,
+			{name: request.label, description: request.description, moveResults: request.moveResults},
+			this._rollData);
 	}
 
 	async _rollDamage(speaker) {

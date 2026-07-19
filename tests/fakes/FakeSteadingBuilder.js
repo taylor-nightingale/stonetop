@@ -147,6 +147,13 @@ export class FakeSteadingBuilder {
 			for (let i = items.length - 1; i >= 0; i--) if (idSet.has(items[i]._id)) items.splice(i, 1);
 			return ids;
 		};
+
+		// Recorders for StonetopActor's chat surface (sendItemToChat / sendDescriptionToChat) — the
+		// domain classes call these on the actor; the real posting lives in StonetopActor/ActorRolling.
+		actor.chatItems = [];
+		actor.chatDescriptions = [];
+		actor.sendItemToChat = async item => { actor.chatItems.push(item); };
+		actor.sendDescriptionToChat = async (label, description) => { actor.chatDescriptions.push({ label, description }); };
 		return actor;
 	}
 }

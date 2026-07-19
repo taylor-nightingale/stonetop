@@ -1,6 +1,7 @@
-{{!-- Move-roll / description chat card. Data object: { name, dice?, resultKey?, description?, resultText? }.
+{{!-- Move-roll / description chat card. Data object: { name, dice?, resultKey?, description?, resultText?, results? }.
       dice = { diceGroups:[{kept,values}], modeLabel, mod, total, rollMode }. description/resultText are
-      RichText (enriched by renderRollCard). --}}
+      RichText (enriched by renderRollCard). results = [{ key, label, text }] — ALL tiers, for
+      description-only cards (a roll card carries the single rolled tier as resultText instead). --}}
 <h3>{{name}}</h3>
 {{#if dice}}
 <div class="stonetop-roll-dice">
@@ -17,4 +18,7 @@
 {{/if}}
 {{#if description.raw}}{{rich description}}{{/if}}
 {{#if resultText.raw}}<div class="stonetop-move-result stonetop-move-result--{{resultKey}}">{{rich resultText}}</div>{{/if}}
+{{#each results}}
+<div class="stonetop-move-result stonetop-move-result--{{key}}"><span class="stonetop-move-result-label">{{label}}</span> {{rich text}}</div>
+{{/each}}
 {{#if xpLine}}{{{xpLine}}}{{/if}}

@@ -16,6 +16,12 @@ export function createStonetopSteadingSheetClass(Base) {
 			// The base supplies `stonetop sheet actor themed theme-light`; add the steading class.
 			classes: ["steading"],
 			position: { width: 1180, height: 760 },
+			actions: {
+				// Not edit-gated: posting a move's text to chat mutates nothing.
+				moveToChat(ev, target) {
+					return this._stonetopSteading.moves.sendToChat(target.dataset.moveSlug);
+				},
+			},
 		};
 
 		// Core tab machinery end to end: tabGroups seeds from `initial`, the nav anchors carry

@@ -80,6 +80,11 @@ export function createStonetopCharacterSheetClass(Base) {
 				},
 
 				// --- one-call domain actions ---
+				// Not edit-gated: posting a move's text to chat mutates nothing, so it works on a
+				// locked sheet too.
+				moveToChat(ev, target) {
+					return this._stonetopCharacter.sendMoveToChat(target.dataset.moveSlug);
+				},
 				selectOriginName: editOnly(function (ev, target) {
 					return this._stonetopCharacter.origin.selectName(target.textContent.trim());
 				}),

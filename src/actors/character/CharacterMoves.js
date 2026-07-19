@@ -8,6 +8,7 @@ import {
 	incrementMove,
 	decrementMove,
 	buildMoveSnapshot,
+	findMoveItemBySlug,
 } from "../embeddedMoves.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
 import { toSlug } from "../../utils/slug.js";
@@ -125,15 +126,24 @@ export class CharacterMoves {
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
 	}
 
+	// Post the move's full text (description + all result tiers) to chat, without rolling. Returns
+	// false when no owned move item carries the slug (the caller may have a non-item fallback).
+	async sendToChat(moveSlug) {
+		const item = findMoveItemBySlug(this._actor, moveSlug);
+		if (!item) return false;
+		await this._actor.sendItemToChat(item);
+		return true;
+	}
+
 	async setMoveChoiceText(moveSlug, optionSlug, value) {
-		const item = _findMoveItemBySlug(this._actor, moveSlug);
+		const item = findMoveItemBySlug(this._actor, moveSlug);
 		if (!item?.system?.choices) return;
 		await this._factory.forItem(item._id, "pickValues")
 			.setText(item.system.choices.slug, optionSlug, value);
 	}
 
 	async setMoveChoiceCount(moveSlug, optionSlug, count) {
-		const item = _findMoveItemBySlug(this._actor, moveSlug);
+		const item = findMoveItemBySlug(this._actor, moveSlug);
 		if (!item?.system?.choices) return;
 		await this._factory.forItem(item._id, "pickValues")
 			.setCount(item.system.choices.slug, optionSlug, count);
@@ -304,8 +314,3 @@ function _sortGroup(moves, groupNames) {
 	return result;
 }
 
-function _findMoveItemBySlug(actor, moveSlug) {
-	return [...actor.items].find(
-		i => i.type === "move" && (i.system?.slug ?? toSlug(i.name)) === moveSlug
-	) ?? null;
-}

@@ -60,6 +60,7 @@ function spyChar() {
 		"deletePossession", "removeFollower", "deleteMove", "removeCustomInventoryItemFor",
 		"removeInsert", "addCustomFollower", "addFollowerMember", "removeFollowerMember",
 		"addCustomInventoryItemFor", "applyDroppedItems", "addFollowerFromActor",
+		"sendMoveToChat",
 	];
 	const char = Object.fromEntries(fns.map(f => [f, vi.fn(async () => {})]));
 	char.origin = { select: vi.fn(), selectName: vi.fn() };
@@ -268,6 +269,19 @@ describe("StonetopCharacterSheet actions", () => {
 		await fireAction(sheet, "toggleFollowerInventory", btn);
 		expect(sheet._openFollowerInventories.has("enfys")).toBe(false);
 		expect(sheet.render).toHaveBeenCalledTimes(2);
+	});
+
+	it("moveToChat sends the row's move slug", async () => {
+		const { sheet, char } = makeSheet();
+		await fireAction(sheet, "moveToChat", el(`<a data-move-slug="defend"></a>`));
+		expect(char.sendMoveToChat).toHaveBeenCalledWith("defend");
+	});
+
+	it("moveToChat is NOT edit-gated — posting to chat mutates nothing", async () => {
+		const { sheet, char } = makeSheet();
+		sheet._editable = false;
+		await fireAction(sheet, "moveToChat", el(`<a data-move-slug="defend"></a>`));
+		expect(char.sendMoveToChat).toHaveBeenCalledWith("defend");
 	});
 
 	it("mutating actions are blocked on a non-editable sheet", async () => {

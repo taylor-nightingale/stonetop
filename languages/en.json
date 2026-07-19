@@ -367,6 +367,7 @@
 				"otherMoves": "Other Moves",
 				"addMove": "Add Move",
 				"removeMove": "Remove Move",
+				"sendToChat": "Send to Chat",
 				"requires": "Requires",
 				"notMet": "Not Met"
 			},

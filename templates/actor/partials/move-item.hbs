@@ -32,6 +32,10 @@
 		<i class="fas fa-dice-d6"></i>
 	</span>
 	{{/if}}
+	<a class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
+	   title="{{localize 'stonetop.character.moves.sendToChat'}}">
+		<i class="fas fa-comment"></i>
+	</a>
 	{{#if (and (or alwaysShowResource (gt selection.value 0)) resource)}}
 	<span class="stonetop-item-resources">
 		{{#each (resourceChecks resource)}}

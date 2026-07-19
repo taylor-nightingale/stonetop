@@ -6,6 +6,8 @@ export class FakeActor {
 	_updatedDocs = [];
 	_updateOps = [];
 	_deletedIds = [];
+	_chatItems = [];
+	_chatDescriptions = [];
 	_nextId = 0;
 
 	constructor(builder) {
@@ -34,6 +36,18 @@ export class FakeActor {
 	get updatedDocs()  { return this._updatedDocs; }
 	get updateOps()    { return this._updateOps; }
 	get deletedIds()   { return this._deletedIds; }
+	get chatItems()        { return this._chatItems; }
+	get chatDescriptions() { return this._chatDescriptions; }
+
+	// Recorders for StonetopActor's chat surface (sendItemToChat / sendDescriptionToChat) — the
+	// domain classes call these on the actor; the real posting lives in StonetopActor/ActorRolling.
+	async sendItemToChat(item) {
+		this._chatItems.push(item);
+	}
+
+	async sendDescriptionToChat(label, description) {
+		this._chatDescriptions.push({ label, description });
+	}
 
 	async createEmbeddedDocuments(_, docs) {
 		const results = docs.map(d => ({ ...d, _id: `created-${this._nextId++}` }));
