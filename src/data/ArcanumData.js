@@ -1,3 +1,5 @@
+import { migrateChoicesField } from "../migration/migrateChoices.js";
+
 export class ArcanumData extends foundry.abstract.TypeDataModel {
 	// Legacy arcana kept two per-group value stores (`unlockValues`, `backChoiceValues`), both keyed by
 	// the arcanum slug — which is also each group's own slug (see pack data + migrateArcanumChoiceGroupSlugs).
@@ -5,6 +7,12 @@ export class ArcanumData extends foundry.abstract.TypeDataModel {
 	// inserts use), so fold the legacy stores into it. Runs on raw source before schema cleaning; guarded on
 	// the legacy keys being present, so it never clobbers a plain `choiceValues` edit diff.
 	static migrateData(source) {
+		// Normalize the choice groups riding in the opaque front/back objects (row shapes, follower
+		// wiring — see migrateChoiceRow). Guarded on each group being present in `source`, so a partial
+		// update diff that omits front/back is never touched (the migrate-on-diff landmine).
+		if (source?.front?.unlock) migrateChoicesField(source.front.unlock);
+		if (source?.back?.choices) migrateChoicesField(source.back.choices);
+		if (source?.back?.consequences) migrateChoicesField(source.back.consequences);
 		if (source && (source.unlockValues !== undefined || source.backChoiceValues !== undefined)) {
 			const merged = { ...(source.choiceValues ?? {}) };
 			for (const store of [source.unlockValues, source.backChoiceValues]) {

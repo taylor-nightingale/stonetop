@@ -72,10 +72,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"mantle-wraiths"
-						]
+						"followers": {
+							"slugs": [
+								"mantle-wraiths"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

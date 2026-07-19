@@ -72,10 +72,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"dool-spirit"
-						]
+						"followers": {
+							"slugs": [
+								"dool-spirit"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

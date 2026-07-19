@@ -42,9 +42,9 @@ describe("MoveData.migrateData — follower rows", () => {
 		expect(result.list[0].type).toBe("entry");
 	});
 
-	it("adds followers array with the row slug", () => {
+	it("adds a grouped followers object with the row slug", () => {
 		const result = migrate({ slug: "choices", list: [{ type: "follower", slug: "adra", title: "Adra" }] });
-		expect(result.list[0].followers).toEqual(["adra"]);
+		expect(result.list[0].followers).toEqual({ slugs: ["adra"], inlineDisplay: false, hideFromFollowersTab: false });
 	});
 
 	it("moves title into content.text", () => {
@@ -84,6 +84,6 @@ describe("MoveData.migrateData — mixed list", () => {
 		expect(result.list[0].type).toBe("entry");
 		expect(result.list[1]).toEqual({ type: "entry", slug: "e1", content: { title: null, text: "Stay" } });
 		expect(result.list[2].type).toBe("entry");
-		expect(result.list[2].followers).toEqual(["adra"]);
+		expect(result.list[2].followers).toEqual({ slugs: ["adra"], inlineDisplay: false, hideFromFollowersTab: false });
 	});
 });

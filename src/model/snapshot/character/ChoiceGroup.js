@@ -1,4 +1,5 @@
 import { rich } from "../RichText.js";
+import { FollowerLink } from "../../data/FollowerLink.js";
 
 export class ChoiceOption {
 	constructor(slug, {text = null, description = null, checked = false, checks = null, requires = null, type = null, fillValue = ""} = {}) {
@@ -13,15 +14,23 @@ export class ChoiceOption {
 	}
 }
 
+/** The resolved follower cards a choice entry renders, plus how they present. Built from the
+ *  entry's stored FollowerLink; null on the EntryRow when no follower snapshot resolved. */
+export class EntryRowFollowers {
+	constructor(cards, inlineDisplay = false) {
+		this.cards         = cards;         // FollowerSnapshot[]
+		this.inlineDisplay = inlineDisplay; // full card inline vs. a labelled checkbox row
+	}
+}
+
 export class EntryRow {
-	constructor(slug, content = {}, track = null, input = null, followers = [], inlineDisplay = false, outfitItems = [], indent = false) {
+	constructor(slug, content = {}, track = null, input = null, followers = null, outfitItems = [], indent = false) {
 		this.type          = "entry";
 		this.slug          = slug;
 		this.content       = content;       // { title, titleNote, subtitle, subtitleNote, text }
 		this.track         = track;         // null | { slug, checks: bool[], requires? }
 		this.input         = input;         // null | { slug, placeholder, value, type: "inline"|"rich" }
-		this.followers     = followers;     // FollowerSnapshot[]
-		this.inlineDisplay = inlineDisplay;
+		this.followers     = followers;     // EntryRowFollowers | null
 		this.outfitItems   = outfitItems;   // OutfitItem[]
 		this.indent        = indent;        // render tabbed in under the previous row
 	}
@@ -110,7 +119,9 @@ export class ChoiceGroup {
 			text:         rich(c.text),
 		};
 
-		const followers = (item.followers ?? []).map(s => followersBySlug[s] ?? null).filter(Boolean);
+		const link  = FollowerLink.fromRaw(item.followers);
+		const cards = (link?.slugs ?? []).map(s => followersBySlug[s] ?? null).filter(Boolean);
+		const followers = cards.length ? new EntryRowFollowers(cards, link.inlineDisplay) : null;
 
 		return new EntryRow(
 			item.slug ?? null,
@@ -118,7 +129,6 @@ export class ChoiceGroup {
 			track,
 			input,
 			followers,
-			item.inlineDisplay ?? false,
 			item.outfitItems ?? [],
 			item.indent ?? false,
 		);

@@ -8,13 +8,8 @@
 		"slug": "storm-markings",
 		"front": {
 			"title": "Storm Markings",
-			"item": {
-				"name": "Storm Markings",
-				"weight": 1,
-				"tags": "implanted, magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "implanted, magical",
 			"description": "A series of branching, tree-like markings coursing up and down your skin. Usually pale blue, almost like veins, but when you become agitated they seem to glow, pulse, and ripple with light.\n\nThe markings are usually seen as a blessing of Tor (rainmaker, thunderhead, slayer-of-beasts). But like most blessings of the gods, they are also a great burden.",
 			"unlock": {
 				"slug": "storm-markings",

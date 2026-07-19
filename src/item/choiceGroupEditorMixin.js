@@ -57,7 +57,7 @@ export function activateChoiceGroupEditors(sheet, root) {
 		let value;
 		if      (el.type === "checkbox") value = el.checked;
 		else if (el.type === "number")   value = el.value ? Number(el.value) : null;
-		else if (el.dataset.choicesField === "followers")
+		else if (el.dataset.choicesField === "followers.slugs")
 			value = el.value ? el.value.split(",").map(s => s.trim()).filter(Boolean) : [];
 		else value = el.value || null; // text inputs, selects, and <prose-mirror> (el.value = HTML)
 		save(path, CG.setField(group(path), {

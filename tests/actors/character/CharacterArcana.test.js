@@ -615,7 +615,7 @@ const CRACKED_FLUTE = {
 		choices: {
 			slug: "cracked-flute",
 			list: [
-				{ type: "entry", slug: "andalau-of-the-flute", followers: ["andalau-of-the-flute"], inlineDisplay: true, content: {}, track: { max: 1 } },
+				{ type: "entry", slug: "andalau-of-the-flute", followers: { slugs: ["andalau-of-the-flute"], inlineDisplay: true }, content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -638,7 +638,7 @@ const STONE_IDOL = {
 		choices: {
 			slug: "stone-idol",
 			list: [
-				{ type: "entry", slug: "all-mighty-thistlewisk", followers: ["all-mighty-thistlewisk"], inlineDisplay: true, content: {}, track: { max: 1 } },
+				{ type: "entry", slug: "all-mighty-thistlewisk", followers: { slugs: ["all-mighty-thistlewisk"], inlineDisplay: true }, content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -775,7 +775,7 @@ describe("CharacterArcana — follower sync", () => {
 		let snap = await charArcana.buildSnapshot();
 		let row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
-		expect(row.followers.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
+		expect(row.followers.cards.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
 
 		// Checking the box owns the follower (adds it to the tab); it still shows on the card.
 		await charArcana.setChoiceCount("cracked-flute", "cracked-flute", "andalau-of-the-flute", 1);
@@ -783,7 +783,7 @@ describe("CharacterArcana — follower sync", () => {
 		expect(owned?.system?.owned).toBe(true);
 		snap = await charArcana.buildSnapshot();
 		row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
-		expect(row.followers.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
+		expect(row.followers.cards.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
 	});
 });
 
@@ -810,18 +810,18 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		expect(row.slug).toBe("andalau-of-the-flute");
 	});
 
-	it("EntryRow.followers is empty when follower is not in actor.items", async () => {
+	it("EntryRow.followers is null when follower is not in actor.items", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].followers).toEqual([]);
+		expect(snap.minor.items[0].back.choices.list[0].followers).toBeNull();
 	});
 
 	it("EntryRow.followers resolves when follower is in actor.items", async () => {
 		const { actor, charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		actor.items.push(makeNpcItem("andalau-of-the-flute", { owned: false }));
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].followers).toHaveLength(1);
-		expect(snap.minor.items[0].back.choices.list[0].followers[0].slug).toBe("andalau-of-the-flute");
+		expect(snap.minor.items[0].back.choices.list[0].followers.cards).toHaveLength(1);
+		expect(snap.minor.items[0].back.choices.list[0].followers.cards[0].slug).toBe("andalau-of-the-flute");
 	});
 
 	it("EntryRow.track.checks is [false] when backChoices count is 0", async () => {

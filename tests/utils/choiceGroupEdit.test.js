@@ -76,6 +76,23 @@ describe("choiceGroupEdit", () => {
 		expect(group.list[0].options[0].content.title).toBe("Hi");
 	});
 
+	it("setField on a followers.* subfield seeds the grouped followers object on a blank row", () => {
+		let group = addRow(g(), "entry");
+		expect(group.list[0].followers).toBeNull();
+		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: ["enfys"] });
+		expect(group.list[0].followers).toEqual({ slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: false });
+		group = setField(group, { target: "row", rowIndex: 0, field: "followers.hideFromFollowersTab", value: true });
+		expect(group.list[0].followers.hideFromFollowersTab).toBe(true);
+	});
+
+	it("setField collapses followers to null when the slugs empty", () => {
+		let group = addRow(g(), "entry");
+		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: ["enfys"] });
+		group = setField(group, { target: "row", rowIndex: 0, field: "followers.inlineDisplay", value: true });
+		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: [] });
+		expect(group.list[0].followers).toBeNull();
+	});
+
 	it("instinct: round-trips a list of strings through the choice-group shape", () => {
 		const group = instinctFromStrings(["Denial", "Obsession"]);
 		expect(group.list[0].type).toBe("pick");

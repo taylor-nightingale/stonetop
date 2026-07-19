@@ -45,14 +45,14 @@ describe("migrateGroupDefs — follower rows", () => {
 		expect(result["background"].list[0].type).toBe("entry");
 	});
 
-	it("adds followers array containing the row's slug", () => {
+	it("adds a grouped followers object containing the row's slug", () => {
 		const defs = {
 			"background": {
 				list: [{ slug: "adra", type: "follower", title: "Adra" }],
 			},
 		};
 		const result = migrateGroupDefs(defs);
-		expect(result["background"].list[0].followers).toEqual(["adra"]);
+		expect(result["background"].list[0].followers).toEqual({ slugs: ["adra"], inlineDisplay: false, hideFromFollowersTab: false });
 	});
 
 	it("moves title into content.text", () => {
@@ -100,6 +100,6 @@ describe("migrateGroupDefs — multiple namespaces and rows", () => {
 		const result = migrateGroupDefs(defs);
 		expect(result["instinct"].list[0].type).toBe("entry");
 		expect(result["background"].list[0].type).toBe("entry");
-		expect(result["background"].list[0].followers).toEqual(["b"]);
+		expect(result["background"].list[0].followers).toEqual({ slugs: ["b"], inlineDisplay: false, hideFromFollowersTab: false });
 	});
 });

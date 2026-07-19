@@ -98,10 +98,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"void-elemental"
-						]
+						"followers": {
+							"slugs": [
+								"void-elemental"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

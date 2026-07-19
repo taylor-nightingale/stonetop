@@ -33,13 +33,19 @@
 <div class="choices-field">
 	<span>Followers</span>
 	<input type="text"
-	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers"
-	       value="{{followers}}" placeholder="e.g. enfys,rook">
+	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers.slugs"
+	       value="{{followers.slugs}}" placeholder="e.g. enfys,rook">
 	<label class="choices-field-inline-check">
 		<input type="checkbox"
-		       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="inlineDisplay"
-		       {{#if inlineDisplay}}checked{{/if}}>
+		       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers.inlineDisplay"
+		       {{#if followers.inlineDisplay}}checked{{/if}}>
 		<span>Show full follower card</span>
+	</label>
+	<label class="choices-field-inline-check">
+		<input type="checkbox"
+		       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers.hideFromFollowersTab"
+		       {{#if followers.hideFromFollowersTab}}checked{{/if}}>
+		<span>Hide from followers tab</span>
 	</label>
 </div>
 <div class="choices-field">

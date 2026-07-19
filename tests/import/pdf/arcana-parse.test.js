@@ -402,8 +402,13 @@ describe("followerChoiceEntry", () => {
 	it("builds the single-pick choice row that links an arcanum back to its follower", () => {
 		expect(followerChoiceEntry("tulpa")).toEqual({
 			type: "entry", slug: "tulpa", content: { title: null, text: "" },
-			track: { max: 1 }, inlineDisplay: true, followers: ["tulpa"],
+			track: { max: 1 }, followers: { slugs: ["tulpa"], inlineDisplay: true, hideFromFollowersTab: false },
 		});
+	});
+
+	it("marks a card-resident follower as hidden from the followers tab", () => {
+		expect(followerChoiceEntry("the-ring", { hideFromFollowersTab: true }).followers)
+			.toEqual({ slugs: ["the-ring"], inlineDisplay: true, hideFromFollowersTab: true });
 	});
 });
 

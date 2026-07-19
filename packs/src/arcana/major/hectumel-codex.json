@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script.",
 			"unlock": {
 				"slug": "hectumel-codex",

@@ -88,10 +88,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"unliving-chimera"
-						]
+						"followers": {
+							"slugs": [
+								"unliving-chimera"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

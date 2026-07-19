@@ -8,7 +8,6 @@
 * Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * Add button to create or break a link to an NPC to residents and neighbors.
-* Ring of daagon's parsing is messed up. The front side of the ring has a follower -- The Ring that isn't parsed correctly. title "The Ring", tags "deep-wise, greedy, patient, knowledgeable, magical" Cost "devouring fallen, named creatures", Instinct "to give nothing (not even secrets or info) away" Moves "Speak mind-to-mind" "reveal a secret, for a price" "know someone's desires" It has no hp, armor, damage or inventory.
 * Convert bio and notes section in notes tab to use prosemirror
 * Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
 * Update steading default icon to something nicer
@@ -21,6 +20,7 @@
 * Make input text in choice boxes expand down as more text is typed in.
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
+* let fly formatting is messed up. the <ul> is overlappiong the move-sheet-results
 
 == Nice to have
 * toggle to turn off non-selected character options

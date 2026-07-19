@@ -47,13 +47,13 @@
     honored regardless of the row's composition. Un-indented rows keep their flat structure. }}
 {{#if indent}}<div class="stonetop-choice--indent">{{/if}}
 {{#if followers}}
-{{! Entry with followers }}
+{{! Entry with resolved follower cards (followers = EntryRowFollowers) }}
 <div class="stonetop-arcanum-follower">
-    {{#if inlineDisplay}}
+    {{#if followers.inlineDisplay}}
     {{#if track}}
     {{> follower-check}}
     {{/if}}
-    {{#each followers}}{{> "stonetop.follower-card" this}}{{/each}}
+    {{#each followers.cards}}{{> "stonetop.follower-card" this}}{{/each}}
     {{else if (hasText content.text)}}
     <label class="stonetop-arcanum-follower-label">
         {{#if track}}

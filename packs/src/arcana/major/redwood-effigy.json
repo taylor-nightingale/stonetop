@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Redwood Effigy",
 			"item": null,
+			"tags": null,
 			"description": "A vaguely man-shaped root of blood-red wood, wrapped in tattered cloth. Bright blue markings adorn the fabric, as do rust-colored stains. But you know that. After all, you made it yourself. You’ve bound your flesh and soul to the effigy, and this is the only one you will ever be able to make.",
 			"unlock": {
 				"slug": "redwood-effigy",
@@ -25,17 +26,6 @@
 						"content": {
 							"title": null,
 							"text": "When you **_make the last mark_**, you unlock the effigy’s mysteries and gain Suffering Unleashed (see reverse).\n\n*magical*"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
-						},
-						"track": {
-							"max": 2
 						}
 					},
 					{

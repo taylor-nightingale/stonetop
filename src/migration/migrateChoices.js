@@ -3,6 +3,8 @@
 //   - content: { title, titleNote, subtitle, subtitleNote, text }
 //       (subHeading → subtitle, subNote → subtitleNote, entry-level `note` → content.titleNote)
 //   - any `input` gains a `type` ("inline" by default; "rich" must be set explicitly)
+//   - follower wiring groups into one `followers` object (see FollowerLink): a legacy slug array
+//     + sibling `inlineDisplay` flag → { slugs, inlineDisplay, hideFromFollowersTab }
 // Pure and idempotent — shared by the pack-conversion script and runtime migrations.
 
 export function migrateChoices(choices) {
@@ -27,9 +29,13 @@ export function migrateChoicesField(choices) {
 export function migrateChoiceRow(row) {
 	if (!row || typeof row !== "object") return row;
 
-	// Pick rows are left structurally alone. They carry an explicit `type: "pick"` in pack
-	// data, but in character groupDefs they're identified only by an `options` array.
-	if (row.type === "pick" || Array.isArray(row.options)) return row;
+	// Pick rows are left structurally alone (they carry an explicit `type: "pick"` in pack
+	// data, but in character groupDefs they're identified only by an `options` array) —
+	// except their options' follower wiring, which normalizes like an entry's.
+	if (row.type === "pick" || Array.isArray(row.options)) {
+		for (const opt of row.options ?? []) migrateFollowerLink(opt);
+		return row;
+	}
 
 	const wasFollower = row.type === "follower";
 	row.type = "entry";
@@ -38,6 +44,7 @@ export function migrateChoiceRow(row) {
 	// Legacy follower/heading rows kept their label in a top-level `title`.
 	if (row.title !== undefined) { c.text ??= row.title; delete row.title; }
 	if (wasFollower && row.slug && row.followers === undefined) row.followers = [row.slug];
+	migrateFollowerLink(row);
 
 	if (c.subHeading !== undefined) { c.subtitle     ??= c.subHeading; delete c.subHeading; }
 	if (c.subNote   !== undefined) { c.subtitleNote ??= c.subNote;    delete c.subNote; }
@@ -46,5 +53,20 @@ export function migrateChoiceRow(row) {
 	if (row.input && typeof row.input === "object" && row.input.type === undefined) {
 		row.input.type = "inline";
 	}
+	return row;
+}
+
+// Legacy follower wiring — a bare slug array in `followers` plus a sibling `inlineDisplay`
+// flag — becomes one grouped object (the FollowerLink shape). An empty legacy array meant
+// "no followers", so it collapses to null; the stray sibling flag is dropped either way.
+// Exported for the pack-conversion script, which applies ONLY this (a full migrateChoiceRow
+// would stamp row shapes onto structures it can't positively identify as choice rows).
+export function migrateFollowerLink(row) {
+	if (Array.isArray(row.followers)) {
+		row.followers = row.followers.length
+			? { slugs: row.followers, inlineDisplay: row.inlineDisplay ?? false, hideFromFollowersTab: false }
+			: null;
+	}
+	if (row.inlineDisplay !== undefined) delete row.inlineDisplay;
 	return row;
 }

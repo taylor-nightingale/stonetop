@@ -39,7 +39,7 @@ function followerArcanumItem() {
 				choices: {
 					slug: "blackwood-fetishes",
 					list: [
-						{ type: "entry", slug: "astor", followers: ["astor"], inlineDisplay: true,
+						{ type: "entry", slug: "astor", followers: { slugs: ["astor"], inlineDisplay: true },
 							content: { title: null, text: "" }, track: { max: 1 } },
 					],
 				},

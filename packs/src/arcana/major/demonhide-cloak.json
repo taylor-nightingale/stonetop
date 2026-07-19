@@ -15,6 +15,7 @@
 				"note": "1 armor",
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A tattered cloak, stitched from a motley patchwork of unfamiliar hides and leather. Shifting odors waft from it: damp earth, ozone, musk, sulfur, rust, rot.\n\nIt is not a glamorous garment. Anything but.",
 			"unlock": {
 				"slug": "demonhide-cloak",

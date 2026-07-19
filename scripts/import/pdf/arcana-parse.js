@@ -123,6 +123,7 @@ export function parseTrack(raw) {
 export function stripLoyalty(costRaw) {
 	return (costRaw || "")
 		.replace(/\(\s*loyalty[:\s○◯l]*\)/ig, " ")   // a parenthesized "(Loyalty …)" anywhere
+		.replace(/\(\s*loyalty[:\s○◯l]*$/i, " ")      // an unclosed trailing "(Loyalty" (its pips/")" were stranded in another block)
 		.replace(/\bloyalty[:\s○◯l]*$/i, " ")         // a bare trailing "Loyalty ◯◯◯" (loyalty-only cost)
 		.replace(/[○◯]/g, " ")                         // any leftover stray circle markers
 		.replace(/\s{2,}/g, " ")
@@ -131,10 +132,12 @@ export function stripLoyalty(costRaw) {
 }
 
 // ─── follower wiring / detection ────────────────────────────────────────────────
-/** The single-pick choice row that links an arcanum back to one of its followers — the follower IS
- *  the row (empty content, `inlineDisplay`). Mirrors the hand-authored `beautiful-scroll` back. */
-export function followerChoiceEntry(followerSlug) {
-	return { type: "entry", slug: followerSlug, content: { title: null, text: "" }, track: { max: 1 }, inlineDisplay: true, followers: [followerSlug] };
+/** The single-pick choice row that links an arcanum to one of its followers — the follower IS
+ *  the row (empty content, full card shown inline). Mirrors the hand-authored `beautiful-scroll`
+ *  back. `hideFromFollowersTab` keeps a card-resident follower (the Ring) off the followers tab. */
+export function followerChoiceEntry(followerSlug, { hideFromFollowersTab = false } = {}) {
+	return { type: "entry", slug: followerSlug, content: { title: null, text: "" }, track: { max: 1 },
+		followers: { slugs: [followerSlug], inlineDisplay: true, hideFromFollowersTab } };
 }
 
 /** The back-side choice group that inlines an arcanum's follower(s), or null if it has none. Same
@@ -320,9 +323,68 @@ const markerKind = (line) => { const t = (line?.text || "").trim(); return /^[�
 const rawOf = (lines) => (lines || []).map((l) => l.text).join(" ");
 const isHead = (b, re) => (b?.type === "heading" || b?.type === "title") && re.test(b.line.text.trim());
 
+/** Split a front-side follower stat block out of a major front's block stream (the Ring of Daagon
+ *  prints its follower on the card FRONT — "The ring itself becomes a follower"). The segment is a
+ *  SECOND heading (the follower's name; the first is the card's own) followed by a tags-flagged
+ *  para, and runs to the end of the front. Because the column split scrambles the card's tail, the
+ *  segment's list items are triaged: a pure checkbox run is the unlock's Marks track (re-attached
+ *  to the remaining front blocks as its own list), a letter-less ○-pip run is the cost line's
+ *  stranded "(Loyalty ○○○)" (counted, dropped), and everything else (the ä move bullets) belongs
+ *  to the stat block. A lone short italic para is the CARD's displaced tag line (printed under the
+ *  title, stranded here by the split) — returned separately for `front.tags`. Rules, images and
+ *  side labels drop; the follower's marker icon file (a small extracted image) is returned for
+ *  marker resolution.
+ *  Returns { blocks, followerLines, loyaltyMax, cardTagsMd, iconFile }. */
+export function splitFrontFollower(blocks) {
+	let at = -1, seenHeading = false;
+	for (let i = 0; i < blocks.length && at < 0; i++) {
+		const b = blocks[i];
+		if (b.type !== "heading" && b.type !== "title") continue;
+		if (isHead(b, /^(front|back)$/i)) continue;
+		if (!seenHeading) { seenHeading = true; continue; } // the card's own name heading
+		const next = blocks.slice(i + 1, i + 3).find((n) => n.type === "para" || n.type === "list");
+		if (next?.type === "para" && next.tags) at = i;
+	}
+	if (at < 0) return { blocks, followerLines: null, loyaltyMax: 0, cardTagsMd: null, iconFile: null };
+
+	const remaining = blocks.slice(0, at);
+	const followerLines = [blocks[at].line];
+	let loyaltyMax = 0, cardTagsMd = null, iconFile = null;
+	for (const b of blocks.slice(at + 1)) {
+		if (b.type === "image") { iconFile = iconFile ?? (b.image?.file ?? null); continue; }
+		if (b.type === "para") {
+			const md = joinMd(b.lines);
+			if (/^\*[^*]+\*$/.test(md) && md.length < 40) { cardTagsMd = cardTagsMd ?? md; continue; }
+			followerLines.push(...b.lines);
+		} else if (b.type === "list") {
+			for (const item of b.items) {
+				const raw = rawOf(item);
+				const { max, text } = parseTrack(raw);
+				const residualLetters = /[a-z]/i.test(stripMarkers(raw).replace(/[()]/g, ""));
+				if (max > 0 && !text && !/[○◯]/.test(raw)) remaining.push({ type: "list", items: [item] });
+				else if (max > 0 && /[○◯]/.test(raw) && !residualLetters) loyaltyMax += (raw.match(/[○◯]/g) || []).length;
+				else followerLines.push(...item);
+			}
+		}
+		// rules / side labels / tables drop
+	}
+	return { blocks: remaining, followerLines, loyaltyMax, cardTagsMd, iconFile };
+}
+
 /** Build the front side from its blocks (already bounded to one card's front). */
 export function parseFront(blocks, { name, slug }) {
 	const front = { title: name, item: null, tags: null, description: null, unlock: null };
+	// A card that prints its follower on the FRONT (the Ring of Daagon) carries a second stat-block
+	// heading + tags para inside the front span. Pull it out before parsing the unlock, and stash the
+	// raw follower lines on the front for build-arcana to turn into a follower doc + unlock entry.
+	const ff = splitFrontFollower(blocks);
+	if (ff.followerLines) {
+		blocks = ff.blocks;
+		front._frontFollower = { lines: ff.followerLines, loyaltyMax: ff.loyaltyMax, iconFile: ff.iconFile };
+		// ff.cardTagsMd is the arcanum's own "*magical*" tag, stranded in the follower span by the column
+		// split. No major front captures a tags line (the parser drops them uniformly), so it's discarded
+		// here too — pulling it aside just keeps it out of the follower's moves.
+	}
 	let item = null, pips = 0;
 	const seq = []; // ordered { kind, text?, lines? }
 

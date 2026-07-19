@@ -81,10 +81,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"bronze-protector"
-						]
+						"followers": {
+							"slugs": [
+								"bronze-protector"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

@@ -15,6 +15,7 @@
 				"note": "+1 damage, 1 piercing",
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes.",
 			"unlock": {
 				"slug": "blood-quenched-sword",

@@ -1,19 +1,20 @@
 {
-	"_id": "z2vdq9bCYNSh1V22",
-	"_key": "!items!z2vdq9bCYNSh1V22",
-	"name": "Dool spirit",
+	"_id": "IFe9XzX2z6fYnbsr",
+	"_key": "!items!IFe9XzX2z6fYnbsr",
+	"name": "The Ring",
 	"type": "follower",
 	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
-		"slug": "dool-spirit",
+		"slug": "the-ring",
 		"reference": null,
-		"arcanaSlug": "scroll-and-bone-flute",
+		"arcanaSlug": "ring-of-daagon",
 		"tagList": {
 			"selected": [
-				"Spirit",
-				"terrifying",
-				"stealthy",
-				"devious"
+				"deep-wise",
+				"greedy",
+				"patient",
+				"knowledgeable",
+				"magical"
 			],
 			"options": [],
 			"multi": true,
@@ -21,14 +22,14 @@
 		},
 		"hp": {
 			"value": 0,
-			"max": 13
+			"max": 0
 		},
-		"armor": "1 (amorphous)",
-		"damage": "feast on fear [[/r d6]] (_hand_, _close_, ignores armor, disadvantage)",
-		"specialQuality": "powerless in bright light",
+		"armor": "",
+		"damage": "",
+		"specialQuality": "",
 		"instinct": {
 			"selected": [
-				"to take things too far"
+				"to give nothing (not even secrets or info) away"
 			],
 			"options": [],
 			"multi": false,
@@ -36,7 +37,7 @@
 		},
 		"cost": {
 			"selected": [
-				"new, exquisite fears"
+				"devouring fallen, named creatures"
 			],
 			"options": [],
 			"multi": false,
@@ -46,13 +47,14 @@
 			"value": 0,
 			"max": 3
 		},
+		"statless": true,
 		"choices": [
 			{
 				"slug": "choices",
 				"list": []
 			}
 		],
-		"moves": "- Sense a victim’s doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim’s fears (harmed only by one who masters their fear)",
+		"moves": "- Speak mind-to-mind\n- Reveal a secret, for a price\n- Know someone’s desires",
 		"description": "",
 		"notes": ""
 	},

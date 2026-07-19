@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Hungering Maw of Hlad",
 			"item": null,
+			"tags": null,
 			"description": "A ring of black metal bands, woven in an intricate pattern beyond the skills of modern smiths. The way the bands twist on each other seems to defy reality, and the weak-willed find themselves pondering the bands for minutes or hours. The metal is always cold. Always.",
 			"unlock": {
 				"slug": "hungering-maw-of-hlad",

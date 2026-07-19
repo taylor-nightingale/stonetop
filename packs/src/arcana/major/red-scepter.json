@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Red Scepter",
 			"item": null,
+			"tags": null,
 			"description": "A bronze rod, tipped with a glowing red crystal and carved with openwork shapes of hungry, leering faces.",
 			"unlock": {
 				"slug": "red-scepter",

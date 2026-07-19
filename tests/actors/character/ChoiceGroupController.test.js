@@ -119,7 +119,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 	it("setCount(1) on an entry row with a single follower adds the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"] }, track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);
@@ -129,7 +129,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 	it("setCount(0) on an entry row with a single follower removes the follower", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"] }, track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "enfys", 1);
@@ -140,7 +140,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 	it("setCount(1) on entry row with followers[] adds all followers", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "entry", slug: "duo", followers: ["enfys", "rook"], track: { max: 1 } }] }],
+			[{ slug: "ns", list: [{ type: "entry", slug: "duo", followers: { slugs: ["enfys", "rook"] }, track: { max: 1 } }] }],
 			{ followers },
 		);
 		await ctrl.setCount("ns", "duo", 1);
@@ -152,7 +152,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
 			[{ slug: "ns", list: [{ type: "pick", pickCount: 1, options: [
-				{ slug: "a", text: "A", followers: ["enfys"] },
+				{ slug: "a", text: "A", followers: { slugs: ["enfys"] } },
 				{ slug: "b", text: "B" },
 			]}]}],
 			{ followers },
@@ -165,8 +165,8 @@ describe("ChoiceGroupController — follower side effects", () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
 			[{ slug: "ns", list: [{ type: "pick", pickCount: 1, options: [
-				{ slug: "a", text: "A", followers: ["enfys"] },
-				{ slug: "b", text: "B", followers: ["rook"] },
+				{ slug: "a", text: "A", followers: { slugs: ["enfys"] } },
+				{ slug: "b", text: "B", followers: { slugs: ["rook"] } },
 			]}]}],
 			{ followers },
 		);

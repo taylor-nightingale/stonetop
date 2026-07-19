@@ -3,7 +3,7 @@
 	"_key": "!items!Qr1HJzxWYqTYZkQc",
 	"name": "The Andalau of the Flute",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/wonders/markers/marker-wind.png",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "andalau-of-the-flute",
 		"reference": null,

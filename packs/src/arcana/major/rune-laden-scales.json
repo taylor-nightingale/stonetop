@@ -15,6 +15,7 @@
 				"note": "2 armor",
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "An ancient vest of bluish steel, each scale etched with a silvery rune similar to those found among the ruins near Barrier Pass. A working of the Makers, no doubt, or at least of their most gifted students. The armor is surprisingly light and supple. The scales are always cold to the touch, and often edged in frost.",
 			"unlock": {
 				"slug": "rune-laden-scales",

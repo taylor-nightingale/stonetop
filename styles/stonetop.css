@@ -176,7 +176,7 @@ body,
    both blocks the client dark theme (core skips sheets already "themed") and resolves every
    core form variable to its light value. Only the parchment art is ours. */
 .application.stonetop.sheet .window-content {
-	background: var(--stonetop-bg) url(/systems/stonetop/assets/ui/decor/sheet-bg.png);
+	background: var(--stonetop-bg) url(../assets/ui/decor/sheet-bg.png);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;

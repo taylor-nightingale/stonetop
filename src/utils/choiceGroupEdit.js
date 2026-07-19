@@ -8,15 +8,15 @@
 import { rich } from "../model/snapshot/RichText.js";
 
 export const DEFAULT_ROWS = {
-	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: [], outfitItems: [], inlineDisplay: false, indent: false },
+	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: null, outfitItems: [], indent: false },
 	pick:  { type: "pick",  pickCount: 1, inline: false, options: [] },
 };
 
 const BLANK_OUTFIT_ITEM = { slug: "", name: "", weight: 0, inventoryColumn: "regular" };
-const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: [], outfitItems: [], note: null, type: null, inlineDisplay: false };
+const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: null, outfitItems: [], note: null, type: null };
 
 export function blankOption(n) {
-	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: [] };
+	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: null };
 }
 
 const clone = g => foundry.utils.deepClone(g);
@@ -98,7 +98,15 @@ export function setField(group, { target, rowIndex, optionIndex, field, value })
 	if      (target === "group")  obj = g;
 	else if (target === "row")    obj = g.list[rowIndex];
 	else if (target === "option") obj = g.list[rowIndex].options[optionIndex];
-	if (obj) foundry.utils.setProperty(obj, field, value);
+	if (!obj) return g;
+	// Follower wiring lives in one grouped object (see FollowerLink) that blank rows store as
+	// null — seed it before setting a subfield, and collapse back to null when the slugs empty
+	// (so "no followers" stays canonical and the presentation flags can't linger slug-less).
+	if (field.startsWith("followers.") && obj.followers == null) {
+		obj.followers = { slugs: [], inlineDisplay: false, hideFromFollowersTab: false };
+	}
+	foundry.utils.setProperty(obj, field, value);
+	if (field === "followers.slugs" && !(value?.length)) obj.followers = null;
 	return g;
 }
 

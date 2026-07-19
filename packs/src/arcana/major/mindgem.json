@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A chunk of makerglass the size of a human head; inspection reveals facets within facets, a thousandfold. When you **_touch the glass with bare skin and open your mind to it_**, you contact the intelligence within— lonely, confused, longing for meaning and connection.\n\nIt will happily speak with you, mind-to-mind. It knows much about the past, but naught of its own history or purpose. At least, not yet.",
 			"unlock": {
 				"slug": "mindgem",
@@ -87,15 +88,18 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
 						"type": "entry",
 						"content": {
 							"title": null,
 							"text": ""
 						},
-						"followers": [
-							"the-mighty-servant"
-						]
+						"followers": {
+							"slugs": [
+								"the-mighty-servant"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			},

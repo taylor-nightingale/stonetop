@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A sphere of greenish glass, etched with a cat’s-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.\n\nAnd sometimes, you could swear, it seems to look about on its own.\n\nBut that’s preposterous.",
 			"unlock": {
 				"slug": "staff-of-the-lidless-orb",

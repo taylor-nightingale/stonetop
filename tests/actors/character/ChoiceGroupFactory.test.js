@@ -84,7 +84,7 @@ describe("ChoiceGroupFactory.forItem", () => {
 	it("default definition getter reads from item.system.choices array for side effects", async () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, choices: [
-			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: ["enfys"] }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
 		]}});
 		const { factory } = makeFactory([item]);
 		factory.register(new FollowerSideEffectHandler(followers));
@@ -96,7 +96,7 @@ describe("ChoiceGroupFactory.forItem", () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { pickValues: {}, choices: {
 			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: ["enfys"] }],
+			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
 		}}});
 		const { factory } = makeFactory([item]);
 		factory.register(new FollowerSideEffectHandler(followers));
@@ -108,7 +108,7 @@ describe("ChoiceGroupFactory.forItem", () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, back: { choices: {
 			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: ["enfys"] }],
+			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
 		}}}});
 		const { factory } = makeFactory([item]);
 		factory.register(new FollowerSideEffectHandler(followers));
@@ -120,7 +120,7 @@ describe("ChoiceGroupFactory.forItem", () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { pickValues: {}, choices: {
 			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: ["enfys"] }],
+			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
 		}}});
 		const { factory, actor } = makeFactory([item]);
 		factory.register(new FollowerSideEffectHandler(followers));
@@ -166,7 +166,7 @@ describe("ChoiceGroupFactory.forItemType", () => {
 		const followers = new FakeFollowers();
 		const item = { _id: "pb-1", type: "playbook", name: "The Blessed", system: {
 			choiceValues: {},
-			instinct: { slug: "instinct", list: [{ type: "entry", slug: "guide", followers: ["enfys"] }] },
+			instinct: { slug: "instinct", list: [{ type: "entry", slug: "guide", followers: { slugs: ["enfys"] } }] },
 		}};
 		const { factory } = makeFactory([item]);
 		factory.register(new FollowerSideEffectHandler(followers));
@@ -184,7 +184,7 @@ describe("ChoiceGroupFactory — register", () => {
 	it("handler registered after forItem call fires on subsequent mutations", async () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, choices: [
-			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: ["enfys"] }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
 		]}});
 		const { factory } = makeFactory([item]);
 		const ctrl = factory.forItem("item-1", "choiceValues");

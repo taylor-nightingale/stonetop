@@ -8,13 +8,8 @@
 		"slug": "ineffable-words",
 		"front": {
 			"title": "Ineffable Words",
-			"item": {
-				"name": "Ineffable Words",
-				"weight": 1,
-				"tags": "implanted, magical",
-				"note": null,
-				"inventoryColumn": "regular"
-			},
+			"item": null,
+			"tags": "implanted, magical",
 			"description": "Syllables of the first language, words of pure thought and will, emblazoned on your soul and tongue by some angelic force or being. A gift, perhaps. Or a terrible, terrible affliction.\n\nTheir power thrums inside you, pulsing against the crude vessel of your flesh and blood. Sometimes, under stress or simply out of the blue, you are struck with shakes and seizures. And when the tremors pass and your senses return, you find that you have scratched strange symbols in the dirt or on the walls. Sometimes in your own blood.",
 			"unlock": {
 				"slug": "ineffable-words",

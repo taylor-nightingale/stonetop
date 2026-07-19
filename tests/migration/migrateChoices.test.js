@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { migrateChoices, migrateChoiceRow, migrateChoicesField } from "../../src/migration/migrateChoices.js";
+import { migrateChoices, migrateChoiceRow, migrateChoicesField, migrateFollowerLink } from "../../src/migration/migrateChoices.js";
 
 describe("migrateChoiceRow — row type", () => {
 	it("collapses a heading row into an entry", () => {
@@ -16,10 +16,10 @@ describe("migrateChoiceRow — row type", () => {
 		expect(migrateChoiceRow({ type: "pick", options: [] }).type).toBe("pick");
 	});
 
-	it("moves a legacy follower row's slug into followers[]", () => {
+	it("moves a legacy follower row's slug into the grouped followers object", () => {
 		const row = migrateChoiceRow({ type: "follower", slug: "enfys", title: "Enfys" });
 		expect(row.type).toBe("entry");
-		expect(row.followers).toEqual(["enfys"]);
+		expect(row.followers).toEqual({ slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: false });
 		expect(row.content.text).toBe("Enfys");
 	});
 
@@ -27,6 +27,38 @@ describe("migrateChoiceRow — row type", () => {
 		const row = migrateChoiceRow({ type: "heading", title: "Weapon" });
 		expect(row.content.text).toBe("Weapon");
 		expect(row.title).toBeUndefined();
+	});
+});
+
+describe("migrateFollowerLink — grouped follower shape", () => {
+	it("groups a legacy slug array + sibling inlineDisplay into one followers object", () => {
+		const row = migrateFollowerLink({ followers: ["bronze-protector"], inlineDisplay: true });
+		expect(row.followers).toEqual({ slugs: ["bronze-protector"], inlineDisplay: true, hideFromFollowersTab: false });
+		expect(row.inlineDisplay).toBeUndefined();
+	});
+
+	it("collapses an empty legacy array to null and drops the stray flag", () => {
+		const row = migrateFollowerLink({ followers: [], inlineDisplay: false });
+		expect(row.followers).toBeNull();
+		expect(row.inlineDisplay).toBeUndefined();
+	});
+
+	it("is idempotent on the new object shape", () => {
+		const followers = { slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: true };
+		const row = migrateFollowerLink({ followers });
+		expect(row.followers).toBe(followers);
+	});
+
+	it("normalizes pick options through migrateChoiceRow", () => {
+		const row = migrateChoiceRow({ type: "pick", options: [{ slug: "a", followers: ["enfys"], inlineDisplay: true }] });
+		expect(row.options[0].followers).toEqual({ slugs: ["enfys"], inlineDisplay: true, hideFromFollowersTab: false });
+		expect(row.options[0].inlineDisplay).toBeUndefined();
+	});
+
+	it("migrateChoiceRow groups an entry's legacy follower wiring", () => {
+		const row = migrateChoiceRow({ type: "entry", slug: "e", followers: ["afon"], inlineDisplay: true });
+		expect(row.followers).toEqual({ slugs: ["afon"], inlineDisplay: true, hideFromFollowersTab: false });
+		expect(row.inlineDisplay).toBeUndefined();
 	});
 });
 
@@ -103,7 +135,7 @@ describe("migrateChoicesField — single-group or array shapes", () => {
 		const choices = { slug: "choices", list: [{ type: "follower", slug: "enfys", title: "Enfys" }] };
 		migrateChoicesField(choices);
 		expect(choices.list[0].type).toBe("entry");
-		expect(choices.list[0].followers).toEqual(["enfys"]);
+		expect(choices.list[0].followers).toEqual({ slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: false });
 	});
 
 	it("migrates an array of groups", () => {

@@ -1,4 +1,5 @@
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
+import { FollowerLink } from "../../model/data/FollowerLink.js";
 
 export class FollowerSideEffectHandler {
 	constructor(followers) {
@@ -6,7 +7,7 @@ export class FollowerSideEffectHandler {
 	}
 
 	async apply(target, namespace, optionSlug, count) {
-		const slugs = target.followers ?? [];
+		const slugs = FollowerLink.fromRaw(target.followers)?.slugs ?? [];
 		for (const slug of slugs) {
 			if (count > 0) await this._followers.addFollower(slug);
 			else           await this._followers.removeFollower(slug);

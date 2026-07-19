@@ -105,10 +105,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"tulpa"
-						]
+						"followers": {
+							"slugs": [
+								"tulpa"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

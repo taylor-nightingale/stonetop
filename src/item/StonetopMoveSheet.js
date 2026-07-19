@@ -1,5 +1,6 @@
 import { toSlug } from "../utils/slug.js";
 import { bindAll } from "../utils/bindAll.js";
+import { setField as setChoicesField } from "../utils/choiceGroupEdit.js";
 import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
@@ -40,15 +41,15 @@ const MOVE_TYPE_CHOICES = {
 };
 
 const DEFAULT_ROWS = {
-	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: [], outfitItems: [], inlineDisplay: false },
+	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: null, outfitItems: [] },
 	pick:  { type: "pick",  pickCount: 1, inline: false, options: [] },
 };
 
 const BLANK_OUTFIT_ITEM = { slug: "", name: "", weight: 0, inventoryColumn: "regular" };
-const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: [], outfitItems: [], note: null, type: null, inlineDisplay: false };
+const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: null, outfitItems: [], note: null, type: null };
 
 function _blankOption(n) {
-	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: [] };
+	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: null };
 }
 
 export function createStonetopMoveSheetClass(Base) {
@@ -226,17 +227,13 @@ export function createStonetopMoveSheetClass(Base) {
 			let value;
 			if      (el.type === "checkbox") value = el.checked;
 			else if (el.type === "number")   value = el.value ? Number(el.value) : null;
-			else if (field === "followers")  value = el.value ? el.value.split(",").map(s => s.trim()).filter(Boolean) : [];
+			else if (field === "followers.slugs") value = el.value ? el.value.split(",").map(s => s.trim()).filter(Boolean) : [];
 			else                             value = el.value || null;
 
-			const choices = this._choicesClone();
-			let obj;
-			if      (target === "group")  obj = choices;
-			else if (target === "row")    obj = choices.list[rowIndex];
-			else if (target === "option") obj = choices.list[rowIndex].options[optIndex];
-
-			foundry.utils.setProperty(obj, field, value);
-			await this._saveChoices(choices);
+			// Shared setField handles the followers-object seeding/collapse (see choiceGroupEdit).
+			await this._saveChoices(setChoicesField(this._choicesClone(), {
+				target, rowIndex, optionIndex: optIndex, field, value,
+			}));
 		}
 	};
 }

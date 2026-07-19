@@ -83,10 +83,13 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
-						"followers": [
-							"spirit-in-the-cloak"
-						]
+						"followers": {
+							"slugs": [
+								"spirit-in-the-cloak"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			}

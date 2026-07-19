@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A thick staff of gray metal, topped with a plate of aetherium in the shape of a stylized hand. The palm is embossed with a cloud and lightning bolt, and the whole thing is more than a little topheavy. It smells of ozone, and your spine never ceases to tingle in its presence.",
 			"unlock": {
 				"slug": "azure-hand",

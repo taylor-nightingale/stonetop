@@ -6,19 +6,19 @@ import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 // ── FollowerSideEffectHandler ─────────────────────────────────────────────────
 
 describe("FollowerSideEffectHandler", () => {
-	it("adds followers from target.followers when count > 0", async () => {
+	it("adds followers from the target's follower link when count > 0", async () => {
 		const followers = new FakeFollowers();
 		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ followers: ["enfys", "afon"] }, "ns", "opt", 1);
+		await handler.apply({ followers: { slugs: ["enfys", "afon"], inlineDisplay: false, hideFromFollowersTab: false } }, "ns", "opt", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 		expect(followers.isOwned("afon")).toBe(true);
 	});
 
-	it("removes followers from target.followers when count === 0", async () => {
+	it("removes followers from the target's follower link when count === 0", async () => {
 		const followers = new FakeFollowers();
 		await followers.addFollower("enfys");
 		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ followers: ["enfys"] }, "ns", "opt", 0);
+		await handler.apply({ followers: { slugs: ["enfys"] } }, "ns", "opt", 0);
 		expect(followers.isOwned("enfys")).toBe(false);
 	});
 
@@ -29,10 +29,17 @@ describe("FollowerSideEffectHandler", () => {
 		expect(followers.owned).toHaveLength(0);
 	});
 
-	it("no-ops when target.followers is empty array", async () => {
+	it("no-ops when the follower link has no slugs", async () => {
 		const followers = new FakeFollowers();
 		const handler = new FollowerSideEffectHandler(followers);
-		await handler.apply({ followers: [] }, "ns", "opt", 1);
+		await handler.apply({ followers: { slugs: [], inlineDisplay: true } }, "ns", "opt", 1);
+		expect(followers.owned).toHaveLength(0);
+	});
+
+	it("no-ops on an unmigrated legacy slug array (migration owns the conversion)", async () => {
+		const followers = new FakeFollowers();
+		const handler = new FollowerSideEffectHandler(followers);
+		await handler.apply({ followers: ["enfys"] }, "ns", "opt", 1);
 		expect(followers.owned).toHaveLength(0);
 	});
 });

@@ -54,6 +54,9 @@ export function followerFields() {
 		arcanaSlug:   new f.StringField({ nullable: true, initial: null }),
 		playbookSlug: new f.StringField({ nullable: true, initial: null }),
 		owned:        new f.BooleanField({ initial: false }),
+		// A statless follower is an object, not a creature (the Ring of Daagon): the sheet hides the
+		// HP/Armor/Damage row and the inventory. Cost/Instinct/Loyalty/moves render as usual.
+		statless:     new f.BooleanField({ initial: false }),
 		cost:         selectionField({ multi: false }), // pick one (+ custom)
 		loyalty:      new f.SchemaField({
 			value: new f.NumberField({ initial: 0, integer: true }),

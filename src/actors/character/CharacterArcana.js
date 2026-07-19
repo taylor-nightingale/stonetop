@@ -3,6 +3,7 @@ import {
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 import { Arcanum } from "../../model/data/character/Arcanum.js";
+import { FollowerLink } from "../../model/data/FollowerLink.js";
 import { buildArcanumSnapshot } from "./arcanumSnapshot.js";
 export class CharacterArcana {
 	constructor(actor, arcanaRepo, stats = null, outfitItems = null, followers = null, factory = null, moves = null) {
@@ -23,8 +24,26 @@ export class CharacterArcana {
 		);
 	}
 
+	// Follower slugs an arcanum wires through its choice groups. The front unlock can carry a
+	// follower row too (the Ring of Daagon prints its follower on the card front), so both sides scan.
 	_followerSlugsFor(item) {
-		return (item?.back?.choices?.list ?? []).flatMap(r => r.followers ?? []);
+		return this._followerLinksFor(item).flatMap(link => link.slugs);
+	}
+
+	_followerLinksFor(item) {
+		const rows = [...(item?.front?.unlock?.list ?? []), ...(item?.back?.choices?.list ?? [])];
+		return rows.map(r => FollowerLink.fromRaw(r.followers)).filter(Boolean);
+	}
+
+	/** Slugs of followers that live inline on an owned arcanum card only — the followers tab
+	 *  excludes them (the entry's `hideFromFollowersTab` flag). */
+	get tabHiddenFollowerSlugs() {
+		return new Set(
+			[...this._actor.items].filter(i => i.type === "arcanum")
+				.flatMap(i => this._followerLinksFor(_itemToArcanum(i)))
+				.filter(link => link.hideFromFollowersTab)
+				.flatMap(link => link.slugs),
+		);
 	}
 
 	async buildSnapshot(checkedMap = {}, resourceController = null) {

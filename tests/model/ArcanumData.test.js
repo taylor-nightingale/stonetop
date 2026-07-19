@@ -59,3 +59,32 @@ describe("ArcanumData.migrateData — legacy value stores → choiceValues", () 
 		expect(out).toEqual({ flipped: true });
 	});
 });
+
+describe("ArcanumData.migrateData — choice-group normalization in front/back", () => {
+	it("groups legacy follower wiring in back.choices into the followers object", () => {
+		const out = ArcanumData.migrateData({
+			back: { choices: { slug: "mindgem", list: [
+				{ type: "entry", slug: "the-mighty-servant", content: {}, track: { max: 1 },
+					inlineDisplay: true, followers: ["the-mighty-servant"] },
+			] } },
+		});
+		expect(out.back.choices.list[0].followers)
+			.toEqual({ slugs: ["the-mighty-servant"], inlineDisplay: true, hideFromFollowersTab: false });
+		expect(out.back.choices.list[0].inlineDisplay).toBeUndefined();
+	});
+
+	it("normalizes front.unlock rows the same way", () => {
+		const out = ArcanumData.migrateData({
+			front: { unlock: { slug: "ring-of-daagon", list: [
+				{ type: "entry", slug: "the-ring", content: {}, track: { max: 1 },
+					inlineDisplay: true, followers: ["the-ring"] },
+			] } },
+		});
+		expect(out.front.unlock.list[0].followers.slugs).toEqual(["the-ring"]);
+	});
+
+	it("leaves a partial diff without front/back untouched (migrate-on-diff safety)", () => {
+		const out = ArcanumData.migrateData({ flipped: true });
+		expect(out).toEqual({ flipped: true });
+	});
+});

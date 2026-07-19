@@ -22,11 +22,12 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices, numberBlanks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
 import { toRollTableDoc, TABLE_PACK } from "./tables.js";
+import { toSlug } from "../../../src/utils/slug.js";
 
 const PDF = process.env.BOOK_PDF ?? "helper/Book_II_-_The_Wider_World_and_Other_Wonders.pdf";
 const WRITE_ARCANA = process.argv.includes("--write-arcana"); // overwrite major arcanum JSON (parser WIP)
@@ -167,6 +168,7 @@ function diverge(parsed, doc) {
 
 // ── run ───────────────────────────────────────────────────────────────────────
 const FOLLOWER_DIR = "packs/src/followers/arcana";
+const ARCANA_FOLLOWER_FOLDER = "BNaYX2Y4eMe7EOPK"; // packs/src/followers/_folders/arcana.json (every arcana follower lives here)
 
 // Existing follower roster — authoritative for slug/_id/arcanaSlug (segmentation can misattribute a
 // stat block, and canonical slugs drop a leading "The"). Minor followers are regenerated from the PDF
@@ -187,6 +189,7 @@ const parsedBack = new Map();  // slug -> back
 const arcanaUnlockAt = new Map(); // slug -> unlockAt (front-derived, for major backs)
 const resourceBySlug = new Map(); // move slug -> { max, hasBlank } (right-aligned ○ resource tracks)
 const parsedByName = new Map(); // normName -> { creature, staged }  (parsed follower stat blocks)
+const frontFollowerIcon = new Map(); // arcanum slug -> staged icon path (a major that prints its follower on the front)
 const review = [`# Arcanum parse — manual review`, ``];
 
 const iconStage = mkdtempSync(path.join(os.tmpdir(), "arc-icons-"));
@@ -206,8 +209,16 @@ for (const range of ranges) {
 	// Fronts: anchored on arcanum names, bounded at the "front" label.
 	for (const { rec, blocks: bl } of segmentBy(blocks, byName, /^front$/i))
 		if (!parsedFront.has(rec.slug)) {
-			parsedFront.set(rec.slug, parseFront(bl, { name: rec.doc.name, slug: rec.slug }));
+			const front = parseFront(bl, { name: rec.doc.name, slug: rec.slug });
+			parsedFront.set(rec.slug, front);
 			if (rec.tier === "major") arcanaUnlockAt.set(rec.slug, detectUnlockAt(bl)); // mark-gate lives on the front, stored on back
+			// A card that prints its follower on the front (the Ring) carries the marker icon inside the
+			// front span — stage it out of the per-range tmp before it's removed (mirrors the minor loop).
+			if (front._frontFollower?.iconFile) {
+				const staged = path.join(iconStage, `front-${rec.slug}.png`);
+				copyFileSync(front._frontFollower.iconFile, staged);
+				frontFollowerIcon.set(rec.slug, staged);
+			}
 		}
 	// Backs: majors are segmented by the front→back label span (robust to a missing/mis-placed
 	// "Mysteries of X" title); minors still anchor on the existing back.title, bounded at "back".
@@ -246,14 +257,37 @@ for (const r of followerRoster.values()) {
 	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${r.slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); followersWritten++; }
 	followerLines.push(`- \`${r.slug}\` ← ${r.arcanaSlug}  (img: ${img.split("/").pop()})`);
 }
-rmSync(iconStage, { recursive: true, force: true });
 const preserved = [...followerRoster.values()].filter((r) => !r.minor).map((r) => r.slug);
+
+// A card that prints its follower on the FRONT (the Ring of Daagon: "The ring itself becomes a
+// follower") has no back choice group to inline it. Parse the split-off stat block into a follower
+// doc, write it, and append a card-resident follower row (hidden from the followers tab) to the
+// front's unlock group — the major-back `followerChoices` treatment, on the front. Mutates `front`
+// (drops the internal `_frontFollower`) so the arcanum written below carries the wired entry.
+const frontFollowerLines = [];
+function emitFrontFollower(rec, front) {
+	const ff = front._frontFollower;
+	delete front._frontFollower;
+	if (!ff) return;
+	const creature = parseStatBlock(ff.lines);
+	if (!creature.name) return;
+	// The follower's identity (slug/_id/folder) comes from the existing roster entry when present, so a
+	// re-run preserves it; otherwise it's derived (slug drops a leading "The", e.g. "the-ring").
+	const rosterEntry = followerRoster.get(norm(creature.name));
+	const slug = rosterEntry?.slug ?? toSlug(creature.name);
+	const img = markerImg(frontFollowerIcon.get(rec.slug)) || NPC_DEFAULT_IMG;
+	const doc = toFollowerDoc(creature, { slug, arcanaSlug: rec.slug, id: rosterEntry?.id, key: rosterEntry?.key, img, folder: rosterEntry?.folder ?? ARCANA_FOLLOWER_FOLDER });
+	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); }
+	(front.unlock ??= { slug: rec.slug, list: [] }).list.push(followerChoiceEntry(slug, { hideFromFollowersTab: true }));
+	frontFollowerLines.push(`- \`${slug}\` ← ${rec.slug}  (FRONT-resident, statless=${!!doc.system.statless}, img: ${img.split("/").pop()})`);
+}
 
 const reviewBody = [];
 let parsedCount = 0, flagged = 0;
 for (const rec of bySlug.values()) {
 	const front = parsedFront.get(rec.slug);
 	if (!front) continue;
+	if (rec.tier === "major") emitFrontFollower(rec, front); // append the card-resident follower row before diverging/writing (reads the staged icon)
 	parsedCount++;
 	const parsed = { major: rec.tier === "major", front, back: parsedBack.get(rec.slug) ?? null };
 	const fl = diverge(parsed, rec.doc);
@@ -276,6 +310,7 @@ for (const rec of bySlug.values()) {
 		writeFileSync(rec.file, JSON.stringify(out, null, "\t") + "\n");
 	}
 }
+rmSync(iconStage, { recursive: true, force: true }); // after the review loop — emitFrontFollower reads staged icons
 
 // ── minor arcana: regenerate every card from the geometric grid parser ──────────
 // The minor appendix is a card grid the column pipeline can't segment (see minor-arcana-grid.js);
@@ -346,6 +381,7 @@ review.push(`Parsed ${parsedCount}/${bySlug.size} fronts, ${parsedBack.size} bac
 if (resItemReview.length) review.push(`## Back items & resource tracks (${resItemReview.length}) — verify vs book`, ...resItemReview.sort(), ``);
 review.push(`## Followers`, `Matched ${followersMatched} minor follower(s) to stat blocks:`, ...followerLines,
 	``, `Preserved hand-authored (major appendix, inlined format — not regenerated): ${preserved.length ? preserved.map((s) => `\`${s}\``).join(", ") : "none"}`, ``);
+if (frontFollowerLines.length) review.push(`### Front-resident followers (regenerated from the card front)`, ...frontFollowerLines, ``);
 review.push(...reviewBody);
 mkdirSync(path.dirname(REVIEW), { recursive: true });
 writeFileSync(REVIEW, review.join("\n"));

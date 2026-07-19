@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Ring of Daagon",
 			"item": null,
+			"tags": null,
 			"description": "A finely carved ring of copper, coated in verdigris and always a little damp. Its shape is that of a strange, reptilian creature devouring its own tail.",
 			"unlock": {
 				"slug": "ring-of-daagon",
@@ -38,7 +39,7 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "When you **_make the last mark_**, you unlock the ring’s mysteries and may Call Up the Deep Ones (see reverse) while wearing the ring. The ring itself becomes a follower.\n\n*deep-wise*, *greedy*, *patient*, *knowledgeable*, *magical*\n\n**Cost** devouring fallen, named creatures (Loyalty **Instinct** to give nothing (not even secrets or info) away\n- Speak mind-to-mind\n- Reveal a secret, for a price\n- Know someone’s desires\n\n*magical*"
+							"text": "When you **_make the last mark_**, you unlock the ring’s mysteries and may Call Up the Deep Ones (see reverse) while wearing the ring. The ring itself becomes a follower."
 						}
 					},
 					{
@@ -54,13 +55,20 @@
 					},
 					{
 						"type": "entry",
+						"slug": "the-ring",
 						"content": {
 							"title": null,
-							"text": ")"
+							"text": ""
 						},
-						"slug": "step",
 						"track": {
-							"max": 3
+							"max": 1
+						},
+						"followers": {
+							"slugs": [
+								"the-ring"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": true
 						}
 					}
 				]

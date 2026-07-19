@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A perfect sphere of dark ice, the size of a fist, never melting, hard as stone, and set like a gaudy gem at the end of a finely wrought torc. Or not a torc, perhaps, but maybe a ring that once sat upon some giant’s finger?\n\nStaring into the icy sphere brings a sense of calm, serenity, and detachment. Indeed, a lesser mind might find itself staring into its depths for hours on end.",
 			"unlock": {
 				"slug": "norubas-ice-sphere",

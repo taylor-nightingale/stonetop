@@ -12,12 +12,12 @@ describe("ChoiceGroup — entry row without followers", () => {
 		expect(group.list[0].type).toBe("entry");
 	});
 
-	it("entry row has empty followers array when no followers field", () => {
+	it("entry row has null followers when no followers field", () => {
 		const group = ChoiceGroup.fromPackData({
 			slug: "ns",
 			list: [{ type: "entry", slug: "my-row", content: { title: null, text: null } }],
 		});
-		expect(group.list[0].followers).toEqual([]);
+		expect(group.list[0].followers).toBeNull();
 	});
 
 	it("entry row track starts all false", () => {
@@ -51,38 +51,40 @@ describe("ChoiceGroup — entry row without followers", () => {
 describe("ChoiceGroup — entry row with followers", () => {
 	const ENFYS_SNAPSHOT = { slug: "enfys", name: "Enfys" };
 
-	it("resolves follower slugs to snapshots from followersBySlug", () => {
+	it("resolves the link's slugs to snapshot cards from followersBySlug", () => {
 		const group = ChoiceGroup.fromPackData(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: ["enfys"], track: { max: 1 } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: false }, track: { max: 1 } }] },
 			new ChoiceValues(),
 			{ enfys: ENFYS_SNAPSHOT },
 		);
-		expect(group.list[0].followers).toEqual([ENFYS_SNAPSHOT]);
+		expect(group.list[0].followers.cards).toEqual([ENFYS_SNAPSHOT]);
 	});
 
-	it("follower slug not in followersBySlug is omitted from followers array", () => {
+	it("followers is null when no linked slug resolves to a snapshot", () => {
 		const group = ChoiceGroup.fromPackData(
-			{ slug: "ns", list: [{ type: "entry", slug: "rook", content: {}, followers: ["rook"], track: { max: 1 } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "rook", content: {}, followers: { slugs: ["rook"] }, track: { max: 1 } }] },
 			new ChoiceValues(),
 			{},
 		);
-		expect(group.list[0].followers).toEqual([]);
+		expect(group.list[0].followers).toBeNull();
 	});
 
-	it("inlineDisplay is false by default", () => {
-		const group = ChoiceGroup.fromPackData({
-			slug: "ns",
-			list: [{ type: "entry", slug: "enfys", content: {}, followers: ["enfys"] }],
-		});
-		expect(group.list[0].inlineDisplay).toBe(false);
+	it("inlineDisplay is false when the link omits it", () => {
+		const group = ChoiceGroup.fromPackData(
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"] } }] },
+			new ChoiceValues(),
+			{ enfys: ENFYS_SNAPSHOT },
+		);
+		expect(group.list[0].followers.inlineDisplay).toBe(false);
 	});
 
-	it("inlineDisplay is carried from pack data", () => {
-		const group = ChoiceGroup.fromPackData({
-			slug: "ns",
-			list: [{ type: "entry", slug: "enfys", content: {}, followers: ["enfys"], inlineDisplay: true }],
-		});
-		expect(group.list[0].inlineDisplay).toBe(true);
+	it("inlineDisplay is carried from the link", () => {
+		const group = ChoiceGroup.fromPackData(
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: true } }] },
+			new ChoiceValues(),
+			{ enfys: ENFYS_SNAPSHOT },
+		);
+		expect(group.list[0].followers.inlineDisplay).toBe(true);
 	});
 
 	it("indent is false by default", () => {
@@ -146,17 +148,18 @@ describe("ChoiceGroup — entry rows (current shape; legacy is handled by migrat
 		});
 		expect(group.list[0].type).toBe("entry");
 		expect(group.list[0].content.text.raw).toBe("a heading");
-		expect(group.list[0].followers).toEqual([]);
+		expect(group.list[0].followers).toBeNull();
 	});
 
-	it("resolves followers from followers[] via followersBySlug", () => {
+	it("resolves followers from the grouped link via followersBySlug", () => {
 		const SNAP = { slug: "enfys", name: "Enfys" };
 		const group = ChoiceGroup.fromPackData(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: ["enfys"], track: { max: 1 } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"], inlineDisplay: true }, track: { max: 1 } }] },
 			new ChoiceValues(),
 			{ enfys: SNAP },
 		);
-		expect(group.list[0].followers).toEqual([SNAP]);
+		expect(group.list[0].followers.cards).toEqual([SNAP]);
+		expect(group.list[0].followers.inlineDisplay).toBe(true);
 	});
 
 	it("exposes the input type and the renamed content fields", () => {

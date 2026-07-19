@@ -258,6 +258,9 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 	// A follower stores current HP 0 (the sheet fills it); only the book max matters. parseStatBlock
 	// sets value === max (the printed number), so take the max explicitly.
 	const hp = { value: 0, max: creature.hp?.max || creature.hp?.value || 0 };
+	// A stat block with no HP/Armor/Damage lines at all (the Ring — an object, not a creature) is a
+	// STATLESS follower: the sheet hides the combat-stat row and the inventory for it.
+	const statless = !hp.max && !creature.armor && !creature.damage;
 	// Canonicalize the group tag and pull out its "(N)" count: "Group (3)" -> tag "group" + 3 crew
 	// members, each starting at the group's shared max HP (mirrors CharacterFollowers.addMember). A
 	// group tag with no count leaves members empty (the player adds them on the sheet).
@@ -296,6 +299,7 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 				? selection([], false, creature.costOptions)
 				: selection(cost ? [cost] : [], false),
 			loyalty: { value: 0, max: 3 },
+			...(statless ? { statless: true } : {}),
 			choices: [{ slug: "choices", list: moveChoices }],
 			moves: movesMd(fixedMoves),
 			description: creature.description,

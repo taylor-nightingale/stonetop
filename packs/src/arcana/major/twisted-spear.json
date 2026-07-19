@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Twisted Spear",
 			"item": null,
+			"tags": null,
 			"description": "A knobby length of wood, pale as death and hard as steel, tapering to a needle point. The shaft is scored and notched, the tip stained with blood and soot.\n\nThe Spear is a potent weapon against spirits and demons. They cannot bear its touch and its presence makes them deeply ill at ease.",
 			"unlock": {
 				"slug": "twisted-spear",

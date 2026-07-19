@@ -9,6 +9,7 @@
 		"front": {
 			"title": "Whispering Rocks",
 			"item": null,
+			"tags": null,
 			"description": "Jagged hunks of black volcanic glass. Surely the swirling movement in their depths is a trick of light. And, surely, those hushed voices you’ve been hearing are just the sighing wind. Surely.",
 			"unlock": {
 				"slug": "whispering-rocks",

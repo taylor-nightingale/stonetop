@@ -3,7 +3,7 @@
 	"_key": "!items!3z1iQ7P9QK4vMuog",
 	"name": "The Spirit in the Cloak",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/wonders/markers/marker-wind.png",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "spirit-in-the-cloak",
 		"reference": null,

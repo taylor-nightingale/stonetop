@@ -15,6 +15,7 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
+			"tags": null,
 			"description": "A pair of wooden figurines, carved from blackwood and worn smooth with age and use. A whitish shaft has been driven into the top of each figurine’s head, and the eyes and forehead of each are stained a rusty, reddish color.\n\nThe figurines resist all mundane attempts to damage them. Such attempts might mar them slightly, but their forms hold fast.",
 			"unlock": {
 				"slug": "blackwood-fetishes",
@@ -75,30 +76,36 @@
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
 						"type": "entry",
 						"content": {
 							"title": null,
 							"text": ""
 						},
-						"followers": [
-							"astor"
-						]
+						"followers": {
+							"slugs": [
+								"astor"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					},
 					{
 						"slug": "halix",
 						"track": {
 							"max": 1
 						},
-						"inlineDisplay": true,
 						"type": "entry",
 						"content": {
 							"title": null,
 							"text": ""
 						},
-						"followers": [
-							"halix"
-						]
+						"followers": {
+							"slugs": [
+								"halix"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": false
+						}
 					}
 				]
 			},

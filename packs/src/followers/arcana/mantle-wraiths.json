@@ -3,7 +3,7 @@
 	"_key": "!items!gZuqGWcHx2WawdRw",
 	"name": "Mantle wraiths",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/wonders/markers/marker-skull.png",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "mantle-wraiths",
 		"reference": null,
