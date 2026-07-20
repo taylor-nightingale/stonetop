@@ -1,19 +1,19 @@
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot, ChoiceValues,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
+import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { Arcanum } from "../../model/data/character/Arcanum.js";
 import { FollowerLink } from "../../model/data/FollowerLink.js";
 import { buildArcanumSnapshot } from "./arcanumSnapshot.js";
 export class CharacterArcana {
-	constructor(actor, arcanaRepo, stats = null, outfitItems = null, followers = null, factory = null, moves = null) {
+	constructor(actor, arcanaRepo, stats = null, followers = null, factory = null, moves = null, containerOutfitSync = null) {
 		this._actor      = actor;
 		this._arcanaRepo = arcanaRepo;
 		this._stats      = stats;
-		this._outfitItems = outfitItems;
 		this._followers  = followers;
 		this._factory    = factory;
 		this._moves      = moves;
+		this._outfitSync = containerOutfitSync;
 	}
 
 	get ownedSlugs() {
@@ -121,7 +121,7 @@ export class CharacterArcana {
 		// Followers are NOT embedded on add — they're added/removed only when their back-choice box is
 		// checked (the standard FollowerSideEffectHandler path). The card shows an inline preview sourced
 		// from the follower repo, so no embedded item is needed until the player checks the box.
-		await this._syncEmbeddedItemWith(slug, raw);
+		await this._syncSideEffects(slug);
 		const moveSlugs = raw.back?.moveSlugs ?? [];
 		if (moveSlugs.length) await this._moves?.addCategory(`arcana-${slug}`, item.name ?? slug, moveSlugs, []);
 	}
@@ -130,7 +130,7 @@ export class CharacterArcana {
 		const embeddedItem = _findArcanumItem(this._actor, slug);
 		if (embeddedItem) await this._actor.deleteEmbeddedDocuments("Item", [embeddedItem._id]);
 		await this._moves?.removeCategory(`arcana-${slug}`);
-		await this._outfitItems?.deleteBySource("arcana:" + slug);
+		await this._outfitSync?.clear("arcana:" + slug);
 		await this._followers?.removeByArcanum(slug);
 	}
 
@@ -155,33 +155,30 @@ export class CharacterArcana {
 	async setChoiceCount(arcanumSlug, groupSlug, optionSlug, count) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forDocument(item._id, "choiceValues")
 			.setCount(groupSlug, optionSlug, count);
 	}
 
 	async selectChoice(arcanumSlug, groupSlug, optionSlug, siblingsCsv) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forDocument(item._id, "choiceValues")
 			.selectOption(groupSlug, optionSlug, siblingsCsv);
 	}
 
 	async setChoiceText(arcanumSlug, groupSlug, optionSlug, text) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forDocument(item._id, "choiceValues")
 			.setText(groupSlug, optionSlug, text);
 	}
 
 	// Write-in blank fields (the `@Blank[key]` tokens in an arcanum's text) persist as free text in the
 	// same `choiceValues` store under a reserved `"blanks"` namespace, keyed by the blank's stable index.
-	// `render: false` — the DOM already holds the typed value; re-rendering would steal focus, blocking
-	// click/tab to the next blank (Foundry restores focus to the pre-render element, i.e. the one just left).
 	async setBlankValue(arcanumSlug, key, text) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues", { render: false })
-			.setText("blanks", String(key), text);
+		await this._factory.forDocument(item._id, "choiceValues").setText("blanks", String(key), text);
 	}
 
 	/** The stored `{ key: text }` map of write-in blank values for an arcanum (empty when none). */
@@ -190,39 +187,27 @@ export class CharacterArcana {
 		return item?.system?.choiceValues?.blanks ?? {};
 	}
 
+	/** What an arcanum grants right now: the card item for the side facing up, plus whatever its
+	 *  ticked choices grant. One source, recomputed — so flipping is just another sync. */
+	static outfitGrantFor(item) {
+		const sys      = item.system ?? {};
+		const source   = "arcana:" + sys.slug;
+		const sideItem = sys.flipped ? sys.back?.item : sys.front?.item;
+		const base     = sideItem?.inventoryColumn
+			? [{ ...sideItem, slug: sys.slug }]
+			: [];
+		return OutfitGrant.forContainer(source, base, sys, sys.choiceValues ?? {});
+	}
+
 	async _syncSideEffects(slug) {
 		const embeddedItem = _findArcanumItem(this._actor, slug);
 		if (!embeddedItem) {
-			await this._outfitItems?.deleteBySource("arcana:" + slug);
+			await this._outfitSync?.clear("arcana:" + slug);
 			return;
 		}
-		const item = _itemToArcanum(embeddedItem);
-		await this._syncEmbeddedItemWith(slug, item);
+		await this._outfitSync?.syncItem(embeddedItem);
 	}
 
-	async _syncEmbeddedItemWith(slug, item) {
-		if (!this._outfitItems) return;
-		const embeddedItem = _findArcanumItem(this._actor, slug);
-		const flipped = embeddedItem?.system?.flipped ?? false;
-		const sideItem = flipped ? item.back.item : item.front.item;
-		if (!sideItem?.inventoryColumn) {
-			await this._outfitItems.deleteBySource("arcana:" + slug);
-			return;
-		}
-		await this._outfitItems.sync("arcana:" + slug, [
-			new EmbeddedOutfitItemBuilder()
-				.withSlug(slug)
-				.withName(sideItem.name)
-				.withWeight(sideItem.weight ?? 0)
-				.withTags(sideItem.tags ?? "")
-				.withNote(sideItem.note ?? null)
-				.withInventoryColumn(sideItem.inventoryColumn)
-				.withResource(sideItem.resource ?? null)
-				.withTwoCol(false)
-				.withSource("arcana:" + slug)
-				.build(),
-		]);
-	}
 
 }
 

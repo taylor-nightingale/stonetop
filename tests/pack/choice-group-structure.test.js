@@ -226,3 +226,18 @@ describe("Pack lore entries use the list format", () => {
 		}
 	});
 });
+
+// A possession's choice group is namespaced by the possession's own slug at runtime (that is the key
+// stored pickValues use, and what the side-effect definition lookup searches for). A group whose
+// authored slug differs silently grants no outfit items — see the choice-group namespace invariant.
+describe("Pack possession choice groups are namespaced by their possession slug", () => {
+	let entries;
+	beforeAll(async () => { entries = await loadPlaybookChoices(); });
+
+	it("every possession's choices.slug equals its system.slug", () => {
+		const bad = entries
+			.filter(({ choices, possessionSlug }) => choices.slug !== possessionSlug)
+			.map(({ name, choices, possessionSlug }) => `${name}: choices.slug "${choices.slug}" !== "${possessionSlug}"`);
+		expect(bad).toEqual([]);
+	});
+});

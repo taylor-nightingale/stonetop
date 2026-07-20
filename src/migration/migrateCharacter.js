@@ -71,6 +71,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
 	_logArcanumFlipped(actor, "after migratePossessions");
+	await migratePossessionChoiceSlugs(actor);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
 	await migrateInsertMoveCategories(actor);
@@ -240,7 +241,7 @@ export async function migratePossessions(actor, possessionRepo, moves, outfitIte
 		preselected: sp.preselected ?? [],
 	};
 
-	const possessions = new CharacterPossessions(actor, moves, outfitItems, possessionRepo);
+	const possessions = new CharacterPossessions(actor, moves, possessionRepo);
 	await possessions.addPossessionsFromPlaybook(spNew, playbookSlug);
 
 	// Apply mutable state from flags
@@ -288,7 +289,7 @@ export async function migrateArcana(actor, arcanaRepo, followerRepo) {
 
 	const resourceController = new ResourceController(actor);
 	const followers = new CharacterFollowers(actor, followerRepo, resourceController);
-	const arcana = new CharacterArcana(actor, arcanaRepo, null, null, followers);
+	const arcana = new CharacterArcana(actor, arcanaRepo, null, followers);
 
 	for (const slug of ownedSlugs) {
 		await arcana.addArcanum(slug);
@@ -344,6 +345,27 @@ export async function migrateArcanaMoves(actor, arcanaRepo, moveRepo) {
 // but the group is namespaced by the arcanum slug everywhere else in the pipeline (write, read,
 // side-effect def lookup). The mismatch made the choice-group side effect silently no-op, so ticking
 // a follower box never embedded the follower. Idempotent; only touches items that actually differ.
+/**
+ * A possession's granted gear is computed by reading each choice group's values under THAT group's own
+ * slug, but both weapons-of-war possessions shipped `choices.slug: "weapons-of-war"` while their values
+ * are stored under the possession's own slug. Left alone, an existing character silently stops granting
+ * its picked weapons. Stored `pickValues` are untouched — they were already keyed by the possession
+ * slug, which is what the group slug is being corrected to.
+ */
+export async function migratePossessionChoiceSlugs(actor) {
+	const items = [...actor.items].filter(i =>
+		i.type === "possession" && i.system?.choices?.slug && i.system?.slug &&
+		i.system.choices.slug !== i.system.slug);
+	if (!items.length) return;
+
+	const updates = items.map(item => ({
+		_id: item._id,
+		system: { choices: { ...item.system.choices, slug: item.system.slug } },
+	}));
+	info(`Migrating ${updates.length} possession choice-group slug(s) to match their possession.`);
+	await actor.updateEmbeddedDocuments("Item", updates);
+}
+
 export async function migrateArcanumChoiceGroupSlugs(actor) {
 	const updates = [];
 	for (const item of actor.items) {

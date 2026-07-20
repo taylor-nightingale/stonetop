@@ -7,7 +7,7 @@ import {FakePackBuilder} from "../../fakes/foundry/FakePackBuilder.js";
 
 // Integration test: real StonetopCharacter + real FoundryRepositoryFactory/repositories + real
 // CharacterArcana/CharacterInventory. Only the Foundry boundary is faked. This exercises the full
-// drop→onArcanumCreated→_syncEmbeddedItemWith→inventory-snapshot wiring, which is exactly where the
+// drop→onArcanumCreated→ContainerOutfitSync→inventory-snapshot wiring, which is exactly where the
 // bug lived: the arcanum CARD showed tags (its own builder), but the embedded inventory item didn't
 // carry them, so the inventory-tab row showed only the name. A unit test on either side would miss it.
 

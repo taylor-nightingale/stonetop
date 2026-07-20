@@ -1,11 +1,17 @@
 import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValueChange } from "../../model/data/ChoiceValueChange.js";
 
+/**
+ * Persists one choice-value store and announces every write. It does not know what any effect needs:
+ * it publishes a ChoiceValueChange and each subscriber resolves what it cares about. Adding an effect
+ * therefore touches no code here.
+ */
 export class ChoiceGroupController {
-	constructor({ reader, writer, definitionGetter, handlers = [] }) {
-		this._reader           = reader;
-		this._writer           = writer;
-		this._definitionGetter = definitionGetter;
-		this._handlers         = handlers;
+	constructor({ reader, writer, itemGetter, subscribers = [] }) {
+		this._reader      = reader;
+		this._writer      = writer;
+		this._itemGetter  = itemGetter;
+		this._subscribers = subscribers;
 	}
 
 	get _values() { return new ChoiceValues(this._reader()); }
@@ -21,45 +27,33 @@ export class ChoiceGroupController {
 		await this._writer(newValues.toRaw());
 		for (const sib of siblings) {
 			if (prevValues.getCount(namespace, sib) > 0)
-				await this._fireSideEffects(namespace, sib, 0, newValues);
+				await this._publish({ namespace, optionSlug: sib, count: 0, values: newValues, kind: "count" });
 		}
-		await this._fireSideEffects(namespace, slug, 1, newValues);
+		await this._publish({ namespace, optionSlug: slug, count: 1, values: newValues, kind: "count" });
 	}
 
 	async setCount(namespace, optionSlug, count) {
 		const newValues = this._values.set(namespace, optionSlug, count);
 		await this._writer(newValues.toRaw());
-		await this._fireSideEffects(namespace, optionSlug, count, newValues);
+		await this._publish({ namespace, optionSlug, count, values: newValues, kind: "count" });
 	}
 
 	async setText(namespace, optionSlug, text) {
 		const newValues = this._values.set(namespace, optionSlug, text);
 		await this._writer(newValues.toRaw());
+		await this._publish({ namespace, optionSlug, values: newValues, kind: "text" });
 	}
 
 	async clearValues(namespace) {
 		const raw = { ...this._values.toRaw() };
 		delete raw[namespace];
 		await this._writer(raw);
+		await this._publish({ namespace, values: new ChoiceValues(raw), kind: "clear" });
 	}
 
-	async _fireSideEffects(namespace, optionSlug, count, newValues) {
-		if (!this._handlers.length) return;
-		const def = this._definitionGetter?.(namespace);
-		if (!def) return;
-
-		let target = null;
-		for (const row of def.list ?? []) {
-			if (row.slug === optionSlug) { target = row; break; }
-			for (const opt of row.options ?? []) {
-				if (opt.slug === optionSlug) { target = opt; break; }
-			}
-			if (target) break;
-		}
-		if (!target) return;
-
-		for (const handler of this._handlers) {
-			await handler.apply(target, namespace, optionSlug, count, newValues);
-		}
+	async _publish(fields) {
+		if (!this._subscribers.length) return;
+		const change = new ChoiceValueChange({ item: this._itemGetter?.() ?? null, ...fields });
+		for (const subscriber of this._subscribers) await subscriber.handle(change);
 	}
 }

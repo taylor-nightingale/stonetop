@@ -20,6 +20,13 @@ export function buildFocusSelector(element, container) {
 		// both so editing one member doesn't refocus (and scroll to) a different one.
 		if (dataset.slug && dataset.index !== undefined) return `.${cls}[data-slug="${dataset.slug}"][data-index="${dataset.index}"]`;
 		if (dataset.slug) return `.${cls}[data-slug="${dataset.slug}"]`;
+		// Arcanum write-in blanks: the key is only unique within its own card (every card numbers its
+		// blanks from 1), so scope by the owning card's slug or we'd refocus the first card's blank.
+		if (dataset.blankKey) {
+			const scopeSlug = element.closest("[data-slug]")?.dataset.slug;
+			const scope     = scopeSlug ? `[data-slug="${scopeSlug}"] ` : "";
+			return `${scope}.${cls}[data-blank-key="${dataset.blankKey}"]`;
+		}
 		if (dataset.attr && dataset.index !== undefined) return `.${cls}[data-attr="${dataset.attr}"][data-index="${dataset.index}"]`;
 		if (dataset.index !== undefined) return `.${cls}[data-index="${dataset.index}"]`;
 		if (dataset.cgContext) return `.${cls}[data-cg-context="${dataset.cgContext}"][data-cg-group="${dataset.cgGroup}"][data-cg-option="${dataset.cgOption}"]`;

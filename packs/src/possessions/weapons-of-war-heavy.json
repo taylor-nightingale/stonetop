@@ -7,11 +7,11 @@
 	"system": {
 		"slug": "weapons-of-war-marshal",
 		"label": "Weapons of war",
-		"description": "",
+		"description": "choose up to 3 (now or later)",
 		"resource": null,
 		"outfitItems": [],
 		"choices": {
-			"slug": "weapons-of-war",
+			"slug": "weapons-of-war-marshal",
 			"list": [
 				{
 					"type": "pick",

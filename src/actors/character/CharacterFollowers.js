@@ -352,14 +352,14 @@ export class CharacterFollowers {
 	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forDocument(item._id, "choiceValues")
 			.selectOption(groupSlug, choiceSlug, siblingSlugsCsv ?? null);
 	}
 
 	async setChoiceText(followerSlug, optionSlug, text) {
 		const item = _findFollowerItem(this._actor, followerSlug);
 		if (!item) return;
-		await this._factory.forItem(item._id, "choiceValues")
+		await this._factory.forDocument(item._id, "choiceValues")
 			.setText("choices", optionSlug, text);
 	}
 

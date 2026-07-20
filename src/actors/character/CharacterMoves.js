@@ -138,14 +138,14 @@ export class CharacterMoves {
 	async setMoveChoiceText(moveSlug, optionSlug, value) {
 		const item = findMoveItemBySlug(this._actor, moveSlug);
 		if (!item?.system?.choices) return;
-		await this._factory.forItem(item._id, "pickValues")
+		await this._factory.forDocument(item._id, "pickValues")
 			.setText(item.system.choices.slug, optionSlug, value);
 	}
 
 	async setMoveChoiceCount(moveSlug, optionSlug, count) {
 		const item = findMoveItemBySlug(this._actor, moveSlug);
 		if (!item?.system?.choices) return;
-		await this._factory.forItem(item._id, "pickValues")
+		await this._factory.forDocument(item._id, "pickValues")
 			.setCount(item.system.choices.slug, optionSlug, count);
 	}
 

@@ -14,8 +14,9 @@ import {CharacterDebilities} from "./CharacterDebilities.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {FoundryRepositoryFactory} from "./repositories/FoundryRepositoryFactory.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
-import {ChoiceGroupFactory} from "./ChoiceGroupFactory.js";
-import {FollowerSideEffectHandler, OutfitItemSideEffectHandler} from "./SideEffectHandler.js";
+import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
+import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
+import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -25,19 +26,25 @@ export class StonetopCharacter {
 		this._origin = new CharacterOrigin(actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
-		const factory = new ChoiceGroupFactory(actor);
+		// The one writer of granted outfit items. Each container type registers how it computes its
+		// grant; the factory re-syncs a container after every choice write.
+		const outfitSync = new ContainerOutfitSync(outfitItems)
+			.register("possession", CharacterPossessions.outfitGrantFor)
+			.register("arcanum",    CharacterArcana.outfitGrantFor);
+		const factory = new ChoiceGroupControllerFactory(actor);
 		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory, repos.inventory);
-		factory.register(new FollowerSideEffectHandler(this._followers));
-		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
+		// Everything that reacts to a choice value changing, in one list. Each decides what it cares about.
+		factory.subscribe(new FollowerSideEffectHandler(this._followers))
+		       .subscribe(outfitSync);
 
 		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
 		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory);
 		this._playbook    = new CharacterPlaybook(actor, this._background, factory, this._origin);
-		this._possessions = new CharacterPossessions(actor, this._moves, outfitItems, repos.possessions, factory);
+		this._possessions = new CharacterPossessions(actor, this._moves, repos.possessions, factory, outfitSync);
 		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController, repos.steading);
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
-		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, outfitItems, this._followers, factory, this._moves);
+		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync);
 		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);

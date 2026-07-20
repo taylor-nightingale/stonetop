@@ -5,11 +5,11 @@
   "system": {
     "slug": "weapons-of-war-heavy",
     "label": "Weapons of war",
-    "description": "",
+    "description": "choose up to 3 (now or later)",
     "resource": null,
     "outfitItems": [],
     "choices": {
-      "slug": "weapons-of-war",
+      "slug": "weapons-of-war-heavy",
       "list": [
         {
           "type": "pick",

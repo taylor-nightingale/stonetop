@@ -1,7 +1,8 @@
 import { describe, it, expect, vi } from "vitest";
 import { CharacterArcana } from "../../../src/actors/character/CharacterArcana.js";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
+import { ContainerOutfitSync } from "../../../src/actors/character/ContainerOutfitSync.js";
 import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
@@ -98,16 +99,16 @@ function makeResourceController() {
 	return new ResourceController(new FakeCharacterActorBuilder().build());
 }
 
+// Mirrors StonetopCharacter: granted outfit items are written by ContainerOutfitSync, so a
+// CharacterArcana built without one grants nothing.
+function makeOutfitSync(outfitItems) {
+	return new ContainerOutfitSync(outfitItems).register("arcanum", CharacterArcana.outfitGrantFor);
+}
+
 function makeArcana(items = [], arcana = [FFYRNIG_SPHERE], fakeStats = null, outfitItems = null) {
-	const actor = makeActor(items);
-	return new CharacterArcana(
-		actor,
-		new FakeArcanaRepository(arcana),
-		fakeStats ?? makeFakeStats(),
-		outfitItems ?? makeActorOutfitItems(),
-		null,
-		new ChoiceGroupFactory(actor),
-	);
+	const actor  = makeActor(items);
+	const outfit = outfitItems ?? makeActorOutfitItems();
+	return new CharacterArcana(actor, new FakeArcanaRepository(arcana), fakeStats ?? makeFakeStats(), null, new ChoiceGroupControllerFactory(actor), null, makeOutfitSync(outfit));
 }
 
 // -- Tests --------------------------------------------------------------------
@@ -283,10 +284,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 
 		it("back.resource is null when absent in JSON", async () => {
 			const noResource = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, resource: undefined } };
-			const arcana = new CharacterArcana(
-				makeActor([makeArcanumItem(noResource)]),
-				new FakeArcanaRepository(),
-			);
+			const arcana = new CharacterArcana(makeActor([makeArcanumItem(noResource)]), new FakeArcanaRepository());
 			expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
 		});
 
@@ -300,10 +298,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 
 		it("back.moves is empty when absent in JSON", async () => {
 			const noMoves = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, moves: undefined } };
-			const arcana = new CharacterArcana(
-				makeActor([makeArcanumItem(noMoves)]),
-				new FakeArcanaRepository(),
-			);
+			const arcana = new CharacterArcana(makeActor([makeArcanumItem(noMoves)]), new FakeArcanaRepository());
 			expect((await arcana.buildSnapshot()).minor.items[0].back.moves).toEqual([]);
 		});
 
@@ -390,16 +385,15 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(item.system.choiceValues).toEqual({ blanks: { "0": "3", "1": "2" } });
 		});
 
-		it("setBlankValue persists WITHOUT re-rendering (so click/tab keeps focus), unlike a choice write", async () => {
+		it("setBlankValue writes like any other choice value, dictating no render behaviour", async () => {
 			const item = makeArcanumItem({ slug: "horn", front: {}, back: {} });
 			const actor = makeActor([item]);
-			const arcana = new CharacterArcana(
-				actor, new FakeArcanaRepository([{ slug: "horn" }]), makeFakeStats(),
-				makeActorOutfitItems(), null, new ChoiceGroupFactory(actor));
+			const arcana = new CharacterArcana(actor, new FakeArcanaRepository([{slug: "horn"}]), makeFakeStats(), null, new ChoiceGroupControllerFactory(actor), null, makeOutfitSync(makeActorOutfitItems()));
 			await arcana.setBlankValue("horn", 0, "3");
-			expect(actor.updateOps).toEqual([{ render: false }]);
 			await arcana.setChoiceText("horn", "horn", "note", "x");
-			expect(actor.updateOps).toEqual([{ render: false }, { render: true }]);
+			// Keeping focus while tabbing between blanks is the sheet's job (buildFocusSelector), not
+			// something the write path suppresses.
+			expect(actor.updateOps).toEqual([{}, {}]);
 		});
 
 		it("getBlanks returns the stored write-in map (empty object when none)", async () => {
@@ -498,31 +492,20 @@ describe("CharacterArcana.buildSnapshot() — resourceController", () => {
 
 	it("back.resource is null when neither back.resource nor back.item.resource defined", async () => {
 		const noResource = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, resource: null } };
-		const arcana = new CharacterArcana(
-			makeActor([makeArcanumItem(noResource)]),
-			new FakeArcanaRepository(),
-		);
+		const arcana = new CharacterArcana(makeActor([makeArcanumItem(noResource)]), new FakeArcanaRepository());
 		expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
 	});
 });
 
 describe("CharacterArcana.buildSnapshot() — maxStat resolution", () => {
 	it("maxStat resolves to stat value from stats", async () => {
-		const arcana = new CharacterArcana(
-			makeActor([makeArcanumItem(CARVINGS_IN_A_CAVE)]),
-			new FakeArcanaRepository(),
-			makeFakeStats({ con: 3 }),
-		);
+		const arcana = new CharacterArcana(makeActor([makeArcanumItem(CARVINGS_IN_A_CAVE)]), new FakeArcanaRepository(), makeFakeStats({con: 3}));
 		const item = (await arcana.buildSnapshot()).minor.items[0];
 		expect(item.back.resource.max).toBe(3);
 	});
 
 	it("maxStat resolves to 0 when stat is missing", async () => {
-		const arcana = new CharacterArcana(
-			makeActor([makeArcanumItem(CARVINGS_IN_A_CAVE)]),
-			new FakeArcanaRepository(),
-			makeFakeStats(),
-		);
+		const arcana = new CharacterArcana(makeActor([makeArcanumItem(CARVINGS_IN_A_CAVE)]), new FakeArcanaRepository(), makeFakeStats());
 		const item = (await arcana.buildSnapshot()).minor.items[0];
 		expect(item.back.resource.max).toBe(0);
 	});
@@ -651,10 +634,10 @@ const STONE_IDOL = {
 function makeArcanaWithFollowers(items = [], arcana = [CRACKED_FLUTE]) {
 	const actor = makeActor(items);
 	const followerRepo = new FakeFollowerRepository();
-	const factory = new ChoiceGroupFactory(actor);
+	const factory = new ChoiceGroupControllerFactory(actor);
 	const followers = new CharacterFollowers(actor, followerRepo, makeResourceController(), factory);
-	factory.register(new FollowerSideEffectHandler(followers));
-	const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(arcana), null, null, followers, factory);
+	factory.subscribe(new FollowerSideEffectHandler(followers));
+	const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(arcana), null, followers, factory);
 	return { actor, charArcana, followers };
 }
 
@@ -718,7 +701,7 @@ describe("CharacterArcana — follower sync", () => {
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, null, followers);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, followers);
 		await charArcana.addArcanum("cracked-flute");
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
 	});
@@ -741,10 +724,10 @@ describe("CharacterArcana — follower sync", () => {
 			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
-		const factory = new ChoiceGroupFactory(actor);
+		const factory = new ChoiceGroupControllerFactory(actor);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController(), factory);
-		factory.register(new FollowerSideEffectHandler(followers));
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers, factory);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, followers, factory);
 		actor.items.push(makeArcanumItem(CRACKED_FLUTE));
 		await charArcana.setChoiceCount("cracked-flute", "cracked-flute", "andalau-of-the-flute", 1);
 		const followerItem = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
@@ -766,10 +749,10 @@ describe("CharacterArcana — follower sync", () => {
 			hp: { value: 6, max: 6 }, armor: "", damage: "",
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
-		const factory = new ChoiceGroupFactory(actor);
+		const factory = new ChoiceGroupControllerFactory(actor);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController(), factory);
-		factory.register(new FollowerSideEffectHandler(followers));
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, null, followers, factory);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, followers, factory);
 
 		// Unchecked: nothing embedded, but the card row still shows the follower (repo-backed preview).
 		let snap = await charArcana.buildSnapshot();
@@ -850,7 +833,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 			instinct: "", loyalty: { value: 0, max: 3 }, choices: null,
 		}]);
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, followers);
 		await charArcana.onArcanumCreated(makeArcanumItem(CRACKED_FLUTE));
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
 	});
@@ -858,7 +841,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 	it("does not embed follower when arcanum has no back choices", async () => {
 		const actor = makeActor([makeArcanumItem(FFYRNIG_SPHERE)]);
 		const followers = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, followers);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, followers);
 		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
 	});
@@ -866,7 +849,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 	it("syncs outfit items when front item has inventoryColumn", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const actor = makeActor([makeArcanumItem(BOW_WITH_NO_STRING)]);
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, outfitItems, null);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, null, null, makeOutfitSync(outfitItems));
 		await charArcana.onArcanumCreated(makeArcanumItem(BOW_WITH_NO_STRING));
 		expect(outfitItems.sync).toHaveBeenCalledWith("arcana:bow-with-no-string", expect.any(Array));
 	});
@@ -874,14 +857,14 @@ describe("CharacterArcana.onArcanumCreated", () => {
 	it("deletes outfit item source when front item has no inventoryColumn", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const actor = makeActor([makeArcanumItem(FFYRNIG_SPHERE)]);
-		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, outfitItems, null);
+		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, null, null, makeOutfitSync(outfitItems));
 		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
 		expect(outfitItems.deleteBySource).toHaveBeenCalledWith("arcana:huge-wooden-sphere");
 	});
 
 	it("does nothing when slug is null", async () => {
 		const outfitItems = makeActorOutfitItems();
-		const charArcana = new CharacterArcana(makeActor(), new FakeArcanaRepository(), null, outfitItems, null);
+		const charArcana = new CharacterArcana(makeActor(), new FakeArcanaRepository(), null, null);
 		await charArcana.onArcanumCreated({ system: { slug: null, front: null, back: null } });
 		expect(outfitItems.sync).not.toHaveBeenCalled();
 		expect(outfitItems.deleteBySource).not.toHaveBeenCalled();
@@ -898,9 +881,7 @@ const AZURE_HAND = {
 
 function makeArcanaWithMoves(items = [], moves = new FakeMoves(), arcana = [AZURE_HAND]) {
 	const actor = makeActor(items);
-	const charArcana = new CharacterArcana(
-		actor, new FakeArcanaRepository(arcana), makeFakeStats(), makeActorOutfitItems(), null, null, moves,
-	);
+	const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(arcana), makeFakeStats(), null, null, moves);
 	return { actor, charArcana, moves };
 }
 

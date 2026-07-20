@@ -54,11 +54,11 @@ export class CharacterInserts {
 	}
 
 	async setCount(itemId, groupSlug, optionSlug, count) {
-		await this._factory.forItem(itemId, "choiceValues").setCount(groupSlug, optionSlug, count);
+		await this._factory.forDocument(itemId, "choiceValues").setCount(groupSlug, optionSlug, count);
 	}
 
 	async selectOption(itemId, groupSlug, optionSlug, siblingSlugsCsv) {
-		const ctrl = this._factory.forItem(itemId, "choiceValues");
+		const ctrl = this._factory.forDocument(itemId, "choiceValues");
 		if (groupSlug === "instinct")
 			await new InstinctController(ctrl).selectOption(optionSlug, siblingSlugsCsv);
 		else
@@ -66,12 +66,12 @@ export class CharacterInserts {
 	}
 
 	async selectCustomInstinct(itemId, text) {
-		const ctrl = this._factory.forItem(itemId, "choiceValues");
+		const ctrl = this._factory.forDocument(itemId, "choiceValues");
 		await new InstinctController(ctrl).selectCustom(text);
 	}
 
 	async setText(itemId, groupSlug, optionSlug, text) {
-		await this._factory.forItem(itemId, "choiceValues").setText(groupSlug, optionSlug, text);
+		await this._factory.forDocument(itemId, "choiceValues").setText(groupSlug, optionSlug, text);
 	}
 
 	async buildSnapshot() {

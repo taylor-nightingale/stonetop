@@ -4,27 +4,26 @@ import {
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
 import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
-import { ChoiceGroupFactory } from "./ChoiceGroupFactory.js";
-import { EmbeddedOutfitItemBuilder } from "../../model/data/character/EmbeddedOutfitItem.js";
 import { Possession } from "../../model/data/character/Possession.js";
+import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { rich } from "../../model/snapshot/RichText.js";
 
 export class CharacterPossessions {
-	constructor(actor, moves, outfitItems = null, possessionRepo = null, factory = null) {
+	// `factory` is required: a locally-constructed one would carry no registered side-effect handlers,
+	// so every choice group on the sheet would silently stop granting.
+	constructor(actor, moves, possessionRepo = null, factory, containerOutfitSync = null) {
 		this._actor          = actor;
 		this._moves          = moves;
-		this._outfitItems    = outfitItems;
 		this._possessionRepo = possessionRepo;
-		this._factory        = factory ?? new ChoiceGroupFactory(actor);
+		this._factory        = factory;
+		this._outfitSync     = containerOutfitSync;
 	}
 
-	// A possession's sub-choices ARE a choice group, so their value persistence goes through the shared
-	// ChoiceGroupController rather than hand-rolled ChoiceValues writes. Side effects are suppressed: the
-	// item-granting is selection-gated and owned by syncPossessionItems (not a pure choice-group side
-	// effect), so it must NOT also fire the registered OutfitItemSideEffectHandler. The namespace stays the
-	// possession slug — the key the stored pickValues already use and buildSnapshot forces — so no data is rewritten.
+	// A possession's sub-choices ARE a choice group: values persist through the shared controller, and
+	// the gear they grant is written by ContainerOutfitSync like any other container. The namespace is
+	// the possession slug — the key the stored pickValues already use — so no data is rewritten.
 	_pickController(itemId) {
-		return this._factory.forItem(itemId, "pickValues", { sideEffects: false });
+		return this._factory.forDocument(itemId, "pickValues");
 	}
 
 	get selected() {
@@ -47,14 +46,14 @@ export class CharacterPossessions {
 		const item = _findPossessionItem(this._actor, slug);
 		if (!item) return;
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { selected: false } }]);
-		await this._outfitItems?.deleteBySource("possession:" + slug);
+		await this._outfitSync?.clear("possession:" + slug);
 	}
 
 	// Remove a drag-dropped (non-playbook) possession entirely, along with any outfit items it granted.
 	async deletePossession(slug) {
 		const item = _findPossessionItem(this._actor, slug);
 		if (!item) return;
-		await this._outfitItems?.deleteBySource("possession:" + slug);
+		await this._outfitSync?.clear("possession:" + slug);
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
 	}
 
@@ -140,33 +139,28 @@ export class CharacterPossessions {
 		const possessions = [...this._actor.items]
 			.filter(i => i.type === "possession" && i.system?.playbookSlug === playbookSlug);
 		for (const p of possessions) {
-			await this._outfitItems?.deleteBySource("possession:" + p.system.slug);
+			await this._outfitSync?.clear("possession:" + p.system.slug);
 		}
 		const ids = possessions.map(i => i._id);
 		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
 	}
 
+	/** What a possession grants right now: its own gear plus whatever its ticked choices grant. */
+	static outfitGrantFor(item) {
+		const slug = item.system?.slug;
+		const possession = new Possession(item.system);
+		return OutfitGrant.forContainer(
+			"possession:" + slug,
+			possession.outfitItems ?? [],
+			item.system,
+			item.system?.pickValues ?? {},
+		);
+	}
+
 	async syncPossessionItems(slug) {
-		if (!this._outfitItems) return;
 		const item = _findPossessionItem(this._actor, slug);
 		if (!item) return;
-		const possession = new Possession(item.system);
-		const cv = new ChoiceValues(item.system?.pickValues ?? {});
-		const source = "possession:" + slug;
-		const items = [];
-		for (const oi of possession.outfitItems ?? []) {
-			items.push(_buildEmbeddedItem(oi, source));
-		}
-		for (const row of (possession.choices?.list ?? [])) {
-			if (row.type !== "pick") continue;
-			for (const choice of row.options ?? []) {
-				if (cv.getCount(slug, choice.slug) === 0) continue;
-				for (const oi of choice.outfitItems ?? []) {
-					items.push(_buildEmbeddedItem(oi, source));
-				}
-			}
-		}
-		await this._outfitItems.sync(source, items);
+		await this._outfitSync?.syncItem(item);
 	}
 
 	computeMaxUses(possessions, level) {
@@ -260,15 +254,3 @@ function _findPossessionItem(actor, slug) {
 	return [...actor.items].find(i => i.type === "possession" && i.system?.slug === slug) ?? null;
 }
 
-function _buildEmbeddedItem(data, source) {
-	return new EmbeddedOutfitItemBuilder()
-		.withSlug(data.slug)
-		.withName(data.name)
-		.withWeight(data.weight ?? 1)
-		.withNote(data.note ?? null)
-		.withInventoryColumn(data.inventoryColumn ?? "regular")
-		.withResource(data.resource ?? null)
-		.withTwoCol(data.twoCol ?? false)
-		.withSource(source)
-		.build();
-}

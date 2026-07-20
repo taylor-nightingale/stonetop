@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
-import { FollowerSideEffectHandler, OutfitItemSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
+import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -17,18 +17,18 @@ function makeItem(overrides = {}) {
 
 function makeFactory(items = []) {
 	const actor = new FakeCharacterActorBuilder().withItems(items).build();
-	return { factory: new ChoiceGroupFactory(actor), actor };
+	return { factory: new ChoiceGroupControllerFactory(actor), actor };
 }
 
-// ── forItem ───────────────────────────────────────────────────────────────────
+// ── forDocument ──────────────────────────────────────────────────────────────
 
-describe("ChoiceGroupFactory.forItem", () => {
+describe("ChoiceGroupFactory.forDocument", () => {
 	it("setCount writes to the item's value field", async () => {
 		const item = makeItem({ system: { choiceValues: {}, choices: [
 			{ slug: "ns", list: [{ type: "entry", slug: "opt", track: { max: 1 } }] },
 		]}});
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues").setCount("ns", "opt", 1);
+		await factory.forDocument("item-1", "choiceValues").setCount("ns", "opt", 1);
 		expect(actor.items.get("item-1").system.choiceValues).toEqual({ ns: { opt: 1 } });
 	});
 
@@ -40,7 +40,7 @@ describe("ChoiceGroupFactory.forItem", () => {
 			]}]},
 		]}});
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues").selectOption("ns", "a", "a,b");
+		await factory.forDocument("item-1", "choiceValues").selectOption("ns", "a", "a,b");
 		expect(actor.items.get("item-1").system.choiceValues.ns.a).toBe(1);
 		expect(actor.items.get("item-1").system.choiceValues.ns.b).toBe(0);
 	});
@@ -48,36 +48,29 @@ describe("ChoiceGroupFactory.forItem", () => {
 	it("setText writes a string value to the value field", async () => {
 		const item = makeItem({ system: { choiceValues: {}, choices: [] } });
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues").setText("ns", "opt", "hello");
+		await factory.forDocument("item-1", "choiceValues").setText("ns", "opt", "hello");
 		expect(actor.items.get("item-1").system.choiceValues).toEqual({ ns: { opt: "hello" } });
 	});
 
 	it("clearValues removes the namespace from values", async () => {
 		const item = makeItem({ system: { choiceValues: { ns: { opt: 1 } }, choices: [] } });
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues").clearValues("ns");
+		await factory.forDocument("item-1", "choiceValues").clearValues("ns");
 		expect(actor.items.get("item-1").system.choiceValues).toEqual({});
 	});
 
-	it("defaults to re-rendering the owning sheet on write", async () => {
+	it("writes without dictating render behaviour (that is the sheet's decision)", async () => {
 		const item = makeItem({ system: { choiceValues: {}, choices: [] } });
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues").setText("ns", "opt", "hi");
-		expect(actor.updateOps).toEqual([{ render: true }]);
-	});
-
-	it("render: false persists without re-rendering (write-in fields keep focus)", async () => {
-		const item = makeItem({ system: { choiceValues: {}, choices: [] } });
-		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "choiceValues", { render: false }).setText("ns", "opt", "hi");
+		await factory.forDocument("item-1", "choiceValues").setText("ns", "opt", "hi");
 		expect(actor.items.get("item-1").system.choiceValues).toEqual({ ns: { opt: "hi" } });
-		expect(actor.updateOps).toEqual([{ render: false }]);
+		expect(actor.updateOps).toEqual([{}]);
 	});
 
 	it("uses the correct valueField", async () => {
 		const item = makeItem({ system: { pickValues: {}, choices: [] } });
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItem("item-1", "pickValues").setCount("ns", "opt", 1);
+		await factory.forDocument("item-1", "pickValues").setCount("ns", "opt", 1);
 		expect(actor.items.get("item-1").system.pickValues).toEqual({ ns: { opt: 1 } });
 	});
 
@@ -87,8 +80,8 @@ describe("ChoiceGroupFactory.forItem", () => {
 			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
 		]}});
 		const { factory } = makeFactory([item]);
-		factory.register(new FollowerSideEffectHandler(followers));
-		await factory.forItem("item-1", "choiceValues").setCount("ns", "companion", 1);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		await factory.forDocument("item-1", "choiceValues").setCount("ns", "companion", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
@@ -99,8 +92,8 @@ describe("ChoiceGroupFactory.forItem", () => {
 			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
 		}}});
 		const { factory } = makeFactory([item]);
-		factory.register(new FollowerSideEffectHandler(followers));
-		await factory.forItem("item-1", "pickValues").setCount("ns", "companion", 1);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		await factory.forDocument("item-1", "pickValues").setCount("ns", "companion", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
@@ -111,39 +104,27 @@ describe("ChoiceGroupFactory.forItem", () => {
 			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
 		}}}});
 		const { factory } = makeFactory([item]);
-		factory.register(new FollowerSideEffectHandler(followers));
-		await factory.forItem("item-1", "choiceValues").setCount("ns", "companion", 1);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		await factory.forDocument("item-1", "choiceValues").setCount("ns", "companion", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("sideEffects:false persists the value but does NOT fire registered handlers", async () => {
-		const followers = new FakeFollowers();
-		const item = makeItem({ system: { pickValues: {}, choices: {
-			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
-		}}});
-		const { factory, actor } = makeFactory([item]);
-		factory.register(new FollowerSideEffectHandler(followers));
-		await factory.forItem("item-1", "pickValues", { sideEffects: false }).setCount("ns", "companion", 1);
-		expect(actor.items.get("item-1").system.pickValues).toEqual({ ns: { companion: 1 } });
-		expect(followers.isOwned("enfys")).toBe(false);
-	});
 });
 
-// ── forItemType ───────────────────────────────────────────────────────────────
+// ── forSingleton ─────────────────────────────────────────────────────────────
 
-describe("ChoiceGroupFactory.forItemType", () => {
-	it("writes to the item found by type", async () => {
+describe("ChoiceGroupFactory.forSingleton", () => {
+	it("writes to whichever document of that type the character currently has", async () => {
 		const item = { _id: "pb-1", type: "playbook", name: "The Blessed", system: { choiceValues: {}, choices: [] } };
 		const { factory, actor } = makeFactory([item]);
-		await factory.forItemType("playbook", "choiceValues").setCount("ns", "opt", 1);
+		await factory.forSingleton("playbook", "choiceValues").setCount("ns", "opt", 1);
 		expect(actor.items.get("pb-1").system.choiceValues).toEqual({ ns: { opt: 1 } });
 	});
 
 	it("re-resolves item on each write — follows item replacement", async () => {
 		const item1 = { _id: "pb-1", type: "playbook", name: "The Blessed", system: { choiceValues: {} } };
 		const { factory, actor } = makeFactory([item1]);
-		const ctrl = factory.forItemType("playbook", "choiceValues");
+		const ctrl = factory.forSingleton("playbook", "choiceValues");
 
 		await actor.deleteEmbeddedDocuments("Item", ["pb-1"]);
 		const [item2] = await actor.createEmbeddedDocuments("Item", [
@@ -158,21 +139,19 @@ describe("ChoiceGroupFactory.forItemType", () => {
 
 	it("no-ops when no item of the given type exists", async () => {
 		const { factory, actor } = makeFactory([]);
-		await factory.forItemType("playbook", "choiceValues").setCount("ns", "opt", 1);
+		await factory.forSingleton("playbook", "choiceValues").setCount("ns", "opt", 1);
 		expect(actor.updatedDocs).toHaveLength(0);
 	});
 
-	it("uses provided definitionGetter for side effects", async () => {
+	it("resolves the definition structurally — including groups outside system.choices", async () => {
 		const followers = new FakeFollowers();
 		const item = { _id: "pb-1", type: "playbook", name: "The Blessed", system: {
 			choiceValues: {},
 			instinct: { slug: "instinct", list: [{ type: "entry", slug: "guide", followers: { slugs: ["enfys"] } }] },
 		}};
 		const { factory } = makeFactory([item]);
-		factory.register(new FollowerSideEffectHandler(followers));
-		const ctrl = factory.forItemType("playbook", "choiceValues",
-			(ns, item) => ns === "instinct" ? item?.system?.instinct : null,
-		);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+		const ctrl = factory.forSingleton("playbook", "choiceValues");
 		await ctrl.setCount("instinct", "guide", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
@@ -180,48 +159,98 @@ describe("ChoiceGroupFactory.forItemType", () => {
 
 // ── register ──────────────────────────────────────────────────────────────────
 
-describe("ChoiceGroupFactory — register", () => {
-	it("handler registered after forItem call fires on subsequent mutations", async () => {
+describe("ChoiceGroupFactory — subscribe", () => {
+	it("handler registered after the controller is built fires on subsequent mutations", async () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, choices: [
 			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
 		]}});
 		const { factory } = makeFactory([item]);
-		const ctrl = factory.forItem("item-1", "choiceValues");
-		factory.register(new FollowerSideEffectHandler(followers));
+		const ctrl = factory.forDocument("item-1", "choiceValues");
+		factory.subscribe(new FollowerSideEffectHandler(followers));
 		await ctrl.setCount("ns", "companion", 1);
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
 	it("multiple handlers are called in registration order", async () => {
 		const order = [];
-		const h1 = { async apply() { order.push(1); } };
-		const h2 = { async apply() { order.push(2); } };
+		const h1 = { async handle() { order.push(1); } };
+		const h2 = { async handle() { order.push(2); } };
 		const item = makeItem({ system: { choiceValues: {}, choices: [
 			{ slug: "ns", list: [{ type: "entry", slug: "opt", track: { max: 1 } }] },
 		]}});
 		const { factory } = makeFactory([item]);
-		factory.register(h1).register(h2);
-		await factory.forItem("item-1", "choiceValues").setCount("ns", "opt", 1);
+		factory.subscribe(h1).subscribe(h2);
+		await factory.forDocument("item-1", "choiceValues").setCount("ns", "opt", 1);
 		expect(order).toEqual([1, 2]);
 	});
 
-	it("OutfitItemSideEffectHandler syncs items when a pick option with outfitItems is selected", async () => {
-		const outfitItems = new FakeOutfitItems();
-		const SWORD = { slug: "sword", name: "Sword" };
-		const item = makeItem({ system: { choiceValues: {}, choices: [
-			{ slug: "gear", list: [{ type: "pick", pickCount: 1, options: [
-				{ slug: "blade", text: "Blade", description: "", outfitItems: [SWORD] },
-			]}]},
-		]}});
-		const { factory } = makeFactory([item]);
-		factory.register(new OutfitItemSideEffectHandler("choice", outfitItems));
-		await factory.forItem("item-1", "choiceValues").selectOption("gear", "blade", "blade");
-		expect(outfitItems.hasSource("choice:gear:blade")).toBe(true);
-	});
 
 	it("returns the factory for chaining", () => {
 		const { factory } = makeFactory([]);
-		expect(factory.register({ async apply() {} })).toBe(factory);
+		expect(factory.subscribe({ async handle() {} })).toBe(factory);
+	});
+});
+
+// ── the definition lookup is structural, not a hand-written list of paths ──────────────────────
+
+describe("ChoiceGroupFactory — definition lookup", () => {
+	it("fires side effects for a group at front.unlock (the old lookup never found these)", async () => {
+		const followers = new FakeFollowers();
+		const item = {
+			_id: "arc-1", type: "arcanum", name: "Ring of Daagon",
+			system: {
+				slug: "ring-of-daagon", choiceValues: {},
+				front: { unlock: { slug: "ring-of-daagon", list: [
+					{ type: "entry", slug: "the-ring", followers: { slugs: ["the-ring"] }, track: { max: 1 } },
+				]}},
+				back: {},
+			},
+		};
+		const { factory } = makeFactory([item]);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+
+		await factory.forDocument("arc-1", "choiceValues").setCount("ring-of-daagon", "the-ring", 1);
+
+		expect(followers.isOwned("the-ring")).toBe(true);
+	});
+
+	it("fires side effects for a group at back.consequences", async () => {
+		const followers = new FakeFollowers();
+		const item = {
+			_id: "arc-2", type: "arcanum", name: "Some arcanum",
+			system: {
+				slug: "some-arcanum", choiceValues: {},
+				front: {},
+				back: { consequences: { slug: "consequences", list: [
+					{ type: "entry", slug: "doom", followers: { slugs: ["enfys"] }, track: { max: 1 } },
+				]}},
+			},
+		};
+		const { factory } = makeFactory([item]);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+
+		await factory.forDocument("arc-2", "choiceValues").setCount("consequences", "doom", 1);
+
+		expect(followers.isOwned("enfys")).toBe(true);
+	});
+
+	it("fires side effects for a background's nested choices group", async () => {
+		const followers = new FakeFollowers();
+		const item = {
+			_id: "pb-1", type: "playbook", name: "The Blessed",
+			system: {
+				choiceValues: {},
+				backgrounds: [{ slug: "initiate", choices: { slug: "initiate", list: [
+					{ type: "entry", slug: "mentor", followers: { slugs: ["enfys"] }, track: { max: 1 } },
+				]}}],
+			},
+		};
+		const { factory } = makeFactory([item]);
+		factory.subscribe(new FollowerSideEffectHandler(followers));
+
+		await factory.forSingleton("playbook", "choiceValues").setCount("initiate", "mentor", 1);
+
+		expect(followers.isOwned("enfys")).toBe(true);
 	});
 });

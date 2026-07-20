@@ -1,6 +1,6 @@
 import {describe, expect, it} from "vitest";
 import {CharacterMoves} from "../../../src/actors/character/CharacterMoves.js";
-import {ChoiceGroupFactory} from "../../../src/actors/character/ChoiceGroupFactory.js";
+import {ChoiceGroupControllerFactory} from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import {ResourceController} from "../../../src/actors/character/ResourceController.js";
 import {FakeMoveRepository} from "../../fakes/FakeMoveRepository.js";
 import {FakeCharacterActorBuilder} from "../../fakes/FakeCharacterActorBuilder.js";
@@ -37,7 +37,7 @@ function makeMoves({
 	vitals = {level: 1},
 } = {}) {
 	const res = new ResourceController(actor);
-	const m   = new CharacterMoves(repo, actor, res, new ChoiceGroupFactory(actor));
+	const m   = new CharacterMoves(repo, actor, res, new ChoiceGroupControllerFactory(actor));
 	m.setVitals(vitals);
 	return m;
 }

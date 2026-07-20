@@ -10,9 +10,7 @@ export class CharacterBackgrounds {
 	constructor(actor, factory, resourceController) {
 		this._actor              = actor;
 		this._resourceController = resourceController;
-		this._ctrl               = factory.forItemType("playbook", "backgroundValues",
-			(ns, item) => item?.system?.backgrounds?.find(b => b.slug === ns)?.choices ?? null,
-		);
+		this._ctrl               = factory.forSingleton("playbook", "backgroundValues");
 	}
 
 	get selectedSlug() {

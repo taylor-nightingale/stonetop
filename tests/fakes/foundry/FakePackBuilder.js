@@ -16,6 +16,7 @@ export class FakePackBuilder {
 		return {
 			async getIndex() {},
 			index: items,
+			folders: [],
 			async getDocument(id) { return items.find(e => e._id === id) ?? null; },
 		};
 	}

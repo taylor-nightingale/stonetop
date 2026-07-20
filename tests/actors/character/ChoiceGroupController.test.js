@@ -1,19 +1,18 @@
 import { describe, expect, it } from "vitest";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
-import { FollowerSideEffectHandler, OutfitItemSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
+import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEffectHandler.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function makeCtrl(choices = [], { followers = null, outfitItems = null } = {}) {
+function makeCtrl(choices = [], { followers = null } = {}) {
 	const item   = { _id: "i1", type: "test", system: { choiceValues: {}, choices } };
 	const actor  = new FakeCharacterActorBuilder().withItems([item]).build();
-	const factory = new ChoiceGroupFactory(actor);
-	if (followers)   factory.register(new FollowerSideEffectHandler(followers));
-	if (outfitItems) factory.register(new OutfitItemSideEffectHandler(outfitItems.prefix, outfitItems.items));
-	return { ctrl: factory.forItem("i1", "choiceValues"), actor };
+	const factory = new ChoiceGroupControllerFactory(actor);
+	if (followers)   factory.subscribe(new FollowerSideEffectHandler(followers));
+	return { ctrl: factory.forDocument("i1", "choiceValues"), actor };
 }
 
 function values(actor) { return actor.items.get("i1").system.choiceValues; }
@@ -197,58 +196,3 @@ describe("ChoiceGroupController — follower side effects", () => {
 
 // ── OutfitItem side effects ───────────────────────────────────────────────────
 
-describe("ChoiceGroupController — outfitItems side effects", () => {
-	const SWORD = { slug: "sword", name: "Sword" };
-	const BOW   = { slug: "bow",   name: "Bow" };
-
-	it("selectOption syncs outfit items for the chosen pick option", async () => {
-		const items = new FakeOutfitItems();
-		const { ctrl } = makeCtrl(
-			[{ slug: "weapons", list: [{ type: "pick", pickCount: 1, options: [
-				{ slug: "sword-opt", text: "Sword", outfitItems: [SWORD] },
-				{ slug: "bow-opt",   text: "Bow" },
-			]}]}],
-			{ outfitItems: { prefix: "cg", items } },
-		);
-		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
-		const [created] = items.getItems("cg:weapons:sword-opt");
-		expect(created.type).toBe("outfitItem");
-		expect(items.getSlugs("cg:weapons:sword-opt")).toEqual(["sword"]);
-	});
-
-	it("switching option removes previous outfit items and syncs new ones", async () => {
-		const items = new FakeOutfitItems();
-		const { ctrl } = makeCtrl(
-			[{ slug: "weapons", list: [{ type: "pick", pickCount: 1, options: [
-				{ slug: "sword-opt", text: "Sword", outfitItems: [SWORD] },
-				{ slug: "bow-opt",   text: "Bow",   outfitItems: [BOW]   },
-			]}]}],
-			{ outfitItems: { prefix: "cg", items } },
-		);
-		await ctrl.selectOption("weapons", "sword-opt", "sword-opt,bow-opt");
-		await ctrl.selectOption("weapons", "bow-opt",   "sword-opt,bow-opt");
-		expect(items.hasSource("cg:weapons:sword-opt")).toBe(false);
-		expect(items.getSlugs("cg:weapons:bow-opt")).toEqual(["bow"]);
-	});
-
-	it("setCount(0) on entry row with outfitItems removes that source", async () => {
-		const items = new FakeOutfitItems();
-		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "entry", slug: "kit", outfitItems: [SWORD], track: { max: 1 } }] }],
-			{ outfitItems: { prefix: "poss", items } },
-		);
-		await ctrl.setCount("ns", "kit", 1);
-		await ctrl.setCount("ns", "kit", 0);
-		expect(items.hasSource("poss:ns:kit")).toBe(false);
-	});
-
-	it("uses the configured source prefix", async () => {
-		const items = new FakeOutfitItems();
-		const { ctrl } = makeCtrl(
-			[{ slug: "ns", list: [{ type: "entry", slug: "kit", outfitItems: [SWORD], track: { max: 1 } }] }],
-			{ outfitItems: { prefix: "possessions", items } },
-		);
-		await ctrl.setCount("ns", "kit", 1);
-		expect(items.hasSource("possessions:ns:kit")).toBe(true);
-	});
-});

@@ -3,7 +3,7 @@ import { CharacterPlaybook } from "../../../src/actors/character/CharacterPlaybo
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { PlaybookSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { IntroductionsSnapshot } from "../../../src/model/snapshot/character/PlaybookSnapshot.js";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
@@ -28,7 +28,7 @@ class FakeOrigin {
 }
 
 function makePlaybook(actor, { background = new FakeBackground() } = {}) {
-	const factory = new ChoiceGroupFactory(actor);
+	const factory = new ChoiceGroupControllerFactory(actor);
 	return new CharacterPlaybook(actor, background, factory, new FakeOrigin());
 }
 

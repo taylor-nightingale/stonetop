@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
@@ -22,7 +22,7 @@ function makeCf(repo = null, resourceCtrl = null) {
 		actor,
 		repo ?? new FakeFollowerRepository(),
 		resourceCtrl ?? makeResourceController(),
-		new ChoiceGroupFactory(actor),
+		new ChoiceGroupControllerFactory(actor),
 	);
 }
 
@@ -774,7 +774,7 @@ describe("CharacterFollowers — addFromNpcActor", () => {
 			actor,
 			repo ?? new FakeFollowerRepository(),
 			makeResourceController(),
-			new ChoiceGroupFactory(actor),
+			new ChoiceGroupControllerFactory(actor),
 		);
 		return { actor, cf };
 	}
@@ -879,7 +879,7 @@ describe("CharacterFollowers.syncPlaybookFollowers", () => {
 			actor,
 			new FakeFollowerRepository(repoFollowers),
 			makeResourceController(),
-			new ChoiceGroupFactory(actor),
+			new ChoiceGroupControllerFactory(actor),
 		);
 		return { actor, cf };
 	}
@@ -1096,7 +1096,7 @@ function makeCfInv(invItems = OUTFIT) {
 	const actor = makeActor();
 	const cf = new CharacterFollowers(
 		actor, new FakeFollowerRepository([FOLLOWER_TMPL, FOLLOWER_TMPL_2]), makeResourceController(),
-		new ChoiceGroupFactory(actor), { getAll: async () => invItems },
+		new ChoiceGroupControllerFactory(actor), { getAll: async () => invItems },
 	);
 	return cf;
 }

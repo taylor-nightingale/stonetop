@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CharacterInserts } from "../../../src/actors/character/CharacterInserts.js";
-import { ChoiceGroupFactory } from "../../../src/actors/character/ChoiceGroupFactory.js";
+import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeInsertRepository } from "../../fakes/FakeInsertRepository.js";
@@ -13,7 +13,7 @@ const GHOST    = new TestInsertItemBuilder().withId("insert-item-2").withSlug("g
 
 function makeInserts({ items = [], moves = new FakeMoves(), repo = null } = {}) {
 	const actor = new FakeCharacterActorBuilder().withItems(items).build();
-	return { actor, inserts: new CharacterInserts(actor, new ChoiceGroupFactory(actor), moves, repo) };
+	return { actor, inserts: new CharacterInserts(actor, new ChoiceGroupControllerFactory(actor), moves, repo) };
 }
 
 // ── onInsertDropped ───────────────────────────────────────────────────────────

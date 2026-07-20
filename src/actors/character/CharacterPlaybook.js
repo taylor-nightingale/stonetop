@@ -9,7 +9,7 @@ export class CharacterPlaybook {
 		this._actor = actor;
 		this._background = background;
 		this._origin = origin;
-		this._ctrl = factory.forItemType("playbook", "choiceValues");
+		this._ctrl = factory.forSingleton("playbook", "choiceValues");
 		this._instinct = new InstinctController(this._ctrl);
 	}
 
