@@ -349,18 +349,10 @@ export class CharacterFollowers {
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { companion } }]);
 	}
 
-	async setChoiceValue(slug, groupSlug, choiceSlug, siblingSlugsCsv) {
+	/** The controller for one follower's choice values, or null when the follower is not embedded. */
+	controllerFor(slug) {
 		const item = _findFollowerItem(this._actor, slug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues")
-			.selectOption(groupSlug, choiceSlug, siblingSlugsCsv ?? null);
-	}
-
-	async setChoiceText(followerSlug, optionSlug, text) {
-		const item = _findFollowerItem(this._actor, followerSlug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues")
-			.setText("choices", optionSlug, text);
+		return item ? this._factory.forDocument(item._id, "choiceValues") : null;
 	}
 
 	async buildSnapshot(extraSlugs = []) {

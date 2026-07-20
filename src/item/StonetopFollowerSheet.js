@@ -122,7 +122,7 @@ export function createStonetopFollowerSheetClass(Base) {
 
 			// ── Choices group (system.choices.0) — reuse the shared editor + lifecycle buttons ──
 			activateChoiceGroupEditors(this, root);
-			bindAll(root, ".follower-choices-add", "click", () => item.update({ "system.choices": [CG.newGroup("choices")] }));
+			bindAll(root, ".follower-choices-add", "click", () => item.update({ "system.choices": [CG.newGroup(item.system.slug)] }));
 			bindAll(root, ".follower-choices-remove", "click", () => item.update({ "system.choices": [] }));
 
 			// ── Selection fields (tagList/instinct/cost): options list + default → Selection raw ──

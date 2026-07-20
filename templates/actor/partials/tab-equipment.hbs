@@ -162,11 +162,7 @@
 				{{#if choices}}
 				<div class="stonetop-choice-rows" data-possession-slug="{{slug}}">
 				{{#each choices.list}}
-					{{#if radio}}
-					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-radio" changeAction="possessionSubRadio" namePrefix="stonetop" possessionSlug=../slug}}
-					{{else}}
-					{{> "stonetop.choice-row" inputClass="stonetop-possession-sub-check" changeAction="possessionSubCheck" possessionSlug=../slug}}
-					{{/if}}
+					{{> "stonetop.choice-row" cgContext="possession" cgGroup=../choices.slug namePrefix=../slug}}
 				{{/each}}
 				</div>
 				{{/if}}

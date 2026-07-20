@@ -1,6 +1,6 @@
 import { toSlug } from "../utils/slug.js";
 import { bindAll } from "../utils/bindAll.js";
-import { setField as setChoicesField } from "../utils/choiceGroupEdit.js";
+import { setField as setChoicesField, newGroup } from "../utils/choiceGroupEdit.js";
 import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
@@ -145,7 +145,7 @@ export function createStonetopMoveSheetClass(Base) {
 		}
 
 		async _addChoicesGroup() {
-			await this._saveChoices({ slug: toSlug(this.item.name) || "choices", list: [] });
+			await this._saveChoices(newGroup(this.item.system.slug));
 		}
 
 		async _removeChoicesGroup() {

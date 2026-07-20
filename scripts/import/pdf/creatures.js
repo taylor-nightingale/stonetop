@@ -269,7 +269,8 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 	const members = groupCount ? Array.from({ length: groupCount }, () => newMember(hp.max)) : null;
 	// Fixed moves stay in the markdown list; □-boxed *pickable* moves become entries in the follower
 	// choice group (choices[0]) so the player checks the ones this follower has — they are NOT also added
-	// to the moves list. A single checkbox each (track.max 1); state lives in choiceValues["choices"].
+	// to the moves list. A single checkbox each (track.max 1). The group's slug is its namespace within
+	// THIS follower's choiceValues — stores are per-document, so it only has to be unique on this item.
 	const movesMd = (list) => list.map((m) => (m.prose ? `\n${m.text}\n` : `- ${m.text}`)).join("\n").replace(/\n{3,}/g, "\n\n").trim();
 	const fixedMoves = (creature.moves || []).filter((m) => !m.selectable);
 	const moveChoices = (creature.moves || []).filter((m) => m.selectable && !m.prose)

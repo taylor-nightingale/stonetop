@@ -134,7 +134,7 @@ describe("StonetopFollowerSheet._onRender wiring", () => {
 	it("adding the choices group writes a fresh group at system.choices.0", () => {
 		const { item, root } = wired({ slug: "x" }, `<button class="follower-choices-add"></button>`);
 		fire(root.querySelector(".follower-choices-add"), "click");
-		expect(item.update).toHaveBeenCalledWith({ "system.choices": [expect.objectContaining({ slug: "choices" })] });
+		expect(item.update).toHaveBeenCalledWith({ "system.choices": [expect.objectContaining({ slug: "x" })] });
 	});
 
 	it("wires no editor handlers when the sheet is not editable", () => {

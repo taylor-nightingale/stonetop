@@ -135,18 +135,10 @@ export class CharacterMoves {
 		return true;
 	}
 
-	async setMoveChoiceText(moveSlug, optionSlug, value) {
+	/** The controller for one move's picks, or null when the move is absent or has no choice group. */
+	controllerFor(moveSlug) {
 		const item = findMoveItemBySlug(this._actor, moveSlug);
-		if (!item?.system?.choices) return;
-		await this._factory.forDocument(item._id, "pickValues")
-			.setText(item.system.choices.slug, optionSlug, value);
-	}
-
-	async setMoveChoiceCount(moveSlug, optionSlug, count) {
-		const item = findMoveItemBySlug(this._actor, moveSlug);
-		if (!item?.system?.choices) return;
-		await this._factory.forDocument(item._id, "pickValues")
-			.setCount(item.system.choices.slug, optionSlug, count);
+		return item?.system?.choices ? this._factory.forDocument(item._id, "pickValues") : null;
 	}
 
 	async setMoveResourceCurrent(moveSlug, current) {

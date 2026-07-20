@@ -53,6 +53,13 @@ export class CharacterInserts {
 		if (slug) await this._moves.removeCategory(`insert-${slug}`);
 	}
 
+	/** The controller for one insert's choice values. An insert's instinct group is exclusive with its
+	 *  write-in box, so that group resolves to the controller that enforces it. */
+	controllerFor(itemId, groupSlug) {
+		const ctrl = this._factory.forDocument(itemId, "choiceValues");
+		return groupSlug === "instinct" ? new InstinctController(ctrl) : ctrl;
+	}
+
 	async setCount(itemId, groupSlug, optionSlug, count) {
 		await this._factory.forDocument(itemId, "choiceValues").setCount(groupSlug, optionSlug, count);
 	}
@@ -60,14 +67,14 @@ export class CharacterInserts {
 	async selectOption(itemId, groupSlug, optionSlug, siblingSlugsCsv) {
 		const ctrl = this._factory.forDocument(itemId, "choiceValues");
 		if (groupSlug === "instinct")
-			await new InstinctController(ctrl).selectOption(optionSlug, siblingSlugsCsv);
+			await new InstinctController(ctrl).selectOption(groupSlug, optionSlug, siblingSlugsCsv);
 		else
 			await ctrl.selectOption(groupSlug, optionSlug, siblingSlugsCsv);
 	}
 
 	async selectCustomInstinct(itemId, text) {
 		const ctrl = this._factory.forDocument(itemId, "choiceValues");
-		await new InstinctController(ctrl).selectCustom(text);
+		await new InstinctController(ctrl).selectCustom("instinct", text);
 	}
 
 	async setText(itemId, groupSlug, optionSlug, text) {

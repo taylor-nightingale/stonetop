@@ -64,7 +64,7 @@ export function createStonetopPossessionSheetClass(Base) {
 
 			// Choices group lifecycle — a single group at system.choices (null when absent).
 			bindAll(root, ".possession-choices-add-group", "click", () =>
-				this.item.update({ "system.choices": CG.newGroup("choices") }));
+				this.item.update({ "system.choices": CG.newGroup(this.item.system.slug) }));
 			bindAll(root, ".possession-choices-remove-group", "click", () =>
 				this.item.update({ "system.choices": null }));
 

@@ -7,6 +7,7 @@ import { ChoiceValues } from "../../../src/model/snapshot/character/ChoiceGroup.
 class FakeCtrl {
 	calls = [];
 	async selectOption(ns, slug, siblings) { this.calls.push({ op: "selectOption", ns, slug, siblings }); }
+	async setCount(ns, slug, count)        { this.calls.push({ op: "setCount",     ns, slug, count }); }
 	async setText(ns, slug, value)         { this.calls.push({ op: "setText",       ns, slug, value }); }
 	async clearValues(ns)                  { this.calls.push({ op: "clearValues",   ns }); }
 }
@@ -16,15 +17,15 @@ function ctrl() { return new FakeCtrl(); }
 // ── selectOption ──────────────────────────────────────────────────────────────
 
 describe("InstinctController.selectOption", () => {
-	it("calls ctrl.selectOption with the instinct namespace", async () => {
+	it("passes the namespace it is given straight through", async () => {
 		const c = ctrl();
-		await new InstinctController(c).selectOption("delight", "delight,nurture");
+		await new InstinctController(c).selectOption("instinct", "delight", "delight,nurture");
 		expect(c.calls[0]).toEqual({ op: "selectOption", ns: "instinct", slug: "delight", siblings: "delight,nurture" });
 	});
 
 	it("clears __custom text after selecting an option", async () => {
 		const c = ctrl();
-		await new InstinctController(c).selectOption("delight", "delight,nurture");
+		await new InstinctController(c).selectOption("instinct", "delight", "delight,nurture");
 		expect(c.calls[1]).toEqual({ op: "setText", ns: "instinct", slug: "__custom", value: "" });
 	});
 });
@@ -34,13 +35,13 @@ describe("InstinctController.selectOption", () => {
 describe("InstinctController.selectCustom", () => {
 	it("clears existing values before setting custom text", async () => {
 		const c = ctrl();
-		await new InstinctController(c).selectCustom("my instinct");
+		await new InstinctController(c).selectCustom("instinct", "my instinct");
 		expect(c.calls[0]).toEqual({ op: "clearValues", ns: "instinct" });
 	});
 
 	it("sets __custom text", async () => {
 		const c = ctrl();
-		await new InstinctController(c).selectCustom("my instinct");
+		await new InstinctController(c).selectCustom("instinct", "my instinct");
 		expect(c.calls[1]).toEqual({ op: "setText", ns: "instinct", slug: "__custom", value: "my instinct" });
 	});
 });
@@ -50,16 +51,28 @@ describe("InstinctController.selectCustom", () => {
 describe("InstinctController.setText", () => {
 	it("clears pick values before setting __custom text", async () => {
 		const c = ctrl();
-		await new InstinctController(c).setText("__custom", "my text");
+		await new InstinctController(c).setText("instinct", "__custom", "my text");
 		expect(c.calls[0]).toEqual({ op: "clearValues", ns: "instinct" });
 		expect(c.calls[1]).toEqual({ op: "setText", ns: "instinct", slug: "__custom", value: "my text" });
 	});
 
 	it("does not clear values when setting text on a non-custom option", async () => {
 		const c = ctrl();
-		await new InstinctController(c).setText("delight", "fill-in value");
+		await new InstinctController(c).setText("instinct", "delight", "fill-in value");
 		expect(c.calls).toHaveLength(1);
 		expect(c.calls[0]).toEqual({ op: "setText", ns: "instinct", slug: "delight", value: "fill-in value" });
+	});
+});
+
+// ── setCount ──────────────────────────────────────────────────────────────────
+
+// Instinct rows are picks, but the router reaches every controller through the same three methods, so
+// this one has to answer setCount too rather than being a special shape the caller must know about.
+describe("InstinctController.setCount", () => {
+	it("forwards a count straight through", async () => {
+		const c = ctrl();
+		await new InstinctController(c).setCount("instinct", "delight", 1);
+		expect(c.calls[0]).toEqual({ op: "setCount", ns: "instinct", slug: "delight", count: 1 });
 	});
 });
 

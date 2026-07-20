@@ -5,12 +5,19 @@ import {
 	instinctOptions, instinctFromStrings,
 } from "../../src/utils/choiceGroupEdit.js";
 
-const g = () => newGroup("choices");
+const g = () => newGroup("test-group");
 
 describe("choiceGroupEdit", () => {
 	it("newGroup makes an empty {slug, list}", () => {
 		expect(newGroup("x")).toEqual({ slug: "x", list: [] });
-		expect(newGroup().slug).toBe("choices");
+	});
+
+	// The slug IS the namespace the group's values are stored under, so a group cannot be minted
+	// without one. It used to default to the literal "choices", which meant two groups added to the
+	// same item silently shared one value store.
+	it("newGroup refuses to mint a group with no slug", () => {
+		expect(() => newGroup()).toThrow(/slug/i);
+		expect(() => newGroup("")).toThrow(/slug/i);
 	});
 
 	it("addRow appends an entry (with a generated slug) and a pick (with one option)", () => {

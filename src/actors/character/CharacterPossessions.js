@@ -63,25 +63,10 @@ export class CharacterPossessions {
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { uses: count } }]);
 	}
 
-	async addSubChoice(possessionSlug, choiceSlug) {
+	/** The controller for one possession's picks, or null when the possession is not embedded. */
+	controllerFor(possessionSlug) {
 		const item = _findPossessionItem(this._actor, possessionSlug);
-		if (!item) return;
-		await this._pickController(item._id).setCount(possessionSlug, choiceSlug, 1);
-		await this.syncPossessionItems(possessionSlug);
-	}
-
-	async removeSubChoice(possessionSlug, choiceSlug) {
-		const item = _findPossessionItem(this._actor, possessionSlug);
-		if (!item) return;
-		await this._pickController(item._id).setCount(possessionSlug, choiceSlug, 0);
-		await this.syncPossessionItems(possessionSlug);
-	}
-
-	async selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
-		const item = _findPossessionItem(this._actor, possessionSlug);
-		if (!item) return;
-		await this._pickController(item._id).selectOption(possessionSlug, choiceSlug, exclusiveSlugs.join(","));
-		await this.syncPossessionItems(possessionSlug);
+		return item ? this._pickController(item._id) : null;
 	}
 
 	async setChoiceUses(possessionSlug, choiceSlug, count) {
@@ -92,16 +77,6 @@ export class CharacterPossessions {
 			_id: item._id,
 			system: { choiceUses: { ...current, [choiceSlug]: count } },
 		}]);
-	}
-
-	// Persist any other choice-group value on a possession — entry fill-tracks (count) and
-	// text/fill-in inputs (text). Keyed by the possession slug, which buildSnapshot forces the
-	// choice group's slug to match so reads line up with these writes.
-	async setChoiceValue(possessionSlug, optionSlug, value) {
-		const item = _findPossessionItem(this._actor, possessionSlug);
-		if (!item) return;
-		await this._pickController(item._id).setCount(possessionSlug, optionSlug, value);
-		await this.syncPossessionItems(possessionSlug);
 	}
 
 	async addPossessionsFromPlaybook(sp, playbookSlug) {

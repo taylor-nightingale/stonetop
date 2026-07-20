@@ -12,7 +12,7 @@ import * as CG from "../utils/choiceGroupEdit.js";
 
 export function activateChoiceGroupEditors(sheet, root) {
 	const pathOf = el => el.closest("[data-cg-path]")?.dataset.cgPath ?? null;
-	const group  = path => foundry.utils.getProperty(sheet.item, path) ?? CG.newGroup();
+	const group  = path => foundry.utils.getProperty(sheet.item, path) ?? CG.newGroup(sheet.item.system.slug);
 	// Foundry ArrayFields are atomic — a dotted `system.choices.0` update won't set one element.
 	// For an indexed path, rewrite the whole parent array; otherwise update the field directly.
 	const save = (path, g) => {

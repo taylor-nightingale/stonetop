@@ -21,6 +21,9 @@ export class CharacterBackgrounds {
 		await this._actor.update({ "system.background.selected": slug });
 	}
 
+	/** The controller for background choice values — one store on the playbook item. */
+	controller() { return this._ctrl; }
+
 	async setChoiceValue(namespace, optionSlug, count) {
 		await this._ctrl.setCount(namespace, optionSlug, count);
 	}

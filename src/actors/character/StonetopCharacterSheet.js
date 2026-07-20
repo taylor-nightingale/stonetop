@@ -291,10 +291,6 @@ export function createStonetopCharacterSheetClass(Base) {
 
 				// possessions
 				possessionCheck:    el => char.setPossessionSelected(el.dataset.slug, el.checked),
-				possessionSubCheck: el => char.setSubChoiceSelected(el.dataset.possessionSlug, el.dataset.choiceSlug, el.checked),
-				possessionSubRadio: el => char.selectSubChoiceExclusive(
-					el.dataset.possessionSlug, el.dataset.choiceSlug,
-					el.dataset.siblingSlugsCsv ? el.dataset.siblingSlugsCsv.split(",") : []),
 
 				// notes
 				bio:       el => char.setBio(el.value),

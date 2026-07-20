@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from "vitest";
+import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 import { StonetopCharacter } from "../../../src/actors/character/StonetopCharacter.js";
 import { FoundryRepositoryFactory } from "../../../src/actors/character/repositories/FoundryRepositoryFactory.js";
 import { FakeGameBuilder } from "../../fakes/FakeGameBuilder.js";
@@ -78,7 +79,7 @@ describe("possession pick → inventory (integration)", () => {
 	it("ticking a pick grants exactly one document, under the container's single source", async () => {
 		const { character, actor } = makeCharacter();
 
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
 		expect(embeddedGear(actor)).toEqual([
 			"shield @ possession:weapons-of-war-heavy",
@@ -99,7 +100,7 @@ describe("possession pick → inventory (integration)", () => {
 		const actor = new FakeCharacterActorBuilder().addItem(item).build();
 		const character = new StonetopCharacter(actor, new FoundryRepositoryFactory());
 
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
 		expect(embeddedGear(actor)).not.toContain("sword @ possession:weapons-of-war-heavy");
 	});
@@ -108,8 +109,8 @@ describe("possession pick → inventory (integration)", () => {
 		const { character, actor } = makeCharacter();
 
 		// setPossessionChoiceValue writes through the shared controller; nothing here calls a sync.
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "long-spear", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "long-spear" }), 1);
 
 		expect(embeddedGear(actor).filter(g => g.startsWith("sword"))).toHaveLength(1);
 	});
@@ -117,7 +118,7 @@ describe("possession pick → inventory (integration)", () => {
 	it("the granted gear renders once on the equipment tab", async () => {
 		const { character } = makeCharacter();
 
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
 		const names = await renderedGearNames(character);
 		expect(names.filter(n => n === "Sword, iron")).toHaveLength(1);
@@ -125,16 +126,16 @@ describe("possession pick → inventory (integration)", () => {
 
 	it("unticking the pick removes the gear but leaves the possession's base gear", async () => {
 		const { character, actor } = makeCharacter();
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 0);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 0);
 
 		expect(embeddedGear(actor)).toEqual(["shield @ possession:weapons-of-war-heavy"]);
 	});
 
 	it("deselecting the possession removes every item it granted", async () => {
 		const { character, actor } = makeCharacter();
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
 		await character.deselectPossession("weapons-of-war-heavy");
 
@@ -143,7 +144,7 @@ describe("possession pick → inventory (integration)", () => {
 
 	it("re-selecting the possession restores the gear from the stored picks", async () => {
 		const { character, actor } = makeCharacter();
-		await character.setPossessionChoiceValue("weapons-of-war-heavy", "sword", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 		await character.deselectPossession("weapons-of-war-heavy");
 
 		await character.selectPossession("weapons-of-war-heavy");

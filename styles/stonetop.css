@@ -1536,28 +1536,6 @@ body,
 	font-weight: normal;
 }
 
-.stonetop-possession-sub-radio {
-	appearance: none !important;
-	-webkit-appearance: none !important;
-	width: 14px !important;
-	height: 14px !important;
-	flex: 0 0 14px !important;
-	border-radius: 2px !important;
-	border: 2px solid var(--color-text-dark-primary) !important;
-	background: transparent !important;
-	cursor: pointer;
-	margin: 0;
-}
-
-.stonetop-possession-sub-radio:checked {
-	background-color: var(--color-text-dark-primary) !important;
-}
-
-.stonetop-possession-sub-radio:disabled {
-	opacity: 0.35;
-	cursor: default;
-}
-
 .stonetop-item-description {
 	padding-left: 20px;
 	font-size: var(--fs-note);

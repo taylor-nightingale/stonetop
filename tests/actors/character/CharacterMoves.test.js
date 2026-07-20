@@ -927,7 +927,7 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Potential for Greatness").withChoices(CHOICES_DATA).build()]);
 		const m = makeMoves({repo});
 		await initPlaybook(m, repo);
-		await m.setMoveChoiceText("potential-for-greatness", "stat1-input", "level 2");
+		await m.controllerFor("potential-for-greatness")?.setText("potential", "stat1-input", "level 2");
 		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
 		expect(row.input.value).toBe("level 2");
 		expect(row.input.slug).toBe("stat1-input");
@@ -938,7 +938,7 @@ describe("CharacterMoves.buildSnapshot — choices", () => {
 		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Potential for Greatness").withChoices(CHOICES_DATA).build()]);
 		const m = makeMoves({repo});
 		await initPlaybook(m, repo);
-		await m.setMoveChoiceCount("potential-for-greatness", "stat1", 1);
+		await m.controllerFor("potential-for-greatness")?.setCount("potential", "stat1", 1);
 		const row = (await m.buildSnapshot()).categories[0].moves[0].choices.list.find(r => r.slug === "stat1");
 		expect(row.track.checks[0]).toBe(true);
 	});

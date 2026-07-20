@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import {ChoiceTarget} from "../../../src/actors/character/ChoiceTarget.js";
 import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
 import {FakeCharacterActorBuilder} from "../../fakes/FakeCharacterActorBuilder.js";
 
@@ -193,17 +194,27 @@ describe("StonetopCharacter — bio and notes", () => {
 
 // -- setChoicePick routing (regression: lore/playbook picks must save) --------
 
-describe("StonetopCharacter.setChoicePick — playbook choice routing", () => {
+describe("StonetopCharacter.setChoicePickFor — playbook choice routing", () => {
 	function makeChar() {
-		return new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build();
+		const actor = new FakeCharacterActorBuilder().withItems([{
+			_id: "pb1", type: "playbook", name: "The Blessed",
+			system: { slug: "the-blessed", choiceValues: {}, backgroundValues: {} },
+		}]).build();
+		return { char: new TestCharacterBuilder(actor).build(), actor };
 	}
 
-	it.each(["lore", "playbook-choice", "instinct", "appearance", "intro-npc", "intro-pc"])(
-		"routes '%s' picks to playbook.selectChoice", async (context) => {
-			const char = makeChar();
-			const spy = vi.spyOn(char._playbook, "selectChoice").mockResolvedValue();
-			await char.setChoicePick(context, "sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
-			expect(spy).toHaveBeenCalledWith("sacred-pouch", "origin-heirloom", "origin-heirloom,origin-own-work");
+	// Every one of these contexts stores into the playbook's single choiceValues, namespaced by the
+	// group the row was stamped with. ("playbook-choice" is deliberately absent: no template emits it.)
+	it.each(["lore", "instinct", "appearance", "intro-npc", "intro-pc"])(
+		"routes a '%s' pick into the playbook's choice values", async (context) => {
+			const { char, actor } = makeChar();
+
+			await char.setChoicePickFor(new ChoiceTarget({
+				context, group: "sacred-pouch", option: "origin-heirloom",
+				siblingsCsv: "origin-heirloom,origin-own-work",
+			}), true);
+
+			expect(actor.items.get("pb1").system.choiceValues["sacred-pouch"]["origin-heirloom"]).toBeTruthy();
 		},
 	);
 });

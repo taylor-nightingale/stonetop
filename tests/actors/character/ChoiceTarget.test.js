@@ -30,6 +30,36 @@ describe("ChoiceTarget.fromElement", () => {
 		expect(target.possessionSlug).toBeNull();
 		expect(target.insertItemId).toBeNull();
 		expect(target.arcanumSlug).toBeNull();
+		expect(target.followerSlug).toBeNull();
+		expect(target.moveSlug).toBeNull();
+	});
+
+	// A container's identity and its group's slug are independent: the wrapper says which document to
+	// write to, the row says which store on that document. A follower's group may be slugged anything.
+	it("finds the enclosing follower wrapper without confusing it for the group", () => {
+		const el = elementFrom(
+			`<div class="stonetop-follower-card" data-slug="enfys">
+				<div data-follower-slug="enfys">
+					<input class="stonetop-cg-pick" data-cg-context="follower" data-cg-group="choices" data-cg-option="she">
+				</div>
+			</div>`,
+			".stonetop-cg-pick",
+		);
+		const target = ChoiceTarget.fromElement(el);
+		expect(target.followerSlug).toBe("enfys");
+		expect(target.group).toBe("choices");
+	});
+
+	it("finds the enclosing move wrapper", () => {
+		const el = elementFrom(
+			`<div data-move-slug="potential-for-greatness">
+				<input class="stonetop-cg-track" data-cg-context="move" data-cg-group="choices" data-cg-option="stat1">
+			</div>`,
+			".stonetop-cg-track",
+		);
+		const target = ChoiceTarget.fromElement(el);
+		expect(target.moveSlug).toBe("potential-for-greatness");
+		expect(target.group).toBe("choices");
 	});
 
 	it("finds the enclosing possession wrapper", () => {

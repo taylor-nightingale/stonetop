@@ -104,16 +104,6 @@ describe("StonetopCharacter checked-state setters", () => {
 		expect(deselect).toHaveBeenCalledWith("charm");
 	});
 
-	it("setSubChoiceSelected toggles between select and deselect", async () => {
-		const char = makeChar();
-		const select = vi.spyOn(char, "selectSubChoice").mockResolvedValue();
-		const deselect = vi.spyOn(char, "deselectSubChoice").mockResolvedValue();
-		await char.setSubChoiceSelected("charm", "blessing", true);
-		await char.setSubChoiceSelected("charm", "blessing", false);
-		expect(select).toHaveBeenCalledWith("charm", "blessing");
-		expect(deselect).toHaveBeenCalledWith("charm", "blessing");
-	});
-
 	it("toggleArcanumFlip unflips a flipped card and flips an unflipped one", async () => {
 		const char = makeChar();
 		const flip = vi.spyOn(char, "flipArcanum").mockResolvedValue();

@@ -65,15 +65,21 @@ export class CharacterPlaybook {
 		}
 	}
 
+	/** The controller for the playbook's choice values (lore, appearance, introductions, …). */
+	controller() { return this._ctrl; }
+
+	/** The playbook's instinct group is exclusive with its write-in box. */
+	instinctController() { return this._instinct; }
+
 	async selectChoice(groupSlug, optionSlug, siblingsCsv) {
 		if (groupSlug === "instinct")
-			await this._instinct.selectOption(optionSlug, siblingsCsv);
+			await this._instinct.selectOption(groupSlug, optionSlug, siblingsCsv);
 		else
 			await this._ctrl.selectOption(groupSlug, optionSlug, siblingsCsv);
 	}
 
 	async selectCustomInstinct(text) {
-		await this._instinct.selectCustom(text);
+		await this._instinct.selectCustom("instinct", text);
 	}
 
 	async setChoiceCount(groupSlug, optionSlug, count) {
@@ -82,7 +88,7 @@ export class CharacterPlaybook {
 
 	async setChoiceText(groupSlug, optionSlug, text) {
 		if (groupSlug === "instinct")
-			await this._instinct.setText(optionSlug, text);
+			await this._instinct.setText(groupSlug, optionSlug, text);
 		else
 			await this._ctrl.setText(groupSlug, optionSlug, text);
 	}

@@ -17,6 +17,7 @@ import {ActorOutfitItems} from "./ActorOutfitItems.js";
 import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
 import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
+import {ChoiceStores} from "./ChoiceStores.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -49,6 +50,19 @@ export class StonetopCharacter {
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
+
+		// Where a choice write goes, keyed by the context its row was rendered in. Each host owns how
+		// its own rows find their document; nothing here knows what an arcanum or an insert is. A new
+		// choice-bearing type is one more line, not an edit to the routing.
+		this._choiceStores = new ChoiceStores()
+			.register("possession",  t => this._possessions.controllerFor(t.possessionSlug))
+			.register("arcana",      t => this._arcana.controllerFor(t.arcanumSlug))
+			.register(["insert", "insert-pick"], t => this._inserts.controllerFor(t.insertItemId, t.group))
+			.register("move",        t => this._moves.controllerFor(t.moveSlug))
+			.register("follower",    t => this._followers.controllerFor(t.followerSlug))
+			.register("background",  () => this._background.controller())
+			.register("instinct",    () => this._playbook.instinctController())
+			.register(["lore", "appearance", "intro-npc", "intro-pc"], () => this._playbook.controller());
 	}
 
 	static create(actor) {
@@ -189,24 +203,8 @@ export class StonetopCharacter {
 		await this._possessions.deletePossession(slug);
 	}
 
-	async setPossessionChoiceValue(possessionSlug, optionSlug, value) {
-		await this._possessions.setChoiceValue(possessionSlug, optionSlug, value);
-	}
-
 	async setPossessionUses(slug, count) {
 		await this._possessions.setUses(slug, count);
-	}
-
-	async selectSubChoice(possessionSlug, choiceSlug) {
-		await this._possessions.addSubChoice(possessionSlug, choiceSlug);
-	}
-
-	async deselectSubChoice(possessionSlug, choiceSlug) {
-		await this._possessions.removeSubChoice(possessionSlug, choiceSlug);
-	}
-
-	async selectSubChoiceExclusive(possessionSlug, choiceSlug, exclusiveSlugs) {
-		await this._possessions.selectExclusive(possessionSlug, choiceSlug, exclusiveSlugs);
 	}
 
 	async setSubChoiceUses(possessionSlug, choiceSlug, count) {
@@ -351,21 +349,6 @@ export class StonetopCharacter {
 		await this._arcana.unflipArcanum(slug);
 	}
 
-	// Generic arcana choice-group writes: the sheet routes every arcanum choice row here off the
-	// `.stonetop-arcanum-card` wrapper (like inserts route off `data-insert-item-id`), passing the
-	// group's own slug — no per-group context strings.
-	async setArcanumChoiceCount(arcanumSlug, groupSlug, optionSlug, count) {
-		await this._arcana.setChoiceCount(arcanumSlug, groupSlug, optionSlug, count);
-	}
-
-	async selectArcanumChoice(arcanumSlug, groupSlug, optionSlug, siblingsCsv) {
-		await this._arcana.selectChoice(arcanumSlug, groupSlug, optionSlug, siblingsCsv);
-	}
-
-	async setArcanumChoiceText(arcanumSlug, groupSlug, optionSlug, text) {
-		await this._arcana.setChoiceText(arcanumSlug, groupSlug, optionSlug, text);
-	}
-
 	async setArcanumBlank(arcanumSlug, key, text) {
 		await this._arcana.setBlankValue(arcanumSlug, key, text);
 	}
@@ -378,69 +361,14 @@ export class StonetopCharacter {
 		await this._background.setResource(slug, count);
 	}
 
-	async setChoiceCount(context, group, option, count) {
-		switch (context) {
-			case "playbook-choice":
-			case "lore":
-			case "intro-npc":
-			case "intro-pc":
-				return await this._playbook.setChoiceCount(group, option, count);
-			case "background":
-				return await this._background.setChoiceValue(group, option, count);
-			case "move":
-				return await this._moves.setMoveChoiceCount(group, option, count);
-		}
-	}
-
-	async setChoicePick(context, group, option, siblingsCsv, checked = true) {
-		switch (context) {
-			case "playbook-choice":
-			case "lore":
-			case "intro-npc":
-			case "intro-pc":
-			case "instinct":
-			case "appearance":
-				return await this._playbook.selectChoice(group, option, siblingsCsv);
-			case "follower":
-				return await this._followers.setChoiceValue(group, "choices", option, siblingsCsv);
-			case "background":
-				return this._background.setChoiceValue(group, option, checked ? 1 : 0);
-		}
-	}
-
-	async setChoiceText(context, group, option, value) {
-		switch (context) {
-			case "playbook-choice":
-			case "lore":
-			case "intro-npc":
-			case "intro-pc":
-				return await this._playbook.setChoiceText(group, option, value);
-			case "follower":
-				return await this._followers.setChoiceText(group, option, value);
-			case "move":
-				return await this._moves.setMoveChoiceText(group, option, value);
-		}
-	}
-
-	async setInsertChoiceCount(itemId, groupSlug, optionSlug, count) {
-		await this._inserts.setCount(itemId, groupSlug, optionSlug, count);
-	}
-
-	async setInsertChoicePick(itemId, groupSlug, optionSlug, siblingsCsv) {
-		await this._inserts.selectOption(itemId, groupSlug, optionSlug, siblingsCsv);
-	}
-
-	async setInsertChoiceText(itemId, groupSlug, optionSlug, text) {
-		await this._inserts.setText(itemId, groupSlug, optionSlug, text);
-	}
-
 	async setArcanumResource(slug, count) {
 		await this._inventory.setResource(slug, count);
 	}
 
 	// --- ChoiceTarget routing -----------------------------------------------------------------
-	// The sheet builds a ChoiceTarget from the row's DOM containers; the possession/insert/
-	// arcanum/plain dispatch lives here, not in the handlers.
+	// The sheet builds a ChoiceTarget from the row's DOM containers; `_choiceStores` turns the row's
+	// context into the controller to write through. The group the row was stamped with IS the
+	// namespace, so these three methods are all the routing there is.
 
 	// Track checkboxes: checking box `index` fills the track through index+1; unchecking empties
 	// back to index.
@@ -450,25 +378,22 @@ export class StonetopCharacter {
 	}
 
 	async setChoiceCountFor(target, count) {
-		if (target.possessionSlug) return this.setPossessionChoiceValue(target.possessionSlug, target.option, count);
-		if (target.insertItemId)   return this.setInsertChoiceCount(target.insertItemId, target.group, target.option, count);
-		if (target.arcanumSlug)    return this.setArcanumChoiceCount(target.arcanumSlug, target.group, target.option, count);
-		return this.setChoiceCount(target.context, target.group, target.option, count);
+		return this._choiceStores.resolve(target)?.setCount(target.group, target.option, count);
 	}
 
+	// A row's siblings csv is what makes a pick exclusive: with siblings, choosing one clears the rest;
+	// without them the pick is an independent checkbox that can also be cleared.
 	async setChoicePickFor(target, checked = true) {
 		if (!target.context) return;
-		if (target.insertItemId) return this.setInsertChoicePick(target.insertItemId, target.group, target.option, target.siblingsCsv);
-		if (target.arcanumSlug)  return this.selectArcanumChoice(target.arcanumSlug, target.group, target.option, target.siblingsCsv);
-		return this.setChoicePick(target.context, target.group, target.option, target.siblingsCsv, checked);
+		const ctrl = this._choiceStores.resolve(target);
+		if (!ctrl) return;
+		return target.siblingsCsv
+			? ctrl.selectOption(target.group, target.option, target.siblingsCsv)
+			: ctrl.setCount(target.group, target.option, checked ? 1 : 0);
 	}
 
 	async setChoiceTextFor(target, text) {
-		if (target.possessionSlug) return this.setPossessionChoiceValue(target.possessionSlug, target.option, text);
-		if (!target.context) return;
-		if (target.insertItemId) return this.setInsertChoiceText(target.insertItemId, target.group, target.option, text);
-		if (target.arcanumSlug)  return this.setArcanumChoiceText(target.arcanumSlug, target.group, target.option, text);
-		return this.setChoiceText(target.context, target.group, target.option, text);
+		return this._choiceStores.resolve(target)?.setText(target.group, target.option, text);
 	}
 
 	// --- Pip and check toggles ----------------------------------------------------------------
@@ -515,14 +440,9 @@ export class StonetopCharacter {
 		return this.decrementMove(categoryKey, moveSlug);
 	}
 
-	async setPossessionSelected(slug, selected) {
+	async setPossessionSelected(slug, selected)   {
 		if (selected) return this.selectPossession(slug);
 		return this.deselectPossession(slug);
-	}
-
-	async setSubChoiceSelected(possessionSlug, choiceSlug, selected) {
-		if (selected) return this.selectSubChoice(possessionSlug, choiceSlug);
-		return this.deselectSubChoice(possessionSlug, choiceSlug);
 	}
 
 	async toggleArcanumFlip(slug, currentlyFlipped) {

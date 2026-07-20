@@ -72,7 +72,7 @@ describe("migrateFollowers — custom followers", () => {
 		expect(repo.queriedSlugs).not.toContain(slug);
 	});
 
-	it("migrates values.choices to choiceValues nested under 'choices' group slug", async () => {
+	it("migrates values.choices into the namespace the template's group declares", async () => {
 		const slug = "custom-1111";
 		const choices = { "damage-input": "d6 piercing", "cost-input": "loyalty", "notes-input": "note" };
 		const actor = makeActor({
@@ -102,7 +102,7 @@ describe("migrateFollowers — custom followers", () => {
 });
 
 describe("migrateFollowers — static follower choice values", () => {
-	it("migrates values.choices to choiceValues nested under 'choices' group slug", async () => {
+	it("migrates values.choices into the namespace the follower's group declares", async () => {
 		const choices = { "they": 1, "a-young-adult": 1, "curious": 1 };
 		const followerData = {
 			slug: "enfys", name: "Enfys", tags: "", hp: { value: 0, max: 6 },

@@ -39,6 +39,18 @@ export async function migrateFollowerItemType(actor) {
 	await actor.deleteEmbeddedDocuments("Item", legacy.map(i => i._id));
 }
 
+// Flag-era follower state kept its choice values in a map keyed by group name. A group declares its
+// own namespace, so re-key the stored map onto whatever group the item actually carries rather than
+// naming it here. With no group to map onto, the legacy keys pass through untouched — the values are
+// the player's, and dropping them would be worse than leaving them where they already were.
+function _namespacedValues(groups, values) {
+	if (!values || !Object.keys(values).length) return {};
+	const namespace = groups?.[0]?.slug;
+	if (!namespace) return { ...values };
+	const [legacyKey] = Object.keys(values);
+	return { [namespace]: values[legacyKey] };
+}
+
 function _logArcanumFlipped(actor, label) {
 	const arcanums = [...actor.items].filter(i => i.type === "arcanum");
 	for (const a of arcanums) info(`  [${label}] ${a.system?.slug}: flipped=${a.system?.flipped}`);
@@ -402,7 +414,9 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 					damage: s.damage ?? "",
 					instinct: "", loyalty: { value: 0, max: 3 },
 					choices: blank?.choices ?? null, specialQuality: "",
-					choiceValues: { choices: s.values?.choices ?? {} },
+					// Legacy flag state stored these under the key "choices"; they belong in whatever
+					// namespace the follower's own group declares.
+					choiceValues: _namespacedValues(blank?.choices, s.values),
 					owned: true,
 				},
 			}]);
@@ -421,7 +435,10 @@ export async function migrateFollowers(actor, followerRepo, resourceController) 
 		if (s.armor != null) update.system.armor = String(s.armor);
 		if (s.damage != null) update.system.damage = s.damage;
 		if (s.name  != null) update.name = s.name;
-		if (s.values?.choices) update.system.choiceValues = { choices: s.values.choices };
+		// Flag-era state stored these under the key "choices"; they belong in whatever namespace this
+		// follower's own choice group declares.
+		if (s.values && Object.keys(s.values).length)
+			update.system.choiceValues = _namespacedValues(item.system?.choices, s.values);
 		await actor.updateEmbeddedDocuments("Item", [update]);
 	}
 }
@@ -648,7 +665,7 @@ export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 				instinct:       Selection.fromStored(f.instinct, { multi: false }).toRaw(),
 				cost:           Selection.fromStored(f.cost,     { multi: false }).toRaw(),
 				moves:          f.moves ?? "",
-				choices:        f.choices ?? [{ slug: "choices", list: [] }],
+				choices:        f.choices ?? [],
 				armor:          f.armor ?? "",
 				damage:         f.damage ?? "",
 				specialQuality: f.specialQuality ?? "",

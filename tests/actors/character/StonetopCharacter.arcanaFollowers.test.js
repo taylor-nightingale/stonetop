@@ -1,4 +1,5 @@
 import {describe, it, expect, afterEach, vi} from "vitest";
+import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 import {StonetopCharacter} from "../../../src/actors/character/StonetopCharacter.js";
 import {FoundryRepositoryFactory} from "../../../src/actors/character/repositories/FoundryRepositoryFactory.js";
 import {FakeGameBuilder} from "../../fakes/FakeGameBuilder.js";
@@ -79,7 +80,7 @@ describe("StonetopCharacter — arcanum follower checkboxes (integration)", () =
 		const { character, arcanum } = characterWithFollowerArcanum();
 		await character._onCreateDescendantDocuments([arcanum]);
 
-		await character.setArcanumChoiceCount("blackwood-fetishes", "blackwood-fetishes", "astor", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blackwood-fetishes", group: "blackwood-fetishes", option: "astor" }), 1);
 
 		expect(await ownedFollowerSlugs(character)).toContain("astor");
 	});
@@ -87,9 +88,9 @@ describe("StonetopCharacter — arcanum follower checkboxes (integration)", () =
 	it("unchecking the box removes the follower again", async () => {
 		const { character, arcanum } = characterWithFollowerArcanum();
 		await character._onCreateDescendantDocuments([arcanum]);
-		await character.setArcanumChoiceCount("blackwood-fetishes", "blackwood-fetishes", "astor", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blackwood-fetishes", group: "blackwood-fetishes", option: "astor" }), 1);
 
-		await character.setArcanumChoiceCount("blackwood-fetishes", "blackwood-fetishes", "astor", 0);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blackwood-fetishes", group: "blackwood-fetishes", option: "astor" }), 0);
 
 		expect(await ownedFollowerSlugs(character)).not.toContain("astor");
 	});
@@ -97,7 +98,7 @@ describe("StonetopCharacter — arcanum follower checkboxes (integration)", () =
 	it("deleting the arcanum removes a follower that was checked", async () => {
 		const { character, arcanum } = characterWithFollowerArcanum();
 		await character._onCreateDescendantDocuments([arcanum]);
-		await character.setArcanumChoiceCount("blackwood-fetishes", "blackwood-fetishes", "astor", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blackwood-fetishes", group: "blackwood-fetishes", option: "astor" }), 1);
 
 		await character.removeArcanum("blackwood-fetishes");
 

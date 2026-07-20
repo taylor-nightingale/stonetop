@@ -1,4 +1,5 @@
 import {describe, it, expect, afterEach, vi} from "vitest";
+import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 import {StonetopCharacter} from "../../../src/actors/character/StonetopCharacter.js";
 import {FoundryRepositoryFactory} from "../../../src/actors/character/repositories/FoundryRepositoryFactory.js";
 import {FakeGameBuilder} from "../../fakes/FakeGameBuilder.js";
@@ -59,24 +60,24 @@ describe("StonetopCharacter — arcanum consequence checkboxes (integration)", (
 	it("checking a consequence box persists across a rebuild", async () => {
 		const { character } = characterWithConsequenceArcanum();
 
-		await character.setArcanumChoiceCount("blood-quenched-sword", "consequences", "sword-c1", 2);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blood-quenched-sword", group: "consequences", option: "sword-c1" }), 2);
 
 		expect(await consequenceChecks(character, "sword-c1")).toEqual([true, true, false]);
 	});
 
 	it("unchecking a consequence box clears it", async () => {
 		const { character } = characterWithConsequenceArcanum();
-		await character.setArcanumChoiceCount("blood-quenched-sword", "consequences", "sword-c2", 1);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blood-quenched-sword", group: "consequences", option: "sword-c2" }), 1);
 		expect(await consequenceChecks(character, "sword-c2")).toEqual([true]);
 
-		await character.setArcanumChoiceCount("blood-quenched-sword", "consequences", "sword-c2", 0);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blood-quenched-sword", group: "consequences", option: "sword-c2" }), 0);
 
 		expect(await consequenceChecks(character, "sword-c2")).toEqual([false]);
 	});
 
 	it("consequence values are independent per option", async () => {
 		const { character } = characterWithConsequenceArcanum();
-		await character.setArcanumChoiceCount("blood-quenched-sword", "consequences", "sword-c1", 3);
+		await character.setChoiceCountFor(new ChoiceTarget({ context: "arcana", arcanumSlug: "blood-quenched-sword", group: "consequences", option: "sword-c1" }), 3);
 		expect(await consequenceChecks(character, "sword-c1")).toEqual([true, true, true]);
 		expect(await consequenceChecks(character, "sword-c2")).toEqual([false]);
 	});

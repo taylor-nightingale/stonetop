@@ -152,6 +152,13 @@ export class CharacterArcana {
 	// ONE `choiceValues` store, namespaced by the group's OWN slug — the same generic path inserts use.
 	// `groupSlug` is the choice group's slug; side effects (followers/outfit items) fire via the shared
 	// handlers when the resolved group def carries them.
+	/** The controller for one arcanum's choice values, or null when no such arcanum is embedded. Every
+	 *  group on the card (front.unlock, back.choices, back.consequences) shares this one store. */
+	controllerFor(arcanumSlug) {
+		const item = _findArcanumItem(this._actor, arcanumSlug);
+		return item ? this._factory.forDocument(item._id, "choiceValues") : null;
+	}
+
 	async setChoiceCount(arcanumSlug, groupSlug, optionSlug, count) {
 		const item = _findArcanumItem(this._actor, arcanumSlug);
 		if (!item) return;

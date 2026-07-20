@@ -132,7 +132,7 @@ export function createStonetopArcanumSheetClass(Base) {
 			// Choice-group lifecycle (create / remove a whole group at a given path).
 			const setGroup = (path, group) => this.item.update({ [path]: group });
 			bindAll(root, ".arcanum-group-add", "click", ev =>
-				setGroup(ev.currentTarget.dataset.path, CG.newGroup(ev.currentTarget.dataset.slug || "choices")));
+				setGroup(ev.currentTarget.dataset.path, CG.newGroup(ev.currentTarget.dataset.slug || this.item.system.slug)));
 			bindAll(root, ".arcanum-group-remove", "click", ev =>
 				setGroup(ev.currentTarget.dataset.path, null));
 

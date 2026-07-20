@@ -127,9 +127,11 @@
 	</div>
 
 	{{#if choices.list.length}}
-	<div class="stonetop-follower-choices">
+	{{! The wrapper carries WHICH follower; the row carries which group. They are different things —
+	    the group names the value store, the wrapper names the document it lives on. }}
+	<div class="stonetop-follower-choices" data-follower-slug="{{slug}}">
 		{{#each choices.list}}
-		{{> "stonetop.choice-row" cgContext="follower" cgGroup=../slug namePrefix=../slug}}
+		{{> "stonetop.choice-row" cgContext="follower" cgGroup=../choices.slug namePrefix=../slug}}
 		{{/each}}
 	</div>
 	{{/if}}

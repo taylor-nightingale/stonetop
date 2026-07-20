@@ -17,7 +17,7 @@ function makeCharacterPossessions(actor, moves = makeMoves(), outfit = null, rep
 	// Mirrors StonetopCharacter's wiring: pick gear is granted by the shared outfit-item side effect,
 	// so a factory without that handler registered would grant nothing.
 	const sync = new ContainerOutfitSync(outfit).register("possession", CharacterPossessions.outfitGrantFor);
-	const f    = factory ?? new ChoiceGroupControllerFactory(actor, sync);
+	const f    = factory ?? new ChoiceGroupControllerFactory(actor).subscribe(sync);
 	return new CharacterPossessions(actor, moves, repo, f, sync);
 }
 
@@ -214,51 +214,51 @@ describe("CharacterPossessions — sub-choices", () => {
 		return snap.items.find(i => i.slug === "weapons-of-war").choices;
 	}
 
-	it("addSubChoice marks the option checked in the snapshot", async () => {
+	it("ticking a sub-choice marks the option checked in the snapshot", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
 		const row = (await wowChoices(cp)).list[1];
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(true);
 	});
 
-	it("addSubChoice is idempotent — calling twice keeps the option checked", async () => {
+	it("ticking a sub-choice is idempotent — calling twice keeps the option checked", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
-		await cp.addSubChoice("weapons-of-war", "sword");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
 		const row = (await wowChoices(cp)).list[1];
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(true);
 	});
 
-	it("addSubChoice merges with existing selections across rows", async () => {
+	it("ticking a sub-choice merges with existing selections across rows", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
-		await cp.addSubChoice("weapons-of-war", "shield");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "shield", 1);
 		const choices = await wowChoices(cp);
 		expect(choices.list[1].options.find(o => o.slug === "sword").checked).toBe(true);
 		expect(choices.list[2].options.find(o => o.slug === "shield").checked).toBe(true);
 	});
 
-	it("removeSubChoice clears the option", async () => {
+	it("unticking a sub-choice clears the option", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
-		await cp.removeSubChoice("weapons-of-war", "sword");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 0);
 		const row = (await wowChoices(cp)).list[1];
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(false);
 	});
 
-	it("removeSubChoice is safe when slug was not previously set", async () => {
+	it("unticking a sub-choice is safe when slug was not previously set", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
-		await cp.removeSubChoice("weapons-of-war", "axe");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "axe", 0);
 		const row = (await wowChoices(cp)).list[1];
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(true);
 		expect(row.options.find(o => o.slug === "axe").checked).toBe(false);
 	});
 
-	it("selectExclusive selects the target and clears all siblings", async () => {
+	it("an exclusive sub-choice selects the target and clears all siblings", async () => {
 		const cp = makeCpWithChoices();
-		await cp.addSubChoice("weapons-of-war", "sword");
-		await cp.selectExclusive("weapons-of-war", "axe", ["sword", "axe"]);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
+		await cp.controllerFor("weapons-of-war")?.selectOption("weapons-of-war", "axe", "sword,axe");
 		const row = (await wowChoices(cp)).list[1];
 		expect(row.options.find(o => o.slug === "axe").checked).toBe(true);
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(false);
@@ -282,10 +282,9 @@ describe("CharacterPossessions — sub-choices", () => {
 		const item    = makePossessionItem(p, { selected: true });
 		const actor   = makeActor([item]);
 		const outfit  = new FakeOutfitItems();
-		const factory = new ChoiceGroupControllerFactory(actor);
-		const cp = makeCharacterPossessions(actor, makeMoves(), outfit, null, factory);
+		const cp = makeCharacterPossessions(actor, makeMoves(), outfit);
 
-		await cp.addSubChoice("symbol-of-authority", "maul");
+		await cp.controllerFor("symbol-of-authority")?.setCount("symbol-of-authority", "maul", 1);
 
 		// Granted exactly once, by the shared side-effect handler, under its per-option source.
 		expect(outfit.getSlugs("possession:symbol-of-authority")).toContain("maul");
@@ -506,19 +505,19 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 			.toBe("sword,axe");
 	});
 
-	it("option is checked when slug is in addSubChoice selections", async () => {
+	it("option is checked when slug is in ticking a sub-choice selections", async () => {
 		const cp = makeCp();
 		await cp.select("weapons-of-war");
-		await cp.addSubChoice("weapons-of-war", "sword");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
 		const snap = await cp.buildSnapshot(1);
 		const row = snap.items.find(i => i.slug === "weapons-of-war").choices.list[1];
 		expect(row.options.find(o => o.slug === "sword").checked).toBe(true);
 	});
 
-	it("option is unchecked when slug is not in addSubChoice selections", async () => {
+	it("option is unchecked when slug is not in ticking a sub-choice selections", async () => {
 		const cp = makeCp();
 		await cp.select("weapons-of-war");
-		await cp.addSubChoice("weapons-of-war", "sword");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "sword", 1);
 		const snap = await cp.buildSnapshot(1);
 		const row = snap.items.find(i => i.slug === "weapons-of-war").choices.list[1];
 		expect(row.options.find(o => o.slug === "axe").checked).toBe(false);
@@ -567,7 +566,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 		const outfitItems = makeOutfitItems();
 		const actor = makeActor([makePossessionItem(wow)]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
-		await cp.addSubChoice("weapons-of-war", "mace");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
 		await cp.syncPossessionItems("weapons-of-war");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
 	});
@@ -614,20 +613,20 @@ describe("CharacterPossessions — outfit item integration", () => {
 		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
 	});
 
-	it("addSubChoice syncs with the newly selected choice item", async () => {
+	it("ticking a sub-choice syncs with the newly selected choice item", async () => {
 		const outfitItems = makeOutfitItems();
 		const actor = makeActor([makePossessionItem(wow)]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
-		await cp.addSubChoice("weapons-of-war", "mace");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");
 	});
 
-	it("removeSubChoice syncs with the choice item removed", async () => {
+	it("unticking a sub-choice syncs with the choice item removed", async () => {
 		const outfitItems = makeOutfitItems();
 		const actor = makeActor([makePossessionItem(wow)]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
-		await cp.addSubChoice("weapons-of-war", "mace");
-		await cp.removeSubChoice("weapons-of-war", "mace");
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 0);
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).not.toContain("mace");
 	});
 });
@@ -640,7 +639,7 @@ describe("CharacterPossessions — setChoiceValue", () => {
 	it("persists a numeric track value under the possession slug in pickValues", async () => {
 		const actor = makeActor([makePossessionItem(smithy)]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), makeOutfitItems());
-		await cp.setChoiceValue("smithy", "forge-track", 2);
+		await cp.controllerFor("smithy")?.setCount("smithy", "forge-track", 2);
 		const item = [...actor.items].find(i => i.system.slug === "smithy");
 		expect(item.system.pickValues.smithy["forge-track"]).toBe(2);
 	});
@@ -648,7 +647,7 @@ describe("CharacterPossessions — setChoiceValue", () => {
 	it("persists a text input value", async () => {
 		const actor = makeActor([makePossessionItem(smithy)]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), makeOutfitItems());
-		await cp.setChoiceValue("smithy", "note-input", "a sword");
+		await cp.controllerFor("smithy")?.setCount("smithy", "note-input", "a sword");
 		const item = [...actor.items].find(i => i.system.slug === "smithy");
 		expect(item.system.pickValues.smithy["note-input"]).toBe("a sword");
 	});

@@ -233,7 +233,7 @@ describe("CharacterFollowers — state mutations", () => {
 	it("setChoiceValue marks option as checked in snapshot", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		await cf.setChoiceValue("enfys", "choices", "she", null);
+		await cf.controllerFor("enfys")?.selectOption("choices", "she", null);
 		const [snap] = await cf.buildSnapshot();
 		const pickRow = snap.choices.list.find(r => r.type === "choice");
 		expect(pickRow.options.find(o => o.slug === "she").checked).toBe(true);
@@ -242,7 +242,7 @@ describe("CharacterFollowers — state mutations", () => {
 	it("setChoiceValue clears sibling slugs before setting the chosen option", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		await cf.setChoiceValue("enfys", "choices", "she", "he,she,they");
+		await cf.controllerFor("enfys")?.selectOption("choices", "she", "he,she,they");
 		const [snap] = await cf.buildSnapshot();
 		const pickRow = snap.choices.list.filter(r => r.type === "choice")[0];
 		expect(pickRow.options.find(o => o.slug === "she").checked).toBe(true);
@@ -611,7 +611,7 @@ describe("CharacterFollowers — choices snapshot", () => {
 	it("saved pick value marks option as checked", async () => {
 		const cf = makeCf(new FakeFollowerRepository([PICKER]));
 		await cf.addFollower("test-picker");
-		await cf.setChoiceValue("test-picker", "choices", "bully", "bully,scheme");
+		await cf.controllerFor("test-picker")?.selectOption("choices", "bully", "bully,scheme");
 		const [snap] = await cf.buildSnapshot();
 		const pickRow = snap.choices.list[0];
 		expect(pickRow.options.find(o => o.slug === "bully").checked).toBe(true);
@@ -630,7 +630,7 @@ describe("CharacterFollowers — choices snapshot", () => {
 	it("saved pronoun choice is reflected in choices", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		await cf.setChoiceValue("enfys", "choices", "she", "he,she,they");
+		await cf.controllerFor("enfys")?.selectOption("choices", "she", "he,she,they");
 		const [snap] = await cf.buildSnapshot();
 		const pickRows = snap.choices.list.filter(r => r.type === "choice");
 		const pronounRow = pickRows[0];
@@ -657,7 +657,7 @@ const BLANK_DATA = {
 	damage:  "",
 	instinct: "",
 	loyalty: { value: 0, max: 3 },
-	choices: [{ slug: "choices", list: [] }],
+	choices: [{ slug: "blank", list: [] }],
 };
 
 const BLANK = new Follower(BLANK_DATA);

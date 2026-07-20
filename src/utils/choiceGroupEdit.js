@@ -21,9 +21,11 @@ export function blankOption(n) {
 
 const clone = g => foundry.utils.deepClone(g);
 
-/** A fresh empty group. */
-export function newGroup(slug = "choices") {
-	return { slug: slug || "choices", list: [] };
+/** A fresh empty group. The slug is required: it names the value store the group's values live in,
+ *  so minting one without it silently collides with every other unnamed group on the same item. */
+export function newGroup(slug) {
+	if (!slug) throw new TypeError("newGroup requires a slug — it is the group's value namespace");
+	return { slug, list: [] };
 }
 
 export function addRow(group, type) {
