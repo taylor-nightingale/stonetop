@@ -21,6 +21,7 @@
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
 * let fly formatting is messed up. the <ul> is overlappiong the move-sheet-results
+* posessions' choice groups don't render the md *close* correctly
 
 == Nice to have
 * toggle to turn off non-selected character options
