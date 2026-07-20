@@ -50,6 +50,31 @@ describe("Pack choice groups do not collide within a container", () => {
 	});
 });
 
+// The two "Weapons of war" possessions had their slugs crossed, so each playbook resolved the OTHER
+// one's weapon list in play. The lists are per-playbook in Book I (The Heavy p.8558, The Marshal
+// p.10025), and a possession is only ever found by slug, so the slug has to agree with the content.
+describe("Weapons of war lists match the playbook that looks them up", () => {
+	const EXPECTED = {
+		"weapons-of-war-heavy":   ["sword", "battleaxe", "warhammer", "mace-or-flail", "crossbow"],
+		"weapons-of-war-marshal": ["sword", "long-spear", "battleaxe", "composite-bow"],
+	};
+
+	it.each(Object.entries(EXPECTED))("%s offers the right weapons", async (slug, options) => {
+		const raw = JSON.parse(await fs.readFile(path.resolve(`packs/src/possessions/${slug}.json`), "utf8"));
+		expect(raw.system.slug, `${slug}.json declares the wrong slug`).toBe(slug);
+		const found = (raw.system.choices.list ?? [])
+			.flatMap(row => (row.options ?? []).map(o => o.slug));
+		expect(found).toEqual(options);
+	});
+
+	it("each playbook asks for its own list", async () => {
+		for (const [playbook, slug] of [["the-heavy", "weapons-of-war-heavy"], ["the-marshal", "weapons-of-war-marshal"]]) {
+			const raw = await fs.readFile(path.resolve(`packs/src/playbooks/${playbook}.json`), "utf8");
+			expect(raw, `${playbook} should reference ${slug}`).toContain(`"${slug}"`);
+		}
+	});
+});
+
 // `system.choices` is a single group on possessions and moves, and an array of groups on followers.
 // Normalizing here keeps the assertions above shape-agnostic.
 async function loadContainers() {

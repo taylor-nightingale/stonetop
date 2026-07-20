@@ -5,13 +5,13 @@
 	"type": "possession",
 	"img": "icons/svg/item-bag.svg",
 	"system": {
-		"slug": "weapons-of-war-marshal",
+		"slug": "weapons-of-war-heavy",
 		"label": "Weapons of war",
 		"description": "choose up to 3 (now or later)",
 		"resource": null,
 		"outfitItems": [],
 		"choices": {
-			"slug": "weapons-of-war-marshal",
+			"slug": "weapons-of-war-heavy",
 			"list": [
 				{
 					"type": "pick",
