@@ -5,61 +5,74 @@ import { FakeGameBuilder } from "../../../fakes/FakeGameBuilder.js";
 
 afterEach(() => vi.unstubAllGlobals());
 
-// Ratings are stored as their actual roll bonus (see steadingRatingsSchema); the typed
-// actor wrapped here is the same StonetopSteading the steading sheet rolls with, so the
-// display can't drift from the schema without the rolls drifting too.
-function makeSteading({ name = "Stonetop", prosperity = 0, lacking = false, system } = {}) {
+// The repository hands back the typed actor, so what the character side reads (name, prosperity,
+// isLacking, resolveBonus) is the same StonetopSteading the steading sheet rolls with — the display
+// can't drift from the schema without the rolls drifting too.
+function makeSteading({ name = "Stonetop", prosperity = 0, fortunes = 0, lacking = false, system } = {}) {
 	const doc = {
 		type: "steading",
 		name,
-		system: system ?? { attributes: { prosperity }, debilities: { lacking } },
+		system: system ?? { attributes: { prosperity, fortunes }, debilities: { lacking } },
 	};
 	doc.typedActor = new StonetopSteading(doc);
 	return doc;
 }
 
-describe("FoundrySteadingRepository.getProsperity", () => {
+const primary = () => new FoundrySteadingRepository().getPrimary();
+
+describe("FoundrySteadingRepository.getPrimary", () => {
 	it("returns null when there is no game", () => {
-		expect(new FoundrySteadingRepository().getProsperity()).toBeNull();
+		expect(primary()).toBeNull();
 	});
 
 	it("returns null when the world has no steading actor", () => {
 		new FakeGameBuilder().build();
-		expect(new FoundrySteadingRepository().getProsperity()).toBeNull();
+		expect(primary()).toBeNull();
 	});
 
 	it("ignores non-steading actors", () => {
 		new FakeGameBuilder().withWorldActor({ type: "character", name: "Rhianne" }).build();
-		expect(new FoundrySteadingRepository().getProsperity()).toBeNull();
+		expect(primary()).toBeNull();
 	});
 
-	it("reports the stored rating as the roll bonus", () => {
+	it("returns the typed actor, not the document", () => {
+		new FakeGameBuilder().withWorldActor(makeSteading()).build();
+		expect(primary()).toBeInstanceOf(StonetopSteading);
+	});
+});
+
+// -- what the character side asks the returned steading -------------------------
+
+describe("FoundrySteadingRepository — reads off the primary steading", () => {
+	it("reports the stored prosperity rating as the roll bonus", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ prosperity: 1 })).build();
-		expect(new FoundrySteadingRepository().getProsperity()).toEqual({
-			steadingName: "Stonetop", value: 1, lacking: false,
-		});
+		expect(primary().prosperity).toBe(1);
 	});
 
 	it("carries a negative rating through", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ prosperity: -1 })).build();
-		expect(new FoundrySteadingRepository().getProsperity().value).toBe(-1);
+		expect(primary().prosperity).toBe(-1);
 	});
 
-	it("defaults the value to 0 when the steading has no attributes yet", () => {
+	it("defaults prosperity to 0 when the steading has no attributes yet", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ name: "Marshedge", system: {} })).build();
-		expect(new FoundrySteadingRepository().getProsperity()).toEqual({
-			steadingName: "Marshedge", value: 0, lacking: false,
-		});
+		expect(primary().prosperity).toBe(0);
+		expect(primary().name).toBe("Marshedge");
 	});
 
 	it("carries the lacking debility", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ lacking: true })).build();
-		expect(new FoundrySteadingRepository().getProsperity().lacking).toBe(true);
+		expect(primary().isLacking).toBe(true);
 	});
 
 	it("does not treat a non-boolean lacking value as active (legacy data shapes)", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ lacking: { value: true } })).build();
-		expect(new FoundrySteadingRepository().getProsperity().lacking).toBe(false);
+		expect(primary().isLacking).toBe(false);
+	});
+
+	it("resolves fortunes for a character rolling Requisition", () => {
+		new FakeGameBuilder().withWorldActor(makeSteading({ fortunes: 2 })).build();
+		expect(primary().resolveBonus("fortunes")).toBe(2);
 	});
 });
 
@@ -71,10 +84,10 @@ describe("FoundrySteadingRepository steading selection", () => {
 			.withWorldActor(makeSteading({ name: "New Steading", prosperity: -1, lacking: true }))
 			.withWorldActor(makeSteading({ name: "Stonetop", prosperity: 1 }))
 			.build();
-		const p = new FoundrySteadingRepository().getProsperity();
-		expect(p.steadingName).toBe("Stonetop");
-		expect(p.value).toBe(1);
-		expect(p.lacking).toBe(false);
+		const steading = primary();
+		expect(steading.name).toBe("Stonetop");
+		expect(steading.prosperity).toBe(1);
+		expect(steading.isLacking).toBe(false);
 	});
 
 	it("name match is case-insensitive and trims whitespace", () => {
@@ -82,7 +95,7 @@ describe("FoundrySteadingRepository steading selection", () => {
 			.withWorldActor(makeSteading({ name: "New Steading" }))
 			.withWorldActor(makeSteading({ name: " stonetop ", prosperity: 2 }))
 			.build();
-		expect(new FoundrySteadingRepository().getProsperity().value).toBe(2);
+		expect(primary().prosperity).toBe(2);
 	});
 
 	it("prefers a renamed steading over one still at the default name", () => {
@@ -91,9 +104,9 @@ describe("FoundrySteadingRepository steading selection", () => {
 			.withWorldActor(makeSteading({ name: "New Steading" }))
 			.withWorldActor(makeSteading({ name: "Marshedge", prosperity: -1 }))
 			.build();
-		const p = new FoundrySteadingRepository().getProsperity();
-		expect(p.steadingName).toBe("Marshedge");
-		expect(p.value).toBe(-1);
+		const steading = primary();
+		expect(steading.name).toBe("Marshedge");
+		expect(steading.prosperity).toBe(-1);
 	});
 
 	it("falls back to the first steading when all are default-named", () => {
@@ -102,11 +115,11 @@ describe("FoundrySteadingRepository steading selection", () => {
 			.withWorldActor(makeSteading({ name: "New Steading", prosperity: 3 }))
 			.withWorldActor(makeSteading({ name: "New Steading", prosperity: 0 }))
 			.build();
-		expect(new FoundrySteadingRepository().getProsperity().value).toBe(3);
+		expect(primary().prosperity).toBe(3);
 	});
 
 	it("a single steading is used whatever its name", () => {
 		new FakeGameBuilder().withWorldActor(makeSteading({ name: "New Steading", prosperity: 2 })).build();
-		expect(new FoundrySteadingRepository().getProsperity().steadingName).toBe("New Steading");
+		expect(primary().name).toBe("New Steading");
 	});
 });

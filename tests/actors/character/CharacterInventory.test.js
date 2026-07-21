@@ -4,6 +4,8 @@ import { ResourceController } from "../../../src/actors/character/ResourceContro
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
+import { FakeSteadingRepository } from "../../fakes/FakeSteadingRepository.js";
+import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { OutfitSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
 // -- Fake helpers ---------------------------------------------------------------
@@ -81,8 +83,14 @@ function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCt
 	);
 }
 
-function makeSteadingRepo(prosperity) {
-	return { getProsperity: () => prosperity };
+// A repository holding the world's primary steading (or none). The steading is the real typed
+// actor, so these cases fail if StonetopSteading stops answering name/prosperity/isLacking.
+function makeSteadingRepo({ name = "Stonetop", prosperity = 0, lacking = false } = {}) {
+	return FakeSteadingRepository.withSteading({
+		name,
+		attributes: { prosperity },
+		debilities: { lacking },
+	});
 }
 
 // Flatten all items across sections for a column
@@ -359,30 +367,81 @@ describe("CharacterInventory.buildSnapshot", () => {
 	});
 
 	it("prosperity is null when the repository finds no steading", async () => {
-		const ci = makeCi({}, null, null, null, makeSteadingRepo(null));
+		const ci = makeCi({}, null, null, null, new FakeSteadingRepository());
 		expect((await ci.buildSnapshot(1)).prosperity).toBeNull();
 	});
 
-	it("prosperity carries the steading name, value, and a printed label", async () => {
-		const ci = makeCi({}, null, null, null,
-			makeSteadingRepo({ steadingName: "Stonetop", value: 0, lacking: false }));
+	it("prosperity carries the steading name and value", async () => {
+		const ci = makeCi({}, null, null, null, makeSteadingRepo());
 		const p = (await ci.buildSnapshot(1)).prosperity;
 		expect(p.steadingName).toBe("Stonetop");
 		expect(p.value).toBe(0);
-		expect(p.label).toBe("+0");
 		expect(p.lacking).toBe(false);
 	});
 
-	it("negative prosperity is printed with its own sign", async () => {
-		const ci = makeCi({}, null, null, null,
-			makeSteadingRepo({ steadingName: "Stonetop", value: -1, lacking: false }));
-		expect((await ci.buildSnapshot(1)).prosperity.label).toBe("-1");
+	it("prosperity names whichever steading the repository found", async () => {
+		const ci = makeCi({}, null, null, null, makeSteadingRepo({ name: "Marshedge", prosperity: 2 }));
+		const p = (await ci.buildSnapshot(1)).prosperity;
+		expect(p.steadingName).toBe("Marshedge");
+		expect(p.value).toBe(2);
 	});
 
 	it("prosperity carries the lacking debility", async () => {
-		const ci = makeCi({}, null, null, null,
-			makeSteadingRepo({ steadingName: "Stonetop", value: 1, lacking: true }));
+		const ci = makeCi({}, null, null, null, makeSteadingRepo({ prosperity: 1, lacking: true }));
 		expect((await ci.buildSnapshot(1)).prosperity.lacking).toBe(true);
+	});
+});
+
+// -- the Prosperity gear table ------------------------------------------------
+
+describe("CharacterInventory — Prosperity gear table", () => {
+	const rowsFor = async (steading) =>
+		(await makeCi({}, null, null, null, makeSteadingRepo(steading)).buildSnapshot(1)).prosperity.rows;
+
+	const markedIn = (rows) => rows.find(r => r.current)?.label ?? null;
+
+	it("prints the four rungs of the insert's table in order", async () => {
+		expect((await rowsFor({})).map(r => r.label)).toEqual(["-1", "+0", "+1", "+2"]);
+	});
+
+	// localize() is the identity in tests, so the notes come through as their keys…
+	it("carries each rung's note, and leaves +0 blank", async () => {
+		expect((await rowsFor({})).map(r => r.note)).toEqual([
+			"stonetop.inventory.prosperityTable.crude",
+			"",
+			"stonetop.inventory.prosperityTable.piercing1",
+			"stonetop.inventory.prosperityTable.piercing2",
+		]);
+	});
+
+	// …so this is what catches a key that was never added to en.json (or later renamed away).
+	it("every note key has a string in en.json", async () => {
+		const i18n = fakeI18n();
+		const keys = (await rowsFor({})).map(r => r.note).filter(Boolean);
+		expect(keys.filter(k => !i18n.has(k))).toEqual([]);
+	});
+
+	it("marks exactly one rung", async () => {
+		expect((await rowsFor({ prosperity: 1 })).filter(r => r.current)).toHaveLength(1);
+	});
+
+	it("marks the rung the steading is at", async () => {
+		expect(markedIn(await rowsFor({ prosperity: 1 }))).toBe("+1");
+		expect(markedIn(await rowsFor({ prosperity: -1 }))).toBe("-1");
+	});
+
+	// The steading hands over an already-adjusted rating, so lacking moves the mark down a rung
+	// without the inventory knowing the debility exists.
+	it("a lacking steading marks a rung lower", async () => {
+		expect(markedIn(await rowsFor({ prosperity: 1, lacking: true }))).toBe("+0");
+	});
+
+	it("marks the top rung for a steading that has climbed past the table", async () => {
+		expect(markedIn(await rowsFor({ prosperity: 4 }))).toBe("+2");
+	});
+
+	it("marks the bottom rung for a steading that has fallen below it", async () => {
+		expect(markedIn(await rowsFor({ prosperity: -2 }))).toBe("-1");
 	});
 });
 

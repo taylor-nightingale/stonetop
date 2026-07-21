@@ -2017,15 +2017,34 @@ body,
 }
 
 /* -- Outfit header -------------------------------------------- */
+/* Outfit instructions and the steading's Prosperity table sit side by side, each in its own frame.
+   They stretch to a shared height so the two frames line up. */
+.stonetop-outfit-headers {
+	display: flex;
+	align-items: stretch;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
 .stonetop-outfit-header {
 	position: relative;
 	background: white;
-	margin-bottom: 8px;
 	padding: 10px 12px;
 	font-size: var(--fs-label);
+	flex: 1 1 auto;
+	min-width: 0;
 }
 
-.stonetop-outfit-header::before {
+.stonetop-prosperity-panel {
+	position: relative;
+	background: white;
+	padding: 10px 12px;
+	font-size: var(--fs-label);
+	flex: 0 0 auto;
+}
+
+.stonetop-outfit-header::before,
+.stonetop-prosperity-panel::before {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -2049,7 +2068,8 @@ body,
 	8px calc(100% - 32px), 8px calc(100% - 32px);
 }
 
-.stonetop-outfit-header > * {
+.stonetop-outfit-header > *,
+.stonetop-prosperity-panel > * {
 	position: relative;
 	z-index: 1;
 }
@@ -2059,12 +2079,48 @@ body,
 	margin: 0 0 4px;
 }
 
-.stonetop-outfit-prosperity {
+.stonetop-prosperity-title {
+	font-size: var(--fs-heading);
 	margin: 0 0 4px;
+	white-space: nowrap;
 }
 
-.stonetop-outfit-prosperity em {
+.stonetop-prosperity-lacking {
 	opacity: 0.75;
+}
+
+.stonetop-prosperity-rows {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+/* Every row reserves the marker column, so marking one doesn't shift the others sideways. */
+.stonetop-prosperity-row {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+.stonetop-prosperity-row::before {
+	content: "\25B8";
+	visibility: hidden;
+}
+
+.stonetop-prosperity-row.is-current::before {
+	visibility: visible;
+}
+
+.stonetop-prosperity-row.is-current {
+	font-weight: bold;
+}
+
+.stonetop-prosperity-value {
+	min-width: 2em;
 }
 
 .stonetop-outfit-loads {

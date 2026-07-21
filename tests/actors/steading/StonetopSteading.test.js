@@ -176,16 +176,65 @@ describe("StonetopSteading.applyRollMode", () => {
 	});
 });
 
-describe("StonetopSteading.getProsperity", () => {
-	it("reports name, the stored rating as the bonus, and the lacking debility", () => {
+// What a character's expedition page asks of the steading it calls home. Named reads, so the
+// caller never spells an attribute key or a debility slug.
+describe("StonetopSteading — prosperity as characters read it", () => {
+	it("reports name and the stored rating as the bonus", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.prosperity = 2;
+		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		expect(s.name).toBe("Stonetop");
+		expect(s.prosperity).toBe(2);
+		expect(s.isLacking).toBe(false);
+	});
+
+	// The book: while a steading is *lacking*, treat its Prosperity as 1 lower. That belongs to the
+	// steading, so nothing downstream — character sheets, the gear table, rolls — repeats the rule.
+	it("reads 1 lower while the steading is lacking", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = 2;
 		actor.system.debilities.lacking = true;
 		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
-		expect(s.getProsperity()).toEqual({ steadingName: "Stonetop", value: 2, lacking: true });
+		expect(s.prosperity).toBe(1);
+		expect(s.isLacking).toBe(true);
+	});
+
+	it("lacking drops the prosperity roll bonus too", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.prosperity = 0;
+		actor.system.debilities.lacking = true;
+		expect(new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).resolveBonus("prosperity")).toBe(-1);
+	});
+
+	it("lacking leaves the other ratings alone", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.fortunes   = 1;
+		actor.system.attributes.defenses   = 2;
+		actor.system.attributes.population = 1;
+		actor.system.debilities.lacking    = true;
+		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		expect(s.resolveBonus("fortunes")).toBe(1);
+		expect(s.resolveBonus("defenses")).toBe(2);
+		expect(s.resolveBonus("population")).toBe(1);
+	});
+
+	// The GM's rating panel reads the stored attribute, so the adjustment must not follow it there.
+	it("does not change the stored rating", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.prosperity = 2;
+		actor.system.debilities.lacking = true;
+		new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).prosperity;
+		expect(actor.system.attributes.prosperity).toBe(2);
 	});
 
 	it("defaults to +0 / not lacking on a fresh steading", () => {
-		expect(make().getProsperity()).toEqual({ steadingName: "Stonetop", value: 0, lacking: false });
+		expect(make().prosperity).toBe(0);
+		expect(make().isLacking).toBe(false);
+	});
+
+	it("carries a negative rating through", () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.attributes.prosperity = -1;
+		expect(new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).prosperity).toBe(-1);
 	});
 });

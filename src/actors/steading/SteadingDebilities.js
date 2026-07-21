@@ -10,6 +10,10 @@ export class SteadingDebilities {
 		return this._actor.system.debilities ?? {};
 	}
 
+	isActive(slug) {
+		return this._state[slug] === true;
+	}
+
 	async setDebility(slug, active) {
 		await this._actor.update({"system.debilities": {...this._state, [slug]: active}});
 	}

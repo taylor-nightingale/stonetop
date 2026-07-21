@@ -92,20 +92,34 @@ export class OutfitSection {
 // ── Outfit ────────────────────────────────────────────────────────────────────
 
 /**
+ * One rung of the Prosperity gear table printed on the inventory insert.
+ * @property {string} label - the rating as printed, e.g. "+1"
+ * @property {string} note - what gear is like at that rating (may be empty, and may carry markup)
+ * @property {boolean} current - this is the rung the character's steading is at
+ */
+export class ProsperityRowSnapshot {
+	constructor(value, note, current) {
+		this.label   = value >= 0 ? `+${value}` : `${value}`;
+		this.note    = note;
+		this.current = current;
+	}
+}
+
+/**
  * The steading's Prosperity, shown on the inventory tab because Outfit
  * availability and the small-items pool ("mark □ equal to 4+Prosperity")
  * depend on it.
  * @property {string} steadingName - e.g. "Stonetop"
- * @property {number} value - the Prosperity roll bonus, e.g. 0
- * @property {string} label - the bonus as printed, e.g. "+0"
- * @property {boolean} lacking - the steading has the lacking debility (treat Prosperity as 1 lower)
+ * @property {number} value - the Prosperity roll bonus, e.g. 0, already adjusted for `lacking`
+ * @property {boolean} lacking - the steading has the lacking debility; `value` is already 1 lower
+ * @property {ProsperityRowSnapshot[]} rows - the gear table, one row marked current
  */
 export class ProsperitySnapshot {
-	constructor(steadingName, value, lacking) {
+	constructor(steadingName, value, lacking, rows) {
 		this.steadingName = steadingName;
 		this.value        = value;
-		this.label        = value >= 0 ? `+${value}` : `${value}`;
 		this.lacking      = lacking;
+		this.rows         = rows;
 	}
 }
 

@@ -21,7 +21,7 @@ export {
 	OutfitItemSnapshot, OutfitItemSnapshotBuilder,
 	OutfitSection,
 	OutfitSnapshot, OutfitSnapshotBuilder,
-	ProsperitySnapshot,
+	ProsperitySnapshot, ProsperityRowSnapshot,
 	PossessionsSnapshot,
 	PossessionItemSnapshot, PossessionItemSnapshotBuilder,
 } from "./InventorySnapshot.js";

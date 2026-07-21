@@ -2,38 +2,52 @@
 
 	{{#if stonetop.outfit}}
 
-	{{!-- Outfit header --}}
-	<div class="stonetop-outfit-header">
-		<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
+	{{!-- Outfit header, with the steading's Prosperity gear table alongside it --}}
+	<div class="stonetop-outfit-headers">
+		<div class="stonetop-outfit-header">
+			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
+			<ul class="stonetop-outfit-loads">
+				<li>
+					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
+						<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
+					</label>
+				</li>
+				<li>
+					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
+						<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
+					</label>
+				</li>
+				<li>
+					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
+						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
+						<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
+					</label>
+				</li>
+			</ul>
+		</div>
+
 		{{#with stonetop.outfit.prosperity}}
-		<p class="stonetop-outfit-prosperity"
-		   {{#if lacking}}data-tooltip="{{localize "stonetop.inventory.prosperityLackingNote"}}" data-tooltip-direction="UP"{{/if}}>
-			{{steadingName}} {{localize "stonetop.inventory.prosperity"}}: <strong>{{label}}</strong>{{#if lacking}} <em>{{localize "stonetop.inventory.prosperityLacking"}}</em>{{/if}}
-		</p>
+		<div class="stonetop-prosperity-panel"
+		     {{#if lacking}}data-tooltip="{{localize "stonetop.inventory.prosperityLackingNote"}}" data-tooltip-direction="UP"{{/if}}>
+			<p class="stonetop-prosperity-title">
+				{{steadingName}} {{localize "stonetop.inventory.prosperity"}}{{#if lacking}}
+				<em class="stonetop-prosperity-lacking">{{localize "stonetop.inventory.prosperityLacking"}}</em>{{/if}}
+			</p>
+			<ul class="stonetop-prosperity-rows">
+				{{#each rows}}
+				<li class="stonetop-prosperity-row{{#if current}} is-current{{/if}}">
+					<span class="stonetop-prosperity-value">{{label}}</span>
+					<span class="stonetop-prosperity-note">{{{note}}}</span>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
 		{{/with}}
-		<ul class="stonetop-outfit-loads">
-			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
-					<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
-					       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
-					<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
-				</label>
-			</li>
-			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
-					<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
-					       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
-					<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
-				</label>
-			</li>
-			<li>
-				<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
-					<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
-					       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
-					<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
-				</label>
-			</li>
-		</ul>
 	</div>
 
 	<section class="stonetop-inventory">

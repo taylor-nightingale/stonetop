@@ -54,6 +54,23 @@ describe("Steading roll — attribute bonus (integration)", () => {
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 3");
 	});
 
+	// The book: while the steading is *lacking*, treat Prosperity as 1 lower. The rule lives on the
+	// steading, so it reaches the dice without any caller applying it.
+	it("rolls a lacking steading's prosperity 1 lower", async () => {
+		const rolling = makeRolling();
+		await rolling._actor.typedActor.attributes.setValue("prosperity", 2);
+		await rolling._actor.typedActor.debilities.setDebility("lacking", true);
+		await rolling.execute(RollRequest.fromStat("prosperity", "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
+	});
+
+	it("leaves the other ratings alone while lacking", async () => {
+		const rolling = makeRolling();
+		await rolling._actor.typedActor.debilities.setDebility("lacking", true);
+		await rolling.execute(RollRequest.fromStat("fortunes", "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
+	});
+
 	it("reflects a lowered defenses value in the formula (-1)", async () => {
 		const rolling = makeRolling();
 		await rolling._actor.typedActor.attributes.setValue("defenses", -1);

@@ -32,6 +32,10 @@ export class StonetopSteading {
 		return "steading";
 	}
 
+	get name() {
+		return this._actor.name;
+	}
+
 	get rollMode() {
 		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
 	}
@@ -49,24 +53,22 @@ export class StonetopSteading {
 		];
 	}
 
-	// Ratings are stored as their actual value now (fortunes +1, prosperity +0, …), so the roll bonus
-	// is just the stored value. Surplus is a raw count in the same attributes block.
 	resolveBonus(rollStat) {
-		return this._actor.system.attributes?.[rollStat] ?? null;
+		const stored = this._actor.system.attributes?.[rollStat] ?? null;
+		if (stored === null) return null;
+		return rollStat === "prosperity" && this.isLacking ? stored - 1 : stored;
 	}
 
 	applyRollMode(rollStat, rollMode) {
 		return rollMode;
 	}
 
-	/** Prosperity as character sheets display it: the steading's name, the roll bonus,
-	 *  and whether the "lacking" debility applies (treat Prosperity as 1 lower). */
-	getProsperity() {
-		return {
-			steadingName: this._actor.name,
-			value:        this.resolveBonus("prosperity") ?? 0,
-			lacking:      this._actor.system.debilities?.lacking === true,
-		};
+	get prosperity() {
+		return this.resolveBonus("prosperity") ?? 0;
+	}
+
+	get isLacking() {
+		return this.debilities.isActive("lacking");
 	}
 
 	get fortunesCurrent() {

@@ -258,7 +258,12 @@
 			},
 			"prosperity": "Prosperity",
 			"prosperityLacking": "(lacking)",
-			"prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is."
+			"prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is.",
+			"prosperityTable": {
+				"crude": "Gear is <em>crude</em>",
+				"piercing1": "<em>x</em> = 1 piercing",
+				"piercing2": "<em>x</em> = 2 piercing"
+			}
 		},
 		"settings": {
 			"hideRollMode": {

@@ -21,6 +21,35 @@ describe("SteadingDebilities.buildSnapshot", () => {
 	});
 });
 
+describe("SteadingDebilities.isActive", () => {
+	it("is false for a debility that was never marked", () => {
+		expect(make().isActive("lacking")).toBe(false);
+	});
+
+	it("is true once the debility is marked", async () => {
+		const d = make();
+		await d.setDebility("lacking", true);
+		expect(d.isActive("lacking")).toBe(true);
+	});
+
+	it("is false again once the debility is cleared", async () => {
+		const d = make();
+		await d.setDebility("lacking", true);
+		await d.setDebility("lacking", false);
+		expect(d.isActive("lacking")).toBe(false);
+	});
+
+	it("is false for a slug the steading has no state for", () => {
+		expect(make().isActive("bankrupt")).toBe(false);
+	});
+
+	// Legacy worlds stored debilities as {value: bool}; a truthy object must not read as marked.
+	it("does not treat a non-boolean stored value as active", () => {
+		const d = new SteadingDebilities({ system: { debilities: { lacking: { value: true } } } });
+		expect(d.isActive("lacking")).toBe(false);
+	});
+});
+
 describe("SteadingDebilities.setDebility", () => {
 	it("marks a debility active", async () => {
 		const d = make();

@@ -47,6 +47,11 @@ export class TestCharacterBuilder {
 		return this;
 	}
 
+	withSteadingRepo(repo) {
+		this._repos.steading = repo ?? this._repos.steading;
+		return this;
+	}
+
 	addPlaybookItemData(itemData) {
 		this._repos.playbooks.addItemData(itemData);
 		return this;

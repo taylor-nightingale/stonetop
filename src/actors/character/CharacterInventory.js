@@ -3,11 +3,24 @@ import {
 	LoadSnapshotBuilder,
 	OutfitSnapshotBuilder,
 	ProsperitySnapshot,
+	ProsperityRowSnapshot,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import { ResourceController } from "./ResourceController.js";
 import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
+
+// The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
+// only decides which one the character is standing on. A rating past either end marks the nearest
+// rung rather than none — a steading can climb past +2.
+const _PROSPERITY_ROWS = [
+	{ value: -1, noteKey: "stonetop.inventory.prosperityTable.crude" },
+	{ value:  0, noteKey: null },
+	{ value:  1, noteKey: "stonetop.inventory.prosperityTable.piercing1" },
+	{ value:  2, noteKey: "stonetop.inventory.prosperityTable.piercing2" },
+];
+const _PROSPERITY_MIN = _PROSPERITY_ROWS[0].value;
+const _PROSPERITY_MAX = _PROSPERITY_ROWS.at(-1).value;
 
 export class CharacterInventory {
 	constructor(actor, inventoryRepo, outfitItems, resourceController, steadingRepo = null) {
@@ -114,8 +127,16 @@ export class CharacterInventory {
 	}
 
 	buildProsperitySnapshot() {
-		const p = this._steadingRepo?.getProsperity() ?? null;
-		return p ? new ProsperitySnapshot(p.steadingName, p.value, p.lacking) : null;
+		const steading = this._steadingRepo?.getPrimary() ?? null;
+		if (!steading) return null;
+		const at = Math.min(_PROSPERITY_MAX, Math.max(_PROSPERITY_MIN, steading.prosperity));
+		return new ProsperitySnapshot(
+			steading.name,
+			steading.prosperity,
+			steading.isLacking,
+			_PROSPERITY_ROWS.map(row =>
+				new ProsperityRowSnapshot(row.value, row.noteKey ? _loc(row.noteKey) : "", row.value === at)),
+		);
 	}
 
 	buildLoadSnapshot(loadLevel) {

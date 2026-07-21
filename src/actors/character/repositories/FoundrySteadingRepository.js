@@ -1,5 +1,7 @@
 /**
- * Read-only view of the world's steading actor for display on character sheets.
+ * Finds the steading a character calls home. That one steading answers both what the sheet
+ * displays (Prosperity) and what a character rolls when a move reaches past its own stats
+ * (Requisition's +Fortunes), so this hands back the typed actor and lets callers ask it directly.
  */
 export class FoundrySteadingRepository {
 	/**
@@ -7,7 +9,7 @@ export class FoundrySteadingRepository {
 	 * default name). Prefer the one named "Stonetop", then any renamed one, then first.
 	 * @returns {import("../../steading/StonetopSteading.js").StonetopSteading|null} the typed actor
 	 */
-	_findSteading() {
+	getPrimary() {
 		const steadings = globalThis.game?.actors?.filter?.(a => a.type === "steading") ?? [];
 		const doc = steadings.length <= 1
 			? steadings[0] ?? null
@@ -15,16 +17,6 @@ export class FoundrySteadingRepository {
 				?? steadings.find(a => a.name !== _loc("stonetop.actor.defaultName.steading"))
 				?? steadings[0];
 		return doc?.typedActor ?? null;
-	}
-
-	/**
-	 * @returns {{steadingName: string, value: number, lacking: boolean}|null}
-	 *   value is the Prosperity roll bonus; lacking mirrors the steading's
-	 *   "lacking" debility (treat Prosperity as 1 lower). Null when the world
-	 *   has no steading actor.
-	 */
-	getProsperity() {
-		return this._findSteading()?.getProsperity() ?? null;
 	}
 }
 

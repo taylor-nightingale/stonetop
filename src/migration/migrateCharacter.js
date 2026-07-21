@@ -63,6 +63,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateCharacterFlags(actor);
 	await migrateEmbeddedMoveSlugs(actor);
 	await migrateCharacterMoves(actor, repos.moves, insertRepo);
+	await migrateReferenceMoveCategories(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookChoices(actor, repos.playbooks);
 	await migratePlaybookIntroductions(actor, repos.playbooks);
@@ -147,6 +148,20 @@ export async function migrateEmbeddedMoveSlugs(actor) {
 		.filter(i => i.type === "move" && !i.system?.slug)
 		.map(i => ({ _id: i._id, system: { slug: toSlug(i.name) } }));
 	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+}
+
+// ── B0.5. Reference categories added after the character was made ─────────────
+
+// Reference moves are seeded at creation, so a character made before a category existed never gets
+// it (expedition, added in 0.15) — migrateCharacterMoves below bails for anyone already on embedded
+// moves. Seeds only categories the character has NOTHING from: a GM who deleted a single reference
+// move meant it, and a migration must not hand it back.
+export async function migrateReferenceMoveCategories(actor, moveRepo) {
+	const moves = new CharacterMoves(moveRepo, actor, null, null);
+	for (const categoryKey of CharacterMoves.REFERENCE_CATEGORIES) {
+		const present = [...actor.items].some(i => i.type === "move" && i.system?.categoryKey === categoryKey);
+		if (!present) await moves.seedReferenceCategory(categoryKey);
+	}
 }
 
 // ── B. Embedded move items ────────────────────────────────────────────────────

@@ -27,11 +27,18 @@ export class CharacterMoves {
 	// Reference moves are seeded onto every character and shown in the sidebar (not the moves
 	// tab): basic, plus the expedition, universal special, and follower moves. Seeded once at actor
 	// creation (CreateActor hook), NOT on render — thereafter they are ordinary owned items the GM
-	// can edit, delete, or re-add via drag-drop.
+	// can edit, delete, or re-add via drag-drop. One list, so a category added to the packs later
+	// reaches both new characters (here) and existing ones (migrateReferenceMoveCategories).
+	static REFERENCE_CATEGORIES = ["basic", "expedition", "special", "follower"];
+
 	async initBasicMoves() {
-		for (const moveType of ["basic", "expedition", "special", "follower"]) {
-			await this._seeder.seed(moveType);
+		for (const moveType of CharacterMoves.REFERENCE_CATEGORIES) {
+			await this.seedReferenceCategory(moveType);
 		}
+	}
+
+	async seedReferenceCategory(categoryKey) {
+		await this._seeder.seed(categoryKey);
 	}
 
 	// A playbook owns its moves by slug (playbookData.moves) and marks a subset as starting

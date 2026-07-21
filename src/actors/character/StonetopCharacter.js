@@ -23,6 +23,7 @@ export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._playbookRepo = repos.playbooks ?? null;
+		this._steadingRepo = repos.steading ?? null;
 		this._stats = new CharacterStats(actor);
 		this._origin = new CharacterOrigin(actor);
 		const outfitItems = new ActorOutfitItems(actor);
@@ -326,7 +327,11 @@ export class StonetopCharacter {
 	}
 
 	resolveBonus(stat) {
-		return this._stats.resolveBonus(stat);
+		return this._stats.resolveBonus(stat) ?? this._homeSteading?.resolveBonus(stat) ?? null;
+	}
+
+	get _homeSteading() {
+		return this._steadingRepo?.getPrimary() ?? null;
 	}
 
 	applyRollMode(stat, rollMode) {
