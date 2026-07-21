@@ -406,9 +406,10 @@ describe("CharacterMoves.initBasicMoves", () => {
 		expect(actor.createdDocs.length).toBe(docsAfterFirst);
 	});
 
-	it("also seeds special and follower moves as side-bar categories under basic", async () => {
+	it("also seeds expedition, special and follower moves as side-bar categories under basic", async () => {
 		const repo = new FakeMoveRepository([], [
 			new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Make Camp").withMoveType("expedition").asStarting().build(),
 			new FakeCompendiumMoveBuilder().withName("Death's Door").withMoveType("special").asStarting().build(),
 			new FakeCompendiumMoveBuilder().withName("Order Followers").withMoveType("follower").asStarting().build(),
 		]);
@@ -418,13 +419,32 @@ describe("CharacterMoves.initBasicMoves", () => {
 
 		const cats = (await m.buildSnapshot()).categories;
 		const byKey = Object.fromEntries(cats.map(c => [c.key, c]));
-		// All three are side-bar, ordered basic → special → follower.
-		expect(cats.map(c => c.key)).toEqual(["basic", "special", "follower"]);
+		// All four are side-bar, ordered basic → expedition → special → follower.
+		expect(cats.map(c => c.key)).toEqual(["basic", "expedition", "special", "follower"]);
+		expect(byKey.expedition.renderStyle).toBe("side-bar");
 		expect(byKey.special.renderStyle).toBe("side-bar");
 		expect(byKey.follower.renderStyle).toBe("side-bar");
+		expect(byKey.expedition.moves[0].name).toBe("Make Camp");
 		expect(byKey.special.moves[0].name).toBe("Death's Door");
 		expect(byKey.follower.moves[0].name).toBe("Order Followers");
 		expect(actor.createdDocs.find(d => d.name === "Death's Door").system.categoryKey).toBe("special");
+	});
+
+	it("seeds the expedition category acquired, labelled, and not open to additional moves", async () => {
+		const repo = new FakeMoveRepository([], [
+			new FakeCompendiumMoveBuilder().withName("Chart a Course").withMoveType("expedition").asStarting().build(),
+		]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.initBasicMoves();
+
+		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "expedition");
+		expect(cat.label).toBe("Expedition Moves");
+		expect(cat.allowAdditional).toBe(false);
+		expect(cat.note).toBe(null);
+		expect(cat.moves[0].selection.value).toBe(1);
+		expect(actor.createdDocs[0].system.categoryKey).toBe("expedition");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
 	});
 
 	it("is idempotent across all reference categories", async () => {

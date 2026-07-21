@@ -34,6 +34,7 @@ const ROLL_STAT_CHOICES = {
 const MOVE_TYPE_CHOICES = {
 	"":           "stonetop.item.move.moveType.none",
 	basic:        "stonetop.item.move.moveType.basic",
+	expedition:   "stonetop.item.move.moveType.expedition",
 	homefront:    "stonetop.item.move.moveType.homefront",
 	special:      "stonetop.item.move.moveType.special",
 	follower:     "stonetop.item.move.moveType.follower",

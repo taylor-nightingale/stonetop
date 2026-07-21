@@ -25,11 +25,11 @@ export class CharacterMoves {
 	setVitals(vitals) { this._vitals = vitals; }
 
 	// Reference moves are seeded onto every character and shown in the sidebar (not the moves
-	// tab): basic, plus the universal special moves and follower moves. Seeded once at actor
+	// tab): basic, plus the expedition, universal special, and follower moves. Seeded once at actor
 	// creation (CreateActor hook), NOT on render — thereafter they are ordinary owned items the GM
 	// can edit, delete, or re-add via drag-drop.
 	async initBasicMoves() {
-		for (const moveType of ["basic", "special", "follower"]) {
+		for (const moveType of ["basic", "expedition", "special", "follower"]) {
 			await this._seeder.seed(moveType);
 		}
 	}
@@ -254,15 +254,17 @@ function _acquiredSlugs(moveItems) {
 function _categoryOrder(key) {
 	if (key.startsWith("playbook-")) return 0;
 	if (key === "basic")             return 1;
-	if (key === "special")           return 2;
-	if (key === "follower")          return 3;
-	if (key.startsWith("insert-")) return 4;
-	if (key === "other")             return 5;
-	return 6;
+	if (key === "expedition")        return 2;
+	if (key === "special")           return 3;
+	if (key === "follower")          return 4;
+	if (key.startsWith("insert-")) return 5;
+	if (key === "other")             return 6;
+	return 7;
 }
 
 function _categoryMetadata(catKey, catItems) {
 	if (catKey === "basic")    return { key: "basic",    label: "Basic Moves",    renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "expedition") return { key: "expedition", label: "Expedition Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
 	if (catKey === "special")  return { key: "special",  label: "Special Moves",  renderStyle: "side-bar", allowAdditional: false, note: null };
 	if (catKey === "follower") return { key: "follower", label: "Follower Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
 	if (catKey === "other") return { key: "other", label: "Other Moves", renderStyle: "standard", allowAdditional: true,  note: null };

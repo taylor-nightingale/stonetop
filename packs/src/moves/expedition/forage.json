@@ -1,0 +1,27 @@
+{
+  "_id": "bFTLfimAxdbaRN2D",
+  "_key": "!items!bFTLfimAxdbaRN2D",
+  "name": "Forage",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "When you **_spend a few hours seeking food in the wild_**, roll +WIS. In winter, you have disadvantage. **On a 10+**, pick 2; **on a 7-9**, pick 1:\n\n- You acquire ◇ provisions (1d6 uses)\n- You acquire an extra 1d6 uses of provisions\n- You discover something interesting or useful\n- You avoid danger or risk (else, there is some)\n\nProvisions can substitute for supplies when you Make Camp, 1-for-1.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Pick 2 from the list."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Pick 1 from the list."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The land is barren or picked clean, hunger sets in (mark a debility), or you stumble into danger."
+      }
+    },
+    "rollStat": "wis",
+    "slug": "forage"
+  },
+  "folder": "kLiVjYrG7UbwZf5D"
+}

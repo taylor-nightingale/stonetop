@@ -1,0 +1,12 @@
+{
+  "_id": "bymwk3ionmxDWb1W",
+  "_key": "!items!bymwk3ionmxDWb1W",
+  "name": "Outfit",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "When you **_prepare for an expedition in a friendly community_**, mark as many ◇ on your Inventory insert as you wish to carry, either on specific items or in \"undefined.\" Mark up to 3 ◇ for a _light_ load (quick and quiet), 4–6 ◇ for a _normal_ load, or 7–9 ◇ for a _heavy_ load (noisy, slow, quick to tire). Also, mark a number of □ in the Small items section equal to 4+Prosperity (on specific items or \"undefined\").\n\nYou can select:\n\n- Items printed on the Inventory insert\n- Other common, mundane items\n- Any of your special possessions\n- Special items for which you Trade & Barter\n\nTell the GM what you're bringing, and answer their questions about your gear and where you got it.",
+    "slug": "outfit"
+  },
+  "folder": "kLiVjYrG7UbwZf5D"
+}

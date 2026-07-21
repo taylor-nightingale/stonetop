@@ -1,0 +1,27 @@
+{
+  "_id": "ef7fAhKICL39wBE4",
+  "_key": "!items!ef7fAhKICL39wBE4",
+  "name": "Struggle as One",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "When you **_Defy Danger as a group_**, establish the party's approach and each roll +STAT (per Defy Danger): **on a 6-**, you find yourself in a spot, the GM will describe it or ask you to; **on a 7-9**, you pull your weight; **on a 10+**, you do well enough to get someone else out of a spot, if you can tell us how.\n\nIf you roll a 6- but someone saves you, don't mark XP.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "You do well enough to get someone else out of a spot, if you can tell us how."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You pull your weight."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "You find yourself in a spot—the GM will describe it or ask you to."
+      }
+    },
+    "rollStat": "ask",
+    "slug": "struggle-as-one"
+  },
+  "folder": "kLiVjYrG7UbwZf5D"
+}

@@ -407,12 +407,13 @@
 					"prompt": "Prompt (no roll)"
 				},
 				"moveType": {
-					"none":      "— Type —",
-					"basic":     "Basic",
-					"homefront": "Homefront",
-					"special":   "Special",
-					"follower":  "Follower",
-					"other":     "Other"
+					"none":       "— Type —",
+					"basic":      "Basic",
+					"expedition": "Expedition",
+					"homefront":  "Homefront",
+					"special":    "Special",
+					"follower":   "Follower",
+					"other":      "Other"
 				},
 				"results": {
 					"successPlaceholder": "What happens on a 10+…",

@@ -1,0 +1,28 @@
+{
+  "_id": "MrythywMEgOkWwKq",
+  "_key": "!items!MrythywMEgOkWwKq",
+  "name": "Requisition",
+  "type": "move",
+  "system": {
+    "moveType": "expedition",
+    "description": "When you **_borrow some of the steading's assets for an expedition_** (like the horses or a plow), roll +Fortunes: **on a 10+**, go ahead, but bring it back safely; **on a 7-9**, you'll need to do some convincing; **on a 6-**, don't mark XP—you can take the asset with you if you want, but if you do, reduce Fortunes by 1.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Go ahead, but bring it back safely."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "You'll need to do some convincing."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Don't mark XP. You can take the asset with you if you want, but if you do, reduce Fortunes by 1."
+      }
+    },
+    "rollStat": "fortunes",
+    "slug": "requisition",
+    "xpOnMiss": false
+  },
+  "folder": "kLiVjYrG7UbwZf5D"
+}
