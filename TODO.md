@@ -16,11 +16,11 @@
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
 * Improvement drop on the steading sheet: StonetopSteadingSheet._onDropItem branch for type "improvement" — add item.system.slug to system.improvements (deduped, via a named SteadingImprovements method, no embed). Today only the steadfast sheet accepts improvement drops; the steading schema already anticipates "wonder improvements dropped later".
 * support carolingian ui module (inventory/move checkboxes dissapear)
-* the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake — unifying them into tests/fakes/ means rewriting the steading test, which is outside this diff. Worth doing when that test is next touched.
+* the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake
 * Make input text in choice boxes expand down as more text is typed in.
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
-* let fly formatting is messed up. the <ul> is overlappiong the move-sheet-results
+* let fly formatting is messed up. the <ul> is overlapping the move-sheet-results
 * posessions' choice groups don't render the md *close* correctly
 
 == Nice to have

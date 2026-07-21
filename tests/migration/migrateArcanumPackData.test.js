@@ -2,6 +2,12 @@ import { describe, it, expect } from "vitest";
 import { migrateArcanumPackData } from "../../src/migration/migrateCharacter.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeArcanaRepository } from "../fakes/FakeArcanaRepository.js";
+import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
+import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
+import { CharacterArcana } from "../../src/actors/character/CharacterArcana.js";
+import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
+import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
+import { CharacterArcana } from "../../src/actors/character/CharacterArcana.js";
 
 const FRONT = { title: "Front", item: null, description: "desc", unlock: null };
 const BACK  = { title: "Back",  item: null, description: "", choices: null };
@@ -88,5 +94,129 @@ describe("migrateArcanumPackData", () => {
 		]);
 		await migrateArcanumPackData(actor, repo);
 		expect(actor.updatedDocs).toHaveLength(2);
+	});
+});
+
+// Refreshing the arcanum's own data is not enough: the gear it granted is a SEPARATE embedded
+// document, written when the card was flipped. A pouch that gained a "uses" resource in a later pack
+// regen keeps `resource: null` on the character until the grant is recomputed — which looks exactly
+// like the resource track silently refusing to render.
+describe("migrateArcanumPackData — regranting the card item", () => {
+	const POUCH = {
+		name: "pouch of powdered cinnabar", weight: 1, tags: null, note: "Value 2",
+		inventoryColumn: "regular", resource: { max: 12, title: "uses", labels: [] },
+	};
+
+	function flippedArcanum(backItem) {
+		const item = makeArcanumItem("time-worn-missive");
+		item.system.flipped = true;
+		item.system.back    = { ...BACK, item: backItem };
+		return item;
+	}
+
+	function syncFor(outfit) {
+		return new ContainerOutfitSync(outfit).register("arcanum", CharacterArcana.outfitGrantFor);
+	}
+
+	it("re-grants the card item with the resource the pack now defines", async () => {
+		// On the character: the same pouch, but granted before it had a resource.
+		const actor  = makeActor([flippedArcanum({ ...POUCH, resource: null })]);
+		const outfit = new FakeOutfitItems();
+		const repo   = makeRepo([{ slug: "time-worn-missive", name: "Missive", front: FRONT, back: { ...BACK, item: POUCH } }]);
+
+		await migrateArcanumPackData(actor, repo, syncFor(outfit));
+
+		const [granted] = outfit.getItems("arcana:time-worn-missive");
+		expect(granted?.system.resource).toEqual({ max: 12, title: "uses", labels: [] });
+	});
+
+	it("grants nothing for a card that is still face-up", async () => {
+		const item = flippedArcanum(POUCH);
+		item.system.flipped = false;
+		const actor  = makeActor([item]);
+		const outfit = new FakeOutfitItems();
+		const repo   = makeRepo([{ slug: "time-worn-missive", name: "Missive", front: FRONT, back: { ...BACK, item: POUCH } }]);
+
+		await migrateArcanumPackData(actor, repo, syncFor(outfit));
+
+		expect(outfit.getSlugs("arcana:time-worn-missive")).toHaveLength(0);
+	});
+
+	it("is idempotent — a second run leaves one copy", async () => {
+		const actor  = makeActor([flippedArcanum({ ...POUCH, resource: null })]);
+		const outfit = new FakeOutfitItems();
+		const repo   = makeRepo([{ slug: "time-worn-missive", name: "Missive", front: FRONT, back: { ...BACK, item: POUCH } }]);
+
+		await migrateArcanumPackData(actor, repo, syncFor(outfit));
+		await migrateArcanumPackData(actor, repo, syncFor(outfit));
+
+		expect(outfit.getItems("arcana:time-worn-missive")).toHaveLength(1);
+	});
+
+    it("still works when no sync is supplied", async () => {
+        const actor = makeActor([flippedArcanum(POUCH)]);
+        const repo  = makeRepo([{ slug: "time-worn-missive", name: "Missive", front: FRONT, back: { ...BACK, item: POUCH } }]);
+
+        await expect(migrateArcanumPackData(actor, repo)).resolves.not.toThrow();
+    });
+});
+
+// Refreshing the arcanum's own data is not enough: the gear it granted is a SEPARATE embedded
+// document, written when the card was flipped. A pouch that gained a "uses" resource in a later pack
+// regen keeps `resource: null` on the character until the grant is recomputed — which looks exactly
+// like the resource track silently refusing to render.
+describe("migrateArcanumPackData — regranting the card item", () => {
+	const POUCH = {
+		name: "pouch of powdered cinnabar", weight: 1, tags: null, note: "Value 2",
+		inventoryColumn: "regular", resource: { max: 12, title: "uses", labels: [] },
+	};
+
+	function flippedArcanum(backItem) {
+		const item = makeArcanumItem("time-worn-missive");
+		item.system.flipped = true;
+		item.system.back    = { ...BACK, item: backItem };
+		return item;
+	}
+
+	const syncFor = outfit =>
+		new ContainerOutfitSync(outfit).register("arcanum", CharacterArcana.outfitGrantFor);
+	const repoWith = item =>
+		makeRepo([{ slug: "time-worn-missive", name: "Missive", front: FRONT, back: { ...BACK, item } }]);
+
+	it("re-grants the card item with the resource the pack now defines", async () => {
+		// On the character: the same pouch, but granted before it had a resource.
+		const actor  = makeActor([flippedArcanum({ ...POUCH, resource: null })]);
+		const outfit = new FakeOutfitItems();
+
+		await migrateArcanumPackData(actor, repoWith(POUCH), syncFor(outfit));
+
+		const [granted] = outfit.getItems("arcana:time-worn-missive");
+		expect(granted?.system.resource).toEqual({ max: 12, title: "uses", labels: [] });
+	});
+
+	it("grants nothing for a card that is still face-up", async () => {
+		const item = flippedArcanum(POUCH);
+		item.system.flipped = false;
+		const outfit = new FakeOutfitItems();
+
+		await migrateArcanumPackData(makeActor([item]), repoWith(POUCH), syncFor(outfit));
+
+		expect(outfit.getSlugs("arcana:time-worn-missive")).toHaveLength(0);
+	});
+
+	it("is idempotent — a second run leaves one copy", async () => {
+		const actor  = makeActor([flippedArcanum({ ...POUCH, resource: null })]);
+		const outfit = new FakeOutfitItems();
+
+		await migrateArcanumPackData(actor, repoWith(POUCH), syncFor(outfit));
+		await migrateArcanumPackData(actor, repoWith(POUCH), syncFor(outfit));
+
+		expect(outfit.getItems("arcana:time-worn-missive")).toHaveLength(1);
+	});
+
+	it("still works when no sync is supplied", async () => {
+		const actor = makeActor([flippedArcanum(POUCH)]);
+
+		await expect(migrateArcanumPackData(actor, repoWith(POUCH))).resolves.not.toThrow();
 	});
 });

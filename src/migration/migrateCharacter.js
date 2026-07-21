@@ -69,10 +69,15 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 
 	const outfitItems         = new ActorOutfitItems(actor);
 	const resourceController  = new ResourceController(actor);
+	// Refreshing a container from the pack changes what it grants, so each refresh below recomputes its
+	// grant through this. Same registrations as the composition root, and idempotent either way.
+	const outfitSync = new ContainerOutfitSync(outfitItems)
+		.register("possession", CharacterPossessions.outfitGrantFor)
+		.register("arcanum",    CharacterArcana.outfitGrantFor);
 
 	await migrateArcana(actor, repos.arcana, repos.followers);
 	_logArcanumFlipped(actor, "after migrateArcana");
-	await migrateArcanumPackData(actor, repos.arcana);
+	await migrateArcanumPackData(actor, repos.arcana, outfitSync);
 	_logArcanumFlipped(actor, "after migrateArcanumPackData");
 	await migrateArcanaMoves(actor, repos.arcana, repos.moves);
 	_logArcanumFlipped(actor, "after migrateArcanaMoves");
@@ -86,8 +91,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	_logArcanumFlipped(actor, "after migratePossessions");
 	// Refresh authored fields before stamping the group slug: the refresh replaces `choices` wholesale
 	// (slug included), so the stamp has to run after it to correct a pack that ever drifts.
-	await migratePossessionPackData(actor, repos.possessions,
-		new ContainerOutfitSync(outfitItems).register("possession", CharacterPossessions.outfitGrantFor));
+	await migratePossessionPackData(actor, repos.possessions, outfitSync);
 	await migratePossessionChoiceSlugs(actor);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
@@ -636,7 +640,7 @@ export async function migratePlaybookChoices(actor, playbookRepo) {
 // follower `back.choices`. Player state (`flipped` + `choiceValues`: marked circles, picks, follower
 // selections) lives outside front/back, so a front/back-only merge update preserves it. Idempotent —
 // runs once per world migration (also covers the old case of an item left with an empty front).
-export async function migrateArcanumPackData(actor, arcanaRepo) {
+export async function migrateArcanumPackData(actor, arcanaRepo, outfitSync = null) {
 	const items = [...actor.items].filter(i => i.type === "arcanum" && i.system?.slug);
 	const updates = [];
 	for (const item of items) {
@@ -644,16 +648,19 @@ export async function migrateArcanumPackData(actor, arcanaRepo) {
 		if (!raw?.front) continue;
 		updates.push({ _id: item._id, system: { front: raw.front, back: raw.back } });
 	}
-	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+	if (!updates.length) return;
+	await actor.updateEmbeddedDocuments("Item", updates);
+
+	// Refreshing the card is not enough: the gear it granted is a SEPARATE embedded document, written
+	// when the card was flipped. A card item that gained a resource (or changed at all) in a later pack
+	// regen keeps the old copy on the character until the grant is recomputed. Re-read each arcanum
+	// AFTER the update so the grant comes from the refreshed card; the sync is idempotent.
+	for (const { _id } of updates) {
+		const item = [...actor.items].find(i => i._id === _id);
+		if (item) await outfitSync?.syncItem(item);
+	}
 }
 
-// ── N. Refresh an acquired arcana follower's authored stat block from the pack ─
-// An acquired arcana follower is an embedded copy, so regenerating the pack doesn't reach it. Refresh
-// each embedded arcana follower's authored fields from the repo (matched by slug): the tag/instinct/
-// cost pick-list options, the selectable-move choice group, moves, marker icon, and stats. Player state
-// is preserved by omission — loyalty, current HP (hp.value), owned, choiceValues (which moves/picks are
-// checked), inventory, members, companion all stay (Foundry merges the partial update). Scoped to arcana
-// followers (arcanaSlug set); playbook/custom followers aren't parsed from the book. Idempotent.
 // ── O. Refresh an embedded possession's authored fields from the pack ─────────
 // An embedded possession is a copy taken when the playbook granted it, so regenerating the pack never
 // reaches it: a description added later never shows, and gear hung off a pick the player already ticked
@@ -698,6 +705,14 @@ export async function migratePossessionPackData(actor, possessionRepo, outfitSyn
 		if (item) await outfitSync?.syncItem(item);
 	}
 }
+
+// ── N. Refresh an acquired arcana follower's authored stat block from the pack ─
+// An acquired arcana follower is an embedded copy, so regenerating the pack doesn't reach it. Refresh
+// each embedded arcana follower's authored fields from the repo (matched by slug): the tag/instinct/
+// cost pick-list options, the selectable-move choice group, moves, marker icon, and stats. Player state
+// is preserved by omission — loyalty, current HP (hp.value), owned, choiceValues (which moves/picks are
+// checked), inventory, members, companion all stay (Foundry merges the partial update). Scoped to arcana
+// followers (arcanaSlug set); playbook/custom followers aren't parsed from the book. Idempotent.
 
 export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 	const items = [...actor.items].filter(i => i.type === "follower" && i.system?.arcanaSlug && i.system?.slug);
