@@ -31,7 +31,7 @@
        data-cg-group="{{row.cgGroup}}"
        data-cg-option="{{opt.slug}}"
        data-cg-siblings="{{row.siblingSlugsCsv}}"
-       data-display-label="{{opt.text}}{{#if withDescription}} — {{opt.description.raw}}{{/if}}"
+       data-display-label="{{opt.text.raw}}{{#if withDescription}} — {{opt.description.raw}}{{/if}}"
        {{else}}
        {{#if row.changeAction}}data-change-action="{{row.changeAction}}"{{/if}}
        {{#if row.possessionSlug}}data-possession-slug="{{row.possessionSlug}}"{{/if}}
@@ -133,7 +133,7 @@
     <label class="stonetop-item{{#if checked}} is-checked{{/if}}">
         <div class="stonetop-item-header">
             {{> pick-input row=.. opt=this withDescription=true}}
-            <strong class="stonetop-item-name">{{text}}</strong>
+            <strong class="stonetop-item-name">{{rich text}}</strong>
         </div>
         <div class="stonetop-item-description">{{rich description}}</div>
     </label>
@@ -150,7 +150,7 @@
                data-cg-option="{{slug}}-fill"
                value="{{fillValue}}">
         {{else}}
-        {{text}}
+        {{rich text}}
         {{/if}}
     </label>
     {{/if}}

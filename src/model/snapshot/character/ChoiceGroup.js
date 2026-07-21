@@ -140,7 +140,7 @@ export class ChoiceGroup {
 		const siblingSlugsCsv = radio ? (item.options ?? []).map(o => o.slug).join(",") : null;
 		return new ChoiceRow(
 			(item.options ?? []).map(o => new ChoiceOption(o.slug, {
-				text:        o.content?.title ?? o.text ?? null,
+				text:        rich(o.content?.title ?? o.text ?? null),
 				description: rich(o.content?.text ?? o.description ?? null),
 				checked:     values.getCount(es, o.slug) > 0,
 				type:        o.type ?? null,

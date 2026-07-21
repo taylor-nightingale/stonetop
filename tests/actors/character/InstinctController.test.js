@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { InstinctController } from "../../../src/actors/character/InstinctController.js";
 import { ChoiceValues } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { rich } from "../../../src/model/snapshot/RichText.js";
 
 // ── Fake ──────────────────────────────────────────────────────────────────────
 
@@ -93,6 +94,14 @@ describe("InstinctController.computeSelected", () => {
 	it("returns 'Text — Description' when an option is checked", () => {
 		const result = InstinctController.computeSelected(group("delight"), new ChoiceValues());
 		expect(result).toBe("Delight — To find beauty.");
+	});
+
+	it("unwraps RichText text/description to their raw markdown — the real snapshot shape", () => {
+		const richGroup = {
+			list: [{ options: [{ slug: "delight", text: rich("*Delight*"), description: rich("To find **beauty**."), checked: true }] }],
+		};
+		expect(InstinctController.computeSelected(richGroup, new ChoiceValues()))
+			.toBe("*Delight* — To find **beauty**.");
 	});
 
 	it("returns custom text when no option is checked but __custom is set", () => {

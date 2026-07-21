@@ -33,11 +33,12 @@ export class InstinctController {
 
 	static computeSelected(instinctGroup, choiceValues) {
 		const checked = instinctGroup?.list[0]?.options?.find(o => o.checked) ?? null;
-		// option.description may be a RichText or a bare string; rich() normalizes either to its raw
-		// markdown for this computed display label.
+		// option.text/description may be a RichText or a bare string; rich() normalizes either to its
+		// raw markdown for this computed display label (it lands in the custom-instinct text box).
 		if (checked) {
+			const text = rich(checked.text).raw;
 			const desc = rich(checked.description).raw;
-			return desc ? `${checked.text} — ${desc}` : checked.text;
+			return desc ? `${text} — ${desc}` : text;
 		}
 		return choiceValues.toRaw()?.instinct?.__custom || null;
 	}
