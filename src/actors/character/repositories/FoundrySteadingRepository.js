@@ -14,10 +14,25 @@ export class FoundrySteadingRepository {
 		const doc = steadings.length <= 1
 			? steadings[0] ?? null
 			: steadings.find(a => a.name?.trim().toLowerCase() === "stonetop")
-				?? steadings.find(a => a.name !== _loc("stonetop.actor.defaultName.steading"))
+				?? steadings.find(a => !_isDefaultNamed(a.name))
 				?? steadings[0];
 		return doc?.typedActor ?? null;
 	}
+}
+
+/**
+ * True for a steading left at the name Foundry generates on create: the localized type label,
+ * plus the " (2)" suffix core appends when that name is already taken.
+ * @see Document.defaultName
+ */
+function _isDefaultNamed(name) {
+	const label = _loc("TYPES.Actor.steading").trim().toLowerCase();
+	const trimmed = (name ?? "").trim().toLowerCase();
+	return trimmed === label || new RegExp(`^${_escape(label)} \\(\\d+\\)$`).test(trimmed);
+}
+
+function _escape(text) {
+	return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function _loc(key) {

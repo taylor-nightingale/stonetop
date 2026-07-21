@@ -100,8 +100,8 @@ describe("FoundrySteadingRepository steading selection", () => {
 
 	it("prefers a renamed steading over one still at the default name", () => {
 		new FakeGameBuilder()
-			.withTranslation("stonetop.actor.defaultName.steading", "New Steading")
-			.withWorldActor(makeSteading({ name: "New Steading" }))
+			.withTranslation("TYPES.Actor.steading", "Steading")
+			.withWorldActor(makeSteading({ name: "Steading" }))
 			.withWorldActor(makeSteading({ name: "Marshedge", prosperity: -1 }))
 			.build();
 		const steading = primary();
@@ -109,17 +109,35 @@ describe("FoundrySteadingRepository steading selection", () => {
 		expect(steading.prosperity).toBe(-1);
 	});
 
+	it("treats the \"(2)\" duplicate suffix core appends as a default name too", () => {
+		new FakeGameBuilder()
+			.withTranslation("TYPES.Actor.steading", "Steading")
+			.withWorldActor(makeSteading({ name: "Steading (2)" }))
+			.withWorldActor(makeSteading({ name: "Marshedge", prosperity: -1 }))
+			.build();
+		expect(primary().name).toBe("Marshedge");
+	});
+
+	it("does not mistake a steading merely starting with the type label for a default name", () => {
+		new FakeGameBuilder()
+			.withTranslation("TYPES.Actor.steading", "Steading")
+			.withWorldActor(makeSteading({ name: "Steading Hollow", prosperity: 4 }))
+			.withWorldActor(makeSteading({ name: "Marshedge", prosperity: -1 }))
+			.build();
+		expect(primary().name).toBe("Steading Hollow");
+	});
+
 	it("falls back to the first steading when all are default-named", () => {
 		new FakeGameBuilder()
-			.withTranslation("stonetop.actor.defaultName.steading", "New Steading")
-			.withWorldActor(makeSteading({ name: "New Steading", prosperity: 3 }))
-			.withWorldActor(makeSteading({ name: "New Steading", prosperity: 0 }))
+			.withTranslation("TYPES.Actor.steading", "Steading")
+			.withWorldActor(makeSteading({ name: "Steading", prosperity: 3 }))
+			.withWorldActor(makeSteading({ name: "Steading (2)", prosperity: 0 }))
 			.build();
 		expect(primary().prosperity).toBe(3);
 	});
 
 	it("a single steading is used whatever its name", () => {
-		new FakeGameBuilder().withWorldActor(makeSteading({ name: "New Steading", prosperity: 2 })).build();
-		expect(primary().name).toBe("New Steading");
+		new FakeGameBuilder().withWorldActor(makeSteading({ name: "Steading", prosperity: 2 })).build();
+		expect(primary().name).toBe("Steading");
 	});
 });

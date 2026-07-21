@@ -1,20 +1,24 @@
 {
 	"TYPES": {
 		"Actor": {
+			"character": "Character",
+			"npc": "NPC",
 			"steading": "Steading"
 		},
 		"Item": {
-			"steadfast": "Steadfast"
+			"move": "Move",
+			"arcanum": "Arcanum",
+			"playbook": "Playbook",
+			"insert": "Insert",
+			"improvement": "Improvement",
+			"steadfast": "Steadfast",
+			"follower": "Follower",
+			"npc": "NPC",
+			"outfitItem": "Outfit Item",
+			"possession": "Possession"
 		}
 	},
 	"stonetop": {
-		"actor": {
-			"defaultName": {
-				"character": "New Character",
-				"npc": "New NPC",
-				"steading": "New Steading"
-			}
-		},
 		"dialog": {
 			"roll": "Roll"
 		},

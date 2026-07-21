@@ -64,11 +64,6 @@ export function createStonetopActorClass(BaseActor) {
 			await this._rolling.postDescription(label, description);
 		}
 
-		static defaultName({type, parent, pack} = {}) {
-			const key = `stonetop.actor.defaultName.${type}`;
-			return game.i18n.has(key) ? game.i18n.localize(key) : super.defaultName({type, parent, pack});
-		}
-
 		async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
 			await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
 			if (this.typedActor.type === "character" && collection === "items") {
